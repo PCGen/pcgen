@@ -56,29 +56,29 @@ public class AbilityModelTest extends AbstractCharacterTestCase
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		List<Ability> abilityList = new ArrayList<Ability>();
-		Ability dodge = TestHelper.makeAbility("Dodge", "FEAT", "General");
+		Ability dodge = TestHelper.makeAbility("Dodge", AbilityCategory.FEAT, "General");
 		Prerequisite prereq = factory.parse("PRESTAT:1,DEX=13");
 		dodge.addPrerequisite(prereq);
 		abilityList.add(dodge);
 
-		Ability mobility = TestHelper.makeAbility("Mobility", "FEAT", "General");
+		Ability mobility = TestHelper.makeAbility("Mobility", AbilityCategory.FEAT, "General");
 		prereq = factory.parse("PREFEAT:1,KEY_Dodge");
 		mobility.addPrerequisite(prereq);
 		prereq = factory.parse("PRESTAT:1,DEX=13");
 		mobility.addPrerequisite(prereq);
 		abilityList.add(mobility);
 
-		Ability mountedCbt = TestHelper.makeAbility("Mounted Combat", "FEAT", "General");
+		Ability mountedCbt = TestHelper.makeAbility("Mounted Combat", AbilityCategory.FEAT, "General");
 		prereq = factory.parse("PRESKILL:1,Ride=1");
 		mountedCbt.addPrerequisite(prereq);
 		abilityList.add(mountedCbt);
 
-		Ability improvedFeint = TestHelper.makeAbility("Improved Feint", "FEAT", "General");
+		Ability improvedFeint = TestHelper.makeAbility("Improved Feint", AbilityCategory.FEAT, "General");
 		prereq = factory.parse("PREFEAT:1,KEY_Combat Expertise");
 		improvedFeint.addPrerequisite(prereq);
 		abilityList.add(improvedFeint);
 
-		Ability springAttack = TestHelper.makeAbility("Spring Attack", "FEAT", "General");
+		Ability springAttack = TestHelper.makeAbility("Spring Attack", AbilityCategory.FEAT, "General");
 		prereq = factory.parse("PREATT:4");
 		springAttack.addPrerequisite(prereq);
 		prereq = factory.parse("PREFEAT:2,KEY_Dodge,KEY_Mobility");

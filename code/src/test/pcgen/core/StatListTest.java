@@ -66,7 +66,7 @@ public class StatListTest extends AbstractCharacterTestCase
 		unlocker = new PCTemplate();
 		unlocker.setName("unlocker");
 		unlocker.addToListFor(ListKey.UNLOCKED_STATS, str);
-		bonus = TestHelper.makeAbility("Bonus", "FEAT", "General.Fighter");
+		bonus = TestHelper.makeAbility("Bonus", AbilityCategory.FEAT, "General.Fighter");
 		final BonusObj aBonus = Bonus.newBonus("STAT|STR|7|TYPE=Enhancement");
 		
 		if (aBonus != null)

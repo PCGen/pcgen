@@ -59,9 +59,9 @@ public class AbilityStoreTest extends PCGenTestCase
 	 */
 	public void testAddAbilityInfo1()
 	{
-		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Plummet", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Abseil", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Parachute", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Plummet", AbilityCategory.FEAT, "General.Fighter");
 
 		AbilityStore abSt = new AbilityStore();
 		String abs = "CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Plummet";
@@ -85,9 +85,9 @@ public class AbilityStoreTest extends PCGenTestCase
 	{
 		TestHelper.makeAbility("Glide", "TALENT", "General.Fighter");
 		TestHelper.makeAbility("Gird", "TALENT", "General.Fighter");
-		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Glide", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Abseil", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Parachute", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Glide", AbilityCategory.FEAT, "General.Fighter");
 		AbilityStore abSt = new AbilityStore();
 		String abs =
 				"CATEGORY=TALENT|KEY_Glide|KEY_Gird|CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Glide";
@@ -115,9 +115,9 @@ public class AbilityStoreTest extends PCGenTestCase
 	 */
 	public void testGetParsableStringRepresentation1()
 	{
-		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Plummet", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Abseil", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Parachute", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Plummet", AbilityCategory.FEAT, "General.Fighter");
 		AbilityStore abSt = new AbilityStore();
 		String abs = "CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Plummet";
 
@@ -135,9 +135,9 @@ public class AbilityStoreTest extends PCGenTestCase
 	{
 		TestHelper.makeAbility("Glide", "TALENT", "General.Fighter");
 		TestHelper.makeAbility("Gird", "TALENT", "General.Fighter");
-		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
-		TestHelper.makeAbility("Glide", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Abseil", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Parachute", AbilityCategory.FEAT, "General.Fighter");
+		TestHelper.makeAbility("Glide", AbilityCategory.FEAT, "General.Fighter");
 		AbilityStore abSt = new AbilityStore();
 		String abs =
 				"CATEGORY=TALENT|KEY_Glide|KEY_Gird|CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Glide";

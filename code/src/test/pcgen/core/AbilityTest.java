@@ -68,7 +68,7 @@ public class AbilityTest extends PCGenTestCase
 	public final void testIsSameBaseAbility()
 	{
 		Ability ab1 =
-				TestHelper.makeAbility("Perform (Dance)", "FEAT",
+				TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT,
 					"General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
@@ -78,16 +78,16 @@ public class AbilityTest extends PCGenTestCase
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
 		Ability ab3 =
-				TestHelper.makeAbility("Perform (Oratory)", "FEAT",
+				TestHelper.makeAbility("Perform (Oratory)", AbilityCategory.FEAT,
 					"General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
 		Ability ab4 =
-				TestHelper.makeAbility("Perform", "FEAT", "General.Fighter");
+				TestHelper.makeAbility("Perform", AbilityCategory.FEAT, "General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
 		Ability ab5 =
-				TestHelper.makeAbility("Weapon Throwing", "FEAT",
+				TestHelper.makeAbility("Weapon Throwing", AbilityCategory.FEAT,
 					"General.Fighter");
 		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		//ab5.tempAddAssociated("Wellies");

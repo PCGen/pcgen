@@ -26,6 +26,7 @@ import java.util.List;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -87,7 +88,7 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 
 		WeaponProf wp = TestHelper.makeWeaponProf("Glaive", "Martial");
 		final Ability weaponFocus =
-				TestHelper.makeAbility("Weapon Focus", "FEAT",
+				TestHelper.makeAbility("Weapon Focus", AbilityCategory.FEAT,
 					"General.Fighter");
 		weaponFocus
 			.setChoiceString("WEAPONPROFS|Spellcaster.Ray|ADD.Grapple|LIST");

@@ -32,6 +32,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
@@ -222,7 +223,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 			prereq, character, null));
 		
 		final Ability martialProf = 
-			TestHelper.makeAbility("Armor Proficiency (Single)", "FEAT", "General");
+			TestHelper.makeAbility("Armor Proficiency (Single)", AbilityCategory.FEAT, "General");
 		martialProf.addAutoArray("ARMORPROF", "ARMORTYPE.Medium");
 		
 		AbilityUtilities.modFeat(

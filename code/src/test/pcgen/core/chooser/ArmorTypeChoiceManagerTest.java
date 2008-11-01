@@ -31,6 +31,7 @@ import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -69,20 +70,20 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 		{
 			firstTime = false;
 
-			TestHelper.makeAbility("Ability One", "FEAT", "General");
-			TestHelper.makeAbility("Armor Proficiency (Light)", "FEAT",
+			TestHelper.makeAbility("Ability One", AbilityCategory.FEAT, "General");
+			TestHelper.makeAbility("Armor Proficiency (Light)", AbilityCategory.FEAT,
 				"General.Fighter");
 			Ability a =
 					Globals.getAbilityKeyed("FEAT",
 						"KEY_Armor Proficiency (Light)");
 			a.addAutoArray("ARMORPROF", "TYPE.Light");
-			TestHelper.makeAbility("Armor Proficiency (Medium)", "FEAT",
+			TestHelper.makeAbility("Armor Proficiency (Medium)", AbilityCategory.FEAT,
 				"General.Fighter");
 			a =
 					Globals.getAbilityKeyed("FEAT",
 						"KEY_Armor Proficiency (Medium)");
 			a.addAutoArray("ARMORPROF", "TYPE.Medium");
-			TestHelper.makeAbility("Armor Proficiency (Heavy)", "FEAT",
+			TestHelper.makeAbility("Armor Proficiency (Heavy)", AbilityCategory.FEAT,
 				"General.Fighter");
 			a =
 					Globals.getAbilityKeyed("FEAT",

@@ -87,13 +87,13 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
         final Ability[] abArray = new Ability[14];
 
-        abArray[0]  = TestHelper.makeAbility("Quick Draw",               "FEAT",   "General.Fighter");
-        abArray[1]  = TestHelper.makeAbility("Improved Initiative",      "FEAT",   "General.Fighter");
-        abArray[2]  = TestHelper.makeAbility("Silent Step",              "FEAT",   "General.Fighter.Rogue");
-        abArray[3]  = TestHelper.makeAbility("Silent Step (Greater)",    "FEAT",   "General.Fighter.Rogue");
+        abArray[0]  = TestHelper.makeAbility("Quick Draw",               AbilityCategory.FEAT,   "General.Fighter");
+        abArray[1]  = TestHelper.makeAbility("Improved Initiative",      AbilityCategory.FEAT,   "General.Fighter");
+        abArray[2]  = TestHelper.makeAbility("Silent Step",              AbilityCategory.FEAT,   "General.Fighter.Rogue");
+        abArray[3]  = TestHelper.makeAbility("Silent Step (Greater)",    AbilityCategory.FEAT,   "General.Fighter.Rogue");
 
-        abArray[4]  = TestHelper.makeAbility("Hidden 01",                "FEAT",   "ClassAbility");
-        abArray[5]  = TestHelper.makeAbility("Perform (Dance)",          "FEAT",   "ClassAbility");
+        abArray[4]  = TestHelper.makeAbility("Hidden 01",                AbilityCategory.FEAT,   "ClassAbility");
+        abArray[5]  = TestHelper.makeAbility("Perform (Dance)",          AbilityCategory.FEAT,   "ClassAbility");
 
         abArray[6]  = TestHelper.makeAbility("Perform (Dance)",          "BARDIC", "Performance.SpecialAbility");
         abArray[7]  = TestHelper.makeAbility("Perform (Oratory)",        "BARDIC", "Performance.SpecialAbility");

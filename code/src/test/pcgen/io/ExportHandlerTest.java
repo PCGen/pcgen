@@ -44,6 +44,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -314,31 +315,31 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		Ability dummyFeat1 = new Ability();
 		dummyFeat1.setName("1");
-		dummyFeat1.setCategory("FEAT");	
+		dummyFeat1.setCDOMCategory(AbilityCategory.FEAT);
 		
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("2");
-		dummyFeat2.setCategory("FEAT");	
+		dummyFeat2.setCDOMCategory(AbilityCategory.FEAT);
 		
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("3");
-		dummyFeat3.setCategory("FEAT");	
+		dummyFeat3.setCDOMCategory(AbilityCategory.FEAT);
 		
 		Ability dummyFeat4 = new Ability();
 		dummyFeat4.setName("4");
-		dummyFeat4.setCategory("FEAT");
+		dummyFeat4.setCDOMCategory(AbilityCategory.FEAT);
 		
 		Ability dummyFeat5 = new Ability();
 		dummyFeat5.setName("5");
-		dummyFeat5.setCategory("FEAT");
+		dummyFeat5.setCDOMCategory(AbilityCategory.FEAT);
 		
 		Ability dummyFeat6 = new Ability();
 		dummyFeat6.setName("6");
-		dummyFeat6.setCategory("FEAT");	
+		dummyFeat6.setCDOMCategory(AbilityCategory.FEAT);
 		
 		Ability dummyFeat7 = new Ability();
 		dummyFeat7.setName("7");
-		dummyFeat7.setCategory("FEAT");		
+		dummyFeat7.setCDOMCategory(AbilityCategory.FEAT);	
 		
 		pc.addFeat(dummyFeat1, null);
 		pc.addFeat(dummyFeat2, null);
@@ -401,6 +402,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	{
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
+		dummyFeat.setCDOMCategory(AbilityCategory.FEAT);
 		final PlayerCharacter pc = getCharacter();
 		Globals.setCurrentPC(pc);
 
@@ -411,6 +413,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
+		dummyFeat2.setCDOMCategory(AbilityCategory.FEAT);
 		final BonusObj aBonus = Bonus.newBonus("VAR|NegLevels|7");
 		
 		if (aBonus != null)
@@ -419,13 +422,17 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			dummyFeat2.addToListFor(ListKey.BONUS, aBonus);
 		}
 		
+		AbilityCategory cat = new AbilityCategory("Maneuver");
+		SettingsHandler.getGame().addAbilityCategory(cat);
+		AbilityCategory cat2 = new AbilityCategory("Maneuver(Special)");
+		SettingsHandler.getGame().addAbilityCategory(cat2);
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("DummyFeat3");
-		dummyFeat3.setCategory("Maneuver");		
+		dummyFeat3.setCDOMCategory(cat);
 		
 		Ability dummyFeat4 = new Ability();
 		dummyFeat4.setName("DummyFeat4");
-		dummyFeat4.setCategory("Maneuver(Special)");
+		dummyFeat4.setCDOMCategory(cat2);
 		
 		pc.addFeat(dummyFeat, null);
 		pc.addFeat(dummyFeat2, null);

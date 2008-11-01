@@ -32,6 +32,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.ShieldProf;
 import pcgen.core.Campaign;
@@ -222,7 +223,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			prereq, character, null));
 		
 		final Ability martialProf = 
-			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+			TestHelper.makeAbility("Shield Proficiency (Single)", AbilityCategory.FEAT, "General");
 		martialProf.addAutoArray("SHIELDPROF", "SHIELDTYPE.Heavy");
 		
 		AbilityUtilities.modFeat(

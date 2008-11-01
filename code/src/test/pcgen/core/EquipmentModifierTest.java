@@ -196,7 +196,7 @@ public class EquipmentModifierTest extends PCGenTestCase
 	{
 		final EquipmentModifier eqMod = new EquipmentModifier();
 		final Ability ability = new Ability();
-		ability.setCategory(AbilityCategory.FEAT.getAbilityCategory());
+		ability.setCDOMCategory(AbilityCategory.FEAT);
 		ability.setName("EqModTest");
 		eqMod.addAbility(AbilityCategory.FEAT, Nature.VIRTUAL,
 			new QualifiedObject<String>(ability.getKeyName(),

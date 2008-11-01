@@ -83,7 +83,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 			SettingsHandler.getGame().addAbilityCategory(bardCategory);
 		}
 
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT", "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		character.addAbility(featCategory, ab1, null);
@@ -92,11 +92,11 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(bardCategory, ab2, null);
 
-		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", "FEAT", "General.Fighter");
+		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", AbilityCategory.FEAT, "General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(featCategory, ab3, null);
 
-		Ability ab4 = TestHelper.makeAbility("Silent Step", "FEAT", "General");
+		Ability ab4 = TestHelper.makeAbility("Silent Step", AbilityCategory.FEAT, "General");
 		ab4.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbility(featCategory, ab4, null);
 	}
@@ -145,12 +145,12 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		AbilityCategory featCategory = 
 			SettingsHandler.getGame().getAbilityCategory("Feat");
 
-		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", "FEAT", "General");
+		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", AbilityCategory.FEAT, "General");
 		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab5.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		character.addAbility(featCategory, ab5, null);
 
-        Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", "FEAT", "Bardic");
+        Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", AbilityCategory.FEAT, "Bardic");
         ab6.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
         character.addAbility(featCategory, ab6, null);
 

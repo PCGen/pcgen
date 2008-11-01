@@ -76,7 +76,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 			SettingsHandler.getGame().addAbilityCategory(featCategory);
 		}
 
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT", "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Colour"), new Aspect("Colour", "Green"));

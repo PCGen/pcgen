@@ -79,8 +79,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 				SkillArmorCheck.NONE);
 
 			skillFocus =
-					TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT
-						.getAbilityCategory(), "General");
+					TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT, "General");
 			BonusObj aBonus = Bonus.newBonus("SKILL|LIST|3");
 			
 			if (aBonus != null)
@@ -93,8 +92,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 				.setChoiceString("SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
 
 			persuasive =
-					TestHelper.makeAbility("Persuasive", AbilityCategory.FEAT
-						.getAbilityCategory(), "General");
+					TestHelper.makeAbility("Persuasive", AbilityCategory.FEAT, "General");
 			aBonus = Bonus.newBonus("SKILL|KEY_Bluff,KEY_Listen|2");
 			
 			if (aBonus != null)

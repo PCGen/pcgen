@@ -31,6 +31,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -61,10 +62,16 @@ public final class FeatLoader extends AbilityLoader
 		if (feat == null)
 		{
 			feat = new Ability();
+			int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
+			String name = tabLoc == -1 ? lstLine : lstLine.substring(0, tabLoc);
+			feat.setName(name);
+			feat.setCDOMCategory(AbilityCategory.FEAT);
+			context.ref.importObject(feat);
 		}
-
-		feat.setCategory(Constants.FEAT_CATEGORY);
-		feat.setCDOMCategory(AbilityCategory.FEAT);
+		else
+		{
+			feat.setCDOMCategory(AbilityCategory.FEAT);
+		}
 
 		return super.parseLine(context, feat, lstLine, source);
 	}
@@ -99,7 +106,7 @@ public final class FeatLoader extends AbilityLoader
 
 			String aLine =
 					Constants.s_INTERNAL_WEAPON_PROF
-						+ "\tOUTPUTNAME:Weapon Proficiency\tTYPE:General\tCATEGORY:FEAT"
+						+ "\tOUTPUTNAME:Weapon Proficiency\tTYPE:General"
 						+ "\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tDESC:You attack with this"
 						+ " specific weapon normally, non-proficiency incurs a -4 to"
 						+ " hit penalty.\tSOURCELONG:PCGen Internal";

@@ -187,4 +187,9 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 		return null;
 	}
 
+	public String getKeyName()
+	{
+		return fieldName;
+	}
+
 }

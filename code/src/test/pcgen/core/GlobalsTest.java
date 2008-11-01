@@ -124,7 +124,7 @@ public class GlobalsTest extends PCGenTestCase
 	{
 		Ability ab = new Ability();
 		ab.setName("First Ability");
-		ab.setCategory(Constants.FEAT_CATEGORY);
+		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		is(ab.getDisplayName(), strEq("First Ability"),
 			"Name of first Ability is correct");
@@ -159,7 +159,7 @@ public class GlobalsTest extends PCGenTestCase
 
 		ab = new Ability();
 		ab.setName("Second Ability");
-		ab.setCategory(Constants.FEAT_CATEGORY);
+		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		added = Globals.addAbility(ab);
 		is(added, eq(true), "Second Ability added successfully");
@@ -225,7 +225,7 @@ public class GlobalsTest extends PCGenTestCase
 	{
 		Ability ab = new Ability();
 		ab.setName("Ability with choices");
-		ab.setCategory(Constants.FEAT_CATEGORY);
+		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		boolean added = Globals.addAbility(ab);
 		is(added, eq(true), "Ability with choices added successfully");
@@ -264,7 +264,7 @@ public class GlobalsTest extends PCGenTestCase
 
 		ab = new Ability();
 		ab.setName("Ability with choices (already there)");
-		ab.setCategory(Constants.FEAT_CATEGORY);
+		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		added = Globals.addAbility(ab);
 		is(added, eq(true),
@@ -296,7 +296,7 @@ public class GlobalsTest extends PCGenTestCase
 		Ability ab = new Ability();
 		ab.setName("Ability002");
 		ab.setKeyName("BBB");
-		ab.setCategory(Constants.FEAT_CATEGORY);
+		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		is(ab.getDisplayName(), strEq("Ability002"),
 			"Name of first Ability is correct");
@@ -310,7 +310,7 @@ public class GlobalsTest extends PCGenTestCase
 		ab = new Ability();
 		ab.setName("Ability001");
 		ab.setKeyName("CCC");
-		ab.setCategory(Constants.FEAT_CATEGORY);
+		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		is(ab.getDisplayName(), strEq("Ability001"),
 			"Name of second Ability is correct");
@@ -324,7 +324,7 @@ public class GlobalsTest extends PCGenTestCase
 		ab = new Ability();
 		ab.setName("Ability003");
 		ab.setKeyName("AAA");
-		ab.setCategory("Other_Random_Category");
+		ab.setCDOMCategory(new AbilityCategory("Other_Random_Category"));
 
 		is(ab.getDisplayName(), strEq("Ability003"),
 			"Name of third Ability is correct");

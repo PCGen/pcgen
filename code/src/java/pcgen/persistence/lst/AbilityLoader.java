@@ -27,7 +27,6 @@
 package pcgen.persistence.lst;
 
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
@@ -61,15 +60,11 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	{
 		Ability anAbility = ability;
 
+		boolean isnew = false;
 		if (anAbility == null)
 		{
 			anAbility = new Ability();
-		}
-		else if (anAbility.getCategory() == null
-			|| anAbility.getCategory().length() == 0)
-		{
-			// TODO - Make this into an Enum Categorisable.Category.NONE
-			anAbility.setCategory("BROKENABILTYNOCATEGORYSET");
+			isnew = true;
 		}
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine,
@@ -80,10 +75,12 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			anAbility.setName(colToken.nextToken());
 			anAbility.setSourceCampaign(source.getCampaign());
 			anAbility.setSourceURI(source.getURI());
+			if (isnew)
+			{
+				context.ref.importObject(anAbility);
+			}
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				AbilityLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String token = colToken.nextToken().trim();
 			final int colonLoc = token.indexOf(':');
@@ -106,16 +103,6 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			if (context.processToken(anAbility, key, value))
 			{
 				context.commit();
-			}
-			else if (tokenMap.containsKey(key))
-			{
-				AbilityLstToken tok = (AbilityLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, anAbility, value);
-				if (!tok.parse(anAbility, value)) {
-					Logging.errorPrint("Error parsing ability "
-							+ anAbility.getDisplayName() + ':'
-							+ source.toString() + ':' + token + "\"");
-				}
 			}
 			else if (!PObjectLoader.parseTag(anAbility, token))
 			{

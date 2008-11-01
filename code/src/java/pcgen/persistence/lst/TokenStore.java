@@ -41,7 +41,6 @@ public class TokenStore
 	{
 		//Campaign data
 		tokenTypeList.add(GlobalLstToken.class);
-		tokenTypeList.add(AbilityLstToken.class);
 		tokenTypeList.add(CampaignLstToken.class);
 		tokenTypeList.add(CompanionModLstToken.class);
 		tokenTypeList.add(EquipmentLstToken.class);

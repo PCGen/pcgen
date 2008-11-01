@@ -187,7 +187,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		toughness.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		toughness.put(ObjectKey.STACKS, Boolean.TRUE);
 		toughness.setChoiceString("NOCHOICE");
-		toughness.setCategory("FEAT");
+		toughness.setCDOMCategory(AbilityCategory.FEAT);
 		final BonusObj aBonus = Bonus.newBonus("HP|CURRENTMAX|3");
 		
 		if (aBonus != null)
@@ -198,7 +198,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Globals.addAbility(toughness);
 	
 		Ability exoticWpnProf =
-				TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT",
+				TestHelper.makeAbility("Exotic Weapon Proficiency", AbilityCategory.FEAT,
 					"General.Fighter");
 		exoticWpnProf.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		exoticWpnProf.setChoiceString("PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
@@ -911,16 +911,15 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testNestedAbilities()
 	{
 		Ability resToAcid =
-				TestHelper.makeAbility("Resistance To Acid", specialAbilityCat
-					.getKeyName(), "Foo");
+				TestHelper.makeAbility("Resistance To Acid", specialAbilityCat, "Foo");
 		resToAcid.setAbilityNature(Nature.AUTOMATIC);
 		Ability resToAcidOutputVirt =
 			TestHelper.makeAbility("Resistance To Acid Output Virt",
-				specialAbilityCat.getKeyName(), "Foo");
+				specialAbilityCat, "Foo");
 		resToAcidOutputVirt.setAbilityNature(Nature.VIRTUAL);
 		Ability resToAcidOutputAuto =
 			TestHelper.makeAbility("Resistance To Acid Output Auto",
-				specialAbilityCat.getKeyName(), "Foo");
+				specialAbilityCat, "Foo");
 		resToAcidOutputAuto.setAbilityNature(Nature.AUTOMATIC);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(human);
@@ -959,7 +958,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		setPCStat(pc, "STR", 14);
 
 		Ability strBonusAbility =
-				TestHelper.makeAbility("Strength power up", "FEAT",
+				TestHelper.makeAbility("Strength power up", AbilityCategory.FEAT,
 					"General.Fighter");
 		final BonusObj strBonus = Bonus.newBonus("STAT|STR|2");
 		strBonusAbility.addToListFor(ListKey.BONUS, strBonus);
@@ -989,8 +988,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetAvailableFollowers()
 	{
-		Ability ab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT
-			.getAbilityCategory(), "Container");
+		Ability ab = TestHelper.makeAbility("Tester", AbilityCategory.FEAT, "Container");
 		PlayerCharacter pc = getCharacter();
 		
 		pc.addAbility(AbilityCategory.FEAT, ab, null);

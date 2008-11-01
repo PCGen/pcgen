@@ -32,4 +32,6 @@ public interface Category<T extends CategorizedCDOMObject<T>>
 
 	Category<T> getParentCategory();
 
+	String getKeyName();
+
 }

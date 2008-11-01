@@ -102,8 +102,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	public void testSimpleVariableReplacement()
 	{
 		final Ability dummy =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT
-					.getAbilityCategory(), "Foo");
+				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
 
@@ -121,8 +120,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	public void testSimpleChoiceReplacement()
 	{
 		final Ability pobj =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT
-					.getAbilityCategory(), "Foo");
+				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		PlayerCharacter pc = getCharacter();
 		pc.addAbility(AbilityCategory.FEAT, pobj, null);
 
@@ -141,8 +139,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	public void testSimpleListReplacement()
 	{
 		final Ability pobj =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT
-					.getAbilityCategory(), "Foo");
+				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		PlayerCharacter pc = getCharacter();
 		pc.addAbility(AbilityCategory.FEAT, pobj, null);
 
@@ -160,8 +157,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	public void testEmptyReplacement()
 	{
 		final Ability pobj =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT
-					.getAbilityCategory(), "Foo");
+				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		assertEquals("", aspect.getAspectText(getCharacter(), pobj));
@@ -173,8 +169,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	public void testExtraVariables()
 	{
 		final Ability pobj =
-				TestHelper.makeAbility("dummy", AbilityCategory.FEAT
-					.getAbilityCategory(), "Foo");
+				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "Testing");
 		aspect.addVariable("%LIST");
@@ -191,8 +186,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	public void testComplexVariableReplacement()
 	{
 		final Ability dummy =
-			TestHelper.makeAbility("dummy", AbilityCategory.FEAT
-				.getAbilityCategory(), "Foo");
+			TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
 		PlayerCharacter pc = getCharacter();

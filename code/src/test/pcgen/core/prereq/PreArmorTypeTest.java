@@ -21,6 +21,7 @@ package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -137,7 +138,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final Ability mediumProf =
-				TestHelper.makeAbility("Armor Proficiency (Medium)", "FEAT",
+				TestHelper.makeAbility("Armor Proficiency (Medium)", AbilityCategory.FEAT,
 					"General");
 		mediumProf.addAutoArray("ARMORPROF", "ARMORTYPE.Medium");
 		AbilityUtilities.modFeat(character, null,

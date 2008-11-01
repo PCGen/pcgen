@@ -247,13 +247,13 @@ public class PObjectTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		AbilityLoader loader = new AbilityLoader();
-		Ability pObj = new Ability();
 		loader
 			.parseLine(
 				Globals.getContext(),
-				pObj,
-				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
+				null,
+				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
+		Ability pObj = Globals.getAbilityKeyed("FEAT", "Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		aPC.addAssociation(pObj, "");
@@ -286,13 +286,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		AbilityLoader loader = new AbilityLoader();
-		Ability pObj = new Ability();
 		loader
 			.parseLine(
 				Globals.getContext(),
-				pObj,
-				"Toughness	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3", source);
-
+				null,
+				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3", source);
+		Ability pObj = Globals.getAbilityKeyed("FEAT", "Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		aPC.addAssociation(pObj, "+3 HP");
@@ -353,10 +352,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
-		ab1.setCategory("TestCat");
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCategory("TestCat");
 		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
@@ -412,7 +409,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	public void testRemoveFeat()
 	{
 		ChooserFactory.setInterfaceClassname("pcgen.util.chooser.RandomChooser");
-		Ability alertness = TestHelper.makeAbility("Alertness", AbilityCategory.FEAT.getAbilityCategory(), "General");
+		Ability alertness = TestHelper.makeAbility("Alertness", AbilityCategory.FEAT, "General");
 		Race arRace = TestHelper.makeRace("AddRemove");
 		arRace.addAddList(1, "FEAT(KEY_Alertness)");
 		PCClass pcClass = TestHelper.makeClass("Remove Feat Test");

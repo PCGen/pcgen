@@ -16,6 +16,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -113,6 +114,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability focusFeat = new Ability();
 		focusFeat.setName("Weapon Focus");
+		focusFeat.setCDOMCategory(AbilityCategory.FEAT);
 		focusFeat.setChoiceString("WEAPONPROFS|LIST");
 		character.addAssociation(focusFeat, "Rapier");
 		character.addFeat(focusFeat, null);

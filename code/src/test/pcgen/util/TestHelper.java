@@ -30,7 +30,9 @@ import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
@@ -60,7 +62,10 @@ import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.EquipmentLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.persistence.TokenLibrary;
 
 /**
  * Helps Junit tests
@@ -238,10 +243,35 @@ public class TestHelper
 	 */
 	public static Ability makeAbility(final String name, final String cat, final String type)
 	{
+		AbilityCategory useCat = SettingsHandler.getGame()
+				.silentlyGetAbilityCategory(cat);
+		if (useCat == null)
+		{
+			useCat = new AbilityCategory(cat);
+			SettingsHandler.getGame().addAbilityCategory(useCat);
+		}
 		final Ability anAbility = new Ability();
 		anAbility.setName(name);
 		anAbility.setKeyName("KEY_" + name);
-		anAbility.setCategory(cat);
+		anAbility.setCDOMCategory(useCat);
+		anAbility.setTypeInfo(type);
+		Globals.addAbility(anAbility);
+		return anAbility;
+	}
+
+	/**
+	 * Set the important info about a Skill
+	 * @param name The skill name
+	 * @param cat the category of this Ability
+	 * @param type The type info ("." separated)
+	 * @return The ability (which has also been added to global storage
+	 */
+	public static Ability makeAbility(final String name, final AbilityCategory cat, final String type)
+	{
+		final Ability anAbility = new Ability();
+		anAbility.setName(name);
+		anAbility.setKeyName("KEY_" + name);
+		anAbility.setCDOMCategory(cat);
 		anAbility.setTypeInfo(type);
 		Globals.addAbility(anAbility);
 		return anAbility;

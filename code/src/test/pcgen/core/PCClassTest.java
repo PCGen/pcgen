@@ -543,7 +543,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				Globals.getContext(),
 				casterFeat,
 				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
-		casterFeat.setCategory("FEAT");
+		casterFeat.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.addAbility(casterFeat);
 
 		AbilityUtilities.modFeat(character, null, "CasterBoost", true, false);
@@ -637,14 +637,14 @@ public class PCClassTest extends AbstractCharacterTestCase
 	public void testAddAbility() throws PersistenceLayerException
 	{
 		// Create some abilities to be added
-		Ability ab1 = new Ability();
-		ab1.setName("Ability1");
-		ab1.setCategory("TestCat");
-		Ability ab2 = new Ability();
-		ab2.setName("Ability2");
-		ab2.setCategory("TestCat");
 		AbilityCategory cat = new AbilityCategory("TestCat");
 		SettingsHandler.getGame().addAbilityCategory(cat);
+		Ability ab1 = new Ability();
+		ab1.setName("Ability1");
+		ab1.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
+		Ability ab2 = new Ability();
+		ab2.setName("Ability2");
+		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
 

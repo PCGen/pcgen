@@ -115,11 +115,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		SettingsHandler.getGame().addAbilityCategory(cat);
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCategory("TestCat");
 		ab1.setCDOMCategory(cat);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCategory("TestCat");
 		ab2.setCDOMCategory(cat);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
@@ -178,11 +176,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCategory(AbilityCategory.FEAT.getKeyName());
 		ab1.setCDOMCategory(AbilityCategory.FEAT);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCategory(AbilityCategory.FEAT.getKeyName());
 		ab2.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
@@ -243,11 +239,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCategory("TestCat");
 		ab1.setCDOMCategory(cat);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCategory("TestCat");
 		ab2.setCDOMCategory(cat);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);
@@ -329,11 +323,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCategory(AbilityCategory.FEAT.getKeyName());
 		ab1.setCDOMCategory(AbilityCategory.FEAT);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCategory(AbilityCategory.FEAT.getKeyName());
 		ab2.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.addAbility(ab1);
 		Globals.addAbility(ab2);

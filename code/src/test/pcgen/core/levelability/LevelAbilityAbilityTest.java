@@ -71,10 +71,10 @@ public class LevelAbilityAbilityTest extends AbstractCharacterTestCase
 
 			pcClass = new PCClass();
 
-			TestHelper.makeAbility("FtrFeat1", AbilityCategory.FEAT.getAbilityCategory(), "FIGHTER");
-			TestHelper.makeAbility("NonFtrFeat", AbilityCategory.FEAT.getAbilityCategory(), "GENERAL");
+			TestHelper.makeAbility("FtrFeat1", AbilityCategory.FEAT, "FIGHTER");
+			TestHelper.makeAbility("NonFtrFeat", AbilityCategory.FEAT, "GENERAL");
 			TestHelper.makeAbility("FtrAbility", "SpecialAbility", "FIGHTER");
-			Ability ftrFeat2 = TestHelper.makeAbility("FtrFeat2", AbilityCategory.FEAT.getAbilityCategory(), "FIGHTER");
+			Ability ftrFeat2 = TestHelper.makeAbility("FtrFeat2", AbilityCategory.FEAT, "FIGHTER");
 			ftrFeat2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		}
 

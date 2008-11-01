@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
@@ -219,7 +220,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		Ability fd = TestHelper.makeAbility("Dancer", "FEAT", "General");
+		Ability fd = TestHelper.makeAbility("Dancer", AbilityCategory.FEAT, "General");
 		Ability ab2 =
 			TestHelper.makeAbility("Dancer", "BARDIC",
 				"General.Bardic");
@@ -263,7 +264,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test fighter type match with no abilities.", PrereqHandler
 			.passes(prereq3, character, null));
 
-		Ability pa = TestHelper.makeAbility("Power Attack", "FEAT", "Fighter");
+		Ability pa = TestHelper.makeAbility("Power Attack", AbilityCategory.FEAT, "Fighter");
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
@@ -304,7 +305,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 
 		Ability fas = TestHelper.makeAbility("Fascinate", "BARDIC", "Normal");
 		Ability ab2 =
-				TestHelper.makeAbility("Dancer", "FEAT",
+				TestHelper.makeAbility("Dancer", AbilityCategory.FEAT,
 					"General.Bardic");
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fas));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);

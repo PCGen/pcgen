@@ -26,7 +26,6 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.utils.MessageType;
@@ -71,24 +70,13 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	/* default constructor only */
 
 	/**
-	 * Set the category of this Ability
-	 *
-	 * @param  category  the category of the ability
-	 */
-	public void setCategory(final String category)
-	{
-		put(StringKey.CATEGORY, category);
-	}
-
-	/**
 	 * Get the category of this ability
 	 *
 	 * @return  The category of this Ability
 	 */
 	public String getCategory()
 	{
-		final String characteristic = get(StringKey.CATEGORY);
-		return characteristic == null ? Constants.FEAT_CATEGORY : characteristic;
+		return get(ObjectKey.ABILITY_CAT).getKeyName();
 	}
 
 	/**
@@ -240,10 +228,24 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		{
 			try
 			{
-				final Categorisable ab = (Categorisable) obj;
-				if (this.getCategory().compareToIgnoreCase(ab.getCategory()) != 0)
+				final Ability ab = (Ability) obj;
+				Category<Ability> cat = getCDOMCategory();
+				Category<Ability> othercat = ab.getCDOMCategory();
+				if (cat == null && othercat != null)
 				{
-					return this.getCategory().compareToIgnoreCase(ab.getCategory());
+					return -1;
+				}
+				else if (cat != null && othercat == null)
+				{
+					return 1;
+				}
+				else if (cat != null)
+				{
+					int diff = cat.getKeyName().compareTo(othercat.getKeyName());
+					if (diff != 0)
+					{
+						return diff;
+					}
 				}
 			}
 			catch (ClassCastException e)
