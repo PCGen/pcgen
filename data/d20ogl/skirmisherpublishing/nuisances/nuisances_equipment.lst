@@ -1,0 +1,62 @@
+# CVS $Revision$ $Author$ -- Thu Sep 18 16:14:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
+
+# Equipment Name							Type						Contains		Cost		Weight	Slot Needed	Source Page		Combat bonus				Multiply base move							Bonus to skill													Stat bonus					Special Property
+Bag of Depreciation (Type 1)					TYPE:Magic.Wondrous.Container		CONTAINS:*250	COST:625	WT:15				SOURCEPAGE:p. 81
+Bag of Depreciation (Type 2)					TYPE:Magic.Wondrous.Container		CONTAINS:*500	COST:625	WT:25				SOURCEPAGE:p. 81
+Bag of Depreciation (Type 3)					TYPE:Magic.Wondrous.Container		CONTAINS:*1000	COST:625	WT:35				SOURCEPAGE:p. 81
+Bag of Depreciation (Type 4)					TYPE:Magic.Wondrous.Container		CONTAINS:*1500	COST:625	WT:60				SOURCEPAGE:p. 81
+Bag of Vermin (Type 1)						TYPE:Magic.Wondrous.Container		CONTAINS:*250	COST:1250	WT:15				SOURCEPAGE:p. 81
+Bag of Vermin (Type 2)						TYPE:Magic.Wondrous.Container		CONTAINS:*500	COST:2500	WT:25				SOURCEPAGE:p. 81
+Bag of Vermin (Type 3)						TYPE:Magic.Wondrous.Container		CONTAINS:*1000	COST:3700	WT:35				SOURCEPAGE:p. 81
+Bag of Vermin (Type 4)						TYPE:Magic.Wondrous.Container		CONTAINS:*1500	COST:5000	WT:60				SOURCEPAGE:p. 81
+Manual of Butterfingers						TYPE:Magic.Wondrous.Book.Consumable				COST:36000	WT:5				SOURCEPAGE:p. 81
+Manual of Flab							TYPE:Magic.Wondrous.Book.Consumable				COST:36000	WT:5				SOURCEPAGE:p. 81
+Manual of Weakness						TYPE:Magic.Wondrous.Book.Consumable				COST:36000	WT:5				SOURCEPAGE:p. 81
+Picture Tome of Simplicity					TYPE:Magic.Wondrous.Book.Consumable				COST:36000	WT:5				SOURCEPAGE:p. 82
+Tome of Befuddlement						TYPE:Magic.Wondrous.Book.Consumable				COST:36000	WT:5				SOURCEPAGE:p. 82
+Tome of Obsequiousness						TYPE:Magic.Wondrous.Book.Consumable				COST:36000	WT:5				SOURCEPAGE:p. 82
+Boots Made for Walking						TYPE:Magic.Wondrous.Boot					COST:5000	WT:4				SOURCEPAGE:p. 82							BONUS:MOVEMULT|TYPE.Walk|.5|PRESKILL:1,Perform (Dance)=2	BONUS:SKILL|TYPE.Charisma|2	BONUS:SKILL|Perform (Dance)|2|PRESKILL:1,Perform (Dance)=2							SPROP:kick attack 1d6 damage
+Cloak of Halflingkind						TYPE:Magic.Wondrous.Cape					COST:3200	WT:1				SOURCEPAGE:p. 83
+Codpiece of Dance							TYPE:Magic.Wondrous						COST:3700	WT:5				SOURCEPAGE:p. 83	BONUS:COMBAT|AC|1|TYPE=Codpiece
+Druid Spikes							TYPE:Magic.Wondrous						COST:100	WT:.1				SOURCEPAGE:p. 83
+Eversmoking Hemp Bottle						TYPE:Magic.Wondrous						COST:5800	WT:1				SOURCEPAGE:p. 83
+Figurine of Wondrous Power (Dravite Dung Beetle)	TYPE:Magic.Wondrous						COST:5000	WT:.1				SOURCEPAGE:p. 83
+Girdle of Cross-Dressing					TYPE:Magic.Wondrous.Belt					COST:2000	WT:1				SOURCEPAGE:p. 83
+Girdle of Terresias						TYPE:Magic.Wondrous.Belt					COST:4000	WT:1				SOURCEPAGE:p. 84
+Guillotine Ring							TYPE:Magic.Wondrous.Ring					COST:4000	WT:2				SOURCEPAGE:p. 84
+Groping Gloves of Arrow Snaring				TYPE:Magic.Wondrous.Glove					COST:4000	WT:.1		SLOTS:2	SOURCEPAGE:p. 84
+Groping Gloves of Dexterity (+2)				TYPE:Magic.Wondrous.Glove					COST:4000	WT:.1		SLOTS:2	SOURCEPAGE:p. 84																																BONUS:STAT|DEX|2|TYPE=Enhancement
+Groping Gloves of Dexterity (+4)				TYPE:Magic.Wondrous.Glove					COST:16000	WT:.1		SLOTS:2	SOURCEPAGE:p. 84																																BONUS:STAT|DEX|4|TYPE=Enhancement
+Groping Gloves of Dexterity (+6)				TYPE:Magic.Wondrous.Glove					COST:36000	WT:.1		SLOTS:2	SOURCEPAGE:p. 84																																BONUS:STAT|DEX|6|TYPE=Enhancement
+Groping Glove of Storing					TYPE:Magic.Wondrous.Glove					COST:10000	WT:.1				SOURCEPAGE:p. 84
+Groping Gloves of Swimming and Climbing			TYPE:Magic.Wondrous.Glove					COST:6250	WT:.1		SLOTS:2	SOURCEPAGE:p. 84
+Horn of the Destrachan						TYPE:Magic.Wondrous						COST:16000	WT:2				SOURCEPAGE:p. 84
+Stinkhorn of Blasting						TYPE:Magic.Wondrous						COST:21000	WT:1				SOURCEPAGE:p. 85
+Stinkhorn of Blasting (Greater)				TYPE:Magic.Wondrous						COST:71000	WT:1				SOURCEPAGE:p. 85
+Stinkhorn of Fog							TYPE:Magic.Wondrous						COST:2100	WT:1				SOURCEPAGE:p. 85
+Stinkhorn of Goodness						TYPE:Magic.Wondrous						COST:6600	WT:1				SOURCEPAGE:p. 85
+Stinkhorn of Evil							TYPE:Magic.Wondrous						COST:6600	WT:1				SOURCEPAGE:p. 85
+Stinkhorn of the Tritons					TYPE:Magic.Wondrous						COST:51000	WT:2				SOURCEPAGE:p. 85
+Lantern of Bewilderment						TYPE:Magic.Wondrous						COST:30000	WT:2				SOURCEPAGE:p. 85
+Necklace of Choking						TYPE:Magic.Wondrous						COST:7000	WT:.1				SOURCEPAGE:p. 85
+Noose of Hanging							TYPE:Magic.Wondrous						COST:3700	WT:3				SOURCEPAGE:p. 86
+Potion Bong								TYPE:Magic.Wondrous						COST:3000	WT:3				SOURCEPAGE:p. 86
+Potion of Hallucination						TYPE:Magic.Potion.Consumable					COST:150	WT:.1				SOURCEPAGE:p. 87
+Ring of Obsession							TYPE:Magic.Wondrous.Ring					COST:20000	WT:.1				SOURCEPAGE:p. 87
+Spellb.ook of Error						TYPE:Magic.Wondrous						COST:49.95	WT:2				SOURCEPAGE:p. 87
+Spike Boots								TYPE:Magic.Wondrous.Boot					COST:5500	WT:2		SLOTS:2	SOURCEPAGE:p. 88
+Super-Fly Pimpin' Hat						TYPE:Magic.Wondrous.Headgear					COST:1200	WT:1				SOURCEPAGE:p. 88																	BONUS:SKILL|Profession (Pimp)|10|TYPE=Competence
+Thurible of Summoning Angry Air Elementals		TYPE:Magic.Wondrous						COST:14000	WT:3				SOURCEPAGE:p. 88
+Tindalosian Ale Canister					TYPE:Magic.Wondrous						COST:7000	WT:5				SOURCEPAGE:p. 88
+Urn of Curses							TYPE:Magic.Wondrous						COST:3600	WT:3				SOURCEPAGE:p. 88
+Wand of Defects							TYPE:Magic.Wondrous						COST:21000	WT:.5				SOURCEPAGE:p. 89
+
+###Block: Weapons
+# Equipment Name		Output Name				Required Proficiency				Type												Alternative Type					Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier		Alternative Modifier	Wield Category	Requires Modification?	Range		Size		Source Page		Virtual Feat
+Cane of the Mac Daddy						PROFICIENCY:WEAPON|Club				TYPE:Weapon.Melee.Ranged.Thrown.Simple.Bludgeoning.Club.Magic.Wondrous								COST:2000	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD.PLUS1W					WIELD:OneHanded	MODS:NO			RANGE:10	SIZE:M	SOURCEPAGE:p. 82	VFEAT:Pimp Slap|PRESKILL:1,Profession (Pimp)=4
+Urkrutch (Dire Dwarven)	OUTPUTNAME:Urgrosh, Dwarven	PROFICIENCY:WEAPON|Urgrosh (Dwarven)	TYPE:Weapon.Melee.Exotic.Double.Standard.Dwarven.Slashing.Axe		ALTTYPE:Weapon.Melee.Exotic.Piercing	COST:50	WT:12		SLOTS:2	CRITMULT:x3			CRITRANGE:1			ALTCRITMULT:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d6		EQMOD:STEEL		ALTEQMOD:STEEL		WIELD:TwoHanded							SIZE:M
+
+#
+# End
+#

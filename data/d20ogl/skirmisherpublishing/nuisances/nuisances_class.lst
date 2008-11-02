@@ -1,0 +1,48 @@
+# CVS $Revision$ $Author$ -- Sat Nov  1 21:27:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page
+CLASS:Slovely Trull	HD:4		TYPE:PC.Prestige	ABB:SlTrl		MAXLEVEL:1	SOURCEPAGE:p. 36
+# Class Name		Prohibited Stat
+CLASS:Slovely Trull	!PRESTAT:2,WIS=10,INT=10
+# Class Name		Skill Pts/Lvl
+CLASS:Slovely Trull	STARTSKILLPTS:0
+1	ABILITY:Special Ability|AUTOMATIC|Slovely Trull Resistance to Intoxicants
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
+CLASS:Prostitute	HD:4		TYPE:PC.Prestige	ABB:Ho		MAXLEVEL:1	SOURCEPAGE:p. 37	BONUS:CHECKS|BASE.Fortitude|2
+# Class Name	Required Skill
+CLASS:Prostitute	PRESKILL:1,Profession (Courtesan)=1
+# Class Name	Skill Pts/Lvl
+CLASS:Prostitute	STARTSKILLPTS:0
+1	ABILITY:Special Ability|AUTOMATIC|Prostitute Carrier|Prostitute Proposition	AUTO:WEAPONPROF|TYPE.Dagger|Whip
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Pimp		HD:8		TYPE:PC.Prestige	ABB:Pimp		MAXLEVEL:3	SOURCEPAGE:p. 38	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat						Required Skill
+CLASS:Pimp		PREATT:2	PREFEAT:2,Pimp Slap,Skill Focus(Intimidate)	PRESKILL:1,Intimidate=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pimp		STARTSKILLPTS:3	CSKILL:Appraise|Bluff|Handle Animal|Intimidate|Profession (Pimp)|Sense Motive|Use Rope
+1	ABILITY:Special Ability|AUTOMATIC|Manage the Stable|Pimp Resistance to Disease		AUTO:FEAT|Simple Weapon Proficiency|Killer 'Do	AUTO:WEAPONPROF|TYPE.Dagger|Whip|Sap
+2	ABILITY:Special Ability|AUTOMATIC|Keep Your Pimp Hand Strong|Lookin' Sharp|Movin' On Up
+3	ABILITY:Special Ability|AUTOMATIC|King of the Tenderloin
+
+
+
+###Block: Monster Class
+
+# Class Name		Hit Dice	Type			Max Level		Source Page					Ability												Save checks bonus											Combat bonus
+CLASS:Decapussywhipper	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|((CL*3)/4)+1|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Decapussywhipper	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Decapussywhipper	STARTSKILLPTS:2	MODTOSKILLS:YES
+1				BONUS:PCLEVEL|Sorcerer|1	ADD:SPELLCASTER|1|Sorcerer
+2:REPEATLEVEL:1|MAX=10	BONUS:PCLEVEL|Sorcerer|1
+
+#
+# End
+#

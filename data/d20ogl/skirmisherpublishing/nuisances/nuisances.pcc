@@ -1,0 +1,48 @@
+# CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:Skirmisher - Nuisances: Director's Cut
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:PDF
+TYPE:Skirmisher Publishing
+PUBNAMELONG:Skirmisher Publishing LLC
+PUBNAMESHORT:Skirmisher
+PUBNAMEWEB:http://www.skirmisher.com
+SOURCELONG:Nuisances - Director's Cut
+SOURCESHORT:Nuisances
+SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download
+SOURCEDATE:2007-08
+ISOGL:YES
+ISMATURE:YES
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Nuisances: Director's Cut copyright 2007 by Michael J. Varhola and Skirmisher Publishing LLC.
+COPYRIGHT:PCGen dataset conversion for Nuisances: Director's Cut Copyright 2008, PCGen Data Team (including, but not limited to: Eddy Anthony (MoSaT))
+
+COVER:nuisances.jpg
+LOGO:@/publisher_logos/Skirmisher_Publishing.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Skirmisher Publishing LLC.
+DESC:Nuisances is unlike any other fantasy RPG sourcebook! It is a tribute to the early years of fantasy roleplaying games, a parody of the current state of the genre, a manual for keeping cocky and annoying players off balance, and a poignant philosophical expression of the post-modern, 21st century worldview. This funny and irreverent book has quickly became Skirmisher Publishing's most popular title - and now it's even better! Nuisances: Director's Cut is a parody of fantasy roleplaying games, a tribute to them, and a guide for an alternate (and more fun) style of play. This bigger, longer, and uncut version of the original Nuisances has been re-edited, expanded from 96 to 130 pages, and includes more of what you loved in the first edition.
+URL:WEBSITE|http://www.skirmisher.com|Visit Skirmisher Publishing
+URL:Skirmisher Publishing|http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download#|Buy this pdf from Skirmisher Publishing!
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:nuisances_abilities.lst
+ABILITYCATEGORY:nuisances_ability_categories.lst
+CLASS:nuisances_class.lst
+EQUIPMENT:nuisances_equipment.lst
+EQUIPMOD:nuisances_equipmod.lst
+FEAT:nuisances_feats.lst
+ABILITY:nuisances_feats_defects.lst
+KIT:nuisances_kits_monsters.lst
+RACE:nuisances_races.lst
+SKILL:nuisances_skills.lst
+SPELL:nuisances_spells.lst
+TEMPLATE:nuisances_templates.lst
+
+#
+# End
+#
