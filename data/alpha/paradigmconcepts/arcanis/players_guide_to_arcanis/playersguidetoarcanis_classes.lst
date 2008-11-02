@@ -249,8 +249,6 @@ SUBCLASSLEVEL:10	SPELLLEVEL:CLASS|Holy Champion=4|Beltine's Blessed Strike,Cure 
 SUBCLASSLEVEL:11																																			CAST:0,3,3,3,1
 SUBCLASSLEVEL:12																																			CAST:0,3,3,3,2
 SUBCLASSLEVEL:13	SPELLLEVEL:CLASS|Holy Champion=5|Atonement,Break Enchantment,Command (Greater),Cure Serious Wounds (Mass),Dispel Evil,Disrupting Weapon,Hallow,Heal,Raise Dead,Spell Resistance,Symbol of Sleep,True Seeing	CAST:0,3,3,3,2,0
-#TODO: This tag does not work past level line 0 or 1: KNOWNSPELLS:LEVEL=5  We'll need to find some other way to do this.
-#SUBCLASSLEVEL:13	KNOWNSPELLS:LEVEL=5
 SUBCLASSLEVEL:14																																			CAST:0,3,3,3,3,1																																																										ABILITY:Special Ability|VIRTUAL|Honor Thy Word
 SUBCLASSLEVEL:15																																			CAST:0,4,3,3,3,2
 SUBCLASSLEVEL:16																																			CAST:0,4,4,3,3,2
@@ -442,7 +440,7 @@ SUBCLASSLEVEL:2																																																																	
 SUBCLASSLEVEL:3																																																																																															ABILITY:Special Ability|VIRTUAL|Infernal Resistances|Immunity Poison
 SUBCLASSLEVEL:4	SPELLLEVEL:CLASS|Holy Champion=1|Comprehend Languages,Disguise Self,My Master Allows																				CAST:0,0																																																																																																								ADD:ABILITY|Special Ability|VIRTUAL|TYPE=TurnInfernal
 SUBCLASSLEVEL:5																																			CAST:0,0
-SUBCLASSLEVEL:6																																			CAST:0,1									BONUS:ABILITYPOOL|First Symbiosis|1																																													ABILITY:Special Ability|VIRTUAL|Blessing of Sarish|First Symbiosis
+SUBCLASSLEVEL:6																																			CAST:0,1									BONUS:ABILITYPOOL|First Symbiosis|1																																													ABILITY:Special Ability|VIRTUAL|Blessing of Sarish|SymbiosisI
 SUBCLASSLEVEL:7																																			CAST:0,1
 SUBCLASSLEVEL:8	SPELLLEVEL:CLASS|Holy Champion=2|Darkness,Produce Flame,Protection from Evil,Undetectable Alignment																		CAST:0,1,0																																																											ABILITY:Special Ability|VIRTUAL|Special Mount ID
 SUBCLASSLEVEL:9																																			CAST:0,1,0
