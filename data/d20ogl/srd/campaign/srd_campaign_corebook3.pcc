@@ -88,8 +88,11 @@ EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_weap_melee_specific.lst
 EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_weap_ranged_specific.lst
 EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_wondrousitems.lst
 
+SPELL:@/d20ogl/srd/advanced/srd_spells_mods.lst
 
 # Monsters
+ABILITY:@/d20ogl/srd/monsters/srd_abilities_mods.lst
+
 CLASS:@/d20ogl/srd/monsters/srd_classes_creature_specific.lst
 CLASS:@/d20ogl/srd/monsters/srd_classes_dragon.lst
 

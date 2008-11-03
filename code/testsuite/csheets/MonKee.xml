@@ -1014,38 +1014,6 @@ BIO
 	  ====================================
 	  ====================================-->
 	<special_abilities>
-		<ability>
-			<name>Evasion (Ex)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Flurry of Blows</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Leap of the Clouds</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Purity of Body</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Slow Fall (50 ft.)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Still Mind</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Stunning Attack 8/day (DC 16)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Wholeness of Body (Su) 16 hp/day</name>
-			<description></description>
-		</ability>
 		<race></race>
 		<class>
 			<class>Monk</class>
@@ -1147,18 +1115,7 @@ BIO
 	  ====================================-->
  
 	<ability_objects>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>All Automatic Proficiencies</name>
-			<description></description>
-			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
+	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Evasion</name>
 			<description>If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage.</description>
@@ -1166,7 +1123,7 @@ BIO
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
-			<hidden>T</hidden>
+			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
@@ -1174,6 +1131,95 @@ BIO
 			<name>Flurry of Blows</name>
 			<description></description>
 			<type>SPECIALATTACK</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Leap of the Clouds</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Fast Movement</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Purity of Body</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Slow Fall</name>
+			<description>50 feet</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Still Mind</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Stunning Attack</name>
+			<description>8 times per day (DC 16)</description>
+			<type>SPECIALATTACK</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Wholeness of Body</name>
+			<description>0 hp/day</description>
+			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>All Automatic Proficiencies</name>
+			<description></description>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1193,17 +1239,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Leap of the Clouds</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Monk AC</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1215,75 +1250,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Fast Movement</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Monk Weapon Proficiencies</name>
 			<description></description>
 			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Purity of Body</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Slow Fall</name>
-			<description>50 feet</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Still Mind</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Stunning Attack</name>
-			<description>8 times per day (DC 16)</description>
-			<type>SPECIALATTACK</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Wholeness of Body</name>
-			<description>0 hp/day</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
