@@ -1385,38 +1385,6 @@ BIO
 	  ====================================
 	  ====================================-->
 	<special_abilities>
-		<ability>
-			<name>Breath Weapon (Ex) 60&#39; Line of Fire 1/day 6d8 (DC27)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Giant Traits</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Half-Dragon Wings</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Immunity to Fire (Ex)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Oversized Weapon (Ex)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Rock Catching (Ex)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Rock Throwing (Ex)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Scent (Ex)</name>
-			<description></description>
-		</ability>
 		<race></race>
 		<class>
 			<class>Giant</class>
@@ -1518,6 +1486,95 @@ BIO
 	  ====================================-->
  
 	<ability_objects>
+	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Giant Traits</name>
+			<description>Giants eat/sleep/breathe</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Breath Weapon</name>
+			<description>60&#39; Line of Fire 1/day 6d8 (DC 27)</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Half-Dragon Wings</name>
+			<description></description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity To Fire</name>
+			<description>You never take Fire damage</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Oversized Weapon (Morningstar)</name>
+			<description></description>
+			<type>SPECIALATTACK.EXTRAORDINARY</type>
+			<associated>Morningstar</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Rock Catching</name>
+			<description></description>
+			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Rock Throwing</name>
+			<description></description>
+			<type>SPECIALATTACK.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Scent</name>
+			<description></description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.SENSE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
@@ -1534,94 +1591,6 @@ BIO
 			<name>Giant Proficiencies</name>
 			<description></description>
 			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Giant Traits</name>
-			<description>Giants eat/sleep/breathe</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Breath Weapon</name>
-			<description>60&#39; Line of Fire 1/day 6d8 (DC 27)</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Half-Dragon Wings</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Immunity To Fire</name>
-			<description>You never take Fire damage</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Oversized Weapon (Morningstar)</name>
-			<description></description>
-			<type>SPECIALATTACK.EXTRAORDINARY</type>
-			<associated>Morningstar</associated>
-			<count>1</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Rock Catching</name>
-			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Rock Throwing</name>
-			<description></description>
-			<type>SPECIALATTACK.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Scent</name>
-			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.SENSE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

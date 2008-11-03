@@ -1375,34 +1375,6 @@ BIO
 	  ====================================
 	  ====================================-->
 	<special_abilities>
-		<ability>
-			<name>Breath Weapon (Ex) 60&#39; Line of Fire 1/day 6d8 (DC16)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Change Shape (Su)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Detect Thoughts (Su)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Immunity To Charm Effects</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Immunity to Fire (Ex)</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Immunity To Sleep</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Monstrous Humanoid Traits</name>
-			<description></description>
-		</ability>
 		<race></race>
 		<class>
 			<class>Monstrous humanoid</class>
@@ -1538,6 +1510,84 @@ BIO
 	  ====================================-->
  
 	<ability_objects>
+	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Change Shape</name>
+			<description>You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.</description>
+			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Detect Thoughts</name>
+			<description></description>
+			<type>SPECIALQUALITY.SUPERNATURAL.SENSE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Breath Weapon</name>
+			<description>60&#39; Line of Fire 1/day 6d8 (DC 16)</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity To Charm Effects</name>
+			<description>You are never subject to charm effects</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity To Fire</name>
+			<description>You never take Fire damage</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Immunity To Sleep</name>
+			<description>You are never subject to sleep effects</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Monstrous Humanoid Traits</name>
+			<description>Monstrous Humanoids eat/sleep/breathe</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
@@ -1554,28 +1604,6 @@ BIO
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
 			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Change Shape</name>
-			<description>You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Detect Thoughts</name>
-			<description></description>
-			<type>SPECIALQUALITY.SUPERNATURAL.SENSE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1617,64 +1645,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Breath Weapon</name>
-			<description>60&#39; Line of Fire 1/day 6d8 (DC 16)</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Immunity To Charm Effects</name>
-			<description>You are never subject to charm effects</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Immunity To Fire</name>
-			<description>You never take Fire damage</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Immunity To Sleep</name>
-			<description>You are never subject to sleep effects</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Monstrous Humanoid Proficiencies</name>
 			<description></description>
 			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Monstrous Humanoid Traits</name>
-			<description>Monstrous Humanoids eat/sleep/breathe</description>
-			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

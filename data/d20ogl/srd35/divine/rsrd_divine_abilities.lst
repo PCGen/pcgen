@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Thu Oct 23 11:29:22 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Mon Nov  3 13:11:08 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-# Ability Name		Output Name			Category of Ability		Type								Visible	Special ABility																																																								Define									Description
-Automatic Actions						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:NO	SAB:Automatic Actions (%, max DC %)|AutomaticActions|AutomaticActionsDC																																															DEFINE:AutomaticActions|0	DEFINE:AutomaticActionsDC|0	DESC:%1, max DC %2)|AutomaticActions|AutomaticActionsDC
-Block Sensing						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Block Sensing (Ex) % Hours|DivineRank																																																														DESC:%1 Hours|DivineRank
-Communication						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Communicate	VISIBLE:NO	SAB:Communication (Ex)
-Create Artifact						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Create Artifact (Ex)
-Create Magic Items					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Create Magic Items (Ex) % gp|CreateMagicItemsValue																																																	DEFINE:CreateMagicItemsValue|0					DESC:%1 gp|CreateMagicItemsValue
-Divine Aura ~ Feet	OUTPUTNAME:Divine Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura				VISIBLE:NO	SAB:Divine Aura (% ft)|DivineAuraRadius																																																														DESC:%1 ft.|DivineAuraRadius
-Divine Aura ~ Miles	OUTPUTNAME:Divine Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura				VISIBLE:NO	SAB:Divine Aura (% mi)|DivineAuraRadius																																																														DESC:%1 mi.|DivineAuraRadius
-Divine Rank							CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:NO	SAB:Divine Rank %|DivineRank|PREVARGT:DivineRank,0	SAB:Divine Rank 0|PREVAREQ:DivineRank,0																																																					DESC:%1|DivineRank
-Godly Realm							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Godly Realm (Ex) % ft./% ft.|100*DivineRank|100*DivineRank|PREVAREQ:PortfolioSenseLevel,0	SAB:Godly Realm (Ex) 1 mile/% ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,1	SAB:Godly Realm (Ex) 10 miles/% ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,2	SAB:Godly Realm (Ex) 100 miles/% ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,3	DEFINE:GodlyRealmLevel|0						DESC:%1 ft./%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,0	DESC:1 mile/%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,1	DESC:10 miles/%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,2	DESC:100 miles/%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,3
-Grant Spells						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Grant Spells (Ex)
-Immortal							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Immortal (Ex)
-Portfolio Sense						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Portfolio Sense (Ex)|PREVAREQ:PortfolioSenseLevel,0	SAB:Portfolio Sense (Ex) Past % Weeks|DivineRank|PREVAREQ:PortfolioSenseLevel,1	SAB:Portfolio Sense (Ex) Past and Future % Weeks|DivineRank|PREVAREQ:PortfolioSenseLevel,2																			DEFINE:PortfolioSenseLevel|0						DESC:Past %1 Weeks|DivineRank|PREVAREQ:PortfolioSenseLevel,1	DESC:Past and Future %1 Weeks|DivineRank|PREVAREQ:PortfolioSenseLevel,2
-Remote Sensing						CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:NO	SAB:Remote Sensing (% Locations)|RemoteSensingLocations																																																	DEFINE:RemoteSensingLocations|0					DESC:%1 Locations|RemoteSensingLocations
-Spontaneous Casting					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Spontaneous Casting (Ex)
-Travel							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyMovement	VISIBLE:NO	SAB:Travel (Sp)
+# Ability Name		Output Name			Category of Ability		Type								Visible	Define									Description
+Automatic Actions						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:AutomaticActions|0	DEFINE:AutomaticActionsDC|0	DESC:%1, max DC %2)|AutomaticActions|AutomaticActionsDC
+Block Sensing						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES											DESC:%1 Hours|DivineRank
+Communication						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Communicate	VISIBLE:YES
+Create Artifact						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Create Magic Items					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:CreateMagicItemsValue|0					DESC:%1 gp|CreateMagicItemsValue
+Divine Aura ~ Feet	OUTPUTNAME:Divine Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura				VISIBLE:YES											DESC:%1 ft.|DivineAuraRadius
+Divine Aura ~ Miles	OUTPUTNAME:Divine Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura				VISIBLE:YES											DESC:%1 mi.|DivineAuraRadius
+Divine Rank							CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES											DESC:%1|DivineRank
+Godly Realm							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:GodlyRealmLevel|0						DESC:%1 ft./%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,0	DESC:1 mile/%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,1	DESC:10 miles/%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,2	DESC:100 miles/%1 ft.|100*DivineRank|PREVAREQ:PortfolioSenseLevel,3
+Grant Spells						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Immortal							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Portfolio Sense						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:PortfolioSenseLevel|0						DESC:Past %1 Weeks|DivineRank|PREVAREQ:PortfolioSenseLevel,1	DESC:Past and Future %1 Weeks|DivineRank|PREVAREQ:PortfolioSenseLevel,2
+Remote Sensing						CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES	DEFINE:RemoteSensingLocations|0					DESC:%1 Locations|RemoteSensingLocations
+Spontaneous Casting					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Travel							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyMovement	VISIBLE:YES
 
 #
 # End

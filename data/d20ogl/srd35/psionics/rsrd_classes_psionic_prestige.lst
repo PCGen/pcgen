@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 25 16:06:21 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Mon Nov  3 13:32:36 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -47,8 +47,8 @@ CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|T
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
-# Class Name		Req. Att.	Required Feat		Req. Special Ability	Required Skill
-CLASS:Psionic Fist	PREATT:4	PREFEAT:1,Wild Talent	PRESA:1,Still Mind (Ex)	PRESKILL:1,Concentration=9
+# Class Name		Required Ability							Req. Att.	Required Feat		Required Skill
+CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Still Mind	PREATT:4	PREFEAT:1,Wild Talent	PRESKILL:1,Concentration=9
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
