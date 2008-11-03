@@ -559,6 +559,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 *
 	 * @param aType
 	 * @return Whether the item is of this type
+	 * 
+	 * Note:  This method is overridden in Equipment.java
 	 */
 	@Override
 	public boolean isType(final String aType)
