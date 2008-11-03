@@ -32,8 +32,8 @@ Female		VISIBLE:NO	GENDERLOCK:Female
 Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:20/+1		SOURCEPAGE:srdbasiccharacterclassesi.rtf	TYPE:Outsider
 
 ###Block: Temporary Bonus Templates
-# Template Name			Visible	Source Page					Bonus to skill															Temporary effect description
-Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps.rtf	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
+# Template Name			Visible	Source Page					Bonus to skill																				Temporary effect description
+Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps.rtf	BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PREABILITY:1,CATEGORY=Special Ability,Summon Familiar|PREAPPLY:ANYPC	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		Minimum Age			Maximum Age			Required Class			Multiple Requirements						Stat bonus
