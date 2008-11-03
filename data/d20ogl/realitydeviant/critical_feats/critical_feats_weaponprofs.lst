@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Mon Mar 26 16:13:35 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+SOURCELONG:Critical Feats	SOURCESHORT:CritFeat	SOURCEWEB:http://www.realitydeviants.net/content/critfeat.html
+# Original entry by Paul W. King
+
+# Weapon Name			Type
+Bagh Nakh				TYPE:Simple
+Fakirs Horns			TYPE:Simple
+Karambit				TYPE:Simple
+
+Sword (Unicorn Horn)		TYPE:Martial
+
+Blade (Sun and Moon Spear)	TYPE:Exotic
+Full Moon				TYPE:Exotic
+Knife (Deer Antler)		TYPE:Exotic
+Razor (Yuen Yang)			TYPE:Exotic
+Wheel (Wind and Fire)		TYPE:Exotic
+
+Sword (Tigerhead Hook)		TYPE:Exotic
+
+Blade (Heaven and Earth)	TYPE:Exotic
+
+Bola					TYPE:Exotic
+
+#
+# End
+#

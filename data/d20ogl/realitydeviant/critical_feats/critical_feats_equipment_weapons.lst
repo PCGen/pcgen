@@ -1,0 +1,47 @@
+# CVS $Revision$ $Author$ -- Sun Nov  2 21:09:05 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Critical Feats	SOURCESHORT:CritFeat	SOURCEWEB:http://www.realitydeviants.net/content/critfeat.html
+# Original entry by Paul W. King
+
+###BLOCK: magic
+# Equipment Name	Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Range		Size		Source Page		Modify VAR
+Bonesplitter	PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.Martial.Standard.Bludgeoning.Hammer	COST:11012	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL.MWORKW.PLUS1W	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.12	BONUS:VAR|ArmBreakerDC|4|PREFEAT:1,Arm Breaker
+Choker		PROFICIENCY:WEAPON|Bola		TYPE:Weapon.Exotic.Ranged.Bludgeoning.Projectile	COST:2001	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:MWORKW.PLUS1W					RANGE:15	SIZE:M	SOURCEPAGE:p.12	BONUS:VAR|StrangleShotDC|2|PREFEAT:1,Strangle Shot
+
+###BLOCK: Simple weapons
+#---light---
+# Equipment Name			Output Name					Required Proficiency			Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page
+Bagh Nakh (Steel)			OUTPUTNAME:Steel Bagh Nakh		PROFICIENCY:WEAPON|Bagh Nakh		TYPE:Weapon.Simple.Melee.Standard.Slashing.Rending.Metal	COST:8	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light		SIZE:M	SOURCEPAGE:p.13
+Bagh Nakh (Greater Steel)	OUTPUTNAME:Greater Steel Bagh Nakh	PROFICIENCY:WEAPON|Bagh Nakh		TYPE:Weapon.Simple.Melee.Standard.Slashing.Rending.Metal	COST:10	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d3	EQMOD:STEEL	WIELD:Light		SIZE:M	SOURCEPAGE:p.13
+Fakirs Horns			OUTPUTNAME:Fakir's Horns		PROFICIENCY:WEAPON|Fakirs Horns	TYPE:Weapon.Simple.Melee.Standard.Piercing.Rending		COST:.5	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6			WIELD:Light		SIZE:M	SOURCEPAGE:p.14
+Karambit										PROFICIENCY:WEAPON|Karambit		TYPE:Weapon.Simple.Melee.Standard.Slashing.Rending		COST:.6	WT:.5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d3			WIELD:Light		SIZE:M	SOURCEPAGE:p.15
+
+###BLOCK: Martial weapons
+#---one-handed---
+# Equipment Name		Output Name				Required Proficiency				Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Size		Source Page
+Sword (Unicorn Horn)	OUTPUTNAME:Unicorn Horn Sword	PROFICIENCY:WEAPON|Sword (Unicorn Horn)	TYPE:Weapon.Martial.Melee.Slashing.Rending	COST:8	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.15
+
+###BLOCK: Exotic weapons
+#---light---
+# Equipment Name			Output Name					Required Proficiency					Type										Alternative Type			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Size		Source Page		Combat bonus
+Blade (Sun and Moon Spear)	OUTPUTNAME:Sun and Moon Spear Blade	PROFICIENCY:WEAPON|Blade (Sun and Moon Spear)	TYPE:Weapon.Exotic.Light.Melee.Slashing.Rending								COST:4	WT:3		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					WIELD:Light		SIZE:M	SOURCEPAGE:p.13
+Full Moon										PROFICIENCY:WEAPON|Full Moon				TYPE:Weapon.Exotic.Light.Melee.Slashing.Rending								COST:6	WT:2		CRITMULT:x3			CRITRANGE:2																		WIELD:Light		SIZE:M	SOURCEPAGE:p.15
+Knife (Deer Antler)		OUTPUTNAME:Deer Antler Knife		PROFICIENCY:WEAPON|Knife (Deer Antler)		TYPE:Weapon.Melee.Exotic.Light.Slashing.Rending.Finesseable						COST:6	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					WIELD:Light		SIZE:M	SOURCEPAGE:p.15
+Razor (Yuen Yang)			OUTPUTNAME:Yuen Yang Razor		PROFICIENCY:WEAPON|Razor (Yuen Yang)		TYPE:Weapon.Melee.Exotic.Light.Piercing.Slashing.Rending						COST:15	WT:4		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					WIELD:Light		SIZE:M	SOURCEPAGE:p.15	BONUS:COMBAT|AC|1|PREEQUIP:2,Razor (Yuen Yang),Razor (Yuen Yang)
+Wheel (Wind and Fire)		OUTPUTNAME:Wind and Fire Wheel	PROFICIENCY:WEAPON|Wheel (Wind and Fire)		TYPE:Weapon.Melee.Exotic.Light.Slashing.Rending.Finesseable						COST:4	WT:4		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					WIELD:Light		SIZE:M	SOURCEPAGE:p.15
+
+#---one-handed---
+# Equipment Name			Output Name					Required Proficiency					Type										Alternative Type			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Size		Source Page		Combat bonus
+Sword (Tigerhead Hook)		OUTPUTNAME:Tigerhead Hook Sword	PROFICIENCY:WEAPON|Sword (Tigerhead Hook)		TYPE:Weapon.Exotic.Melee.OneHnaded.Slashing.Rending							COST:12	WT:4		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.15
+
+#---two-handed---
+# Equipment Name			Output Name					Required Proficiency					Type										Alternative Type			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Size		Source Page		Combat bonus
+Blade (Heaven and Earth)	OUTPUTNAME:Heaven and Earth Blade	PROFICIENCY:WEAPON|Blade (Heaven and Earth)	TYPE:Weapon.Exotic.Double.TwoHanded.Melee.Slashing.Rending	ALTTYPE:Weapon.Melee.Slashing	COST:60	WT:13		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.13
+
+###BLOCK: Ranged weapons
+#---exotic---
+# Equipment Name	Required Proficiency	Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Bola			PROFICIENCY:WEAPON|Bola	TYPE:Weapon.Exotic.Ranged.Bludgeoning.Projectile	COST:1	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	RANGE:15	SIZE:M	SOURCEPAGE:p.13
+
+#
+# End
+#

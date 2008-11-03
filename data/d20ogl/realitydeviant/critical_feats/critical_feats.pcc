@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Mon Mar 26 16:33:22 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+CAMPAIGN:RDP - Critical Feats
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+TYPE:Reality Deviant Publications.Supplement
+PUBNAMELONG:Reality Deviant Publications
+PUBNAMESHORT:RDP
+PUBNAMEWEB:http://www.realitydeviants.net
+SOURCELONG:Critical Feats
+SOURCESHORT:CritFeat
+SOURCEWEB:http://www.realitydeviants.net/content/critfeat.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2003, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Beyond Monks – The Art of the Fight Copyright 2003, Chainmail Bikini Games, Ltd.; Authors James Garr, Heather Garr, Bryon Dahlgren.
+COPYRIGHT:From Stone to Steel Copyright 2003, MonkeyGod Enterprises LP.
+COPYRIGHT:Grim-n-Gritty Hit Point and Combat Rules Copyright 2001-2005, Kenneth S. Hood
+COPYRIGHT:Critical Feats Copyright 2006, Reality Deviant Publications David Jarvis and Mark Gedak
+COPYRIGHT:PCGen dataset conversion for Critical Feats Copyright 2007, PCgen Data team (Including, but not limited to Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:critical_ability_categories.lst
+EQUIPMENT:critical_feats_equipment_weapons.lst
+FEAT:critical_feats_feats.lst
+ABILITY:critical_feats_feats_hidden.lst
+SPELL:critical_feats_spells.lst
+WEAPONPROF:critical_feats_weaponprofs.lst
+
+#
+# End
+#
