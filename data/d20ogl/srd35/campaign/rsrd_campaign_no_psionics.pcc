@@ -187,7 +187,6 @@ CLASS:@/d20ogl/srd35/epic/rsrd_classes_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_monsters_dragons_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_prestige_epic.lst
 FEAT:@/d20ogl/srd35/epic/rsrd_feats_epic.lst
-FEAT:@/d20ogl/srd35/epic/rsrd_feats_hidden_epic.lst
 FEAT:@/d20ogl/srd35/epic/rsrd_feats_monster_epic.lst
 KIT:@/d20ogl/srd35/epic/rsrd_kits_epic_races.lst
 KIT:@/d20ogl/srd35/epic/rsrd_kits_epic_races_dragons.lst

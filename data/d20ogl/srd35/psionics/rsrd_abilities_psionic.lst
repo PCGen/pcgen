@@ -1,6 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Nov  3 13:21:50 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Mon Nov  3 22:48:47 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
+
+# Ability Name	Category of Ability		Type				Visible	Define														Description																				Modify VAR
+Psionic		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DESC:Total Power Points %1; Base Power Points %2; Bonus Power Points %3|TotalPowerPoints|BasePowerPoints|BonusPowerPoints	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: count feat for Psionic Talent: workaround for COUNT[FEATNAME bug
 # Ability Name			Category of Ability		Type			Visible	Modify VAR

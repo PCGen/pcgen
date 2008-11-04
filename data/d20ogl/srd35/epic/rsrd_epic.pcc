@@ -30,7 +30,6 @@ CLASS:rsrd_classes_epic.lst
 CLASS:rsrd_classes_monsters_dragons_epic.lst
 CLASS:rsrd_classes_prestige_epic.lst
 FEAT:rsrd_feats_epic.lst
-FEAT:rsrd_feats_hidden_epic.lst
 FEAT:rsrd_feats_monster_epic.lst
 RACE:rsrd_races_epic.lst
 RACE:rsrd_races_dragons_epic.lst

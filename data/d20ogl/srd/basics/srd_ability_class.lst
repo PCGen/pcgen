@@ -57,10 +57,9 @@ Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO
 #######################################
 
 ###Block: Barbarian class abilties
-# Ability Name		Output Name				Category of Ability		Type						Visible	Special ABility	Define							Add to base move																		Source Page
-Illiteracy								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SAB:Illiteracy	DEFINE:IllteracyLVL|0	DEFINE:IlliteracyLVL|0																					SOURCEPAGE:ClassesI.rtf
-Barbarian Fast Movement	OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement	SOURCEPAGE:ClassesI.rtf
-
+# Ability Name		Output Name				Category of Ability		Type						Visible	Define							Add to base move																		Source Page
+Illiteracy								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:IllteracyLVL|0	DEFINE:IlliteracyLVL|0																					SOURCEPAGE:ClassesI.rtf
+Barbarian Fast Movement	OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES									BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Bard abilities
 # Ability Name			Output Name				Category of Ability		Type						Visible	Define																						Description																							Modify VAR																										ASPECT

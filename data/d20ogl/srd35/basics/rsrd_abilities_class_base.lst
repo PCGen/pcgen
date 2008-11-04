@@ -2,12 +2,6 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
-# Ability Name		Category of Ability		Type						Visible	Required Feat	Special ABility																							Define											Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																																			Source Page
-#Improved Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary		VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionFeatUsable																	DEFINE:ImprovedEvasionFeatUsable|0																																															BONUS:VAR|ImprovedEvasionFeatUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
-# Uncanny Dodge/Improved Uncanny Dodge are now Abilities
-#Uncanny Dodge			CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO					SAB:Uncanny Dodge (Dex bonus to AC)|var("COUNT[FEATNAME=Improved Uncanny Dodge.ALL]")-1																																																																																													SOURCEPAGE:ClassesII.rtf
-#Improved Uncanny Dodge		CATEGORY:Special Ability	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SAB:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																															BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																						SOURCEPAGE:ClassesII.rtf
-
 ###Block: Shared Class Abilities --------------------------------------------------------------------------------------------------
 # Ability Name			Output Name					Category of Ability		Type										Visible	Required Ability						Define												Description																					Modify VAR																																	Source Page
 Evasion										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC			VISIBLE:YES									DEFINE:EvasionUsable|0										DESC:If subjected to an attack that allows a Reflex save for half damage, you take no damage on a successful save.			BONUS:VAR|EvasionUsable|1|PREVAREQ:count("ABILITIES","CATEGORY=Special Ability","NAME=Improved Evasion"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
