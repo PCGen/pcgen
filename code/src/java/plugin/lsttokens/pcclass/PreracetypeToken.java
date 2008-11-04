@@ -33,7 +33,8 @@ public class PreracetypeToken implements CDOMPrimaryToken<PCClass>,
 	{
 		Prerequisite p = new Prerequisite();
 		p.setKind("RACETYPE");
-		p.setOperand(value);
+		p.setOperand("1");
+		p.setKey(value);
 		p.setOperator(PrerequisiteOperator.GTEQ);
 		context.obj.put(obj, p);
 		return true;
