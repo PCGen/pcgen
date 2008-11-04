@@ -10,10 +10,8 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Alphabet type will be final type, such as:
 # Abyssal	TYPE:Spoken.Written.Read.Infernal
 # ... since the Abyssal language uses the Infernal Alphabet for its writing.
+# Per SkillsII.rtf, each language listed in Speak Language is also written/read
 # - Fluxxdog - Nov 4 08
-
-# SkillsII.rtf implies that each language listed is also Written/Read with their respective
-# Alphabet.  Need to add more? - Fluxxdog - Nov 4 08
 
 #	everyone's language
 # Language			Type							Var. Min. Value
@@ -26,12 +24,12 @@ Gnome				TYPE:Spoken.Written.Read.Dwarven
 Halfling			TYPE:Spoken.Written.Read.Common
 
 #	other languages (races.rtf)
-Giant				TYPE:Spoken.Dwarven
-Gnoll				TYPE:Spoken.Common
-Goblin			TYPE:Spoken.Dwarven.Dwarven
-Orc				TYPE:Spoken.Dwarven
-Terran			TYPE:Spoken.Dwarven
-Undercommon			TYPE:Spoken.Elven
+Giant				TYPE:Spoken.Written.Read.Dwarven
+Gnoll				TYPE:Spoken.Written.Read.Common
+Goblin			TYPE:Spoken.Written.Read.Dwarven
+Orc				TYPE:Spoken.Written.Read.Dwarven
+Terran			TYPE:Spoken.Written.Read.Dwarven
+Undercommon			TYPE:Spoken.Written.Read.Elven
 
 #	class-specific languages (i.e. they are on the list of bonus languages for classes)
 Abyssal			TYPE:Spoken.Written.Read.Cleric.Infernal
