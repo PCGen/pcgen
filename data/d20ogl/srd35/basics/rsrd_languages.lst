@@ -6,43 +6,52 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # languages from races.rtf and various monsters*.rtf
 # SPECIAL: all class specific languages gained new TYPE value: class (Cleric etc)
 
+# Added alphabet type to each language in accordance with SkillsII.rtf
+# Alphabet type will be final type, such as:
+# Abyssal	TYPE:Spoken.Written.Read.Infernal
+# ... since the Abyssal language uses the Infernal Alphabet for its writing.
+# - Fluxxdog - Nov 4 08
+
+# SkillsII.rtf implies that each language listed is also Written/Read with their respective
+# Alphabet.  Need to add more? - Fluxxdog - Nov 4 08
+
 #	everyone's language
 # Language			Type							Var. Min. Value
-Common			TYPE:Spoken.Written.Read
+Common			TYPE:Spoken.Written.Read.Common
 
 #	racial languages (base races)
-Dwarven			TYPE:Spoken.Written.Read
-Elven				TYPE:Spoken.Written.Read
-Gnome				TYPE:Spoken.Written.Read
-Halfling			TYPE:Spoken.Written.Read
+Dwarven			TYPE:Spoken.Written.Read.Dwarven
+Elven				TYPE:Spoken.Written.Read.Elven
+Gnome				TYPE:Spoken.Written.Read.Dwarven
+Halfling			TYPE:Spoken.Written.Read.Common
 
 #	other languages (races.rtf)
-Giant				TYPE:Spoken
-Gnoll				TYPE:Spoken
-Goblin			TYPE:Spoken
-Orc				TYPE:Spoken
-Terran			TYPE:Spoken
-Undercommon			TYPE:Spoken
+Giant				TYPE:Spoken.Dwarven
+Gnoll				TYPE:Spoken.Common
+Goblin			TYPE:Spoken.Dwarven.Dwarven
+Orc				TYPE:Spoken.Dwarven
+Terran			TYPE:Spoken.Dwarven
+Undercommon			TYPE:Spoken.Elven
 
 #	class-specific languages (i.e. they are on the list of bonus languages for classes)
-Abyssal			TYPE:Spoken.Written.Read.Cleric
-Celestial			TYPE:Spoken.Written.Read.Cleric
-Draconic			TYPE:Spoken.Written.Read.Wizard
-Infernal			TYPE:Spoken.Written.Read.Cleric
-Sylvan			TYPE:Spoken.Written.Read.Druid
-Druidic			TYPE:Spoken.Written.Read.Druid.Secret	PREVARGTEQ:DruidicLanguage,1
+Abyssal			TYPE:Spoken.Written.Read.Cleric.Infernal
+Celestial			TYPE:Spoken.Written.Read.Cleric.Celestial
+Draconic			TYPE:Spoken.Written.Read.Wizard.Draconic
+Infernal			TYPE:Spoken.Written.Read.Cleric.Infernal
+Sylvan			TYPE:Spoken.Written.Read.Druid.Elven
+Druidic			TYPE:Spoken.Written.Read.Druid.Secret.Druidic	PREVARGTEQ:DruidicLanguage,1
 
 # 	other languages (found in monsters*.rtf)
 #		assuming that all non-basic languages are of Spoken type, i.e. that they do not possess any alphabet (exceptions happen, of course)
 Aboleth			TYPE:Spoken
-Aquan				TYPE:Spoken.Written.Read
-Auran				TYPE:Spoken.Written.Read
+Aquan				TYPE:Spoken.Written.Read.Elven
+Auran				TYPE:Spoken.Written.Read.Draconic
 Blink Dog			TYPE:Spoken
 Drow Sign Language	TYPE:Spoken
 Ettin Pidgin		TYPE:Spoken
 Formian			TYPE:Spoken
 Grimlock			TYPE:Spoken
-Ignan				TYPE:Spoken.Written.Read
+Ignan				TYPE:Spoken.Written.Read.Draconic
 Sahuagin			TYPE:Spoken
 Sphinx			TYPE:Spoken
 Treant			TYPE:Spoken
