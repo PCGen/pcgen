@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 12:49:31 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+
+# Feat Name		Clear Prereq.	Required Skill
+Forge Bond.MOD	PRE:.CLEAR		PRESKILL:1,Knowledge (Reverie)=4

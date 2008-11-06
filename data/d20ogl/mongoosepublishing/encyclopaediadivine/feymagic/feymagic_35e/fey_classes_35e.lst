@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 12:49:31 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+
+# Class Name		Remove Class Skill											Class Skill
+CLASS:Feydancer.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Perform	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival|TYPE.Perform
+
+# Class Name		Remove Class Skill						Class Skill
+CLASS:Spellbinder.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+
+# Class Name	Clear Prereq.	Required Feat		Required Skill									Req. Known Spell
+CLASS:Wylding.MOD	PRE:.CLEAR		PREFEAT:1,Forge Bond	PRESKILL:3,Survival=8,Knowledge (Nature)=8,Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
+# Class Name	Remove Class Skill		Class Skill
+CLASS:Wylding.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+
+# Class Name			Clear Prereq.	Req. Att.	Required Feat	Required Skill
+CLASS:Chosen Protector.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:1,Track	PRESKILL:2,Survival=8,Knowledge (Fey)=6
+# Class Name			Remove Class Skill		Class Skill
+CLASS:Chosen Protector.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
