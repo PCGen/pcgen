@@ -50,7 +50,7 @@ CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Kn
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1	SAB:Armour Expertise (%)|		BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0
+1	SAB:Armour Expertise (%)|ArmourExp	BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0
 2	SAB:Inspire Crew (+%)|InspireCrew	BONUS:VAR|InspireCrew|(CL+2)/4	DEFINE:InspireCrew|0
 3																	ADD:FEAT|1|Ambidexterity,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Quick Draw,Weapon Finesse,Weapon Focus
 4	SAB:Instill Fear

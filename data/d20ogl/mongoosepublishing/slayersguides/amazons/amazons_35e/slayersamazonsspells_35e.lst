@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 13:21:34 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Amazons	SOURCESHORT:SGtAmazons	SOURCEWEB:http://mongoosepublishing.com
+
+# Spell Name					Domains granting the spell
+Globe of Invulnerability (Lesser).MOD	DOMAINS:Sisterhood=5
+
