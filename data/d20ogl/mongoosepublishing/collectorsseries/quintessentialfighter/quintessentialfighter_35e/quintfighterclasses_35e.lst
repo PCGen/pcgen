@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 12:06:02 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
+
+
+# Class Name			Remove Class Skill		Class Skill
+CLASS:Officer of War.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+# Class Name		Remove Class Skill		Class Skill
+CLASS:Peasant Hero.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival

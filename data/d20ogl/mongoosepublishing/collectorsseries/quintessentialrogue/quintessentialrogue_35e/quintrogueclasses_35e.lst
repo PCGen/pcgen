@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 12:06:02 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
+
+# Class Name			Remove Class Skill														Class Skill
+CLASS:Agent of the Crown.MOD	CSKILL:.CLEAR.Innuendo	CSKILL:.CLEAR.Perform	CSKILL:.CLEAR.Pick Pocket	CSKILL:.CLEAR.Read Lips	CSKILL:TYPE.Perform|Sleight of Hand
+
+# Class Name		Remove Class Skill								Class Skill
+CLASS:Commando.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+# Class Name			Remove Class Skill																				Class Skill
+CLASS:Crusading Footpad.MOD	CSKILL:.CLEAR.Innuendo	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Perform	CSKILL:.CLEAR.Pick Pocket	CSKILL:.CLEAR.Read Lips	CSKILL:Survival|Sleight of Hand
+
+# Class Name		Clear Prereq.	Required Feat				Required Skill
+CLASS:Deep Tracker.MOD	PRE:.CLEAR		PREFEAT:3,Alertness,Endurance,Track	PRESKILL:1,Survival=6
+# Class Name		Remove Class Skill								Class Skill
+CLASS:Deep Tracker.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+# Class Name		Clear Prereq.	Required AL				Req. Att.	Required Feat						Required Skill
+CLASS:Executioner.MOD	PRE:.CLEAR		PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:7	PREFEAT:3,Cleave,Power Attack,Improved Sunder	PRESKILL:2,Intimidate=6,Spot=6
+
+# Class Name			Clear Prereq.	Required AL				Req. Att.	Required Feat							Required Skill										Required Text
+CLASS:Shadowy Avenger.MOD	PRE:.CLEAR		PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Improved Unarmed Strike,Toughness	PRESKILL:4,Disguise=8,Intimidate=8,Sense Motive=8,Craft (Alchemy)=4	PRETEXT:Must have lost a loved one to a criminal act.
+# Class Name			Remove Class Skill
+CLASS:Shadowy Avenger.MOD	CSKILL:.CLEAR.Alchemy
+
+# Class Name		Remove Class Skill							Class Skill
+CLASS:Tomb Raider.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:.CLEAR.Intuit Direction	CSKILL:Survival

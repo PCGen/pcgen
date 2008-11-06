@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 16:12:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Nov  6 12:06:02 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
 #
 ###Block:Mundane Armor Modifier
 #
-# Modifier Name	Unique Key			Type		Cost		Type granted	Source Page		Required Type					Bonus to skill											Bonus Equipment Modifiers	Bonus Armor Modifiers
-Padding		KEY:ARMRPAD			TYPE:Armor	COST:50	ITYPE:Padded	SOURCEPAGE:p.57	PRETYPE:1,Armor	PRETYPE:1,Heavy,Medium	BONUS:SKILL|Move Silently|2	BONUS:SKILL|Move Silently|2|TYPE=Competence	BONUS:EQM|WEIGHTADD|5		BONUS:EQMARMOR|ACCHECK|-2	BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|SPELLFAILURE|5
+# Modifier Name	Unique Key	Type		Cost		Type granted	Source Page		Required Type					Bonus to skill											Bonus Equipment Modifiers	Bonus Armor Modifiers
+Padding		KEY:ARMRPAD	TYPE:Armor	COST:50	ITYPE:Padded	SOURCEPAGE:p.57	PRETYPE:1,Armor	PRETYPE:1,Heavy,Medium	BONUS:SKILL|Move Silently|2	BONUS:SKILL|Move Silently|2|TYPE=Competence	BONUS:EQM|WEIGHTADD|5		BONUS:EQMARMOR|ACCHECK|-2	BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|SPELLFAILURE|5
 #
 ###Block:Magical Weapon Modifiers
 #
