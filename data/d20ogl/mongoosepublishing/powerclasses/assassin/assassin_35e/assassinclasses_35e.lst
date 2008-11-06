@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 13:10:56 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com
+# Original Entry by: Mynex
+
+# Class Name			Remove Class Skill														Class Skill
+CLASS:Assassin (Mong).MOD	CSKILL:.CLEAR.Alchemy	CSKILL:.CLEAR.Innuendo	CSKILL:.CLEAR.Pick Pocket	CSKILL:.CLEAR.Read Lips	CSKILL:Sleight of Hand
