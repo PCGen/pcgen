@@ -3,4 +3,4 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:N
 
 # Equipment Name		Type			Cost		Weight	Source Page
 Ring (Bone)			TYPE:Magic.Ring	COST:7000	WT:0		SOURCEPAGE:p.47
-Ring (Petty Vengeance)	TYPE:Magic.Ring	COST:-	WT:0		SOURCEPAGE:p.47
+Ring (Petty Vengeance)	TYPE:Magic.Ring	COST:0	WT:0		SOURCEPAGE:p.47

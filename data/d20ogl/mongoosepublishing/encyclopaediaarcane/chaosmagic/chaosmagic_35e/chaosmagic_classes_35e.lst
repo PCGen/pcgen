@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 12:29:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com
+
+
+# Class Name		Remove Class Skill	Class Skill
+CLASS:Chaos Mage.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:Craft (Alchemy)
+
+# Class Name		Remove Class Skill		Class Skill
+CLASS:Bloodcarver.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+# Class Name		Remove Class Skill	Class Skill
+CLASS:Doomringer.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:Craft (Alchemy)

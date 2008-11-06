@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 12:29:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com
+
+
+# Class Name		Remove Class Skill
+CLASS:Puppeteer.MOD	CSKILL:.CLEAR.Innuendo
+
+# Class Name
+CLASS:Dark Temptress.MOD
+9	SPELLS:Class|TIMES=3|CASTERLEVEL=CL|Teleport (Greater),17+CHA
+
+# Class Name		Remove Class Skill
+CLASS:Mindmender.MOD	CSKILL:.CLEAR.Alchemy
+
