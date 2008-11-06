@@ -38,6 +38,15 @@ final class FORNode
 	private String var;
 	private boolean exists;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param _var
+	 * @param _min
+	 * @param _max
+	 * @param _step
+	 * @param _exists
+	 */
 	FORNode(String _var, String _min, String _max, String _step, boolean _exists)
 	{
 		children = new ArrayList<Object>();

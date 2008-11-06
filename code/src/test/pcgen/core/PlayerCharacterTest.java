@@ -738,7 +738,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		PCClass c = character.getClassKeyed(pcClass.getKeyName());
 		List<CharacterSpell> aList =
-				c.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
+				c.getSpellSupport().getCharacterSpells(null, spellBookName, 1);
 		CharacterSpell addedSpell = aList.get(0);
 		response =
 				character.delSpell(addedSpell.getSpellInfoFor(spellBookName, 1,
@@ -746,7 +746,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Delete spell should not be rejected.", "", response);
 
 		aList =
-				giantClass.getSpellSupport().getCharacterSpell(null,
+				giantClass.getSpellSupport().getCharacterSpells(null,
 					spellBookName, 1);
 		addedSpell = aList.get(0);
 		response =

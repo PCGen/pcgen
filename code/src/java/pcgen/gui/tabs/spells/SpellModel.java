@@ -672,7 +672,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				}
 				bookNodes[ix].setParent(theRoot);
 				List<CharacterSpell> spells =
-						pc.getRace().getSpellSupport().getCharacterSpell(null,
+						pc.getRace().getSpellSupport().getCharacterSpells(null,
 							bookName, -1);
 				for (Object obj : spells)
 				{

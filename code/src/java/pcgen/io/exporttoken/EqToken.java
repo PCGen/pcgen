@@ -80,6 +80,11 @@ public class EqToken extends Token
 		String aftFalse = "";
 		StringTokenizer bTok = new StringTokenizer(tokenSource, "~");
 
+		/* 
+		 * If there are at least 3 tokens it means that we have a case where 
+		 * we are using the ~<b>~</b> style syntax in order to display something 
+		 * with HTML mark-up
+		 */
 		if (bTok.countTokens() >= 3)
 		{
 			bFilter = bTok.nextToken();
@@ -279,6 +284,12 @@ public class EqToken extends Token
 		return retString;
 	}
 
+	/**
+	 * Always return true
+	 * 
+	 * @see pcgen.io.exporttoken.Token#isEncoded()
+	 */
+	@Override
 	public boolean isEncoded()
 	{
 		return true;

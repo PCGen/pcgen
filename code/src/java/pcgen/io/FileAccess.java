@@ -20,12 +20,16 @@
  */
 package pcgen.io;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.io.filters.*;
-
-import java.io.*;
+import pcgen.io.filters.CharacterFilter;
+import pcgen.io.filters.OutputFilter;
+import pcgen.io.filters.PatternFilter;
 
 /**
  * <code>FileAccess</code>.
@@ -47,13 +51,18 @@ public final class FileAccess
 	 */
 	public static String filterString(String aString)
 	{
-		if (null == outputFilter)
-			return aString;
-		else return outputFilter.filterString(aString);
+		if (outputFilter != null)
+		{
+			aString = outputFilter.filterString(aString);
+		}
+		return aString;
 	}
 
 	/**
-	 * Set the current output filter (legacy - should be deprecated later)
+	 * Set the current output filter 
+	 * 
+	 * TODO legacy - should be deprecated later
+	 * 
 	 * @param filterName (used to create instance of CharacterFilter)
 	 */
 	public static void setCurrentOutputFilter(String filterName)

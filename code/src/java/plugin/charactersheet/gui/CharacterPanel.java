@@ -283,7 +283,7 @@ public class CharacterPanel extends FlippingSplitPane
 					sb.append(className).append(' ').append(j);
 					String title = sb.toString();
 					int spellList =
-							pcclass.getSpellSupport().getCharacterSpell(null,
+							pcclass.getSpellSupport().getCharacterSpells(null,
 								Globals.getDefaultSpellBook(), j).size();
 					if (mainTabs.indexOfTab(title) == -1)
 					{

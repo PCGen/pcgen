@@ -62,7 +62,7 @@ public class PCCountSpellsKnownTermEvaluator
 
 				if (pObj != null)
 				{
-					count = (float) pObj.getSpellSupport().getCharacterSpell(
+					count = (float) pObj.getSpellSupport().getCharacterSpells(
 									null,
 									Globals.getDefaultSpellBook(),
 									nums[1]).size();

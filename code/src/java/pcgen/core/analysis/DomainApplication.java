@@ -116,7 +116,7 @@ public class DomainApplication
 				{
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
 					List<CharacterSpell> aList = aClass.getSpellSupport()
-							.getCharacterSpell(s, book, -1);
+							.getCharacterSpells(s, book, -1);
 
 					if (aList.isEmpty())
 					{
@@ -165,7 +165,7 @@ public class DomainApplication
 			for (Spell spell : domainSpells)
 			{
 				List<CharacterSpell> slist = aClass.getSpellSupport()
-						.getCharacterSpell(spell,
+						.getCharacterSpells(spell,
 								Globals.getDefaultSpellBook(), aLevel);
 				boolean flag = true;
 

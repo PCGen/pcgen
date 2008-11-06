@@ -2471,7 +2471,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				
 				// Do all the pc's innate spells.
 				final List<CharacterSpell> innateSpells= pc.getRace().
-					getSpellSupport().getCharacterSpell(null,Globals.INNATE_SPELL_BOOK_NAME,-1);
+					getSpellSupport().getCharacterSpells(null,Globals.INNATE_SPELL_BOOK_NAME,-1);
 				for (CharacterSpell aCharacterSpell : innateSpells) {
 					if (aCharacterSpell == null)
 					{

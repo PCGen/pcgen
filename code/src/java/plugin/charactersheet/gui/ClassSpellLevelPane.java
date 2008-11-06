@@ -410,7 +410,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 						.getDefaultSpellBook(), pc));
 
 				spellList =
-						pcclass.getSpellSupport().getCharacterSpell(null,
+						pcclass.getSpellSupport().getCharacterSpells(null,
 							Globals.getDefaultSpellBook(), level);
 				spellBook = Globals.getDefaultSpellBook();
 			}

@@ -536,7 +536,7 @@ public class PCClass extends PObject
 			for (int ix = 0; ix <= spellLevel; ++ix)
 			{
 				final List<CharacterSpell> aList =
-						getSpellSupport().getCharacterSpell(null,
+						getSpellSupport().getCharacterSpells(null,
 							Constants.EMPTY_STRING, ix);
 				List<Spell> bList = new ArrayList<Spell>();
 
@@ -3263,7 +3263,7 @@ public class PCClass extends PObject
 	{
 		int m = 0;
 		final List<CharacterSpell> aList =
-				getSpellSupport().getCharacterSpell(null, bookName, aLevel);
+				getSpellSupport().getCharacterSpells(null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{
@@ -3285,7 +3285,7 @@ public class PCClass extends PObject
 	{
 		int m = 0;
 		final List<CharacterSpell> aList =
-				getSpellSupport().getCharacterSpell(null, bookName, aLevel);
+				getSpellSupport().getCharacterSpells(null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{

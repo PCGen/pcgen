@@ -1068,7 +1068,7 @@ public class PcgCombatant extends Combatant
 					StringBuffer spellBuff = new StringBuffer();
 					for (int level = 0; level <=maxLevel; level++)
 					{
-						List<CharacterSpell> spellList = pObj.getSpellSupport().getCharacterSpell(null, spellBookName, level);
+						List<CharacterSpell> spellList = pObj.getSpellSupport().getCharacterSpells(null, spellBookName, level);
 
 						if (spellList.size() >= 1)
 						{

@@ -74,7 +74,7 @@ public class PCCountSpellTimesTermEvaluator
 				{
 					final List<CharacterSpell> bookList =
 							cl.getSpellSupport()
-									.getCharacterSpell(null, bookName, -1);
+									.getCharacterSpells(null, bookName, -1);
 
 					for (CharacterSpell cs : bookList)
 					{
@@ -92,7 +92,7 @@ public class PCCountSpellTimesTermEvaluator
 				final PObject pcClass = pc.getSpellClassAtIndex(classNum);
 				if (pcClass != null)
 				{
-					csList = pcClass.getSpellSupport().getCharacterSpell(
+					csList = pcClass.getSpellSupport().getCharacterSpells(
 							null, bookName, spellLevel);
 				}
 			}

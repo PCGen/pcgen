@@ -40,9 +40,11 @@ import pcgen.util.Logging;
 
 /**
  * <code>TextToken</code> produces the output for the output token TEXT.
+ * 
  * Possible tag formats are:<pre>
  * TEXT.x.y
  * </pre>
+ * 
  * Where x is the action and y is the export tag to be processed.
  */
 public class TextToken extends Token
@@ -53,6 +55,7 @@ public class TextToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -61,6 +64,7 @@ public class TextToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -77,7 +81,7 @@ public class TextToken extends Token
 			if (action.startsWith("REPLACE"))
 			{
 				// Make sure that any "." in the token itself stay together
-				while (action.charAt(action.length()-1)!='}')
+				while (action.charAt(action.length() - 1) != '}')
 				{
 					action += "." + aTok.nextToken();
 				}
@@ -137,11 +141,13 @@ public class TextToken extends Token
 		// TEXT.REPLACEFIRST(regex,newtext)
 		else if (action.startsWith("REPLACE"))
 		{
-			final String replaceType = action.substring(7,action.indexOf('{'));
-			String args = action.substring(action.indexOf('{')+1, action.length()-1);
+			final String replaceType = action.substring(7, action.indexOf('{'));
+			String args =
+					action.substring(action.indexOf('{') + 1,
+						action.length() - 1);
 			int patternEnd = 0;
 
-			for ( ; ; )
+			for (;;)
 			{
 				patternEnd = args.indexOf(',', patternEnd);
 				if (patternEnd <= 0)
@@ -160,8 +166,12 @@ public class TextToken extends Token
 				Logging.errorPrint("Invalid REPLACE token");
 			}
 			String pattern = args.substring(0, patternEnd);
-			pattern = pattern.replaceAll("__LP__", "\\(").replaceAll("__RP__", "\\)").replaceAll("__PLUS__","+");
-			final String replacement = args.substring(patternEnd + 1).trim().replaceFirst("^\"", "").replaceFirst("\"$","");
+			pattern =
+					pattern.replaceAll("__LP__", "\\(").replaceAll("__RP__",
+						"\\)").replaceAll("__PLUS__", "+");
+			final String replacement =
+					args.substring(patternEnd + 1).trim().replaceFirst("^\"",
+						"").replaceFirst("\"$", "");
 			if (replaceType.equalsIgnoreCase("ALL"))
 			{
 				retString = retString.replaceAll(pattern, replacement);
@@ -176,6 +186,7 @@ public class TextToken extends Token
 
 	/**
 	 * Change the supplied string to sentence case.
+	 * 
 	 * @param value The value to be modified. 
 	 * @return The value in sentence case.
 	 */
@@ -216,6 +227,7 @@ public class TextToken extends Token
 
 	/**
 	 * Change the supplied string to sentence case.
+	 * 
 	 * @param value The value to be modified. 
 	 * @return The value in sentence case.
 	 */
@@ -282,8 +294,13 @@ public class TextToken extends Token
 		return result;
 	}
 
+	/**
+	 * Never encode the plain text output
+	 * @return false
+	 */
 	@Override
-	public boolean isEncoded() {
+	public boolean isEncoded()
+	{
 		return false;
 	}
 }

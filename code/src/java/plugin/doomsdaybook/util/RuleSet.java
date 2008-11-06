@@ -1,8 +1,3 @@
-/*
- * Rule.java
- *
- * Created on April 25, 2003, 1:51 PM
- */
 package plugin.doomsdaybook.util;
 
 import gmgen.plugin.Dice;
@@ -10,8 +5,9 @@ import gmgen.plugin.Dice;
 import java.util.ArrayList;
 
 /**
- *
- * @author  devon
+ * This class deals with RuleSets for Random name generation
+ *  
+ * @author Devon Jones
  */
 public class RuleSet extends ArrayList<String> implements DataElement
 {
@@ -32,11 +28,26 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		this(allVars, "", "", 1);
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param allVars
+	 * @param title
+	 * @param id
+	 */
 	public RuleSet(VariableHashMap allVars, String title, String id)
 	{
 		this(allVars, title, id, 1);
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param allVars
+	 * @param title
+	 * @param id
+	 * @param weight
+	 */
 	public RuleSet(VariableHashMap allVars, String title, String id, int weight)
 	{
 		this.allVars = allVars;
@@ -45,12 +56,29 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		this.weight = weight;
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param allVars
+	 * @param title
+	 * @param id
+	 * @param usage
+	 */
 	public RuleSet(VariableHashMap allVars, String title, String id,
 		String usage)
 	{
 		this(allVars, title, id, 1, usage);
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param allVars
+	 * @param title
+	 * @param id
+	 * @param weight
+	 * @param usage
+	 */
 	public RuleSet(VariableHashMap allVars, String title, String id,
 		int weight, String usage)
 	{
@@ -61,6 +89,12 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		this.usage = usage;
 	}
 
+	/**
+	 * Get the data
+	 * 
+	 * @return A list of data
+	 * @throws Exception 
+	 */
 	public ArrayList<DataValue> getData() throws Exception
 	{
 		retList.clear();
@@ -108,6 +142,13 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		return retList;
 	}
 
+	/**
+	 * Get the data given a choice
+	 * 
+	 * @param choice 
+	 * @return List of data 
+	 * @throws Exception 
+	 */
 	public ArrayList<DataValue> getData(int choice) throws Exception
 	{
 		retList.clear();
@@ -137,26 +178,48 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		return retList;
 	}
 
+	/**
+	 * Set the id
+	 * @param id
+	 */
 	public void setId(String id)
 	{
 		this.id = id;
 	}
 
+	/**
+	 * Get the id
+	 * @return id
+	 */
 	public String getId()
 	{
 		return id;
 	}
 
+	/**
+	 * Get the last data
+	 * @return the last list of data
+	 */
 	public ArrayList<DataValue> getLastData()
 	{
 		return retList;
 	}
 
+	/**
+	 * Get the last rule
+	 * @return last rule
+	 */
 	public Rule getLastRule()
 	{
 		return retRule;
 	}
 
+	/**
+	 * Get the range
+	 * 
+	 * @return range
+	 * @throws Exception
+	 */
 	public int getRange() throws Exception
 	{
 		int rangeTop = 0;
@@ -175,6 +238,12 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		return rangeTop;
 	}
 
+	/**
+	 * Get the rule
+	 * 
+	 * @return rule
+	 * @throws Exception
+	 */
 	public Rule getRule() throws Exception
 	{
 		int rangeTop = getRange();
@@ -221,6 +290,13 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		return retRule;
 	}
 
+	/**
+	 * Get the rule given a choice
+	 * 
+	 * @param choice
+	 * @return Rule
+	 * @throws Exception
+	 */
 	public Rule getRule(int choice) throws Exception
 	{
 		//select the detail to return
@@ -248,36 +324,63 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		return retRule;
 	}
 
+	/**
+	 * Set the title
+	 * @param title
+	 */
 	public void setTitle(String title)
 	{
 		this.title = title;
 	}
 
+	/**
+	 * Get the title
+	 * @return title
+	 */
 	public String getTitle()
 	{
 		return title;
 	}
 
+	/**
+	 * Set the usage
+	 * @param usage
+	 */
 	public void setUsage(String usage)
 	{
 		this.usage = usage;
 	}
 
+	/**
+	 * Get the usage
+	 * @return usage
+	 */
 	public String getUsage()
 	{
 		return usage;
 	}
 
+	/**
+	 * Set the weight
+	 * @param weight
+	 */
 	public void setWeight(int weight)
 	{
 		this.weight = weight;
 	}
 
+	/**
+	 * Get the weight
+	 * @return weight
+	 */
 	public int getWeight()
 	{
 		return weight;
 	}
 
+	/**
+	 * @see java.util.AbstractCollection#toString()
+	 */
 	@Override
 	public String toString()
 	{

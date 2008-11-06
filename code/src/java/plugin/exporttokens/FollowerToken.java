@@ -38,7 +38,6 @@ import pcgen.util.Logging;
 
 /**
  * Deal with FOLLOWER Token
- * 
  *
  * Last Editor: $Author: jdempsey $
  * Last Edited: $Date: 2006-05-26 18:25:10 +1000 (Fri, 26 May 2006) $
@@ -54,6 +53,7 @@ public class FollowerToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -62,6 +62,7 @@ public class FollowerToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{

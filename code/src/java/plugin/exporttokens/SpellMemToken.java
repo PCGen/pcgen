@@ -134,7 +134,7 @@ public class SpellMemToken extends Token
 					{
 						// Get the spells provided by the class
 						List<CharacterSpell> aList =
-								pcClass.getSpellSupport().getCharacterSpell(
+								pcClass.getSpellSupport().getCharacterSpells(
 									null, bookName, spellLevel);
 
 						for (CharacterSpell cs : aList)
@@ -162,7 +162,7 @@ public class SpellMemToken extends Token
 				{
 					// List of spells provided by this PObject
 					final List<CharacterSpell> charSpells =
-							aObject.getSpellSupport().getCharacterSpell(null,
+							aObject.getSpellSupport().getCharacterSpells(null,
 								bookName, spellLevel);
 
 					if (spellNumber < charSpells.size())
@@ -503,7 +503,7 @@ public class SpellMemToken extends Token
 			}
 
 			final List<CharacterSpell> charSpells =
-					aObject.getSpellSupport().getCharacterSpell(aSpell,
+					aObject.getSpellSupport().getCharacterSpells(aSpell,
 						bookName, spellLevel);
 			boolean isDomainOnly = true;
 
