@@ -93,7 +93,10 @@ import pcgen.util.enumeration.Visibility;
  * This class deals with exporting a PC to various types of output sheets 
  * including XML, HTML, PDF and Text.
  * 
- * <code>ExportHandler</code>.
+ * Very basically it takes a PC (or PCs) and replaces tokens in a character 
+ * sheet template with the appropriate values from the PC (PCs).  Much of the 
+ * code in here deals with replacing tokens and dealing with the FOR and IIF 
+ * constructs that can be found in the character sheet templates. 
  *
  * @author Thomas Behr
  * @version $Revision$
@@ -127,8 +130,8 @@ public final class ExportHandler
 	private File templateFile;
 
 	/**
-	 * This holds 'things that we might want to loop over, for use with |FOR 
-	 * and |IIF?
+	 * This holds 'things that we might want to loop over', for use with |FOR 
+	 * and |IIF constructs
 	 * 
 	 * TODO This is pretty ugly.  No idea what sort of junk could be in here.
 	 */
@@ -142,7 +145,9 @@ public final class ExportHandler
 	private boolean skipMath;
 
 	/**
-	 * A state variable to indicate whether we can write out a token, 
+	 * A state variable to indicate whether we should write out what we are currently 
+	 * processing, would be set to false for example if we were filtering some output
+	 *  
 	 * defaults to true.
 	 */
 	private boolean canWrite = true;
@@ -154,7 +159,8 @@ public final class ExportHandler
 	private boolean inLabel;
 
 	/**
-	 * Constructor.
+	 * Constructor.  Populates the token map (a list of possible output tokens) and 
+	 * sets the character sheeet template we are using.
 	 *
 	 * @param templateFile the template to use while exporting.
 	 */
@@ -169,7 +175,7 @@ public final class ExportHandler
 	 * 
 	 * @param aPC The PC being exported
 	 * @param aString the string which will have its tokens replaced 
-	 * @param output the object that collects the output
+	 * @param output the object that represents the sheet we are exporting
 	 */
 	public void replaceTokenSkipMath(PlayerCharacter aPC, String aString,
 		BufferedWriter output)
@@ -505,7 +511,7 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Helper method to evaluate an expression
+	 * Helper method to evaluate an expression, used by OIF and IIF tokens
 	 * 
 	 * @param expr Expression to evaluate
 	 * @param aPC PC containing values to help evaluate the expression
@@ -1832,16 +1838,16 @@ public final class ExportHandler
 	{
 		try
 		{
-			// If we cannot write and the string is non empty and the first character
-			// is not a % character then return 0
-			// TODO Not really understanding why :)
+			// If we 'cannot write' and the string is non-empty, non-filter token then 
+			// there is nothing to replace so return 0
 			if (!canWrite && (aString.length() > 0)
 				&& (aString.charAt(0) != '%'))
 			{
 				return 0;
 			}
 
-			// If the only character is % then canWrite is set to true and return 0
+			// If it is purely a filter everything (not a filter on a specific token) then 
+			// there is nothing to replace so return 0
 			if ("%".equals(aString))
 			{
 				inLabel = false;
@@ -1854,756 +1860,29 @@ public final class ExportHandler
 			if (aString.startsWith("${") && aString.endsWith("}"))
 			{
 				String jepString = aString.substring(2, aString.length() - 1);
-				FileAccess.write(output, aPC.getVariableValue(jepString, "")
-					.toString());
+				String variableValue =
+						aPC.getVariableValue(jepString, "").toString();
+				FileAccess.write(output, variableValue);
 				return aString.trim().length();
 			}
 
 			// TODO Why?
 			FileAccess.maxLength(-1);
 
-			// Start the |%blah| token section
-			if ((aString.length() > 0) && (aString.charAt(0) == '%')
-				&& (aString.length() > 1) && (aString.lastIndexOf('<') == -1)
-				&& (aString.lastIndexOf('>') == -1))
+			// Start the |%blah| token section, e.g. Deal with filtering tokens (e.g.  If it doesn't meet a criteria then don't write)
+			// If the string is a non empty filter and does not have a '<' or a '>' in it then replace the token
+			if (isFilterToken(aString))
 			{
-				canWrite = true;
-
-				// Get the merge strategy for equipment
-				int merge = getEquipmentMergingStrategy(aString);
-
-				// Deal with GAMEMODE:
-				if (aString.substring(1).startsWith("GAMEMODE:"))
-				{
-					if (aString.substring(10).endsWith(
-						GameModeToken.getGameModeToken()))
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with REGION
-				if ("REGION".equals(aString.substring(1)))
-				{
-					if (aPC.getRegion().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with NOTES
-				if ("NOTES".equals(aString.substring(1)))
-				{
-					if (aPC.getNotesList().size() <= 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with SKILLPOINTS
-				if ("SKILLPOINTS".equals(aString.substring(1)))
-				{
-					if (SkillpointsToken.getUnusedSkillPoints(aPC) == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with TEMPLATE
-				if (aString.substring(1).startsWith("TEMPLATE"))
-				{
-					// New token syntax |%TEMPLATE.x| instead of |%TEMPLATEx|
-					final StringTokenizer aTok =
-							new StringTokenizer(aString.substring(1), ".");
-					final List<PCTemplate> tList = aPC.getTemplateList();
-					String fString = aTok.nextToken();
-					final int index;
-
-					if (aTok.hasMoreTokens())
-					{
-						index = Integer.parseInt(aTok.nextToken());
-					}
-					else
-					{
-						// When removing old syntax, remove the else and leave the if
-						if ("TEMPLATE".equals(fString))
-						{
-							if (tList.isEmpty())
-							{
-								canWrite = false;
-							}
-
-							return 0;
-						}
-						Logging
-							.errorPrint("Old syntax %TEMPLATEx will be replaced for %TEMPLATE.x");
-						index = Integer.parseInt(aString.substring(9));
-					}
-
-					if (index >= tList.size())
-					{
-						canWrite = false;
-
-						return 0;
-					}
-
-					final PCTemplate template = tList.get(index);
-					if (template.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT
-						&& template.getSafe(ObjectKey.VISIBILITY) != Visibility.OUTPUT_ONLY)
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with FOLLOWER
-				if ("FOLLOWER".equals(aString.substring(1)))
-				{
-					if (aPC.getFollowerList().isEmpty())
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with FOLLOWEROF
-				if ("FOLLOWEROF".equals(aString.substring(1)))
-				{
-					if (aPC.getMasterPC() == null)
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with FOLLOWERTYPE.
-				if (aString.substring(1).startsWith("FOLLOWERTYPE."))
-				{
-					List<Follower> aList = new ArrayList<Follower>();
-
-					for (Follower follower : aPC.getFollowerList())
-					{
-						// only allow followers that
-						// are currently loaded
-						// Otherwise the stats a zero
-						for (PlayerCharacter pc : Globals.getPCList())
-						{
-							if (pc.getFileName().equals(follower.getFileName()))
-							{
-								aList.add(follower);
-							}
-						}
-					}
-
-					StringTokenizer aTok = new StringTokenizer(aString, ".");
-					aTok.nextToken(); // FOLLOWERTYPE
-
-					String typeString = aTok.nextToken();
-
-					for (int i = aList.size() - 1; i >= 0; --i)
-					{
-						final Follower fol = aList.get(i);
-
-						if (!fol.getType().getKeyName().equalsIgnoreCase(
-							typeString))
-						{
-							aList.remove(i);
-						}
-					}
-
-					if (aList.isEmpty())
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with PROHIBITEDLIST
-				if ("PROHIBITEDLIST".equals(aString.substring(1)))
-				{
-					for (PCClass pcClass : aPC.getClassList())
-					{
-						if (pcClass.getLevel() > 0)
-						{
-							if (pcClass
-								.containsListFor(ListKey.PROHIBITED_SPELLS)
-								|| aPC.containsAssocList(pcClass,
-									AssociationListKey.PROHIBITED_SCHOOLS))
-							{
-								return 0;
-							}
-						}
-					}
-
-					canWrite = false;
-
-					return 0;
-				}
-
-				// Deal with CATCHPHRASE
-				if ("CATCHPHRASE".equals(aString.substring(1)))
-				{
-					if (aPC.getCatchPhrase().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getCatchPhrase()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with LOCATION
-				if ("LOCATION".equals(aString.substring(1)))
-				{
-					if (aPC.getLocation().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getLocation()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with RESIDENCE
-				if ("RESIDENCE".equals(aString.substring(1)))
-				{
-					if (aPC.getResidence().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getResidence()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with PHOBIAS
-				if ("PHOBIAS".equals(aString.substring(1)))
-				{
-					if (aPC.getPhobias().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getPhobias()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with INTERESTS
-				if ("INTERESTS".equals(aString.substring(1)))
-				{
-					if (aPC.getInterests().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getInterests()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with SPEECHTENDENCY
-				if ("SPEECHTENDENCY".equals(aString.substring(1)))
-				{
-					if (aPC.getSpeechTendency().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getSpeechTendency()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with PERSONALITY1
-				if ("PERSONALITY1".equals(aString.substring(1)))
-				{
-					if (aPC.getTrait1().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getTrait1()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with PERSONALITY2
-				if ("PERSONALITY2".equals(aString.substring(1)))
-				{
-					if (aPC.getTrait2().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getTrait2()).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with MISC.FUNDS
-				if ("MISC.FUNDS".equals(aString.substring(1)))
-				{
-					if (aPC.getMiscList().get(0).equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if ((aPC.getMiscList().get(0)).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with MISC.COMPANIONS and COMPANIONS
-				if ("COMPANIONS".equals(aString.substring(1))
-					|| "MISC.COMPANIONS".equals(aString.substring(1)))
-				{
-					if (aPC.getMiscList().get(1).equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if (aPC.getMiscList().get(1).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				// Deal with MISC.MAGIC
-				if ("MISC.MAGIC".equals(aString.substring(1)))
-				{
-					if (aPC.getMiscList().get(2).equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if (aPC.getMiscList().get(2).trim().length() == 0)
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with DESC
-				if ("DESC".equals(aString.substring(1)))
-				{
-					if (aPC.getDescription().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if (aPC.getDescription().trim().length() == 0)
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with BIO
-				if ("BIO".equals(aString.substring(1)))
-				{
-					if (aPC.getBio().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					else if (aPC.getBio().trim().length() == 0)
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with SUBREGION
-				if ("SUBREGION".equals(aString.substring(1)))
-				{
-					if (aPC.getSubRegion().equals(Constants.s_NONE))
-					{
-						canWrite = false;
-					}
-					return 0;
-				}
-
-				// Deal with TEMPBONUS.
-				if (aString.substring(1).startsWith("TEMPBONUS."))
-				{
-					StringTokenizer aTok =
-							new StringTokenizer(aString.substring(1), ".");
-					aTok.nextToken(); // discard first one
-
-					int index = -1;
-					if (aTok.hasMoreTokens())
-					{
-						index = Integer.parseInt(aTok.nextToken());
-					}
-
-					if (index > aPC.getNamedTempBonusList().size())
-					{
-						canWrite = false;
-						return 0;
-					}
-
-					if (aPC.getUseTempMods())
-					{
-						canWrite = true;
-						return 1;
-					}
-				}
-
-				if (aString.substring(1).startsWith("ARMOR.ITEM"))
-				{
-					// New token syntax |%ARMOR.ITEM.x| instead of |%ARMOR.ITEMx|
-					final StringTokenizer aTok =
-							new StringTokenizer(aString.substring(1), ".");
-					aTok.nextToken(); // ARMOR
-
-					String fString = aTok.nextToken();
-					final Collection<Equipment> aArrayList =
-							new ArrayList<Equipment>();
-
-					for (Equipment eq : aPC.getEquipmentListInOutputOrder())
-					{
-						if (eq.hasBonusWithInfo(aPC, "AC")
-							&& (!eq.isArmor() && !eq.isShield()))
-						{
-							aArrayList.add(eq);
-						}
-					}
-
-					// When removing old syntax, remove the else and leave the if
-					final int count;
-					if (aTok.hasMoreTokens())
-					{
-						count = Integer.parseInt(aTok.nextToken());
-					}
-					else
-					{
-						Logging
-							.errorPrint("Old syntax %ARMOR.ITEMx will be replaced for %ARMOR.ITEM.x");
-
-						count =
-								Integer.parseInt(fString.substring(fString
-									.length() - 1));
-					}
-
-					if (count > aArrayList.size())
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				if (aString.substring(1).startsWith("ARMOR.SHIELD"))
-				{
-					// New token syntax |%ARMOR.SHIELD.x| instead of |%ARMOR.SHIELDx|
-					final StringTokenizer aTok =
-							new StringTokenizer(aString.substring(1), ".");
-					aTok.nextToken(); // ARMOR
-
-					String fString = aTok.nextToken();
-					final int count;
-					final List<Equipment> aArrayList =
-							aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
-
-					// When removing old syntax, remove the else and leave the if
-					if (aTok.hasMoreTokens())
-					{
-						count = Integer.parseInt(aTok.nextToken());
-					}
-					else
-					{
-						Logging
-							.errorPrint("Old syntax %ARMOR.SHIELDx will be replaced for %ARMOR.SHIELD.x");
-
-						count =
-								Integer.parseInt(fString.substring(fString
-									.length() - 1));
-					}
-
-					if (count > aArrayList.size())
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				if (aString.substring(1).startsWith("ARMOR"))
-				{
-					// New token syntax |%ARMOR.x| instead of |%ARMORx|
-					final StringTokenizer aTok =
-							new StringTokenizer(aString.substring(1), ".");
-					String fString = aTok.nextToken();
-					List<Equipment> aArrayList =
-							aPC.getEquipmentOfTypeInOutputOrder("ARMOR", 3);
-
-					//Get list of shields.  Remove any from list of armor
-					//Since shields are included in the armor list they will appear twice and they really shouldn't be in the list of armor
-					List<Equipment> shieldList =
-							aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
-
-					int z = 0;
-					while (z < shieldList.size())
-					{
-						aArrayList.remove(shieldList.get(z));
-						z++;
-					}
-
-					// When removing old syntax, remove the else and leave the if
-					final int count;
-					if (aTok.hasMoreTokens())
-					{
-						count = Integer.parseInt(aTok.nextToken());
-					}
-					else
-					{
-						Logging
-							.errorPrint("Old syntax %ARMORx will be replaced for %ARMOR.x");
-
-						count =
-								Integer.parseInt(fString.substring(fString
-									.length() - 1));
-					}
-
-					if (count > aArrayList.size())
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				if ("WEAPONPROF".equals(aString.substring(1)))
-				{
-					if (!SettingsHandler.getWeaponProfPrintout())
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				if (aString.substring(1).startsWith("WEAPON"))
-				{
-					// New token syntax |%WEAPON.x| instead of |%WEAPONx|
-					final StringTokenizer aTok =
-							new StringTokenizer(aString.substring(1), ".");
-					String fString = aTok.nextToken();
-					final List<Equipment> aArrayList =
-							aPC.getExpandedWeapons(merge);
-
-					int count;
-
-					// When removing old syntax, remove the else and leave the if
-					if (aTok.hasMoreTokens())
-					{
-						count = Integer.parseInt(aTok.nextToken());
-					}
-					else
-					{
-						Logging
-							.errorPrint("Old syntax %WEAPONx will be replaced for %WEAPON.x");
-
-						count =
-								Integer.parseInt(fString.substring(fString
-									.length() - 1));
-					}
-
-					if (count >= aArrayList.size())
-					{
-						canWrite = false;
-					}
-
-					return 0;
-				}
-
-				if (aString.substring(1).startsWith("DOMAIN"))
-				{
-					// New token syntax |%DOMAIN.x| instead of |%DOMAINx|
-					final StringTokenizer aTok =
-							new StringTokenizer(aString.substring(1), ".");
-					String fString = aTok.nextToken();
-					final int index;
-
-					// When removing old syntax, remove the else and leave the if
-					if (aTok.hasMoreTokens())
-					{
-						index = Integer.parseInt(aTok.nextToken());
-					}
-					else
-					{
-						Logging
-							.errorPrint("Old syntax %DOMAINx will be replaced for %DOMAIN.x");
-
-						index = Integer.parseInt(fString.substring(6));
-					}
-
-					canWrite = (index <= aPC.getCharacterDomainList().size());
-
-					return 0;
-				}
-
-				if (aString.substring(1).startsWith("SPELLLISTBOOK"))
-				{
-					if (SettingsHandler.getPrintSpellsWithPC())
-					{
-						// New token syntax |%SPELLLISTBOOK.x| instead of |%SPELLLISTBOOKx|
-						// To remove old syntax, replace i with 15
-						int i;
-						if (aString.charAt(14) == '.')
-						{
-							i = 15;
-						}
-						else
-						{
-							i = 14;
-						}
-
-						return replaceTokenSpellListBook(aString.substring(i),
-							aPC);
-					}
-					canWrite = false;
-					return 0;
-				}
-
-				if (aString.substring(1).startsWith("VAR."))
-				{
-					replaceTokenVar(aString, aPC);
-					return 0;
-				}
-
-				if (aString.substring(1).startsWith("COUNT["))
-				{
-					if (getVarValue(aString.substring(1), aPC) > 0)
-					{
-						canWrite = true;
-
-						return 1;
-					}
-
-					canWrite = false;
-
-					return 0;
-				}
-
-				// finaly, check for classes
-				final StringTokenizer aTok =
-						new StringTokenizer(aString.substring(1), ",", false);
-
-				boolean found = false;
-				while (aTok.hasMoreTokens())
-				{
-					String cString = aTok.nextToken();
-					StringTokenizer bTok =
-							new StringTokenizer(cString, "=", false);
-					String bString = bTok.nextToken();
-					int i = 0;
-
-					if (bTok.hasMoreTokens())
-					{
-						i = Integer.parseInt(bTok.nextToken());
-					}
-
-					PCClass aClass = aPC.getClassKeyed(bString);
-					found = aClass != null;
-
-					if (aClass == null)
-					{
-						canWrite = false;
-					}
-					else
-					{
-						canWrite = (aClass.getLevel() >= i);
-					}
-					if (bString.startsWith("SPELLLISTCLASS"))
-					{
-						// New token syntax |%SPELLLISTCLASS.x| instead of |%SPELLLISTCLASSx|
-						// To remove old syntax, keep the if and remove the else
-						if (bString.charAt(14) == '.')
-						{
-							bString = bString.substring(15);
-						}
-						else
-						{
-							bString = bString.substring(14);
-						}
-
-						found = true;
-
-						PObject aObject =
-								aPC.getSpellClassAtIndex(Integer
-									.parseInt(bString));
-						canWrite = (aObject != null);
-					}
-				}
-
-				if (found)
-				{
-					inLabel = true;
-
-					return 0;
-				}
-				canWrite = false;
-				inLabel = true;
-
-				return 0;
+				return dealWithFilteredTokens(aString, aPC);
 			}
 
 			String tokenString = aString;
 
-			// done with |%blah| tokens
 			// now check for max length tokens
-			// eg: |SUB10.ARMOR.AC|
-			if ((tokenString.indexOf("SUB") == 0)
-				&& (tokenString.indexOf(".") > 3))
+			// e.g: |SUB10.ARMOR.AC|
+			if (isValidSubToken(tokenString))
 			{
-				int iEnd = tokenString.indexOf(".");
-				int maxLength;
-
-				try
-				{
-					maxLength =
-							Integer.parseInt(tokenString.substring(3, iEnd));
-				}
-				catch (NumberFormatException ex)
-				{
-					// Hmm, no number?
-					Logging.errorPrint("Number format error: " + tokenString);
-					maxLength = -1;
-				}
-
-				if (maxLength > 0)
-				{
-					tokenString = tokenString.substring(iEnd + 1);
-					FileAccess.maxLength(maxLength);
-				}
+				tokenString = replaceSubToken(tokenString);
 			}
 
 			// Now check for the rest of the tokens
@@ -2616,6 +1895,8 @@ public final class ExportHandler
 			StringTokenizer tok = new StringTokenizer(tokenString, ".,", false);
 			String firstToken = tok.nextToken();
 
+			// Get the remaining token/test string 
+			// TODO Understand this
 			String testString = tokenString;
 			if (testString.indexOf(',') > -1)
 			{
@@ -2628,80 +1909,39 @@ public final class ExportHandler
 
 			int len = 1;
 
-			//Leave
-			if (tokenString.startsWith("FOR.")
-				|| tokenString.startsWith("DFOR."))
+			// Deal with FOR/DFOR token
+			if (isForOrDForToken(tokenString))
 			{
-				FileAccess.maxLength(-1);
-
-				existsOnly = false;
-				noMoreItems = false;
-				checkBefore = false;
-
-				replaceTokenForDfor(tokenString, output, aPC);
-
-				existsOnly = false;
-				noMoreItems = false;
-
+				processLoopToken(tokenString, output, aPC);
 				return 0;
 			}
-
-			//Leave
+			// Deal with OIF token
 			else if (tokenString.startsWith("OIF("))
 			{
 				replaceTokenOIF(tokenString, output, aPC);
 			}
-
-			//Leave
-			else if (((testString.indexOf('+') >= 0)
-				|| (testString.indexOf('-') >= 0)
-				|| (testString.indexOf(".INTVAL") >= 0)
-				|| (testString.indexOf(".SIGN") >= 0)
-				|| (testString.indexOf(".NOZERO") >= 0)
-				|| (testString.indexOf(".TRUNC") >= 0)
-				|| (testString.indexOf('*') >= 0) || (testString.indexOf('/') >= 0))
-				&& (!skipMath))
+			// Deal with mathematical tokenLeave
+			else if (containsMathematicalToken(testString) && (!skipMath))
 			{
 				FileAccess.maxLength(-1);
 				FileAccess.write(output, mathMode(tokenString, aPC));
-
 				return 0;
 			}
-
-			//Leave
+			// Deal with CSHEETTAG2.
 			else if (tokenString.startsWith("CSHEETTAG2."))
 			{
 				csheetTag2 = tokenString.substring(11, 12);
 				FileAccess.maxLength(-1);
-
 				return 0;
 			}
-
-			//Leave
+			// Else if the token is in the list of valid output tokens
 			else if (tokenMap.get(firstToken) != null)
 			{
 				Token token = tokenMap.get(firstToken);
 				if (token.isEncoded())
 				{
-					/*
-					int indexOfTilda = tokenString.indexOf('~');
-					String tokenString2 = tokenString;
-					String remainder = "";
-					if (indexOfTilda > 0)
-					{
-						tokenString2 =
-								tokenString.substring(0, tokenString
-									.indexOf('~'));
-						remainder =
-								tokenString.substring(tokenString.indexOf('~'));
-					}
-					FileAccess.encodeWrite(output, token.getToken(tokenString2,
-						aPC, this));
-					FileAccess.write(output, remainder);
-					*/
 					FileAccess.encodeWrite(output, token.getToken(tokenString,
 						aPC, this));
-
 				}
 				else
 				{
@@ -2709,7 +1949,7 @@ public final class ExportHandler
 						this));
 				}
 			}
-
+			// Default case
 			else
 			{
 				len = tokenString.trim().length();
@@ -2729,7 +1969,6 @@ public final class ExportHandler
 			}
 
 			FileAccess.maxLength(-1);
-
 			return len;
 		}
 		catch (Exception exc)
@@ -2737,6 +1976,833 @@ public final class ExportHandler
 			Logging.errorPrint("Error replacing " + aString, exc);
 			return 0;
 		}
+	}
+
+	/**
+	 * Helper method to determine if a token is a filter token or not
+	 * 
+	 * @param aString token to evaluate
+	 * @return true if it is a filter token
+	 */
+	private boolean isFilterToken(String aString)
+	{
+		if ((aString.length() > 0) && (aString.charAt(0) == '%')
+			&& (aString.length() > 1) && (aString.lastIndexOf('<') == -1)
+			&& (aString.lastIndexOf('>') == -1))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Helper method, determines if a token is a valid SUB token
+	 * 
+	 * @param tokenString token to evaluate
+	 * @return true if it is a valid SUB token
+	 */
+	private boolean isValidSubToken(String tokenString)
+	{
+		if (tokenString.indexOf("SUB") == 0 && (tokenString.indexOf(".") > 3))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Helper method to detect if a token is a DFOR or FOR token
+	 * 
+	 * @param tokenString token to check
+	 * @return true if it is a DFOR or FOR token 
+	 */
+	boolean isForOrDForToken(String tokenString)
+	{
+		if (tokenString.startsWith("FOR.") || tokenString.startsWith("DFOR."))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Helper method to determine if a string contains a mathematical token
+	 * 
+	 * @param testString String to test
+	 * @return true if it 
+	 */
+	private boolean containsMathematicalToken(String testString)
+	{
+		if ((testString.indexOf('+') >= 0) || (testString.indexOf('-') >= 0)
+			|| (testString.indexOf(".INTVAL") >= 0)
+			|| (testString.indexOf(".SIGN") >= 0)
+			|| (testString.indexOf(".NOZERO") >= 0)
+			|| (testString.indexOf(".TRUNC") >= 0)
+			|| (testString.indexOf('*') >= 0) || (testString.indexOf('/') >= 0))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Helper method, deals with replacing the SUB token
+	 * 
+	 * @param tokenString the SUB token
+	 * @return The altered SUB token
+	 */
+	private String replaceSubToken(String tokenString)
+	{
+		int iEnd = tokenString.indexOf(".");
+		int maxLength;
+
+		try
+		{
+			maxLength = Integer.parseInt(tokenString.substring(3, iEnd));
+		}
+		catch (NumberFormatException ex)
+		{
+			// Hmm, no number?
+			Logging.errorPrint("Number format error: " + tokenString);
+			maxLength = -1;
+		}
+
+		if (maxLength > 0)
+		{
+			tokenString = tokenString.substring(iEnd + 1);
+			FileAccess.maxLength(maxLength);
+		}
+
+		return tokenString;
+	}
+
+	/**
+	 * Helper method that deals with Processing the FOR./DFOR. tokens as a 
+	 * DFOR loop
+	 * 
+	 * @param tokenString the token to loop over
+	 * @param output The writer we write to
+	 * @param aPC The PC we are exporting
+	 */
+	private void processLoopToken(String tokenString, BufferedWriter output,
+		PlayerCharacter aPC)
+	{
+		FileAccess.maxLength(-1);
+
+		existsOnly = false;
+		noMoreItems = false;
+		checkBefore = false;
+
+		replaceTokenForDfor(tokenString, output, aPC);
+
+		existsOnly = false;
+		noMoreItems = false;
+	}
+
+	/**
+	 * Helper method for replaceToken, deals with the filter tokens e.g. %DOMAIN, basically 
+	 * returns 0 if we should not be writing something out, e.g. It's filtered out
+	 * 
+	 * @param aString
+	 * @param aPC
+	 * @return 0 If we should not be writing something out 
+	 */
+	private int dealWithFilteredTokens(String aString, PlayerCharacter aPC)
+	{
+		// Start by stating that we are allowed to write
+		canWrite = true;
+
+		// Get the merge strategy for equipment for later use
+		int merge = getEquipmentMergingStrategy(aString);
+
+		// Filter out on GAMEMODE
+		if (aString.substring(1).startsWith("GAMEMODE:"))
+		{
+			if (aString.substring(10)
+				.endsWith(GameModeToken.getGameModeToken()))
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out REGION
+		if ("REGION".equals(aString.substring(1)))
+		{
+			if (aPC.getRegion().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out NOTES
+		if ("NOTES".equals(aString.substring(1)))
+		{
+			if (aPC.getNotesList().size() <= 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out SKILLPOINTS
+		if ("SKILLPOINTS".equals(aString.substring(1)))
+		{
+			if (SkillpointsToken.getUnusedSkillPoints(aPC) == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out TEMPLATE
+		if (aString.substring(1).startsWith("TEMPLATE"))
+		{
+			// New token syntax |%TEMPLATE.x| instead of |%TEMPLATEx|
+			final StringTokenizer aTok =
+					new StringTokenizer(aString.substring(1), ".");
+			final List<PCTemplate> tList = aPC.getTemplateList();
+			String fString = aTok.nextToken();
+			final int index;
+
+			if (aTok.hasMoreTokens())
+			{
+				index = Integer.parseInt(aTok.nextToken());
+			}
+			else
+			{
+				// When removing old syntax, remove the else and leave the if
+				if ("TEMPLATE".equals(fString))
+				{
+					if (tList.isEmpty())
+					{
+						canWrite = false;
+					}
+					return 0;
+				}
+				Logging
+					.errorPrint("Old syntax %TEMPLATEx will be replaced for %TEMPLATE.x");
+				index = Integer.parseInt(aString.substring(9));
+			}
+
+			if (index >= tList.size())
+			{
+				canWrite = false;
+				return 0;
+			}
+
+			final PCTemplate template = tList.get(index);
+			if (template.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT
+				&& template.getSafe(ObjectKey.VISIBILITY) != Visibility.OUTPUT_ONLY)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out FOLLOWER
+		if ("FOLLOWER".equals(aString.substring(1)))
+		{
+			if (aPC.getFollowerList().isEmpty())
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out FOLLOWEROF
+		if ("FOLLOWEROF".equals(aString.substring(1)))
+		{
+			if (aPC.getMasterPC() == null)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out FOLLOWERTYPE.
+		if (aString.substring(1).startsWith("FOLLOWERTYPE."))
+		{
+			List<Follower> aList = new ArrayList<Follower>();
+
+			for (Follower follower : aPC.getFollowerList())
+			{
+				// only allow followers that
+				// are currently loaded
+				// Otherwise the stats a zero
+				for (PlayerCharacter pc : Globals.getPCList())
+				{
+					if (pc.getFileName().equals(follower.getFileName()))
+					{
+						aList.add(follower);
+					}
+				}
+			}
+
+			StringTokenizer aTok = new StringTokenizer(aString, ".");
+			aTok.nextToken(); // FOLLOWERTYPE
+
+			String typeString = aTok.nextToken();
+
+			for (int i = aList.size() - 1; i >= 0; --i)
+			{
+				final Follower fol = aList.get(i);
+
+				if (!fol.getType().getKeyName().equalsIgnoreCase(typeString))
+				{
+					aList.remove(i);
+				}
+			}
+
+			if (aList.isEmpty())
+			{
+				canWrite = false;
+			}
+
+			return 0;
+		}
+
+		// Filter out PROHIBITEDLIST
+		if ("PROHIBITEDLIST".equals(aString.substring(1)))
+		{
+			for (PCClass pcClass : aPC.getClassList())
+			{
+				if (pcClass.getLevel() > 0)
+				{
+					if (pcClass.containsListFor(ListKey.PROHIBITED_SPELLS)
+						|| aPC.containsAssocList(pcClass,
+							AssociationListKey.PROHIBITED_SCHOOLS))
+					{
+						return 0;
+					}
+				}
+			}
+
+			canWrite = false;
+
+			return 0;
+		}
+
+		// Filter out CATCHPHRASE
+		if ("CATCHPHRASE".equals(aString.substring(1)))
+		{
+			if (aPC.getCatchPhrase().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getCatchPhrase()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out LOCATION
+		if ("LOCATION".equals(aString.substring(1)))
+		{
+			if (aPC.getLocation().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getLocation()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out RESIDENCE
+		if ("RESIDENCE".equals(aString.substring(1)))
+		{
+			if (aPC.getResidence().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getResidence()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out PHOBIAS
+		if ("PHOBIAS".equals(aString.substring(1)))
+		{
+			if (aPC.getPhobias().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getPhobias()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out INTERESTS
+		if ("INTERESTS".equals(aString.substring(1)))
+		{
+			if (aPC.getInterests().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getInterests()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out SPEECHTENDENCY
+		if ("SPEECHTENDENCY".equals(aString.substring(1)))
+		{
+			if (aPC.getSpeechTendency().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getSpeechTendency()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out PERSONALITY1
+		if ("PERSONALITY1".equals(aString.substring(1)))
+		{
+			if (aPC.getTrait1().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getTrait1()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out PERSONALITY2
+		if ("PERSONALITY2".equals(aString.substring(1)))
+		{
+			if (aPC.getTrait2().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getTrait2()).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out MISC.FUNDS
+		if ("MISC.FUNDS".equals(aString.substring(1)))
+		{
+			if (aPC.getMiscList().get(0).equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if ((aPC.getMiscList().get(0)).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out MISC.COMPANIONS and COMPANIONS
+		if ("COMPANIONS".equals(aString.substring(1))
+			|| "MISC.COMPANIONS".equals(aString.substring(1)))
+		{
+			if (aPC.getMiscList().get(1).equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if (aPC.getMiscList().get(1).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out MISC.MAGIC
+		if ("MISC.MAGIC".equals(aString.substring(1)))
+		{
+			if (aPC.getMiscList().get(2).equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if (aPC.getMiscList().get(2).trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out DESC
+		if ("DESC".equals(aString.substring(1)))
+		{
+			if (aPC.getDescription().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if (aPC.getDescription().trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out BIO
+		if ("BIO".equals(aString.substring(1)))
+		{
+			if (aPC.getBio().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			else if (aPC.getBio().trim().length() == 0)
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out SUBREGION
+		if ("SUBREGION".equals(aString.substring(1)))
+		{
+			if (aPC.getSubRegion().equals(Constants.s_NONE))
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out TEMPBONUS.
+		if (aString.substring(1).startsWith("TEMPBONUS."))
+		{
+			StringTokenizer aTok =
+					new StringTokenizer(aString.substring(1), ".");
+			aTok.nextToken(); // discard first one
+
+			int index = -1;
+			if (aTok.hasMoreTokens())
+			{
+				index = Integer.parseInt(aTok.nextToken());
+			}
+
+			if (index > aPC.getNamedTempBonusList().size())
+			{
+				canWrite = false;
+				return 0;
+			}
+
+			if (aPC.getUseTempMods())
+			{
+				canWrite = true;
+				return 1;
+			}
+		}
+
+		// Filter out ARMOR.ITEM
+		if (aString.substring(1).startsWith("ARMOR.ITEM"))
+		{
+			// New token syntax |%ARMOR.ITEM.x| instead of |%ARMOR.ITEMx|
+			final StringTokenizer aTok =
+					new StringTokenizer(aString.substring(1), ".");
+			aTok.nextToken(); // ARMOR
+
+			String fString = aTok.nextToken();
+			final Collection<Equipment> aArrayList = new ArrayList<Equipment>();
+
+			for (Equipment eq : aPC.getEquipmentListInOutputOrder())
+			{
+				if (eq.hasBonusWithInfo(aPC, "AC")
+					&& (!eq.isArmor() && !eq.isShield()))
+				{
+					aArrayList.add(eq);
+				}
+			}
+
+			// When removing old syntax, remove the else and leave the if
+			final int count;
+			if (aTok.hasMoreTokens())
+			{
+				count = Integer.parseInt(aTok.nextToken());
+			}
+			else
+			{
+				Logging
+					.errorPrint("Old syntax %ARMOR.ITEMx will be replaced for %ARMOR.ITEM.x");
+
+				count =
+						Integer.parseInt(fString
+							.substring(fString.length() - 1));
+			}
+
+			if (count > aArrayList.size())
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out ARMOR.SHIELD
+		if (aString.substring(1).startsWith("ARMOR.SHIELD"))
+		{
+			// New token syntax |%ARMOR.SHIELD.x| instead of |%ARMOR.SHIELDx|
+			final StringTokenizer aTok =
+					new StringTokenizer(aString.substring(1), ".");
+			aTok.nextToken(); // ARMOR
+
+			String fString = aTok.nextToken();
+			final int count;
+			final List<Equipment> aArrayList =
+					aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
+
+			// When removing old syntax, remove the else and leave the if
+			if (aTok.hasMoreTokens())
+			{
+				count = Integer.parseInt(aTok.nextToken());
+			}
+			else
+			{
+				Logging
+					.errorPrint("Old syntax %ARMOR.SHIELDx will be replaced for %ARMOR.SHIELD.x");
+
+				count =
+						Integer.parseInt(fString
+							.substring(fString.length() - 1));
+			}
+
+			if (count > aArrayList.size())
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out ARMOR
+		if (aString.substring(1).startsWith("ARMOR"))
+		{
+			// New token syntax |%ARMOR.x| instead of |%ARMORx|
+			final StringTokenizer aTok =
+					new StringTokenizer(aString.substring(1), ".");
+			String fString = aTok.nextToken();
+			List<Equipment> aArrayList =
+					aPC.getEquipmentOfTypeInOutputOrder("ARMOR", 3);
+
+			//Get list of shields.  Remove any from list of armor
+			//Since shields are included in the armor list they will appear twice and they really shouldn't be in the list of armor
+			List<Equipment> shieldList =
+					aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
+
+			int z = 0;
+			while (z < shieldList.size())
+			{
+				aArrayList.remove(shieldList.get(z));
+				z++;
+			}
+
+			// When removing old syntax, remove the else and leave the if
+			final int count;
+			if (aTok.hasMoreTokens())
+			{
+				count = Integer.parseInt(aTok.nextToken());
+			}
+			else
+			{
+				Logging
+					.errorPrint("Old syntax %ARMORx will be replaced for %ARMOR.x");
+
+				count =
+						Integer.parseInt(fString
+							.substring(fString.length() - 1));
+			}
+
+			if (count > aArrayList.size())
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out WEAPONPROF
+		if ("WEAPONPROF".equals(aString.substring(1)))
+		{
+			if (!SettingsHandler.getWeaponProfPrintout())
+			{
+				canWrite = false;
+			}
+			return 0;
+		}
+
+		// Filter out WEAPON
+		if (aString.substring(1).startsWith("WEAPON"))
+		{
+			// New token syntax |%WEAPON.x| instead of |%WEAPONx|
+			final StringTokenizer aTok =
+					new StringTokenizer(aString.substring(1), ".");
+			String fString = aTok.nextToken();
+			final List<Equipment> aArrayList = aPC.getExpandedWeapons(merge);
+
+			int count;
+
+			// When removing old syntax, remove the else and leave the if
+			if (aTok.hasMoreTokens())
+			{
+				count = Integer.parseInt(aTok.nextToken());
+			}
+			else
+			{
+				Logging
+					.errorPrint("Old syntax %WEAPONx will be replaced for %WEAPON.x");
+
+				count =
+						Integer.parseInt(fString
+							.substring(fString.length() - 1));
+			}
+
+			if (count >= aArrayList.size())
+			{
+				canWrite = false;
+			}
+
+			return 0;
+		}
+
+		// Filter out DOMAIN
+		if (aString.substring(1).startsWith("DOMAIN"))
+		{
+			// New token syntax |%DOMAIN.x| instead of |%DOMAINx|
+			final StringTokenizer aTok =
+					new StringTokenizer(aString.substring(1), ".");
+			String fString = aTok.nextToken();
+			final int index;
+
+			// When removing old syntax, remove the else and leave the if
+			if (aTok.hasMoreTokens())
+			{
+				index = Integer.parseInt(aTok.nextToken());
+			}
+			else
+			{
+				Logging
+					.errorPrint("Old syntax %DOMAINx will be replaced for %DOMAIN.x");
+
+				index = Integer.parseInt(fString.substring(6));
+			}
+
+			canWrite = (index <= aPC.getCharacterDomainList().size());
+
+			return 0;
+		}
+
+		// Filter out SPELLLISTBOOK
+		if (aString.substring(1).startsWith("SPELLLISTBOOK"))
+		{
+			if (SettingsHandler.getPrintSpellsWithPC())
+			{
+				// New token syntax |%SPELLLISTBOOK.x| instead of |%SPELLLISTBOOKx|
+				// To remove old syntax, replace i with 15
+				int i;
+				if (aString.charAt(14) == '.')
+				{
+					i = 15;
+				}
+				else
+				{
+					i = 14;
+				}
+
+				return replaceTokenSpellListBook(aString.substring(i), aPC);
+			}
+			canWrite = false;
+			return 0;
+		}
+
+		// Filter out VAR.
+		if (aString.substring(1).startsWith("VAR."))
+		{
+			replaceTokenVar(aString, aPC);
+			return 0;
+		}
+
+		// Filter out COUNT[
+		if (aString.substring(1).startsWith("COUNT["))
+		{
+			if (getVarValue(aString.substring(1), aPC) > 0)
+			{
+				canWrite = true;
+				return 1;
+			}
+
+			canWrite = false;
+			return 0;
+		}
+
+		// finally, check for classes
+		final StringTokenizer aTok =
+				new StringTokenizer(aString.substring(1), ",", false);
+
+		boolean found = false;
+		while (aTok.hasMoreTokens())
+		{
+			String cString = aTok.nextToken();
+			StringTokenizer bTok = new StringTokenizer(cString, "=", false);
+			String bString = bTok.nextToken();
+			int i = 0;
+
+			if (bTok.hasMoreTokens())
+			{
+				i = Integer.parseInt(bTok.nextToken());
+			}
+
+			PCClass aClass = aPC.getClassKeyed(bString);
+			found = aClass != null;
+
+			if (aClass == null)
+			{
+				canWrite = false;
+			}
+			else
+			{
+				canWrite = (aClass.getLevel() >= i);
+			}
+
+			// Filter out SPELLLISTCLASS			
+			if (bString.startsWith("SPELLLISTCLASS"))
+			{
+				// New token syntax |%SPELLLISTCLASS.x| instead of |%SPELLLISTCLASSx|
+				// To remove old syntax, keep the if and remove the else
+				if (bString.charAt(14) == '.')
+				{
+					bString = bString.substring(15);
+				}
+				else
+				{
+					bString = bString.substring(14);
+				}
+
+				found = true;
+
+				PObject aObject =
+						aPC.getSpellClassAtIndex(Integer.parseInt(bString));
+				canWrite = (aObject != null);
+			}
+		}
+
+		if (found)
+		{
+			inLabel = true;
+
+			return 0;
+		}
+		canWrite = false;
+		inLabel = true;
+
+		Logging
+			.debugPrint("Return 0 (don't write/no replacement) for an undetermined filter token.");
+		return 0;
 	}
 
 	/**
@@ -2884,7 +2950,13 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Helper method to deal with DFOR. token
+	 * Helper method to deal with DFOR token, e.g.
+	 * 
+	 * DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],(COUNT[SKILLS]+1)/2,<td>\SKILL%\</td>
+	 * <td>\SKILL%.TOTAL\</td><td>\SKILL%.RANK\</td>
+	 * <td>\SKILL%.ABILITY\</td><td>\SKILL%.MOD\,<tr align="center">,</tr>,0
+	 * 
+	 * Produces a 2 column row table of all skills.
 	 * 
 	 * @param aString String to process
 	 * @param output Output we are writing to
@@ -2895,6 +2967,7 @@ public final class ExportHandler
 	{
 		StringTokenizer aTok;
 
+		// Split after DFOR. or DFOR by the ',' delimiter
 		if (aString.startsWith("DFOR."))
 		{
 			aTok = new StringTokenizer(aString.substring(5), ",", false);
@@ -2915,6 +2988,8 @@ public final class ExportHandler
 		boolean isDFor = false;
 
 		int i = 0;
+
+		// While there are more tokens
 		while (aTok.hasMoreTokens())
 		{
 			String tokA = aTok.nextToken();
@@ -2923,14 +2998,10 @@ public final class ExportHandler
 			{
 				case 0:
 					cMin = getVarValue(tokA, aPC);
-
 					break;
-
 				case 1:
 					cMax = getVarValue(tokA, aPC);
-
 					break;
-
 				case 2:
 					cStep = getVarValue(tokA, aPC);
 					if (aString.startsWith("DFOR."))
@@ -2951,17 +3022,16 @@ public final class ExportHandler
 					break;
 				case 6:
 					existsOnly = (!"0".equals(tokA));
-
 					if ("2".equals(tokA))
 					{
 						checkBefore = true;
 					}
-
 					break;
 				default:
 					Logging
 						.errorPrint("ExportHandler.replaceTokenForDfor can't handle token number "
-							+ i);
+							+ i
+							+ " this probably means you've passed in too many parameters.");
 					break;
 			}
 			i++;
@@ -3130,7 +3200,13 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Helper method to parse OIF token
+	 * Helper method to parse OIF token, e.g.
+	 * 
+	 * OIF(expr,truepart,falsepart)
+	 * OIF(HASFEAT:Armor Prof (Light), <b>Yes</b>, <b>No</b>)
+	 * 
+	 * If the character has the Light Armor proficiency, then returns "Yes". 
+	 * Otherwise it returns "No".
 	 * 
 	 * @param aString String to parse
 	 * @param output output to write to
@@ -3140,12 +3216,10 @@ public final class ExportHandler
 		PlayerCharacter aPC)
 	{
 		int iParenCount = 0;
-		final String[] aT = new String[3];
+		final String[] tokenizedString = new String[3];
 		int iParamCount = 0;
 		int iStart = 4;
 
-		// OIF(expr,truepart,falsepart)
-		// {|OIF(HASFEAT:Armor Prof (Light), <b>Yes</b>, <b>No</b>)|}
 		for (int i = iStart; i < aString.length(); ++i)
 		{
 			if (iParamCount == 3)
@@ -3157,9 +3231,7 @@ public final class ExportHandler
 			{
 				case '(':
 					iParenCount += 1;
-
 					break;
-
 				case ')':
 					iParenCount -= 1;
 
@@ -3167,7 +3239,7 @@ public final class ExportHandler
 					{
 						if (iParamCount == 2)
 						{
-							aT[iParamCount] =
+							tokenizedString[iParamCount] =
 									aString.substring(iStart, i).trim();
 							iParamCount++;
 							iStart = i + 1;
@@ -3179,26 +3251,24 @@ public final class ExportHandler
 							for (int j = 0; j < iParamCount; ++j)
 							{
 								Logging.errorPrint("  " + Integer.toString(j)
-									+ ':' + aT[j]);
+									+ ':' + tokenizedString[j]);
 							}
 						}
 					}
-
 					break;
-
 				case ',':
 
 					if (iParenCount == 0)
 					{
 						if (iParamCount < 2)
 						{
-							aT[iParamCount] =
+							tokenizedString[iParamCount] =
 									aString.substring(iStart, i).trim();
 							iStart = i + 1;
 						}
 						else
 						{
-							Logging.errorPrint("IIF: too many parameters");
+							Logging.errorPrint("OIF: too many parameters");
 						}
 
 						iParamCount += 1;
@@ -3213,6 +3283,7 @@ public final class ExportHandler
 
 		String remainder = "";
 
+		// Actually evaluate the expression
 		if (iParamCount != 3)
 		{
 			Logging.errorPrint("OIF: invalid parameter count: " + iParamCount);
@@ -3220,10 +3291,18 @@ public final class ExportHandler
 		else
 		{
 			remainder = aString.substring(iStart);
+			int i = 0;
+			if (evaluateExpression(tokenizedString[0], aPC))
+			{
+				i = 1;
+			}
+			else
+			{
+				i = 2;
+			}
 
-			int i = evaluateExpression(aT[0], aPC) ? 1 : 2;
-
-			FileAccess.write(output, aT[i]);
+			// Write out the true or false case
+			FileAccess.write(output, tokenizedString[i]);
 		}
 
 		if (remainder.length() > 0)
