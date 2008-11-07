@@ -918,7 +918,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		featFileList.addAll(aCamp.getFeatFiles());
 		deityFileList.addAll(aCamp.getDeityFiles());
 		domainFileList.addAll(aCamp.getDomainFiles());
-		weaponProfFileList.addAll(aCamp.getWeaponProfFiles());
+		weaponProfFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_WEAPON_PROF));
 		armorProfFileList.addAll(aCamp.getArmorProfFiles());
 		shieldProfFileList.addAll(aCamp.getShieldProfFiles());
 		equipmentFileList.addAll(aCamp.getEquipFiles());

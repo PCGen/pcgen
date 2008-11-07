@@ -26,9 +26,11 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.core.Campaign;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.TokenSupport;
@@ -100,7 +102,6 @@ public abstract class LoadContext
 	{
 		getObjectContext().setExtractURI(extractURI);
 		ref.setExtractURI(extractURI);
-		getGraphContext().setExtractURI(extractURI);
 		getListContext().setExtractURI(extractURI);
 	}
 
@@ -112,9 +113,9 @@ public abstract class LoadContext
 	 */
 	public void setSourceURI(URI sourceURI)
 	{
+		this.sourceURI = sourceURI;
 		getObjectContext().setSourceURI(sourceURI);
 		ref.setSourceURI(sourceURI);
-		getGraphContext().setSourceURI(sourceURI);
 		getListContext().setSourceURI(sourceURI);
 	}
 
@@ -140,14 +141,12 @@ public abstract class LoadContext
 
 	public void commit()
 	{
-		getGraphContext().commit();
 		getListContext().commit();
 		getObjectContext().commit();
 	}
 
 	public void rollback()
 	{
-		getGraphContext().rollback();
 		getListContext().rollback();
 		getObjectContext().rollback();
 	}
@@ -303,5 +302,12 @@ public abstract class LoadContext
 	{
 		Set<String> set = typeMap.get(cl);
 		return set != null && set.contains(type);
+	}
+
+	private URI sourceURI;
+
+	public CampaignSourceEntry getCampaignSourceEntry(Campaign source, String value)
+	{
+		return CampaignSourceEntry.getNewCSE(source, sourceURI, value);
 	}
 }

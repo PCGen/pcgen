@@ -279,15 +279,6 @@ public class Campaign extends PObject
 
 	/**
 	 *
-	 * @param files
-	 */
-	public void addAllWeaponProfFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_WEAPON_PROF, files);
-	}
-
-	/**
-	 *
 	 * @param file
 	 */
 	public void addAbilityFile(final CampaignSourceEntry file)
@@ -546,15 +537,6 @@ public class Campaign extends PObject
 	public void addShieldProfFile(final CampaignSourceEntry file)
 	{
 		addToListFor(ListKey.FILE_SHIELD_PROF, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addWeaponProfFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_WEAPON_PROF, file);
 	}
 
 	/**
@@ -944,15 +926,6 @@ public class Campaign extends PObject
 	public List<CampaignSourceEntry> getShieldProfFiles()
 	{
 		return getSafeListFor(ListKey.FILE_SHIELD_PROF);
-	}
-
-	/**
-	 * Returns the weaponProfFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getWeaponProfFiles()
-	{
-		return getSafeListFor(ListKey.FILE_WEAPON_PROF);
 	}
 
 	/**

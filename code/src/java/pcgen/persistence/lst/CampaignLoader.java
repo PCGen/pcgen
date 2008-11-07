@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.SourceEntry;
@@ -188,7 +189,7 @@ public class CampaignLoader extends LstLineFileLoader
 		baseCampaign.addAllDomainFiles(subCampaign.getDomainFiles());
 		baseCampaign.addAllArmorProfFiles(subCampaign.getArmorProfFiles());
 		baseCampaign.addAllShieldProfFiles(subCampaign.getShieldProfFiles());
-		baseCampaign.addAllWeaponProfFiles(subCampaign.getWeaponProfFiles());
+		baseCampaign.addAllToListFor(ListKey.FILE_WEAPON_PROF, subCampaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
 		baseCampaign.addAllEquipFiles(subCampaign.getEquipFiles());
 		baseCampaign.addAllSpellFiles(subCampaign.getSpellFiles());
 		baseCampaign.addAllLanguageFiles(subCampaign.getLanguageFiles());

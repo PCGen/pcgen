@@ -33,7 +33,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
@@ -46,11 +50,15 @@ import pcgen.util.Logging;
 public class CampaignSourceEntry
 {
 	private static final URI FAILED_URI;
-	
-	static {
-		try {
+
+	static
+	{
+		try
+		{
 			FAILED_URI = new URI("file:/FAIL");
-		} catch (URISyntaxException e) {
+		}
+		catch (URISyntaxException e)
+		{
 			throw new UnreachableError(e);
 		}
 	}
@@ -84,8 +92,9 @@ public class CampaignSourceEntry
 		this.campaign = campaign;
 		this.uri = lstLoc;
 	}
-	
-	public CampaignSourceEntry(Campaign campaign, URIFactory fac) {
+
+	public CampaignSourceEntry(Campaign campaign, URIFactory fac)
+	{
 		super();
 		if (campaign == null)
 		{
@@ -99,20 +108,46 @@ public class CampaignSourceEntry
 		this.uriFac = fac;
 	}
 
-	public static class URIFactory {
+	public static class URIFactory
+	{
 		private final URI u;
 		private final String s;
-		
-		public URIFactory(URI source, String value) {
+
+		public URIFactory(URI source, String value)
+		{
+			if (source == null)
+			{
+				throw new IllegalArgumentException("URI cannot be null");
+			}
+			if (value == null || value.length() == 0)
+			{
+				throw new IllegalArgumentException("URI cannot be null");
+			}
 			u = source;
 			s = value;
 		}
-		
-		public URI getURI() {
+
+		public URI getURI()
+		{
 			return getPathURI(u, s);
 		}
+		
+		public int hashCode()
+		{
+			return s.hashCode();
+		}
+		
+		public boolean equals(Object o)
+		{
+			if (o instanceof URIFactory)
+			{
+				URIFactory other = (URIFactory) o;
+				return s.equals(other.s) && u.equals(other.u);
+			}
+			return false;
+		}
 	}
-	
+
 	/**
 	 * This method gets the Campaign that was the source of the
 	 * file. (I.e. the reason it was loaded)
@@ -140,13 +175,14 @@ public class CampaignSourceEntry
 	 */
 	public URI getURI()
 	{
-		if (uri == null) {
+		if (uri == null)
+		{
 			uri = uriFac.getURI();
 			uriFac = null;
 		}
 		return uri;
 	}
-	
+
 	/**
 	 * This method gets a list of the items containined in the given source
 	 * file to include in getting saved in memory.  All other objects
@@ -175,9 +211,19 @@ public class CampaignSourceEntry
 			return false;
 		}
 		CampaignSourceEntry other = (CampaignSourceEntry) arg0;
-		if (!getURI().equals(other.getURI()))
+		if (this.uriFac == null)
 		{
-			return false;
+			if (other.uriFac != null || !getURI().equals(other.getURI()))
+			{
+				return false;
+			}
+		}
+		else
+		{
+			if (!uriFac.equals(other.uriFac))
+			{
+				return false;
+			}
 		}
 		return excludeItems.equals(other.excludeItems)
 			&& includeItems.equals(other.includeItems);
@@ -189,7 +235,7 @@ public class CampaignSourceEntry
 	@Override
 	public int hashCode()
 	{
-		return this.getURI().hashCode();
+		return this.getURIIdentifier().hashCode();
 	}
 
 	/**
@@ -237,19 +283,19 @@ public class CampaignSourceEntry
 		 */
 		if (basePath.charAt(0) == '@')
 		{
-			String pathNoLeader = trimLeadingFileSeparator(basePath
-					.substring(1));
+			String pathNoLeader =
+					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			return new File(SettingsHandler.getPccFilesLocation(), path)
-					.toURI();
+				.toURI();
 		}
 		else if (basePath.charAt(0) == '&')
 		{
-			String pathNoLeader = trimLeadingFileSeparator(basePath
-					.substring(1));
+			String pathNoLeader =
+					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			return new File(SettingsHandler.getPcgenVendorDataDir(), path)
-					.toURI();
+				.toURI();
 		}
 		else if (basePath.charAt(0) == '*')
 		{
@@ -274,35 +320,48 @@ public class CampaignSourceEntry
 		 */
 		String pathNoLeader = trimLeadingFileSeparator(basePath);
 
-		if (pathNoLeader.startsWith("data")) {
+		if (pathNoLeader.startsWith("data"))
+		{
 			// substring 5 to eliminate the separator after data
-			String path = CoreUtility
-					.fixFilenamePath(pathNoLeader.substring(5));
+			String path =
+					CoreUtility.fixFilenamePath(pathNoLeader.substring(5));
 			return new File(SettingsHandler.getPccFilesLocation(), path)
-					.toURI();
-		} else {
-			if (basePath.indexOf(':') > 0) {
-				try {
+				.toURI();
+		}
+		else
+		{
+			if (basePath.indexOf(':') > 0)
+			{
+				try
+				{
 					// if it's a URL, then we are all done, just return a URI
 					URL url = new URL(basePath);
-					return new URI(url.getProtocol(), url.getHost(), url.getPath(), null);
-				} catch (URISyntaxException e) {
+					return new URI(url.getProtocol(), url.getHost(), url
+						.getPath(), null);
+				}
+				catch (URISyntaxException e)
+				{
 					//Something broke, so wasn't a URL
-				} catch (MalformedURLException e) {
+				}
+				catch (MalformedURLException e)
+				{
 					//Protocol was unknown, so wasn't a URL
 				}
 			}
-			
+
 			String path = pccPath.getPath();
 			// URLs always use forward slash; take off the file name
-			try {
+			try
+			{
 				return new URI(pccPath.getScheme(), null, (path.substring(0,
 					path.lastIndexOf('/') + 1) + basePath.replace('\\', '/')),
 					null);
-			} catch (URISyntaxException e) {
+			}
+			catch (URISyntaxException e)
+			{
 				Logging.errorPrint("GPURI failed to convert "
-						+ path.substring(0, path.lastIndexOf('/') + 1)
-						+ basePath + " to a URI: " + e.getLocalizedMessage());
+					+ path.substring(0, path.lastIndexOf('/') + 1) + basePath
+					+ " to a URI: " + e.getLocalizedMessage());
 			}
 		}
 		return FAILED_URI;
@@ -328,37 +387,89 @@ public class CampaignSourceEntry
 		return pathNoLeader;
 	}
 
-	public static CampaignSourceEntry getNewCSE(Campaign campaign2, URI sourceUri, String value) {
+	public static CampaignSourceEntry getNewCSE(Campaign campaign2,
+		URI sourceUri, String value)
+	{
+		if (value == null || value.length() == 0)
+		{
+			Logging
+				.errorPrint("Cannot build CampaignSourceEntry for empty value in "
+					+ sourceUri);
+			return null;
+		}
+		
 		// Check if include/exclude items were present
 		int pipePos = value.indexOf("|");
-		
+
 		CampaignSourceEntry cse;
-		
-		if (pipePos == -1) {
-			cse = new CampaignSourceEntry(campaign2, new URIFactory(sourceUri,
-					value));
-		} else {
-			cse = new CampaignSourceEntry(campaign2, new URIFactory(sourceUri,
-					value.substring(0, pipePos)));
-			
+
+		if (pipePos == -1)
+		{
+			cse =
+					new CampaignSourceEntry(campaign2, new URIFactory(
+						sourceUri, value));
+		}
+		else
+		{
+			cse =
+					new CampaignSourceEntry(campaign2, new URIFactory(
+						sourceUri, value.substring(0, pipePos)));
+
 			// Get the include/exclude item string
 			String inExString = value.substring(pipePos + 1);
+			
+			if (inExString.startsWith("("))
+			{
+				// assume matching parens
+				inExString = inExString.substring(1, inExString.length() - 1);
+			}
+			else
+			{
+				Logging
+					.deprecationPrint("Found Suffix in Campaign Source without parenthesis: "
+						+ "Parens required around INCLUDE/EXCLUDE");
+				Logging.deprecationPrint("Found: '" + inExString + "' in "
+					+ value);
+			}
 
 			// Check for surrounding parens
 			while (inExString.startsWith("("))
 			{
 				// assume matching parens
 				inExString = inExString.substring(1, inExString.length() - 1);
+				Logging
+					.deprecationPrint("Found Suffix in Campaign Source with multiple parenthesis: "
+						+ "Single set of parens required around INCLUDE/EXCLUDE");
+				Logging.deprecationPrint("Found: '" + value.substring(pipePos + 1) + "' in "
+					+ value);
 			}
 
 			// Update the include or exclude items list, as appropriate
 			if (inExString.startsWith("INCLUDE:"))
 			{
-				cse.includeItems = cse.splitInExString(inExString);
+				List<String> splitIncExc = cse.splitInExString(inExString);
+				if (splitIncExc == null)
+				{
+					//Error
+					return null;
+				}
+				cse.includeItems = splitIncExc;
 			}
 			else if (inExString.startsWith("EXCLUDE:"))
 			{
-				cse.excludeItems = cse.splitInExString(inExString);
+				List<String> splitIncExc = cse.splitInExString(inExString);
+				if (splitIncExc == null)
+				{
+					//Error
+					return null;
+				}
+				cse.excludeItems = splitIncExc;
+			}
+			else
+			{
+				Logging.errorPrint("Invalid Suffix: " + inExString
+					+ " on Campaign Source: '" + value + "' in " + sourceUri);
+				return null;
 			}
 		}
 		return cse;
@@ -384,10 +495,15 @@ public class CampaignSourceEntry
 	{
 		boolean hasCategory = false;
 		boolean hasKeyOnly = false;
-		List<String> keyList = new ArrayList<String>(); 
-		List<String> catKeyList = new ArrayList<String>(); 
-		keyList = CoreUtility.split(inExString.substring(8),
-				'|');
+		List<String> keyList = new ArrayList<String>();
+		List<String> catKeyList = new ArrayList<String>();
+		String target = inExString.substring(8);
+		if (target == null || target.length() == 0)
+		{
+			Logging.errorPrint("Must Specify Items after :");
+			return null;
+		}
+		keyList = CoreUtility.split(target, '|');
 		for (String key : keyList)
 		{
 			if (key.startsWith("CATEGORY="))
@@ -411,15 +527,83 @@ public class CampaignSourceEntry
 		if (hasKeyOnly && hasCategory)
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid "
-					+ inExString.substring(0, 7) + " value on " + getURI()
-					+ " in " + campaign.getDisplayName()
-					+ ". Abilities must always have categories (e.g. "
-					+ inExString.substring(0, 8)
-					+ "CATEGORY=cat1,key1,key2|CATEGORY=cat2,key1 ) and "
-					+ "other file types should never have categories (e.g. "
-					+ inExString.substring(0, 8) + "key1|key2 ).");
+				+ inExString.substring(0, 7) + " value on " + getURIIdentifier() + " in "
+				+ campaign.getDisplayName()
+				+ ". Abilities must always have categories (e.g. "
+				+ inExString.substring(0, 8)
+				+ "CATEGORY=cat1,key1,key2|CATEGORY=cat2,key1 ) and "
+				+ "other file types should never have categories (e.g. "
+				+ inExString.substring(0, 8) + "key1|key2 ).");
+			return null;
 		}
 
 		return catKeyList;
+	}
+
+	private String getURIIdentifier()
+	{
+		if (uriFac == null)
+		{
+			return uri.toString();
+		}
+		else
+		{
+			return uriFac.s;
+		}
+	}
+
+	public String getLSTformat()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append(getURIIdentifier());
+		if (!includeItems.isEmpty())
+		{
+			sb.append(Constants.PIPE);
+			sb.append("(INCLUDE:");
+			sb.append(joinIncExcList(includeItems));
+			sb.append(')');
+		}
+		else if (!excludeItems.isEmpty())
+		{
+			sb.append(Constants.PIPE);
+			sb.append("(EXCLUDE:");
+			sb.append(joinIncExcList(excludeItems));
+			sb.append(')');
+		}
+		return sb.toString();
+	}
+
+	private StringBuilder joinIncExcList(List<String> list)
+	{
+		MapToList<String, String> map = new HashMapToList<String, String>();
+		for (String s : list)
+		{
+			int commaLoc = s.indexOf(',');
+			if (commaLoc == -1)
+			{
+				return StringUtil.joinToStringBuffer(list, Constants.PIPE);
+			}
+			else
+			{
+				map.addToListFor(s.substring(0, commaLoc), s
+					.substring(commaLoc + 1));
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		boolean needPipe = false;
+		for (String category : map.getKeySet())
+		{
+			if (needPipe)
+			{
+				sb.append(Constants.PIPE);
+			}
+			needPipe = true;
+			sb.append("CATEGORY=");
+			sb.append(category);
+			sb.append(Constants.COMMA);
+			sb.append(StringUtil.joinToStringBuffer(map.getListFor(category),
+				Constants.COMMA));
+		}
+		return sb;
 	}
 }
