@@ -1,140 +1,120 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 13 02:09:01 2008 -- reformated by prettylst.pl v1.38 (build 6552)
+# CVS $Revision$ $Author$ -- Thu Nov  6 22:52:15 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 
-
-#Block:Battle-Rager -----------------------------------------------------------------------
-# Ability Name	Category of Ability		Type			Visible	Special ABility
-Against the Odds	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Against the Odds (Ex)
-Fearsome Visage	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Fearsome Visage
-Frenzied Charge	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Frenzied Charge
-#Indomitable Will	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Indomitable Will
-Improved Rage	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Rage
-Improved Rage2	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Rage x2
-
+#Block:Battle-Rager ------------------------------------------------------------
+# Ability Name	Unique Key					Category of Ability		Type						Visible
+Against the Odds							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
+Fearsome Visage							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Frenzied Charge							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Indomitable Will	KEY:Battle-Rager Indomitable Will	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Improved Rage							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 
 ###Block:Dwarven Skald ---------------------------------------------------------
-# Ability Name	Category of Ability		Type			Visible	Special ABility
-Bardic Study	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Bardic Study
-Invoke Curse	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Invoke Curse (Su)
-Captivate		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Captivate (Su)
-Instill Fear	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Instill Fear (Su)
-
+# Ability Name	Category of Ability		Type						Visible
+Bardic Study	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Invoke Curse	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+Captivate		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+Instill Fear	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 
 ###Block:Rune-Priest ------------------------------------------------------------
-# Ability Name		Category of Ability																						Type															Visible									Special ABility																																																																								Define
-Stony Stride		CATEGORY:Special Ability																					TYPE:ClassAbility													VISIBLE:NO									SAB:Stony Stride (Ex)
-Blindsight			CATEGORY:Special Ability																					TYPE:ClassAbility													VISIBLE:NO									SAB:Blindsight (Ex)
-Subterranean Empathy	CATEGORY:Special Ability																					TYPE:ClassAbility													VISIBLE:NO									SAB:Subterranean Empathy
-Poison Immunity		CATEGORY:Special Ability																					TYPE:ClassAbility													VISIBLE:NO									SAB:Poison Immunity
-Rock-Warden Wild Shape	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Rock-Warden Wild Shape 1/day|PREVAREQ:RockWardenWildShape,1	SAB:Rock-Warden Wild Shape 2/day (tiny)|PREVAREQ:RockWardenWildShape,2	SAB:Rock-Warden Wild Shape 3/day (tiny, large / fungus)|PREVAREQ:RockWardenWildShape,3	SAB:Rock-Warden Wild Shape 4/day (tiny, large / fungus, dire / ooze)|PREVAREQ:RockWardenWildShape,4	SAB:Rock-Warden Wild Shape 5/day (tiny, large / fungus, dire / ooze, elemental)|PREVARGTEQ:RockWardenWildShape,5	DEFINE:RockWardenWildShape|0
+# Ability Name		Category of Ability		Type				Visible	Define					Description					ASPECT
+Runecraft			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:RunecraftBonus|0			DESC:+%1|RunecraftBonus			ASPECT:Ability Benefit|+%1|RunecraftBonus
+Divine Inspiration	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:DivineInspirationBonus|0	DESC:+%1|DivineInspirationBonus	ASPECT:Ability Benefit|+%1|DivineInspirationBonus
 
+###Block: Rock-Warden ----------------------------------------------------------
+# Ability Name		Output Name			Category of Ability		Type						Visible	Define				Description
+Stony Stride						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
+Subterranean Empathy					CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Rock-Warden Wild Shape	OUTPUTNAME:Wild Shape	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:RockWardenWildShape|0	DESC:1/day|PREVAREQ:RockWardenWildShape,1	DESC:2/day (tiny)|PREVAREQ:RockWardenWildShape,2	DESC:3/day (tiny, large / fungus)|PREVAREQ:RockWardenWildShape,3	DESC:4/day (tiny, large / fungus, dire / ooze)|PREVAREQ:RockWardenWildShape,4	DESC:5/day (tiny, large / fungus, dire / ooze, elemental)|PREVARGTEQ:RockWardenWildShape,5
 
-###Block:Stoneheart Ascetic -----------------------------------------------------
-# Ability Name	Category of Ability		Type			Visible	Special ABility
-Monk Abilities	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Monk Abilities
-Stone Step		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Stone Step (Su)
-Tremorsense		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Tremorsense (Ex)
-Stone Slumber	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Stone Slumber (Su)
-Stone Heart		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Stone Heart (Su)
-Stone Soul		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Stone Soul
-Stone Body		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Stone Body (Su)
-#Still Mind			CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Still Mind
-#Purity of Body		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Purity of Body
-#Wholeness of Body		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Wholeness of Body
-#Timeless Body		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Timeless Body
+###Block:Stoneheart Ascetic ----------------------------------------------------
+# Ability Name	Category of Ability		Type						Visible
+Stone Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+Stone Slumber	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+Stone Heart		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+Stone Soul		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Stone Body		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 
+###Block:Paragon ---------------------------------------------------------------
+# Ability Name	Category of Ability		Type				Visible	Define				Description
+Forge Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Ancestral Weapon	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:AncestralWeaponLvl|0	DESC:I|PREVAREQ:AncestralWeaponLvl,1	DESC:II|PREVAREQ:AncestralWeaponLvl,2	DESC:III|PREVAREQ:AncestralWeaponLvl,3
 
-###Block:Paragon ----------------------------------------------------------------
-#Lay on Hands		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Lay on Hands (Su) % hp/day|LayOnHands	DEFINE:LayOnHands|0
-# Ability Name	Category of Ability												Type									Visible					Special ABility																												Define
-Forge Mastery	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Forge Mastery
-Ancestral Weapon	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Ancestral Weapon (I)|PREVAREQ:AncestralWeaponLvl,1	SAB:Ancestral Weapon (II)|PREVAREQ:AncestralWeaponLvl,2	SAB:Ancestral Weapon (III)|PREVAREQ:AncestralWeaponLvl,3	DEFINE:AncestralWeaponLvl|0
+###Block:Slayer ~ HoHFD --------------------------------------------------------
+# Ability Name	Category of Ability		Type				Visible
+Favored Enemies	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
+###Block:Tunnel-Fighter --------------------------------------------------------
+# Ability Name	Category of Ability		Type				Visible	Define				Description
+Ambush Expert	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Quick and Quiet	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Tunnel Fighting	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:TunnelFightWall|0	DESC:% Walls|TunnelFightWall
 
-###Block:Slayer ~ HoHFD ---------------------------------------------------------
-# Ability Name	Category of Ability		Type			Visible	Special ABility
-Favored Enemies	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Enemies
-#Skill Mastery		CATEGORY:Special Ability	TYPE:ClassAbility		VISIBLE:NO	SAB:Skill Mastery %|SkillMasteryCount	DEFINE:SkillMasteryCount|0
+###Block:Artificer -------------------------------------------------------------
+# Ability Name		Category of Ability		Type				Visible	Define			Description			ASPECT
+Magical Craftsman		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Curse Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Magical Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Magical Deconstruction	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MagicDecon|0	DESC:%1%%|MagicDecon	ASPECT:Ability Benefit|%1%%|MagicDecon
+Spell Absorption		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
+###Block:Stoneheart Ascetic Bonus Feats ----------------------------------------
+# Ability Name		Unique Key						Category of Ability		Type					Visible		Virtual Feat			Ability
+Deflect Arrows		KEY:Stoneheart Ascetic Deflect Arrows	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Deflect Arrows
+Dodge											CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Dodge
+Improved Grab		KEY:Stoneheart Ascetic Improved Grab	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY						ABILITY:Special Ability|VIRTUAL|Improved Grab
+Improved Bull Rush								CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Bull Rush
+Improved Disarm		KEY:Stoneheart Ascetic Improved Disarm	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Disarm
+Improved Trip		KEY:Stoneheart Ascetic Improved Trip	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Trip
+Power Attack									CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Power Attack
+Toughness										CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Toughness
 
-###Block:Tunnel-Fighter ---------------------------------------------------------
-# Ability Name	Category of Ability		Type			Visible	Special ABility						Define
-Ambush Expert	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Ambush Expert
-Quick and Quiet	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Quick and Quiet
-Tunnel Fighting	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Tunnel Fighting (% Walls)|TunnelFightWall	DEFINE:TunnelFightWall|0
-
-
-###Block:Artificer --------------------------------------------------------------
-# Ability Name		Category of Ability		Type			Visible	Special ABility						Define
-Magical Craftsman		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Magical Craftsman
-Curse Resistance		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Curse Resistance
-Magical Familiarity	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Magical Familiarity
-Magical Deconstruction	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Magical Deconstruction (%%)|MagicDecon	DEFINE:MagicDecon|0
-Spell Resistance		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Spell Resistance
-Spell Absorption		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Spell Absorption
-
-
-###Block:Stoneheart Ascetic Bonus Feats -----------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type					Visible		Virtual Feat
-Deflect Arrows		CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Deflect Arrows
-Dodge				CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Dodge
-Improved Grab		CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Grab
-Improved Bull Rush	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Bull Rush
-Improved Disarm		CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Disarm
-Improved Trip		CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Trip
-Power Attack		CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Power Attack
-Toughness			CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Toughness
-
-
-###
 ###Block: Aceldamist Hidden Class Feats
 # Feat Name						Type			Visible	Special ABility							Description					Stackable?	Multiple?	Choose													Misc bonus				Source Page
-# Ability Name					Category of Ability		Type			Visible		Special ABility							Description					Stackable?	Multiple?	Choose													Misc bonus				Source Page
-Ancestral Lore					CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Ancestral Lore						DESC:See Text				STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|10|TYPE=Arcane|0|MAXLEVEL+1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]						SOURCEPAGE:pg.54
-Armored Casting					CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Armored Casting						DESC:See Text						MULT:YES	CHOOSE:ARMORTYPE												BONUS:MISC|SPELLFAILURE|-5	SOURCEPAGE:pg.54
-Blood Magic						CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Blood Magic							DESC:See Text																											SOURCEPAGE:pg.54
-Fellblade Magic					CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Fellblade Magic						DESC:See Text																											SOURCEPAGE:pg.55
-Signature Metaspell ~ Empower Spell		CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Empower Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Metaspell ~ Enlarge Spell		CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Enlarge Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Metaspell ~ Extend Spell		CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Extend Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Metaspell ~ Heighten Spell	CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Heighten Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Metaspell ~ Maximize Spell	CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Maximize Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Metaspell ~ Quicken Spell		CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Quicken Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Metaspell ~ Silent Spell		CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Silent Spell ~ %CHOICE)	DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Metaspell ~ Still Spell		CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Metaspell (Still Spell ~ %CHOICE)		DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Spell Focus				CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Spell Focus (%CHOICE)				DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Spell Immunity			CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Spell Immunity (%CHOICE)			DESC:See Text						MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
-Signature Spell Penetration			CATEGORY:Special Ability	TYPE:Aceldamist	VISIBLE:DISPLAY	SAB:Signature Spell Penetration (%CHOICE)			DESC:Signature Spell Penetration			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+# Ability Name					Category of Ability		Type						Visible	Stackable?	Multiple?	Choose													Misc bonus				Source Page
+Ancestral Lore					CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|10|TYPE=Arcane|0|MAXLEVEL+1[BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]						SOURCEPAGE:pg.54
+Armored Casting					CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:ARMORTYPE												BONUS:MISC|SPELLFAILURE|-5	SOURCEPAGE:pg.54
+Blood Magic						CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																								SOURCEPAGE:pg.54
+Fellblade Magic					CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																								SOURCEPAGE:pg.55
+Signature Metaspell ~ Empower Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Metaspell ~ Enlarge Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Metaspell ~ Extend Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Metaspell ~ Heighten Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Metaspell ~ Maximize Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Metaspell ~ Quicken Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Metaspell ~ Silent Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Metaspell ~ Still Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Spell Focus				CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Spell Immunity			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
+Signature Spell Penetration			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:pg.55
 
 ###Block: Slayer Hidden Class Feats
-# Feat Name			Output Name				Type			Visible	Required Class			Special ABility				Description					Stackable?	Multiple?	Choose
-# Ability Name		Output Name				Category of Ability		Type			Visible		Required Class			Special ABility				Description					Stackable?	Multiple?	Choose
-SlayerSkillMastery	OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SlayerHidden	VISIBLE:DISPLAY	PRECLASS:1,Slayer ~ HoHFD=1	SAB:Skill Mastery of (%CHOICE)	DESC:Skill Mastery of (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS
+# Ability Name		Output Name				Category of Ability		Type				Visible		Required Class			Stackable?	Multiple?	Choose
+SlayerSkillMastery	OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SlayerSkillMastery	VISIBLE:DISPLAY	PRECLASS:1,Slayer ~ HoHFD=1	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS
 
-###Block:  COMMENTS: Slayer get a virtual feat usable against only favored enemies - Don't stack. Using SA to display
-# Feat Name					Type					Visible	Required Feat				Special ABility								Description					Source Page
-# Ability Name				Category of Ability		Type					Visible		Required Feat				Special ABility								Description					Source Page
-Slayer Favored ~ Cleave			CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Cleave			DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
-Slayer Favored ~ Dodge			CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Dodge			DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
-Slayer Favored ~ Expertise		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Expertise			DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
-Slayer Favored ~ Great Cleave		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY	PREFEAT:1,Slayer Favored ~ Cleave	SAB:Slayer Favored Enemy Bonus Feat ~ Great Cleave		DESC:Benefit against favored enemy	SOURCEPAGE:pg.46
-Slayer Favored ~ Great Fortitude	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Great Fortitude		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Lightning Reflexes	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Lightning Reflexes	DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Iron Will		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Iron Will			DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Improved Charge	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Improved Charge		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Point Blank Shot	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Point Blank Shot	DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Power Attack		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Power Attack		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Precise Shot		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Precise Shot		DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Improved Critical	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Improved Critical	DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-Slayer Favored ~ Mobility		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer	VISIBLE:DISPLAY							SAB:Slayer Favored Enemy Bonus Feat ~ Mobility			DESC:Benefit against favored enemy	SOURCEPAGE:pg.47
-
-### (Slayer Favored ~ Cleave,Slayer Favored ~ Dodge,Slayer Favored ~ Expertise,Slayer Favored ~ Great Fortitude,Slayer Favored ~ Lightning Reflexes,Slayer Favored ~ Iron Will,Slayer Favored ~ Improved Charge,Slayer Favored ~ Point Blank Shot,Slayer Favored ~ Power Attack,Slayer Favored ~ Precise Shot,Slayer Favored ~ Improved Critical,Slayer Favored ~ Mobility,Slayer Favored ~ Great Cleave)1
-
+###Block:  COMMENTS: Slayer get a virtual feat usable against only favored enemies - Don't stack.
+# Ability Name							Category of Ability		Type							Visible	Required Ability												Source Page
+Slayer Favored Enemy Bonus Feat ~ Cleave			CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.46
+Slayer Favored Enemy Bonus Feat ~ Dodge			CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.46
+Slayer Favored Enemy Bonus Feat ~ Expertise		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.46
+Slayer Favored Enemy Bonus Feat ~ Great Cleave		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Slayer Favored Enemy Bonus Feat ~ Cleave	SOURCEPAGE:pg.46
+Slayer Favored Enemy Bonus Feat ~ Great Fortitude	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Lightning Reflexes	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Iron Will		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Improved Charge	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Point Blank Shot	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Power Attack		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Precise Shot		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Improved Critical	CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
+Slayer Favored Enemy Bonus Feat ~ Mobility		CATEGORY:Special Ability	TYPE:ClassAbilitiesSlayer.SpecialQuality	VISIBLE:YES															SOURCEPAGE:pg.47
 
 ###Block: Refined Skill Focus Subset:
 # Feat Name			Type			Visible	Multiple?	Selections	Choose																		Bonus to skill		Bonus to skill rank
-# Ability Name		Category of Ability		Type				Visible		Multiple?	Selections	Choose																		Bonus to skill		Bonus to skill rank
-RSF +2 to Two Skills	CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES	SELECT:2	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|2
-RSF +3 to 1 Skill		CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES			CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	BONUS:SKILL|LIST|3
-+2 Ranks to 1 skill	CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES			CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity					BONUS:SKILLRANK|LIST|2
+# Ability Name		Category of Ability		Type				Visible		Multiple?	Choose																		Selections	Bonus to skill		Bonus to skill rank
+RSF +2 to Two Skills	CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity	SELECT:2	BONUS:SKILL|LIST|2
+RSF +3 to 1 Skill		CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity			BONUS:SKILL|LIST|3
++2 Ranks to 1 skill	CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Dexterity							BONUS:SKILLRANK|LIST|2
 
+#
+# End
+#

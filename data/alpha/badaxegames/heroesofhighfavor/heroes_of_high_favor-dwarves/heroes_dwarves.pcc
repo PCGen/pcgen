@@ -5,9 +5,7 @@ GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Fantasy
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Badaxe Games.Heroes of High Favor
+TYPE:Badaxe Games.Heroes of High Favor
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Badaxe Games
 PUBNAMESHORT:Badaxe
@@ -33,19 +31,14 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=18824&it=1?affili
 
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt
+
 ABILITY:heroes_dwarves_abilities_classes.lst
 ABILITYCATEGORY:heroes_dwarves_ability_category.lst
-
 CLASS:heroes_dwarves_classes.lst
-
 EQUIPMOD:heroes_dwarves_equipmods.lst
-
 FEAT:heroes_dwarves_feats.lst
-
 RACE:heroes_dwarves_races.lst
-
 SKILL:heroes_dwarves_skills.lst
-
 TEMPLATE:heroes_dwarves_templates.lst
 
 #
