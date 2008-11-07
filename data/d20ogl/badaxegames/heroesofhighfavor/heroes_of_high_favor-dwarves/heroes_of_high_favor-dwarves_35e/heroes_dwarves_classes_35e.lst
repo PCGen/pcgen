@@ -1,0 +1,47 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 22:38:14 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
+# Original Entry by: Andrew Maitland
+
+# Class Name		Remove Class Skill			Class Skill
+CLASS:Dwarven Skald.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:Survival
+
+# Class Name		Remove Class Skill
+CLASS:Rune-Priest.MOD	CSKILL:.CLEAR.Scry
+1	SPELLLEVEL:CLASS|Rune-Priest=2|Bear's Endurance
+1	SPELLLEVEL:CLASS|Rune-Priest=3|Magic Weapon (Greater)
+1	SPELLLEVEL:CLASS|Rune-Priest=5|Command (Greater),Cure Light Wounds (Mass)
+
+
+# Class Name				Required Feat		Required Language	Required Skill		Req. Spell Type
+CLASS:Rock-Warden.MOD PRE:.CLEAR	PREFEAT:1,Blind Fight	PRELANG:1,Terran	PRESKILL:1,Survival=8	PRESPELLTYPE:1,Divine=2
+# Class Name		Remove Class Skill																	Class Skill
+CLASS:Rock-Warden.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Scry	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+# Class Name			Remove Class Skill			Class Skill
+CLASS:Stoneheart Ascetic.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:Survival
+1	BONUS:VAR|StunningFistMonkLVL|CL	ABILITY:Special Ability|VIRTUAL|.CLEAR.Stunning Attack
+
+# Class Name			Required Ability							Req. Att.	Required Feat						Required Skill								Required Text
+CLASS:Paragon.MOD PRE:.CLEAR	PREABILITY:1,CATEGORY=Special Ability,Lay on Hands	PREATT:5	PREFEAT:2,Improved Sunder,Weapon Specialization	PRESKILL:2,Craft (Armorsmithing)=8,Knowledge (Dwarves)=6	PRETEXT:Weapon Specialization must be deities favored weapon
+
+# Class Name				Req. Att.	Required Feat							Required Skill							Required Text
+CLASS:Slayer ~ HoHFD.MOD PRE:.CLEAR	PREATT:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Survival=8	PRETEXT:Must have a favored enemy
+# Class Name			Remove Class Skill									Class Skill
+CLASS:Slayer ~ HoHFD.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+# Class Name				Req. Att.	Required Feat								Required Race				Required Skill
+CLASS:Tunnel-Fighter.MOD PRE:.CLEAR	PREATT:5	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Survival=6,Move Silently=6,Spot=6,Tumble=6
+# Class Name			Remove Class Skill											Class Skill
+CLASS:Tunnel-Fighter.MOD	CSKILL:.CLEAR.Innuendo	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Read Lips	CSKILL:Survival
+2	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Uncanny Dodge	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+5	BONUS:VAR|UncannyDodgeLevel|1
+
+# Class Name		Remove Class Skill
+CLASS:Aceldamist.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:.CLEAR.Scry
+
+# Class Name		Remove Class Skill
+CLASS:Artificer.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:.CLEAR.Scry
+
+#
+# End
+#
