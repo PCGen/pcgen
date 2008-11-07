@@ -18396,13 +18396,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				addLang = true;
 			}
 
+			availableLangs.remove(aLang);
 			if (addLang)
 			{
 				selectedLangs.add(aLang);
 			}
 			else
 			{
-				availableLangs.remove(aLang);
 				excludedLangs.add(aLang);
 			}
 		}
