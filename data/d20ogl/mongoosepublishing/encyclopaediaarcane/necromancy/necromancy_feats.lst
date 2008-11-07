@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 12:29:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:58:07 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
 # Replicate the Divine: Death Domain choice.. Needs some code.  - Tir Gwaith
 
 # Feat Name			Type			Required Feat						Required Skill				Req. Known Spell		Description												Multiple?	Choose									Bonus to Ability Pool						Source Page

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 23:33:26 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:54:09 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 
 #Specific
 # Equipment Name				Output Name			Required Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Range		Size		Source Page		Virtual Feat			Weapon prop. bonus		Special Property

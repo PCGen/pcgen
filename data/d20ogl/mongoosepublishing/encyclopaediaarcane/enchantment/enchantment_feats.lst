@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:54:09 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 
 # Feat Name			Type				Required Feat								Required Skill		Req. Known Spell		Required Spell School			Req. Spell Type		Required Stat	Description																							Stackable?	Multiple?	Choose																			Cost		Source Page
 Absolute Authority	TYPE:Enchantment																				PRESPELLSCHOOL:1,Enchantment=3					PRESTAT:1,CHA=14	DESC:Your will is so strong that, even when those under your control would be able to free their wills, you can force them to obey you.				MULT:NO																							SOURCEPAGE:p.42
