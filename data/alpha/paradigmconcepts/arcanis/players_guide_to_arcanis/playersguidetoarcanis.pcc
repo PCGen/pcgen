@@ -69,7 +69,7 @@ CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
 #COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
 DOMAIN:@/d20ogl/srd35/basics/rsrd_domains_divine.lst|(EXCLUDE:Charm|Glory)
-DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst|EXCLUDE(Good|Evil|Law|Chaos)
+DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst|(EXCLUDE:Good|Evil|Law|Chaos)
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_armorshields.lst
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_basetypes.lst
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_coinsgems.lst
