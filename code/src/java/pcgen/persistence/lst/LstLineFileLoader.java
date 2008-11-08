@@ -74,7 +74,10 @@ public abstract class LstLineFileLoader extends Observable
 	{
 		StringBuilder dataBuffer = LstFileLoader.readFromURI(uri);
 		final String aString = dataBuffer.toString();
-
+		if (context != null)
+		{
+			context.setSourceURI(uri);
+		}
 		loadLstString(context, uri, aString);
 	}
 
