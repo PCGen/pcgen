@@ -555,7 +555,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				EquipmentList.autoGenerateEquipment();
 			}
-			
+
+			for (Campaign campaign : aSelectedCampaignsList)
+			{
+				sourcesSet.add(campaign.getSourceEntry().getFormattedString(
+					SourceEntry.SourceFormat.MEDIUM, true));
+			}
+
 			//  Show the licenses
 			showLicensesIfNeeded();
 			showSponsorsIfNeeded();
@@ -1485,14 +1491,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 		});
 
-		// Loop through, performing a swap sort
-		for (Campaign campaign : aSelectedCampaignsList)
-		{
-			sourcesSet.add(campaign.getSourceEntry().getFormattedString(
-				SourceEntry.SourceFormat.LONG, true));
-		}
-
-		// end of campaign sort
 	}
 
 	/**

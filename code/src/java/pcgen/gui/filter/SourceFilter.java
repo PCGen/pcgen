@@ -69,7 +69,7 @@ final class SourceFilter extends AbstractPObjectFilter
 			return false;
 		}
 
-		final String sourceStr = pObject.getSourceEntry().getFormattedString( SourceEntry.SourceFormat.LONG, true );
+		final String sourceStr = pObject.getSourceEntry().getFormattedString( SourceEntry.SourceFormat.MEDIUM, true );
 		if (detailLevel == LOW)
 		{
 			return normalizeSource(sourceStr).equals(source);
