@@ -178,7 +178,6 @@ public class CampaignSourceEntry
 		if (uri == null)
 		{
 			uri = uriFac.getURI();
-			uriFac = null;
 		}
 		return uri;
 	}
