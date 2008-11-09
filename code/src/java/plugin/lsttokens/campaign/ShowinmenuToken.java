@@ -18,7 +18,9 @@ public class ShowinmenuToken implements CampaignLstToken
 
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
-		campaign.setShowInMenu(Boolean.valueOf(value).booleanValue());
+		boolean show =
+				value.startsWith("Y") || Boolean.valueOf(value).booleanValue();
+		campaign.setShowInMenu(show);
 		return true;
 	}
 }
