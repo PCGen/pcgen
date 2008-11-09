@@ -24,10 +24,10 @@ import pcgen.core.Campaign;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCampaignTokenTestCase;
 
-public class WeaponProfTokenTest extends AbstractCampaignTokenTestCase
+public class CompanionModTokenTest extends AbstractCampaignTokenTestCase
 {
 
-	static WeaponprofToken token = new WeaponprofToken();
+	static CompanionmodToken token = new CompanionmodToken();
 
 	@Override
 	public CDOMPrimaryToken<Campaign> getToken()
@@ -44,12 +44,12 @@ public class WeaponProfTokenTest extends AbstractCampaignTokenTestCase
 	@Override
 	public ListKey<?> getListKey()
 	{
-		return ListKey.FILE_WEAPON_PROF;
+		return ListKey.FILE_COMPANION_MOD;
 	}
 
 	@Override
 	public boolean allowIncludeExclude()
 	{
-		return true;
+		return false;
 	}
 }

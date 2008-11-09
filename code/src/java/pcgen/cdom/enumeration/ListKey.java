@@ -139,9 +139,7 @@ public final class ListKey<T> {
 	public static final ListKey<String> LICENSE = new ListKey<String>();
 	/** LICENSE_FILE - a ListKey */
 	public static final ListKey<URI> LICENSE_FILE = new ListKey<URI>();
-	/** LINE - a ListKey */
-	public static final ListKey<String> LINE = new ListKey<String>();
-	/** LOGO - a ListKey */
+	/** FILE_LOGO - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_LOGO = new ListKey<CampaignSourceEntry>();
 	/** PANTHEON - a ListKey */
 	public static final ListKey<Pantheon> PANTHEON = new ListKey<Pantheon>();
@@ -238,6 +236,7 @@ public final class ListKey<T> {
 	public static final ListKey<String> UNARMED_DAMAGE = new ListKey<String>();
 	public static final ListKey<Capacity> CAPACITY = new ListKey<Capacity>();
 	public static final ListKey<SpellProhibitor> PROHIBITED_SPELLS = new ListKey<SpellProhibitor>();
+	public static final ListKey<String> COMMENT = new ListKey<String>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

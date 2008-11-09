@@ -44,7 +44,6 @@ import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
@@ -75,323 +74,6 @@ public class Campaign extends PObject
 	 */
 	public Campaign() {
 		super();
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllAbilityFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_ABILITY, files);
-	}
-
-	/**
-	 * Add a list of ability category files to the campaign
-	 * @param files
-	 */
-	public void addAllAbilityCategoryFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllBioSetFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_BIO_SET, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllClassFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_CLASS, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllCompanionModFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_COMPANION_MOD, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllCoverFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_COVER, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllDeityFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_DEITY, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllDomainFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_DOMAIN, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllEquipFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_EQUIP, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllEquipModFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_EQUIP_MOD, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllFeatFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_FEAT, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllKitFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_KIT, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllLanguageFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_LANGUAGE, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllLogoFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_LOGO, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllLstExcludeFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_LST_EXCLUDE, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllPccFiles(final List<URI> files)
-	{
-		addAllToListFor(ListKey.FILE_PCC, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllRaceFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_RACE, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllSkillFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_SKILL, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllSpellFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_SPELL, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllTemplateFiles(final List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_TEMPLATE, files);
-	}
-
-	/**
-	 * Adds the list of armor proficiency files to this campaign.
-	 * 
-	 * @param files the files
-	 */
-	public void addAllArmorProfFiles(List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_ARMOR_PROF, files);
-	}
-
-	/**
-	 * Adds the list of shield proficiency files to this campaign.
-	 * 
-	 * @param files the files
-	 */
-	public void addAllShieldProfFiles(List<CampaignSourceEntry> files)
-	{
-		addAllToListFor(ListKey.FILE_SHIELD_PROF, files);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addAbilityFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_ABILITY, file);
-	}
-
-	/**
-	 * Add an ability category file to the campaign
-	 * @param file
-	 */
-	public void addAbilityCategoryFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_ABILITY_CATEGORY, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addBioSetFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_BIO_SET, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addClassFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_CLASS, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addCompanionModFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_COMPANION_MOD, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addCoverFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_COVER, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addDeityFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_DEITY, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addDomainFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_DOMAIN, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addEquipFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_EQUIP, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addEquipModFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_EQUIP_MOD, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addFeatFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_FEAT, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addKitFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_KIT, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addLanguageFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_LANGUAGE, file);
 	}
 
 	/**
@@ -426,56 +108,12 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Add a line
-	 * @param line
-	 */
-	public void addLine(final String line)
-	{
-		if (line.equals(".CLEAR"))
-		{
-			removeListFor(ListKey.LINE);
-		}
-		else
-		{
-			addToListFor(ListKey.LINE, line);
-		}
-	}
-
-	/**
-	 * Adds the logo file.
-	 * 
-	 * @param file the file
-	 */
-	public void addLogoFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_LOGO, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addLstExcludeFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_LST_EXCLUDE, file);
-	}
-
-	/**
 	 *
 	 * @param file
 	 */
 	public void addPccFile(final URI file)
 	{
 		addToListFor(ListKey.FILE_PCC, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addRaceFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_RACE, file);
 	}
 
 	/**
@@ -495,78 +133,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 *
-	 * @param file
-	 */
-	public void addSkillFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_SKILL, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addSpellFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_SPELL, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addTemplateFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_TEMPLATE, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addArmorProfFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_ARMOR_PROF, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addShieldProfFile(final CampaignSourceEntry file)
-	{
-		addToListFor(ListKey.FILE_SHIELD_PROF, file);
-	}
-
-	/**
-	 * Returns the abilityFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getAbilityFiles()
-	{
-		return getSafeListFor(ListKey.FILE_ABILITY);
-	}
-
-	/**
-	 * Returns the abilityCategoryFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getAbilityCategoryFiles()
-	{
-		return getSafeListFor(ListKey.FILE_ABILITY_CATEGORY);
-	}
-
-	/**
-	 * Returns the bioSetFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getBioSetFiles()
-	{
-		return getSafeListFor(ListKey.FILE_BIO_SET);
-	}
-
-	/**
 	 * Get the book type
 	 * @return bookType
 	 */
@@ -577,42 +143,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Returns the classFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getClassFiles()
-	{
-		return getSafeListFor(ListKey.FILE_CLASS);
-	}
-
-	/**
-	 * Returns the companionmodFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getCompanionModFiles()
-	{
-		return getSafeListFor(ListKey.FILE_COMPANION_MOD);
-	}
-
-	/**
-	 * Returns the coverFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getCoverFiles()
-	{
-		return getSafeListFor(ListKey.FILE_COVER);
-	}
-
-	/**
-	 * Returns the deityFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getDeityFiles()
-	{
-		return getSafeListFor(ListKey.FILE_DEITY);
-	}
-
-	/**
 	 * Get the destination
 	 * @return destination
 	 */
@@ -620,42 +150,6 @@ public class Campaign extends PObject
 	{
 		String characteristic = get(StringKey.DESTINATION);
 		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Returns the domainFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getDomainFiles()
-	{
-		return getSafeListFor(ListKey.FILE_DOMAIN);
-	}
-
-	/**
-	 * Returns the equipmentFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getEquipFiles()
-	{
-		return getSafeListFor(ListKey.FILE_EQUIP);
-	}
-
-	/**
-	 * Returns the equipmodFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getEquipModFiles()
-	{
-		return getSafeListFor(ListKey.FILE_EQUIP_MOD);
-	}
-
-	/**
-	 * Returns the featFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getFeatFiles()
-	{
-		return getSafeListFor(ListKey.FILE_FEAT);
 	}
 
 	/**
@@ -721,24 +215,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Returns the kitFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getKitFiles()
-	{
-		return getSafeListFor(ListKey.FILE_KIT);
-	}
-
-	/**
-	 * Returns the languageFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getLanguageFiles()
-	{
-		return getSafeListFor(ListKey.FILE_LANGUAGE);
-	}
-
-	/**
 	 * Get the licenses list
 	 * @return license
 	 */
@@ -770,34 +246,6 @@ public class Campaign extends PObject
 	public List<URI> getLicenseFiles()
 	{
 		return getSafeListFor(ListKey.LICENSE_FILE);
-	}
-
-	/**
-	 * Get the lines
-	 * @return lines
-	 */
-	public List<String> getLines()
-	{
-		return getSafeListFor(ListKey.LINE);
-	}
-
-	/**
-	 * Returns the lstExcludeFiles.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getLstExcludeFiles()
-	{
-		return getSafeListFor(ListKey.FILE_LST_EXCLUDE);
-	}
-
-	/**
-	 * Gets the logo files.
-	 * 
-	 * @return the logo files
-	 */
-	public List<CampaignSourceEntry> getLogoFiles()
-	{
-		return getSafeListFor(ListKey.FILE_LOGO);
 	}
 
 	/**
@@ -840,15 +288,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Returns the raceFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getRaceFiles()
-	{
-		return getSafeListFor(ListKey.FILE_RACE);
-	}
-
-	/**
 	 * Get section 15 as a List
 	 * @return section 15
 	 */
@@ -881,51 +320,6 @@ public class Campaign extends PObject
 	{
 		String characteristic = get(StringKey.SETTING);
 		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Returns the skillFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getSkillFiles()
-	{
-		return getSafeListFor(ListKey.FILE_SKILL);
-	}
-
-	/**
-	 * Returns the spellFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getSpellFiles()
-	{
-		return getSafeListFor(ListKey.FILE_SPELL);
-	}
-
-	/**
-	 * Returns the templateFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getTemplateFiles()
-	{
-		return getSafeListFor(ListKey.FILE_TEMPLATE);
-	}
-
-	/**
-	 * Returns the armorProfFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getArmorProfFiles()
-	{
-		return getSafeListFor(ListKey.FILE_ARMOR_PROF);
-	}
-
-	/**
-	 * Returns the shieldProfFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getShieldProfFiles()
-	{
-		return getSafeListFor(ListKey.FILE_SHIELD_PROF);
 	}
 
 	/**

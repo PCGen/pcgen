@@ -27,10 +27,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
+import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Source;
 import pcgen.io.FileAccess;
@@ -134,11 +139,40 @@ public final class CampaignOutput
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator<String> i = campaign.getLines().iterator(); i
-				.hasNext();)
+			if (campaign.getHelp().length() > 0)
 			{
-				FileAccess.write(out, i.next());
+				FileAccess.write(out, "HELP:" + campaign.getHelp());
 				FileAccess.newLine(out);
+			}
+
+			List<URI> pccList = campaign.getListFor(ListKey.FILE_PCC);
+			if (pccList != null)
+			{
+				for (URI uri : pccList)
+				{
+					FileAccess.write(out, "PCC:" + uri);
+					FileAccess.newLine(out);
+				}
+			}
+
+			List<String> commentList = campaign.getListFor(ListKey.COMMENT);
+			if (commentList != null)
+			{
+				for (String s : commentList)
+				{
+					FileAccess.write(out, "#" + s);
+					FileAccess.newLine(out);
+				}
+			}
+
+			Collection<String> lines = Globals.getContext().unparse(campaign);
+			if (lines != null)
+			{
+				for (String line : lines)
+				{
+					FileAccess.write(out, line);
+					FileAccess.newLine(out);
+				}
 			}
 		}
 		catch (FileNotFoundException exc)

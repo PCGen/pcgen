@@ -19,7 +19,6 @@ public class HelpToken implements CampaignLstToken
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.setHelp(value);
-		campaign.addLine("HELP:" + value);
 		return true;
 	}
 }

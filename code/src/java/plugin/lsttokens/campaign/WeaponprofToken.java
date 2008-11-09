@@ -1,6 +1,5 @@
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
@@ -23,14 +22,6 @@ public class WeaponprofToken extends AbstractToken implements CDOMPrimaryToken<C
 	public String getTokenName()
 	{
 		return "WEAPONPROF";
-	}
-
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
-	{
-		campaign.addLine("WEAPONPROF:" + value);
-		campaign.addToListFor(ListKey.FILE_WEAPON_PROF, CampaignSourceEntry
-			.getNewCSE(campaign, sourceUri, value));
-		return true;
 	}
 
 	public boolean parse(LoadContext context, Campaign obj, String value)

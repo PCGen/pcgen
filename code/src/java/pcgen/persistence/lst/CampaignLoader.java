@@ -175,28 +175,27 @@ public class CampaignLoader extends LstLineFileLoader
 			return;
 		}
 
-		baseCampaign.addAllLstExcludeFiles(subCampaign.getLstExcludeFiles());
-		baseCampaign.addAllRaceFiles(subCampaign.getRaceFiles());
-		baseCampaign.addAllClassFiles(subCampaign.getClassFiles());
-		baseCampaign
-			.addAllCompanionModFiles(subCampaign.getCompanionModFiles());
-		baseCampaign.addAllCoverFiles(subCampaign.getCoverFiles());
-		baseCampaign.addAllSkillFiles(subCampaign.getSkillFiles());
-		baseCampaign.addAllAbilityCategoryFiles(subCampaign.getAbilityCategoryFiles());
-		baseCampaign.addAllAbilityFiles(subCampaign.getAbilityFiles());
-		baseCampaign.addAllFeatFiles(subCampaign.getFeatFiles());
-		baseCampaign.addAllDeityFiles(subCampaign.getDeityFiles());
-		baseCampaign.addAllDomainFiles(subCampaign.getDomainFiles());
-		baseCampaign.addAllArmorProfFiles(subCampaign.getArmorProfFiles());
-		baseCampaign.addAllShieldProfFiles(subCampaign.getShieldProfFiles());
+		baseCampaign.addAllToListFor(ListKey.FILE_LST_EXCLUDE, subCampaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
+		baseCampaign.addAllToListFor(ListKey.FILE_RACE, subCampaign.getSafeListFor(ListKey.FILE_RACE));
+		baseCampaign.addAllToListFor(ListKey.FILE_CLASS, subCampaign.getSafeListFor(ListKey.FILE_CLASS));
+		baseCampaign.addAllToListFor(ListKey.FILE_COMPANION_MOD, subCampaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
+		baseCampaign.addAllToListFor(ListKey.FILE_COVER, subCampaign.getSafeListFor(ListKey.FILE_COVER));
+		baseCampaign.addAllToListFor(ListKey.FILE_SKILL, subCampaign.getSafeListFor(ListKey.FILE_SKILL));
+		baseCampaign.addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+		baseCampaign.addAllToListFor(ListKey.FILE_ABILITY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY));
+		baseCampaign.addAllToListFor(ListKey.FILE_FEAT, subCampaign.getSafeListFor(ListKey.FILE_FEAT));
+		baseCampaign.addAllToListFor(ListKey.FILE_DEITY, subCampaign.getSafeListFor(ListKey.FILE_DEITY));
+		baseCampaign.addAllToListFor(ListKey.FILE_DOMAIN, subCampaign.getSafeListFor(ListKey.FILE_DOMAIN));
+		baseCampaign.addAllToListFor(ListKey.FILE_ARMOR_PROF, subCampaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
+		baseCampaign.addAllToListFor(ListKey.FILE_SHIELD_PROF, subCampaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
 		baseCampaign.addAllToListFor(ListKey.FILE_WEAPON_PROF, subCampaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
-		baseCampaign.addAllEquipFiles(subCampaign.getEquipFiles());
-		baseCampaign.addAllSpellFiles(subCampaign.getSpellFiles());
-		baseCampaign.addAllLanguageFiles(subCampaign.getLanguageFiles());
-		baseCampaign.addAllTemplateFiles(subCampaign.getTemplateFiles());
-		baseCampaign.addAllEquipModFiles(subCampaign.getEquipModFiles());
-		baseCampaign.addAllKitFiles(subCampaign.getKitFiles());
-		baseCampaign.addAllBioSetFiles(subCampaign.getBioSetFiles());
+		baseCampaign.addAllToListFor(ListKey.FILE_EQUIP, subCampaign.getSafeListFor(ListKey.FILE_EQUIP));
+		baseCampaign.addAllToListFor(ListKey.FILE_SPELL, subCampaign.getSafeListFor(ListKey.FILE_SPELL));
+		baseCampaign.addAllToListFor(ListKey.FILE_LANGUAGE, subCampaign.getSafeListFor(ListKey.FILE_LANGUAGE));
+		baseCampaign.addAllToListFor(ListKey.FILE_TEMPLATE, subCampaign.getSafeListFor(ListKey.FILE_TEMPLATE));
+		baseCampaign.addAllToListFor(ListKey.FILE_EQUIP_MOD, subCampaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
+		baseCampaign.addAllToListFor(ListKey.FILE_KIT, subCampaign.getSafeListFor(ListKey.FILE_KIT));
+		baseCampaign.addAllToListFor(ListKey.FILE_BIO_SET, subCampaign.getSafeListFor(ListKey.FILE_BIO_SET));
 	}
 
 	/**

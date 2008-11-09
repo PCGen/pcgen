@@ -19,7 +19,6 @@ public class PccToken implements CampaignLstToken
 
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
-		campaign.addLine("PCC:" + value);
 		campaign.addPccFile(CampaignSourceEntry.getPathURI(sourceUri, value));
 		return true;
 	}

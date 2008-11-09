@@ -24,10 +24,10 @@ import pcgen.core.Campaign;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCampaignTokenTestCase;
 
-public class WeaponProfTokenTest extends AbstractCampaignTokenTestCase
+public class LanguageTokenTest extends AbstractCampaignTokenTestCase
 {
 
-	static WeaponprofToken token = new WeaponprofToken();
+	static LanguageToken token = new LanguageToken();
 
 	@Override
 	public CDOMPrimaryToken<Campaign> getToken()
@@ -44,7 +44,7 @@ public class WeaponProfTokenTest extends AbstractCampaignTokenTestCase
 	@Override
 	public ListKey<?> getListKey()
 	{
-		return ListKey.FILE_WEAPON_PROF;
+		return ListKey.FILE_LANGUAGE;
 	}
 
 	@Override

@@ -22,11 +22,14 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JTableEx;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 import javax.swing.*;
@@ -39,6 +42,7 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -69,8 +73,31 @@ final class SourceFilesPanel extends JPanel
 		List<String> fList = fileModel.getFileList();
 		List<String> lList = fileModel.getLocationList();
 		Iterator<String> j = lList.iterator();
-		theCampaign.addLine(".CLEAR");
+		theCampaign.removeListFor(ListKey.FILE_ABILITY_CATEGORY);
+		theCampaign.removeListFor(ListKey.FILE_ABILITY);
+		theCampaign.removeListFor(ListKey.FILE_ARMOR_PROF);
+		theCampaign.removeListFor(ListKey.FILE_BIO_SET);
+		theCampaign.removeListFor(ListKey.FILE_CLASS);
+		theCampaign.removeListFor(ListKey.FILE_COMPANION_MOD);
+		theCampaign.removeListFor(ListKey.FILE_COVER);
+		theCampaign.removeListFor(ListKey.FILE_DEITY);
+		theCampaign.removeListFor(ListKey.FILE_DOMAIN);
+		theCampaign.removeListFor(ListKey.FILE_EQUIP);
+		theCampaign.removeListFor(ListKey.FILE_EQUIP_MOD);
+		theCampaign.removeListFor(ListKey.FILE_FEAT);
+		theCampaign.removeListFor(ListKey.FILE_KIT);
+		theCampaign.removeListFor(ListKey.FILE_LANGUAGE);
+		theCampaign.removeListFor(ListKey.FILE_LOGO);
+		theCampaign.removeListFor(ListKey.FILE_LST_EXCLUDE);
+		theCampaign.removeListFor(ListKey.FILE_RACE);
+		theCampaign.removeListFor(ListKey.FILE_SHIELD_PROF);
+		theCampaign.removeListFor(ListKey.FILE_SPELL);
+		theCampaign.removeListFor(ListKey.FILE_SPELL);
+		theCampaign.removeListFor(ListKey.FILE_TEMPLATE);
+		theCampaign.removeListFor(ListKey.FILE_WEAPON_PROF);
+		theCampaign.removeListFor(ListKey.COMMENT);
 
+		LoadContext context = Globals.getContext();
 		for (Iterator<String> i = fList.iterator(); i.hasNext();)
 		{
 			String name = i.next();
@@ -78,11 +105,11 @@ final class SourceFilesPanel extends JPanel
 
 			if (name.equals("COMMENT"))
 			{
-				theCampaign.addLine("#" + val);
+				theCampaign.addToListFor(ListKey.COMMENT, val);
 			}
 			else
 			{
-				theCampaign.addLine(name + ":" + val);
+				context.unconditionallyProcess(theCampaign, name, val);
 			}
 		}
 	}
@@ -96,20 +123,21 @@ final class SourceFilesPanel extends JPanel
 
 		theCampaign = (Campaign) thisPObject;
 
-		List aList = theCampaign.getLines();
-
-		for (Iterator i = aList.iterator(); i.hasNext();)
+		Collection<String> lines = Globals.getContext().unparse(theCampaign);
+		if (lines != null)
 		{
-			String a = (String) i.next();
+			for (String a : lines)
+			{
 
-			if (a.startsWith("#"))
-			{
-				fileModel.addFileAndLocation("COMMENT", a.substring(1));
-			}
-			else
-			{
-				String b = a.substring(0, a.indexOf(":"));
-				fileModel.addFileAndLocation(b, a.substring(b.length() + 1));
+				if (a.startsWith("#"))
+				{
+					fileModel.addFileAndLocation("COMMENT", a.substring(1));
+				}
+				else
+				{
+					String b = a.substring(0, a.indexOf(":"));
+					fileModel.addFileAndLocation(b, a.substring(b.length() + 1));
+				}
 			}
 		}
 

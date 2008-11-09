@@ -36,6 +36,8 @@ public abstract class AbstractCampaignTokenTestCase extends
 
 	public abstract ListKey<?> getListKey();
 
+	public abstract boolean allowIncludeExclude();
+
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -154,6 +156,30 @@ public abstract class AbstractCampaignTokenTestCase extends
 		assertNoSideEffects();
 	}
 
+	public void testInvalidInclude() throws PersistenceLayerException
+	{
+		if (!allowIncludeExclude())
+		{
+			assertFalse(parse("@TestWP1|(INCLUDE:ARing|BItem)"));
+		}
+	}
+
+	public void testInvalidExclude() throws PersistenceLayerException
+	{
+		if (!allowIncludeExclude())
+		{
+			assertFalse(parse("@TestWP1|(EXCLUDE:ARing|BItem)"));
+		}
+	}
+
+	/*
+	 * TODO Need to be able to catch this - but can't today.
+	 */
+	//	public void testInvalidBothIncludeExclude()
+	//		throws PersistenceLayerException
+	//	{
+	//		assertFalse(parse("@TestWP1|(INCLUDE:ARing|BItem)|(EXCLUDE:CRing)"));
+	//	}
 	@Test
 	public void testRoundRobinOne() throws PersistenceLayerException
 	{
@@ -163,37 +189,59 @@ public abstract class AbstractCampaignTokenTestCase extends
 	@Test
 	public void testRoundRobinInclude() throws PersistenceLayerException
 	{
-		runRoundRobin("@TestWP1|(INCLUDE:ARing|BItem)");
+		if (allowIncludeExclude())
+		{
+			runRoundRobin("@TestWP1|(INCLUDE:ARing|BItem)");
+		}
 	}
 
 	@Test
 	public void testRoundRobinExclude() throws PersistenceLayerException
 	{
-		runRoundRobin("@TestWP1|(EXCLUDE:ARing|BItem)");
+		if (allowIncludeExclude())
+		{
+			runRoundRobin("@TestWP1|(EXCLUDE:ARing|BItem)");
+		}
 	}
 
 	@Test
-	public void testRoundRobinIncludeCategory() throws PersistenceLayerException
+	public void testRoundRobinIncludeCategory()
+		throws PersistenceLayerException
 	{
-		runRoundRobin("@TestWP1|(INCLUDE:CATEGORY=FEAT,ARing,BItem)");
+		if (allowIncludeExclude())
+		{
+			runRoundRobin("@TestWP1|(INCLUDE:CATEGORY=FEAT,ARing,BItem)");
+		}
 	}
 
 	@Test
-	public void testRoundRobinExcludeCategory() throws PersistenceLayerException
+	public void testRoundRobinExcludeCategory()
+		throws PersistenceLayerException
 	{
-		runRoundRobin("@TestWP1|(EXCLUDE:CATEGORY=FEAT,ARing,BItem)");
+		if (allowIncludeExclude())
+		{
+			runRoundRobin("@TestWP1|(EXCLUDE:CATEGORY=FEAT,ARing,BItem)");
+		}
 	}
 
 	@Test
-	public void testRoundRobinIncludeTwoCategory() throws PersistenceLayerException
+	public void testRoundRobinIncludeTwoCategory()
+		throws PersistenceLayerException
 	{
-		runRoundRobin("TestWP1|(INCLUDE:CATEGORY=FEAT,ARing,BItem|CATEGORY=Mutation,Weird)");
+		if (allowIncludeExclude())
+		{
+			runRoundRobin("TestWP1|(INCLUDE:CATEGORY=FEAT,ARing,BItem|CATEGORY=Mutation,Weird)");
+		}
 	}
 
 	@Test
-	public void testRoundRobinExcludeTwoCategory() throws PersistenceLayerException
+	public void testRoundRobinExcludeTwoCategory()
+		throws PersistenceLayerException
 	{
-		runRoundRobin("TestWP1|(EXCLUDE:CATEGORY=FEAT,ARing,BItem|CATEGORY=Mutation,Weird)");
+		if (allowIncludeExclude())
+		{
+			runRoundRobin("TestWP1|(EXCLUDE:CATEGORY=FEAT,ARing,BItem|CATEGORY=Mutation,Weird)");
+		}
 	}
 
 	@Override

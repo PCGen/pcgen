@@ -914,26 +914,26 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 
 		// Load the LST files to be loaded for the campaign
-		lstExcludeFiles.addAll(aCamp.getLstExcludeFiles());
-		raceFileList.addAll(aCamp.getRaceFiles());
-		classFileList.addAll(aCamp.getClassFiles());
-		companionmodFileList.addAll(aCamp.getCompanionModFiles());
-		skillFileList.addAll(aCamp.getSkillFiles());
-		abilityCategoryFileList.addAll(aCamp.getAbilityCategoryFiles());
-		abilityFileList.addAll(aCamp.getAbilityFiles());
-		featFileList.addAll(aCamp.getFeatFiles());
-		deityFileList.addAll(aCamp.getDeityFiles());
-		domainFileList.addAll(aCamp.getDomainFiles());
+		lstExcludeFiles.addAll(aCamp.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
+		raceFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_RACE));
+		classFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_CLASS));
+		companionmodFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_COMPANION_MOD));
+		skillFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_SKILL));
+		abilityCategoryFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+		abilityFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_ABILITY));
+		featFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_FEAT));
+		deityFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_DEITY));
+		domainFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_DOMAIN));
 		weaponProfFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_WEAPON_PROF));
-		armorProfFileList.addAll(aCamp.getArmorProfFiles());
-		shieldProfFileList.addAll(aCamp.getShieldProfFiles());
-		equipmentFileList.addAll(aCamp.getEquipFiles());
-		spellFileList.addAll(aCamp.getSpellFiles());
-		languageFileList.addAll(aCamp.getLanguageFiles());
-		templateFileList.addAll(aCamp.getTemplateFiles());
-		equipmodFileList.addAll(aCamp.getEquipModFiles());
-		kitFileList.addAll(aCamp.getKitFiles());
-		bioSetFileList.addAll(aCamp.getBioSetFiles());
+		armorProfFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_ARMOR_PROF));
+		shieldProfFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_SHIELD_PROF));
+		equipmentFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_EQUIP));
+		spellFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_SPELL));
+		languageFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_LANGUAGE));
+		templateFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_TEMPLATE));
+		equipmodFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_EQUIP_MOD));
+		kitFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_KIT));
+		bioSetFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_BIO_SET));
 	}
 
 	private void loadCustomItems()
