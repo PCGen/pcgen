@@ -1457,45 +1457,16 @@ public class MainSource extends FilterAdapterPanel
 	//this method will now unload all current sources, but will not remove them from the selected table
 	private void unloadAllCampaigns_actionPerformed()
 	{
-		PCGen_Frame1 parent = PCGen_Frame1.getRealParentFrame(this);
+		SourceSelectionUtils.unloadSources();
+	}
 
-		if (Logging.isDebugMode()) //don't force PC closure if we're in debug mode, per request
-		{
-			ShowMessageDelegate.showMessageDialog("PC's are not closed in debug mode.  " + "Please be aware that they may not function correctly "
-			+ "until campaign data is loaded again.",
-				Constants.s_APPNAME, MessageType.WARNING);
-		}
-		else
-		{
-			parent.closeAllPCs();
-
-			if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
-			{
-				ShowMessageDelegate.showMessageDialog("Can't unload campaigns until all PC's are closed.", Constants.s_APPNAME,
-					MessageType.INFORMATION);
-
-				return;
-			}
-			PCGen_Frame1.setCharacterPane(null);
-		}
-
-		Globals.emptyLists();
-		PersistenceManager.getInstance().emptyLists();
-		//PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList<URI>());
-
-		for (Campaign aCamp : Globals.getCampaignList())
-		{
-			aCamp.setIsLoaded(false);
-		}
-
-		parent.enableLstEditors(false);
-
+	void campaignsUnloaded()
+	{
 		sourcesLoaded = false;
 
 		refreshButton.setEnabled(true);
 		refreshButton.setToolTipText("Refresh the list of sources");
 
-		PCGen_Frame1.enableDisableMenuItems();
 		updateModels();
 	}
 

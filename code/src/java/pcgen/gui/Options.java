@@ -43,6 +43,10 @@ final class Options extends JMenu // extends Preferences
 	// Used to create the entries for the "set all stats to" menu
 	private PrefsMenuListener prefsMenuHandler = new PrefsMenuListener();
 
+	private SourcesMenuListener sourcesMenuHandler = new SourcesMenuListener();
+
+	private GameModes modesMenu;
+
 	/** Creates new form Options */
 	public Options()
 	{
@@ -64,8 +68,7 @@ final class Options extends JMenu // extends Preferences
 
 	private void addCampMenu(JMenu parent)
 	{
-		//Modes menu
-		GameModes modesMenu = new GameModes();
+		modesMenu = new GameModes();
 		parent.add(modesMenu);
 	}
 
@@ -79,6 +82,13 @@ final class Options extends JMenu // extends Preferences
 	{
 		addCampMenu(this); // campaigns
 		addPreferencesMenu(this); // Preferences dialog
+		addQuickSourcesMenu(this); // Sources dialog
+	}
+
+	private void addQuickSourcesMenu(JMenu parent)
+	{
+		parent.add(Utility.createMenuItem("mnuSettingsSources", sourcesMenuHandler, null, null, "",
+	        true));
 	}
 
 	/**
@@ -100,5 +110,32 @@ final class Options extends JMenu // extends Preferences
 
 			PCGen_Frame1.restoreMessageAreaText();
 		}
+	}
+
+	/**
+	 * Show the sources pane.
+	 */
+	private static final class SourcesMenuListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent actionEvent)
+		{
+			PCGen_Frame1.setMessageAreaText("Source Selection...");
+
+			SourceSelectionDialog dialog =
+					new SourceSelectionDialog(PCGen_Frame1.getInst(), true);
+			dialog.setVisible(true);
+
+			PCGen_Frame1.restoreMessageAreaText();
+		}
+	}
+
+	/**
+	 * Gets the game mode menu.
+	 * 
+	 * @return the game mode menu
+	 */
+	GameModes getGameModeMenu()
+	{
+		return modesMenu;
 	}
 }

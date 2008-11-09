@@ -3416,6 +3416,7 @@ public final class GameMode implements Comparable<Object>
 	private LoadContext context = new RuntimeLoadContext(new ReferenceContext(), masterLCS);
 	private GameReferenceContext gameRefContext = new GameReferenceContext();
 	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
+	private String defaultSourceTitle;
 
 	public void clearLoadContext()
 	{
@@ -3549,5 +3550,25 @@ public final class GameMode implements Comparable<Object>
 	public String toString()
 	{
 		return name;
+	}
+
+	/**
+	 * Sets the title of the default source (used on the quick sources dialog).
+	 * 
+	 * @param title the new title
+	 */
+	public void setDefaultSourceTitle(String title)
+	{
+		this.defaultSourceTitle = title;
+	}
+
+	/**
+	 * Gets the default source title.
+	 * 
+	 * @return the default source title
+	 */
+	public String getDefaultSourceTitle()
+	{
+		return defaultSourceTitle;
 	}
 }

@@ -118,6 +118,8 @@ final class PCGenMenuBar extends JMenuBar
 	PrintFrame printFrame = null;
 	boolean enablePDF;
 
+	private GameModes gameModeMenu;
+
 	/**
 	 * Create a new menu item bar including all menu items.  
 	 * @param pcgenframe The PCGen window we are attached to.
@@ -138,6 +140,7 @@ final class PCGenMenuBar extends JMenuBar
 		//Options Menu (called Settings in the UI)
 		Options optionMenu = new Options();
 		this.add(optionMenu);
+		gameModeMenu = optionMenu.getGameModeMenu();
 
 		//Tools Menu
 		JMenu toolsMenu = createToolsMenu();
@@ -822,5 +825,13 @@ final class PCGenMenuBar extends JMenuBar
 	JMenu getFiltersMenu()
 	{
 		return filtersMenu;
+	}
+
+	/**
+	 * @return the gameModeMenu
+	 */
+	GameModes getGameModeMenu()
+	{
+		return gameModeMenu;
 	}
 }

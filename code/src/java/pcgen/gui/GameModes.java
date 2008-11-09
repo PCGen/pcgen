@@ -241,7 +241,7 @@ final class GameModes extends JMenu
 		}
 	}
 
-	private void updateMenu()
+	void updateMenu()
 	{
 		boolean bFound = false;
 
@@ -289,7 +289,6 @@ final class GameModes extends JMenu
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			final Object source = actionEvent.getSource();
-			String oldStatus = "";
 			String tempGameMode = Constants.e3_MODE;
 			int campaignNum = -1;
 
@@ -312,77 +311,25 @@ final class GameModes extends JMenu
 			}
 
 			// Now check for a campaign selection which may have switched game mode
+			List<Campaign> selectedCampaigns = new ArrayList<Campaign>();
 			if (campaignNum >= 0)
 			{
 				// We can now specify multiple game modes in a PCC file.
 				// We assume here that the 1st one is the primary one.
 				List<String> gameModeList = (campaigns.get(campaignNum)).getGameModes();
 				tempGameMode = gameModeList.get(0);
+				selectedCampaigns.add(campaigns.get(campaignNum));
 			}
 
 			if (!Globals.isInGameMode(tempGameMode))
 			{
-				SettingsHandler.setGame(tempGameMode);
-				Globals.createEmptyRace();
-				updateMenu();
-				((MainSource) PCGen_Frame1.getBaseTabbedPane().getComponent(0)).changedGameMode();
+				SourceSelectionUtils.changeGameMode(tempGameMode);
 			}
 
 			// Now we deal with a campaign selection
-			if (campaignNum >= 0)
+			if (!selectedCampaigns.isEmpty())
 			{
-				List<Campaign> selectedCampaigns = new ArrayList<Campaign>();
-				selectedCampaigns.add(campaigns.get(campaignNum));
-
-				try
-				{
-					PCGen_Frame1.getInst().closeAllPCs();
-
-					if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
-					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_campaignChangeError"),
-							Constants.s_APPNAME, MessageType.INFORMATION);
-
-						return;
-					}
-
-					// Unload the existing campaigns and load our selected campaign
-					Globals.emptyLists();
-					PersistenceManager pManager = PersistenceManager.getInstance();
-					pManager.emptyLists();
-					pManager.setChosenCampaignSourcefiles(new ArrayList<URI>());
-
-					for (Campaign aCamp : Globals.getCampaignList())
-					{
-						aCamp.setIsLoaded(false);
-					}
-
-					// Show that we are loading...
-					oldStatus = PCGen_Frame1.getInst().getMainSource()
-						.showLoadingSources();
-					//PersistenceObserver observer = new PersistenceObserver();
-					//pManager.addObserver( observer );
-					pManager.loadCampaigns(selectedCampaigns);
-					//pManager.deleteObserver( observer );
-
-				}
-				catch (PersistenceLayerException e)
-				{
-					ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.WARNING);
-				}
-
-				pcgen.gui.PCGen_Frame1.getInst().getMainSource().updateLoadedCampaignsUI();
-
-				// Show that we are done
-				PCGen_Frame1.getInst().getMainSource().showSourcesLoaded(
-					oldStatus);
-
-				if ((getParent() != null) && Globals.displayListsHappy())
-				{
-					PCGen_Frame1 parent = pcgen.gui.PCGen_Frame1.getInst();
-					parent.enableNew(true);
-					parent.enableLstEditors(true);
-				}
+				SourceSelectionUtils.loadSources(selectedCampaigns);
 			}
 		}
 	}
