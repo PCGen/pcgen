@@ -12,6 +12,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AddLoader;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
@@ -19,7 +20,8 @@ import pcgen.util.Logging;
  * @author djones4
  * 
  */
-public class AddLst implements GlobalLstToken, CDOMPrimaryToken<CDOMObject>
+public class AddLst extends AbstractToken implements GlobalLstToken,
+		CDOMPrimaryToken<CDOMObject>
 {
 	/*
 	 * Template's LevelToken adjustment done in addAddsFromAllObjForLevel() in
@@ -61,6 +63,10 @@ public class AddLst implements GlobalLstToken, CDOMPrimaryToken<CDOMObject>
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 		throws PersistenceLayerException
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
