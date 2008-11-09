@@ -29,7 +29,6 @@ package pcgen.core.term;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
-import pcgen.cdom.enumeration.IntegerKey;
 
 public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {

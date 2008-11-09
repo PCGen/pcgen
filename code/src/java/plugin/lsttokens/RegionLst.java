@@ -110,11 +110,16 @@ public class RegionLst extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(Region choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Region choice, PlayerCharacter pc)
 	{
 		if (!pc.getRegion().equalsIgnoreCase(choice.toString()))
 		{
 			pc.setRegion(choice.toString());
 		}
+	}
+
+	public boolean allow(Region choice, PlayerCharacter pc, boolean allowStack)
+	{
+		return true;
 	}
 }

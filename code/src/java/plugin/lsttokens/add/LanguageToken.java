@@ -25,13 +25,15 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
@@ -42,7 +44,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 public class LanguageToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, ChoiceActor<Language>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Language>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -85,7 +87,8 @@ public class LanguageToken extends AbstractToken implements
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				Logging
-					.errorPrint("Count in " + getFullName() + " must be > 0");
+						.errorPrint("Count in " + getFullName()
+								+ " must be > 0");
 				return false;
 			}
 			items = value.substring(pipeLoc + 1);
@@ -96,8 +99,7 @@ public class LanguageToken extends AbstractToken implements
 			return false;
 		}
 
-		List<CDOMReference<Language>> refs =
-				new ArrayList<CDOMReference<Language>>();
+		List<CDOMReference<Language>> refs = new ArrayList<CDOMReference<Language>>();
 		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -113,15 +115,14 @@ public class LanguageToken extends AbstractToken implements
 			else
 			{
 				foundOther = true;
-				lang =
-						TokenUtilities.getTypeOrPrimitive(context,
-							LANGUAGE_CLASS, tokText);
+				lang = TokenUtilities.getTypeOrPrimitive(context,
+						LANGUAGE_CLASS, tokText);
 			}
 			if (lang == null)
 			{
 				Logging.errorPrint("  Error was encountered while parsing "
-					+ getFullName() + ": " + value
-					+ " had an invalid reference: " + tokText);
+						+ getFullName() + ": " + value
+						+ " had an invalid reference: " + tokText);
 				return false;
 			}
 			refs.add(lang);
@@ -129,15 +130,15 @@ public class LanguageToken extends AbstractToken implements
 		if (foundAny && foundOther)
 		{
 			Logging.errorPrint("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
 
-		ReferenceChoiceSet<Language> rcs =
-				new ReferenceChoiceSet<Language>(refs);
-		ChoiceSet<Language> cs = new ChoiceSet<Language>("ADD", rcs);
-		TransitionChoice<Language> tc =
-				new TransitionChoice<Language>(cs, count);
+		ReferenceChoiceSet<Language> rcs = new ReferenceChoiceSet<Language>(
+				refs);
+		ChoiceSet<Language> cs = new ChoiceSet<Language>("LANGUAGE", rcs);
+		PersistentTransitionChoice<Language> tc = new PersistentTransitionChoice<Language>(
+				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setTitle("Language Choice");
 		tc.setChoiceActor(this);
@@ -146,9 +147,10 @@ public class LanguageToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<TransitionChoice<?>> grantChanges =
-				context.getObjectContext().getListChanges(obj, ListKey.ADD);
-		Collection<TransitionChoice<?>> addedItems = grantChanges.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -164,7 +166,7 @@ public class LanguageToken extends AbstractToken implements
 				if (f == null)
 				{
 					context.addWriteMessage("Unable to find " + getFullName()
-						+ " Count");
+							+ " Count");
 					return null;
 				}
 				String fString = f.toString();
@@ -187,8 +189,31 @@ public class LanguageToken extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(Language choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Language choice,
+			PlayerCharacter pc)
 	{
 		pc.addLanguageKeyed(choice.getKeyName());
+	}
+
+	public boolean allow(Language choice, PlayerCharacter pc, boolean allowStack)
+	{
+		return !pc.getLanguagesList().contains(choice);
+	}
+
+	public Language decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				LANGUAGE_CLASS, s);
+	}
+
+	public String encodeChoice(Object choice)
+	{
+		return ((Language) choice).getKeyName();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			Language choice)
+	{
+		// No action required\
 	}
 }

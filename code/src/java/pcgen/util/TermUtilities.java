@@ -27,7 +27,6 @@
 package pcgen.util;
 
 import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 import pcgen.core.term.TermEvaulatorException;
 

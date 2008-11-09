@@ -175,6 +175,12 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getObject(val);
 	}
 
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> T silentlyGetConstructedCDOMObject(
+			Class<T> c, Category<T> cat, String val)
+	{
+		return getManufacturer(c, cat).getObject(val);
+	}
+
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T>
 	// getCDOMReference(
 	// Class<T> c, Category<T> cat, String val)

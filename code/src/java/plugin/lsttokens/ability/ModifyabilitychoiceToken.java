@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
@@ -71,7 +72,7 @@ public class ModifyabilitychoiceToken extends AbstractToken implements
 
 		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(refs);
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
-		ChoiceSet<Ability> cs = new ChoiceSet<Ability>("ADD", gfd);
+		ChoiceSet<Ability> cs = new ChoiceSet<Ability>("MODIFYFEATCHOICE", gfd);
 		TransitionChoice<Ability> tc = new TransitionChoice<Ability>(cs,
 				Formula.ONE);
 		tc.setTitle("Select a "
@@ -95,7 +96,7 @@ public class ModifyabilitychoiceToken extends AbstractToken implements
 		return Ability.class;
 	}
 
-	public void applyChoice(Ability choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Ability choice, PlayerCharacter pc)
 	{
 		final List<String> abilityList = new ArrayList<String>();
 		final List<String> selectedList = new ArrayList<String>();
@@ -152,5 +153,10 @@ public class ModifyabilitychoiceToken extends AbstractToken implements
 				+ "which is a poorly formed token.  "
 				+ "Please use MODIFYFEATCHOICE, "
 				+ "as it has the same function";
+	}
+
+	public boolean allow(Ability choice, PlayerCharacter pc, boolean allowStack)
+	{
+		return true;
 	}
 }

@@ -19,6 +19,8 @@ package pcgen.cdom.base;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
@@ -43,6 +45,8 @@ public class TransitionChoice<T>
 	private String title;
 	private boolean required = true;
 	private ChoiceActor<T> choiceActor;
+	private boolean allowStack = false;
+	private Integer stackLimit = null;
 
 	public TransitionChoice(ChoiceSet<? extends T> cs, Formula count)
 	{
@@ -67,7 +71,7 @@ public class TransitionChoice<T>
 		{
 			TransitionChoice<?> other = (TransitionChoice<?>) obj;
 			return choiceCount.equals(other.choiceCount)
-				&& choices.equals(other.choices);
+					&& choices.equals(other.choices);
 		}
 		return false;
 	}
@@ -93,13 +97,40 @@ public class TransitionChoice<T>
 		}
 		if (title == null)
 		{
-			title =
-					"Choose a "
-						+ StringPClassUtil.getStringFor(choices
-							.getChoiceClass());
+			title = "Choose a "
+					+ StringPClassUtil.getStringFor(choices.getChoiceClass());
 		}
 		c.setTitle(title);
 		Set<? extends T> set = choices.getSet(pc);
+		Set<T> allowed = new HashSet<T>();
+		for (T o : set)
+		{
+			if (choiceActor.allow(o, pc, allowStack))
+			{
+				if (stackLimit != null && stackLimit > 0)
+				{
+					List<Object> assocList = pc.getAssocList(this,
+							AssociationListKey.ADD);
+					if (assocList != null)
+					{
+						int takenCount = 0;
+						for (Object choice : assocList)
+						{
+							if (choice.equals(o))
+							{
+								takenCount++;
+							}
+						}
+						if (stackLimit <= takenCount)
+						{
+							continue;
+						}
+					}
+				}
+				allowed.add(o);
+			}
+		}
+
 		if (c.pickAll() || intValue == set.size())
 		{
 			return set;
@@ -127,23 +158,34 @@ public class TransitionChoice<T>
 		choiceActor = ca;
 	}
 
-	public void act(Collection<? extends T> driveChoice, PlayerCharacter apc)
+	public void act(Collection<? extends T> driveChoice, CDOMObject owner,
+			PlayerCharacter apc)
 	{
 		if (choiceActor == null)
 		{
 			throw new IllegalStateException(
-				"Cannot act without a defined ChoiceActor");
+					"Cannot act without a defined ChoiceActor");
 		}
 		for (T choice : driveChoice)
 		{
-			choiceActor.applyChoice(choice, apc);
+			choiceActor.applyChoice(owner, choice, apc);
 			apc.addAssoc(this, AssociationListKey.ADD, choice);
 		}
 	}
-	
+
 	public T castChoice(Object o)
 	{
 		return (T) o;
+	}
+
+	public void allowStack(boolean allow)
+	{
+		allowStack = allow;
+	}
+
+	public void setStackLimit(int limit)
+	{
+		stackLimit = limit;
 	}
 
 }

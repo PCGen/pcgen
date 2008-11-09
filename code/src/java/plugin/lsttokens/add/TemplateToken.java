@@ -25,13 +25,15 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
@@ -41,7 +43,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 public class TemplateToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, ChoiceActor<PCTemplate>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCTemplate>
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
@@ -84,7 +86,8 @@ public class TemplateToken extends AbstractToken implements
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				Logging
-					.errorPrint("Count in " + getFullName() + " must be > 0");
+						.errorPrint("Count in " + getFullName()
+								+ " must be > 0");
 				return false;
 			}
 			items = value.substring(pipeLoc + 1);
@@ -95,20 +98,19 @@ public class TemplateToken extends AbstractToken implements
 			return false;
 		}
 
-		List<CDOMReference<PCTemplate>> refs =
-				new ArrayList<CDOMReference<PCTemplate>>();
+		List<CDOMReference<PCTemplate>> refs = new ArrayList<CDOMReference<PCTemplate>>();
 		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
 		while (tok.hasMoreTokens())
 		{
 			refs.add(context.ref.getCDOMReference(PCTEMPLATE_CLASS, tok
-				.nextToken()));
+					.nextToken()));
 		}
 
-		ReferenceChoiceSet<PCTemplate> rcs =
-				new ReferenceChoiceSet<PCTemplate>(refs);
-		ChoiceSet<PCTemplate> cs = new ChoiceSet<PCTemplate>("ADD", rcs);
-		TransitionChoice<PCTemplate> tc =
-				new TransitionChoice<PCTemplate>(cs, count);
+		ReferenceChoiceSet<PCTemplate> rcs = new ReferenceChoiceSet<PCTemplate>(
+				refs);
+		ChoiceSet<PCTemplate> cs = new ChoiceSet<PCTemplate>("TEMPLATE", rcs);
+		PersistentTransitionChoice<PCTemplate> tc = new PersistentTransitionChoice<PCTemplate>(
+				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return true;
@@ -116,9 +118,10 @@ public class TemplateToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<TransitionChoice<?>> grantChanges =
-				context.getObjectContext().getListChanges(obj, ListKey.ADD);
-		Collection<TransitionChoice<?>> addedItems = grantChanges.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -134,7 +137,7 @@ public class TemplateToken extends AbstractToken implements
 				if (f == null)
 				{
 					context.addWriteMessage("Unable to find " + getFullName()
-						+ " Count");
+							+ " Count");
 					return null;
 				}
 				String fString = f.toString();
@@ -157,8 +160,32 @@ public class TemplateToken extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(PCTemplate choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, PCTemplate choice,
+			PlayerCharacter pc)
 	{
 		pc.addTemplate(choice);
+	}
+
+	public boolean allow(PCTemplate choice, PlayerCharacter pc,
+			boolean allowStack)
+	{
+		return pc.getTemplateKeyed(choice.getKeyName()) == null;
+	}
+
+	public PCTemplate decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCTEMPLATE_CLASS, s);
+	}
+
+	public String encodeChoice(Object choice)
+	{
+		return ((PCTemplate) choice).getKeyName();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			PCTemplate choice)
+	{
+		//No action required
 	}
 }

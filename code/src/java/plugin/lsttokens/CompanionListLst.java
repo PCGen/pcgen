@@ -161,7 +161,7 @@ public class CompanionListLst extends AbstractToken implements
 			}
 			else if (tokString.startsWith("RACETYPE="))
 			{
-				races.add(new ObjectMatchingReference<Race, RaceType>(
+				races.add(new ObjectMatchingReference<Race, RaceType>(tokString,
 						Race.class,
 						context.ref.getCDOMAllReference(Race.class),
 						ObjectKey.RACETYPE, RaceType.getConstant(value)));

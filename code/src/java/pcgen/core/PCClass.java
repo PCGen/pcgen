@@ -151,21 +151,6 @@ public class PCClass extends PObject
 	private int skillPool = 0;
 
 	/*
-	 * TYPESAFETY This should be working with Skill objects, not Strings
-	 */
-	/*
-	 * ALLCLASSLEVELS This is a list of the additional Class Skills that have
-	 * been added by a LevelAbilityClassSkill (such as the additional class
-	 * skills granted to the Expert class). Thease must be selected for the
-	 * given class, and are thus NOT part of PCClass but PCClassLevel.
-	 * 
-	 * While looking at this, this needs to be tested, there was a TO-DO in the
-	 * code indicating support for this may not be working properly.
-	 */
-	private List<String> skillList = null; // TODO - Not sure this support is
-	// really working properly
-
-	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
 	 * store what the sublevel actually is. This is NOT set by a tag, so it is
 	 * PCCLASSLEVELONLY
@@ -1898,22 +1883,6 @@ public class PCClass extends PObject
 		addLevel(pcLevelInfo, levelMax, false, aPC, true);
 	}
 
-	/*
-	 * PCCLASSLEVELONLY Since this is a selection made during levelup (from
-	 * a LevelAbilityClassSkill) this is only required in PCClassLevel
-	 */
-	public void addSkillToList(final String aString)
-	{
-		if (skillList == null)
-		{
-			skillList = new ArrayList<String>();
-		}
-		if (!skillList.contains(aString))
-		{
-			skillList.add(aString);
-		}
-	}
-
 	/**
 	 * returns the value at which another attack is gained attackCycle of 4
 	 * means a second attack is gained at a BAB of +5/+1
@@ -2091,12 +2060,6 @@ public class PCClass extends PObject
 
 			spellCache = null;
 			spellCacheValid = false;
-			//			if ( theAutoAbilities != null )
-			//			{
-			//				aClass.theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>(theAutoAbilities);
-			//			}
-			// TODO - Why is this not copying the skillList from the master?
-			aClass.skillList = null;
 
 			List<KnownSpellIdentifier> ksl = getListFor(ListKey.KNOWN_SPELLS);
 			if (ksl != null)
@@ -2206,31 +2169,29 @@ public class PCClass extends PObject
 		return false;
 	}
 
-	/**
-	 * <p>
-	 * TODO - I am not sure this code is really working properly.
-	 * 
-	 * @param aString
-	 * @return
-	 */
-	/*
-	 * PCCLASSLEVELONLY Since this is a selection made during levelup (from
-	 * a LevelAbilityClassSkill) this is only required in PCClassLevel
-	 */
-	public boolean hasSkill(final String aString)
+	public boolean hasSkill(PlayerCharacter pc, final String aName)
 	{
-		if (skillList == null)
+		if (hasSkill(pc, aName, this))
 		{
-			return false;
+			return true;
 		}
-		for (String key : skillList)
+		return false;
+	}
+
+	private boolean hasSkill(PlayerCharacter pc, String aName, CDOMObject cdo)
+	{
+		List<Skill> assocCSkill = pc.getAssocList(cdo, AssociationListKey.CSKILL);
+		if (assocCSkill != null)
 		{
-			if (key.equalsIgnoreCase(aString))
+			for (Skill sk : assocCSkill)
 			{
-				return true;
+				//Have to do slow due to cloning :P
+				if (sk.getKeyName().equals(aName))
+				{
+					return true;
+				}
 			}
 		}
-
 		return false;
 	}
 
@@ -2952,12 +2913,12 @@ public class PCClass extends PObject
 			{
 				for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 				{
-					kit.act(kit.driveChoice(aPC), aPC);
+					kit.act(kit.driveChoice(aPC), this, aPC);
 				}
 				TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
 				if (region != null)
 				{
-					region.act(region.driveChoice(aPC), aPC);
+					region.act(region.driveChoice(aPC), this, aPC);
 				}
 				addAdds(aPC);
 				aPC.addNaturalWeapons(getListFor(ListKey.NATURAL_WEAPON));
@@ -2966,13 +2927,13 @@ public class PCClass extends PObject
 			for (TransitionChoice<Kit> kit : classLevel
 					.getSafeListFor(ListKey.KIT_CHOICE))
 			{
-				kit.act(kit.driveChoice(aPC), aPC);
+				kit.act(kit.driveChoice(aPC), classLevel, aPC);
 			}
 			TransitionChoice<Region> region = classLevel
 					.get(ObjectKey.REGION_CHOICE);
 			if (region != null)
 			{
-				region.act(region.driveChoice(aPC), aPC);
+				region.act(region.driveChoice(aPC), classLevel, aPC);
 			}
 
 			// Make sure any natural weapons are added

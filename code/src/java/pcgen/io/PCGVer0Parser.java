@@ -72,8 +72,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 

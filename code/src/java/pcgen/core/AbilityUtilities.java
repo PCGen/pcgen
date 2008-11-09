@@ -408,21 +408,19 @@ public class AbilityUtilities
 
 		/* 
 		 * This modifyChoice method is a bit like mod choices, but it uses a
-		 * different tag to set the chooser string.  The Tag MODIFYABILITYCHOICE
-		 * which doesn't appear to be used anywhere, so this code is totally
-		 * redundant.
+		 * different tag to set the chooser string.
 		 */
 		TransitionChoice<Ability> mc = ability.get(ObjectKey.MODIFY_CHOICE);
 		if (mc != null)
 		{
-			mc.act(mc.driveChoice(aPC), aPC);
+			mc.act(mc.driveChoice(aPC), ability, aPC);
 		}
 
 		if (addIt)
 		{
 			for (TransitionChoice<Kit> kit : ability.getSafeListFor(ListKey.KIT_CHOICE))
 			{
-				kit.act(kit.driveChoice(aPC), aPC);
+				kit.act(kit.driveChoice(aPC), ability, aPC);
 			}
 		}
 

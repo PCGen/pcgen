@@ -28,10 +28,9 @@ package pcgen.core.term;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.spell.Spell;
+import pcgen.core.PlayerCharacter;
 
 public class PCCountAbilityNameTermEvaluator
 		extends BasePCCountAbilitiesTermEvaluator implements TermEvaluator

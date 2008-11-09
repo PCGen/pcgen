@@ -26,6 +26,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -51,6 +52,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	private Skill spy1;
 	private Skill spy2;
 	private Skill spy3;
+	private Skill spot;
 
 	public static void main(final String[] args)
 	{
@@ -84,7 +86,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		assertFalse("Character has no class skills", PrereqHandler.passes(
 			prereq, character, null));
 
-		myClass.addSkillToList("Spot");
+		character.addAssoc(myClass, AssociationListKey.CSKILL, spot);
 		character.setDirty(true); //Need to throw out the cache
 
 		assertTrue("Character has spot class skills", PrereqHandler.passes(
@@ -193,7 +195,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
-		Skill spot = new Skill();
+		spot = new Skill();
 		spot.setName("Spot");
 		Globals.getContext().ref.importObject(spot);
 

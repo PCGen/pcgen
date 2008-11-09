@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.LanguageSupport;
@@ -759,11 +760,40 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 							for (Ability aFeat : (List<Ability>)element.getObjects())
 							{
 								if (!theFeatList.contains(aFeat))
+								{
 									theFeatList.add(aFeat);
+								}
 							}
 						}
 					}
-
+					List<Ability> abilityList = aPC.getAssocList(aClass,
+							AssociationListKey.ADDED_FEAT);
+					if (abilityList != null)
+					{
+						for (Ability aFeat : abilityList)
+						{
+							if (!theFeatList.contains(aFeat))
+							{
+								theFeatList.add(aFeat);
+							}
+						}
+					}
+					for (int lvl = 0; lvl < aClass.getLevel(); lvl++)
+					{
+						PCClassLevel pcl = aClass.getClassLevel(i);
+						abilityList = aPC.getAssocList(pcl,
+								AssociationListKey.ADDED_FEAT);
+						if (abilityList != null)
+						{
+							for (Ability aFeat : abilityList)
+							{
+								if (!theFeatList.contains(aFeat))
+								{
+									theFeatList.add(aFeat);
+								}
+							}
+						}
+					}
 				}
 			}
 			else if (arg.equals("CHOICE"))
@@ -1378,12 +1408,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		aPC.setArmorProfListStable(false);
 		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 		{
-			kit.act(kit.driveChoice(aPC), aPC);
+			kit.act(kit.driveChoice(aPC), this, aPC);
 		}
 		TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
 		if (region != null)
 		{
-			region.act(region.driveChoice(aPC), aPC);
+			region.act(region.driveChoice(aPC), this, aPC);
 		}
 
 		if (flag)
@@ -1717,8 +1747,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public final boolean hasCSkill(PlayerCharacter pc, final String aName)
 	{
 		List<CDOMReference<Skill>> cSkillList = getListFor(ListKey.CSKILL);
-		List<Skill> assocCSkill = pc.getAssocList(this, AssociationListKey.CSKILL);
-		if (cSkillList != null && !cSkillList.isEmpty())
+		if (cSkillList != null)
 		{
 			for (CDOMReference<Skill> ref : cSkillList)
 			{
@@ -1729,18 +1758,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 					{
 						return true;
 					}
-				}
-			}
-		}
-
-		if (assocCSkill != null && !assocCSkill.isEmpty())
-		{
-			for (Skill sk : assocCSkill)
-			{
-				//Have to do slow due to cloning :P
-				if (sk.getKeyName().equals(aName))
-				{
-					return true;
 				}
 			}
 		}

@@ -27,8 +27,9 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.choiceset.NonClassChoiceSet;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.ClassSkillChoiceActor;
@@ -121,14 +122,14 @@ public class ClassSkillsToken extends AbstractToken implements
 			else if (Constants.LST_UNTRAINED.equals(tokText))
 			{
 				ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
-						SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
+						tokText, SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
 						Boolean.TRUE);
 				omr.returnIncludesNulls(true);
 				refs.add(omr);
 			}
 			else if (Constants.LST_TRAINED.equals(tokText))
 			{
-				refs.add(new ObjectMatchingReference<Skill, Boolean>(
+				refs.add(new ObjectMatchingReference<Skill, Boolean>(tokText,
 						SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
 						Boolean.FALSE));
 			}
@@ -136,14 +137,15 @@ public class ClassSkillsToken extends AbstractToken implements
 			{
 				refs
 						.add(new ObjectMatchingReference<Skill, Boolean>(
-								SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
-								Boolean.TRUE));
+								tokText, SKILL_CLASS, allRef,
+								ObjectKey.EXCLUSIVE, Boolean.TRUE));
 			}
 			else if (Constants.LST_NONEXCLUSIVE.equals(tokText)
 					|| Constants.LST_CROSSCLASS.equals(tokText))
 			{
 				ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
-						SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE, Boolean.FALSE);
+						tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
+						Boolean.FALSE);
 				omr.returnIncludesNulls(true);
 				refs.add(omr);
 			}
@@ -173,10 +175,10 @@ public class ClassSkillsToken extends AbstractToken implements
 			}
 		}
 
-		NonClassChoiceSet rcs = new NonClassChoiceSet(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getFullName(), rcs);
-		TransitionChoice<Skill> tc = new TransitionChoice<Skill>(cs,
-				FormulaFactory.getFormulaFor(count));
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs);
+		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+				cs, FormulaFactory.getFormulaFor(count));
 		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(obj, autoRank);
 		tc.setChoiceActor(actor);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
@@ -185,9 +187,10 @@ public class ClassSkillsToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Changes<TransitionChoice<?>> grantChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.ADD);
-		Collection<TransitionChoice<?>> addedItems = grantChanges.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token

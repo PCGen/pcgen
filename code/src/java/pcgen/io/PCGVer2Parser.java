@@ -41,7 +41,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -93,13 +93,9 @@ import pcgen.gui.GuiConstants;
 import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
-import pcgen.persistence.lst.PCClassLstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.AbstractReferenceContext;
-import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-import pcgen.util.StringPClassUtil;
 
 /**
  * <code>PCGVer2Parser</code>
@@ -1795,44 +1791,61 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parseAddTokenInfo(PCGElement element, CDOMObject cdo)
 	{
 		Iterator<PCGElement> it2 = element.getChildren().iterator();
-
-		List<TransitionChoice<?>> addList = cdo.getListFor(ListKey.ADD);
-		if (addList == null)
-		{
-			//TODO Error
-			return;
-		}
 		if (!it2.hasNext())
 		{
-			//TODO Error
+			warnings.add(cdo.getDisplayName() + "(" + cdo.getClass().getName()
+					+ ")\nInvalid save structure in ADD:");
 			return;
 		}
-		LoadContext context = Globals.getContext();
 		PCGElement addType = it2.next();
-		Class<? extends CDOMObject> cl = StringPClassUtil.getClassFor(addType.getName());
+		String name = addType.getName();
 		String dString = EntityEncoder.decode(addType.getText());
-		for (TransitionChoice<?> tc : addList)
+
+		List<PersistentTransitionChoice<?>> addList = cdo.getListFor(ListKey.ADD);
+		if (addList == null)
 		{
-			ChoiceSet<?> choices = tc.getChoices();
-			if (dString.equals(choices.getLSTformat()))
+			warnings.add(cdo.getDisplayName() + "(" + cdo.getClass().getName()
+					+ ")\nCould not find any ADD: " + name + "|" + dString);
+			return;
+		}
+		for (PersistentTransitionChoice<?> tc : addList)
+		{
+			processTransitionChoice(cdo, it2, name, dString, tc);
+		}
+	}
+
+	private <T> void processTransitionChoice(CDOMObject cdo,
+			Iterator<PCGElement> it2, String name, String dString,
+			PersistentTransitionChoice<T> tc)
+	{
+		ChoiceSet<? extends T> choices = tc.getChoices();
+		if (dString.equals(choices.getLSTformat()))
+		{
+			//Match
+			while (it2.hasNext())
 			{
-				//Match
-				while (it2.hasNext())
+				String choice = EntityEncoder.decode(it2.next().getText());
+				Object obj = tc.decodeChoice(choice);
+				if (obj == null)
 				{
-					String choice = EntityEncoder.decode(it2.next().getText());
-					CDOMObject obj =
-							context.ref.silentlyGetConstructedCDOMObject(cl,
-								choice);
-					if (obj == null)
-					{
-						//TODO Error
-					}
-					else
-					{
-						thePC.addAssoc(tc, AssociationListKey.ADD, obj);
-					}
+					warnings.add(cdo.getDisplayName() + "("
+							+ cdo.getClass().getName()
+							+ ")\nCould not decode " + choice
+							+ " for ADD: " + name + "|" + dString);
+				}
+				else
+				{
+					thePC.addAssoc(tc, AssociationListKey.ADD, obj);
+					tc.restoreChoice(thePC, cdo, tc.castChoice(obj));
 				}
 			}
+		}
+		else
+		{
+			warnings.add(cdo.getDisplayName() + "("
+					+ cdo.getClass().getName()
+					+ ")\nCould not find matching ADD: " + name + "|"
+					+ dString);
 		}
 	}
 

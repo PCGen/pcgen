@@ -19,9 +19,11 @@ package pcgen.cdom.base;
 
 import pcgen.core.PlayerCharacter;
 
-public interface ChoiceActor<T>
+public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 {
-	public void applyChoice(CDOMObject owner, T choice, PlayerCharacter pc);
+	public String encodeChoice(Object choice);
+
+	public T decodeChoice(String s);
 	
-	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack);
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice);
 }

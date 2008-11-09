@@ -182,12 +182,12 @@ public final class Skill extends PObject
 		aPC.setArmorProfListStable(false);
 		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 		{
-			kit.act(kit.driveChoice(aPC), aPC);
+			kit.act(kit.driveChoice(aPC), this, aPC);
 		}
 		TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
 		if (region != null)
 		{
-			region.act(region.driveChoice(aPC), aPC);
+			region.act(region.driveChoice(aPC), this, aPC);
 		}
 
 		if (flag)

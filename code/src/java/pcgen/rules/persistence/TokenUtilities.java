@@ -17,7 +17,6 @@
  */
 package pcgen.rules.persistence;
 
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
@@ -83,34 +82,38 @@ public final class TokenUtilities
 		if (s.startsWith(Constants.LST_TYPE_OLD)
 				|| s.startsWith(Constants.LST_TYPE))
 		{
-			String subStr = s.substring(5);
-			if (subStr.length() == 0)
-			{
-				Logging.errorPrint("Type may not be empty in: " + s);
-				return null;
-			}
-			if (subStr.charAt(0) == '.'
-					|| subStr.charAt(subStr.length() - 1) == '.')
-			{
-				Logging.errorPrint("Type may not start or end with . in: " + s);
-				return null;
-			}
-			String[] types = subStr.split("\\.");
-			for (String type : types)
-			{
-				if (type.length() == 0)
-				{
-					Logging
-							.errorPrint("Attempt to acquire empty Type in: "
-									+ s);
-					return null;
-				}
-			}
-			return context.ref.getCDOMTypeReference(cl, cat, types);
+			return getTypeReference(context, cl, cat, s);
 		}
 		else
 		{
 			return context.ref.getCDOMReference(cl, cat, s);
 		}
+	}
+
+	public static <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMReference<T> getTypeReference(
+			LoadContext context, Class<T> cl, Category<T> cat, String s)
+	{
+		String subStr = s.substring(5);
+		if (subStr.length() == 0)
+		{
+			Logging.errorPrint("Type may not be empty in: " + s);
+			return null;
+		}
+		if (subStr.charAt(0) == '.'
+				|| subStr.charAt(subStr.length() - 1) == '.')
+		{
+			Logging.errorPrint("Type may not start or end with . in: " + s);
+			return null;
+		}
+		String[] types = subStr.split("\\.");
+		for (String type : types)
+		{
+			if (type.length() == 0)
+			{
+				Logging.errorPrint("Attempt to acquire empty Type in: " + s);
+				return null;
+			}
+		}
+		return context.ref.getCDOMTypeReference(cl, cat, types);
 	}
 }

@@ -75,10 +75,10 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public ObjectMatchingReference(Class<T> cl, CDOMGroupRef<T> start,
+	public ObjectMatchingReference(String unparse, Class<T> cl, CDOMGroupRef<T> start,
 			ObjectKey<V> targetKey, V expectedValue)
 	{
-		super(cl, "*Object");
+		super(cl, unparse);
 		if (start == null)
 		{
 			throw new IllegalArgumentException(

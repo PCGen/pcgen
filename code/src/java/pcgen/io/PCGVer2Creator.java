@@ -45,7 +45,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -87,7 +87,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
-import pcgen.util.StringPClassUtil;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -2593,12 +2592,12 @@ final class PCGVer2Creator implements IOConstants
 
 	private void appendAddTokenInfo(StringBuffer buffer, CDOMObject pObj)
 	{
-		List<TransitionChoice<?>> addList = pObj.getListFor(ListKey.ADD);
+		List<PersistentTransitionChoice<?>> addList = pObj.getListFor(ListKey.ADD);
 		if (addList == null)
 		{
 			return;
 		}
-		for (TransitionChoice<?> tc : addList)
+		for (PersistentTransitionChoice<?> tc : addList)
 		{
 			List<Object> assocList = thePC.getAssocList(tc, AssociationListKey.ADD);
 			if (assocList == null)
@@ -2610,8 +2609,7 @@ final class PCGVer2Creator implements IOConstants
 			//
 			ChoiceSet<?> choices = tc.getChoices();
 			buffer.append('|').append(TAG_ADDTOKEN).append(':').append('[');
-			buffer.append(EntityEncoder.encode(StringPClassUtil
-				.getStringFor(choices.getChoiceClass()))).append(':');
+			buffer.append(EntityEncoder.encode(choices.getName())).append(':');
 			buffer.append(EntityEncoder.encode(choices.getLSTformat()));
 
 			for (Object assoc : assocList)
@@ -2620,7 +2618,7 @@ final class PCGVer2Creator implements IOConstants
 					.append('|')
 					.append(TAG_CHOICE)
 					.append(':')
-					.append(EntityEncoder.encode(((CDOMObject) assoc).getKeyName()));
+					.append(EntityEncoder.encode(tc.encodeChoice(assoc)));
 			}
 
 			buffer.append(']');

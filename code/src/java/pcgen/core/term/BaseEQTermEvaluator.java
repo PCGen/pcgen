@@ -27,7 +27,6 @@
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Equipment;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 

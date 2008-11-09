@@ -25,10 +25,11 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
@@ -46,7 +47,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 public class SkillToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, ChoiceActor<Skill>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Skill>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
@@ -141,9 +142,9 @@ public class SkillToken extends AbstractToken implements
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("ADD", rcs);
-		TransitionChoice<Skill> tc = new TransitionChoice<Skill>(cs,
-				FormulaFactory.getFormulaFor(count));
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("SKILL", rcs);
+		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+				cs, FormulaFactory.getFormulaFor(count));
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return true;
@@ -151,9 +152,10 @@ public class SkillToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<TransitionChoice<?>> grantChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.ADD);
-		Collection<TransitionChoice<?>> addedItems = grantChanges.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -190,7 +192,7 @@ public class SkillToken extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(Skill choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
 		Skill skillToAdd = pc.addSkill(choice);
 		SkillRankControl.modRanks(1.0, null, true, pc, skillToAdd);
@@ -210,5 +212,26 @@ public class SkillToken extends AbstractToken implements
 				pane.refresh();
 			}
 		}
+	}
+
+	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
+	{
+		return true;
+	}
+
+	public Skill decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				SKILL_CLASS, s);
+	}
+
+	public String encodeChoice(Object choice)
+	{
+		return ((Skill) choice).getKeyName();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	{
+		// No action required
 	}
 }

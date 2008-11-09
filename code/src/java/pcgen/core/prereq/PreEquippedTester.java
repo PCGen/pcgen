@@ -26,7 +26,6 @@
  */
 package pcgen.core.prereq;
 
-import java.util.StringTokenizer;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;

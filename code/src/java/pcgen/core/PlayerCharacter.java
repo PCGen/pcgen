@@ -2426,7 +2426,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (TransitionChoice<Kit> kit : cMod
 				.getSafeListFor(ListKey.KIT_CHOICE))
 			{
-				kit.act(kit.driveChoice(this), this);
+				kit.act(kit.driveChoice(this), cMod, this);
 			}
 		}
 		setDirty(true);
@@ -13875,13 +13875,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (int i = 0; i < numberOfLevels; ++i)
 			{
+				int currentLevel = pcClassClone.getLevel();
 				final PCLevelInfo playerCharacterLevelInfo =
 						saveLevelInfo(pcClassClone.getKeyName());
 				// if we fail to add the level, remove and return
 				if (!pcClassClone.addLevel(playerCharacterLevelInfo, false,
 					bSilent, this, bypassPrereqs))
 				{
+					PCClassLevel failedpcl = pcClassClone
+							.getClassLevel(currentLevel + 1);
 					removeLevelInfo(pcClassClone.getKeyName());
+					removeLevelInfo(failedpcl);
 					return;
 				}
 			}
@@ -13890,8 +13894,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (int i = 0; i < -numberOfLevels; ++i)
 			{
+				int currentLevel = pcClassClone.getLevel();
 				pcClassClone.subLevel(bSilent, this);
 				removeLevelInfo(pcClassClone.getKeyName());
+				PCClassLevel removedpcl = pcClassClone
+						.getClassLevel(currentLevel);
+				removeLevelInfo(removedpcl);
 			}
 		}
 
@@ -13983,6 +13991,39 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	//
 	// prevProcessed.remove(aBonus);
 	// }
+
+	private void removeLevelInfo(PCClassLevel failedpcl)
+	{
+		List<Ability> abilityList = removeAllAssocs(failedpcl,
+				AssociationListKey.ADDED_FEAT);
+		if (abilityList != null)
+		{
+			for (Ability ability : abilityList)
+			{
+				// remove this object from the feats lists
+				for (Iterator<Ability> iterator = getRealAbilitiesList(
+						AbilityCategory.FEAT).iterator(); iterator.hasNext();)
+				{
+					final Ability feat = iterator.next();
+					if (feat == ability)
+					{
+						iterator.remove();
+					}
+				}
+				// remove this object from the feats lists
+				for (Iterator<Ability> iterator = theAbilities.get(
+						AbilityCategory.FEAT, Ability.Nature.VIRTUAL)
+						.iterator(); iterator.hasNext();)
+				{
+					final Ability feat = iterator.next();
+					if (feat == ability)
+					{
+						iterator.remove();
+					}
+				}
+			}
+		}
+	}
 
 	/**
 	 * - Get's a list of dependencies from aBonus - Finds all active bonuses

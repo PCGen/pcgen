@@ -154,9 +154,21 @@ public class KitLst extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(Kit choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Kit choice, PlayerCharacter pc)
 	{
 		Kit.applyKit(choice, pc);
+	}
+
+	public boolean allow(Kit choice, PlayerCharacter pc, boolean allowStack)
+	{
+		for (Kit k : pc.getKitInfo())
+		{
+			if (k.getKeyName().equalsIgnoreCase(choice.getKeyName()))
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

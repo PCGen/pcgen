@@ -369,13 +369,26 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 					+ obj.getClass().getName() + " in " + refClass.getName()
 					+ " ReferenceSupport");
 		}
-		if (active.containsKey(key))
+		T current = active.get(key);
+		if (current == obj)
 		{
-			duplicates.addToListFor(new CaseInsensitiveString(key), obj);
+			/*
+			 * TODO This is necessary due to Ability objects being imported at
+			 * time of creation (and added in the CATEGORY token) as well as
+			 * being imported during completeObject. If all objects are made
+			 * equal and are imported before they are completed (and thus
+			 * properly react to KEY), then this current == obj test should be
+			 * removed, as it is hiding otherwise bad behavior.
+			 */
+			return;
+		}
+		else if (current == null)
+		{
+			active.put(key, obj);
 		}
 		else
 		{
-			active.put(key, obj);
+			duplicates.addToListFor(new CaseInsensitiveString(key), obj);
 		}
 	}
 

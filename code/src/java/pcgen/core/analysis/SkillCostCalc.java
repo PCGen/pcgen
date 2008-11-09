@@ -62,7 +62,7 @@ public final class SkillCostCalc
 		}
 
 		// hasSkill is a LevelAbility skill
-		if (aClass.hasSkill(keyName))
+		if (aClass.hasSkill(aPC, keyName))
 		{
 			return true;
 		}

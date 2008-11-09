@@ -33,6 +33,7 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.KnownSpellIdentifier;
@@ -208,7 +209,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCTemplate>> TEMPLATE = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<CDOMReference<PCTemplate>> REMOVE_TEMPLATES = new ListKey<CDOMReference<PCTemplate>>();
 	public static final ListKey<Vision> VISION_CACHE = new ListKey<Vision>();
-	public static final ListKey<TransitionChoice<?>> ADD = new ListKey<TransitionChoice<?>>();
+	public static final ListKey<PersistentTransitionChoice<?>> ADD = new ListKey<PersistentTransitionChoice<?>>();
 	public static final ListKey<CDOMReference<? extends PCClass>> FAVORED_CLASS = new ListKey<CDOMReference<? extends PCClass>>();
 	public static final ListKey<Qualifier> QUALIFY = new ListKey<Qualifier>();
 	public static final ListKey<DamageReduction> DAMAGE_REDUCTION = new ListKey<DamageReduction>();

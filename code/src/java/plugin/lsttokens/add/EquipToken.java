@@ -25,15 +25,17 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.QualifiedDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -43,7 +45,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 public class EquipToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, ChoiceActor<Equipment>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Equipment>
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
@@ -117,10 +119,10 @@ public class EquipToken extends AbstractToken implements
 
 		ReferenceChoiceSet<Equipment> rcs = new ReferenceChoiceSet<Equipment>(
 				refs);
-		ChoiceSet<Equipment> cs = new ChoiceSet<Equipment>(getFullName(),
+		ChoiceSet<Equipment> cs = new ChoiceSet<Equipment>(getTokenName(),
 				new QualifiedDecorator<Equipment>(rcs));
-		TransitionChoice<Equipment> tc = new TransitionChoice<Equipment>(cs,
-				count);
+		PersistentTransitionChoice<Equipment> tc = new PersistentTransitionChoice<Equipment>(
+				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setTitle("Equipment Choice");
 		tc.setChoiceActor(this);
@@ -129,9 +131,10 @@ public class EquipToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<TransitionChoice<?>> grantChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.ADD);
-		Collection<TransitionChoice<?>> addedItems = grantChanges.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -170,10 +173,34 @@ public class EquipToken extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(Equipment choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Equipment choice,
+			PlayerCharacter pc)
 	{
 		Equipment bEquipment = choice.clone();
 		bEquipment.setQty(1);
 		pc.addEquipment(bEquipment);
+	}
+
+	public boolean allow(Equipment choice, PlayerCharacter pc,
+			boolean allowStack)
+	{
+		return true;
+	}
+
+	public Equipment decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				EQUIPMENT_CLASS, s);
+	}
+
+	public String encodeChoice(Object choice)
+	{
+		return ((Equipment) choice).getKeyName();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			Equipment choice)
+	{
+		// No action required
 	}
 }

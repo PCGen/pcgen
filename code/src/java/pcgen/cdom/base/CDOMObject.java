@@ -616,10 +616,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public void addAdds(final PlayerCharacter aPC)
 	{
-		List<TransitionChoice<?>> addList = getListFor(ListKey.ADD);
+		List<PersistentTransitionChoice<?>> addList = getListFor(ListKey.ADD);
 		if (addList != null)
 		{
-			for (TransitionChoice<?> tc : addList)
+			for (PersistentTransitionChoice<?> tc : addList)
 			{
 				driveChoice(tc, aPC);
 			}
@@ -628,7 +628,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	private <T> void driveChoice(TransitionChoice<T> tc, final PlayerCharacter aPC)
 	{
-		tc.act(tc.driveChoice(aPC), aPC);
+		tc.act(tc.driveChoice(aPC), this, aPC);
 	}
 
 	public ListKey<Description> getDescriptionKey()
