@@ -18,6 +18,7 @@
 package plugin.lsttokens.add;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -29,6 +30,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -42,6 +44,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -52,6 +55,7 @@ public class VFeatToken extends AbstractToken implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
 {
 
+	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	public boolean parse(PObject target, String value, int level)
@@ -139,6 +143,9 @@ public class VFeatToken extends AbstractToken implements
 		boolean allowStack = false;
 		int dupChoices = 0;
 
+		boolean foundAny = false;
+		boolean foundOther = false;
+
 		while (tok.hasMoreTokens())
 		{
 			CDOMReference<Ability> ab;
@@ -165,10 +172,12 @@ public class VFeatToken extends AbstractToken implements
 			}
 			else if (Constants.LST_ALL.equals(token))
 			{
+				foundAny = true;
 				ab = context.ref.getCDOMAllReference(ABILITY_CLASS, category);
 			}
 			else
 			{
+				foundOther = true;
 				ab = TokenUtilities.getTypeOrPrimitive(context, ABILITY_CLASS,
 						category, token);
 			}
@@ -196,10 +205,17 @@ public class VFeatToken extends AbstractToken implements
 			}
 		}
 
+		if (foundAny && foundOther)
+		{
+			Logging.errorPrint("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + value);
+			return false;
+		}
+
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(refs, nature,
 				allowStack, dupChoices);
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
-				"VFEAT", rcs);
+				getTokenName(), rcs);
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
@@ -215,8 +231,40 @@ public class VFeatToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
+		if (addedItems == null || addedItems.isEmpty())
+		{
+			// Zero indicates no Token
+			return null;
+		}
+		List<String> addStrings = new ArrayList<String>();
+		for (TransitionChoice<?> container : addedItems)
+		{
+			ChoiceSet<?> cs = container.getChoices();
+			if (getTokenName().equals(cs.getName())
+					&& ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
+			{
+				Formula f = container.getCount();
+				if (f == null)
+				{
+					context.addWriteMessage("Unable to find " + getFullName()
+							+ " Count");
+					return null;
+				}
+				String fString = f.toString();
+				StringBuilder sb = new StringBuilder();
+				if (!"1".equals(fString))
+				{
+					sb.append(fString).append(Constants.PIPE);
+				}
+				sb.append(cs.getLSTformat());
+				addStrings.add(sb.toString());
+			}
+		}
+		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
 	public Class<CDOMObject> getTokenClass()
@@ -300,9 +348,9 @@ public class VFeatToken extends AbstractToken implements
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
-//		String featName = choice.getAbilityKey();
-//		Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
-//				Ability.Nature.VIRTUAL, featName);
-//		pc.addAssoc(owner, AssociationListKey.ADDED_ABILITY, aFeat);
+		// String featName = choice.getAbilityKey();
+		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
+		// Ability.Nature.VIRTUAL, featName);
+		// pc.addAssoc(owner, AssociationListKey.ADDED_ABILITY, aFeat);
 	}
 }

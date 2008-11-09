@@ -73,30 +73,22 @@ public class ClassSkillsToken extends AbstractToken implements
 			return false;
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
-		int count;
+		Formula count;
 		String items;
 		if (pipeLoc == -1)
 		{
-			count = 1;
+			count = Formula.ONE;
 			items = value;
 		}
 		else
 		{
 			String countString = value.substring(0, pipeLoc);
-			try
+			count = FormulaFactory.getFormulaFor(countString);
+			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				count = Integer.parseInt(countString);
-				if (count < 1)
-				{
-					Logging.errorPrint("Count in " + getFullName()
-							+ " must be > 0");
-					return false;
-				}
-			}
-			catch (NumberFormatException nfe)
-			{
-				Logging.errorPrint("Invalid Count in " + getFullName() + ": "
-						+ countString);
+				Logging
+						.errorPrint("Count in " + getFullName()
+								+ " must be > 0");
 				return false;
 			}
 			items = value.substring(pipeLoc + 1);
@@ -106,6 +98,9 @@ public class ClassSkillsToken extends AbstractToken implements
 		{
 			return false;
 		}
+
+		boolean foundAny = false;
+		boolean foundOther = false;
 
 		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
 		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
@@ -117,68 +112,84 @@ public class ClassSkillsToken extends AbstractToken implements
 			String tokText = tok.nextToken();
 			if (Constants.LST_ALL.equals(tokText))
 			{
+				foundAny = true;
 				refs.add(allRef);
-			}
-			else if (Constants.LST_UNTRAINED.equals(tokText))
-			{
-				ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
-						tokText, SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
-						Boolean.TRUE);
-				omr.returnIncludesNulls(true);
-				refs.add(omr);
-			}
-			else if (Constants.LST_TRAINED.equals(tokText))
-			{
-				refs.add(new ObjectMatchingReference<Skill, Boolean>(tokText,
-						SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
-						Boolean.FALSE));
-			}
-			else if (Constants.LST_EXCLUSIVE.equals(tokText))
-			{
-				refs
-						.add(new ObjectMatchingReference<Skill, Boolean>(
-								tokText, SKILL_CLASS, allRef,
-								ObjectKey.EXCLUSIVE, Boolean.TRUE));
-			}
-			else if (Constants.LST_NONEXCLUSIVE.equals(tokText)
-					|| Constants.LST_CROSSCLASS.equals(tokText))
-			{
-				ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
-						tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
-						Boolean.FALSE);
-				omr.returnIncludesNulls(true);
-				refs.add(omr);
-			}
-			else if (tokText.startsWith("AUTORANK="))
-			{
-				if (autoRank != null)
-				{
-					Logging.errorPrint("Cannot have two AUTORANK= items in "
-							+ getFullName() + ": " + value);
-					return false;
-				}
-				String rankString = tokText.substring(9);
-				autoRank = Integer.decode(rankString);
 			}
 			else
 			{
-				CDOMReference<Skill> skref = TokenUtilities.getTypeOrPrimitive(
-						context, SKILL_CLASS, tokText);
-				if (skref == null)
+				foundOther = true;
+				if (Constants.LST_UNTRAINED.equals(tokText))
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
-							+ getFullName() + ": " + value
-							+ " had an invalid reference: " + tokText);
-					return false;
+					ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+							tokText, SKILL_CLASS, allRef,
+							ObjectKey.USE_UNTRAINED, Boolean.TRUE);
+					omr.returnIncludesNulls(true);
+					refs.add(omr);
 				}
-				refs.add(skref);
+				else if (Constants.LST_TRAINED.equals(tokText))
+				{
+					refs.add(new ObjectMatchingReference<Skill, Boolean>(
+							tokText, SKILL_CLASS, allRef,
+							ObjectKey.USE_UNTRAINED, Boolean.FALSE));
+				}
+				else if (Constants.LST_EXCLUSIVE.equals(tokText))
+				{
+					refs.add(new ObjectMatchingReference<Skill, Boolean>(
+							tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
+							Boolean.TRUE));
+				}
+				else if (Constants.LST_NONEXCLUSIVE.equals(tokText)
+						|| Constants.LST_CROSSCLASS.equals(tokText))
+				{
+					ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+							tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
+							Boolean.FALSE);
+					omr.returnIncludesNulls(true);
+					refs.add(omr);
+				}
+				else if (tokText.startsWith("AUTORANK="))
+				{
+					if (autoRank != null)
+					{
+						Logging
+								.errorPrint("Cannot have two AUTORANK= items in "
+										+ getFullName() + ": " + value);
+						return false;
+					}
+					String rankString = tokText.substring(9);
+					autoRank = Integer.decode(rankString);
+				}
+				else
+				{
+					CDOMReference<Skill> skref = TokenUtilities
+							.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
+					if (skref == null)
+					{
+						Logging
+								.errorPrint("  Error was encountered while parsing "
+										+ getFullName()
+										+ ": "
+										+ value
+										+ " had an invalid reference: "
+										+ tokText);
+						return false;
+					}
+					refs.add(skref);
+				}
 			}
+		}
+
+		if (foundAny && foundOther)
+		{
+			Logging.errorPrint("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + value);
+			return false;
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
-				cs, FormulaFactory.getFormulaFor(count));
+				cs, count);
 		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(obj, autoRank);
 		tc.setChoiceActor(actor);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
@@ -200,7 +211,7 @@ public class ClassSkillsToken extends AbstractToken implements
 		for (TransitionChoice<?> container : addedItems)
 		{
 			ChoiceSet<?> cs = container.getChoices();
-			if (getFullName().equals(cs.getName())
+			if (getTokenName().equals(cs.getName())
 					&& SKILL_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();

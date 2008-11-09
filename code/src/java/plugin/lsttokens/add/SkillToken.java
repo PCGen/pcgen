@@ -70,30 +70,22 @@ public class SkillToken extends AbstractToken implements
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
-		int count;
+		Formula count;
 		String items;
 		if (pipeLoc == -1)
 		{
-			count = 1;
+			count = Formula.ONE;
 			items = value;
 		}
 		else
 		{
 			String countString = value.substring(0, pipeLoc);
-			try
+			count = FormulaFactory.getFormulaFor(countString);
+			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				count = Integer.parseInt(countString);
-				if (count < 1)
-				{
-					Logging.errorPrint("Count in " + getFullName()
-							+ " must be > 0");
-					return false;
-				}
-			}
-			catch (NumberFormatException nfe)
-			{
-				Logging.errorPrint("Invalid Count in " + getFullName() + ": "
-						+ countString);
+				Logging
+						.errorPrint("Count in " + getFullName()
+								+ " must be > 0");
 				return false;
 			}
 			items = value.substring(pipeLoc + 1);
@@ -144,7 +136,7 @@ public class SkillToken extends AbstractToken implements
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("SKILL", rcs);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
-				cs, FormulaFactory.getFormulaFor(count));
+				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return true;
@@ -165,7 +157,8 @@ public class SkillToken extends AbstractToken implements
 		for (TransitionChoice<?> container : addedItems)
 		{
 			ChoiceSet<?> cs = container.getChoices();
-			if (SKILL_CLASS.equals(cs.getChoiceClass()))
+			if (getTokenName().equals(cs.getName())
+					&& SKILL_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();
 				if (f == null)
