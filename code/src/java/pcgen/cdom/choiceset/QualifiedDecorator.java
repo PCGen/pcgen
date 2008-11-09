@@ -59,4 +59,17 @@ public class QualifiedDecorator<T extends PObject> implements
 		return returnSet;
 	}
 
+	@Override
+	public boolean equals(Object obj)
+	{
+		return (obj instanceof QualifiedDecorator)
+				&& ((QualifiedDecorator<?>) obj).set.equals(set);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return 1 - set.hashCode();
+	}
+
 }

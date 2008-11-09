@@ -63,6 +63,11 @@ public interface Formula
 			return true;
 		}
 
+		@Override
+		public String toString()
+		{
+			return "0";
+		}
 	};
 
 	/**
@@ -86,6 +91,12 @@ public interface Formula
 		public boolean isStatic()
 		{
 			return true;
+		}
+		
+		@Override
+		public String toString()
+		{
+			return "1";
 		}
 
 	};
