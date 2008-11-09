@@ -275,7 +275,7 @@ public class VFeatToken extends AbstractToken implements
 	public void applyChoice(CDOMObject owner, AbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		String featName = choice.getAbilityKey();
+		String featName = choice.getFullAbilityKey();
 		final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT",
 				featName, pc.getDirectVirtualAbilities(AbilityCategory.FEAT),
 				pc, null);

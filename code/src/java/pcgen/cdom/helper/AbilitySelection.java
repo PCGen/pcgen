@@ -48,6 +48,19 @@ public class AbilitySelection
 		return ability.getKeyName();
 	}
 
+	public String getFullAbilityKey()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append(ability.getKeyName());
+		if (selection != null)
+		{
+			sb.append('(');
+			sb.append(selection);
+			sb.append(')');
+		}
+		return sb.toString();
+	}
+
 	public boolean containsAssociation(String a)
 	{
 		return a == null ? selection == null : a.equals(selection);
