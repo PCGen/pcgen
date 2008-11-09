@@ -67,6 +67,11 @@ public class AbilitySelection
 		return sb.toString();
 	}
 
+	public String getSelection()
+	{
+		return selection;
+	}
+
 	public String getPersistentFormat()
 	{
 		StringBuilder sb = new StringBuilder();

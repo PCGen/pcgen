@@ -28,4 +28,32 @@ public class AbilityRef
 	{
 		return choice;
 	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof AbilityRef)
+		{
+			AbilityRef other = (AbilityRef) obj;
+			if (other.abilities.equals(abilities))
+			{
+				if (choice == null)
+				{
+					return other.choice == null;
+				}
+				else
+				{
+					return choice.equals(other.choice);
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return 3 - abilities.hashCode();
+	}
+
 }
