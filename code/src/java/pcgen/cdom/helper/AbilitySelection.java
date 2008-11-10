@@ -38,6 +38,11 @@ public class AbilitySelection
 			throw new IllegalArgumentException(
 					"AbilitySelection with MULT:NO Ability must not have choices");
 		}
+		if (s == null && a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			throw new IllegalArgumentException(
+					"AbilitySelection with MULT:YES Ability must have choices");
+		}
 		ability = a;
 		nature = n;
 		selection = s;
@@ -52,7 +57,7 @@ public class AbilitySelection
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(ability.getKeyName());
-		if (selection != null)
+		if (selection != null && selection.length() > 0)
 		{
 			sb.append('(');
 			sb.append(selection);
@@ -71,7 +76,7 @@ public class AbilitySelection
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(ability.getDisplayName());
-		if (selection != null)
+		if (selection != null && selection.length() > 0)
 		{
 			sb.append('(');
 			sb.append(selection);
@@ -106,7 +111,7 @@ public class AbilitySelection
 	public static AbilitySelection getAbilitySelectionFromPersistentFormat(
 			String s)
 	{
-		//TODO needs LOTS of error checking
+		// TODO needs LOTS of error checking
 		StringTokenizer st = new StringTokenizer(s, Constants.PIPE);
 		String cat = st.nextToken().substring(9);
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(cat);

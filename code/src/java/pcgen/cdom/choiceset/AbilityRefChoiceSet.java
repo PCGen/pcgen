@@ -185,19 +185,24 @@ public class AbilityRefChoiceSet implements
 			a = pcFeat;
 		}
 
-		final int percIdx = subName.indexOf('%');
-
-		if (percIdx > -1)
+		boolean isPattern = false;
+		if (subName != null)
 		{
-			subName = subName.substring(0, percIdx);
-		}
-		else if (subName.length() != 0)
-		{
-			final int idx = subName.lastIndexOf(')');
+			final int percIdx = subName.indexOf('%');
 
-			if (idx > -1)
+			if (percIdx > -1)
 			{
-				subName = subName.substring(0, idx);
+				isPattern = true;
+				subName = subName.substring(0, percIdx);
+			}
+			else if (subName.length() != 0)
+			{
+				final int idx = subName.lastIndexOf(')');
+
+				if (idx > -1)
+				{
+					subName = subName.substring(0, idx);
+				}
 			}
 		}
 
@@ -211,12 +216,20 @@ public class AbilityRefChoiceSet implements
 		// so we have to do a conversion here
 		for (Object o : tempAvailList)
 		{
-			availableList.add(o.toString());
+			String choice = o.toString();
+			if ("NOCHOICE".equals(choice))
+			{
+				availableList.add("");
+			}
+			else
+			{
+				availableList.add(choice);
+			}
 		}
 
 		// Remove any that don't match
 
-		if (subName.length() != 0)
+		if (subName != null && subName.length() != 0)
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{
@@ -235,7 +248,7 @@ public class AbilityRefChoiceSet implements
 			// Make sure that the specified feat is available, even though it
 			// does not meet the prerequisite
 
-			if ((percIdx == -1) && (availableList.size() == 0))
+			if (isPattern && !availableList.isEmpty())
 			{
 				availableList.add(subName);
 			}
