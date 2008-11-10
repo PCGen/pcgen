@@ -133,11 +133,11 @@ public class TransitionChoice<T>
 
 		if (c.pickAll() || intValue == set.size())
 		{
-			return set;
+			return allowed;
 		}
 		else
 		{
-			c.setAvailableList(new ArrayList<T>(set));
+			c.setAvailableList(new ArrayList<T>(allowed));
 			c.setVisible(true);
 			return c.getSelectedList();
 		}
