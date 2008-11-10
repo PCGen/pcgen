@@ -5,10 +5,10 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.15.7" date="In SVN" description="Alpha Release"> 
+    <release version="5.15.7" date="2008-11-10" description="Alpha Release"> 
       <action dev="" type="add" issue="1967459">[Mongoose] Quintessential Ranger II</action>  
       <action dev="" type="add" issue="1974382">[Mongoose] Quintessential Ranger</action>  
-      <action dev="" type="add" issue="2005931">[Paizo] Curse of the Crimson Throne - Player&#039;s Guide</action>  
+      <action dev="" type="add" issue="2005931">[Paizo] Curse of the Crimson Throne - Player's Guide</action>  
       <action dev="" type="add" issue="2005932">[Paizo] Curse of the Crimson Throne: Chapter 1</action>  
       <action dev="" type="add" issue="2005934">[Paizo] Curse of the Crimson Throne: Chapter 2</action>  
       <action dev="" type="add" issue="2044399">[Paizo] Curse of the Crimson Throne: Chapter 3</action>  
@@ -20,7 +20,7 @@
       <action dev="" type="add" issue="2028773">[Paizo] Rise of the Runelords: Chapter 5</action>  
       <action dev="" type="add" issue="2028775">[Paizo] Rise of the Runelords: Chapter 6</action>  
       <action dev="" type="add" issue="1697058">[Reality Deviant] Critical Feats</action>  
-      <action dev="" type="add" issue="2125541">[Skirmisher] Nuisances: Director&#039;s Cut</action>  
+      <action dev="" type="add" issue="2125541">[Skirmisher] Nuisances: Director's Cut</action> 
     </release>  
     <release version="5.15.6" date="2008-10-27" description="Alpha Release"> 
       <action dev="jdempsey" type="add" issue="1929959">Copy gamemode preferences</action>  
