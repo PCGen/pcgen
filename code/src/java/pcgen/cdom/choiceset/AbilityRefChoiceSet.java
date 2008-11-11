@@ -38,7 +38,6 @@ import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Ability.Nature;
 import pcgen.core.chooser.ChooserUtilities;
@@ -162,9 +161,7 @@ public class AbilityRefChoiceSet implements
 					returnSet.addAll(addMultiplySelectableAbility(pc, a, ref
 							.getChoice()));
 				}
-				else if (!pc.hasRealFeat(Globals.getAbilityKeyed("FEAT", a
-						.getKeyName()))
-						&& !pc.hasFeatAutomatic(a.getKeyName()))
+				else
 				{
 					returnSet.add(new AbilitySelection(a, nature));
 				}
