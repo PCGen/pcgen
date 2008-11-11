@@ -21,20 +21,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PObject;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.ChooseLoader;
 import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  * 
  */
-public class ChooseLst implements GlobalLstToken
+public class ChooseLst extends AbstractToken implements GlobalLstToken,
+		CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CHOOSE";
@@ -95,5 +102,33 @@ public class ChooseLst implements GlobalLstToken
 		}
 		String prefixString = StringUtil.join(prefixList, "|");
 		return ChooseLoader.parseToken(obj, prefixString, key, val);
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
+	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		if (pipeLoc == -1)
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ " requires a SubToken");
+			return false;
+		}
+		return context.processSubToken(obj, getTokenName(), value.substring(0,
+				pipeLoc), value.substring(pipeLoc + 1));
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		return context.unparse(obj, getTokenName());
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }
