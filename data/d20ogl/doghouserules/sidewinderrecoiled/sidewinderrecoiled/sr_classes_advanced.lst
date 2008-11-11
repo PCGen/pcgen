@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 12:41:56 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:21:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by Barak)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus					Modify VAR
@@ -43,13 +43,13 @@ CLASS:Desperado	PREATT:2	PREFEAT:2,Confident,Toughness	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Desperado	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Demolitions|Gamble|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Ride|Speak Language|Survival
 1			SAB:Fearless
-2	DR:1/-	SAB:Ornery				BONUS:VAR|ToughDamageReduction|1
+2	DR:1/-	SAB:Ornery										BONUS:VAR|ToughDamageReduction|1
 3																				ADD:FEAT|1|TYPE=Desperado
-4			SAB:Fearsome									BONUS:SKILL|Intimidate|Reputation
+4			SAB:Fearsome			BONUS:SKILL|Intimidate|Reputation
 5			SAB:Rowdy
 6																				ADD:FEAT|1|TYPE=Desperado
 7			SAB:Frightful Reputation
-8			SAB:Tough as Nails		BONUS:VAR|DamageThreshold|3
+8			SAB:Tough as Nails								BONUS:VAR|DamageThreshold|3
 9																				ADD:FEAT|1|TYPE=Desperado
 10			SAB:No Time to Bleed
 
