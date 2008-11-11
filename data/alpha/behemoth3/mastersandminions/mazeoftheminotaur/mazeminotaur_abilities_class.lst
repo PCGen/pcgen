@@ -1,5 +1,5 @@
-# CVS $Revision: 6289 $ $Author: amaitland $ -- Tue Jul  1 10:48:42 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
+# CVS $Revision: 6289 $ $Author: amaitland $ -- Tue Nov 11 00:09:32 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Aaron Divinsky
 
 #Comment: Scent is a base ability, moved defines into RSRD

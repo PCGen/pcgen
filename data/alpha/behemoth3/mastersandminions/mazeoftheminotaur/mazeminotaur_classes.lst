@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 11:01:43 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
+# CVS $Revision$ $Author$ -- Tue Nov 11 00:09:32 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 # Original Entry by: Aaron Divinsky
 
 ### Because this class does not gain a HD at every level the following changes had to be incorporated:
@@ -133,7 +133,7 @@ CLASS:Minotrice Maze Mage	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p. 22
 CLASS:Minotrice Maze Mage	PRERACE:1,Minotrice Maze Mage
 # Class Name			Skill Pts/Lvl
 CLASS:Minotrice Maze Mage	STARTSKILLPTS:2
-# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level							Use Spell List
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level							Use Spell List
 CLASS:Minotrice Maze Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Minotrice Maze Mage|floor(CL+1/2)	SPELLLIST:1|Druid
 
 ###Block: Proficiencies

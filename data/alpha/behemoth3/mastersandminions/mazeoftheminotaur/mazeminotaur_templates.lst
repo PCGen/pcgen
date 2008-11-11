@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 10:48:42 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/
+# CVS $Revision$ $Author$ -- Tue Nov 11 00:09:32 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Aaron Divinsky
 
 ###Block: Racial templates
@@ -10,7 +10,7 @@ Minotaur		VISIBLE:NO			GENDERLOCK:Male
 Minotrice		VISIBLE:NO			GENDERLOCK:Female
 
 ###Block: Natural Weapon Selectors
-# Template Name	Visible	Template																							Automaticaly Added to Inventory
+# Template Name	Visible	Template																							Automatically Added to Inventory
 Gore			VISIBLE:NO	TEMPLATE:CHOOSE:Gore (Fine)|Gore (Diminutive)|Gore (Tiny)|Gore (Small)|Gore (Medium)|Gore (Large)|Gore (Huge)|Gore (Gargantuan)|Gore (Colossal)
 Powerful Charge	VISIBLE:NO	TEMPLATE:CHOOSE:Powerful Charge (Medium)|Powerful Charge (Large)														AUTO:EQUIP|Powerful Charge
 

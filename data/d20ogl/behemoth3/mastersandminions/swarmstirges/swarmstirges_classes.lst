@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/
+# CVS $Revision$ $Author$ -- Tue Nov 11 00:08:55 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Eddy Anthony
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -8,7 +8,7 @@ CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	B
 CLASS:Wing Jockey	PREFEAT:1,Mounted Combat	PRESKILL:2,Ride=4,Handle Animal=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wing Jockey	STARTSKILLPTS:6	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Jump|Knowledge (Geography)|Listen|TYPE.Profession|Ride|Spot|Use Rope
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 ###Block: Level Progression
 1	SAB:Mount Affinity (Ex)	SAB:Empathic Bonding (Ex) +%|EmpathicBonding	BONUS:VAR|EmpathicBonding|CL	DEFINE:EmpathicBonding|CHA	AUTO:FEAT|Wing Jockey (Mount Affinity)
 2	SAB:Mounted Defense I (Ex)													DEFINE:MountedDefenseAC|1	AUTO:FEAT|Wing Jockey (Mounted Defense)
