@@ -5,8 +5,7 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Fantasy
-TYPE:Alpha Datasets
-#TYPE:Big Finger Games.Fantasy Folio
+TYPE:Big Finger Games.Fantasy Folio
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Big Finger Games
 PUBNAMESHORT:BFG
@@ -32,8 +31,6 @@ DESC:Fantasy Folio: Masterwork Qualities presents a system for granting masterwo
 URL:WEBSITE|http://www.bigfingergames.com/|Visit Big Finger Games.
 URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=20165&it=1?affiliate_id=200170|Buy this pdf from RPGNow.com!
 URL:yourgamesnow.com|http://www.yourgamesnow.com/index.php?main_page=product_info&manufacturers_id=48&products_id=1506&zenid=6f33875f68e7b2aa19ecf4f1d1c80dca|Buy this pdf from Your Games Now!
-
-#INFOTEXT:
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
