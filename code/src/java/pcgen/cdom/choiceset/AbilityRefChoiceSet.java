@@ -30,6 +30,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -62,6 +63,8 @@ public class AbilityRefChoiceSet implements
 	 */
 	private final Set<AbilityRef> set;
 
+	private final Category<Ability> category;
+
 	private final Ability.Nature nature;
 
 	/**
@@ -84,8 +87,9 @@ public class AbilityRefChoiceSet implements
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public AbilityRefChoiceSet(Collection<? extends AbilityRef> col, Nature n,
-			boolean allowDupe, int dupCount)
+	public AbilityRefChoiceSet(Category<Ability> cat,
+			Collection<? extends AbilityRef> col, Nature n, boolean allowDupe,
+			int dupCount)
 	{
 		super();
 		if (col == null)
@@ -99,7 +103,16 @@ public class AbilityRefChoiceSet implements
 					"Choice Collection cannot be empty");
 		}
 		set = new HashSet<AbilityRef>(col);
+		if (n == null)
+		{
+			throw new IllegalArgumentException("Choice Nature cannot be null");
+		}
 		nature = n;
+		if (cat == null)
+		{
+			throw new IllegalArgumentException("Choice Category cannot be null");
+		}
+		category = cat;
 	}
 
 	/**
@@ -291,5 +304,15 @@ public class AbilityRefChoiceSet implements
 			return set.equals(other.set);
 		}
 		return false;
+	}
+
+	public Category<Ability> getCategory()
+	{
+		return category;
+	}
+
+	public Ability.Nature getNature()
+	{
+		return nature;
 	}
 }

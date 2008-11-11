@@ -33,6 +33,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.analysis.BonusAddition;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
@@ -479,7 +480,6 @@ public class AbilityUtilities
 		if (addIt && !aPC.isImporting())
 		{
 			ability.globalChecks(false, aPC);
-			ability.checkRemovals(aPC);
 		}
 
 		return result ? 1 : 0;
@@ -1232,6 +1232,135 @@ public class AbilityUtilities
 	public static boolean canAddAssociation(PlayerCharacter pc, Ability a, final String newAssociation)
 	{
 		return 	a.getSafe(ObjectKey.STACKS) || (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc.containsAssociated(a, newAssociation));
+	}
+
+	public static void applyFeat(final PlayerCharacter aPC,
+			final PCLevelInfo pcLevelInfo, String chosenItem)
+	{
+		final String featKey        = chosenItem;
+		final List<String>   aBonusList        = new ArrayList<String>();
+		Ability      anAbility         = Globals.getAbilityKeyed("FEAT", featKey);
+		boolean      spellLevelProcess = false;
+	
+		if (
+			(anAbility != null) &&
+			anAbility.getChoiceString().startsWith("SPELLLEVEL"))
+		{
+			spellLevelProcess = true;
+	
+			final StringTokenizer sTok = new StringTokenizer(
+					anAbility.getChoiceString(),
+					"[]",
+					false);
+			sTok.nextToken();
+	
+			while (sTok.hasMoreTokens())
+			{
+				aBonusList.add(sTok.nextToken());
+			}
+		}
+	
+		if (anAbility != null)
+		{
+			//
+			// Add the cost of the feat to the pool
+			//
+			aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+		}
+		else
+		{
+			aPC.adjustFeats(1);
+			Logging.debugPrint("There is no feat '" + featKey + "'. Adjusting feat count by 1");
+		}
+	
+		modFeat(aPC, pcLevelInfo, featKey, true, false);
+	
+		if (spellLevelProcess && (anAbility != null))
+		{
+			if (chosenItem.indexOf('(') > 0)
+			{
+				final StringTokenizer cTok = new StringTokenizer(
+						chosenItem,
+						"()",
+						false);
+				anAbility  = aPC.getFeatNamed(cTok.nextToken());
+				chosenItem = cTok.nextToken();
+			}
+	
+			if ( anAbility != null )
+			{
+				for ( String bonus : aBonusList )
+				{
+					BonusAddition.applyBonus(bonus, chosenItem, aPC, anAbility, false);
+				}
+			}
+		}
+	}
+
+	public static void applyAbility(PlayerCharacter aPC,
+			PCLevelInfo pcLevelInfo, AbilityCategory abilityCat,
+			Ability ab, String choice, boolean isVirtual)
+	{
+		if (isVirtual)
+		{
+			final List<String> choiceList = new ArrayList<String>();
+			choiceList.add(choice);
+	
+			List<Ability> aList = aPC.getDirectVirtualAbilities(abilityCat);
+			final Ability pcAbility = addVirtualAbility(ab,
+					choiceList, aList, aPC, pcLevelInfo);
+	
+			aPC.setDirty(true);
+	
+			if (pcAbility != null)
+			{
+				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+				{
+					final double x = aPC.getRawFeats(false);
+					aPC.setFeats(1); // temporarily assume 1 choice
+					ChooserUtilities.modChoices(pcAbility, new ArrayList(),
+							new ArrayList(), true, aPC, true, abilityCat);
+					aPC.setFeats(x); // reset to original count
+				}
+	
+				pcAbility.setNeedsSaving(true);
+			}
+			else
+			{
+				Logging.errorPrint("Error:" + ab.getKeyName()
+						+ " not added, aPC.getFeatNamedInList() == NULL");
+			}
+		}
+		else
+		{
+			aPC.adjustAbilities(abilityCat, ab.getSafe(ObjectKey.SELECTION_COST));
+	
+			final List<String> aBonusList = new ArrayList<String>();
+			boolean spellLevelProcess = false;
+			if (ab.getChoiceString().startsWith("SPELLLEVEL"))
+			{
+				spellLevelProcess = true;
+	
+				final StringTokenizer sTok = new StringTokenizer(ab
+						.getChoiceString(), "[]", false);
+				sTok.nextToken(); // COnsume CHOOSE (get to Bonuses)
+	
+				while (sTok.hasMoreTokens())
+				{
+					aBonusList.add(sTok.nextToken());
+				}
+			}
+			modAbility(aPC, pcLevelInfo, ab, choice, true,
+					abilityCat);
+	
+			if (spellLevelProcess)
+			{
+				for (String bonus : aBonusList)
+				{
+					BonusAddition.applyBonus(bonus, choice, aPC, ab, false);
+				}
+			}
+		}
 	}
 
 }

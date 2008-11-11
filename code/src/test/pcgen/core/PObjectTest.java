@@ -411,9 +411,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 		ChooserFactory.setInterfaceClassname("pcgen.util.chooser.RandomChooser");
 		Ability alertness = TestHelper.makeAbility("Alertness", AbilityCategory.FEAT, "General");
 		Race arRace = TestHelper.makeRace("AddRemove");
-		arRace.addAddList(1, "FEAT(KEY_Alertness)");
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(arRace, "ADD", "FEAT|KEY_Alertness");
 		PCClass pcClass = TestHelper.makeClass("Remove Feat Test");
-		pcClass.setRemoveString("2|FEAT(KEY_Alertness)1");
+		context.unconditionallyProcess(pcClass.getClassLevel(2), "REMOVE",
+				"FEAT|KEY_Alertness");
+		context.resolveReferences();
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(arRace);
 		assertEquals("Initial number of feats", 0.0, pc.getFeats(), 0.1);

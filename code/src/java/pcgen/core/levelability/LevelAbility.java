@@ -445,10 +445,6 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		{
 			return new LevelAbilityFeat(aowner, aLevel, aString, false);
 		}
-		else if (aString.startsWith("VFEAT"))
-		{
-			return new LevelAbilityFeat(aowner, aLevel, aString, true);
-		}
 		else if (aString.startsWith("ABILITY"))
 		{
 			return new LevelAbilityAbility(aowner, aLevel, aString, false);

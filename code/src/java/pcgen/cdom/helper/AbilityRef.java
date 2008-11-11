@@ -23,7 +23,7 @@ public class AbilityRef
 	{
 		return abilities;
 	}
-
+	
 	public String getChoice()
 	{
 		return choice;

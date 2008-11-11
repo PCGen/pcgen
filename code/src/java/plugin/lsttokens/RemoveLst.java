@@ -4,52 +4,55 @@
  */
 package plugin.lsttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.RemoveLoader;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  * 
  */
-public class RemoveLst implements GlobalLstToken
+public class RemoveLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
-	/*
-	 * Note: Don't need to wait for Template's LevelToken before this can be converted
-	 * as there is no level support in templates for this token
-	 */
 
+	@Override
 	public String getTokenName()
 	{
 		return "REMOVE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
-		int barLoc = value.indexOf(Constants.PIPE);
-		if (barLoc == -1)
+		if (isEmpty(value))
 		{
-			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
-					+ value + " ... must have a PIPE");
 			return false;
 		}
-		else if (barLoc == 0)
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
-					+ value + " ... cannot start with a PIPE");
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ " requires a SubToken");
 			return false;
 		}
-		String key = value.substring(0, barLoc);
-		String contents = value.substring(barLoc + 1);
-		if (contents == null || contents.length() == 0)
-		{
-			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
-					+ value + " ... cannot end with a PIPE");
-			return false;
-		}
-		// Guaranteed new format here
-		return RemoveLoader.parseLine(obj, key, contents, anInt);
+		String key = value.substring(0, pipeLoc);
+		return context.processSubToken(obj, getTokenName(), key, value
+				.substring(pipeLoc + 1));
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		return context.unparse(obj, getTokenName());
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

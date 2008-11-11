@@ -8372,7 +8372,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			getSpellList();
 			inTmpl.globalChecks(this);
-			inTmpl.checkRemovals(this);
 		}
 
 		setAggregateAbilitiesStable(null, false);
@@ -16311,18 +16310,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			virtualAbilities.put(aCategory, aList);
 		}
 		return aList;
-	}
-
-	/**
-	 * Set the list of directly added virtual abilities of a particular 
-	 * category.
-	 * @param aCategory The category of the abilities.
-	 * @param aList The list of abilities to set.
-	 */
-	public void setDirectVirtualAbilities(final AbilityCategory aCategory,
-		List<Ability> aList)
-	{
-		virtualAbilities.put(aCategory, aList);
 	}
 
 	public void adjustFeats(final double arg)

@@ -27,6 +27,7 @@ package pcgen.core.levelability;
 
 import java.awt.HeadlessException;
 import java.util.List;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -38,7 +39,6 @@ import pcgen.gui.utils.SwingChooser;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
-import plugin.lsttokens.AddLst;
 
 /**
  * <code>LevelAbilityAbilityTest</code> checks the fucntion of the 
@@ -121,22 +121,5 @@ public class LevelAbilityAbilityTest extends AbstractCharacterTestCase
 		{
 			Logging.debugPrint("Ignoring Headless excpetion.");
 		}
-	}
-	
-	public void testParse()
-	{
-		AddLst addParser = new AddLst();
-		
-		assertTrue("Parse of add ability should pass.", addParser.parse(emptyRace,
-			"ABILITY|2|FEAT|NORMAL|Toughness", -9));
-		LevelAbility ability = emptyRace.getLevelAbilityList().get(0);
-		assertEquals("Level of parsed ability not correct", ability.level(), -9);
-		//assertEquals("Level of parsed ability not correct", ability., -9);
-		
-		assertTrue("Parse of add ability should pass.", addParser.parse(emptyRace,
-			"ABILITY|FEAT|NORMAL|Toughness", -9));
-		
-		assertFalse("Parse with no nature should fail.", addParser.parse(emptyRace,
-			"ABILITY|2|FEAT|Toughness", -9));
 	}
 }

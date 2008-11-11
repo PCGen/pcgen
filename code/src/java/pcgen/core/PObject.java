@@ -65,8 +65,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.core.utils.MapKey;
 import pcgen.core.utils.MapKeyMapToList;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -682,207 +680,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the remove list for the character list
-	 * @param arg
-	 */
-	public final void setRemoveString(final String arg)
-	{
-		if (arg.equals(".CLEAR"))
-		{
-			removeListFor(ListKey.REMOVE_STRING_LIST);
-		}
-		else
-		{
-			addToListFor(ListKey.REMOVE_STRING_LIST, arg);
-		}
-	}
-
-	/**
-	 * Check the removals list
-	 * @param aPC
-	 */
-	public void checkRemovals(PlayerCharacter aPC)
-	{
-		// only feat removal is supported atm
-		if (!containsListFor(ListKey.REMOVE_STRING_LIST))
-			return;
-		for (Iterator<String> ri = getListFor(ListKey.REMOVE_STRING_LIST).iterator(); ri.hasNext();)
-		{
-			checkRemoval(aPC, ri.next());
-		}
-	}
-
-	/**
-	 * Check the removal of x from a PC, only supports Feats at the moment
-	 * @param aPC
-	 * @param removeString
-	 */
-	private void checkRemoval(PlayerCharacter aPC, String removeString)
-	{
-		String remString = removeString.substring(removeString.indexOf("|")+1);
-		if (this instanceof PCClass)
-		{
-			int lev = Integer.parseInt(removeString.substring(0, removeString.indexOf("|")));
-			PCClass aClass = (PCClass)this;
-			if (aClass.getLevel() != lev)
-				return;
-		}
-		if (!remString.startsWith("FEAT("))
-			return;
-		int i = remString.indexOf("(");
-		int k = remString.lastIndexOf(")");
-		final StringTokenizer aTok = new StringTokenizer(remString.substring(i+1,k),"(),", false);
-		if (aTok.countTokens() == 0)
-			return; // nothing to do?
-		List<Ability> theFeatList = new ArrayList<Ability>(); // don't remove virtual or mfeats
-		while (aTok.hasMoreTokens())
-		{
-			final String arg = aTok.nextToken();
-			// could be a TYPE of feat
-			if (arg.startsWith("TYPE."))
-			{
-				final String theType = arg.substring(5);
-				for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
-				{
-					if (aFeat.isType(theType) && !theFeatList.contains(aFeat))
-						theFeatList.add(aFeat);
-				}
-			}
-			else if (arg.startsWith("CLASS."))
-			{
-				PCClass aClass = aPC.getClassKeyed(arg.substring(6));
-				if (aClass != null)
-				{
-					for (PCLevelInfo element : aPC.getLevelInfo())
-					{
-						if (element.getClassKeyName().equalsIgnoreCase(aClass.getKeyName()))
-						{
-							for (Ability aFeat : (List<Ability>)element.getObjects())
-							{
-								if (!theFeatList.contains(aFeat))
-								{
-									theFeatList.add(aFeat);
-								}
-							}
-						}
-					}
-					List<Ability> abilityList = aPC.getAssocList(aClass,
-							AssociationListKey.ADDED_FEAT);
-					if (abilityList != null)
-					{
-						for (Ability aFeat : abilityList)
-						{
-							if (!theFeatList.contains(aFeat))
-							{
-								theFeatList.add(aFeat);
-							}
-						}
-					}
-					for (int lvl = 0; lvl < aClass.getLevel(); lvl++)
-					{
-						PCClassLevel pcl = aClass.getClassLevel(i);
-						abilityList = aPC.getAssocList(pcl,
-								AssociationListKey.ADDED_FEAT);
-						if (abilityList != null)
-						{
-							for (Ability aFeat : abilityList)
-							{
-								if (!theFeatList.contains(aFeat))
-								{
-									theFeatList.add(aFeat);
-								}
-							}
-						}
-					}
-				}
-			}
-			else if (arg.equals("CHOICE"))
-			{
-				for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
-				{
-					theFeatList.add(aFeat);
-				}
-			}
-			// or it's a specifically named feat
-			else
-			{
-				Ability aFeat = aPC.getFeatNamed(arg);
-				if (aFeat != null && !theFeatList.contains(aFeat))
-					theFeatList.add(aFeat);
-			}
-		}
-		int remCount = theFeatList.size();
-		if (remString.length() > k + 1)
-		{
-			final String rString = remString.substring(k+1);
-			if (!rString.equalsIgnoreCase("ALL"))
-				remCount = Integer.parseInt(rString);
-		}
-		if (remCount != theFeatList.size() && theFeatList.size()>0)
-		{
-			final ChooserInterface chooser = ChooserFactory.getChooserInstance();
-			chooser.setPoolFlag(true); // user is not required to make any changes
-			chooser.setAllowsDups(false); // only stackable feats can be duped
-			chooser.setVisible(false);
-			chooser.setTotalChoicesAvail(remCount);
-
-			String title = "Select for removal";
-			chooser.setTitle(title);
-			ArrayList selectedList = new ArrayList();
-			Globals.sortChooserLists(theFeatList, selectedList);
-
-			for (; ;)
-			{
-				chooser.setAvailableList(theFeatList);
-				chooser.setSelectedList(selectedList);
-				chooser.setVisible(true);
-
-				final int selectedSize = chooser.getSelectedList().size();
-
-				if (remCount > 0)
-				{
-					if (selectedSize != remCount)
-					{
-						ShowMessageDelegate.showMessageDialog("You must make " + (remCount - selectedSize) + " more selection(s).",
-							Constants.s_APPNAME, MessageType.INFORMATION);
-
-						continue;
-					}
-				}
-
-				break;
-			}
-			for (int ci = 0; ci < chooser.getSelectedList().size(); ci++)
-			{
-				final String chosenItem = (String) chooser.getSelectedList().get(ci);
-				final Ability anAbility = Globals.getAbilityKeyed("FEAT", chosenItem);
-//				if (anAbility == null)
-//				{
-//					aPC.adjustFeats(-1);
-//					Logging.debugPrint("There is no feat '" + chosenItem + "'. Adjusting feat count by -1");
-//				}
-//				else
-//				{
-//					aPC.adjustFeats(-anAbility.getCost());
-//				}
-
-				AbilityUtilities.modFeat(aPC, null, chosenItem, false, false);
-			}
-		}
-		else if (remCount == theFeatList.size())
-		{
-			for (int ix = theFeatList.size() - 1; ix >= 0; ix--)
-			{
-				Ability aFeat = theFeatList.get(ix);
-				aPC.adjustFeats(-aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-				AbilityUtilities.modFeat(aPC, null, aFeat.getKeyName(), false, false);
-				if (ix > theFeatList.size())
-					ix = theFeatList.size();
-			}
-		}
-	}
-
-	/**
 	 * Add auto array
 	 * @param arg
 	 */
@@ -1426,15 +1223,17 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			final PCClass aClass = (PCClass) this;
 			final PCLevelInfo pcLevelInfo = aPC.getLevelInfoFor(getKeyName(), aClass.level);
 			addAddsForLevel(aClass.level, aPC, pcLevelInfo);
-			aClass.getClassLevel(aClass.level).addAdds(aPC);
+			PCClassLevel classLevel = aClass.getClassLevel(aClass.level);
+			classLevel.addAdds(aPC);
+			classLevel.checkRemovals(aPC);
 		}
 		else
 		{
 			addAddsForLevel(-9, aPC, null);
 			addAddsForLevel(0, aPC, null);
 			addAdds(aPC);
+			checkRemovals(aPC);
 		}
-
 		activateBonuses(aPC);
 	}
 

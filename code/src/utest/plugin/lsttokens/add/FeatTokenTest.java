@@ -32,12 +32,12 @@ import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class VFeatTokenTest extends
+public class FeatTokenTest extends
 		AbstractAddTokenTestCase<CDOMObject, Ability>
 {
 
 	static AddLst token = new AddLst();
-	static VFeatToken subtoken = new VFeatToken();
+	static FeatToken subtoken = new FeatToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
@@ -170,5 +170,4 @@ public class VFeatTokenTest extends
 		assertFalse(parse(getSubTokenName() + '|' + "STACKS=0,TestWP1"));
 		assertNoSideEffects();
 	}
-
 }

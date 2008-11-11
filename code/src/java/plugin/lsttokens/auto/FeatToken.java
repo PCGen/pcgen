@@ -27,6 +27,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.QualifiedObject;
+import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -55,8 +56,7 @@ public class FeatToken implements AutoLstToken
 				if (target instanceof PCClass)
 				{
 					// Classes handle this differently
-					preLevelString =
-							"PRECLASS:1," + target.getKeyName() + "=" + level; //$NON-NLS-1$ //$NON-NLS-2$
+					preLevelString = "PRECLASS:1," + target.getKeyName() + "=" + level; //$NON-NLS-1$ //$NON-NLS-2$
 				}
 				Prerequisite r = factory.parse(preLevelString);
 				preReqs.add(r);
@@ -67,6 +67,7 @@ public class FeatToken implements AutoLstToken
 			}
 		}
 		boolean first = true;
+		Nature nature = Ability.Nature.AUTOMATIC;
 		while (tok.hasMoreTokens())
 		{
 			String feat = tok.nextToken();
@@ -78,27 +79,26 @@ public class FeatToken implements AutoLstToken
 							+ " in AUTO:FEAT, must appear first: " + value);
 					return false;
 				}
-				List<QualifiedObject<String>> ao =
-					target.getRawAbilityObjects(AbilityCategory.FEAT,
-						Ability.Nature.AUTOMATIC);
+				List<QualifiedObject<String>> ao = target.getRawAbilityObjects(
+						AbilityCategory.FEAT, nature);
 				for (QualifiedObject<String> qo : ao)
 				{
 					if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
 					{
-						target.removeAbility(AbilityCategory.FEAT,
-								Ability.Nature.AUTOMATIC, qo);
+						target.removeAbility(AbilityCategory.FEAT, nature, qo);
 					}
 				}
 			}
 			else if (feat.startsWith(".CLEAR."))
 			{
-				List<QualifiedObject<String>> ao =
-						target.getRawAbilityObjects(AbilityCategory.FEAT,
-							Ability.Nature.AUTOMATIC);
+				List<QualifiedObject<String>> ao = target.getRawAbilityObjects(
+						AbilityCategory.FEAT, nature);
 				/*
-				 * Have to clone the list to avoid a ConcurrentModificationException
+				 * Have to clone the list to avoid a
+				 * ConcurrentModificationException
 				 */
-				for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(ao))
+				for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(
+						ao))
 				{
 					if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
 					{
@@ -107,18 +107,17 @@ public class FeatToken implements AutoLstToken
 						if (name.equalsIgnoreCase(qo.getObject(null))
 								&& aqo.level == level)
 						{
-							target.removeAbility(AbilityCategory.FEAT,
-								Ability.Nature.AUTOMATIC, qo);
+							target.removeAbility(AbilityCategory.FEAT, nature,
+									qo);
 						}
 					}
 				}
 			}
 			else
 			{
-				target.addAbility(AbilityCategory.FEAT,
-					Ability.Nature.AUTOMATIC,
-					new QualifiedObject.LevelAwareQualifiedObject<String>(level,
-								feat, preReqs));
+				target.addAbility(AbilityCategory.FEAT, nature,
+						new QualifiedObject.LevelAwareQualifiedObject<String>(
+								level, feat, preReqs));
 			}
 			first = false;
 		}

@@ -188,4 +188,13 @@ public class TransitionChoice<T>
 		stackLimit = limit;
 	}
 
+	public boolean allowsStacking()
+	{
+		return allowStack;
+	}
+
+	public int getStackLimit()
+	{
+		return stackLimit == null ? 0 : stackLimit;
+	}
 }

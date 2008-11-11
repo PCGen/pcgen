@@ -30,9 +30,7 @@ import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
@@ -62,10 +60,7 @@ import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.EquipmentLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.rules.persistence.TokenLibrary;
 
 /**
  * Helps Junit tests
@@ -274,6 +269,7 @@ public class TestHelper
 		anAbility.setCDOMCategory(cat);
 		anAbility.setTypeInfo(type);
 		Globals.addAbility(anAbility);
+		Globals.getContext().ref.importObject(anAbility);
 		return anAbility;
 	}
 

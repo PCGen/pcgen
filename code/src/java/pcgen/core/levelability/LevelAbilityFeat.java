@@ -41,7 +41,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.BonusAddition;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -285,65 +284,7 @@ class LevelAbilityFeat extends LevelAbility
 			{
 				String chosenItem = selectedList.get(n);
 				previousChoices.add(chosenItem);
-
-				final String featKey        = chosenItem;
-				final List<String>   aBonusList        = new ArrayList<String>();
-				Ability      anAbility         = Globals.getAbilityKeyed("FEAT", featKey);
-				boolean      spellLevelProcess = false;
-
-				if (
-					(anAbility != null) &&
-					anAbility.getChoiceString().startsWith("SPELLLEVEL"))
-				{
-					spellLevelProcess = true;
-
-					final StringTokenizer sTok = new StringTokenizer(
-							anAbility.getChoiceString(),
-							"[]",
-							false);
-					sTok.nextToken();
-
-					while (sTok.hasMoreTokens())
-					{
-						aBonusList.add(sTok.nextToken());
-					}
-				}
-
-				if (anAbility != null)
-				{
-					//
-					// Add the cost of the feat to the pool
-					//
-					aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-				}
-				else
-				{
-					aPC.adjustFeats(1);
-					Logging.debugPrint("There is no feat '" + featKey + "'. Adjusting feat count by 1");
-				}
-
-				AbilityUtilities.modFeat(aPC, pcLevelInfo, featKey, true, false);
-
-				if (spellLevelProcess && (anAbility != null))
-				{
-					if (chosenItem.indexOf('(') > 0)
-					{
-						final StringTokenizer cTok = new StringTokenizer(
-								chosenItem,
-								"()",
-								false);
-						anAbility  = aPC.getFeatNamed(cTok.nextToken());
-						chosenItem = cTok.nextToken();
-					}
-
-					if ( anAbility != null )
-					{
-						for ( String bonus : aBonusList )
-						{
-							BonusAddition.applyBonus(bonus, chosenItem, aPC, anAbility, false);
-						}
-					}
-				}
+				AbilityUtilities.applyFeat(aPC, pcLevelInfo, chosenItem);
 			}
 		}
 

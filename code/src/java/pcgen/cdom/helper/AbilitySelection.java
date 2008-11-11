@@ -2,6 +2,7 @@ package pcgen.cdom.helper;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -51,6 +52,11 @@ public class AbilitySelection
 	public String getAbilityKey()
 	{
 		return ability.getKeyName();
+	}
+
+	public Category<Ability> getAbilityCategory()
+	{
+		return ability.getCDOMCategory();
 	}
 
 	public String getFullAbilityKey()
@@ -129,4 +135,13 @@ public class AbilitySelection
 
 	}
 
+	public Ability.Nature getNature()
+	{
+		return nature;
+	}
+
+	public Ability getAbility()
+	{
+		return ability;
+	}
 }

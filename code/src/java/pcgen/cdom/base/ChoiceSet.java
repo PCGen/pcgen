@@ -24,6 +24,9 @@ package pcgen.cdom.base;
 
 import java.util.Set;
 
+import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.helper.AbilitySelection;
+import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -167,5 +170,27 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 			return setName.equals(other.setName) && pcs.equals(other.pcs);
 		}
 		return false;
+	}
+
+	public static class AbilityChoiceSet extends ChoiceSet<AbilitySelection>
+	{
+
+		private final AbilityRefChoiceSet arcs;
+
+		public AbilityChoiceSet(String name, AbilityRefChoiceSet choice)
+		{
+			super(name, choice);
+			arcs = choice;
+		}
+
+		public Category<Ability> getCategory()
+		{
+			return arcs.getCategory();
+		}
+
+		public Ability.Nature getNature()
+		{
+			return arcs.getNature();
+		}
 	}
 }

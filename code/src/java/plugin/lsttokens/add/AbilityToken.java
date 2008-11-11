@@ -25,8 +25,37 @@
  */
 package plugin.lsttokens.add;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.AddLstToken;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
+import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.AbilityRef;
+import pcgen.cdom.helper.AbilitySelection;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
@@ -34,107 +63,376 @@ import pcgen.util.Logging;
  * 
  * <p>
  * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z,z<br />
- * <b>Variables Used (w)</b>: Count (Optional Number, Variable or Formula - Number of choices granted).<br />
- * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br />
- * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability: 
+ * <b>Variables Used (w)</b>: Count (Optional Number, Variable or Formula -
+ * Number of choices granted).<br />
+ * <b>Variables Used (x)</b>: Ability Category (The Ability Category this
+ * ability will be added to).<br />
+ * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
  * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br />
- * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have 
+ * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have
  * choices specified in &quot;()&quot;)<br />
  * <p />
  * <b>What it does:</b><br/>
  * <ul>
  * <li>Adds an Ability to a character, providing choices if these are required.</li>
  * <li>The Ability is added to the Ability Category specified.</li>
- * <li>Choices can be specified by including them in parenthesis after the 
+ * <li>Choices can be specified by including them in parenthesis after the
  * ability key name (whitespace is ignored).</li>
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
+ * 
+ * Last Editor: $Author$ Last Edited: $Date: 2007-05-20 19:00:17 -0400
+ * (Sun, 20 May 2007) $
+ * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class AbilityToken implements AddLstToken
+public class AbilityToken extends AbstractToken implements
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.AddLstToken#parse(pcgen.core.PObject, java.lang.String, int)
-	 */
-	public boolean parse(PObject target, String value, int level)
+	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+
+	public String getParentToken()
 	{
-		String tokens[] = value.split("\\|");
-		
-		String countString;
-		int index = 0;
-		
-		if (tokens.length < 3)
-		{
-			Logging.errorPrint("Syntax of ADD:" + getTokenName()
-				+ " only allows three or four | : " + value);
-			return false;
-		}
-		try
-		{
-			Integer.parseInt(tokens[0]);
-			countString = tokens[0];
-			index++;
-			if (tokens.length != 4)
-			{
-				Logging.errorPrint("Syntax of ADD:" + getTokenName()
-					+ " requires four | when a count is present: " + value);
-				return false;
-			}
-		}
-		catch (Exception e)
-		{
-			countString = "1";
-			if (tokens.length != 3)
-			{
-				Logging.errorPrint("Syntax of ADD:" + getTokenName()
-					+ " requires three | when a count is not present: " + value);
-				return false;
-			}
-		}
-		
-		// Category, nature, abilities
-		String category = tokens[index++];
-		if (category == null)
-		{
-			Logging.errorPrint("Malformed ADD Token: Missing Category: "
-					+ value);
-			return false;
-		}
-		String nature = tokens[index++];
-		if (nature == null) {
-			Logging.errorPrint("Malformed ADD Token: Missing Nature: " + value);
-			return false;
-		}
-		String abilities = tokens[index++];
-		if (abilities == null) {
-			Logging.errorPrint("Malformed ADD Token: Missing Abilities: "
-					+ value);
-			return false;
-		}
-		
-		StringBuffer addString = new StringBuffer();
-		addString.append(getTokenName());
-		addString.append("(CATEGORY=");
-		addString.append(category);
-		addString.append(",NATURE=");
-		addString.append(nature);
-		addString.append(",");
-		addString.append(abilities);
-		addString.append(")");
-		addString.append(countString);
-		target.addAddList(level, addString.toString());
-		return true;
+		return "ADD";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
+	private String getFullName()
+	{
+		return getParentToken() + ":" + getTokenName();
+	}
+
+	@Override
 	public String getTokenName()
 	{
 		return "ABILITY";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
+
+		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
+		Formula count;
+		int tokenCount = pipeTok.countTokens();
+		if (tokenCount == 4)
+		{
+			String countString = pipeTok.nextToken();
+			count = FormulaFactory.getFormulaFor(countString);
+			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
+			{
+				Logging
+						.errorPrint("Count in " + getFullName()
+								+ " must be > 0");
+				return false;
+			}
+		}
+		else if (tokenCount == 3)
+		{
+			count = Formula.ONE;
+		}
+		else
+		{
+			Logging
+					.errorPrint("Syntax of ADD:" + getTokenName()
+							+ " requires three | when a count is not present: "
+							+ value);
+			return false;
+		}
+
+		String categoryKey = pipeTok.nextToken();
+		AbilityCategory category = SettingsHandler.getGame()
+				.getAbilityCategory(categoryKey);
+		if (category == null)
+		{
+			Logging.errorPrint(getFullName() + ": Invalid ability category: "
+					+ categoryKey);
+			return false;
+		}
+
+		String natureKey = pipeTok.nextToken();
+		Ability.Nature nature = Ability.Nature.valueOf(natureKey);
+		if (nature == null)
+		{
+			Logging.errorPrint(getFullName() + ": Invalid ability nature: "
+					+ natureKey);
+			return false;
+		}
+		if (Ability.Nature.ANY.equals(nature))
+		{
+			Logging.errorPrint(getTokenName()
+					+ " refers to ANY Ability Nature, cannot be used in "
+					+ getTokenName() + ": " + value);
+			return false;
+		}
+
+		String items = pipeTok.nextToken();
+		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		{
+			Logging.errorPrint("!!");
+			return false;
+		}
+
+		List<AbilityRef> refs = new ArrayList<AbilityRef>();
+		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
+		boolean allowStack = false;
+		int dupChoices = 0;
+
+		boolean foundAny = false;
+		boolean foundOther = false;
+		while (tok.hasMoreTokens())
+		{
+			CDOMReference<Ability> ab;
+			String token = tok.nextToken();
+			if ("STACKS".equals(token))
+			{
+				if (allowStack)
+				{
+					Logging.errorPrint(getFullName()
+							+ " found second stacking specification in value: "
+							+ value);
+					return false;
+				}
+				allowStack = true;
+				continue;
+			}
+			else if (token.startsWith("STACKS="))
+			{
+				if (allowStack)
+				{
+					Logging.errorPrint(getFullName()
+							+ " found second stacking specification in value: "
+							+ value);
+					return false;
+				}
+				allowStack = true;
+				try
+				{
+					dupChoices = Integer.parseInt(token.substring(7));
+				}
+				catch (NumberFormatException nfe)
+				{
+					Logging.errorPrint("Invalid Stack number in "
+							+ getFullName() + ": " + value);
+					return false;
+				}
+				if (dupChoices <= 0)
+				{
+					Logging.errorPrint("Invalid (less than 1) Stack number in "
+							+ getFullName() + ": " + value);
+					return false;
+				}
+				continue;
+			}
+			else
+			{
+				if (Constants.LST_ALL.equals(token))
+				{
+					foundAny = true;
+					ab = context.ref.getCDOMAllReference(ABILITY_CLASS,
+							category);
+				}
+				else
+				{
+					foundOther = true;
+					ab = TokenUtilities.getTypeOrPrimitive(context,
+							ABILITY_CLASS, category, token);
+				}
+			}
+			if (ab == null)
+			{
+				Logging.errorPrint("  Error was encountered while parsing "
+						+ getTokenName() + ": " + value
+						+ " had an invalid reference: " + token);
+				return false;
+			}
+			AbilityRef ar = new AbilityRef(ab);
+			refs.add(ar);
+			if (token.indexOf('(') != -1)
+			{
+				List<String> choices = new ArrayList<String>();
+				AbilityUtilities.getUndecoratedName(token, choices);
+				if (choices.size() != 1)
+				{
+					Logging.errorPrint("Invalid use of multiple items "
+							+ "in parenthesis (comma prohibited) in "
+							+ getFullName() + ": " + token);
+					return false;
+				}
+				ar.addChoice(choices.get(0));
+			}
+		}
+
+		if (foundAny && foundOther)
+		{
+			Logging.errorPrint("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + value);
+			return false;
+		}
+		if (refs.isEmpty())
+		{
+			Logging.errorPrint("Non-sensical " + getFullName()
+					+ ": Contains no ability reference: " + value);
+			return false;
+		}
+
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
+				nature, allowStack, dupChoices);
+		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, count);
+		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
+		StringBuilder title = new StringBuilder();
+		if (!Ability.Nature.NORMAL.equals(nature))
+		{
+			title.append(nature.toString());
+			title.append(' ');
+		}
+		title.append(category.getDisplayName());
+		title.append(" Choice");
+		tc.setTitle(title.toString());
+		tc.allowStack(allowStack);
+		if (dupChoices != 0)
+		{
+			tc.setStackLimit(dupChoices);
+		}
+		tc.setChoiceActor(this);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
+		if (addedItems == null || addedItems.isEmpty())
+		{
+			// Zero indicates no Token
+			return null;
+		}
+		List<String> addStrings = new ArrayList<String>();
+		for (TransitionChoice<?> container : addedItems)
+		{
+			ChoiceSet<?> cs = container.getChoices();
+			if (getTokenName().equals(cs.getName())
+					&& ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
+			{
+				AbilityChoiceSet ascs = (AbilityChoiceSet) cs;
+				Formula f = container.getCount();
+				if (f == null)
+				{
+					context.addWriteMessage("Unable to find " + getFullName()
+							+ " Count");
+					return null;
+				}
+				String fString = f.toString();
+				StringBuilder sb = new StringBuilder();
+				if (!"1".equals(fString))
+				{
+					sb.append(fString).append(Constants.PIPE);
+				}
+				sb.append(ascs.getCategory().getKeyName());
+				sb.append(Constants.PIPE);
+				sb.append(ascs.getNature());
+				sb.append(Constants.PIPE);
+				if (container.allowsStacking())
+				{
+					sb.append("STACKS");
+					int stackLimit = container.getStackLimit();
+					if (stackLimit != 0)
+					{
+						sb.append(Constants.EQUALS);
+						sb.append(container.getStackLimit());
+					}
+					sb.append(Constants.COMMA);
+				}
+				sb.append(cs.getLSTformat());
+				addStrings.add(sb.toString());
+			}
+		}
+		return addStrings.toArray(new String[addStrings.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	public void applyChoice(CDOMObject owner, AbilitySelection choice,
+			PlayerCharacter pc)
+	{
+		Ability ab = choice.getAbility();
+		String association = choice.getSelection();
+		AbilityCategory cat = (AbilityCategory) choice.getAbilityCategory();
+		boolean isVirtual = Ability.Nature.VIRTUAL.equals(choice.getNature());
+		AbilityUtilities
+				.applyAbility(pc, null, cat, ab, association, isVirtual);
+		pc.addAssociation(ab, association);
+	}
+
+	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
+			boolean allowStack)
+	{
+		// Remove any already selected
+		for (Ability a : pc.getAllAbilities())
+		{
+			if (a.getKeyName().equals(choice.getAbilityKey()))
+			{
+				Boolean multYes = a.getSafe(ObjectKey.MULTIPLE_ALLOWED);
+				if (!multYes || !allowStack(a, allowStack)
+						&& hasAssoc(pc.getAssociationList(a), choice))
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	private boolean hasAssoc(List<String> associationList,
+			AbilitySelection choice)
+	{
+		if (associationList == null)
+		{
+			// Huh?
+			return true;
+		}
+		for (String a : associationList)
+		{
+			if (choice.containsAssociation(a))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private boolean allowStack(Ability a, boolean allowStack)
+	{
+		return a.getSafe(ObjectKey.STACKS) && allowStack;
+	}
+
+	public AbilitySelection decodeChoice(String s)
+	{
+		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+	}
+
+	public String encodeChoice(Object choice)
+	{
+		return ((AbilitySelection) choice).getPersistentFormat();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			AbilitySelection choice)
+	{
+		// String featName = choice.getAbilityKey();
+		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
+		// Ability.Nature.NORMAL, featName);
+		// pc.addAssoc(owner, AssociationListKey.ADDED_ABILITY, aFeat);
 	}
 }

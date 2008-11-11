@@ -40,7 +40,6 @@ import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
@@ -57,32 +56,6 @@ public class VFeatToken extends AbstractToken implements
 
 	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-
-	public boolean parse(PObject target, String value, int level)
-	{
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		String countString;
-		String items;
-		if (pipeLoc == -1)
-		{
-			countString = "1";
-			items = value;
-		}
-		else
-		{
-			if (pipeLoc != value.lastIndexOf(Constants.PIPE))
-			{
-				Logging.errorPrint("Syntax of ADD:" + getTokenName()
-						+ " only allows one | : " + value);
-				return false;
-			}
-			countString = value.substring(0, pipeLoc);
-			items = value.substring(pipeLoc + 1);
-		}
-		target.addAddList(level, getTokenName() + "(" + items + ")"
-				+ countString);
-		return true;
-	}
 
 	public String getParentToken()
 	{
@@ -152,11 +125,25 @@ public class VFeatToken extends AbstractToken implements
 			String token = tok.nextToken();
 			if ("STACKS".equals(token))
 			{
+				if (allowStack)
+				{
+					Logging.errorPrint(getFullName()
+							+ " found second stacking specification in value: "
+							+ value);
+					return false;
+				}
 				allowStack = true;
 				continue;
 			}
 			else if (token.startsWith("STACKS="))
 			{
+				if (allowStack)
+				{
+					Logging.errorPrint(getFullName()
+							+ " found second stacking specification in value: "
+							+ value);
+					return false;
+				}
 				allowStack = true;
 				try
 				{
@@ -165,6 +152,12 @@ public class VFeatToken extends AbstractToken implements
 				catch (NumberFormatException nfe)
 				{
 					Logging.errorPrint("Invalid Stack number in "
+							+ getFullName() + ": " + value);
+					return false;
+				}
+				if (dupChoices <= 0)
+				{
+					Logging.errorPrint("Invalid (less than 1) Stack number in "
 							+ getFullName() + ": " + value);
 					return false;
 				}
@@ -212,8 +205,8 @@ public class VFeatToken extends AbstractToken implements
 			return false;
 		}
 
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(refs, nature,
-				allowStack, dupChoices);
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
+				nature, allowStack, dupChoices);
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
@@ -260,6 +253,17 @@ public class VFeatToken extends AbstractToken implements
 				{
 					sb.append(fString).append(Constants.PIPE);
 				}
+				if (container.allowsStacking())
+				{
+					sb.append("STACKS");
+					int stackLimit = container.getStackLimit();
+					if (stackLimit != 0)
+					{
+						sb.append(Constants.EQUALS);
+						sb.append(container.getStackLimit());
+					}
+					sb.append(Constants.COMMA);
+				}
 				sb.append(cs.getLSTformat());
 				addStrings.add(sb.toString());
 			}
@@ -299,13 +303,17 @@ public class VFeatToken extends AbstractToken implements
 		// Remove any already selected
 		for (Ability a : pc.getAllAbilities())
 		{
-			if (a.getKeyName().equals(choice.getAbilityKey()))
+			if (AbilityCategory.FEAT.equals(a.getCDOMCategory()
+					.getParentCategory()))
 			{
-				Boolean multYes = a.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-				if (!multYes || multYes && !allowStack(a, allowStack)
-						&& hasAssoc(pc.getAssociationList(a), choice))
+				if (a.getKeyName().equals(choice.getAbilityKey()))
 				{
-					return false;
+					Boolean multYes = a.getSafe(ObjectKey.MULTIPLE_ALLOWED);
+					if (!multYes || !allowStack(a, allowStack)
+							&& hasAssoc(pc.getAssociationList(a), choice))
+					{
+						return false;
+					}
 				}
 			}
 		}

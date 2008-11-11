@@ -22,7 +22,6 @@
  */
 package pcgen.core.levelability;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -30,7 +29,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -44,7 +42,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.chooser.ChooserUtilities;
-import pcgen.core.analysis.BonusAddition;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.Logging;
@@ -654,112 +651,27 @@ public class LevelAbilityAbility extends LevelAbility
 
 		AbilityCategory abilityCat =
 				SettingsHandler.getGame().getAbilityCategory(lastCategorySeen);
-		if (isVirtual)
+		Iterator<String> it = selectedList.iterator();
+		// If automatically choosing all abilities in a list, then set the
+		// number allowed to the number available
+		if (aArrayList != null && aArrayList.equals(selectedList))
 		{
-			Iterator<String> it = selectedList.iterator();
-
-			while (it.hasNext())
-			{
-				final String  abilityKey = it.next();
-				final List<String>    choiceList = new ArrayList<String>();
-
-				final AbilityChoice abChoice = translation.get(abilityKey);
-				if (abChoice == null)
-				{
-					Logging.errorPrint("Error:" + abilityKey
-						+ " not added, abilitycould not be found in map");
-					continue;
-				}
-				final Ability ab = abChoice.getAbility();
-				choiceList.add(abChoice.getChoice());
-
-				previousChoices.add(ab);
-
-				List<Ability> aList = aPC.getDirectVirtualAbilities(abilityCat);
-				final Ability pcAbility = AbilityUtilities.addVirtualAbility(
-						ab,
-						choiceList,
-						aList,
-						aPC, pcLevelInfo);
-
-				aPC.setDirty(true);
-
-				if (pcAbility != null)
-				{
-					if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-					{
-						final double x = aPC.getRawFeats(false);
-						aPC.setFeats(1); // temporarily assume 1 choice
-						ChooserUtilities.modChoices(
-						pcAbility,
-						new ArrayList(),
-						new ArrayList(),
-						true,
-						aPC,
-						true,
-						abilityCat);
-						aPC.setFeats(x); // reset to original count
-					}
-
-					pcAbility.setNeedsSaving(true);
-				}
-				else
-				{
-					Logging.errorPrint(
-						"Error:" + abilityKey +
-						" not added, aPC.getFeatNamedInList() == NULL");
-				}
-			}
+			numFeats = selectedList.size();
 		}
-		else
+
+		while (it.hasNext())
 		{
-			// If automatically choosing all abilities in a list, then set the
-			// number allowed to the number available
-			if (aArrayList != null && aArrayList.equals(selectedList))
+			final String abilityKey = it.next();
+			final AbilityChoice abChoice = translation.get(abilityKey);
+			if (abChoice == null)
 			{
-				numFeats = selectedList.size();
+				Logging.errorPrint("Error:" + abilityKey
+						+ " not added, abilitycould not be found in map");
+				continue;
 			}
-
-			aPC.adjustAbilities(abilityCat, new BigDecimal(numFeats));
-
-			Iterator<String> it = selectedList.iterator();
-
-			while (it.hasNext())
-			{
-				final String        abK    = it.next();
-				final AbilityChoice abC    = translation.get(abK);
-				final Ability       ab     = abC.getAbility();
-				final String        choice = abC.getChoice();
-
-				previousChoices.add(ab);
-
-				final List<String>   aBonusList        = new ArrayList<String>();
-				boolean      spellLevelProcess = false;
-				if ((ab != null) && ab.getChoiceString().startsWith("SPELLLEVEL"))
-				{
-					spellLevelProcess = true;
-					
-					final StringTokenizer sTok =
-							new StringTokenizer(ab.getChoiceString(), "[]",
-								false);
-					sTok.nextToken(); //COnsume CHOOSE (get to Bonuses)
-
-					while (sTok.hasMoreTokens())
-					{
-						aBonusList.add(sTok.nextToken());
-					}
-				}
-				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true,
-					abilityCat);
-
-				if (spellLevelProcess && (ab != null))
-				{
-					for ( String bonus : aBonusList )
-					{
-						BonusAddition.applyBonus(bonus, choice, aPC, ab, false);
-					}
-				}
-			}
+			previousChoices.add(abChoice.getAbility());
+			AbilityUtilities.applyAbility(aPC, pcLevelInfo, abilityCat,
+					abChoice.getAbility(), abChoice.getChoice(), isVirtual);
 		}
 
 		for (String choice : selectedList)
@@ -774,12 +686,12 @@ public class LevelAbilityAbility extends LevelAbility
 	 * false), return the last one found as the type of feats to be added by
 	 * ADD:FEAT(TYPE=REGION) This implementation assumes that a PC only has one
 	 * region and one subregion.
-	 *
-	 * @param   aPC
-	 * @param   abilityType
-	 * @param   region
-	 *
-	 * @return  String
+	 * 
+	 * @param aPC
+	 * @param abilityType
+	 * @param region
+	 * 
+	 * @return String
 	 */
 	private static String getAbilityTypeFromRegion(
 		final PlayerCharacter aPC,

@@ -3093,6 +3093,7 @@ public class PCClass extends PObject
 		if (!aPC.isImporting() && aPC.doLevelAbilities())
 		{
 			getClassLevel(newLevel).addAdds(aPC);
+			getClassLevel(newLevel).checkRemovals(aPC);
 		}
 	}
 
