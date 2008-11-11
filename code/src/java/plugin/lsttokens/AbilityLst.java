@@ -149,6 +149,13 @@ public class AbilityLst extends AbstractToken implements
 				+ " refers to invalid Ability Nature: " + natureKey);
 			return false;
 		}
+		if (Ability.Nature.ANY.equals(nature))
+		{
+			Logging.errorPrint(getTokenName()
+					+ " refers to ANY Ability Nature, cannot be used in "
+					+ getTokenName() + ": " + value);
+			return false;
+		}
 		if (!tok.hasMoreTokens())
 		{
 			Logging.errorPrint(getTokenName()

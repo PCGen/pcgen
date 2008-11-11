@@ -28,6 +28,7 @@ public class AddLst extends AbstractToken implements GlobalLstToken,
 	 * PlayerCharacter
 	 */
 
+	@Override
 	public String getTokenName()
 	{
 		return "ADD";
