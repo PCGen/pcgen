@@ -5,24 +5,23 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Murchad's Legacy
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Parent's Basement Games.Campaign
+TYPE:Parent's Basement Games.Murchad's Legacy
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-!PRECAMPAIGN:1,PBG - Murchad's Legacy - Full Campaign Options
 PUBNAMELONG:Parent's Basement Games
 PUBNAMESHORT:PBG
-PUBNAMEWEB:http://www.parentsbasementgames.com
+PUBNAMEWEB:http://murchadslegacy.pbwiki.com/
 SOURCELONG:Murchad's Legacy
 SOURCESHORT:Murchad
-SOURCEWEB:http://www.parentsbasementgames.com
+SOURCEWEB:http://murchadslegacy.pbwiki.com/
+SOURCEDATE:2005-07
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Murchad's Legacy Copyright 2005 Parent's Basement Games. All rights reserved.
 COPYRIGHT:PCGen dataset conversion for Murchad's Legacy Copyright 2005, PCgen Data team (Including, but not limited to Eddy Anthony (MoSaT), Andrew (Tir Gwaith) McDougall)
 
-#INFOTEXT:Murchad's Legacy Campaign Setting
+DESC:They say it's good to be the king. Tell that to King Almagaid of Launhym. Tattooed orcs invading from the north, dwarves in the neighboring mountains lamenting their failed "gunpowder" weapons, a vast empire to the south, wealthy elitists taking control from the east, druids and clerics fighting internally, barons threatening to tear the country up, your wife of over twenty years may just well be having an affair, and all because some wizard named Murchad didn't get his way. Murchad's Legacy is a campaign setting in the "knights and castles" tradition using the d20 ruleset where the story slowly advances with every level up and the players drive the plot. All text is considered open gaming content and we welcome additions to this setting that was nominated in 2005 for an ENnie award.
+URL:WEBSITE|http://murchadslegacy.pbwiki.com/|Visit the Murchad's Legacy wiki
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

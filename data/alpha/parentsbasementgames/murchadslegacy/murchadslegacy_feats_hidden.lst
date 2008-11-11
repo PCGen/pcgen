@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Jan 23 00:16:25 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://www.parentsbasementgames.com
+# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
 ###Block: Feat Support --------------------------------------------------------------------------------
 
-# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automaticaly Gained Weapon Prof.	Add				Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
+# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automatically Gained Weapon Prof.	Add 				Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
 Military Longsword Proficiency	TYPE:MilitaryWeapon	VISIBLE:NO								!PREWEAPONPROF:1,Longsword																														AUTO:WEAPONPROF|Longsword
 Military Shortsword Proficiency	TYPE:MilitaryWeapon	VISIBLE:NO								!PREWEAPONPROF:1,Sword (Short)																													AUTO:WEAPONPROF|Sword (Short)
 Military Longsword Competence		TYPE:MilitaryWeapon	VISIBLE:NO	PREWEAPONPROF:2,Longsword,Sword (Short)																																																									BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence
