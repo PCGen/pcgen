@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Wed Jun 29 10:01:43 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:PBG - Murchad's Legacy - Full Campaign Options
+RANK:5
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Murchad's Legacy
+TYPE:Parent's Basement Games.Murchad's Legacy.Optional
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,PBG - Murchad's Legacy Campaign Setting
+PUBNAMELONG:Parent's Basement Games
+PUBNAMESHORT:PBG
+PUBNAMEWEB:http://murchadslegacy.pbwiki.com/
+SOURCELONG:Murchad's Legacy
+SOURCESHORT:Murchad
+SOURCEWEB:http://murchadslegacy.pbwiki.com/
+SOURCEDATE:2005-07
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Murchad's Legacy Copyright 2005 Parent's Basement Games. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for Murchad's Legacy Copyright 2005, PCgen Data team (Including, but not limited to Eddy Anthony (MoSaT))
+
+INFOTEXT:This set will alter the RSRD core data to match the options presented in Murchad's Legacy Campaign Setting, you must also load the RSRD and the Murchad's Legacy Campaign Setting dataset with this set
+
+DESC:They say it's good to be the king. Tell that to King Almagaid of Launhym. Tattooed orcs invading from the north, dwarves in the neighboring mountains lamenting their failed "gunpowder" weapons, a vast empire to the south, wealthy elitists taking control from the east, druids and clerics fighting internally, barons threatening to tear the country up, your wife of over twenty years may just well be having an affair, and all because some wizard named Murchad didn't get his way. Murchad's Legacy is a campaign setting in the "knights and castles" tradition using the d20 ruleset where the story slowly advances with every level up and the players drive the plot. All text is considered open gaming content and we welcome additions to this setting that was nominated in 2005 for an ENnie award.
+URL:WEBSITE|http://murchadslegacy.pbwiki.com/|Visit the Murchad's Legacy wiki
+
+LANGUAGE:murchadslegacy_languages_alt.lst
+RACE:murchadslegacy_races_alt.lst
+SKILL:murchadslegacy_skills_alt.lst
+
+#
+# End
+#
