@@ -321,5 +321,6 @@ public interface Constants
 	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
 	String LST_CROSSCLASS = "CROSSCLASSSKILLS";
 	char PERCENT = '%';
+	String LST_CHOICE = "CHOICE";
 	public static final int NO_LEVEL_LIMIT = -1;
 }

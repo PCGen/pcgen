@@ -614,12 +614,24 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return false;
 	}
 
-	public void addAdds(final PlayerCharacter aPC)
+	public final void addAdds(final PlayerCharacter aPC)
 	{
 		List<PersistentTransitionChoice<?>> addList = getListFor(ListKey.ADD);
 		if (addList != null)
 		{
 			for (PersistentTransitionChoice<?> tc : addList)
+			{
+				driveChoice(tc, aPC);
+			}
+		}
+	}
+
+	public final void checkRemovals(final PlayerCharacter aPC)
+	{
+		List<PersistentTransitionChoice<?>> removeList = getListFor(ListKey.REMOVE);
+		if (removeList != null)
+		{
+			for (PersistentTransitionChoice<?> tc : removeList)
 			{
 				driveChoice(tc, aPC);
 			}
