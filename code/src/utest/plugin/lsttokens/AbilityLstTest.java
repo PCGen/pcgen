@@ -172,6 +172,13 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidAnyNature() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|ANY|Abil1"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testRoundRobinJustSpell() throws PersistenceLayerException
 	{
 		Ability ab = primaryContext.ref.constructCDOMObject(
