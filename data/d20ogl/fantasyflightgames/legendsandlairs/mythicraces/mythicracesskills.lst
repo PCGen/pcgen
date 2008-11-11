@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Mar 15 18:55:04 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Skill Name		Key Stat	Untrained?		Exclusive?		Classes		Type				Required Class			Source Page
 Perform (Chant)		KEYSTAT:CHA							CLASSES:Bard	TYPE:Charisma.Perform						SOURCEPAGE:p.8

@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Kingpin	HD:6		TYPE:PC.Prestige	ABB:Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat		Required Skill				Required Text
+# Class Name	Req. Att.	Required Feat		Required Skill					Required Text
 CLASS:Kingpin	PREATT:7	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
@@ -43,7 +43,7 @@ CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentrat
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	ABB:StS		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Req. Att.	Required Feat				Required Skill
+# Class Name		Req. Att.	Required Feat				Multiple Requirements
 CLASS:Street Stalker	PREATT:5	PREFEAT:2,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Tumble|Use Rope

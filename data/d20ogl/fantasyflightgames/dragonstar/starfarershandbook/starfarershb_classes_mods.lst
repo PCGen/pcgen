@@ -1,5 +1,5 @@
-# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Thu Feb 14 13:14:16 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
+# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
 # Moved new Prestige classes to starfarershb_classes_prestige
@@ -43,7 +43,7 @@ SUBCLASSLEVEL:1	ADD:SPELLCASTER|1|Druid	AUTO:FEAT|Technical Deficiency[!PREFEAT:
 SUBCLASS:Liberal Druid		COST:0
 SUBCLASSLEVEL:1					AUTO:FEAT|Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
 
-# Class Name	Removed Class Skill			Class Skill									Cross-class Skill
+# Class Name	Remove Class Skill			Class Skill									Cross-Class Skill
 CLASS:Fighter.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Swim|Demolition|Freefall|Pilot	CCSKILL:Handle Animal|Ride
 1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
 1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
@@ -60,14 +60,14 @@ CLASS:Monk.MOD
 4						SAB:Evade Fire(Ex)
 7	SAB:.CLEAR.Leap of the Clouds	SAB:Leap of the Clouds(variable gravity still has normal effects)
 
-# Class Name	Removed Class Skill			Class Skill																					Cross-class Skill
+# Class Name	Remove Class Skill			Class Skill																					Cross-Class Skill
 CLASS:Paladin.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE.Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
-1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
+1																	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
+1																	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]|HighTechMartial Weapon Proficiency[PREFEAT:1,Technical Proficiency]
+1																	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Freefall|Navigate|Pilot
@@ -123,7 +123,7 @@ CLASS:Assassin.MOD	CSKILL:Demolitions|Freefall
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechMedium)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechHeavy)[PREFEAT:1,Technical Proficiency]|Armor Proficiency (HighTechPowered)[PREFEAT:1,Technical Proficiency]
 
 
-# Class Name		Skill Pts/Lvl	Removed Class Skill			Class Skill																					Cross-class Skill
+# Class Name		Skill Pts/Lvl	Remove Class Skill			Class Skill																					Cross-Class Skill
 CLASS:Blackguard.MOD	STARTSKILLPTS:2	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
 0	BONUS:VAR|LayOnHands|CL*max(CHA,0)|PRECLASS:1,Ex Paladin=3	DEFINE:SmiteGood|0	DEFINE:LayOnHands|0
 ###Block: Proficiencies
@@ -166,7 +166,7 @@ CLASS:Aristocrat.MOD	CSKILL:Pilot|Urban Lore
 1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
 1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
 
-# Class Name		Removed Class Skill			Class Skill											Cross-class Skill
+# Class Name		Remove Class Skill			Class Skill											Cross-Class Skill
 CLASS:Commoner.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Listen|TYPE.Profession|Spot|Swim|Use Rope	CCSKILL:Handle Animal|Ride
 1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
 

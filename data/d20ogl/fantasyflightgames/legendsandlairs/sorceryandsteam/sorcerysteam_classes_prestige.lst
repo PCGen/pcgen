@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 # Arcane Airman -------------------------------------------------------------------------------
@@ -15,20 +15,20 @@ CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|T
 ###Block: Normal Level Progression
 1	SAB:Operations Expert (Ex)																				ADD:SPELLCASTER|1|Arcane
 2	SAB:Makeshift Repairs (Ex)																				ADD:SPELLCASTER|1|Arcane
-3	SAB:Expert Aviator +% (Ex)|ExpertAviator	BONUS:VAR|ExpertAviator|2	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	DEFINE:ExpertAviator|0	ADD:SPELLCASTER|1|Arcane
+3	SAB:Expert Aviator +% (Ex)|ExpertAviator	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	BONUS:VAR|ExpertAviator|2	DEFINE:ExpertAviator|0	ADD:SPELLCASTER|1|Arcane
 4	SAB:Freefall (Sp)																						ADD:SPELLCASTER|1|Arcane
 5	SAB:Pinpoint Accuracy (Ex)																				ADD:SPELLCASTER|1|Arcane
-6								BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
+6																BONUS:VAR|ExpertAviator|2					ADD:SPELLCASTER|1|Arcane
 7	SAB:Safe Flying (Ex)																					ADD:SPELLCASTER|1|Arcane
 8	SAB:Push the Limit (Ex)																					ADD:SPELLCASTER|1|Arcane
-9								BONUS:VAR|ExpertAviator|2													ADD:SPELLCASTER|1|Arcane
+9																BONUS:VAR|ExpertAviator|2					ADD:SPELLCASTER|1|Arcane
 10	SAB:Sky Captain (Ex)																					ADD:SPELLCASTER|1|Arcane
 
 # Arcane Performer ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Feat		Required Skill																									Req. Known Spell		Req. Spell Type		Required Text
+# Class Name		Required Feat		Multiple Requirements																								Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PREMULT:2,[PRESKILL:3,Bluff=8,Perform=8,Spellcraft=8],[PRESKILL:1,Craft (Carpentry)=5,Craft (Woodworking)=5,Craft (Metalworking)=5,Craft (Musical Instrument)=5]	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scry|Sense Motive|Spellcraft|Swim|Tumble|Use Magic Device|Use Steamcraft Device
@@ -46,7 +46,7 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 6																ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power III
 7																ADD:SPELLCASTER|1|ANY
 8																ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power IV
-9	SAB:Musical Genius (Ex)			BONUS:VAR|MusicalProdigyDC|2	BONUS:SKILL|Perform|5	ADD:SPELLCASTER|1|ANY
+9	SAB:Musical Genius (Ex)			BONUS:SKILL|Perform|5	BONUS:VAR|MusicalProdigyDC|2	ADD:SPELLCASTER|1|ANY
 10	SAB:Song Power Master (Ex)											ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Song Power V
 ###Block: Bard Spells Known
 10	BONUS:DC|CLASS.Bard|2	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1|PRESTAT:1,CHA=24
@@ -64,8 +64,8 @@ CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS
 CLASS:Brawler	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Great Fortitude	PRESKILL:1,Intimidate=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Tumble
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Stubborn Resolve (Ex)
 2						ADD:FEAT|1|TYPE.Brawler
@@ -89,14 +89,14 @@ CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Disa
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Precise Touch (Ex)									BONUS:VAR|PreciseTouch|1		BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	DEFINE:PreciseTouch|0
-2	SAB:Explosive Knowledge (Ex) (%d6 bonus Damage)|ExplosiveKnowledge	BONUS:VAR|ExplosiveKnowledge|1															DEFINE:ExplosiveKnowledge|0
-4													BONUS:VAR|ExplosiveKnowledge|1
-5													BONUS:VAR|PreciseTouch|1
-6													BONUS:VAR|ExplosiveKnowledge|1
-8													BONUS:VAR|ExplosiveKnowledge|1
+1	SAB:Precise Touch (Ex)									BONUS:SKILL|Disable Device,Open Lock,Munitions,Use Steamcraft Device|PreciseTouch	BONUS:VAR|PreciseTouch|1		DEFINE:PreciseTouch|0
+2	SAB:Explosive Knowledge (Ex) (%d6 bonus Damage)|ExplosiveKnowledge															BONUS:VAR|ExplosiveKnowledge|1	DEFINE:ExplosiveKnowledge|0
+4																											BONUS:VAR|ExplosiveKnowledge|1
+5																											BONUS:VAR|PreciseTouch|1
+6																											BONUS:VAR|ExplosiveKnowledge|1
+8																											BONUS:VAR|ExplosiveKnowledge|1
 9	SAB:Defusing Touch (Su)
-10	SAB:Thick Skin (Su)									BONUS:VAR|PreciseTouch|1
+10	SAB:Thick Skin (Su)																							BONUS:VAR|PreciseTouch|1
 
 # Detective -----------------------------------------------------------------------------------
 
@@ -110,14 +110,14 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Decipher S
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																										ADD:FEAT|1|Reference Material
-2	SAB:Eye for Clues (Ex)										BONUS:SKILL|Spot|4|TYPE=Competence
+2	SAB:Eye for Clues (Ex)					BONUS:SKILL|Spot|4|TYPE=Competence
 3	SAB:Second Thought %/day (Ex)|SecondThought														DEFINE:SecondThought|1
 4																										ADD:FEAT|1|Reference Material
-5	SAB:Experienced Detective (Ex)								BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence
-6									BONUS:VAR|SecondThought|1
+5	SAB:Experienced Detective (Ex)			BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence
+6																	BONUS:VAR|SecondThought|1
 7																										ADD:FEAT|1|Reference Material
 8	SAB:Understanding the Criminal Mind (Ex)
-9									BONUS:VAR|SecondThought|1
+9																	BONUS:VAR|SecondThought|1
 10	SAB:Master Detective (Ex)																					ADD:FEAT|1|Reference Material
 
 # Game Hunter ---------------------------------------------------------------------------------
@@ -128,8 +128,8 @@ CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BO
 CLASS:Game Hunter	PREATT:5	PREFEAT:2,Track,Point Blank Shot	PRESKILL:4,Hide=8,Knowledge (Nature)=8,Move Silently=8,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Munitions|TYPE.Profession|Ride|Spot|Swim|Use Rope|Wilderness Lore
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1																														ADD:FEAT|1|TYPE.GameHunterFavored
 2	SAB:Scentless
@@ -151,15 +151,15 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimida
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Armor Adaptation (Ex)			BONUS:VAR|ArmorAdaptation|-2						BONUS:MISC|SPELLFAILURE|ArmorAdaptation	DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane
+1	SAB:Armor Adaptation (Ex)			BONUS:MISC|SPELLFAILURE|ArmorAdaptation	BONUS:VAR|ArmorAdaptation|-2						DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|1|Arcane
 2	SAB:Arcane Bond I (Sp)|PREVARLT:CL,5
 3	SAB:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3	ADD:SPELLCASTER|1|Arcane
-4								BONUS:VAR|ArmorAdaptation|-2
+4															BONUS:VAR|ArmorAdaptation|-2
 5	SAB:Arcane Bond II (Sp)|PREVARLT:CL,8																							ADD:SPELLCASTER|1|Arcane
-7								BONUS:VAR|ArmorAdaptation|-4																		ADD:SPELLCASTER|1|Arcane
+7															BONUS:VAR|ArmorAdaptation|-4											ADD:SPELLCASTER|1|Arcane
 8	SAB:Arcane Bond III (Sp)|PREVARLT:CL,10
 9																														ADD:SPELLCASTER|1|Arcane
-10	SAB:Gun Master	SAB:Arcane Bond IV (Sp)	BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
+10	SAB:Gun Master	SAB:Arcane Bond IV (Sp)								BONUS:VAR|ArmorAdaptation|-2	BONUS:VAR|GunGlyphMarksman|1
 
 # Hypnotist -----------------------------------------------------------------------------------
 
@@ -191,9 +191,9 @@ CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Noble Bodyguard	PREATT:5	PREFEAT:1,Improved Initiative	PRESKILL:2,Intimidate=5,Sense Motive=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Handle Animal|Intimidate|Jump|Listen|Munitions|TYPE.Profession|Sense Motive|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1			SAB:Human Shield (Ex)
 3			SAB:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
@@ -205,7 +205,7 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Physician	HD:6		TYPE:PC.Prestige	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Feat		Required Skill
+# Class Name	Required Feat		Multiple Requirements
 CLASS:Physician	PREFEAT:1,Physician	PREMULT:2,[PRESKILL:2,Alchemy=8,Heal=8],[PRESKILL:1,Profession (Surgeon)=8,Profession (Doctor)=8]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Hide|Intuit Direction|Listen|Move Silently|Ride|Spot|Use Rope|Wilderness Lore
@@ -213,12 +213,12 @@ CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Hide|Intuit Direction|Listen|M
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Survey the Damage
-2	SAB:Healing Hand	SAB:Medicinal Knowledge I (Ex)														BONUS:SKILL|Heal|4|TYPE=Competence
+2	SAB:Healing Hand	SAB:Medicinal Knowledge I (Ex)								BONUS:SKILL|Heal|4|TYPE=Competence
 3	SAB:Temporary Reprieve (1d6+%) (Ex)|TemporaryReprieve																				DEFINE:TemporaryReprieve|((CL-1)/2)*CL
-4	SAB:Model of Health (Ex)	SAB:Restore Health (Ex)									BONUS:CHECKS|Fortitude|2
+4	SAB:Model of Health (Ex)	SAB:Restore Health (Ex)			BONUS:CHECKS|Fortitude|2
 6	SAB:Hand of Life (Ex)	SAB:Medicinal Knowledge II (Ex)
 8	SAB:Reaper's Bane (Ex)
-10	SAB:Medicinal Knowledge III (Ex)	SAB:Master Physician (Ex)	BONUS:VAR|TemporaryReprieve|CL
+10	SAB:Medicinal Knowledge III (Ex)	SAB:Master Physician (Ex)												BONUS:VAR|TemporaryReprieve|CL
 
 # Pilot ----------------------------------------------------------------------------
 
@@ -231,13 +231,13 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Disable Device|Driv
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce						BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence	DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
+1	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce	BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence						DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
 2	SAB:Vehicle Evasion (Ex)
 4	SAB:Combat Maneuvers (Ex)
 6	SAB:Master Gunner (%d6) (Ex)|MasterGunner																				DEFINE:MasterGunner|1
 7	SAB:Defensive Piloting (Ex)
 8	SAB:Greater Evasion (Ex)
-10	SAB:Master Pilot (Ex)										BONUS:VAR|MasterGunner|1
+10	SAB:Master Pilot (Ex)																		BONUS:VAR|MasterGunner|1
 
 # Rocket Ace ----------------------------------------------------------------------------
 
@@ -247,8 +247,8 @@ CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BON
 CLASS:Rocket Ace	PREFEAT:2,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE.Craft|Disable Device|Drive|Intuit Direction|Jump|Listen|Munitions|TYPE.Profession|Spot|Swim|Tumble|Use Steamcraft Device
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Roll (Ex)
 2	SAB:Rocket Mechanic (Ex)
@@ -308,9 +308,9 @@ CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONU
 CLASS:Watchman	PREATT:5	PRESKILL:2,Intimidate,Sense Motive=3	PRESKILL:1,Knowledge (Law),Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Intimidate|Intuit Direction|Knowledge (Local)|Knowledge (Law)|Knowledge (Crime and Criminals)|Listen|Munitions|TYPE.Profession|Ride|Sense Motive|Spot
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1																											AUTO:FEAT|Weapon Focus(Club)
 2	SAB:Crowd Control (Ex)

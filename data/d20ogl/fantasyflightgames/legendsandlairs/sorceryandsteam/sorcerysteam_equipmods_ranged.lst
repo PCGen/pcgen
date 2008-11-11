@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
-# Modifier Name	Unique Key			Type			Cost		BONUS:EQMWEAPON			Weapon prop. bonus
+# Modifier Name	Unique Key			Type			Cost		Bonus Weapon Modifiers		Weapon prop. bonus
 Bayonet		KEY:BAYONET			TYPE:Musket		COST:20
 Optical Scope	KEY:OPTICAL_SCOPE		TYPE:Musket		COST:10	BONUS:EQMWEAPON|RANGEADD|10
 Gun Glyph Weapon	KEY:GUN_GLYPH_WEAPON	TYPE:Firearms	COST:-						BONUS:WEAPON|TOHIT|GunGlyphMarksman

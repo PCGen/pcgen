@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html	SOURCEDATE:2003-08
 # Original entry by: Ratheof Blithwyn
 
 ###Block: Proficiencies
-# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
+# Feat Name					Type			Visible	Automatically Gained Weapon Prof.
 Devoted Evoker Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 Order of Akmon Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Hammer (Light)|Warhammer
 

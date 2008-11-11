@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Spell Name	Classes of caster			School			Spell Descriptors		Type		Components	Casting Time			Range		Item		Target Area or Effect	Duration					Save Info				Spell Resistance	Description		Source Page
 Fatal Error		CLASSES:Verman Corrupter=3	SCHOOL:Enchantment	DESCRIPTOR:Compulsion	TYPE:Divine	COMPS:S	CASTTIME:1 action			RANGE:Close	ITEM:Potion	TARGETAREA:None		DURATION:1 rd/lvl or Special		SAVEINFO:Will Negates		SPELLRES:Yes	DESC:See Text	SOURCEPAGE:p. 170

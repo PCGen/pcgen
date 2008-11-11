@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 22:20:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Feat Name		Type			Visible	Bonus to skill
 Racial Craft	TYPE:Special	VISIBLE:NO	BONUS:SKILL|TYPE.Craft|2
@@ -7,7 +7,7 @@ Artistic Craft	TYPE:Special	VISIBLE:NO	BONUS:SKILL|TYPE.Art|2
 
 
 ###Block: Proficiencies
-# Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
+# Feat Name				Type			Visible	Automatically Gained Weapon Prof.
 Animan Atavist Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Spear|Sling|Longbow|Shortbow|Halfspear|Axe (Throwing)|Sap|Greatclub
 
 ###Block: Soulless Resistance and Immunity

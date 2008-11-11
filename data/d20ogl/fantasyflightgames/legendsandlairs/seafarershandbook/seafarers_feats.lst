@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Feb 20 00:59:21 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html	SOURCEDATE:2002-01
 # Original Entry by: Eddy Anthony
 
-# Feat Name				Type			Req. Att.	Required Class			Required Feat			Required Non-Monster Lvl	Required Race													Required Skill		Required Stat	Special ABility			Define				Description																												Multiple?	Choose							Automaticaly Gained Armor Prof.	Unarmed Damage					Add to base move			Bonus to skill						Modify VAR								Class Skill	Source Page
+# Feat Name				Type			Req. Att.	Required Class			Required Feat			Required Non-Monster Lvl	Required Race													Required Skill		Required Stat	Special ABility			Define				Description																												Multiple?	Choose							Automatically Gained Armor Prof.	Unarmed Damage					Add to base move			Bonus to skill						Modify VAR								Class Skill	Source Page
 Amphibious Endurance		TYPE:General																		PRERACE:1,Merfolk,Half-Merrow,Elf (Aquatic),Elf (Aquatic) (SFHB),Locathah,Sahuagin,Triton																		DESC:You have steeled your body to the rigors of life on land and learned how to breath air for longer periods than is normal for your race																																																					SOURCEPAGE:p.18
 Armor Proficiency (Aquatic)	TYPE:General																																																		DESC:You are proficient with all types of aquatic armor																														AUTO:ARMORPROF|ARMORTYPE=Aquatic																																SOURCEPAGE:p.18
 Barroom Brawler			TYPE:General								PREFEAT:1,Toughness																										PRESTAT:1,CON=13	SAB:Extra Subdual Hit Points						DESC:You can dish it out and take it in a tavern																																					UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																									SOURCEPAGE:p.18

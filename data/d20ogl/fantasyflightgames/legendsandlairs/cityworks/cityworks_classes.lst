@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
@@ -14,7 +14,7 @@ CLASS:Acrobat	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Hide
 1	SAB:Quarterstaff Affinity	BONUS:SKILL|Balance,Jump,Tumble|2|TYPE=Circumstance|PREEQUIP:1,TYPE=Quarterstaff	VFEAT:Ambidexterity|Two Weapon Fighting|PREEQUIPTWOWEAPON:1,TYPE=Quarterstaff
 ###Block: Normal progression
 1	SAB:Agile Charge
-2							BONUS:VAR|ImprovedUncannyDodge|2																																					ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+2							BONUS:VAR|ImprovedUncannyDodge|2																																		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 4																																														ABILITY:Special Ability|VIRTUAL|Evasion
 5	SAB:Rapid Climb
 6																		ADD:FEAT|1|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Run
@@ -57,10 +57,10 @@ CLASS:Pit Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Heal|Int
 1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency|Improved Unarmed Strike	AUTO:WEAPONPROF|TYPE.Simple
 ###Block: Normal progression
 1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12		SAB:Expert Pugilist																													ADD:FEAT|1|Exotic Weapon Proficiency	ADD:FEAT|1|Exotic Weapon Proficiency
-2																	BONUS:VAR|RageTimes|CL/5+1															DEFINE:RageTimes|0																ABILITY:Special Ability|AUTOMATIC|Rage
-3									SAB:Low Cunning (Expertise)																																										AUTO:FEAT|Expertise
+2																														BONUS:VAR|RageTimes|CL/5+1		DEFINE:RageTimes|0																ABILITY:Special Ability|AUTOMATIC|Rage
+3									SAB:Low Cunning (Expertise)																																																	AUTO:FEAT|Expertise
 4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																		ADD:FEAT|1|Exotic Weapon Proficiency
-6									SAB:Low Cunning (Dodge +%)|PitFighterDodge	BONUS:VAR|PitFighterDodge|CL/6	BONUS:COMBAT|AC|PitFighterDodge|TYPE=Dodge|!PREEQUIP:2,TYPE=Armor,TYPE=Heavy	DEFINE:PitFighterDodge|0
+6									SAB:Low Cunning (Dodge +%)|PitFighterDodge	BONUS:COMBAT|AC|PitFighterDodge|TYPE=Dodge|!PREEQUIP:2,TYPE=Armor,TYPE=Heavy	BONUS:VAR|PitFighterDodge|CL/6	DEFINE:PitFighterDodge|0
 8	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																	ADD:FEAT|1|Exotic Weapon Proficiency
 9									SAB:Low Cunning (Can't be flanked)
 12	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																	ADD:FEAT|1|Exotic Weapon Proficiency

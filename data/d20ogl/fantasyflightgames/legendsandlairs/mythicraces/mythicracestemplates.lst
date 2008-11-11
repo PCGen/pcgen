@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
-# Template Name			Visible	Damage Reduction	Source Page		Special ABility																															Required AL				Required Race		Save checks bonus					Combat bonus						Add to base move			Bonus to skill				Stat bonus														Class Skill			FAVOREDCLASS		Feat					Automaticaly Gained Weapon Prof.	Move				Removable?		Subrace
+# Template Name			Visible	Damage Reduction	Source Page		Special ABility																															Required AL				Required Race		Save checks bonus					Combat bonus						Add to base move			Bonus to skill				Stat bonus														Class Skill			Favored Class		Feat					Automatically Gained Weapon Prof.	Move				Removable?		Subrace
 Fur					VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Fur)	SAB:+4 to saving throws vs. Cold																												PRERACE:1,Animan%																																																																					SUBRACE:Yes
 Inhuman Grace			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Inhuman Grace)																																PRERACE:1,Animan%		BONUS:CHECKS|Reflex|2|TYPE=Racial																																																														SUBRACE:Yes
 Steadfastness			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Steadfastness)																																PRERACE:1,Animan%		BONUS:CHECKS|Fortitude|2|TYPE=Racial																																																													SUBRACE:Yes

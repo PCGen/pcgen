@@ -1,27 +1,27 @@
-# CVS $Revision$ $Author$ -- Fri Mar 28 17:34:32 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Aaleear Enchanter	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.8-10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+2)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name		Required Race	Required Skill													Req. Spell Type
-CLASS:Aaleear Enchanter	PRERACE:1,Aaleear	PREMULT:2,[PRESKILL:1,TYPE.Craft=4],[PRESKILL:2,Knowledge (Arcana)=9,Perform (Chant)=9]	PRESPELLTYPE:1,Arcane=1
+# Class Name		Multiple Requirements												Required Race	Req. Spell Type
+CLASS:Aaleear Enchanter	PREMULT:2,[PRESKILL:1,TYPE.Craft=4],[PRESKILL:2,Knowledge (Arcana)=9,Perform (Chant)=9]	PRERACE:1,Aaleear	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Aaleear Enchanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|Knowledge (Arcana)|Perform|TYPE.Profession|Scry|Spellcraft
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Recognize Enchantments	SAB:Resist Magic +%|AaleearResistMagic	SAB:Enchant Normal Item %|EnchantNormal	BONUS:VAR|AaleearResistMagic|1						BONUS:SKILL|Spellcraft|2|TYPE=Competence	DEFINE:EnchantNormal|1	DEFINE:AaleearResistMagic|0	ADD:FEAT|1|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
-3																				BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
+1	SAB:Recognize Enchantments	SAB:Resist Magic +%|AaleearResistMagic	SAB:Enchant Normal Item %|EnchantNormal	BONUS:SKILL|Spellcraft|2|TYPE=Competence	BONUS:VAR|AaleearResistMagic|1						DEFINE:EnchantNormal|1	DEFINE:AaleearResistMagic|0	ADD:FEAT|1|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
+3																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
 4																																															ADD:FEAT|1|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
-5																				BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
-7																				BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1																	ADD:FEAT|1|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
-10																				BONUS:VAR|AaleearResistMagic|1
+5																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
+7																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1										ADD:FEAT|1|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
+10																											BONUS:VAR|AaleearResistMagic|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Anaeman Crafter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.15-16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+1	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Feat				Required Race	Required Skill
-CLASS:Anaeman Crafter	PREFEAT:1,Craft Anaema Tool (MR)	PRERACE:1,Anaema	PREMULT:2,[PRESKILL:2,TYPE.Craft=8],[PRESKILL:3,Concentration=5,Knowledge (Arcana)=5,Spellcraft=5]
+# Class Name		Required Feat				Multiple Requirements														Required Race
+CLASS:Anaeman Crafter	PREFEAT:1,Craft Anaema Tool (MR)	PREMULT:2,[PRESKILL:2,TYPE.Craft=8],[PRESKILL:3,Concentration=5,Knowledge (Arcana)=5,Spellcraft=5]	PRERACE:1,Anaema
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Anaeman Crafter	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
 1	SAB:Craft Focus %|CraftFocus					DEFINE:CraftFocus|1	ADD:SPELLCASTER|1|ANY
@@ -61,19 +61,19 @@ CLASS:Chosen of Ba en Aset	PREALIGN:LG,NG,CG,CN	PREATT:6	PREFEAT:2,Power Attack,
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE.Profession|Ride|Swim|Tumble
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Mystic Discipline (Light)|PREVARLT:CL,2																														ABILITY:Special Ability|VIRTUAL|Evasion	VFEAT:Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		ABILITY:Special Ability|AUTOMATIC|Detect Evil	SAB:Mystic Discipline (Light/Fleetness of Foot)|PREVARLT:CL,3																								VFEAT:Stunning Fist
-3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		ABILITY:Special Ability|AUTOMATIC|Aura of Courage	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight)|PREVARLT:CL,4
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Divine Grace	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball)|PREVARLT:CL,5													
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Purity of Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis)|PREVARLT:CL,6
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility)|PREVARLT:CL,7																			VFEAT:Improved Trip
-7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	ABILITY:Special Ability|AUTOMATIC|Wholeness of Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas)|PREVARLT:CL,8
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force)|PREVARLT:CL,9														ABILITY:Special Ability|VIRTUAL|Improved Evasion
-9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	ABILITY:Special Ability|AUTOMATIC|Diamond Body	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal)|PREVARLT:CL,10
-10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	ABILITY:Special Ability|AUTOMATIC|Diamond Soul	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal/Antimagic Field)
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Mystic Discipline (Light)|PREVARLT:CL,2																			ABILITY:Special Ability|VIRTUAL|Evasion			VFEAT:Improved Unarmed Strike
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Mystic Discipline (Light/Fleetness of Foot)|PREVARLT:CL,3																ABILITY:Special Ability|AUTOMATIC|Detect Evil		VFEAT:Stunning Fist
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight)|PREVARLT:CL,4															ABILITY:Special Ability|AUTOMATIC|Aura of Courage
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball)|PREVARLT:CL,5													ABILITY:Special Ability|AUTOMATIC|Divine Grace
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis)|PREVARLT:CL,6											ABILITY:Special Ability|AUTOMATIC|Purity of Body
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility)|PREVARLT:CL,7																	VFEAT:Improved Trip
+7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas)|PREVARLT:CL,8						ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force)|PREVARLT:CL,9			ABILITY:Special Ability|VIRTUAL|Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal)|PREVARLT:CL,10	ABILITY:Special Ability|AUTOMATIC|Diamond Body
+10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal/Antimagic Field)	ABILITY:Special Ability|AUTOMATIC|Diamond Soul
 
 # Class Name			Hit Dice	Type			Max Level	Source Page			Save checks bonus													Combat bonus
 CLASS:Blickish Infiltrator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33-35	BONUS:CHECKS|BASE.Fortitude|(CL+2)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+5)/3	BONUS:COMBAT|BAB|(CL+3)/2|TYPE=Base.REPLACE
@@ -112,18 +112,18 @@ CLASS:Soulless	PREALIGN:LN,LE,TN,NE,CN,CE	PRECHECKBASE:1,Will=5	PRERACE:1,Curst	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulless	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disguise|Escape Artist|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spellcraft|Spot|Swim
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 ###Block: Normal Level Progression
-1	SAB:Alter Self %/day|AlterSelf	SAB:Essence Theft	SAB:Resistance to Necromancy	SAB:Soullessness	BONUS:VAR|AlterSelf|1	BONUS:SKILL|STAT=CHA|(0-2)	DEFINE:AlterSelf|0	ADD:SPELLCASTER|1|ANY
+1	SAB:Alter Self %/day|AlterSelf	SAB:Essence Theft	SAB:Resistance to Necromancy	SAB:Soullessness	BONUS:SKILL|STAT=CHA|(0-2)	BONUS:VAR|AlterSelf|1	DEFINE:AlterSelf|0	ADD:SPELLCASTER|1|ANY
 2	SAB:Telepathy
 3																															ADD:SPELLCASTER|1|ANY	ADD:FEAT|Soulless Resistance
-4																		BONUS:VAR|AlterSelf|1
+4																							BONUS:VAR|AlterSelf|1
 5	SAB:See in Darkness																											ADD:SPELLCASTER|1|ANY	ADD:FEAT|Soulless Immunity
 6																															ADD:FEAT|Soulless Resistance
-7																		BONUS:VAR|AlterSelf|1										ADD:SPELLCASTER|1|ANY
+7																							BONUS:VAR|AlterSelf|1					ADD:SPELLCASTER|1|ANY
 8	SAB:Unnerving Gaze
 9																															ADD:SPELLCASTER|1|ANY	ADD:FEAT|Soulless Resistance
-10																		BONUS:VAR|AlterSelf|1										ADD:FEAT|Soulless Immunity
+10																							BONUS:VAR|AlterSelf|1					ADD:FEAT|Soulless Immunity
 
 # Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus								Combat bonus
 CLASS:Eletum Aemidun	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -185,7 +185,7 @@ CLASS:Luminous Lightbringer	PREALIGN:LG	PREATT:7	PREFEAT:2,Extra Turning,Unyield
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Luminous Lightbringer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Knowledge (Religion)|Listen|TYPE.Profession|Ride
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 ###Block: Normal Level Progression
 1	SAB:Heart of Valor	ADD:SPELLCASTER|1|Divine
 2	SAB:Weapon of Justice	ADD:SPELLCASTER|1|Divine
@@ -200,16 +200,16 @@ CLASS:Claw of the Hunt	PREATT:5	PREFEAT:2,Improved Control Shape (MR),Track	PRER
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Swim|Tumble|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1							BONUS:VAR|SneakAttack|1																									ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	SAB:Hunter's Claws +%|HunterClaw					BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement	DEFINE:HunterClaw|CL/2
+1																											BONUS:VAR|SneakAttack|1					ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement					DEFINE:HunterClaw|CL/2
 3	SAB:Defensive Shift
 4																																			ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
-5							BONUS:VAR|SneakAttack|1
+5																											BONUS:VAR|SneakAttack|1
 7																																			ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
-9							BONUS:VAR|SneakAttack|1
+9																											BONUS:VAR|SneakAttack|1
 10																																			ADD:FEAT|1|TYPE=Fighter,TYPE=Mhuinntir
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
@@ -220,14 +220,14 @@ CLASS:Niomus Windweaver	PREALIGN:NG,CG	PREFEAT:2,TYPE=ItemCreation	PRERACE:1,Nio
 CLASS:Niomus Windweaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
 1	SAB:Air Mastery +%|AirMastery										DEFINE:AirMastery|1	ADD:SPELLCASTER|1|Arcane
 2	SAB:Perfect Air																ADD:SPELLCASTER|1|Arcane
-3	SAB:Good Flying							BONUS:MOVEADD|TYPE=Fly|10					ADD:SPELLCASTER|1|Arcane
-4						BONUS:VAR|AirMastery|1										ADD:SPELLCASTER|1|Arcane
+3	SAB:Good Flying			BONUS:MOVEADD|TYPE=Fly|10									ADD:SPELLCASTER|1|Arcane
+4											BONUS:VAR|AirMastery|1					ADD:SPELLCASTER|1|Arcane
 5	SAB:Control Winds																ADD:SPELLCASTER|1|Arcane
 6	SAB:Shield in Winds															ADD:SPELLCASTER|1|Arcane
-7						BONUS:VAR|AirMastery|1										ADD:SPELLCASTER|1|Arcane
-8	SAB:Perfect Flying						BONUS:MOVEADD|TYPE=Fly|10					ADD:SPELLCASTER|1|Arcane
+7											BONUS:VAR|AirMastery|1					ADD:SPELLCASTER|1|Arcane
+8	SAB:Perfect Flying		BONUS:MOVEADD|TYPE=Fly|10									ADD:SPELLCASTER|1|Arcane
 9	SAB:Weather Command															ADD:SPELLCASTER|1|Arcane
-10	SAB:Cloud Weave			BONUS:VAR|AirMastery|1										ADD:SPELLCASTER|1|Arcane
+10	SAB:Cloud Weave								BONUS:VAR|AirMastery|1					ADD:SPELLCASTER|1|Arcane
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Ooloi Journeyman	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/6	BONUS:CHECKS|BASE.Reflex|CL/2+1	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -260,9 +260,9 @@ CLASS:Quissian Blademaster	PREATT:10	PREFEAT:6,Cleave,Combat Reflexes,Great Clea
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Quissian Blademaster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Jump|Listen|Ride|Swim
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Precise Strike %/day|PreciseStrike	BONUS:VAR|PreciseStrike|1	DEFINE:PreciseStrike|0
 2																	ADD:FEAT|1|TYPE=Fighter
@@ -272,14 +272,14 @@ CLASS:Quissian Blademaster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Rezurbek Buerin	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required AL	Req. Att.	Required Deity	Required Feat					Required Race		Required Skill									Req. Spell Type		Required Text
+# Class Name		Required AL	Req. Att.	Required Deity	Required Feat					Required Race		Required Skill							Req. Spell Type		Required Text
 CLASS:Rezurbek Buerin	PREALIGN:TN	PREATT:3	PREDEITY:1,Buer	PREFEAT:2,Blind-Fight,Improved Initiative	PRERACE:1,Rezurbek	PRESKILL:2,Knowledge (Nature)=4,Wilderness Lore=8	PRESPELLTYPE:1,Divine=1	PRETEXT:See text
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rezurbek Buerin	STARTSKILLPTS:2	CSKILL:Animal Empathy|Control Shape|TYPE.Craft|Handle Animal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Control Shape +%|BuerinControl	BONUS:SKILLRANK|Control Shape|BuerinControl1	DEFINE:BuerinControl|(CL+1)/2	ADD:FEAT|1|Improved Control Shape (MR)	TEMPLATE:Buerin
 2																				ADD:SPELLCASTER|1|Divine
@@ -294,14 +294,14 @@ CLASS:Rhonian Emissary	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS
 CLASS:Rhonian Emissary	PREFEAT:1,Skill Focus(Diplomacy)	PRERACE:1,Rhonian	PRESKILL:3,Diplomacy=8,Knowledge (Nobility and Royalty)=4,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rhonian Emissary	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Disguise|Gather Information|Innuendo|Intimidate|Listen|Perform|Search|Sense Motive|Speak Language|Spot
-1	SAB:Herald's Intuition +%|HeraldIntuit										BONUS:SKILLRANK|Herald's Intuition|2	DEFINE:HeraldIntuit|2
-2	SAB:Preemptive Strike +%|PreempStrike	BONUS:VAR|PreempStrike|CL/2												DEFINE:PreempStrike|0
+1	SAB:Herald's Intuition +%|HeraldIntuit	BONUS:SKILLRANK|Herald's Intuition|2										DEFINE:HeraldIntuit|2
+2	SAB:Preemptive Strike +%|PreempStrike								BONUS:VAR|PreempStrike|CL/2					DEFINE:PreempStrike|0
 3	SAB:Stirring Oration %/day|Oration																		DEFINE:Oration|1
-4								BONUS:VAR|HeraldIntuit|2					BONUS:SKILLRANK|Herald's Intuition|2
-5								BONUS:VAR|Oration|1
-7								BONUS:VAR|Oration|1	BONUS:VAR|HeraldIntuit|2	BONUS:SKILLRANK|Herald's Intuition|2
-9								BONUS:VAR|Oration|1
-10								BONUS:VAR|HeraldIntuit|2					BONUS:SKILLRANK|Herald's Intuition|2
+4								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|HeraldIntuit|2
+5															BONUS:VAR|Oration|1
+7								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|Oration|1	BONUS:VAR|HeraldIntuit|2
+9															BONUS:VAR|Oration|1
+10								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|HeraldIntuit|2
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
 CLASS:Rhoode Recorder	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.119	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|floor((CL+4)/4)*2	BONUS:CHECKS|BASE.Will|(CL+2)/3	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE
@@ -327,15 +327,15 @@ CLASS:Risen Avenger	PREATT:5	PREFEAT:1,Iron Will	PRERACE:1,Risen Demon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Risen Avenger	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Channel Demonic Essence %|DemonicEssense	BONUS:VAR|DemonicEssense|1						DEFINE:DemonicEssense|0
-2	SAB:Terrifying Aspect										BONUS:SKILL|Intimidate|2
-3									BONUS:VAR|DemonicEssense|1
+1	SAB:Channel Demonic Essence %|DemonicEssense						BONUS:VAR|DemonicEssense|1	DEFINE:DemonicEssense|0
+2	SAB:Terrifying Aspect					BONUS:SKILL|Intimidate|2
+3														BONUS:VAR|DemonicEssense|1
 4	SAB:Detect Outsiders
-5									BONUS:VAR|DemonicEssense|1
+5														BONUS:VAR|DemonicEssense|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Risen Redeemer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.126	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -349,10 +349,10 @@ CLASS:Risen Redeemer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|H
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Channel Demonic Essence %|ChannelEssence										DEFINE:ChannelEssence|1
-2	SAB:Calming Aspect										BONUS:SKILL|Diplomacy|2
-3									BONUS:VAR|ChannelEssence|1
+2	SAB:Calming Aspect					BONUS:SKILL|Diplomacy|2
+3													BONUS:VAR|ChannelEssence|1
 4	SAB:Detect Outsiders
-5									BONUS:VAR|ChannelEssence|1
+5													BONUS:VAR|ChannelEssence|1
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus
 CLASS:Sendasti Windmaster	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.131	BONUS:COMBAT|BAB|(CL+1)*2/3|TYPE=Base.REPLACE
@@ -361,9 +361,9 @@ CLASS:Sendasti Windmaster	PREATT:6	PREFEAT:1,Two-Weapon Fighting	PREFEAT:1,Weapo
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sendasti Windmaster	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Diplomacy|Disguise|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Speak with Animals	BONUS:CHECKS|BASE.Fortitude,BASE.Will|2
 2					BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1
@@ -383,8 +383,8 @@ CLASS:Siarran Bladedancer	PREATT:5	PREFEAT:1,Exotic Weapon Proficiency(Reedstaff
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Siarran Bladedancer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Innuendo|Intimidate|Jump|Listen|Perform|Sense Motive|Swim|Tumble
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1									ADD:SPELLCASTER|1|Bard
 2	SAB:Touch the Breeze	BONUS:PCLEVEL|Bard|1
@@ -406,9 +406,9 @@ CLASS:Sktak Windrider	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Dipl
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Sktak Windrider	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Sktak Windrider|CL
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:0		DOMAIN:Sktak Windrider Mount	SAB:Desert Lore	SAB:Improved Mounted Combat	SAB:Kuldaan	SAB:Stealth	BONUS:DOMAIN|NUMBER|1
 2	CAST:0,1							SAB:Improved Mounted Archery +%|ImpMountArch									DEFINE:ImpMountArch|min(CL/2,4)
@@ -428,9 +428,9 @@ CLASS:Siege Grunt	PREALIGN:LG,LN,LE,NG,CG	PREATT:7	PREFEAT:3,Great Cleave,Endura
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Siege Grunt	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Spot
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 2			SAB:Fire Resistance (%)|FireRes	BONUS:VAR|FireRes|5	DEFINE:FireRes|0
 3	DR:15/+3	SAB:Reinforced Skin
@@ -442,7 +442,7 @@ CLASS:Siege Grunt	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Spot
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Forest Shepherd	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.155	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Race	Required Skill						Req. Spell Type		Required Text
+# Class Name		Required Race	Required Skill							Req. Spell Type		Required Text
 CLASS:Forest Shepherd	PRERACE:1,Tremen	PRESKILL:2,Knowledge (Nature)=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=3	PRETEXT:See Text
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Forest Shepherd	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
@@ -480,7 +480,7 @@ CLASS:Uthuk Qi'nok	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowl
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Verman Corrupter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required AL		Req. Att.	Required Race	Required Skill																Required Text
+# Class Name		Required AL		Req. Att.	Required Race	Required Skill											Required Text
 CLASS:Verman Corrupter	PREALIGN:NE,CE	PREATT:4	PRERACE:1,Vermen	PRESKILL:5,Bluff=4,Sense Motive=5,Gather Information=6,Intimidate=6,Forgery=6	PRETEXT:See Text
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Verman Corrupter	STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|TYPE.Profession|Read Lips|Search|Sense Motive

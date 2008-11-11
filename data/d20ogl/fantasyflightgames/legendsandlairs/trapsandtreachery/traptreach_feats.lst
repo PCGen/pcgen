@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-07
 # Feat Name				Type					Visible		Req. Att.	Required Class				Required Feat				Multiple Requirements								Req. Special Ability	Required Skill								Required Stat		Var. Min. Value			Special ABility			Description																																								Multiple?	Choose				Bonus to skill											Modify VAR									Class Skill	Source Page
 Acrobatic				TYPE:General																																													PRESTAT:1,DEX=15												DESC:+2 on Balance and Tumble																																												BONUS:SKILL|Balance,Tumble|2																					SOURCEPAGE:p.34
 Brew Poison				TYPE:ItemCreation																																			PRESKILL:1,Alchemy=4																					DESC:You can manufacture poisons.																																																																				SOURCEPAGE:p.45

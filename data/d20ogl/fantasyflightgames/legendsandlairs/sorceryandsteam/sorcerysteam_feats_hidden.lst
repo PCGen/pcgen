@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 21:46:03 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 # Feat Name				Type				Visible	Required Feat				Special ABility				Description		Multiple?	Choose																																																					Bonus to DC				Bonus to skill		Source Page
@@ -25,7 +25,7 @@ Master of Enchantment III	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Ench
 Master of Enchantment IV	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Enchantment I (Sp) (%CHOICE)	MULT:YES	CHOOSE:STRING|Mind Fog|Feeblemind|Hold Monster
 
 ###Block: Proficiencies
-# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
+# Feat Name					Type			Visible	Automatically Gained Weapon Prof.
 Street Runner Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Dart|Mace|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
 Musketeer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Firearms|Club|Dagger|Dagger (Punching)|Glaive|Guisarme|Halberd|Halfspear|Javelin|Crossbow (Light)|Crossbow (Heavy)|Longspear|Longsword|Quarterstaff|Ranseur|Rapier|Scimitar|Shortspear|Sword (Short)
 
@@ -59,7 +59,7 @@ Wolf Totem		TYPE:AnimalLordTotem	VISIBLE:NO	SAB:Totem Animal- Wolf							DESC:Se
 
 ###Block: Animal Lord Totem Abilities
 
-# Feat Name							Type				Visible	Required Class			Required Feat											Prohibited Feat				Required var. value		Special ABility											Define			Description		Multiple?	Choose		Add				Save checks bonus			Combat bonus				Add to base move					Bonus to skill						Modify VAR				Weapon prof. bonus
+# Feat Name							Type				Visible	Required Class			Required Feat											Prohibited Feat				Required Var. value		Special ABility											Define			Description		Multiple?	Choose		Add 				Save checks bonus			Combat bonus				Add to base move					Bonus to skill						Modify VAR				Weapon prof. bonus
 Ape Ability - Deceptive Intellect			TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=1	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,1		SAB:Deceptive Intellect														DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill1|1
 Ape Ability - Deceptive Intellect Level 5		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=5	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,5																			DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill5|1
 Ape Ability - Deceptive Intellect Level 9		TYPE:AnimalLordAbility	VISIBLE:NO	PRECLASS:1,Animal Lord=9	PREFEAT:1,Ape Totem																PREVAREQ:ALSkillBonus,9																			DESC:See Text	MULT:NO																																		BONUS:VAR|AnimalLordSkill9|1

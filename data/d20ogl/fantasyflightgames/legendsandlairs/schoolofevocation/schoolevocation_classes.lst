@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html	SOURCEDATE:2003-08
 # Original Entry by: Ratheof Blithwyn
 
 #
@@ -12,7 +12,7 @@ CLASS:Devoted Evoker	HD:4		TYPE:Base.PC	ABB:Evoc		MAXLEVEL:20	SOURCEPAGE:p.4	LAN
 CLASS:Devoted Evoker	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Devoted Evoker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
-# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level				Use Spell List
+# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level				Use Spell List
 CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Evoker|CL	SPELLLIST:1|Wizard
 ###Block: Proficiencies
 1	AUTO:FEAT|Devoded Evoker Weapon Proficiencies
@@ -99,7 +99,7 @@ CLASS:Illuminator	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Deciph
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Maestro of Dissonance	HD:4		TYPE:PC.Prestige	ABB:MaDi		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name			Required Feat		Required Skill							Req. Known Spell			Req. Spell Type
+# Class Name			Required Feat		Required Skill						Req. Known Spell			Req. Spell Type
 CLASS:Maestro of Dissonance	PREFEAT:1,Blindfight	PRESKILL:3,Listen=4,Perform=4,Spellcraft=8	PRESPELL:1,Discordant Bolt	PRESPELLTYPE:2,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft
@@ -175,7 +175,7 @@ CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|T
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wintermage	HD:4		TYPE:PC.Prestige	ABB:Wnt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat				Required Skill														Req. Known Spell					Req. Spell Type
+# Class Name	Required Feat				Multiple Requirements													Req. Known Spell					Req. Spell Type
 CLASS:Wintermage	PREFEAT:1,Spell Focus(Evocation)	PREMULT:2,[PRESKILL:1,Knowledge (Nature)=4,Wilderness Lore=4].[PRESKILL:1,Knowledge (Arcana)=8]	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:3,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wintermage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Hide|Listen|Knowledge (Nature)|Knowledge (Arcana)|Move Silently|TYPE.Profession|Scry|Spellcraft|Spot|Wilderness Lore

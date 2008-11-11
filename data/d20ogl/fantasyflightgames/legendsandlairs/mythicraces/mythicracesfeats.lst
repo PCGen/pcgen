@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 22:20:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
-# Feat Name					Type					Req. Att.	Required Class			Required Feat				Req. nb of Hand	Min. nb of Hand	Required Race			Required Skill	Required Stat	Description																	Stackable?	Multiple?	Choose		Combat bonus						Class Skill			Source Page				Natural Attacks
+# Feat Name					Type					Req. Att.	Required Class			Required Feat				Req. nb of Hands	Min. nb of Hands	Required Race			Required Skill	Required Stat	Description																	Stackable?	Multiple?	Choose		Combat bonus						Class Skill			Source Page				Natural Attacks
 Craft Anaema Tool (MR)			TYPE:Special.ItemCreation			PRECLASS:1,Spellcaster=1													PRERACE:1,Anaema									DESC:Character can create spirit tools with which anaema and humans may each interact normally.																						SOURCEPAGE:p.81
 Turn Resistance (MR)			TYPE:Special																						PRERACE:1,Eleti%									DESC:+3 to class levels to resist turn attempts.										STACK:YES	MULT:YES	CHOOSE:NOCHOICE													SOURCEPAGE:p.
 Purifying Light (MR)			TYPE:Special																						PRERACE:1,Luminous								DESC:As a Luminous you can use your energies to aid allies from the harmful effects of poisons.																						SOURCEPAGE:p.

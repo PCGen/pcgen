@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html	SOURCEDATE:2003-02
 # Original Entry by: Ratheof Blithwyn
 
 #
@@ -12,7 +12,7 @@ CLASS:Devoted Illusionist	HD:4		TYPE:Base.PC	ABB:Ill		MAXLEVEL:20	SOURCEPAGE:p.4
 CLASS:Devoted Illusionist	PREALIGN:CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Devoted Illusionist	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
-# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level					Use Spell List
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level					Use Spell List
 CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Illusionist|CL	SPELLLIST:1|Wizard
 ###Block: Proficiencies
 1	AUTO:FEAT|Devoted Illusionist Weapon Proficiencies|All Automatic Weapon Proficiencies
@@ -137,7 +137,7 @@ CLASS:Master of the Ruse	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|D
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Mind Master	HD:4		TYPE:PC.Prestige	ABB:Mind		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|(CL-1)/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat				Required Skill								Req. Known Spell	Req. Spell Type
+# Class Name	Required Feat				Required Skill									Req. Known Spell	Req. Spell Type
 CLASS:Mind Master	PREFEAT:1,Spell Focus(Illusion)	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Spellcraft=8	PRESPELL:1,Lure	PRESPELLTYPE:2,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Master	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Scry|Speak Language|Spellcraft
@@ -155,7 +155,7 @@ CLASS:Mind Master	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TY
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mystic Infiltrator	HD:6		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name			Required Feat			Required Skill					Req. Known Spell		Req. Spell Type		Required Text
+# Class Name			Required Feat			Required Skill						Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Mystic Infiltrator	PREFEAT:2,Alertness,Toughness	PRESKILL:3,Disguise=8,Hide=8,Move Silently=8	PRESPELL:1,Faceless	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Mystic Infiltrator	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Scry|Speak Language|Spellcraft
@@ -191,7 +191,7 @@ CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Unseen Master	HD:4		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name		Required Skill			Req. Known Spell				Req. Spell Type
+# Class Name		Required Skill				Req. Known Spell				Req. Spell Type
 CLASS:Unseen Master	PRESKILL:2,Hide=8,Spellcraft=8	PRESPELL:1,Selective Invisibility	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Unseen Master	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Hide|TYPE.Knowledge|Move Silently|TYPE.Profession|Sense Motive|Spellcraft
