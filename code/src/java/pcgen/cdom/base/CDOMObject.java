@@ -626,17 +626,17 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 	}
 
-	public final void checkRemovals(final PlayerCharacter aPC)
-	{
-		List<PersistentTransitionChoice<?>> removeList = getListFor(ListKey.REMOVE);
-		if (removeList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : removeList)
-			{
-				driveChoice(tc, aPC);
-			}
-		}
-	}
+//	public final void checkRemovals(final PlayerCharacter aPC)
+//	{
+//		List<PersistentTransitionChoice<?>> removeList = getListFor(ListKey.REMOVE);
+//		if (removeList != null)
+//		{
+//			for (PersistentTransitionChoice<?> tc : removeList)
+//			{
+//				driveChoice(tc, aPC);
+//			}
+//		}
+//	}
 
 	private <T> void driveChoice(TransitionChoice<T> tc, final PlayerCharacter aPC)
 	{
