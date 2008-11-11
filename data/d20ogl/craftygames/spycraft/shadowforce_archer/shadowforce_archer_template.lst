@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 14:15:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54	SOURCEDATE:2002-07
 
 ###Block:Shadowforce Archer Chambers
 
@@ -31,7 +31,7 @@ Chem Treatment (Talon)			VISIBLE:YES	SOURCEPAGE:p.174	SAB:Chem Booster required 
 
 ###Block:Psionic Skill  Attacks
 
-# Template Name				Visible	Source Page		Required Skill			Weapon prof. bonus					Automaticaly Added to Inventory			Automaticaly Gained Weapon Prof.
+# Template Name				Visible	Source Page		Required Skill			Weapon prof. bonus					Automatically Added to Inventory			Automatically Gained Weapon Prof.
 Psionic Skill Static Charge Attacks	VISIBLE:YES	SOURCEPAGE:p.184	PRESKILL:1,Static Charge=1	BONUS:WEAPONPROF=Static Charge|TOHIT|INT-DEX	AUTO:EQUIP|Lightning Attack|Scramble Attack	AUTO:WEAPONPROF|Static Charge
 Psionic Skill Cryokinesis Attacks	VISIBLE:YES	SOURCEPAGE:p.185	PRESKILL:1,Cryokinesis=1
 Psionic Skill Photokinesis Attacks	VISIBLE:YES	SOURCEPAGE:p.186	PRESKILL:1,Photokinesis=1

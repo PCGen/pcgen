@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:52:22 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54	SOURCEDATE:2002-07
 
 # Modifier Name				Unique Key						Product Identity?	Type			Cost		Type granted	Source Page		Required Type		Bonus to skill
 Remote Control				KEY:PHONE_REMOTE_CONTROL			NAMEISPI:YES	TYPE:CellPhone	COST:1				SOURCEPAGE:p.204

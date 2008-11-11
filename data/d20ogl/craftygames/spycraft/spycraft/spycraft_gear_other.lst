@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted
+SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted	SOURCEDATE:2003-01
 
 # Clothing -----------------------------------------------------------------------------------------------------------
 
 # Equipment Name					Type							Contains				Cost		Weight	Requires Modification?	Source Page		Special Property
-Clothing (Poor)					TYPE:Gear.Standard.Clothing								COST:-	WT:5						SOURCEPAGE:p.128
+Clothing (Poor)					TYPE:Gear.Standard.Clothing								COST:0	WT:5						SOURCEPAGE:p.128
 Clothing (Average)				TYPE:Gear.Standard.Clothing								COST:1	WT:4						SOURCEPAGE:p.128
 Fatigues						TYPE:Gear.Standard.Clothing								COST:5	WT:5						SOURCEPAGE:p.128
 Clothing (Trendy)					TYPE:Gear.Standard.Clothing								COST:5	WT:5						SOURCEPAGE:p.128
@@ -17,7 +17,7 @@ Sunglasses (mirrored)				TYPE:Gear.Standard.Eyegear								COST:1	WT:0						SOUR
 
 # Communication gear -------------------------------------------------------------------------------------------------
 
-Cell phone						TYPE:Gear.Standard.Communication							COST:-	WT:.5						SOURCEPAGE:p.128
+Cell phone						TYPE:Gear.Standard.Communication							COST:0	WT:.5						SOURCEPAGE:p.128
 Headset (radio)					TYPE:Gear.Standard.Communication							COST:2	WT:.5						SOURCEPAGE:p.128
 Headset (radio/encrypted)			TYPE:Gear.Standard.Communication							COST:5	WT:.5						SOURCEPAGE:p.128
 Satellite communications terminal		TYPE:Gear.Standard.Communication							COST:10	WT:8						SOURCEPAGE:p.128
@@ -43,16 +43,16 @@ Weakening poison					TYPE:Gear.Standard.Drug.Consumable							COST:2	WT:0						S
 
 # Food and Lodging ---------------------------------------------------------------------------------------------------
 
-Hotel room (One Star/1 night)			TYPE:Gear.Standard.Lodging								COST:-	WT:0						SOURCEPAGE:p.128
-Hotel room (Two Star/1 night)			TYPE:Gear.Standard.Lodging								COST:-	WT:0						SOURCEPAGE:p.128
+Hotel room (One Star/1 night)			TYPE:Gear.Standard.Lodging								COST:0	WT:0						SOURCEPAGE:p.128
+Hotel room (Two Star/1 night)			TYPE:Gear.Standard.Lodging								COST:0	WT:0						SOURCEPAGE:p.128
 Hotel room (Three Star/1 night)		TYPE:Gear.Standard.Lodging								COST:2	WT:0						SOURCEPAGE:p.128
 Hotel room (Four Star/1 night)		TYPE:Gear.Standard.Lodging								COST:5	WT:0						SOURCEPAGE:p.128
 Hotel room (Five Star/1 night)		TYPE:Gear.Standard.Lodging								COST:10	WT:0						SOURCEPAGE:p.128
-Martini (Shaken)					TYPE:Gear.Standard.Food									COST:-	WT:.1						SOURCEPAGE:p.128
-Meal (Fast food)					TYPE:Gear.Standard.Food									COST:-	WT:0						SOURCEPAGE:p.128
-Meal (Restaurant/dive)				TYPE:Gear.Standard.Food									COST:-	WT:0						SOURCEPAGE:p.128
+Martini (Shaken)					TYPE:Gear.Standard.Food									COST:0	WT:.1						SOURCEPAGE:p.128
+Meal (Fast food)					TYPE:Gear.Standard.Food									COST:0	WT:0						SOURCEPAGE:p.128
+Meal (Restaurant/dive)				TYPE:Gear.Standard.Food									COST:0	WT:0						SOURCEPAGE:p.128
 Meal (military rations)				TYPE:Gear.Standard.Food									COST:1	WT:0						SOURCEPAGE:p.128
-Meal (Restaurant/upscale)			TYPE:Gear.Standard.Food									COST:-	WT:0						SOURCEPAGE:p.128
+Meal (Restaurant/upscale)			TYPE:Gear.Standard.Food									COST:0	WT:0						SOURCEPAGE:p.128
 Meal (Restaurant/gourmet)			TYPE:Gear.Standard.Food									COST:2	WT:0						SOURCEPAGE:p.128
 
 # Hazardous terrain gear ---------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@ Kit (Sweeper)					TYPE:Gear.Standard.Tool									COST:4	WT:15						SOURCEPAGE:p
 
 Flashlight						TYPE:Gear.Standard.Tool									COST:1	WT:1						SOURCEPAGE:p.129
 Floodlight						TYPE:Gear.Standard.Tool									COST:2	WT:75						SOURCEPAGE:p.129
-Glowstick						TYPE:Gear.Standard.Tool.Consumable							COST:-	WT:.5						SOURCEPAGE:p.129
+Glowstick						TYPE:Gear.Standard.Tool.Consumable							COST:0	WT:.5						SOURCEPAGE:p.129
 Lantern						TYPE:Gear.Standard.Tool									COST:1	WT:3						SOURCEPAGE:p.129
 
 # Medical gear -------------------------------------------------------------------------------------------------------
@@ -133,11 +133,11 @@ Snoop spray						TYPE:Gear.Standard.Surveillance							COST:2	WT:1						SOURCEPA
 # Weapon accessories -------------------------------------------------------------------------------------------------
 
 Bipod							TYPE:Gear.Standard.Firearm.Accessory						COST:1	WT:5						SOURCEPAGE:p.130
-Holster						TYPE:Gear.Standard.Firearm.Accessory						COST:-	WT:1						SOURCEPAGE:p.130
+Holster						TYPE:Gear.Standard.Firearm.Accessory						COST:0	WT:1						SOURCEPAGE:p.130
 Flash suppressor					TYPE:Gear.Standard.Firearm.Accessory						COST:1	WT:.1						SOURCEPAGE:p.130
 Laser sight						TYPE:Gear.Standard.Firearm.Accessory						COST:2	WT:1						SOURCEPAGE:p.130	SPROP:+2 circumstance bonus to ranged attack rolls up to 50 ft.
 Silencer						TYPE:Gear.Standard.Firearm.Accessory						COST:2	WT:.5						SOURCEPAGE:p.130
-Sling							TYPE:Gear.Standard.Firearm.Accessory						COST:-	WT:1						SOURCEPAGE:p.130
+Sling (Firearm)					TYPE:Gear.Standard.Firearm.Accessory						COST:0	WT:1						SOURCEPAGE:p.130
 Telescopic sight					TYPE:Gear.Standard.Firearm.Accessory						COST:2	WT:1						SOURCEPAGE:p.130
 Tripod (Weapon)					TYPE:Gear.Standard.Firearm.Accessory						COST:1	WT:20						SOURCEPAGE:p.130
 

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted
+SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted	SOURCEDATE:2003-01
 
 # Skill Name					Key Stat	Untrained?		Type				Source Page		Bonus to skill rank
 Native Language (Afrikaans)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
@@ -26,7 +26,7 @@ Native Language (English)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOU
 Native Language (Farsi)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
 Native Language (Finnnish)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
 Native Language (French)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
-Native Language (Georian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
+Native Language (Georgian)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
 Native Language (German)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
 Native Language (Greek (Ancient))		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1
 Native Language (Greek (Modern))		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Language	SOURCEPAGE:p.37	BONUS:SKILLRANK|Languages|1

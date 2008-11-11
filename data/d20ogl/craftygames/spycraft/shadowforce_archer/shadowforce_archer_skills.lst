@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54	SOURCEDATE:2002-07
 
 #### Additional Knowledges
 
-# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type									Required Feat				Source Page		Automaticaly Added to Inventory			Weapon prof. bonus
+# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type									Required Feat				Source Page		Automatically Added to Inventory			Weapon prof. bonus
 Knowledge (African History)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
 Knowledge (The Ancients)		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57
 Knowledge (Archaeology)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge											SOURCEPAGE:p.57

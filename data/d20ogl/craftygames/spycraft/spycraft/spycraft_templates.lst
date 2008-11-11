@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted
+SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted	SOURCEDATE:2003-01
 
 ###Block: Hidden Universal Template--------------------------------------------------
 
-# Template Name	Visible	Add						Removable?
+# Template Name	Visible	Add 						Removable?
 Agent			VISIBLE:NO	ADD:FEAT|1|TYPE=StartingNationality	REMOVABLE:NO
 
 ###Block: Mission Budget Temporary Bonuses--------------------------------------------------
@@ -45,7 +45,7 @@ Nationality - Dutch		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumb
 Nationality - Egyptian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Egyptian		REMOVABLE:YES
 Nationality - Finnnish		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Finnnish		REMOVABLE:YES
 Nationality - French		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:French		REMOVABLE:YES
-Nationality - Georian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Georian		REMOVABLE:YES
+Nationality - Georgian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Georgian		REMOVABLE:YES
 Nationality - German		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:German		REMOVABLE:YES
 Nationality - Greek		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Greek		REMOVABLE:YES
 Nationality - Haitian		VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:NationNumber,1	BONUS:VAR|NationNumber|2	REGION:Haitian		REMOVABLE:YES

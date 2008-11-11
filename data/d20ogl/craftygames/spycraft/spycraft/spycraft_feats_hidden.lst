@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 30 12:39:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted	SOURCEDATE:2003-01
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
@@ -27,7 +27,7 @@ Wheelman Core Ability	TYPE:CoreAbility	VISIBLE:NO	PREVARLTEQ:TL,1	SAB:Lucky	SAB:
 
 ###Block:  Fixer Abilities
 
-# Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose			Add					Add to base move													Modify VAR
+# Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose			Add 					Add to base move													Modify VAR
 Sneak Attack		TYPE:Special			VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie																														DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6
 Uncanny Dodge		TYPE:Special			VISIBLE:NO	SAB:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	SAB:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	SAB:Uncanny Dodge (can't be flanked, +% against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3	DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|max((UncannyDodge-2),0)
 Evasion			TYPE:Special			VISIBLE:NO	SAB:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	SAB:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	SAB:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3								DEFINE:EvasionFactor|0
@@ -41,7 +41,7 @@ Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SAB:Stash It
 
 ###Block:  Pointman Abilities
 
-# Feat Name						Type					Visible	Required Feat				Special ABility							Define				Stackable?	Multiple?	Choose				Add														Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
+# Feat Name						Type					Visible	Required Feat				Special ABility							Define				Stackable?	Multiple?	Choose				Add 														Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
 Versatility						TYPE:PointmanSpecialAbility	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS																																				CSKILL:LIST
 
 Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE			ADD:LANGUAGE|1|TYPE=Spoken
@@ -74,7 +74,7 @@ Wheelman Familiarity +2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Wheelman
 
 ###Block:  Snoop Abilities
 
-# Feat Name							Type			Visible	Required Feat				Special ABility									Define					Stackable?	Multiple?	Choose		Add					Modify VAR
+# Feat Name							Type			Visible	Required Feat				Special ABility									Define					Stackable?	Multiple?	Choose		Add 					Modify VAR
 Comb the Streets						TYPE:SnoopAbility	VISIBLE:NO							SAB:Comb the Streets (%/session)|CombtheStreets				DEFINE:CombtheStreets|1			STACK:NO	MULT:NO
 Comb the Streets (additional sessions)		TYPE:SnoopAbility	VISIBLE:NO	PREFEAT:1,Comb the Streets																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|CombtheStreets|1
 
@@ -113,7 +113,7 @@ English		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - Britis
 Egyptian		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - Egyptian	LANGAUTO:Arabic (Egyptian)
 Finnnish		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - Finnnish	LANGAUTO:Finnnish
 French		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - French		LANGAUTO:French
-Georian		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - Georian	LANGAUTO:Georian
+Georgian		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - Georgian	LANGAUTO:Georgian
 German		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - German		LANGAUTO:German
 Greek			TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - Greek		LANGAUTO:Greek (Modern)
 Haitian		TYPE:StartingNationality	VISIBLE:NO							TEMPLATE:Nationality - Haitian	LANGAUTO:Haitian

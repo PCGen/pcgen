@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 14:15:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
 
-SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54	SOURCEDATE:2002-07
 
 #### Basic Psion Feats ####
 
-# Feat Name					Type				Visible		Required Class			Required Feat											Prohibited Feat			Required Lvl	Required Skill				Required Stat		Required Template								Var. Min. Value				Var. Must Be Lower	Define								Description																																			Stackable?	Multiple?	Choose				Automaticaly Gained Weapon Prof.				Add							Combat bonus				Bonus to HP			Bonus to skill							Stat bonus						Modify VAR				Weapon prof. bonus																																									Class Skill																Cost		Source Page		Temporary effect description
+# Feat Name					Type				Visible		Required Class			Required Feat											Prohibited Feat			Required Lvl	Required Skill				Required Stat		Required Template								Var. Min. Value				Var. Must Be Lower	Define								Description																																			Stackable?	Multiple?	Choose				Automatically Gained Weapon Prof.				Add 							Combat bonus				Bonus to HP			Bonus to skill							Stat bonus						Modify VAR				Weapon prof. bonus																																									Class Skill																Cost		Source Page		Temporary effect description
 Anti-Psi Training				TYPE:BasicPsion																																									PRETEMPLATE:1,Chamber - European Commonwealth									PREVARLT:PSIONLEVEL,1										DESC:You have received training that allows you to mentally interfere with psionic powers targeting you																																																																																																																																										SOURCEPAGE:p.178
 Combat Psion				TYPE:BasicPsion																																																			PREVARGTEQ:PSIONLEVEL,1																DESC:You have been trained to focus your psionic powers even in the chaos of combat, which gives you an edge when things get dicey																																																																																																																																						SOURCEPAGE:p.178
 Deadly Power				TYPE:BasicPsion										PREFEAT:1,Combat Psion																																						PREVARGTEQ:PSIONLEVEL,2																DESC:You can use the powers listed under one of your psion skills to much deadlier effect than most psions																			STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																																																																																																															SOURCEPAGE:p.178
