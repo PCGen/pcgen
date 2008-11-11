@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:25:56 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 ###Block: feats
 # Feat Name			Type			Required Class				Required Feat			Description																					Source Page
 Continual Power		TYPE:Metapsionic							PREFEAT:1,TYPE=Metapsionic	DESC:You can manifest a power that repeats its effect each round while you maintain concentration.						SOURCEPAGE:p.42
@@ -17,5 +17,5 @@ Clairsentience Subdiscipline		TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Clairsen
 Telepathy Subdiscipline			TYPE:Special.Subdiscipline	VISIBLE:NO	SAB:Telepathy psionic subdiscipline.		BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
 
 ###block: weapon proficiencies
-# Feat Name					Type			Visible	Automaticaly Gained Weapon Prof.
+# Feat Name					Type			Visible	Automatically Gained Weapon Prof.
 Soulknife ITCK Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Sword (Short)
