@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:21:45 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #Original Entry By: Paul Grosse 11/13/03
-SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/
+SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2002-03
 
 ###Block: Herb Name
 # Equipment Name			Type					Cost		Weight	Source Page

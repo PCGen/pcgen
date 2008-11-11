@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:21:45 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 #Original Entry By: Knightcrawler	6/16/02 14:49
-SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/
+SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2002-03
 
 # Equipment Name					Output Name				Type									Cost		Weight	Slot Needed	Source Page		Bonus to skill
 Abjurer's Chalk										TYPE:Goods.Alchemical.Consumable				COST:8000	WT:0				SOURCEPAGE:p.60

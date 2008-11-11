@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:21:45 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2002-03
 
 ###Block: SPELL.MOD generated from the old CLASSSPELL files
 # Spell Name			Classes of caster
