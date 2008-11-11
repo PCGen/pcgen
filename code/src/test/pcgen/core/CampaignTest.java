@@ -26,7 +26,6 @@ package pcgen.core;
 import java.net.URI;
 
 import pcgen.PCGenTestCase;
-import plugin.lsttokens.campaign.DescToken;
 import plugin.lsttokens.campaign.UrlToken;
 
 /**
@@ -91,26 +90,5 @@ public class CampaignTest extends PCGenTestCase
 			.toString());
 		assertEquals("Checking description", eCommerceDesc, theURL
 			.getUrlDesc());
-	}
-
-
-	public void testDesc() throws Exception
-	{
-		final String firstDescription = "An initial entry which should be overwritten";
-		final String secondDescription = "The second entry";
-
-		DescToken tok = new DescToken();
-		assertEquals("No description in the campaign to start", "", testCamp
-			.getDescription());
-		
-		tok.parse(testCamp, firstDescription,
-			new URI("file://pcgen.core.CampaignTest"));
-		assertEquals("First description should appear", firstDescription, testCamp
-			.getDescription());
-
-		tok.parse(testCamp, secondDescription,
-			new URI("file://pcgen.core.CampaignTest"));
-		assertEquals("New URL in the campaignsecondDescription", secondDescription, testCamp
-			.getDescription());
 	}
 }

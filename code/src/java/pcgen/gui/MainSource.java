@@ -78,6 +78,7 @@ import javax.swing.tree.TreePath;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.CampaignURL;
 import pcgen.core.GameMode;
@@ -503,11 +504,12 @@ public class MainSource extends FilterAdapterPanel
 		sb.append(" <b>by</b> ");
 		sb.append(aCamp.getPubNameLong());
 		sb.append("<br>\n");
-		
-		if (!aCamp.getDescription().equals(Constants.EMPTY_STRING))
+
+		String descr = aCamp.get(StringKey.DESCRIPTION);
+		if (descr != null)
 		{
 			sb.append("<b>DESCRIPTION</b>: ");
-			sb.append(aCamp.getDescription());
+			sb.append(descr);
 			sb.append("<br>\n");
 		}
 		// Add the website URLs

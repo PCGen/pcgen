@@ -23,10 +23,11 @@
 
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
-
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * <code>DescToken</code> parses the DESC token for campaigns.
@@ -37,24 +38,39 @@ import pcgen.persistence.lst.CampaignLstToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class DescToken implements CampaignLstToken
+public class DescToken extends AbstractToken implements
+		CDOMPrimaryToken<Campaign>
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.CampaignLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
-	 */
-	public boolean parse(Campaign campaign, String value, URI sourceURI)
-	{
-		campaign.setDescription(value);
-		return true;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
+	@Override
 	public String getTokenName()
 	{
 		return "DESC";
 	}
 
+	public boolean parse(LoadContext context, Campaign deity, String value)
+	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		context.getObjectContext().put(deity, StringKey.DESCRIPTION, value);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, Campaign deity)
+	{
+		String title =
+				context.getObjectContext().getString(deity, StringKey.DESCRIPTION);
+		if (title == null)
+		{
+			return null;
+		}
+		return new String[]{title};
+	}
+
+	public Class<Campaign> getTokenClass()
+	{
+		return Campaign.class;
+	}
 }

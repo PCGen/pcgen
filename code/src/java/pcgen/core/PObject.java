@@ -120,21 +120,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/* ************
 	 * Methods
 	 * ************/
-	/**
-	 * Set the description of this object
-	 * @param a
-	 */
-	public final void setDescription(final String a)
-	{
-		put(StringKey.DESCRIPTION, a);
-	}
 
-	public final String getDescription()
-	{
-		String characteristic = get(StringKey.DESCRIPTION);
-		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
-	}
-	
 	/**
 	 * Get the level ability list for this object
 	 * @return the level ability list for this object
