@@ -54,7 +54,7 @@ public class TemplateModifier
 			}
 			else
 			{
-				int statMod = pct.getStatMod(x, aPC);
+				int statMod = BonusCalc.getStatMod(pct, x, aPC);
 
 				if (statMod != 0)
 				{

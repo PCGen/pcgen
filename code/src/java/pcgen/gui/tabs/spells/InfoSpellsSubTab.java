@@ -65,6 +65,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
@@ -687,7 +688,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			int highestSpellLevel = aClass.getHighestLevelSpell(pc);
 			final InfoLabelTextBuilder b = new InfoLabelTextBuilder();
 			b.append("<table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
-			b.append(aClass.piSubString()).append(" ["); //$NON-NLS-1$
+			b.append(OutputNameFormatting.piString(aClass, false)).append(" ["); //$NON-NLS-1$
 			b.append(String.valueOf(aClass.getLevel()
 				+ (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName()))); //$NON-NLS-1$
 			b.append("]</b></font></td>"); //$NON-NLS-1$
@@ -828,7 +829,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		if (aSpell != null)
 		{
 			final InfoLabelTextBuilder b =
-					new InfoLabelTextBuilder(aSpell.piSubString());
+					new InfoLabelTextBuilder(OutputNameFormatting.piString(aSpell, false));
 
 			final String addString = si.toString(); // would add [featList]
 			if (addString.length() > 0)

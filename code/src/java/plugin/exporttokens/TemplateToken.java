@@ -34,6 +34,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateStat;
@@ -187,7 +188,7 @@ public class TemplateToken extends Token
 				}
 				else
 				{
-					retString.append(template.getStatMod(iMod, pc));
+					retString.append(BonusCalc.getStatMod(template, iMod, pc));
 				}
 
 				break;

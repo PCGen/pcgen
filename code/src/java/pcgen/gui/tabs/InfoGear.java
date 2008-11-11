@@ -102,6 +102,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
@@ -592,7 +593,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		if (aEq != null)
 		{
 			final StringBuilder title = new StringBuilder(50);
-			title.append(aEq.piSubString());
+			title.append(OutputNameFormatting.piString(aEq, false));
 
 			if (!aEq.longName().equals(aEq.getName()))
 			{

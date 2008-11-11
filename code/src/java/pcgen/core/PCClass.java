@@ -69,6 +69,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
@@ -2140,7 +2141,7 @@ public class PCClass extends PObject
 		{
 			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, key.getLSTformat());
 
-			if ((pcClass != null) && pcClass.hasCSkill(pc, aString))
+			if ((pcClass != null) && SkillCostCalc.hasCSkill(pc, pcClass, aString))
 			{
 				return true;
 			}

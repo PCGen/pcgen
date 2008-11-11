@@ -106,6 +106,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
@@ -616,7 +617,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI != null)
 		{
 			StringBuffer title = new StringBuffer(40);
-			title.append(eqI.piSubString());
+			title.append(OutputNameFormatting.piString(eqI, false));
 			if (!eqI.longName().equals(eqI.getName()))
 			{
 				title.append("(").append(eqI.longName()).append(")");
@@ -6004,11 +6005,11 @@ public class InfoEquipping extends FilterAdapterPanel implements
 					return b.toString();
 				}
 
-				return eqI.piString();
+				return OutputNameFormatting.piString(eqI, true);
 			}
 			else if (item instanceof Equipment)
 			{
-				return ((Equipment) item).piString();
+				return OutputNameFormatting.piString(((Equipment) item), true);
 			}
 			else
 			{

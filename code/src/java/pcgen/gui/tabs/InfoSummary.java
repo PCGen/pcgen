@@ -92,6 +92,7 @@ import pcgen.core.RollingMethods;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.display.VisionDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -887,7 +888,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 				else
 				{
-					if (aRace.getStatMod(i, pc) != 0)
+					if (BonusCalc.getStatMod(aRace, i, pc) != 0)
 					{
 						if (aString.length() > 0)
 						{
@@ -896,7 +897,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 						aString.append(
 							SettingsHandler.getGame().s_ATTRIBSHORT[i]).append(
-							':').append(aRace.getStatMod(i, pc));
+							':').append(BonusCalc.getStatMod(aRace, i, pc));
 					}
 				}
 			}

@@ -112,6 +112,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -2316,7 +2317,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			StringBuffer b = new StringBuffer();
 			b.append(HTML).append(FONT_PLUS_1).append(BOLD)
-				.append(aSkill.piSubString())
+				.append(OutputNameFormatting.piString(aSkill, false))
 				.append(END_BOLD).append(END_FONT).append(BR);
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))
 			{
@@ -2558,10 +2559,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							new Color(SettingsHandler.getPrereqFailColor());
 				}
 
-				return "|" + aColor.getRGB() + "|" + _aSkill.piString();
+				return "|" + aColor.getRGB() + "|" + OutputNameFormatting.piString(_aSkill, true);
 			}
 
-			return _aSkill.piString();
+			return OutputNameFormatting.piString(_aSkill, true);
 		}
 
 		protected Integer getSkWrapMod()

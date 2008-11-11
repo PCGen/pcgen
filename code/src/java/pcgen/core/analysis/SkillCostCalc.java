@@ -39,6 +39,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.Skill;
@@ -56,7 +57,7 @@ public final class SkillCostCalc
 
 		String keyName = sk.getKeyName();
 
-		if (aPC.getRace().hasCSkill(aPC, keyName))
+		if (SkillCostCalc.hasCSkill(aPC, aPC.getRace(), keyName))
 		{
 			return true;
 		}
@@ -68,7 +69,7 @@ public final class SkillCostCalc
 		}
 
 		// hasCSkill is a class.lst loader skill
-		if (aClass.hasCSkill(aPC, keyName))
+		if (SkillCostCalc.hasCSkill(aPC, aClass, keyName))
 		{
 			return true;
 		}
@@ -91,20 +92,20 @@ public final class SkillCostCalc
 		{
 			if ((aCD.getDomain() != null)
 					&& aCD.isFromPCClass(aClass.getKeyName())
-					&& aCD.getDomain().hasCSkill(aPC, keyName))
+					&& SkillCostCalc.hasCSkill(aPC, aCD.getDomain(), keyName))
 			{
 				return true;
 			}
 		}
 
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCSkill(aPC, keyName))
+		if ((aPC.getDeity() != null) && SkillCostCalc.hasCSkill(aPC, aPC.getDeity(), keyName))
 		{
 			return true;
 		}
 
 		for (Ability aFeat : aPC.getFullAbilitySet())
 		{
-			if (aFeat.hasCSkill(aPC, keyName))
+			if (SkillCostCalc.hasCSkill(aPC, aFeat, keyName))
 			{
 				return true;
 			}
@@ -113,7 +114,7 @@ public final class SkillCostCalc
 		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if (aSkill.hasCSkill(aPC, keyName))
+			if (SkillCostCalc.hasCSkill(aPC, aSkill, keyName))
 			{
 				return true;
 			}
@@ -125,14 +126,14 @@ public final class SkillCostCalc
 		{
 			if (eq.isEquipped())
 			{
-				if (eq.hasCSkill(aPC, keyName))
+				if (SkillCostCalc.hasCSkill(aPC, eq, keyName))
 				{
 					return true;
 				}
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					if (eqMod.hasCSkill(aPC, keyName))
+					if (SkillCostCalc.hasCSkill(aPC, eqMod, keyName))
 					{
 						return true;
 					}
@@ -140,7 +141,7 @@ public final class SkillCostCalc
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-					if (eqMod.hasCSkill(aPC, keyName))
+					if (SkillCostCalc.hasCSkill(aPC, eqMod, keyName))
 					{
 						return true;
 					}
@@ -150,7 +151,7 @@ public final class SkillCostCalc
 
 		for (PCTemplate aTemplate : aPC.getTemplateList())
 		{
-			if (aTemplate.hasCSkill(aPC, keyName))
+			if (SkillCostCalc.hasCSkill(aPC, aTemplate, keyName))
 			{
 				return true;
 			}
@@ -224,7 +225,7 @@ public final class SkillCostCalc
 		}
 
 		String keyName = sk.getKeyName();
-		if (aPC.getRace().hasCcSkill(aPC, keyName))
+		if (SkillCostCalc.hasCcSkill(aPC, aPC.getRace(), keyName))
 		{
 			return true;
 		}
@@ -233,18 +234,18 @@ public final class SkillCostCalc
 		{
 			if ((aCD.getDomain() != null)
 					&& aCD.isFromPCClass(aClass.getKeyName())
-					&& aCD.getDomain().hasCcSkill(aPC, keyName))
+					&& SkillCostCalc.hasCcSkill(aPC, aCD.getDomain(), keyName))
 			{
 				return true;
 			}
 		}
 
-		if ((aPC.getDeity() != null) && aPC.getDeity().hasCcSkill(aPC, keyName))
+		if ((aPC.getDeity() != null) && SkillCostCalc.hasCcSkill(aPC, aPC.getDeity(), keyName))
 		{
 			return true;
 		}
 
-		if (aClass.hasCcSkill(aPC, keyName))
+		if (SkillCostCalc.hasCcSkill(aPC, aClass, keyName))
 		{
 			return true;
 		}
@@ -259,7 +260,7 @@ public final class SkillCostCalc
 
 		for (Ability feat : aPC.getFullAbilitySet())
 		{
-			if (feat.hasCcSkill(aPC, keyName))
+			if (SkillCostCalc.hasCcSkill(aPC, feat, keyName))
 			{
 				return true;
 			}
@@ -268,7 +269,7 @@ public final class SkillCostCalc
 		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if (aSkill.hasCcSkill(aPC, keyName))
+			if (SkillCostCalc.hasCcSkill(aPC, aSkill, keyName))
 			{
 				return true;
 			}
@@ -278,14 +279,14 @@ public final class SkillCostCalc
 		{
 			if (eq.isEquipped())
 			{
-				if (eq.hasCcSkill(aPC, keyName))
+				if (SkillCostCalc.hasCcSkill(aPC, eq, keyName))
 				{
 					return true;
 				}
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					if (eqMod.hasCcSkill(aPC, keyName))
+					if (SkillCostCalc.hasCcSkill(aPC, eqMod, keyName))
 					{
 						return true;
 					}
@@ -293,7 +294,7 @@ public final class SkillCostCalc
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-					if (eqMod.hasCcSkill(aPC, keyName))
+					if (SkillCostCalc.hasCcSkill(aPC, eqMod, keyName))
 					{
 						return true;
 					}
@@ -303,7 +304,7 @@ public final class SkillCostCalc
 
 		for (PCTemplate template : aPC.getTemplateList())
 		{
-			if (template.hasCcSkill(aPC, keyName))
+			if (SkillCostCalc.hasCcSkill(aPC, template, keyName))
 			{
 				return true;
 			}
@@ -371,6 +372,60 @@ public final class SkillCostCalc
 				}
 			}
 		}
+		return false;
+	}
+
+	public static boolean hasCcSkill(PlayerCharacter pc, PObject po, final String aName)
+	{
+		List<CDOMReference<Skill>> ccSkillList = po.getListFor(ListKey.CCSKILL);
+		List<Skill> assocCCSkill = pc.getAssocList(po,
+				AssociationListKey.CCSKILL);
+		if (ccSkillList != null && !ccSkillList.isEmpty())
+		{
+			for (CDOMReference<Skill> ref : ccSkillList)
+			{
+				// Have to do slow due to cloning :P
+				for (Skill sk : ref.getContainedObjects())
+				{
+					if (sk.getKeyName().equals(aName))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		if (assocCCSkill != null && !assocCCSkill.isEmpty())
+		{
+			for (Skill sk : assocCCSkill)
+			{
+				// Have to do slow due to cloning :P
+				if (sk.getKeyName().equals(aName))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasCSkill(PlayerCharacter pc, PObject po, final String aName)
+	{
+		List<CDOMReference<Skill>> cSkillList = po.getListFor(ListKey.CSKILL);
+		if (cSkillList != null)
+		{
+			for (CDOMReference<Skill> ref : cSkillList)
+			{
+				//Have to do slow due to cloning :P
+				for (Skill sk : ref.getContainedObjects())
+				{
+					if (sk.getKeyName().equals(aName))
+					{
+						return true;
+					}
+				}
+			}
+		}
+	
 		return false;
 	}
 

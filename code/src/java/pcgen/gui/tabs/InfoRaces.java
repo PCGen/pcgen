@@ -82,6 +82,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.BonusCalc;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.display.VisionDisplay;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -408,7 +410,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		if ((aRace != null) && !aRace.getKeyName().startsWith("<none"))
 		{
-			b.appendTitleElement(aRace.piSubString());
+			b.appendTitleElement(OutputNameFormatting.piString(aRace, false));
 
 			b.appendLineBreak();
 			RaceType rt = aRace.get(ObjectKey.RACETYPE);
@@ -825,7 +827,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// If the either race was monstrous, natural weapons in the gear need
 			// updated.  sage_sam 20 March 2003
-			raceText.setText(getPc().getRace().piString());
+			raceText.setText(OutputNameFormatting.piString(getPc().getRace(), true));
 			raceText.setMinimumSize(new Dimension(120, 25));
 			setInfoLabelText(getPc().getRace());
 
@@ -852,7 +854,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		try
 		{
-			raceText.setText(getPc().getRace().piString());
+			raceText.setText(OutputNameFormatting.piString(getPc().getRace(), true));
 			raceText.setMinimumSize(new Dimension(120, 25));
 			setInfoLabelText(getPc().getRace());
 		}
@@ -1132,7 +1134,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 					}
 					else
 					{
-						if (race.getStatMod(i, getPc()) != 0)
+						if (BonusCalc.getStatMod(race, i, getPc()) != 0)
 						{
 							if (retString.length() > 0)
 							{
@@ -1141,7 +1143,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 							retString
 								.append(SettingsHandler.getGame().s_ATTRIBSHORT[i]
-									+ ":" + race.getStatMod(i, getPc()));
+									+ ":" + BonusCalc.getStatMod(race, i, getPc()));
 						}
 					}
 				}

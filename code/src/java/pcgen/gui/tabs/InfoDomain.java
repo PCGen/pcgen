@@ -107,6 +107,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -381,7 +382,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			StringBuffer infoText =
 					new StringBuffer().append(HTML).append(FONT_PLUS_1).append(BOLD).append(
-						aDeity.piSubString()).append(END_BOLD).append(END_FONT);
+						OutputNameFormatting.piString(aDeity, false)).append(END_BOLD).append(END_FONT);
 
 			String aString = aDeity.get(StringKey.TITLE);
 
@@ -461,7 +462,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (aDomain != null)
 		{
 			infoText.append(FONT_PLUS_1).append(BOLD).append(
-				aDomain.piSubString()).append(END_BOLD).append(END_FONT);
+				OutputNameFormatting.piString(aDomain, false)).append(END_BOLD).append(END_FONT);
 
 			String aString = pc.getDescription(aDomain);
 			if (aString.length() != 0)
@@ -1207,7 +1208,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		pc.setDeity(aDeity);
-		deityName.setText(aDeity.piString());
+		deityName.setText(OutputNameFormatting.piString(aDeity, true));
 
 		buildDomainLists();
 
@@ -1239,7 +1240,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// Set the displayed deity name
 			if (pc.getDeity() != null)
 			{
-				deityName.setText(pc.getDeity().piString());
+				deityName.setText(OutputNameFormatting.piString(pc.getDeity(), true));
 			}
 			else
 			{
@@ -2057,7 +2058,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				for (Domain d : ref.getContainedObjects())
 				{
-					set.add(d.piSubString());
+					set.add(OutputNameFormatting.piString(d, false));
 				}
 			}
 			final StringBuffer piString = new StringBuffer(100);
@@ -2306,7 +2307,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					if (selectedDomainList.contains(displayDomainList.get(row).getObject(null)))
 					{
 						retVal.append("<html><b>")
-							.append(aDomain.piSubString()).append(
+							.append(OutputNameFormatting.piString(aDomain, false)).append(
 								"*</b></html>");
 					}
 					else if (!PrereqHandler.passesAll(aDomain.getPrerequisiteList(), pc, aDomain)
@@ -2314,13 +2315,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						retVal.append("<html>").append(
 							SettingsHandler.getPrereqFailColorAsHtmlStart())
-							.append(aDomain.piSubString()).append(
+							.append(OutputNameFormatting.piString(aDomain, false)).append(
 								SettingsHandler.getPrereqFailColorAsHtmlEnd())
 							.append("</html>");
 					}
 					else
 					{
-						retVal.append(aDomain.piString());
+						retVal.append(OutputNameFormatting.piString(aDomain, true));
 					}
 
 					break;

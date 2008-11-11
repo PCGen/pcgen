@@ -34,6 +34,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -577,7 +578,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 		if (item instanceof PObject)
 		{
-			String itemName = ((PObject) item).piString();
+			String itemName = OutputNameFormatting.piString(((PObject) item), true);
 			if (displayName != null)
 			{
 				itemName = displayName;
@@ -717,7 +718,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			final StringBuffer val = new StringBuffer(80);
 
 			// first, set the name
-			val.append(spellA.getSpell().piSubString()); // gets name of spell
+			val.append(OutputNameFormatting.piString(spellA.getSpell(), false)); // gets name of spell
 
 			// now tack on any extra crap such as domains, etc
 			val.append((item).toString()); // appends feat list if any

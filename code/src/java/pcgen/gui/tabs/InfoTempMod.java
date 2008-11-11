@@ -81,6 +81,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.DescriptionFormatting;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -554,7 +555,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		else if (aFeat != null)
 		{
-			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aFeat.piSubString());
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(OutputNameFormatting.piString(aFeat, false));
 			
 			b.appendLineBreak();
 			b.appendI18nElement("in_itmInfoLabelTextType" , aFeat.getType()); //$NON-NLS-1$
@@ -577,7 +578,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		else if (eqI != null)
 		{
-			InfoLabelTextBuilder b = new InfoLabelTextBuilder(eqI.piSubString());
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(OutputNameFormatting.piString(eqI, false));
 			
 			if (!eqI.longName().equals(eqI.getName()))
 			{
@@ -710,7 +711,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		else if (aSpell != null)
 		{
-			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aSpell.piSubString());
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(OutputNameFormatting.piString(aSpell, false));
 			
 			b.appendLineBreak();
 			b.appendI18nElement("in_itmInfoLabelTextDuration", aSpell.getDuration()); //$NON-NLS-1

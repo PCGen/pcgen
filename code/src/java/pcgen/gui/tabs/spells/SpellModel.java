@@ -42,6 +42,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.DescriptionFormatting;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
@@ -1214,7 +1215,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 		for (int ix = 0; ix < classList.size(); ++ix)
 		{
 			PObject obj = classList.get(ix);
-			String objName = obj.piString();
+			String objName = OutputNameFormatting.piString(obj, true);
 			tempNodes[ix] = new PObjectNode();
 			tempNodes[ix].setItem(objName);
 		}

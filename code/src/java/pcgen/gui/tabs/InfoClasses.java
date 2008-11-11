@@ -88,6 +88,7 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
 import pcgen.core.SubClass;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
@@ -388,7 +389,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		if (aClass != null)
 		{
-			final InfoLabelTextBuilder b = new InfoLabelTextBuilder(aClass.piSubString());
+			final InfoLabelTextBuilder b = new InfoLabelTextBuilder(OutputNameFormatting.piString(aClass, false));
 			b.appendLineBreak();
 
 			

@@ -76,6 +76,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.TemplateModifier;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -681,7 +682,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		if ((temp != null))
 		{
-			b.appendTitleElement(temp.piSubString());
+			b.appendTitleElement(OutputNameFormatting.piString(temp, false));
 			b.appendLineBreak();
 
 			RaceType rt = temp.get(ObjectKey.RACETYPE);

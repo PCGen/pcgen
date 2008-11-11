@@ -51,6 +51,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.BenefitFormatting;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DescriptionFormatting;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
@@ -141,7 +142,7 @@ public class AbilityInfoPanel extends JPanel
 
 		final StringBuffer sb = new StringBuffer();
 		sb.append(HTML).append(FONT_PLUS_1).append(BOLD);
-		sb.append(theAbility.piSubString());
+		sb.append(OutputNameFormatting.piString(theAbility, false));
 		sb.append(END_BOLD).append(END_FONT).append(BR);
 		sb.append(PropertyFactory.getFormattedString(
 			"Ability.Info.Type", //$NON-NLS-1$

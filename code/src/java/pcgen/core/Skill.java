@@ -192,7 +192,7 @@ public final class Skill extends PObject
 
 		if (flag)
 		{
-			makeChoices(aPC);
+			getChoices(getChoiceString(), aPC);
 		}
 		activateBonuses(aPC);
 	}

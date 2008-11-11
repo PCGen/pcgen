@@ -51,9 +51,7 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.LanguageSupport;
-import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.WeaponProfType;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -739,12 +737,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return theSource.getSourceBook().getCampaign();
 	}
 	
-	//TODO inline
-	public int getStatMod(final int statIdx, final PlayerCharacter aPC)
-	{
-		return BonusCalc.getStatMod(this, statIdx, aPC);
-	}
-
 	/**
 	 * Add the level and ability to the level ability list
 	 * @param aLevel
@@ -824,16 +816,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Make choices for the PC (just calls getChoices)
-	 * @param aPC
-	 */
-	//TODO inline
-	public void makeChoices(final PlayerCharacter aPC)
-	{
-		getChoices(getChoiceString(), aPC);
-	}
-
-	/**
 	 * Returns true if the PC has a bonus that is currently applied
 	 * @param aPC
 	 * @param anObj
@@ -884,27 +866,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		return false;
-	}
-
-	/**
-	 * Get the Product Identity string
-	 * @return the Product Identity string
-	 */
-	//TODO inline
-	public String piString()
-	{
-		return OutputNameFormatting.piString(this, true);
-	}
-
-	/**
-	 * In some cases, we need a PI-formatted string to place within
-	 * a pre-existing <html> tag
-	 * @return PI String with no header
-	 */
-	//TODO inline
-	public String piSubString()
-	{
-		return OutputNameFormatting.piString(this, false);
 	}
 
 	/**
@@ -1201,7 +1162,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if (flag)
 		{
-			makeChoices(aPC);
+			getChoices(getChoiceString(), aPC);
 		}
 
 		if (this instanceof PCClass)
@@ -1492,62 +1453,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	void fireNameChanged(final String oldName, final String newName)
 	{
 		// This method currently does nothing so it may be overriden in PCClass.
-	}
-
-	//TODO move into SkillCostCalc
-	public final boolean hasCcSkill(PlayerCharacter pc, final String aName)
-	{
-		List<CDOMReference<Skill>> ccSkillList = getListFor(ListKey.CCSKILL);
-		List<Skill> assocCCSkill = pc.getAssocList(this,
-				AssociationListKey.CCSKILL);
-		if (ccSkillList != null && !ccSkillList.isEmpty())
-		{
-			for (CDOMReference<Skill> ref : ccSkillList)
-			{
-				// Have to do slow due to cloning :P
-				for (Skill sk : ref.getContainedObjects())
-				{
-					if (sk.getKeyName().equals(aName))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		if (assocCCSkill != null && !assocCCSkill.isEmpty())
-		{
-			for (Skill sk : assocCCSkill)
-			{
-				// Have to do slow due to cloning :P
-				if (sk.getKeyName().equals(aName))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	//TODO move into SkillCostCalc
-	public final boolean hasCSkill(PlayerCharacter pc, final String aName)
-	{
-		List<CDOMReference<Skill>> cSkillList = getListFor(ListKey.CSKILL);
-		if (cSkillList != null)
-		{
-			for (CDOMReference<Skill> ref : cSkillList)
-			{
-				//Have to do slow due to cloning :P
-				for (Skill sk : ref.getContainedObjects())
-				{
-					if (sk.getKeyName().equals(aName))
-					{
-						return true;
-					}
-				}
-			}
-		}
-
-		return false;
 	}
 
 	int numberInList(PlayerCharacter pc, final String aType)
