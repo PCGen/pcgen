@@ -170,4 +170,10 @@ public class FeatTokenTest extends
 		assertFalse(parse(getSubTokenName() + '|' + "STACKS=0,TestWP1"));
 		assertNoSideEffects();
 	}
+
+	@Override
+	public boolean allowsFormula()
+	{
+		return true;
+	}
 }
