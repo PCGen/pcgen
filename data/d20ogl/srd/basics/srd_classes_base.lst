@@ -124,7 +124,7 @@ CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Know
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block:Proficiencies
-1												AUTO:FEAT|Simple Weapon Proficiency|
+1												AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1												AUTO:FEAT|Shield Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
