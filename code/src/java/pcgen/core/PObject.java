@@ -632,7 +632,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		boolean b = removeFromListFor(ListKey.SAVE, bonusString);
 		if (!b) {
-			Logging.errorPrint("removeSave: Could not find bonus: " + bonusString + " in saveList.");
+			Logging.errorPrint("removeSave: Could not find: " + bonusString + " in saveList.");
 		}
 	}
 

@@ -17,16 +17,58 @@
  */
 package plugin.lsttokens.add;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.choiceset.SpellCasterChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.persistence.lst.AddLstToken;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusAddition;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class SpellCasterToken implements AddLstToken
+public class SpellCasterToken extends AbstractToken implements
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCClass>
 {
+
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+
+	public String getParentToken()
+	{
+		return "ADD";
+	}
+
+	private String getFullName()
+	{
+		return getParentToken() + ":" + getTokenName();
+	}
 
 	public boolean parse(PObject target, String value, int level)
 	{
+		if (value.length() == 0)
+		{
+			Logging.errorPrint(getTokenName() + " may not have empty argument");
+			return false;
+		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		String countString;
 		String items;
@@ -40,19 +82,210 @@ public class SpellCasterToken implements AddLstToken
 			if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 			{
 				Logging.errorPrint("Syntax of ADD:" + getTokenName()
-					+ " only allows one | : " + value);
+						+ " only allows one | : " + value);
 				return false;
 			}
 			countString = value.substring(0, pipeLoc);
 			items = value.substring(pipeLoc + 1);
 		}
 		target.addAddList(level, getTokenName() + "(" + items + ")"
-			+ countString);
+				+ countString);
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLCASTER";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	{
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		int count;
+		String items;
+		if (pipeLoc == -1)
+		{
+			count = 1;
+			items = value;
+		}
+		else
+		{
+			String countString = value.substring(0, pipeLoc);
+			try
+			{
+				count = Integer.parseInt(countString);
+				if (count < 1)
+				{
+					Logging.errorPrint("Count in " + getFullName()
+							+ " must be > 0");
+					return false;
+				}
+			}
+			catch (NumberFormatException nfe)
+			{
+				Logging.errorPrint("Invalid Count in " + getFullName() + ": "
+						+ countString);
+				return false;
+			}
+			items = value.substring(pipeLoc + 1);
+		}
+
+		if (isEmpty(items) || hasIllegalSeparator(',', items))
+		{
+			return false;
+		}
+		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
+
+		boolean foundAny = false;
+		boolean foundOther = false;
+
+		List<CDOMReference<PCClass>> groups = new ArrayList<CDOMReference<PCClass>>();
+		List<CDOMReference<PCClass>> prims = new ArrayList<CDOMReference<PCClass>>();
+		while (tok.hasMoreTokens())
+		{
+			String token = tok.nextToken();
+			if (Constants.LST_ANY.equalsIgnoreCase(token))
+			{
+				foundAny = true;
+				groups.add(context.ref.getCDOMAllReference(PCCLASS_CLASS));
+			}
+			else
+			{
+				if (token.equals("Arcane") || token.equals("Divine")
+						|| token.equals("Psionic"))
+				{
+					// TODO Need deprecation warning here
+					token = "TYPE=" + token;
+				}
+				foundOther = true;
+				if (token.startsWith(Constants.LST_TYPE_OLD)
+						|| token.startsWith(Constants.LST_TYPE))
+				{
+					CDOMReference<PCClass> ref = TokenUtilities
+							.getTypeReference(context, PCCLASS_CLASS, token
+									.substring(5));
+					if (ref == null)
+					{
+						Logging
+								.errorPrint("  Error was encountered while parsing "
+										+ getFullName()
+										+ ": "
+										+ token
+										+ " is not a valid reference: " + value);
+						return false;
+					}
+					groups.add(ref);
+				}
+				else
+				{
+					prims.add(context.ref
+							.getCDOMReference(PCCLASS_CLASS, token));
+				}
+			}
+		}
+
+		if (foundAny && foundOther)
+		{
+			Logging.errorPrint("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + value);
+			return false;
+		}
+
+		ReferenceChoiceSet<PCClass> grcs = groups.isEmpty() ? null
+				: new ReferenceChoiceSet<PCClass>(groups);
+		ReferenceChoiceSet<PCClass> prcs = prims.isEmpty() ? null
+				: new ReferenceChoiceSet<PCClass>(prims);
+		ChoiceSet<PCClass> cs = new SpellCasterChoiceSet(grcs, prcs);
+		PersistentTransitionChoice<PCClass> tc = new PersistentTransitionChoice<PCClass>(
+				cs, FormulaFactory.getFormulaFor(count));
+		tc.setTitle("Spell Caster Class Choice");
+		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
+		tc.setTitle("Language Choice");
+		tc.setChoiceActor(this);
+		return true;
+
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Changes<PersistentTransitionChoice<?>> grantChanges = context
+				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
+				.getAdded();
+		if (addedItems == null || addedItems.isEmpty())
+		{
+			// Zero indicates no Token
+			return null;
+		}
+		List<String> addStrings = new ArrayList<String>();
+		for (TransitionChoice<?> container : addedItems)
+		{
+			ChoiceSet<?> cs = container.getChoices();
+			if (PCCLASS_CLASS.equals(cs.getChoiceClass()))
+			{
+				Formula f = container.getCount();
+				if (f == null)
+				{
+					context.addWriteMessage("Unable to find " + getFullName()
+							+ " Count");
+					return null;
+				}
+				String fString = f.toString();
+				StringBuilder sb = new StringBuilder();
+				if (!"1".equals(fString))
+				{
+					sb.append(fString).append(Constants.PIPE);
+				}
+				sb.append(cs.getLSTformat());
+				addStrings.add(sb.toString());
+
+				// assoc.getAssociation(AssociationKey.CHOICE_MAXCOUNT);
+			}
+		}
+		return addStrings.toArray(new String[addStrings.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	public void applyChoice(CDOMObject owner, PCClass choice, PlayerCharacter pc)
+	{
+		PCClass theClass = pc.getClassKeyed(choice.getKeyName());
+
+		if (theClass == null)
+		{
+			pc.incrementClassLevel(0, choice);
+			theClass = pc.getClassKeyed(choice.getKeyName());
+		}
+
+		BonusAddition.applyBonus("PCLEVEL|" + theClass.getKeyName() + "|1", "",
+				pc, owner, false);
+
+		theClass.setLevel(theClass.getLevel(), pc);
+	}
+
+	public boolean allow(PCClass choice, PlayerCharacter pc, boolean allowStack)
+	{
+		return true;
+	}
+
+	public PCClass decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCCLASS_CLASS, s);
+	}
+
+	public String encodeChoice(Object choice)
+	{
+		return ((PCClass) choice).getKeyName();
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			PCClass choice)
+	{
+		// No action required
 	}
 }

@@ -510,8 +510,7 @@ final class PCGVer0Parser implements PCGParser
 							aClass.addToListFor(ListKey.SPECIAL_ABILITY, sa);
 						}
 
-						if (!aClass.containsInList(saveKey, token)
-							|| token.startsWith("BONUS"))
+						if (!aClass.containsInList(saveKey, token))
 						{
 							aClass.addSave(token);
 						}
@@ -1233,8 +1232,10 @@ final class PCGVer0Parser implements PCGParser
 								aPC.addAssoc(anAbility, AssociationListKey.BONUS, aBonus);
 							}
 						}
-
-						anAbility.addSave(aString);
+						else
+						{
+							anAbility.addSave(aString);
+						}
 					}
 				}
 				else

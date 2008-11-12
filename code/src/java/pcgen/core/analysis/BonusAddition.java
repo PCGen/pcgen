@@ -21,6 +21,7 @@ package pcgen.core.analysis;
 
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -46,20 +47,17 @@ public final class BonusAddition
 	 *            choices
 	 */
 	public static void applyBonus(String bonusString, String chooseString,
-			PlayerCharacter aPC, PObject target, boolean addOnceOnly)
+			PlayerCharacter aPC, CDOMObject target, boolean addOnceOnly)
 	{
 		bonusString = target.bonusStringPrefix() + makeBonusString(bonusString, chooseString, aPC);
 
 		final BonusObj aBonus = Bonus.newBonus(bonusString);
-
 		if (aBonus != null)
 		{
 			aBonus.setCreatorObject(target);
 			aBonus.setAddOnceOnly(addOnceOnly);
 			aPC.addAssoc(target, AssociationListKey.BONUS, aBonus);
 		}
-
-		target.addSave("BONUS|" + bonusString);
 	}
 
 	/**
@@ -107,8 +105,6 @@ public final class BonusAddition
 			Logging.errorPrint("removeBonus: Could not find bonus: " + bonus
 					+ " in bonusList " + bonusList);
 		}
-
-		target.removeSave("BONUS|" + bonus);
 	}
 
 	private static String makeBonusString(String bonusString,

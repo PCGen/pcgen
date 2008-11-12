@@ -41,13 +41,6 @@ import pcgen.core.PlayerCharacter;
  * 
  * @see pcgen.cdom.base.CDOMList
  * 
- * TODO Why is this necessary? It certainly doesn't add anything other than a
- * name to the Trunk structure (as of SVN 6665), and it's even dangerously
- * semantic in the sense that it takes in the PrimitiveChoiceSet and keeps a
- * reference to it. getSet also asks for a PlayerCharacter, yet none is ever
- * actually used in any implementation contained within Trunk (again 6665) -
- * thpr 6/15/08
- * 
  * @param <T>
  *            the Class contained within this ChoiceSet
  */

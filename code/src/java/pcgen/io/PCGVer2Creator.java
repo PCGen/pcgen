@@ -922,6 +922,26 @@ final class PCGVer2Creator implements IOConstants
 					specials.put(key, save);
 				}
 			}
+
+			List<BonusObj> list = thePC.getAssocList(pcClass, AssociationListKey.BONUS);
+			if (list != null)
+			{
+				for (final BonusObj save : list)
+				{
+					specials.put(key, "BONUS|" + save);
+				}
+			}
+			for (int i = 1; i <= pcClass.getLevel(); i++)
+			{
+				list = thePC.getAssocList(pcClass.getClassLevel(i), AssociationListKey.BONUS);
+				if (list != null)
+				{
+					for (final BonusObj save : list)
+					{
+						specials.put(key, "BONUS|" + save);
+					}
+				}
+			}
 		}
 
 		//
@@ -1438,6 +1458,17 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append('|');
 					buffer.append(TAG_SAVE).append(':');
 					buffer.append(EntityEncoder.encode(save));
+				}
+
+				List<BonusObj> list = thePC.getAssocList(ability, AssociationListKey.BONUS);
+				if (list != null)
+				{
+					for (final BonusObj save : list)
+					{
+						buffer.append('|');
+						buffer.append(TAG_SAVE).append(':');
+						buffer.append(EntityEncoder.encode("BONUS|" + save));
+					}
 				}
 
 				for (final Description desc : ability.getSafeListFor(ListKey.DESCRIPTION))

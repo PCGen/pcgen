@@ -13121,6 +13121,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (anObj == null)
 			{
+				Logging.debugPrint("BONUS: " + bonus
+						+ " ignored due to no creator");
 				continue;
 			}
 

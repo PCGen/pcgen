@@ -75,6 +75,7 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SubstitutionLevelSupport;
@@ -1612,20 +1613,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					final String dString =
 							EntityEncoder.decode(child.getText());
-
-					// TODO This doesn't seem to be written in Creator.
 					if (dString.startsWith(TAG_BONUS + TAG_SEPARATOR))
 					{
-						final BonusObj aBonus = Bonus.newBonus(dString.substring(6));
-						
-						if (aBonus != null)
+						String bonusString = dString.substring(6);
+						int pipeLoc = bonusString.indexOf('|');
+						if (pipeLoc != -1)
 						{
-							aBonus.setCreatorObject(aPCClass);
-							thePC.addAssoc(aPCClass, AssociationListKey.BONUS, aBonus);
+							CDOMObject target = aPCClass;
+							int bonusLevel = Integer.parseInt(bonusString
+									.substring(0, pipeLoc));
+							if (bonusLevel > 0)
+							{
+								target = aPCClass.getClassLevel(bonusLevel);
+							}
+							bonusString = bonusString.substring(pipeLoc + 1);
+							BonusAddition.applyBonus(bonusString, "", thePC,
+									target, false);
 						}
 					}
-
-					aPCClass.addSave(dString);
 				}
 			}
 			else if (TAG_SPECIALTIES.equals(tag))
@@ -2425,8 +2430,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						thePC.addAssoc(ability, AssociationListKey.BONUS, aBonus);
 					}
 				}
-
-				ability.addSave(saveKey);
+				else
+				{
+					ability.addSave(saveKey);
+				}
 			}
 		}
 		if (ability != null && category != null && nature != null)
@@ -2695,8 +2702,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						thePC.addAssoc(aFeat, AssociationListKey.BONUS, aBonus);
 					}
 				}
-
-				aFeat.addSave(saveKey);
+				else
+				{
+					aFeat.addSave(saveKey);
+				}
 			}
 			else if (tag.equals(TAG_LEVELABILITY))
 			{
