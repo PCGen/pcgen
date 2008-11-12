@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Wed Nov 12 16:36:35 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/
+
+# Feat Name			Bonus to skill		Class Skill
+Divine Inquiry.MOD	BONUS:SKILL|Read Lips|1	CSKILL:Read Lips
+Flora Ward.MOD						CSKILL:Wilderness Lore
+Nuances.MOD			BONUS:SKILL|Innuendo|1	CSKILL:Innuendo
