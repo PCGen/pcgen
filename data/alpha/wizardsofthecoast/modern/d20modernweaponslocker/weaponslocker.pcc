@@ -6,9 +6,7 @@ RANK:3
 GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Modern
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Wizards of the Coast.Supplement.d20 Weapons Locker
+TYPE:Wizards of the Coast.Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC

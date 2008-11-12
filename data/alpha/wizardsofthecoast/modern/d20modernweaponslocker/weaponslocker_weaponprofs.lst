@@ -14,11 +14,11 @@ SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com
 # WEAPONCATEGORY:Mecha
 # WEAPONCATEGORY:Starship
 
-# Exotic Firearms				Type			# of hands
+# Exotic Firearms
 # Weapon Name					Type				Nb Hands
 Norinco Model 85 Bayonet Pistol		TYPE:ExoticFirearms
 
-# Pistols and Handguns				Type			# of hands
+# Pistols and Handguns				Type				Nb Hands
 6P35							TYPE:PersonalFirearm
 AMT .44 Automag					TYPE:PersonalFirearm	HANDS:2
 AMT Backup						TYPE:PersonalFirearm
@@ -274,7 +274,7 @@ Udar 1						TYPE:PersonalFirearm
 Udar 2						TYPE:PersonalFirearm
 Yesaul						TYPE:PersonalFirearm	HANDS:2
 
-# Rifles					Type			# of hands
+# Rifles						Type				Nb Hands
 A-91 Compact					TYPE:PersonalFirearm	HANDS:2
 A-91M							TYPE:PersonalFirearm	HANDS:2
 AK-47							TYPE:PersonalFirearm	HANDS:2
@@ -460,7 +460,7 @@ Vektor CR 21					TYPE:PersonalFirearm	HANDS:1
 Vikhr SR-3						TYPE:PersonalFirearm	HANDS:2
 Z-M LA 300						TYPE:PersonalFirearm	HANDS:2
 
-# Mounted Shotgun				Type			# of hands
+# Mounted Shotgun					Type				Nb Hands
 M16A1 w/Master Key S				TYPE:PersonalFirearm	HANDS:2
 M16A1 w/Ciener Ultimate				TYPE:PersonalFirearm	HANDS:2
 M16A2 w/Master Key S				TYPE:PersonalFirearm	HANDS:2
@@ -470,7 +470,7 @@ M16A3 w/Ciener Ultimate				TYPE:PersonalFirearm	HANDS:2
 M16A4 w/Master Key S				TYPE:PersonalFirearm	HANDS:2
 M16A4 w/Ciener Ultimate				TYPE:PersonalFirearm	HANDS:2
 
-# Mounted Grenade Launchers			Type			# of hands
+# Mounted Grenade Launchers			Type				Nb Hands
 A-91 Cmpt w/GP-95 GL				TYPE:PersonalFirearm	HANDS:2
 A-91M w/GP-97 GL					TYPE:PersonalFirearm	HANDS:2
 AKS-74UB w/BS-1 GL				TYPE:PersonalFirearm	HANDS:2
@@ -631,18 +631,18 @@ CTAR-21 Tavor Series w/ISTEC ISL 275 GL	TYPE:PersonalFirearm	HANDS:2
 CTAR-21 Tavor Series w/M-203 GL		TYPE:PersonalFirearm	HANDS:2
 Vektor CR 21 w/Milkor UBGL GL			TYPE:PersonalFirearm	HANDS:2
 
-# Assault Rifles w/Bayonets attached		Type			# of hands
+# Assault Rifles w/Bayonets attached	Type				Nb Hands
 Norinco Type 68 Rifle				TYPE:PersonalFirearm	HANDS:2
 Simonov SKS						TYPE:PersonalFirearm	HANDS:2
 
-# Two=Part Rifles				Type			# of hands
+# Two=Part Rifles					Type				Nb Hands
 M6 Scout Rifle					TYPE:PersonalFirearm	HANDS:2
 
-#Melee						Type			# of hands
+#Melee						Type
 Pistol Bayonet					TYPE:Archaic
 Rifle Bayonet					TYPE:Archaic
 
-# Bolt-Action Sniper Rifles			Type			# of hands
+# Bolt-Action Sniper Rifles			Type				Nb Hands
 Armalon Model BGR					TYPE:PersonalFirearm	HANDS:2
 Armalon Model PR					TYPE:PersonalFirearm	HANDS:2
 Arnold Arms Mark II Neutralizer		TYPE:PersonalFirearm	HANDS:2
@@ -722,7 +722,7 @@ Truvello Armory SG1				TYPE:PersonalFirearm	HANDS:2
 VS 94 PS						TYPE:PersonalFirearm	HANDS:2
 Winchester Model 70 Sharpshooter		TYPE:PersonalFirearm	HANDS:2
 
-# Autoloader Sniper Rifles			Type			# of hands
+# Autoloader Sniper Rifles			Type				Nb Hands
 Arms Tech Super Mach Interdection		TYPE:PersonalFirearm	HANDS:2
 Barrett M98						TYPE:PersonalFirearm	HANDS:2
 Dragunov SVD					TYPE:PersonalFirearm	HANDS:2
@@ -756,7 +756,7 @@ VSS Thread Cutter					TYPE:PersonalFirearm	HANDS:2
 WA2000						TYPE:PersonalFirearm	HANDS:2
 OTs-O3AS Dragunov SVU				TYPE:PersonalFirearm	HANDS:2
 
-# Bolt-Action Anti-Material Rifles		Type			# of hands
+# Bolt-Action Anti-Material Rifles		Type				Nb Hands
 Accuracy International AW50F			TYPE:PersonalFirearm	HANDS:2
 Accuracy International AW50FT			TYPE:PersonalFirearm	HANDS:2
 Alpimex APK 20					TYPE:PersonalFirearm	HANDS:2
@@ -790,7 +790,7 @@ Robar AC-50						TYPE:PersonalFirearm	HANDS:2
 Truvello Armory Mega Sniper			TYPE:PersonalFirearm	HANDS:2
 Truvello Armory Mega Sniper Single		TYPE:PersonalFirearm	HANDS:2
 
-# Autoloader Anti-Material Rifles		Type			# of hands
+# Autoloader Anti-Material Rifles		Type				Nb Hands
 Barrett M82A1					TYPE:PersonalFirearm	HANDS:2
 Barrett M82A2					TYPE:PersonalFirearm	HANDS:2
 Gepard M2						TYPE:PersonalFirearm	HANDS:2
@@ -805,7 +805,7 @@ DSV-96						TYPE:PersonalFirearm	HANDS:2
 Steyr IWS 2000					TYPE:PersonalFirearm	HANDS:2
 Stoner SR-50					TYPE:PersonalFirearm	HANDS:2
 
-# Submachine Guns				Type			# of hands
+# Submachine Guns					Type				Nb Hands
 A-9							TYPE:PersonalFirearm	HANDS:2
 A-7.62						TYPE:PersonalFirearm	HANDS:2
 ACK-919 Kashtan					TYPE:PersonalFirearm	HANDS:2
@@ -910,7 +910,7 @@ Steyr MPi81						TYPE:PersonalFirearm	HANDS:2
 Walther MPK						TYPE:PersonalFirearm	HANDS:2
 Walther MPL						TYPE:PersonalFirearm	HANDS:2
 
-# Full Automatic Capability Only		Type			# of hands
+# Full Automatic Capability Only		Type				Nb Hands
 Arsenal Shipka					TYPE:PersonalFirearm	HANDS:2
 Carl Gustav M45					TYPE:PersonalFirearm	HANDS:2
 Carl Gustav M45C					TYPE:PersonalFirearm	HANDS:2
@@ -924,7 +924,7 @@ Socimi Type 821					TYPE:PersonalFirearm	HANDS:2
 Vigneron M2						TYPE:PersonalFirearm	HANDS:2
 WZ-63							TYPE:PersonalFirearm	HANDS:2
 
-# Machine Pistols or One-hand capable		Type			# of hands
+# Machine Pistols or One-hand capable	Type
 Agram 2000						TYPE:PersonalFirearm
 Cobray M-11						TYPE:PersonalFirearm
 FAMAE Mini-SAF					TYPE:PersonalFirearm
@@ -950,7 +950,7 @@ Skorpion vz65					TYPE:PersonalFirearm
 Skorpion vz68					TYPE:PersonalFirearm
 Steyr TMP						TYPE:PersonalFirearm
 
-# Submachine Guns w/Grenade Launchers attached	Type			# of hands
+# Submachine Guns w/Grenade Launchers attached	Type			Nb Hands
 A-9 w/GP-95 GL					TYPE:PersonalFirearm	HANDS:2
 A-7.62 w/GP-95 GL					TYPE:PersonalFirearm	HANDS:2
 HK MP5A2 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
@@ -984,7 +984,7 @@ HK MP5/40 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
 HK UMP 45 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
 HK UMP 45 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
 
-# Pump-Action ShotGuns				Type			# of hands
+# Pump-Action ShotGuns				Type				Nb Hands
 Armscor M30						TYPE:PersonalFirearm	HANDS:2
 Birmingham Pump Gun				TYPE:PersonalFirearm	HANDS:2
 Benelli M2 Super 90				TYPE:PersonalFirearm	HANDS:2
@@ -1028,7 +1028,7 @@ S and W Model 3000				TYPE:PersonalFirearm	HANDS:2
 Techno Arms MAG-7					TYPE:PersonalFirearm	HANDS:2
 Viking Arms SOS					TYPE:PersonalFirearm	HANDS:2
 
-# Semi/automatic ShotGuns			Type			# of hands
+# Semi/automatic ShotGuns			Type				Nb Hands
 Benelli M1						TYPE:PersonalFirearm	HANDS:2
 Benelli M1 Entry					TYPE:PersonalFirearm	HANDS:2
 Benelli M3 Special Applications		TYPE:PersonalFirearm	HANDS:2
@@ -1044,7 +1044,7 @@ Remington Model 1100				TYPE:PersonalFirearm	HANDS:2
 Saiga-12						TYPE:PersonalFirearm	HANDS:2
 Saiga-20						TYPE:PersonalFirearm	HANDS:2
 
-# Dual-Action ShotGuns				Type			# of hands
+# Dual-Action ShotGuns				Type				Nb Hands
 Benelli M3 Super 90				TYPE:PersonalFirearm	HANDS:2
 Benelli M4 Super 90				TYPE:PersonalFirearm	HANDS:2
 Benelli M1014					TYPE:PersonalFirearm	HANDS:2
@@ -1055,7 +1055,7 @@ Franchi SPAS 15 MIL				TYPE:PersonalFirearm	HANDS:2
 Reutech Protecta					TYPE:PersonalFirearm	HANDS:2
 Reutech Protecta Bulldog			TYPE:PersonalFirearm	HANDS:2
 
-# Light Machine Guns				Type			# of hands
+# Light Machine Guns				Type				Nb Hands
 Ameli							TYPE:PersonalFirearm	HANDS:2
 Beretta AS70/90					TYPE:PersonalFirearm	HANDS:2
 Colt M16A2						TYPE:PersonalFirearm	HANDS:2
@@ -1082,7 +1082,7 @@ Steyr AUG HBAR					TYPE:PersonalFirearm	HANDS:2
 Stoner						TYPE:PersonalFirearm	HANDS:2
 Ultimax M100					TYPE:PersonalFirearm	HANDS:2
 
-# General Purpose Machine Guns			Type			# of hands
+# General Purpose Machine Guns		Type				Nb Hands
 6P41 Pecheneg					TYPE:PersonalFirearm	HANDS:2
 AAT-52						TYPE:PersonalFirearm	HANDS:2
 FN MAG						TYPE:PersonalFirearm	HANDS:2
@@ -1103,7 +1103,7 @@ PKMS							TYPE:PersonalFirearm	HANDS:2
 SS-77							TYPE:PersonalFirearm	HANDS:2
 Ulrapuru						TYPE:PersonalFirearm	HANDS:2
 
-# Heavy Machine Guns				Type			# of hands
+# Heavy Machine Guns				Type				Nb Hands
 Browning M2HB					TYPE:ExoticFirearms	HANDS:2
 Fabrrique National M2HB				TYPE:ExoticFirearms	HANDS:2
 CIS Fifty						TYPE:ExoticFirearms	HANDS:2
@@ -1112,11 +1112,11 @@ KPV							TYPE:ExoticFirearms	HANDS:2
 Norinco Type QJZ89				TYPE:ExoticFirearms	HANDS:2
 NSV Utyos						TYPE:ExoticFirearms	HANDS:2
 
-# Miniguns					Type			# of hands
+# Miniguns						Type				Nb Hands
 General Electric M134				TYPE:ExoticFirearms	HANDS:2
 XM214 Microgun					TYPE:ExoticFirearms	HANDS:2
 
-# Stand Alone Grenade Launchers			Type			# of hands
+# Stand Alone Grenade Launchers		Type				Nb Hands
 6G-30 GL						TYPE:GrenadeLauncher	HANDS:2
 BS-1 Silent GL					TYPE:GrenadeLauncher	HANDS:2
 CIS 40GL						TYPE:GrenadeLauncher	HANDS:2

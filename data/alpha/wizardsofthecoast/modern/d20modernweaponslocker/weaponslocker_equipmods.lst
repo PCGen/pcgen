@@ -2,7 +2,6 @@
 SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
 
 # Suppressors
-# Equipment Name						Output Name										Type								Cost		Weight	Source Page		Special Property
 # Modifier Name				Unique Key		Output Name									Type			Cost		Visible		Type granted	Source Page		Required Type		Bonus Equipment Modifiers	Special Property
 FN Five-seveN Suppressor		KEY:SPPRSS_FN57	OUTPUTNAME:Suppressors Kit: FN Five-seveN				TYPE:Pistol		COST:1	VISIBLE:QUALIFY				SOURCEPAGE:p.25	PRETYPE:1,FN57							SPROP:Res(+2)
 Ingram MAC-10 Suppressor		KEY:SPPRSS_MAC10	OUTPUTNAME:Conversion Kit: Ingram MAC-10 Suppressor		TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.128	PRETYPE:1,MAC10		BONUS:EQM|WEIGHTADD|2		SPROP:Suppressor Puchase DC 12,Res(+2)

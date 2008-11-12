@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct 23 20:27:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Nov 12 12:40:06 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
 # Original Entry by: Terrence FitzSimons * 8 May 2006
 
@@ -159,8 +159,7 @@ Steyr TMP 10mm (10mm Submachine Gun)					OUTPUTNAME:Steyr TMP (10mm Submachine G
 Steyr TMP .41in AE (.41in AE Submachine Gun)				OUTPUTNAME:Steyr TMP (.41in AE Submachine Gun)		PROFICIENCY:WEAPON|Steyr TMP					TYPE:Weapon.Ranged.Standard.Firearm.SubMachineGun.Container.Ballistic.Police.Military.Automatic.Semiauto.Projectile.Personal.Longarm								CONTAINS:1|Bullet=25	COST:19	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:30	SIZE:M	SOURCEPAGE:p.138															SPROP:Magazine 25,Res(+2)															RATEOFFIRE:S,A
 
 # Submachine Guns w/Grenade Launchers attached
-# Equipment Name						Output Name									Required Proficiency					Type																				Automatic Equipment									Cost	Weight	Crit Hit Range	Crit Hit Mult	Contains					Damage		Range		Size	Rate of Fire		Source Page	Special Property
-
+# Equipment Name									Output Name								Required Proficiency						Type																														Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Weapon prop. bonus											Special Property																	Rate of Fire		Automatically Added to Inventory
 A-9 w/GP-95 GL (9mm/40mm Submachine Gun)														PROFICIENCY:WEAPON|A-9 w/GP-95 GL				TYPE:Weapon.Ranged.Standard.Firearm.SubMachineGun.Container.Ballistic.Police.Military.SpecialOperations.Automatic.Semiauto.Projectile.Personal.Longarm					CONTAINS:1|Bullet=30	COST:21	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:50	SIZE:L	SOURCEPAGE:p.117															SPROP:Magazine 30,Mil(+3)															RATEOFFIRE:S,A		AUTO:EQUIP|GP-25 Kastyor 40mm GL (40mm grenade launcher)
 A-7.62 w/GP-95 GL (7.62mmR/40mm Submachine Gun)													PROFICIENCY:WEAPON|A-7.62 w/GP-95 GL			TYPE:Weapon.Ranged.Standard.Firearm.SubMachineGun.Container.Ballistic.Police.Military.Special Operations.Automatic.Semiauto.Projectile.Personal.Longarm					CONTAINS:1|Bullet=30	COST:21	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:50	SIZE:L	SOURCEPAGE:p.117															SPROP:Magazine 30,Mil(+3)															RATEOFFIRE:S,A		AUTO:EQUIP|GP-25 Kastyor 40mm GL (40mm grenade launcher)
 HK MP5A2 w/ISTEC ISL 201 GL (9mm/40mm Submachine Gun)												PROFICIENCY:WEAPON|HK MP5A2 w/ISTEC ISL 201 GL		TYPE:Weapon.Ranged.Standard.Firearm.GrenadeLauncher.Container.Ballistic.Police.Military.Automatic.Semiauto.Projectile.Personal.Longarm								CONTAINS:1|Bullet=30	COST:19	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:50	SIZE:L	SOURCEPAGE:p.124															SPROP:Magazine 30,Mil(+3)															RATEOFFIRE:S,A		AUTO:EQUIP|ISTEC ISL 201 Compact Series 40mm Grenade Launcher (40mm grenade launcher)
