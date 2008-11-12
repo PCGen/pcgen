@@ -91,4 +91,9 @@ public class EquipTokenTest extends
 		return false;
 	}
 
+	@Override
+	public boolean allowsFormula()
+	{
+		return true;
+	}
 }

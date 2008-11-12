@@ -102,6 +102,12 @@ public class VFeatTokenTest extends
 		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
 	}
 
+	@Override
+	public boolean allowsFormula()
+	{
+		return true;
+	}
+
 	@Test
 	public void testRoundRobinStacks() throws PersistenceLayerException
 	{

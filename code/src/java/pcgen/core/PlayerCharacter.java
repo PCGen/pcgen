@@ -6483,8 +6483,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			selectTemplates(race, isImporting()); // gets and adds templates
-
-			race.chooseLanguageAutos(isImporting(), this);
 		}
 
 		// TODO - Change this back
@@ -8335,8 +8333,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		addStartingLanguages(inTmpl, templateLanguages);
 		getAutoLanguages();
 		addNaturalWeapons(inTmpl.getListFor(ListKey.NATURAL_WEAPON));
-
-		inTmpl.chooseLanguageAutos(isImporting(), this);
 
 		if (PlayerCharacterUtilities.canReassignTemplateFeats())
 		{
@@ -11416,7 +11412,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return -1;
 	}
 
-	void addFreeLanguage(final Language aLang)
+	public void addFreeLanguage(final Language aLang)
 	{
 		this.languages.add(aLang);
 		++freeLangs;

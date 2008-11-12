@@ -45,6 +45,8 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 
 	public abstract boolean allowsParenAsSub();
 
+	public abstract boolean allowsFormula();
+
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -78,7 +80,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 
 	@Test
 	public void testInvalidInputOnlySubTokenPipe()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|'));
 		assertNoSideEffects();
@@ -88,7 +90,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	public void testInvalidInputJoinOnly() throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|'
-				+ Character.toString(getJoinCharacter())));
+			+ Character.toString(getJoinCharacter())));
 		assertNoSideEffects();
 	}
 
@@ -135,19 +137,25 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 
 	@Test
 	public void testInvalidInputNegativeFormula()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "-1|TestWP1"));
-		assertNoSideEffects();
+		if (allowsFormula())
+		{
+			construct(primaryContext, "TestWP1");
+			assertFalse(parse(getSubTokenName() + '|' + "-1|TestWP1"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidInputZeroFormula() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "0|TestWP1"));
-		assertNoSideEffects();
+		if (allowsFormula())
+		{
+			construct(primaryContext, "TestWP1");
+			assertFalse(parse(getSubTokenName() + '|' + "0|TestWP1"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -162,7 +170,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 
 	@Test
 	public void testInvalidInputTypeUnterminated()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -173,7 +181,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 
 	@Test
 	public void testInvalidInputClearDotTypeDoubleSeparator()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -184,7 +192,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 
 	@Test
 	public void testInvalidInputClearDotTypeFalseStart()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -281,7 +289,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter()));
+			+ getJoinCharacter()));
 		assertNoSideEffects();
 	}
 
@@ -290,7 +298,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + getJoinCharacter()
-				+ "TestWP1"));
+			+ "TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -300,7 +308,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP2"
-				+ getJoinCharacter() + getJoinCharacter() + "TestWP1"));
+			+ getJoinCharacter() + getJoinCharacter() + "TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -310,13 +318,13 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TestWP2"));
+			+ getJoinCharacter() + "TestWP2"));
 		assertFalse(primaryContext.ref.validate());
 	}
 
 	@Test
 	public void testInvalidInputCheckTypeEqualLength()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -324,15 +332,15 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TYPE=TestType" + getJoinCharacter()
-					+ "TestWP2"));
+				+ getJoinCharacter() + "TYPE=TestType" + getJoinCharacter()
+				+ "TestWP2"));
 			assertFalse(primaryContext.ref.validate());
 		}
 	}
 
 	@Test
 	public void testInvalidInputCheckTypeDotLength()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -340,8 +348,8 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TYPE.TestType.OtherTestType"
-					+ getJoinCharacter() + "TestWP2"));
+				+ getJoinCharacter() + "TYPE.TestType.OtherTestType"
+				+ getJoinCharacter() + "TestWP2"));
 			assertFalse(primaryContext.ref.validate());
 		}
 	}
@@ -354,7 +362,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
 		assertTrue(primaryContext.ref.validate());
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TestWP2"));
+			+ getJoinCharacter() + "TestWP2"));
 		assertTrue(primaryContext.ref.validate());
 		if (isTypeLegal())
 		{
@@ -363,12 +371,12 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			assertTrue(parse(getSubTokenName() + '|' + "TYPE.TestType"));
 			assertTrue(primaryContext.ref.validate());
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-					+ "TYPE=TestType"));
+				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
+				+ "TYPE=TestType"));
 			assertTrue(primaryContext.ref.validate());
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-					+ "TYPE=TestType.OtherTestType"));
+				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
+				+ "TYPE=TestType.OtherTestType"));
 			assertTrue(primaryContext.ref.validate());
 		}
 		if (isAllLegal())
@@ -397,17 +405,23 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	@Test
 	public void testRoundRobinCount() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1 (Test)");
-		construct(secondaryContext, "TestWP1 (Test)");
-		runRoundRobin(getSubTokenName() + '|' + "4|TestWP1 (Test)");
+		if (allowsFormula())
+		{
+			construct(primaryContext, "TestWP1 (Test)");
+			construct(secondaryContext, "TestWP1 (Test)");
+			runRoundRobin(getSubTokenName() + '|' + "4|TestWP1 (Test)");
+		}
 	}
 
 	@Test
 	public void testRoundRobinFormulaCount() throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1 (Test)");
-		construct(secondaryContext, "TestWP1 (Test)");
-		runRoundRobin(getSubTokenName() + '|' + "INT|TestWP1 (Test)");
+		if (allowsFormula())
+		{
+			construct(primaryContext, "TestWP1 (Test)");
+			construct(secondaryContext, "TestWP1 (Test)");
+			runRoundRobin(getSubTokenName() + '|' + "INT|TestWP1 (Test)");
+		}
 	}
 
 	@Test
@@ -442,7 +456,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1" + getJoinCharacter()
-				+ "TestWP2" + getJoinCharacter() + "TestWP3");
+			+ "TestWP2" + getJoinCharacter() + "TestWP3");
 	}
 
 	@Test
@@ -455,9 +469,8 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
 			runRoundRobin(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-					+ "TYPE=OtherTestType" + getJoinCharacter()
-					+ "TYPE=TestType");
+				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
+				+ "TYPE=OtherTestType" + getJoinCharacter() + "TYPE=TestType");
 		}
 	}
 
@@ -476,7 +489,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		if (isTypeLegal())
 		{
 			runRoundRobin(getSubTokenName() + '|'
-					+ "TYPE=TestAltType.TestThirdType.TestType");
+				+ "TYPE=TestAltType.TestThirdType.TestType");
 		}
 	}
 
@@ -489,7 +502,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			construct(primaryContext, "TestWP1");
 			assertFalse(parse(getSubTokenName() + '|' + "ALL"
-					+ getJoinCharacter() + "TestWP1"));
+				+ getJoinCharacter() + "TestWP1"));
 			assertNoSideEffects();
 		}
 	}
@@ -501,7 +514,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			construct(primaryContext, "TestWP1");
 			assertFalse(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
 	}
@@ -512,7 +525,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		if (isTypeLegal() && isAllLegal())
 		{
 			assertFalse(parse(getSubTokenName() + '|' + "ALL"
-					+ getJoinCharacter() + "TYPE=TestType"));
+				+ getJoinCharacter() + "TYPE=TestType"));
 			assertNoSideEffects();
 		}
 	}
@@ -523,14 +536,14 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		if (isTypeLegal() && isAllLegal())
 		{
 			assertFalse(parse(getSubTokenName() + '|' + "TYPE=TestType"
-					+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
 	}
 
 	@Test
 	public void testInputInvalidAddsTypeNoSideEffect()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -541,18 +554,18 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			construct(primaryContext, "TestWP3");
 			construct(secondaryContext, "TestWP3");
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2"));
+				+ getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2"));
+				+ getJoinCharacter() + "TestWP2"));
 			assertFalse(parse(getSubTokenName() + '|' + "TestWP3"
-					+ getJoinCharacter() + "TYPE="));
+				+ getJoinCharacter() + "TYPE="));
 			assertNoSideEffects();
 		}
 	}
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -563,17 +576,17 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		construct(primaryContext, "TestWP4");
 		construct(secondaryContext, "TestWP4");
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TestWP2"));
+			+ getJoinCharacter() + "TestWP2"));
 		assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TestWP2"));
+			+ getJoinCharacter() + "TestWP2"));
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP3"
-				+ getJoinCharacter() + getJoinCharacter() + "TestWP4"));
+			+ getJoinCharacter() + getJoinCharacter() + "TestWP4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInputInvalidAddsAllNoSideEffect()
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		if (isAllLegal())
 		{
@@ -584,11 +597,11 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			construct(primaryContext, "TestWP3");
 			construct(secondaryContext, "TestWP3");
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2"));
+				+ getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1"
-					+ getJoinCharacter() + "TestWP2"));
+				+ getJoinCharacter() + "TestWP2"));
 			assertFalse(parse(getSubTokenName() + '|' + "TestWP3"
-					+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
 	}

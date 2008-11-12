@@ -84,13 +84,6 @@ public final class PCTemplate extends PObject
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
 		txt.append("\t");
-
-		if ((getChooseLanguageAutos() != null)
-				&& (getChooseLanguageAutos().length() > 0))
-		{
-			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
-		}
-
 		txt.append(super.getPCCText(false));
 
 		return txt.toString();

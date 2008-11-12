@@ -101,13 +101,6 @@ public final class Race extends PObject
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
 		txt.append("\t");
-
-		if ((getChooseLanguageAutos() != null)
-			&& (getChooseLanguageAutos().length() > 0))
-		{
-			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
-		}
-
 		return txt.toString();
 	}
 

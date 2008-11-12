@@ -92,4 +92,9 @@ public class ClassSkillsTokenTest extends
 		return false;
 	}
 
+	@Override
+	public boolean allowsFormula()
+	{
+		return true;
+	}
 }

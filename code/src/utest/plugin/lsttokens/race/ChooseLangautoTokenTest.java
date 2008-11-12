@@ -15,33 +15,39 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.add;
+package plugin.lsttokens.race;
 
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.Skill;
+import pcgen.core.Language;
+import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AddLst;
+import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class ClassSkillsLevelTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Skill>
+public class ChooseLangautoTokenTest extends
+		AbstractAddTokenTestCase<CDOMObject, Language>
 {
 
-	static AddLst token = new AddLst();
-	static ClassSkillsLevelToken subtoken = new ClassSkillsLevelToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static ChooseLst token = new ChooseLst();
+	static ChooseLangautoToken subtoken = new ChooseLangautoToken();
+	static CDOMTokenLoader<CDOMObject> loader =
+			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
 
 	@Override
-	public Class<PCClassLevel> getCDOMClass()
+	public char getJoinCharacter()
 	{
-		return PCClassLevel.class;
+		return '|';
+	}
+
+	@Override
+	public Class<Race> getCDOMClass()
+	{
+		return Race.class;
 	}
 
 	@Override
@@ -63,9 +69,9 @@ public class ClassSkillsLevelTokenTest extends
 	}
 
 	@Override
-	public Class<Skill> getTargetClass()
+	public Class<Language> getTargetClass()
 	{
-		return Skill.class;
+		return Language.class;
 	}
 
 	@Override
@@ -95,6 +101,6 @@ public class ClassSkillsLevelTokenTest extends
 	@Override
 	public boolean allowsFormula()
 	{
-		return true;
+		return false;
 	}
 }

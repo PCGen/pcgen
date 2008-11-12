@@ -765,7 +765,8 @@ public final class EditorMainForm extends JDialog
 				//
 				sel = pnlLanguages.getSelectedList2();
 				aString = EditUtil.delimitArray(sel, '|');
-				thisRace.setChooseLanguageAutos(aString);
+				context.unconditionallyProcess(thisRace, "CHOOSE", "LANGAUTO|"
+					+ aString);
 
 				//
 				// Save feats
@@ -917,7 +918,8 @@ public final class EditorMainForm extends JDialog
 				//
 				sel = pnlLanguages.getSelectedList2();
 				aString = EditUtil.delimitArray(sel, '|');
-				thisPCTemplate.setChooseLanguageAutos(aString);
+				context.unconditionallyProcess(thisPCTemplate, "CHOOSE", "LANGAUTO|"
+					+ aString);
 
 				//
 				// Save feats
@@ -2058,13 +2060,18 @@ public final class EditorMainForm extends JDialog
 
 			if ((editType == EditorConstants.EDIT_TEMPLATE) || (editType == EditorConstants.EDIT_RACE))
 			{
-				if (editType == EditorConstants.EDIT_TEMPLATE)
+				aString = "";
+				String[] unparsed = Globals.getContext().unparse(thisPObject, "CHOOSE");
+				if (unparsed != null)
 				{
-					aString = ((PCTemplate) thisPObject).getChooseLanguageAutos();
-				}
-				else
-				{
-					aString = ((Race) thisPObject).getChooseLanguageAutos();
+					for (String s : unparsed)
+					{
+						if (s.startsWith("LANGAUTO|"))
+						{
+							aString = s;
+							break;
+						}
+					}
 				}
 
 				aTok = new StringTokenizer(aString, "|", false);

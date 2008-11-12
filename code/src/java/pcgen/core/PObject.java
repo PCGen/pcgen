@@ -51,7 +51,6 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.analysis.LanguageSupport;
 import pcgen.core.analysis.WeaponProfType;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -106,8 +105,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private SpellSupport spellSupport = new SpellSupport();
 	
 	private boolean isNewItem = true;
-
-	private String chooseLanguageAutos = Constants.EMPTY_STRING;
 
 	private URI sourceURI = null;
 	
@@ -1517,57 +1514,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public SpellSupport getSpellSupport()
 	{
 		return spellSupport;
-	}
-
-	/**
-	 * Set a list of languages that the character this Template is applied to
-	 * automatically knows.
-	 *
-	 * @param  argChooseLanguageAutos  a comma separated list of languages to add
-	 */
-	public void setChooseLanguageAutos(final String argChooseLanguageAutos)
-	{
-		chooseLanguageAutos = argChooseLanguageAutos;
-	}
-
-	/**
-	 * Get a list of languages that the character this Template is applied to
-	 * automatically knows.
-	 *
-	 * @return  a comma separated list of languages automatically known
-	 */
-	public String getChooseLanguageAutos()
-	{
-		return chooseLanguageAutos;
-	}
-
-	/**
-	 * Adds one chosen language.
-	 *
-	 * @param  flag
-	 * @param  aPC
-	 */
-	void chooseLanguageAutos(final boolean flag, final PlayerCharacter aPC)
-	{
-		if (!flag && !"".equals(chooseLanguageAutos))
-		{
-			final List<Language> selectedList; // selected list of choices
-
-			final ChooserInterface c = ChooserFactory.getChooserInstance();
-			c.setTotalChoicesAvail(1);
-			c.setPoolFlag(false);
-			c.setTitle("Pick a Language: ");
-
-			Set<Language> list = LanguageSupport.getLanguagesFromString(chooseLanguageAutos);
-			c.setAvailableList(new ArrayList<Language>(list));
-			c.setVisible(true);
-			selectedList = c.getSelectedList();
-
-			if ((selectedList != null) && (selectedList.size() != 0))
-			{
-				aPC.addFreeLanguage(selectedList.get(0));
-			}
-		}
 	}
 
 	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>> theAbilities = new DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>>();

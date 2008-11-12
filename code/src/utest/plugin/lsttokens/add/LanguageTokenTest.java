@@ -91,4 +91,9 @@ public class LanguageTokenTest extends
 		return false;
 	}
 
+	@Override
+	public boolean allowsFormula()
+	{
+		return true;
+	}
 }
