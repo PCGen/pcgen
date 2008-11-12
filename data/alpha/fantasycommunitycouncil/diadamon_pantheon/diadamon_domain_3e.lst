@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Wed Nov 12 16:36:35 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/
+
+# Domain Name	Class Skill			Description
+Passage.MOD		CSKILL:Intuit Direction	DESC:Intuit Direction is a class skill.

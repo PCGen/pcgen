@@ -1,11 +1,11 @@
 # CVS $Revision$ $Author$ -- Fri Sep 16 09:17:31 2005 -- reformated by prettylst.pl v1.35 (build 469)
-CAMPAIGN:FanCC - Diadamon Pantheon
+CAMPAIGN:Fantasy Community Council - Diadamon Pantheon
 RANK:6
-GAMEMODE:35e
+GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
-TYPE:Fantasy Community Council.Diadamon Pantheon
+TYPE:FanCC.Diadamon Pantheon
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Fantasy Community Council
 PUBNAMESHORT:FanCC
@@ -24,8 +24,9 @@ COPYRIGHT:PCGen dataset conversion for Diadamon Pantheon Copyright 2005, PCgen D
 DEITY:diadamon_deity.lst
 DOMAIN:diadamon_domain.lst
 FEAT:diadamon_feat.lst
-SKILL:diadamon_skill.lst
 SPELL:diadamon_spell.lst
 WEAPONPROF:diadamon_prof_weapon.lst
 
-DEITY:diadamon_deity_35e.lst
+DEITY:diadamon_deity_3e.lst
+FEAT:diadamon_feat_3e.lst
+DOMAIN:diadamon_domain_3e.lst
