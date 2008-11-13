@@ -1,17 +1,15 @@
 # CVS $Revision$ $Author$ -- Sun Jul 30 05:38:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
-CAMPAIGN:Gunpowder Plots
+CAMPAIGN:Modern Medieval - Gunpowder Plots
 GAMEMODE:35e
 RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Modern Medieval
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Sword's Edge Publishing.Gunpowder Plots
+TYPE:Swords Edge Publishing.Modern Medieval
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PUBNAMELONG:Swords Edge Publishing
+PUBNAMELONG:Sword's Edge Publishing
 PUBNAMESHORT:SEP
-PUBNAMEWEB:http://www.swordsedgepublishing.ca
+PUBNAMEWEB:http://swordsedgepublishing.ca/
 SOURCELONG:Gunpowder Plots
 SOURCESHORT:GunPlots
 SOURCEWEB:http://www.enworld.org/shop/index.php?do=product&productid=1196

@@ -1,15 +1,13 @@
 # CVS $Revision$ $Author$ -- Sun Jul 30 05:42:48 2006 -- reformated by prettylst.pl v1.35 (build 565)
-CAMPAIGN:Gunpowder Plots
+CAMPAIGN:SEP - Gunpowder Plots
 GAMEMODE:Modern
 RANK:6
 GENRE:Historic
 BOOKTYPE:Supplement
 SETTING:Modern Medieval
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Sword's Edge Publishing.Gunpowder Plots
+TYPE:Swords Edge Publishing.Modern Medieval
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-PUBNAMELONG:Swords Edge Publishing
+PUBNAMELONG:Sword's Edge Publishing
 PUBNAMESHORT:SEP
 PUBNAMEWEB:http://www.swordsedgepublishing.ca
 SOURCELONG:Gunpowder Plots
@@ -25,14 +23,7 @@ COPYRIGHT:PCGen dataset conversion for Gunpowder Plots Copyright 2006, PCGen Dat
 
 EQUIPMENT:gunpowderplots_modern_equip_weap_ranged.lst
 
-###Relative Links, need to be changed when source graduates from Alpha
-
-EQUIPMENT:@/alpha/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_equip.lst
-EQUIPMENT:@/alpha/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_equip_weap_ranged.lst
-FEAT:@/alpha/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_feat.lst
-WEAPONPROF:@/alpha/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_weaponprof.lst
-
-#EQUIPMENT:@/d20ogl/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_equip.lst
-#EQUIPMENT:@/d20ogl/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_equip_weap_ranged.lst
-#FEAT:@/d20ogl/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_feat.lst
-#WEAPONPROF:@/d20ogl/swordsedgepublishing/modernmedieval/gunpowderplots/gunpowderplots_weaponprof.lst
+EQUIPMENT:../gunpowderplots_equip.lst
+EQUIPMENT:../gunpowderplots_equip_weap_ranged.lst
+FEAT:../gunpowderplots_feat.lst
+WEAPONPROF:../gunpowderplots_weaponprof.lst
