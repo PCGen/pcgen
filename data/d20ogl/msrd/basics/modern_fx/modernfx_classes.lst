@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 15:55:27 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Nov 12 19:29:06 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -127,6 +127,11 @@ CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	B
 8	CAST:4,4,3,3,2	BONUS:ABILITYPOOL|Spell Mastery|1
 9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Mage Feat|1
 10	CAST:4,4,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Maximize Spell
+
+
+# Class Name
+CLASS:Dragon (True).MOD
+13	ADD:SPELLCASTER|1|Mage
 
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus						Modify VAR

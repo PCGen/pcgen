@@ -62,7 +62,7 @@ CLASS:Dragon (True)	OUTPUTNAME:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:msrdcreatur
 CLASS:Dragon (True)	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon (True)	STARTSKILLPTS:6	MODTOSKILLS:YES
-13								ADD:SPELLCASTER|1|Mage
+#13								ADD:SPELLCASTER|1|Mage - This reference now .MODed from modernfx_classes.lst
 16:REPEATLEVEL:3|0|40	BONUS:PCLEVEL|Mage|1
 
 # Class Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					Bonus Number of Feats		Modify VAR
