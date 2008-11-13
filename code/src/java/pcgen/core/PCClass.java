@@ -1437,7 +1437,7 @@ public class PCClass extends PObject
 
 		if (level == 1)
 		{
-			if (level > curLevel)
+			if (level > curLevel || aPC.isImporting())
 			{
 				addFeatPoolBonus(aPC);
 			}
