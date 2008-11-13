@@ -105,7 +105,7 @@ public class TransitionChoice<T>
 		Set<T> allowed = new HashSet<T>();
 		for (T o : set)
 		{
-			if (choiceActor.allow(o, pc, allowStack))
+			if (choiceActor == null || choiceActor.allow(o, pc, allowStack))
 			{
 				if (stackLimit != null && stackLimit > 0)
 				{
