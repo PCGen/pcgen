@@ -928,7 +928,10 @@ final class PCGVer2Creator implements IOConstants
 			{
 				for (final BonusObj save : list)
 				{
-					specials.put(key, "BONUS|" + save);
+					if (save.saveToPCG())
+					{
+						specials.put(key, "BONUS|" + save);
+					}
 				}
 			}
 			for (int i = 1; i <= pcClass.getLevel(); i++)
@@ -938,7 +941,10 @@ final class PCGVer2Creator implements IOConstants
 				{
 					for (final BonusObj save : list)
 					{
-						specials.put(key, "BONUS|" + save);
+						if (save.saveToPCG())
+						{
+							specials.put(key, "BONUS|" + save);
+						}
 					}
 				}
 			}
@@ -1465,9 +1471,12 @@ final class PCGVer2Creator implements IOConstants
 				{
 					for (final BonusObj save : list)
 					{
-						buffer.append('|');
-						buffer.append(TAG_SAVE).append(':');
-						buffer.append(EntityEncoder.encode("BONUS|" + save));
+						if (save.saveToPCG())
+						{
+							buffer.append('|');
+							buffer.append(TAG_SAVE).append(':');
+							buffer.append(EntityEncoder.encode("BONUS|" + save));
+						}
 					}
 				}
 

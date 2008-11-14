@@ -72,6 +72,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private String  stringRepresentation = null;
 	private boolean addOnceOnly          = false;
 	private String tokenSource = null;
+	private boolean saveToPCG = true;
 
 	/** An enum for the possible stacking modifiers a bonus can have */
 	public enum StackType {
@@ -1117,6 +1118,15 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		// TODO Auto-generated method stub
 		return super.hashCode();
 	}
+
+	public void setSaveToPCG(boolean b)
+	{
+		saveToPCG = b;
+	}
 	
+	public boolean saveToPCG()
+	{
+		return saveToPCG;
+	}
 	
 }
