@@ -84,10 +84,10 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		return tokenMap.values(cl);
 	}
 
-	public <U, T extends CDOMSubToken<U>> void putSubToken(T tok)
+	public <U, T extends CDOMSubToken<U>> CDOMSubToken<U> putSubToken(T tok)
 	{
-		subTokenMap.put(tok.getTokenClass(), tok.getParentToken(), tok
-				.getTokenName(), tok);
+		return (CDOMSubToken<U>) subTokenMap.put(tok.getTokenClass(), tok
+				.getParentToken(), tok.getTokenName(), tok);
 	}
 
 	public <T> CDOMSubToken<T> getSubToken(Class<? extends T> cl, String token,

@@ -21,6 +21,7 @@
 package gmgen.pluginmgr;
 
 import gmgen.util.MiscUtilities;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreMultParser;
@@ -88,7 +89,10 @@ public class PluginLoader
 				jar.getClassLoader().startAllPlugins(system);
 			}
 			loadedMap.put(system, system);
-			TokenLibrary.addToTokenMap(new PreMultParser());
+			if (system.equals(Constants.s_SYSTEM_TOKENS))
+			{
+				TokenLibrary.addToTokenMap(new PreMultParser());
+			}
 		}
 	}
 

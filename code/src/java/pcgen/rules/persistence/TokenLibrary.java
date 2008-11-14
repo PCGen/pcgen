@@ -36,6 +36,7 @@ import pcgen.rules.persistence.token.ClassWrappedToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.PreCompatibilityToken;
 import pcgen.rules.persistence.util.TokenFamily;
+import pcgen.util.Logging;
 
 public class TokenLibrary
 {
@@ -155,7 +156,12 @@ public class TokenLibrary
 		if (newToken instanceof CDOMPrimaryToken)
 		{
 			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;
-			TokenFamily.CURRENT.putToken(tok);
+			if (TokenFamily.CURRENT.putToken(tok) != null)
+			{
+				Logging.errorPrint("Duplicate "
+						+ tok.getTokenClass().getSimpleName()
+						+ " Token found for token " + tok.getTokenName());
+			}
 			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
 				addToTokenMap(new ClassWrappedToken(
@@ -164,7 +170,14 @@ public class TokenLibrary
 		}
 		if (newToken instanceof CDOMSecondaryToken)
 		{
-			TokenFamily.CURRENT.putSubToken((CDOMSecondaryToken<?>) newToken);
+			CDOMSecondaryToken<?> tok = (CDOMSecondaryToken<?>) newToken;
+			if (TokenFamily.CURRENT.putSubToken(tok) != null)
+			{
+				Logging.errorPrint("Duplicate "
+						+ tok.getTokenClass().getSimpleName()
+						+ " Token found for token " + tok.getParentToken()
+						+ ":" + tok.getTokenName());
+			}
 		}
 //		if (newToken instanceof ChoiceSetToken)
 //		{
@@ -182,12 +195,35 @@ public class TokenLibrary
 				 */
 				PreCompatibilityToken pos = new PreCompatibilityToken(s,
 						prereqToken, false);
-				TokenFamily.CURRENT.putToken(pos);
+				if (TokenFamily.CURRENT.putToken(pos) != null)
+				{
+					Logging.errorPrint("Duplicate "
+							+ pos.getTokenClass().getSimpleName()
+							+ " Token found for token " + pos.getTokenName());
+				}
+				if (TokenFamily.CURRENT.putSubToken(pos) != null)
+				{
+					Logging.errorPrint("Duplicate "
+							+ pos.getTokenClass().getSimpleName()
+							+ " Token found for token " + pos.getParentToken()
+							+ ":" + pos.getTokenName());
+				}
 				TokenFamily.CURRENT.putSubToken(pos);
 				PreCompatibilityToken neg = new PreCompatibilityToken(s,
 						prereqToken, true);
-				TokenFamily.CURRENT.putToken(neg);
-				TokenFamily.CURRENT.putSubToken(neg);
+				if (TokenFamily.CURRENT.putToken(neg) != null)
+				{
+					Logging.errorPrint("Duplicate "
+							+ neg.getTokenClass().getSimpleName()
+							+ " Token found for token " + neg.getTokenName());
+				}
+				if (TokenFamily.CURRENT.putSubToken(neg) != null)
+				{
+					Logging.errorPrint("Duplicate "
+							+ neg.getTokenClass().getSimpleName()
+							+ " Token found for token " + neg.getParentToken()
+							+ ":" + neg.getTokenName());
+				}
 			}
 		}
 		if (newToken instanceof CDOMCompatibilityToken)
@@ -195,7 +231,16 @@ public class TokenLibrary
 			CDOMCompatibilityToken<?> tok = (CDOMCompatibilityToken<?>) newToken;
 			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(),
 					tok.compatibilitySubLevel(), tok.compatibilityPriority());
-			fam.putToken(tok);
+			if (fam.putToken(tok) != null)
+			{
+				Logging.errorPrint("Duplicate "
+						+ tok.getTokenClass().getSimpleName()
+						+ " Compatibility Token found for token "
+						+ tok.getTokenName() + " at compatibility level "
+						+ tok.compatibilityLevel() + "."
+						+ tok.compatibilitySubLevel() + "."
+						+ tok.compatibilityPriority());
+			}
 			TOKEN_FAMILIES.add(fam);
 			if (fam.compareTo(TokenFamily.REV514) <= 0
 					&& PCCLASS_CLASS.equals(tok.getTokenClass()))
