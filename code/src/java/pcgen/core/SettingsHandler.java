@@ -235,6 +235,9 @@ public final class SettingsHandler
 	//
 	private static boolean showNatWeaponTab = false;
 
+	private static String hiddenSources = ""; //$NON-NLS-1$
+	private static String quickLaunchSources = ""; //$NON-NLS-1$
+	
 	public static void setAbilitiesShownAsATab(final boolean showAbilitiesAsTab)
 	{
 		abilitiesShownAsTab = showAbilitiesAsTab;
@@ -1167,6 +1170,7 @@ public final class SettingsHandler
 		setGrittyACMode(getPCGenOption("grittyACMode", false)); //$NON-NLS-1$
 		setGUIUsesOutputNameEquipment(getPCGenOption("GUIUsesOutputNameEquipment", false)); //$NON-NLS-1$
 		setGUIUsesOutputNameSpells(getPCGenOption("GUIUsesOutputNameSpells", false)); //$NON-NLS-1$
+		setHiddenSources(getPCGenOption("hiddenSources", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setHideMonsterClasses(getPCGenOption("hideMonsterClasses", false)); //$NON-NLS-1$
 		setHPMaxAtFirstLevel(getPCGenOption("hpMaxAtFirstLevel", true)); //$NON-NLS-1$
 		setHPMaxAtFirstClassLevel(getPCGenOption("hpMaxAtFirstClassLevel", false)); //$NON-NLS-1$
@@ -1214,6 +1218,7 @@ public final class SettingsHandler
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
 		setPrereqQualifyColor(getPCGenOption("prereqQualifyColor", Color.black.getRGB())); //$NON-NLS-1$
 		setPreviewTabShown(getPCGenOption("previewTabShown", true)); //$NON-NLS-1$
+		setQuickLaunchSources(getPCGenOption("quickLaunchSources", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setRaceTab_ListMode(getPCGenOption("RaceTab.ListMode", GuiConstants.INFORACE_VIEW_NAME)); //$NON-NLS-1$
 		setRanStartingWizard(getPCGenOption("ranStartingWizard", false)); //$NON-NLS-1$
 		setROG(getPCGenOption("isROG", false)); //$NON-NLS-1$
@@ -1639,6 +1644,8 @@ public final class SettingsHandler
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("debugFeats", debugFeats); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages());
+		setPCGenOption("hiddenSources", getHiddenSources());
+		setPCGenOption("quickLaunchSources", getQuickLaunchSources());
 	}
 
 	public static void setPCGenOption(final String optionName, final int optionValue)
@@ -3494,5 +3501,37 @@ public final class SettingsHandler
 	public static void setOutputDeprecationMessages(boolean b)
 	{
 		outputDeprecationMessages = b;
+	}
+
+	/**
+	 * @return the hiddenSources
+	 */
+	public static String getHiddenSources()
+	{
+		return hiddenSources;
+	}
+
+	/**
+	 * @param hiddenSources the hiddenSources to set
+	 */
+	public static void setHiddenSources(String hiddenSources)
+	{
+		SettingsHandler.hiddenSources = hiddenSources;
+	}
+
+	/**
+	 * @return the quickLaunchSources
+	 */
+	public static String getQuickLaunchSources()
+	{
+		return quickLaunchSources;
+	}
+
+	/**
+	 * @param quickLaunchSources the quickLaunchSources to set
+	 */
+	public static void setQuickLaunchSources(String quickLaunchSources)
+	{
+		SettingsHandler.quickLaunchSources = quickLaunchSources;
 	}
 }
