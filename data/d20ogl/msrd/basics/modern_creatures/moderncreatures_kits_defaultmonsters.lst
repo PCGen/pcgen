@@ -133,7 +133,7 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 RACE:Golem (Flesh)	!PRERACE:1,%
 NAME:Flesh Golem
 
-STARTPACK:Golem (Advanced Flesh) Default	TYPE:DefaultMonster.	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
+STARTPACK:Golem (Advanced Flesh) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Flesh)]
 KIT:Golem (Flesh) Default
 STAT:STR=19|DEX=9|CON=10|INT=10|WIS=11|CHA=11
 CLASS:Construct	LEVEL:11
