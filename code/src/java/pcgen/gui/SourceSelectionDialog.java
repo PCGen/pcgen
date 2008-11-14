@@ -25,30 +25,37 @@ package pcgen.gui;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import java.awt.Rectangle;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
 
+import org.apache.commons.lang.ArrayUtils;
+
+import pcgen.base.lang.StringUtil;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -69,16 +76,18 @@ import pcgen.util.PropertyFactory;
  * @version $Revision:  $
  */
 @SuppressWarnings("serial")
-public class SourceSelectionDialog extends javax.swing.JDialog implements
+public class SourceSelectionDialog extends JDialog implements
 		ActionListener
 {
 
 	private static final String ACTION_CANCEL = "cancel";
 	private static final String ACTION_LOAD = "load";
-	private static final String ACTION_REMOVE = "remove";
+	private static final String ACTION_HIDE = "hide";
+	private static final String ACTION_UNHIDE = "unhide";
 	private static final String ACTION_ADD = "add";
 	
 	private JList sourceList;
+	private DefaultListModel sourceModel;
 	private Map<String, List<String>> nameToSourceMap = new HashMap<String, List<String>>();
 	private Map<String, String> nameToGameModeMap = new HashMap<String, String>();
 
@@ -93,6 +102,7 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 		super(parent, modal);
 		setTitle(PropertyFactory.getString("in_qsrc_title"));
 		initComponents();
+		setLocationRelativeTo(parent); // centre on parent
 	}
 
 	/**
@@ -115,22 +125,13 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 		getContentPane().add(jLabel1, gbc);
 
 		sourceList = new javax.swing.JList();
-		sourceList.setModel(new javax.swing.AbstractListModel()
+		sourceModel = new DefaultListModel();
+		List<String> strings = getSourceNames();
+		for (String string : strings)
 		{
-			String[] strings = getSourceNames();
-
-			//{ "SRD 3.0\nfor Players", "SRD 3.0 for Game Masters (includes Monsters)<br>111222333 111222333", "SRD 3.5 for Players", "SRD 3.5 for Game Masters (includes Monsters)", "MSRD" };
-
-			public int getSize()
-			{
-				return strings.length;
-			}
-
-			public Object getElementAt(int i)
-			{
-				return strings[i];
-			}
-		});
+			sourceModel.addElement(string);
+		}
+		sourceList.setModel(sourceModel);
 		sourceList
 			.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		sourceList.setLayoutOrientation(JList.VERTICAL_WRAP);
@@ -139,7 +140,7 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 		JScrollPane listScrollPane = new JScrollPane(sourceList);
 		listScrollPane.setPreferredSize(new Dimension(480, 240));
 
-		Utility.buildRelativeConstraints(gbc, 1, 2, 100, 100,
+		Utility.buildRelativeConstraints(gbc, 1, 3, 100, 100,
 			GridBagConstraints.BOTH, GridBagConstraints.WEST);
 		getContentPane().add(listScrollPane, gbc);
 
@@ -150,13 +151,19 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		getContentPane().add(addButton, gbc);
 
-		JButton removeButton =
-				new JButton(PropertyFactory.getString("in_remove"));
-		removeButton.setActionCommand(ACTION_REMOVE);
-		removeButton.setEnabled(false);
+		JButton hideButton =
+				new JButton(PropertyFactory.getString("in_hide"));
+		hideButton.setActionCommand(ACTION_HIDE);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
-		getContentPane().add(removeButton, gbc);
+		getContentPane().add(hideButton, gbc);
+
+		JButton unhideButton =
+				new JButton(PropertyFactory.getString("in_unhide"));
+		unhideButton.setActionCommand(ACTION_UNHIDE);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
+		getContentPane().add(unhideButton, gbc);
 
 		JButton loadButton = new JButton(PropertyFactory.getString("in_load"));
 		loadButton.setActionCommand(ACTION_LOAD);
@@ -173,7 +180,8 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 
 		//Listen for actions on the buttons
 		addButton.addActionListener(this);
-		removeButton.addActionListener(this);
+		hideButton.addActionListener(this);
+		unhideButton.addActionListener(this);
 		loadButton.addActionListener(this);
 		cancelButton.addActionListener(this);
 
@@ -187,7 +195,7 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 	 * 
 	 * @return the source names
 	 */
-	private String[] getSourceNames()
+	private List<String> getSourceNames()
 	{
 		List<String> names = new ArrayList<String>();
 		nameToSourceMap.clear();
@@ -217,8 +225,37 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 			}
 		}
 		
+		// Hide the names of any hidden sources
+		String hiddenSources = SettingsHandler.getHiddenSources();
+		String[] hiddenSourceNames = hiddenSources.split("\\|"); 
+		for (String name : hiddenSourceNames)
+		{
+			names.remove(name);
+		}
+		
+		// Order according to the saved prefs
+		List<String> finalNames = new ArrayList<String>();
+		String prefs = SettingsHandler.getQuickLaunchSources();
+		String[] prefNames = prefs.split("\\|"); 
+		for (String sourceName : prefNames)
+		{
+			if (names.contains(sourceName))
+			{
+				names.remove(sourceName);
+				finalNames.add(sourceName);
+			}
+		}
+		
+		// Add any new items
 		Collections.sort(names);
-		return names.toArray(new String[]{});
+		for (String sourceName : names)
+		{
+			finalNames.add(sourceName);
+		}
+		String newPrefs = StringUtil.join(finalNames, "|");
+		SettingsHandler.setQuickLaunchSources(newPrefs);
+		
+		return finalNames;
 	}
 
 	/* (non-Javadoc)
@@ -238,9 +275,13 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 		{
 			//TODO
 		}
-		else if (ACTION_REMOVE.equals(e.getActionCommand()))
+		else if (ACTION_HIDE.equals(e.getActionCommand()))
 		{
-			//TODO
+			hideButtonAction();
+		}
+		else if (ACTION_UNHIDE.equals(e.getActionCommand()))
+		{
+			unhideButtonAction();
 		}
 	}
 
@@ -289,58 +330,50 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 		this.dispose();
 	}
 
-	/**
-	 * Overrides the default setVisible method to position the window. 
-	 *
-	 * @param visible true to show the dialog, false to hide it.
-	 */
-	public void setVisible(boolean visible)
+	private void hideButtonAction()
 	{
-		if (visible)
+		int selIndex = sourceList.getSelectedIndex();
+		// verify a source is selected
+		if (selIndex < 0)
 		{
-			Window owner = getOwner();
-			Rectangle ownerBounds = owner.getBounds();
-			Rectangle bounds = getBounds();
-	
-			int width = (int) bounds.getWidth();
-			int height = (int) bounds.getHeight();
-	
-			setBounds(
-				(int) (owner.getX() + ((ownerBounds.getWidth() - width) / 2)),
-				(int) (owner.getY() + ((ownerBounds.getHeight() - height) / 2)),
-				width, height);
+			return;
 		}
-		
-		super.setVisible(visible);
-	}
-	/**
-	 * Testing main entry point
-	 * 
-	 * @param args the command line arguments
-	 */
-	public static void main(String args[])
-	{
-		java.awt.EventQueue.invokeLater(new Runnable()
+
+		String sourceTitle = (String) sourceList.getSelectedValue();
+		sourceModel.remove(selIndex);
+		if (selIndex < sourceModel.getSize())
 		{
+			sourceList.setSelectedIndex(selIndex);
+		}
+		String hiddenSources = SettingsHandler.getHiddenSources();
+		if (hiddenSources.length() > 0)
+		{
+			hiddenSources += "|";
+		}
+		hiddenSources += sourceTitle;
+		SettingsHandler.setHiddenSources(hiddenSources);
+		
+		rebuildQuickSourcePrefsString();
+	}
 
-			public void run()
-			{
-				SourceSelectionDialog dialog =
-						new SourceSelectionDialog(new javax.swing.JFrame(),
-							true);
-				dialog.addWindowListener(new java.awt.event.WindowAdapter()
-				{
+	/**
+	 * Rebuild the list of quick launch sources and store it to preferences.
+	 */
+	void rebuildQuickSourcePrefsString()
+	{
+		String prefsString = "";
+		for (int i=0;i<sourceModel.getSize(); i++)
+		{
+			String value = (String) sourceModel.get(i);
+			prefsString += (i > 0 ? "|" : "") + value; 
+		}
+		SettingsHandler.setQuickLaunchSources(prefsString);
+	}
 
-					public void windowClosing(java.awt.event.WindowEvent e)
-					{
-						System.exit(0);
-					}
-
-				});
-				dialog.setVisible(true);
-			}
-
-		});
+	private void unhideButtonAction()
+	{
+		UnhideDialog dialog = new UnhideDialog((Frame) this.getParent(), true, sourceModel);
+		dialog.setVisible(true);
 	}
 
 	/**
@@ -371,6 +404,124 @@ public class SourceSelectionDialog extends javax.swing.JDialog implements
 			setContentAreaFilled(isSelected);
 			setSelected(isSelected);
 			return this;
+		}
+
+	}
+	
+	/**
+	 * Dialog to allow hidden sources to be selected and shown again.
+	 */
+	private class UnhideDialog extends JDialog implements ActionListener
+	{
+		private static final String ACTION_OK = "OK";
+		
+		DefaultListModel sourcesList;
+		JList hiddenList;
+		
+		/**
+		 * Creates new form SourceSelectionDialog.
+		 * 
+		 * @param parent the parent dialog or window.
+		 * @param modal Should the dialog block the program
+		 */
+		public UnhideDialog(Frame parent, boolean modal, DefaultListModel sourcesList)
+		{
+			super(parent, modal);
+			setTitle(PropertyFactory.getString("in_qsrc_unhide_title"));
+			this.sourcesList = sourcesList;
+			initComponents();
+			setLocationRelativeTo(parent); // centre on parent
+		}
+
+		/**
+		 * Create the dialog's user interface
+		 */
+		private void initComponents()
+		{
+			setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+			getContentPane().setLayout(new java.awt.GridBagLayout());
+
+			GridBagConstraints gbc = new GridBagConstraints();
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			gbc.anchor = GridBagConstraints.WEST;
+			gbc.insets = new Insets(4, 4, 4, 4);
+
+			hiddenList = new javax.swing.JList();
+			hiddenList.setModel(new javax.swing.AbstractListModel()
+			{
+				String[] strings = getHiddenSourceNames();
+
+				public int getSize()
+				{
+					return strings.length;
+				}
+
+				public Object getElementAt(int i)
+				{
+					return strings[i];
+				}
+
+				private String[] getHiddenSourceNames()
+				{
+					String hiddenSources = SettingsHandler.getHiddenSources();
+					String[] names =  hiddenSources.split("\\|");
+					Arrays.sort(names);
+					return names;
+				}
+			});
+			hiddenList
+				.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+			JScrollPane listScrollPane = new JScrollPane(hiddenList);
+
+			Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 100, 100,
+				GridBagConstraints.BOTH, GridBagConstraints.WEST);
+			getContentPane().add(listScrollPane, gbc);
+
+			JPanel buttonPanel = new JPanel();
+			buttonPanel.setLayout(new FlowLayout());
+			JButton okButton = new JButton(PropertyFactory.getString("in_ok"));
+			okButton.setActionCommand(ACTION_OK);
+			getRootPane().setDefaultButton(okButton);
+			buttonPanel.add(okButton);
+
+			JButton cancelButton =
+					new JButton(PropertyFactory.getString("in_cancel"));
+			cancelButton.setActionCommand(ACTION_CANCEL);
+			buttonPanel.add(cancelButton);
+
+			Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
+				GridBagConstraints.NONE, GridBagConstraints.EAST);
+			getContentPane().add(buttonPanel, gbc);
+
+			//Listen for actions on the buttons
+			okButton.addActionListener(this);
+			cancelButton.addActionListener(this);
+
+			pack();
+		}
+		
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
+		public void actionPerformed(ActionEvent e)
+		{
+			if (ACTION_OK.equals(e.getActionCommand()))
+			{
+				String hiddenSources = SettingsHandler.getHiddenSources();
+				String[] hiddenSourceNames = hiddenSources.split("\\|");
+				
+				Object[] selectedSourceNames = hiddenList.getSelectedValues();
+				for (Object name : selectedSourceNames)
+				{
+					hiddenSourceNames = (String[]) ArrayUtils.removeElement(hiddenSourceNames, name);
+					sourceModel.addElement(name);
+				}
+				String newHiddenSources = StringUtil.join(hiddenSourceNames, "|");
+				SettingsHandler.setHiddenSources(newHiddenSources);
+				rebuildQuickSourcePrefsString();
+			}
+			setVisible(false);
+			this.dispose();
 		}
 
 	}
