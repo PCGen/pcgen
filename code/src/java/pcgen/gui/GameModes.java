@@ -26,11 +26,7 @@ package pcgen.gui;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.*;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.Utility;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -39,7 +35,6 @@ import javax.swing.JMenu;
 import javax.swing.JRadioButtonMenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URI;
 import java.util.*;
 
 /**
