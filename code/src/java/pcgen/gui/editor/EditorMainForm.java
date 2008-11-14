@@ -63,6 +63,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -1547,14 +1548,17 @@ public final class EditorMainForm extends JDialog
 					availableRaceVirtualFeatList.add(anAbility.getKeyName());
 				}
 
-				for (Iterator<String> e = ((Race) thisPObject).getAbilityKeys(null, AbilityCategory.FEAT, Ability.Nature.VIRTUAL).iterator(); e.hasNext();)
+				Collection<CDOMReference<Ability>> mods = thisPObject.getListMods(AbilityList.getAbilityListReference(AbilityCategory.FEAT, Ability.Nature.VIRTUAL));
+				if (mods != null)
 				{
-					String featName = e.next();
-
-					if (!selectedRaceVirtualFeatList.contains(featName))
+					for (CDOMReference<Ability> ref : mods)
 					{
-						availableRaceVirtualFeatList.remove(featName);
-						selectedRaceVirtualFeatList.add(featName);
+						String featName = ref.getLSTformat();
+						if (!selectedRaceVirtualFeatList.contains(featName))
+						{
+							availableRaceVirtualFeatList.remove(featName);
+							selectedRaceVirtualFeatList.add(featName);
+						}
 					}
 				}
 

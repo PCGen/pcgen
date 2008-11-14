@@ -30,7 +30,6 @@ package pcgen.core;
 
 import gmgen.pluginmgr.PluginLoader;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.Test;
@@ -39,7 +38,6 @@ import junit.textui.TestRunner;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -187,26 +185,5 @@ public class EquipmentModifierTest extends PCGenTestCase
 		assertEquals("-2", aBonus.getValue());
 		final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
 		assertEquals("%CHOICE", prereq.getKey());
-	}
-	
-	/**
-	 * Test the processing of an ability tag associated with an EqMod.
-	 */
-	public void testAbility()
-	{
-		final EquipmentModifier eqMod = new EquipmentModifier();
-		final Ability ability = new Ability();
-		ability.setCDOMCategory(AbilityCategory.FEAT);
-		ability.setName("EqModTest");
-		eqMod.addAbility(AbilityCategory.FEAT, Nature.VIRTUAL,
-			new QualifiedObject<String>(ability.getKeyName(),
-				new ArrayList<Prerequisite>()));
-		List<String> keys =
-				eqMod
-					.getAbilityKeys(null, AbilityCategory.FEAT, Nature.VIRTUAL);
-		assertEquals("Added ability should be only one in the list",
-			"EqModTest", keys.get(0));
-		assertEquals("Added ability should be only one in the list", 1, keys
-			.size());
 	}
 }

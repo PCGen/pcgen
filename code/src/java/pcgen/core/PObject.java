@@ -39,7 +39,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -66,8 +65,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 /**
  * <code>PObject</code><br>
@@ -1514,105 +1511,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public SpellSupport getSpellSupport()
 	{
 		return spellSupport;
-	}
-
-	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>> theAbilities = new DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>>();
-	
-	public void addAbility(final AbilityCategory aCategory, final Ability.Nature aNature, final QualifiedObject<String> anAbility)
-	{
-		List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
-		if ( abilities == null )
-		{
-			abilities = new ArrayList<QualifiedObject<String>>();
-			theAbilities.put(aCategory, aNature, abilities);
-		}
-		abilities.add(anAbility);
-	}
-	
-	/**
-	 * @param aCategory
-	 * @param aNature
-	 * @return List<QualifiedObject<String>>
-	 * 
-	 * Returns a list of abilities for specific a specific category and nature
-	 */
-	public List<QualifiedObject<String>> getRawAbilityObjects(
-		final AbilityCategory aCategory, final Ability.Nature aNature)
-	{
-		List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
-		if ( abilities == null )
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(theAbilities.get(aCategory, aNature));
-	}
-	
-	public boolean removeAbility(final AbilityCategory aCategory,
-		final Ability.Nature aNature, QualifiedObject<String> qo)
-	{
-		List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
-		return abilities != null && abilities.remove(qo);
-	}
-	
-	public List<String> getAbilityKeys(final PlayerCharacter aPC,
-		final AbilityCategory aCategory, final Ability.Nature aNature)
-	{
-		final List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
-		if ( abilities == null )
-		{
-			return Collections.emptyList();
-		}
-		final List<String> ret = new ArrayList<String>(abilities.size());
-		for ( final QualifiedObject<String> str : abilities )
-		{
-			if ( str.qualifies(aPC) )
-			{
-				ret.add(str.getObject(aPC));
-			}
-		}
-		return ret;
-	}
-	
-	/**
-	 * @return The ability categories as a List
-	 *
-	 */
-	public List<AbilityCategory> getAbilityCategories()
-	{
-		
-		if ( theAbilities == null )
-		{
-			return new ArrayList<AbilityCategory>();
-		}
-		final List<AbilityCategory> abList = new ArrayList<AbilityCategory>();
-		final Set<AbilityCategory> keys = theAbilities.getKeySet();
-		
-		for(AbilityCategory ab: keys)
-		{
-			abList.add(ab);
-		}
-		
-		return Collections.unmodifiableList(abList);
-	}
-	
-	/**
-	 * @param category
-	 * @return Return the ability nature (enum) as a list.
-	 */
-	public List<Ability.Nature> getAbilityNatures(final AbilityCategory category)
-	{
-		if ( theAbilities == null || theAbilities.isEmpty() )
-		{
-			return new ArrayList<Ability.Nature>();
-		}
-		final Set<Ability.Nature> keys = theAbilities.getSecondaryKeySet(category);
-		final List<Ability.Nature>  abNature = new ArrayList<Ability.Nature>();	
-		
-		for(Ability.Nature nature: keys)
-		{
-			abNature.add(nature);
-		}
-		return Collections.unmodifiableList(abNature);
 	}
 
 	/**

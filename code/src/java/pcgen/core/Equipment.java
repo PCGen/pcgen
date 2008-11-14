@@ -56,6 +56,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -2885,10 +2886,10 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return true if it has virtual feats
 	 */
-	public boolean hasVFeats() {
-		final List<String> vFeats = getAbilityKeys(null, AbilityCategory.FEAT, Ability.Nature.VIRTUAL);
-
-		return (vFeats != null) && (vFeats.size() > 0);
+	public boolean hasVFeats()
+	{
+		return hasListMods(AbilityList.getAbilityListReference(
+				AbilityCategory.FEAT, Ability.Nature.VIRTUAL));
 	}
 
 	/**

@@ -66,8 +66,6 @@ import pcgen.cdom.list.DomainList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Ability.Nature;
-import pcgen.core.QualifiedObject.LevelAwareQualifiedObject;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
@@ -4327,46 +4325,6 @@ public class PCClass extends PObject
 			return -1;
 		}
 		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
-	}
-
-	public void removeAllAutoAbilites(final int alevel)
-	{
-		for (AbilityCategory category : getAbilityCategories())
-		{
-			for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(
-				getRawAbilityObjects(category, Nature.AUTOMATIC)))
-			{
-				if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
-				{
-					QualifiedObject.LevelAwareQualifiedObject<String> aqo =
-							(LevelAwareQualifiedObject<String>) qo;
-					if (aqo.level == level)
-					{
-						removeAbility(category, Nature.AUTOMATIC, qo);
-					}
-				}
-			}
-		}
-	}
-
-	public void removeAllVirtualAbilites(final int alevel)
-	{
-		for (AbilityCategory category : getAbilityCategories())
-		{
-			for (QualifiedObject<String> qo : new ArrayList<QualifiedObject<String>>(
-				getRawAbilityObjects(category, Nature.VIRTUAL)))
-			{
-				if (qo instanceof QualifiedObject.LevelAwareQualifiedObject)
-				{
-					QualifiedObject.LevelAwareQualifiedObject<String> aqo =
-							(LevelAwareQualifiedObject<String>) qo;
-					if (aqo.level == level)
-					{
-						removeAbility(category, Nature.VIRTUAL, qo);
-					}
-				}
-			}
-		}
 	}
 
 	SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();

@@ -29,7 +29,6 @@
 package pcgen.core;
 
 import java.awt.HeadlessException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -62,7 +61,6 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.StatToken;
@@ -923,28 +921,33 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		resToAcidOutputAuto.setAbilityNature(Nature.AUTOMATIC);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(human);
+		human = pc.getRace();
 		assertEquals("PC should now have a race of human", human, pc.getRace());
 
-		human.addAbility(specialAbilityCat, Ability.Nature.AUTOMATIC,
-			new QualifiedObject.LevelAwareQualifiedObject<String>(-9,
-					resToAcid.getKeyName(), new ArrayList<Prerequisite>()));
-		pc.setDirty(true);
-		pc.calcActiveBonuses();
-		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
-		assertNull("Character should not have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
-		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(human, "ABILITY", specialAbilityCat
+				.getKeyName()
+				+ "|AUTOMATIC|" + resToAcid.getKeyName());
+//		context.resolveReferences();
+//		pc.setDirty(true);
+//		pc.calcActiveBonuses();
+//		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
+//		assertNull("Character should not have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
+//		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
 
-		resToAcid.addAbility(specialAbilityCat, Ability.Nature.VIRTUAL,
-			new QualifiedObject.LevelAwareQualifiedObject<String>(-9,
-					resToAcidOutputVirt.getKeyName(), new ArrayList<Prerequisite>()));		
-		pc.setDirty(true);
-		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
-		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
-		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
+		context.unconditionallyProcess(resToAcid, "ABILITY", specialAbilityCat
+				.getKeyName()
+				+ "|VIRTUAL|" + resToAcidOutputVirt.getKeyName());
+//		context.resolveReferences();
+//		pc.setDirty(true);
+//		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
+//		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
+//		assertNull("Character should not have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
 
-		resToAcid.addAbility(specialAbilityCat, Ability.Nature.AUTOMATIC,
-			new QualifiedObject.LevelAwareQualifiedObject<String>(-9,
-					resToAcidOutputAuto.getKeyName(), new ArrayList<Prerequisite>()));		
+		context.unconditionallyProcess(resToAcid, "ABILITY", specialAbilityCat
+				.getKeyName()
+				+ "|AUTOMATIC|" + resToAcidOutputAuto.getKeyName());
+		context.resolveReferences();
 		pc.setDirty(true);
 		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
 		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));

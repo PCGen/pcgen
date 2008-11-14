@@ -4,27 +4,26 @@
  */
 package plugin.lsttokens;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PObject;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AutoLoader;
 import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class AutoLst implements GlobalLstToken
+public class AutoLst extends AbstractToken implements GlobalLstToken,
+		CDOMPrimaryToken<CDOMObject>
 {
 
-	/*
-	 * Template's LevelToken for AUTO:FEAT handled in
-	 * rebuildAggregateAbilityListWorker() ; other subtokens do not support
-	 * levels
-	 * 
-	 * TODO rebuildAggregateAbilityListWorker needs to be updated to use
-	 * getCDOMObjects() once this is new token (due to class levels)
-	 */
+	@Override
 	public String getTokenName()
 	{
 		return "AUTO";
@@ -41,5 +40,34 @@ public class AutoLst implements GlobalLstToken
 		String subKey = value.substring(0, barLoc);
 		return AutoLoader.parseLine(obj, subKey, value.substring(barLoc + 1),
 				anInt);
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
+	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		if (pipeLoc == -1)
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ " requires a SubToken");
+			return false;
+		}
+		String key = value.substring(0, pipeLoc);
+		return context.processSubToken(obj, getTokenName(), key, value
+				.substring(pipeLoc + 1));
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		return context.unparse(obj, getTokenName());
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

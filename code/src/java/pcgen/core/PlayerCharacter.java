@@ -7787,7 +7787,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addNaturalWeapons(final List<Equipment> weapons)
 	{
-		if (weapons == null)
+		if (weapons == null || weapons.isEmpty())
 		{
 			return;
 		}
@@ -17332,49 +17332,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Ability.Nature.AUTOMATIC));
 			List<PObject> pobjectList = getConditionalTemplateObjects();
 			pobjectList.addAll(getPObjectList());
-			//TODO pobjectList needs to be getCDOMObjects() once Ability & AUTO are new syntax
-			for (final PObject pobj : pobjectList)
-			{
-				for (AbilityCategory cat : pobj.getAbilityCategories())
-				{
-					for (Ability.Nature nature : pobj.getAbilityNatures(cat))
-					{
-						List<Ability> abilities = theAbilities.get(cat, nature);
-						final List<String> abilityKeys =
-								pobj.getAbilityKeys(this, cat, nature);
-						for (final String key : abilityKeys)
-						{
-							final Ability added =
-									AbilityUtilities
-										.addCloneOfGlobalAbilityToListWithChoices(
-											this, abilities, cat, key);
-							if (added != null)
-							{
-								added.setAbilityNature(nature);
-								for (CDOMReference<PCTemplate> ref : added
-									.getSafeListFor(ListKey.TEMPLATE))
-								{
-									templateList.addAll(ref
-										.getContainedObjects());
-								}
-								naturalWeaponsList.addAll(added
-									.getSafeListFor(ListKey.NATURAL_WEAPON));
-							}
-						}
-						// May have added templates, so scan for them
-						addTemplatesIfMissing(templateList);
-						addNaturalWeaponsIfMissing(naturalWeaponsList);
-					}
-				}
-				// Feats have a second list which we need to populate
-				stableAggregateFeatList = new ArrayList<Ability>();
-				stableAggregateFeatList.addAll(theAbilities.get(
+			// Feats have a second list which we need to populate
+			stableAggregateFeatList = new ArrayList<Ability>();
+			stableAggregateFeatList.addAll(theAbilities.get(
 					AbilityCategory.FEAT, Ability.Nature.NORMAL));
-				stableAggregateFeatList.addAll(theAbilities.get(
+			stableAggregateFeatList.addAll(theAbilities.get(
 					AbilityCategory.FEAT, Ability.Nature.AUTOMATIC));
-				stableAggregateFeatList.addAll(theAbilities.get(
+			stableAggregateFeatList.addAll(theAbilities.get(
 					AbilityCategory.FEAT, Ability.Nature.VIRTUAL));
-			}
 		}
 		cachedWeaponProfs = null;
 		rebuildFeatAggreagateList();
