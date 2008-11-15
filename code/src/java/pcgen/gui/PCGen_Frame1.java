@@ -3021,7 +3021,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	 * Set the character pane on the frame
 	 * @param theCharacterPane to set
 	 */
-	static void setCharacterPane(CharacterInfo theCharacterPane)
+	public static void setCharacterPane(CharacterInfo theCharacterPane)
 	{
 		PCGen_Frame1.characterPane = characterPane;
 	}

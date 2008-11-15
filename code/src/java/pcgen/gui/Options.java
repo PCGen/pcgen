@@ -21,6 +21,7 @@
 package pcgen.gui;
 
 import pcgen.core.Globals;
+import pcgen.gui.sources.SourceSelectionDialog;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;

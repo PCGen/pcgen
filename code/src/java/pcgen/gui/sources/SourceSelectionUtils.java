@@ -21,7 +21,7 @@
  * $Id: $
  */
 
-package pcgen.gui;
+package pcgen.gui.sources;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -33,6 +33,7 @@ import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.PCGen_Frame1;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;

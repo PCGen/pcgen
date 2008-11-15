@@ -96,6 +96,7 @@ import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.sources.SourceSelectionUtils;
 import pcgen.gui.tabs.InfoTabUtils;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.BrowserLauncher;
@@ -1327,7 +1328,7 @@ public class MainSource extends FilterAdapterPanel
 	 * being loaded.
 	 * @return The status that was replaced with the loading message.
 	 */
-	String showLoadingSources()
+	public String showLoadingSources()
 	{
 		sourcesLoaded = true;
 
@@ -1346,7 +1347,7 @@ public class MainSource extends FilterAdapterPanel
 	 * Update the display to indicate that the sources have completed loading.
 	 * @param statusMsg The status message that should be displayed.
 	 */
-	void showSourcesLoaded(final String statusMsg)
+	public void showSourcesLoaded(final String statusMsg)
 	{
 		PCGen_Frame1.enableDisableMenuItems();
 		PCGen_Frame1.setMessageAreaTextWithoutSaving(statusMsg);
@@ -1462,7 +1463,7 @@ public class MainSource extends FilterAdapterPanel
 		SourceSelectionUtils.unloadSources();
 	}
 
-	void campaignsUnloaded()
+	public void campaignsUnloaded()
 	{
 		sourcesLoaded = false;
 

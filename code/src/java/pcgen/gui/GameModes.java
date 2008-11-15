@@ -26,6 +26,7 @@ package pcgen.gui;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.*;
+import pcgen.gui.sources.SourceSelectionUtils;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -44,7 +45,7 @@ import java.util.*;
  * @author  Mario Bonassin
  * @version $Revision$
  */
-final class GameModes extends JMenu
+public final class GameModes extends JMenu
 {
 	static final long serialVersionUID = -6751569845505079621L;
 	private static String in_stdrdCampaign = PropertyFactory.getString("in_stdrdCampaign"); // Title for the standard campaign menu item
@@ -236,7 +237,7 @@ final class GameModes extends JMenu
 		}
 	}
 
-	void updateMenu()
+	public void updateMenu()
 	{
 		boolean bFound = false;
 

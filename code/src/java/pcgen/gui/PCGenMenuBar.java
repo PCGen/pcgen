@@ -62,7 +62,7 @@ import pcgen.util.PropertyFactory;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-final class PCGenMenuBar extends JMenuBar
+public final class PCGenMenuBar extends JMenuBar
 {
 	/** The PCGen window we are attached to. */
 	private final PCGen_Frame1 mainFrame;
@@ -830,7 +830,7 @@ final class PCGenMenuBar extends JMenuBar
 	/**
 	 * @return the gameModeMenu
 	 */
-	GameModes getGameModeMenu()
+	public GameModes getGameModeMenu()
 	{
 		return gameModeMenu;
 	}
