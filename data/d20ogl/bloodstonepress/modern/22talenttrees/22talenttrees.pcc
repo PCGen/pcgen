@@ -5,9 +5,7 @@ GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Generic
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Bloodstone Press
+TYPE:Bloodstone Press.D20 Modern
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Bloodstone Press
 PUBNAMESHORT:Bloodstone
@@ -15,6 +13,7 @@ PUBNAMEWEB:http://www.bloodstone-press.com/
 SOURCELONG:22 Talent Trees
 SOURCESHORT:22TT
 SOURCEWEB:http://www.bloodstone-press.com/22tt.html
+SOURCEDATE:2003-11
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.

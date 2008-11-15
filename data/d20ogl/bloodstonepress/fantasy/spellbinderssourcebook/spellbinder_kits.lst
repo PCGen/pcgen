@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Apr  1 13:15:14 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
+# CVS $Revision$ $Author$ -- Sat Nov 15 15:45:48 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html	SOURCEDATE:2004-02
 # Original Entry by: Eddy Anthony
 
 STARTPACK:War Pig Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,War Pig]	SOURCEPAGE:p.19

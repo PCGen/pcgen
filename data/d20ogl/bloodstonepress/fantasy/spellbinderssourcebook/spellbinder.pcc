@@ -1,13 +1,11 @@
 # CVS $Revision$ $Author$ -- Sat Feb  4 05:42:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
-CAMPAIGN:Bloodstone - Spellbinder's Sourcebook
+CAMPAIGN:Bloodstone Press - Spellbinder's Sourcebook
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:Bloodstone Press.Spellbinder's Sourcebook
+TYPE:Bloodstone Press.D20 Fantasy
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Bloodstone Press
 PUBNAMESHORT:Bloodstone
@@ -15,6 +13,7 @@ PUBNAMEWEB:http://www.bloodstone-press.com/
 SOURCELONG:Spellbinder's Sourcebook
 SOURCESHORT:Spellbinder
 SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
+SOURCEDATE:2004-02
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
