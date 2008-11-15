@@ -1,11 +1,11 @@
+# CVS $Revision$ $Author$ -- Sat Nov 15 08:53:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 
 
-ABILITYCATEGORY:Boyar Feat				TYPE:General.Metamagic.ItemCreation	PLURAL:Fighter Feats	CATEGORY:FEAT	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO										DISPLAYLOCATION:Feats
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Boyar Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:General.Metamagic.ItemCreation	PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
 #
-ABILITYCATEGORY:Herbalist Minor Poultice		TYPE:HerbalistMinor	PLURAL:Herbalist Minor Poultices	CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO										DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Herbalist Moderate Poultice	TYPE:HerbalistMod		PLURAL:Herbalist Moderate Poultices	CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO										DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Herbalist Major Poultice		TYPE:HerbalistMajor	PLURAL:Herbalist Major Poultices	CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO										DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Herbalist Minor Poultice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HerbalistMinor			PLURAL:Herbalist Minor Poultices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Herbalist Moderate Poultice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HerbalistMod				PLURAL:Herbalist Moderate Poultices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Herbalist Major Poultice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HerbalistMajor			PLURAL:Herbalist Major Poultices	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Lautar Song of Power		TYPE:LautaurSongs		PLURAL:Lautar Songs of Power		CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO										DISPLAYLOCATION:Class Abilities
-
-					
+ABILITYCATEGORY:Lautar Song of Power		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LautaurSongs				PLURAL:Lautar Songs of Power		DISPLAYLOCATION:Class Abilities
