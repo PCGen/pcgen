@@ -52,7 +52,7 @@ import java.util.StringTokenizer;
 /**
  * Main screen of the application. Some of the custom JPanels created
  * here also help intialise, for example
- * {@link pcgen.gui.MainSource} also loads any
+ * {@link pcgen.gui.sources.MainSource} also loads any
  * default campaigns.
  *
  * @author     Bryan McRoberts <merton_monk@users.sourceforge.net>

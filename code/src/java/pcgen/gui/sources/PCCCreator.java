@@ -16,7 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-package pcgen.gui;
+package pcgen.gui.sources;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

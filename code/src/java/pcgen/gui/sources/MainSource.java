@@ -24,7 +24,7 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.gui;
+package pcgen.gui.sources;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -91,11 +91,14 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.PersistenceObserver;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.sources.SourceSelectionUtils;
 import pcgen.gui.tabs.InfoTabUtils;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.BrowserLauncher;
@@ -471,7 +474,7 @@ public class MainSource extends FilterAdapterPanel
 	 * Create the html text content for the information label for a campaign
 	 * @param aCamp The campaign.
 	 */
-	static String buildInfoLabel(final Campaign aCamp)
+	public static String buildInfoLabel(final Campaign aCamp)
 	{
 		StringBuffer sb = new StringBuffer();
 		sb.append("<html><b>")

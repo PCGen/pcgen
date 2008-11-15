@@ -112,6 +112,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.filter.Filterable;
+import pcgen.gui.sources.MainSource;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.LinkableHtmlMessage;
 import pcgen.gui.utils.Utility;
@@ -125,7 +126,7 @@ import pcgen.util.enumeration.Tab;
 
 /**
  * Main screen of the application. Some of the custom JPanels created
- * here also help intialise, for example {@link pcgen.gui.MainSource} 
+ * here also help intialise, for example {@link pcgen.gui.sources.MainSource} 
  * also loads any default campaigns.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
