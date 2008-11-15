@@ -84,7 +84,6 @@ import pcgen.core.CampaignURL;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
 import pcgen.core.CampaignURL.URLKind;
@@ -1737,12 +1736,6 @@ public class MainSource extends FilterAdapterPanel
 		public void resetModel(int mode, boolean available, boolean newCall)
 		{
 		    final List<String> allowedModes = Globals.getAllowedGameModes();
-			PCGen_Frame1 mainFrame = PCGen_Frame1.getInst();
-			PlayerCharacter aPC = null;
-			if (mainFrame != null)
-			{
-				aPC = mainFrame.getCurrentPC();
-			}
 
 			List<Campaign> campList;
 
@@ -1769,7 +1762,7 @@ public class MainSource extends FilterAdapterPanel
 					for (Campaign camp : campList)
 					{
 						if (camp.isGameMode(allowedModes)
-							&& shouldDisplayThis(camp, aPC)
+							&& shouldDisplayThis(camp)
 							&& (available ^ selectedCampaigns.contains(camp)))
 						{
 							int typeCount = camp.getMyTypeCount();
@@ -1878,7 +1871,7 @@ public class MainSource extends FilterAdapterPanel
 								(PObjectNode) super.getRoot();
 
 						// filter out campaigns here
-						if (!shouldDisplayThis(aCamp, aPC)
+						if (!shouldDisplayThis(aCamp)
 							|| !aCamp.isGameMode(allowedModes))
 						{
 							continue;
@@ -1899,7 +1892,7 @@ public class MainSource extends FilterAdapterPanel
 							aFN.setParent(rootAsPObjectNode);
 							aFN.setItem(aCamp);
 							PrereqHandler.passesAll(
-								aCamp.getPrerequisiteList(), aPC, aCamp);
+								aCamp.getPrerequisiteList(), null, aCamp);
 							rootAsPObjectNode.addChild(aFN);
 						}
 					}
@@ -1930,14 +1923,14 @@ public class MainSource extends FilterAdapterPanel
 		 * @param aPC
 		 * @return true or false
 		 */
-		private boolean shouldDisplayThis(final Campaign aCamp, final PlayerCharacter aPC)
+		private boolean shouldDisplayThis(final Campaign aCamp)
 		{
 			if (aCamp.getDisplayName().length() == 0)
 			{
 				return false;
 			}
 
-			return ((modelType == MODEL_SELECT) || accept(aPC, aCamp));
+			return ((modelType == MODEL_SELECT) || accept(null, aCamp));
 		}
 
 		/**
