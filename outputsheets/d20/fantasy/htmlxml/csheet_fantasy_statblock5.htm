@@ -74,16 +74,63 @@ $Date$
 |ENDIF|
 |ENDFOR|
 Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|, 
+
 <!-- Sense TYPE Abilities -->
-|IIF(count("ABILITIES";"TYPE=Sense";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-|FEATALLLIST.TYPE=Sense| |ABILITYALLLIST.Special Ability.TYPE=Sense|
+|MANUALWHITESPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Sense","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
-<!-- End Sense TYPE Abilities -->
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp;
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|MANUALWHITESPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Sense","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp;
+|ENDFOR|
+|ENDMANUALWHITESPACE|
 <br>
+<!-- End Sense TYPE Abilities -->
 
 <!-- Aura TYPE Abilities -->
 |IIF(count("ABILITIES";"TYPE=Aura";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Aura </b> |FEATALLLIST.TYPE=Aura| |ABILITYALLLIST.Special Ability.TYPE=Aura|<br>
+|MANUALWHITESPACE|
+<b>Aura&nbsp; </b>
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus|&nbsp; 
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp; 
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|MANUALWHITESPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus|&nbsp; 
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp; 
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<br>
 |ENDIF|
 <!-- End Aura TYPE Abilities -->
 
@@ -96,13 +143,38 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
   </tr>
 </table>
 <b>AC</b> |AC.Total|, <b>touch</b> |AC.Touch|, <b>flat-footed</b> |AC.Flatfooted|
-|FOR,%ACfeats,0,COUNT[FEATTYPE.ModifyAC.ALL]-1,1,1|
-; |FEATALL.%ACfeats.TYPE=ModifyAC|
+
+<!-- ModifyAC TYPE Abilities -->
+|MANUALWHITESPACE|
+|IIF(count("ABILITIES";"TYPE=ModifyAC";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+,&nbsp;
+|ENDIF|
+|FOR,%ACfeats,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyAC","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%ACfeats.TYPE=ModifyAC.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Bonus|&nbsp; 
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%ACfeats.TYPE=ModifyAC|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%ACfeats.TYPE=ModifyAC.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp; 
 |ENDFOR|
-|FOR,%ACabilities,0,count("ABILITIES","TYPE=ModifyAC","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,1|
-; |ABILITYALLLIST.Special Ability.TYPE=ModifyAC|
+|ENDMANUALWHITESPACE|
+|MANUALWHITESPACE|
+|FOR,%ACfeats,0,count("ABILITIES","CATEGORY=Feat","TYPE=ModifyAC","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Bonus|&nbsp; 
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC|
+|IIF(ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp; 
 |ENDFOR|
+|ENDMANUALWHITESPACE|
+<!-- End ModifyAC TYPE Abilities -->
 <br>
+
 &nbsp;&nbsp;&nbsp;(
 |IIF(AC.Size:0)|
 |ELSE|
@@ -162,20 +234,26 @@ Tower Shield,
 |ENDFOR|
 
 <!-- Immunity TYPE Abilities -->
-|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|MANUALWHITESPACE|
 <b>Immunities </b> 
 |FOR,%immunities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Ability Bonus:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Ability Bonus|
+|ENDIF|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Immunity:Y)|
 &nbsp;|ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Immunity|
 |ELSE|
 &nbsp;|ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity|
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Ability Benefit|
+|ENDIF|
 ,
 |ENDFOR|
+|ENDMANUALWHITESPACE|
 <br>
 |ENDIF|
-|ENDMANUALWHITESPACE|
 <!-- End Immunity TYPE Abilities -->
 
 <!-- Resistance TYPE Abilities -->
@@ -183,11 +261,17 @@ Tower Shield,
 |IIF(count("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Resistances </b> 
 |FOR,%resistances,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Ability Bonus:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Ability Bonus|
+|ENDIF|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Resistance:Y)|
 &nbsp;|ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Resistance|
 &nbsp;|ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Ability Benefit|
 |ELSE|
 &nbsp;|ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Ability Benefit|
 |ENDIF|
 ,
 |ENDFOR|
@@ -203,7 +287,20 @@ Tower Shield,
 
 <!-- Weakness TYPE Abilities -->
 |IIF(count("ABILITIES";"TYPE=Weakness";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Weaknesses </b> |FEATALLLIST.TYPE=Aura| |ABILITYALLLIST.Special Ability.TYPE=Weakness|<br>
+|MANUALWHITESPACE|
+<b>Weakness </b>
+|FOR,%weaknesses,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|IIF(ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.HASASPECT.Ability Bonus:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.ASPECT.Ability Bonus|
+|ENDIF|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.ASPECT.Ability Benefit|
+|ENDIF|
+,
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<br>
 |ENDIF|
 <!-- End Weakness TYPE Abilities -->
 
@@ -238,12 +335,35 @@ Tower Shield,
 |ELSE|
 &nbsp;|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
 |ENDIF|
+|IIF(MOVE.%movement.NAME:Fly)|
+&nbsp;|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|
+|ENDIF|
 |ENDFOR|
 
 <!-- ModifyMovement TYPE Abilities -->
-|IIF(count("ABILITIES";"TYPE=ModifyMovement";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-,&nbsp;|ABILITYALLLIST.Special Ability.TYPE=ModifyMovement|
+&nbsp;
+|FOR,%movementAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
+|ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement|
+|IIF(ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp;
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|MANUALWHITESPACE|
+|FOR,%movementAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%movementAbilities.TYPE=ModifyMovement.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%movementAbilities.TYPE=ModifyMovement.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%movementAbilities.TYPE=ModifyMovement|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%movementAbilities.TYPE=ModifyMovement.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%movementAbilities.TYPE=ModifyMovement.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp;
+|ENDFOR|
 <!-- End ModifyMovement TYPE Abilities -->
 |ENDMANUALWHITESPACE|
 
@@ -528,9 +648,33 @@ at will)
 |IIF(%LanguageTest:0)|
 |ELSE|
 <b>Languages</b>&nbsp;|LANGUAGES|
+|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-,&nbsp;|ABILITYALLLIST.Special Ability.TYPE=Communicate|
+,&nbsp;
 |ENDIF|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp; 
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp; 
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|MANUALWHITESPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp; 
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Benefit:Y)|
+&nbsp; |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Benefit|
+|ENDIF|
+,&nbsp; 
+|ENDFOR|
+|ENDMANUALWHITESPACE|
 <br>
 |ENDIF|
 |ENDFOR|
