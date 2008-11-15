@@ -635,24 +635,8 @@ function printSpaceReach(aSpace,aReach) {
 |TEXT.LOWER.MOVE.%move.NAME|&#x0020;
 |ENDIF|
 |TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.RATE|
-|IIF(MOVE.%move.NAME:Fly)|
-|IIF(VAR.FlyManeuverability.INTVAL:1)|
-&#x0020;(clumsy)
-|ELSE|
-|IIF(VAR.FlyManeuverability.INTVAL:2)|
-&#x0020;(poor)
-|ELSE|
-|IIF(VAR.FlyManeuverability.INTVAL:3)|
-&#x0020;(average)
-|ELSE|
-|IIF(VAR.FlyManeuverability.INTVAL:4)|
-&#x0020;(good)
-|ELSE|
-&#x0020;(perfect)
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDIF|
+|IIF(MOVE.%movement.NAME:Fly)|
+&nbsp;|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|
 |ENDIF|
 |IIF(%move:0)|
 &#x0020;(|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.SQUARES|&#x0020;
