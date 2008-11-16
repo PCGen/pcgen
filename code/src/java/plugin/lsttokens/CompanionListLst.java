@@ -135,7 +135,7 @@ public class CompanionListLst extends AbstractToken implements
 
 		if (!tok.hasMoreTokens())
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " requires more than just a Type: " + value);
 			return false;
 		}
@@ -195,7 +195,7 @@ public class CompanionListLst extends AbstractToken implements
 			{
 				if (followerAdjustment != null)
 				{
-					Logging.errorPrint(getTokenName() + " Error: Multiple "
+					Logging.log(Logging.LST_ERROR, getTokenName() + " Error: Multiple "
 							+ FOLLOWERADJUSTMENT + " tags specified.");
 					return false;
 				}
@@ -203,7 +203,7 @@ public class CompanionListLst extends AbstractToken implements
 				int faStringLength = FOLLOWERADJUSTMENT.length();
 				if (optArg.length() <= faStringLength + 1)
 				{
-					Logging.errorPrint("Empty FOLLOWERADJUSTMENT value in "
+					Logging.log(Logging.LST_ERROR, "Empty FOLLOWERADJUSTMENT value in "
 							+ getTokenName() + " is prohibited");
 					return false;
 				}
@@ -218,7 +218,7 @@ public class CompanionListLst extends AbstractToken implements
 					Logging
 							.errorPrint("Expecting a number for FOLLOWERADJUSTMENT: "
 									+ adj);
-					Logging.errorPrint("  was parsing Token " + getTokenName());
+					Logging.log(Logging.LST_ERROR, "  was parsing Token " + getTokenName());
 					return false;
 				}
 			}
@@ -251,7 +251,7 @@ public class CompanionListLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(optArg);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put items after the "
+				Logging.log(Logging.LST_ERROR, "   (Did you put items after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
 				return false;
 			}

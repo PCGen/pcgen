@@ -79,31 +79,31 @@ public class ChangeprofLst extends AbstractToken implements
 			int equalLoc = tokText.indexOf('=');
 			if (equalLoc < 0)
 			{
-				Logging.errorPrint("Improper " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
 					+ ": No = found. "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.errorPrint("  Token was: " + tokText);
-				Logging.errorPrint("  Tag was: " + value);
+				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
+				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
 				return false;
 			}
 			else if (equalLoc != tokText.lastIndexOf('='))
 			{
-				Logging.errorPrint("Improper " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
 					+ ": Two = found.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.errorPrint("  Token was: " + tokText);
-				Logging.errorPrint("  Tag was: " + value);
+				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
+				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
 				return false;
 			}
 
 			String newType = tokText.substring(equalLoc + 1);
 			if (newType.length() == 0)
 			{
-				Logging.errorPrint("Improper " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
 					+ ": Empty Result Type.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.errorPrint("  Token was: " + tokText);
-				Logging.errorPrint("  Tag was: " + value);
+				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
+				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
 				return false;
 			}
 			if (newType.indexOf(".") != -1)
@@ -113,8 +113,8 @@ public class ChangeprofLst extends AbstractToken implements
 						+ getTokenName()
 						+ ": Invalid (Compound) Result Type: cannot contain a period (.)  "
 						+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.errorPrint("  Token was: " + tokText);
-				Logging.errorPrint("  Tag was: " + value);
+				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
+				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
 				return false;
 			}
 			String[] val = {newType};
@@ -125,11 +125,11 @@ public class ChangeprofLst extends AbstractToken implements
 			String profs = tokText.substring(0, equalLoc);
 			if (profs.length() == 0)
 			{
-				Logging.errorPrint("Improper " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Improper " + getTokenName()
 					+ ": Empty Source Prof.  "
 					+ "Expect format to be <Prof>,<Prof>=<Prof Type>");
-				Logging.errorPrint("  Token was: " + tokText);
-				Logging.errorPrint("  Tag was: " + value);
+				Logging.log(Logging.LST_ERROR, "  Token was: " + tokText);
+				Logging.log(Logging.LST_ERROR, "  Tag was: " + value);
 				return false;
 			}
 

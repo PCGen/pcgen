@@ -68,21 +68,21 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			else
 			{
-				Logging.errorPrint(getTokenName() + " varName|varFormula"
+				Logging.log(Logging.LST_ERROR, getTokenName() + " varName|varFormula"
 						+ "or LOCK.<stat>|value syntax requires an argument");
 				return false;
 			}
 		}
 		if (value.startsWith("UNLOCK."))
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " UNLOCK.<stat> does not allow an argument");
 			return false;
 		}
 		String var = value.substring(0, barLoc);
 		if (var.length() == 0)
 		{
-			Logging.errorPrint("Empty Variable Name found in " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Empty Variable Name found in " + getTokenName()
 					+ ": " + value);
 			return false;
 		}
@@ -106,7 +106,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.errorPrint("Illegal Formula found in " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Illegal Formula found in " + getTokenName()
 					+ ": " + value);
 			return false;
 		}

@@ -80,8 +80,7 @@ public class ChooseLst extends AbstractToken implements GlobalLstToken,
 			{
 				if (maxCount != null)
 				{
-					Logging
-							.errorPrint("Cannot use NUMCHOICES more than once in CHOOSE: "
+					Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES more than once in CHOOSE: "
 									+ value);
 					return false;
 				}
@@ -89,8 +88,7 @@ public class ChooseLst extends AbstractToken implements GlobalLstToken,
 				maxCount = key.substring(11);
 				if (maxCount == null || maxCount.length() == 0)
 				{
-					Logging
-							.errorPrint("NUMCHOICES in CHOOSE must be a formula: "
+					Logging.log(Logging.LST_ERROR, "NUMCHOICES in CHOOSE must be a formula: "
 									+ value);
 					return false;
 				}

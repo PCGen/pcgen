@@ -105,7 +105,7 @@ public class NaturalattacksLst extends AbstractToken implements
 
 			if (anEquip == null)
 			{
-				Logging.errorPrint("Natural Weapon Creation Failed for : "
+				Logging.log(Logging.LST_ERROR, "Natural Weapon Creation Failed for : "
 						+ tokString);
 				return false;
 			}

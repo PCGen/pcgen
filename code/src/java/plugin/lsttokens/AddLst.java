@@ -39,13 +39,13 @@ public class AddLst extends AbstractToken implements GlobalLstToken,
 		int barLoc = value.indexOf(Constants.PIPE);
 		if (barLoc == -1)
 		{
-			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
+			Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + " syntax: "
 				+ value + " ... must have a PIPE");
 			return false;
 		}
 		else if (barLoc == 0)
 		{
-			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
+			Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + " syntax: "
 				+ value + " ... cannot start with a PIPE");
 			return false;
 		}
@@ -53,7 +53,7 @@ public class AddLst extends AbstractToken implements GlobalLstToken,
 		String contents = value.substring(barLoc + 1);
 		if (contents == null || contents.length() == 0)
 		{
-			Logging.errorPrint("Invalid " + getTokenName() + " syntax: "
+			Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + " syntax: "
 				+ value + " ... cannot end with a PIPE");
 			return false;
 		}

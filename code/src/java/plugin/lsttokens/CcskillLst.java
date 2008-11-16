@@ -74,7 +74,7 @@ public class CcskillLst extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getTokenName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item");
 					return false;
 				}
@@ -95,7 +95,7 @@ public class CcskillLst extends AbstractToken implements
 				}
 				if (ref == null)
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
+					Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
 							+ getTokenName());
 					return false;
 				}
@@ -144,7 +144,7 @@ public class CcskillLst extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

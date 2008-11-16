@@ -65,7 +65,7 @@ public class DrLst extends AbstractToken implements
 			String[] values = tok.nextToken().split("/");
 			if (values.length != 2)
 			{
-				Logging.errorPrint(getTokenName()
+				Logging.log(Logging.LST_ERROR, getTokenName()
 						+ " failed to build DamageReduction with value "
 						+ value);
 				Logging
@@ -74,13 +74,13 @@ public class DrLst extends AbstractToken implements
 			}
 			if (values[0].length() == 0)
 			{
-				Logging.errorPrint("Amount of Reduction in " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Amount of Reduction in " + getTokenName()
 						+ " cannot be empty");
 				return false;
 			}
 			if (values[1].length() == 0)
 			{
-				Logging.errorPrint("Damage Type in " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Damage Type in " + getTokenName()
 						+ " cannot be empty");
 				return false;
 			}
@@ -88,7 +88,7 @@ public class DrLst extends AbstractToken implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " failed to build DamageReduction with value " + value
 					+ " ... " + iae.getLocalizedMessage());
 			return false;

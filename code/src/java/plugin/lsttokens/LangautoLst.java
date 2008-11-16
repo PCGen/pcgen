@@ -68,7 +68,7 @@ public class LangautoLst extends AbstractToken implements
 			{
 				if (!firstToken)
 				{
-					Logging.errorPrint("Non-sensical situation was "
+					Logging.log(Logging.LST_ERROR, "Non-sensical situation was "
 							+ "encountered while parsing " + getTokenName()
 							+ ": When used, .CLEAR must be the first argument");
 					return false;
@@ -92,7 +92,7 @@ public class LangautoLst extends AbstractToken implements
 				}
 				if (ref == null)
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
+					Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
 							+ getTokenName());
 					return false;
 				}
@@ -103,7 +103,7 @@ public class LangautoLst extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

@@ -85,14 +85,13 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging
-					.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 							+ " has no PIPE character: Must be of the form <follower type>|<formula>");
 			return false;
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " has too many PIPE characters: "
 					+ "Must be of the form <follower type>|<formula");
 			return false;
@@ -101,14 +100,14 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		String followerType = value.substring(0, pipeLoc);
 		if (followerType.length() == 0)
 		{
-			Logging.errorPrint("Follower Type in " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Follower Type in " + getTokenName()
 					+ " cannot be empty");
 			return false;
 		}
 		String followerNumber = value.substring(pipeLoc + 1);
 		if (followerNumber.length() == 0)
 		{
-			Logging.errorPrint("Follower Count in " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Follower Count in " + getTokenName()
 					+ " cannot be empty");
 			return false;
 		}

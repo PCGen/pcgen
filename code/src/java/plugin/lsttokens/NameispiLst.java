@@ -43,7 +43,7 @@ public class NameispiLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' as the "
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
 				return false;
 			}
@@ -53,13 +53,13 @@ public class NameispiLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
 				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
 				return false;
 			}

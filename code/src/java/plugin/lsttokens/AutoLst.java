@@ -34,7 +34,7 @@ public class AutoLst extends AbstractToken implements GlobalLstToken,
 		int barLoc = value.indexOf(Constants.PIPE);
 		if (barLoc == -1)
 		{
-			Logging.errorPrint(getTokenName() + " must contain a PIPE (|)");
+			Logging.log(Logging.LST_ERROR, getTokenName() + " must contain a PIPE (|)");
 			return false;
 		}
 		String subKey = value.substring(0, barLoc);

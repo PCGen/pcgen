@@ -126,14 +126,14 @@ public class AbilityLst extends AbstractToken implements
 				SettingsHandler.getGame().getAbilityCategory(cat);
 		if (category == null)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 				+ " refers to invalid Ability Category: " + cat);
 			return false;
 		}
 		if (!tok.hasMoreTokens())
 		{
 
-			Logging.errorPrint(getTokenName() + " must have a Nature, "
+			Logging.log(Logging.LST_ERROR, getTokenName() + " must have a Nature, "
 				+ "Format is: CATEGORY|NATURE|AbilityName: " + value);
 			return false;
 		}
@@ -145,20 +145,20 @@ public class AbilityLst extends AbstractToken implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 				+ " refers to invalid Ability Nature: " + natureKey);
 			return false;
 		}
 		if (Ability.Nature.ANY.equals(nature))
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
 					+ getTokenName() + ": " + value);
 			return false;
 		}
 		if (!tok.hasMoreTokens())
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 				+ " must have abilities, Format is: "
 				+ "CATEGORY|NATURE|AbilityName: " + value);
 			return false;
@@ -168,7 +168,7 @@ public class AbilityLst extends AbstractToken implements
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
 				+ getTokenName() + ": " + value);
 			return false;
 		}
@@ -187,7 +187,7 @@ public class AbilityLst extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getTokenName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
 						+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
@@ -243,7 +243,7 @@ public class AbilityLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put feats after the "
+				Logging.log(Logging.LST_ERROR, "   (Did you put feats after the "
 					+ "PRExxx tags in " + getTokenName() + ":?)");
 				return false;
 			}

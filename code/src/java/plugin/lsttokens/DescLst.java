@@ -94,7 +94,7 @@ public class DescLst extends AbstractToken implements
 
 		if (descString.startsWith("PRE") || descString.startsWith("!PRE"))
 		{
-			Logging.errorPrint(getTokenName() + " encountered only a PRExxx: "
+			Logging.log(Logging.LST_ERROR, getTokenName() + " encountered only a PRExxx: "
 				+ aDesc);
 			return null;
 		}
@@ -110,7 +110,7 @@ public class DescLst extends AbstractToken implements
 		{
 			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
-				Logging.errorPrint(getTokenName()
+				Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " tag confused by '.CLEAR' as a " + "middle token: "
 					+ aDesc);
 				return null;
@@ -137,7 +137,7 @@ public class DescLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put Abilities after the "
+				Logging.log(Logging.LST_ERROR, "   (Did you put Abilities after the "
 					+ "PRExxx tags in " + getTokenName() + ":?)");
 				return null;
 			}

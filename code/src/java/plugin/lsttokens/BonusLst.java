@@ -42,7 +42,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>
 		BonusObj bon = Bonus.newBonus(obj.bonusStringPrefix() + v);
 		if (bon == null)
 		{
-			Logging.errorPrint(getTokenName() + " was given invalid bonus: "
+			Logging.log(Logging.LST_ERROR, getTokenName() + " was given invalid bonus: "
 					+ value);
 			return false;
 		}
