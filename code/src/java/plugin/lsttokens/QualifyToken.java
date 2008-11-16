@@ -77,7 +77,7 @@ public class QualifyToken extends AbstractToken implements
 	{
 		if (!getLegalTypes().contains(obj.getClass()))
 		{
-			Logging.errorPrint("Cannot use QUALIFY on a " + obj.getClass());
+			Logging.log(Logging.LST_ERROR, "Cannot use QUALIFY on a " + obj.getClass());
 			return false;
 		}
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
@@ -87,7 +87,7 @@ public class QualifyToken extends AbstractToken implements
 
 		if (value.indexOf("|") == -1)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 				+ " requires at least two arguments, QualifyType and Key: "
 				+ value);
 			return false;
@@ -99,12 +99,11 @@ public class QualifyToken extends AbstractToken implements
 		String categoryName;
 		if (equalLoc != firstToken.lastIndexOf('='))
 		{
-			Logging.errorPrint("  Error encountered parsing " + getTokenName());
-			Logging.errorPrint("  Found second = in QualifyType=Category");
-			Logging
-				.errorPrint("  Format is: QualifyType[=Category]|Key[|Key] value was: "
+			Logging.log(Logging.LST_ERROR, "  Error encountered parsing " + getTokenName());
+			Logging.log(Logging.LST_ERROR, "  Found second = in QualifyType=Category");
+			Logging.log(Logging.LST_ERROR, "  Format is: QualifyType[=Category]|Key[|Key] value was: "
 					+ value);
-			Logging.errorPrint("  Valid QualifyTypes are: "
+			Logging.log(Logging.LST_ERROR, "  Valid QualifyTypes are: "
 				+ StringPClassUtil.getValidStrings());
 			return false;
 		}
@@ -124,23 +123,21 @@ public class QualifyToken extends AbstractToken implements
 		{
 			if (categoryName == null)
 			{
-				Logging.errorPrint("  Error encountered parsing "
+				Logging.log(Logging.LST_ERROR, "  Error encountered parsing "
 					+ getTokenName());
-				Logging
-					.errorPrint("  Found Categorized Type without =Category");
-				Logging
-					.errorPrint("  Format is: QualifyType[=Category]|Key[|Key] value was: "
+				Logging.log(Logging.LST_ERROR, "  Found Categorized Type without =Category");
+				Logging.log(Logging.LST_ERROR, "  Format is: QualifyType[=Category]|Key[|Key] value was: "
 						+ value);
-				Logging.errorPrint("  Valid QualifyTypes are: "
+				Logging.log(Logging.LST_ERROR, "  Valid QualifyTypes are: "
 					+ StringPClassUtil.getValidStrings());
 				return false;
 			}
 			rm = getReferenceManufacturer(context, (Class) c, categoryName);
 			if (rm == null)
 			{
-				Logging.errorPrint("  Error encountered parsing "
+				Logging.log(Logging.LST_ERROR, "  Error encountered parsing "
 						+ getTokenName());
-				Logging.errorPrint("  " + className + " Category: "
+				Logging.log(Logging.LST_ERROR, "  " + className + " Category: "
 						+ categoryName + " not found");
 				return false;
 			}
@@ -149,14 +146,12 @@ public class QualifyToken extends AbstractToken implements
 		{
 			if (categoryName != null)
 			{
-				Logging.errorPrint("  Error encountered parsing "
+				Logging.log(Logging.LST_ERROR, "  Error encountered parsing "
 					+ getTokenName());
-				Logging
-					.errorPrint("  Found Non-Categorized Type with =Category");
-				Logging
-					.errorPrint("  Format is: QualifyType[=Category]|Key[|Key] value was: "
+				Logging.log(Logging.LST_ERROR, "  Found Non-Categorized Type with =Category");
+				Logging.log(Logging.LST_ERROR, "  Format is: QualifyType[=Category]|Key[|Key] value was: "
 						+ value);
-				Logging.errorPrint("  Valid QualifyTypes are: "
+				Logging.log(Logging.LST_ERROR, "  Valid QualifyTypes are: "
 					+ StringPClassUtil.getValidStrings());
 				return false;
 			}

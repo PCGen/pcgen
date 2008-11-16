@@ -58,16 +58,16 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 					Constants.COMMA);
 			if (tok.countTokens() != 9)
 			{
-				Logging.errorPrint(getTokenName()
+				Logging.log(Logging.LST_ERROR, getTokenName()
 						+ " requires 9 comma separated values");
 				return false;
 			}
 			if (context.getObjectContext().containsListFor(obj,
 					ListKey.UNARMED_DAMAGE))
 			{
-				Logging.errorPrint(obj.getDisplayName() + " already has "
+				Logging.log(Logging.LST_ERROR, obj.getDisplayName() + " already has "
 						+ getTokenName() + " set.");
-				Logging.errorPrint(" It will be redefined, "
+				Logging.log(Logging.LST_ERROR, " It will be redefined, "
 						+ "but you should be using " + getTokenName()
 						+ ":.CLEAR");
 				context.getObjectContext().removeList(obj,

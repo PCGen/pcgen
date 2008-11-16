@@ -73,7 +73,7 @@ public class SabLst extends AbstractToken implements
 		String firstToken = tok.nextToken();
 		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
 		{
-			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
 					+ getTokenName());
 			return false;
 		}
@@ -90,7 +90,7 @@ public class SabLst extends AbstractToken implements
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
-			Logging.errorPrint("SA tag confused by redundant '.CLEAR'"
+			Logging.log(Logging.LST_ERROR, "SA tag confused by redundant '.CLEAR'"
 					+ aString);
 			return false;
 		}
@@ -112,7 +112,7 @@ public class SabLst extends AbstractToken implements
 		{
 			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
-				Logging.errorPrint("SA tag confused by '.CLEAR' as a "
+				Logging.log(Logging.LST_ERROR, "SA tag confused by '.CLEAR' as a "
 						+ "middle token: " + aString);
 				return false;
 			}
@@ -144,7 +144,7 @@ public class SabLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put Abilities after the "
+				Logging.log(Logging.LST_ERROR, "   (Did you put Abilities after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
 				return false;
 			}

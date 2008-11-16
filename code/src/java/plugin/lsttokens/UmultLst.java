@@ -49,17 +49,17 @@ public class UmultLst implements CDOMPrimaryToken<CDOMObject>
 				Integer i = Integer.valueOf(value);
 				if (i.intValue() <= 0)
 				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": "
+					Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + ": "
 							+ value);
-					Logging.errorPrint("  Expecting a positive integer");
+					Logging.log(Logging.LST_ERROR, "  Expecting a positive integer");
 					return false;
 				}
 				context.getObjectContext().put(obj, IntegerKey.UMULT, i);
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Invalid " + getTokenName() + ": " + value);
-				Logging.errorPrint("  Expecting an integer");
+				Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + ": " + value);
+				Logging.log(Logging.LST_ERROR, "  Expecting an integer");
 				return false;
 			}
 		}

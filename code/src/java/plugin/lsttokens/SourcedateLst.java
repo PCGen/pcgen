@@ -33,7 +33,7 @@ public class SourcedateLst implements GlobalLstToken, SourceLstToken
 		}
 		catch (ParseException e)
 		{
-			Logging.errorPrint("Error parsing date", e);
+			Logging.log(Logging.LST_ERROR, "Error parsing date", e);
 			return false;
 		}
 		return true;

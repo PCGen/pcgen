@@ -38,7 +38,7 @@ public class SpelllevelLst implements GlobalLstToken
 
 			if (tok.countTokens() < 3)
 			{
-				Logging.errorPrint("Badly formed SPELLLEVEL tag1: " + value);
+				Logging.log(Logging.LST_ERROR, "Badly formed SPELLLEVEL tag1: " + value);
 				return false;
 			}
 
@@ -61,8 +61,7 @@ public class SpelllevelLst implements GlobalLstToken
 
 				if (nameList.indexOf("=") < 0)
 				{
-					Logging
-						.errorPrint("Badly formed SPELLLEVEL tag2: " + value);
+					Logging.log(Logging.LST_ERROR, "Badly formed SPELLLEVEL tag2: " + value);
 					return false;
 				}
 
@@ -70,8 +69,7 @@ public class SpelllevelLst implements GlobalLstToken
 
 				if (!tok.hasMoreTokens())
 				{
-					Logging
-						.errorPrint("Badly formed SPELLLEVEL tag3: " + value);
+					Logging.log(Logging.LST_ERROR, "Badly formed SPELLLEVEL tag3: " + value);
 					return false;
 				}
 
@@ -88,7 +86,7 @@ public class SpelllevelLst implements GlobalLstToken
 				}
 				else
 				{
-					Logging.errorPrint("Badly formed SPELLLEVEL PRE tag: "
+					Logging.log(Logging.LST_ERROR, "Badly formed SPELLLEVEL PRE tag: "
 						+ value);
 					return false;
 				}
@@ -105,7 +103,7 @@ public class SpelllevelLst implements GlobalLstToken
 			}
 			catch (PersistenceLayerException ple)
 			{
-				Logging.errorPrint("Badly formed SPELLLEVEL PRE tag: " + value);
+				Logging.log(Logging.LST_ERROR, "Badly formed SPELLLEVEL PRE tag: " + value);
 			}
 
 			for (Iterator<String> iSpell = wSpellList.iterator(), iName =
@@ -114,8 +112,7 @@ public class SpelllevelLst implements GlobalLstToken
 				// Check to see if both exists
 				if (!(iSpell.hasNext() && iName.hasNext()))
 				{
-					Logging
-						.errorPrint("Badly formed SPELLLEVEL tag4: " + value);
+					Logging.log(Logging.LST_ERROR, "Badly formed SPELLLEVEL tag4: " + value);
 					return false;
 				}
 

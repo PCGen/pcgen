@@ -79,8 +79,8 @@ public class ServesAsToken extends AbstractToken implements
 	{
 		if (!getLegalTypes().contains(obj.getClass()))
 		{
-			Logging.errorPrint("Cannot use SERVESAS on a " + obj.getClass());
-			Logging.errorPrint("   bad use found in "
+			Logging.log(Logging.LST_ERROR, "Cannot use SERVESAS on a " + obj.getClass());
+			Logging.log(Logging.LST_ERROR, "   bad use found in "
 					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
 			return false;
 		}
@@ -97,14 +97,14 @@ public class ServesAsToken extends AbstractToken implements
 		{
 			if ("ABILITY".equals(key))
 			{
-				Logging.errorPrint("Invalid use of ABILITY in SERVESAS "
+				Logging.log(Logging.LST_ERROR, "Invalid use of ABILITY in SERVESAS "
 						+ "(requires ABILITY=<category>): " + key);
 				return false;
 			}
 			servingClass = StringPClassUtil.getClassFor(key);
 			if (servingClass == null)
 			{
-				Logging.errorPrint(getTokenName()
+				Logging.log(Logging.LST_ERROR, getTokenName()
 						+ " expecting a POBJECT Type, found: " + key);
 				return false;
 			}
@@ -114,7 +114,7 @@ public class ServesAsToken extends AbstractToken implements
 		{
 			if (!"ABILITY".equals(key.substring(0, equalLoc)))
 			{
-				Logging.errorPrint("Invalid use of = in SERVESAS "
+				Logging.log(Logging.LST_ERROR, "Invalid use of = in SERVESAS "
 						+ "(only valid for ABILITY): " + key);
 				return false;
 			}
@@ -126,7 +126,7 @@ public class ServesAsToken extends AbstractToken implements
 		}
 		if (!st.hasMoreTokens())
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " must include at least one target object");
 			return false;
 		}
@@ -153,8 +153,7 @@ public class ServesAsToken extends AbstractToken implements
 		if (removedItems != null && !removedItems.isEmpty()
 				|| changes.includesGlobalClear())
 		{
-			context
-					.addWriteMessage(getTokenName()
+			context.addWriteMessage(getTokenName()
 							+ " does not support .CLEAR");
 			return null;
 		}

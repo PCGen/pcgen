@@ -70,7 +70,7 @@ public class VFeatLst extends AbstractToken implements
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
 					+ getTokenName() + ": " + value);
 			return false;
 		}
@@ -87,7 +87,7 @@ public class VFeatLst extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getTokenName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
@@ -134,7 +134,7 @@ public class VFeatLst extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put feats after the "
+				Logging.log(Logging.LST_ERROR, "   (Did you put feats after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
 				return false;
 			}
