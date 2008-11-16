@@ -93,7 +93,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SourceEntry;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.panes.FlippingSplitPane;
@@ -103,6 +102,7 @@ import pcgen.gui.prefs.ExperiencePanel;
 import pcgen.gui.prefs.LanguagePanel;
 import pcgen.gui.prefs.MonsterPanel;
 import pcgen.gui.prefs.PCGenPrefsPanel;
+import pcgen.gui.prefs.SourcesPanel;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.LinkableHtmlMessage;
 import pcgen.gui.utils.SkinManager;
@@ -133,16 +133,10 @@ final class PreferencesDialog extends JDialog
 	// Resource strings
 	private static String in_allowMetamagic =
 			PropertyFactory.getString("in_Prefs_allowMetamagic");
-	private static String in_allowOverride =
-			PropertyFactory.getString("in_Prefs_allowOverride");
 	private static String in_alwaysOverwrite =
 			PropertyFactory.getString("in_Prefs_alwaysOverwrite");
 	private static String in_appearance =
 			PropertyFactory.getString("in_Prefs_appearance");
-	private static String in_autoLoadAtStart =
-			PropertyFactory.getString("in_Prefs_autoLoadAtStart");
-	private static String in_autoLoadWithPC =
-			PropertyFactory.getString("in_Prefs_autoLoadWithPC");
 	private static String in_anyAutoEquip =
 			PropertyFactory.getString("in_Prefs_anyAutoEquip");
 	private static String in_autoEquip =
@@ -182,14 +176,6 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_cmSelect");
 	private static String in_cmSelectExit =
 			PropertyFactory.getString("in_Prefs_cmSelectExit");
-	private static String in_displayOGL =
-			PropertyFactory.getString("in_Prefs_displayOGL");
-	private static String in_displayMature =
-			PropertyFactory.getString("in_Prefs_displayMature");
-	private static String in_displayd20 =
-			PropertyFactory.getString("in_Prefs_displayd20");
-	private static String in_displaySponsors =
-			PropertyFactory.getString("in_Prefs_displaySponsors");
 	private static String in_dialogTitle =
 			PropertyFactory.getString("in_Prefs_title");
 	private static String in_displayOpts =
@@ -210,8 +196,6 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_invalidToHitText");
 	private static String in_invalidDmgText =
 			PropertyFactory.getString("in_Prefs_invalidDmgText");
-	private static String in_loadURLs =
-			PropertyFactory.getString("in_Prefs_loadURLs");
 	private static String in_location =
 			PropertyFactory.getString("in_Prefs_location");
 	private static String in_lookAndFeel =
@@ -256,22 +240,8 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_singleChoiceOption");
 	private static String in_skinnedLAF =
 			PropertyFactory.getString("in_Prefs_skinnedLAF");
-	private static String in_sources =
-			PropertyFactory.getString("in_Prefs_sources");
-	private static String in_saveCustom =
-			PropertyFactory.getString("in_Prefs_saveCustom");
 	private static String in_saveOutputSheetWithPC =
 			PropertyFactory.getString("in_Prefs_saveOutputSheetWithPC");
-	private static String in_sdLong =
-			PropertyFactory.getString("in_Prefs_sdLong");
-	private static String in_sdPage =
-			PropertyFactory.getString("in_Prefs_sdPage");
-	private static String in_sdShort =
-			PropertyFactory.getString("in_Prefs_sdShort");
-	private static String in_sdMedium =
-			PropertyFactory.getString("in_Prefs_sdMedium");
-	private static String in_sdWeb =
-			PropertyFactory.getString("in_Prefs_sdWeb");
 	private static String in_showMemory =
 			PropertyFactory.getString("in_Prefs_showMemory");
 	private static String in_showImagePreview =
@@ -282,8 +252,6 @@ final class PreferencesDialog extends JDialog
 		PropertyFactory.getString("in_Prefs_showSkillRanksBreakdown");
 	private static String in_showSingleBoxPerBundle =
 		PropertyFactory.getString("in_Prefs_showSingleBoxPerBundle");
-	private static String in_sourceDisplay =
-			PropertyFactory.getString("in_Prefs_sourceDisplay");
 	private static String in_tabs = PropertyFactory.getString("in_Prefs_tabs");
 	private static String in_tabLabelPlain =
 			PropertyFactory.getString("in_Prefs_tabLabelPlain");
@@ -360,15 +328,11 @@ final class PreferencesDialog extends JDialog
 
 	// Equipment
 	private JCheckBox allowMetamagicInEqBuilder = new JCheckBox();
-	private JCheckBox allowOptsInSource = new JCheckBox();
 	private JCheckBox autoMethod1 = new JCheckBox();
 	private JCheckBox autoMethod2 = new JCheckBox();
 	private JCheckBox autoMethod3 = new JCheckBox();
 	private JCheckBox autoMethod4 = new JCheckBox();
 
-	// Sources
-	private JCheckBox campLoad = new JCheckBox();
-	private JCheckBox charCampLoad = new JCheckBox();
 	private JCheckBox displayAbilitiesAsTab = new JCheckBox();
 	private JCheckBox expertGUICheckBox = new JCheckBox();
 	private JCheckBox featDescriptionShown = new JCheckBox();
@@ -376,24 +340,17 @@ final class PreferencesDialog extends JDialog
 
 	// Level Up
 	private JCheckBox hpDialogShownAtLevelUp = new JCheckBox();
-	private JCheckBox loadURL = new JCheckBox();
 	private JCheckBox maxHpAtFirstLevel = new JCheckBox();
 	private JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
 	private JCheckBox printSpellsWithPC = new JCheckBox();
 	private JCheckBox removeTempFiles;
-	private JCheckBox saveCustom = new JCheckBox();
 	private JCheckBox saveOutputSheetWithPC = new JCheckBox();
-	private JCheckBox showOGL = new JCheckBox();
-	private JCheckBox showMature = new JCheckBox();
 	private JCheckBox showToolbar = new JCheckBox();
 	private JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
-	private JCheckBox showd20 = new JCheckBox();
-	private JCheckBox showSponsors = new JCheckBox();
 	private JCheckBox statDialogShownAtLevelUp = new JCheckBox();
 	private JCheckBox showSkillModifier = new JCheckBox();
 	private JCheckBox showSkillRanks = new JCheckBox();
 	private JCheckBox enforceSpendingBeforeLevelUp = new JCheckBox();
-	private JCheckBox allowOverride = new JCheckBox();
 
 	// Displayed
 	private JCheckBox toolTipTextShown = new JCheckBox();
@@ -413,7 +370,6 @@ final class PreferencesDialog extends JDialog
 	private JComboBoxEx paperType = new JComboBoxEx();
 	private JComboBoxEx potionMaxLevel = new JComboBoxEx();
 	private JComboBoxEx skillChoice = new JComboBoxEx();
-	private JComboBoxEx sourceOptions = new JComboBoxEx();
 	private JComboBoxEx tabLabelsCombo;
 	private JComboBoxEx wandMaxLevel = new JComboBoxEx();
 	private JPanel controlPanel;
@@ -434,7 +390,6 @@ final class PreferencesDialog extends JDialog
 	private JRadioButton hpAverageRoundedUp =
 			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAverageRoundedUp"));
 
-	// Language
 	private JRadioButton noAutoEquipCreate;
 	private JRadioButton pcgenFilesDirRadio;
 	private JRadioButton selectFilesDirRadio;
@@ -501,6 +456,8 @@ final class PreferencesDialog extends JDialog
 
 	// "Experience"
 	private PCGenPrefsPanel experiencePanel;
+
+	private PCGenPrefsPanel sourcesPanel;
 
 	// "Copy Settings"
 	private CopySettingsPanel copySettingsPanel;
@@ -982,53 +939,7 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.setInvalidDmgText(invalidDmgText.getText());
 
 		// Sources
-		SettingsHandler.setLoadCampaignsAtStart(campLoad.isSelected());
-		SettingsHandler.setLoadCampaignsWithPC(charCampLoad.isSelected());
-		SettingsHandler.setOptionAllowedInSources(allowOptsInSource
-			.isSelected());
-		SettingsHandler.setSaveCustomEquipment(saveCustom.isSelected());
-		SettingsHandler.setShowLicense(showOGL.isSelected());
-		SettingsHandler.setShowMature(showMature.isSelected());
-		SettingsHandler.setShowD20Info(showd20.isSelected());
-		SettingsHandler.setShowSponsors(showSponsors.isSelected());
-		SettingsHandler.setLoadURLs(loadURL.isSelected());
-		SettingsHandler.setAllowOverride(allowOverride.isSelected());
-
-		// TODO - Fix this. We should not do this with a switch.
-		switch (sourceOptions.getSelectedIndex())
-		{
-			case 0:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.LONG);
-
-				break;
-
-			case 1:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.MEDIUM);
-
-				break;
-
-			case 2:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.SHORT);
-
-				break;
-
-			case 3:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.PAGE);
-
-				break;
-
-			case 4:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.WEB);
-
-				break;
-
-			default:
-				Logging
-					.errorPrint("In PreferencesDialog.setOptionsBasedOnControls (sourceOptions) the index "
-						+ sourceOptions.getSelectedIndex() + " is unsupported.");
-
-				break;
-		}
+		sourcesPanel.setOptionsBasedOnControls();
 
 		// Copy Settings
 		copySettingsPanel.setOptionsBasedOnControls();
@@ -1309,52 +1220,7 @@ final class PreferencesDialog extends JDialog
 		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
 
 		// Sources
-		campLoad.setSelected(SettingsHandler.isLoadCampaignsAtStart());
-		charCampLoad.setSelected(SettingsHandler.isLoadCampaignsWithPC());
-		allowOptsInSource.setSelected(SettingsHandler
-			.isOptionAllowedInSources());
-		saveCustom.setSelected(SettingsHandler.getSaveCustomEquipment());
-		showOGL.setSelected(SettingsHandler.showLicense());
-		showMature.setSelected(SettingsHandler.showMature());
-		showd20.setSelected(SettingsHandler.showD20Info());
-		showSponsors.setSelected(SettingsHandler.showSponsors());
-		loadURL.setSelected(SettingsHandler.isLoadURLs());
-		allowOverride.setSelected(SettingsHandler.isAllowOverride());
-
-		switch (Globals.getSourceDisplay())
-		{
-			case LONG:
-				sourceOptions.setSelectedIndex(0);
-
-				break;
-
-			case MEDIUM:
-				sourceOptions.setSelectedIndex(1);
-
-				break;
-
-			case SHORT:
-				sourceOptions.setSelectedIndex(2);
-
-				break;
-
-			case PAGE:
-				sourceOptions.setSelectedIndex(3);
-
-				break;
-
-			case WEB:
-				sourceOptions.setSelectedIndex(4);
-
-				break;
-
-			default:
-				Logging
-					.errorPrint("In PreferencesDialog.applyOptionValuesToControls (source display) the option "
-						+ Globals.getSourceDisplay() + " is unsupported.");
-
-				break;
-		}
+		sourcesPanel.applyOptionValuesToControls();
 		
 		// Copy Settings
 		copySettingsPanel.applyOptionValuesToControls();
@@ -2782,8 +2648,9 @@ final class PreferencesDialog extends JDialog
 		settingsPanel.add(buildInputPanel(), in_input);
 		pcGenNode.add(new DefaultMutableTreeNode(in_output));
 		settingsPanel.add(buildOutputPanel(), in_output);
-		pcGenNode.add(new DefaultMutableTreeNode(in_sources));
-		settingsPanel.add(buildSourcesPanel(), in_sources);
+		sourcesPanel = new SourcesPanel();
+		pcGenNode.add(new DefaultMutableTreeNode(sourcesPanel.getTitle()));
+		settingsPanel.add(sourcesPanel, sourcesPanel.getTitle());
 		rootNode.add(pcGenNode);
 
 		String in_gamemode =  PropertyFactory.getString("in_mnuSettingsCampaign");
@@ -2898,138 +2765,6 @@ final class PreferencesDialog extends JDialog
 				cancelButtonActionPerformed();
 			}
 		});
-	}
-
-	private JPanel buildSourcesPanel()
-	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JLabel label;
-		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_sources);
-		JPanel sourcesPanel = new JPanel();
-
-		title1.setTitleJustification(TitledBorder.LEFT);
-		sourcesPanel.setBorder(title1);
-		sourcesPanel.setLayout(gridbag);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
-		c.insets = new Insets(2, 2, 2, 2);
-
-		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
-		label = new JLabel(in_autoLoadAtStart + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0, 0);
-		gridbag.setConstraints(campLoad, c);
-		sourcesPanel.add(campLoad);
-
-		Utility.buildConstraints(c, 0, 1, 3, 1, 0, 0);
-		label = new JLabel(in_autoLoadWithPC + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		gridbag.setConstraints(charCampLoad, c);
-		sourcesPanel.add(charCampLoad);
-
-		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 0);
-		label =
-				new JLabel(PropertyFactory
-					.getString("in_Prefs_allowOptionInSource")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 2, 1, 1, 0, 0);
-		gridbag.setConstraints(allowOptsInSource, c);
-		sourcesPanel.add(allowOptsInSource);
-
-		Utility.buildConstraints(c, 0, 3, 3, 1, 0, 0);
-		label = new JLabel(in_saveCustom + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 3, 1, 1, 0, 0);
-		gridbag.setConstraints(saveCustom, c);
-		sourcesPanel.add(saveCustom);
-
-		Utility.buildConstraints(c, 0, 4, 3, 1, 0, 0);
-		label = new JLabel(in_displayOGL + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 4, 1, 1, 0, 0);
-		gridbag.setConstraints(showOGL, c);
-		sourcesPanel.add(showOGL);
-
-		Utility.buildConstraints(c, 0, 5, 3, 1, 0, 0);
-		label = new JLabel(in_displayd20 + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 5, 1, 1, 0, 0);
-		gridbag.setConstraints(showd20, c);
-		sourcesPanel.add(showd20);
-
-		Utility.buildConstraints(c, 0, 6, 3, 1, 0, 0);
-		label = new JLabel(in_displaySponsors + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 6, 1, 1, 0, 0);
-		gridbag.setConstraints(showSponsors, c);
-		sourcesPanel.add(showSponsors);
-
-		Utility.buildConstraints(c, 0, 7, 3, 1, 0, 0);
-		label = new JLabel(in_displayMature + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 7, 1, 1, 0, 0);
-		gridbag.setConstraints(showMature, c);
-		sourcesPanel.add(showMature);
-
-		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
-		label = new JLabel(in_sourceDisplay + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
-		sourceOptions =
-				new JComboBoxEx(new String[]{in_sdLong, in_sdMedium,
-					in_sdShort, in_sdPage, in_sdWeb});
-		gridbag.setConstraints(sourceOptions, c);
-		sourcesPanel.add(sourceOptions);
-
-		Utility.buildConstraints(c, 0, 9, 3, 1, 0, 0);
-		label = new JLabel(in_loadURLs + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 9, 1, 1, 0, 0);
-		gridbag.setConstraints(loadURL, c);
-		sourcesPanel.add(loadURL);
-		loadURL.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent evt)
-			{
-				if (((JCheckBox) evt.getSource()).isSelected())
-				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
-						.getString("in_Prefs_urlBlocked"), Constants.s_APPNAME,
-						MessageType.WARNING);
-				}
-			}
-		});
-
-		Utility.buildConstraints(c, 0, 10, 3, 1, 0, 0);
-		label = new JLabel(in_allowOverride + ": ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-		Utility.buildConstraints(c, 3, 10, 1, 1, 0, 0);
-		gridbag.setConstraints(allowOverride, c);
-		sourcesPanel.add(allowOverride);
-
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
-		gridbag.setConstraints(label, c);
-		sourcesPanel.add(label);
-
-		return sourcesPanel;
 	}
 
 	private JPanel buildTabsAppearancePanel()
