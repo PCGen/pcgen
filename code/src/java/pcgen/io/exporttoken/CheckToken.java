@@ -60,6 +60,9 @@ public class CheckToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
+		boolean isNosign = (tokenSource.lastIndexOf(".NOSIGN") >= 0);
+		tokenSource = tokenSource.replaceAll(".NOSIGN", "");
+		
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		aTok.nextToken();
 
@@ -79,6 +82,10 @@ public class CheckToken extends Token
 		if ("NAME".equals(saveMods))
 		{
 			return getNameToken(saveType);
+		}
+		if (isNosign) 
+		{
+			return getCheckToken(pc, saveType, saveMods) + "";
 		}
 		return Delta.toString(getCheckToken(pc, saveType, saveMods));
 	}
