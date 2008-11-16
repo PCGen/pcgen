@@ -25,7 +25,8 @@ public enum Tab
 	SPELLBOOKS("Spellbooks", "in_spellbooks"),
 	RACES("Races", "in_races"),
 	TEMPLATES("Templates", "in_templates"),
-	CHARACTERSHEET("Character Sheet", "in_character_sheet");
+	CHARACTERSHEET("Character Sheet", "in_character_sheet"),
+	INFO("SourceInfo", "in_source_info");
 
 	private final String text;
 	private final String label;

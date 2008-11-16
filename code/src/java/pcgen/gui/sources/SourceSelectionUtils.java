@@ -34,6 +34,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.PersistenceObserver;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
@@ -148,10 +149,12 @@ public final class SourceSelectionUtils
 			// Show that we are loading...
 			oldStatus = PCGen_Frame1.getInst().getMainSource()
 				.showLoadingSources();
-			//PersistenceObserver observer = new PersistenceObserver();
-			//pManager.addObserver( observer );
+			final PersistenceObserver observer = new PersistenceObserver();
+			pManager.addObserver( observer );
+			Logging.registerHandler( observer.getHandler() );
 			pManager.loadCampaigns(selectedCampaigns);
-			//pManager.deleteObserver( observer );
+			Logging.removeHandler( observer.getHandler() );
+			pManager.deleteObserver( observer );
 
 		}
 		catch (PersistenceLayerException e)
@@ -164,6 +167,11 @@ public final class SourceSelectionUtils
 		// Show that we are done
 		PCGen_Frame1.getInst().getMainSource().showSourcesLoaded(
 			oldStatus);
+		InfoPanel infoPanel = PCGen_Frame1.getInst().getInfoPanel();
+		if (infoPanel != null)
+		{
+			infoPanel.refreshDisplay();
+		}
 
 		PCGen_Frame1 parent = pcgen.gui.PCGen_Frame1.getInst();
 		if ((parent != null) && Globals.displayListsHappy())

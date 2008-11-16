@@ -112,6 +112,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.filter.Filterable;
+import pcgen.gui.sources.InfoPanel;
 import pcgen.gui.sources.MainSource;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.LinkableHtmlMessage;
@@ -188,6 +189,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	 * @see MainSource
 	 */
 	private MainSource mainSource;
+	private InfoPanel infoPanel;
 
 	/** Menubar for the main application. */
 	private PCGenMenuBar pcgenMenuBar;
@@ -314,6 +316,14 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		}
 
 		return null;
+	}
+
+	/**
+	 * @return the infoPanel
+	 */
+	public InfoPanel getInfoPanel()
+	{
+		return infoPanel;
 	}
 
 	/**
@@ -1249,8 +1259,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	private void handleNewMessage()
 	{
 		final int currTab = baseTabbedPane.getSelectedIndex();
-		if (currTab >= FIRST_CHAR_TAB
-			|| baseTabbedPane.getSelectedComponent() == mainSource)
+		if (currTab < 0 || currTab >= FIRST_CHAR_TAB
+			|| baseTabbedPane.getSelectedComponent() == mainSource
+			|| baseTabbedPane.getSelectedComponent() instanceof InfoPanel)
 		{
 			// seize the focus to cause focus listeners to fire
 			// How does this work with the toolbar button?? --bko XXX
@@ -2392,9 +2403,16 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		GameMode game = SettingsHandler.getGame();
 
 		mainSource = new MainSource();
-		if ((game != null) && (game.getTabShown(Tab.SOURCES)))
+		if ((game != null) && (game.getTabShown(Tab.SOURCES)) && SettingsHandler.useAdvancedSourceSelect())
 		{
 			baseTabbedPane.addTab(game.getTabName(Tab.SOURCES), mainSource);
+			baseTabbedPane.setToolTipTextAt(0, SettingsHandler
+				.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
+		}
+		else
+		{
+			infoPanel = new InfoPanel();
+			baseTabbedPane.addTab(game.getTabName(Tab.INFO), infoPanel);
 			baseTabbedPane.setToolTipTextAt(0, SettingsHandler
 				.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
 		}
@@ -3024,7 +3042,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	 */
 	public static void setCharacterPane(CharacterInfo theCharacterPane)
 	{
-		PCGen_Frame1.characterPane = characterPane;
+		PCGen_Frame1.characterPane = theCharacterPane;
 	}
 
 	/**

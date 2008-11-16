@@ -27,17 +27,14 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
@@ -75,6 +72,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 	private JComboBoxEx sourceOptions = new JComboBoxEx();
 	private JCheckBox loadURL = new JCheckBox();
 	private JCheckBox allowOverride = new JCheckBox();
+	private JCheckBox useAdvancedSourceSelect = new JCheckBox();
 
 	/**
 	 * Instantiates a new monster panel.
@@ -201,6 +199,14 @@ public class SourcesPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(allowOverride, c);
 		this.add(allowOverride);
 
+		Utility.buildConstraints(c, 0, 11, 3, 1, 0, 0);
+		label = new JLabel(PropertyFactory.getString("in_Prefs_useAdvancedSourceSelect") + ": ");
+		gridbag.setConstraints(label, c);
+		this.add(label);
+		Utility.buildConstraints(c, 3, 11, 1, 1, 0, 0);
+		gridbag.setConstraints(useAdvancedSourceSelect, c);
+		this.add(useAdvancedSourceSelect);
+
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -234,6 +240,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		SettingsHandler.setShowSponsors(showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
+		SettingsHandler.setUseAdvancedSourceSelect(useAdvancedSourceSelect.isSelected());
 
 		switch (sourceOptions.getSelectedIndex())
 		{
@@ -283,7 +290,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		showSponsors.setSelected(SettingsHandler.showSponsors());
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
 		allowOverride.setSelected(SettingsHandler.isAllowOverride());
-
+		useAdvancedSourceSelect.setSelected(SettingsHandler.useAdvancedSourceSelect());
 		
 		switch (Globals.getSourceDisplay())
 		{

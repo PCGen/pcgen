@@ -67,6 +67,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.MessageWrapper;
 import pcgen.core.utils.ShowMessageConsoleObserver;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.sources.SourceSelectionDialog;
 import pcgen.gui.utils.DialogInputInterface;
 import pcgen.gui.utils.Hyperactive;
 import pcgen.gui.utils.IconUtilitities;
@@ -234,6 +235,15 @@ public class pcGenGUI
 		if (SettingsHandler.getShowTipOfTheDay())
 		{
 			showTipOfTheDay();
+		}
+		
+		if (!SettingsHandler.useAdvancedSourceSelect())
+		{
+			PCGen_Frame1.setMessageAreaText("Source Selection...");
+
+			SourceSelectionDialog dialog =
+					new SourceSelectionDialog(frame, false);
+			dialog.setVisible(true);
 		}
 	}
 

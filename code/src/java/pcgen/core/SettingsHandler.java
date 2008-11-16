@@ -228,7 +228,8 @@ public final class SettingsHandler
 	private static boolean showTipOfTheDay = true;
 	private static boolean isGMGen = false;
 	private static boolean showSingleBoxPerBundle = false;
-
+	private static boolean useAdvancedSourceSelect = false;
+	
 	//
 	// Hide this tab from general consumption, until I get it working.
 	// Then this routine can be removed and the tab will show always
@@ -1261,6 +1262,7 @@ public final class SettingsHandler
 		setTemplateTab_ListMode(getPCGenOption("TemplateTab.availableListMode", GuiConstants.INFOTEMPLATE_VIEW_NAME)); //$NON-NLS-1$
 		setToolTipTextShown(getPCGenOption("toolTipTextShown", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
+		setUseAdvancedSourceSelect(getPCGenOption("useAdvancedSourceSelect", false)); //$NON-NLS-1$
 		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.PRINTOUT_WEAPONPROF)); //$NON-NLS-1$
@@ -1643,9 +1645,10 @@ public final class SettingsHandler
 		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("debugFeats", debugFeats); //$NON-NLS-1$
-		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages());
-		setPCGenOption("hiddenSources", getHiddenSources());
-		setPCGenOption("quickLaunchSources", getQuickLaunchSources());
+		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
+		setPCGenOption("hiddenSources", getHiddenSources()); //$NON-NLS-1$
+		setPCGenOption("quickLaunchSources", getQuickLaunchSources()); //$NON-NLS-1$
+		setPCGenOption("useAdvancedSourceSelect", useAdvancedSourceSelect()); //$NON-NLS-1$
 	}
 
 	public static void setPCGenOption(final String optionName, final int optionValue)
@@ -1656,7 +1659,7 @@ public final class SettingsHandler
 	public static void setPCGenOption(final String optionName, final String optionValue)
 	{
 		if (optionValue==null) {
-			getOptions().remove("pcgen.options." + optionName);
+			getOptions().remove("pcgen.options." + optionName); //$NON-NLS-1$
 		}
 		else {
 			getOptions().setProperty("pcgen.options." + optionName, optionValue); //$NON-NLS-1$
@@ -3533,5 +3536,21 @@ public final class SettingsHandler
 	public static void setQuickLaunchSources(String quickLaunchSources)
 	{
 		SettingsHandler.quickLaunchSources = quickLaunchSources;
+	}
+
+	/**
+	 * @return the useAdvancedSourceSelect
+	 */
+	public static boolean useAdvancedSourceSelect()
+	{
+		return useAdvancedSourceSelect;
+	}
+
+	/**
+	 * @param useAdvancedSourceSelect the useAdvancedSourceSelect to set
+	 */
+	public static void setUseAdvancedSourceSelect(boolean useAdvancedSourceSelect)
+	{
+		SettingsHandler.useAdvancedSourceSelect = useAdvancedSourceSelect;
 	}
 }
