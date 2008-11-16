@@ -83,8 +83,7 @@ public class SkillToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging
-						.errorPrint("Count in " + getFullName()
+				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
 								+ " must be > 0");
 				return false;
 			}
@@ -117,7 +116,7 @@ public class SkillToken extends AbstractToken implements
 						token);
 				if (ref == null)
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
+					Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
 							+ getFullName() + ": " + token
 							+ " is not a valid reference: " + value);
 					return false;
@@ -128,7 +127,7 @@ public class SkillToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

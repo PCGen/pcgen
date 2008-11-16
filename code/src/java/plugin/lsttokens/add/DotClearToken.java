@@ -29,19 +29,13 @@ public class DotClearToken implements AddLstToken
 	{
 		if (aLevel > 0)
 		{
-			Logging
-				.errorPrint("Warning: You performed a Dangerous .CLEAR in a ADD: Token");
-			Logging
-				.errorPrint("  A non-level limited .CLEAR was used in a Class Level line");
-			Logging
-				.errorPrint("  Today, this performs a .CLEAR on the entire PCClass");
-			Logging
-				.errorPrint("  However, you are using undocumented behavior that is subject to change");
-			Logging.errorPrint("  Hint: It will change after PCGen 5.14");
-			Logging
-				.errorPrint("  Please level limit the .CLEAR (e.g. .CLEAR.LEVEL2)");
-			Logging
-				.errorPrint("  ... or put the ADD:.CLEAR on a non-level Class line");
+			Logging.log(Logging.LST_ERROR, "Warning: You performed a Dangerous .CLEAR in a ADD: Token");
+			Logging.log(Logging.LST_ERROR, "  A non-level limited .CLEAR was used in a Class Level line");
+			Logging.log(Logging.LST_ERROR, "  Today, this performs a .CLEAR on the entire PCClass");
+			Logging.log(Logging.LST_ERROR, "  However, you are using undocumented behavior that is subject to change");
+			Logging.log(Logging.LST_ERROR, "  Hint: It will change after PCGen 5.14");
+			Logging.log(Logging.LST_ERROR, "  Please level limit the .CLEAR (e.g. .CLEAR.LEVEL2)");
+			Logging.log(Logging.LST_ERROR, "  ... or put the ADD:.CLEAR on a non-level Class line");
 		}
 		target.clearAdds();
 		target.removeListFor(ListKey.ADD);

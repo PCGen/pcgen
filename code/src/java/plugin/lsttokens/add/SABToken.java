@@ -30,9 +30,9 @@ public class SABToken implements AddLstToken
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("Lack of a SUBTOKEN for ADD:SAB "
+			Logging.log(Logging.LST_ERROR, "Lack of a SUBTOKEN for ADD:SAB "
 				+ "is prohibited.");
-			Logging.errorPrint("Please use ADD:SAB|name|[count|]X,X");
+			Logging.log(Logging.LST_ERROR, "Please use ADD:SAB|name|[count|]X,X");
 			return false;
 		}
 		String subToken = value.substring(0, pipeLoc);

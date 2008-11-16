@@ -73,7 +73,7 @@ public class VisibleToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging.errorPrint("Unable to understand " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Unable to understand " + getTokenName()
 					+ " tag: " + value);
 			return false;
 		}

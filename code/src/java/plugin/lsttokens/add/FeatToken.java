@@ -77,7 +77,7 @@ public class FeatToken extends AbstractToken implements
 	{
 		if (value.length() == 0)
 		{
-			Logging.errorPrint(getFullName() + " may not have empty argument");
+			Logging.log(Logging.LST_ERROR, getFullName() + " may not have empty argument");
 			return false;
 		}
 		AbilityCategory category = AbilityCategory.FEAT;
@@ -97,8 +97,7 @@ public class FeatToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging
-						.errorPrint("Count in " + getFullName()
+				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
 								+ " must be > 0");
 				return false;
 			}
@@ -126,7 +125,7 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (allowStack)
 				{
-					Logging.errorPrint(getFullName()
+					Logging.log(Logging.LST_ERROR, getFullName()
 							+ " found second stacking specification in value: "
 							+ value);
 					return false;
@@ -138,7 +137,7 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (allowStack)
 				{
-					Logging.errorPrint(getFullName()
+					Logging.log(Logging.LST_ERROR, getFullName()
 							+ " found second stacking specification in value: "
 							+ value);
 					return false;
@@ -150,13 +149,13 @@ public class FeatToken extends AbstractToken implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging.errorPrint("Invalid Stack number in "
+					Logging.log(Logging.LST_ERROR, "Invalid Stack number in "
 							+ getFullName() + ": " + value);
 					return false;
 				}
 				if (dupChoices <= 0)
 				{
-					Logging.errorPrint("Invalid (less than 1) Stack number in "
+					Logging.log(Logging.LST_ERROR, "Invalid (less than 1) Stack number in "
 							+ getFullName() + ": " + value);
 					return false;
 				}
@@ -175,7 +174,7 @@ public class FeatToken extends AbstractToken implements
 			}
 			if (ab == null)
 			{
-				Logging.errorPrint("  Error was encountered while parsing "
+				Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
 						+ getTokenName() + ": " + value
 						+ " had an invalid reference: " + token);
 				return false;
@@ -188,7 +187,7 @@ public class FeatToken extends AbstractToken implements
 				AbilityUtilities.getUndecoratedName(token, choices);
 				if (choices.size() != 1)
 				{
-					Logging.errorPrint("Invalid use of multiple items "
+					Logging.log(Logging.LST_ERROR, "Invalid use of multiple items "
 							+ "in parenthesis (comma prohibited) in "
 							+ getFullName() + ": " + token);
 					return false;
@@ -199,7 +198,7 @@ public class FeatToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

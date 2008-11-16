@@ -30,7 +30,7 @@ public class CategoryToken implements CDOMPrimaryToken<Ability>,
 				value);
 		if (cat == null)
 		{
-			Logging.errorPrint("Cannot find Ability Category: " + value);
+			Logging.log(Logging.LST_ERROR, "Cannot find Ability Category: " + value);
 			return false;
 		}
 		context.ref.reassociateCategory(cat, ability);

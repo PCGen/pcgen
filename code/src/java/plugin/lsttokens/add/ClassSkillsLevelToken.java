@@ -70,7 +70,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 	{
 		if (value.length() == 0)
 		{
-			Logging.errorPrint(getFullName() + " may not have empty argument");
+			Logging.log(Logging.LST_ERROR, getFullName() + " may not have empty argument");
 			return false;
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
@@ -87,8 +87,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging
-						.errorPrint("Count in " + getFullName()
+				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
 								+ " must be > 0");
 				return false;
 			}
@@ -152,8 +151,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 				{
 					if (autoRank != null)
 					{
-						Logging
-								.errorPrint("Cannot have two AUTORANK= items in "
+						Logging.log(Logging.LST_ERROR, "Cannot have two AUTORANK= items in "
 										+ getFullName() + ": " + value);
 						return false;
 					}
@@ -166,8 +164,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 							.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
 					if (skref == null)
 					{
-						Logging
-								.errorPrint("  Error was encountered while parsing "
+						Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
 										+ getFullName()
 										+ ": "
 										+ value
@@ -182,7 +179,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

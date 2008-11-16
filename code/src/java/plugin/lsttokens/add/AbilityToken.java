@@ -125,8 +125,7 @@ public class AbilityToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(countString);
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				Logging
-						.errorPrint("Count in " + getFullName()
+				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
 								+ " must be > 0");
 				return false;
 			}
@@ -137,8 +136,7 @@ public class AbilityToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging
-					.errorPrint("Syntax of ADD:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Syntax of ADD:" + getTokenName()
 							+ " requires three | when a count is not present: "
 							+ value);
 			return false;
@@ -149,7 +147,7 @@ public class AbilityToken extends AbstractToken implements
 				.getAbilityCategory(categoryKey);
 		if (category == null)
 		{
-			Logging.errorPrint(getFullName() + ": Invalid ability category: "
+			Logging.log(Logging.LST_ERROR, getFullName() + ": Invalid ability category: "
 					+ categoryKey);
 			return false;
 		}
@@ -158,13 +156,13 @@ public class AbilityToken extends AbstractToken implements
 		Ability.Nature nature = Ability.Nature.valueOf(natureKey);
 		if (nature == null)
 		{
-			Logging.errorPrint(getFullName() + ": Invalid ability nature: "
+			Logging.log(Logging.LST_ERROR, getFullName() + ": Invalid ability nature: "
 					+ natureKey);
 			return false;
 		}
 		if (Ability.Nature.ANY.equals(nature))
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
 					+ getTokenName() + ": " + value);
 			return false;
@@ -173,7 +171,7 @@ public class AbilityToken extends AbstractToken implements
 		String items = pipeTok.nextToken();
 		if (isEmpty(items) || hasIllegalSeparator(',', items))
 		{
-			Logging.errorPrint("!!");
+			Logging.log(Logging.LST_ERROR, "!!");
 			return false;
 		}
 
@@ -192,7 +190,7 @@ public class AbilityToken extends AbstractToken implements
 			{
 				if (allowStack)
 				{
-					Logging.errorPrint(getFullName()
+					Logging.log(Logging.LST_ERROR, getFullName()
 							+ " found second stacking specification in value: "
 							+ value);
 					return false;
@@ -204,7 +202,7 @@ public class AbilityToken extends AbstractToken implements
 			{
 				if (allowStack)
 				{
-					Logging.errorPrint(getFullName()
+					Logging.log(Logging.LST_ERROR, getFullName()
 							+ " found second stacking specification in value: "
 							+ value);
 					return false;
@@ -216,13 +214,13 @@ public class AbilityToken extends AbstractToken implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging.errorPrint("Invalid Stack number in "
+					Logging.log(Logging.LST_ERROR, "Invalid Stack number in "
 							+ getFullName() + ": " + value);
 					return false;
 				}
 				if (dupChoices <= 0)
 				{
-					Logging.errorPrint("Invalid (less than 1) Stack number in "
+					Logging.log(Logging.LST_ERROR, "Invalid (less than 1) Stack number in "
 							+ getFullName() + ": " + value);
 					return false;
 				}
@@ -245,7 +243,7 @@ public class AbilityToken extends AbstractToken implements
 			}
 			if (ab == null)
 			{
-				Logging.errorPrint("  Error was encountered while parsing "
+				Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
 						+ getTokenName() + ": " + value
 						+ " had an invalid reference: " + token);
 				return false;
@@ -258,7 +256,7 @@ public class AbilityToken extends AbstractToken implements
 				AbilityUtilities.getUndecoratedName(token, choices);
 				if (choices.size() != 1)
 				{
-					Logging.errorPrint("Invalid use of multiple items "
+					Logging.log(Logging.LST_ERROR, "Invalid use of multiple items "
 							+ "in parenthesis (comma prohibited) in "
 							+ getFullName() + ": " + token);
 					return false;
@@ -269,13 +267,13 @@ public class AbilityToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
 		if (refs.isEmpty())
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains no ability reference: " + value);
 			return false;
 		}

@@ -66,7 +66,7 @@ public class SpellCasterToken extends AbstractToken implements
 	{
 		if (value.length() == 0)
 		{
-			Logging.errorPrint(getTokenName() + " may not have empty argument");
+			Logging.log(Logging.LST_ERROR, getTokenName() + " may not have empty argument");
 			return false;
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
@@ -81,7 +81,7 @@ public class SpellCasterToken extends AbstractToken implements
 		{
 			if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 			{
-				Logging.errorPrint("Syntax of ADD:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Syntax of ADD:" + getTokenName()
 						+ " only allows one | : " + value);
 				return false;
 			}
@@ -117,14 +117,14 @@ public class SpellCasterToken extends AbstractToken implements
 				count = Integer.parseInt(countString);
 				if (count < 1)
 				{
-					Logging.errorPrint("Count in " + getFullName()
+					Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
 							+ " must be > 0");
 					return false;
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Invalid Count in " + getFullName() + ": "
+				Logging.log(Logging.LST_ERROR, "Invalid Count in " + getFullName() + ": "
 						+ countString);
 				return false;
 			}
@@ -167,8 +167,7 @@ public class SpellCasterToken extends AbstractToken implements
 									.substring(5));
 					if (ref == null)
 					{
-						Logging
-								.errorPrint("  Error was encountered while parsing "
+						Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
 										+ getFullName()
 										+ ": "
 										+ token
@@ -187,7 +186,7 @@ public class SpellCasterToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

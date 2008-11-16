@@ -53,7 +53,7 @@ public class CostToken extends AbstractToken implements
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrint(getTokenName() + " expected a number: " + value);
+			Logging.log(Logging.LST_ERROR, getTokenName() + " expected a number: " + value);
 			return false;
 		}
 	}
