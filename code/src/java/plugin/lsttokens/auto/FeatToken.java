@@ -84,7 +84,7 @@ public class FeatToken extends AbstractToken implements
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
 					+ getFullName() + ": " + value);
 			return false;
 		}
@@ -102,7 +102,7 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getFullName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getFullName()
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
@@ -156,7 +156,7 @@ public class FeatToken extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put feats after the "
+				Logging.log(Logging.LST_ERROR, "   (Did you put feats after the "
 						+ "PRExxx tags in " + getFullName() + ":?)");
 				return false;
 			}

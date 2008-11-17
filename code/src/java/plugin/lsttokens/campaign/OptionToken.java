@@ -46,7 +46,7 @@ public class OptionToken implements CampaignLstToken
 		}
 		else
 		{
-			Logging.errorPrint("Invalid option line in source file "
+			Logging.log(Logging.LST_ERROR, "Invalid option line in source file "
 				+ sourceUri.toString() + " : " + value);
 			return false;
 		}

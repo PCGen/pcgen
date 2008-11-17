@@ -31,7 +31,7 @@ public class HidetypeToken implements CampaignLstToken
 			GameMode gm = SystemCollections.getGameModeNamed(gmName);
 			if (gm == null)
 			{
-				Logging.errorPrint("Unknown game mode '" + gmName
+				Logging.log(Logging.LST_ERROR, "Unknown game mode '" + gmName
 					+ "' in campaign: " + campaign.getDisplayName());
 				continue;
 			}
@@ -55,7 +55,7 @@ public class HidetypeToken implements CampaignLstToken
 			}
 			if (cl == null)
 			{
-				Logging.errorPrint(getTokenName () + " did not understand: " + value + " in "
+				Logging.log(Logging.LST_ERROR, getTokenName () + " did not understand: " + value + " in "
 						+ sourceUri.toString());
 				return false;
 			}

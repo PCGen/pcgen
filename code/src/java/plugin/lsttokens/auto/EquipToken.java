@@ -33,7 +33,7 @@ public class EquipToken implements AutoLstToken
 	{
 		if (level > 1)
 		{
-			Logging.errorPrint("AUTO:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "AUTO:" + getTokenName()
 				+ " is not supported on class level lines");
 			return false;
 		}

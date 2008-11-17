@@ -65,13 +65,13 @@ public class LstexcludeToken extends AbstractToken implements
 			}
 			if (!cse.getIncludeItems().isEmpty())
 			{
-				Logging.errorPrint(getTokenName() + " does not allow INCLUDE: "
+				Logging.log(Logging.LST_ERROR, getTokenName() + " does not allow INCLUDE: "
 					+ value);
 				return false;
 			}
 			if (!cse.getExcludeItems().isEmpty())
 			{
-				Logging.errorPrint(getTokenName() + " does not allow EXCLUDE: "
+				Logging.log(Logging.LST_ERROR, getTokenName() + " does not allow EXCLUDE: "
 					+ value);
 				return false;
 			}

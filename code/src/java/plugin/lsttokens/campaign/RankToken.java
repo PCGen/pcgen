@@ -26,7 +26,7 @@ public class RankToken implements CampaignLstToken
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Bad RANK " + value);
+			Logging.log(Logging.LST_ERROR, "Bad RANK " + value);
 		}
 		return false;
 	}

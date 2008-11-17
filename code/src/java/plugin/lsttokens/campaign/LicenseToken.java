@@ -22,7 +22,7 @@ public class LicenseToken implements CampaignLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("Empty " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Empty " + getTokenName()
 					+ " in campaign file: " + sourceUri.toString());
 			return false;
 		}

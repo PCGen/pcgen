@@ -36,7 +36,7 @@ public class ArmorProfToken implements AutoLstToken
 	{
 		if (level > 1)
 		{
-			Logging.errorPrint("AUTO:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "AUTO:" + getTokenName()
 					+ " is not supported on class level lines");
 			return false;
 		}
@@ -45,7 +45,7 @@ public class ArmorProfToken implements AutoLstToken
 		{
 			if (st.nextToken().startsWith("TYPE"))
 			{
-				Logging.errorPrint("TYPE= in AUTO:ARMORPROF is "
+				Logging.log(Logging.LST_ERROR, "TYPE= in AUTO:ARMORPROF is "
 						+ "prohibited.  Use ARMORTYPE=");
 				return false;
 			}
