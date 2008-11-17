@@ -31,31 +31,31 @@ public class LanguageToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
@@ -77,10 +77,10 @@ public class LanguageToken implements ChooseLstToken
 			String tokString = st.nextToken();
 			if (tokString.indexOf('.') != tokString.lastIndexOf('.'))
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments cannot have two . : " + tokString);
-				Logging.errorPrint("  format for argument must be X or X.Y");
-				Logging.errorPrint("  entire token was: " + value);
+				Logging.log(Logging.LST_ERROR, "  format for argument must be X or X.Y");
+				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 			sb.append(tokString);

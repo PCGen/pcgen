@@ -31,25 +31,25 @@ public class SpellsToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " requires additional arguments");
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value);
 			return false;
 		}
@@ -79,7 +79,7 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (token.length() < 12)
 						{
-							Logging.errorPrint("Invalid DOMAINLIST= entry for "
+							Logging.log(Logging.LST_ERROR, "Invalid DOMAINLIST= entry for "
 									+ "CHOOSE:SPELLS: requires a domain name");
 							return false;
 						}
@@ -88,7 +88,7 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.errorPrint("Invalid entry in "
+							Logging.log(Logging.LST_ERROR, "Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
 							return false;
@@ -96,7 +96,7 @@ public class SpellsToken implements ChooseLstToken
 						String domainName = token.substring(11, bracketLoc);
 						if (domainName == null || domainName.length() == 0)
 						{
-							Logging.errorPrint("Invalid DOMAINLIST= entry for "
+							Logging.log(Logging.LST_ERROR, "Invalid DOMAINLIST= entry for "
 									+ "CHOOSE:SPELLS: requires a domain name");
 							return false;
 						}
@@ -111,7 +111,7 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (token.length() < 10)
 						{
-							Logging.errorPrint("Invalid CLASSLIST= entry for "
+							Logging.log(Logging.LST_ERROR, "Invalid CLASSLIST= entry for "
 									+ "CHOOSE:SPELLS: requires a class name");
 							return false;
 						}
@@ -120,7 +120,7 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.errorPrint("Invalid entry in "
+							Logging.log(Logging.LST_ERROR, "Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
 							return false;
@@ -128,7 +128,7 @@ public class SpellsToken implements ChooseLstToken
 						String className = token.substring(10, bracketLoc);
 						if (className == null || className.length() == 0)
 						{
-							Logging.errorPrint("Invalid CLASSLIST= entry for "
+							Logging.log(Logging.LST_ERROR, "Invalid CLASSLIST= entry for "
 									+ "CHOOSE:SPELLS: requires a class name");
 							return false;
 						}
@@ -143,7 +143,7 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (token.length() < 10)
 						{
-							Logging.errorPrint("Invalid SPELLTYPE= entry for "
+							Logging.log(Logging.LST_ERROR, "Invalid SPELLTYPE= entry for "
 									+ "CHOOSE:SPELLS: requires a spell type");
 							return false;
 						}
@@ -152,7 +152,7 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.errorPrint("Invalid entry in "
+							Logging.log(Logging.LST_ERROR, "Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
 							return false;
@@ -160,7 +160,7 @@ public class SpellsToken implements ChooseLstToken
 						String className = token.substring(10, bracketLoc);
 						if (className == null || className.length() == 0)
 						{
-							Logging.errorPrint("Invalid SPELLTYPE= entry for "
+							Logging.log(Logging.LST_ERROR, "Invalid SPELLTYPE= entry for "
 									+ "CHOOSE:SPELLS: requires a spell type");
 							return false;
 						}
@@ -173,7 +173,7 @@ public class SpellsToken implements ChooseLstToken
 					int bracketLoc = token.indexOf('[');
 					if (bracketLoc > -1 && bracketLoc != 3)
 					{
-						Logging.errorPrint("Invalid ANY entry for "
+						Logging.log(Logging.LST_ERROR, "Invalid ANY entry for "
 							+ "CHOOSE:SPELLS, bracket must immediately follow 'ANY'");
 						return false;
 					}
@@ -181,7 +181,7 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (!token.endsWith("]"))
 						{
-							Logging.errorPrint("Invalid entry in "
+							Logging.log(Logging.LST_ERROR, "Invalid entry in "
 									+ "CHOOSE:SPELLS: " + token
 									+ " did not have matching brackets");
 							return false;
@@ -194,7 +194,7 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 8)
 					{
-						Logging.errorPrint("Invalid SCHOOL= entry for "
+						Logging.log(Logging.LST_ERROR, "Invalid SCHOOL= entry for "
 								+ "CHOOSE:SPELLS: requires a school name");
 						return false;
 					}
@@ -203,7 +203,7 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 11)
 					{
-						Logging.errorPrint("Invalid SUBSCHOOL= entry for "
+						Logging.log(Logging.LST_ERROR, "Invalid SUBSCHOOL= entry for "
 								+ "CHOOSE:SPELLS: requires a subschool name");
 						return false;
 					}
@@ -212,7 +212,7 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 12)
 					{
-						Logging.errorPrint("Invalid DESCRIPTOR= entry for "
+						Logging.log(Logging.LST_ERROR, "Invalid DESCRIPTOR= entry for "
 								+ "CHOOSE:SPELLS: requires a descriptor name");
 						return false;
 					}
@@ -221,7 +221,7 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 11)
 					{
-						Logging.errorPrint("Invalid SPELLBOOK= entry for "
+						Logging.log(Logging.LST_ERROR, "Invalid SPELLBOOK= entry for "
 								+ "CHOOSE:SPELLS: requires a spellbook name");
 						return false;
 					}
@@ -231,7 +231,7 @@ public class SpellsToken implements ChooseLstToken
 					String prohibited = token.substring(11);
 					if (!"YES".equals(prohibited) && !"NO".equals(prohibited))
 					{
-						Logging.errorPrint("Invalid PROHIBITED= entry for "
+						Logging.log(Logging.LST_ERROR, "Invalid PROHIBITED= entry for "
 								+ "CHOOSE:SPELLS: must be YES or NO");
 						return false;
 					}
@@ -240,7 +240,7 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 6)
 					{
-						Logging.errorPrint("Invalid TYPE= entry for "
+						Logging.log(Logging.LST_ERROR, "Invalid TYPE= entry for "
 								+ "CHOOSE:SPELLS: requires a type name");
 						return false;
 					}
@@ -249,7 +249,7 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.indexOf('[') != -1 || token.indexOf('=') != -1)
 					{
-						Logging.errorPrint("Invalid (unknown) entry: " + token
+						Logging.log(Logging.LST_ERROR, "Invalid (unknown) entry: " + token
 								+ " for " + "CHOOSE:SPELLS:");
 						return false;
 					}
@@ -287,7 +287,7 @@ public class SpellsToken implements ChooseLstToken
 			}
 			else
 			{
-				Logging.errorPrint("Unknown restriction: " + tok
+				Logging.log(Logging.LST_ERROR, "Unknown restriction: " + tok
 						+ " in CHOOSE:SPELLS");
 				continue;
 			}

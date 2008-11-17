@@ -51,7 +51,7 @@ public class ModsToken extends AbstractToken implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.errorPrint("Invalid Mod Control provided in "
+			Logging.log(Logging.LST_ERROR, "Invalid Mod Control provided in "
 					+ getTokenName() + ": " + value);
 			if (value.length() == 0)
 			{

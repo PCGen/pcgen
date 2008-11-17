@@ -41,7 +41,7 @@ public class BaseqtyToken implements CDOMPrimaryToken<Equipment>
 			Integer quan = Integer.valueOf(value);
 			if (quan.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " expected an integer > 0");
+				Logging.log(Logging.LST_ERROR, getTokenName() + " expected an integer > 0");
 				return false;
 			}
 			context.getObjectContext().put(eq, IntegerKey.BASE_QUANTITY, quan);
@@ -49,7 +49,7 @@ public class BaseqtyToken implements CDOMPrimaryToken<Equipment>
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
 			return false;

@@ -41,7 +41,7 @@ public class SlotsToken implements CDOMPrimaryToken<Equipment>
 			Integer hands = Integer.valueOf(value);
 			if (hands.intValue() < 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer > 0");
+				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer > 0");
 				return false;
 			}
 			context.getObjectContext().put(eq, IntegerKey.SLOTS, hands);
@@ -49,7 +49,7 @@ public class SlotsToken implements CDOMPrimaryToken<Equipment>
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
 			return false;

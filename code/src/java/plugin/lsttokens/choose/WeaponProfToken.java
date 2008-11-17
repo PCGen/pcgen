@@ -33,19 +33,19 @@ public class WeaponProfToken implements ChooseLstToken
 	{
 		if (prefix.indexOf("NUMCHOICES=") != -1)
 		{
-			Logging.errorPrint("Cannot use NUMCHOICES= with CHOOSE:WEAPONPROF, "
+			Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with CHOOSE:WEAPONPROF, "
 				+ "as it has an integrated choice count");
 			return false;
 		}
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain , : " + value);
 			return false;
 		}
@@ -56,7 +56,7 @@ public class WeaponProfToken implements ChooseLstToken
 			int closeLoc = value.indexOf("]", bracketLoc);
 			if (closeLoc != value.length() - 1)
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments does not contain matching brackets: "
 					+ value);
 				return false;
@@ -74,7 +74,7 @@ public class WeaponProfToken implements ChooseLstToken
 			}
 			else
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments may not contain [" + bracketString + "] : "
 					+ value);
 				return false;
@@ -83,26 +83,26 @@ public class WeaponProfToken implements ChooseLstToken
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " must have two or more | delimited arguments : " + value);
 			return false;
 		}
@@ -114,7 +114,7 @@ public class WeaponProfToken implements ChooseLstToken
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " first argument must be an Integer : " + value);
 			return false;
 		}
@@ -126,9 +126,9 @@ public class WeaponProfToken implements ChooseLstToken
 			int equalsLoc = tokString.indexOf("=");
 			if (equalsLoc == tokString.length() - 1)
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments must have value after = : " + tokString);
-				Logging.errorPrint("  entire token was: " + value);
+				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 		}

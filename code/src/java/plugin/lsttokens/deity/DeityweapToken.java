@@ -77,7 +77,7 @@ public class DeityweapToken extends AbstractToken implements CDOMPrimaryToken<De
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

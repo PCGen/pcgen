@@ -30,43 +30,43 @@ public class UserInputToken implements ChooseLstToken
 	{
 		if (prefix.indexOf("NUMCHOICES=") != -1)
 		{
-			Logging.errorPrint("Cannot use NUMCHOICES= with CHOOSE:USERINPUT, "
+			Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with CHOOSE:USERINPUT, "
 				+ "as it has an integrated choice count");
 			return false;
 		}
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain , : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
@@ -86,7 +86,7 @@ public class UserInputToken implements ChooseLstToken
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " first argument must be an Integer : " + value);
 				return false;
 			}
@@ -94,7 +94,7 @@ public class UserInputToken implements ChooseLstToken
 		}
 		if (!title.startsWith("TITLE="))
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " argument must start with TITLE= : " + value);
 			return false;
 		}
@@ -102,7 +102,7 @@ public class UserInputToken implements ChooseLstToken
 		{
 			if (!title.endsWith("\""))
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 						+ " argument which starts \" with must end with \" : "
 						+ value);
 				return false;

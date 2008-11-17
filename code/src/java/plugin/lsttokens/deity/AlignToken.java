@@ -41,7 +41,7 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 				context.ref.getAbbreviatedObject(PCAlignment.class, value);
 		if (al == null)
 		{
-			Logging.errorPrint("In " + getTokenName() + " " + value
+			Logging.log(Logging.LST_ERROR, "In " + getTokenName() + " " + value
 				+ " is not an Alignment");
 			return false;
 		}

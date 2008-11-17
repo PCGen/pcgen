@@ -40,25 +40,25 @@ public class StatToken implements ChooseLstToken
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
@@ -74,7 +74,7 @@ public class StatToken implements ChooseLstToken
 					continue TOKENS;
 				}
 			}
-			Logging.errorPrint("Did not find STAT: " + tokText
+			Logging.log(Logging.LST_ERROR, "Did not find STAT: " + tokText
 				+ " used in CHOOSE: " + value);
 		}
 		StringBuilder sb = new StringBuilder();

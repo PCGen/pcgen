@@ -41,7 +41,7 @@ public class AccheckToken implements CDOMPrimaryToken<Equipment>
 			Integer acc = Integer.valueOf(value);
 			if (acc.intValue() > 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer <= 0");
+				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer <= 0");
 				return false;
 			}
 			context.getObjectContext().put(eq, IntegerKey.AC_CHECK, acc);
@@ -55,7 +55,7 @@ public class AccheckToken implements CDOMPrimaryToken<Equipment>
 					+ getTokenName() + ":<int>");
 			context.getObjectContext().put(eq, IntegerKey.AC_CHECK, 0);
 			return true;
-			// Logging.errorPrint(getTokenName()
+			// Logging.log(Logging.LST_ERROR, getTokenName()
 			// + " expected an integer. Tag must be of the form: "
 			// + getTokenName() + ":<int>");
 			// return false;

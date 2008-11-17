@@ -28,19 +28,19 @@ public class HPToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf('|') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain | : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}

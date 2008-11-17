@@ -56,7 +56,7 @@ public class NumPagesToken implements CDOMPrimaryToken<Equipment>
 			Integer pages = Integer.valueOf(value);
 			if (pages.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer > 0");
+				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer > 0");
 				return false;
 			}
 			context.getObjectContext().put(eq, IntegerKey.NUM_PAGES, pages);
@@ -64,7 +64,7 @@ public class NumPagesToken implements CDOMPrimaryToken<Equipment>
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
 			return false;

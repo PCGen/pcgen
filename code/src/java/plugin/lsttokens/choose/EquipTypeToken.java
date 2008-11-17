@@ -28,43 +28,43 @@ public class EquipTypeToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf('|') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain | : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '.')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with . : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '.')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with . : " + value);
 			return false;
 		}
 		if (value.indexOf("..") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator .. : " + value);
 			return false;
 		}
 		if (value.indexOf(",") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " may not have multiple , delimited arguments: " + value);
 			return false;
 		}

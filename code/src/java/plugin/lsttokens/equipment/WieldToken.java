@@ -47,7 +47,7 @@ public class WieldToken implements CDOMPrimaryToken<Equipment>
 			WieldCategory wc = WieldCategory.findByName(value);
 			if (wc.equals(WieldCategory.DEFAULT_UNUSABLE))
 			{
-				Logging.errorPrint("In " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "In " + getTokenName()
 						+ " unable to find WieldCategory for " + value);
 				return false;
 			}
@@ -55,7 +55,7 @@ public class WieldToken implements CDOMPrimaryToken<Equipment>
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.errorPrint("Invalid Wield provided in " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Invalid Wield provided in " + getTokenName()
 					+ ": " + value);
 			return false;
 		}

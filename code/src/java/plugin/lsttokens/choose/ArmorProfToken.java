@@ -31,44 +31,44 @@ public class ArmorProfToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain , : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " must have two or more | delimited arguments : " + value);
 			return false;
 		}
@@ -79,7 +79,7 @@ public class ArmorProfToken implements ChooseLstToken
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " first argument must be an Integer : " + value);
 			return false;
 		}
@@ -92,9 +92,9 @@ public class ArmorProfToken implements ChooseLstToken
 			int equalsLoc = tokString.indexOf("=");
 			if (equalsLoc == tokString.length() - 1)
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments must have value after = : " + tokString);
-				Logging.errorPrint("  entire token was: " + value);
+				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 		}

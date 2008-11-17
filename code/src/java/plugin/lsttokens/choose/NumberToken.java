@@ -31,38 +31,38 @@ public class NumberToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " must have two or more | delimited arguments : " + value);
 			return false;
 		}
@@ -77,19 +77,19 @@ public class NumberToken implements ChooseLstToken
 		}
 		if (!tok.nextToken().startsWith("MIN="))
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "COUNT:" + getTokenName()
 				+ " first argument was not MIN=");
 			return false;
 		}
 		if (!tok.nextToken().startsWith("MAX="))
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "COUNT:" + getTokenName()
 				+ " second argument was not MAX=");
 			return false;
 		}
 		if (!tok.nextToken().startsWith("TITLE="))
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "COUNT:" + getTokenName()
 				+ " third argument was not TITLE=");
 			return false;
 		}

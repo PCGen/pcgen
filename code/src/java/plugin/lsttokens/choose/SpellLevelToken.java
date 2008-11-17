@@ -33,13 +33,13 @@ public class SpellLevelToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain , : " + value);
 			return false;
 		}
@@ -50,7 +50,7 @@ public class SpellLevelToken implements ChooseLstToken
 			int closeLoc = value.indexOf("]", bracketLoc);
 			if (closeLoc != value.length() - 1)
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments does not contain matching brackets: "
 					+ value);
 				return false;
@@ -63,7 +63,7 @@ public class SpellLevelToken implements ChooseLstToken
 			}
 			else
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments may not contain [" + bracketString + "] : "
 					+ value);
 				return false;
@@ -72,26 +72,26 @@ public class SpellLevelToken implements ChooseLstToken
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " must have two or more | delimited arguments : " + value);
 			return false;
 		}
@@ -103,7 +103,7 @@ public class SpellLevelToken implements ChooseLstToken
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " first argument must be an Integer : " + value);
 			return false;
 		}
@@ -112,7 +112,7 @@ public class SpellLevelToken implements ChooseLstToken
 					Constants.PIPE);
 		if (tok.countTokens() % 3 != 0)
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "COUNT:" + getTokenName()
 				+ " requires a multiple of three arguments: " + value);
 			return false;
 		}
@@ -122,18 +122,18 @@ public class SpellLevelToken implements ChooseLstToken
 			int equalsLoc = tokString.indexOf("=");
 			if (equalsLoc == tokString.length() - 1)
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " arguments must have value after = : " + tokString);
-				Logging.errorPrint("  entire token was: " + value);
+				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 			if (!tokString.startsWith("CLASS=")
 				&& !tokString.startsWith("TYPE="))
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " argument must start with CLASS= or TYPE= : "
 					+ tokString);
-				Logging.errorPrint("  Entire Token was: " + value);
+				Logging.log(Logging.LST_ERROR, "  Entire Token was: " + value);
 				return false;
 			}
 			String second = tok.nextToken();
@@ -143,14 +143,14 @@ public class SpellLevelToken implements ChooseLstToken
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 					+ " second argument must be an Integer : " + value);
 				return false;
 			}
 			String lastTok = tok.nextToken();
 			if (lastTok.indexOf(".A[") != -1 || lastTok.endsWith(".A"))
 			{
-				Logging.errorPrint("CHOOSE:" + getTokenName()
+				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 						+ " use of .A in third argument is deprecated, "
 						+ "please contact the PCGen team for alternatives:"
 						+ value);

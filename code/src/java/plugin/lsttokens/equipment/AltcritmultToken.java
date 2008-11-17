@@ -52,13 +52,13 @@ public class AltcritmultToken extends AbstractToken implements
 				cm = Integer.valueOf(value.substring(1));
 				if (cm.intValue() <= 0)
 				{
-					Logging.errorPrint(getTokenName() + " cannot be <= 0");
+					Logging.log(Logging.LST_ERROR, getTokenName() + " cannot be <= 0");
 					return false;
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint(getTokenName()
+				Logging.log(Logging.LST_ERROR, getTokenName()
 						+ " was expecting an Integer: " + value);
 				return false;
 			}
@@ -69,7 +69,7 @@ public class AltcritmultToken extends AbstractToken implements
 		}
 		if (cm == null)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " was expecting x followed by an integer "
 					+ "or the special value '-' (representing no value)");
 			return false;

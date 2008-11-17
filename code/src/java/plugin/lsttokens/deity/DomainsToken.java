@@ -82,7 +82,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			String tokString = commaTok.nextToken();
 			if (tokString.startsWith("PRE") || tokString.startsWith("!PRE"))
 			{
-				Logging.errorPrint("Invalid " + getTokenName()
+				Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName()
 						+ ": PRExxx was comma delimited : " + value);
 				return false;
 			}
@@ -90,7 +90,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getTokenName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
@@ -135,7 +135,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 
 		if (foundAll && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getTokenName()
 					+ ": Contains ALL and a specific reference: " + value);
 			return false;
 		}
@@ -146,7 +146,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 			Prerequisite prereq = getPrerequisite(tokString);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put items after the "
+				Logging.log(Logging.LST_ERROR, "   (Did you put items after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
 				return false;
 			}

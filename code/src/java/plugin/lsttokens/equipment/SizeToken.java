@@ -42,7 +42,7 @@ public class SizeToken implements CDOMPrimaryToken<Equipment>
 					value);
 		if (size == null)
 		{
-			Logging.errorPrint("Unable to find Size: " + value);
+			Logging.log(Logging.LST_ERROR, "Unable to find Size: " + value);
 			return false;
 		}
 		context.getObjectContext().put(eq, ObjectKey.BASESIZE, size);

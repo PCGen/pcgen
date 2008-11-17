@@ -28,42 +28,42 @@ public class SpellListToken implements ChooseLstToken
 	{
 		if (value == null)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " requires additional arguments in " + po.getDisplayName()
 				+ " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain , : " + value + " in "
 				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not contain [] : " + value + " in "
 				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not start with | : " + value + " in "
 				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments may not end with | : " + value + " in "
 				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value + "  in "
 				+ po.getDisplayName() + " at " + po.getDefaultSourceString());
 			return false;
@@ -71,7 +71,7 @@ public class SpellListToken implements ChooseLstToken
 		if (!value.equals("Y") && !value.equals("N") && !value.equals("1")
 			&& !value.equals("0"))
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
 				+ " argument was not Y or N in " + po.getDisplayName() + " at "
 				+ po.getDefaultSourceString());
 			return false;

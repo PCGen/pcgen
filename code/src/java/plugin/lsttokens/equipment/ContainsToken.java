@@ -120,12 +120,10 @@ public class ContainsToken extends AbstractToken implements
 						weightCapacity));
 				if (BigDecimal.ZERO.compareTo(weightCap) > 0)
 				{
-					Logging
-							.addParseMessage(
-									Logging.LST_ERROR,
-									"Weight Capacity must be >= 0: "
-											+ weightCapacity
-											+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
+					Logging.addParseMessage(Logging.LST_ERROR,
+							"Weight Capacity must be >= 0: "
+									+ weightCapacity
+									+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
 					return false;
 				}
 			}
