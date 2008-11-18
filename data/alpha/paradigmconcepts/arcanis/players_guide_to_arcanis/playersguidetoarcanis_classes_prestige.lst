@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct 30 13:08:10 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Nov 18 00:02:40 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -223,13 +223,13 @@ SUBCLASS:Thracian		COST:0
 SUBCLASSLEVEL:1										ABILITY:Special Ability|VIRTUAL|Thracian CS
 SUBCLASSLEVEL:4										ABILITY:Special Ability|VIRTUAL|Thracian ICS
 SUBCLASSLEVEL:8										ABILITY:Special Ability|VIRTUAL|Thracian CSM
-1												ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies																																							AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
+1												ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies																																																																																AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 1												ABILITY:Special Ability|VIRTUAL|GladiatorUDAM1
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
-3																																																														AUTO:FEAT|Endurance[PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]]
+3																																																														VFEAT:Endurance|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 5												ABILITY:Special Ability|VIRTUAL|Idolized by the Mob|Signature Weapon|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 6												ABILITY:Special Ability|VIRTUAL|Amazing Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
-7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|VIRTUAL|Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]					AUTO:FEAT|Diehard[PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]]
+7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|VIRTUAL|Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]					VFEAT:Diehard|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 9												ABILITY:Special Ability|VIRTUAL|Legendary Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 10												ABILITY:Special Ability|VIRTUAL|As if They Were Gods
 10												ABILITY:Special Ability|VIRTUAL|GladiatorUDAM10|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
@@ -246,12 +246,12 @@ CLASS:Grand Master	PREFEAT:6,Combat Expertise,Improved Disarm,Power Attack,Great
 CLASS:Grand Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Craft (Weaponsmithing)|Examine Martial Technique|Intimidate|Jump|TYPE.History|TYPE.Nobility|Profession (Educator)|Ride|Sense Motive|Spot|Tumble
 1																ABILITY:Special Ability|VIRTUAL|Master's Edge|Master's Reputation
 1:REPEATLEVEL:2									BONUS:VAR|MasterEdgeBonus|1
-2																ABILITY:Special Ability|VIRTUAL|Master's Intuition|The Perfect Cut	AUTO:FEAT|Quick Draw[!PREFEAT:1,Quick Draw]
+2																ABILITY:Special Ability|VIRTUAL|Master's Intuition|The Perfect Cut	AUTO:FEAT|Quick Draw
 2:REPEATLEVEL:2									BONUS:VAR|CutTimes|1
 3			BONUS:ABILITYPOOL|Weapon Master Feat|1
 4																ABILITY:Special Ability|VIRTUAL|Strike of the Placid Mind
 4:REPEATLEVEL:2									BONUS:VAR|PlacidTimes|1
-5																												AUTO:FEAT|Improved Quick Draw[!PREFEAT:1,Improved Quick Draw]
+5																												AUTO:FEAT|Improved Quick Draw
 6			BONUS:ABILITYPOOL|Weapon Grand Master Feat|1																		AUTO:FEAT|Riposte
 8																ABILITY:Special Ability|VIRTUAL|Quicken Strike
 
@@ -545,12 +545,12 @@ CLASS:Spellcaller	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	ABB:SpClr		MAXLEVEL:10	SOU
 CLASS:Spellcaller	PREMULT:2,[PRESPELLCAST:MEMORIZE=N],[PRESPELLTYPE:1,Arcane=3]	PRESKILL:2,TYPE.Arcana=8,Spellcraft=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellcaller	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
-1					BONUS:ABILITYPOOL|Flexible Known Slot|9	BONUS:ABILITYPOOL|Spell Studies|9									ABILITY:Special Ability|VIRTUAL|Spell Studies|Flexible Spell Slot|Multiple Spontaneous Adjustment
-1:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane[PRESPELLCAST:MEMORIZE=N]
+1					BONUS:ABILITYPOOL|Flexible Known Slot|9	BONUS:ABILITYPOOL|Spell Studies|9					ABILITY:Special Ability|VIRTUAL|Spell Studies|Flexible Spell Slot|Multiple Spontaneous Adjustment
+1:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane
 2:REPEATLEVEL:2|SKIP=0|MAX=4														ADD:FEAT|TYPE=Metamagic
-6																										ABILITY:Special Ability|VIRTUAL|Spell Mimic
-8																										ABILITY:Special Ability|VIRTUAL|Metamagic Casting
-10																										ABILITY:Special Ability|VIRTUAL|Metamagic Mastery
+6																						ABILITY:Special Ability|VIRTUAL|Spell Mimic
+8																						ABILITY:Special Ability|VIRTUAL|Metamagic Casting
+10																						ABILITY:Special Ability|VIRTUAL|Metamagic Mastery
 
 ##############################################################################################################################################################################################################################################################################################################################################
 

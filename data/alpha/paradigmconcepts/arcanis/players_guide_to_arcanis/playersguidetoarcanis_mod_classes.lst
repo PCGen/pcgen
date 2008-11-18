@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct 30 13:08:10 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Nov 18 00:02:40 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -221,7 +221,7 @@ SUBCLASS:Order of the Irridescent Scale	COST:0	TEMPLATE:IrridScaleFavClass						
 # 2006-06-03 errata - issue with stacking of My Body bonuses and Ssethregore book prestige class - note in case that book ever gets coded
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Weapon Proficiencies|.CLEAR.All Automatic Proficiencies									ADD:ABILITY|Special Ability|NORMAL|Dragon's Hide Feat,Stunning Fist																																																AUTO:WEAPONPROF|Unarmed Strike
 SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes|Tail Attack
-SUBCLASSLEVEL:6																																														ADD:ABILITY|Special Ability|NORMAL|Avalance Feat,Improved Trip
+SUBCLASSLEVEL:6																																														ADD:ABILITY|Special Ability|NORMAL|Avalanche Feat,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Iron Soul
 SUBCLASS:Order of the Pearl Maidens		COST:0								PREGENDER:Female
@@ -233,7 +233,7 @@ SUBCLASS:Order of the Perfect Union		COST:0
 SUBCLASSLEVEL:1																																														ADD:ABILITY|Special Ability|NORMAL|Unfazed Feat,Stunning Fist													TEMPLATE:PerfectUnionFavClass																																AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																																																																		AUTO:FEAT|Callous|Combat Reflexes
 SUBCLASSLEVEL:5													ABILITY:Special Ability|NORMAL|Path of the Stoic Soul
-SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Improved Trip,Divinity's Purpose[PRERACE:1,Val]
+SUBCLASSLEVEL:6																																																																											VFEAT:Improved Disarm|Improved Trip|Divinity's Purpose|PRERACE:1,Val
 
 
 # Class Name	Subclass?		Automatic Languages			Bonus Languages

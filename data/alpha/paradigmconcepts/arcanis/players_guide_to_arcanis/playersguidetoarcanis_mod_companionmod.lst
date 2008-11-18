@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Nov 18 00:02:40 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -170,14 +170,14 @@ FOLLOWER:NormalMount=1		TYPE:Mount		AUTO:ARMORPROF|ARMORTYPE=Barding
 FOLLOWER:NormalFollower=1	TYPE:Follower
 
 ###Block:Special Mount
-# Class of the Master	Type				Hit Dice	Spell Res.	Ability								Automatically Gained Feat											Automatically Gained Armor Prof.	Special ABility								Define						Combat bonus						Add to base move																																					Stat bonus		Main Race Type
-FOLLOWER:Sky Knight=1	TYPE:Special Mount														AUTO:FEAT|Flyby Attack[PRERACE:1,Griffon]	AUTO:FEAT|Mobility[PRERACE:1,Eagle (Giant)]
-FOLLOWER:Sky Knight=3	TYPE:Special Mount														AUTO:FEAT|Hover
-FOLLOWER:Sky Knight=4	TYPE:Special Mount														AUTO:FEAT|Wingover
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Evasion																AUTO:ARMORPROF|ARMORTYPE=Barding	SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
-FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																																		SAB:Improved Speed (Ex)							DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2																																		SAB:Command creatures of its kind					DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
-FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																																										DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+# Class of the Master	Type				Hit Dice	Spell Res.	Ability								Virtual Feat												Automatically Gained Feat	Automatically Gained Armor Prof.	Special ABility								Define						Combat bonus						Add to base move																																					Stat bonus		Main Race Type
+FOLLOWER:Sky Knight=1	TYPE:Special Mount														VFEAT:Flyby Attack|PRERACE:1,Griffon	VFEAT:Mobility|PRERACE:1,Eagle (Giant)
+FOLLOWER:Sky Knight=3	TYPE:Special Mount																												AUTO:FEAT|Hover
+FOLLOWER:Sky Knight=4	TYPE:Special Mount																												AUTO:FEAT|Wingover
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Evasion																				AUTO:ARMORPROF|ARMORTYPE=Barding	SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
+FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																																						SAB:Improved Speed (Ex)							DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2																																						SAB:Command creatures of its kind					DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																																														DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
 FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
 FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
 FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
