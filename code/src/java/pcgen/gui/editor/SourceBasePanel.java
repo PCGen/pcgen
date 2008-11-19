@@ -88,7 +88,7 @@ class SourceBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		theCampaign.setRank(Integer.parseInt(rank.getValue().toString()));
+		theCampaign.put(IntegerKey.CAMPAIGN_RANK, Integer.parseInt(rank.getValue().toString()));
 		game = "";
 		StringBuffer tempBuff = new StringBuffer(30);
 		if (gm35e.isSelected())

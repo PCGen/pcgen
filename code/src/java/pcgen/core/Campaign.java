@@ -37,7 +37,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -397,15 +396,6 @@ public class Campaign extends PObject
 	{
 		addPublisher("WEB:" + pubNameWeb);
 		put(StringKey.PUB_NAME_WEB, pubNameWeb);
-	}
-
-	/**
-	 * Sets the 'load rank' of the campaign.
-	 * @param rank the wanted load rank
-	 */
-	public void setRank(final int rank)
-	{
-		put(IntegerKey.CAMPAIGN_RANK, rank);
 	}
 
 	/**
