@@ -23,6 +23,7 @@
 
 package pcgen.gui.sources;
 
+import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,12 @@ public final class SourceSelectionUtils
 		Globals.createEmptyRace();
 		PCGen_Frame1.getInst().getPcgenMenuBar().getGameModeMenu().updateMenu();
 		PCGen_Frame1.getInst().getMainSource().changedGameMode();
+
+		InfoPanel infoPanel = PCGen_Frame1.getInst().getInfoPanel();
+		if (infoPanel != null)
+		{
+			infoPanel.refreshDisplay();
+		}
 	}
 	
 	/**
@@ -183,4 +190,55 @@ public final class SourceSelectionUtils
 		return true;
 	}
 
+	/**
+	 * Refresh the PCC files from disc, also refreshes the main 
+	 * source panel, if displayed.
+	 */
+	public static void refreshSources()
+	{
+		PCGen_Frame1.getInst().getMainSource().refreshCampaigns();
+	}
+
+
+	/**
+	 * Given a name make a safe file name from it. 
+	 * @param name The name to be converted e.g. .pcc
+	 * @param extension The extension the filename must have
+	 * @return A safe filename
+	 */
+	public static String sanitiseFilename(String name, String extension)
+	{
+		String filename = name.replaceAll("[^A-Za-z0-9\\.-]", "_");
+		if (extension != null && extension.length() > 0
+			&& !filename.toLowerCase().endsWith(extension.toLowerCase()))
+		{
+			filename += extension;
+		}
+		return filename;
+	}
+
+	/**
+	 * @param absPath
+	 * @return
+	 */
+	public static String convertPathToDataPath(String absPath)
+	{
+		String testpath = new File(absPath).toURI().toString();
+		String dataFolder = SettingsHandler.getPccFilesLocation().toURI().toString();
+		if (testpath.startsWith(dataFolder))
+		{
+			return "@"+testpath.substring(dataFolder.length()-1);
+		}
+		
+		if (SettingsHandler.getPcgenVendorDataDir() != null)
+		{
+			String vendorDataFolder = SettingsHandler.getPcgenVendorDataDir().toURI().toString();
+			if (testpath.startsWith(vendorDataFolder))
+			{
+				return "&"+testpath.substring(vendorDataFolder.length()-1);
+			}
+		}
+		return absPath;
+	}
+	
 }

@@ -2402,7 +2402,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 		GameMode game = SettingsHandler.getGame();
 
-		mainSource = new MainSource();
+		mainSource = new MainSource(false);
 		if ((game != null) && (game.getTabShown(Tab.SOURCES)) && SettingsHandler.useAdvancedSourceSelect())
 		{
 			baseTabbedPane.addTab(game.getTabName(Tab.SOURCES), mainSource);

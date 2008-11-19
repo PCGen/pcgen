@@ -160,8 +160,8 @@ public class MainSource extends FilterAdapterPanel
 		);
 	private final JLabel selLabel = new JLabel( /*"Selected"*/
 		);
-	private CampaignModel availableModel = null; // Model for the TreeTable.
-	private CampaignModel selectedModel = null; // Model for the JTreeTable.
+	private transient CampaignModel availableModel = null; // Model for the TreeTable.
+	private transient CampaignModel selectedModel = null; // Model for the JTreeTable.
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
@@ -194,18 +194,22 @@ public class MainSource extends FilterAdapterPanel
 	private JButton clearQFilterButton = new JButton("Clear");
 	private static Integer saveViewMode = null;
 
+	private boolean sourceBuilderMode;
+	
 	// Right-click table item
 	private int selRow;
 
 	/**
 	 * Constructor
+	 * @param sourceBuilderMode Is this panel being invoked in a mode where it should not load the data, only select it
 	 */
-	public MainSource()
+	public MainSource(boolean sourceBuilderMode)
 	{
 		// do not remove this
 		// we will use the component's name to save component specific settings
 		setName(Tab.SOURCES.toString());
 
+		this.sourceBuilderMode = sourceBuilderMode;
 		try
 		{
 			initComponents();
@@ -220,7 +224,10 @@ public class MainSource extends FilterAdapterPanel
 
 		initActionListeners();
 
-		FilterFactory.restoreFilterSettings(this);
+		if (!sourceBuilderMode)
+		{
+			FilterFactory.restoreFilterSettings(this);
+		}
 	}
 
 	/**
@@ -1089,29 +1096,32 @@ public class MainSource extends FilterAdapterPanel
 		aFlow.setAlignment(FlowLayout.CENTER);
 		jPanel1s.setLayout(aFlow);
 
-		loadButton.setText("Load");
-		loadButton.setMnemonic(KeyEvent.VK_L);
-		loadButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
+		if (!sourceBuilderMode)
+		{
+			loadButton.setText("Load");
+			loadButton.setMnemonic(KeyEvent.VK_L);
+			loadButton.addActionListener(new ActionListener()
 				{
-					loadCampaigns_actionPerformed();
-				}
-			});
-		jPanel1n.add(loadButton);
-		loadButton.setToolTipText("This loads all the sources listed in the above table");
-
-		unloadAllButton.setText("Unload All");
-		unloadAllButton.setMnemonic(KeyEvent.VK_U);
-		unloadAllButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
+					public void actionPerformed(ActionEvent e)
+					{
+						loadCampaigns_actionPerformed();
+					}
+				});
+			jPanel1n.add(loadButton);
+			loadButton.setToolTipText("This loads all the sources listed in the above table");
+	
+			unloadAllButton.setText("Unload All");
+			unloadAllButton.setMnemonic(KeyEvent.VK_U);
+			unloadAllButton.addActionListener(new ActionListener()
 				{
-					unloadAllCampaigns_actionPerformed();
-				}
-			});
-		jPanel1n.add(unloadAllButton);
-
+					public void actionPerformed(ActionEvent e)
+					{
+						unloadAllCampaigns_actionPerformed();
+					}
+				});
+			jPanel1n.add(unloadAllButton);
+		}
+		
 		removeAllButton = new JButton("Remove All");
 		removeAllButton.addActionListener(new ActionListener()
 			{

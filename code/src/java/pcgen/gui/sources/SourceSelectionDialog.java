@@ -59,6 +59,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
 
@@ -80,7 +81,7 @@ public class SourceSelectionDialog extends JDialog implements
 		ActionListener
 {
 
-	private static final String ACTION_CANCEL = "cancel";
+	static final String ACTION_CANCEL = "cancel";
 	private static final String ACTION_LOAD = "load";
 	private static final String ACTION_HIDE = "hide";
 	private static final String ACTION_UNHIDE = "unhide";
@@ -146,7 +147,6 @@ public class SourceSelectionDialog extends JDialog implements
 
 		JButton addButton = new JButton(PropertyFactory.getString("in_add"));
 		addButton.setActionCommand(ACTION_ADD);
-		addButton.setEnabled(false);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		getContentPane().add(addButton, gbc);
@@ -273,7 +273,7 @@ public class SourceSelectionDialog extends JDialog implements
 		}
 		else if (ACTION_ADD.equals(e.getActionCommand()))
 		{
-			//TODO
+			addButtonAction();
 		}
 		else if (ACTION_HIDE.equals(e.getActionCommand()))
 		{
@@ -283,6 +283,37 @@ public class SourceSelectionDialog extends JDialog implements
 		{
 			unhideButtonAction();
 		}
+	}
+
+	private void addButtonAction()
+	{
+		// Found out which game mode they want to work with
+		GameModeDialog gmDialog = new GameModeDialog((Frame) this.getParent(), true);
+		gmDialog.setVisible(true);
+		String gmName = gmDialog.getGameModeKey();
+		
+		// Unload all sources
+		SourceSelectionUtils.unloadSources();
+
+		// Switch game mode
+		if (!Globals.isInGameMode(gmName))
+		{
+			SourceSelectionUtils.changeGameMode(gmName);
+		}
+		
+		// Create the sources
+		CreateSourceDialog csd = new CreateSourceDialog((Frame) this.getParent(), true);
+		csd.setVisible(true);
+		
+		// Refresh the sources
+		SourceSelectionUtils.refreshSources();
+		sourceModel.clear();
+		List<String> strings = getSourceNames();
+		for (String string : strings)
+		{
+			sourceModel.addElement(string);
+		}
+
 	}
 
 	/**
@@ -522,6 +553,109 @@ public class SourceSelectionDialog extends JDialog implements
 			}
 			setVisible(false);
 			this.dispose();
+		}
+
+	}
+	
+	/**
+	 * Dialog to allow a game mode to be selected.
+	 */
+	private class GameModeDialog extends JDialog implements ActionListener
+	{
+		private static final String ACTION_OK = "OK";
+
+		JComboBoxEx gameModeCombo;
+		String gameModeKey = "";
+		
+		
+		/**
+		 * Creates new form SourceSelectionDialog.
+		 * 
+		 * @param parent the parent dialog or window.
+		 * @param modal Should the dialog block the program
+		 */
+		public GameModeDialog(Frame parent, boolean modal)
+		{
+			super(parent, modal);
+			setTitle(PropertyFactory.getString("in_cs_title"));
+			initComponents();
+			setLocationRelativeTo(parent); // centre on parent
+		}
+
+		/**
+		 * Create the dialog's user interface
+		 */
+		private void initComponents()
+		{
+			setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+			getContentPane().setLayout(new java.awt.GridBagLayout());
+
+			GridBagConstraints gbc = new GridBagConstraints();
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			gbc.anchor = GridBagConstraints.WEST;
+			gbc.insets = new Insets(4, 4, 4, 4);
+
+			
+			JLabel introLabel = new JLabel(PropertyFactory.getString("in_qsrc_gameModeIntro"));
+			Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 100, 100,
+				GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+			getContentPane().add(introLabel, gbc);
+			
+			List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
+			String gameModeNames[] = new String[games.size()];
+			for (int i = 0; i < gameModeNames.length; i++)
+			{
+				gameModeNames[i] = games.get(i).getName();
+			}
+			gameModeCombo = new JComboBoxEx(gameModeNames);
+			gameModeCombo.setSelectedItem(SettingsHandler.getGame().getName());
+
+			Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 100, 100,
+				GridBagConstraints.BOTH, GridBagConstraints.WEST);
+			getContentPane().add(gameModeCombo, gbc);
+
+			JPanel buttonPanel = new JPanel();
+			buttonPanel.setLayout(new FlowLayout());
+			JButton okButton = new JButton(PropertyFactory.getString("in_ok"));
+			okButton.setActionCommand(ACTION_OK);
+			getRootPane().setDefaultButton(okButton);
+			buttonPanel.add(okButton);
+
+			JButton cancelButton =
+					new JButton(PropertyFactory.getString("in_cancel"));
+			cancelButton.setActionCommand(ACTION_CANCEL);
+			buttonPanel.add(cancelButton);
+
+			Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
+				GridBagConstraints.NONE, GridBagConstraints.EAST);
+			getContentPane().add(buttonPanel, gbc);
+
+			//Listen for actions on the buttons
+			okButton.addActionListener(this);
+			cancelButton.addActionListener(this);
+
+			pack();
+		}
+		
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
+		public void actionPerformed(ActionEvent e)
+		{
+			if (ACTION_OK.equals(e.getActionCommand()))
+			{
+				gameModeKey = (String) gameModeCombo.getSelectedItem();
+			}
+			setVisible(false);
+			this.dispose();
+		}
+
+		/**
+		 * @return the gameModeKey
+		 */
+		public String getGameModeKey()
+		{
+			return gameModeKey;
 		}
 
 	}
