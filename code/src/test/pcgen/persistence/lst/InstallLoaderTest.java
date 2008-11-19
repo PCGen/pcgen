@@ -35,6 +35,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -170,11 +171,11 @@ public final class InstallLoaderTest extends PCGenTestCase
 
 		assertEquals("Checking campaign name", CAMPAIGN_NAME, camp
 			.getDisplayName());
-		assertEquals("Checking copyright 1", COPYRIGHT_1, camp.getSection15s()
+		assertEquals("Checking copyright 1", COPYRIGHT_1, camp.getSafeListFor(ListKey.SECTION_15)
 			.get(0));
-		assertEquals("Checking copyright 2", COPYRIGHT_2, camp.getSection15s()
+		assertEquals("Checking copyright 2", COPYRIGHT_2, camp.getSafeListFor(ListKey.SECTION_15)
 			.get(1));
-		assertEquals("Checking copyright 3", COPYRIGHT_3, camp.getSection15s()
+		assertEquals("Checking copyright 3", COPYRIGHT_3, camp.getSafeListFor(ListKey.SECTION_15)
 			.get(2));
 		assertEquals("Checking info text", INFOTEXT, camp.getInfoText());
 		assertEquals("Checking pub name short", PUBNAMESHORT, camp

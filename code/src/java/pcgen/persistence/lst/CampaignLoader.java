@@ -142,18 +142,19 @@ public class CampaignLoader extends LstLineFileLoader
 	{
 		if (Globals.getCampaignByURI(campaign.getSourceURI(), false) == null)
 		{
-			final String sect15 = campaign.getSection15String();
-
-			if ((sect15 != null) && (sect15.trim().length() > 0))
+			List<String> copyright = campaign.getListFor(ListKey.SECTION_15);
+			if (copyright != null)
 			{
-				Globals.getSection15().append("<br><b>Source Material:</b>");
-				Globals.getSection15().append(
-					campaign.getSourceEntry().getFormattedString(
-						SourceEntry.SourceFormat.LONG, true));
-				Globals.getSection15().append("<br>");
-				Globals.getSection15().append(
-					"<b>Section 15 Entry in Source Material:</b><br>");
-				Globals.getSection15().append(sect15);
+				StringBuffer sec15 = Globals.getSection15();
+				sec15.append("<br><b>Source Material:</b>");
+				sec15.append(campaign.getSourceEntry().getFormattedString(
+					SourceEntry.SourceFormat.LONG, true));
+				sec15.append("<br>");
+				sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
+				for (String license : copyright)
+				{
+					sec15.append(license).append("<br>");
+				}
 			}
 
 			Globals.addCampaign(campaign);

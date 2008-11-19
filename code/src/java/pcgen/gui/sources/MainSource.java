@@ -578,17 +578,19 @@ public class MainSource extends FilterAdapterPanel
 			infoDisplayed = true;
 		}
 
-		bString = aCamp.getSection15String();
-
-		if (bString.length() != 0)
+		List<String> copyright = aCamp.getListFor(ListKey.SECTION_15);
+		if (copyright != null)
 		{
 			if (!infoDisplayed)
 			{
-				sb.append("<br");
+				sb.append("<br>");
 			}
 
-			sb.append("<b>COPYRIGHT</b>:<br>")
-				.append(bString);
+			sb.append("<b>COPYRIGHT</b>:<br>");
+			for (String license : copyright)
+			{
+				sb.append(license).append("<br>");
+			}
 		}
 
 		sb.append("</html>");

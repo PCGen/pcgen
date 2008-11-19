@@ -891,13 +891,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		if (aCamp.isLicensed())
 		{
-			List<String> licenseList = aCamp.getLicenses();
+			List<String> licenseList = aCamp.getSafeListFor(ListKey.LICENSE);
 			if (licenseList != null && licenseList.size() > 0)
 			{
-				licensesToDisplayString.append(aCamp.getLicenses());
+				licensesToDisplayString.append(licenseList);
 			}
 
-			List<URI> licenseURIs = aCamp.getLicenseFiles();
+			List<URI> licenseURIs = aCamp.getSafeListFor(ListKey.LICENSE_FILE);
 			if (licenseURIs != null)
 			{
 				licenseFiles.addAll(licenseURIs);

@@ -22,18 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.Campaign;
-import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
-import pcgen.core.Source;
-import pcgen.core.SourceEntry;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.gui.utils.JTableEx;
-
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -44,7 +32,36 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.URI;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
+import java.util.StringTokenizer;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Campaign;
+import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Source;
+import pcgen.core.SourceEntry;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JTableEx;
 
 /**
  * <code>SourceBasePanel</code>
@@ -147,8 +164,8 @@ class SourceBasePanel extends BasePanel
 		theCampaign.put(StringKey.INFO_TEXT, infoText.getText().trim());
 		theCampaign.put(StringKey.BOOK_TYPE, bookType.getSelectedItem().toString());
 		theCampaign.put(StringKey.DESTINATION, destination.getText().trim());
-		theCampaign.addLicense(".CLEAR");
-		theCampaign.addSection15(".CLEAR");
+		theCampaign.removeListFor(ListKey.LICENSE);
+		theCampaign.removeListFor(ListKey.SECTION_15);
 		theCampaign.put(StringKey.SETTING, setting.getText().trim());
 		theCampaign.put(StringKey.GENRE, genre.getText().trim());
 
@@ -164,12 +181,12 @@ class SourceBasePanel extends BasePanel
 
 		for (Iterator i = sourceModel.getLicenseList().iterator(); i.hasNext();)
 		{
-			theCampaign.addLicense((String) i.next());
+			theCampaign.addToListFor(ListKey.LICENSE, ((String) i.next()));
 		}
 
 		for (Iterator i = sourceModel.getCopyrightList().iterator(); i.hasNext();)
 		{
-			theCampaign.addSection15((String) i.next());
+			theCampaign.addToListFor(ListKey.SECTION_15, (String) i.next());
 		}
 	}
 
@@ -181,8 +198,8 @@ class SourceBasePanel extends BasePanel
 		}
 
 		theCampaign = (Campaign) thisPObject;
-		sourceModel.setLists(theCampaign.getOptionsList(), theCampaign.getLicenses(),
-		    theCampaign.getSection15s());
+		sourceModel.setLists(theCampaign.getOptionsList(), theCampaign.getSafeListFor(ListKey.LICENSE),
+		    theCampaign.getSafeListFor(ListKey.SECTION_15));
 		rank.setValue(Integer.valueOf(theCampaign.getSafe(IntegerKey.CAMPAIGN_RANK)));
 		game = theCampaign.getGameModeString();
 

@@ -76,59 +76,12 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * This method is used to addText a brief segment of license text to the
-	 * OGL license information for the campaign.
-	 * @param license String piece of information to addText to the OGL license.
-	 */
-	public void addLicense(final String license)
-	{
-		if (license.equals(".CLEAR"))
-		{
-			removeListFor(ListKey.LICENSE);
-		}
-		else
-		{
-			addToListFor(ListKey.LICENSE, license);
-		}
-	}
-
-	/**
-	 * This method is used to addText an external file to the
-	 * license information required for the source.  The added
-	 * file may be either relative to the default directory or
-	 * URL syntax; at present, however, the only URL syntax that
-	 * is honored by the GUI are those refering to the file system
-	 * i.e. file:/etc/etc/etc URLs.
-	 * @param licenseFile String location of a license file
-	 */
-	public void addLicenseFile(final URI licenseFile)
-	{
-		addToListFor(ListKey.LICENSE_FILE, licenseFile);
-	}
-
-	/**
 	 *
 	 * @param file
 	 */
 	public void addPccFile(final URI file)
 	{
 		addToListFor(ListKey.FILE_PCC, file);
-	}
-
-	/**
-	 * Add section 15 info
-	 * @param section15
-	 */
-	public void addSection15(final String section15)
-	{
-		if (section15.equals(".CLEAR"))
-		{
-			removeListFor(ListKey.SECTION_15);
-		}
-		else
-		{
-			addToListFor(ListKey.SECTION_15, section15);
-		}
 	}
 
 	/**
@@ -214,40 +167,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Get the licenses list
-	 * @return license
-	 */
-	public List<String> getLicenses()
-	{
-		return getSafeListFor(ListKey.LICENSE);
-	}
-
-	/**
-	 * Returns the license info for this campaign's source(book).
-	 * @return the license
-	 */
-	public String getLicenseString()
-	{
-		StringBuffer sb = new StringBuffer();
-
-		for ( String license : getSafeListFor(ListKey.LICENSE) )
-		{
-			sb.append(license).append("<br>");
-		}
-
-		return sb.toString();
-	}
-
-	/**
-	 * Get the license files
-	 * @return license files
-	 */
-	public List<URI> getLicenseFiles()
-	{
-		return getSafeListFor(ListKey.LICENSE_FILE);
-	}
-
-	/**
 	 * Returns the pccFileList.
 	 * @return List
 	 */
@@ -284,31 +203,6 @@ public class Campaign extends PObject
 	{
 		String characteristic = get(StringKey.PUB_NAME_WEB);
 		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get section 15 as a List
-	 * @return section 15
-	 */
-	public List<String> getSection15s()
-	{
-		return getSafeListFor(ListKey.SECTION_15);
-	}
-
-	/**
-	 * Returns the section 15 info for this campaign's source(book).
-	 * @return the section 15 info
-	 */
-	public String getSection15String()
-	{
-		StringBuffer sb = new StringBuffer();
-
-		for ( String license : getSafeListFor(ListKey.SECTION_15) )
-		{
-			sb.append(license).append("<br>");
-		}
-
-		return sb.toString();
 	}
 
 	/**

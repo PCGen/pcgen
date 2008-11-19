@@ -1,16 +1,22 @@
 package plugin.lsttokens.campaign;
 
 import java.net.URI;
+import java.util.Collection;
+import java.util.TreeSet;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLstToken;
-import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.util.Logging;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with LICENSE Token
  */
-public class LicenseToken implements CampaignLstToken
+public class LicenseToken extends AbstractToken implements
+		CDOMPrimaryToken<Campaign>
 {
 
 	public String getTokenName()
@@ -18,23 +24,64 @@ public class LicenseToken implements CampaignLstToken
 		return "LICENSE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
+	public boolean parse(LoadContext context, Campaign obj, String value)
+		throws PersistenceLayerException
 	{
-		if (value == null)
+		if (isEmpty(value))
 		{
-			Logging.log(Logging.LST_ERROR, "Empty " + getTokenName()
-					+ " in campaign file: " + sourceUri.toString());
 			return false;
 		}
 		if (value.startsWith("FILE="))
 		{
-			campaign.addLicenseFile(CampaignSourceEntry.getPathURI(sourceUri,
-				value.substring(5)));
+			URI uri = context.getPathURI(value.substring(5));
+			if (uri == null)
+			{
+				//Error
+				return false;
+			}
+			context.obj.addToList(obj, ListKey.LICENSE_FILE, uri);
 		}
 		else
 		{
-			campaign.addLicense(value);
+			context.obj.addToList(obj, ListKey.LICENSE, value);
 		}
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, Campaign obj)
+	{
+		Changes<String> changes =
+				context.getObjectContext().getListChanges(obj, ListKey.LICENSE);
+		Changes<URI> filechanges =
+				context.getObjectContext().getListChanges(obj,
+					ListKey.LICENSE_FILE);
+		TreeSet<String> set = new TreeSet<String>();
+		Collection<String> added = changes.getAdded();
+		if (added != null && !added.isEmpty())
+		{
+			set.addAll(added);
+		}
+		Collection<URI> addeduri = filechanges.getAdded();
+		if (addeduri != null && !addeduri.isEmpty())
+		{
+			for (URI uri : addeduri)
+			{
+				set.add("FILE=" + uri);
+			}
+		}
+		if (set.isEmpty())
+		{
+			context.addWriteMessage(getTokenName()
+				+ " was expecting non-empty changes to include "
+				+ "added items or global clear");
+			return null;
+		}
+		return set.toArray(new String[set.size()]);
+	}
+
+	public Class<Campaign> getTokenClass()
+	{
+		return Campaign.class;
+	}
+
 }

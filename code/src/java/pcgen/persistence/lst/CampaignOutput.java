@@ -32,7 +32,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -75,8 +74,6 @@ public final class CampaignOutput
 						new FileOutputStream(outFile), "UTF-8"));
 			FileAccess.write(out, "CAMPAIGN:" + campaign.getKeyName());
 			FileAccess.newLine(out);
-			FileAccess.write(out, "RANK:" + campaign.getSafe(IntegerKey.CAMPAIGN_RANK));
-			FileAccess.newLine(out);
 			FileAccess.write(out, "GAMEMODE:");
 
 			for (Iterator<String> gm = campaign.getGameModes().iterator(); gm
@@ -111,12 +108,6 @@ public final class CampaignOutput
 			FileAccess.write(out, "ISLICENSED:"
 				+ (campaign.isLicensed() ? "YES" : "NO"));
 			FileAccess.newLine(out);
-			FileAccess.write(out, "BOOKTYPE:" + campaign.getBookType());
-			FileAccess.newLine(out);
-			FileAccess.write(out, "SETTING:" + campaign.getSetting());
-			FileAccess.newLine(out);
-			FileAccess.write(out, "GENRE:" + campaign.getGenre());
-			FileAccess.newLine(out);
 
 			for (Iterator<String> i = campaign.getOptionsList().iterator(); i.hasNext();)
 			{
@@ -125,23 +116,10 @@ public final class CampaignOutput
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator<String> i = campaign.getSection15s().iterator(); i
+			for (Iterator<String> i = campaign.getSafeListFor(ListKey.SECTION_15).iterator(); i
 				.hasNext();)
 			{
 				FileAccess.write(out, "COPYRIGHT:" + i.next());
-				FileAccess.newLine(out);
-			}
-
-			for (Iterator<String> i = campaign.getLicenses().iterator(); i
-				.hasNext();)
-			{
-				FileAccess.write(out, "LICENSE:" + i.next());
-				FileAccess.newLine(out);
-			}
-
-			if (campaign.getHelp().length() > 0)
-			{
-				FileAccess.write(out, "HELP:" + campaign.getHelp());
 				FileAccess.newLine(out);
 			}
 
