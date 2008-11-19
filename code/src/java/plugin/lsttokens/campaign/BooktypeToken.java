@@ -1,14 +1,15 @@
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
-
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with BOOKTYPE Token
  */
-public class BooktypeToken implements CampaignLstToken
+public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 {
 
 	public String getTokenName()
@@ -16,9 +17,30 @@ public class BooktypeToken implements CampaignLstToken
 		return "BOOKTYPE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
+	public boolean parse(LoadContext context, Campaign camp, String value)
 	{
-		campaign.setBookType(value);
+		if (value == null || value.length() == 0)
+		{
+			Logging.errorPrint(getTokenName() + " arguments may not be empty");
+			return false;
+		}
+		context.getObjectContext().put(camp, StringKey.BOOK_TYPE, value);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Campaign camp)
+	{
+		String booktype =
+				context.getObjectContext().getString(camp, StringKey.BOOK_TYPE);
+		if (booktype == null)
+		{
+			return null;
+		}
+		return new String[]{booktype};
+	}
+
+	public Class<Campaign> getTokenClass()
+	{
+		return Campaign.class;
 	}
 }

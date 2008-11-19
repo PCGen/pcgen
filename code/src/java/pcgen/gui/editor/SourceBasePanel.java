@@ -23,6 +23,7 @@
 package pcgen.gui.editor;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
@@ -143,13 +144,13 @@ class SourceBasePanel extends BasePanel
 		theCampaign.setIsD20(isD20.getSelectedObjects() != null);
 		theCampaign.setShowInMenu(showInMenu.getSelectedObjects() != null);
 		theCampaign.setIsLicensed(isLicensed.getSelectedObjects() != null);
-		theCampaign.setInfoText(infoText.getText().trim());
-		theCampaign.setBookType(bookType.getSelectedItem().toString());
-		theCampaign.setDestination(destination.getText().trim());
+		theCampaign.put(StringKey.INFO_TEXT, infoText.getText().trim());
+		theCampaign.put(StringKey.BOOK_TYPE, bookType.getSelectedItem().toString());
+		theCampaign.put(StringKey.DESTINATION, destination.getText().trim());
 		theCampaign.addLicense(".CLEAR");
 		theCampaign.addSection15(".CLEAR");
-		theCampaign.setSetting(setting.getText().trim());
-		theCampaign.setGenre(genre.getText().trim());
+		theCampaign.put(StringKey.SETTING, setting.getText().trim());
+		theCampaign.put(StringKey.GENRE, genre.getText().trim());
 
 		Properties options = new Properties();
 

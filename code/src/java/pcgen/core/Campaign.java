@@ -351,24 +351,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Set the book type
-	 * @param bookType
-	 */
-	public void setBookType(final String bookType)
-	{
-		put(StringKey.BOOK_TYPE, bookType);
-	}
-
-	/**
-	 * Set the destination
-	 * @param destination
-	 */
-	public void setDestination(final String destination)
-	{
-		put(StringKey.DESTINATION, destination);
-	}
-
-	/**
 	 * Sets the name of the game this campaign is intended for.
 	 * @param gameMode name or '|' delimited list of names
 	 */
@@ -385,33 +367,6 @@ public class Campaign extends PObject
 				addToListFor(ListKey.GAME_MODE, tok);
 			}
 		}
-	}
-
-	/**
-	 * Set the genre
-	 * @param genre
-	 */
-	public void setGenre(final String genre)
-	{
-		put(StringKey.GENRE, genre);
-	}
-
-	/**
-	 * Set the help
-	 * @param help
-	 */
-	public void setHelp(final String help)
-	{
-		put(StringKey.HELP, help);
-	}
-
-	/**
-	 * Set the infotext
-	 * @param infoText
-	 */
-	public void setInfoText(final String infoText)
-	{
-		put(StringKey.INFO_TEXT, infoText);
 	}
 
 	/**
@@ -451,15 +406,6 @@ public class Campaign extends PObject
 	public void setRank(final int rank)
 	{
 		put(IntegerKey.CAMPAIGN_RANK, rank);
-	}
-
-	/**
-	 * Set the setting
-	 * @param setting
-	 */
-	public void setSetting(final String setting)
-	{
-		put(StringKey.SETTING, setting);
 	}
 
 	/**

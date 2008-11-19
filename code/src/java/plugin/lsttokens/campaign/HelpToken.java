@@ -1,14 +1,15 @@
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
-
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with HELP Token
  */
-public class HelpToken implements CampaignLstToken
+public class HelpToken implements CDOMPrimaryToken<Campaign>
 {
 
 	public String getTokenName()
@@ -16,9 +17,30 @@ public class HelpToken implements CampaignLstToken
 		return "HELP";
 	}
 
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
+	public boolean parse(LoadContext context, Campaign camp, String value)
 	{
-		campaign.setHelp(value);
+		if (value == null || value.length() == 0)
+		{
+			Logging.errorPrint(getTokenName() + " arguments may not be empty");
+			return false;
+		}
+		context.getObjectContext().put(camp, StringKey.HELP, value);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Campaign camp)
+	{
+		String help =
+				context.getObjectContext().getString(camp, StringKey.HELP);
+		if (help == null)
+		{
+			return null;
+		}
+		return new String[]{help};
+	}
+
+	public Class<Campaign> getTokenClass()
+	{
+		return Campaign.class;
 	}
 }
