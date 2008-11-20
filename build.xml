@@ -345,10 +345,10 @@ pcgen.filepaths=user
 	<target name="complete" depends="clean, svnupdate, build, test, emma.report, docs, deploy" description="Everything including update from SVN." />
 
 	<!-- The default target, do a clean build and basic test -->
-	<target name="main" depends="clean, build, quicktest" description="[default] Do a clean build." />
+	<target name="main" depends="clean, build, quicktest" description="[default] Do a clean build and quick test." />
 
 	<!-- Do an incremental build and basic test -->
-	<target name="inc" depends="build, quicktest" description="Do an incremental build." />
+	<target name="inc" depends="build, quicktest" description="Do an incremental build (e.g Don't clean first) and quick test." />
 
 	<!-- Compile the Javadocs -->
 	<target name="docs" depends="compile-compile" description="Build Java API documentation">

@@ -123,7 +123,7 @@ public final class ExportHandler
 	/** A state variable to indicate whether there are more items to process */
 	private boolean noMoreItems;
 
-	/** A state variable to indicate with there is manual whitespace to convert */
+	/** A state variable to indicate whether the OS author controls whitespace */
 	private boolean manualWhitespace;
 
 	/** The template file to use for exporting (effectively the sheet to use) */
@@ -1045,7 +1045,7 @@ public final class ExportHandler
 				noMoreItems = false;
 				replaceLine(lineString, output, aPC);
 
-				// Allow the output sheet author to control new lines.
+				// If the output sheet author has no control over new lines.
 				if (canWrite && !manualWhitespace)
 				{
 					FileAccess.newLine(output);
@@ -1838,16 +1838,14 @@ public final class ExportHandler
 	{
 		try
 		{
-			// If we 'cannot write' and the string is non-empty, non-filter token then 
-			// there is nothing to replace so return 0
-			if (!canWrite && (aString.length() > 0)
-				&& (aString.charAt(0) != '%'))
+			// If it is plain text then there's no replacement necessary
+			if (isPlainText(aString))
 			{
 				return 0;
 			}
 
-			// If it is purely a filter everything (not a filter on a specific token) then 
-			// there is nothing to replace so return 0
+			// If it is purely a filter everything (not a filter on a specific token)
+			// then there is nothing to replace so return 0
 			if ("%".equals(aString))
 			{
 				inLabel = false;
@@ -1976,6 +1974,23 @@ public final class ExportHandler
 			Logging.errorPrint("Error replacing " + aString, exc);
 			return 0;
 		}
+	}
+
+	/**
+	 * Helper method to determine if a line of text needs replacing or not
+	 * 
+	 * @param aString
+	 * @return true If it is plain text (e.g. Does not need replacing)
+	 */
+	private boolean isPlainText(String aString)
+	{
+		// If we 'cannot write' and the string is non-empty, non-filter token then 
+		// there is nothing to replace so return 0
+		if (!canWrite && (aString.length() > 0) && (aString.charAt(0) != '%'))
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -2228,8 +2243,7 @@ public final class ExportHandler
 
 			for (Follower follower : aPC.getFollowerList())
 			{
-				// only allow followers that
-				// are currently loaded
+				// only allow followers that currently loaded
 				// Otherwise the stats a zero
 				for (PlayerCharacter pc : Globals.getPCList())
 				{
@@ -2794,7 +2808,6 @@ public final class ExportHandler
 		if (found)
 		{
 			inLabel = true;
-
 			return 0;
 		}
 		canWrite = false;

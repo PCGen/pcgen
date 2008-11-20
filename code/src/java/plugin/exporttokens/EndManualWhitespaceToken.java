@@ -27,14 +27,18 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
+/**
+ * Token that represents the end of author controlled whitespace
+ */
 public class EndManualWhitespaceToken extends Token
 {
-	/** The tokenname implemented by this class. */
+	/** The token name implemented by this class. */
 	public static final String TOKENNAME = "ENDMANUALWHITESPACE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -43,6 +47,7 @@ public class EndManualWhitespaceToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
