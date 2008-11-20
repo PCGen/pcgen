@@ -31,6 +31,9 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -55,12 +58,15 @@ import pcgen.base.lang.StringUtil;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.Utility;
+import pcgen.persistence.PersistenceManager;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -91,6 +97,7 @@ public class SourceSelectionDialog extends JDialog implements
 	private DefaultListModel sourceModel;
 	private Map<String, List<String>> nameToSourceMap = new HashMap<String, List<String>>();
 	private Map<String, String> nameToGameModeMap = new HashMap<String, String>();
+	private String lastLoadedCollection;
 
 	/**
 	 * Creates new form SourceSelectionDialog.
@@ -140,6 +147,10 @@ public class SourceSelectionDialog extends JDialog implements
 		sourceList.setCellRenderer(new SourceListCellRenderer());
 		JScrollPane listScrollPane = new JScrollPane(sourceList);
 		listScrollPane.setPreferredSize(new Dimension(480, 240));
+		if (lastLoadedCollection != null && lastLoadedCollection.length() > 0)
+		{
+			sourceList.setSelectedValue(lastLoadedCollection, true);
+		}
 
 		Utility.buildRelativeConstraints(gbc, 1, 3, 100, 100,
 			GridBagConstraints.BOTH, GridBagConstraints.WEST);
@@ -185,6 +196,15 @@ public class SourceSelectionDialog extends JDialog implements
 		loadButton.addActionListener(this);
 		cancelButton.addActionListener(this);
 
+		//Listen for actions on the list
+		sourceList.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent evt)
+			{
+				sourceListMouseClicked(evt);
+			}
+		});
+
 		pack();
 	}
 
@@ -217,11 +237,45 @@ public class SourceSelectionDialog extends JDialog implements
 		for (GameMode mode : SystemCollections.getUnmodifiableGameModeList())
 		{
 			String title = mode.getDefaultSourceTitle();
+			if (SettingsHandler.getGame().equals(mode) && title == null
+				&& !mode.getDefaultDataSetList().isEmpty())
+			{
+				title =
+						PropertyFactory.getFormattedString(
+							"in_qsrc_game_default", mode.getName());
+			}
 			if (title != null && !"".equals(title))
 			{
 				names.add(title);
 				nameToGameModeMap.put(title, mode.getName());
 				nameToSourceMap.put(title, mode.getDefaultDataSetList());
+			}
+		}
+		
+		// Add in the last loaded campaigns
+		List<URI> chosenCampaigns =
+			PersistenceManager.getInstance().getChosenCampaignSourcefiles();
+		if (!chosenCampaigns.isEmpty())
+		{
+			String currGameModeName = SettingsHandler.getGame().getName();
+			boolean found = false;
+			for (String name : names)
+			{
+				if (isSameCollection(name, currGameModeName, chosenCampaigns))
+				{
+					found = true;
+					lastLoadedCollection = name;
+				}
+			}
+			if (!found)
+			{
+				String title =
+					PropertyFactory.getFormattedString(
+						"in_qsrc_last_loaded", currGameModeName);
+				names.add(title);
+				nameToGameModeMap.put(title, currGameModeName);
+				List<String> chosenCampaignNames = convertToNames(chosenCampaigns);
+				nameToSourceMap.put(title, chosenCampaignNames);
 			}
 		}
 		
@@ -256,6 +310,49 @@ public class SourceSelectionDialog extends JDialog implements
 		SettingsHandler.setQuickLaunchSources(newPrefs);
 		
 		return finalNames;
+	}
+
+
+	private boolean isSameCollection(String name, String gameModeName,
+		List<URI> chosenCampaigns)
+	{
+		if (!gameModeName.equals(nameToGameModeMap.get(name)))
+		{
+			return false;
+		}
+		List<String> nameSources = nameToSourceMap.get(name);
+		if (chosenCampaigns.size() != nameSources.size())
+		{
+			return false;
+		}
+		for (URI uri : chosenCampaigns)
+		{
+			final Campaign aCampaign = Globals.getCampaignByURI(uri);
+			if (aCampaign == null
+				|| !nameSources.contains(OutputNameFormatting.piString(
+					((PObject) aCampaign), true)))
+			{
+				return false;
+			}
+//			String absPath = uri.getPath();
+//			String relPath = SourceSelectionUtils.convertPathToDataPath(absPath);
+//			if (!nameSources.contains(relPath))
+//			{
+//				return false;
+//			}
+		}
+		return true;
+	}
+
+	private List<String> convertToNames(List<URI> chosenCampaigns)
+	{
+		List<String> names = new ArrayList<String>();
+		for (URI uri : chosenCampaigns)
+		{
+			String absPath = uri.getPath();
+			names.add(SourceSelectionUtils.convertPathToDataPath(absPath));
+		}
+		return names;
 	}
 
 	/* (non-Javadoc)
@@ -314,6 +411,23 @@ public class SourceSelectionDialog extends JDialog implements
 			sourceModel.addElement(string);
 		}
 
+	}
+
+	/**
+	 * User has clicked/double clicked on the source list
+	 * If double click send to load
+	 *
+	 * @param evt The event to be processed
+	 */
+	private void sourceListMouseClicked(MouseEvent evt)
+	{
+		if (sourceList.getSelectedIndex() >= 0)
+		{
+			if (evt.getClickCount() == 2)
+			{
+				loadButtonAction();
+			}
+		}
 	}
 
 	/**
@@ -410,7 +524,7 @@ public class SourceSelectionDialog extends JDialog implements
 	/**
 	 * Display of a single source cell in the sources list.
 	 */
-	private class SourceListCellRenderer extends JToggleButton implements
+	private static class SourceListCellRenderer extends JToggleButton implements
 			ListCellRenderer
 	{
 
@@ -560,7 +674,7 @@ public class SourceSelectionDialog extends JDialog implements
 	/**
 	 * Dialog to allow a game mode to be selected.
 	 */
-	private class GameModeDialog extends JDialog implements ActionListener
+	private static class GameModeDialog extends JDialog implements ActionListener
 	{
 		private static final String ACTION_OK = "OK";
 

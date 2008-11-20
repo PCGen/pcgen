@@ -6,6 +6,7 @@
   </properties>  
   <body> 
     <release version="5.15.8" date="In SVN" description="Beta Release">
+      <action dev="jdempsey" type="add" issue="1625030">Simplified Source Loading Interface</action>  
     </release> 
     <release version="5.15.7" date="2008-11-10" description="Alpha Release"> 
       <action dev="" type="add" issue="1967459">[Mongoose] Quintessential Ranger II</action>  

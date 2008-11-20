@@ -40,6 +40,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.SwingWorker;
 
 
 
@@ -127,48 +128,87 @@ public final class SourceSelectionUtils
 	 * 
 	 * @param selectedCampaigns the sources to be loaded.
 	 */
-	public static boolean loadSources(List<Campaign> selectedCampaigns)
+	public static boolean loadSources(final List<Campaign> selectedCampaigns)
 	{
-		String oldStatus = "";
+		PCGen_Frame1.getInst().closeAllPCs();
+
+		if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
+		{
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_campaignChangeError"),
+				Constants.s_APPNAME, MessageType.INFORMATION);
+
+			return false;
+		}
+
+		final SwingWorker worker = new SwingWorker()
+		{
+			String oldStatus;
+
+			public Object construct()
+			{
+				oldStatus = doCampaignLoad(selectedCampaigns);
+				return "";
+			}
+
+			@Override
+			public void finished()
+			{
+				showCampaignsLoaded(oldStatus);
+			}
+		};
+		worker.start();
+		
+		return true;
+	}
+
+	/**
+	 * Load the specified campaigns. Will unload any existing data and 
+	 * load the supplied data. It is intended that this not be run in the swing thread.
+	 *  
+	 * @param selectedCampaigns The sources to be loaded.
+	 * @return The status displayed before we changed it to say sources were being loaded.
+	 * @throws PersistenceLayerException If the files cannot be loaded.
+	 */
+	private static String doCampaignLoad(List<Campaign> selectedCampaigns)
+	{
+		// Unload the existing campaigns and load our selected campaign
+		Globals.emptyLists();
+		PersistenceManager pManager = PersistenceManager.getInstance();
+		pManager.emptyLists();
+		pManager.setChosenCampaignSourcefiles(new ArrayList<URI>());
+
+		for (Campaign aCamp : Globals.getCampaignList())
+		{
+			aCamp.setIsLoaded(false);
+		}
+
+		// Show that we are loading...
+		String oldStatus = PCGen_Frame1.getInst().getMainSource()
+			.showLoadingSources();
+		final PersistenceObserver observer = new PersistenceObserver();
+		pManager.addObserver( observer );
+		Logging.registerHandler( observer.getHandler() );
 		try
 		{
-			PCGen_Frame1.getInst().closeAllPCs();
-
-			if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
-			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_campaignChangeError"),
-					Constants.s_APPNAME, MessageType.INFORMATION);
-
-				return false;
-			}
-
-			// Unload the existing campaigns and load our selected campaign
-			Globals.emptyLists();
-			PersistenceManager pManager = PersistenceManager.getInstance();
-			pManager.emptyLists();
-			pManager.setChosenCampaignSourcefiles(new ArrayList<URI>());
-
-			for (Campaign aCamp : Globals.getCampaignList())
-			{
-				aCamp.setIsLoaded(false);
-			}
-
-			// Show that we are loading...
-			oldStatus = PCGen_Frame1.getInst().getMainSource()
-				.showLoadingSources();
-			final PersistenceObserver observer = new PersistenceObserver();
-			pManager.addObserver( observer );
-			Logging.registerHandler( observer.getHandler() );
 			pManager.loadCampaigns(selectedCampaigns);
-			Logging.removeHandler( observer.getHandler() );
-			pManager.deleteObserver( observer );
-
 		}
 		catch (PersistenceLayerException e)
 		{
+			Logging.errorPrint("Failed to load campaigns", e);
 			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.WARNING);
 		}
+		Logging.removeHandler( observer.getHandler() );
+		pManager.deleteObserver( observer );
+		return oldStatus;
+	}
 
+	/**
+	 * Update the display to show that loading campaigns has finished.
+	 * 
+	 * @param oldStatus The status we should change the display to.
+	 */
+	private static void showCampaignsLoaded(String oldStatus)
+	{
 		pcgen.gui.PCGen_Frame1.getInst().getMainSource().updateLoadedCampaignsUI();
 
 		// Show that we are done
@@ -186,10 +226,9 @@ public final class SourceSelectionUtils
 			parent.enableNew(true);
 			parent.enableLstEditors(true);
 		}
-		
-		return true;
 	}
 
+	
 	/**
 	 * Refresh the PCC files from disc, also refreshes the main 
 	 * source panel, if displayed.
