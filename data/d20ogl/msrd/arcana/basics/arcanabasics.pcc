@@ -45,7 +45,6 @@ ARMORPROF:arcanabasics_profs_armor.lst
 FEAT:arcanabasics_feats.lst
 FEAT:arcanabasics_feats_mod.lst
 LANGUAGE:arcanabasics_languages.lst
-LANGUAGE:arcanabasics_languages_menaces.lst
 SPELL:arcanabasics_spells.lst
 SPELL:arcanabasics_spells_incantations.lst
 

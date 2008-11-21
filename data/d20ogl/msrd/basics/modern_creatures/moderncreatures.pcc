@@ -25,8 +25,7 @@ INFOTEXT:This will load the basic races of the MSRD
 ABILITY:moderncreatures_abilities_monster.lst
 ABILITYCATEGORY:moderncreatures_ability_categories.lst
 KIT:moderncreatures_kits_defaultmonsters.lst
+LANGUAGE:moderncreatures_languages.lst
 RACE:moderncreatures_races.lst
 TEMPLATE:moderncreatures_templates.lst
 
-#Included from Arcana to avoid duplicates
-LANGUAGE:@/d20ogl/msrd/arcana/basics/arcanabasics_languages_menaces.lst

@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
-#Abyssal, Auran, Draconic, Giant, Gnoll, Goblin and Terran moved to arcanabasics_languages_menaces.lst so they can be loaded separatley by menaces.pcc
+#Abyssal, Auran, Draconic, Giant, Gnoll, Goblin and Terran moved to moderncreatures_languages.lst
 
 # Language			Type			Source Page
 Aquan				TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
