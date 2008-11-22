@@ -239,7 +239,7 @@ Vehicle Expert.MOD			DESC:.CLEAR		DESC:The character gets a +2 bonus on all Driv
 Weapon Finesse.MOD			DESC:.CLEAR		DESC:Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain
 Weapon Focus.MOD				DESC:.CLEAR		DESC:Choose a specific weapon. A character can choose unarmed strike or grapple for your weapon for purposes of this feat
 Whirlwind Attack.MOD			DESC:.CLEAR		DESC:When the character performs a full-round action, the character can give up his or her regular attacks and instead make one melee attack at the character's highest base attack bonus against each adjacent opponent
-Wild Talent.MOD				DESC:.CLEAR		DESC::one 0-Level psionic power useable 3x per 24 hour period
+Wild Talent.MOD				DESC:.CLEAR		DESC:One 0-Level psionic power useable 3x per 24 hour period
 Windfall.MOD				DESC:.CLEAR		DESC:The character's Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks
 
 ###Block: Feat MOD for Creature Type Proficiency Bonus Feat Pools

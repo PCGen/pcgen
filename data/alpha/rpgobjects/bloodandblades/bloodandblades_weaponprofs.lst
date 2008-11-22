@@ -12,5 +12,5 @@ Pitchfork		TYPE:Archaic
 Bladed Glove	TYPE:Exotic
 Garrote		TYPE:Exotic
 Power Drill		TYPE:Exotic
-Scythe		TYPE:Exotic
-Sickle		TYPE:Exotic
+Scythe.MOD		TYPE:Exotic
+Sickle.MOD		TYPE:.CLEAR	TYPE:Exotic

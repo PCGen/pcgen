@@ -17,3 +17,7 @@ Pumpkin Pact	CLASSES:Acolyte=5	SCHOOL:Conjuration	SUBSCHOOL:Calling	TYPE:Divine	
 
 # Spell Name		School			Type			Components		Casting Time			Range			Target Area or Effect	Duration			Save Info				Spell Resistance	Description							Source Page
 Polymorph (Self only)	SCHOOL:Transmutation	TYPE:Incantation	COMPS:V, S, M, F	CASTTIME:60 minutes (minimum)	RANGE:Personal	TARGETAREA:You		DURATION:12 minutes	SAVEINFO:Fortitude negates	SPELLRES:Yes	DESC:Gives you another form that you designate	SOURCEPAGE:ArcanaIncantations.rtf
+
+###Block: Etherealness and Nightmare from RSRD
+Etherealness																				SCHOOL:Transmutation																					TYPE:Arcane.Divine	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch; see text	ITEM:Potion	TARGETAREA:You and (CASTERLEVEL/3) other touched creatures															DURATION:(CASTERLEVEL) minutes [D]								SAVEINFO:None							SPELLRES:Yes						DESC:Travel to Ethereal Plane with companions.																																																																																														SOURCEPAGE:SpellsD-E.rtf
+Nightmare																			SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting|Evil							TYPE:Arcane			COMPS:V, S			CASTTIME:10 minutes		RANGE:Unlimited			TARGETAREA:One living creature																				DURATION:Instantaneous												SAVEINFO:Will negates; see text									SPELLRES:Yes								DESC:Sends vision dealing 1d10 damage, fatigue.																	SOURCEPAGE:SpellsM-O.rtf

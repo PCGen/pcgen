@@ -18,8 +18,8 @@ Diehard								TYPE:Stalker			PREFEAT:1,Endurance																															
 Dire Charge								TYPE:Stalker			PREFEAT:1,Improved Initiative																																DESC:The Slasher can barrel into his opponents and dice 'em up real good.																																										SOURCEPAGE:p.53
 Head Squish								TYPE:Stalker			PREFEAT:2,Brawl,Improved Grapple															PRESTAT:2,DEX=13,STR=13													DESC:The Slasher can smash an opponent's head in with his bare hands.																																											SOURCEPAGE:p.53
 Improved Critical		KEY:BNB_IMPROVED_CRITICAL	TYPE:Stalker	PREATT:8																																					DESC:The Slasher becomes particularly lethal with one weapon.											STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST																			BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:p.53
-Improved Grapple		KEY:BNB_IMPROVED_GRAPPLE	TYPE:Stalker			PREFEAT:1,Improved Brawl																PRESTAT:1,DEX=13														DESC:The Slasher holds on and doesn't let go.																												BONUS:COMBAT|TOHIT.GRAPPLE|4															SOURCEPAGE:p.53
-Improved Overrun		KEY:BNB_IMPROVED_OVERRUN	TYPE:Stalker			PREFEAT:1,Power Attack																	PRESTAT:1,DEX=13														DESC:The Slasher can run over opponents without a thought.																																													SOURCEPAGE:p.53
+Improved Grapple.MOD			TYPE:Stalker														DESC:.CLEAR		DESC:The Slasher holds on and doesn't let go.																																							SOURCEPAGE:p.53
+Improved Overrun.MOD			TYPE:Stalker			DESC:.CLEAR												DESC:The Slasher can run over opponents without a thought.																																													SOURCEPAGE:p.53
 Improved Sunder							TYPE:Stalker			PREFEAT:1,Power Attack																	PRESTAT:1,STR=13														DESC:The Slasher smashes stuff up real good, such as doors, walls, and weapons.																																									SOURCEPAGE:p.53
 Insane Driver							TYPE:Stalker																			PRESKILL:1,Drive=1					PREVARLTEQ:CurrentSanity,-10								DESC:The Slasher drives like everybody does in New York.																																		BONUS:SKILL|Drive|4								SOURCEPAGE:p.54
 Insane Rage								TYPE:Stalker	PREATT:4																					PRESTAT:2,STR=13,CON=13	PREVARLTEQ:CurrentSanity,-10								DESC:Don't make him angry. You won't like him when he's angry.											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											SOURCEPAGE:p.54
@@ -36,3 +36,8 @@ Unnerving Laugh							TYPE:Stalker			PREFEAT:1,Catch Phrase																					
 #Stalker			TYPE:Stalker
 #Insane Speed		TYPE:Stalker
 #Insane Strength		TYPE:Stalker
+
+###Block: Improved Unarmed Strike from RSRD
+#One class has Improved Unarmed Strike as a pre-req, yet this in not in the MSRD.
+Improved Unarmed Strike									TYPE:General.Fighter																																																																											DESC:You are considered to be armed even when unarmed. However, you still get an attack of opportunity against any opponent who makes an unarmed attack on you. In addition, your unarmed strikes can deal lethal or nonlethal damage, at your option.																																																																																																																																																																		SOURCEPAGE:Feats.rtf
+

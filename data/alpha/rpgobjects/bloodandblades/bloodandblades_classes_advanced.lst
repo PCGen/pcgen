@@ -79,8 +79,8 @@ CLASS:Arawnite Guardian	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:L
 2	CAST:4,3						SAB:Dark Blessing(Su)		BONUS:CHECKS|ALL|max(0,CHA)
 3	CAST:4,3,2						SAB:Trackless Step(Ex)
 4	CAST:5,4,3						SAB:Aura of Despair(Su)
-5	CAST:5,4,3,2															ADD:FEAT|1|Evasion
-6	CAST:5,4,4,3															ADD:FEAT|1|Uncanny Dodge I,Uncanny Dodge II
+5	CAST:5,4,3,2															ABILITY:Talent|NORMAL|Evasion
+6	CAST:5,4,4,3															ABILITY:Talent|NORMAL|Uncanny Dodge I|Uncanny Dodge II
 7	CAST:6,5,4,3,2					SAB:Slippery Mind(Ex)
 8	CAST:6,5,4,4,3					SAB:Hide in Plain Sight(Su)
 9	CAST:6,5,5,4,3,2					SAB:Venom Immunity(Ex)
@@ -89,7 +89,7 @@ CLASS:Arawnite Guardian	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:L
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Mad Genius	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|6
 # Class Name	Required Feat				Required Stat	Var. Max. Value
-CLASS:Mad Genius	PREFEAT:1,Occupation (Academic)	PRESTAT:1,INT=18	PREVARLTEQ:CurrentSanity|-10
+CLASS:Mad Genius	PREFEAT:1,Occupation (Academic)	PRESTAT:1,INT=18	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mad Genius	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimidate|Hide|Listen|Move Silently|Perform (Act)|Profession|Read/Write Language|Repair|Search|Sense Motive|Sleight of Hand|Speak Language|Spot
 1	SAB:Trapmaster(Ex)
@@ -112,7 +112,7 @@ CLASS:Psychogene	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diploma
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychogene	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychogene|CL
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|PsychogeneML|var("CL=Psychogene")	BONUS:VAR|PsychogeneML|var("BL=Psychogene")			DEFINE:PsychogeneML|0	AUTO:FEAT|PsionicClass
+1	BONUS:VAR|PsychogeneML|var("CL=Psychogene")	BONUS:VAR|PsychogeneML|var("BL=Psychogene")			DEFINE:PsychogeneML|0	ABILITY:Special Ability|NORMAL|PsionicClass
 1	BONUS:VAR|BasePowerPoints|2
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychogeneML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychogeneML,3
 1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychogeneML,4	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsychogeneML,5
@@ -143,13 +143,13 @@ CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:C
 CLASS:Stalker	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				AUTO:FEAT|Sneak Attack
-2																	ADD:FEAT|1|Weapon Specialization
+1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				ABILITY:Special Ability|NORMAL|Sneak Attack
+2																	ADD:ABILITY|Special Ability|NORMAL|Weapon Specialization
 3	VISION:Darkvision (60')									BONUS:VAR|SneakAttack|1
 4					SAB:Right Behind You (Su)								ADD:FEAT|1|TYPE.Stalker
-5																	ADD:FEAT|1|Improved Critical
+5																	ADD:ABILITY|Special Ability|NORMAL|Improved Critical
 6													BONUS:VAR|SneakAttack|1	ADD:FEAT|1|TYPE.Stalker
 7					SAB:Hide in Plain Sight (Su)
-8													BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Greater Weapon Specialization
+8													BONUS:VAR|SneakAttack|1	ADD:ABILITY|Special Ability|NORMAL|Greater Weapon Specialization
 9					SAB:Without a Trace (Ex)
 10					SAB:Critical Strike (Ex)				BONUS:VAR|SneakAttack|1

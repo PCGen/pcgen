@@ -8,7 +8,7 @@ SETTING:Horror
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:RPGObjects.Blood and Blades
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:2,MSRD - Basics,MSRD - Arcana
 PUBNAMELONG:RPG Objects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/
@@ -76,6 +76,7 @@ INFOTEXT:This requires MSRD Core and MSRD Arcana to be loaded
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:bloodandblades_abilities.lst
 ABILITY:bloodandblades_abilities_occupations.lst
 ABILITYCATEGORY:bloodandblades_ability_categories.lst
 CLASS:bloodandblades_classes_advanced.lst
@@ -95,16 +96,6 @@ SPELL:bloodandblades_FX_powers.lst
 SPELL:bloodandblades_FX_spells.lst
 TEMPLATE:bloodandblades_templates.lst
 WEAPONPROF:bloodandblades_weaponprofs.lst
-
-###Referenced from MSRD Arcana
-SPELL:@/d20ogl/msrd/arcana/basics/arcanabasics_spells_incantations.lst
-
-###Borrowed from RSRD
-SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst|(INCLUDE:Etherealness|Nightmare)
-SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst|(INCLUDE:Plane Shift (Psionic))
-
-###Borrowed from SRD
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack)
 
 ###
 #EOF

@@ -1,0 +1,2 @@
+###Block: Sneak Attack borrowed from SRD (Why SRD as opposed to RSRD?)
+Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6																				DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttack|SneakAttackDie																																																																																																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttack|SneakAttackDie
