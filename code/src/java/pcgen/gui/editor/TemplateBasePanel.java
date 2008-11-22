@@ -425,23 +425,35 @@ public class TemplateBasePanel extends BasePanel
 			thisPCTemplate.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, null);
 			thisPCTemplate.put(ObjectKey.SUBRACE, SubRace.getConstant(subRace));
 		}
-		thisPCTemplate.put(IntegerKey.BONUS_CLASS_SKILL_POINTS, getBonusSkillPoints());
+		if (getBonusSkillPoints() != 0)
+		{
+			thisPCTemplate.put(IntegerKey.BONUS_CLASS_SKILL_POINTS, getBonusSkillPoints());
+		}
 		thisPCTemplate.put(ObjectKey.CR_MODIFIER, new BigDecimal(getCR()));
-		thisPCTemplate.put(FormulaKey.LEVEL_ADJUSTMENT, FormulaFactory.getFormulaFor(getLevelAdjustment()));
+		if (getLevelAdjustment() != null && getLevelAdjustment().length() > 0)
+		{
+			thisPCTemplate.put(FormulaKey.LEVEL_ADJUSTMENT, FormulaFactory.getFormulaFor(getLevelAdjustment()));
+		}
 		thisPCTemplate.put(IntegerKey.NONPP, getNonProficiencyPenalty());
 		String sz = getTemplateSize();
 		SizeAdjustment size = Globals.getContext().ref.getAbbreviatedObject(
 				SizeAdjustment.class, sz);
-		Formula sizeFormula;
+		Formula sizeFormula = null;
 		if (size == null)
 		{
-			sizeFormula = FormulaFactory.getFormulaFor(sz);
+			if (sz != null && sz.length() > 0)
+			{
+				sizeFormula = FormulaFactory.getFormulaFor(sz);
+			}
 		}
 		else
 		{
 			sizeFormula = new FixedSizeFormula(size);
 		}
-		thisPCTemplate.put(FormulaKey.SIZE, sizeFormula);
+		if (sizeFormula != null)
+		{
+			thisPCTemplate.put(FormulaKey.SIZE, sizeFormula);
+		}
 
 		//
 		// Save types
