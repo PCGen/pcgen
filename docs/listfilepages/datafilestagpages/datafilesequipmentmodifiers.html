@@ -59,6 +59,233 @@
 
 <hr>
 
+	<p class="indent0"><strong><a name="EQMHANDS">Tag Name:</a></strong> BONUS:EQM|HANDS|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of hands)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the number of hands required for the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>BONUS:EQM|HANDS|1</code></p>
+	<p class="indent3">Sets the number of hands required by the item to one.</p>
+	<p class="indent2"><code>BONUS:EQM|HANDS|-EQHANDS</code></p>
+	<p class="indent3">Sets the number of hands required by the item to zero.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEIGHTADD">Tag Name:</a></strong> BONUS:EQM|WEIGHTADD|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Weight added)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the weight of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQM|WEIGHTADD|0.5</code></p>
+	<p class="indent3">Adds half a weight unit to the item's weight.</p>
+	<p class="indent2"><code>BONUS:EQM|WEIGHTADD|-10|TYPE=Enhancement</code></p>
+	<p class="indent3">Subtracts 10 from the item's weight due to enhancement.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEIGHTDIV">Tag Name:</a></strong> BONUS:EQM|WEIGHTDIV|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Weight divisor)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></li>
+	<ul class="indent2">
+		<li>Modifies the weight of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQM|WEIGHTDIV|2</code></p>
+	<p class="indent3">Divides the weight of the item in half.</p>
+	<p class="indent2"><code>BONUS:EQM|WEIGHTDIV|2|TYPE=Enhancement.REPLACE</code></p>
+	<p class="indent3">Divides the weight of the item in half, replaces the original amount by enhancement.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEIGHTMULT">Tag Name:</a></strong> BONUS:EQM|WEIGHTMULT|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Weight multiplier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the weight of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQM|WEIGHTMULT|2</code></p>
+	<p class="indent3">Doubles the weight of the item.</p>
+	<p class="indent2"><code>BONUS:EQM|WEIGHTMULT|1.2|TYPE=Enhancement</code></p>
+	<p class="indent3">Multiples the weight of the item by 1.2 by enhancement.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMARMORACCHECK">Tag Name:</a></strong> BONUS:EQMARMOR|ACCHECK|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Armor check penalty)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the armor check penalty of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMARMOR|ACCHECK|3</code></p>
+	<p class="indent3">Decreases the armor check penalty by 3.</p>
+	<p class="indent2"><code>BONUS:EQMARMOR|ACCHECK|2|TYPE=Enhancement</code></p>
+	<p class="indent3">Decreases the armor check penalty by 2 by enhancement.</p>
+	<p></p>
+
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMARMOREDR">Tag Name:</a></strong> BONUS:EQMARMOR|EDR|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Damage resistance modifier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the EDR (Effective damage resistance) of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMARMOR|EDR|1</code></p>
+	<p class="indent3">Makes the damage resistance for the armor 1 higher.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMARMORMAXDEX">Tag Name:</a></strong> BONUS:EQMARMOR|MAXDEX|x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Max dex modifier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the maximum dexterity applicable to users of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMARMOR|MAXDEX|2</code></p>
+	<p class="indent3">Increases maximum dexterity bonus of the armor by 2.</p>
+	<p class="indent2"><code>BONUS:EQMARMOR|MAXDEX|2|TYPE=Enhancement</code></p>
+	<p class="indent3">Increases maximum dexterity bonus of the armor by 2, by enhancement.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMARMORSPELLFAILURE">Tag Name:</a></strong> BONUS:EQMARMOR|SPELLFAILURE|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Spell failure modifier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the spell failure percentage applicable to users of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMARMOR|SPELLFAILURE|-10</code></p>
+	<p class="indent3">Decreases the spell failure chance of the armor by 10%.</p>
+	<p class="indent2"><code>BONUS:EQMARMOR|SPELLFAILURE|-10|TYPE=Enhancement</code></p>
+	<p class="indent3">Decreases the spell failure chance of the armor by 10% by enhancement.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEAPONCRITRANGEADD">Tag Name:</a></strong> BONUS:EQMWEAPON|CRITRANGEADD|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Critical range modifier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the critical range of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEADD|1</code></p>
+	<p class="indent3">Increases the critical threat range of the weapon by 1.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEAPONCRITRANGEDOUBLE">Tag Name:</a></strong> BONUS:EQMWEAPON|CRITRANGEDOUBLE|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Critical range modifier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the critical range of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEDOUBLE|1</code></p>
+	<p class="indent3">Doubles the critical threat range of the weapon.</p>
+	<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit</code></p>
+	<p class="indent3">Adds one to the non-stacking-critical threat range of the weapon.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEAPONDAMAGESIZE">Tag Name:</a></strong> BONUS:EQMWEAPON|DAMAGESIZE|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Damage size modifier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the damage size of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMWEAPON|DAMAGESIZE|1</code></p>
+	<p class="indent3">Modifies the weapon's damage as if it were 1 size larger.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEAPONRANGEADD">Tag Name:</a></strong> BONUS:EQMWEAPON|RANGEADD|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Range modifier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the range of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMWEAPON|RANGEADD|10</code></p>
+	<p class="indent3">Adds 10 distance units to the weapon's range.</p>
+	<p class="indent2"><code>BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION</code></p>
+	<p class="indent3">Adds 5 distance units to the weapon's range by conversion.</p>
+	<p></p>
+
+<hr>
+
+	<p class="indent0"><strong><a name="EQMWEAPONRANGEMULT">Tag Name:</a></strong> BONUS:EQMWEAPON|RANGEMULT|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Range multiplier)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Bonus type. Optional.)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Modifies the range of the item.</li>
+		<li> See <a href="../globalfilestagpages/globalfilesbonus.html">Global Bonus</a> for more information on 
+			bonus types.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:EQMWEAPON|RANGEMULT|2</code></p>
+	<p class="indent3">Doubles the range of the weapon.</p>
+	<p></p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="CHARGES">Tag Name:</a></strong> CHARGES:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Minimum number of charges)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Maximum number of charges)</p>
