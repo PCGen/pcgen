@@ -49,7 +49,7 @@ public class PreArmorProfWriter extends AbstractPrerequisiteWriter implements
 	 */
 	public String kindHandled()
 	{
-		return "ARMORPROF";
+		return "profwitharmor";
 	}
 
 	/* (non-Javadoc)
@@ -75,7 +75,7 @@ public class PreArmorProfWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREARMORPROF:"+ (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write("PREPROFWITHARMOR:"+ (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			writer.write(prereq.getKey());
@@ -100,7 +100,6 @@ public class PreArmorProfWriter extends AbstractPrerequisiteWriter implements
 		{
 			writer.write('!');
 		}
-
 		writer.write("PRE" + kindHandled().toUpperCase() + ":"
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()

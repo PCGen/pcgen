@@ -23,10 +23,13 @@
  */
 package pcgen.core.chooser;
 
+import java.util.Arrays;
+import java.util.List;
+
+import pcgen.cdom.helper.ProfProvider;
+import pcgen.core.ArmorProf;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-
-import java.util.List;
 
 /**
  * This is the chooser that deals with choosing an armor type that the PC
@@ -63,18 +66,12 @@ public class ArmorTypeChoiceManager extends AbstractBasicStringChoiceManager
 			final List<String>    availableList,
 			final List<String>    selectedList)
 	{
-		List<String> armorProfs = aPc.getArmorProfList();
-		for ( String profKey : armorProfs )
+		for ( ProfProvider<ArmorProf> app : aPc.getArmorProfList() )
 		{
-			if (profKey.startsWith("TYPE"))
-			{
-				profKey = profKey.substring(5);
-			}
-			if (profKey.startsWith("ARMORTYPE"))
-			{
-				profKey = profKey.substring(10);
-			}
-			availableList.add(profKey);
+			String[] types = app.getLstFormat().replaceAll("ARMORTYPE=", "")
+					.replaceAll("ARMORTYPE.", "")
+					.split("\\|");
+			availableList.addAll(Arrays.asList(types));
 		}
 
 		selectedList.addAll(aPc.getAssociationList(pobject));

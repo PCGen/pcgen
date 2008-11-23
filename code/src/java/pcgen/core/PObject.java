@@ -29,7 +29,6 @@ import java.io.StringWriter;
 import java.net.URI;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -40,7 +39,6 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -49,8 +47,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.analysis.WeaponProfType;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
@@ -59,11 +55,8 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.KeyedListContainer;
-import pcgen.core.utils.MapKey;
-import pcgen.core.utils.MapKeyMapToList;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 /**
@@ -85,9 +78,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	/** a boolean for whether something should recurse, default is false */
 	private static boolean dontRecurse = false;
-
-	/** A map of Lists for the object */
-	protected final MapKeyMapToList mapListChar = new MapKeyMapToList();
 
 	/** List of Level Abilities for the object  */
 	private List<LevelAbility> levelAbilityList = null;
@@ -658,59 +648,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Add auto array
-	 * @param arg
-	 */
-	public final void addAutoArray(String arrayName, String item)
-	{
-		mapListChar.addToListFor(MapKey.AUTO_ARRAY, arrayName, item);
-	}
-
-	/**
-	 * Add the select armor proficiencies to the list
-	 * @param aList
-	 */
-	public final void addSelectedArmorProfs(final List<String> aList)
-	{
-		//This can't do a direct addAll on listChar because this does duplication removal
-		for (String aString : aList)
-		{
-			if (!containsInList(ListKey.SELECTED_ARMOR_PROF, aString))
-			{
-				addToListFor(ListKey.SELECTED_ARMOR_PROF, aString);
-			}
-		}
-	}
-
-	/**
-	 * Clear the auto list
-	 */
-	public final void clearAutoMap()
-	{
-		mapListChar.removeListsFor(MapKey.AUTO_ARRAY);
-	}
-
-	/**
-	 * This does a partial clear of the auto list, removing any entries
-	 * carrying the supplied tag
-	 * @param tag The type to be removed e.g. WEAPONPROF
-	 */
-	public final void clearAutoTag(String tag)
-	{
-		mapListChar.removeListFor(MapKey.AUTO_ARRAY, tag);
-	}
-
-	public final Set<String> getAutoMapKeys()
-	{
-		return mapListChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
-	}
-	
-	public final List<String> getAuto(String tag)
-	{
-		return mapListChar.getListFor(MapKey.AUTO_ARRAY, tag);
-	}
-	
-	/**
 	 * Set the campaign source
 	 * @param arg
 	 */
@@ -942,23 +879,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		txt.append("\tKEY:").append(getKeyName());
 
-		Set<String> aaKeys = mapListChar.getSecondaryKeySet(MapKey.AUTO_ARRAY);
-		if (aaKeys != null)
-		{
-			for (String s : aaKeys)
-			{
-				List<String> values = mapListChar.getListFor(MapKey.AUTO_ARRAY, s);
-				for (String value : values)
-				{
-					if (value != null && value.trim().length() > 0)
-					{
-						txt.append("\tAUTO:").append(s).append(Constants.PIPE)
-							.append(value);
-					}
-				}
-			}
-		}
-
 		aString = getChoiceString();
 
 		if ((aString != null) && (aString.length() != 0))
@@ -1143,7 +1063,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
 	{
-		aPC.setArmorProfListStable(false);
+		aPC.setDirty(true);
 		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 		{
 			kit.act(kit.driveChoice(aPC), this, aPC);
@@ -1192,243 +1112,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				ability.subForLevel(aPC);
 			}
 		}
-	}
-
-	 /**
-	  * Add automatic tags to a list
-	  * For example, tag = "ARMORPROF", aList is list of armor proficiencies
-	  * @param tag
-	  * @param aList
-	  * @param aPC
-	  * @param expandWeaponTypes
-	  */
-	public final void addAutoTagsToList(final String tag, final Collection aList, final PlayerCharacter aPC, boolean expandWeaponTypes)
-	{
-		List<String> list = mapListChar.getListFor(MapKey.AUTO_ARRAY, tag);
-		
-		if (list == null)
-		{
-			return;
-		}
-		
-		for (String val : list)
-		{
-			addAutoTagToList(tag, val, aList, aPC, expandWeaponTypes);
-		}
-	}
-
-	private void addAutoTagToList(String tag, String aString, Collection aList,
-		PlayerCharacter aPC, boolean expandWeaponTypes)
-	{
-		String preReqTag;
-		final List<Prerequisite> aPreReqList = new ArrayList<Prerequisite>();
-		final int j1 = aString.lastIndexOf('[');
-		int j2 = aString.lastIndexOf(']');
-
-		if (j2 < j1)
-		{
-			j2 = aString.length();
-		}
-
-		if (j1 >= 0)
-		{
-			preReqTag = aString.substring(j1 + 1, j2);
-			Prerequisite prereq = null;
-			try
-			{
-				final PreParserFactory factory = PreParserFactory.getInstance();
-				prereq = factory.parse(preReqTag);
-			}
-			catch (PersistenceLayerException ple)
-			{
-				Logging.errorPrint(ple.getMessage(), ple);
-			}
-
-			if (prereq != null)
-			{
-				aPreReqList.add(prereq);
-			}
-			if (!PrereqHandler.passesAll(aPreReqList, aPC, null))
-			{
-				return;
-			}
-
-			aString = aString.substring(0, j1);
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			String tok = aTok.nextToken();
-
-			if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
-					&& tag.startsWith("WEAPON") && expandWeaponTypes)
-				{
-					List<String> xList = processWeaponAutoTags(aPC, tok.substring(5));
-
-					aList.addAll(xList);
-				}
-			else if ((tok.startsWith("WEAPONTYPE=") || tok.startsWith("WEAPONTYPE."))
-					&& tag.startsWith("WEAPON") && expandWeaponTypes)
-				{
-					List<String> xList = processWeaponAutoTags(aPC, tok.substring(11));
-
-					aList.addAll(xList);
-				}
-			else if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
-				&& tag.startsWith("ARMOR"))
-			{
-				aList.add(tok);
-			}
-			else if (tag.startsWith("EQUIP"))
-			{
-				final Equipment aEq =
-						EquipmentList.getEquipmentFromName(tok, aPC);
-
-				if (aEq != null)
-				{
-					final Equipment newEq = aEq.clone();
-					newEq.setQty(1);
-					newEq.setAutomatic(true);
-					int index = aPC.getCachedOutputIndex(newEq.getKeyName());
-					newEq.setOutputIndex(index >= 0 ? index : aList.size()+1);
-					aList.add(newEq);
-				}
-			}
-			else if ("%LIST".equals(tok))
-			{
-				for (String assoc : aPC.getAssociationList(this))
-				{
-					aList.add(assoc);
-				}
-			}
-			else if ("DEITYWEAPONS".equals(tok))
-			{
-				if (aPC.getDeity() != null)
-				{
-					List<CDOMReference<WeaponProf>> weapons = aPC.getDeity()
-							.getSafeListFor(ListKey.DEITYWEAPON);
-					for (CDOMReference<WeaponProf> ref : weapons)
-					{
-						if (!Constants.ALLREF_LST.equals(ref.getLSTformat()))
-						{
-							for (WeaponProf wp : ref.getContainedObjects())
-							{
-								if (!wp.isType("Natural"))
-								{
-									aList.add(wp.getKeyName());
-								}
-							}
-						}
-					}
-				}
-			}
-			else
-			{
-				// add tok to list
-				aList.add(tok);
-			}
-		}
-	}
-
-	/**
-	 * @param aPC
-	 * @param tok
-	 * @return
-	 */
-	private List<String> processWeaponAutoTags(final PlayerCharacter aPC, String tok)
-	{
-		final StringTokenizer bTok = new StringTokenizer(tok, ".");
-		List<WeaponProf> xList = null;
-
-		while (bTok.hasMoreTokens())
-		{
-			final String bString = bTok.nextToken();
-			final List<WeaponProf> pcWeapProfList = WeaponProfType.getWeaponProfs(bString, aPC);
-			final List<Equipment> pcWeaponList = new ArrayList<Equipment>();
-			if (pcWeapProfList.size() == 0)
-			{
-				pcWeaponList.addAll(EquipmentList.getEquipmentOfType("Weapon." + bString, ""));
-			}
-
-			if (xList == null)
-			{
-				xList = new ArrayList<WeaponProf>();
-
-				for (WeaponProf obj : pcWeapProfList)
-				{
-					if (!xList.contains(obj))
-					{
-						xList.add(obj);
-					}
-				}
-				
-				for (Equipment obj : pcWeaponList)
-				{
-					CDOMSingleRef<WeaponProf> ref = obj
-							.get(ObjectKey.WEAPON_PROF);
-					if (ref != null)
-					{
-						WeaponProf wp = ref.resolvesTo();
-						if (!xList.contains(wp))
-						{
-							xList.add(wp);
-						}
-					}
-				}
-			}
-			else
-			{
-				final List<WeaponProf> removeList = new ArrayList<WeaponProf>();
-
-				for (WeaponProf wprof : xList)
-				{
-					boolean contains = false;
-
-					for (WeaponProf obj : pcWeapProfList)
-					{
-						if (wprof.equals(obj))
-						{
-							contains = true;
-
-							break;
-						}
-					}
-					if(!contains) {
-						for (Equipment obj : pcWeaponList)
-						{
-							CDOMSingleRef<WeaponProf> ref = obj.get(ObjectKey.WEAPON_PROF);
-							if (ref != null)
-							{
-								if (wprof.equals(ref.resolvesTo()))
-								{
-									contains = true;
-
-									break;
-								}
-							}
-						}
-
-						if (!contains)
-						{
-							removeList.add(wprof);
-						}
-					}
-				}
-
-				for (WeaponProf wprof : removeList)
-				{
-					xList.remove(wprof);
-				}
-			}
-		}
-		List<String> returnList = new ArrayList<String>(xList.size());
-		for (WeaponProf wp : xList)
-		{
-			returnList.add(wp.getKeyName());
-		}
-		return returnList;
 	}
 
 	/**

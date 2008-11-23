@@ -404,7 +404,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			if (thePC.getDeity() != null)
 			{
-				thePC.getDeity().addSelectedArmorProfs(aList);
+				Deity deity = thePC.getDeity();
+				for (String s : aList)
+				{
+					thePC.addAssociation(deity, s);
+				}
 			}
 		}
 		else if (objecttype.startsWith(TAG_CLASS))
@@ -413,7 +417,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (aClass != null)
 			{
-				aClass.addSelectedArmorProfs(aList);
+				for (String s : aList)
+				{
+					thePC.addAssociation(aClass, s);
+				}
 			}
 			else
 			{
@@ -428,7 +435,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (aFeat != null)
 			{
-				aFeat.addSelectedArmorProfs(aList);
+				for (String s : aList)
+				{
+					thePC.addAssociation(aFeat, s);
+				}
 			}
 			else
 			{
@@ -443,7 +453,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (aSkill != null)
 			{
-				aSkill.addSelectedArmorProfs(aList);
+				for (String s : aList)
+				{
+					thePC.addAssociation(aSkill, s);
+				}
 			}
 			else
 			{
@@ -458,7 +471,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (aDomain != null)
 			{
-				aDomain.addSelectedArmorProfs(aList);
+				for (String s : aList)
+				{
+					thePC.addAssociation(aDomain, s);
+				}
 			}
 			else
 			{
@@ -473,7 +489,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (eq != null)
 			{
-				eq.addSelectedArmorProfs(aList);
+				for (String s : aList)
+				{
+					thePC.addAssociation(eq, s);
+				}
 			}
 			else
 			{
@@ -488,7 +507,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (aTemplate != null)
 			{
-				aTemplate.addSelectedArmorProfs(aList);
+				for (String s : aList)
+				{
+					thePC.addAssociation(aTemplate, s);
+				}
 			}
 			else
 			{

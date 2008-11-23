@@ -108,7 +108,6 @@ public class TokenStore
 		//subtokens
 		tokenTypeList.add(EqModChooseLstToken.class);
 		tokenTypeList.add(ChooseLstToken.class);
-		tokenTypeList.add(AutoLstToken.class);
 		tokenTypeList.add(AddLstToken.class);
 
 		//install.lst

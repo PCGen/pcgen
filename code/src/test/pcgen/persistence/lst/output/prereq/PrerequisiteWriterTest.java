@@ -1,5 +1,4 @@
 /*
- * PrerequisiteWriterTest.java
  *
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -86,8 +85,10 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREAPPLY:PC",																	"PREAPPLY:PC",
 		"PREAPPLY:Ranged;Melee",														"PREAPPLY:Ranged;Melee",
 		"PREAPPLY:Weapon,Blunt",														"PREAPPLY:Weapon,Blunt",
-		"PREARMORPROF:1,Chainmail,Full Plate",											"PREARMORPROF:1,Chainmail,Full Plate",
-		"PREARMORPROF:1,TYPE.Medium",													"PREARMORPROF:1,TYPE.Medium",
+		"PREARMORPROF:1,Chainmail,Full Plate",											"PREPROFWITHARMOR:1,Chainmail,Full Plate",
+		"PREARMORPROF:1,TYPE.Medium",													"PREPROFWITHARMOR:1,TYPE.Medium",
+		"PREPROFWITHARMOR:1,Chainmail,Full Plate",										"PREPROFWITHARMOR:1,Chainmail,Full Plate",
+		"PREPROFWITHARMOR:1,TYPE.Medium",												"PREPROFWITHARMOR:1,TYPE.Medium",
 		"PREATT:6",																		"PREATT:6",
 		"PREBASESIZELTEQ:Medium",														"PREBASESIZELTEQ:Medium",
 		"PREBIRTHPLACE:Klamath",														"PREBIRTHPLACE:Klamath",
@@ -163,8 +164,10 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREREGION:Slithe (Barrows)",													"PREREGION:Slithe (Barrows)",
 		"PRERULE:1,SYS_WTPSK",															"PRERULE:1,SYS_WTPSK",
 		"PRESA:1,Turn undead,Rebuke undead,Smite Evil",									"PREMULT:1,[PRESA:1,Turn undead],[PRESA:1,Rebuke undead],[PRESA:1,Smite Evil]",
-		"PRESHIELDPROF:1,Buckler,Large Shield",											"PRESHIELDPROF:1,Buckler,Large Shield",
-		"PREARMORPROF:1,TYPE.Tower",													"PREARMORPROF:1,TYPE.Tower",
+		"PRESHIELDPROF:1,Buckler,Large Shield",											"PREPROFWITHSHIELD:1,Buckler,Large Shield",
+		"PREPROFWITHSHIELD:1,Buckler,Large Shield",										"PREPROFWITHSHIELD:1,Buckler,Large Shield",
+		"PREARMORPROF:1,TYPE.Tower",													"PREPROFWITHARMOR:1,TYPE.Tower",
+		"PREPROFWITHARMOR:1,TYPE.Tower",												"PREPROFWITHARMOR:1,TYPE.Tower",
 		"PRESIZEEQ:H",																	"PRESIZEEQ:H",
 		"PRESKILL:1,Spot,Listen=10",													"PREMULT:1,[PRESKILL:1,Spot=10],[PRESKILL:1,Listen=10]",
 		"PRESKILL:2,TYPE.Spy,TYPE.Spy=2",												"PREMULT:2,[PRESKILL:1,TYPE.Spy=2]",
@@ -267,7 +270,8 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PRESRGTEQ:10",																"PRESRLT:10",
 		"!PREVARGT:Rage,4",																"PREVARLTEQ:Rage,4",
 		"!PREALIGN:8",																	"!PREALIGN:CE",
-		"!PREARMORPROF:1,TYPE.Medium",													"!PREARMORPROF:1,TYPE.Medium",
+		"!PREARMORPROF:1,TYPE.Medium",													"!PREPROFWITHARMOR:1,TYPE.Medium",
+		"!PREPROFWITHARMOR:1,TYPE.Medium",												"!PREPROFWITHARMOR:1,TYPE.Medium",
 		"!PREARMORTYPE:1,TYPE.Exotic",													"!PREARMORTYPE:1,TYPE.Exotic",
 		"!PREATT:6",																	"!PREATT:6",
 		"!PREBIRTHPLACE:Klamath",														"!PREBIRTHPLACE:Klamath",
@@ -295,7 +299,8 @@ public class PrerequisiteWriterTest extends TestCase
 	
 		"!PREREGION:Slithe",															"!PREREGION:Slithe",
 		"!PRERULE:1,SYS_WTPSK",															"!PRERULE:1,SYS_WTPSK",
-		"!PRESHIELDPROF:1,Buckler",														"!PRESHIELDPROF:1,Buckler",
+		"!PREPROFWITHSHIELD:1,Buckler",													"!PREPROFWITHSHIELD:1,Buckler",
+		"!PRESHIELDPROF:1,Buckler",														"!PREPROFWITHSHIELD:1,Buckler",
 		"!PRESA:1,Turn undead",															"!PRESA:1,Turn undead",
 		"!PRESPELLBOOK:YES",															"!PRESPELLBOOK:YES",
 		"!PRESPELL:1,Magic Missile",													"!PRESPELL:1,Magic Missile",

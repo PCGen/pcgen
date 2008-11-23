@@ -51,6 +51,7 @@ import pcgen.core.Equipment;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
+import pcgen.core.QualifiedObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
@@ -223,6 +224,9 @@ public class ObjectKey<T>
 	public static final ObjectKey<CDOMSingleRef<PCClass>> EX_CLASS = new ObjectKey<CDOMSingleRef<PCClass>>(null);
 
 	public static final ObjectKey<SpellResistance> SR = new ObjectKey<SpellResistance>(SpellResistance.NONE);
+
+	public static final ObjectKey<QualifiedObject<Boolean>> HAS_DEITY_WEAPONPROF = new ObjectKey<QualifiedObject<Boolean>>(
+			new QualifiedObject<Boolean>(Boolean.FALSE));
 
 	public static final ObjectKey<SpellProhibitor> CHOICE = new ObjectKey<SpellProhibitor>(null);
 

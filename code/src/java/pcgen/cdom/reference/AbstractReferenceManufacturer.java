@@ -20,7 +20,6 @@ package pcgen.cdom.reference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -28,6 +27,7 @@ import java.util.Map.Entry;
 
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToInstanceList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
@@ -89,13 +89,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * simplicity [and due to lack of user presentation of this value] this sort
 	 * does not correct for internationalization)
 	 */
-	/*
-	 * TODO Should there be (4) all types should be upper case? That isn't
-	 * enforced here, and that may be a problem in terms of duplication. It's
-	 * probably not too problematic, in the sense that a few extra CDOMReference
-	 * objects really isn't that big of a deal. But it's still imperfect...
-	 */
-	private final Map<String[], TRT> typeReferences = new HashMap<String[], TRT>();
+	private final Map<FixedStringList, TRT> typeReferences = new TreeMap<FixedStringList, TRT>(
+			FixedStringList.CASE_INSENSITIVE_ORDER);
 
 	/**
 	 * Storage for individual references. This ensures that only one reference
@@ -231,21 +226,15 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			}
 		}
 		Arrays.sort(types);
-		/*
-		 * TODO FIXME This is the SLOW method - better to actually use Jakarta
-		 * Commons Collections and create a map that does the lookup based on
-		 * deepEquals of an Array...
-		 */
-		for (Entry<String[], TRT> me : typeReferences.entrySet())
+		FixedStringList typeList = new FixedStringList(types);
+		TRT ref = typeReferences.get(typeList);
+		if (ref != null)
 		{
-			if (Arrays.deepEquals(me.getKey(), types))
-			{
-				return me.getValue();
-			}
+			return ref;
 		}
 		// Didn't find the appropriate key, create new
 		TRT cgr = getLocalTypeReference(types);
-		typeReferences.put(types, cgr);
+		typeReferences.put(typeList, cgr);
 		return cgr;
 	}
 
@@ -323,7 +312,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			{
 				allRef.addResolution(obj);
 			}
-			for (Map.Entry<String[], TRT> me : typeReferences.entrySet())
+			for (Map.Entry<FixedStringList, TRT> me : typeReferences.entrySet())
 			{
 				boolean typeOkay = true;
 				for (String type : me.getKey())

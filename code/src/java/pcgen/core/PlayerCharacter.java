@@ -83,6 +83,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.FollowerLimit;
+import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.EquipmentHead;
@@ -156,9 +157,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 
-	// List of Armor Proficiencies
-	private final List<String> armorProfList = new ArrayList<String>();
-
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(3);
 
@@ -170,7 +168,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			new ArrayList<Equipment>();
 	private final ArrayList<Equipment> secondaryWeapons =
 			new ArrayList<Equipment>();
-	private final ArrayList<String> shieldProfList = new ArrayList<String>();
 
 	// List of Skills
 	private final ArrayList<Skill> skillList = new ArrayList<Skill>();
@@ -264,8 +261,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// Movement lists
 	private Double[] movements = Globals.EMPTY_DOUBLE_ARRAY;
-
-	private boolean armorProfListStable = false;
 
 	// whether to add auto known spells each level
 	private boolean autoKnownSpells = true;
@@ -517,34 +512,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return armor proficiency list
 	 */
-	public List<String> getArmorProfList()
+	public List<ProfProvider<ArmorProf>> getArmorProfList()
 	{
-		if (armorProfListStable)
+		List<ProfProvider<ArmorProf>> sps = cache.getListFor(ListKey.ARMORPROF_CACHE);
+		if (sps == null)
 		{
-			return armorProfList;
+			sps = getAutoArmorProfList();
+			cache.addAllToListFor(ListKey.ARMORPROF_CACHE, sps);
 		}
-
-		final List<String> autoArmorProfList = getAutoArmorProfList();
-		addArmorProfs(autoArmorProfList);
-
-		final List<String> selectedProfList = getSelectedArmorProfList();
-		addArmorProfs(selectedProfList);
-		armorProfListStable = true;
-
-		return armorProfList;
-	}
-
-	/**
-	 * Sets a 'stable' list of armor profs
-	 * 
-	 * @param isStable set the armour profs stable (when true) or
-	 *                  not stable (when false) and also make the
-	 *                  PC dirty.
-	 */
-	public void setArmorProfListStable(final boolean isStable)
-	{
-		armorProfListStable = isStable;
-		setDirty(true);
+		return sps;
 	}
 
 	/**
@@ -1591,6 +1567,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return sortEquipmentList(getEquipmentList(), merge);
 	}
 
+	private List<Equipment> getAutoEquipmentList()
+	{
+		final ArrayList<Equipment> aList = new ArrayList<Equipment>();
+
+		for (CDOMObject aPObj : getCDOMObjectList())
+		{
+			List<QualifiedObject<CDOMReference<Equipment>>> spl = aPObj.getSafeListFor(ListKey.EQUIPMENT);
+			for (QualifiedObject<CDOMReference<Equipment>> qo : spl)
+			{
+				CDOMReference<Equipment> ref = qo.getObject(this);
+				if (ref != null)
+				{
+					for (Equipment sp : ref.getContainedObjects())
+					{
+						aList.add(sp);
+					}
+				}
+			}
+		}
+
+		return aList;
+	}
+
 	/**
 	 * Get equipment master list
 	 * 
@@ -1600,16 +1599,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<Equipment> aList =
 				new ArrayList<Equipment>(equipmentMasterList);
-
-		// Try all possible POBjects
-		for (final PObject aPObj : getPObjectList())
-		{
-			if (aPObj != null)
-			{
-				aPObj.addAutoTagsToList("EQUIP", aList, this, true);
-			}
-		}
-
+		aList.addAll(getAutoEquipmentList());
 		return aList;
 	}
 
@@ -2938,12 +2928,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return shield prof list
 	 */
-	public List<String> getShieldProfList()
+	public List<ProfProvider<ShieldProf>> getShieldProfList()
 	{
-		final List<String> autoShieldProfList = getAutoShieldProfList();
-		addShieldProfs(autoShieldProfList);
+		List<ProfProvider<ShieldProf>> sps = cache.getListFor(ListKey.SHIELDPROF_CACHE);
+		if (sps == null)
+		{
+			sps = getAutoShieldProfList();
+			cache.addAllToListFor(ListKey.SHIELDPROF_CACHE, sps);
+		}
 
-		return shieldProfList;
+		return sps;
 	}
 
 	/**
@@ -4039,37 +4033,75 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				ret.put(wp.getKeyName(), wp);
 			}
 		}
-
-		// Try all possible PObjects
-		for (final PObject pobj : getPObjectList())
+		// Try all possible CDOMObjects
+		for (CDOMObject pobj : getCDOMObjectList())
 		{
-			if (pobj != null)
+			Set<String> profKeyList = new TreeSet<String>(pobj
+					.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS));
+			for (String profKey : profKeyList)
 			{
-				// results = addWeaponProfsLists(aRace.getWeaponProfAutos(),
-				// results, aFeatList, true);
-				//
-				// for (String aString :
-				// aRace.getSafeListFor(weaponProfBonusKey))
-				// {
-				// results.add(aString);
-				// addWeaponProfToList(aFeatList, aString, true);
-				// }
-				final Set<String> profKeyList =
-						new TreeSet<String>(pobj
-							.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS));
-				// TODO - Need to handle more crap here.
-				pobj.addAutoTagsToList("WEAPONPROF", profKeyList, this, true);
-				// TODO: Selected bonus weapon prof is stored in the associated
-				// list
-				for (final String profKey : profKeyList)
+				WeaponProf prof = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(WeaponProf.class,
+								profKey);
+				if (prof != null)
 				{
-					final WeaponProf prof =
-							Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(
-									WeaponProf.class, profKey);
-					if (prof != null)
+					ret.put(prof.getKeyName(), prof);
+				}
+			}
+			//Natural Weapon Proficiencies
+			List<CDOMSingleRef<WeaponProf>> iwp = pobj
+					.getSafeListFor(ListKey.IMPLIED_WEAPONPROF);
+			for (CDOMSingleRef<WeaponProf> ref : iwp)
+			{
+				WeaponProf prof = ref.resolvesTo();
+				ret.put(prof.getKeyName(), prof);
+			}
+			// AUTO:WEAPONPROF except LIST
+			List<QualifiedObject<CDOMReference<WeaponProf>>> potentialProfs = pobj
+					.getSafeListFor(ListKey.WEAPONPROF);
+			for (QualifiedObject<CDOMReference<WeaponProf>> qo : potentialProfs)
+			{
+				CDOMReference<WeaponProf> ref = qo.getObject(this);
+				if (ref != null)
+				{
+					for (WeaponProf wp : ref.getContainedObjects())
 					{
-						ret.put(prof.getKeyName(), prof);
+						ret.put(wp.getKeyName(), wp);
+					}
+				}
+			}
+			// AUTO:WEAPONPROF LIST
+			List<WeaponProf> profs = getAssocList(pobj,
+					AssociationListKey.WEAPONPROF);
+			if (profs != null)
+			{
+				for (WeaponProf wp : profs)
+				{
+					ret.put(wp.getKeyName(), wp);
+				}
+			}
+			Boolean dwp = pobj.getSafe(ObjectKey.HAS_DEITY_WEAPONPROF)
+					.getObject(this);
+			if (dwp != null && dwp && getDeity() != null)
+			{
+				List<CDOMReference<WeaponProf>> weaponList = getDeity()
+						.getListFor(ListKey.DEITYWEAPON);
+				if (weaponList != null)
+				{
+					for (CDOMReference<WeaponProf> ref : weaponList)
+					{
+						for (WeaponProf wp : ref.getContainedObjects())
+						{
+							/*
+							 * CONSIDER This is an open question, IMHO - why is
+							 * natural excluded here? This is magic to me - thpr
+							 * Oct 14, 2008
+							 */
+							if (!wp.isType("Natural"))
+							{
+								ret.put(wp.getKeyName(), wp);
+							}
+						}
 					}
 				}
 			}
@@ -4139,38 +4171,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Add the effect of LEVELADJ when
 		// showing our external notion of XP.
 		return earnedXP + getLAXP();
-	}
-
-	public void addArmorProf(final String aProf)
-	{
-		if (!armorProfList.contains(aProf))
-		{
-			//
-			// Insert all types at the head of the list
-			//
-			if (aProf.startsWith("ARMORTYPE=")
-				|| aProf.startsWith("ARMORTYPE."))
-			{
-				armorProfList.add(0, aProf);
-			}
-			else if (aProf.startsWith("TYPE=") || aProf.startsWith("TYPE."))
-			{
-				armorProfList.add(0, aProf);
-			}
-			else
-			{
-				armorProfList.add(aProf);
-			}
-		}
-		// setDirty(true);
-	}
-
-	public void addArmorProfs(final List<String> aList)
-	{
-		for (String prof : aList)
-		{
-			addArmorProf(prof);
-		}
 	}
 
 	public void addEquipSet(final EquipSet set)
@@ -6330,13 +6330,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (eq.isShield())
 		{
-			final List<String> aList = getShieldProfList();
-			return isProficientWithShield(eq, aList);
+			for (ProfProvider<ShieldProf> pp : getShieldProfList())
+			{
+				if (pp.providesProficiencyFor(eq))
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 		else if (eq.isArmor())
 		{
-			final List<String> aList = getArmorProfList();
-			return isProficientWithArmor(eq, aList);
+			for (ProfProvider<ArmorProf> pp : getArmorProfList())
+			{
+				if (pp.providesProficiencyFor(eq))
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 		else if (eq.isWeapon())
 		{
@@ -7807,37 +7819,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void addShieldProf(final String aProf)
-	{
-		if (!shieldProfList.contains(aProf))
-		{
-			//
-			// Insert all types at the head of the list
-			//
-			if (aProf.startsWith("SHIELDTYPE=")
-				|| aProf.startsWith("SHIELDTYPE."))
-			{
-				shieldProfList.add(0, aProf);
-			}
-			else if (aProf.startsWith("TYPE=") || aProf.startsWith("TYPE."))
-			{
-				shieldProfList.add(0, aProf);
-			}
-			else
-			{
-				shieldProfList.add(aProf);
-			}
-		}
-	}
-
-	public void addShieldProfs(final List<String> aList)
-	{
-		for (String prof : aList)
-		{
-			addShieldProf(prof);
-		}
-	}
-
 	public Skill addSkill(final Skill addSkill)
 	{
 		Skill retSkill;
@@ -8321,7 +8302,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				lcf.add(this);
 			}
 		}
-		this.setArmorProfListStable(false);
+		this.setDirty(true);
 
 		calcActiveBonuses();
 
@@ -11487,16 +11468,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return activeBonusList;
 	}
 
-	private List<String> getAutoArmorProfList()
+	private List<ProfProvider<ArmorProf>> getAutoArmorProfList()
 	{
-		final ArrayList<String> aList = new ArrayList<String>();
+		final ArrayList<ProfProvider<ArmorProf>> aList = new ArrayList<ProfProvider<ArmorProf>>();
 
-		// Try all possible PObjects
-		for (PObject pObj : getPObjectList())
+		for (CDOMObject aPObj : getCDOMObjectList())
 		{
-			if (pObj != null)
+			for (ProfProvider<ArmorProf> app : aPObj.getSafeListFor(ListKey.AUTO_ARMORPROF))
 			{
-				pObj.addAutoTagsToList("ARMORPROF", aList, this, true);
+				if (app.qualifies(this))
+				{
+					aList.add(app);
+				}
 			}
 		}
 		return aList;
@@ -12029,84 +12012,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return iBonus;
 	}
 
-	private boolean isProficientWithShield(final Equipment eq,
-		final List<String> aList)
-	{
-		// First, check to see if fits into any TYPE granted
-		for (int i = 0; i < aList.size(); ++i)
-		{
-			final String aString = aList.get(i);
-
-			StringTokenizer tok;
-			if (aString.startsWith("SHIELDTYPE=")
-				|| aString.startsWith("SHIELDTYPE."))
-			{
-				tok = new StringTokenizer(aString.substring(11), ".");
-			}
-			else
-			{
-				// All TYPE profs are at the beginning of the list
-				break;
-			}
-			int matches = 0;
-			final int minMatches = tok.countTokens();
-			while (tok.hasMoreTokens())
-			{
-				final String aType = tok.nextToken();
-				if (eq.isType(aType))
-				{
-					matches++;
-				}
-			}
-			// We have to match all the tokens.
-			if (matches == minMatches)
-			{
-				return true;
-			}
-		}
-
-		return aList.contains(eq.getShieldProf().getKeyName());
-	}
-
-	private boolean isProficientWithArmor(final Equipment eq,
-		final List<String> aList)
-	{
-		// First, check to see if fits into any TYPE granted
-		for (int i = 0; i < aList.size(); ++i)
-		{
-			final String aString = aList.get(i);
-
-			StringTokenizer tok;
-			if (aString.startsWith("ARMORTYPE=")
-				|| aString.startsWith("ARMORTYPE."))
-			{
-				tok = new StringTokenizer(aString.substring(10), ".");
-			}
-			else
-			{
-				// All TYPE profs are at the beginning of the list
-				break;
-			}
-			int matches = 0;
-			final int minMatches = tok.countTokens();
-			while (tok.hasMoreTokens())
-			{
-				final String aType = tok.nextToken();
-				if (eq.isType(aType))
-				{
-					matches++;
-				}
-			}
-			// We have to match all the tokens.
-			if (matches == minMatches)
-			{
-				return true;
-			}
-		}
-
-		return aList.contains(eq.getArmorProf().getKeyName());
-	}
-
 	private boolean isProficientWithWeapon(final Equipment eq)
 	{
 		if (eq.isNatural())
@@ -12132,28 +12037,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			selectedFavoredClass = fcChoice.driveChoice(this).iterator().next();
 		}
-	}
-
-	private List<String> getSelectedArmorProfList()
-	{
-		final ArrayList<String> aList = new ArrayList<String>();
-
-		// Try all possible PObjects
-		for (PObject pObj : getPObjectList())
-		{
-			if (pObj == null)
-			{
-				continue;
-			}
-
-			List<String> l = pObj.getListFor(ListKey.SELECTED_ARMOR_PROF);
-			if (l != null)
-			{
-				aList.addAll(l);
-			}
-		}
-
-		return aList;
 	}
 
 	private String getSubRegion(final boolean useTemplates)
@@ -12427,16 +12310,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return List
 	 */
-	private List<String> getAutoShieldProfList()
+	private List<ProfProvider<ShieldProf>> getAutoShieldProfList()
 	{
-		final ArrayList<String> aList = new ArrayList<String>();
+		final ArrayList<ProfProvider<ShieldProf>> aList = new ArrayList<ProfProvider<ShieldProf>>();
 
-		for (PObject aPObj : getPObjectList())
+		for (CDOMObject aPObj : getCDOMObjectList())
 		{
-			if (aPObj != null)
+			for (ProfProvider<ShieldProf> pp : aPObj
+					.getSafeListFor(ListKey.AUTO_SHIELDPROF))
 			{
-				// TODO this is going to just add an empty list
-				aPObj.addAutoTagsToList("SHIELDPROF", aList, this, true);
+				if (pp.qualifies(this))
+				{
+					aList.add(pp);
+				}
 			}
 		}
 
@@ -14819,8 +14705,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// aClone = (PlayerCharacter)super.clone();
 		aClone = new PlayerCharacter();
 
-		aClone.addArmorProfs(getArmorProfList());
-
 		for (final Ability a : this.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
 			aClone.addRealAbility(AbilityCategory.FEAT, (a.clone()));
@@ -14840,7 +14724,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
-		aClone.shieldProfList.addAll(getShieldProfList());
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 		for (Skill skill : skillList)
 		{

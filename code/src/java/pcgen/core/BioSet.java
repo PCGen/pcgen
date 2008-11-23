@@ -359,7 +359,7 @@ public final class BioSet extends PObject
 			}
 		}
 
-		pc.setArmorProfListStable(false);
+		pc.setDirty(true);
 		for (TransitionChoice<Kit> kit : temporaryPObject.getSafeListFor(ListKey.KIT_CHOICE))
 		{
 			kit.act(kit.driveChoice(pc), this, pc);

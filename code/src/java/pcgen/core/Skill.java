@@ -179,7 +179,7 @@ public final class Skill extends PObject
 	//
 	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
 	{
-		aPC.setArmorProfListStable(false);
+		aPC.setDirty(true);
 		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
 		{
 			kit.act(kit.driveChoice(aPC), this, aPC);

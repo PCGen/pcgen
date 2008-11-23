@@ -26,6 +26,8 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.helper.ProfProvider;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.ShieldProf;
@@ -51,43 +53,38 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements
 		int runningTotal = 0;
 
 		final String aString = prereq.getKey();
-		final boolean isType =
-				aString.startsWith("TYPE") && aString.length() > 5;
-		ShieldProf keyProf = Globals.getContext().ref.silentlyGetConstructedCDOMObject(ShieldProf.class, aString);
-		for (String profName : character.getShieldProfList())
+		final boolean isType = aString.startsWith("TYPE")
+				&& aString.length() > 5;
+		final boolean isShieldType = aString.startsWith("SHIELDTYPE")
+				&& aString.length() > 11;
+		String typeString = null;
+		if (isType)
 		{
-			if (profName.equalsIgnoreCase(aString))
+			typeString = "SHIELD." + aString.substring(5);
+		}
+		else if (isShieldType)
+		{
+			typeString = "SHIELD." + aString.substring(11);
+		}
+		Equipment keyEquip = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Equipment.class, aString);
+		for (ProfProvider<ShieldProf> spp : character.getShieldProfList())
+		{
+			if (keyEquip != null && spp.providesProficiency(keyEquip.getShieldProf()))
 			{
 				runningTotal++;
 			}
-			else if (isType && profName.startsWith("TYPE")
-				&& profName.substring(5).equalsIgnoreCase(aString.substring(5)))
+			else if (keyEquip != null && spp.providesEquipmentType(keyEquip.getType()))
 			{
 				runningTotal++;
 			}
-			else if (profName.startsWith("SHIELDTYPE"))
+			else if (isType && spp.providesEquipmentType(typeString))
 			{
-				String profType = profName.substring(11);
-				if (profType.equalsIgnoreCase(prereq.getKey()))
-				{
-					runningTotal++;
-				}
-				else if (isType && profType.equalsIgnoreCase(
-					aString.substring(5)))
-				{
-					runningTotal++;
-				}
-				else if (keyProf != null)
-				{
-					for (String keyProfType : keyProf.getTypeList(false))
-					{
-						if (profType.equalsIgnoreCase(keyProfType))
-						{
-							runningTotal++;
-							break;
-						}
-					}
-				}
+				runningTotal++;
+			}
+			else if (isShieldType && spp.providesEquipmentType(typeString))
+			{
+				runningTotal++;
 			}
 		}
 
@@ -101,7 +98,7 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements
 	 */
 	public String kindHandled()
 	{
-		return "SHIELDPROF"; //$NON-NLS-1$
+		return "profwithshield"; //$NON-NLS-1$
 	}
 
 }

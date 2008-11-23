@@ -31,10 +31,15 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
+import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
+import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.SpellProhibitor;
+import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
 
@@ -67,6 +72,14 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<ClassSkillList> CLASSSKILLLIST = new AssociationListKey<ClassSkillList>();
 
 	public static final AssociationListKey<CDOMListObject<Spell>> CLASSSPELLLIST = new AssociationListKey<CDOMListObject<Spell>>();
+
+	public static final AssociationListKey<WeaponProf> WEAPONPROF = new AssociationListKey<WeaponProf>();
+
+	public static final AssociationListKey<Equipment> EQUIPMENT = new AssociationListKey<Equipment>();
+
+	public static final AssociationListKey<ProfProvider<ArmorProf>> ARMORPROF = new AssociationListKey<ProfProvider<ArmorProf>>();
+
+	public static final AssociationListKey<ProfProvider<ShieldProf>> SHIELDPROF = new AssociationListKey<ProfProvider<ShieldProf>>();
 
 	public static final AssociationListKey<Skill> CCSKILL = new AssociationListKey<Skill>();
 

@@ -20,6 +20,7 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -140,7 +141,8 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		final Ability mediumProf =
 				TestHelper.makeAbility("Armor Proficiency (Medium)", AbilityCategory.FEAT,
 					"General");
-		mediumProf.addAutoArray("ARMORPROF", "ARMORTYPE.Medium");
+		Globals.getContext().unconditionallyProcess(mediumProf, "AUTO",
+				"ARMORPROF|ARMORTYPE.Medium");
 		AbilityUtilities.modFeat(character, null,
 			"KEY_Armor Proficiency (Medium)", true, false);
 
@@ -149,7 +151,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		chainmail.typeList().add("MEDIUM");
 		chainmail.setName("Chainmail");
 		Globals.getContext().ref.importObject(chainmail);
-
+		Globals.getContext().ref.resolveReferences();
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("armortype");
 		prereq.setKey("LIST");

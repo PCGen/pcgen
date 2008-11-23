@@ -249,11 +249,18 @@ public class NaturalattacksLst extends AbstractToken implements
 
 		anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 
-		context.ref.constructIfNecessary(WEAPONPROF_CLASS, attackName);
+		WeaponProf cwp = context.ref.silentlyGetConstructedCDOMObject(
+				WEAPONPROF_CLASS, attackName);
+		if (cwp == null)
+		{
+			cwp = context.ref.constructNowIfNecessary(WEAPONPROF_CLASS,
+					attackName);
+			cwp.setTypeInfo("Natural");
+		}
 		CDOMSingleRef<WeaponProf> wp = context.ref.getCDOMReference(
 				WEAPONPROF_CLASS, attackName);
 		anEquip.put(ObjectKey.WEAPON_PROF, wp);
-		anEquip.addAutoArray("WEAPONPROF", attackName); //$NON-NLS-1$
+		anEquip.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
 
 		equipHead.put(IntegerKey.CRIT_RANGE, Integer.valueOf(1));
 		equipHead.put(IntegerKey.CRIT_MULT, Integer.valueOf(2));

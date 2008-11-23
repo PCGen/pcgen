@@ -38,18 +38,22 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.PointCost;
+import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.Quality;
+import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.ArmorProf;
 import pcgen.core.DamageReduction;
 import pcgen.core.Deity;
 import pcgen.core.Description;
@@ -65,6 +69,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
+import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
@@ -152,8 +157,6 @@ public final class ListKey<T> {
 	public static final ListKey<String> SAVE = new ListKey<String>();
 	/** SECTION 15 - a ListKey */
 	public static final ListKey<String> SECTION_15 = new ListKey<String>();
-	/** SELECTED_ARMOR_PROFS - a ListKey */
-	public static final ListKey<String> SELECTED_ARMOR_PROF = new ListKey<String>();
 	/** SELECTED_WEAPON_PROF_BONUS - a ListKey */
 	public static final ListKey<String> SELECTED_WEAPON_PROF_BONUS = new ListKey<String>();
 	/** SPECIAL_ABILITY - a ListKey */
@@ -231,6 +234,13 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
+	public static final ListKey<QualifiedObject<CDOMReference<WeaponProf>>> WEAPONPROF = new ListKey<QualifiedObject<CDOMReference<WeaponProf>>>();
+	public static final ListKey<CDOMSingleRef<WeaponProf>> IMPLIED_WEAPONPROF = new ListKey<CDOMSingleRef<WeaponProf>>();
+	public static final ListKey<QualifiedObject<CDOMReference<Equipment>>> EQUIPMENT = new ListKey<QualifiedObject<CDOMReference<Equipment>>>();
+	public static final ListKey<ArmorProfProvider> AUTO_ARMORPROF = new ListKey<ArmorProfProvider>();
+	public static final ListKey<ShieldProfProvider> AUTO_SHIELDPROF = new ListKey<ShieldProfProvider>();
+	public static final ListKey<ProfProvider<ArmorProf>> ARMORPROF_CACHE = new ListKey<ProfProvider<ArmorProf>>();
+	public static final ListKey<ProfProvider<ShieldProf>> SHIELDPROF_CACHE = new ListKey<ProfProvider<ShieldProf>>();
 	public static final ListKey<CDOMReference<Skill>> CCSKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<CDOMReference<Skill>> CSKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<BonusObj> BONUS = new ListKey<BonusObj>();

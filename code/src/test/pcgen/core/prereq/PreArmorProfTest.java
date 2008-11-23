@@ -36,6 +36,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -93,8 +94,15 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addArmorProf("Chainmail");
-		character.addArmorProf("Full Plate");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
+		Globals.getContext().resolveReferences();
+
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 
 		assertTrue("Character has the Chainmail proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -124,12 +132,18 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREARMORPROF:1,Chainmail,Full Plate");
-
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addArmorProf("Chainmail");
-		character.addArmorProf("Full Plate");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
+		Globals.getContext().resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 
 		assertTrue("Character has one of Chainmail or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -163,7 +177,12 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 		
-		character.addArmorProf("ARMORTYPE=Medium");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 		
 		assertTrue("Character has Medium Armor Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -186,8 +205,15 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addArmorProf("Breastplate");
-		character.addArmorProf("Chainmail");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Breastplate");
+		Globals.getContext().resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 
 		assertFalse("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -224,8 +250,9 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		
 		final Ability martialProf = 
 			TestHelper.makeAbility("Armor Proficiency (Single)", AbilityCategory.FEAT, "General");
-		martialProf.addAutoArray("ARMORPROF", "ARMORTYPE.Medium");
-		
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
+		Globals.getContext().resolveReferences();
+
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Armor Proficiency (Single)", true, false);
 
@@ -282,7 +309,13 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 					character.hitPoints()
 					);
 		
-		character.addArmorProf("Full Plate");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
+		Globals.getContext().resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 		
 		Ability foo = new Ability();
 		final String fooStr =
@@ -304,19 +337,44 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
+		Equipment chainmailArmor = new Equipment();
+		chainmailArmor.setName("Chainmail");
+		chainmailArmor.setTypeInfo("Armor.Medium");
+		Globals.getContext().ref.importObject(chainmailArmor);
+		
+		Equipment breastplateArmor = new Equipment();
+		breastplateArmor.setName("Breastplate");
+		breastplateArmor.setTypeInfo("Armor.Medium");
+		Globals.getContext().ref.importObject(breastplateArmor);
+		
+		Equipment leatherArmor = new Equipment();
+		leatherArmor.setName("Leather");
+		leatherArmor.setTypeInfo("Armor.Light");
+		Globals.getContext().ref.importObject(leatherArmor);
+		
+		Equipment fullPlateArmor = new Equipment();
+		fullPlateArmor.setName("Full Plate");
+		fullPlateArmor.setTypeInfo("Armor.Heavy");
+		Globals.getContext().ref.importObject(fullPlateArmor);
+		
 		ArmorProf leather = new ArmorProf();
 		leather.setName("Leather");
-		leather.setTypeInfo("Light");
+		leather.setTypeInfo("Armor.Light");
 		Globals.getContext().ref.importObject(leather);
 
 		ArmorProf chainmail = new ArmorProf();
 		chainmail.setName("Chainmail");
-		chainmail.setTypeInfo("Medium");
+		chainmail.setTypeInfo("Armor.Medium");
 		Globals.getContext().ref.importObject(chainmail);
 
 		ArmorProf breastplate = new ArmorProf();
 		breastplate.setName("Breastplate");
-		breastplate.setTypeInfo("Medium");
+		breastplate.setTypeInfo("Armor.Medium");
 		Globals.getContext().ref.importObject(breastplate);
-	}
+
+		ArmorProf fpprof = new ArmorProf();
+		fpprof.setName("Full Plate");
+		fpprof.setTypeInfo("Armor.Heavy");
+		Globals.getContext().ref.importObject(fpprof);
+}
 }

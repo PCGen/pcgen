@@ -33,7 +33,7 @@ public class PreShieldProfRoundRobin extends AbstractBasicRoundRobin
 	@Override
 	public String getBaseString()
 	{
-		return "SHIELDPROF";
+		return "PROFWITHSHIELD";
 	}
 
 	@Override

@@ -34,10 +34,11 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.ShieldProf;
 import pcgen.core.Campaign;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.ShieldProf;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -89,12 +90,17 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRESHIELDPROF:1,Heavy Wooden Shield");
-
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addShieldProf("Heavy Wooden Shield");
-		character.addShieldProf("Heavy Steel Sheild");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
+		Globals.getContext().resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 
 		assertTrue("Character has the Heavy Wooden Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -104,9 +110,9 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertFalse("Character does not have the Light Wooden Shield proficiency", 
 				PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESHIELDPROF:1,Heavy Steel Sheild");
+		prereq = factory.parse("PRESHIELDPROF:1,Heavy Steel Shield");
 		
-		assertTrue("Character has the Heavy Steel Sheild proficiency.", 
+		assertTrue("Character has the Heavy Steel Shield proficiency.", 
 				PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -128,8 +134,14 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addShieldProf("Heavy Wooden Shield");
-		character.addShieldProf("Full Plate");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
+		Globals.getContext().resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 
 		assertTrue("Character has one of Heavy Wooden Shield or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -163,7 +175,13 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 		
-		character.addShieldProf("SHIELDTYPE=Medium");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE=Medium");
+		Globals.getContext().ref.resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 		
 		assertTrue("Character has Medium Shield Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -186,8 +204,14 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addShieldProf("Heavy Steel Shield");
-		character.addShieldProf("Heavy Wooden Shield");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
+		Globals.getContext().resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 
 		assertFalse("Character has the Heavy Steel Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -224,7 +248,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", AbilityCategory.FEAT, "General");
-		martialProf.addAutoArray("SHIELDPROF", "SHIELDTYPE.Heavy");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE.Heavy");
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Shield Proficiency (Single)", true, false);
@@ -281,7 +305,13 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 					character.hitPoints()
 					);
 		
-		character.addShieldProf("Full Plate");
+		final Ability martialProf = 
+			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
+		Globals.getContext().resolveReferences();
+		
+		AbilityUtilities.modFeat(
+				character, null, "KEY_Shield Proficiency (Single)", true, false);
 		
 		Ability foo = new Ability();
 		final String fooStr =
@@ -302,6 +332,31 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+
+		Equipment heavySteelShield = new Equipment();
+		heavySteelShield.setName("Heavy Steel Shield");
+		heavySteelShield.setTypeInfo("Shield.Heavy");
+		Globals.getContext().ref.importObject(heavySteelShield);
+		
+		Equipment heavyWoodenShield = new Equipment();
+		heavyWoodenShield.setName("Heavy Wooden Shield");
+		heavyWoodenShield.setTypeInfo("Shield.Heavy");
+		Globals.getContext().ref.importObject(heavyWoodenShield);
+		
+		Equipment lightWoodenShield = new Equipment();
+		lightWoodenShield.setName("Light Steel Shield");
+		lightWoodenShield.setTypeInfo("Shield.Light");
+		Globals.getContext().ref.importObject(lightWoodenShield);
+		
+		Equipment fullPlateEq = new Equipment();
+		fullPlateEq.setName("Full Plate");
+		fullPlateEq.setTypeInfo("Shield.Heavy");
+		Globals.getContext().ref.importObject(fullPlateEq);
+		
+		ShieldProf fullPlate = new ShieldProf();
+		fullPlate.setName("Full Plate");
+		fullPlate.setTypeInfo("Heavy");
+		Globals.getContext().ref.importObject(fullPlate);
 
 		ShieldProf lightWood = new ShieldProf();
 		lightWood.setName("Light Wooden Shield");

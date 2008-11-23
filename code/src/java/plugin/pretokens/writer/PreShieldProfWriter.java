@@ -46,7 +46,7 @@ public class PreShieldProfWriter extends AbstractPrerequisiteWriter implements
 	 */
 	public String kindHandled()
 	{
-		return "shieldprof";
+		return "profwithshield";
 	}
 
 	/* (non-Javadoc)
@@ -73,7 +73,7 @@ public class PreShieldProfWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESHIELDPROF:"
+			writer.write("PREPROFWITHSHIELD:"
 					+ (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getOperand());
 			writer.write(',');

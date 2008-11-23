@@ -75,6 +75,17 @@ public class QualifiedObject<T> extends ConcretePrereqObject
 	}
 
 	/**
+     * Constructor 
+     * @param anObj
+     * @param prereq
+	 */
+    public QualifiedObject( final T anObj, Prerequisite prereq)
+	{
+		theObject = anObj;
+		addPrerequisite(prereq);
+	}
+
+	/**
      * Get the qualifiying object. Will always return the object 
      * if no character is passed in.
      * 

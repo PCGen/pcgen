@@ -59,7 +59,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.AttackCycle;
+import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
@@ -4057,16 +4059,38 @@ public class PCClass extends PObject
 			put(ObjectKey.SPELLLIST_CHOICE, slc);
 		}
 
-		Set<String> s = otherClass.getAutoMapKeys();
-		if (s != null)
+		List<QualifiedObject<CDOMReference<Equipment>>> e = otherClass
+				.getListFor(ListKey.EQUIPMENT);
+		if (e != null)
 		{
-			for (String key : s)
-			{
-				for (String value : otherClass.getAuto(key))
-				{
-					addAutoArray(key, value);
-				}
-			}
+			addAllToListFor(ListKey.EQUIPMENT, e);
+		}
+
+		List<QualifiedObject<CDOMReference<WeaponProf>>> wp = otherClass
+				.getListFor(ListKey.WEAPONPROF);
+		if (wp != null)
+		{
+			addAllToListFor(ListKey.WEAPONPROF, wp);
+		}
+		QualifiedObject<Boolean> otherWP = otherClass
+				.get(ObjectKey.HAS_DEITY_WEAPONPROF);
+		if (otherWP != null)
+		{
+			put(ObjectKey.HAS_DEITY_WEAPONPROF, otherWP);
+		}
+
+		List<ArmorProfProvider> ap = otherClass
+				.getListFor(ListKey.AUTO_ARMORPROF);
+		if (ap != null)
+		{
+			addAllToListFor(ListKey.AUTO_ARMORPROF, ap);
+		}
+
+		List<ShieldProfProvider> sp = otherClass
+				.getListFor(ListKey.AUTO_SHIELDPROF);
+		if (sp != null)
+		{
+			addAllToListFor(ListKey.AUTO_SHIELDPROF, sp);
 		}
 
 		List<BonusObj> bonusList = otherClass.getListFor(ListKey.BONUS);
@@ -4078,10 +4102,10 @@ public class PCClass extends PObject
 		{
 			ownBonuses();
 		}
-		catch (CloneNotSupportedException e)
+		catch (CloneNotSupportedException ce)
 		{
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ce.printStackTrace();
 		}
 
 		for (VariableKey vk : otherClass.getVariableKeys())

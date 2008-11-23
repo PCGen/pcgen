@@ -21,6 +21,7 @@
 package pcgen.base.lang;
 
 import java.util.Collection;
+import java.util.Comparator;
 
 /**
  * StringUtil is a utility class designed to provide utility methods when
@@ -28,6 +29,15 @@ import java.util.Collection;
  */
 public final class StringUtil
 {
+
+	public static final Comparator<String> CASE_SENSITIVE_ORDER = new Comparator<String>()
+	{
+		public int compare(String o1, String o2)
+		{
+			return o1.compareTo(o2);
+		}
+
+	};
 
 	private StringUtil()
 	{

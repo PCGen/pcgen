@@ -200,7 +200,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 					"General.Fighter");
 		exoticWpnProf.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		exoticWpnProf.setChoiceString("PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
-		exoticWpnProf.addAutoArray("WEAPONPROF", "%LIST");
+		Globals.getContext().unconditionallyProcess(exoticWpnProf, "AUTO", "WEAPONPROF|%LIST");
 	
 		WeaponProf wpnProfTestA = new WeaponProf();
 		wpnProfTestA.setName("Weapon A");

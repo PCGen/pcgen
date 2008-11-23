@@ -205,6 +205,11 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	@Override
 	public Collection<T> getContainedObjects()
 	{
+		if (referencedList == null)
+		{
+			throw new IllegalStateException(
+					"Cannot ask for contained objects: Reference has not been resolved");
+		}
 		return Collections.unmodifiableList(referencedList);
 	}
 }

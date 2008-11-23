@@ -223,7 +223,9 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		
 		final Ability martialProf = 
 			TestHelper.makeAbility("Weapon Proficiency (Martial)", AbilityCategory.FEAT, "General");
-		martialProf.addAutoArray("WEAPONPROF", "TYPE.Martial");
+		Globals.getContext().unconditionallyProcess(martialProf, "AUTO",
+				"WEAPONPROF|TYPE.Martial");
+		Globals.getContext().ref.resolveReferences();
 		
 		AbilityUtilities.modFeat(
 				character, null, "KEY_Weapon Proficiency (Martial)", true, false);

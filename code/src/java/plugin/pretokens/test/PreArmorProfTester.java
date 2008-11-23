@@ -26,7 +26,9 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -65,45 +67,39 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 				"Prereq.error", "PREARMOR", prereq.toString())); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		ArmorProf keyProf = Globals.getContext().ref.silentlyGetConstructedCDOMObject(ArmorProf.class, prereq.getKey());
-		final boolean isType =
-			prereq.getKey().startsWith("TYPE") && prereq.getKey().length() > 5;
-		
-		for (String profName : character.getArmorProfList())
+		final String aString = prereq.getKey();
+		Equipment keyEquip = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Equipment.class, aString);
+		final boolean isType = aString.startsWith("TYPE")
+				&& aString.length() > 5;
+		final boolean isArmorType = aString.startsWith("ARMORTYPE")
+				&& aString.length() > 11;
+		String typeString = null;
+		if (isType)
 		{
-			if (profName.equalsIgnoreCase(prereq.getKey()))
+			typeString = "ARMOR." + aString.substring(5);
+		}
+		else if (isArmorType)
+		{
+			typeString = "ARMOR." + aString.substring(10);
+		}
+		for (ProfProvider<ArmorProf> spp : character.getArmorProfList())
+		{
+			if (keyEquip != null && spp.providesProficiency(keyEquip.getArmorProf()))
 			{
 				runningTotal++;
 			}
-			else if (isType && profName.startsWith("TYPE")
-					&& profName.substring(5).equalsIgnoreCase(prereq.getKey()))
+			else if (keyEquip != null && spp.providesEquipmentType(keyEquip.getType()))
 			{
-				// TYPE=Light equals TYPE.Light
 				runningTotal++;
 			}
-			else if (profName.startsWith("ARMORTYPE"))
+			else if (isType && spp.providesEquipmentType(typeString))
 			{
-				String profType = profName.substring(10);
-				if (profType.equalsIgnoreCase(prereq.getKey()))
-				{
-					runningTotal++;
-				}
-				else if (isType
-					&& profType.equalsIgnoreCase(prereq.getKey().substring(5)))
-				{
-					runningTotal++;
-				}
-				else if (keyProf != null)
-				{
-					for (String keyProfType : keyProf.getTypeList(false))
-					{
-						if (profType.equalsIgnoreCase(keyProfType))
-						{
-							runningTotal++;
-							break;
-						}
-					}
-				}
+				runningTotal++;
+			}
+			else if (isArmorType && spp.providesEquipmentType(typeString))
+			{
+				runningTotal++;
 			}
 		}
 
@@ -116,7 +112,7 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements
 	 */
 	public String kindHandled()
 	{
-		return "armorprof"; //$NON-NLS-1$
+		return "profwitharmor"; //$NON-NLS-1$
 	}
 
 }

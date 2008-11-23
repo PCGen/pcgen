@@ -625,7 +625,11 @@ public final class EditorMainForm extends JDialog
 		thisPObject.removeListFor(ListKey.SAB);
 		thisPObject.remove(ObjectKey.SR);
 		thisPObject.removeAllFromList(Spell.SPELLS);
-		thisPObject.clearAutoMap();
+		thisPObject.removeListFor(ListKey.EQUIPMENT);
+		thisPObject.removeListFor(ListKey.WEAPONPROF);
+		thisPObject.remove(ObjectKey.HAS_DEITY_WEAPONPROF);
+		thisPObject.removeListFor(ListKey.AUTO_SHIELDPROF);
+		thisPObject.removeListFor(ListKey.AUTO_ARMORPROF);
 
 		SpellSupport spellSupport = thisPObject.getSpellSupport();
 		switch (editType)
@@ -1012,7 +1016,7 @@ public final class EditorMainForm extends JDialog
 		//
 		if (pnlWeapons != null)
 		{
-			thisPObject.clearAutoTag("WEAPONPROF");
+			thisPObject.removeListFor(ListKey.WEAPONPROF);
 			sel = pnlWeapons.getSelectedList();
 			StringBuffer selList = new StringBuffer();
 			for (int i = 0; i < sel.length; i++)
@@ -1023,7 +1027,8 @@ public final class EditorMainForm extends JDialog
 				}
 				selList.append((String) sel[i]);
 			}
-			thisPObject.addAutoArray("WEAPONPROF", selList.toString());
+			context.unconditionallyProcess(thisPObject, "AUTO:WEAPONPROF",
+					selList.toString());
 
 			sel = pnlWeapons.getSelectedList2();
 
@@ -1033,8 +1038,8 @@ public final class EditorMainForm extends JDialog
 				  || editType == EditorConstants.EDIT_RACE)
 				{
 					thisPObject.removeAllFromList(WeaponProf.STARTING_LIST);
-					Globals.getContext().unconditionallyProcess(thisPObject,
-							"LANGBONUS", EditUtil.delimitArray(sel, ','));
+					context.unconditionallyProcess(thisPObject, "LANGBONUS",
+							EditUtil.delimitArray(sel, ','));
 				}
 			}
 		}
@@ -2119,8 +2124,17 @@ public final class EditorMainForm extends JDialog
 			// We don't load the WeaponProfAuto list as that is composed of
 			// generated things, such as natural weapon proficiencies
 			final List<String> autoWeap = new ArrayList<String>();
-			thisPObject.addAutoTagsToList("WEAPONPROF",
-				autoWeap, null, false);
+			String[] autoTokens = Globals.getContext().unparse(thisPObject, "AUTO");
+			if (autoTokens != null)
+			{
+				for (String s : autoTokens)
+				{
+					if (s.startsWith("WEAPONPROF|"))
+					{
+						autoWeap.add(s);
+					}
+				}
+			}
 
 			for (Iterator<String> e = autoWeap.iterator(); e.hasNext();)
 			{
@@ -3078,18 +3092,16 @@ public final class EditorMainForm extends JDialog
 				break;
 		}
 
-		final Set<String> keySet = thisPObject.getAutoMapKeys();
+		String[] auto = Globals.getContext().unparse(thisPObject, "AUTO");
 
-		if (keySet != null)
+		if (auto != null)
 		{
-			for (String key : keySet)
+			for (String key : auto)
 			{
-				if (key.equalsIgnoreCase("WEAPONPROF"))
+				if (!key.startsWith("WEAPONPROF"))
 				{
-					// We need to exclude WEAPONPROFs as they appear on the weapon tab
-					continue;
+					selectedList.add("AUTO:" + key);
 				}
-				selectedList.add("AUTO:" + key + "|" + thisPObject.getAuto(key));
 			}
 		}
 

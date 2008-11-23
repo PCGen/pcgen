@@ -17,43 +17,245 @@
  */
 package plugin.lsttokens.auto;
 
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.AutoLstToken;
+import pcgen.cdom.content.ConditionalChoiceActor;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
+import pcgen.core.WeaponProf;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class WeaponProfToken implements AutoLstToken
+public class WeaponProfToken extends AbstractToken implements
+		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
 {
 
+	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+
+	public String getParentToken()
+	{
+		return "AUTO";
+	}
+
+	@Override
 	public String getTokenName()
 	{
 		return "WEAPONPROF";
 	}
 
-	public boolean parse(PObject target, String value, int level)
+	private String getFullName()
 	{
-		if (level > 1)
+		return getParentToken() + ":" + getTokenName();
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+	{
+		String weaponProfs;
+		Prerequisite prereq = null; // Do not initialize, null is significant!
+
+		// Note: May contain PRExxx
+		if (value.indexOf("[") == -1)
 		{
-			Logging.log(Logging.LST_ERROR, "AUTO:" + getTokenName()
-				+ " is not supported on class level lines");
-			return false;
+			weaponProfs = value;
 		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		while (st.hasMoreTokens())
+		else
 		{
-			if (st.nextToken().startsWith("TYPE"))
+			int openBracketLoc = value.indexOf("[");
+			weaponProfs = value.substring(0, openBracketLoc);
+			if (!value.endsWith("]"))
 			{
-//				Logging.deprecationPrint("TYPE= in AUTO:" + getTokenName()
-//						+ " Must refer to the Weapon Proficiency LST File.  "
-//						+ "Consider WEAPONTYPE= "
-//						+ "if you are trying to match an Equipment TYPE");
-				break;
+				Logging.errorPrint("Unresolved Prerequisite in "
+						+ getFullName() + " " + value + " in " + getFullName());
+				return false;
+			}
+			prereq = getPrerequisite(value.substring(openBracketLoc + 1, value
+					.length() - 1));
+			if (prereq == null)
+			{
+				Logging.errorPrint("Error generating Prerequisite " + prereq
+						+ " in " + getFullName());
+				return false;
 			}
 		}
-		target.addAutoArray(getTokenName(), value);
+
+		if (hasIllegalSeparator('|', weaponProfs))
+		{
+			return false;
+		}
+
+		boolean foundAny = false;
+		boolean foundOther = false;
+
+		StringTokenizer tok = new StringTokenizer(weaponProfs, Constants.PIPE);
+
+		while (tok.hasMoreTokens())
+		{
+			String aProf = tok.nextToken();
+			if ("%LIST".equals(aProf))
+			{
+				ChooseResultActor cra;
+				if (prereq == null)
+				{
+					cra = this;
+				}
+				else
+				{
+					ConditionalChoiceActor cca = new ConditionalChoiceActor(
+							this);
+					cca.addPrerequisite(prereq);
+					cra = cca;
+				}
+				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
+			}
+			else if ("DEITYWEAPONS".equals(aProf))
+			{
+				context.obj.put(obj, ObjectKey.HAS_DEITY_WEAPONPROF,
+						new QualifiedObject<Boolean>(Boolean.TRUE, prereq));
+			}
+			else
+			{
+				CDOMReference<WeaponProf> ref;
+				if (Constants.LST_ALL.equalsIgnoreCase(aProf))
+				{
+					foundAny = true;
+					ref = context.ref.getCDOMAllReference(WEAPONPROF_CLASS);
+				}
+				else
+				{
+					foundOther = true;
+					ref = TokenUtilities.getTypeOrPrimitive(context,
+							WEAPONPROF_CLASS, aProf);
+				}
+				if (ref == null)
+				{
+					return false;
+				}
+				context.obj.addToList(obj, ListKey.WEAPONPROF,
+						new QualifiedObject<CDOMReference<WeaponProf>>(ref,
+								prereq));
+			}
+		}
+
+		if (foundAny && foundOther)
+		{
+			Logging.errorPrint("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + value);
+			return false;
+		}
+
 		return true;
 	}
 
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		List<String> list = new ArrayList<String>();
+		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+		Changes<ChooseResultActor> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+
+		// TODO remove not supported?
+
+		Changes<QualifiedObject<CDOMReference<WeaponProf>>> changes = context.obj
+				.getListChanges(obj, ListKey.WEAPONPROF);
+		Collection<QualifiedObject<CDOMReference<WeaponProf>>> added = changes
+				.getAdded();
+		HashMapToList<List<Prerequisite>, CDOMReference<WeaponProf>> m = new HashMapToList<List<Prerequisite>, CDOMReference<WeaponProf>>();
+		if (added != null)
+		{
+			for (QualifiedObject<CDOMReference<WeaponProf>> qo : added)
+			{
+				m.addToListFor(qo.getPrerequisiteList(), qo.getObject(null));
+			}
+		}
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		if (listAdded != null && !listAdded.isEmpty())
+		{
+			if (listAdded.contains(this))
+			{
+				list.add("LIST");
+			}
+		}
+		for (List<Prerequisite> prereqs : m.getKeySet())
+		{
+			String ab = ReferenceUtilities.joinLstFormat(m.getListFor(prereqs),
+					Constants.PIPE);
+			if (prereqs != null && !prereqs.isEmpty())
+			{
+				if (prereqs.size() > 1)
+				{
+					context.addWriteMessage("Error: "
+							+ obj.getClass().getSimpleName()
+							+ " had more than one Prerequisite for "
+							+ getFullName());
+					return null;
+				}
+				Prerequisite p = prereqs.get(0);
+				StringWriter swriter = new StringWriter();
+				try
+				{
+					prereqWriter.write(swriter, p);
+				}
+				catch (PersistenceLayerException e)
+				{
+					context.addWriteMessage("Error writing Prerequisite: " + e);
+					return null;
+				}
+				ab = ab + '[' + swriter.toString() + ']';
+			}
+			list.add(ab);
+		}
+		if (list.isEmpty())
+		{
+			// Empty indicates no Token
+			return null;
+		}
+
+		return list.toArray(new String[list.size()]);
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		WeaponProf wp = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, o);
+		if (wp != null)
+		{
+			pc.addAssoc(obj, AssociationListKey.WEAPONPROF, wp);
+		}
+	}
+
+	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		WeaponProf wp = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, o);
+		if (wp != null)
+		{
+			pc.removeAssoc(obj, AssociationListKey.WEAPONPROF, wp);
+		}
+	}
 }

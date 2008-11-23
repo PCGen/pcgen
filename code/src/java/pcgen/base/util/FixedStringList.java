@@ -20,8 +20,11 @@ package pcgen.base.util;
 import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
+
+import pcgen.base.lang.StringUtil;
 
 /**
  * A FixedStringList is a fixed-length java.util.List<String>. The size of the
@@ -34,6 +37,24 @@ import java.util.RandomAccess;
 public class FixedStringList extends AbstractList<String> implements
 		List<String>, RandomAccess
 {
+
+	public static final Comparator<FixedStringList> CASE_SENSITIVE_ORDER = new Comparator<FixedStringList>()
+	{
+		public int compare(FixedStringList o1, FixedStringList o2)
+		{
+			return FixedStringList.compare(o1, o2,
+					StringUtil.CASE_SENSITIVE_ORDER);
+		}
+	};
+
+	public static final Comparator<FixedStringList> CASE_INSENSITIVE_ORDER = new Comparator<FixedStringList>()
+	{
+		public int compare(FixedStringList o1, FixedStringList o2)
+		{
+			return FixedStringList.compare(o1, o2,
+					String.CASE_INSENSITIVE_ORDER);
+		}
+	};
 
 	/**
 	 * The String array underlying the FixedStringList
@@ -228,5 +249,89 @@ public class FixedStringList extends AbstractList<String> implements
 			return Arrays.deepEquals(array, other.array);
 		}
 		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		if (array.length == 0)
+		{
+			return 0;
+		}
+		return array.length + 29 * (array[0] == null ? 0 : array[0].hashCode());
+	}
+
+	public boolean equalsIgnoreCase(FixedStringList o)
+	{
+		int thisArrayLength = array.length;
+		String[] otherArray = o.array;
+		if (otherArray.length != thisArrayLength)
+		{
+			return false;
+		}
+		for (int i = 0; i < thisArrayLength; i++)
+		{
+			String thisItem = array[i];
+			if (thisItem == null)
+			{
+				if (otherArray[i] != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!thisItem.equalsIgnoreCase(otherArray[i]))
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	public static int compare(FixedStringList a, FixedStringList b,
+			Comparator<String> c)
+	{
+		String[] thisArray = a.array;
+		int thisArrayLength = thisArray.length;
+		String[] otherArray = b.array;
+		int otherLength = otherArray.length;
+		if (thisArrayLength < otherLength)
+		{
+			return -1;
+		}
+		else if (thisArrayLength > otherLength)
+		{
+			return 1;
+		}
+
+		for (int i = 0; i < thisArrayLength; i++)
+		{
+			String thisItem = thisArray[i];
+			String otherItem = otherArray[i];
+			if (thisItem == null)
+			{
+				if (otherItem != null)
+				{
+					// null sorts first
+					return -1;
+				}
+			}
+			else if (otherItem == null)
+			{
+				// null sorts first
+				return 1;
+			}
+			else
+			{
+				int compare = c.compare(thisItem, otherItem);
+				if (compare != 0)
+				{
+					return compare;
+				}
+			}
+		}
+		return 0;
 	}
 }
