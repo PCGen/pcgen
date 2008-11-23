@@ -26,4 +26,4 @@ Assault Space Suit			PROFICIENCY:ARMOR|Assault Space Suit		TYPE:Armor.Heavy.Powe
 
 ###BLOCK: Shield
 # Equipment Name			Output Name		Required Proficiency					Type						Cost		Weight	Required Feat					AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
-Shield (Velin War Shield)	OUTPUTNAME:[NAME]	PROFICIENCY:ARMOR|Shield (Velin War Shield)	TYPE:Shield.Tactical.PL4.Archaic	COST:16	WT:15		PREFEAT:1,Archaic Weapons Proficiency	ACCHECK:-2		MAXDEX:6		SOURCEPAGE:p.94	BONUS:COMBAT|AC|2|TYPE=Shield.STACK|PREFEAT:1,Archaic Weapons Proficiency
+Shield (Velin War Shield)	OUTPUTNAME:[NAME]	PROFICIENCY:SHIELD|Shield (Velin War Shield)	TYPE:Shield.Tactical.PL4.Archaic	COST:16	WT:15		PREFEAT:1,Archaic Weapons Proficiency	ACCHECK:-2		MAXDEX:6		SOURCEPAGE:p.94	BONUS:COMBAT|AC|2|TYPE=Shield.STACK|PREFEAT:1,Archaic Weapons Proficiency

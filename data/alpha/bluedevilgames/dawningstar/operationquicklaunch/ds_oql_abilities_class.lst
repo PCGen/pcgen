@@ -27,7 +27,7 @@ Signature Weapon	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Signa
 ###BLOCK: Lawman abilities
 # Feat Name		Type			Visible	Special ABility		Combat bonus					Damage reduction	Bonus to skill										Modify VAR
 Grit Your Teeth	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Grit Your Teeth								BONUS:DR|-|1													BONUS:VAR|DamageThreshold|1
-Improved Reaction	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Reaction	BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+CATEGORY=Special Ability|Improved Reaction.MOD		TYPE:ClassAbility
 Legwork		CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Legwork													BONUS:SKILL|Gather Information,Investigate,Research|2|TYPE=Competence
 
 ###BLOCK: Rebuilder abilities
@@ -40,6 +40,7 @@ Surprise Sense				CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Surp
 ###BLOCK: Velin Guardian abilities
 # Feat Name			Type							Visible	Special ABility						Define				Modify VAR				Source Page
 Sworn Enemy (Vaasi)	CATEGORY:Special Ability	TYPE:ClassAbility.VelinGuardianSwornEnemy	VISIBLE:NO	SAB:Sworn Enemy (Vaasi) +%|SwornEnemyVaasi	DEFINE:SwornEnemyVaasi|0	BONUS:VAR|SwornEnemyVaasi|2	SOURCEPAGE:p.66
+CATEGORY=Special Ability|Improved Critical.MOD			TYPE:VelinGuardian
 
 ###BLOCK: Shared abilities
 # Feat Name					Type						Visible	Required Feat		Special ABility																Define				Stackable?	Multiple?	Choose		Modify VAR
