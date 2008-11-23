@@ -37,6 +37,7 @@ public class DeityToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "DEITY";

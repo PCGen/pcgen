@@ -40,6 +40,7 @@ public class CoverToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COVER";

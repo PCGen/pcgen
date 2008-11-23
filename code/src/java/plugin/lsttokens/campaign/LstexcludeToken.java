@@ -39,6 +39,7 @@ public class LstexcludeToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "LSTEXCLUDE";

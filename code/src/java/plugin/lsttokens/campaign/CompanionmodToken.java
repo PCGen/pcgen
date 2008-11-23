@@ -37,6 +37,7 @@ import pcgen.util.Logging;
 public class CompanionmodToken extends AbstractToken implements CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COMPANIONMOD";

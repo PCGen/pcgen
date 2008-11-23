@@ -37,6 +37,7 @@ public class SkillToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SKILL";

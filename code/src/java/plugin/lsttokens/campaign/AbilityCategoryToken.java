@@ -51,6 +51,7 @@ public class AbilityCategoryToken extends AbstractToken implements
 	 * Get the token name
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "ABILITYCATEGORY";

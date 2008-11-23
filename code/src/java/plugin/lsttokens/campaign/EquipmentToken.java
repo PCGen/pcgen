@@ -37,6 +37,7 @@ public class EquipmentToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "EQUIPMENT";

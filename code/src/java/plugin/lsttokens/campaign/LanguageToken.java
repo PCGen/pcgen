@@ -37,6 +37,7 @@ public class LanguageToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "LANGUAGE";

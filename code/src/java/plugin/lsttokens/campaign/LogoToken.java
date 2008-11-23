@@ -54,6 +54,7 @@ public class LogoToken extends AbstractToken implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "LOGO";

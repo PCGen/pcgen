@@ -37,6 +37,7 @@ public class FeatToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "FEAT";
