@@ -8,7 +8,7 @@ CLASS:Combat Hero	HD:10		TYPE:PC.Specialized	ABB:Cmbt		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Combat Hero	PREATT:1	PREFEAT:1,Brawl,Combat Martial Arts,Defensive Martial Arts,Personal Firearms Proficiency
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Combat Hero	STARTSKILLPTS:4	CSKILL:Climb|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Gather Information|Intimidate|Jump|Read/Write Language|Ride|Speak Language|Spot|Swim|Treat Injury|Tumble
-1								ADD:FEAT|1|TYPE=CombatHero	ADD:ABILITY|Internal|NORMAL|CombatHeroTalent	TEMPLATE:Combat Hero Talent Qualification
+1								ADD:FEAT|1|TYPE=CombatHero	BONUS:ABILITYPOOL|Combat Hero Talent|1	TEMPLATE:Combat Hero Talent Qualification
 2								ADD:FEAT|1|TYPE=CombatHero
 3	BONUS:ABILITYPOOL|Combat Hero Talent|1
 4								ADD:FEAT|1|TYPE=CombatHero

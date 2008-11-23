@@ -30,4 +30,4 @@ Point Blank Shot.MOD			TYPE:CombatHero
 Power Attack.MOD				TYPE:CombatHero
 Precise Shot.MOD				TYPE:CombatHero
 Strafe.MOD					TYPE:CombatHero
-Improved Critical.MOD						!PREABILITY:1,CATEGORY=Talent,Improved Critical - Combat Hero
+
