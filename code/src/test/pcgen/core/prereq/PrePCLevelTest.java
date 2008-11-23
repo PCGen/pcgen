@@ -26,6 +26,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -236,7 +237,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		race.setName("Gnoll");
 
 		myClass.setName("My Class");
-		myClass.setKeyName("MY_CLASS");
+		myClass.put(StringKey.KEY_NAME, "MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		Globals.getContext().ref.importObject(myClass);
 	}

@@ -4,16 +4,19 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.Ability;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * @author djones4
  *
  */
-public class KeyLst implements GlobalLstToken
+public class KeyLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
 
 	public String getTokenName()
@@ -21,13 +24,31 @@ public class KeyLst implements GlobalLstToken
 		return "KEY";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+		throws PersistenceLayerException
 	{
-		if (obj instanceof Ability)
+		if (isEmpty(value))
 		{
-			Globals.getContext().ref.reassociateKey(value, obj);
+			return false;
 		}
-		obj.setKeyName(value);
+		context.ref.reassociateKey(value, obj);
+		context.obj.put(obj, StringKey.KEY_NAME, value);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		String key =
+				context.getObjectContext().getString(obj, StringKey.KEY_NAME);
+		if (key == null)
+		{
+			return null;
+		}
+		return new String[]{key};
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

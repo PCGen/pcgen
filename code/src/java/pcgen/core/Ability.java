@@ -257,7 +257,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 
 			// this should throw a ClassCastException for non-PObjects, like the
 			// Comparable interface calls for
-			return this.keyName.compareToIgnoreCase(((PObject) obj).keyName);
+			return this.getKeyName().compareToIgnoreCase(((PObject) obj).getKeyName());
 		}
 		return 1;
 	}
@@ -280,7 +280,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
     @Override
 	public int hashCode() {
     	//Can't be more complicated because the weird nature of compareTo
-    	return keyName.hashCode();
+    	return getKeyName().hashCode();
     }
 
 	public Category<Ability> getCDOMCategory()

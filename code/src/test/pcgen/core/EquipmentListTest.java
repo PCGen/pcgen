@@ -28,6 +28,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.util.TestHelper;
 
 /**
@@ -99,7 +100,7 @@ public class EquipmentListTest extends PCGenTestCase
 		eq.put(ObjectKey.BASESIZE, sa);
 		this.eq.setTypeInfo("WEAPON.MELEE.CHOCOLATE");
 
-		this.eq.setKeyName(originalKey);
+		this.eq.put(StringKey.KEY_NAME, originalKey);
 	}
 
 	/**

@@ -27,6 +27,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -136,7 +137,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		deity = new Deity();
 		deity.setName("Test Deity");
 		PCAlignment ng = new PCAlignment();
-		ng.setKeyName("NG");
+		ng.put(StringKey.KEY_NAME, "NG");
 		SettingsHandler.getGame().addToAlignmentList(ng);
 		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
 		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef

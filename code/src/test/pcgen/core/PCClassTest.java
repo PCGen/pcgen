@@ -134,7 +134,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass myClass = new PCClass();
 		myClass.setName("myClass");
-		myClass.setKeyName("KEY_myClass");
+		myClass.put(StringKey.KEY_NAME, "KEY_myClass");
 
 		PCClassLevel cl2 = myClass.getClassLevel(2);
 		cl2.put(VariableKey.getConstant("someVar"), FormulaFactory
@@ -247,7 +247,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
-		aPrClass.setKeyName("KEY_PreReqClass");
+		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
 		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
@@ -258,14 +258,14 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aPrClass.addPrerequisite(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
-		aQClass.setKeyName("KEY_QualClass");
+		aQClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
 		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
 		//aQClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
-		aNqClass.setKeyName("KEY_NonQualClass");
+		aNqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		aNqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
 		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
@@ -326,7 +326,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		final PCClass aPrClass = new PCClass();
 		aPrClass.setName("PreReqClass");
-		aPrClass.setKeyName("KEY_PreReqClass");
+		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
 		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
@@ -337,13 +337,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aPrClass.addPrerequisite(aPrereq);
 		final PCClass aQClass = new PCClass();
 		aQClass.setName("QualClass");
-		aQClass.setKeyName("KEY_QualClass");
+		aQClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(aPrClass);
 		aQClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
-		aNqClass.setKeyName("KEY_NonQualClass");
+		aNqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		aNqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
 		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
@@ -858,7 +858,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Create the BugBear race
 		bugbearRace = new Race();
 		bugbearRace.setName("Bugbear");
-		bugbearRace.setKeyName("KEY_Bugbear");
+		bugbearRace.put(StringKey.KEY_NAME, "KEY_Bugbear");
 		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Medium")));
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
@@ -867,7 +867,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
-		bigBugbearRace.setKeyName("KEY_BigBugbear");
+		bigBugbearRace.put(StringKey.KEY_NAME, "KEY_BigBugbear");
 		bigBugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Large")));
 		bigBugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
@@ -877,7 +877,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Create the Nymph race
 		nymphRace = new Race();
 		nymphRace.setName("Nymph");
-		nymphRace.setKeyName("KEY_Nymph");
+		nymphRace.put(StringKey.KEY_NAME, "KEY_Nymph");
 		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
 				.getSizeAdjustmentNamed("Medium")));
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
@@ -897,7 +897,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");
-		prClass.setKeyName("KEY_PreReqClass");
+		prClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
 		final BonusObj aBonus = Bonus.newBonus("0|MISC|SR|10|PREVARGTEQ:Foo,2");
 		
 		if (aBonus != null)
@@ -908,12 +908,12 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prClass.addPrerequisite(prereq);
 		qClass = new PCClass();
 		qClass.setName("QualClass");
-		qClass.setKeyName("KEY_QualClass");
+		qClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(prClass);
 		qClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
 		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");
-		nqClass.setKeyName("KEY_NonQualClass");
+		nqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		nqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
 		nqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));

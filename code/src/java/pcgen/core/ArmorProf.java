@@ -40,7 +40,7 @@ public final class ArmorProf extends PObject implements Comparable<Object>
 	@Override
 	public int compareTo(final Object o1)
 	{
-		return keyName.compareToIgnoreCase(((ArmorProf) o1).keyName);
+		return getKeyName().compareToIgnoreCase(((ArmorProf) o1).getKeyName());
 	}
 
 	/**
@@ -52,7 +52,7 @@ public final class ArmorProf extends PObject implements Comparable<Object>
 	@Override
 	public boolean equals(final Object o1)
 	{
-		return o1 instanceof ArmorProf && keyName.equals(((ArmorProf) o1).keyName);
+		return o1 instanceof ArmorProf && getKeyName().equals(((ArmorProf) o1).getKeyName());
 	}
 
 	/**
@@ -63,6 +63,6 @@ public final class ArmorProf extends PObject implements Comparable<Object>
 	@Override
 	public int hashCode()
 	{
-		return keyName.hashCode();
+		return getKeyName().hashCode();
 	}
 }

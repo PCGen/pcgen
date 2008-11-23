@@ -40,7 +40,7 @@ public final class Domain extends PObject
 	@Override
 	public String getSpellKey(PlayerCharacter pc)
 	{
-		return "DOMAIN|" + keyName;
+		return "DOMAIN|" + getKeyName();
 	}
 
 	@Override

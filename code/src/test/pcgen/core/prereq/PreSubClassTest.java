@@ -72,7 +72,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.setKeyName("KEY_MyClass");
+		pcClass.put(StringKey.KEY_NAME, "KEY_MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 
 		final PlayerCharacter character = getCharacter();

@@ -63,10 +63,10 @@ public final class Language extends PObject implements Comparable<Object>
 		 */
 		if (o1 instanceof String)
 		{
-			return keyName.compareToIgnoreCase((String) o1);
+			return getKeyName().compareToIgnoreCase((String) o1);
 		}
 
-		return keyName.compareToIgnoreCase(((Language) o1).keyName);
+		return getKeyName().compareToIgnoreCase(((Language) o1).getKeyName());
 	}
 
 	/**
@@ -89,13 +89,13 @@ public final class Language extends PObject implements Comparable<Object>
 		}
 		if (o1 instanceof String)
 		{
-			return keyName.equals(o1);
+			return getKeyName().equals(o1);
 		}
 		if (!o1.getClass().equals(Language.class)) {
 			return false;
 		}
 
-		return keyName.equals(((Language) o1).keyName);
+		return getKeyName().equals(((Language) o1).getKeyName());
 	}
 
 	/**
@@ -105,6 +105,6 @@ public final class Language extends PObject implements Comparable<Object>
 	@Override
 	public int hashCode()
 	{
-		return keyName.hashCode();
+		return getKeyName().hashCode();
 	}
 }

@@ -153,37 +153,37 @@ public class PreMultTest extends AbstractCharacterTestCase
 		final Ability metamagic1 = new Ability();
 		metamagic1.setTypeInfo("METAMAGIC");
 		metamagic1.setName("MM1");
-		metamagic1.setKeyName("MM1");
+		metamagic1.put(StringKey.KEY_NAME, "MM1");
 		metamagic1.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability metamagic2 = new Ability();
 		metamagic2.setTypeInfo("METAMAGIC");
 		metamagic2.setName("MM2");
-		metamagic2.setKeyName("MM2");
+		metamagic2.put(StringKey.KEY_NAME, "MM2");
 		metamagic2.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability metamagic3 = new Ability();
 		metamagic3.setTypeInfo("METAMAGIC");
 		metamagic3.setName("MM3");
-		metamagic3.setKeyName("MM3");
+		metamagic3.put(StringKey.KEY_NAME, "MM3");
 		metamagic3.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability item1 = new Ability();
 		item1.setTypeInfo("ItemCreation");
 		item1.setName("IC1");
-		item1.setKeyName("IC1");
+		item1.put(StringKey.KEY_NAME, "IC1");
 		item1.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability item2 = new Ability();
 		item2.setTypeInfo("ItemCreation");
 		item2.setName("IC2");
-		item2.setKeyName("IC2");
+		item2.put(StringKey.KEY_NAME, "IC2");
 		item2.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability item3 = new Ability();
 		item3.setTypeInfo("ItemCreation");
 		item3.setName("IC3");
-		item3.setKeyName("IC3");
+		item3.put(StringKey.KEY_NAME, "IC3");
 		item3.setCDOMCategory(AbilityCategory.FEAT);
 
 		final PlayerCharacter character = getCharacter();

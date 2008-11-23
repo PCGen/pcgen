@@ -26,6 +26,7 @@ package pcgen.core;
 
 import pcgen.PCGenTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.util.TestHelper;
 
 /**
@@ -98,7 +99,7 @@ public class AbilityTest extends PCGenTestCase
 		Ability ab7 = ab5.clone();
 		//ab7.tempAddAssociated("Tantrum");
 		ab7.setName("Weapon Throwing (Tantrum)");
-		ab7.setKeyName("KEY_Weapon Throwing (Tantrum)");
+		ab7.put(StringKey.KEY_NAME, "KEY_Weapon Throwing (Tantrum)");
 
 		is(ab1.getKeyName(), strEq("KEY_Perform (Dance)"),
 			"Ability1 name is correct");

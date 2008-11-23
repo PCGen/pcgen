@@ -53,6 +53,7 @@ public class KitStartpackLoader
 				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		kit.setName(colToken.nextToken());
+		context.ref.importObject(kit);
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(KitStartpackLstToken.class);
 		while (colToken.hasMoreTokens())

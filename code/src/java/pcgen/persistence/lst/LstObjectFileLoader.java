@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -264,7 +265,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 */
 	protected void addGlobalObject(final PObject pObj)
 	{
-		Globals.getContext().ref.importObject(pObj);
 	}
 
 	/**
@@ -526,7 +526,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 
 			T clone = (T) object.clone();
 			clone.setName(copyName);
-			clone.setKeyName(copyName);
+			clone.put(StringKey.KEY_NAME, copyName);
 			return clone;
 		}
 		catch (CloneNotSupportedException e)
@@ -564,6 +564,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		final String baseName = name.substring(0, nameEnd);
 		final String copyName = name.substring(nameEnd + 6);
 		T copy = performCopy(baseName, copyName);
+		context.ref.importObject(copy);
 		if (copy != null)
 		{
 			if (sepLoc != -1)

@@ -39,6 +39,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.list.AbilityList;
 import pcgen.core.Ability.Nature;
@@ -445,7 +446,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Create the test class
 		testClass = new PCClass();
 		testClass.setName("TestClass");
-		testClass.setKeyName("KEY_TestClass");
+		testClass.put(StringKey.KEY_NAME, "KEY_TestClass");
 		Globals.getContext().ref.importObject(testClass);
 
 	}

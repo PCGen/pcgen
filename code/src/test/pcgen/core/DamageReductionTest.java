@@ -28,6 +28,7 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -106,7 +107,7 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
-		template.setKeyName("KEY_Natural Lycanthrope");
+		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
 		getCharacter().addTemplate(template);
 		is(dr1.toString(), strEq("10/magic"));
 

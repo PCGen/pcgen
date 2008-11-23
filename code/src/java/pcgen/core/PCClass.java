@@ -182,7 +182,7 @@ public class PCClass extends PObject
 	 * What needs to be done to teach the system to iterate over all
 	 * PCClassLevels that implement this key?
 	 */
-	private String classKey = Constants.EMPTY_STRING;
+	private String classKey = null;
 
 	/** The level of this class for the PC this PCClass is assigned to. */
 	/*
@@ -225,32 +225,6 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Sets the Key name for the class.
-	 * 
-	 * <p>
-	 * This overrides the <tt>setKeyName</tt> method in <tt>PObject</tt> to
-	 * also set the spell key for the class.
-	 * 
-	 * @param aKey
-	 *            A (non-internationalized) string used to refer to this class
-	 *            object.
-	 * 
-	 * @see pcgen.core.PObject#setKeyName(String)
-	 */
-	/*
-	 * PCCLASSANDLEVEL Since the classKey is generally the universal index of whether
-	 * two PCClassLevels are off of the same base, classKey will be populated into 
-	 * each PCClassLevel.  This method must therefore also be in both PCClass and 
-	 * PCClassLevel
-	 */
-	@Override
-	public void setKeyName(final String aKey)
-	{
-		super.setKeyName(aKey);
-		classKey = "CLASS:" + keyName; //$NON-NLS-1$
-	}
-
-	/**
 	 * Return the qualified key, usually used as the source in a
 	 * getVariableValue call. Overriden here to return CLASS:keyname
 	 * 
@@ -265,6 +239,11 @@ public class PCClass extends PObject
 	@Override
 	public String getQualifiedKey()
 	{
+		if (classKey == null)
+		{
+			classKey = "CLASS:" + getKeyName(); //$NON-NLS-1$
+
+		}
 		return classKey;
 	}
 
@@ -371,7 +350,7 @@ public class PCClass extends PObject
 					if (PrereqHandler.passesAll(localPreReqList, aPC, null))
 					{
 						final double j =
-								aPC.getVariableValue(aString, classKey)
+								aPC.getVariableValue(aString, getQualifiedKey())
 									.doubleValue();
 						i += j;
 					}
@@ -432,7 +411,7 @@ public class PCClass extends PObject
 		final String levelSpellLevel = ";LEVEL." + spellLevel;
 		final String allSpellLevel = ";LEVEL.All";
 
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
+		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", getKeyName());
 		pcLevel +=
 				(int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
 
@@ -485,7 +464,7 @@ public class PCClass extends PObject
 				(int) aPC.getTotalBonusTo("STAT", "CAST." + statString)
 					+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT")
 					+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS."
-						+ keyName);
+						+ getKeyName());
 
 		if ((index > -2) && limitByStat)
 		{
@@ -890,7 +869,7 @@ public class PCClass extends PObject
 
 			if (classSpellList == null)
 			{
-				stableSpellKey = "CLASS" + Constants.PIPE + keyName;
+				stableSpellKey = "CLASS" + Constants.PIPE + getKeyName();
 
 				return stableSpellKey;
 			}
@@ -1193,7 +1172,7 @@ public class PCClass extends PObject
 					+ getSpellType() + ";LEVEL." + spellLevel);
 
 		int pcLevel = getLevel();
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
+		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", getKeyName());
 		pcLevel +=
 				(int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
 
@@ -2026,7 +2005,7 @@ public class PCClass extends PObject
 			}
 		}
 
-		return cr == null ? 0 : cr.resolve(aPC, classKey).floatValue();
+		return cr == null ? 0 : cr.resolve(aPC, getQualifiedKey()).floatValue();
 	}
 
 	/*
@@ -2254,7 +2233,7 @@ public class PCClass extends PObject
 		// int spMod = getSkillPoints();
 		int lockedMonsterSkillPoints;
 		int spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
-				classKey).intValue();
+			getQualifiedKey()).intValue();
 		
 		spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
 		
@@ -2429,7 +2408,7 @@ public class PCClass extends PObject
 		final String allSpellLevel = ";LEVEL.All";
 
 		int pcLevel = getLevel();
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
+		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", getKeyName());
 		pcLevel +=
 				(int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
 
@@ -2484,7 +2463,7 @@ public class PCClass extends PObject
 				(int) aPC.getTotalBonusTo("STAT", "KNOWN." + statString)
 					+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT")
 					+ (int) aPC.getTotalBonusTo("STAT",
-						"BASESPELLKNOWNSTAT;CLASS." + keyName);
+						"BASESPELLKNOWNSTAT;CLASS." + getKeyName());
 
 		if (index > -2)
 		{
@@ -2615,7 +2594,7 @@ public class PCClass extends PObject
 	String getUdamForLevel(int aLevel, final PlayerCharacter aPC,
 		boolean adjustForPCSize)
 	{
-		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + keyName);
+		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + getKeyName());
 		return getUDamForEffLevel(aLevel, aPC, adjustForPCSize);
 	}
 
@@ -3272,7 +3251,7 @@ public class PCClass extends PObject
 			int total = aPC.getTotalLevels();
 
 			int spMod = 0;
-			final PCLevelInfo pcl = aPC.getLevelInfoFor(keyName, level);
+			final PCLevelInfo pcl = aPC.getLevelInfoFor(getKeyName(), level);
 
 			if (pcl != null)
 			{
@@ -3509,7 +3488,7 @@ public class PCClass extends PObject
 		final PlayerCharacter aPC)
 	{
 		StringBuilder prefix = new StringBuilder();
-		prefix.append(classKey).append('|').append(aLevel);
+		prefix.append(getQualifiedKey()).append('|').append(aLevel);
 		CDOMObject cdo;
 		if (aLevel == 0)
 		{
@@ -4270,11 +4249,11 @@ public class PCClass extends PObject
 
 		final int min =
 				1 + (int) aPC.getTotalBonusTo("HD", "MIN")
-					+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + keyName);
+					+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + getKeyName());
 		final int max =
 				getLevelHitDie(aPC, aLevel).getDie()
 					+ (int) aPC.getTotalBonusTo("HD", "MAX")
-					+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + keyName);
+					+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + getKeyName());
 
 		if (Globals.getGameModeHPFormula().length() == 0)
 		{

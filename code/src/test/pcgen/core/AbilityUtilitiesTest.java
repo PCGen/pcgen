@@ -97,14 +97,14 @@ public class AbilityUtilitiesTest extends PCGenTestCase
 		List<Ability> testList = new ArrayList<Ability>();
 		assertNotNull("Add in parent cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(null, testList, "TestParent", "KEY_TestAbility"));
 		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
-		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).keyName);
+		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).getKeyName());
 		assertNotSame("Should be a clone, not the same object", ability, testList.get(0));
 		
 		// Call addCloneOfGlobalAbilityToListWithChoices with child and expect to see it in list
 		testList.clear();
 		assertNotNull("Add in child cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(null, testList, "TestChild", "KEY_TestAbility"));
 		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
-		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).keyName);
+		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).getKeyName());
 		assertNotSame("Should be a clone, not the same object", ability, testList.get(0));
 	}
 }

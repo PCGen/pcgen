@@ -399,7 +399,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		String returnKey = this.get(StringKey.KEY_NAME);
 		if (returnKey == null)
 		{
-			returnKey = this.get(StringKey.NAME);
+			returnKey = this.getDisplayName();
+			//returnKey = this.get(StringKey.NAME);
 		}
 		return returnKey;
 	}

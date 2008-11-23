@@ -56,9 +56,11 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	{
 		Language lang = aLang;
 
+		boolean isnew = false;
 		if (lang == null)
 		{
 			lang = new Language();
+			isnew = true;
 		}
 
 		final StringTokenizer colToken =
@@ -69,6 +71,10 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			lang.setName(colToken.nextToken());
 			lang.setSourceCampaign(source.getCampaign());
 			lang.setSourceURI(source.getURI());
+			if (isnew)
+			{
+				context.ref.importObject(lang);
+			}
 		}
 
 		while (colToken.hasMoreTokens())

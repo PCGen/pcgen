@@ -15,6 +15,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -320,7 +321,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	{
 		final Ability skillFocusKnow = new Ability();
 		skillFocusKnow.setName("Skill Focus");
-		skillFocusKnow.setKeyName("Skill Focus");
+		skillFocusKnow.put(StringKey.KEY_NAME, "Skill Focus");
 
 		final PlayerCharacter character = getCharacter();
 
@@ -347,7 +348,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	{
 		final Ability spellFocus = new Ability();
 		spellFocus.setName("Spell Focus");
-		spellFocus.setKeyName("Spell Focus");
+		spellFocus.put(StringKey.KEY_NAME, "Spell Focus");
 		spellFocus.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 
 		final PlayerCharacter character = getCharacter();

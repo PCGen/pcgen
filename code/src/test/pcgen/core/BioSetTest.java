@@ -34,6 +34,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
 /**
@@ -170,7 +171,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final PlayerCharacter pc = getCharacter();
 		final Race human = new Race();
 		human.setName("NAME_Human");
-		human.setKeyName("Human");
+		human.put(StringKey.KEY_NAME, "Human");
 		pc.setRace(human);
 		Globals.setCurrentPC(pc);
 		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)

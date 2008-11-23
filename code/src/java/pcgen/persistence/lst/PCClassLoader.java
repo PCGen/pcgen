@@ -200,6 +200,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				pcClass.setName(name);
 				pcClass.setSourceURI(source.getURI());
 				pcClass.setSourceCampaign(source.getCampaign());
+				context.ref.importObject(pcClass);
 			}
 			// need to grab PCClass instance for this .MOD minus the .MOD part of the name
 			else if (name.endsWith(".MOD"))

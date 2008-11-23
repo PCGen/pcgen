@@ -55,8 +55,10 @@ public final class EquipmentModifierLoader extends
 	public EquipmentModifier parseLine(LoadContext context,
 			EquipmentModifier eqMod, String inputLine, CampaignSourceEntry source)
 			throws PersistenceLayerException {
+		boolean isnew = false;
 		if (eqMod == null) {
 			eqMod = new EquipmentModifier();
+			isnew = true;
 		}
 
 		final StringTokenizer colToken = new StringTokenizer(inputLine,
@@ -67,6 +69,10 @@ public final class EquipmentModifierLoader extends
 			eqMod.setName(colToken.nextToken().replace('|', ' '));
 			eqMod.setSourceCampaign(source.getCampaign());
 			eqMod.setSourceURI(source.getURI());
+			if (isnew)
+			{
+				context.ref.importObject(eqMod);
+			}
 		}
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
@@ -141,22 +147,19 @@ public final class EquipmentModifierLoader extends
 			throw new UnreachableError(e);
 		}
 		String aLine;
-		EquipmentModifier anObj = new EquipmentModifier();
 		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
-		parseLine(context, anObj, aLine, source);
+		parseLine(context, null, aLine, source);
 
 		//
 		// Add internal equipment modifier for adding weapon/armor types to
 		// equipment
 		//
-		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_WEAPON
 				+ "\tTYPE:Weapon\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		parseLine(context, anObj, aLine, source);
+		parseLine(context, null, aLine, source);
 
-		anObj = new EquipmentModifier();
 		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
 				+ "\tTYPE:Armor\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
-		parseLine(context, anObj, aLine, source);
+		parseLine(context, null, aLine, source);
 	}
 }

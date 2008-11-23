@@ -54,15 +54,15 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		if (obj instanceof TextProperty)
 		{
 			TextProperty tp = (TextProperty)obj;
-			return keyName.compareTo(tp.getKeyName());
+			return getKeyName().compareTo(tp.getKeyName());
 		}
 		else if (obj instanceof PObject)
 		{
 			PObject pObj = (PObject)obj;
-			return keyName.compareToIgnoreCase(pObj.getKeyName());
+			return getKeyName().compareToIgnoreCase(pObj.getKeyName());
 		}
 
-		return keyName.compareToIgnoreCase(obj.toString());
+		return getKeyName().compareToIgnoreCase(obj.toString());
 	}
 
 	@Override

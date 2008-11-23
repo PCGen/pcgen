@@ -204,19 +204,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		WeaponProf wpnProfTestA = new WeaponProf();
 		wpnProfTestA.setName("Weapon A");
-		wpnProfTestA.setKeyName("Weapon A");
+		wpnProfTestA.put(StringKey.KEY_NAME, "Weapon A");
 		wpnProfTestA.setTypeInfo("Exotic");
 		Globals.getContext().ref.importObject(wpnProfTestA);
 	
 		WeaponProf wpnProfTestB = new WeaponProf();
 		wpnProfTestB.setName("Weapon B");
-		wpnProfTestB.setKeyName("Weapon B");
+		wpnProfTestB.put(StringKey.KEY_NAME, "Weapon B");
 		wpnProfTestB.setTypeInfo("Exotic");
 		Globals.getContext().ref.importObject(wpnProfTestB);
 	
 		WeaponProf wpnProfTestC = new WeaponProf();
 		wpnProfTestC.setName("Weapon C");
-		wpnProfTestC.setKeyName("Weapon C");
+		wpnProfTestC.put(StringKey.KEY_NAME, "Weapon C");
 		wpnProfTestC.setTypeInfo("Exotic");
 		Globals.getContext().ref.importObject(wpnProfTestC);
 	

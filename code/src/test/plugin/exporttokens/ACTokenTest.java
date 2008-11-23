@@ -28,6 +28,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
@@ -102,7 +103,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		// Create non magic armor
 		chainShirt = new Equipment();
 		chainShirt.setName("Chain Shirt");
-		chainShirt.setKeyName("KEY_Chain_Shirt");
+		chainShirt.put(StringKey.KEY_NAME, "KEY_Chain_Shirt");
 		chainShirt.setTypeInfo("Armor.Light.Suit.Standard");
 		chainShirt.put(IntegerKey.AC_CHECK, -2);
 		aBonus = Bonus.newBonus("COMBAT|AC|4|TYPE=Armor.REPLACE");
@@ -116,7 +117,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		// Create magic armor enhancement
 		masterwork = new EquipmentModifier();
 		masterwork.setName("Masterwork");
-		masterwork.setKeyName("MWORKA");
+		masterwork.put(StringKey.KEY_NAME, "MWORKA");
 		masterwork.setTypeInfo("Armor.Shield");
 		masterwork.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
 		aBonus = Bonus.newBonus("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
@@ -130,7 +131,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 
 		plus1 = new EquipmentModifier();
 		plus1.setName("Plus 1 Enhancement");
-		plus1.setKeyName("PLUS1A");
+		plus1.put(StringKey.KEY_NAME, "PLUS1A");
 		plus1.setTypeInfo("Armor.Shield");
 		plus1.put(IntegerKey.PLUS, 1);
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Enhancement");

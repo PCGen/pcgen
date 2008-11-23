@@ -29,6 +29,7 @@ package pcgen.core;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -85,7 +86,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
-		template.setKeyName("KEY_Natural Lycanthrope");
+		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
 		getCharacter().addTemplate(template);
 		is(desc.getDescription(getCharacter(), null), strEq(simpleDesc));
 	}

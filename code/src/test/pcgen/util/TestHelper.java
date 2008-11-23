@@ -38,6 +38,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -116,7 +117,6 @@ public class TestHelper
 		{
 			loadPlugins();
 		}
-		final Equipment eq = new Equipment();
 		try
 		{
 			final CampaignSourceEntry source;
@@ -129,7 +129,7 @@ public class TestHelper
 			{
 				throw new UnreachableError(e);
 			}
-			eqLoader.parseLine(Globals.getContext(), eq, input, source);
+			eqLoader.parseLine(Globals.getContext(), null, input, source);
 			return true;
 		}
 		catch (Exception e)
@@ -221,7 +221,7 @@ public class TestHelper
 		PCStat intStat = statList.get(intLoc);
 		final Skill aSkill = new Skill();
 		aSkill.setName(name);
-		aSkill.setKeyName("KEY_" + name);
+		aSkill.put(StringKey.KEY_NAME, ("KEY_" + name));
 		aSkill.setTypeInfo(type);
 		aSkill.put(ObjectKey.KEY_STAT, intStat);
 		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
@@ -247,7 +247,7 @@ public class TestHelper
 		}
 		final Ability anAbility = new Ability();
 		anAbility.setName(name);
-		anAbility.setKeyName("KEY_" + name);
+		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(useCat);
 		anAbility.setTypeInfo(type);
 		Globals.addAbility(anAbility);
@@ -265,7 +265,7 @@ public class TestHelper
 	{
 		final Ability anAbility = new Ability();
 		anAbility.setName(name);
-		anAbility.setKeyName("KEY_" + name);
+		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(cat);
 		anAbility.setTypeInfo(type);
 		Globals.addAbility(anAbility);
@@ -323,7 +323,7 @@ public class TestHelper
 	{
 		final WeaponProf aWpnProf = new WeaponProf();
 		aWpnProf.setName(name);
-		aWpnProf.setKeyName("KEY_" + name);
+		aWpnProf.put(StringKey.KEY_NAME, ("KEY_" + name));
 		aWpnProf.setTypeInfo(type);
 		Globals.getContext().ref.importObject(aWpnProf);
 		return aWpnProf;
@@ -338,7 +338,7 @@ public class TestHelper
 	{
 		final Race aRace = new Race();
 		aRace.setName(name);
-		aRace.setKeyName("KEY_" + name);
+		aRace.put(StringKey.KEY_NAME, ("KEY_" + name));
 
 		try
 		{
@@ -368,7 +368,7 @@ public class TestHelper
 	{
 		final PCClass aClass = new PCClass();
 		aClass.setName(name);
-		aClass.setKeyName("KEY_" + name);
+		aClass.put(StringKey.KEY_NAME, ("KEY_" + name));
 
 		Globals.getContext().ref.importObject(aClass);
 		return aClass;

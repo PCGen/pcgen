@@ -86,6 +86,7 @@ public final class GenericLoader<T extends PObject> extends
 			CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		T po;
+		boolean isnew = false;
 		if (aWP == null)
 		{
 			try
@@ -100,6 +101,7 @@ public final class GenericLoader<T extends PObject> extends
 			{
 				throw new UnreachableError(e);
 			}
+			isnew = true;
 		}
 		else
 		{
@@ -113,6 +115,10 @@ public final class GenericLoader<T extends PObject> extends
 			po.setName(colToken.nextToken());
 			po.setSourceCampaign(source.getCampaign());
 			po.setSourceURI(source.getURI());
+			if (isnew)
+			{
+				context.ref.importObject(po);
+			}
 		}
 
 		while (colToken.hasMoreTokens())

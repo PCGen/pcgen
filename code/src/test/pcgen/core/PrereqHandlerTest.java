@@ -1,6 +1,7 @@
 package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -79,7 +80,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 
 		final Ability ud = new Ability();
 		ud.setName("Uncanny Dodge");
-		ud.setKeyName("Uncanny Dodge");
+		ud.put(StringKey.KEY_NAME, "Uncanny Dodge");
 		pc.addFeat(ud, null);
 		assertFalse("Feat should return false", PrereqHandler.passes(prereq,
 			pc, null));

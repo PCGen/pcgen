@@ -250,7 +250,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String newKey = eq.createKeyForAutoResize("L");
 		eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (Large)");
-		eq.setKeyName(newKey);
+		eq.put(StringKey.KEY_NAME, newKey);
 
 		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
 
@@ -273,7 +273,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.put(ObjectKey.SIZE, sal);
 		eq.put(ObjectKey.BASESIZE, sal);
 		eq.setName("Pointy Stick (+1/Large)");
-		eq.setKeyName(newKey);
+		eq.put(StringKey.KEY_NAME, newKey);
 
 		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
 
@@ -294,7 +294,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String newKey = eq.createKeyForAutoResize("L");
 		eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (+1/Large/Speed)");
-		eq.setKeyName(newKey);
+		eq.put(StringKey.KEY_NAME, newKey);
 
 		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
 
@@ -314,7 +314,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String newKey = eq.createKeyForAutoResize("L");
 		eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed("L"));
 		eq.setName("Pointy Stick (+1/Speed)");
-		eq.setKeyName(newKey);
+		eq.put(StringKey.KEY_NAME, newKey);
 
 		String expectedKey = Constants.s_AUTO_RESIZE + "L" + this.OriginalKey;
 
@@ -336,7 +336,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		// Create a base item
 		Equipment custEq = eq.clone();
-		custEq.setKeyName("Custom");
+		custEq.put(StringKey.KEY_NAME, "Custom");
 		custEq.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eq));
 		Globals.getContext().ref.importObject(custEq);
 		Globals.getContext().ref.importObject(eq);

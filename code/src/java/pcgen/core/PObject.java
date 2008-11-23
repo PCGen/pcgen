@@ -71,7 +71,7 @@ import pcgen.util.Logging;
  *
  */
 public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,
-	SourcedObject, KeyedListContainer, KeyedObject
+	SourcedObject, KeyedListContainer
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
@@ -84,8 +84,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	private SourceEntry theSource = new SourceEntry();
 
-	/** The Non-internationalized name to use to refer to this object. */
-	protected String keyName = Constants.EMPTY_STRING;
 	/** The name to display to the user.  This should be internationalized. */
 	protected String displayName = Constants.EMPTY_STRING;
 
@@ -192,7 +190,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		retVal.types.addAll(types);
 
 		retVal.setName(displayName);
-		retVal.setKeyName(keyName);
+		retVal.put(StringKey.KEY_NAME, get(StringKey.KEY_NAME));
 		retVal.spellSupport = spellSupport.clone();
 
 		// added 04 Aug 2003 by sage_sam -- bug#765749
@@ -287,25 +285,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the Key Name
-	 * @param aString
-	 */
-	public void setKeyName(final String aString)
-	{
-		keyName = aString;
-	}
-
-	/**
-	 * Get the Key Name
-	 * @return Key Name
-	 */
-	@Override
-	public final String getKeyName()
-	{
-		return keyName;
-	}
-
-	/**
 	 * Set the name (sets keyname also)
 	 * @param aString
 	 */
@@ -316,7 +295,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			fireNameChanged(displayName, aString);
 			displayName = aString;
-			this.setKeyName(aString);
+			put(StringKey.KEY_NAME, aString);
 		}
 	}
 
@@ -1580,4 +1559,5 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			return getRawBonusList(null);
 		}
 	}
+
 }

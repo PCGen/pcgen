@@ -1207,7 +1207,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 						newEq.setName(newName);
 						newEq.put(StringKey.OUTPUT_NAME, newName);
-						newEq.setKeyName(newKey);
+						newEq.put(StringKey.KEY_NAME, newKey);
 						newEq.resizeItem(pc, SettingsHandler.getGame().getSizeAdjustmentNamed(newSize));
 						newEq.removeType("AUTO_GEN");
 						newEq.removeType("STANDARD");

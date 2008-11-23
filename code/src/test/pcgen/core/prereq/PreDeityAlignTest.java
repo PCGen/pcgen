@@ -27,6 +27,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
@@ -137,7 +138,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 		deity = new Deity();
 		deity.setName("TestDeity");
 		PCAlignment ng = new PCAlignment();
-		ng.setKeyName("NG");
+		ng.put(StringKey.KEY_NAME, "NG");
 		SettingsHandler.getGame().addToAlignmentList(ng);
 		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
 

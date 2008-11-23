@@ -37,6 +37,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -489,7 +490,7 @@ public class PrerequisiteWriterTest extends TestCase
 	{
 		PCAlignment align = new PCAlignment();
 		align.setName(longName);
-		align.setKeyName(shortName);
+		align.put(StringKey.KEY_NAME, shortName);
 		return align;
 	}
 

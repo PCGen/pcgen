@@ -172,7 +172,7 @@ public final class SpecialAbility extends TextProperty
 		if (obj instanceof SpecialAbility)
 		{
 			SpecialAbility sa = (SpecialAbility) obj;
-			if (keyName.equals(sa.getKeyName()))
+			if (getKeyName().equals(sa.getKeyName()))
 			{
 //				if (keyName.equalsIgnoreCase(tp.getKeyName()))
 //				{
@@ -182,7 +182,7 @@ public final class SpecialAbility extends TextProperty
 			}
 		}
 
-		return keyName.compareToIgnoreCase(obj.toString());
+		return getKeyName().compareToIgnoreCase(obj.toString());
 	}
 
 	/**

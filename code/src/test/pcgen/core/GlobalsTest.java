@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.util.TestHelper;
 
 /**
@@ -295,7 +296,7 @@ public class GlobalsTest extends PCGenTestCase
 	{
 		Ability ab = new Ability();
 		ab.setName("Ability002");
-		ab.setKeyName("BBB");
+		ab.put(StringKey.KEY_NAME, "BBB");
 		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		is(ab.getDisplayName(), strEq("Ability002"),
@@ -309,7 +310,7 @@ public class GlobalsTest extends PCGenTestCase
 
 		ab = new Ability();
 		ab.setName("Ability001");
-		ab.setKeyName("CCC");
+		ab.put(StringKey.KEY_NAME, "CCC");
 		ab.setCDOMCategory(AbilityCategory.FEAT);
 
 		is(ab.getDisplayName(), strEq("Ability001"),
@@ -323,7 +324,7 @@ public class GlobalsTest extends PCGenTestCase
 
 		ab = new Ability();
 		ab.setName("Ability003");
-		ab.setKeyName("AAA");
+		ab.put(StringKey.KEY_NAME, "AAA");
 		ab.setCDOMCategory(new AbilityCategory("Other_Random_Category"));
 
 		is(ab.getDisplayName(), strEq("Ability003"),

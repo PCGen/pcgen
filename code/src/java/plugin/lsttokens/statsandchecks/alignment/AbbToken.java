@@ -1,5 +1,6 @@
 package plugin.lsttokens.statsandchecks.alignment;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCAlignment;
 import pcgen.persistence.lst.PCAlignmentLstToken;
 
@@ -26,7 +27,7 @@ public class AbbToken implements PCAlignmentLstToken
 	 */
 	public boolean parse(PCAlignment align, String value)
 	{
-		align.setKeyName(value);
+		align.put(StringKey.KEY_NAME, value);
 		return true;
 	}
 }

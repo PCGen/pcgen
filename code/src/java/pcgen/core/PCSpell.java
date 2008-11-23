@@ -47,7 +47,7 @@ public class PCSpell extends PObject {
 			sBuff.append(casterLevelFormula);
 		}
 		sBuff.append('|');
-		sBuff.append(keyName);
+		sBuff.append(getKeyName());
 		if(dcFormula != null && !dcFormula.equals("")) {
 			sBuff.append(",");
 			sBuff.append(dcFormula);

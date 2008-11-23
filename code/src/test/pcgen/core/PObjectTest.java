@@ -164,8 +164,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		Race reconstRace = new Race();
-		raceLoader.parseLine(Globals.getContext(), reconstRace, racePCCText, source);
+		raceLoader.parseLine(Globals.getContext(), null, racePCCText, source);
+		Race reconstRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, "TestRace");
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			racePCCText, reconstRace.getPCCText());

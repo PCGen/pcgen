@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
@@ -112,17 +113,17 @@ public class PreLangTest extends AbstractCharacterTestCase
 		super.setUp();
 
 		elven.setName("Elven");
-		elven.setKeyName("KEY_Elven");
+		elven.put(StringKey.KEY_NAME, "KEY_Elven");
 		elven.setTypeInfo("Spoken.Written");
 		Globals.getContext().ref.importObject(elven);
 
 		dwarven.setName("Dwarven");
-		dwarven.setKeyName("KEY_Dwarven");
+		dwarven.put(StringKey.KEY_NAME, "KEY_Dwarven");
 		dwarven.setTypeInfo("Spoken.Written");
 		Globals.getContext().ref.importObject(dwarven);
 
 		halfling.setName("Halfling");
-		halfling.setKeyName("KEY_Halfling");
+		halfling.put(StringKey.KEY_NAME, "KEY_Halfling");
 		halfling.setTypeInfo("Spoken");
 		Globals.getContext().ref.importObject(halfling);
 	}

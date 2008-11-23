@@ -60,9 +60,11 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 	{
 		Race race = aRace;
 
+		boolean isnew = false;
 		if (race == null)
 		{
 			race = new Race();
+			isnew = true;
 		}
 
 		final StringTokenizer colToken =
@@ -73,6 +75,10 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			race.setName(colToken.nextToken());
 			race.setSourceCampaign(source.getCampaign());
 			race.setSourceURI(source.getURI());
+			if (isnew)
+			{
+				context.ref.importObject(race);
+			}
 		}
 
 		Map<String, LstToken> tokenMap =

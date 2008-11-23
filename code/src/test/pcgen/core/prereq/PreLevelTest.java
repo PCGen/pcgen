@@ -30,6 +30,7 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -229,7 +230,7 @@ public class PreLevelTest extends AbstractCharacterTestCase
 
 		PCClass raceClass = new PCClass();
 		raceClass.setName("Race Class");
-		raceClass.setKeyName("RaceClass");
+		raceClass.put(StringKey.KEY_NAME, "RaceClass");
 		Globals.getContext().ref.importObject(raceClass);
 
 		race.setName("Gnoll");
@@ -238,7 +239,7 @@ public class PreLevelTest extends AbstractCharacterTestCase
 						.getFormulaFor(2)));
 
 		myClass.setName("My Class");
-		myClass.setKeyName("MY_CLASS");
+		myClass.put(StringKey.KEY_NAME, "MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		Globals.getContext().ref.importObject(myClass);
 	}

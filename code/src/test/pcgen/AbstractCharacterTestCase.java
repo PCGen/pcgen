@@ -9,6 +9,7 @@ package pcgen;
 import gmgen.pluginmgr.PluginLoader;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -140,7 +141,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		final PCAlignment align = new PCAlignment();
 		align.setName(longName);
-		align.setKeyName(shortName);
+		align.put(StringKey.KEY_NAME, shortName);
 		return align;
 	}
 

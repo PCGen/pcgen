@@ -3035,7 +3035,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (aString.startsWith("NAME" + endPart)) {
 				setName(aString.substring(4 + endPartLen));
 			} else if (aString.startsWith("KEY" + endPart)) {
-				setKeyName(aString.substring(3 + endPartLen));
+				put(StringKey.KEY_NAME, aString.substring(3 + endPartLen));
 			} else if (aString.startsWith("SIZE" + endPart)) {
 				newSize = SettingsHandler.getGame().getSizeAdjustmentNamed(
 						aString.substring(4 + endPartLen));

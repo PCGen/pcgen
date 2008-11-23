@@ -52,8 +52,10 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 	@Override
 	public Equipment parseLine(LoadContext context, Equipment equipment,
 			String inputLine, CampaignSourceEntry source) throws PersistenceLayerException {
+		boolean isnew = false;
 		if (equipment == null) {
 			equipment = new Equipment();
+			isnew = true;
 		}
 		
 		final StringTokenizer colToken = new StringTokenizer(inputLine,
@@ -64,6 +66,10 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 			equipment.setName(colToken.nextToken());
 			equipment.setSourceCampaign(source.getCampaign());
 			equipment.setSourceURI(source.getURI());
+			if (isnew)
+			{
+				context.ref.importObject(equipment);
+			}
 		}
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(

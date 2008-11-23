@@ -20,6 +20,7 @@ package pcgen.testsupport;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCAlignment;
 
 /**
@@ -74,7 +75,7 @@ public class TestSupport
 		{
 			final PCAlignment align = new PCAlignment();
 			align.setName(longName);
-			align.setKeyName(shortName);
+			align.put(StringKey.KEY_NAME, shortName);
 			return align;
 		}	
 }

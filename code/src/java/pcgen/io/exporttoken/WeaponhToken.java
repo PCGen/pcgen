@@ -117,13 +117,13 @@ public class WeaponhToken extends WeaponToken
 		{
 			wp = new WeaponProf();
 			wp.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
-			wp.setKeyName("Unarmed Strike");
+			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
 			wp.setTypeInfo("Simple");
 			Globals.getContext().ref.importObject(wp);
 		}
 		Equipment eq = new Equipment();
 		eq.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
-		eq.setKeyName("KEY_Unarmed Strike");
+		eq.put(StringKey.KEY_NAME, "KEY_Unarmed Strike");
 		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 		eq.put(StringKey.OUTPUT_NAME, PropertyFactory.getString("Equipment.UnarmedStrike"));
 		eq.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");

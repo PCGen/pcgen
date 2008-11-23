@@ -59,9 +59,11 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	{
 		Spell spell = aSpell;
 
+		boolean isnew = false;
 		if (spell == null)
 		{
 			spell = new Spell();
+			isnew = true;
 		}
 
 		final StringTokenizer colToken =
@@ -72,6 +74,10 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			spell.setName(colToken.nextToken());
 			spell.setSourceCampaign(source.getCampaign());
 			spell.setSourceURI(source.getURI());
+			if (isnew)
+			{
+				context.ref.importObject(spell);
+			}
 		}
 
 		while (colToken.hasMoreElements())
@@ -220,6 +226,5 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			}
 			spellList.add((Spell) pObj);
 		}
-		Globals.getContext().ref.importObject(pObj);
 	}
 }

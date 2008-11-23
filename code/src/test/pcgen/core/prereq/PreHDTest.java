@@ -29,6 +29,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.GameMode;
@@ -87,7 +88,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 
 		PCClass raceClass = new PCClass();
 		raceClass.setName("Race Class");
-		raceClass.setKeyName("RaceClass");
+		raceClass.put(StringKey.KEY_NAME, "RaceClass");
 		raceClass.put(ObjectKey.IS_MONSTER, true);
 		Globals.getContext().ref.importObject(raceClass);
 
