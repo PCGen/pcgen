@@ -112,6 +112,7 @@ import pcgen.core.character.EquipSlot;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -6409,6 +6410,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Globals.getBioSet().randomize("AGE.HT.WT", this);
 			}
 
+			boolean choiceMade = ChooserUtilities.modChoices(
+				race,
+				new ArrayList(),
+				new ArrayList(),
+				true,
+				this,
+				true,
+				null);
+			
 			// Get existing classes
 			final List<PCClass> existingClasses =
 					new ArrayList<PCClass>(classList);
