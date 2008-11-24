@@ -51,17 +51,16 @@ public final class FileAccess
 	 */
 	public static String filterString(String aString)
 	{
+		String outputString = aString;
 		if (outputFilter != null)
 		{
-			aString = outputFilter.filterString(aString);
+			outputString = outputFilter.filterString(aString);
 		}
-		return aString;
+		return outputString;
 	}
 
 	/**
 	 * Set the current output filter 
-	 * 
-	 * TODO legacy - should be deprecated later
 	 * 
 	 * @param filterName (used to create instance of CharacterFilter)
 	 */
@@ -129,19 +128,24 @@ public final class FileAccess
 	 */
 	public static void write(Writer output, String aString)
 	{
+
+		String outputString = aString;
+
+		// If there is nothing to write, then return gracefully
 		if (aString == null)
 		{
 			return;
 		}
 
+		// Trim the string to the length of maxLength
 		if ((maxLength > 0) && (aString.length() > maxLength))
 		{
-			aString = aString.substring(0, maxLength);
+			outputString = aString.substring(0, maxLength);
 		}
 
 		try
 		{
-			output.write(aString);
+			output.write(outputString);
 		}
 		catch (IOException exception)
 		{

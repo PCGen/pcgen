@@ -908,11 +908,12 @@ public final class ExportHandler
 				existsOnly = nextFor.exists();
 				loopVariables.remove(nextFor.var());
 			}
-			// If child is a node, then evaluate that 
+			// If child is an IIFNode, then evaluate that 
 			else if (aChild instanceof IIFNode)
 			{
 				evaluateIIF((IIFNode) aChild, output, fa, aPC);
 			}
+			// Else it's something to be processed
 			else
 			{
 				String lineString = (String) aChild;
@@ -934,7 +935,9 @@ public final class ExportHandler
 
 				replaceLine(lineString, output, aPC);
 
-				// output a newline if output is allowed
+				// Each time we replace a line that is part of an IIF statement
+				// we output a newline if we are allowed to write and the 
+				// whitespace is not controlled by the OS author
 				if (canWrite && !manualWhitespace)
 				{
 					FileAccess.newLine(output);
@@ -1045,7 +1048,8 @@ public final class ExportHandler
 				noMoreItems = false;
 				replaceLine(lineString, output, aPC);
 
-				// If the output sheet author has no control over new lines.
+				// If the output sheet author has no control 
+				// over the whitespace then print a newline.
 				if (canWrite && !manualWhitespace)
 				{
 					FileAccess.newLine(output);
@@ -3449,20 +3453,22 @@ public final class ExportHandler
 			boolean betweenPipes = false;
 			StringBuffer textBetweenPipes = new StringBuffer();
 
+			// Starts with pipe pattern
 			Pattern pat1 = Pattern.compile("^\\Q|");
+			// Ends with pipe pattern
 			Pattern pat2 = Pattern.compile("\\Q|\\E$");
 
 			String aLine = br.readLine();
 
 			while (aLine != null)
 			{
-				int lastIndex = aLine.lastIndexOf('|');
+				int lastPipeIndex = aLine.lastIndexOf('|');
 
-				// not inside a piped enclosed section and no pipe on the
-				//  line
-				if (!betweenPipes && lastIndex < 0)
+				// If not inside a TAG and there is no | character on this line
+				if (!betweenPipes && lastPipeIndex == -1)
 				{
-					// Allow the output sheet author to control new lines.
+					// If output sheet author controls new lines 
+					// then replace tabs with empty space.
 					if (manualWhitespace)
 					{
 						aLine = aLine.replaceAll("[ \\t]", "");
@@ -3475,17 +3481,26 @@ public final class ExportHandler
 					}
 				}
 
-				// inside a pipe enclosed section and no pipes on the line
-				// or not in a pipe enclosed section and the only pipe is
-				// at char zero. Collect this text (without the pipe)
+				// Else if we are Inside a tag but we are not at the finish of 
+				// the tag e.g. 
+				//
+				// |
+				// x
+				// |
+				// 
+				// Or we are at the start of a tag that wraps onto the next line e.g. 
+				// 
+				// |x
+				// 
+				// Collect this text (without the pipe)
 				// to be passed for replacement later.
-				else if (betweenPipes && lastIndex < 0 || !betweenPipes
-					&& lastIndex == 0)
+				else if (betweenPipes && lastPipeIndex == -1 || !betweenPipes
+					&& lastPipeIndex == 0)
 				{
-					textBetweenPipes.append(aLine.substring(lastIndex + 1));
+					textBetweenPipes.append(aLine.substring(lastPipeIndex + 1));
 					betweenPipes = true;
 				}
-
+				// See if we are between pipes or not
 				else
 				{
 					Matcher mat1 = pat1.matcher(textBetweenPipes);
