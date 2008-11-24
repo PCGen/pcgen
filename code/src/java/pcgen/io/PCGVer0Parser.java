@@ -60,6 +60,7 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -1675,7 +1676,7 @@ final class PCGVer0Parser implements PCGParser
 				aObject = aClass;
 			}
 
-			int sLevel = aSpell.getFirstLevelForKey(aObject.getSpellKey(aPC), aPC);
+			int sLevel = SpellLevel.getFirstLevelForKey(aSpell, aObject.getSpellKey(aPC), aPC);
 
 			if (sLevel == -1)
 			{
@@ -2060,7 +2061,7 @@ final class PCGVer0Parser implements PCGParser
 			}
 
 			final int level =
-					aSpell.getFirstLevelForKey(aObject.getSpellKey(aPC), aPC);
+					SpellLevel.getFirstLevelForKey(aSpell, aObject.getSpellKey(aPC), aPC);
 
 			if (level == -1)
 			{

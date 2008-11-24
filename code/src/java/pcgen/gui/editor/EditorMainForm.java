@@ -92,6 +92,7 @@ import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -1774,7 +1775,7 @@ public final class EditorMainForm extends JDialog
 			case EditorConstants.EDIT_SPELL:
 				((SpellBasePanel2) pnlBase2).updateView(thisPObject);
 
-				Map lvlInfo = ((Spell) thisPObject).getLevelInfo(null);
+				Map lvlInfo = SpellLevel.getLevelInfo(null, ((Spell) thisPObject));
 
 				//
 				// Initialize the contents of the available and selected domains lists

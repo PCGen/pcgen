@@ -37,6 +37,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SpellPoint;
 import pcgen.core.bonus.BonusObj.BonusPair;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
@@ -203,7 +204,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Duration", 4));
 		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Infuse Fire", 4));
 		
-		int spCosts = sp.getSpellPointCostActual();
+		int spCosts = SpellPoint.getSpellPointCostActual(sp);
 		
 		final PlayerCharacter character = getCharacter();
 		Globals.setCurrentPC(character);

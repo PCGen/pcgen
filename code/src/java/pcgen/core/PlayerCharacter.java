@@ -98,6 +98,8 @@ import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
+import pcgen.core.analysis.SpellLevel;
+import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
@@ -5949,20 +5951,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getFullAbilityList()), anAbility, anAbility.getAbilityNature());
 	}
 
-	public int getFirstSpellLevel(final Spell aSpell)
-	{
-		int anInt = 0;
-
-		for (PCClass pcClass : getClassList())
-		{
-			final String aKey = pcClass.getSpellKey(this);
-			final int temp = aSpell.getFirstLevelForKey(aKey, this);
-			anInt = Math.min(anInt, temp);
-		}
-
-		return anInt;
-	}
-
 	public void setHasMadeKitSelectionForAgeSet(final int index,
 		final boolean arg)
 	{
@@ -7467,7 +7455,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		final Map<String, Integer> domainMap = aSpell.getLevelInfo(this);
+		final Map<String, Integer> domainMap = SpellLevel.getLevelInfo(this, aSpell);
 		if (domainMap != null)
 		{
 			for (String mKey : domainMap.keySet())
@@ -8189,7 +8177,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (Spell.hasSpellPointCost())
 			{
 				final Spell theSpell = acs.getSpell();
-				int spellPointCost = theSpell.getSpellPointCostActual();
+				int spellPointCost = SpellPoint.getSpellPointCostActual(theSpell);
 				for (Ability feat : aFeatList)
 				{
 					spellPointCost +=

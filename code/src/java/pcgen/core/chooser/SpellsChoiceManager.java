@@ -36,6 +36,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellSupport;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -359,7 +360,7 @@ public class SpellsChoiceManager extends
 				List<Spell> availableList)
 		{
 			String listkey = listtype + "|" + listname;
-			LEVEL: for (int level : spell.levelForKey(listkey, pc))
+			LEVEL: for (int level : SpellLevel.levelForKey(spell, listkey, pc))
 			{
 				if (level < 0)
 				{
@@ -420,7 +421,7 @@ public class SpellsChoiceManager extends
 			{
 				return;
 			}
-			Map<String, Integer> levelInfo = spell.getLevelInfo(pc);
+			Map<String, Integer> levelInfo = SpellLevel.getLevelInfo(pc, spell);
 			boolean useDomain = "DIVINE".equalsIgnoreCase(listname);
 			for (Map.Entry<String, Integer> me : levelInfo.entrySet())
 			{
@@ -498,7 +499,7 @@ public class SpellsChoiceManager extends
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 			List<Spell> availableList)
 		{
-			Map<String, Integer> levelInfo = spell.getLevelInfo(pc);
+			Map<String, Integer> levelInfo = SpellLevel.getLevelInfo(pc, spell);
 			for (Map.Entry<String, Integer> me : levelInfo.entrySet())
 			{
 				if (passesRestriction(spell, pc, me.getValue()))

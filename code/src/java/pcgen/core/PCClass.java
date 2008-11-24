@@ -71,6 +71,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -1529,7 +1530,7 @@ public class PCClass extends PObject
 			final Spell aSpell = charSpell.getSpell();
 
 			// Check that the character can still cast spells of this level.
-			final Integer[] spellLevels = aSpell.levelForKey(spellKey, aPC);
+			final Integer[] spellLevels = SpellLevel.levelForKey(aSpell, spellKey, aPC);
 			for (Integer i = 0; i < spellLevels.length; i++)
 			{
 				final int spellLevel = spellLevels[i];
@@ -1587,7 +1588,7 @@ public class PCClass extends PObject
 			for (Spell spell : cspelllist)
 			{
 				// For each spell level that this class can cast this spell at
-				final Integer[] spellLevels = spell.levelForKey(spellKey, aPC);
+				final Integer[] spellLevels = SpellLevel.levelForKey(spell, spellKey, aPC);
 				for (Integer si = 0; si < spellLevels.length; ++si)
 				{
 					final int spellLevel = spellLevels[si];

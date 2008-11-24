@@ -83,7 +83,7 @@ public class DomainApplication
 
 						for (Spell gcs : aList)
 						{
-							if (gcs.levelForKey("DOMAIN", keyName, pc) < maxLevel)
+							if (SpellLevel.levelForKey(gcs, "DOMAIN", keyName, pc) < maxLevel)
 							{
 								if (aClass
 										.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0)

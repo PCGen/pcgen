@@ -67,6 +67,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -358,7 +359,7 @@ final class ChooseSpellDialog extends JDialog
 
 	private void addSpellInfoToList(final Spell aSpell, List<String> unfoundItems, List<PObject> classWithSpell, String spellType)
 	{
-		final Map<String, Integer> levelInfo = aSpell.getLevelInfo(pc);
+		final Map<String, Integer> levelInfo = SpellLevel.getLevelInfo(pc, aSpell);
 
 		if ((levelInfo == null) || (levelInfo.size() == 0))
 		{
@@ -656,7 +657,7 @@ final class ChooseSpellDialog extends JDialog
 						continue;
 					}
 
-					if (s.levelForKey(caster, casterName, pc) == baseSpellLevel)
+					if (SpellLevel.levelForKey(s, caster, casterName, pc) == baseSpellLevel)
 					{
 						if (SettingsHandler.guiUsesOutputNameSpells())
 						{

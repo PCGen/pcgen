@@ -38,6 +38,7 @@ import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.gui.CharacterInfo;
@@ -381,7 +382,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			{
 				Domain domain = cd.getDomain();
 				final String key = domain.getSpellKey(pc);
-				int newLevel = spell.getFirstLevelForKey(key, pc);
+				int newLevel = SpellLevel.getFirstLevelForKey(spell, key, pc);
 				if (newLevel > 0 && newLevel < spLevel)
 				{
 					spLevel = newLevel;
@@ -392,7 +393,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 		if (spLevel == 99)
 		{
-			spLevel = spell.getFirstLevelForKey(pcClass.getSpellKey(pc), pc);
+			spLevel = SpellLevel.getFirstLevelForKey(spell, pcClass.getSpellKey(pc), pc);
 			owner = pcClass;
 		}
 

@@ -43,6 +43,8 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SpellLevel;
+import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
@@ -503,7 +505,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 					: null;
 
 			case COL_SPCOST:
-				return (spellA != null) ? aSpell.getSpellPointCostActual(pc): null;
+				return (spellA != null) ? SpellPoint.getSpellPointCostActual(pc, aSpell): null;
 
 			case COL_PPCOST:
 				return (spellA != null) ? aSpell.getSafe(IntegerKey.PP_COST): null; 
@@ -603,7 +605,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			{
 				Spell aSpell = (Spell) o;
 
-				if (!aSpell.levelForKeyContains(obj.getSpellKey(pc), iLev, pc))
+				if (!SpellLevel.levelForKeyContains(aSpell, obj.getSpellKey(pc), iLev, pc))
 				{
 					continue;
 				}
@@ -789,8 +791,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 						case GuiConstants.INFOSPELLS_VIEW_CLASS: // By Class
 							aClass = classList.get(pindex);
 							primaryMatch =
-									spell.levelForKeyContains(aClass
-										.getSpellKey(pc), iLev, pc);
+									SpellLevel.levelForKeyContains(spell, aClass
+									.getSpellKey(pc), iLev, pc);
 							if (cs != null)
 							{
 								if (aClass instanceof Race)
@@ -823,7 +825,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							}
 							if (si == null)
 							{
-								primaryMatch = spell.isLevel(iLev, pc);
+								primaryMatch = SpellLevel.isLevel(spell, iLev, pc);
 							}
 							else if (!knownSpellsOnly && si.getFeatList() != null)
 							{
@@ -888,8 +890,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								aClass = classList.get(sindex);
 								spellMatch =
 										primaryMatch
-											&& (spell.getFirstLevelForKey(
-												aClass.getSpellKey(pc), pc) >= 0);
+											&& (SpellLevel.getFirstLevelForKey(spell, aClass.getSpellKey(pc), pc) >= 0);
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_LEVEL: // By Level
 								iLev = sindex;
@@ -909,14 +910,12 @@ public final class SpellModel extends AbstractTreeTableModel implements
 										if (aClass != null)
 										{
 											spellMatch =
-													spell.levelForKeyContains(
-														aClass.getSpellKey(pc),
-														iLev, pc);
+													SpellLevel.levelForKeyContains(spell, aClass.getSpellKey(pc), iLev, pc);
 										}
 										else
 										{
 											spellMatch =
-													spell.isLevel(iLev, pc);
+													SpellLevel.isLevel(spell, iLev, pc);
 										}
 									}
 								}
@@ -1001,8 +1000,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							if (cs != null)
 								theObject = cs.getOwner();
 							spellMatch =
-									spell.levelForKeyContains(theObject
-										.getSpellKey(pc), theLevel, pc);
+									SpellLevel.levelForKeyContains(spell, theObject
+									.getSpellKey(pc), theLevel, pc);
 						}
 						if (spellMatch && si == null && !knownSpellsOnly)
 						{

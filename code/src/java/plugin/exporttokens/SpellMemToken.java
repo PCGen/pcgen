@@ -23,17 +23,31 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.*;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SourceEntry;
+import pcgen.core.analysis.SpellLevel;
+import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.*;
 
 /**
  * <code>SpellMemToken</code> displays information about the spells
@@ -413,15 +427,15 @@ public class SpellMemToken extends Token
 						{
 							if("NUMELEMENTS".equals(altLabel))
 							{
-								retValue.append(aSpell.getSpellPointCostElementTotal());
+								retValue.append(SpellPoint.getSpellPointCostActualParts(aSpell).size());
 							}
 							else if("TOTAL".equals(altLabel))
 							{
-								retValue.append(aSpell.getSpellPointCostActual());
+								retValue.append(SpellPoint.getSpellPointCostActual(aSpell));
 							}
 							else if ("".equals(altLabel))
 							{
-								retValue.append(aSpell.getSPCostStrings(aPC));
+								retValue.append(SpellPoint.getSPCostStrings(aPC, aSpell));
 							}
 							if (aTok.hasMoreTokens())
 							{
@@ -434,11 +448,11 @@ public class SpellMemToken extends Token
 										String elementValue = aTok.nextToken();
 										if ("NAME".equals(elementValue))
 										{
-											retValue.append(aSpell.getSpellPointCostPartName(partNumber));
+											retValue.append(SpellPoint.getSpellPointCostPartName(aSpell, partNumber));
 										}
 										else if("VALUE".equals(elementValue))
 										{
-											retValue.append(aSpell.getSpellPointCostPartValue(partNumber));
+											retValue.append(SpellPoint.getSpellPointCostPartValue(aSpell, partNumber));
 										}
 									}
 									
@@ -537,7 +551,7 @@ public class SpellMemToken extends Token
 	private static String replaceTokenSpellMemSourceLevel(Spell aSpell,
 		PlayerCharacter aPC)
 	{
-		final Map<String, Integer> tempHash = aSpell.getLevelInfo(aPC);
+		final Map<String, Integer> tempHash = SpellLevel.getLevelInfo(aPC, aSpell);
 		StringBuffer tempSource = new StringBuffer();
 		final Set<String> levelSet = new TreeSet<String>();
 

@@ -78,6 +78,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -3941,7 +3942,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// valid spell has a non-negative spell level
 				if ((spell != null)
-					&& (spell.getFirstLevelForKey(source.getSpellKey(thePC), thePC) >= 0))
+					&& (SpellLevel.getFirstLevelForKey(spell, source.getSpellKey(thePC), thePC) >= 0))
 				{
 					aSpell = spell;
 					break;
@@ -3967,7 +3968,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final SpellBook book = thePC.getSpellBookByName(spellBook);
 
 		final Integer[] spellLevels =
-				aSpell.levelForKey(source.getSpellKey(thePC), thePC);
+				SpellLevel.levelForKey(aSpell, source.getSpellKey(thePC), thePC);
 		boolean found = false;
 
 		for (int sindex = 0; sindex < spellLevels.length; ++sindex)

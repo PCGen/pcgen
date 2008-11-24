@@ -76,6 +76,7 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
@@ -1998,8 +1999,7 @@ final class PCGVer2Creator implements IOConstants
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
 						&& pcClass.isAutoKnownSpell(cSpell.getSpell()
-							.getKeyName(), cSpell.getSpell()
-							.getFirstLevelForKey(spellKey, thePC), thePC)
+							.getKeyName(), SpellLevel.getFirstLevelForKey(cSpell.getSpell(), spellKey, thePC), thePC)
 						&& thePC.getAutoSpells())
 					{
 						continue;

@@ -66,6 +66,8 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SpellLevel;
+import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
@@ -843,7 +845,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 
 				Integer[] levels =
-						aSpell.levelForKey(cs.getOwner().getSpellKey(pc), pc);
+						SpellLevel.levelForKey(aSpell, cs.getOwner().getSpellKey(pc), pc);
 
 				for (Integer level : levels)
 				{
@@ -863,7 +865,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			}
 			else
 			{
-				levelString.append(aSpell.getLevelString());
+				levelString.append(SpellLevel.getLevelString(aSpell));
 			}
 			b.appendLineBreak();
 			b.appendI18nElement("InfoSpells.level.title", levelString.toString()); //$NON-NLS-1$
@@ -893,7 +895,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 				b.appendSpacer();
 				b.appendI18nElement("InfoSpellsSubTab.SpellPointCost", String //$NON-NLS-1$
-					.valueOf(aSpell.getSPCostStrings(pc)));
+					.valueOf(SpellPoint.getSPCostStrings(pc, aSpell)));
 			}
 			b.appendLineBreak();
 			b.appendI18nElement("in_descrip", pc.parseSpellString(aSpell, 

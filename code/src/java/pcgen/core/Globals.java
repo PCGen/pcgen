@@ -58,6 +58,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.list.CompanionList;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.spell.Spell;
@@ -1578,7 +1579,7 @@ public final class Globals
 			{
 				for (Spell aSpell : (ArrayList<Spell>)obj)
 				{
-					if (aSpell.levelForKeyContains(aBuf.toString(), level, currentPC))
+					if (SpellLevel.levelForKeyContains(aSpell, aBuf.toString(), level, currentPC))
 					{
 						aList.add(aSpell);
 					}
@@ -1588,7 +1589,7 @@ public final class Globals
 			{
 				final Spell aSpell = (Spell) obj;
 
-				if (aSpell.levelForKeyContains(aBuf.toString(), level, currentPC))
+				if (SpellLevel.levelForKeyContains(aSpell, aBuf.toString(), level, currentPC))
 				{
 					aList.add(aSpell);
 				}
