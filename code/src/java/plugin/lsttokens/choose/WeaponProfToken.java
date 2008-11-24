@@ -19,34 +19,43 @@ package plugin.lsttokens.choose;
 
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class WeaponProfToken implements ChooseLstToken
+public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
 	{
-		if (prefix.indexOf("NUMCHOICES=") != -1)
-		{
-			Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with CHOOSE:WEAPONPROF, "
-				+ "as it has an integrated choice count");
-			return false;
-		}
+		return "WEAPONPROF";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
+	{
 		if (value == null)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
+					+ " arguments may not contain , : " + value);
 			return false;
 		}
 		String suffix = "";
@@ -57,14 +66,14 @@ public class WeaponProfToken implements ChooseLstToken
 			if (closeLoc != value.length() - 1)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments does not contain matching brackets: "
-					+ value);
+						+ " arguments does not contain matching brackets: "
+						+ value);
 				return false;
 			}
 			String bracketString = value.substring(bracketLoc + 1, closeLoc);
 			if ("WEAPONPROF".equals(bracketString))
 			{
-				//This is okay.
+				// This is okay.
 				suffix = "[WEAPONPROF]" + suffix;
 			}
 			else if (bracketString.startsWith("FEAT="))
@@ -75,8 +84,8 @@ public class WeaponProfToken implements ChooseLstToken
 			else
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not contain [" + bracketString + "] : "
-					+ value);
+						+ " arguments may not contain [" + bracketString
+						+ "] : " + value);
 				return false;
 			}
 			value = value.substring(0, bracketLoc);
@@ -84,26 +93,28 @@ public class WeaponProfToken implements ChooseLstToken
 		if (value.charAt(0) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
+			Logging
+					.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+							+ " must have two or more | delimited arguments : "
+							+ value);
 			return false;
 		}
 		String start = value.substring(0, pipeLoc);
@@ -115,7 +126,7 @@ public class WeaponProfToken implements ChooseLstToken
 		catch (NumberFormatException nfe)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " first argument must be an Integer : " + value);
+					+ " first argument must be an Integer : " + value);
 			return false;
 		}
 		String profs = value.substring(pipeLoc + 1);
@@ -127,28 +138,48 @@ public class WeaponProfToken implements ChooseLstToken
 			if (equalsLoc == tokString.length() - 1)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments must have value after = : " + tokString);
+						+ " arguments must have value after = : " + tokString);
 				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append("NUMCHOICES=").append(firstarg).append('|');
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(profs).append(suffix);
-		po.setChoiceString(sb.toString());
-		po.put(FormulaKey.SELECT, FormulaFactory.getFormulaFor(start));
+		Formula f = FormulaFactory.getFormulaFor(firstarg);
+		context.obj.put(obj, FormulaKey.NUMCHOICES, f);
+		context.obj.put(obj, FormulaKey.SELECT, FormulaFactory
+				.getFormulaFor(start));
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		/*
 		 * TODO Error catching here for SELECT/CHOOSE?
 		 */
 		return true;
 	}
 
-	public String getTokenName()
+	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		return "WEAPONPROF";
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
 	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	// TODO Deferred?
+	// if (prefix.indexOf("NUMCHOICES=") != -1)
+	// {
+	// Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with
+	// CHOOSE:WEAPONPROF, "
+	// + "as it has an integrated choice count");
+	// return false;
+	// }
+
 }

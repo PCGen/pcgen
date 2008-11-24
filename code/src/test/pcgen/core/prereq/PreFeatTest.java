@@ -116,7 +116,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final Ability focusFeat = new Ability();
 		focusFeat.setName("Weapon Focus");
 		focusFeat.setCDOMCategory(AbilityCategory.FEAT);
-		focusFeat.setChoiceString("WEAPONPROFS|LIST");
+		focusFeat.put(StringKey.CHOICE_STRING, "WEAPONPROFS|LIST");
 		character.addAssociation(focusFeat, "Rapier");
 		character.addFeat(focusFeat, null);
 

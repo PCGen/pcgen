@@ -61,6 +61,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
@@ -1106,7 +1107,7 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_SKILL:
-				((Skill) thisPObject).setChoiceString(null);
+				((Skill) thisPObject).put(StringKey.CHOICE_STRING, null);
 
 				break;
 
@@ -1122,11 +1123,11 @@ public final class EditorMainForm extends JDialog
 
 		if (editType == EditorConstants.EDIT_SKILL)
 		{
-			((Skill) thisPObject).setChoiceString(null);
+			((Skill) thisPObject).put(StringKey.CHOICE_STRING, null);
 		}
 		else if ((editType == EditorConstants.EDIT_DOMAIN) || (editType == EditorConstants.EDIT_FEAT))
 		{
-			thisPObject.setChoiceString("");
+			thisPObject.put(StringKey.CHOICE_STRING, "");
 		}
 
 		if (editType != EditorConstants.EDIT_DOMAIN)

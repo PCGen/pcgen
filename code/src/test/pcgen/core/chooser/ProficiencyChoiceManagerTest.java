@@ -29,6 +29,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -57,10 +60,10 @@ public class ProficiencyChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj
-			.setChoiceString("NUMCHOICES=1|PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial");
+		pObj.put(StringKey.CHOICE_STRING, "PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial");
+		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
 		is(pObj.getChoiceString(),
-			strEq("NUMCHOICES=1|PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial"));
+			strEq("PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial"));
 
 		PlayerCharacter aPC = getCharacter();
 

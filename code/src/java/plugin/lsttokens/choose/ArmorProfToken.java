@@ -19,57 +19,73 @@ package plugin.lsttokens.choose;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class ArmorProfToken implements ChooseLstToken
+public class ArmorProfToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
+	{
+		return "ARMORPROF";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
 		if (value == null)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
+					+ " arguments may not contain , : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
+			Logging
+					.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+							+ " must have two or more | delimited arguments : "
+							+ value);
 			return false;
 		}
 		String start = value.substring(0, pipeLoc);
@@ -80,12 +96,11 @@ public class ArmorProfToken implements ChooseLstToken
 		catch (NumberFormatException nfe)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " first argument must be an Integer : " + value);
+					+ " first argument must be an Integer : " + value);
 			return false;
 		}
-		StringTokenizer st =
-				new StringTokenizer(value.substring(pipeLoc + 1),
-					Constants.PIPE);
+		StringTokenizer st = new StringTokenizer(value.substring(pipeLoc + 1),
+				Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
 			String tokString = st.nextToken();
@@ -93,23 +108,31 @@ public class ArmorProfToken implements ChooseLstToken
 			if (equalsLoc == tokString.length() - 1)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments must have value after = : " + tokString);
+						+ " arguments must have value after = : " + tokString);
 				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value);
-		po.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return true;
 	}
 
-	public String getTokenName()
+	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		return "ARMORPROF";
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

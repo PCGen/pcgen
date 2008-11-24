@@ -22,26 +22,30 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>AbilityToken</code> is responsible for parsing
- * the ability choose token.
+ * The Class <code>AbilityToken</code> is responsible for parsing the ability
+ * choose token.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author: $ Last Edited: $Date: $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision: $
  */
-public class AbilityToken implements ChooseLstToken
+public class AbilityToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
 	public String getTokenName()
@@ -49,10 +53,13 @@ public class AbilityToken implements ChooseLstToken
 		return "ABILITY";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.ChooseLstToken#parse(pcgen.core.PObject, java.lang.String, java.lang.String)
-	 */
-	public boolean parse(PObject po, String prefix, String value)
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
 		if (value == null)
 		{
@@ -63,32 +70,32 @@ public class AbilityToken implements ChooseLstToken
 		if (value.indexOf('[') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int barLoc = value.indexOf('|');
 		if (barLoc == -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " requires a CATEGORY and arguments : " + value);
+					+ " requires a CATEGORY and arguments : " + value);
 			return false;
 		}
 		String cat = value.substring(0, barLoc);
@@ -96,19 +103,33 @@ public class AbilityToken implements ChooseLstToken
 				.silentlyGetAbilityCategory(cat);
 		if (category == null)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " found invalid CATEGORY: " + cat + " in value: "
+			Logging
+					.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+							+ " found invalid CATEGORY: " + cat + " in value: "
 							+ value);
 			return false;
 		}
 
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value);
-		po.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject cdo)
+	{
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

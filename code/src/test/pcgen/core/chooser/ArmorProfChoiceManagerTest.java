@@ -30,6 +30,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -60,8 +63,9 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=1|ARMORPROF|TYPE=Light");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|ARMORPROF|TYPE=Light"));
+		pObj.put(StringKey.CHOICE_STRING, "ARMORPROF|TYPE=Light");
+		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
+		is(pObj.getChoiceString(), strEq("ARMORPROF|TYPE=Light"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -111,7 +115,7 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase
 
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("ARMORPROF|1|TYPE=Light");
+		pObj.put(StringKey.CHOICE_STRING, "ARMORPROF|1|TYPE=Light");
 
 		PlayerCharacter aPC = getCharacter();
 		List Lone = new ArrayList();

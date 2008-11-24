@@ -79,21 +79,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		 */
 		while (st.hasMoreTokens())
 		{
-			if (chooserName.startsWith("NUMCHOICES="))
-			{
-				// From parser, we can assume this only occurs once
-				totalChoices = aPC.getVariableValue(chooserName.substring(11),
-						"").intValue();
-				if (totalChoices <= 0)
-				{
-					// Problem!
-					Logging.errorPrint("Found CHOOSER with choices " + "<= 0: "
-							+ theChoices + " where total choices "
-							+ "from NUMCHOICES resolves to: " + totalChoices);
-					totalChoices = 0;
-				}
-			}
-			else if (chooserName.startsWith("TITLE="))
+			if (chooserName.startsWith("TITLE="))
 			{
 				String newTitle = chooserName.substring(6);
 				if (newTitle.startsWith("\""))
@@ -109,6 +95,20 @@ public abstract class AbstractBasicChoiceManager<T> implements
 			chooserName = st.nextToken();
 		}
 
+		Formula numChoices = pobject.get(FormulaKey.NUMCHOICES);
+		if (numChoices != null)
+		{
+			// From parser, we can assume this only occurs once
+			totalChoices = numChoices.resolve(aPC, "").intValue();
+			if (totalChoices <= 0)
+			{
+				// Problem!
+				Logging.errorPrint("Found CHOOSER with choices " + "<= 0: "
+						+ theChoices + " where total choices "
+						+ "from NUMCHOICES resolves to: " + totalChoices);
+				totalChoices = 0;
+			}
+		}
 		while (st.hasMoreTokens())
 		{
 			choices.add(st.nextToken());

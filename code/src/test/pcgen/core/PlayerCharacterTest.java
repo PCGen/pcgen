@@ -184,7 +184,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		toughness.setName("Toughness");
 		toughness.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		toughness.put(ObjectKey.STACKS, Boolean.TRUE);
-		toughness.setChoiceString("NOCHOICE");
+		toughness.put(StringKey.CHOICE_STRING, "NOCHOICE");
 		toughness.setCDOMCategory(AbilityCategory.FEAT);
 		final BonusObj aBonus = Bonus.newBonus("HP|CURRENTMAX|3");
 		
@@ -199,7 +199,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Exotic Weapon Proficiency", AbilityCategory.FEAT,
 					"General.Fighter");
 		exoticWpnProf.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		exoticWpnProf.setChoiceString("PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		exoticWpnProf.put(StringKey.CHOICE_STRING, "PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
 		Globals.getContext().unconditionallyProcess(exoticWpnProf, "AUTO", "WEAPONPROF|%LIST");
 	
 		WeaponProf wpnProfTestA = new WeaponProf();

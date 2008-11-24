@@ -17,34 +17,62 @@
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.lst.EqModChooseLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class NoChoiceToken implements EqModChooseLstToken
+public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 {
-
-	public boolean parse(EquipmentModifier po, String prefix, String value)
-	{
-		if (value == null)
-		{
-			// No args - legal
-			StringBuilder sb = new StringBuilder();
-			if (prefix.length() > 0)
-			{
-				sb.append(prefix).append('|');
-			}
-			sb.append(getTokenName());
-			po.setChoiceString(sb.toString());
-			return true;
-		}
-		Logging.errorPrint("CHOOSE:" + getTokenName()
-			+ " must not have arguments: " + value);
-		return false;
-	}
 
 	public String getTokenName()
 	{
 		return "NOCHOICE";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, EquipmentModifier obj,
+			String value) throws PersistenceLayerException
+	{
+		if (value == null)
+		{
+			// No args - legal
+			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
+			return true;
+		}
+		Logging.errorPrint("CHOOSE:" + getTokenName()
+				+ " must not have arguments: " + value);
+		return false;
+	}
+
+	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
+	{
+		String chooseString = context.getObjectContext().getString(eqMod,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		String returnString;
+		if (getTokenName().equals(chooseString))
+		{
+			returnString = "";
+		}
+		else
+		{
+			returnString = chooseString.substring(getTokenName().length() + 1);
+		}
+		return new String[] { returnString };
+	}
+
+	public Class<EquipmentModifier> getTokenClass()
+	{
+		return EquipmentModifier.class;
 	}
 }

@@ -19,15 +19,29 @@ package plugin.lsttokens.choose;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class SpellsToken implements ChooseLstToken
+public class SpellsToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
+	{
+		return "SPELLS";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
 		if (value == null)
 		{
@@ -79,8 +93,11 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (token.length() < 12)
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid DOMAINLIST= entry for "
-									+ "CHOOSE:SPELLS: requires a domain name");
+							Logging
+									.log(
+											Logging.LST_ERROR,
+											"Invalid DOMAINLIST= entry for "
+													+ "CHOOSE:SPELLS: requires a domain name");
 							return false;
 						}
 					}
@@ -96,8 +113,11 @@ public class SpellsToken implements ChooseLstToken
 						String domainName = token.substring(11, bracketLoc);
 						if (domainName == null || domainName.length() == 0)
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid DOMAINLIST= entry for "
-									+ "CHOOSE:SPELLS: requires a domain name");
+							Logging
+									.log(
+											Logging.LST_ERROR,
+											"Invalid DOMAINLIST= entry for "
+													+ "CHOOSE:SPELLS: requires a domain name");
 							return false;
 						}
 						validateRestriction(token.substring(bracketLoc + 1,
@@ -111,8 +131,11 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (token.length() < 10)
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid CLASSLIST= entry for "
-									+ "CHOOSE:SPELLS: requires a class name");
+							Logging
+									.log(
+											Logging.LST_ERROR,
+											"Invalid CLASSLIST= entry for "
+													+ "CHOOSE:SPELLS: requires a class name");
 							return false;
 						}
 					}
@@ -128,8 +151,11 @@ public class SpellsToken implements ChooseLstToken
 						String className = token.substring(10, bracketLoc);
 						if (className == null || className.length() == 0)
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid CLASSLIST= entry for "
-									+ "CHOOSE:SPELLS: requires a class name");
+							Logging
+									.log(
+											Logging.LST_ERROR,
+											"Invalid CLASSLIST= entry for "
+													+ "CHOOSE:SPELLS: requires a class name");
 							return false;
 						}
 						validateRestriction(token.substring(bracketLoc + 1,
@@ -143,8 +169,11 @@ public class SpellsToken implements ChooseLstToken
 					{
 						if (token.length() < 10)
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid SPELLTYPE= entry for "
-									+ "CHOOSE:SPELLS: requires a spell type");
+							Logging
+									.log(
+											Logging.LST_ERROR,
+											"Invalid SPELLTYPE= entry for "
+													+ "CHOOSE:SPELLS: requires a spell type");
 							return false;
 						}
 					}
@@ -160,8 +189,11 @@ public class SpellsToken implements ChooseLstToken
 						String className = token.substring(10, bracketLoc);
 						if (className == null || className.length() == 0)
 						{
-							Logging.log(Logging.LST_ERROR, "Invalid SPELLTYPE= entry for "
-									+ "CHOOSE:SPELLS: requires a spell type");
+							Logging
+									.log(
+											Logging.LST_ERROR,
+											"Invalid SPELLTYPE= entry for "
+													+ "CHOOSE:SPELLS: requires a spell type");
 							return false;
 						}
 						validateRestriction(token.substring(bracketLoc + 1,
@@ -173,8 +205,11 @@ public class SpellsToken implements ChooseLstToken
 					int bracketLoc = token.indexOf('[');
 					if (bracketLoc > -1 && bracketLoc != 3)
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid ANY entry for "
-							+ "CHOOSE:SPELLS, bracket must immediately follow 'ANY'");
+						Logging
+								.log(
+										Logging.LST_ERROR,
+										"Invalid ANY entry for "
+												+ "CHOOSE:SPELLS, bracket must immediately follow 'ANY'");
 						return false;
 					}
 					else
@@ -194,8 +229,11 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 8)
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid SCHOOL= entry for "
-								+ "CHOOSE:SPELLS: requires a school name");
+						Logging
+								.log(
+										Logging.LST_ERROR,
+										"Invalid SCHOOL= entry for "
+												+ "CHOOSE:SPELLS: requires a school name");
 						return false;
 					}
 				}
@@ -203,8 +241,11 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 11)
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid SUBSCHOOL= entry for "
-								+ "CHOOSE:SPELLS: requires a subschool name");
+						Logging
+								.log(
+										Logging.LST_ERROR,
+										"Invalid SUBSCHOOL= entry for "
+												+ "CHOOSE:SPELLS: requires a subschool name");
 						return false;
 					}
 				}
@@ -212,8 +253,11 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 12)
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid DESCRIPTOR= entry for "
-								+ "CHOOSE:SPELLS: requires a descriptor name");
+						Logging
+								.log(
+										Logging.LST_ERROR,
+										"Invalid DESCRIPTOR= entry for "
+												+ "CHOOSE:SPELLS: requires a descriptor name");
 						return false;
 					}
 				}
@@ -221,8 +265,11 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 11)
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid SPELLBOOK= entry for "
-								+ "CHOOSE:SPELLS: requires a spellbook name");
+						Logging
+								.log(
+										Logging.LST_ERROR,
+										"Invalid SPELLBOOK= entry for "
+												+ "CHOOSE:SPELLS: requires a spellbook name");
 						return false;
 					}
 				}
@@ -231,8 +278,9 @@ public class SpellsToken implements ChooseLstToken
 					String prohibited = token.substring(11);
 					if (!"YES".equals(prohibited) && !"NO".equals(prohibited))
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid PROHIBITED= entry for "
-								+ "CHOOSE:SPELLS: must be YES or NO");
+						Logging.log(Logging.LST_ERROR,
+								"Invalid PROHIBITED= entry for "
+										+ "CHOOSE:SPELLS: must be YES or NO");
 						return false;
 					}
 				}
@@ -240,8 +288,11 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.length() < 6)
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid TYPE= entry for "
-								+ "CHOOSE:SPELLS: requires a type name");
+						Logging
+								.log(
+										Logging.LST_ERROR,
+										"Invalid TYPE= entry for "
+												+ "CHOOSE:SPELLS: requires a type name");
 						return false;
 					}
 				}
@@ -249,8 +300,9 @@ public class SpellsToken implements ChooseLstToken
 				{
 					if (token.indexOf('[') != -1 || token.indexOf('=') != -1)
 					{
-						Logging.log(Logging.LST_ERROR, "Invalid (unknown) entry: " + token
-								+ " for " + "CHOOSE:SPELLS:");
+						Logging.log(Logging.LST_ERROR,
+								"Invalid (unknown) entry: " + token + " for "
+										+ "CHOOSE:SPELLS:");
 						return false;
 					}
 					// Just a spell name
@@ -258,12 +310,8 @@ public class SpellsToken implements ChooseLstToken
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value);
-		po.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return true;
 	}
 
@@ -294,8 +342,20 @@ public class SpellsToken implements ChooseLstToken
 		}
 	}
 
-	public String getTokenName()
+	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		return "SPELLS";
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

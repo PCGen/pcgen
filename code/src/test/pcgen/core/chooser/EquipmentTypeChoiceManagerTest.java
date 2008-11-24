@@ -29,6 +29,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -57,10 +60,10 @@ public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj
-			.setChoiceString("NUMCHOICES=2|EQUIPTYPE|one.two");
+		pObj.put(StringKey.CHOICE_STRING, "EQUIPTYPE|one.two");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
 		is(pObj.getChoiceString(),
-			strEq("NUMCHOICES=2|EQUIPTYPE|one.two"));
+			strEq("EQUIPTYPE|one.two"));
 
 		PlayerCharacter aPC = getCharacter();
 

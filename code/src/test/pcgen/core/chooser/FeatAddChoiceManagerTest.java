@@ -29,6 +29,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -57,8 +60,9 @@ public class FeatAddChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=1|FEATADD|choice");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|FEATADD|choice"));
+		pObj.put(StringKey.CHOICE_STRING, "FEATADD|choice");
+		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
+		is(pObj.getChoiceString(), strEq("FEATADD|choice"));
 
 		PlayerCharacter aPC = getCharacter();
 

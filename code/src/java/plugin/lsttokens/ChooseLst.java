@@ -17,17 +17,12 @@
  */
 package plugin.lsttokens;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import pcgen.base.lang.StringUtil;
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.core.EquipmentModifier;
-import pcgen.core.PObject;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.ChooseLoader;
-import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -37,7 +32,7 @@ import pcgen.util.Logging;
  * @author djones4
  * 
  */
-public class ChooseLst extends AbstractToken implements GlobalLstToken,
+public class ChooseLst extends AbstractToken implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
@@ -47,61 +42,6 @@ public class ChooseLst extends AbstractToken implements GlobalLstToken,
 		return "CHOOSE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
-	{
-		if (obj instanceof EquipmentModifier)
-		{
-			return false;
-		}
-		String key;
-		String val = value;
-		int activeLoc = 0;
-		String maxCount = null;
-		List<String> prefixList = new ArrayList<String>(2);
-		while (true)
-		{
-			int pipeLoc = val.indexOf(Constants.PIPE, activeLoc);
-			if (val.startsWith("FEAT="))
-			{
-				key = "FEAT";
-				val = val.substring(5);
-			}
-			else if (pipeLoc == -1)
-			{
-				key = val;
-				val = null;
-			}
-			else
-			{
-				key = val.substring(activeLoc, pipeLoc);
-				val = val.substring(pipeLoc + 1);
-			}
-			if (key.startsWith("NUMCHOICES="))
-			{
-				if (maxCount != null)
-				{
-					Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES more than once in CHOOSE: "
-									+ value);
-					return false;
-				}
-				prefixList.add(key);
-				maxCount = key.substring(11);
-				if (maxCount == null || maxCount.length() == 0)
-				{
-					Logging.log(Logging.LST_ERROR, "NUMCHOICES in CHOOSE must be a formula: "
-									+ value);
-					return false;
-				}
-			}
-			else
-			{
-				break;
-			}
-		}
-		String prefixString = StringUtil.join(prefixList, "|");
-		return ChooseLoader.parseToken(obj, prefixString, key, val);
-	}
-
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 			throws PersistenceLayerException
 	{
@@ -109,20 +49,70 @@ public class ChooseLst extends AbstractToken implements GlobalLstToken,
 		{
 			return false;
 		}
+		String key;
+		String val;
 		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
+		if (value.startsWith("FEAT="))
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-					+ " requires a SubToken");
-			return false;
+			key = "FEAT";
+			val = value.substring(5);
 		}
-		return context.processSubToken(obj, getTokenName(), value.substring(0,
-				pipeLoc), value.substring(pipeLoc + 1));
+		else if (pipeLoc == -1)
+		{
+			key = value;
+			val = null;
+		}
+		else
+		{
+			key = value.substring(0, pipeLoc);
+			val = value.substring(pipeLoc + 1);
+		}
+		if (key.startsWith("NUMCHOICES="))
+		{
+			String maxCount = key.substring(11);
+			if (maxCount == null || maxCount.length() == 0)
+			{
+				Logging.errorPrint("NUMCHOICES in CHOOSE must be a formula: "
+						+ value);
+				return false;
+			}
+			Formula f = FormulaFactory.getFormulaFor(maxCount);
+			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
+			pipeLoc = val.indexOf(Constants.PIPE);
+			if (pipeLoc == -1)
+			{
+				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+						+ " requires a SubToken");
+				return false;
+			}
+			key = val.substring(0, pipeLoc);
+			val = val.substring(pipeLoc + 1);
+		}
+
+		return context.processSubToken(obj, getTokenName(), key, val);
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		return context.unparse(obj, getTokenName());
+		String[] str = context.unparse(obj, getTokenName());
+		if (str == null)
+		{
+			return null;
+		}
+		Formula choices = context.obj.getFormula(obj, FormulaKey.NUMCHOICES);
+		String choicesString = choices == null ? null : choices.toString();
+		for (int i = 0; i < str.length; i++)
+		{
+			if (str[i].endsWith(Constants.PIPE))
+			{
+				str[i] = str[i].substring(0, str[i].length() - 1);
+			}
+			if (choicesString != null)
+			{
+				str[i] = choicesString + Constants.PIPE + str[i];
+			}
+		}
+		return str;
 	}
 
 	public Class<CDOMObject> getTokenClass()

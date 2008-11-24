@@ -29,6 +29,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -57,8 +60,9 @@ public class SpellsChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=1|SPELLS|Foo|Bar|Baz");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|SPELLS|Foo|Bar|Baz"));
+		pObj.put(StringKey.CHOICE_STRING, "SPELLS|Foo|Bar|Baz");
+		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
+		is(pObj.getChoiceString(), strEq("SPELLS|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 

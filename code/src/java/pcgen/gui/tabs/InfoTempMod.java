@@ -67,8 +67,10 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.Equipment;
@@ -376,7 +378,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 **/
 	private String getBonusChoice(
 			final BonusObj newB,
-			final String aChoice,
+			final PObject source,
 			String repeatValue)
 	{
 
@@ -399,16 +401,18 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			return repeatValue;
 		}
 
+		String aChoice = source.getChoiceString();
 		StringTokenizer aTok = new StringTokenizer(aChoice, "|");
 
 		String testNumber = aChoice;
-		if (aChoice.startsWith("NUMCHOICES="))
+		
+		Formula numchoices = source.get(FormulaKey.NUMCHOICES);
+		if (numchoices != null)
 		{
-			testNumber = aChoice.substring(0, aChoice.indexOf('|'));
-			aTok.nextToken(); // throw away "NUMCHOICES"
-			Logging
-				.errorPrint("NUMCHOICES is not implemented for CHOOSE in Temporary Mods");
-			Logging.errorPrint("  CHOOSE was: " + aChoice);
+			Logging.errorPrint("NUMCHOICES is not implemented "
+					+ "for CHOOSE in Temporary Mods");
+			Logging.errorPrint("  CHOOSE was: " + aChoice
+					+ ", NUMCHOICES was: " + numchoices);
 		}
 		if (testNumber.startsWith("NUMBER") && (aTok.countTokens() >= 3)) //$NON-NLS-1$
 		{
@@ -1133,9 +1137,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					}
 					if (aMod.getChoiceString().length() > 0)
 					{
-						repeatValue =
-								getBonusChoice(newB, aMod.getChoiceString(),
-									repeatValue);
+						repeatValue = getBonusChoice(newB, aMod, repeatValue);
 					}
 
 				}

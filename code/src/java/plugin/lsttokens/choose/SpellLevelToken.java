@@ -19,28 +19,42 @@ package plugin.lsttokens.choose;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class SpellLevelToken implements ChooseLstToken
+public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
+	{
+		return "SPELLLEVEL";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
 		if (value == null)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
+					+ " arguments may not contain , : " + value);
 			return false;
 		}
 		String suffix = "";
@@ -51,21 +65,21 @@ public class SpellLevelToken implements ChooseLstToken
 			if (closeLoc != value.length() - 1)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments does not contain matching brackets: "
-					+ value);
+						+ " arguments does not contain matching brackets: "
+						+ value);
 				return false;
 			}
 			String bracketString = value.substring(bracketLoc + 1, closeLoc);
 			if (bracketString.startsWith("BONUS:"))
 			{
-				//This is okay.
+				// This is okay.
 				suffix = "[" + bracketString + "]" + suffix;
 			}
 			else
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not contain [" + bracketString + "] : "
-					+ value);
+						+ " arguments may not contain [" + bracketString
+						+ "] : " + value);
 				return false;
 			}
 			value = value.substring(0, bracketLoc);
@@ -73,26 +87,28 @@ public class SpellLevelToken implements ChooseLstToken
 		if (value.charAt(0) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
+			Logging
+					.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
+							+ " must have two or more | delimited arguments : "
+							+ value);
 			return false;
 		}
 		String startString = value.substring(0, pipeLoc);
@@ -104,16 +120,15 @@ public class SpellLevelToken implements ChooseLstToken
 		catch (NumberFormatException nfe)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " first argument must be an Integer : " + value);
+					+ " first argument must be an Integer : " + value);
 			return false;
 		}
-		StringTokenizer tok =
-				new StringTokenizer(value.substring(pipeLoc + 1),
-					Constants.PIPE);
+		StringTokenizer tok = new StringTokenizer(value.substring(pipeLoc + 1),
+				Constants.PIPE);
 		if (tok.countTokens() % 3 != 0)
 		{
 			Logging.log(Logging.LST_ERROR, "COUNT:" + getTokenName()
-				+ " requires a multiple of three arguments: " + value);
+					+ " requires a multiple of three arguments: " + value);
 			return false;
 		}
 		while (tok.hasMoreTokens())
@@ -123,16 +138,16 @@ public class SpellLevelToken implements ChooseLstToken
 			if (equalsLoc == tokString.length() - 1)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments must have value after = : " + tokString);
+						+ " arguments must have value after = : " + tokString);
 				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 			if (!tokString.startsWith("CLASS=")
-				&& !tokString.startsWith("TYPE="))
+					&& !tokString.startsWith("TYPE="))
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " argument must start with CLASS= or TYPE= : "
-					+ tokString);
+						+ " argument must start with CLASS= or TYPE= : "
+						+ tokString);
 				Logging.log(Logging.LST_ERROR, "  Entire Token was: " + value);
 				return false;
 			}
@@ -144,7 +159,7 @@ public class SpellLevelToken implements ChooseLstToken
 			catch (NumberFormatException nfe)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " second argument must be an Integer : " + value);
+						+ " second argument must be an Integer : " + value);
 				return false;
 			}
 			String lastTok = tok.nextToken();
@@ -158,18 +173,36 @@ public class SpellLevelToken implements ChooseLstToken
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value).append(suffix);
-		po.setChoiceString(sb.toString());
-		po.put(FormulaKey.SELECT, FormulaFactory.getFormulaFor(start));
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.obj.put(obj, FormulaKey.SELECT, FormulaFactory
+				.getFormulaFor(start));
 		return true;
 	}
 
-	public String getTokenName()
+	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		return "SPELLLEVEL";
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
 	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	// TODO Deferred?
+	// if (prefix.indexOf("NUMCHOICES=") != -1)
+	// {
+	// Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with
+	// CHOOSE:SPELLLEVEL, "
+	// + "as it has an integrated choice count");
+	// return false;
+	// }
 }

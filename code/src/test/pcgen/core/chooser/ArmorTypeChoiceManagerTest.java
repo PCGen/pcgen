@@ -30,6 +30,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -106,8 +109,9 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=2|ARMORTYPE");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|ARMORTYPE"));
+		pObj.put(StringKey.CHOICE_STRING, "ARMORTYPE");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
+		is(pObj.getChoiceString(), strEq("ARMORTYPE"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -144,8 +148,9 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=2|ARMORTYPE");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|ARMORTYPE"));
+		pObj.put(StringKey.CHOICE_STRING, "ARMORTYPE");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
+		is(pObj.getChoiceString(), strEq("ARMORTYPE"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -189,8 +194,9 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=2|ARMORTYPE");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|ARMORTYPE"));
+		pObj.put(StringKey.CHOICE_STRING, "ARMORTYPE");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
+		is(pObj.getChoiceString(), strEq("ARMORTYPE"));
 
 		PlayerCharacter aPC = getCharacter();
 

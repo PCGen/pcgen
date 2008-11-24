@@ -84,6 +84,8 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey MASTER_CHECK = getConstant("MASTER_CHECK");
 
+	public static final FormulaKey NUMCHOICES = getConstant("NUMCHOICES");
+
 	public static final FormulaKey SIZE;
 
 	/*

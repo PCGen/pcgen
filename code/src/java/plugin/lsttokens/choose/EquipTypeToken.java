@@ -17,69 +17,91 @@
  */
 package plugin.lsttokens.choose;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class EquipTypeToken implements ChooseLstToken
+public class EquipTypeToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
+	{
+		return "EQUIPTYPE";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
 		if (value == null)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf('|') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain | : " + value);
+					+ " arguments may not contain | : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '.')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not start with . : " + value);
+					+ " arguments may not start with . : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '.')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not end with . : " + value);
+					+ " arguments may not end with . : " + value);
 			return false;
 		}
 		if (value.indexOf("..") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments uses double separator .. : " + value);
+					+ " arguments uses double separator .. : " + value);
 			return false;
 		}
 		if (value.indexOf(",") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " may not have multiple , delimited arguments: " + value);
+					+ " may not have multiple , delimited arguments: " + value);
 			return false;
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value);
-		po.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return true;
 	}
 
-	public String getTokenName()
+	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		return "EQUIPTYPE";
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

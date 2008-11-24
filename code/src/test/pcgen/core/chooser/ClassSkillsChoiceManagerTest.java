@@ -30,8 +30,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -101,8 +104,9 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=2|CSKILLS");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|CSKILLS"));
+		pObj.put(StringKey.CHOICE_STRING, "CSKILLS");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
+		is(pObj.getChoiceString(), strEq("CSKILLS"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -139,8 +143,9 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=2|CSKILLS");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|CSKILLS"));
+		pObj.put(StringKey.CHOICE_STRING, "CSKILLS");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
+		is(pObj.getChoiceString(), strEq("CSKILLS"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -185,8 +190,9 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=2|CSKILLS");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|CSKILLS"));
+		pObj.put(StringKey.CHOICE_STRING, "CSKILLS");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
+		is(pObj.getChoiceString(), strEq("CSKILLS"));
 
 		PlayerCharacter aPC = getCharacter();
 

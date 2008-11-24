@@ -17,34 +17,62 @@
  */
 package plugin.lsttokens.choose;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class ArmorTypeToken implements ChooseLstToken
+public class ArmorTypeToken implements CDOMSecondaryToken<CDOMObject>
 {
-
-	public boolean parse(PObject po, String prefix, String value)
-	{
-		if (value == null)
-		{
-			// No args - legal
-			StringBuilder sb = new StringBuilder();
-			if (prefix.length() > 0)
-			{
-				sb.append(prefix).append('|');
-			}
-			sb.append(getTokenName());
-			po.setChoiceString(sb.toString());
-			return true;
-		}
-		Logging.deprecationPrint("CHOOSE:" + getTokenName()
-			+ " will ignore arguments: " + value);
-		return false;
-	}
 
 	public String getTokenName()
 	{
 		return "ARMORTYPE";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
+	{
+		if (value == null)
+		{
+			// No args - legal
+			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
+			return true;
+		}
+		Logging.deprecationPrint("CHOOSE:" + getTokenName()
+				+ " will ignore arguments: " + value);
+		return false;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject cdo)
+	{
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		String returnString;
+		if (getTokenName().equals(chooseString))
+		{
+			returnString = "";
+		}
+		else
+		{
+			returnString = chooseString.substring(getTokenName().length() + 1);
+		}
+		return new String[] { returnString };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

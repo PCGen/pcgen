@@ -29,6 +29,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -57,11 +60,11 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj
-			.setChoiceString("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
+		pObj.put(StringKey.CHOICE_STRING, "DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
 		is(
 			pObj.getChoiceString(),
-			strEq("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux"));
+			strEq("DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux"));
 
 		PlayerCharacter aPC = getCharacter();
 

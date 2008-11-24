@@ -20,56 +20,64 @@ package plugin.lsttokens.choose;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class SkillsNamedToCCSkillToken implements ChooseLstToken
+public class SkillsNamedToCCSkillToken implements
+		CDOMSecondaryToken<Ability>
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
 	{
-		if (!(po instanceof Ability))
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " only works in Abilities");
-			return false;
-		}
+		return "SKILLSNAMEDTOCCSKILL";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, Ability obj, String value)
+			throws PersistenceLayerException
+	{
 		if (value == null)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
+					+ " arguments may not contain , : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
@@ -80,23 +88,31 @@ public class SkillsNamedToCCSkillToken implements ChooseLstToken
 			if (equalsLoc == tokString.length() - 1)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments must have value after = : " + tokString);
+						+ " arguments must have value after = : " + tokString);
 				Logging.log(Logging.LST_ERROR, "  entire token was: " + value);
 				return false;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value);
-		po.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return true;
 	}
 
-	public String getTokenName()
+	public String[] unparse(LoadContext context, Ability cdo)
 	{
-		return "SKILLSNAMEDTOCCSKILL";
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
+	}
+
+	public Class<Ability> getTokenClass()
+	{
+		return Ability.class;
 	}
 }

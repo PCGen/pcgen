@@ -252,15 +252,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the CHOICE string
-	 * @param aString
-	 */
-	public void setChoiceString(final String aString)
-	{
-		put(StringKey.CHOICE_STRING, aString);
-	}
-
-	/**
 	 * Get the CHOICE string
 	 * @return the CHOICE string
 	 */

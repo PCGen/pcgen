@@ -568,8 +568,7 @@ public final class EquipmentChoice
 				{
 					originalkind = kind;
 					needStats = originalkind.equals("STATBONUS");
-					needSkills = originalkind.equals("SKILLBONUS")
-							|| originalkind.equals("SKILL");
+					needSkills = originalkind.equals("SKILLBONUS");
 				}
 				else if (kind.startsWith("TYPE=") || kind.startsWith("TYPE."))
 				{
@@ -598,6 +597,11 @@ public final class EquipmentChoice
 				else if ("STAT".equals(kind))
 				{
 					this.addStats();
+				}
+				else if ("SKILL".equals(kind) || originalkind.equals("SKILL")
+						&& "ANY".equals("SKILL"))
+				{
+					this.addSkills();
 				}
 				else if ("SKILL".equals(kind))
 				{

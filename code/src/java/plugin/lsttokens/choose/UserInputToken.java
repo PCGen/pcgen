@@ -17,57 +17,65 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.core.PObject;
-import pcgen.persistence.lst.ChooseLstToken;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class UserInputToken implements ChooseLstToken
+public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 {
 
-	public boolean parse(PObject po, String prefix, String value)
+	public String getTokenName()
 	{
-		if (prefix.indexOf("NUMCHOICES=") != -1)
-		{
-			Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with CHOOSE:USERINPUT, "
-				+ "as it has an integrated choice count");
-			return false;
-		}
+		return "USERINPUT";
+	}
+
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
+	{
 		if (value == null)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf(',') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
+					+ " arguments may not contain , : " + value);
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
@@ -87,7 +95,7 @@ public class UserInputToken implements ChooseLstToken
 			catch (NumberFormatException nfe)
 			{
 				Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " first argument must be an Integer : " + value);
+						+ " first argument must be an Integer : " + value);
 				return false;
 			}
 			title = value.substring(pipeLoc + 1);
@@ -95,7 +103,7 @@ public class UserInputToken implements ChooseLstToken
 		if (!title.startsWith("TITLE="))
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-				+ " argument must start with TITLE= : " + value);
+					+ " argument must start with TITLE= : " + value);
 			return false;
 		}
 		if (title.startsWith("TITLE=\""))
@@ -115,22 +123,39 @@ public class UserInputToken implements ChooseLstToken
 					+ value);
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(title);
-		po.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		if (firstarg != null)
 		{
-			po.put(FormulaKey.SELECT, FormulaFactory.getFormulaFor(firstarg
-					.toString()));
+			context.obj.put(obj, FormulaKey.SELECT, FormulaFactory
+					.getFormulaFor(firstarg.toString()));
 		}
 		return true;
 	}
 
-	public String getTokenName()
+	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		return "USERINPUT";
+		String chooseString = context.getObjectContext().getString(cdo,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
 	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	// TODO Deferred?
+	// if (prefix.indexOf("NUMCHOICES=") != -1)
+	// {
+	// Logging.log(Logging.LST_ERROR, "Cannot use NUMCHOICES= with
+	// CHOOSE:USERINPUT, "
+	// + "as it has an integrated choice count");
+	// return false;
+	// }
 }

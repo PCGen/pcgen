@@ -28,6 +28,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -88,8 +89,7 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 				skillFocus.addToListFor(ListKey.BONUS, aBonus);
 			}
 			skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
-			skillFocus
-				.setChoiceString("SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
+			skillFocus.put(StringKey.CHOICE_STRING, "SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
 
 			persuasive =
 					TestHelper.makeAbility("Persuasive", AbilityCategory.FEAT, "General");

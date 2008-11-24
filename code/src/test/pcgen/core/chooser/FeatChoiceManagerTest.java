@@ -29,6 +29,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -57,7 +58,7 @@ public class FeatChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("FEAT=Wellie Throwing");
+		pObj.put(StringKey.CHOICE_STRING, "FEAT=Wellie Throwing");
 		is(pObj.getChoiceString(), strEq("FEAT=Wellie Throwing"));
 
 		PlayerCharacter aPC = getCharacter();

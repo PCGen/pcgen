@@ -17,11 +17,14 @@
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.lst.EqModChooseLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class EquipmentToken implements EqModChooseLstToken
+public class EquipmentToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	public String getTokenName()
@@ -29,7 +32,13 @@ public class EquipmentToken implements EqModChooseLstToken
 		return "EQUIPMENT";
 	}
 
-	public boolean parse(EquipmentModifier mod, String prefix, String value)
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, EquipmentModifier obj,
+			String value) throws PersistenceLayerException
 	{
 		if (value == null)
 		{
@@ -40,34 +49,47 @@ public class EquipmentToken implements EqModChooseLstToken
 		if (value.indexOf('[') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value);
-		mod.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
+	{
+		String chooseString = context.getObjectContext().getString(eqMod,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
+	}
+
+	public Class<EquipmentModifier> getTokenClass()
+	{
+		return EquipmentModifier.class;
 	}
 }

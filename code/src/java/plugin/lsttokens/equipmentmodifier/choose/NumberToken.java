@@ -20,11 +20,14 @@ package plugin.lsttokens.equipmentmodifier.choose;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.persistence.lst.EqModChooseLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class NumberToken implements EqModChooseLstToken
+public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	public String getTokenName()
@@ -32,43 +35,51 @@ public class NumberToken implements EqModChooseLstToken
 		return "NUMBER";
 	}
 
-	public boolean parse(EquipmentModifier mod, String prefix, String value)
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	public boolean parse(LoadContext context, EquipmentModifier obj,
+			String value) throws PersistenceLayerException
 	{
 		if (value == null)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+					+ " requires additional arguments");
 			return false;
 		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value);
 			return false;
 		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value);
 			return false;
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value);
 			return false;
 		}
 		if (value.indexOf("||") != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value);
 			return false;
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
+			Logging
+					.errorPrint("CHOOSE:" + getTokenName()
+							+ " must have two or more | delimited arguments : "
+							+ value);
 			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -80,33 +91,33 @@ public class NumberToken implements EqModChooseLstToken
 			if (tokString.startsWith("MIN="))
 			{
 				min = Integer.valueOf(tokString.substring(4));
-				//OK
+				// OK
 			}
 			else if (tokString.startsWith("MAX="))
 			{
 				max = Integer.valueOf(tokString.substring(4));
-				//OK
+				// OK
 			}
 			else if (tokString.startsWith("TITLE="))
 			{
-				//OK
+				// OK
 			}
 			else if (tokString.startsWith("INCREMENT="))
 			{
-				//OK
+				// OK
 				Integer.parseInt(tokString.substring(4));
 			}
 			else if (tokString.startsWith("NOSIGN"))
 			{
-				//OK
+				// OK
 			}
 			else if (tokString.startsWith("SKIPZERO"))
 			{
-				//OK
+				// OK
 			}
 			else if (tokString.startsWith("MULTIPLE"))
 			{
-				//OK
+				// OK
 			}
 			else
 			{
@@ -141,12 +152,25 @@ public class NumberToken implements EqModChooseLstToken
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		if (prefix.length() > 0)
-		{
-			sb.append(prefix).append('|');
-		}
 		sb.append(getTokenName()).append('|').append(value);
-		mod.setChoiceString(sb.toString());
+		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
+	{
+		String chooseString = context.getObjectContext().getString(eqMod,
+				StringKey.CHOICE_STRING);
+		if (chooseString == null)
+		{
+			return null;
+		}
+		return new String[] { chooseString
+				.substring(getTokenName().length() + 1) };
+	}
+
+	public Class<EquipmentModifier> getTokenClass()
+	{
+		return EquipmentModifier.class;
 	}
 }
