@@ -3296,6 +3296,60 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							msgKey, race_name);
 					warnings.add(msg);
 				}
+				else if (aString.startsWith(TAG_APPLIEDTO))
+				{
+					final StringTokenizer aTok =
+						new StringTokenizer(aString.substring(TAG_APPLIEDTO
+							.length()+1), TAG_SEPARATOR, false);
+					Race race = thePC.getRace();
+					while (aTok.hasMoreTokens())
+					{
+						final String appliedToKey = aTok.nextToken();
+						if (appliedToKey.startsWith(TAG_MULTISELECT))
+						{
+							//
+							// Should be in the form:
+							// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
+							//
+							final StringTokenizer msTok =
+									new StringTokenizer(appliedToKey, TAG_END, false);
+
+							if (msTok.countTokens() > 2)
+							{
+								msTok.nextToken(); // should be TAG_MULTISELECT
+
+								final int maxChoices =
+										Integer.parseInt(sTok.nextToken());
+								msTok.nextToken(); // toss this--number of choices made
+
+								final FixedStringList array = new FixedStringList(maxChoices);
+								while (msTok.hasMoreTokens())
+								{
+									array.add(msTok.nextToken());
+								}
+
+								thePC.addAssociation(race, array);
+							}
+							else
+							{
+								final String msg =
+										PropertyFactory
+											.getFormattedString(
+												"Warnings.PCGenParser.IllegalRaceIgnored", //$NON-NLS-1$
+												line);
+								warnings.add(msg);
+							}
+						}
+						else if (!thePC.containsAssociated(race, appliedToKey))
+						{
+							String[] assoc = appliedToKey.split(Constants.COMMA, -1);
+							for (String string : assoc)
+							{
+								thePC.addAssociation(race, string);
+							}
+						}
+					}
+				}
 				else
 				{
 					final String msg =
