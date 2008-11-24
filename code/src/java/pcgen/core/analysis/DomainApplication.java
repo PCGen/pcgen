@@ -85,15 +85,8 @@ public class DomainApplication
 						{
 							if (SpellLevel.levelForKey(gcs, "DOMAIN", keyName, pc) < maxLevel)
 							{
-								if (aClass
-										.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0)
-								{
-									aClass
-											.put(
-													IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY,
-													1);
-									break;
-								}
+								pc.setAssoc(aClass, AssociationKey.DOMAIN_SPELL_COUNT, 1);
+								break;
 							}
 						}
 					}

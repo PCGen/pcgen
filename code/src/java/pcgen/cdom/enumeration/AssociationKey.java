@@ -83,6 +83,8 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<String> DC_FORMULA = new AssociationKey<String>();
 
+	public static final AssociationKey<Integer> DOMAIN_SPELL_COUNT = new AssociationKey<Integer>();
+
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
 	private AssociationKey()

@@ -1202,9 +1202,10 @@ public class PCClass extends PObject
 			}
 		}
 
-		// make sure any slots due from specialties (including domains) are
-		// added
+		// make sure any slots due from specialties
 		total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
+		// (including domains) are added
+		total += aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
 
 		return total;
 	}
@@ -2530,8 +2531,9 @@ public class PCClass extends PObject
 		if (total > 0 && spellLevel > 0)
 		{
 			// make sure any slots due from specialties
-			// (including domains) are added
 			total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
+			// (including domains) are added
+			total += aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
 		}
 
 		return total;
