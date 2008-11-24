@@ -1205,7 +1205,11 @@ public class PCClass extends PObject
 		// make sure any slots due from specialties
 		total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 		// (including domains) are added
-		total += aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
+		Integer assoc = aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
+		if (assoc != null)
+		{
+			total += assoc;
+		}
 
 		return total;
 	}
@@ -2533,7 +2537,11 @@ public class PCClass extends PObject
 			// make sure any slots due from specialties
 			total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 			// (including domains) are added
-			total += aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
+			Integer assoc = aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
+			if (assoc != null)
+			{
+				total += assoc;
+			}
 		}
 
 		return total;
