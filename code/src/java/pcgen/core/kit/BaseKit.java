@@ -24,24 +24,23 @@
 package pcgen.core.kit;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collections;
+import java.util.List;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
-import pcgen.core.prereq.Prerequisite;
 
 /**
  * Common code for the kits.
  * @author Jonas Karlson <jujutsunerd@sf.net>
  * @version $Revision$
  */
-public abstract class BaseKit implements Cloneable
+public abstract class BaseKit extends ConcretePrereqObject implements Cloneable
 {
 	protected int choiceCount = 1;
-	private List<Prerequisite> prereqs = null;
 	private List<Range> options = new ArrayList<Range>();
 	private List<String> lookups = new ArrayList<String>();
 
@@ -68,29 +67,6 @@ public abstract class BaseKit implements Cloneable
 	public int getChoiceCount()
 	{
 		return choiceCount;
-	}
-
-	/**
-	 * Get a list of the prereqs for the kit.
-	 * @return the list of prereqs.
-	 */
-	public List<Prerequisite> getPrereqs()
-	{
-		return prereqs;
-	}
-
-	/**
-	 * Add a prereq for the kit.
-	 * @param argPrereq the prereq to add
-	 */
-	public void addPreReq(final Prerequisite argPrereq)
-	{
-		if (prereqs == null)
-		{
-			prereqs = new ArrayList<Prerequisite>();
-		}
-
-		prereqs.add(argPrereq);
 	}
 
 	/**
@@ -126,10 +102,6 @@ public abstract class BaseKit implements Cloneable
 		catch (CloneNotSupportedException notUsed)
 		{
 			throw new UnreachableError(notUsed);
-		}
-		if ( prereqs != null )
-		{
-			aClone.prereqs = new ArrayList<Prerequisite> (prereqs);
 		}
 		aClone.choiceCount = choiceCount;
 		if ( options != null )

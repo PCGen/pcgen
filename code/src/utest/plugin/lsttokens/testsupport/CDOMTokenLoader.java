@@ -52,13 +52,14 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 		targetClass = cl;
 	}
 
-	public void parseLine(LoadContext context, T obj, String val, URI source)
+	public boolean parseLine(LoadContext context, T obj, String val, URI source)
 			throws PersistenceLayerException
 	{
 		if (val == null)
 		{
-			return;
+			return true;
 		}
+		boolean returnValue = true;
 		StringTokenizer st = new StringTokenizer(val, "\t");
 		while (st.hasMoreTokens())
 		{
@@ -68,13 +69,14 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			{
 				Logging.errorPrint("Invalid Token - does not contain a colon: "
 						+ token);
+				returnValue &= false;
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
 				Logging.errorPrint("Invalid Token - starts with a colon: "
 						+ token);
-				continue;
+				returnValue &= false;
 			}
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
@@ -86,9 +88,11 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			else
 			{
 				Logging.replayParsedMessages();
+				returnValue &= false;
 			}
 			Logging.clearParseMessages();
 		}
+		return returnValue;
 	}
 
 	public void loadLstFiles(LoadContext context,

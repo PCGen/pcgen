@@ -22,39 +22,26 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
+import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.RaceAlignment;
 
 /**
  * Deals with the automatic assignment of an Alignment via a Kit
  */
-public class KitAlignment extends BaseKit implements Serializable, Cloneable
+public class KitAlignment extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long  serialVersionUID = 1;
-
-	private String alignmentStr = null;
+	private List<PCAlignment> alignments;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient int alignInd = -1;
-
-	/**
-	 * Constructor
-	 * @param anAlign
-	 */
-	public KitAlignment(final String anAlign)
-	{
-		alignmentStr = anAlign;
-	}
 
 	/**
 	 * Actually applies the alignment to this PC.
@@ -73,101 +60,32 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 	 * @param aKit Kit
 	 * @param warnings List
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	public boolean testApply(Kit k, PlayerCharacter aPC, List<String> warnings)
 	{
-		alignInd = -1;
-		if (alignmentStr == null || Constants.s_NONESELECTED.equals(alignmentStr))
+		PCAlignment align = null;
+		if (alignments.size() == 1)
 		{
-			return false;
-		}
-
-		final String[] alignArray = SettingsHandler.getGame().getAlignmentListStrings(false);
-
-		List<Integer> alignChoices = new ArrayList<Integer>();
-		final StringTokenizer aTok = new StringTokenizer(alignmentStr, "|");
-		while (aTok.hasMoreTokens())
-		{
-			String align = aTok.nextToken();
-			try
-			{
-				int alignIndicator = Integer.parseInt(align);
-				alignChoices.add(alignIndicator);
-			}
-			catch (NumberFormatException e)
-			{
-				for (int i = 0; i < alignArray.length; i++)
-				{
-					if (align.equalsIgnoreCase(alignArray[i]))
-					{
-						alignChoices.add( i );
-						break;
-					}
-				}
-			}
-		}
-		if (alignChoices.size() == 0)
-		{
-			if (warnings != null)
-			{
-				warnings.add("ALIGNMENT: Unknown alignment \"" + alignmentStr +
-							 "\"");
-			}
-			return false;
-		}
-		final String[] longAlignArray = SettingsHandler.getGame().getAlignmentListStrings(true);
-		if (alignChoices.size() == 1)
-		{
-			Integer intAlign = alignChoices.get(0);
-			alignInd = intAlign.intValue();
+			align = alignments.get(0);
 		}
 		else
 		{
-			// Build the string list.
-			List<String> choices = new ArrayList<String>(alignChoices.size());
-
-			for ( int choice : alignChoices )
-			{
-				choices.add( longAlignArray[choice] );
-			}
-
-			String align = null;
 			while (true)
 			{
-				List<String> sel = new ArrayList<String>(1);
-				Globals.getChoiceFromList("Choose alignment", choices, sel, 1);
+				List<PCAlignment> sel = new ArrayList<PCAlignment>(1);
+				Globals.getChoiceFromList("Choose alignment", alignments, sel,
+					1);
 				if (sel.size() == 1)
 				{
 					align = sel.get(0);
 					break;
 				}
 			}
-			// Now we have to map it back to an integer.
-			for (int i = 0; i < longAlignArray.length; i++)
-			{
-				if (align.equalsIgnoreCase(longAlignArray[i]))
-				{
-					alignInd = i;
-					break;
-				}
-			}
 		}
-
-		try
-		{
-			aPC.setAlignment(alignInd, false);
-		}
-		catch (IllegalArgumentException ex)
-		{
-			warnings.add("Character not allowed to select alignment " + longAlignArray[alignInd]);
-		}		
-
-		return true;
-	}
-
-	@Override
-	public KitAlignment clone()
-	{
-		return (KitAlignment) super.clone();
+		alignInd =
+				SettingsHandler.getGame().getIndexOfAlignment(
+					align.getKeyName());
+		return RaceAlignment.canBeAlignment(aPC.getRace(), Integer
+			.toString(alignInd));
 	}
 
 	public String getObjectName()
@@ -178,58 +96,46 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 	@Override
 	public String toString()
 	{
-		if (alignmentStr == null || Constants.s_NONESELECTED.equals(alignmentStr))
+		if (alignments == null || alignments.isEmpty())
 		{
+			//CONSIDER can this ever happen and not be an error that should be caught at LST load?
 			return "";
 		}
-
-		final String[] alignArray = SettingsHandler.getGame().getAlignmentListStrings(false);
-		List<Integer> alignChoices = new ArrayList<Integer>();
-
-		final StringTokenizer aTok = new StringTokenizer(alignmentStr, "|");
-
-		while (aTok.hasMoreTokens())
+		if (alignments.size() == 1)
 		{
-			String align = aTok.nextToken();
-			try
+			return alignments.get(0).getDisplayName();
+		}
+		else
+		{
+			// Build the string list.
+			StringBuffer buf = new StringBuffer();
+			buf.append("One of (");
+			boolean needComma = false;
+			for (PCAlignment al : alignments)
 			{
-				int alignIndicator = Integer.parseInt(align);
-				alignChoices.add( alignIndicator );
-			}
-			catch (NumberFormatException e)
-			{
-				for (int i = 0; i < alignArray.length; i++)
+				if (needComma)
 				{
-					if (align.equalsIgnoreCase(alignArray[i]))
-					{
-						alignChoices.add( i );
-						break;
-					}
+					buf.append(", ");
 				}
+				needComma = true;
+				buf.append(al.getDisplayName());
 			}
+			buf.append(")");
+			return buf.toString();
 		}
-		if (alignChoices.size() == 0)
-		{
-			return "";
-		}
+	}
 
-		final String[] longAlignArray = SettingsHandler.getGame().getAlignmentListStrings(true);
-		if (alignChoices.size() == 1)
+	public void addAlignment(PCAlignment ref)
+	{
+		if (alignments == null)
 		{
-			return longAlignArray[ alignChoices.get(0) ];
+			alignments = new ArrayList<PCAlignment>();
 		}
-		// Build the string list.
-		StringBuffer buf = new StringBuffer();
-		buf.append("One of (");
-		for ( int i : alignChoices )
-		{
-			if (i != 0)
-			{
-				buf.append(", ");
-			}
-			buf.append(longAlignArray[ i ]);
-		}
-		buf.append(")");
-		return buf.toString();
+		alignments.add(ref);
+	}
+
+	public List<PCAlignment> getAlignments()
+	{
+		return alignments;
 	}
 }

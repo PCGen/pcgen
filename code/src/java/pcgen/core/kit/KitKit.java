@@ -23,12 +23,12 @@
 package pcgen.core.kit;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Kit;
-import java.util.ArrayList;
+import pcgen.core.PlayerCharacter;
 
 /**
  * Applies the Kit
@@ -44,7 +44,7 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 	// not cloned.
 	private transient Kit theKit = null;
 	private transient List<BaseKit> thingsToAdd = null;
-
+	
 	/**
 	 * Constructor
 	 * @param aKit

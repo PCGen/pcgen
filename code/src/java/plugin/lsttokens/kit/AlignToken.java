@@ -25,22 +25,24 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
+import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Kit;
+import pcgen.cdom.base.CDOMObjectUtilities;
+import pcgen.cdom.base.Constants;
+import pcgen.core.PCAlignment;
 import pcgen.core.kit.KitAlignment;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.BaseKitLoader;
-import pcgen.persistence.lst.KitLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
  * Handles the ALIGN tag for a Kit. Also will handle any Common tags on the
  * ALIGN line.
  */
-public class AlignToken extends KitLstToken
+public class AlignToken extends AbstractToken implements
+		CDOMSecondaryToken<KitAlignment>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -52,42 +54,50 @@ public class AlignToken extends KitLstToken
 		return "ALIGN";
 	}
 
-	/**
-	 * Handles parsing the ALIGN and any Common tags for this Kit line.
-	 * 
-	 * @param aKit
-	 *            the Kit object to add this information to
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
-		throws PersistenceLayerException
+	public Class<KitAlignment> getTokenClass()
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		KitAlignment kAlign = new KitAlignment(colToken.nextToken());
+		return KitAlignment.class;
+	}
 
-		while (colToken.hasMoreTokens())
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitAlignment kitAlignment,
+		String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			final String colString = colToken.nextToken();
-			if (colString.startsWith("ALIGN:"))
-			{
-				Logging.errorPrint("Ignoring second ALIGN tag \"" + colString
-					+ "\"");
-			}
-			else
-			{
-				if (BaseKitLoader.parseCommonTags(kAlign, colString, source) == false)
-				{
-					throw new PersistenceLayerException(
-						"Unknown KitAlign info " + " \"" + colString + "\"");
-				}
-			}
+			return false;
 		}
-		aKit.addObject(kAlign);
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+
+		while (tok.hasMoreTokens())
+		{
+			String tokText = tok.nextToken();
+			PCAlignment ref = context.ref.getAbbreviatedObject(
+						PCAlignment.class, tokText);
+			if (ref == null)
+			{
+				Logging.addParseMessage(Logging.LST_ERROR,
+					"Cannot find Alignment: " + tokText + " part of " + value);
+				return false;
+			}
+			kitAlignment.addAlignment(ref);
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitAlignment kitAlignment)
+	{
+		List<PCAlignment> alignments = kitAlignment.getAlignments();
+		if (alignments == null)
+		{
+			return null;
+		}
+		return new String[]{CDOMObjectUtilities.joinKeyName(alignments,
+			Constants.PIPE)};
 	}
 }

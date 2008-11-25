@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -54,7 +55,6 @@ public final class Kit extends PObject implements Comparable<Object>
 	public static final int APPLY_INSTANT   = 1;
 
 	private int       kitVisible     = VISIBLE_YES;
-	private final List<BaseKit> theObjects = new ArrayList<BaseKit>();
 
 	private final HashMap<String, LookupTable> lookupTables = new HashMap<String, LookupTable>();
 
@@ -79,7 +79,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	 */
 	public void addObject(final BaseKit anObject)
 	{
-		theObjects.add(anObject);
+		addToListFor(ListKey.KIT_TASKS, anObject);
 	}
 
 	/**
@@ -356,9 +356,9 @@ public final class Kit extends PObject implements Comparable<Object>
 			kStat.testApply(this, tempPC, warnings);
 		}
 
-		for ( BaseKit baseKit : theObjects )
+		for ( BaseKit baseKit : getSafeListFor(ListKey.KIT_TASKS) )
 		{
-			if (!PrereqHandler.passesAll(baseKit.getPrereqs(), tempPC, this))
+			if (!PrereqHandler.passesAll(baseKit.getPrerequisiteList(), tempPC, this))
 			{
 				continue;
 			}
@@ -373,6 +373,7 @@ public final class Kit extends PObject implements Comparable<Object>
 			}
 		}
 	}
+	
 
 	private class ObjectTypeComparator implements Comparator<BaseKit>
 	{
@@ -403,7 +404,7 @@ public final class Kit extends PObject implements Comparable<Object>
 		}
 
 		List<BaseKit> sortedObjects = new ArrayList<BaseKit>();
-		sortedObjects.addAll(theObjects);
+		sortedObjects.addAll(getSafeListFor(ListKey.KIT_TASKS));
 		Collections.sort(sortedObjects, new ObjectTypeComparator());
 
 		String lastObjectName = "";
@@ -427,6 +428,7 @@ public final class Kit extends PObject implements Comparable<Object>
 		}
 		info.append("  <b>Source</b>: ").append(getDefaultSourceString());
 		info.append("</html>");
+		//TODO ListKey.KIT_TASKS
 		return info.toString();
 	}
 

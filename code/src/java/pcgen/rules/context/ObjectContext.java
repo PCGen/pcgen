@@ -388,6 +388,10 @@ public class ObjectContext
 
 		private CDOMObject getNegative(URI source, CDOMObject cdo)
 		{
+			if (cdo == null)
+			{
+				throw new IllegalArgumentException("Cannot remove contents from null object");
+			}
 			CDOMObject negative = negativeMap.get(source, cdo);
 			if (negative == null)
 			{
@@ -404,6 +408,10 @@ public class ObjectContext
 
 		private CDOMObject getPositive(URI source, ConcretePrereqObject cdo)
 		{
+			if (cdo == null)
+			{
+				throw new IllegalArgumentException("Cannot assign contents to null object");
+			}
 			CDOMObject positive = positiveMap.get(source, cdo);
 			if (positive == null)
 			{

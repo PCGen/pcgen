@@ -55,8 +55,7 @@ public class BaseKitLoader
 		{
 			final PreParserFactory factory = PreParserFactory.getInstance();
 			Prerequisite prereq = factory.parse(tag);
-
-			obj.addPreReq(prereq);
+			obj.addPrerequisite(prereq);
 			return true;
 		}
 

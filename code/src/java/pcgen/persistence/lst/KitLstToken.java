@@ -29,13 +29,14 @@ import java.net.URI;
 
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.token.AbstractToken;
 
 /**
  * <code>KitLstToken</code>
  *
  * @author  Aaron Divinsky <boomer70@yahoo.com>
  */
-public abstract class KitLstToken implements LstToken
+public abstract class KitLstToken extends AbstractToken implements LstToken
 {
 	/**
 	 * Parses a Kit object

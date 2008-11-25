@@ -26,12 +26,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
+import pcgen.core.kit.KitAlignment;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.CDOMKitLoader;
+import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 /**
  * 
@@ -40,57 +45,113 @@ import pcgen.util.Logging;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class KitLoader extends LstObjectFileLoader<Kit> {
+public final class KitLoader extends LstObjectFileLoader<Kit>
+{
 
-	@Override
-	protected Kit getObjectKeyed(String aKey) {
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Kit.class, aKey);
+	private final CDOMKitLoader kitLoader = new CDOMKitLoader();
+
+	public KitLoader()
+	{
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAlignment>(
+			"*KITTOKEN", "ALIGN", KitAlignment.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitRace>("*KITTOKEN",
+		//			"RACE", CDOMKitRace.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitSkill>(
+		//			"*KITTOKEN", "SKILL", CDOMKitSkill.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitGear>("*KITTOKEN",
+		//			"GEAR", CDOMKitGear.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitSpells>(
+		//			"*KITTOKEN", "SPELLS", CDOMKitSpells.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitStat>("*KITTOKEN",
+		//			"STAT", CDOMKitStat.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitAbility>(
+		//			"*KITTOKEN", "FEAT", CDOMKitAbility.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitAbility>(
+		//			"*KITTOKEN", "ABILITY", CDOMKitAbility.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitName>("*KITTOKEN",
+		//			"NAME", CDOMKitName.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitLevelAbility>(
+		//			"*KITTOKEN", "LEVELABILITY", CDOMKitLevelAbility.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitClass>(
+		//			"*KITTOKEN", "CLASS", CDOMKitClass.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitTemplate>(
+		//			"*KITTOKEN", "TEMPLATE", CDOMKitTemplate.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitDeity>(
+		//			"*KITTOKEN", "DEITY", CDOMKitDeity.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitKit>("*KITTOKEN",
+		//			"KIT", CDOMKitKit.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitTable>(
+		//			"*KITTOKEN", "TABLE", CDOMKitTable.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitSelect>(
+		//			"*KITTOKEN", "SELECT", CDOMKitSelect.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitGender>(
+		//			"*KITTOKEN", "GENDER", CDOMKitGender.class));
+		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitFunds>(
+		//			"*KITTOKEN", "FUNDS", CDOMKitFunds.class));
 	}
 
 	@Override
-	public Kit parseLine(LoadContext context, Kit target, String inputLine, CampaignSourceEntry source)
-			throws PersistenceLayerException {
+	protected Kit getObjectKeyed(String aKey)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			Kit.class, aKey);
+	}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				KitLstToken.class);
+	@Override
+	public Kit parseLine(LoadContext context, Kit target, String inputLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
+	{
+
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitLstToken.class);
 
 		// We will find the first ":" for the "controlling" line token
 		final int idxColon = inputLine.indexOf(':');
 		String key = "";
-		try {
+		try
+		{
 			key = inputLine.substring(0, idxColon);
-		} catch (StringIndexOutOfBoundsException e) {
+		}
+		catch (StringIndexOutOfBoundsException e)
+		{
 			// TODO Handle Exception
 		}
 		KitLstToken token = (KitLstToken) tokenMap.get(key);
 
-		if (inputLine.startsWith("STARTPACK:")) {
+		if (inputLine.startsWith("STARTPACK:"))
+		{
 			target = new Kit();
 			target.setSourceCampaign(source.getCampaign());
 			target.setSourceURI(source.getURI());
-			if (kitPrereq != null) {
+			if (kitPrereq != null)
+			{
 				target.addPrerequisite(KitLoader.kitPrereq);
 			}
-			if (globalTokens != null) {
-				for (String tag : globalTokens) {
+			if (globalTokens != null)
+			{
+				for (String tag : globalTokens)
+				{
 					final String gt = tag.trim();
 					final int colonLoc = gt.indexOf(':');
 					if (colonLoc == -1)
 					{
-						Logging.errorPrint("Invalid Token - does not contain a colon: "
+						Logging
+							.errorPrint("Invalid Token - does not contain a colon: "
 								+ gt);
 						continue;
 					}
 					else if (colonLoc == 0)
 					{
-						Logging.errorPrint("Invalid Token - starts with a colon: "
+						Logging
+							.errorPrint("Invalid Token - starts with a colon: "
 								+ gt);
 						continue;
 					}
 
 					String gkey = gt.substring(0, colonLoc);
-					String value = (colonLoc == gt.length() - 1) ? null : gt
-							.substring(colonLoc + 1);
+					String value =
+							(colonLoc == gt.length() - 1) ? null : gt
+								.substring(colonLoc + 1);
 					if (context.processToken(target, gkey, value))
 					{
 						context.commit();
@@ -103,20 +164,29 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 				}
 			}
 		}
-
-		if (token != null) {
-			final String value = inputLine.substring(idxColon + 1);
-			LstUtils.deprecationCheck(token, target, value);
-			if (!token.parse(target, value, source.getURI())) {
-				Logging.errorPrint("Error parsing Kit tag "
-						+ target.getDisplayName() + ':' + source.getURI()
-						+ ':' + inputLine + "\"");
-			}
-		} else {
-			Logging.errorPrint("Unknown kit info " + source.toString() + ":"
-					+ " \"" + inputLine + "\"");
+		if (kitLoader.parseSubLine(context, target, inputLine, source.getURI()))
+		{
+			Logging.clearParseMessages();
+			context.commit();
 		}
-
+		else
+		{
+			if (token == null)
+			{
+				Logging.replayParsedMessages();
+			}
+			else
+			{
+				final String value = inputLine.substring(idxColon + 1);
+				LstUtils.deprecationCheck(token, target, value);
+				if (!token.parse(target, value, source.getURI()))
+				{
+					Logging.replayParsedMessages();
+				}
+			}
+			Logging.clearParseMessages();
+		}
+//System.err.println(target.getListFor(ListKey.KIT_TASKS));
 		return target;
 	}
 
@@ -124,27 +194,33 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 
 	static Prerequisite kitPrereq = null;
 
-	public static void addGlobalToken(String string) {
-		if (globalTokens == null) {
+	public static void addGlobalToken(String string)
+	{
+		if (globalTokens == null)
+		{
 			globalTokens = new ArrayList<String>();
 		}
 		globalTokens.add(string);
 	}
 
-	public static void setKitPrerequisite(Prerequisite p) {
+	public static void setKitPrerequisite(Prerequisite p)
+	{
 		kitPrereq = p;
 	}
 
-	public static void clearGlobalTokens() {
+	public static void clearGlobalTokens()
+	{
 		globalTokens = null;
 	}
 
-	public static void clearKitPrerequisites() {
+	public static void clearKitPrerequisites()
+	{
 		kitPrereq = null;
 	}
-	
+
 	@Override
-	protected void loadLstFile(LoadContext context, CampaignSourceEntry cse) {
+	protected void loadLstFile(LoadContext context, CampaignSourceEntry cse)
+	{
 		clearGlobalTokens();
 		clearKitPrerequisites();
 		super.loadLstFile(context, cse);
