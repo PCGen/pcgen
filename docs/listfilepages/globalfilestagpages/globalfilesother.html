@@ -625,16 +625,14 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> [NAME] (This is replaced by anything in
 		parenthesis on output)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Alters the name of the object when output.</p>
-	<p class="indent2">When the [NAME] tag is used it will be replaced by whatever
-		is in parenthesis in the object's name, or the object name if no parenthetical exists in the object's
-		name.</p>
-	<p class="indent2">This is useful when the name you wish to appear on the output sheet would contains
-		symbols that might interfere with the program. It also helps to keep the list orderly as you can group
-		a series of objects like scrolls and potions together without sacrificing the preferred name of the
-		object.</p>
-	<p class="indent2">You can use a % to add a variable number to the output in the same way the SAB tag
-		works. <a href="#SAB">See the global tag SAB</a> for details</p>
+	<ul class="indent2">
+		<li>Alters the name of the object when output.</li>
+		<li>The <code>[NAME]</code> tag, when used, will be replaced by the parenthetical text in the object's name.</li>
+		<li>If the <code>[NAME]</code> tag is used where there is no parenthetical text the object name itself is output.</li>
+	</ul>
+	<p class="sidebar1">This tag is used when the name you wish to appear on the output sheet contains symbols that might 
+			interfere with the program. It also helps to keep the list orderly as you can group a series of objects like 
+			scrolls and potions together without sacrificing the preferred name of the object.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>OUTPUTNAME:Jason's [NAME]</code></p>
 	<p class="indent3">LST entry &quot;Magic Spell&quot; will output as &quot;Jason's Magic Spell&quot;</p>
@@ -647,8 +645,6 @@
 	<p class="indent3">LST entry &quot;Formian (Queen)&quot; will output as &quot;Formian Queen&quot;.</p>
 	<p class="indent2"><code>OUTPUTNAME:Potion of [NAME]</code></p>
 	<p class="indent3">LST entry &quot;Potion (Glibness)&quot; will output as &quot;Potion of Glibness&quot;.</p>
-	<p class="indent2"><code>OUTPUTNAME:Magic Sword +%|((TL/5)+1)</code></p>
-	<p class="indent3">If the character is level 10 this would output as &quot;Magic Sword +2&quot;.</p>
 	<p class="indent2"><code>Clenched Fist.MOD &lt;tab&gt; OUTPUTNAME:Big [NAME]</code></p>
 	<p class="indent3">This spell will output as &quot;Big Clenched Fist&quot;.</p>
 	<p></p>
