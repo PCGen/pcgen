@@ -28,9 +28,6 @@ KIT:arcanacreatures_kits_defaultmonsters.lst
 KIT:arcanacreatures_kits_defaultmonsters_dragons.lst
 SPELL:arcanacreatures_spells.lst
 
-# Stuff referenced from other MSRD sets
-WEAPONPROF:@/d20ogl/msrd/menaces/menaces_weaponprofs_natural.lst
-
 #
 # End
 #
