@@ -1989,8 +1989,8 @@ final class PCGVer2Creator implements IOConstants
 
 		for (PCClass pcClass : thePC.getClassList())
 		{
-			for (CharacterSpell cSpell : pcClass.getSpellSupport()
-				.getCharacterSpells(null, Constants.EMPTY_STRING, -1))
+			for (CharacterSpell cSpell : thePC
+				.getCharacterSpells(pcClass, null, Constants.EMPTY_STRING, -1))
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{

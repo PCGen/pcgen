@@ -39,7 +39,7 @@ import java.util.List;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class CharacterSpell implements Comparable<Object>
+public final class CharacterSpell implements Comparable<CharacterSpell>
 {
 	private final List<SpellInfo> infoList = new ArrayList<SpellInfo>();
 	private final PObject owner; // PCClass/Race/etc. in whose list this object resides
@@ -250,12 +250,9 @@ public final class CharacterSpell implements Comparable<Object>
 	 *         is less than, equal to, or greater than the specified object.
 	 * @see Comparable#compareTo(Object)
 	 */
-	public int compareTo(final Object obj)
+	public int compareTo(final CharacterSpell obj)
 	{
-		// this should throw a ClassCastException for
-		// non-CharacterSpell just like the Comparable
-		// interface calls for BUT IT DOESN'T!!!
-		return spell.compareTo(((CharacterSpell) obj).spell);
+		return spell.compareTo(obj.spell);
 	}
 
 	/**

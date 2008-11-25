@@ -1696,14 +1696,13 @@ final class PCGVer0Parser implements PCGParser
 			}
 
 			CharacterSpell cs =
-					aClass.getSpellSupport().getCharacterSpellForSpell(aSpell,
-						aClass);
+				aPC.getCharacterSpellForSpell(aClass, aSpell);
 
 			if (cs == null)
 			{
 				cs = new CharacterSpell(aClass, aSpell);
 				cs.addInfo(sLevel, 1, Globals.getDefaultSpellBook());
-				aClass.getSpellSupport().addCharacterSpell(cs);
+				aPC.addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
 			}
 
 			SpellInfo si = null;
@@ -2095,8 +2094,7 @@ final class PCGVer0Parser implements PCGParser
 			}
 
 			CharacterSpell cs =
-					aClass.getSpellSupport().getCharacterSpellForSpell(aSpell,
-						aClass);
+				aPC.getCharacterSpellForSpell(aClass, aSpell);
 
 			if (cs == null)
 			{
@@ -2107,7 +2105,7 @@ final class PCGVer0Parser implements PCGParser
 					cs.addInfo(level, 1, Globals.getDefaultSpellBook());
 				}
 
-				aClass.getSpellSupport().addCharacterSpell(cs);
+				aPC.addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
 			}
 
 			SpellInfo si = null;
@@ -2141,7 +2139,7 @@ final class PCGVer0Parser implements PCGParser
 		for (Iterator sp = aPC.getClassList().iterator(); sp.hasNext();)
 		{
 			final PCClass aClass = (PCClass) sp.next();
-			aClass.getSpellSupport().sortCharacterSpellList();
+			aPC.sortAssocList(aClass, AssociationListKey.CHARACTER_SPELLS);
 		}
 
 		return i;

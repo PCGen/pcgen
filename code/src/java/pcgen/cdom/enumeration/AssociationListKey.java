@@ -41,6 +41,7 @@ import pcgen.core.Skill;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
 /**
@@ -93,6 +94,9 @@ public final class AssociationListKey<T>
 			new AssociationListKey<SpellProhibitor>();
 
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
+
+	public static final AssociationListKey<CharacterSpell> CHARACTER_SPELLS =
+			new AssociationListKey<CharacterSpell>();
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

@@ -17,6 +17,7 @@
  */
 package pcgen.core;
 
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 
@@ -112,5 +113,15 @@ public class AssociationSupport implements Cloneable
 	public boolean containsAssocList(Object o, AssociationListKey<?> alk)
 	{
 		return assocMTL.containsListFor(o, alk);
+	}
+
+	public <T extends Comparable<T>> void sortAssocList(Object obj, AssociationListKey<T> ak)
+	{
+		List list = assocMTL.removeListFor(obj, ak);
+		if (list != null)
+		{
+			Collections.sort(list);
+			assocMTL.addAllToListFor(obj, ak, list);
+		}
 	}
 }

@@ -30,6 +30,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -675,8 +676,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				}
 				bookNodes[ix].setParent(theRoot);
 				List<CharacterSpell> spells =
-						pc.getRace().getSpellSupport().getCharacterSpells(null,
-							bookName, -1);
+						pc.getCharacterSpells(pc.getRace(), null, bookName, -1);
 				for (Object obj : spells)
 				{
 					if (obj instanceof Spell)
@@ -804,8 +804,11 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								else if (cs.getOwner() instanceof Domain)
 								{
 									primaryMatch =
-											aClass.getSpellSupport()
-												.containsCharacterSpell(cs);
+											pc
+												.containsAssoc(
+													aClass,
+													AssociationListKey.CHARACTER_SPELLS,
+													cs);
 								}
 								else
 								{
@@ -1147,10 +1150,11 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				 */
 				else
 				{
-					spellList.addAll(aClass.getSpellSupport()
-						.getCharacterSpellList());
-					for (Object tempSpell : aClass.getSpellSupport()
-						.getCharacterSpellList())
+					Collection<CharacterSpell> cSpells =
+							pc.getSafeAssocList(aClass,
+								AssociationListKey.CHARACTER_SPELLS);
+					spellList.addAll(cSpells);
+					for (Object tempSpell : cSpells)
 					{
 						Spell spell;
 						if (tempSpell instanceof CharacterSpell)

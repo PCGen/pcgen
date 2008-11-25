@@ -28,6 +28,7 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -35,6 +36,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SpellSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -108,10 +110,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
 		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
 		Globals.getContext().ref.importObject(arcaneClass);
-		CharacterSpell aCharacterSpell =
-				new CharacterSpell(arcaneClass, testSpell);
-		aCharacterSpell.addInfo(1, 1, null);
-		arcaneClass.getSpellSupport().addCharacterSpell(aCharacterSpell);
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
@@ -122,9 +120,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
 		Globals.getContext().ref.importObject(divineClass);
-		aCharacterSpell = new CharacterSpell(divineClass, testSpell);
-		aCharacterSpell.addInfo(1, 1, null);
-		divineClass.getSpellSupport().addCharacterSpell(aCharacterSpell);
 	}
 
 	/*
@@ -149,10 +144,15 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		String spellBook = "Travel";
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);
+		PCClass ac = character.getClassKeyed(arcaneClass.getKeyName());
+		CharacterSpell aCharacterSpell =
+				new CharacterSpell(ac, testSpell);
+		aCharacterSpell.addInfo(1, 1, null);
+		character.addAssoc(ac, AssociationListKey.CHARACTER_SPELLS,
+			aCharacterSpell);
 		character.addSpellBook(spellBook);
 		List<CharacterSpell> spellList =
-				arcaneClass.getSpellSupport().getCharacterSpells(testSpell, "",
-					1);
+				character.getCharacterSpells(ac, testSpell, "", 1);
 		CharacterSpell charSpell = spellList.get(0);
 
 		String result =
@@ -180,10 +180,15 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		String spellBook = "Travel";
 		character.setRace(human);
 		character.incrementClassLevel(1, divineClass, true);
+		PCClass dc = character.getClassKeyed(divineClass.getKeyName());
+		CharacterSpell aCharacterSpell =
+				new CharacterSpell(dc, testSpell);
+		aCharacterSpell.addInfo(1, 1, null);
+		character.addAssoc(dc, AssociationListKey.CHARACTER_SPELLS,
+			aCharacterSpell);
 		character.addSpellBook(spellBook);
 		List<CharacterSpell> spellList =
-				divineClass.getSpellSupport().getCharacterSpells(testSpell, "",
-					1);
+				character.getCharacterSpells(dc, testSpell, "", 1);
 		CharacterSpell charSpell = spellList.get(0);
 
 		String result =

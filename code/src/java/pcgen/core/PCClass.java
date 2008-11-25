@@ -502,8 +502,7 @@ public class PCClass extends PObject
 			for (int ix = 0; ix <= spellLevel; ++ix)
 			{
 				final List<CharacterSpell> aList =
-						getSpellSupport().getCharacterSpells(null,
-							Constants.EMPTY_STRING, ix);
+						aPC.getCharacterSpells(this, null, Constants.EMPTY_STRING, ix);
 				List<Spell> bList = new ArrayList<Spell>();
 
 				if (!aList.isEmpty())
@@ -1521,14 +1520,14 @@ public class PCClass extends PObject
 			return;
 		}
 
-		if (getSpellSupport().getCharacterSpellCount() == 0)
+		if (!aPC.hasAssocs(this, AssociationListKey.CHARACTER_SPELLS))
 		{
 			return;
 		}
 
 		for (Iterator<CharacterSpell> iter =
-				getSpellSupport().getCharacterSpellList().iterator(); iter
-			.hasNext();)
+				aPC.getSafeAssocList(this, AssociationListKey.CHARACTER_SPELLS)
+					.iterator(); iter.hasNext();)
 		{
 			final CharacterSpell charSpell = iter.next();
 
@@ -1608,15 +1607,14 @@ public class PCClass extends PObject
 							true, aPC))
 						{
 							CharacterSpell cs =
-									getSpellSupport()
-										.getCharacterSpellForSpell(spell, this);
+								aPC.getCharacterSpellForSpell(this, spell);
 							if (cs == null)
 							{
 								// Create a new character spell for this level.
 								cs = new CharacterSpell(this, spell);
 								cs.addInfo(spellLevel, 1, Globals
 									.getDefaultSpellBook());
-								getSpellSupport().addCharacterSpell(cs);
+								aPC.addAssoc(this, AssociationListKey.CHARACTER_SPELLS, cs);
 							}
 							else
 							{
@@ -1640,8 +1638,8 @@ public class PCClass extends PObject
 			{
 				if ((cd.getDomain() != null) && cd.isFromPCClass(getKeyName()))
 				{
-					DomainApplication.addSpellsToClassForLevels(cd.getDomain(),
-							this, 0, _maxLevel);
+					DomainApplication.addSpellsToClassForLevels(aPC,
+							cd.getDomain(), this, 0, _maxLevel);
 				}
 			}
 		}
@@ -3211,13 +3209,14 @@ public class PCClass extends PObject
 	 * 
 	 * @param aLevel
 	 * @param bookName
+	 * @param pc TODO
 	 * @return int
 	 */
-	int memorizedSpecialtiesForLevelBook(final int aLevel, final String bookName)
+	int memorizedSpecialtiesForLevelBook(final int aLevel, final String bookName, PlayerCharacter pc)
 	{
 		int m = 0;
 		final List<CharacterSpell> aList =
-				getSpellSupport().getCharacterSpells(null, bookName, aLevel);
+				pc.getCharacterSpells(this, null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{
@@ -3235,11 +3234,11 @@ public class PCClass extends PObject
 		return m;
 	}
 
-	int memorizedSpellForLevelBook(final int aLevel, final String bookName)
+	int memorizedSpellForLevelBook(PlayerCharacter pc, final int aLevel, final String bookName)
 	{
 		int m = 0;
 		final List<CharacterSpell> aList =
-				getSpellSupport().getCharacterSpells(null, bookName, aLevel);
+				pc.getCharacterSpells(this, null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{

@@ -3363,8 +3363,7 @@ public final class ExportHandler
 		if (aObject != null)
 		{
 			final List<CharacterSpell> aList =
-					aObject.getSpellSupport().getCharacterSpells(null,
-						bookName, levelNum);
+					aPC.getCharacterSpells(aObject, null, bookName, levelNum);
 			canWrite = !aList.isEmpty();
 		}
 

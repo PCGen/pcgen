@@ -6,6 +6,7 @@
 
 package plugin.charactersheet.gui;
 
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.*;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
@@ -410,14 +411,14 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 						.getDefaultSpellBook(), pc));
 
 				spellList =
-						pcclass.getSpellSupport().getCharacterSpells(null,
-							Globals.getDefaultSpellBook(), level);
+						pc.getCharacterSpells(pcclass, null, Globals.getDefaultSpellBook(), level);
 				spellBook = Globals.getDefaultSpellBook();
 			}
 			else
 			{
 				spellList =
-						pc.getRace().getSpellSupport().getCharacterSpellList();
+						pc.getSafeAssocList(pc.getRace(),
+							AssociationListKey.CHARACTER_SPELLS);
 				spellBook = Globals.INNATE_SPELL_BOOK_NAME;
 			}
 

@@ -27,12 +27,14 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SpellSupport;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
@@ -71,7 +73,7 @@ public class DomainApplication
 
 					if (maxLevel > 0)
 					{
-						addSpellsToClassForLevels(d, aClass, 0, maxLevel - 1);
+						addSpellsToClassForLevels(pc, d, aClass, 0, maxLevel - 1);
 					}
 
 					if ((maxLevel > 1)
@@ -108,8 +110,8 @@ public class DomainApplication
 				for (Spell s : spells)
 				{
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
-					List<CharacterSpell> aList = aClass.getSpellSupport()
-							.getCharacterSpells(s, book, -1);
+					List<CharacterSpell> aList = pc
+							.getCharacterSpells(aClass, s, book, -1);
 
 					if (aList.isEmpty())
 					{
@@ -119,7 +121,7 @@ public class DomainApplication
 						int resolvedTimes = times.resolve(pc,
 								d.getQualifiedKey()).intValue();
 						cs.addInfo(1, resolvedTimes, book);
-						aClass.getSpellSupport().addCharacterSpell(cs);
+						pc.addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
 					}
 				}
 			}
@@ -142,8 +144,8 @@ public class DomainApplication
 		}
 	}
 
-	public static void addSpellsToClassForLevels(Domain d, PCClass aClass,
-			int minLevel, int maxLevel)
+	public static void addSpellsToClassForLevels(PlayerCharacter pc, Domain d,
+			PCClass aClass, int minLevel, int maxLevel)
 	{
 		if (aClass == null)
 		{
@@ -157,9 +159,9 @@ public class DomainApplication
 
 			for (Spell spell : domainSpells)
 			{
-				List<CharacterSpell> slist = aClass.getSpellSupport()
-						.getCharacterSpells(spell,
-								Globals.getDefaultSpellBook(), aLevel);
+				List<CharacterSpell> slist =
+						pc.getCharacterSpells(aClass, spell, Globals
+							.getDefaultSpellBook(), aLevel);
 				boolean flag = true;
 
 				for (CharacterSpell cs1 : slist)
@@ -176,7 +178,7 @@ public class DomainApplication
 				{
 					CharacterSpell cs = new CharacterSpell(d, spell);
 					cs.addInfo(aLevel, 1, Globals.getDefaultSpellBook());
-					aClass.getSpellSupport().addCharacterSpell(cs);
+					pc.addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
 				}
 			}
 		}

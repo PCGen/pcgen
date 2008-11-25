@@ -320,10 +320,9 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 			{
 				final PCClass aClass = classes.get(j);
 
-				final List<CharacterSpell> aList = aClass.getSpellSupport().getCharacterSpells(
-						null,
-						Globals.getDefaultSpellBook(),
-						-1);
+				final List<CharacterSpell> aList = aPC.getCharacterSpells(
+						aClass,
+						null, Globals.getDefaultSpellBook(), -1);
 
 				for ( CharacterSpell cs : aList )
 				{

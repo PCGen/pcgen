@@ -607,8 +607,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			classKey = aClass.getKeyName();
 		}
 		List<CharacterSpell> aList =
-				aClass.getSpellSupport().getCharacterSpells(aSpell,
-					spellInfo.getBook(), spLevel);
+				pc.getCharacterSpells(aClass, aSpell, spellInfo.getBook(), spLevel);
 		returnList.add(spellA);
 		returnList.add(classKey);
 		returnList.add(String.valueOf(spLevel));

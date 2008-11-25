@@ -25,9 +25,6 @@
 package pcgen.core;
 
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,11 +34,8 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
@@ -63,15 +57,6 @@ public class SpellSupport implements Cloneable
 			new DoubleKeyMap<String, String, Info>();
 	private HashMap<String, List<Prerequisite>> preReqSpellLevelMap =
 			new HashMap<String, List<Prerequisite>>();
-
-	/*
-	 * CONSIDER Would eventually like to make this a Collection, and transfer it
-	 * to a TreeSet, so that it is automatically sorted... unfortunately, that
-	 * is a bit compilacated, since POBject doesn't properly implement the
-	 * Comparable interface, and I need to understand when duplicates are legal
-	 * in order to properly write my own Comparator.
-	 */
-	private List<CharacterSpell> characterSpellList = null;
 
 	/**
 	 * Clear the spell level map 
@@ -322,198 +307,12 @@ public class SpellSupport implements Cloneable
 		return tempMap;
 	}
 
-	/**
-	 * Remove a spell from the character spell list
-	 * @param spell
-	 * @return true if removal ok
-	 */
-	final boolean removeCharacterSpell(final CharacterSpell spell)
-	{
-		if (characterSpellList == null)
-		{
-			return false;
-		}
-
-		return characterSpellList.remove(spell);
-	}
-
-	/**
-	 * Remove the spell from the character spell list if it
-	 * is no longer present in any spell lists.
-	 * 
-	 * @param spell The spell to be checked
-	 * @return True if the spell was removed, false otherwise.
-	 */
-	public final boolean removeSpellIfUnused(final CharacterSpell spell)
-	{
-		SpellInfo si = spell.getSpellInfoFor("", -1, -1, null);
-		if (si == null)
-		{
-			return removeCharacterSpell(spell);
-		}
-		return false;
-	}
-
-	/**
-	 * Clear the character spell list 
-	 */
-	final void clearCharacterSpells()
-	{
-		if ((characterSpellList != null) && !characterSpellList.isEmpty())
-		{
-			characterSpellList.clear();
-		}
-	}
-
-	/**
-	 * Sort the character spell list 
-	 */
-	public final void sortCharacterSpellList()
-	{
-		if (characterSpellList != null)
-		{
-			Collections.sort(characterSpellList);
-		}
-	}
-
-	/**
-	 * Add a spell to the character spell list 
-	 * @param spell
-	 */
-	public final void addCharacterSpell(final CharacterSpell spell)
-	{
-		if (characterSpellList == null)
-		{
-			characterSpellList = new ArrayList<CharacterSpell>();
-		}
-		characterSpellList.add(spell);
-	}
-
-	/**
-	 * Returns true if the spell is in the character spell list 
-	 * @param spell
-	 * @return true if the spell is in the character spell list
-	 */
-	public final boolean containsCharacterSpell(final CharacterSpell spell)
-	{
-		return characterSpellList != null && characterSpellList.contains(spell);
-	}
-
-	/**
-	 * Get the number of character spells in the list 
-	 * @return number of character spells in the list
-	 */
-	public final int getCharacterSpellCount()
-	{
-		if (characterSpellList == null)
-		{
-			return 0;
-		}
-
-		return characterSpellList.size();
-	}
-
-	/**
-	 * Get the character spell fromn the character spell list 
-	 * @param aSpell
-	 * @param anOwner
-	 * @return CharacterSpell
-	 */
-	public final CharacterSpell getCharacterSpellForSpell(final Spell aSpell,
-		final PObject anOwner)
-	{
-		if ((aSpell == null) || (characterSpellList == null))
-		{
-			return null;
-		}
-
-		for (CharacterSpell cs : characterSpellList)
-		{
-			final Spell bSpell = cs.getSpell();
-
-			if (aSpell.equals(bSpell)
-				&& ((anOwner == null) || cs.getOwner().equals(anOwner)))
-			{
-				return cs;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Get a list of CharacterSpells from the character spell list
-	 *  
-	 * @param aSpell
-	 * @param book
-	 * @param level
-	 * @param fList
-	 * @return list of CharacterSpells from the character spell list
-	 */
-	public final List<CharacterSpell> getCharacterSpells(final Spell aSpell,
-		final String book, final int level, final ArrayList<Ability> fList)
-	{
-		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
-
-		if (getCharacterSpellCount() == 0)
-		{
-			return aList;
-		}
-
-		for (CharacterSpell cs : characterSpellList)
-		{
-			if ((aSpell == null) || cs.getSpell().equals(aSpell))
-			{
-				final SpellInfo si = cs.getSpellInfoFor(book, level, -1, fList);
-
-				if (si != null)
-				{
-					aList.add(cs);
-				}
-			}
-		}
-
-		return aList;
-	}
-
-	/**
-	 * return an ArrayList of CharacterSpell with following criteria: Spell
-	 * aSpell ignored if null book ignored if "" level ignored if < 0 fList
-	 * (ignored if null) Array of Feats
-	 * @param aSpell
-	 * @param book
-	 * @param level
-	 * @return List
-	 */
-	public final List<CharacterSpell> getCharacterSpells(final Spell aSpell,
-		final String book, final int level)
-	{
-		return getCharacterSpells(aSpell, book, level, null);
-	}
-
-	/**
-	 * Get all of the character spells 
-	 * @return all of the character spells
-	 */
-	public Collection<CharacterSpell> getCharacterSpellList()
-	{
-		if (characterSpellList == null)
-		{
-			return new ArrayList<CharacterSpell>();
-		}
-		return new ArrayList<CharacterSpell>(characterSpellList);
-	}
 
 	@Override
 	public SpellSupport clone() throws CloneNotSupportedException
 	{
 		SpellSupport ss = (SpellSupport) super.clone();
 		ss.spellInfoMap = spellInfoMap.clone();
-		if (characterSpellList != null)
-		{
-			ss.characterSpellList =
-					new ArrayList<CharacterSpell>(characterSpellList);
-		}
 		ss.preReqSpellLevelMap =
 				new HashMap<String, List<Prerequisite>>(preReqSpellLevelMap);
 		ss.spellLevelMap = new HashMap<String, Integer>(spellLevelMap);

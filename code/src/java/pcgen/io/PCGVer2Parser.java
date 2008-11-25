@@ -4019,8 +4019,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 
 			CharacterSpell aCharacterSpell =
-					aPCClass.getSpellSupport().getCharacterSpellForSpell(
-						aSpell, aPCClass);
+					thePC.getCharacterSpellForSpell(aPCClass, aSpell);
 
 			// PC does not have that spell on that classes list
 			// so we'll need to add it to the list
@@ -4031,7 +4030,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					aCharacterSpell.addInfo(level, times, spellBook);
 				}
-				aPCClass.getSpellSupport().addCharacterSpell(aCharacterSpell);
+				thePC.addAssoc(aPCClass, AssociationListKey.CHARACTER_SPELLS, aCharacterSpell);
 			}
 
 			SpellInfo aSpellInfo = null;
@@ -5242,7 +5241,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		// now sort each classes spell list
 		for (PCClass pcClass : thePC.getClassList())
 		{
-			pcClass.getSpellSupport().sortCharacterSpellList();
+			thePC.sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
 		}
 	}
 

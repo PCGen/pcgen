@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.PObject;
@@ -53,7 +54,7 @@ public class PCCountSpellsKnownTermEvaluator
 			{
 				for (PObject pcClass : pc.getClassList())
 				{
-					count += pcClass.getSpellSupport().getCharacterSpellCount();
+					count += pc.getAssocCount(pcClass, AssociationListKey.CHARACTER_SPELLS);
 				}
 			}
 			else
@@ -62,10 +63,9 @@ public class PCCountSpellsKnownTermEvaluator
 
 				if (pObj != null)
 				{
-					count = (float) pObj.getSpellSupport().getCharacterSpells(
-									null,
-									Globals.getDefaultSpellBook(),
-									nums[1]).size();
+					count = (float) pc.getCharacterSpells(
+									pObj,
+									null, Globals.getDefaultSpellBook(), nums[1]).size();
 				}
 			}
 		}

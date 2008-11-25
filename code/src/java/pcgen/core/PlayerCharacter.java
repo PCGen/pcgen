@@ -6362,7 +6362,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// remove current race attributes
 		if (!raceIsNull)
 		{
-			oldRace.getSpellSupport().clearCharacterSpells();
+			removeAllAssocs(oldRace, AssociationListKey.CHARACTER_SPELLS);
 
 			languages.removeAll(oldRace.getSafeListFor(ListKey.AUTO_LANGUAGES));
 
@@ -6749,7 +6749,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		race.getSpellSupport().clearCharacterSpells();
+		removeAllAssocs(race, AssociationListKey.CHARACTER_SPELLS);
 		addSpells(race);
 
 		if (deity != null)
@@ -7707,8 +7707,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (domainClass != null)
 			{
 				final int _maxLevel = domainClass.getMaxCastLevel();
-				DomainApplication.addSpellsToClassForLevels(aCD.getDomain(),
-					domainClass, 0, _maxLevel);
+				DomainApplication.addSpellsToClassForLevels(this,
+					aCD.getDomain(), domainClass, 0, _maxLevel);
 			}
 			setDirty(true);
 		}
@@ -7971,7 +7971,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final int cast =
 				aClass.getCastForLevel(adjSpellLevel, bookName, true, true,
 					this);
-		aClass.memorizedSpellForLevelBook(adjSpellLevel, bookName);
+		aClass.memorizedSpellForLevelBook(this, adjSpellLevel, bookName);
 
 		final boolean isDefault =
 				bookName.equals(Globals.getDefaultSpellBook());
@@ -8039,7 +8039,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				maxAllowed = known + specialKnown;
 			}
 			int memTot =
-					aClass.memorizedSpellForLevelBook(adjSpellLevel, bookName);
+					aClass.memorizedSpellForLevelBook(this, adjSpellLevel, bookName);
 			int spellDifference = maxAllowed - memTot;
 			if (spellDifference > 0)
 			{
@@ -8077,7 +8077,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				maxAllowed = cast;
 			}
 			int memTot =
-					aClass.memorizedSpellForLevelBook(adjSpellLevel, bookName);
+					aClass.memorizedSpellForLevelBook(this, adjSpellLevel, bookName);
 			int spellDifference = maxAllowed - memTot;
 			if (spellDifference > 0)
 			{
@@ -8093,8 +8093,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// for this character in this book at this level
 		SpellInfo si = null;
 		final List<CharacterSpell> acsList =
-				aClass.getSpellSupport().getCharacterSpells(acs.getSpell(),
-					bookName, adjSpellLevel);
+				getCharacterSpells(aClass, acs.getSpell(), bookName, adjSpellLevel);
 		if (!acsList.isEmpty())
 		{
 			for (int x = acsList.size() - 1; x >= 0; x--)
@@ -8142,15 +8141,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		else
 		{
 			if (isEmpty
-				&& !aClass.getSpellSupport().containsCharacterSpell(acs))
+				&& !containsAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, acs))
 			{
-				aClass.getSpellSupport().addCharacterSpell(acs);
+				addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, acs);
 			}
 			else if (isEmpty)
 			{
 				// Make sure that we are working on the same spell object, not just the same spell
-				for (CharacterSpell characterSpell : aClass.getSpellSupport()
-					.getCharacterSpellList())
+				for (CharacterSpell characterSpell : getSafeAssocList(aClass, AssociationListKey.CHARACTER_SPELLS))
 				{
 					if (characterSpell.equals(acs))
 					{
@@ -8538,7 +8536,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (int a = minLevel; a <= maxLevel; a++)
 			{
 				final List<CharacterSpell> aList =
-						pObj.getSpellSupport().getCharacterSpells(null, "", a);
+						getCharacterSpells(pObj, null, "", a);
 
 				for (CharacterSpell cs : aList)
 				{
@@ -9200,7 +9198,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Remove the spell form the character's class instance if it
 		// is no longer present in any book
-		aClass.getSpellSupport().removeSpellIfUnused(acs);
+		removeAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, acs);
 
 		return "";
 	}
@@ -9363,8 +9361,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (PCClass pcClass : classList)
 				{
 					final List<CharacterSpell> aList =
-							pcClass.getSpellSupport().getCharacterSpells(null,
-								aName, -1);
+							getCharacterSpells(pcClass, null, aName, -1);
 
 					for (int j = aList.size() - 1; j >= 0; --j)
 					{
@@ -12145,8 +12142,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.setFixedDC(apo
 							.getAssociation(AssociationKey.DC_FORMULA));
 					final List<CharacterSpell> sList =
-							race.getSpellSupport().getCharacterSpells(newSpell,
-								book, -1);
+							getCharacterSpells(race, newSpell, book, -1);
 
 					if (!sList.isEmpty())
 					{
@@ -12159,7 +12155,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 					addSpellBook(new SpellBook(book,
 						SpellBook.TYPE_INNATE_SPELLS));
-					race.getSpellSupport().addCharacterSpell(cs);
+					addAssoc(race, AssociationListKey.CHARACTER_SPELLS, cs);
 				}
 			}
 		}
@@ -12728,8 +12724,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			// Now get the number of spells memorised, total and specialities
-			memTot = aClass.memorizedSpellForLevelBook(i, bookName);
-			memSpec = aClass.memorizedSpecialtiesForLevelBook(i, bookName);
+			memTot = aClass.memorizedSpellForLevelBook(this, i, bookName);
+			memSpec = aClass.memorizedSpecialtiesForLevelBook(i, bookName, this);
 			memNon = memTot - memSpec;
 
 			// Excess castings
@@ -12821,8 +12817,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			// Now get the number of spells memorised, total and specialities
-			memTot = aClass.memorizedSpellForLevelBook(i, bookName);
-			memSpec = aClass.memorizedSpecialtiesForLevelBook(i, bookName);
+			memTot = aClass.memorizedSpellForLevelBook(this, i, bookName);
+			memSpec = aClass.memorizedSpecialtiesForLevelBook(i, bookName, this);
 			memNon = memTot - memSpec;
 
 			// Excess castings
@@ -13239,8 +13235,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (levelNum = 0; levelNum >= 0; ++levelNum)
 			{
 				final List<CharacterSpell> aList =
-						aObject.getSpellSupport().getCharacterSpells(null,
-							bookName, levelNum);
+						getCharacterSpells(aObject, null, bookName, levelNum);
 
 				if (aList.size() < 1)
 				{
@@ -13267,8 +13262,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (PCClass pcClass : classList)
 			{
-				spellCount +=
-						pcClass.getSpellSupport().getCharacterSpellCount();
+				spellCount += getAssocCount(pcClass, AssociationListKey.CHARACTER_SPELLS);
 			}
 		}
 		else
@@ -13283,8 +13277,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (aObject != null)
 			{
 				final List<CharacterSpell> aList =
-						aObject.getSpellSupport().getCharacterSpells(null,
-							Globals.getDefaultSpellBook(), levelNum);
+						getCharacterSpells(aObject, null, Globals.getDefaultSpellBook(), levelNum);
 				spellCount = aList.size();
 			}
 		}
@@ -13341,8 +13334,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					for (PCClass pcClass : getClassList())
 					{
 						final List<CharacterSpell> bList =
-								pcClass.getSpellSupport().getCharacterSpells(
-									null, bookName, -1);
+								getCharacterSpells(
+									pcClass, null, bookName, -1);
 
 						for (CharacterSpell cs : bList)
 						{
@@ -13366,8 +13359,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				else if (aObject != null)
 				{
 					final List<CharacterSpell> charSpells =
-							aObject.getSpellSupport().getCharacterSpells(null,
-								bookName, spellLevel);
+							getCharacterSpells(aObject, null, bookName, spellLevel);
 
 					if (spellNumber < charSpells.size())
 					{
@@ -13440,8 +13432,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (aObject != null)
 		{
 			final List<CharacterSpell> aList =
-					aObject.getSpellSupport().getCharacterSpells(null, bookName,
-						levelNum);
+					getCharacterSpells(aObject,
+						null, bookName, levelNum);
 			return aList.size();
 		}
 
@@ -13503,8 +13495,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final ArrayList<PObject> aList = new ArrayList<PObject>();
 
-		if (!race.getSpellSupport().getCharacterSpells(null,
-			Constants.EMPTY_STRING, -1).isEmpty())
+		if (!getCharacterSpells(race, null, Constants.EMPTY_STRING, -1).isEmpty())
 		{
 			aList.add(race);
 		}
@@ -14428,7 +14419,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Sort the characters spell lists
 		for (PObject pcClass : getClassList())
 		{
-			pcClass.getSpellSupport().sortCharacterSpellList();
+			sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
 		}
 
 		// Determine which hands weapons are currently being weilded in
@@ -17590,9 +17581,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		for (PObject po : getPObjectList())
 		{
-			SpellSupport ss = po.getSpellSupport();
 			List<CharacterSpell> csl =
-					ss.getCharacterSpells(spell, spellbookname, -1);
+					getCharacterSpells(po, spell, spellbookname, -1);
 			if (csl != null && !csl.isEmpty())
 			{
 				return true;
@@ -18111,6 +18101,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return assocSupt.getAssocList(obj, ak);
 	}
+	
+	public <T extends Comparable<T>> void sortAssocList(Object obj, AssociationListKey<T> ak)
+	{
+		assocSupt.sortAssocList(obj, ak);
+	}
+
+	public <T> Collection<T> getSafeAssocList(Object obj,
+		AssociationListKey<T> alk)
+	{
+		List<T> list = getAssocList(obj, alk);
+		if (list == null)
+		{
+			return new ArrayList<T>();
+		}
+		return list;
+	}
 
 	public boolean hasAssocs(Object obj, AssociationListKey<?> ak)
 	{
@@ -18293,6 +18299,58 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean containsAssocList(Object o, AssociationListKey<?> alk)
 	{
 		return assocSupt.containsAssocList(o, alk);
+	}
+
+	public CharacterSpell getCharacterSpellForSpell(PObject po, Spell spell)
+	{
+		List<CharacterSpell> cspells =
+				getAssocList(po, AssociationListKey.CHARACTER_SPELLS);
+		if (cspells != null)
+		{
+			for (CharacterSpell cs : cspells)
+			{
+				Spell sp = cs.getSpell();
+				if (spell.equals(sp) && (cs.getOwner().equals(po)))
+				{
+					return cs;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Get a list of CharacterSpells from the character spell list
+	 * @param fList
+	 * @param spellSource TODO
+	 * @param aSpell
+	 * @param book
+	 * @param level
+	 * @return list of CharacterSpells from the character spell list
+	 */
+	public final List<CharacterSpell> getCharacterSpells(PObject spellSource, final Spell aSpell, final String book, final int level)
+	{
+		List<CharacterSpell> csList = getAssocList(spellSource, AssociationListKey.CHARACTER_SPELLS);
+		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
+		if (csList == null || csList.size() == 0)
+		{
+			return aList;
+		}
+	
+		for (CharacterSpell cs : csList)
+		{
+			if ((aSpell == null) || cs.getSpell().equals(aSpell))
+			{
+				final SpellInfo si = cs.getSpellInfoFor(book, level, -1, null);
+	
+				if (si != null)
+				{
+					aList.add(cs);
+				}
+			}
+		}
+	
+		return aList;
 	}
 
 }

@@ -80,8 +80,8 @@ public class SpellListBookToken extends SpellListToken
 			}
 
 			final List<CharacterSpell> spells =
-					aObject.getSpellSupport().getCharacterSpells(null, bookName,
-						params.getLevel());
+					pc.getCharacterSpells(aObject,
+						null, bookName, params.getLevel());
 
 			boolean needcomma = false;
 			for (CharacterSpell cs : spells)

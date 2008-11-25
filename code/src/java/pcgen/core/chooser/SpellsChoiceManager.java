@@ -377,9 +377,8 @@ public class SpellsChoiceManager extends
 						boolean found = false;
 						for (PCClass cl : pc.getClassList())
 						{
-							SpellSupport ss = cl.getSpellSupport();
-							List<CharacterSpell> csl = ss.getCharacterSpells(
-									spell, defaultbook, -1);
+							List<CharacterSpell> csl = pc.getCharacterSpells(
+									cl, spell, defaultbook, -1);
 							if (csl != null && !csl.isEmpty())
 							{
 								/*
@@ -463,9 +462,7 @@ public class SpellsChoiceManager extends
 					boolean found = false;
 					for (PCClass cl : pc.getClassList())
 					{
-						SpellSupport ss = cl.getSpellSupport();
-						List<CharacterSpell> csl = ss.getCharacterSpells(spell,
-								defaultbook, -1);
+						List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell, defaultbook, -1);
 						if (csl != null && !csl.isEmpty())
 						{
 							/*
@@ -524,9 +521,7 @@ public class SpellsChoiceManager extends
 					boolean found = false;
 					for (PCClass cl : pc.getClassList())
 					{
-						SpellSupport ss = cl.getSpellSupport();
-						List<CharacterSpell> csl = ss.getCharacterSpells(spell,
-								defaultbook, -1);
+						List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell, defaultbook, -1);
 						if (csl != null && !csl.isEmpty())
 						{
 							/*

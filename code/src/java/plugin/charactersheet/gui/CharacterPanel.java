@@ -23,6 +23,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JViewport;
 
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
@@ -283,8 +284,7 @@ public class CharacterPanel extends FlippingSplitPane
 					sb.append(className).append(' ').append(j);
 					String title = sb.toString();
 					int spellList =
-							pcclass.getSpellSupport().getCharacterSpells(null,
-								Globals.getDefaultSpellBook(), j).size();
+							pc.getCharacterSpells(pcclass, null, Globals.getDefaultSpellBook(), j).size();
 					if (mainTabs.indexOfTab(title) == -1)
 					{
 						if (spellList > 0)
@@ -305,7 +305,7 @@ public class CharacterPanel extends FlippingSplitPane
 			}
 		}
 		String title = pc.getRace().getDisplayName();
-		if (pc.getRace().getSpellSupport().getCharacterSpellCount() > 0
+		if (pc.hasAssocs(pc.getRace(), AssociationListKey.CHARACTER_SPELLS)
 			&& mainTabs.indexOfTab(title) == -1)
 		{
 			SpellPage spellPage = new SpellPage(20);
