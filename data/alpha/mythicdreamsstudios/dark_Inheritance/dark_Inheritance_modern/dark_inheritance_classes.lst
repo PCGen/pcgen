@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 14:41:54 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Mon Nov 24 23:34:42 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by Frank Kliewe
 
@@ -12,14 +12,14 @@ CLASS:Stim Freak	HD:10		TYPE:Advanced.PC	ABB:StFrk		MAXLEVEL:10	BONUS:CHECKS|BAS
 # Class Name	Req. Att.	Required Check Base		Required Feat
 CLASS:Stim Freak	PREATT:3	PRECHECKBASE:1,Fortitude=2	PREFEAT:1,Brawl
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Stim Freak	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|Scrounge|Speak Language|Spot|Swim
+CLASS:Stim Freak	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|Speak Language|Spot|Swim
 1															ADD:FEAT|1|Shot in the Arm
 2	SAB:Relentless
 3															ADD:FEAT|1|TYPE=StimFreak
 4															ADD:FEAT|1|Weapon Focus
 5	SAB:A shot in the arm
 6															ADD:FEAT|1|TYPE=StimFreak
-7					BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization
+7					BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0						ABILITY:Special Ability|AUTOMATIC|Weapon Specialization
 8	SAB:F'ing Crazy		BONUS:VAR|WeapSpecQualify|-1
 9															ADD:FEAT|1|TYPE=StimFreak
 10	SAB:Ultimate Weapon
@@ -154,7 +154,7 @@ CLASS:Two Fisted God of Guns	OUTPUTNAME:Two-Fisted God of Guns	HD:8		TYPE:Advanc
 # Class Name			Req. Att.	Required Feat																	Required Skill					Required Text
 CLASS:Two Fisted God of Guns	PREATT:5	PREFEAT:5,Advanced Firearms Proficiency,Dodge,Personal Firearms Proficiency,Precise Shot,Two-Weapon Fighting	PRESKILL:2,Sleight of Hand=10,Tumble=10	PRETEXT:You must possess the ability to make ranged attacks with a Medium-size or smaller firearm while in a threatened area without provoking an attack of opportunity.
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Two Fisted God of Guns	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Demolitions|Drive|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Scrounge|Sense Motive|Speak Language
+CLASS:Two Fisted God of Guns	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Demolitions|Drive|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Sense Motive|Speak Language
 1	SAB:Gun-Fu		AUTO:FEAT|Blind Shot
 2	SAB:Backfire
 3	SAB:Deadeye

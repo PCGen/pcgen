@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Mon Nov 24 23:34:42 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
@@ -7,7 +7,7 @@ SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT
 
 
 ###Block:Creature Templates
-# Template Name					Visible	Template																								Special ABility																																											Define					Required Race			Prohibited Template																																							Add										Main Race Type	Vision
+# Template Name					Visible	Template																								Special ABility																																											Define					Required Race			Prohibited Template																																							Add 										Main Race Type	Vision
 Daemonhost Attendant (Humanoid Form)	VISIBLE:YES	TEMPLATE:Outsider	TEMPLATE:CHOOSE:LBP1|LBP2|LBP3|LBP4|LBP5|LBP6|LBP7|LBP8|LBP9|LBP10|LBP11|LBP12|LBP13|LBP14|LBP15|LBP16|LBP17|LBP18|LBP19|LBP20	SAB:Mark of the Abyss(Ex)	SAB:Telepathy (Su)	SAB:Daemon Form	SAB:The Daemonhost cannot acces the Action Points of the possessed humanoid. Since there is currently no way to seperate those Action Points within PCGen, you will have to track that on your own.	DEFINE:LevelsBeforePossession|0	PRERACE:1,RACETYPE=Humanoid	!PRETEMPLATE:1,Daemonhost Lord (Humanoid Form),Daemonhost Duke (Humanoid Form),Daemonhost Prince (Humanoid Form),Daemonhost Attendant (Daemon Form),Daemonhost Lord (Daemon Form),Daemonhost Duke (Daemon Form),Daemonhost Prince (Daemon Form)			ADD:FEAT|1|TYPE=AbyssalPower						RACETYPE:Outsider	VISION:Darkvision (60')
 Daemonhost Attendant (Daemon Form)		VISIBLE:YES	TEMPLATE:Outsider	TEMPLATE:CHOOSE:LBP1|LBP2|LBP3|LBP4|LBP5|LBP6|LBP7|LBP8|LBP9|LBP10|LBP11|LBP12|LBP13|LBP14|LBP15|LBP16|LBP17|LBP18|LBP19|LBP20	SAB:Mark of the Abyss(Ex)	SAB:Telepathy (Su)	SAB:Daemon Form	SAB:The Daemonhost cannot acces the Action Points of the possessed humanoid. Since there is currently no way to seperate those Action Points within PCGen, you will have to track that on your own.	DEFINE:LevelsBeforePossession|0	PRERACE:1,RACETYPE=Humanoid	!PRETEMPLATE:1,Daemonhost Attendant (Humanoid Form),Daemonhost Lord (Humanoid Form),Daemonhost Duke (Humanoid Form),Daemonhost Prince (Humanoid Form),Daemonhost Lord (Daemon Form),Daemonhost Duke (Daemon Form),Daemonhost Prince (Daemon Form)		ADD:FEAT|1|TYPE=DaemonForm	ADD:FEAT|1|TYPE=AbyssalPower	RACETYPE:Outsider	VISION:Darkvision (60')
 Daemonhost Lord (Humanoid Form)		VISIBLE:YES	TEMPLATE:Outsider	TEMPLATE:CHOOSE:LBP1|LBP2|LBP3|LBP4|LBP5|LBP6|LBP7|LBP8|LBP9|LBP10|LBP11|LBP12|LBP13|LBP14|LBP15|LBP16|LBP17|LBP18|LBP19|LBP20	SAB:Mark of the Abyss(Ex)	SAB:Telepathy (Su)	SAB:Daemon Form	SAB:The Daemonhost cannot acces the Action Points of the possessed humanoid. Since there is currently no way to seperate those Action Points within PCGen, you will have to track that on your own.	DEFINE:LevelsBeforePossession|0	PRERACE:1,RACETYPE=Humanoid	!PRETEMPLATE:1,Daemonhost Attendant (Humanoid Form),Daemonhost Duke (Humanoid Form),Daemonhost Prince (Humanoid Form),Daemonhost Attendant (Daemon Form),Daemonhost Lord (Daemon Form),Daemonhost Duke (Daemon Form),Daemonhost Prince (Daemon Form)		ADD:FEAT|2|TYPE=AbyssalPower						RACETYPE:Outsider	VISION:Darkvision (60')
@@ -18,39 +18,39 @@ Daemonhost Prince (Humanoid Form)		VISIBLE:YES	TEMPLATE:Outsider	TEMPLATE:CHOOSE
 Daemonhost Prince (Daemon Form)		VISIBLE:YES	TEMPLATE:Outsider	TEMPLATE:CHOOSE:LBP1|LBP2|LBP3|LBP4|LBP5|LBP6|LBP7|LBP8|LBP9|LBP10|LBP11|LBP12|LBP13|LBP14|LBP15|LBP16|LBP17|LBP18|LBP19|LBP20	SAB:Mark of the Abyss(Ex)	SAB:Telepathy (Su)	SAB:Daemon Form	SAB:The Daemonhost cannot acces the Action Points of the possessed humanoid. Since there is currently no way to seperate those Action Points within PCGen, you will have to track that on your own.	DEFINE:LevelsBeforePossession|0	PRERACE:1,RACETYPE=Humanoid	!PRETEMPLATE:1,Daemonhost Attendant (Humanoid Form),Daemonhost Lord (Humanoid Form),Daemonhost Duke (Humanoid Form),Daemonhost Prince (Humanoid Form),Daemonhost Attendant (Daemon Form),Daemonhost Lord (Daemon Form),Daemonhost Duke (Daemon Form)		ADD:FEAT|6|TYPE=DaemonForm	ADD:FEAT|5|TYPE=AbyssalPower	RACETYPE:Outsider	VISION:Darkvision (60')
 
 ###Block: builder templates
-# Template Name		CR	Visible	Template													Required Non-Monster Lvl	Required Size	Modify VAR					Natural Attacks
-Daemon Claws			VISIBLE:NO	TEMPLATE:CHOOSE:Daemon Claws (Medium)|Daemon Claws (Large)|Daemon Claws (Huge)
-Daemon Claws (Medium)		VISIBLE:NO																				PRESIZEEQ:M								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
-Daemon Claws (Large)		VISIBLE:NO																				PRESIZEEQ:L								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
-Daemon Claws (Huge)		VISIBLE:NO																				PRESIZEEQ:H								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d10
-Daemon Maw				VISIBLE:NO	TEMPLATE:CHOOSE:Daemon Maw (Medium)|Daemon Maw (Large)|Daemon Maw (Huge)
-Daemon Maw (Medium)		VISIBLE:NO																				PRESIZEEQ:M								NATURALATTACKS:Enormous Maw,Weapon.Natural.Melee.Finesseable.Piercing.Bludgeoning,*1,1d8
-Daemon Maw (Large)		VISIBLE:NO																				PRESIZEEQ:L								NATURALATTACKS:Enormous Maw,Weapon.Natural.Melee.Finesseable.Piercing.Bludgeoning,*1,1d10
-Daemon Maw (Huge)			VISIBLE:NO																				PRESIZEEQ:H								NATURALATTACKS:Enormous Maw,Weapon.Natural.Melee.Finesseable.Piercing.Bludgeoning,*1,2d6
-Daemon Tentacles			VISIBLE:NO																													NATURALATTACKS:Abyssal Tentacles,Weapon.Natural.Melee.Grapple.Bludgeoning,*6,1d6
-LBP1				CR:0	VISIBLE:NO															PREPCLEVEL:MIN=1,MAX=1					BONUS:VAR|LevelsBeforePossession|1
-LBP2				CR:1	VISIBLE:NO															PREPCLEVEL:MIN=2,MAX=2					BONUS:VAR|LevelsBeforePossession|2
-LBP3				CR:1	VISIBLE:NO															PREPCLEVEL:MIN=3,MAX=3					BONUS:VAR|LevelsBeforePossession|3
-LBP4				CR:2	VISIBLE:NO															PREPCLEVEL:MIN=4,MAX=4					BONUS:VAR|LevelsBeforePossession|4
-LBP5				CR:2	VISIBLE:NO															PREPCLEVEL:MIN=5,MAX=5					BONUS:VAR|LevelsBeforePossession|5
-LBP6				CR:3	VISIBLE:NO															PREPCLEVEL:MIN=6,MAX=6					BONUS:VAR|LevelsBeforePossession|6
-LBP7				CR:3	VISIBLE:NO															PREPCLEVEL:MIN=7,MAX=7					BONUS:VAR|LevelsBeforePossession|7
-LBP8				CR:4	VISIBLE:NO															PREPCLEVEL:MIN=8,MAX=8					BONUS:VAR|LevelsBeforePossession|8
-LBP9				CR:4	VISIBLE:NO															PREPCLEVEL:MIN=9,MAX=9					BONUS:VAR|LevelsBeforePossession|9
-LBP10				CR:5	VISIBLE:NO															PREPCLEVEL:MIN=10,MAX=10				BONUS:VAR|LevelsBeforePossession|10
-LBP11				CR:5	VISIBLE:NO															PREPCLEVEL:MIN=11,MAX=11				BONUS:VAR|LevelsBeforePossession|11
-LBP12				CR:6	VISIBLE:NO															PREPCLEVEL:MIN=12,MAX=12				BONUS:VAR|LevelsBeforePossession|12
-LBP13				CR:6	VISIBLE:NO															PREPCLEVEL:MIN=13,MAX=13				BONUS:VAR|LevelsBeforePossession|13
-LBP14				CR:7	VISIBLE:NO															PREPCLEVEL:MIN=14,MAX=14				BONUS:VAR|LevelsBeforePossession|14
-LBP15				CR:7	VISIBLE:NO															PREPCLEVEL:MIN=15,MAX=15				BONUS:VAR|LevelsBeforePossession|15
-LBP16				CR:8	VISIBLE:NO															PREPCLEVEL:MIN=16,MAX=16				BONUS:VAR|LevelsBeforePossession|16
-LBP17				CR:8	VISIBLE:NO															PREPCLEVEL:MIN=17,MAX=17				BONUS:VAR|LevelsBeforePossession|17
-LBP18				CR:9	VISIBLE:NO															PREPCLEVEL:MIN=18,MAX=18				BONUS:VAR|LevelsBeforePossession|18
-LBP19				CR:9	VISIBLE:NO															PREPCLEVEL:MIN=19,MAX=19				BONUS:VAR|LevelsBeforePossession|19
-LBP20				CR:10	VISIBLE:NO															PREPCLEVEL:MIN=20,MAX=20				BONUS:VAR|LevelsBeforePossession|20
+# Template Name		Challenge Rating	Visible	Template													Required Non-Monster Lvl	Required Size	Modify VAR					Natural Attacks
+Daemon Claws					VISIBLE:NO	TEMPLATE:CHOOSE:Daemon Claws (Medium)|Daemon Claws (Large)|Daemon Claws (Huge)
+Daemon Claws (Medium)				VISIBLE:NO																				PRESIZEEQ:M								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
+Daemon Claws (Large)				VISIBLE:NO																				PRESIZEEQ:L								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Daemon Claws (Huge)				VISIBLE:NO																				PRESIZEEQ:H								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d10
+Daemon Maw						VISIBLE:NO	TEMPLATE:CHOOSE:Daemon Maw (Medium)|Daemon Maw (Large)|Daemon Maw (Huge)
+Daemon Maw (Medium)				VISIBLE:NO																				PRESIZEEQ:M								NATURALATTACKS:Enormous Maw,Weapon.Natural.Melee.Finesseable.Piercing.Bludgeoning,*1,1d8
+Daemon Maw (Large)				VISIBLE:NO																				PRESIZEEQ:L								NATURALATTACKS:Enormous Maw,Weapon.Natural.Melee.Finesseable.Piercing.Bludgeoning,*1,1d10
+Daemon Maw (Huge)					VISIBLE:NO																				PRESIZEEQ:H								NATURALATTACKS:Enormous Maw,Weapon.Natural.Melee.Finesseable.Piercing.Bludgeoning,*1,2d6
+Daemon Tentacles					VISIBLE:NO																													NATURALATTACKS:Abyssal Tentacles,Weapon.Natural.Melee.Grapple.Bludgeoning,*6,1d6
+LBP1				CR:0			VISIBLE:NO															PREPCLEVEL:MIN=1,MAX=1					BONUS:VAR|LevelsBeforePossession|1
+LBP2				CR:1			VISIBLE:NO															PREPCLEVEL:MIN=2,MAX=2					BONUS:VAR|LevelsBeforePossession|2
+LBP3				CR:1			VISIBLE:NO															PREPCLEVEL:MIN=3,MAX=3					BONUS:VAR|LevelsBeforePossession|3
+LBP4				CR:2			VISIBLE:NO															PREPCLEVEL:MIN=4,MAX=4					BONUS:VAR|LevelsBeforePossession|4
+LBP5				CR:2			VISIBLE:NO															PREPCLEVEL:MIN=5,MAX=5					BONUS:VAR|LevelsBeforePossession|5
+LBP6				CR:3			VISIBLE:NO															PREPCLEVEL:MIN=6,MAX=6					BONUS:VAR|LevelsBeforePossession|6
+LBP7				CR:3			VISIBLE:NO															PREPCLEVEL:MIN=7,MAX=7					BONUS:VAR|LevelsBeforePossession|7
+LBP8				CR:4			VISIBLE:NO															PREPCLEVEL:MIN=8,MAX=8					BONUS:VAR|LevelsBeforePossession|8
+LBP9				CR:4			VISIBLE:NO															PREPCLEVEL:MIN=9,MAX=9					BONUS:VAR|LevelsBeforePossession|9
+LBP10				CR:5			VISIBLE:NO															PREPCLEVEL:MIN=10,MAX=10				BONUS:VAR|LevelsBeforePossession|10
+LBP11				CR:5			VISIBLE:NO															PREPCLEVEL:MIN=11,MAX=11				BONUS:VAR|LevelsBeforePossession|11
+LBP12				CR:6			VISIBLE:NO															PREPCLEVEL:MIN=12,MAX=12				BONUS:VAR|LevelsBeforePossession|12
+LBP13				CR:6			VISIBLE:NO															PREPCLEVEL:MIN=13,MAX=13				BONUS:VAR|LevelsBeforePossession|13
+LBP14				CR:7			VISIBLE:NO															PREPCLEVEL:MIN=14,MAX=14				BONUS:VAR|LevelsBeforePossession|14
+LBP15				CR:7			VISIBLE:NO															PREPCLEVEL:MIN=15,MAX=15				BONUS:VAR|LevelsBeforePossession|15
+LBP16				CR:8			VISIBLE:NO															PREPCLEVEL:MIN=16,MAX=16				BONUS:VAR|LevelsBeforePossession|16
+LBP17				CR:8			VISIBLE:NO															PREPCLEVEL:MIN=17,MAX=17				BONUS:VAR|LevelsBeforePossession|17
+LBP18				CR:9			VISIBLE:NO															PREPCLEVEL:MIN=18,MAX=18				BONUS:VAR|LevelsBeforePossession|18
+LBP19				CR:9			VISIBLE:NO															PREPCLEVEL:MIN=19,MAX=19				BONUS:VAR|LevelsBeforePossession|19
+LBP20				CR:10			VISIBLE:NO															PREPCLEVEL:MIN=20,MAX=20				BONUS:VAR|LevelsBeforePossession|20
 
 ###Block: Legacies
-# Template Name	Product Identity?	Visible	Template																																						Special ABility																																				Define			Combat bonus					Bonus to HP				Bonus to skill													Modify VAR							Add											Feat		Vision
+# Template Name	Product Identity?	Visible	Template																																						Special ABility																																				Define			Combat bonus					Bonus to HP				Bonus to skill													Modify VAR							Add 											Feat		Vision
 Crimson Lords	NAMEISPI:YES	VISIBLE:NO	TEMPLATE:CHOOSE:Birthright Emotion (Light of Joy)|Birthright Grace (Gracious Eloquence)|Birthright Grace (Blend In)|Birthright Vitality (Draught of Aesculapius)|Birthright Vitality (Gift of Tammuz)							SAB:Drug Resistance (Trait)	SAB:Easy Fame (Trait)	SAB:Cleanse (Trait)	SAB:Decant (Trait) %/day|TL	SAB:Imperturbable (Trait)	SAB:Call of Bacchus (Weakness)																																									BONUS:VAR|ActionUsed|-1	BONUS:VAR|APspentonBR|1	ADD:FEAT|1|Social Grace								FEAT:Renown
 Hidden Suns		NAMEISPI:YES	VISIBLE:NO	TEMPLATE:CHOOSE:Birthright Secrets (Discern Falsehood)|Birthright Secrets (Whispering Paper)|Birthright Shadow (Diminishing Life)|Birthright Shadow (Shadow Mien)|Birthright Sun (Hands of Light)|Birthright Sun (Rest of the Blessed)	SAB:Eldritch Blood (Trait)	SAB:Solar Protection (Trait)																																																												BONUS:VAR|ActionUsed|-1	BONUS:VAR|APspentonBR|1	ADD:FEAT|1|Natural Scholar	ADD:FEAT|1|Knowledge Obsession			VISION:Low-light
 Storm Crows		NAMEISPI:YES	VISIBLE:NO	TEMPLATE:CHOOSE:Birthright Second Sight (Augury)|Birthright Second Sight (Whispers of the Past)|Birthright Thunder (Scent of Storms)|Birthright War (Child of Mars)|Birthright War (Maru's Fearsome Presence)					SAB:Prescience (Trait)	SAB:Blessing of War (Trait)	SAB:Price of Destiny (-%) (Weakness)|BBB+2																										BONUS:COMBAT|INITIATIVE|1|TYPE=Legacy	BONUS:HP|ALTHP|max(0,WIS)																BONUS:VAR|ActionUsed|-1	BONUS:VAR|APspentonBR|1	ADD:FEAT|1|Soaring Sight
