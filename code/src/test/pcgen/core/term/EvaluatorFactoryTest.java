@@ -1,12 +1,14 @@
 package pcgen.core.term;
 
 import java.lang.reflect.Field;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.core.Globals;
 import pcgen.util.TestHelper;
 
 /**
@@ -6258,6 +6260,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		String term = "MAXCASTABLE";
 
+		Globals.getContext().ref.constructCDOMObject(ClassSpellList.class, "Bard");
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Bard");
 
 		is(t instanceof PCMaxCastableClassTermEvaluator, eq(true),
@@ -6266,16 +6269,16 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		Class<?> uClass = PCMaxCastableClassTermEvaluator.class;
 
 		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "classKey");
+		Field pF1 = (Field) TestHelper.findField(uClass, "spellList");
 
 		String field0 = "";
-		String field1 = "";
+		ClassSpellList field1 = null;
 		boolean ok;
 		try
 		{
 			ok = true;
 			field0 = (String) pF0.get(t);
-			field1 = (String) pF1.get(t);
+			field1 = (ClassSpellList) pF1.get(t);
 		}
 		catch (ClassCastException e)
 		{
@@ -6289,7 +6292,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		is(ok, eq(true), "No illegal access in getTermEvaluator052");
 
 		is(field0, strEq(term), "GetTermEvaluator052 stored term is correct " + term);	       
-		is(field1, strEq("Bard"), "GetTermEvaluator052 field classKey is correct ");	       
+		is(field1.getKeyName(), strEq("Bard"), "GetTermEvaluator052 field spellList is correct ");	       
 	}
 
 

@@ -21,6 +21,7 @@ package pcgen.core.analysis;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
@@ -29,12 +30,13 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SpellSupport;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
@@ -80,14 +82,18 @@ public class DomainApplication
 							&& (aClass
 									.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
 					{
-						final List<Spell> aList = Globals.getSpellsIn(-1, "",
-								keyName);
+						DomainSpellList domainSpellList = d
+								.get(ObjectKey.DOMAIN_SPELLLIST);
+						final List<Spell> aList = Globals.getSpellsIn(-1,
+								Collections.singletonList(domainSpellList));
 
 						for (Spell gcs : aList)
 						{
-							if (SpellLevel.levelForKey(gcs, "DOMAIN", keyName, pc) < maxLevel)
+							if (SpellLevel
+									.getFirstLvlForKey(gcs, domainSpellList, pc) < maxLevel)
 							{
-								pc.setAssoc(aClass, AssociationKey.DOMAIN_SPELL_COUNT, 1);
+								pc.setAssoc(aClass,
+										AssociationKey.DOMAIN_SPELL_COUNT, 1);
 								break;
 							}
 						}
@@ -154,8 +160,8 @@ public class DomainApplication
 
 		for (int aLevel = minLevel; aLevel <= maxLevel; aLevel++)
 		{
-			List<Spell> domainSpells = Globals.getSpellsIn(aLevel, "", d
-					.getKeyName());
+			List<Spell> domainSpells = Globals.getSpellsIn(aLevel, Collections
+					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)));
 
 			for (Spell spell : domainSpells)
 			{

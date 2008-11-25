@@ -4,7 +4,6 @@ import java.net.URI;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLstToken;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;

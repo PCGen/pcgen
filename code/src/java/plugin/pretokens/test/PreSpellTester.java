@@ -27,9 +27,11 @@
 package plugin.pretokens.test;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -75,8 +77,9 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		{
 			if ((aCD != null) && (aCD.getDomain() != null))
 			{
-				aArrayList.addAll(Globals.getSpellsIn(-1,
-					"", aCD.getDomain().toString())); //$NON-NLS-1$
+				aArrayList.addAll(Globals.getSpellsIn(-1, Collections
+						.singletonList(aCD.getDomain().get(
+								ObjectKey.DOMAIN_SPELLLIST))));
 			}
 		}
 

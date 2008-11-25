@@ -39,6 +39,7 @@ import java.util.TreeMap;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -64,8 +65,8 @@ import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainList;
-import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.DomainApplication;
@@ -517,10 +518,9 @@ public class PCClass extends PObject
 							if (cd.isFromPCClass(getKeyName())
 								&& (cd.getDomain() != null))
 							{
-								bList =
-										Globals.getSpellsIn(ix,
-											Constants.EMPTY_STRING, cd
-												.getDomain().getKeyName());
+								bList = Globals.getSpellsIn(ix, Collections
+										.singletonList(cd.getDomain().get(
+												ObjectKey.DOMAIN_SPELLLIST)));
 							}
 						}
 					}
@@ -843,64 +843,6 @@ public class PCClass extends PObject
 			return "OTHER";
 		}
 		return get(ObjectKey.SPELL_STAT).getAbb();
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This is only part of the level, as the class spell list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	@Override
-	public String getSpellKey(PlayerCharacter pc)
-	{
-		String stableSpellKey = pc.getAssoc(this, AssociationKey.SPELL_KEY_CACHE);
-		if (stableSpellKey != null)
-		{
-			return stableSpellKey;
-		}
-
-		List<CDOMListObject<Spell>> classSpellList = pc.getAssocList(this,
-				AssociationListKey.CLASSSPELLLIST);
-		if (classSpellList == null)
-		{
-			chooseClassSpellList(pc);
-
-			classSpellList = pc.getAssocList(this,
-					AssociationListKey.CLASSSPELLLIST);
-
-			if (classSpellList == null)
-			{
-				stableSpellKey = "CLASS" + Constants.PIPE + getKeyName();
-
-				return stableSpellKey;
-			}
-		}
-
-		final StringBuffer aBuf = new StringBuffer();
-		boolean needPipe = false;
-
-		for (CDOMListObject<Spell> keyStr : classSpellList)
-		{
-			if (needPipe)
-			{
-				aBuf.append(Constants.PIPE);
-			}
-			needPipe = true;
-
-			if (DomainSpellList.class.equals(keyStr.getClass()))
-			{
-				aBuf.append("DOMAIN").append(Constants.PIPE).append(
-						keyStr.getLSTformat());
-			}
-			else
-			{
-				aBuf.append("CLASS").append(Constants.PIPE).append(
-						keyStr.getLSTformat());
-			}
-		}
-
-		stableSpellKey = aBuf.toString();
-
-		return stableSpellKey;
 	}
 
 	/*
@@ -1260,8 +1202,8 @@ public class PCClass extends PObject
 			}
 		}
 
-		pc.removeAssoc(this, AssociationKey.SPELL_KEY_CACHE);
-		getSpellKey(pc);
+		pc.removeAllAssocs(this, AssociationListKey.SPELL_LIST_CACHE);
+		getSpellLists(pc);
 	}
 
 	/*
@@ -1432,13 +1374,14 @@ public class PCClass extends PObject
 		if (!aPC.isImporting())
 		{
 			aPC.calcActiveBonuses();
-			aPC.getSpellTracker().buildSpellLevelMap(newLevel);
+			//Need to do this again if caching is re-integrated
+			//aPC.getSpellTracker().buildSpellLevelMap(newLevel);
 		}
 
 		if ((level == 1) && !aPC.isImporting() && (curLevel == 0))
 		{
 			checkForSubClass(aPC);
-			getSpellKey(aPC);
+			getSpellLists(aPC);
 		}
 
 		if (!aPC.isImporting() && (curLevel < level))
@@ -1512,8 +1455,6 @@ public class PCClass extends PObject
 	 */
 	protected void removeKnownSpellsForClassLevel(final PlayerCharacter aPC)
 	{
-		final String spellKey = getSpellKey(aPC);
-
 		if (!containsListFor(ListKey.KNOWN_SPELLS) || aPC.isImporting()
 				|| !aPC.getAutoSpells())
 		{
@@ -1525,6 +1466,8 @@ public class PCClass extends PObject
 			return;
 		}
 
+		List<? extends CDOMList<Spell>> lists = getSpellLists(aPC);
+
 		for (Iterator<CharacterSpell> iter =
 				aPC.getSafeAssocList(this, AssociationListKey.CHARACTER_SPELLS)
 					.iterator(); iter.hasNext();)
@@ -1534,7 +1477,7 @@ public class PCClass extends PObject
 			final Spell aSpell = charSpell.getSpell();
 
 			// Check that the character can still cast spells of this level.
-			final Integer[] spellLevels = SpellLevel.levelForKey(aSpell, spellKey, aPC);
+			final Integer[] spellLevels = SpellLevel.levelForKey(aSpell, lists, aPC);
 			for (Integer i = 0; i < spellLevels.length; i++)
 			{
 				final int spellLevel = spellLevels[i];
@@ -1571,8 +1514,7 @@ public class PCClass extends PObject
 		{
 			// Get every spell that can be cast by this class.
 			final List<Spell> cspelllist =
-					Globals.getSpellsIn(-1, getSpellKey(aPC),
-						Constants.EMPTY_STRING);
+					Globals.getSpellsIn(-1, getSpellLists(aPC));
 			if (cspelllist.isEmpty())
 			{
 				return;
@@ -1586,13 +1528,13 @@ public class PCClass extends PObject
 			final int _maxLevel = getMaxCastLevel();
 
 			// Get the key for this class (i.e. "CLASS|Cleric")
-			final String spellKey = getSpellKey(aPC);
+			List<? extends CDOMList<Spell>> lists = getSpellLists(aPC);
 
 			// For every spell that this class can ever cast.
 			for (Spell spell : cspelllist)
 			{
 				// For each spell level that this class can cast this spell at
-				final Integer[] spellLevels = SpellLevel.levelForKey(spell, spellKey, aPC);
+				final Integer[] spellLevels = SpellLevel.levelForKey(spell, lists, aPC);
 				for (Integer si = 0; si < spellLevels.length; ++si)
 				{
 					final int spellLevel = spellLevels[si];
@@ -1726,12 +1668,13 @@ public class PCClass extends PObject
 		final StringBuffer pccTxt = new StringBuffer(200);
 		pccTxt.append("CLASS:").append(getDisplayName());
 		pccTxt.append(super.getPCCText(false));
+		pccTxt.append("\t");
+		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
 
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 
-		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
-				this), "\t"));
 		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 		{
 			pccTxt.append(lineSep).append(me.getKey()).append('\t');
@@ -1809,7 +1752,7 @@ public class PCClass extends PObject
 	public void addClassSpellList(CDOMListObject<Spell> list, PlayerCharacter pc)
 	{
 		pc.addAssoc(this, AssociationListKey.CLASSSPELLLIST, list);
-		pc.removeAssoc(this, AssociationKey.SPELL_KEY_CACHE);
+		pc.removeAllAssocs(this, AssociationListKey.SPELL_LIST_CACHE);
 	}
 
 	/*
@@ -4546,5 +4489,45 @@ public class PCClass extends PObject
 		{
 			pcl.ownBonuses();
 		}
+	}
+	
+	@Override
+	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
+	{
+		List<CDOMList<Spell>> stableSpellList = pc.getAssocList(this,
+				AssociationListKey.SPELL_LIST_CACHE);
+		if (stableSpellList != null)
+		{
+			return stableSpellList;
+		}
+
+		List<CDOMListObject<Spell>> classSpellList = pc.getAssocList(this,
+				AssociationListKey.CLASSSPELLLIST);
+		if (classSpellList == null)
+		{
+			chooseClassSpellList(pc);
+
+			classSpellList = pc.getAssocList(this,
+					AssociationListKey.CLASSSPELLLIST);
+
+			if (classSpellList == null)
+			{
+				ClassSpellList defaultList = get(ObjectKey.CLASS_SPELLLIST);
+				pc.addAssoc(this, AssociationListKey.SPELL_LIST_CACHE, defaultList);
+				return Collections.singletonList(defaultList);
+			}
+		}
+
+		for (CDOMListObject<Spell> keyStr : classSpellList)
+		{
+			pc.addAssoc(this, AssociationListKey.SPELL_LIST_CACHE, keyStr);
+		}
+		return classSpellList;
+	}
+
+	@Override
+	public String getVariableSource()
+	{
+		return "CLASS|" + this.getKeyName();
 	}
 }

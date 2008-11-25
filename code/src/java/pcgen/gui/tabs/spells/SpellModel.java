@@ -22,6 +22,7 @@ package pcgen.gui.tabs.spells;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,6 +34,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -557,8 +559,9 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			// and is a valid domain, add them
 			if ((aDom != null) && aCD.isFromPCClass(aClass.getKeyName()))
 			{
-				List<Spell> domainSpells =
-						Globals.getSpellsIn(iLev, "", aDom.getKeyName()); //$NON-NLS-1$
+				List<Spell> domainSpells = Globals.getSpellsIn(iLev,
+						Collections.singletonList(aDom
+								.get(ObjectKey.DOMAIN_SPELLLIST)));
 				p.setParent(theParent);
 
 				if (!dom)
@@ -606,7 +609,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			{
 				Spell aSpell = (Spell) o;
 
-				if (!SpellLevel.levelForKeyContains(aSpell, obj.getSpellKey(pc), iLev, pc))
+				if (!SpellLevel.levelForKeyContains(aSpell, obj.getSpellLists(pc), iLev, pc))
 				{
 					continue;
 				}
@@ -792,7 +795,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							aClass = classList.get(pindex);
 							primaryMatch =
 									SpellLevel.levelForKeyContains(spell, aClass
-									.getSpellKey(pc), iLev, pc);
+									.getSpellLists(pc), iLev, pc);
 							if (cs != null)
 							{
 								if (aClass instanceof Race)
@@ -893,7 +896,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								aClass = classList.get(sindex);
 								spellMatch =
 										primaryMatch
-											&& (SpellLevel.getFirstLevelForKey(spell, aClass.getSpellKey(pc), pc) >= 0);
+											&& (SpellLevel.getFirstLevelForKey(spell, aClass.getSpellLists(pc), pc) >= 0);
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_LEVEL: // By Level
 								iLev = sindex;
@@ -913,7 +916,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 										if (aClass != null)
 										{
 											spellMatch =
-													SpellLevel.levelForKeyContains(spell, aClass.getSpellKey(pc), iLev, pc);
+													SpellLevel.levelForKeyContains(spell, aClass.getSpellLists(pc), iLev, pc);
 										}
 										else
 										{
@@ -1004,7 +1007,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 								theObject = cs.getOwner();
 							spellMatch =
 									SpellLevel.levelForKeyContains(spell, theObject
-									.getSpellKey(pc), theLevel, pc);
+									.getSpellLists(pc), theLevel, pc);
 						}
 						if (spellMatch && si == null && !knownSpellsOnly)
 						{
@@ -1133,7 +1136,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				if (spellListType != GuiConstants.INFOSPELLS_AVAIL_KNOWN)
 				{
 					for (Spell s : Globals.getSpellsIn(-1,
-						aClass.getSpellKey(pc), "")) //$NON-NLS-1$
+						aClass.getSpellLists(pc))) //$NON-NLS-1$
 					{
 						if (!spellList.contains(s)
 							&& spellTab.shouldDisplayThis(s))

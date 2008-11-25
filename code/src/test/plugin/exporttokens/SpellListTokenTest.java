@@ -25,7 +25,6 @@ package plugin.exporttokens;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -42,7 +41,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.BonusSpellLoader;
 import pcgen.rules.context.LoadContext;
 
@@ -126,9 +124,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
-		divineClass.getSpellSupport().addSpellLevel("CLASS",
-			"SPELLCASTER.Divine", "Cure Light Wounds", "1",
-			new ArrayList<Prerequisite>());
+		context.unconditionallyProcess(divineClass, "SPELLLEVEL",
+				"CLASS|SPELLCASTER.Divine=1|Cure Light Wounds");
 		Globals.getContext().ref.importObject(divineClass);
 	}
 

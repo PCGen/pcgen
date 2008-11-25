@@ -20,7 +20,6 @@ package pcgen.cdom.inst;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;

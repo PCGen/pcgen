@@ -58,7 +58,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -330,7 +329,7 @@ public class SourceSelectionDialog extends JDialog implements
 			final Campaign aCampaign = Globals.getCampaignByURI(uri);
 			if (aCampaign == null
 				|| !nameSources.contains(OutputNameFormatting.piString(
-					((PObject) aCampaign), true)))
+					aCampaign, true)))
 			{
 				return false;
 			}

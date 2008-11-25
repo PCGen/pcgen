@@ -310,7 +310,8 @@ public abstract class AbstractReferenceContext
 		Collection<Domain> domains = getConstructedCDOMObjects(Domain.class);
 		for (Domain d : domains)
 		{
-			constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
+			DomainSpellList dsl = constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
+			d.put(ObjectKey.DOMAIN_SPELLLIST, dsl);
 		}
 		Collection<PCClass> classes = getConstructedCDOMObjects(PCClass.class);
 		for (PCClass pcc : classes)
@@ -318,7 +319,8 @@ public abstract class AbstractReferenceContext
 			String key = pcc.getKeyName();
 			constructCDOMObject(CLASSSKILLLIST_CLASS, key);
 			// TODO Need to limit which are built to only spellcasters...
-			constructCDOMObject(CLASSSPELLLIST_CLASS, key);
+			ClassSpellList csl = constructCDOMObject(CLASSSPELLLIST_CLASS, key);
+			pcc.put(ObjectKey.CLASS_SPELLLIST, csl);
 			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, key);
 			// Collection<CDOMSubClass> subclasses = categorized
 			// .getConstructedCDOMObjects(SUBCLASS_CLASS, SubClassCategory
@@ -333,7 +335,8 @@ public abstract class AbstractReferenceContext
 					constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
 					// TODO Need to limit which are built to only
 					// spellcasters...
-					constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
+					csl = constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
+					subcl.put(ObjectKey.CLASS_SPELLLIST, csl);
 					// constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
 					/*
 					 * CONSIDER For right now, this is easiest to do here, though

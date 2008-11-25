@@ -60,6 +60,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.base.util.NamedValue;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
@@ -76,6 +77,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
@@ -91,6 +93,7 @@ import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.list.CompanionList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.DomainApplication;
@@ -120,7 +123,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.spell.PCSpellTracker;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.core.utils.CoreUtility;
@@ -233,9 +235,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// List of Kit objects
 	private List<Kit> kitList = null;
-
-	// Spells
-	private PCSpellTracker spellTracker = null;
 
 	//
 	// We don't want this list sorted until after it has been added
@@ -410,7 +409,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME,
 			SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
-		spellTracker = new PCSpellTracker(this);
 		setStringFor(StringKey.HANDED, PropertyFactory.getString("in_right")); //$NON-NLS-1$
 	}
 
@@ -1038,16 +1036,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getCostPool()
 	{
 		return costPool;
-	}
-
-	/**
-	 * Get the spell tracker
-	 * 
-	 * @return spellTracker
-	 */
-	public PCSpellTracker getSpellTracker()
-	{
-		return spellTracker;
 	}
 
 	/**
@@ -6724,22 +6712,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return false;
 	}
 
-	public Map<String, Integer> getSpellInfoMap(final String key1,
-		final String key2)
-	{
-		return spellTracker.getSpellInfoMap(key1, key2);
-	}
-
-	public boolean isSpellLevelforKey(final String key, final int levelMatch)
-	{
-		return spellTracker.isSpellLevelforKey(key, levelMatch);
-	}
-
-	public int getSpellLevelforKey(final String key, final int levelMatch)
-	{
-		return spellTracker.getSpellLevelforKey(key, levelMatch);
-	}
-
 	public void getSpellList()
 	{
 		// all non-spellcaster spells are added to race
@@ -7455,14 +7427,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		final Map<String, Integer> domainMap = SpellLevel.getLevelInfo(this, aSpell);
+		final HashMapToList<CDOMList<Spell>, Integer> domainMap = this.getLevelInfo(aSpell);
 		if (domainMap != null)
 		{
-			for (String mKey : domainMap.keySet())
+			for (CDOMList<?> spellList : domainMap.getKeySet())
 			{
-				if (mKey.startsWith("DOMAIN|"))
+				if (spellList instanceof DomainSpellList)
 				{
-					tStr = "DOMAIN." + mKey.substring(7);
+					tStr = "DOMAIN." + spellList.getKeyName();
 					// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 					tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 					if (tBonus > 0)
@@ -13517,7 +13489,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		boolean flag = false;
 
-		String src = obj.getSpellKey(this);
+		String src = obj.getVariableSource();
 
 		for (VariableKey vk : obj.getVariableKeys())
 		{
@@ -14785,8 +14757,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aClone.kitList = new ArrayList<Kit>();
 			aClone.kitList.addAll(kitList);
 		}
-		// Not sure what this is. It may need to be cloned.
-		aClone.spellTracker = spellTracker;
 		aClone.templateAutoLanguages.addAll(templateAutoLanguages);
 		aClone.templateLanguages.addAll(templateLanguages);
 		aClone.setBio(new String(getBio()));
@@ -18299,6 +18269,47 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean containsAssocList(Object o, AssociationListKey<?> alk)
 	{
 		return assocSupt.containsAssocList(o, alk);
+	}
+
+	public HashMapToList<CDOMList<Spell>, Integer> getMasterLevelInfo(Spell sp)
+	{
+		HashMapToList<CDOMList<Spell>, Integer> hml = cache.get(
+				MapKey.SPELL_MASTER_INFO, sp);
+		if (hml == null)
+		{
+			hml = SpellLevel.getMasterLevelInfo(this, sp);
+			cache.addToMapFor(MapKey.SPELL_MASTER_INFO, sp, hml);
+		}
+		return hml;
+	}
+
+	public HashMapToList<CDOMList<Spell>, Integer> getPCBasedLevelInfo(Spell sp)
+	{
+		HashMapToList<CDOMList<Spell>, Integer> hml = cache.get(
+				MapKey.SPELL_PC_INFO, sp);
+		if (hml == null)
+		{
+			hml = SpellLevel.getPCBasedLevelInfo(this, sp);
+			cache.addToMapFor(MapKey.SPELL_PC_INFO, sp, hml);
+		}
+		return hml;
+	}
+
+	/**
+	 * This method gets the information about the levels at which classes and
+	 * domains may cast the spell.
+	 * 
+	 * Modified 8 Sept 2003 by Sage_Sam for bug #801469
+	 * 
+	 * @return Map containing the class levels and domains that may cast the
+	 *         spell
+	 * @param aPC
+	 */
+	public HashMapToList<CDOMList<Spell>, Integer> getLevelInfo(Spell sp)
+	{
+		HashMapToList<CDOMList<Spell>, Integer> levelInfo = getMasterLevelInfo(sp);
+		levelInfo.addAllLists(getPCBasedLevelInfo(sp));
+		return levelInfo;
 	}
 
 	public CharacterSpell getCharacterSpellForSpell(PObject po, Spell spell)

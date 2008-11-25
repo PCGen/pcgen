@@ -29,6 +29,7 @@ import java.io.StringWriter;
 import java.net.URI;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -38,8 +39,11 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -47,6 +51,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
@@ -54,6 +60,7 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.spell.Spell;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -87,8 +94,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/** The name to display to the user.  This should be internationalized. */
 	protected String displayName = Constants.EMPTY_STRING;
 
-	private SpellSupport spellSupport = new SpellSupport();
-	
 	private boolean isNewItem = true;
 
 	private URI sourceURI = null;
@@ -191,7 +196,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		retVal.setName(displayName);
 		retVal.put(StringKey.KEY_NAME, get(StringKey.KEY_NAME));
-		retVal.spellSupport = spellSupport.clone();
 
 		// added 04 Aug 2003 by sage_sam -- bug#765749
 		// need to copy map correctly during a clone
@@ -427,16 +431,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	}
 	
-	/**
-	 * Returns a hardcoded "POBJECT|" + name of this object
-	 * @param pc TODO
-	 * @return "POBJECT|" + name of this object
-	 */
-	public String getSpellKey(PlayerCharacter pc)
-	{
-		return "POBJECT|" + getKeyName(); //$NON-NLS-1$
-	}
-
 	/**
 	 * Get the user defined type by index
 	 * @param i
@@ -847,8 +841,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append(getDisplayName());
 		}
 
-		txt.append("\tKEY:").append(getKeyName());
-
 		aString = getChoiceString();
 
 		if ((aString != null) && (aString.length() != 0))
@@ -887,9 +879,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append("\tSOURCEPAGE:").append(aString);
 		}
 
-		// SPELLLEVEL
-		txt.append('\t').append(getSpellSupport().getPCCText());
-		
 		return txt.toString();
 	}
 
@@ -1155,15 +1144,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	protected void removeMyType(final String myType)
 	{
 		types.remove(myType);
-	}
-
-	/**
-	 * Get the Spell Support for this object
-	 * @return SpellSupport
-	 */
-	public SpellSupport getSpellSupport()
-	{
-		return spellSupport;
 	}
 
 	/**
@@ -1551,4 +1531,26 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 	}
 
+	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
+	{
+		return null;
+	}
+
+	public String getVariableSource()
+	{
+		return "POBJECT|" + this.getKeyName();
+	}
+
+	public void clearSpellListInfo()
+	{
+		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> modLists = getModifiedLists();
+		for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : modLists)
+		{
+			if (ref.getReferenceClass().equals(ClassSpellList.class)
+					|| ref.getReferenceClass().equals(DomainSpellList.class))
+			{
+				removeAllFromList(ref);
+			}
+		}
+	}
 }

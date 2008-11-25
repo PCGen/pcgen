@@ -1676,7 +1676,7 @@ final class PCGVer0Parser implements PCGParser
 				aObject = aClass;
 			}
 
-			int sLevel = SpellLevel.getFirstLevelForKey(aSpell, aObject.getSpellKey(aPC), aPC);
+			int sLevel = SpellLevel.getFirstLevelForKey(aSpell, aObject.getSpellLists(aPC), aPC);
 
 			if (sLevel == -1)
 			{
@@ -2060,7 +2060,7 @@ final class PCGVer0Parser implements PCGParser
 			}
 
 			final int level =
-					SpellLevel.getFirstLevelForKey(aSpell, aObject.getSpellKey(aPC), aPC);
+					SpellLevel.getFirstLevelForKey(aSpell, aObject.getSpellLists(aPC), aPC);
 
 			if (level == -1)
 			{

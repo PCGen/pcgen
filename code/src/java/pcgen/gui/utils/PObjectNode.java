@@ -273,8 +273,6 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				boolean addComma = false;
-
 				//
 				// If 1st selection has no length, then in is from CHOOSE:NOCHOICE
 				//

@@ -30,6 +30,7 @@ import java.util.Map;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.list.ClassSkillList;
@@ -94,6 +95,8 @@ public final class AssociationListKey<T>
 			new AssociationListKey<SpellProhibitor>();
 
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
+
+	public static final AssociationListKey<CDOMList<Spell>> SPELL_LIST_CACHE = new AssociationListKey<CDOMList<Spell>>();
 
 	public static final AssociationListKey<CharacterSpell> CHARACTER_SPELLS =
 			new AssociationListKey<CharacterSpell>();

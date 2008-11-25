@@ -26,11 +26,12 @@ package plugin.exporttokens;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -41,7 +42,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
@@ -549,36 +549,23 @@ public class SpellMemToken extends Token
 	private static String replaceTokenSpellMemSourceLevel(Spell aSpell,
 		PlayerCharacter aPC)
 	{
-		final Map<String, Integer> tempHash = SpellLevel.getLevelInfo(aPC, aSpell);
+		final HashMapToList<CDOMList<Spell>, Integer> tempHash = aPC.getLevelInfo(aSpell);
 		StringBuffer tempSource = new StringBuffer();
 		final Set<String> levelSet = new TreeSet<String>();
 
-		for (Map.Entry<String, Integer> entry : tempHash.entrySet())
+		for (CDOMList<Spell> spellList : tempHash.getKeySet())
 		{
-			String classKey = entry.getKey();
-			if (classKey.startsWith("CLASS|"))
+			String classKey = spellList.getKeyName();
+			for (Integer lvl : tempHash.getListFor(spellList))
 			{
-				classKey = classKey.substring(6);
-				if (!"ALL".equals(classKey))
+				PCClass pcc = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(PCClass.class,
+								classKey);
+				if (pcc != null)
 				{
-					if (Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey) != null)
-					{
-						classKey = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey).getAbbrev();
-					}
-					else
-					{
-						classKey = null;
-					}
+					classKey = pcc.getAbbrev();
 				}
-			}
-			else
-			{
-				classKey = classKey.substring(7);
-			}
-
-			if (classKey != null)
-			{
-				levelSet.add(classKey + entry.getValue().toString());
+				levelSet.add(classKey + lvl.toString());
 			}
 		}
 

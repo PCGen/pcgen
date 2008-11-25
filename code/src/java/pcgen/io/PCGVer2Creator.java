@@ -40,6 +40,7 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -1994,12 +1995,12 @@ final class PCGVer2Creator implements IOConstants
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
-					final String spellKey = cSpell.getOwner().getSpellKey(thePC);
+					List<? extends CDOMList<Spell>> lists = cSpell.getOwner().getSpellLists(thePC);
 
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
 						&& pcClass.isAutoKnownSpell(cSpell.getSpell()
-							.getKeyName(), SpellLevel.getFirstLevelForKey(cSpell.getSpell(), spellKey, thePC), thePC)
+							.getKeyName(), SpellLevel.getFirstLevelForKey(cSpell.getSpell(), lists, thePC), thePC)
 						&& thePC.getAutoSpells())
 					{
 						continue;
@@ -2055,7 +2056,7 @@ final class PCGVer2Creator implements IOConstants
 					}
 
 					buffer.append('|');
-					appendSourceInTaggedFormat(buffer, spellKey);
+					appendSourceInTaggedFormat(buffer, cSpell.getOwner().getVariableSource());
 					buffer.append(LINE_SEP);
 				}
 			}

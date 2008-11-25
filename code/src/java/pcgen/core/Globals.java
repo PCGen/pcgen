@@ -50,6 +50,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
@@ -1538,39 +1539,9 @@ public final class Globals
 	 *                   at least one of classKey and domainKey must not be ""
 	 * @return a List of Spell
 	 */
-	public static List<Spell> getSpellsIn(final int level, final String classKey, final String domainKey)
+	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
 	{
 		final List<Spell> aList = new ArrayList<Spell>();
-		final StringBuffer aBuf = new StringBuffer();
-
-		if (classKey.length() > 0)
-		{
-			if (classKey.indexOf('|') < 0)
-			{
-				aBuf.append("CLASS|").append(classKey);
-			}
-			else
-			{
-				aBuf.append(classKey);
-			}
-		}
-
-		if (domainKey.length() > 0)
-		{
-			if (aBuf.length() > 0)
-			{
-				aBuf.append('|');
-			}
-
-			if (domainKey.indexOf('|') < 0)
-			{
-				aBuf.append("DOMAIN|").append(domainKey);
-			}
-			else
-			{
-				aBuf.append(domainKey);
-			}
-		}
 		for (String aKey : spellMap.keySet())
 		{
 			final Object obj = spellMap.get(aKey);
@@ -1579,7 +1550,7 @@ public final class Globals
 			{
 				for (Spell aSpell : (ArrayList<Spell>)obj)
 				{
-					if (SpellLevel.levelForKeyContains(aSpell, aBuf.toString(), level, currentPC))
+					if (SpellLevel.levelForKeyContains(aSpell, spellLists, level, currentPC))
 					{
 						aList.add(aSpell);
 					}
@@ -1589,7 +1560,7 @@ public final class Globals
 			{
 				final Spell aSpell = (Spell) obj;
 
-				if (SpellLevel.levelForKeyContains(aSpell, aBuf.toString(), level, currentPC))
+				if (SpellLevel.levelForKeyContains(aSpell, spellLists, level, currentPC))
 				{
 					aList.add(aSpell);
 				}

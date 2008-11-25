@@ -39,7 +39,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -50,7 +49,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -87,7 +88,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SourceEntry;
 import pcgen.core.SpecialAbility;
-import pcgen.core.SpellSupport;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.Vision;
@@ -633,7 +633,6 @@ public final class EditorMainForm extends JDialog
 		thisPObject.removeListFor(ListKey.AUTO_SHIELDPROF);
 		thisPObject.removeListFor(ListKey.AUTO_ARMORPROF);
 
-		SpellSupport spellSupport = thisPObject.getSpellSupport();
 		switch (editType)
 		{
 			case EditorConstants.EDIT_DEITY:
@@ -687,20 +686,20 @@ public final class EditorMainForm extends JDialog
 				sel = pnlQSpells.getSelectedList();
 				if (thisPObject.isNewItem())
 					thisPObject.setNewItem(false);
-				spellSupport.clearSpellLevelMap();
-				thisPObject.getSpellSupport().clearSpellInfoMap();
+				thisPObject.clearSpellListInfo();
 
 				for (int i = 0; i < sel.length; ++i)
 				{
 					aString = sel[i].toString();
 					final int idx = aString.indexOf('=');
-					final String domainKey = thisPObject.getKeyName(), spellName, spellLevel;
 					if (idx > 0)
 					{
-						spellName = aString.substring(idx+2);
-						spellLevel = aString.substring(idx-1,idx);
-						spellSupport.putLevel("DOMAIN", domainKey, spellName, spellLevel);
-						spellSupport.putInfo("DOMAIN", spellName, domainKey, spellLevel);
+						final String domainKey = thisPObject.getKeyName();
+						String spellName = aString.substring(idx + 2);
+						String spellLevel = aString.substring(idx - 1, idx);
+						context.unconditionallyProcess(thisPObject, "SPELLLEVEL",
+							"DOMAIN|" + domainKey + "=" + spellLevel + "|"
+									+ spellName);
 					}
 				}
 
@@ -1133,8 +1132,7 @@ public final class EditorMainForm extends JDialog
 
 		if (editType != EditorConstants.EDIT_DOMAIN)
 		{
-			thisPObject.getSpellSupport().clearSpellLevelMap();
-			thisPObject.getSpellSupport().clearSpellInfoMap();
+			thisPObject.clearSpellListInfo();
 		}
 		
 		sel = pnlAdvanced.getSelectedList();
@@ -1389,11 +1387,9 @@ public final class EditorMainForm extends JDialog
 				List<Spell> availableSpellList = new ArrayList<Spell>();
 				List<String> selectedSpellList = new ArrayList<String>();
 
-				SpellSupport spellSupt = thisPObject.getSpellSupport();
 				if (thisPObject.isNewItem())
 				{
-					spellSupt.clearSpellInfoMap();
-					spellSupt.clearSpellLevelMap();
+					thisPObject.clearSpellListInfo();
 					for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
 					{
 						final Object obj = e.next();
@@ -1414,12 +1410,12 @@ public final class EditorMainForm extends JDialog
 
 						if (obj instanceof Spell)
 						{
-							String spellName = obj.toString();
-
-							if (spellSupt.containsInfoFor("DOMAIN", spellName))
+							int lvl = SpellLevel.getFirstLvlForKey((Spell) obj,
+								((Domain) thisPObject)
+										.get(ObjectKey.DOMAIN_SPELLLIST), null);
+							if (lvl != -1)
 							{
-								int i = spellSupt.getInfo("DOMAIN", spellName).level;
-								selectedSpellList.add(encodeSpellEntry(obj.toString(), Integer.toString(i)));
+								selectedSpellList.add(encodeSpellEntry(obj.toString(), Integer.toString(lvl)));
 							}
 							else
 							{
@@ -1775,8 +1771,6 @@ public final class EditorMainForm extends JDialog
 			case EditorConstants.EDIT_SPELL:
 				((SpellBasePanel2) pnlBase2).updateView(thisPObject);
 
-				Map lvlInfo = SpellLevel.getLevelInfo(null, ((Spell) thisPObject));
-
 				//
 				// Initialize the contents of the available and selected domains lists
 				//
@@ -1786,14 +1780,10 @@ public final class EditorMainForm extends JDialog
 
 				for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
 				{
-					Integer lvl = null;
+					Integer lvl = SpellLevel.getFirstLvlForKey((Spell) thisPObject,
+						aDomain.get(ObjectKey.DOMAIN_SPELLLIST), null);
 
-					if (lvlInfo != null)
-					{
-						lvl = (Integer) lvlInfo.get("DOMAIN|" + aDomain.getKeyName());
-					}
-
-					if (lvl != null)
+					if (lvl != -1)
 					{
 						selectedDomainsList.add(encodeDomainEntry(aDomain.getKeyName(), lvl.toString()));
 						++iCount;
@@ -1816,14 +1806,10 @@ public final class EditorMainForm extends JDialog
 				for (Iterator<PCClass> e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e.hasNext();)
 				{
 					final PCClass aClass = e.next();
-					Integer lvl = null;
+					Integer lvl = SpellLevel.getFirstLvlForKey((Spell) thisPObject,
+						aClass.get(ObjectKey.CLASS_SPELLLIST), null);
 
-					if (lvlInfo != null)
-					{
-						lvl = (Integer) lvlInfo.get("CLASS|" + aClass.getKeyName());
-					}
-
-					if (lvl != null)
+					if (lvl != -1)
 					{
 						selectedClassesList.add(encodeDomainEntry(aClass.getKeyName(), lvl.toString()));
 						++iCount;
@@ -1840,6 +1826,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Inform the user if there is a domain/class defined for the spell that was not found
 				//
+				HashMapToList<CDOMList<Spell>, Integer> lvlInfo = SpellLevel.getMasterLevelInfo(null, (Spell) thisPObject);
 				if ((lvlInfo != null) && (lvlInfo.size() != iCount))
 				{
 					Logging.errorPrint(Integer.toString(iCount) + " classes and domains found. Should have been "
@@ -3203,8 +3190,8 @@ public final class EditorMainForm extends JDialog
 		
 		if (anEditType != EditorConstants.EDIT_DOMAIN)
 		{
-			String spellSupportObj = thisPObject.getSpellSupport().getPCCText();
-			selectedList.addAll(Arrays.asList(spellSupportObj.split("\t")));
+			String[] spellSupportObj = Globals.getContext().unparse(thisPObject, "SPELLLEVEL");
+			selectedList.addAll(Arrays.asList(spellSupportObj));
 		}
 		return selectedList;
 	}

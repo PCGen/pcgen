@@ -128,7 +128,7 @@ public class Configuration
 				final List<ClassData> classData = classParser.parse(file);
 				for ( final ClassData cd : classData )
 				{
-					config.theClassData.put(cd.getClassKey(), cd);
+					config.theClassData.put(cd.getPCClass().getKeyName(), cd);
 				}
 			}
 		}
@@ -265,7 +265,7 @@ public class Configuration
 		ClassData data = theClassData.get(aKey);
 		if ( data == null )
 		{
-			data = new ClassData(Constants.EMPTY_STRING);
+			data = new ClassData(null);
 		}
 		return data.getStatWeights();
 	}
@@ -275,7 +275,7 @@ public class Configuration
 		ClassData data = theClassData.get(aKey);
 		if ( data == null )
 		{
-			data = new ClassData(Constants.EMPTY_STRING);
+			data = new ClassData(null);
 		}
 		return data.getSkillWeights();
 	}
@@ -285,7 +285,7 @@ public class Configuration
 		ClassData data = theClassData.get(aKey);
 		if ( data == null )
 		{
-			data = new ClassData(Constants.EMPTY_STRING);
+			data = new ClassData(null);
 		}
 		return data.getAbilityWeights(aCategory);
 	}
@@ -295,7 +295,7 @@ public class Configuration
 		ClassData data = theClassData.get( aKey );
 		if ( data == null )
 		{
-			data = new ClassData(Constants.EMPTY_STRING);
+			data = new ClassData(null);
 		}
 		return data.getDeityWeights();
 	}
@@ -305,7 +305,7 @@ public class Configuration
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
 		{
-			data = new ClassData(Constants.EMPTY_STRING);
+			data = new ClassData(null);
 		}
 		return data.getDomainWeights(aDeityKey);
 	}
@@ -315,7 +315,7 @@ public class Configuration
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
 		{
-			data = new ClassData( Constants.EMPTY_STRING );
+			data = new ClassData(null);
 		}
 		return data.getKnownSpellWeights(aLevel);
 	}
@@ -325,7 +325,7 @@ public class Configuration
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
 		{
-			data = new ClassData( Constants.EMPTY_STRING );
+			data = new ClassData(null);
 		}
 		return data.getPreparedSpellWeights(aLevel);
 	}
@@ -335,7 +335,7 @@ public class Configuration
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
 		{
-			data = new ClassData( Constants.EMPTY_STRING );
+			data = new ClassData(null);
 		}
 		return data.getSubClassWeights();
 	}

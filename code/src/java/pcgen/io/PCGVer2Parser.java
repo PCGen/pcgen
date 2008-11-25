@@ -3887,10 +3887,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					// it's either the class, sub-class or a cast-as class
 					// first see if it's the class
+					ClassSpellList csl = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(
+									ClassSpellList.class, objectKey);
 					if (((aPCClass != null) && objectKey.equals(aPCClass
-						.getKeyName()))
-						|| (aPCClass.getSpellKey(thePC).indexOf(
-							typeName + '|' + objectKey) >= 0))
+							.getKeyName()))
+							|| (aPCClass.getSpellLists(thePC).contains(csl)))
 					{
 						source = aPCClass;
 					}
@@ -3942,7 +3944,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// valid spell has a non-negative spell level
 				if ((spell != null)
-					&& (SpellLevel.getFirstLevelForKey(spell, source.getSpellKey(thePC), thePC) >= 0))
+					&& (SpellLevel.getFirstLevelForKey(spell, source.getSpellLists(thePC), thePC) >= 0))
 				{
 					aSpell = spell;
 					break;
@@ -3968,7 +3970,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final SpellBook book = thePC.getSpellBookByName(spellBook);
 
 		final Integer[] spellLevels =
-				SpellLevel.levelForKey(aSpell, source.getSpellKey(thePC), thePC);
+				SpellLevel.levelForKey(aSpell, source.getSpellLists(thePC), thePC);
 		boolean found = false;
 
 		for (int sindex = 0; sindex < spellLevels.length; ++sindex)

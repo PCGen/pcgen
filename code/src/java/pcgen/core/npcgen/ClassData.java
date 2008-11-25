@@ -22,14 +22,15 @@
  */
 package pcgen.core.npcgen;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
@@ -50,7 +51,7 @@ import pcgen.core.spell.Spell;
  */
 public class ClassData
 {
-	private String theClassKey = null;
+	private PCClass theClass = null;
 	
 	// TODO Can this be a PCStat?
 	private WeightedCollection<String> theStatWeights = null;
@@ -67,17 +68,14 @@ public class ClassData
 	 * 
 	 * @param aClassKey The key of the class this data is for
 	 */
-	public ClassData( final String aClassKey )
+	public ClassData( final PCClass aClass )
 	{
-		theClassKey = aClassKey;
+		theClass = aClass;
 	}
 	
-	/**
-	 * @return The key of the class this data is for
-	 */
-	public String getClassKey()
+	public PCClass getPCClass()
 	{
-		return theClassKey;
+		return theClass;
 	}
 	
 	/**
@@ -313,7 +311,7 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, theClassKey, Constants.EMPTY_STRING) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
 			{
 				spells.add(spell, 1);
 			}
@@ -364,7 +362,7 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, theClassKey, Constants.EMPTY_STRING) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
 			{
 				spells.add(spell, 1);
 			}
@@ -385,10 +383,9 @@ public class ClassData
 	{
 		if ( theSubClassWeights == null )
 		{
-			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, theClassKey);
-			if (pcClass != null)
+			if (theClass != null)
 			{
-				for ( final SubClass subClass : pcClass.getListFor(ListKey.SUB_CLASS) )
+				for ( final SubClass subClass : theClass.getListFor(ListKey.SUB_CLASS) )
 				{
 					addSubClass( subClass.getKeyName(), 1 );
 				}

@@ -25,7 +25,13 @@
  */
 package pcgen.core;
 
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 
@@ -37,12 +43,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Domain extends PObject
 {
-	@Override
-	public String getSpellKey(PlayerCharacter pc)
-	{
-		return "DOMAIN|" + getKeyName();
-	}
-
 	@Override
 	public Domain clone()
 	{
@@ -96,5 +96,17 @@ public final class Domain extends PObject
 		result = ((getKeyName() != null) ? getKeyName().hashCode() : 0);
 
 		return result;
+	}
+	
+	@Override
+	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
+	{
+		return Collections.singletonList(get(ObjectKey.DOMAIN_SPELLLIST));
+	}
+
+	@Override
+	public String getVariableSource()
+	{
+		return "DOMAIN|" + this.getKeyName();
 	}
 }

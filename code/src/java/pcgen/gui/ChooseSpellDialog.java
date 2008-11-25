@@ -54,10 +54,14 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.Domain;
@@ -359,7 +363,7 @@ final class ChooseSpellDialog extends JDialog
 
 	private void addSpellInfoToList(final Spell aSpell, List<String> unfoundItems, List<PObject> classWithSpell, String spellType)
 	{
-		final Map<String, Integer> levelInfo = SpellLevel.getLevelInfo(pc, aSpell);
+		final HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getLevelInfo(aSpell);
 
 		if ((levelInfo == null) || (levelInfo.size() == 0))
 		{
@@ -368,15 +372,13 @@ final class ChooseSpellDialog extends JDialog
 			return;
 		}
 
-		for (String key : levelInfo.keySet())
+		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 		{
-			String sub;
-
-			if (key.startsWith("CLASS|"))
+			if (spellList instanceof ClassSpellList)
 			{
-				sub = key.substring(6);
+				String key = spellList.getKeyName();
 
-				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, sub);
+				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, key);
 
 				if (aClass != null)
 				{
@@ -392,24 +394,24 @@ final class ChooseSpellDialog extends JDialog
 				}
 				else
 				{
-					sub = 'C' + sub;
+					key = 'C' + key;
 
-					if (!unfoundItems.contains(sub))
+					if (!unfoundItems.contains(key))
 					{
-						unfoundItems.add(sub);
+						unfoundItems.add(key);
 					}
 				}
 			}
-			else if (key.startsWith("DOMAIN|"))
+			else if (spellList instanceof DomainSpellList)
 			{
 				if (!("".equals(spellType)) && (spellType.indexOf("Divine") < 0))
 				{
 					continue;
 				}
 
-				sub = key.substring(7);
+				String key = spellList.getKeyName();
 
-				final Domain aDomain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, sub);
+				final Domain aDomain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, key);
 
 				if (aDomain != null)
 				{
@@ -420,17 +422,17 @@ final class ChooseSpellDialog extends JDialog
 				}
 				else
 				{
-					sub = 'D' + sub;
+					key = 'D' + key;
 
-					if (!unfoundItems.contains(sub))
+					if (!unfoundItems.contains(key))
 					{
-						unfoundItems.add(sub);
+						unfoundItems.add(key);
 					}
 				}
 			}
 			else
 			{
-				Logging.errorPrint("Unknown spell source: " + key);
+				Logging.errorPrint("Unknown spell source: " + spellList);
 			}
 		}
 	}
@@ -501,21 +503,20 @@ final class ChooseSpellDialog extends JDialog
 			//
 			castingClass = (PObject) cmbClass.getItemAt(cmbClass.getSelectedIndex());
 
-			String cName = "";
-			String dName = "";
+			CDOMList<Spell> spellList;
 
 			if (castingClass instanceof Domain)
 			{
-				dName = castingClass.getKeyName();
+				spellList = castingClass.get(ObjectKey.DOMAIN_SPELLLIST);
 			}
 			else
 			{
-				cName = castingClass.getKeyName();
+				spellList = castingClass.get(ObjectKey.CLASS_SPELLLIST);
 			}
 
 			classSpells = new ArrayList<Spell>();
 
-			for (Spell s : Globals.getSpellsIn(-1, cName, dName))
+			for (Spell s : Globals.getSpellsIn(-1, Collections.singletonList(spellList)))
 			{
 				if (canCreateItem(s))
 				{
@@ -636,18 +637,15 @@ final class ChooseSpellDialog extends JDialog
 
 			if (classSpells != null)
 			{
-				String caster;
-				String casterName;
+				CDOMList<Spell> spellList;
 
 				if (castingClass instanceof Domain)
 				{
-					casterName = castingClass.getKeyName();
-					caster = "DOMAIN";
+					spellList = castingClass.get(ObjectKey.DOMAIN_SPELLLIST);
 				}
 				else
 				{
-					casterName = castingClass.getKeyName();
-					caster = "CLASS";
+					spellList = castingClass.get(ObjectKey.CLASS_SPELLLIST);
 				}
 
 				for (Spell s : classSpells)
@@ -657,7 +655,7 @@ final class ChooseSpellDialog extends JDialog
 						continue;
 					}
 
-					if (SpellLevel.levelForKey(s, caster, casterName, pc) == baseSpellLevel)
+					if (SpellLevel.getFirstLvlForKey(s, spellList, pc) == baseSpellLevel)
 					{
 						if (SettingsHandler.guiUsesOutputNameSpells())
 						{

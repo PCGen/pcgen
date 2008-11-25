@@ -38,4 +38,6 @@ public interface CDOMList<T extends PrereqObject> extends PrereqObject
 	 * @return the Class of Object this CDOMList will identify
 	 */
 	public Class<T> getListClass();
+	
+	public String getKeyName();
 }

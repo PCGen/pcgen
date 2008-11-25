@@ -24,10 +24,12 @@ package pcgen.core.kit;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -215,8 +217,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 						{
 							List<Spell> allSpells = Globals.getSpellsIn(
 								Integer.parseInt(spellName.substring(6)),
-								aClass.getKeyName(),
-								"");
+								Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST)));
 							for (Spell s : allSpells)
 							{
 								aSpellList.add(new KitSpellBookEntry(aClass.
@@ -381,8 +382,8 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			for (CharacterDomain cd : pc.getCharacterDomainList())
 			{
 				Domain domain = cd.getDomain();
-				final String key = domain.getSpellKey(pc);
-				int newLevel = SpellLevel.getFirstLevelForKey(spell, key, pc);
+				List<? extends CDOMList<Spell>> lists = domain.getSpellLists(pc);
+				int newLevel = SpellLevel.getFirstLevelForKey(spell, lists, pc);
 				if (newLevel > 0 && newLevel < spLevel)
 				{
 					spLevel = newLevel;
@@ -393,7 +394,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 		if (spLevel == 99)
 		{
-			spLevel = SpellLevel.getFirstLevelForKey(spell, pcClass.getSpellKey(pc), pc);
+			spLevel = SpellLevel.getFirstLevelForKey(spell, pcClass.getSpellLists(pc), pc);
 			owner = pcClass;
 		}
 

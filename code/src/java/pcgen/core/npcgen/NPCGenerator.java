@@ -23,6 +23,7 @@
 package pcgen.core.npcgen;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -460,7 +461,7 @@ public class NPCGenerator
 		if (WeightedCollection == null)
 		{
 			WeightedCollection = new WeightedCollection<Spell>();
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, aClass.getKeyName(), Constants.EMPTY_STRING) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST))) )
 			{
 				WeightedCollection.add(spell, 1);
 			}
@@ -474,7 +475,7 @@ public class NPCGenerator
 		if (WeightedCollection == null)
 		{
 			WeightedCollection = new WeightedCollection<Spell>();
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, aClass.getKeyName(), Constants.EMPTY_STRING) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST))) )
 			{
 				WeightedCollection.add(spell, 1);
 			}
@@ -503,7 +504,7 @@ public class NPCGenerator
 			}
 		}
 		final Domain domain = domains.getRandomValue();
-		final WeightedCollection<Spell> domainSpells = new WeightedCollection<Spell>(Globals.getSpellsIn(aLevel, Constants.EMPTY_STRING, domain.getKeyName()));
+		final WeightedCollection<Spell> domainSpells = new WeightedCollection<Spell>(Globals.getSpellsIn(aLevel, Collections.singletonList(domain.get(ObjectKey.DOMAIN_SPELLLIST))));
 		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel ); //$NON-NLS-1$
 	}
 	

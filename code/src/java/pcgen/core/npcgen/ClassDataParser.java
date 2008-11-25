@@ -25,6 +25,7 @@ package pcgen.core.npcgen;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -36,7 +37,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -223,7 +223,7 @@ class ClassDataHandler extends DefaultHandler
 					}
 					else
 					{
-						theCurrentData = new ClassData( classKey );
+						theCurrentData = new ClassData( pcClass );
 						theState = ParserState.CLASSDATA;
 					}
 				}
@@ -529,7 +529,7 @@ class ClassDataHandler extends DefaultHandler
 			if ( remainingWeight > 0 )
 			{
 				// Add all spells at this weight.
-				final List<Spell> allSpells = Globals.getSpellsIn(theCurrentLevel, theCurrentData.getClassKey(), Constants.EMPTY_STRING);
+				final List<Spell> allSpells = Globals.getSpellsIn(theCurrentLevel, Collections.singletonList(theCurrentData.getPCClass().get(ObjectKey.CLASS_SPELLLIST)));
 				for ( final Spell spell : allSpells )
 				{
 					if ( theCurrentSpellType == SpellType.KNOWN )

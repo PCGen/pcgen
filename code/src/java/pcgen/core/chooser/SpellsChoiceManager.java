@@ -24,18 +24,22 @@
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SpellSupport;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
@@ -85,14 +89,18 @@ public class SpellsChoiceManager extends
 				List<Spell> localList = new ArrayList<Spell>();
 				if (token.startsWith("DOMAIN=") || token.startsWith("DOMAIN."))
 				{
-					appendSpells(new TypeKeyFilter("DOMAIN",
-							token.substring(7), null), aPc, localList);
+					DomainSpellList dsl = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(
+									DomainSpellList.class, token.substring(7));
+					appendSpells(new TypeKeyFilter(dsl, null), aPc, localList);
 				}
 				else if (token.startsWith("CLASS=")
 						|| token.startsWith("CLASS."))
 				{
-					appendSpells(new TypeKeyFilter("CLASS", token.substring(6),
-							null), aPc, localList);
+					ClassSpellList csl = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(
+									ClassSpellList.class, token.substring(6));
+					appendSpells(new TypeKeyFilter(csl, null), aPc, localList);
 				}
 				else if (token.startsWith("ANY"))
 				{
@@ -107,7 +115,7 @@ public class SpellsChoiceManager extends
 									+ " did not have matching brackets");
 						}
 						r = getRestriction("ANY", token.substring(
-									bracketLoc + 1, token.length() - 1), aPc);
+								bracketLoc + 1, token.length() - 1), aPc);
 					}
 					appendSpells(new AnyFilter(r), aPc, localList);
 				}
@@ -158,8 +166,10 @@ public class SpellsChoiceManager extends
 								.substring(bracketLoc + 1, token.length() - 1),
 								aPc);
 					}
-					appendSpells(new TypeKeyFilter("DOMAIN", domainName, r),
-							aPc, localList);
+					DomainSpellList dsl = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(
+									DomainSpellList.class, domainName);
+					appendSpells(new TypeKeyFilter(dsl, r), aPc, localList);
 				}
 				else if (token.startsWith("CLASSLIST="))
 				{
@@ -183,8 +193,10 @@ public class SpellsChoiceManager extends
 								.substring(bracketLoc + 1, token.length() - 1),
 								aPc);
 					}
-					appendSpells(new TypeKeyFilter("CLASS", className, r), aPc,
-							localList);
+					ClassSpellList csl = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(
+									ClassSpellList.class, className);
+					appendSpells(new TypeKeyFilter(csl, r), aPc, localList);
 				}
 				else if (token.startsWith("SCHOOL="))
 				{
@@ -343,24 +355,22 @@ public class SpellsChoiceManager extends
 	private class TypeKeyFilter implements SpellFilter
 	{
 
-		private final String listtype;
-		private final String listname;
+		private final CDOMList<Spell> spelllist;
 		private final Restriction res;
 		private final String defaultbook;
 
-		public TypeKeyFilter(String ltype, String listkey, Restriction r)
+		public TypeKeyFilter(CDOMList<Spell> list, Restriction r)
 		{
 			defaultbook = Globals.getDefaultSpellBook();
-			listtype = ltype;
-			listname = listkey;
 			res = r;
+			spelllist = list;
 		}
 
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 				List<Spell> availableList)
 		{
-			String listkey = listtype + "|" + listname;
-			LEVEL: for (int level : SpellLevel.levelForKey(spell, listkey, pc))
+			LEVEL: for (int level : SpellLevel.levelForKey(spell, Collections
+					.singletonList(spelllist), pc))
 			{
 				if (level < 0)
 				{
@@ -420,29 +430,41 @@ public class SpellsChoiceManager extends
 			{
 				return;
 			}
-			Map<String, Integer> levelInfo = SpellLevel.getLevelInfo(pc, spell);
+			HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getLevelInfo(spell);
 			boolean useDomain = "DIVINE".equalsIgnoreCase(listname);
-			for (Map.Entry<String, Integer> me : levelInfo.entrySet())
+			for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 			{
-				if (useDomain && me.getKey().startsWith("DOMAIN|"))
+				if (useDomain && spellList instanceof DomainSpellList)
 				{
-					if (passesRestriction(spell, pc, me.getValue()))
+					for (Integer level : levelInfo.getListFor(spellList))
 					{
-						availableList.add(spell);
-						return;
+						if (passesRestriction(spell, pc, level))
+						{
+							availableList.add(spell);
+							return;
+						}
 					}
 				}
-				else if (me.getKey().startsWith("CLASS|"))
+				else
 				{
-					PCClass cl = pc.getClassKeyed(me.getKey().substring(6));
-					if (cl != null && !listname.equalsIgnoreCase(cl.getSpellType()))
+					for (PCClass cl : pc.getClassList())
 					{
-						continue;
-					}
-					else if (passesRestriction(spell, pc, me.getValue()))
-					{
-						availableList.add(spell);
-						return;
+						if (!listname.equalsIgnoreCase(cl.getSpellType()))
+						{
+							continue;
+						}
+						if (cl.getSpellLists(pc).contains(spellList))
+						{
+							for (Integer level : levelInfo
+									.getListFor(spellList))
+							{
+								if (passesRestriction(spell, pc, level))
+								{
+									availableList.add(spell);
+									return;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -494,15 +516,18 @@ public class SpellsChoiceManager extends
 		}
 
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
-			List<Spell> availableList)
+				List<Spell> availableList)
 		{
-			Map<String, Integer> levelInfo = SpellLevel.getLevelInfo(pc, spell);
-			for (Map.Entry<String, Integer> me : levelInfo.entrySet())
+			HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getLevelInfo(spell);
+			for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 			{
-				if (passesRestriction(spell, pc, me.getValue()))
+				for (Integer level : levelInfo.getListFor(spellList))
 				{
-					availableList.add(spell);
-					return;
+					if (passesRestriction(spell, pc, level))
+					{
+						availableList.add(spell);
+						return;
+					}
 				}
 			}
 		}

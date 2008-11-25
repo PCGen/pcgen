@@ -1513,7 +1513,7 @@ BIO
 							<fullschool>Telepathy (Charm) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel></sourcelevel>
+							<sourcelevel>Telepath1</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
 							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1600,7 +1600,7 @@ BIO
 							<fullschool>Telepathy [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel></sourcelevel>
+							<sourcelevel>Telepath1</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersG-P.rtf</source>
 							<sourcepage>PsionicPowersG-P.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1660,7 +1660,7 @@ BIO
 							<fullschool>Telepathy (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel></sourcelevel>
+							<sourcelevel>Telepath2</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
 							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1747,7 +1747,7 @@ BIO
 							<fullschool>Telepathy (Compulsion) [Mind-Affecting, Language-Dependent]</fullschool>
 						</school>
 						<source>
-							<sourcelevel></sourcelevel>
+							<sourcelevel>Telepath2</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersQ-W.rtf</source>
 							<sourcepage>PsionicPowersQ-W.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1778,7 +1778,7 @@ BIO
 							<fullschool>Telepathy (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel></sourcelevel>
+							<sourcelevel>Telepath3</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
 							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1807,7 +1807,7 @@ BIO
 							<fullschool>Telepathy [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Psy3</sourcelevel>
+							<sourcelevel>Psy3, Telepath3</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F.rtf</source>
 							<sourcepage>PsionicPowersD-F.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>

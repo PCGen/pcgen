@@ -26,21 +26,28 @@
 
 package pcgen.core.term;
 
-import java.util.StringTokenizer;
+import java.util.List;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.cdom.base.Constants;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.spell.Spell;
 
 public class PCMaxCastableClassTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	private final String classKey;
+
+	private ClassSpellList spellList;
 
 	public PCMaxCastableClassTermEvaluator(String originalText, String classKey)
 	{
 		this.originalText = originalText;
-		this.classKey = classKey;
+		this.spellList = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(ClassSpellList.class,
+						classKey);
+		// TODO Warning if null? or is null gate in resolve not necessary?
 	}
 
 	public Float resolve(PlayerCharacter pc)
@@ -48,34 +55,27 @@ public class PCMaxCastableClassTermEvaluator
 		Float max = -1f;
 		for (PCClass spClass : pc.getClassList())
 		{
-			StringTokenizer st =
-					new StringTokenizer(spClass.getSpellKey(pc),
-										Constants.PIPE);
-			while (st.hasMoreTokens())
+			List<? extends CDOMList<Spell>> lists = spClass.getSpellLists(pc);
+			if (spellList != null && lists.contains(spellList))
 			{
-				String type = st.nextToken();
-				//Doesn't need to be guarded - if this throws an exception the
-				// problem is in getSpellKey()
-				String key = st.nextToken();
-				if ("CLASS".equals(type) && key.equalsIgnoreCase(classKey))
+				int cutoff = spClass.getHighestLevelSpell();
+				if (spClass.hasCastList())
 				{
-					int cutoff = spClass.getHighestLevelSpell();
-					if (spClass.hasCastList())
+					for (int i = 0; i < cutoff; i++)
 					{
-						for (int i = 0; i < cutoff; i++) {
-							if (spClass.getCastForLevel(i, pc) != 0)
-							{
-								max = Math.max(max,i);
-							}
+						if (spClass.getCastForLevel(i, pc) != 0)
+						{
+							max = Math.max(max, i);
 						}
 					}
-					else
+				}
+				else
+				{
+					for (int i = 0; i < cutoff; i++)
 					{
-						for (int i = 0; i < cutoff; i++) {
-							if (spClass.getKnownForLevel(i, pc) != 0)
-							{
-								max = Math.max(max,i);
-							}
+						if (spClass.getKnownForLevel(i, pc) != 0)
+						{
+							max = Math.max(max, i);
 						}
 					}
 				}

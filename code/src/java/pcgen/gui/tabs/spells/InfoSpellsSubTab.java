@@ -31,6 +31,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -50,7 +51,11 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -844,7 +849,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 
 				Integer[] levels =
-						SpellLevel.levelForKey(aSpell, cs.getOwner().getSpellKey(pc), pc);
+						SpellLevel.levelForKey(aSpell, cs.getOwner().getSpellLists(pc), pc);
 
 				for (Integer level : levels)
 				{
@@ -864,7 +869,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			}
 			else
 			{
-				levelString.append(SpellLevel.getLevelString(aSpell));
+				levelString.append(InfoSpellsSubTab.getLevelString(aSpell));
 			}
 			b.appendLineBreak();
 			b.appendI18nElement("InfoSpells.level.title", levelString.toString()); //$NON-NLS-1$
@@ -1050,6 +1055,32 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	}
 
 	// -- Static helper methods --
+
+	public static String getLevelString(Spell sp)
+	{
+		StringBuilder sb = new StringBuilder();
+		boolean needsComma = false;
+		MasterListInterface masterLists = Globals.getMasterLists();
+		for (CDOMReference list : masterLists.getActiveLists())
+		{
+			Collection<AssociatedPrereqObject> assoc = masterLists
+					.getAssociations(list, sp);
+			if (assoc != null)
+			{
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					if (needsComma)
+					{
+						sb.append(", ");
+					}
+					needsComma = true;
+					sb.append(list.getLSTformat());
+					sb.append(apo.getAssociation(AssociationKey.SPELL_LEVEL));
+				}
+			}
+		}
+		return sb.toString();
+	}
 
 	private static int getDC(PCClass aClass, int level, PlayerCharacter pc)
 	{

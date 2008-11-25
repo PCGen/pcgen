@@ -229,7 +229,11 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		{
 			if (ref.contains(key1))
 			{
-				list.addAll(masterList.getListFor(ref, key2));
+				List<AssociatedPrereqObject> tempList = masterList.getListFor(ref, key2);
+				if (tempList != null)
+				{
+					list.addAll(tempList);
+				}
 			}
 		}
 		return list;
