@@ -2,20 +2,22 @@ Greetings,
 
 This lesson is designed to cover what one would think is a very simple tag, but actually is a very complex tool.
 
-What is a Variable and why should I care?
+NOTE: <TAB> indicates an actual use of the TAB button.
+
+First things first - "What is a Variable and why should I care?"
 
 A variable is a wonderful tool to allow you to add complex interactions with anything in pcgen. Simply put without variables we wouldn't have an easy time with most of what we accomplish today. What is a variable though? 
-It is a Word that is transformed into a Numerical value. And through this numerical value we can accomplish a lot of things.
+It is a Word that is transformed into a Numerical value and through this numerical value we can accomplish a lot of things. SO I can tell PCGen that 'Monkey' means '10' when used as a variable.
 
 To Use Variables we have Three Tags
 
-DEFINE
+'DEFINE'
 
-BONUS:VAR
+'BONUS:VAR'
 
 and
 
-PREVAR
+'PREVARx' the x represents the combos.
 [Insert Links to tags]
 
 Standards -
@@ -69,17 +71,24 @@ BONUS:VAR|MonkeyFu|var("CL=Monkey Warrior")
 This would grant 1 for every level of 'Monkey Warrior' to the variable 'MonkeyFu'
 
 
-Now, Variables are found everywhere, so let's use a Class file Example:
+Now, Variables are found everywhere, so let's use make an example of an ability that might use a variable.
+
+Monkey Warrior has a power called Monkey Fu, he can use Monkey Fu a limited number of times per day. At 2nd level he may use Monkey Fu once per day, at 5th level he may use Monkey Fu twice per day.
+
+(Making classes are covered in Lesson [insert link])
 
 CLASS:Monkey Warrior
 1 <TAB> DEFINE:MonkeyFu|0
-2 <TAB> BONUS:VAR|MonkeyFu|1
+2 <TAB> BONUS:VAR|MonkeyFu|1	SAB:May use Monkey Fu %/day|MonkeyFu  (OR) DESC:May use Monkey Fu %1/day|MonkeyFu
+5 <TAB> BONUS:VAR|MonkeyFu|1
 
-So, I'd have 1 in MonkeyFu
+So, I'd have 1 in MonkeyFu at 2nd level, 2 in MonkeyFu at 5th level. The '%' is converted to display the number, in a DESC token we use a more intelligent sorting that uses '%x' x being the order the variables are used. I'll explain that a little more in depth later on in the lesson.
 
-Now, let's say you want a Feat to only be available if you have at least 1 in MonkeyFu that's where PREVAR comes into play
 
-PREVAR is an extension style tag... Unlike PREFEAT:  PREVAR must have an addon to work, So we have LT = Less Than, GT = Greater Than, EQ = Equals and then combos... GTEQ = Greater Than or Equals, LTEQ = Less Than or Equals.
+
+Now, let's say you want a Feat to only be available if you have at least 1 in MonkeyFu that's where PREVAR comes into play.
+
+PREVAR is an extension style tag... Unlike PREFEAT:  PREVAR must have an addon to work, So we have 'LT' = Less Than, 'GT' = Greater Than, 'EQ' = Equals and then combos... 'GTEQ' = Greater Than or Equals, 'LTEQ' = Less Than or Equals.
 
 
 So, I can use 
@@ -114,17 +123,23 @@ DESC:Test my Monkey Fu +%1|MOnkeyFu
 
 NOTE:The '%' or '%1' will substitute the % or %1 symbol out for the correct numerical value leaving you with 1. The Syntax of the DESC tag is slightly more advanced so %1, %2 will assign the values based upon their order in the tag. 
 
+
+Okay, so I've coded up these two variables to be
+MonkeyFu = 1
+MonkeyScream = 10
+
 DESC:Test my MonkeyFu +%2 with a scream lasting +%1 rounds|MonkeyScream|MonkeyFu
 
 Will result in
-Test my MonkeyFu +1 with a scream lasting 10 rounds
+'Test my MonkeyFu +1 with a scream lasting 10 rounds'
+
 
 QUICK TIP:
-Any variable resulting in -1 will hide the SA [PRE 5.14] or SAB tag.
+Any variable resulting in '-1 or lower' will hide the SA/SAB and DESC tag.
 
 
 Now, how do we code Variables in our main releases -
-For a Class File we find it's cleaner to place the DEFINE tag inside the originating object and the Bonus in the class file.
+For a Class File we find it's cleaner to place the 'DEFINE' tag inside the originating object and the Bonus in the class file.
 
 CLASS:Monkey Warrior
 1 <tab> ABILITY:Special Ability|AUTOMATIC|Monkey Warrior Weapon Prowess <TAB> BONUS:VAR|MonkeyWarriorProwess|1
@@ -157,16 +172,20 @@ Example:
  
 BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1
 
-FavoredEnemies will be the number of RangerFavoredEnemyLVL divided by 5 and then add 1
+'FavoredEnemies' will be the number of 'RangerFavoredEnemyLVL' divided by 5 and then add 1
 So with level 10, the result is 2+1 or 3
 
-BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5 in the ability file
+BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5
+'FavoredEBonus' will be set by 'RangerFavoredLVL' divided by 5 
 
 
 
-and
+
 POOL:FavoredEnemies
-Is found in the ABILITYCATEGORY file. For those not familiar with pool, what this does is make the default pool go from 0 to whatever value is set by the variable.
+  Sets the POOL on the ABILITYCATEGORY line this is found to be based upon the numerical value assigned by   'FavoredEnemies'. 
+
+See [Ability Category Class for more info]
+For those not familiar with pool, what this does is make the default pool go from 0 to whatever value is set by the variable.
 
 You could accomplish the same thing using
 
@@ -176,6 +195,13 @@ and even more complex
 VFEAT:Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
 
 
-So as can you see variables are used quite frequently.
+So as can you see variables are used quite frequently within the PCGen sets.
+
+Last mention - Variables should not be confused with JEP formula, though they can be used in JEP formula.
+CL/5 = Class Level divided by 5 
+JEP would use things as 'BONUS:COMBAT|AC|var("Monkey")+12'  that's the most basic, it's a math feature using a variable. The more complex use 'IF' and '=='
 
 The uses are limited only by your imagination.
+
+
+- Andrew Maitland
