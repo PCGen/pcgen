@@ -90,23 +90,31 @@ NOTE: Depending on the type of file you use will factor into how you use the PRE
 A Feat File works with PREFEAT, where a ABILITY File works with PREABILITY. Though they should be interchangeable you should be aware of the subtle differences. Also, any ABILITY with a category other than FEAT will NOT take PREFEAT. 
 So, PREFEAT:1,Dodge and PREABILITY:1,CATEGORY=FEAT,Dodge should work just fine... But try to keep this in mind. If all your feats are created in an ABILITY file, then restrict yourself to using PREABILITY:x,CATEGORY=y,z format. (See Tag Index Docs for specific tag usage).
 
+Power Sample Ability:
 
-Now, Class Abilities...
+Monkey Warrior has an ability Called Monkey Warrior Fu.
+-
+Monkey Warrior Fu is a class ability that grants the use of weapon proficiencies for Monkey Claws, Monkey Bite and Monkey Fists; he also is granted Armor Proficiency with Monkey Jacket and Shield Proficiency Bananna Buckler. On top of that he may use a special power called Monkey Warrior Shout that instill fear in battle once per encounter. At 12th level this ability deals 1d10 bad breath damage to all enemies with 30 feet.
+-
 
-Monkey Warrior has a Special Class Feature which Allows him to use  'Monkey Warrior Fu'.
+
+Now, to code this Class Abilities...
+
+Monkey Warrior has a Special Class Feature which Allows him to use  'Monkey Warrior Fu' we need to create this in a manner that PCGen can translate.
 
 In order for that to work we need to create those abilities here. Recap of how the class is calling them:
 ABILITY:Special Ability|AUTOMATIC|Monkey Warrior Fu
 
 So, to break that tag into basic pieces, first it tells pcgen this is an ability located in an ability file, next it tells pcgen the abilitycategory of the ability. That is KEY to understanding where the program looks for the ability, finally we tell pcgen how this ability will appear on the character. The Nature is very important.
+
+[Side Bar]
 We have three Natures 
 NORMAL = It charges a pool point and also will NOT add the ability if you do not meet the Prereqs.
 AUTOMATIC = No charge to the pool, this will automatically appear on the character (Yellow unless you changed your preferences)
 VIRTUAL = Bypasses any Requirements and will not charge the pool. (Appears purple by default)
+[/Side Bar]
 
-Ability 
-
-And Finally we tell PCGen what the Ability Name is. In this case Monkey Warrior Fu.
+And Finally we tell PCGen what the Ability Name is. In this case 'Monkey Warrior Fu' our naming convention is to use the name of the ability as the primary name, in case of re-use of a name you can also use 'KEY' to make it distinct and OUTPUTNAME.
 
 NOTE: That each ability is separated by a '|' pipe. Do not use periods '.' or commas ',' or you will have issues.
 
@@ -147,3 +155,6 @@ Okay, that is the basics of creating class abilities, which can also be racial a
 We've covered the basics of creating ABILITYCATEGORY tags to create pools, learned how to make the abilities so they are put in those pools.
 
 I think this covers the basics for abilities. If we come across more advanced techniques to be explained they will covered in an advanced series.
+
+
+-Andrew Maitland
