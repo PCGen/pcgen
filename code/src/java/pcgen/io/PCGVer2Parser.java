@@ -3299,57 +3299,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else if (aString.startsWith(TAG_APPLIEDTO))
 				{
-					final StringTokenizer aTok =
-						new StringTokenizer(aString.substring(TAG_APPLIEDTO
-							.length()+1), TAG_SEPARATOR, false);
 					Race race = thePC.getRace();
-					while (aTok.hasMoreTokens())
-					{
-						final String appliedToKey = aTok.nextToken();
-						if (appliedToKey.startsWith(TAG_MULTISELECT))
-						{
-							//
-							// Should be in the form:
-							// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
-							//
-							final StringTokenizer msTok =
-									new StringTokenizer(appliedToKey, TAG_END, false);
-
-							if (msTok.countTokens() > 2)
-							{
-								msTok.nextToken(); // should be TAG_MULTISELECT
-
-								final int maxChoices =
-										Integer.parseInt(sTok.nextToken());
-								msTok.nextToken(); // toss this--number of choices made
-
-								final FixedStringList array = new FixedStringList(maxChoices);
-								while (msTok.hasMoreTokens())
-								{
-									array.add(msTok.nextToken());
-								}
-
-								thePC.addAssociation(race, array);
-							}
-							else
-							{
-								final String msg =
-										PropertyFactory
-											.getFormattedString(
-												"Warnings.PCGenParser.IllegalRaceIgnored", //$NON-NLS-1$
-												line);
-								warnings.add(msg);
-							}
-						}
-						else if (!thePC.containsAssociated(race, appliedToKey))
-						{
-							String[] assoc = appliedToKey.split(Constants.COMMA, -1);
-							for (String string : assoc)
-							{
-								thePC.addAssociation(race, string);
-							}
-						}
-					}
+					parseAppliedTo(line, aString, race);
 				}
 				else
 				{
@@ -3372,6 +3323,69 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		// TODO
 		// adjust for more information according to PCGVer1Creator.appendRaceLine
+	}
+
+	/**
+	 * Parse an applied to element, indicating a value associated with the 
+	 * item, generally the result of a chooser.
+	 * 
+	 * @param line The line being parsed, only for error reporting.
+	 * @param aString The APPLIEDTO element
+	 * @param pObj The object that this data is to be added to.
+	 */
+	private void parseAppliedTo(final String line,
+		final String aString, PObject pObj)
+	{
+		final StringTokenizer aTok =
+			new StringTokenizer(aString.substring(TAG_APPLIEDTO
+				.length()+1), TAG_SEPARATOR, false);
+		while (aTok.hasMoreTokens())
+		{
+			final String appliedToKey = aTok.nextToken();
+			if (appliedToKey.startsWith(TAG_MULTISELECT))
+			{
+				//
+				// Should be in the form:
+				// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
+				//
+				final StringTokenizer msTok =
+						new StringTokenizer(appliedToKey, TAG_END, false);
+
+				if (msTok.countTokens() > 2)
+				{
+					msTok.nextToken(); // should be TAG_MULTISELECT
+
+					final int maxChoices =
+							Integer.parseInt(msTok.nextToken());
+					msTok.nextToken(); // toss this--number of choices made
+
+					final FixedStringList array = new FixedStringList(maxChoices);
+					while (msTok.hasMoreTokens())
+					{
+						array.add(msTok.nextToken());
+					}
+
+					thePC.addAssociation(pObj, array);
+				}
+				else
+				{
+					final String msg =
+							PropertyFactory
+								.getFormattedString(
+									"Warnings.PCGenParser.IllegalRaceIgnored", //$NON-NLS-1$
+									line);
+					warnings.add(msg);
+				}
+			}
+			else if (!thePC.containsAssociated(pObj, appliedToKey))
+			{
+				String[] assoc = appliedToKey.split(Constants.COMMA, -1);
+				for (String string : assoc)
+				{
+					thePC.addAssociation(pObj, string);
+				}
+			}
+		}
 	}
 
 	private void parseFavoredClassLine(final String line)
@@ -4315,6 +4329,56 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							}
 						}
 					}
+					else if (TAG_APPLIEDTO.equals(childTag))
+					{
+						child.getText();
+						final String appliedToKey = child.getText();
+						if (appliedToKey.startsWith(TAG_MULTISELECT))
+						{
+							//
+							// Should be in the form:
+							// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
+							//
+							final StringTokenizer msTok =
+									new StringTokenizer(appliedToKey, TAG_END, false);
+
+							if (msTok.countTokens() > 2)
+							{
+								msTok.nextToken(); // should be TAG_MULTISELECT
+
+								final int maxChoices =
+										Integer.parseInt(msTok.nextToken());
+								msTok.nextToken(); // toss this--number of choices made
+
+								final FixedStringList array = new FixedStringList(maxChoices);
+								while (msTok.hasMoreTokens())
+								{
+									array.add(msTok.nextToken());
+								}
+
+								thePC.addAssociation(aPCTemplate, array);
+							}
+							else
+							{
+								final String msg =
+										PropertyFactory
+											.getFormattedString(
+												"Warnings.PCGenParser.IllegalTemplateIgnored", //$NON-NLS-1$
+												line);
+								warnings.add(msg);
+							}
+						}
+						else if (!thePC.containsAssociated(aPCTemplate, appliedToKey))
+						{
+							String[] assoc = appliedToKey.split(Constants.COMMA, -1);
+							for (String string : assoc)
+							{
+								thePC.addAssociation(aPCTemplate, string);
+							}
+						}
+					
+					}
+
 				}
 			}
 		}

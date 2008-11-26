@@ -8313,18 +8313,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		// Do chooser (if any)
-		boolean choiceMade = ChooserUtilities.modChoices(
-			inTmpl,
-			new ArrayList(),
-			new ArrayList(),
-			true,
-			this,
-			true,
-			null);
 		
 		if (!isImporting())
 		{
+			// Do chooser (if any)
+			boolean choiceMade = ChooserUtilities.modChoices(
+				inTmpl,
+				new ArrayList(),
+				new ArrayList(),
+				true,
+				this,
+				true,
+				null);
+			
 			getSpellList();
 			inTmpl.globalChecks(this);
 		}

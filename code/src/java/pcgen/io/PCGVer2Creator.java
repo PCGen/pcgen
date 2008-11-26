@@ -2204,6 +2204,29 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(']');
 				}
 			}
+			List<FixedStringList> assocList = thePC.getDetailedAssociations(template);
+			if (assocList != null && !assocList.isEmpty())
+			{
+				buffer.append(TAG_SEPARATOR);
+				buffer.append(TAG_APPLIEDTO).append(TAG_END);
+				boolean first = true;
+				for (FixedStringList assocArray : assocList)
+				{
+					if (assocArray.size() > 1)
+					{
+						buffer.append(TAG_MULTISELECT).append(':');
+					}
+					for (String assoc : assocArray)
+					{
+						if (!first)
+						{
+							buffer.append(Constants.COMMA);
+						}
+						first = false;
+						buffer.append(EntityEncoder.encode(assoc));
+					}
+				}
+			}
 
 			buffer.append(']').append(LINE_SEP);
 		}
