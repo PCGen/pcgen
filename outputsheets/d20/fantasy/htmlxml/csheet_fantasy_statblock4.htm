@@ -352,9 +352,9 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <b>Melee </b>
 |ENDIF|
 <i>|TEXT.LOWER.WEAPON.%weap.NAME.NOSTAR| </i>
-
+|MANUALWHITESPACE|
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
-(two handed) |WEAPON.%weap.THHIT| ((two handed) |WEAPON.%weap.THDAMAGE|
+(two handed)&nbsp;|WEAPON.%weap.THHIT|&nbsp;((two handed)&nbsp;|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -387,6 +387,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 )
 |ENDIF|
 |ENDFOR|
+|ENDMANUALWHITESPACE|
 <!-- End Attacks -->
 
 <br><b>Face</b> |FACE| <b>Reach</b> |REACH|<br>

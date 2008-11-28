@@ -377,10 +377,10 @@ Tower Shield,
 |ELSE|
 <b>Melee </b>
 |ENDIF|
-<i>|WEAPON.%weap.NAME.NOSTAR| </i>
-
+<i>|WEAPON.%weap.NAME.NOSTAR|</i>
+|MANUALWHITESPACE|
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
-(two handed) |WEAPON.%weap.THHIT| ((two handed) |WEAPON.%weap.THDAMAGE|
+(two handed)&nbsp;|WEAPON.%weap.THHIT|&nbsp;((two handed)&nbsp;|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -413,6 +413,7 @@ Tower Shield,
 )
 |ENDIF|
 |ENDFOR|
+|ENDMANUALWHITESPACE|
 <!-- End Attacks -->
 
 <!-- Face abd Reach -->

@@ -311,18 +311,21 @@ public final class ExportHandler
 		String aString = br.readLine();
 		while (aString != null)
 		{
+			// Karianna 29/11/2008 - No Longer replace blank lines with spaces, 
+			// doesn't seem to be needed
+
 			// If the line is blank then append a space character
-			if (aString.length() == 0)
-			{
-				inputLine.append(' ');
-			}
-			else
-			{
-				// Adjacent separators get merged by StringTokenizer,
-				// so we break them up here, e.g. Change || to | |
-				Matcher mat = pat.matcher(aString);
-				inputLine.append(mat.replaceAll(rep));
-			}
+			//if (aString.length() == 0)
+			//{
+			//inputLine.append(' ');
+			//}
+			//else
+			//{
+			// Adjacent separators get merged by StringTokenizer,
+			// so we break them up here, e.g. Change || to | |
+			Matcher mat = pat.matcher(aString);
+			inputLine.append(mat.replaceAll(rep));
+			//}
 
 			inputLine.append(Constants.s_LINE_SEP);
 			aString = br.readLine();

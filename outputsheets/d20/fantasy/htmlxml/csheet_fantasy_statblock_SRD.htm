@@ -29,12 +29,13 @@ $Date$
     <tr valign="top">
       <td width="25%" style="border-color:#999999;"></td>
     <td width="75%"><strong>|RACE|</strong>
+|MANUALWHITESPACE|
 |FOR,%class,0,COUNT[CLASSES]-1,1,1|
 |IIF(CLASS.%class.TYPE:Monster)|
 |ELSE|
 |IIF(CLASS.%class.LEVEL:N/A)|
 |ELSE|
-, 
+,
 |CLASS.%class.LEVEL|
 |IIF(CLASS.%class.LEVEL:1.OR.CLASS.%class.LEVEL:21)|
 st
@@ -49,10 +50,11 @@ th
 |ENDIF|<!--rd-->
 |ENDIF|<!--nd-->
 |ENDIF|<!--st-->
--Level |CLASS.%class|
+-Level&nbsp;|CLASS.%class|
 |ENDIF|
 |ENDIF|<!--TYPE != Monster-->
 |ENDFOR|
+|ENDMANUALWHITESPACE|
 </td>
   </tr>
   <tr valign="top">
@@ -163,10 +165,11 @@ Tower Shield,
   <tr valign="top">
     <td width="25%"><b>Full Attack: </b></td>
     <td width="75%">
+|MANUALWHITESPACE|
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
-<strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
+<strong>|WEAPON.%weap.NAME.NOSTAR|</strong>
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
-|WEAPON.%weap.THHIT| melee (|WEAPON.%weap.THDAMAGE|
+|WEAPON.%weap.THHIT|&nbsp;melee&nbsp;(|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -203,17 +206,18 @@ melee
 |ENDIF|
 ); 
 |ENDIF|
-
 |ENDFOR|
+|ENDMANUALWHITESPACE|
     </td>
   </tr>
   <tr valign="top">
     <td width="25%"><b>Attack: </b></td>
     <td width="75%">
+|MANUALWHITESPACE|
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
-|WEAPON.%weap.THHIT.0| melee (|WEAPON.%weap.THDAMAGE|
+|WEAPON.%weap.THHIT.0|&nbsp;melee&nbsp;(|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -250,8 +254,8 @@ melee
 |ENDIF|
 ); 
 |ENDIF|
-
 |ENDFOR|
+|ENDMANUALWHITESPACE|
     </td>
   </tr>
   <tr valign="top">
