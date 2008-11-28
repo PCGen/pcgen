@@ -160,7 +160,7 @@ public final class ExportHandler
 
 	/**
 	 * Constructor.  Populates the token map (a list of possible output tokens) and 
-	 * sets the character sheeet template we are using.
+	 * sets the character sheet template we are using.
 	 *
 	 * @param templateFile the template to use while exporting.
 	 */
@@ -198,7 +198,7 @@ public final class ExportHandler
 	public void write(PlayerCharacter aPC, BufferedWriter out)
 	{
 		// Get the PC all up to date, (equipment and active bonuses etc)
-		// TODO Probably should be altering the PC directly for Output!
+		// TODO Probably should not be altering the PC directly for Output!
 		aPC.preparePCForOutput();
 
 		// TODO Not sure why this is here, it sets the outputfilter to 
@@ -215,12 +215,12 @@ public final class ExportHandler
 			br = new BufferedReader(isr);
 
 			// A Buffer to hold the result of the preparation
-			StringBuffer inputLine = prepareTemplate(br);
+			StringBuffer template = prepareTemplate(br);
 
 			// Create a tokenizer based on EOL characters
 			// 03-Nov-2008 Karianna, changed to use line separator instead of /r/n
 			final StringTokenizer tokenizer =
-					new StringTokenizer(inputLine.toString(),
+					new StringTokenizer(template.toString(),
 						Constants.s_LINE_SEP, false);
 
 			final FileAccess fileAccess = new FileAccess();
@@ -235,7 +235,8 @@ public final class ExportHandler
 			// Ensure that there 'are more items to process'
 			noMoreItems = false;
 
-			// Now actually process the (new) template file and then clear the loop variables
+			// Now actually process the FOR loops in the template
+			// and then clear the loop variables
 			loopFOR(root, 0, 0, 1, out, fileAccess, aPC);
 			loopVariables.clear();
 		}
@@ -279,12 +280,12 @@ public final class ExportHandler
 		csheetTag2 = "\\";
 
 		// Reset the EquipmentList without Temporary Bonus equipment
-		// TODO Probably should be altering the PC after Output!
+		// TODO Probably should not be altering the PC after Output!
 		// See corresponding TODO higher up
 		aPC.setCalcEquipmentList(false);
 
 		// Reset the skills back to the display prefs.
-		// TODO Probably should be altering the PC after Output!
+		// TODO Probably should not be altering the PC after Output!
 		// See corresponding TODO higher up		
 		aPC.populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 	}
@@ -310,7 +311,7 @@ public final class ExportHandler
 		String aString = br.readLine();
 		while (aString != null)
 		{
-			// If the line is bank then append a space character
+			// If the line is blank then append a space character
 			if (aString.length() == 0)
 			{
 				inputLine.append(' ');
@@ -984,7 +985,8 @@ public final class ExportHandler
 		FileAccess fa, PlayerCharacter aPC, int index)
 	{
 		loopVariables.put(node.var(), index);
-		for (int y = 0; y < node.children().size(); ++y)
+		int numberOfChildrenNodes = node.children().size();
+		for (int y = 0; y < numberOfChildrenNodes; ++y)
 		{
 			if (node.children().get(y) instanceof FORNode)
 			{
@@ -1474,7 +1476,7 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Parse the tokens for |FOR and |IIF sections, 
+	 * Parse the tokens for |FOR and |IIF sections and plain text sections 
 	 * 
 	 * @param tokens
 	 * @return a FORNode object
@@ -1519,7 +1521,7 @@ public final class ExportHandler
 				String expr = line.substring(5, line.lastIndexOf(')'));
 				root.addChild(parseIIFs(expr, tokens));
 			}
-			// Else then just add it
+			// Else it's plain text so then just add it
 			else
 			{
 				root.addChild(line);
@@ -1634,7 +1636,8 @@ public final class ExportHandler
 	}
 
 	/**
-	 * Helper method to parse the IIF tokens
+	 * Helper method to parse the IIF tokens, includes dealing with a 
+	 * |FOR child, |IIF child, ELSE, END IF and plain text
 	 * 
 	 * @param expr
 	 * @param tokens
@@ -1643,20 +1646,26 @@ public final class ExportHandler
 	private IIFNode parseIIFs(String expr, StringTokenizer tokens)
 	{
 		final IIFNode node = new IIFNode(expr);
-		boolean childrenType = true;
+
+		// Flag to indicate whether we are adding the 
+		// true case (e.g.  The IF) or the false case 
+		// (e.g.  The ELSE)
+		boolean trueCase = true;
 
 		while (tokens.hasMoreTokens())
 		{
 			final String line = tokens.nextToken();
 
+			// It's a |FOR child
 			if (line.startsWith("|FOR"))
 			{
 				StringTokenizer newFor = new StringTokenizer(line, ",");
 				newFor.nextToken();
-
+				// It's the first type of |FOR, e.g.  With a variable name, 
+				// see PCGen docs for |FOR token
 				if (newFor.nextToken().startsWith("%"))
 				{
-					if (childrenType)
+					if (trueCase)
 					{
 						node.addTrueChild(parseFORs(line, tokens));
 					}
@@ -1667,7 +1676,7 @@ public final class ExportHandler
 				}
 				else
 				{
-					if (childrenType)
+					if (trueCase)
 					{
 						node.addTrueChild(line);
 					}
@@ -1677,11 +1686,11 @@ public final class ExportHandler
 					}
 				}
 			}
+			// It's a child IIF, make a recursive call
 			else if (line.startsWith("|IIF(") && (line.lastIndexOf(',') == -1))
 			{
 				String newExpr = line.substring(5, line.lastIndexOf(')'));
-
-				if (childrenType)
+				if (trueCase)
 				{
 					node.addTrueChild(parseIIFs(newExpr, tokens));
 				}
@@ -1690,17 +1699,19 @@ public final class ExportHandler
 					node.addFalseChild(parseIIFs(newExpr, tokens));
 				}
 			}
+			// Set the flag so that the false case is added next
 			else if (line.startsWith("|ELSE|"))
 			{
-				childrenType = false;
+				trueCase = false;
 			}
+			// We're done, so exit
 			else if (line.startsWith("|ENDIF|"))
 			{
 				return node;
 			}
 			else
 			{
-				if (childrenType)
+				if (trueCase)
 				{
 					node.addTrueChild(line);
 				}
