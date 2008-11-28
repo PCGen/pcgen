@@ -25,6 +25,7 @@
 |ELSE|
 |TEXT.LOWER.RACETYPE|
 |ENDIF|
+|MANUALWHITESPACE|
 |IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
 |ELSE|
  (
@@ -36,6 +37,7 @@
 |ENDFOR|
 )
 |ENDIF|
+|ENDMANUALWHITESPACE|
 	    </fullType>
           <raceClass>
 |RACE|; 

@@ -43,6 +43,7 @@ CR |CR|; Size: |SIZE| Face: |FACE.SHORT| Type
 |ELSE|
 |RACETYPE|
 |ENDIF|
+|MANUALWHITESPACE|
 |IIF(VAR.IF(var("COUNT[RACESUBTYPES]")==0;1;0):1)|
 ; 
 |ELSE|
@@ -55,6 +56,7 @@ CR |CR|; Size: |SIZE| Face: |FACE.SHORT| Type
 |ENDFOR|
 ); 
 |ENDIF|
+|ENDMANUALWHITESPACE|
 HD |HITDICE|; 
 |IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
 hp |HP|;
