@@ -37,6 +37,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
+import pcgen.core.PCClass;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.SpellProhibitor;
@@ -100,6 +101,9 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<CharacterSpell> CHARACTER_SPELLS =
 			new AssociationListKey<CharacterSpell>();
+
+	public static final AssociationListKey<PCClass> FAVCLASS =
+			new AssociationListKey<PCClass>();
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

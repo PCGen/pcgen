@@ -25,13 +25,17 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.reference.CategorizedCDOMReference;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SubClass;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -43,7 +47,7 @@ import pcgen.util.Logging;
  * Class deals with FAVOREDCLASS Token
  */
 public class FavoredclassToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>
+		CDOMPrimaryToken<PCTemplate>, ChooseResultActor
 {
 
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -77,11 +81,24 @@ public class FavoredclassToken extends AbstractToken implements
 		{
 			String token = tok.nextToken();
 			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
+					|| Constants.LST_ANY.equalsIgnoreCase(token)
+					|| Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
 				context.getObjectContext().put(cdo,
 						ObjectKey.ANY_FAVORED_CLASS, true);
+				if (Constants.LST_ALL.equalsIgnoreCase(token)
+						|| Constants.LST_ANY.equalsIgnoreCase(token))
+					{
+						Logging.deprecationPrint("Use of " + getTokenName() + ":" + token
+							+ " is deprecated. "
+							+ "Please use " + getTokenName() + ":HIGHESTLEVELCLASS");
+					}
+			}
+			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
+			{
+				context.getObjectContext().addToList(cdo,
+					ListKey.CHOOSE_ACTOR, this);
 			}
 			else
 			{
@@ -148,5 +165,34 @@ public class FavoredclassToken extends AbstractToken implements
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	 */
+	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		PCClass cls =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					PCCLASS_CLASS, o);
+		if (cls != null)
+		{
+			pc.addAssoc(obj, AssociationListKey.FAVCLASS, cls);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	 */
+	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		PCClass cls =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					PCCLASS_CLASS, o);
+		if (cls != null)
+		{
+			pc.removeAssoc(obj, AssociationListKey.FAVCLASS, cls);
+		}
+
 	}
 }

@@ -5843,6 +5843,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				favored.addAll(ref.getContainedObjects());
 			}
 		}
+		List<PCClass> assocFavclass =
+			getAssocList(getRace(), AssociationListKey.FAVCLASS);
+		if (assocFavclass != null && !assocFavclass.isEmpty())
+		{
+			for (PCClass cls : assocFavclass)
+			{
+				favored.add(cls);
+			}
+		}
 
 		for (PCTemplate template : templateList)
 		{
@@ -5855,8 +5864,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					favored.addAll(ref.getContainedObjects());
 				}
 			}
+			assocFavclass =
+				getAssocList(template, AssociationListKey.FAVCLASS);
+			if (assocFavclass != null && !assocFavclass.isEmpty())
+			{
+				for (PCClass cls : assocFavclass)
+				{
+					favored.add(cls);
+				}
+			}
 		}
 
+		
+		
 		return favored;
 	}
 

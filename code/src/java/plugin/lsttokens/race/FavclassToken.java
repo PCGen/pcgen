@@ -29,16 +29,21 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ClassReferenceChoiceSet;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.reference.CategorizedCDOMReference;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.Skill;
 import pcgen.core.SubClass;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -50,7 +55,7 @@ import pcgen.util.Logging;
  * Class deals with FAVCLASS Token
  */
 public class FavclassToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+		CDOMPrimaryToken<Race>, ChooseResultActor
 {
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
@@ -130,6 +135,11 @@ public class FavclassToken extends AbstractToken implements
 		tc.setTitle("Select favored class");
 		tc.setRequired(true);
 
+		Logging
+			.deprecationPrint("Use of FAVCLASS:CHOOSE is deprecated. "
+				+ "Please use FAVCLASS:%LIST with a CHOOSE:CLASS insetad of FAVCLASS:CHOOSE|"
+				+ value);
+		
 		return true;
 	}
 
@@ -145,11 +155,24 @@ public class FavclassToken extends AbstractToken implements
 		{
 			String token = tok.nextToken();
 			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
+				|| Constants.LST_ANY.equalsIgnoreCase(token)
+				|| Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
 				context.getObjectContext().put(cdo,
-						ObjectKey.ANY_FAVORED_CLASS, true);
+					ObjectKey.ANY_FAVORED_CLASS, true);
+				if (Constants.LST_ALL.equalsIgnoreCase(token)
+					|| Constants.LST_ANY.equalsIgnoreCase(token))
+				{
+					Logging.deprecationPrint("Use of FAVCLASS:" + token
+						+ " is deprecated. "
+						+ "Please use FAVCLASS:HIGHESTLEVELCLASS");
+				}
+			}
+			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
+			{
+				context.getObjectContext().addToList(cdo,
+					ListKey.CHOOSE_ACTOR, this);
 			}
 			else
 			{
@@ -212,5 +235,34 @@ public class FavclassToken extends AbstractToken implements
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	 */
+	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		PCClass cls =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					PCCLASS_CLASS, o);
+		if (cls != null)
+		{
+			pc.addAssoc(obj, AssociationListKey.FAVCLASS, cls);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	 */
+	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	{
+		PCClass cls =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					PCCLASS_CLASS, o);
+		if (cls != null)
+		{
+			pc.removeAssoc(obj, AssociationListKey.FAVCLASS, cls);
+		}
+
 	}
 }

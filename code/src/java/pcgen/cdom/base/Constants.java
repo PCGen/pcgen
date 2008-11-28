@@ -308,6 +308,7 @@ public interface Constants
 	String DOT = ".";
 	String LST_LIST = "LIST";
 	String LST_PATTERN = "%";
+	String LST_PRECENTLIST = "%LIST";
 	String COLON = ":";
 	String LST_NONE = "NONE";
 	String LST_DOT_CLEARALL = ".CLEARALL";
@@ -326,5 +327,6 @@ public interface Constants
 	String LST_CROSSCLASS = "CROSSCLASSSKILLS";
 	char PERCENT = '%';
 	String LST_CHOICE = "CHOICE";
+	String HIGHESTLEVELCLASS = "HIGHESTLEVELCLASS";
 	public static final int NO_LEVEL_LIMIT = -1;
 }
