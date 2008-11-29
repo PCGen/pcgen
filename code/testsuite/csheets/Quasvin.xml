@@ -868,12 +868,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
- 
 		
- 
- 
- 
- 
 		<weapon>
 			<common>
 				<name>
@@ -933,12 +928,6 @@ BIO
 					<damage>1d6</damage>
 				</w2_o>
 			</melee>
- 
- 
- 
- 
- 
- 
 			<ranges>
 				<range>
 					<distance>20 ft.</distance>
@@ -967,8 +956,6 @@ BIO
 				</range>
 			</ranges>
 		</weapon>
- 
- 
 	</weapons>
 	<!--
 	  ====================================
@@ -1015,25 +1002,14 @@ BIO
 	<class_features>
 
 	<!-- Bard -->
- 
- 
 
 	<!-- Barbarian of 15th Level -->
 	<!-- Character Rage -->
- 
- 
 	<!-- Turning ability -->
- 
- 
- 
 	<!-- 3.0 stunning fist -->
- 
 	<!-- 3.5 stunning fist -->
- 
 	<!-- 3.0 wholeness of body -->
- 
 	<!-- 3.5 wholeness of body -->
- 
 	<!-- Psionics -->
 		<psionics>
 			<type>3.5</type>
@@ -1042,12 +1018,8 @@ BIO
 			<total_pp>37</total_pp>
 		</psionics>
 	<!-- Psionics -->
- 
 
- 
 
- 
- 
 
 	</class_features>
 	<!--
@@ -1328,9 +1300,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
- 
 		<!-- Auto feats -->
- 
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Alertness</name>
@@ -1353,7 +1323,6 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
- 
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
@@ -1424,16 +1393,12 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 	</ability_objects>
- 
- 
 	<!--
 	  ====================================
 	  ====================================
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
- 
- 
 	<!-- Domains -->
 	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Quarterstaff, Shortspear</weapon_proficiencies>
 	<languages>Common, Draconic, Elven, Halfling, Orc</languages>
@@ -1457,9 +1422,7 @@ BIO
 		</template>
 	</templates>
 
- 
 
- 
 	<misc>
 
 

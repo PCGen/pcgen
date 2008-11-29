@@ -895,12 +895,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
- 
 		
- 
- 
- 
- 
 		<weapon>
 			<common>
 				<name>
@@ -960,12 +955,6 @@ BIO
 					<damage>1d4+1</damage>
 				</w2_o>
 			</melee>
- 
- 
- 
- 
- 
- 
 			<ranges>
 				<range>
 					<distance>10 ft.</distance>
@@ -994,8 +983,6 @@ BIO
 				</range>
 			</ranges>
 		</weapon>
- 
- 
 	</weapons>
 	<!--
 	  ====================================
@@ -1028,39 +1015,23 @@ BIO
 	<class_features>
 
 	<!-- Bard -->
- 
- 
 	<!-- If character is a barbarian -->
 		<rage>
 			<uses_per_day>0</uses_per_day>
 			<description>The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
- 
 
 	<!-- Barbarian of 15th Level -->
 	<!-- If character is a barbarian -->
 		</rage>
 	<!-- Character Rage -->
- 
- 
 	<!-- Turning ability -->
- 
- 
- 
 	<!-- 3.0 stunning fist -->
- 
 	<!-- 3.5 stunning fist -->
- 
 	<!-- 3.0 wholeness of body -->
- 
 	<!-- 3.5 wholeness of body -->
- 
 	<!-- Psionics -->
- 
 
- 
 
- 
- 
 
 	</class_features>
 	<!--
@@ -1217,7 +1188,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
- 
 		<!-- Auto feats -->
 		<feat>
 			<name>Armor Proficiency (Light)</name>
@@ -1269,7 +1239,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
- 
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1282,7 +1251,6 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
- 
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
@@ -1386,23 +1354,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 	</ability_objects>
- 
- 
 	<!--
 	  ====================================
 	  ====================================
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
- 
- 
 	<!-- Domains -->
 	<weapon_proficiencies>Armor Spikes, Axe, Axe (Throwing), Battleaxe, Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Light), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Halfspear, Hammer (Light), Handaxe, Javelin, Katana, Kusari-gama, Lance, Longbow, Longbow (Composite), Longspear, Longsword, Mace, Mace (Heavy), Mace (Light), Mind Blade, Morningstar, Pick, Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Spells(Ray), Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Wakizashi, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Common, Gnome, Orc</languages>
 
- 
 
- 
 	<misc>
 
 
@@ -1549,7 +1511,6 @@ BIO
 				</spell>
 		</racial_innate>
 
- 
 		<class_innate>
 		</class_innate>
 		</spells_innate>
@@ -1562,7 +1523,6 @@ BIO
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
 			<!-- ### BEGIN innate memorized spell section -->	
- 
 <!-- ### BEGIN innate memorized spells ### -->
 
 		<racial_innate_memorized>

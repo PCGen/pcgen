@@ -1201,12 +1201,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
- 
 		
- 
- 
- 
- 
 		<weapon>
 			<common>
 				<name>
@@ -1266,12 +1261,6 @@ BIO
 				</range>
 			</ranges>
 		</weapon>
- 
- 
- 
- 
- 
- 
 		<weapon>
 			<common>
 				<name>
@@ -1323,32 +1312,17 @@ BIO
 	<class_features>
 
 	<!-- Bard -->
- 
- 
 
 	<!-- Barbarian of 15th Level -->
 	<!-- Character Rage -->
- 
- 
 	<!-- Turning ability -->
- 
- 
- 
 	<!-- 3.0 stunning fist -->
- 
 	<!-- 3.5 stunning fist -->
- 
 	<!-- 3.0 wholeness of body -->
- 
 	<!-- 3.5 wholeness of body -->
- 
 	<!-- Psionics -->
- 
 
- 
 
- 
- 
 
 	</class_features>
 	<!--
@@ -1904,7 +1878,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
- 
 		<!-- Auto feats -->
 		<feat>
 			<name>Simple Weapons Proficiency</name>
@@ -1916,7 +1889,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
- 
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1929,7 +1901,6 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
- 
 	<ability_objects>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
@@ -1989,16 +1960,12 @@ BIO
 			<category>Talent</category>
 		</ability_object>
 	</ability_objects>
- 
- 
 	<!--
 	  ====================================
 	  ====================================
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
- 
- 
 	<!-- Domains -->
 	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Lethal Strike, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
 	<languages>English, German</languages>
@@ -2052,9 +2019,7 @@ BIO
 		</template>
 	</templates>
 
- 
 
- 
 	<misc>
 
 
