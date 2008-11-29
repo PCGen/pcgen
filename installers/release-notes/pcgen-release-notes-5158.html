@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.15.8</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.15.8</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.15.8</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.15.8</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.15.8</a></h2>
+
+
+<p>PCGen v5.15.8 is our last alpha release for the 5.16 cycle, and we are on track
+towards the final production release. The majority of tokens have been
+converted over to the new CDOM parsing structure and code support for Pathfinder and 4e 
+is progressing well. Your feedback thus far in the alpha cycle has been tremendously 
+helpful.</p> 
+<p>With only two weeks left before the feature freeze (as of the release of 5.15.8) 
+now is a good time to have a look at the how things are progressing. Please let us know if 
+there is something you were expecting that isn't available yet. As always we are also very 
+interested to hear how the latest changes work for you. List below are some notable changes 
+in this release.</p>
+<ul>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> Simplified Source Loading Interface. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1625030">1625030</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> Allow CHOOSE to be used in templates. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2332545">2332545</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> Allow CHOOSE to be used in races. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2330943">2330943</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [PATHFINDER] FAVCLASS:CHOOSE improvements. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1999270">1999270</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+
+</ul>
+<!-- 
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.15.8</p>
+
+		<ul>
+		</ul>
+-->
+<p><i>James Dempsey</i> for the PCGEN Team -- 30 November, 2008.</p>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>Most Characters from the 5.14 series of PCGen should load seamlessly in 5.15.8. 
+		  Characters created in the Modern gameMode will be effected by changes made to 
+		  the Occupations feature. Due to refinements to the Ability Object we 
+		  have reconfigured the Occupations feature. Newly created characters will see 
+		  no differences but when existing characters are opened PCGen will report that 
+		  the Occupation Ability and the associated skill abilities cannot be found. The 
+		  fix is simple however, simply note what abilities are missing and go to the 
+		  Background tab and reselect your choices.</p>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.15.8 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_full.zip?download">pcgen5158_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_partial.zip?download">pcgen5158_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_win_install.exe?download">pcgen5158_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_mac_install.dmg?download">pcgen5158_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5158_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.15.8</a></h2>
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1625030">1625030</a> ]	PCGen Source Loading is too complex</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1638229">1638229</a> ]	Catch duplicate PObjects in the same LST file</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1999270">1999270</a> ]	[PATHFINDER] FAVCLASS:CHOOSE improvements</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190900">2190900</a> ]	[Nov 8] Campaign RANK Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190902">2190902</a> ]	[Nov 8] Campaign LICENSE Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190904">2190904</a> ]	[Nov 8] Campaign String based Tokens</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2297553">2297553</a> ]	add .NOSIGN to CHECK token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2330943">2330943</a> ]	Allow CHOOSE to be used in races</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2332545">2332545</a> ]	Allow CHOOSE to be used in templates</li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013031">2013031</a> ]	[WotC, d20 Modern Weapons Locker] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013038">2013038</a> ]	[SEP - Gunpowder Plots] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013063">2013063</a> ]	[PBG - Murchad&#039;s Legacy] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013086">2013086</a> ]	[FanCC - Diadamon Pantheon] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013089">2013089</a> ]	[Bloodstone - 22 Talent Trees] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013093">2013093</a> ]	[Bloodstone-Spellbinder&#039;s Sourcebook]review, move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013094">2013094</a> ]	[Bloodstone - Spellbinder II] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013095">2013095</a> ]	[Bloodstone Press - God Spells] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2013096">2013096</a> ]	[BFG - Masterwork Qualities] review and move to d20ogl </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2288872">2288872</a> ]	Implement Flight Maneuverability</li>
+</ul>
+
+<h3>New Release Steps</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2333969">2333969</a> ]	[Nov 26] Test AUTO token on Class Level Line</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2341576">2341576</a> ]	PRE*PROF</li>
+</ul>
+
+<h3>Output Sheet Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2271540">2271540</a> ]	Expand statblock ASPECT usage</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2258402">2258402</a> ]	[5.15.7] New Token System does not detect duplicate</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2274214">2274214</a> ]	[5.15.x] Problem with FAVCLASS:CHOOSE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2279048">2279048</a> ]	[5.15.x]  Feat increase on load from saved file</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2320924">2320924</a> ]	[5.15.7] [LST Editor] Templates cannot be saved</li>
+</ul>
+
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181056">2181056</a> ]	[MSRD] SEP - Roles and Classes - Combat Hero - cleanup</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181098">2181098</a> ]	Blood &amp; Blades - The Profilers Guide to Slashers - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181100">2181100</a> ]	Dawning Star - Operation Quick Launch - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181103">2181103</a> ]	MDS - Dark Inheritance - Campaign Setting - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181105">2181105</a> ]	Modern Dispatch - #47 - New Tortuga - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181156">2181156</a> ]	Spycraft Espionage Handbook - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181158">2181158</a> ]	Spycraft Supplements - Review and Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2294620">2294620</a> ]	Wild Empathy produces &quot;+%/%&quot;</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2319054">2319054</a> ]	Duplicates in same file?</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2328998">2328998</a> ]	Move BONUS:EQM tags from Global BONUS to EQMod docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2330024">2330024</a> ]	PCC TYPE is wrong</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2336403">2336403</a> ]	CHOOSE:SKILLSNAMEDTO... are ability file tags</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2336413">2336413</a> ]	CHOOSE:FEATADD tag has one syntax that is global</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2336496">2336496</a> ]	EQMod CHOOSE tags need to be added to the Master Tag List</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2344810">2344810</a> ]	OUTPUTNAME references SA instead of SAB</li>
+</ul>
+
+<h3>Output Sheet Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2006481">2006481</a> ]	DEFENSE.EQUIPMENT error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2315465">2315465</a> ]	Statblock 1 not displaying Innate spells correctly</li>
+
+</ul>
+
+	</body>
+</html>
