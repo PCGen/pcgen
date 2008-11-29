@@ -129,8 +129,8 @@ public class CharacterSheetPlugin extends GMBPlugin
 
 	public String getPluginSystem()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.s_SYSTEM_PCGEN);
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".PluginSystem",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
 	public int getPluginLoadOrder()
@@ -155,7 +155,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	 */
 	public void handleMessage(GMBMessage message)
 	{
-		if (getPluginSystem() == "GMGen")
+		if (getPluginSystem().equals("GMGen"))
 		{
 			if (message instanceof StateChangedMessage)
 			{
