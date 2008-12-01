@@ -31,6 +31,10 @@ public class SpellLevel
 			List<? extends CDOMList<Spell>> lists, int levelMatch,
 			PlayerCharacter aPC)
 	{
+		if (lists == null)
+		{
+			return false;
+		}
 		Set<Integer> resultList = new TreeSet<Integer>();
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo = aPC.getMasterLevelInfo(sp);
 		for (CDOMList<Spell> spellList : lists)
