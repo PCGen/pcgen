@@ -468,10 +468,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 		if (!listChar.equals(cdo.listChar))
 		{
-			 System.err.println("CDOM Inequality List");
-			 System.err.println(listChar + " " + cdo.listChar);
-			 System.err.println(listChar.getKeySet() + " "
-			 + cdo.listChar.getKeySet());
+//			 System.err.println("CDOM Inequality List");
+//			 System.err.println(listChar + " " + cdo.listChar);
+//			 System.err.println(listChar.getKeySet() + " "
+//			 + cdo.listChar.getKeySet());
 			return false;
 		}
 		if (!cdomListMods.equals(cdo.cdomListMods))
