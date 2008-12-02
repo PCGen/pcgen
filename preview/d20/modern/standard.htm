@@ -10,7 +10,7 @@
 <style type="text/css">
 	.ab { font-family: Arial; font-size:10pt; text-align:center; color:white; background:black; }
 	.abb { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 1px solid black;}
-	.abt { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 5px solid lightgray;}
+	.abt { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 5px solid #CCCCCC;}
 	.biodata { font-family: Arial; vertical-align:bottom; text-align:left;font-size:9pt;}
 	.font4 {  font-family: Arial; font-size:4pt; }
 	.font5 {  font-family: Arial; font-size:5pt; }
@@ -59,7 +59,7 @@
 		font-size:8pt;
 	}
 	.tempborder {
-		border: 5px solid lightgray;
+		border: 5px solid #CCCCCC;
 	}
 	span.notes p {margin-top:0; margin-bottom:0;}
 
@@ -1680,7 +1680,7 @@
 <!-- START Special Abilities Table -->
 <table summary="formatting table" width="100%" cellspacing="0" cellpadding="2">
 <tr>
-<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>TALENTS/SPECIAL ABILITIES</b></font></td>
+<td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>SPECIAL ABILITIES</b></font></td>
 </tr>
 <tr><td valign="top" width="100%" class="border8">|SPECIALLIST|</td></tr>
 </table>
@@ -1691,7 +1691,7 @@
 <tr>
 <td bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>STARTING OCCUPATION</b></font></td>
 </tr>
-<td valign="top" width="100%" class="border8">|FEATALL.HIDDEN.Occupation.0||ABILITYALL.Occupation.0.TYPE=Occupation|
+<td valign="top" width="100%" class="border8">|FEATALL.HIDDEN.Occupation.0||ABILITYALL.Starting Occupation.0.TYPE=Occupation|
 |IIF(count("ABILITIES";"CATEGORY=Second Occupation")>0)|
 , |ABILITYALL.Second Occupation.0.TYPE=SecondOccupation|
 |ENDIF|
