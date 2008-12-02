@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Wed Oct  8 12:17:33 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+
+# Skill Name		Key Stat	Untrained?		Type
+Profession (Courtesan)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+
+#
+# End
+#

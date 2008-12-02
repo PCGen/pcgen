@@ -1,0 +1,34 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness - Chapter 1: Shadow in the Sky
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Second Darkness - Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Second Darkness - Chapter 1: Shadow in the Sky
+SOURCESHORT:PF13
+SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/v5748btpy84em
+SOURCEDATE:2008-08
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 13: Shadow in the Sky. Copyright 2008, Paizo Publishing, LLC; Author: Greg A. Vaughan.
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+COPYRIGHT:PCGen dataset conversion for "Second Darkness - Chapter 1: Shadow in the Sky" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:pf13_ability.lst
+KIT:pf13_kit_monster.lst
+RACE:pf13_race.lst
+TEMPLATE:pf13_template.lst
+
+#
+# End
+#

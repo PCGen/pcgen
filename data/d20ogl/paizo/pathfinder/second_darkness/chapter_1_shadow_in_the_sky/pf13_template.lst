@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Thu Aug 21 10:24:55 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Second Darkness - Chapter 1: Shadow in the Sky	SOURCESHORT:PF13	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/v5748btpy84em	SOURCEDATE:2008-08
+
+# Cockroach Variants
+# Template Name					Source Page		Required Race								Prohibited Template							Ability								Subrace
+Cockroach Variant (Mwangi Hissing)		SOURCEPAGE:p. 85	PRERACE:1,Monstrous Cockroach,Flesh-Eating Cockroach Swarm	!PRETEMPLATE:1,Cockroach Variant (Keleshite Venomroach)	ABILITY:Special Ability|AUTOMATIC|Fighting Hiss		SUBRACE:Mwangi Hissing
+Cockroach Variant (Keleshite Venomroach)	SOURCEPAGE:p. 85	PRERACE:1,Monstrous Cockroach,Flesh-Eating Cockroach Swarm	!PRETEMPLATE:1,Cockroach Variant (Mwangi Hissing)		ABILITY:Special Ability|AUTOMATIC|Venomroach Poison	SUBRACE:Keleshite Venomroach
+
+
+#
+# End
+#

@@ -1,0 +1,39 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness - Chapter 4: Endless Night
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Second Darkness - Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Second Darkness - Chapter 4: Endless Night
+SOURCESHORT:PF16
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tq
+SOURCEDATE:2008-11
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 16: Endless Night. Copyright 2008, Paizo Publishing, LLC; Author: F. Wesley Schneider.
+COPYRIGHT:The Advanced Bestiary. Copyright 2004, Green Ronin Publishing; Author: Matthew Sernett.
+COPYRIGHT:Plot & Poison: A Guidebook to Drow. Copyright 2002, Green Ronin Publishing; Author: Matthew Sernett.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+COPYRIGHT:PCGen dataset conversion for "Second Darkness - Chapter 4: Endless Night" Copyright 2008, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:pf16_abilities.lst
+EQUIPMENT:pf16_equipment.lst
+FEAT:pf16_feat.lst
+KIT:pf16_kits.lst
+RACE:pf16_race.lst
+SPELL:pf16_spells.lst
+
+#
+# End
+#

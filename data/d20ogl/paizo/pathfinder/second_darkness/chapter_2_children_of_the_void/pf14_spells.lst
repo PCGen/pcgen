@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Wed Oct  8 22:37:11 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+
+# Spell Name		Classes of caster				Domains granting the spell	School			Sub-School			Type				Components		Casting Time			Range					Item		Target Area or Effect									Duration				Save Info						Spell Resistance			Description																					Source Page
+Interplanetary Teleport	CLASSES:Cleric,Sorcerer,Wizard=9	DOMAINS:Travel=9			SCHOOL:Conjuration	SUBSCHOOL:Teleportation	TYPE:Arcane.Divine	COMPS:V		CASTTIME:1 standard action	RANGE:Personal and touch	ITEM:Potion	TARGETAREA:You and touched objects or other touched willing creatures	DURATION:Instantaneous		SAVEINFO:None and Will negates (object)	SPELLRES:No and Yes (object)	DESC:This spell functions as teleport, save that there is truly no range limit and you do not need to have seen your destination.	SOURCEPAGE:p. 54
+Drunkard's Breath		CLASSES:Bard,Cleric=2								SCHOOL:Conjuration	SUBSCHOOL:Creation	TYPE:Arcane			COMPS:V, S, M	CASTTIME:1 standard action	RANGE:30 ft.			ITEM:Potion	TARGETAREA:Cone-shaped burst								DURATION:(CASTERLEVEL) rounds	SAVEINFO:Fortitude negates; see text	SPELLRES:No				DESC:This spell emanates from your mouth and functions like stinking cloud										SOURCEPAGE:p. 61
+
+#
+# End
+#

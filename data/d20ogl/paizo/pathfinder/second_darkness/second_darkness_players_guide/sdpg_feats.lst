@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Sat Aug 30 13:26:43 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
+
+# Feat Name		Type			Required Feat		Required Skill			Required Stat	Description																								Bonus to Ability Pool		Source Page
+Additional Traits	TYPE:General													DESC:You have more traits than normal																			BONUS:ABILITYPOOL|Traits|2	SOURCEPAGE:p. 12
+Cypher Script	TYPE:General					PRESKILL:1,Decipher Script=4	PRESTAT:1,INT=12	DESC:Through researching endless ancient arcane script, you have discovered a more efficient method to record spells.											SOURCEPAGE:p. 27
+Cypher Magic	TYPE:General	PREFEAT:1,Scribe Scroll						PRESTAT:1,INT=14	DESC:Your intimacy with runes and the mysteries of ancient arcana has taught you secrets to draw greater power from a variety of arcane writings.						SOURCEPAGE:p. 27
+
+# MODs
+Blind Fight.MOD	TYPE:Liberator
+Iron Will.MOD	TYPE:Liberator
+Skill Focus.MOD	TYPE:Liberator
+
+#
+# End
+#

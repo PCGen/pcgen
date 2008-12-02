@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Sat Aug 30 10:19:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
+
+# Spell Name		Classes of caster				School			Type		Components		Casting Time			Range			Item		Target Area or Effect														Duration					Save Info			Spell Resistance	Description																													Source Page
+Codespeak			CLASSES:Bard,Sorcerer,Wizard=2	SCHOOL:Transmutation	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close		ITEM:Potion	TARGETAREA:you plus (CASTERLEVEL/2) creatures per, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL*10) min. [D]	SAVEINFO:None		SPELLRES:No		DESC:Upon casting this spell, all recipients gain the ability to speak a new language.																SOURCEPAGE:p. 26
+Hidden Knowledge		CLASSES:Sorcerer,Wizard=2		SCHOOL:Transmutation	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 round			RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) days		SAVEINFO:None		SPELLRES:No		DESC:This subtle but useful spell allows the caster to safeguard important knowledge--even from himself.													SOURCEPAGE:p. 26
+Impede Speech		CLASSES:Bard=2|Sorcerer,Wizard=3	SCHOOL:Necromancy		TYPE:Arcane	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch		ITEM:Potion	TARGETAREA:Creature touched													DURATION:(CASTERLEVEL*10) min.	SAVEINFO:Will negates	SPELLRES:Yes	DESC:This minor curse interferes with the target's ability to speak.																			SOURCEPAGE:p. 26
+Pattern Recognition	CLASSES:Sorcerer,Wizard=1		SCHOOL:Transmutation	TYPE:Arcane	COMPS:V, S		CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL*10) min.	SAVEINFO:None		SPELLRES:No		DESC:Pattern recognition allows you to notice unusual breaks in the patterns of stones in a wall, boards in a floor, cracks in glass, trees in a forest, or similar interruptions.	SOURCEPAGE:p. 26
+
+#
+# End
+#

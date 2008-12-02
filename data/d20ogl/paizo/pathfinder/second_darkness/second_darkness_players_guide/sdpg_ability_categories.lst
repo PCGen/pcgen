@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Aug 29 23:09:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+#SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
+
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Traits			VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trait		PLURAL:Traits			DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Liberator Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Liberator	PLURAL:Liberator Feats		DISPLAYLOCATION:Feats
+
+#
+# End
+#

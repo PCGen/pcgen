@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Wed Oct 22 16:05:12 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
+# Original Entry by Eddy Anthony (MoSaT)
+
+# Feat Name		Type			Required Feat		Required Gender	Required Non-Monster Lvl	Required Race		Innate Spells																					Description														Source Page
+Dark Adept		TYPE:General								PREPCLEVEL:MIN=3			PRERACE:1,Elf (Drow)	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Detect Magic,10+CHA|Feather Fall,11+CHA|Levitate,12+CHA							DESC:You gain several additional spell-like abilities from your dark elven heritage.	SOURCEPAGE:p. 59
+Umbral Scion	TYPE:General	PREFEAT:1,Dark Adept	PREGENDER:Female	PREPCLEVEL:MIN=7			PRERACE:1,Elf (Drow)	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Clairaudience/Clairvoyance,13+CHA|Discern Lies,14+CHA|Dispel Magic,13+CHA|Suggestion,13+CHA	DESC:You develop more advanced spell-like abilities related to your drow heritage.		SOURCEPAGE:p. 59
+
+#
+# End
+#
