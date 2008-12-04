@@ -179,9 +179,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
 		PCClassLoader classLoader = new PCClassLoader();
-		PCClass reconstClass = new PCClass();
-		reconstClass =
-				classLoader.parseLine(Globals.getContext(), reconstClass, classPCCText, source);
+		PCClass reconstClass =
+				classLoader.parseLine(Globals.getContext(), null, classPCCText,
+					source);
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			classPCCText, reconstClass.getPCCText());

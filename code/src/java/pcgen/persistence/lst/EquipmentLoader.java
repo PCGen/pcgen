@@ -115,7 +115,7 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 			Logging.clearParseMessages();
 		}
 		
-		completeObject(source, equipment);
+		completeObject(context, source, equipment);
 		return null;
 	}
 }

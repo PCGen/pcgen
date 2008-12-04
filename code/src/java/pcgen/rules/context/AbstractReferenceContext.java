@@ -249,7 +249,16 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> boolean forget(T obj)
 	{
-		return getManufacturer((Class<T>) obj.getClass()).forgetObject(obj);
+		if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
+		{
+			Class cl = obj.getClass();
+			CategorizedCDOMObject cdo = (CategorizedCDOMObject) obj;
+			return getManufacturer(cl, cdo.getCDOMCategory()).forgetObject(obj);
+		}
+		else
+		{
+			return getManufacturer((Class<T>) obj.getClass()).forgetObject(obj);
+		}
 	}
 
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> T

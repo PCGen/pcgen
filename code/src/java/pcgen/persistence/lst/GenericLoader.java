@@ -153,7 +153,7 @@ public final class GenericLoader<T extends PObject> extends
 		}
 
 		// One line each; finish the object and return null
-		completeObject(source, po);
+		completeObject(context, source, po);
 		return null;
 	}
 

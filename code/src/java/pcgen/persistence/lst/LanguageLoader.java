@@ -108,7 +108,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			Logging.clearParseMessages();
 		}
 
-		completeObject(source, lang);
+		completeObject(context, source, lang);
 		return null;
 	}
 

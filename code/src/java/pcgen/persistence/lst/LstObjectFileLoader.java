@@ -168,7 +168,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * If the object exists, the object sources are compared by date and if the
 	 * System setting allowing over-rides is set it will use the object from the
 	 * newer source.
-	 * 
+	 * @param context TODO
 	 * @param pObj The object that has just completed loading.
 	 * 
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(PObject)
@@ -180,8 +180,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * 
 	 * @since 5.11
 	 */
-	public void completeObject(CampaignSourceEntry source, final PObject pObj)
-		throws PersistenceLayerException
+	public void completeObject(LoadContext context, CampaignSourceEntry source,
+		final PObject pObj) throws PersistenceLayerException
 	{
 		if (pObj == null)
 		{
@@ -200,7 +200,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				throw new PersistenceLayerException(e.toString());
 			}
 		}
-
+		
 		if (includeObject(source, pObj))
 		{
 			finishObject(pObj);
@@ -209,6 +209,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		else
 		{
 			excludedObjects.add(pObj.getKeyName());
+			context.ref.forget(pObj);
 		}
 	}
 
@@ -453,9 +454,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				try
 				{
 					target = parseLine(context, target, line, sourceEntry);
-					// TODO - This is kind of a hack but we need to make sure
-					// that classes get added.
-					completeObject(sourceEntry, target);
 				}
 				catch (PersistenceLayerException ple)
 				{
@@ -485,6 +483,21 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		if (classModLines != null)
 		{
 			modEntryList.add(classModLines);
+		}
+		if (target != null)
+		{
+			try
+			{
+				completeObject(context, sourceEntry, target);
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.errorPrint("Error in completing "
+					+ target.getClass().getSimpleName() + " "
+					+ target.getKeyName());
+				setChanged();
+				Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
+			}
 		}
 	}
 
@@ -572,7 +585,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				String restOfLine = me.getLstLine().substring(nameEnd + 6);
 				parseLine(context, copy, restOfLine, me.getSource());
 			}
-			completeObject(me.getSource(), copy);
+			completeObject(context, me.getSource(), copy);
 		}
 	}
 
@@ -667,7 +680,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					setChanged();
 				}
 			}
-			completeObject(entry.getSource(), object);
+			completeObject(context, entry.getSource(), object);
 		}
 		catch (PersistenceLayerException ple)
 		{

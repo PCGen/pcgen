@@ -145,7 +145,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			//			logError("Race " + race.getName() + " has no race type.");
 		}
 
-		completeObject(source, race);
+		completeObject(context, source, race);
 		return null;
 	}
 

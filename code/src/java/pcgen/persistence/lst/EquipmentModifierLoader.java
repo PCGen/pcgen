@@ -119,7 +119,7 @@ public final class EquipmentModifierLoader extends
 			Logging.clearParseMessages();
 		}
 
-		completeObject(source, eqMod);
+		completeObject(context, source, eqMod);
 		return null;
 	}
 

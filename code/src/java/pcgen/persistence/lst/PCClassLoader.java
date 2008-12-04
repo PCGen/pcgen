@@ -61,21 +61,15 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	public PCClass parseLine(LoadContext context, PCClass target,
 		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
 	{
-		PCClass pcClass = target;
-
-		/*
-		 * FIXME TODO This should probably be done AFTER SUB*CLASS string checking,
-		 * as a null PCClass with SUB* items is meaningless... and an error that should
-		 * be flagged to the user - thpr 1/10/07
-		 */
-		if (pcClass == null)
-		{
-			pcClass = new PCClass();
-		}
-
 		if (lstLine.startsWith("SUBCLASS:")
 			|| lstLine.startsWith("SUBCLASSLEVEL:"))
 		{
+			if (target == null)
+			{
+				Logging.errorPrint("Ignoring line: " + lstLine
+					+ " as SUBCLASS* type line appeared before CLASS: line");
+				return null;
+			}
 			SubClass subClass = null;
 
 			if (lstLine.startsWith("SUBCLASS:"))
@@ -89,7 +83,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				}
 				final String n = lstLine.substring(9, tabLoc);
 				String restOfLine = lstLine.substring(tabLoc);
-				subClass = pcClass.getSubClassKeyed(n);
+				subClass = target.getSubClassKeyed(n);
 
 				if (subClass == null)
 				{
@@ -97,28 +91,31 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					subClass.setName(n);
 					subClass.setSourceCampaign(source.getCampaign());
 					subClass.setSourceURI(source.getURI());
-					pcClass.addSubClass(subClass);
+					target.addSubClass(subClass);
 				}
 				parseLineIntoClass(context, subClass, source, restOfLine);
 			}
 			else
 			{
-				List<SubClass> subClassList = pcClass.getListFor(ListKey.SUB_CLASS);
+				List<SubClass> subClassList = target.getListFor(ListKey.SUB_CLASS);
 				if (subClassList != null)
 				{
 					subClass = subClassList.get(subClassList.size() - 1);
 					subClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(14)));
-
-					return pcClass;
 				}
 			}
-
-			return pcClass;
+			return target;
 		}
 
 		if (lstLine.startsWith("SUBSTITUTIONCLASS:")
 			|| lstLine.startsWith("SUBSTITUTIONLEVEL:"))
 		{
+			if (target == null)
+			{
+				Logging.errorPrint("Ignoring line: " + lstLine
+					+ " as SUBSTITUTIONCLASS* type line appeared before CLASS: line");
+				return null;
+			}
 			SubstitutionClass substitutionClass = null;
 
 			if (lstLine.startsWith("SUBSTITUTIONCLASS:"))
@@ -136,7 +133,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					name = lstLine.substring(18);
 					restOfLine = null;
 				}
-				substitutionClass = pcClass.getSubstitutionClassKeyed(name);
+				substitutionClass = target.getSubstitutionClassKeyed(name);
 
 				if (substitutionClass == null)
 				{
@@ -144,13 +141,13 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					substitutionClass.setName(name);
 					substitutionClass.setSourceCampaign(source.getCampaign());
 					substitutionClass.setSourceURI(source.getURI());
-					pcClass.addSubstitutionClass(substitutionClass);
+					target.addSubstitutionClass(substitutionClass);
 				}
 				parseLineIntoClass(context, substitutionClass, source, restOfLine);
 			}
 			else
 			{
-				List<SubstitutionClass> substitutionClassList = pcClass
+				List<SubstitutionClass> substitutionClassList = target
 						.getListFor(ListKey.SUBSTITUTION_CLASS);
 				if (substitutionClassList != null
 						&& !substitutionClassList.isEmpty()
@@ -159,15 +156,12 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					substitutionClass = substitutionClassList
 							.get(substitutionClassList.size() - 1);
 					substitutionClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(18)));
-
-					return pcClass;
 				}
 			}
-
-			return pcClass;
+			return target;
 		}
 
-		return parseClassLine(context, lstLine, source, pcClass);
+		return parseClassLine(context, lstLine, source, target);
 	}
 
 	private PCClass parseClassLine(LoadContext context, String lstLine,
@@ -192,10 +186,13 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		{
 			String name = lineIdentifier.substring(6);
 
-			if (!name.equals(pcClass.getKeyName())
+			if (pcClass == null || !name.equals(pcClass.getKeyName())
 					&& (name.indexOf(".MOD") < 0))
 			{
-				completeObject(source, pcClass);
+				if (pcClass != null)
+				{
+					completeObject(context, source, pcClass);
+				}
 				pcClass = new PCClass();
 				pcClass.setName(name);
 				pcClass.setSourceURI(source.getURI());

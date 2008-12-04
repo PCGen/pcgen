@@ -111,7 +111,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			Logging.clearParseMessages();
 		}
 
-		completeObject(source, anAbility);
+		completeObject(context, source, anAbility);
 		return null;
 	}
 

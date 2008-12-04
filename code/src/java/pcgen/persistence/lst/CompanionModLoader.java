@@ -129,7 +129,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 			Logging.clearParseMessages();
 		}
 		
-		completeObject(source, cmpMod);
+		completeObject(context, source, cmpMod);
 		return null;
 	}
 

@@ -111,7 +111,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			Logging.clearParseMessages();
 		}
 
-		completeObject(source, spell);
+		completeObject(context, source, spell);
 		return null;
 	}
 
