@@ -110,6 +110,25 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	/**
 	 * Gets the object represented by the given identifier. Will return null if
 	 * an object with the given identifier is not present in this
+	 * ReferenceManufacturer.  Does not make a test to establish if the given
+	 * identifier is unique - must act silently.
+	 * 
+	 * Note that this is testing *object* presence. This will not return an
+	 * object if a reference for the given identifier has been requested; it
+	 * will only return true if an object with the given identifier has actually
+	 * been constructed by or imported into this ReferenceManufacturer.
+	 * 
+	 * @param key
+	 *            identifier of the object to be returned
+	 * @return The object stored in this ReferenceManufacturer with the given
+	 *         identifier, or null if this ReferenceManufacturer does not
+	 *         contain an object with the given identifier.
+	 */
+	public T getActiveObject(String key);
+
+	/**
+	 * Gets the object represented by the given identifier. Will return null if
+	 * an object with the given identifier is not present in this
 	 * ReferenceManufacturer.
 	 * 
 	 * Note that this is testing *object* presence. This will not return an

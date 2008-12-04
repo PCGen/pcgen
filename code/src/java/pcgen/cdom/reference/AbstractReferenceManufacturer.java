@@ -372,6 +372,28 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	/**
 	 * Gets the object represented by the given identifier. Will return null if
 	 * an object with the given identifier is not present in this
+	 * AbstractReferenceManufacturer.  Does not make any test to check if the
+	 * given identifier has multiple matching objects.
+	 * 
+	 * Note that this is testing *object* presence. This will not return an
+	 * object if a reference for the given identifier has been requested; it
+	 * will only return true if an object with the given identifier has actually
+	 * been constructed by or imported into this AbstractReferenceManufacturer.
+	 * 
+	 * @param val
+	 *            identifier of the object to be returned
+	 * @return The object stored in this AbstractReferenceManufacturer with the
+	 *         given identifier, or null if this AbstractReferenceManufacturer
+	 *         does not contain an object with the given identifier.
+	 */
+	public T getActiveObject(String val)
+	{
+		return active.get(val);
+	}
+
+	/**
+	 * Gets the object represented by the given identifier. Will return null if
+	 * an object with the given identifier is not present in this
 	 * AbstractReferenceManufacturer.
 	 * 
 	 * Note that this is testing *object* presence. This will not return an
