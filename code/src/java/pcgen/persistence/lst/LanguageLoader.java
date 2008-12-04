@@ -122,7 +122,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	}
 
 	@Override
-	protected void storeObject(PObject pObj)
+	protected void storeObject(LoadContext context, PObject pObj)
 	{
 		final Language matching = getMatchingObject(pObj);
 
@@ -149,6 +149,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 							.compareTo(currentObjDate) > 0))))
 					{
 						performForget(matching);
+						context.ref.forget(matching);
 						addGlobalObject(pObj);
 					}
 				}

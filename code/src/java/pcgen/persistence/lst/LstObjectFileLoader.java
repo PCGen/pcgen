@@ -204,7 +204,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		if (includeObject(source, pObj))
 		{
 			finishObject(pObj);
-			storeObject(pObj);
+			storeObject(context, pObj);
 		}
 		else
 		{
@@ -213,7 +213,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		}
 	}
 
-	protected void storeObject(final PObject pObj)
+	protected void storeObject(LoadContext context, PObject pObj)
 	{
 		final T currentObj = getMatchingObject(pObj);
 
@@ -240,6 +240,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 							.compareTo(currentObjDate) > 0))))
 					{
 						performForget(currentObj);
+						context.ref.forget(currentObj);
 						addGlobalObject(pObj);
 					}
 				}
