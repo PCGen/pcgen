@@ -10,6 +10,11 @@
       <action dev="jdempsey" type="add" issue="2332545">Allow CHOOSE to be used in templates</action>
       <action dev="jdempsey" type="add" issue="2330943">Allow CHOOSE to be used in races</action>
       <action dev="jdempsey" type="add" issue="1999270">[PATHFINDER] FAVCLASS:CHOOSE improvements</action>
+      <action dev="eddyanthony" type="add" issue="2061348">[Paizo] Second Darkness Player's Guide</action>  
+      <action dev="eddyanthony" type="add" issue="2061334">[Paizo] Second Darkness - Chapter 1: Shadow in the Sky</action>  
+      <action dev="eddyanthony" type="add" issue="2153583">[Paizo] Second Darkness - Chapter 2: Children of the Void</action>  
+      <action dev="eddyanthony" type="add" issue="2185983">[Paizo] Second Darkness - Chapter 3: The Armageddon Echo</action>  
+      <action dev="eddyanthony" type="add" issue="2319410">[Paizo] Second Darkness - Chapter 4: Endless Night</action>  
     </release> 
     <release version="5.15.7" date="2008-11-10" description="Alpha Release"> 
       <action dev="" type="add" issue="1967459">[Mongoose] Quintessential Ranger II</action>  
