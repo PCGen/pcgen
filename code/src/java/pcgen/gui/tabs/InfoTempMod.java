@@ -2210,6 +2210,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			PObjectNode fn = (PObjectNode) node;
 			Ability aFeat = null;
+			Ability aAbility = null;
 			Spell aSpell = null;
 			Equipment eqI = null;
 			PCClass aClass = null;
@@ -2234,18 +2235,22 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						new StringBuffer(eqI.longName()).append(
 							eqI.getAppliedName()).toString();
 			}
-			else if (fn.getItem() instanceof Ability)
-			{
-				aFeat = (Ability) fn.getItem();
-			}
-			else if (fn.getItem() instanceof Spell)
-			{
-				aSpell = (Spell) fn.getItem();
-			}
 			else if (fn.getItem() instanceof ClassWrap)
 			{
 				ClassWrap tempObj = (ClassWrap) fn.getItem();
 				aClass = tempObj.getMyClass();
+			}
+			else if (fn.getItem() instanceof Ability)
+			{
+				aFeat = (Ability) fn.getItem();
+				if (!aFeat.getCategory().equals("FEAT"))
+				{
+					aAbility = (Ability) fn.getItem();
+				}
+			}
+			else if (fn.getItem() instanceof Spell)
+			{
+				aSpell = (Spell) fn.getItem();
 			}
 			else if (fn.getItem() instanceof PCTemplate)
 			{
@@ -2287,9 +2292,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						return PropertyFactory.getString("in_itmBonModelTargetTypeSpell"); //$NON-NLS-1$ 
 					}
+					else if (aAbility != null)
+					{
+						return PropertyFactory.getString("in_itmBonModelTargetTypeClass"); //$NON-NLS-1$
+					}
 					else if (aFeat != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeSpell"); //$NON-NLS-1$
+						return PropertyFactory.getString("in_itmBonModelTargetTypeFeat"); //$NON-NLS-1$
 					}
 					else if (aClass != null)
 					{
@@ -2321,6 +2330,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					else if (aSpell != null)
 					{
 						return aSpell.getDefaultSourceString();
+					}
+					else if (aAbility != null)
+					{
+						return aAbility.getDefaultSourceString();
 					}
 					else if (aFeat != null)
 					{
