@@ -32,7 +32,7 @@ Custom			KEY:CUSTOMW								NAMEOPT:Normal	TYPE:Weapon						COST:2500			VISIBLE:
 Custom			KEY:CUSTOMA								NAMEOPT:Normal	TYPE:Armor.Shield					COST:6000			VISIBLE:QUALIFY	ITYPE:Custom					PRETYPE:1,Armor,Shield	PRETYPE:1,Masterwork|Greater Masterwork	!PRETYPE:1,Custom								BONUS:COMBAT|AC|1|TYPE=Enhancement.STACK								BONUS:EQMARMOR|MAXDEX|1|TYPE=Enhancement.STACK
 
 #Flintlock Weapon Modifications
-Bayonet			KEY:FLBAYONT							NAMEOPT:Normal	TYPE:Weapon.Flintlock.Bayonet			COST:50			VISIBLE:QUALIFY	ITYPE:Bayonet					PRETYPE:1,Flintlock																																																																									AUTO:EQUIP|Bayonet[PRETYPE:Pistol]	AUTO:EQUIP|Bayonet (Longspear)[PRETYPE:Rifle]
+Bayonet			KEY:FLBAYONT							NAMEOPT:Normal	TYPE:Weapon.Flintlock.Bayonet			COST:50			VISIBLE:QUALIFY	ITYPE:Bayonet					PRETYPE:1,Flintlock																																																																									AUTO:EQUIP|Bayonet	AUTO:EQUIP|Bayonet (Longspear)
 Breech-Load			KEY:FLBREECH							NAMEOPT:Normal	TYPE:Weapon.Flintlock.BreechLoad		COST:(BASECOST*15)	VISIBLE:QUALIFY	ITYPE:BreechLoad					PRETYPE:2,Flintlock,Altherian							!PRETYPE:2,ThreeRound,WeaponAttach																																																						SPROP:Reload as Std Action
 Double-Barrel		KEY:FLDOUBLE							NAMEOPT:Normal	TYPE:Weapon.Flintlock.DoubleBarrel		COST:(BASECOST*15)	VISIBLE:QUALIFY	ITYPE:DoubleBarrel				PRETYPE:1,Flintlock
 Reinforced			KEY:FLREINFO							NAMEOPT:Normal	TYPE:Weapon.Flintlock.Reinforced		COST:(BASECOST*5)		VISIBLE:QUALIFY	ITYPE:Reinforced					PRETYPE:1,Flintlock								!PRETYPE:1,Altherian																																																								SPROP:May be used as a melee weapon

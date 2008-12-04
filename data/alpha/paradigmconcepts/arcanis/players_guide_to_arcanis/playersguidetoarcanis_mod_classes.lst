@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 18 00:02:40 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Dec  3 22:40:15 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -184,7 +184,7 @@ SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Sur
 
 
 # Class Name	Automatically Gained Weapon Prof.				Modify VAR
-CLASS:Druid.MOD	AUTO:WEAPONPROF|Longbow|Shortbow|Terbutje|Khopesh	BONUS:VAR|WildEmpathy|-5|PRERACE:1,Dark-Kin
+CLASS:Druid.MOD	AUTO:WEAPONPROF|Longbow|Shortbow|Terbutje|Kopesh	BONUS:VAR|WildEmpathy|-5|PRERACE:1,Dark-Kin
 # Class Name	Required Deity
 CLASS:Druid.MOD	PREDEITY:1,Saluwe,Yarris,Belisarda,Fire Dragon,Beroe,Keleos,Marok,Osalian
 # Class Name	Class Skill
@@ -246,21 +246,21 @@ CLASS:Paladin.MOD	PREALIGN:LG,NG,CG	PREDEITY:1,Y
 # Class Name	Class Skill
 CLASS:Paladin.MOD	CSKILL:TYPE.Nobility|TYPE.Religion|Examine Martial Technique
 SUBCLASS:Paladin of Althares		COST:0	PREDEITY:1,Althares
-SUBCLASSLEVEL:1								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|CHOICE	AUTO:EQUIP|Blastpowder (10)
+SUBCLASSLEVEL:1								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|Blastpowder (10)
 SUBCLASS:Paladin of Belisarda		COST:0	PREDEITY:1,Belisarda
 SUBCLASSLEVEL:1								BONUS:VAR|WildEmpathy|CL										ABILITY:Special Ability|VIRTUAL|Wild Empathy							CSKILL:Knowledge (Nature)|Survival
 SUBCLASS:Paladin of Hurrian		COST:0	PREDEITY:1,Hurrian
-SUBCLASSLEVEL:1																																				CSKILL:Survival				ADD:LANGUAGE|Ancient Altharin(Imperial)																																						AUTO:FEAT|Weapon Focus(Longsword)
+SUBCLASSLEVEL:1																																				CSKILL:Survival				ADD:LANGUAGE|Ancient Altharin(Imperial)																																			AUTO:FEAT|Weapon Focus(Longsword)
 SUBCLASS:Paladin of Illiir		COST:0	PREDEITY:1,Illiir
-SUBCLASSLEVEL:1																																																																																						AUTO:FEAT|Weapon Focus(Gladius)
+SUBCLASSLEVEL:1																																																																																			AUTO:FEAT|Weapon Focus(Gladius)
 SUBCLASSLEVEL:4	SPELLLEVEL:CLASS|Paladin=0|Light																ABILITY:Special Ability|NORMAL|Perfection Within
 SUBCLASSLEVEL:8	SPELLLEVEL:CLASS|Paladin=3|Searing Light
 SUBCLASS:Paladin of Nier		COST:0	PREDEITY:1,Nier
-SUBCLASSLEVEL:1																																										ADD:LANGUAGE|Ancient Altharin(Imperial)																																						AUTO:FEAT|Weapon Focus(Greatsword)
+SUBCLASSLEVEL:1																																										ADD:LANGUAGE|Ancient Altharin(Imperial)																																			AUTO:FEAT|Weapon Focus(Greatsword)
 SUBCLASS:Paladin of Sarish		COST:0	PREDEITY:1,Sarish
 SUBCLASSLEVEL:1																																										ADD:LANGUAGE|2|Ancient Altharin(Imperial),Infernal
 SUBCLASS:Paladin of the Fire Dragon	COST:0	PREDEITY:1,Fire Dragon	PREGENDER:Male
-SUBCLASSLEVEL:1																																				CSKILL:Survival																																																AUTO:FEAT|Weapon Focus(Flail (Heavy))
+SUBCLASSLEVEL:1																																				CSKILL:Survival																																													AUTO:FEAT|Weapon Focus(Flail (Heavy))
 1																																					TEMPLATE:HCFavClass
 4																		ABILITY:Special Ability|VIRTUAL|.CLEAR.Basic Turning|Turn Undead
 4	BONUS:VAR|ChannelLevelBase,ChannelDamagePlusBase|CL|TYPE=Level.REPLACE						ABILITY:Special Ability|NORMAL|Basic Channeling|Channeling

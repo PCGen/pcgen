@@ -658,7 +658,7 @@ CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BO
 5					CAST:0,1,1		KNOWN:0,2,1
 6					CAST:0,1,1,0	KNOWN:0,2,2,1								BONUS:VAR|SmiteAnyTimes|1																																																				SPELLLEVEL:CLASS|Warrior of the Eternal Flame=3|Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=1|Inflict Light Wounds|Warrior of the Eternal Flame=2|Shatter|Warrior of the Eternal Flame=3|Contagion|Warrior of the Eternal Flame=4|Inflict Critical Wounds|Warrior of the Eternal Flame=5|Inflict Light Wounds (Mass)|Warrior of the Eternal Flame=6|Harm|Warrior of the Eternal Flame=7|Disintegrate|Warrior of the Eternal Flame=8|Earthquake|Warrior of the Eternal Flame=9|Implosion
 7					CAST:0,2,1,1	KNOWN:0,3,2,1													ABILITY:Special Ability|VIRTUAL|Fury of Nier
-8																																																																										SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire,
+8																																																																										SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
 8					CAST:0,2,2,1,0	KNOWN:0,3,2,2,1
 9					CAST:0,3,2,1,1	KNOWN:0,3,3,2,2													ABILITY:Special Ability|VIRTUAL|Nier's Embrace
 10					CAST:0,3,3,2,2	KNOWN:0,3,3,2,2													ABILITY:Special Ability|VIRTUAL|Nier's Gift|Fire from the Gates of Heaven
