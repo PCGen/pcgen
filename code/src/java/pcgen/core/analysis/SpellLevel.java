@@ -63,9 +63,12 @@ public class SpellLevel
 	{
 		List<Integer> list = new ArrayList<Integer>();
 
-		for (CDOMList<Spell> spellList : lists)
+		if (lists != null)
 		{
-			list.add(getFirstLvlForKey(sp, spellList, aPC));
+			for (CDOMList<Spell> spellList : lists)
+			{
+				list.add(getFirstLvlForKey(sp, spellList, aPC));
+			}
 		}
 
 		return list.toArray(new Integer[list.size()]);
@@ -89,7 +92,7 @@ public class SpellLevel
 
 	/**
 	 * isLevel(int aLevel)
-	 * 
+	 *
 	 * @param aLevel
 	 *            level of the spell
 	 * @param aPC
@@ -165,7 +168,7 @@ public class SpellLevel
 			PlayerCharacter aPC, Spell sp)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo = new HashMapToList<CDOMList<Spell>, Integer>();
-		
+
 		MasterListInterface masterLists = Globals.getMasterLists();
 		for (CDOMReference<? extends CDOMList> ref : masterLists
 				.getActiveLists())
@@ -237,7 +240,7 @@ public class SpellLevel
 					}
 				}
 			}
-	
+
 		}
 		return levelInfo;
 	}
