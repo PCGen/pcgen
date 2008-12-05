@@ -25,15 +25,15 @@
  */
 package plugin.exporttokens;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Set;
+
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Set;
 
 /**
  * Deals with the HITDICE Token
@@ -46,6 +46,7 @@ public class HitDiceToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -54,6 +55,7 @@ public class HitDiceToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
@@ -112,14 +114,10 @@ public class HitDiceToken extends Token
 			}
 		}
 
-		//
 		// Get CON bonus contribution to hitpoint total
-		//
 		int temp = (int) pc.getStatBonusTo("HP", "BONUS") * pc.getTotalLevels();
 
-		//
 		// Add in feat bonus
-		//
 		temp += (int) pc.getTotalBonusTo("HP", "CURRENTMAX");
 
 		if (temp != 0)
