@@ -219,6 +219,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			sourceStr = sourceStr.substring(5);
 			oSource = thePC.getFeatKeyed(sourceStr);
+			if (oSource == null)
+			{
+				oSource = Globals.getAbilityKeyed("Special Ability", sourceStr);
+			}
 		}
 		else if (sourceStr.startsWith(TAG_SPELL + '='))
 		{
@@ -5192,8 +5196,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// type of object to set as the creator
 			if (cType.equals(TAG_FEAT))
 			{
-				final Ability aFeat =
-						Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, cKey);
+				Ability aFeat = Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, cKey);
+				if (aFeat == null)
+				{
+					aFeat = Globals.getAbilityKeyed("Special Ability", cKey);
+				}
 
 				//				if (aFeat == null)
 				//				{
