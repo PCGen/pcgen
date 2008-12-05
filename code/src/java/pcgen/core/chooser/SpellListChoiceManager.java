@@ -186,36 +186,39 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 		final StringBuffer sb = new StringBuffer(100);
 
 		List<FixedStringList> origList = pc.getDetailedAssociations(anAbility);
-		for (FixedStringList assoc : origList)
+		if (origList != null)
 		{
-			sb.append(anAbility.getKeyName()).append(" (");
-			int chosen = 0;
-			for (String s : assoc)
+			for (FixedStringList assoc : origList)
 			{
-				if (s != null)
+				sb.append(anAbility.getKeyName()).append(" (");
+				int chosen = 0;
+				for (String s : assoc)
 				{
-					chosen++;
-				}
-			}
-			sb.append(chosen);
-			sb.append(" of ").append(assoc.size()).append(") ");
-
-			boolean needComma = false;
-			for (String a : assoc)
-			{
-				if (a != null)
-				{
-					if (needComma)
+					if (s != null)
 					{
-						sb.append(',');
+						chosen++;
 					}
-					needComma = true;
-					sb.append(a);
 				}
-			}
+				sb.append(chosen);
+				sb.append(" of ").append(assoc.size()).append(") ");
 
-			aList.add(sb.toString());
-			sb.setLength(0);
+				boolean needComma = false;
+				for (String a : assoc)
+				{
+					if (a != null)
+					{
+						if (needComma)
+						{
+							sb.append(',');
+						}
+						needComma = true;
+						sb.append(a);
+					}
+				}
+
+				aList.add(sb.toString());
+				sb.setLength(0);
+			}
 		}
 
 		final Object selectedValue;
