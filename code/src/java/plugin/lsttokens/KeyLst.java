@@ -19,6 +19,7 @@ public class KeyLst extends AbstractToken implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "KEY";

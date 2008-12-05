@@ -519,7 +519,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		{
 			throw new UnreachableError("Did not find " + obj + " under " + key);
 		}
-		if (act.equals(obj))
+		if (act == obj)
 		{
 			List<T> list = duplicates.getListFor(ocik);
 			if (list == null)
