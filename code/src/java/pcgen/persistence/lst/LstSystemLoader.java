@@ -37,6 +37,7 @@ import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -1368,25 +1369,42 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 */
 	private void stripLstExcludes()
 	{
-		raceFileList.removeAll(lstExcludeFiles);
-		classFileList.removeAll(lstExcludeFiles);
-		companionmodFileList.removeAll(lstExcludeFiles);
-		skillFileList.removeAll(lstExcludeFiles);
-		abilityCategoryFileList.removeAll(lstExcludeFiles);
-		abilityFileList.removeAll(lstExcludeFiles);
-		featFileList.removeAll(lstExcludeFiles);
-		deityFileList.removeAll(lstExcludeFiles);
-		domainFileList.removeAll(lstExcludeFiles);
-		weaponProfFileList.removeAll(lstExcludeFiles);
-		armorProfFileList.removeAll(lstExcludeFiles);
-		shieldProfFileList.removeAll(lstExcludeFiles);
-		equipmentFileList.removeAll(lstExcludeFiles);
-		spellFileList.removeAll(lstExcludeFiles);
-		languageFileList.removeAll(lstExcludeFiles);
-		templateFileList.removeAll(lstExcludeFiles);
-		equipmodFileList.removeAll(lstExcludeFiles);
-		kitFileList.removeAll(lstExcludeFiles);
-		bioSetFileList.removeAll(lstExcludeFiles);
+		stripLstExcludes(raceFileList);
+		stripLstExcludes(classFileList);
+		stripLstExcludes(companionmodFileList);
+		stripLstExcludes(skillFileList);
+		stripLstExcludes(abilityCategoryFileList);
+		stripLstExcludes(abilityFileList);
+		stripLstExcludes(featFileList);
+		stripLstExcludes(deityFileList);
+		stripLstExcludes(domainFileList);
+		stripLstExcludes(weaponProfFileList);
+		stripLstExcludes(armorProfFileList);
+		stripLstExcludes(shieldProfFileList);
+		stripLstExcludes(equipmentFileList);
+		stripLstExcludes(spellFileList);
+		stripLstExcludes(languageFileList);
+		stripLstExcludes(templateFileList);
+		stripLstExcludes(equipmodFileList);
+		stripLstExcludes(kitFileList);
+		stripLstExcludes(bioSetFileList);
+	}
+
+	private void stripLstExcludes(List<CampaignSourceEntry> list)
+	{
+		for (CampaignSourceEntry exc : lstExcludeFiles)
+		{
+			URI uri = exc.getURI();
+			for (Iterator<CampaignSourceEntry> it = list.iterator(); it
+					.hasNext();)
+			{
+				CampaignSourceEntry cse = it.next();
+				if (cse.getURI().equals(uri))
+				{
+					it.remove();
+				}
+			}
+		}
 	}
 
 	/**
