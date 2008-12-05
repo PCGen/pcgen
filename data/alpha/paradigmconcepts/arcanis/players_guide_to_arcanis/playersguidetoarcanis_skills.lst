@@ -58,7 +58,7 @@ Knowledge (Arcana:Prognostication)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intell
 Knowledge (Architecture and Engineering:Architecture)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Architecture												SOURCEPAGE:p.124
 Knowledge (Architecture and Engineering:Mechanics)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Architecture												SOURCEPAGE:p.124
 
-Knowledge (Art and Architecture)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.														SOURCEPAGE:p.124
+Knowledge (Art and Architecture)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge														SOURCEPAGE:p.124
 Knowledge (Dungeoneering:Speleology)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Dungeoneering												SOURCEPAGE:p.124
 
 # Knowledge (Geography) Specialties				Product Identity	ey Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
