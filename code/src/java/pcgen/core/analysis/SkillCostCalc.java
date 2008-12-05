@@ -425,7 +425,18 @@ public final class SkillCostCalc
 				}
 			}
 		}
-	
+		List<Skill> assocCSkill = pc.getAssocList(po, AssociationListKey.CSKILL);
+		if (assocCSkill != null)
+		{
+			for (Skill sk : assocCSkill)
+			{
+				//Have to do slow due to cloning :P
+				if (sk.getKeyName().equals(aName))
+				{
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
