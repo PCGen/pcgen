@@ -17,9 +17,11 @@
  */
 package pcgen.cdom.reference;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -138,6 +140,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 */
 	private final List<String> deferred = new ArrayList<String>();
 
+	private final List<WeakReference<T>> manufactured = new ArrayList<WeakReference<T>>();
+	
 	/**
 	 * Constructs a new AbstractReferenceManufacturer for the given Class.
 	 * 
@@ -736,48 +740,39 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	public boolean validate()
 	{
 		boolean returnGood = true;
-		/*
-		 * Commented out stuff is the case 3 to-do
-		 */
-		// for (CaseInsensitiveString second : duplicates.getKeySet())
-		// {
-		// if (SettingsHandler.isAllowOverride())
-		// {
-		// List<T> list = duplicates.getListFor(second);
-		// T good = active.get(second);
-		// for (int i = 0; i < list.size(); i++)
-		// {
-		// T dupe = list.get(i);
-		// // If the new object is more recent than the current
-		// // one, use the new object
-		// final Date origDate = good.getSourceEntry().getSourceBook()
-		// .getDate();
-		// final Date dupeDate = dupe.getSourceEntry().getSourceBook()
-		// .getDate();
-		// if ((dupeDate != null)
-		// && ((origDate == null) || ((dupeDate
-		// .compareTo(origDate) > 0))))
-		// {
-		// duplicates.removeFromListFor(second, good);
-		// good = dupe;
-		// }
-		// else
-		// {
-		// duplicates.removeFromListFor(second, dupe);
-		// }
-		// }
-		// if (!good.equals(active.get(second)))
-		// {
-		// active.put(second, good);
-		// }
-		// }
-		// else
-		// {
-		// Logging.errorPrint("More than one " + baseClass.getSimpleName()
-		// + " with key/name " + second + " was built");
-		// returnGood = false;
-		// }
-		// }
+		for (CaseInsensitiveString second : duplicates.getKeySet())
+		{
+			List<T> list = duplicates.getListFor(second);
+			T good = active.get(second);
+			for (int i = 0; i < list.size(); i++)
+			{
+				T dupe = list.get(i);
+				if (dupe.isCDOMEqual(good))
+				{
+					for (Iterator<WeakReference<T>> it = manufactured
+							.iterator(); it.hasNext();)
+					{
+						WeakReference<T> wr = it.next();
+						T mfg = wr.get();
+						if (mfg == null)
+						{
+							it.remove();
+						}
+						else if (mfg == good)
+						{
+							forgetObject(good);
+							break;
+						}
+					}
+				}
+			}
+			if (duplicates.containsListFor(second))
+			{
+				Logging.errorPrint("More than one " + refClass.getSimpleName()
+						+ " with key/name " + second + " was built");
+				returnGood = false;
+			}
+		}
 		for (Object second : active.keySet())
 		{
 			T activeObj = active.get(second);
@@ -982,6 +977,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		if (obj == null)
 		{
 			obj = constructObject(name);
+			manufactured.add(new WeakReference<T>(obj));
 		}
 		return obj;
 	}
