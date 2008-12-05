@@ -248,6 +248,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<TransitionChoice<Region>>(null);
 
+	public static final ObjectKey<Boolean> USE_MASTER_SKILL = new ObjectKey<Boolean>(Boolean.FALSE);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

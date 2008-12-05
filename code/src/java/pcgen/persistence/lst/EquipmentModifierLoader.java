@@ -24,7 +24,6 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
@@ -75,8 +74,6 @@ public final class EquipmentModifierLoader extends
 			}
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				EquipmentModifierLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String token = colToken.nextToken().trim();
 			final int colonLoc = token.indexOf(':');
@@ -99,18 +96,6 @@ public final class EquipmentModifierLoader extends
 			if (context.processToken(eqMod, key, value))
 			{
 				context.commit();
-			}
-			else if (tokenMap.containsKey(key))
-			{
-				EquipmentModifierLstToken tok = (EquipmentModifierLstToken) tokenMap
-						.get(key);
-				LstUtils.deprecationCheck(tok, eqMod, value);
-				if (!tok.parse(eqMod, value))
-				{
-					Logging.errorPrint("Error parsing EqMod "
-							+ eqMod.getDisplayName() + ':' + source.getURI()
-							+ ':' + token + "\"");
-				}
 			}
 			else if (!PObjectLoader.parseTag(eqMod, token))
 			{

@@ -1,47 +1,125 @@
 package plugin.lsttokens.companionmod;
 
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.SubClass;
 import pcgen.core.character.CompanionMod;
-import pcgen.persistence.lst.CompanionModLstToken;
-
-import java.util.StringTokenizer;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.MapChanges;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with FOLLOWER Token
  */
-public class FollowerToken implements CompanionModLstToken
+public class FollowerToken extends AbstractToken implements
+		CDOMPrimaryToken<CompanionMod>
 {
 
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+
+	@Override
 	public String getTokenName()
 	{
 		return "FOLLOWER";
 	}
 
-	public boolean parse(CompanionMod cmpMod, String value)
+	public boolean parse(LoadContext context, CompanionMod cMod, String value)
 	{
-		final StringTokenizer aTok = new StringTokenizer(value, "=");
-		final String someClasses = aTok.nextToken();
-		final String aLev = aTok.nextToken();
-		cmpMod.setLevel(Integer.parseInt(aLev));
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
 
-		final StringTokenizer bTok = new StringTokenizer(someClasses, ",");
+		int equalLoc = value.indexOf('=');
+		if (equalLoc == -1)
+		{
+			return false;
+		}
+		if (equalLoc != value.lastIndexOf('='))
+		{
+			return false;
+		}
+		String classString = value.substring(0, equalLoc);
+		String levelString = value.substring(equalLoc + 1);
+		Integer lvl = Integer.valueOf(levelString);
+		context.obj.put(cMod, IntegerKey.LEVEL, lvl);
+
+		final StringTokenizer bTok = new StringTokenizer(classString, ",");
 
 		while (bTok.hasMoreTokens())
 		{
-			final String classKey = bTok.nextToken();
-			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
+			String classKey = bTok.nextToken();
+			PCClass pcClass =
+					context.ref.silentlyGetConstructedCDOMObject(PCCLASS_CLASS,
+						classKey);
 
 			if (pcClass != null)
 			{
-				cmpMod.getClassMap().put(classKey, aLev);
+				CDOMSingleRef<PCClass> pcc =
+						Globals.getContext().ref.getCDOMReference(
+							PCCLASS_CLASS, classKey);
+				context.getObjectContext().put(cMod, MapKey.APPLIED_CLASS, pcc,
+					lvl);
 			}
 			else
 			{
 				// Now we accept VARiable names here.
-				cmpMod.getVarMap().put(classKey, aLev);
+				context.getObjectContext().put(cMod, MapKey.APPLIED_VARIABLE,
+					classKey, lvl);
 			}
 		}
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, CompanionMod cMod)
+	{
+		MapChanges<CDOMSingleRef<? extends PCClass>, Integer> changes =
+				context.getObjectContext().getMapChanges(cMod,
+					MapKey.APPLIED_CLASS);
+		if (changes == null || changes.isEmpty())
+		{
+			return null;
+		}
+		SortedSet<String> set = new TreeSet<String>();
+		Map<CDOMSingleRef<? extends PCClass>, Integer> map = changes.getAdded();
+		for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : map
+			.entrySet())
+		{
+			CDOMSingleRef<? extends PCClass> ref = me.getKey();
+			Class<? extends PCClass> refClass = ref.getReferenceClass();
+			if (SUBCLASS_CLASS.equals(refClass))
+			{
+				Category<SubClass> parent =
+						((CategorizedCDOMReference<SubClass>) ref)
+							.getCDOMCategory();
+				set.add(parent.toString() + "." + ref.getLSTformat() + '='
+					+ me.getValue());
+			}
+			else
+			{
+				set.add(ref.getLSTformat() + '=' + me.getValue());
+			}
+		}
+		return new String[]{StringUtil.join(set, Constants.PIPE)};
+	}
+
+	public Class<CompanionMod> getTokenClass()
+	{
+		return CompanionMod.class;
+	}
+
 }

@@ -44,7 +44,6 @@ public class TokenStore
 		tokenTypeList.add(CampaignLstToken.class);
 		tokenTypeList.add(CompanionModLstToken.class);
 		tokenTypeList.add(EquipmentLstToken.class);
-		tokenTypeList.add(EquipmentModifierLstToken.class);
 		tokenTypeList.add(RaceLstToken.class);
 		tokenTypeList.add(SourceLstToken.class);
 		//Kits

@@ -25,6 +25,8 @@ package pcgen.cdom.enumeration;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.helper.Aspect;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 
 /**
@@ -54,6 +56,9 @@ public final class MapKey<K, V>
 	public static final MapKey<String, String> TEST = new MapKey<String, String>();
 	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_MASTER_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
 	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_PC_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
+
+	public static final MapKey<CDOMSingleRef<? extends PCClass>, Integer> APPLIED_CLASS = new MapKey<CDOMSingleRef<? extends PCClass>, Integer>();
+	public static final MapKey<String, Integer> APPLIED_VARIABLE = new MapKey<String, Integer>();
 
 	/**
 	 * Private constructor to prevent instantiation of this class.

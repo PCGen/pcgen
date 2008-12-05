@@ -28,15 +28,20 @@
  *************************************************************************/
 package pcgen.core.character;
 
+import java.util.List;
+import java.util.Map;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCClass;
 import pcgen.core.PObject;
+import pcgen.core.Race;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <code>CompanionMod</code>.
@@ -46,11 +51,6 @@ import java.util.Map;
  */
 public final class CompanionMod extends PObject
 {
-	private Map<String, String> classMap = new HashMap<String, String>();
-	private Map<String, String> varMap = new HashMap<String, String>();
-	private boolean useMasterSkill;
-	private String raceType = "";
-
 	/**
 	 * Bog standard clone method
 	 *
@@ -64,10 +64,6 @@ public final class CompanionMod extends PObject
 		try
 		{
 			cmpMod = (CompanionMod) super.clone();
-			cmpMod.classMap = new HashMap<String, String>(classMap);
-			cmpMod.varMap = new HashMap<String, String>(varMap);
-			cmpMod.useMasterSkill = useMasterSkill;
-			cmpMod.raceType = raceType;
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -81,32 +77,6 @@ public final class CompanionMod extends PObject
 	}
 
 	/**
-	 * Compares classMap, level.
-	 * @param obj the CompanionMod to compare with
-	 * @return a negative integer, zero, or a positive integer as this object
-	 *         is less than, equal to, or greater than the specified object.
-	 * @see Comparable#compareTo(Object)
-	 */
-	@Override
-	public int compareTo(final Object obj)
-	{
-		int result = 0;
-
-		if (obj instanceof CompanionMod)
-		{
-			final CompanionMod cmpMod = (CompanionMod) obj;
-
-			if (classMap.entrySet().equals(cmpMod.classMap.entrySet())
-				&& getSafe(IntegerKey.LEVEL) == cmpMod.getSafe(IntegerKey.LEVEL))
-			{
-				result = 1;
-			}
-		}
-
-		return result;
-	}
-
-	/**
 	 * Compares classMap, type and level
 	 * @param obj
 	 * @return true if equal
@@ -114,59 +84,25 @@ public final class CompanionMod extends PObject
 	@Override
 	public boolean equals(final Object obj)
 	{
-		boolean result = false;
-
 		if (obj instanceof CompanionMod)
 		{
 			final CompanionMod cmpMod = (CompanionMod) obj;
 
-			if (classMap.entrySet().equals(cmpMod.classMap.entrySet())
-				&& getSafe(IntegerKey.LEVEL) == cmpMod.getSafe(IntegerKey.LEVEL))
+			List<CDOMSingleRef<Race>> car = cmpMod.getListFor(ListKey.APPLIED_RACE);
+			List<CDOMSingleRef<Race>> ar = getListFor(ListKey.APPLIED_RACE);
+			Map<CDOMSingleRef<? extends PCClass>, Integer> cac = cmpMod.getMapFor(MapKey.APPLIED_CLASS);
+			Map<CDOMSingleRef<? extends PCClass>, Integer> ac = getMapFor(MapKey.APPLIED_CLASS);
+			Map<String, Integer> cav = cmpMod.getMapFor(MapKey.APPLIED_VARIABLE);
+			Map<String, Integer> av = getMapFor(MapKey.APPLIED_VARIABLE);
+			if (ar == null && car != null || ac == null && cac != null
+				|| av == null && cav != null)
 			{
-				result = true;
+				return false;
 			}
+			return getSafe(IntegerKey.LEVEL) == cmpMod.getSafe(IntegerKey.LEVEL)
+				&& ar.equals(car) && ac.equals(cac) && av.equals(cav);
 		}
-
-		return result;
-	}
-
-	/**
-	 * Get Class map
-	 * @return classMap
-	 */
-	public Map<String, String> getClassMap()
-	{
-		return classMap;
-	}
-
-	/**
-	 * Get a copy of the master Base Attack Bonus
-	 * @return master Base Attack Bonus
-	 */
-	public String getCopyMasterBAB()
-	{
-		final String characteristic = get(StringKey.MASTER_BAB_FORMULA);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get a copy of the master check
-	 * @return String
-	 */
-	public String getCopyMasterCheck()
-	{
-		final String characteristic = get(StringKey.MASTER_CHECK_FORMULA);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get a copy of the master HP
-	 * @return master HP
-	 */
-	public String getCopyMasterHP()
-	{
-		final String characteristic = get(StringKey.MASTER_HP_FORMULA);
-		return characteristic == null ? "" : characteristic;
+		return false;
 	}
 
 	/**
@@ -178,25 +114,44 @@ public final class CompanionMod extends PObject
 	{
 		int result = -1;
 
-		if (classMap.get(className) != null)
+		List<CDOMSingleRef<Race>> list =
+				getListFor(ListKey.APPLIED_RACE);
+		if (list != null)
 		{
-			result = Integer.parseInt(classMap.get(className));
+			for (CDOMSingleRef<Race> ref : list)
+			{
+				Race race = ref.resolvesTo();
+				String key = race.getKeyName();
+				if(key.equalsIgnoreCase(className))
+				{
+					result = 1;
+				}
+			}
 		}
-		else if (varMap.get(className) != null)
+
+		Map<CDOMSingleRef<? extends PCClass>, Integer> ac =
+				getMapFor(MapKey.APPLIED_CLASS);
+		if (ac != null)
 		{
-			result = Integer.parseInt(varMap.get(className));
+			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
+			{
+				PCClass pcclass = me.getKey().resolvesTo();
+				String key = pcclass.getKeyName();
+				if (key.equalsIgnoreCase(className))
+				{
+					result = me.getValue();
+				}
+			}
+		}
+
+		Map<String, Integer> varmap = getMapFor(MapKey.APPLIED_VARIABLE);
+
+		if (varmap != null && result == -1 && varmap.get(className) != null)
+		{
+			result = varmap.get(className);
 		}
 
 		return result;
-	}
-
-	/**
-	 * Get Race Type
-	 * @return Race Type
-	 */
-	public String getRaceType()
-	{
-		return raceType;
 	}
 
 	/**
@@ -205,16 +160,7 @@ public final class CompanionMod extends PObject
 	 */
 	public boolean getUseMasterSkill()
 	{
-		return useMasterSkill;
-	}
-
-	/**
-	 * Get variable map
-	 * @return varMap
-	 */
-	public Map<String, String> getVarMap()
-	{
-		return varMap;
+		return getSafe(ObjectKey.USE_MASTER_SKILL);
 	}
 
 	/**
@@ -224,69 +170,6 @@ public final class CompanionMod extends PObject
 	@Override
 	public int hashCode()
 	{
-		return classMap.hashCode();
-	}
-
-	/**
-	 * Set the master BAB
-	 * @param masterBABFormula
-	 */
-	public void setCopyMasterBAB(final String masterBABFormula)
-	{
-		put(StringKey.MASTER_BAB_FORMULA, masterBABFormula);
-	}
-
-	/**
-	 * Set the master formula
-	 * @param masterCheckFormula
-	 */
-	public void setCopyMasterCheck(final String masterCheckFormula)
-	{
-		put(StringKey.MASTER_CHECK_FORMULA, masterCheckFormula);
-	}
-
-	/**
-	 * Set the master HP
-	 * @param masterHPFormula
-	 */
-	public void setCopyMasterHP(final String masterHPFormula)
-	{
-		put(StringKey.MASTER_HP_FORMULA, masterHPFormula);
-	}
-
-	/**
-	 * Set the HD
-	 * @param hd
-	 */
-	public void setHitDie(final int hd)
-	{
-		put(IntegerKey.HIT_DIE, hd);
-	}
-
-	/**
-	 * Set the level
-	 * @param level
-	 */
-	public void setLevel(final int level)
-	{
-		put(IntegerKey.LEVEL, level);
-	}
-
-	/**
-	 * Set the Race Type
-	 * @param aType
-	 */
-	public void setRaceType(final String aType)
-	{
-		raceType = aType;
-	}
-
-	/**
-	 * Set the use master skill flag
-	 * @param useMasterSkill
-	 */
-	public void setUseMasterSkill(final boolean useMasterSkill)
-	{
-		this.useMasterSkill = useMasterSkill;
+		return getSafe(IntegerKey.LEVEL);
 	}
 }

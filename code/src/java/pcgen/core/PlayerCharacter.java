@@ -1121,10 +1121,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (CompanionMod cm : companionModList)
 			{
-				final String aType = cm.getRaceType();
-				if (!Constants.EMPTY_STRING.equals(aType))
+				RaceType rt = cm.get(ObjectKey.RACETYPE);
+				if (rt != null)
 				{
-					raceType = aType;
+					raceType = rt.toString();
 				}
 			}
 		}
@@ -2144,7 +2144,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Globals.getCompanionMods(compType);
 		for (CompanionMod cMod : mods)
 		{
-			for (Iterator<String> iType = cMod.getVarMap().keySet().iterator(); iType
+			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
+			for (Iterator<String> iType = varmap.keySet().iterator(); iType
 				.hasNext();)
 			{
 				final String varName = iType.next();
@@ -2156,9 +2157,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					return lvl;
 				}
 			}
-			for (final String classKey : cMod.getClassMap().keySet())
+			Map<CDOMSingleRef<? extends PCClass>, Integer> ac = cMod.getMapFor(MapKey.APPLIED_CLASS);
+			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
 			{
-				final int lvl = this.getClassKeyed(classKey).getLevel();
+				PCClass pcclass = me.getKey().resolvesTo();
+				String key = pcclass.getKeyName();
+				int lvl = getClassKeyed(key).getLevel();
 				if (lvl > 0)
 				{
 					return lvl;
@@ -2262,7 +2266,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					}
 				}
 			}
-			for (String varName : cMod.getVarMap().keySet())
+			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
+			for (String varName : varmap.keySet())
 			{
 				final int mLev =
 						mPC.getVariableValue(varName, Constants.EMPTY_STRING)
@@ -2459,7 +2464,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// they can take unlimited number of them.
 			for (CompanionMod cMod : Globals.getCompanionMods(cList))
 			{
-				for (String varName : cMod.getVarMap().keySet())
+				Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
+				for (String varName : varmap.keySet())
 				{
 					if (this.getVariableValue(varName, Constants.EMPTY_STRING)
 						.intValue() > 0)
@@ -2467,13 +2473,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						return -1;
 					}
 				}
-				for (String key : cMod.getClassMap().keySet())
+				Map<CDOMSingleRef<? extends PCClass>, Integer> ac = cMod.getMapFor(MapKey.APPLIED_CLASS);
+				for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
 				{
+					PCClass pcclass = me.getKey().resolvesTo();
+					String key = pcclass.getKeyName();
 					for (PCClass pcClass : getClassList())
 					{
 						if (pcClass.getKeyName().equals(key))
 						{
-							return -1;
+							return me.getValue();
 						}
 					}
 				}
@@ -5400,9 +5409,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (cMod.getType().equalsIgnoreCase(
 				getMaster().getType().getKeyName()))
 			{
-				if (cMod.getCopyMasterBAB() != null)
+				String copyMasterBAB = cMod.get(StringKey.MASTER_BAB_FORMULA);
+				if (copyMasterBAB != null)
 				{
-					return cMod.getCopyMasterBAB();
+					return copyMasterBAB;
 				}
 			}
 		}
@@ -5417,9 +5427,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (cMod.getType().equalsIgnoreCase(
 				getMaster().getType().getKeyName()))
 			{
-				if (cMod.getCopyMasterCheck() != null)
+				if (cMod.get(StringKey.MASTER_CHECK_FORMULA) != null)
 				{
-					return cMod.getCopyMasterCheck();
+					return cMod.get(StringKey.MASTER_CHECK_FORMULA);
 				}
 			}
 		}
@@ -5434,9 +5444,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (cMod.getType().equalsIgnoreCase(
 				getMaster().getType().getKeyName()))
 			{
-				if (cMod.getCopyMasterHP() != null)
+				if (cMod.get(StringKey.MASTER_HP_FORMULA) != null)
 				{
-					return cMod.getCopyMasterHP();
+					return cMod.get(StringKey.MASTER_HP_FORMULA);
 				}
 			}
 		}
