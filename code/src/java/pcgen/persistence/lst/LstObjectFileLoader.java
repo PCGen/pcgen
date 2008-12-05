@@ -81,6 +81,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	private List<String> forgetLineList = new ArrayList<String>();
 	private List<List<ModEntry>> modEntryList = new ArrayList<List<ModEntry>>();
 	private Map<String, String> sourceMap = null;
+	private boolean processComplete = true;
 	/** A list of objects that will not be included. */
 	protected List<String> excludedObjects = new ArrayList<String>();
 
@@ -123,6 +124,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 
 		// Now handle .MOD items
 		sourceMap = null;
+		processComplete = false;
 		processMods(context);
 
 		// Finally, forget the .FORGET items
@@ -183,7 +185,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	public void completeObject(LoadContext context, CampaignSourceEntry source,
 		final PObject pObj) throws PersistenceLayerException
 	{
-		if (pObj == null)
+		if (!processComplete || pObj == null)
 		{
 			return;
 		}
