@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.kit.KitAlignment;
@@ -36,7 +35,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMKitLoader;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 
 /**
  * 
@@ -120,6 +118,10 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 
 		if (inputLine.startsWith("STARTPACK:"))
 		{
+			if (target != null)
+			{
+				completeObject(context, source, target);
+			}
 			target = new Kit();
 			target.setSourceCampaign(source.getCampaign());
 			target.setSourceURI(source.getURI());
