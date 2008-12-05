@@ -743,7 +743,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		for (CaseInsensitiveString second : duplicates.getKeySet())
 		{
 			List<T> list = duplicates.getListFor(second);
-			T good = active.get(second);
+			T good = active.get(second.toString());
 			for (int i = 0; i < list.size(); i++)
 			{
 				T dupe = list.get(i);
