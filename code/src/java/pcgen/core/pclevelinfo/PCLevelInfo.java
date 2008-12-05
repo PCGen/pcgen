@@ -129,7 +129,7 @@ public final class PCLevelInfo implements Cloneable
 	public void setSkillPointsGained(final int arg)
 	{
 		final int bonusPoints = getBonusSkillPool();
-		skillPointsGained = arg + bonusPoints;
+		setFixedSkillPointsGained(arg + bonusPoints);
 	}
 
 	/**
@@ -362,5 +362,10 @@ public final class PCLevelInfo implements Cloneable
 			}
 		}
 		return clone;
+	}
+
+	public void setFixedSkillPointsGained(int arg)
+	{
+		skillPointsGained = arg;
 	}
 }

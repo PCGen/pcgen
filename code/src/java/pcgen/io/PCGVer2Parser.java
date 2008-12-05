@@ -1786,7 +1786,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if ((pcl != null) && TAG_SKILLPOINTSGAINED.equals(tag))
 			{
-				pcl.setSkillPointsGained(Integer.parseInt(element.getText()));
+				pcl.setFixedSkillPointsGained(Integer.parseInt(element.getText()));
 			}
 			else if ((pcl != null) && TAG_SKILLPOINTSREMAINING.equals(tag))
 			{
