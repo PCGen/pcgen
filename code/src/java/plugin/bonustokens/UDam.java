@@ -43,20 +43,12 @@ public final class UDam extends BonusObj
 	{
 		if (token.startsWith("CLASS=") || token.startsWith("CLASS."))
 		{
-			final String classKey = token.substring(6);
-			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
-
-			if (aClass != null)
-			{
-				addBonusInfo(aClass);
-
-				return true;
-			}
-			addBonusInfo(classKey);
-			Logging.errorPrint("Could not find class '" + classKey
-				+ "' for UDAM token");
+			addBonusInfo(token.substring(6));
+			return true;
 		}
 
+		Logging.errorPrint("BONUS:UDAM syntax must have "
+				+ "Info (2nd arg to BONUS) start with CLASS= or CLASS. ");
 		return false;
 	}
 

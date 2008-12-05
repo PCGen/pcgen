@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -28,6 +30,8 @@ import pcgen.util.Logging;
 public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		DeferredToken<CDOMObject>
 {
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+
 	/**
 	 * Returns token name
 	 * 
@@ -97,7 +101,8 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		{
 			for (BonusObj bonus : bonusList)
 			{
-				if ("ABILITYPOOL".equalsIgnoreCase(bonus.getBonusName()))
+				String bonusName = bonus.getBonusName();
+				if ("ABILITYPOOL".equalsIgnoreCase(bonusName))
 				{
 					for (Object o : bonus.getBonusInfoList())
 					{
@@ -109,6 +114,21 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 									+ obj.getKeyName()
 									+ " contained an invalid AbilityCategory");
 							returnValue = false;
+						}
+					}
+				}
+				else if ("UDAM".equals(bonusName))
+				{
+					for (Object o : bonus.getBonusInfoList())
+					{
+						String classKey = o.toString();
+						final PCClass aClass = Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(
+										PCCLASS_CLASS, classKey);
+						if (aClass == null)
+						{
+							Logging.errorPrint("Could not find class '"
+									+ classKey + "' for UDAM token");
 						}
 					}
 				}
