@@ -20,6 +20,7 @@ public class CopyrightToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COPYRIGHT";

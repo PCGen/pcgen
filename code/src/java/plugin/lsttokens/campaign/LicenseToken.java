@@ -19,6 +19,7 @@ public class LicenseToken extends AbstractToken implements
 		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "LICENSE";
