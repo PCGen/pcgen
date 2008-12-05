@@ -201,18 +201,25 @@
 	choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of skill)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of skill)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Includes list of all skills)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> CROSSCLASSSKILLS (Includes list of cross-class skills)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> UNTRAINED (Includes list of skills that can be used untrained.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TRAINED (Includes list of skills that require training to use.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> EXCLUSIVE (Includes list of exclusive skills)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> NONEXCLUSIVE (Includes list of non-exclusive skills)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> AUTORANK=Number (Number of free ranks granted)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CROSSCLASSSKILLS</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> UNTRAINED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> TRAINED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EXCLUSIVE</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> NONEXCLUSIVE</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> AUTORANK=Number (Number of ranks)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Adds a number (x) of skills selected from the presented list (y) to the characters class skills list.</li>
-		<li>The skills list is a comma-delimited (&quot;,&quot;) list of skills.</li>
-		<li>If count (x) is not included, &quot;1&quot; is assumed.</li>
+		<li>If a number (x) of choices allowed is not included, &quot;1&quot; is assumed.</li>
+		<li>The skills list (y) is a comma-delimited (&quot;,&quot;) list of skills.</li>
+		<li>If <code>ANY</code> or <code>ALL</code> are used, the list of skills to select from will include all skills.</li>
+		<li>If <code>CROSSCLASSSKILLS</code> is used, the list of skills to select from will include all cross-class skills.</li>
+		<li>If <code>UNTRAINED</code> is used, the list of skills to select from will include all untrained skills.</li>
+		<li>If <code>TRAINED</code> is used, the list of skills to select from will include all trained skills.</li>
+		<li>If <code>EXCLUSIVE</code> is used, the list of skills to select from will include all skills exclusive to the associated class.</li>
+		<li>If <code>NONEXCLUSIVE</code> is used, the list of skills to select from will include all skills that are not exclusive to the assiciated class.</li>
 		<li>AUTORANK will assign free ranks to any chosen skills.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -225,6 +232,9 @@
 	<p class="indent3">Add one skill from the list of &quot;Craft&quot; type skills
 	to the characters list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|3|ANY</code></p>
+	<p class="indent3">Add three skills from the full list of skills to the characters
+	list of class skills.</p>
+	<p class="indent2"><code>ADD:CLASSSKILLS|3|ALL</code></p>
 	<p class="indent3">Add three skills from the full list of skills to the characters
 	list of class skills.</p>
 	<p class="indent2"><code>ADD:CLASSSKILLS|CROSSCLASSSKILLS</code></p>
