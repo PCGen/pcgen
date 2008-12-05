@@ -118,7 +118,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testCategorization() throws PersistenceLayerException
+	public void testCategorizationFail() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
@@ -127,6 +127,17 @@ public class FavoredClassTokenTest extends
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
 		primaryContext.ref.reassociateCategory(cat, obj);
 		assertFalse(primaryContext.ref.validate());
+	}
+
+	@Test
+	public void testCategorizationPass() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertTrue(parse("TestWP1.Two"));
+		SubClass obj = primaryContext.ref.constructCDOMObject(
+				SubClass.class, "Two");
+		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
+		primaryContext.ref.reassociateCategory(cat, obj);
 		obj = primaryContext.ref.constructCDOMObject(SubClass.class, "Two");
 		cat = SubClassCategory.getConstant("TestWP1");
 		primaryContext.ref.reassociateCategory(cat, obj);
