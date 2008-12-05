@@ -5,24 +5,28 @@
 package plugin.lsttokens;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
  * @author djones4
  */
-public class BonusLst implements CDOMPrimaryToken<CDOMObject>
+public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
+		DeferredToken<CDOMObject>
 {
 	/**
 	 * Returns token name
@@ -42,8 +46,8 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>
 		BonusObj bon = Bonus.newBonus(obj.bonusStringPrefix() + v);
 		if (bon == null)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " was given invalid bonus: "
-					+ value);
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " was given invalid bonus: " + value);
 			return false;
 		}
 		bon.setCreatorObject(obj);
@@ -85,4 +89,31 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>
 		return CDOMObject.class;
 	}
 
+	public boolean process(LoadContext context, CDOMObject obj)
+	{
+		List<BonusObj> bonusList = obj.getListFor(ListKey.BONUS);
+		boolean returnValue = true;
+		if (bonusList != null)
+		{
+			for (BonusObj bonus : bonusList)
+			{
+				if ("ABILITYPOOL".equalsIgnoreCase(bonus.getBonusName()))
+				{
+					for (Object o : bonus.getBonusInfoList())
+					{
+						if (SettingsHandler.getGame().getAbilityCategory(
+								o.toString()) == null)
+						{
+							Logging.errorPrint("BONUS: " + bonus + " in "
+									+ obj.getClass().getSimpleName() + " "
+									+ obj.getKeyName()
+									+ " contained an invalid AbilityCategory");
+							returnValue = false;
+						}
+					}
+				}
+			}
+		}
+		return returnValue;
+	}
 }
