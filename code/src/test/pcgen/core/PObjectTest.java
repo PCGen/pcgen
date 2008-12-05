@@ -46,8 +46,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
-import pcgen.persistence.lst.RaceLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
@@ -153,7 +153,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		String racePCCText = race.getPCCText();
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
-		RaceLoader raceLoader = new RaceLoader();
+		GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
 		CampaignSourceEntry source;
 		try
 		{
@@ -370,7 +370,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		RaceLoader loader = new RaceLoader();
+		GenericLoader<Race> loader = new GenericLoader<Race>(Race.class);
 		loader
 			.parseLine(
 				context,

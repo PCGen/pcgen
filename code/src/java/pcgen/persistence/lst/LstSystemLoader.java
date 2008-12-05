@@ -67,6 +67,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
@@ -238,7 +239,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private PaperInfoLoader paperLoader = new PaperInfoLoader();
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
 	private SponsorLoader sponsorLoader = new SponsorLoader();
-	private RaceLoader raceLoader = new RaceLoader();
+	private GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
 	private final Set<String> sourcesSet = new TreeSet<String>();
 	private SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
 	private GenericLoader<Skill> skillLoader = new GenericLoader<Skill>(Skill.class);

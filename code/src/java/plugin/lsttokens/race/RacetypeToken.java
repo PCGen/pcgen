@@ -44,23 +44,29 @@ public class RacetypeToken extends AbstractToken implements
 			return false;
 		}
 		context.getObjectContext().put(race, ObjectKey.RACETYPE,
-				RaceType.getConstant(value));
+			RaceType.getConstant(value));
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, Race race)
 	{
-		RaceType raceType = context.getObjectContext().getObject(race,
-				ObjectKey.RACETYPE);
+		RaceType raceType =
+				context.getObjectContext().getObject(race, ObjectKey.RACETYPE);
 		if (raceType == null)
 		{
 			return null;
 		}
-		return new String[] { raceType.toString() };
+		return new String[]{raceType.toString()};
 	}
 
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
 	}
+
+	//	if (race.get(ObjectKey.RACETYPE) == null)
+	//	{
+	//		/** TODO Uncomment this once the data is updated. */
+	//		//			logError("Race " + race.getName() + " has no race type.");
+	//	}
 }

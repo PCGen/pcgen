@@ -43,7 +43,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.Skill;
 import pcgen.core.SubClass;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;

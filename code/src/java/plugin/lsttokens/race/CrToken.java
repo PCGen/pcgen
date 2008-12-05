@@ -18,17 +18,20 @@
 package plugin.lsttokens.race;
 
 import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>
+public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>,
+		DeferredToken<Race>
 {
 
 	/**
@@ -96,5 +99,25 @@ public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
+	}
+
+	public boolean process(LoadContext context, Race race)
+	{
+		try
+		{
+			Number la =
+					race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(null, "");
+			ChallengeRating cr = race.get(ObjectKey.CHALLENGE_RATING);
+			if ((la.floatValue() != 0) && cr == null)
+			{
+				race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(la
+					.toString()));
+			}
+		}
+		catch (NullPointerException soWhat)
+		{
+			//Nothing to do here, matches 5.14 behavior
+		}
+		return true;
 	}
 }
