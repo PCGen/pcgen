@@ -31,12 +31,23 @@ import pcgen.util.Logging;
 public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>
 {
 
+	/**
+	 * Get the token name
+	 */
 	@Override
 	public String getTokenName()
 	{
 		return "CR";
 	}
 
+	/**
+	 * Parse the CR token
+	 * 
+	 * @param context 
+	 * @param race 
+	 * @param value 
+	 * @return true if the parse was successful, else false
+	 */
 	public boolean parse(LoadContext context, Race race, String value)
 	{
 		if (isEmpty(value))
@@ -47,29 +58,41 @@ public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>
 		{
 			ChallengeRating cr = new ChallengeRating(value);
 			context.getObjectContext()
-					.put(race, ObjectKey.CHALLENGE_RATING, cr);
+				.put(race, ObjectKey.CHALLENGE_RATING, cr);
 			return true;
 		}
 		catch (IllegalArgumentException e)
 		{
 			Logging.errorPrint(getTokenName() + " encountered error: "
-					+ e.getLocalizedMessage());
+				+ e.getLocalizedMessage());
 			return false;
 		}
 	}
 
+	/**
+	 * Unparse the CR token
+	 * 
+	 * @param context 
+	 * @param race 
+	 * @return String array representing the CR token 
+	 */
 	public String[] unparse(LoadContext context, Race race)
 	{
-		ChallengeRating cr = context.getObjectContext().getObject(race,
-				ObjectKey.CHALLENGE_RATING);
+		ChallengeRating cr =
+				context.getObjectContext().getObject(race,
+					ObjectKey.CHALLENGE_RATING);
 		if (cr == null)
 		{
 			// indicates no Token present
 			return null;
 		}
-		return new String[] { cr.getLSTformat() };
+		return new String[]{cr.getLSTformat()};
 	}
 
+	/**
+	 * Get the token class
+	 * @return Token class of type Race
+	 */
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
