@@ -68,7 +68,7 @@ import pcgen.util.Logging;
  * <b>Variables Used (x)</b>: Ability Category (The Ability Category this
  * ability will be added to).<br />
  * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
- * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br />
+ * <tt>NORMAL</tt> or <tt>VIRTUAL</tt>)<br />
  * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have
  * choices specified in &quot;()&quot;)<br />
  * <p />
@@ -164,6 +164,13 @@ public class AbilityToken extends AbstractToken implements
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
+					+ getTokenName() + ": " + value);
+			return false;
+		}
+		if (Ability.Nature.AUTOMATIC.equals(nature))
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " refers to AUTOMATIC Ability Nature, cannot be used in "
 					+ getTokenName() + ": " + value);
 			return false;
 		}
