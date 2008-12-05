@@ -121,7 +121,7 @@ public class TemplateLst extends AbstractToken implements
 		}
 		if (!removelist.isEmpty())
 		{
-			for (CDOMReference<PCTemplate> ref : list)
+			for (CDOMReference<PCTemplate> ref : removelist)
 			{
 				context.getObjectContext().addToList(cdo,
 						ListKey.REMOVE_TEMPLATES, ref);
