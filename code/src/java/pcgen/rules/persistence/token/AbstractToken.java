@@ -104,6 +104,7 @@ public abstract class AbstractToken
 		return false;
 	}
 
+	/** Return the token name */
 	protected abstract String getTokenName();
 
 	protected String getPrerequisiteString(LoadContext context,
