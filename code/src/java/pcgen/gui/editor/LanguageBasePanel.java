@@ -26,7 +26,8 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
@@ -55,7 +56,7 @@ public class LanguageBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesAvailableList(final List<String> aList, final boolean sort)
+	public void setTypesAvailableList(final List<Type> aList, final boolean sort)
 	{
 		pnlLanguageType.setAvailableList(aList, sort);
 	}
@@ -65,7 +66,7 @@ public class LanguageBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesSelectedList(final List<String> aList, final boolean sort)
+	public void setTypesSelectedList(final List<Type> aList, final boolean sort)
 	{
 		pnlLanguageType.setSelectedList(aList, sort);
 	}
@@ -81,12 +82,10 @@ public class LanguageBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		Object[] sel = getTypesSelectedList();
-		thisPObject.setTypeInfo(".CLEAR");
-
-		for (int i = 0; i < sel.length; ++i)
+		thisPObject.removeListFor(ListKey.TYPE);
+		for (Object o : getTypesSelectedList())
 		{
-			thisPObject.setTypeInfo(sel[i].toString());
+			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
@@ -94,14 +93,14 @@ public class LanguageBasePanel extends BasePanel
 	{
 		Language thisLanguage = (Language) thisPObject;
 
-		List<String> availableList = new ArrayList<String>();
-		List<String> selectedList = new ArrayList<String>();
+		List<Type> availableList = new ArrayList<Type>();
+		List<Type> selectedList = new ArrayList<Type>();
 
 		for (Language aLanguage : Globals.getContext().ref.getConstructedCDOMObjects(Language.class))
 		{
-			for (String type : aLanguage.getTypeList(false))
+			for (Type type : aLanguage.getTrueTypeList(false))
 			{
-				if (!type.equals(Constants.s_CUSTOM))
+				if (!type.equals(Type.CUSTOM))
 				{
 					if (!availableList.contains(type))
 					{
@@ -114,9 +113,9 @@ public class LanguageBasePanel extends BasePanel
 		//
 		// remove this language's type from the available list and place into selected list
 		//
-		for (String type : thisLanguage.getTypeList(false))
+		for (Type type : thisLanguage.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				selectedList.add(type);
 				availableList.remove(type);

@@ -25,11 +25,14 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * <code>PreLangTest</code> tests that the PRELANG tag is
@@ -114,17 +117,17 @@ public class PreLangTest extends AbstractCharacterTestCase
 
 		elven.setName("Elven");
 		elven.put(StringKey.KEY_NAME, "KEY_Elven");
-		elven.setTypeInfo("Spoken.Written");
+		TestHelper.addType(elven, "Spoken.Written");
 		Globals.getContext().ref.importObject(elven);
 
 		dwarven.setName("Dwarven");
 		dwarven.put(StringKey.KEY_NAME, "KEY_Dwarven");
-		dwarven.setTypeInfo("Spoken.Written");
+		TestHelper.addType(dwarven, "Spoken.Written");
 		Globals.getContext().ref.importObject(dwarven);
 
 		halfling.setName("Halfling");
 		halfling.put(StringKey.KEY_NAME, "KEY_Halfling");
-		halfling.setTypeInfo("Spoken");
+		halfling.addToListFor(ListKey.TYPE, Type.getConstant("Spoken"));
 		Globals.getContext().ref.importObject(halfling);
 	}
 }

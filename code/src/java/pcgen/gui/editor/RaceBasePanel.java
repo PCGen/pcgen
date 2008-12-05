@@ -35,7 +35,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import pcgen.base.formula.Formula;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -44,6 +43,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -321,13 +321,13 @@ public class RaceBasePanel extends BasePanel
 		return cmbSkillMult.getSelectedIndex();
 	}
 
-	public void setTypesAvailableList(final List<String> aList,
+	public void setTypesAvailableList(final List<Type> aList,
 		final boolean sort)
 	{
 		pnlTemplateTypes.setAvailableList(aList, sort);
 	}
 
-	public void setTypesSelectedList(final List<String> aList,
+	public void setTypesSelectedList(final List<Type> aList,
 		final boolean sort)
 	{
 		pnlTemplateTypes.setSelectedList(aList, sort);
@@ -367,12 +367,11 @@ public class RaceBasePanel extends BasePanel
 		//
 		thisRace.put(ObjectKey.RACETYPE, RaceType
 			.getConstant((String) cmbRaceType.getSelectedItem()));
-		Object[] sel = getTypesSelectedList();
-		thisPObject.setTypeInfo(".CLEAR");
+		thisPObject.removeListFor(ListKey.TYPE);
 
-		for (int i = 0; i < sel.length; ++i)
+		for (Object o : getTypesSelectedList())
 		{
-			thisPObject.setTypeInfo(sel[i].toString());
+			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
@@ -384,14 +383,14 @@ public class RaceBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List<String> availableList = new ArrayList<String>();
-		List<String> selectedList = new ArrayList<String>();
+		List<Type> availableList = new ArrayList<Type>();
+		List<Type> selectedList = new ArrayList<Type>();
 
 		for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 		{
-			for (String type : race.getTypeList(false))
+			for (Type type : race.getTrueTypeList(false))
 			{
-				if (!type.equals(Constants.s_CUSTOM))
+				if (!type.equals(Type.CUSTOM))
 				{
 					if (!availableList.contains(type))
 					{
@@ -402,9 +401,9 @@ public class RaceBasePanel extends BasePanel
 		}
 
 		// remove this race's type from the available list and place into selected list
-		for (String type : thisRace.getTypeList(false))
+		for (Type type : thisRace.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				selectedList.add(type);
 				availableList.remove(type);
@@ -429,18 +428,18 @@ public class RaceBasePanel extends BasePanel
 		///
 		/// Populate the monster classes
 		///
-		availableList.clear();
-		availableList.add("(None)");
+		List<String> classesList = new ArrayList<String>();
+		classesList.add("(None)");
 
 		for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
 			if (aClass.isMonster())
 			{
-				availableList.add(aClass.getKeyName());
+				classesList.add(aClass.getKeyName());
 			}
 		}
 
-		setMonsterClassList(availableList);
+		setMonsterClassList(classesList);
 
 		setBonusFeats(0);
 		setBonusSkillPoints(thisRace.getSafe(IntegerKey.SKILL_POINTS_PER_LEVEL));

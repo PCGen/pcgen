@@ -1097,7 +1097,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+			<type>Goods.Clothing.Resizable.Starting</type>
 			<weight>8</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1123,7 +1123,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1149,7 +1149,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Bludgeoning</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1175,7 +1175,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1201,7 +1201,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1231,7 +1231,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+					<type>Goods.Clothing.Resizable.Starting</type>
 					<weight>8</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1252,7 +1252,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1273,7 +1273,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Bludgeoning</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1294,7 +1294,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1315,7 +1315,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1360,7 +1360,7 @@ BIO
 		<feat>
 			<name>Combat Reflexes</name>
 			<description>You may make a number of additional attacks of opportunity equal to your Dexterity bonus.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
+			<type>General.Fighter.AttackOption</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1370,7 +1370,7 @@ BIO
 		<feat>
 			<name>Improved Initiative</name>
 			<description>You get a +4 bonus on initiative checks.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1381,7 +1381,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Heavy)</name>
 			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1391,7 +1391,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Light)</name>
 			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1401,7 +1401,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Medium)</name>
 			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1411,7 +1411,7 @@ BIO
 		<feat>
 			<name>Martial Weapon Proficiency</name>
 			<description>Choose a type of martial weapon. You understand how to use that type of martial weapon in combat.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1421,7 +1421,7 @@ BIO
 		<feat>
 			<name>Shield Proficiency</name>
 			<description>You can use a shield and take only the standard penalties.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1431,7 +1431,7 @@ BIO
 		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>You make attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1441,7 +1441,7 @@ BIO
 		<feat>
 			<name>Tower Shield Proficiency</name>
 			<description>You can use a tower shield and suffer only the standard penalties.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1452,7 +1452,7 @@ BIO
 		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>You make attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1475,7 +1475,7 @@ BIO
 		<ability_object>
 			<name>Change Shape</name>
 			<description>You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SpecialQuality.Supernatural</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1486,7 +1486,7 @@ BIO
 		<ability_object>
 			<name>Detect Thoughts</name>
 			<description></description>
-			<type>SPECIALQUALITY.SUPERNATURAL.SENSE</type>
+			<type>SpecialQuality.Supernatural.Sense</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1497,7 +1497,7 @@ BIO
 		<ability_object>
 			<name>Breath Weapon</name>
 			<description>60&#39; Line of Fire 1/day 6d8 (DC 16)</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>SpecialQuality.Extraordinary</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1508,7 +1508,7 @@ BIO
 		<ability_object>
 			<name>Immunity To Charm Effects</name>
 			<description>You are never subject to charm effects</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<type>SpecialQuality.Extraordinary.Immunity</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1519,7 +1519,7 @@ BIO
 		<ability_object>
 			<name>Immunity To Fire</name>
 			<description>You never take Fire damage</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<type>SpecialQuality.Extraordinary.Immunity</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1530,7 +1530,7 @@ BIO
 		<ability_object>
 			<name>Immunity To Sleep</name>
 			<description>You are never subject to sleep effects</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<type>SpecialQuality.Extraordinary.Immunity</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1541,7 +1541,7 @@ BIO
 		<ability_object>
 			<name>Monstrous Humanoid Traits</name>
 			<description>Monstrous Humanoids eat/sleep/breathe</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1553,7 +1553,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1564,7 +1564,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1575,7 +1575,7 @@ BIO
 		<ability_object>
 			<name>Fighter Level Advanced Feat Tracker</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1586,7 +1586,7 @@ BIO
 		<ability_object>
 			<name>Greater Weapon Focus Qualify</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1597,7 +1597,7 @@ BIO
 		<ability_object>
 			<name>Greater Weapon Specialization Qualify</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1608,7 +1608,7 @@ BIO
 		<ability_object>
 			<name>Monstrous Humanoid Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1619,7 +1619,7 @@ BIO
 		<ability_object>
 			<name>Weapon Specialization Qualify</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

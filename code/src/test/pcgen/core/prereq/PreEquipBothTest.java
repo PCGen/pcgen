@@ -22,6 +22,7 @@ package pcgen.core.prereq;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -102,7 +103,7 @@ public class PreEquipBothTest extends AbstractCharacterTestCase
 		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
 			character, null));
 
-		longsword.typeList().add("WEAPON");
+		longsword.addType(Type.WEAPON);
 
 		assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
 			character, null));

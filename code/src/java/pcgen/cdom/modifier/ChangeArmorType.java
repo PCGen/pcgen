@@ -18,6 +18,7 @@
 package pcgen.cdom.modifier;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -185,7 +186,7 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 	 * @throws NullPointerException
 	 *             if the given List is null
 	 */
-	public List<String> applyModifier(List<String> calculatedTypeList)
+	public List<String> applyModifier(Collection<String> calculatedTypeList)
 	{
 		List<String> returnList = new ArrayList<String>();
 		for (String type : calculatedTypeList)

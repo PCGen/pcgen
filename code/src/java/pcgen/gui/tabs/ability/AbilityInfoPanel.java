@@ -146,7 +146,7 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(END_BOLD).append(END_FONT).append(BR);
 		sb.append(PropertyFactory.getFormattedString(
 			"Ability.Info.Type", //$NON-NLS-1$
-			StringUtil.join(theAbility.getTypeList(true), ". "))); //$NON-NLS-1$
+			StringUtil.join(theAbility.getTrueTypeList(true), ". "))); //$NON-NLS-1$
 
 		BigDecimal costStr = theAbility.getSafe(ObjectKey.SELECTION_COST);
 		if (!costStr.equals(BigDecimal.ONE)) //$NON-NLS-1$

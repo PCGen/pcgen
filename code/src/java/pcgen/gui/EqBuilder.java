@@ -72,6 +72,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
@@ -224,7 +225,7 @@ final class EqBuilder extends JPanel
 				{
 					final EquipmentModifier eqMod = dataModel.getDisplayModifiers().get(idx);
 
-					if (eqMod.getKeyName().startsWith("SE_") && (eqMod.getMyTypeCount() == 1))
+					if (eqMod.getKeyName().startsWith("SE_") && (eqMod.getSafeSizeOfListFor(ListKey.TYPE) == 1))
 					{
 						idx = sorter.translateRow(idx);
 						jListAvailable.setRowSelectionInterval(idx, idx);
@@ -1177,10 +1178,10 @@ final class EqBuilder extends JPanel
 
 		aNewEq.setName(sName);
 		aNewEq.put(StringKey.OUTPUT_NAME, sName);
-		aNewEq.removeType("AUTO_GEN");
-		aNewEq.removeType("STANDARD");
+		aNewEq.removeType(Type.AUTO_GEN);
+		aNewEq.removeType(Type.STANDARD);
 		if (!aNewEq.isType(Constants.s_CUSTOM)) {
-			aNewEq.addMyType(Constants.s_CUSTOM);
+			aNewEq.addType(Type.CUSTOM);
 		}
 
 

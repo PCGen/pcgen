@@ -72,6 +72,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -301,13 +302,13 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		for (PCTemplate template : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 		{
-			for (String type : template.getTypeList(false))
+			for (Type type : template.getTrueTypeList(false))
 			{
-				if (!typeList.contains(type))
+				String aType = type.toString();
+				if (!typeList.contains(aType))
 				{
-					typeList.add(type);
+					typeList.add(aType);
 				}
-
 			}
 			final String sourceString =
 					template.getSourceEntry().getSourceBook().getLongName();

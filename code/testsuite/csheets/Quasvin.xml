@@ -1051,7 +1051,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>SHIELD.BUCKLER.STANDARD.METAL</type>
+			<type>Shield.Buckler.Standard.METAL</type>
 			<weight>5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1077,7 +1077,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MELEE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SPEAR.WOODEN</type>
+			<type>Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear.WOODEN</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1103,7 +1103,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>ARMOR.LIGHT.SUIT.STANDARD.NONMETAL</type>
+			<type>Armor.Light.Suit.Standard.Nonmetal</type>
 			<weight>15</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1129,7 +1129,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+			<type>Goods.Clothing.Resizable.Starting</type>
 			<weight>4</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1159,7 +1159,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>SHIELD.BUCKLER.STANDARD.METAL</type>
+					<type>Shield.Buckler.Standard.METAL</type>
 					<weight>5</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1180,7 +1180,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.MELEE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SPEAR.WOODEN</type>
+					<type>Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear.WOODEN</type>
 					<weight>3</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1201,7 +1201,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>ARMOR.LIGHT.SUIT.STANDARD.NONMETAL</type>
+					<type>Armor.Light.Suit.Standard.Nonmetal</type>
 					<weight>15</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1222,7 +1222,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+					<type>Goods.Clothing.Resizable.Starting</type>
 					<weight>4</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1263,7 +1263,7 @@ BIO
 		<feat>
 			<name>Psicrystal Affinity</name>
 			<description>You have created a psicrystal.</description>
-			<type>PSIONIC</type>
+			<type>Psionic</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1273,7 +1273,7 @@ BIO
 		<feat>
 			<name>Psicrystal Containment</name>
 			<description>Your psicrystal has advanced enough that it can hold a psionic focus that you store within it.</description>
-			<type>PSIONIC</type>
+			<type>Psionic</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1283,7 +1283,7 @@ BIO
 		<feat>
 			<name>Speed of Thought</name>
 			<description>The energy of your mind energizes the alacrity of your body.</description>
-			<type>PSIONIC</type>
+			<type>Psionic</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1293,7 +1293,7 @@ BIO
 		<feat>
 			<name>Twin Power</name>
 			<description>You can manifest a power simultaneously with another power just like it.</description>
-			<type>METAPSIONIC</type>
+			<type>Metapsionic</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1305,7 +1305,7 @@ BIO
 		<feat>
 			<name>Alertness</name>
 			<description>You get a +2 bonus on all Listen checks and Spot checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1328,7 +1328,7 @@ BIO
 		<ability_object>
 			<name>Naturally Psionic</name>
 			<description>+2 BonusPP</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1339,7 +1339,7 @@ BIO
 		<ability_object>
 			<name>Psionic</name>
 			<description>Total Power Points 37; Base Power Points 25; Bonus Power Points 12</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1350,7 +1350,7 @@ BIO
 		<ability_object>
 			<name>Repletion</name>
 			<description></description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SpecialQuality.Supernatural</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1361,7 +1361,7 @@ BIO
 		<ability_object>
 			<name>Resilience</name>
 			<description></description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SpecialQuality.Supernatural</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1372,7 +1372,7 @@ BIO
 		<ability_object>
 			<name>Resistance</name>
 			<description></description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SpecialQuality.Supernatural</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1384,7 +1384,7 @@ BIO
 		<ability_object>
 			<name>Psion Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -31,6 +31,8 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -335,42 +337,46 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 
 		Equipment heavySteelShield = new Equipment();
 		heavySteelShield.setName("Heavy Steel Shield");
-		heavySteelShield.setTypeInfo("Shield.Heavy");
+		heavySteelShield.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
+		heavySteelShield.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(heavySteelShield);
 		
 		Equipment heavyWoodenShield = new Equipment();
 		heavyWoodenShield.setName("Heavy Wooden Shield");
-		heavyWoodenShield.setTypeInfo("Shield.Heavy");
+		heavyWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
+		heavyWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(heavyWoodenShield);
 		
 		Equipment lightWoodenShield = new Equipment();
 		lightWoodenShield.setName("Light Steel Shield");
-		lightWoodenShield.setTypeInfo("Shield.Light");
+		lightWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
+		lightWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
 		Globals.getContext().ref.importObject(lightWoodenShield);
 		
 		Equipment fullPlateEq = new Equipment();
 		fullPlateEq.setName("Full Plate");
-		fullPlateEq.setTypeInfo("Shield.Heavy");
+		fullPlateEq.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
+		fullPlateEq.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(fullPlateEq);
 		
 		ShieldProf fullPlate = new ShieldProf();
 		fullPlate.setName("Full Plate");
-		fullPlate.setTypeInfo("Heavy");
+		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(fullPlate);
 
 		ShieldProf lightWood = new ShieldProf();
 		lightWood.setName("Light Wooden Shield");
-		lightWood.setTypeInfo("Light");
+		lightWood.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
 		Globals.getContext().ref.importObject(lightWood);
 
 		ShieldProf heavyWood = new ShieldProf();
 		heavyWood.setName("Heavy Wooden Shield");
-		heavyWood.setTypeInfo("Heavy");
+		heavyWood.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(heavyWood);
 
 		ShieldProf heavySteel = new ShieldProf();
 		heavySteel.setName("Heavy Steel Shield");
-		heavySteel.setTypeInfo("Heavy");
+		heavySteel.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(heavySteel);
 	}
 }

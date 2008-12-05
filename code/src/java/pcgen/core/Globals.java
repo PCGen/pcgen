@@ -55,9 +55,11 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CompanionMod;
@@ -961,7 +963,10 @@ public final class Globals
 			{
 				ability = ((AbilityInfo)c).getAbility();
 			}
-			typeList.addAll( ability.getTypeList(visibleOnly) );
+			for (Type t : ability.getTrueTypeList(visibleOnly))
+			{
+				typeList.add(t.toString());
+			}
 		}
 		return Collections.unmodifiableSet(typeList);
 	}
@@ -2826,7 +2831,7 @@ public final class Globals
 		{
 			s_EMPTYRACE = new Race();
 			s_EMPTYRACE.setName(Constants.s_NONESELECTED);
-			s_EMPTYRACE.setTypeInfo("HUMANOID");
+			s_EMPTYRACE.addToListFor(ListKey.TYPE, Type.HUMANOID);
 		}
 
 		getContext().ref.importObject(s_EMPTYRACE);

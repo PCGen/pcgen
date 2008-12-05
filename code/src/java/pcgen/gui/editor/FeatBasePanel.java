@@ -38,10 +38,10 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.Description;
@@ -201,7 +201,7 @@ public class FeatBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesAvailableList(final List<String> aList, final boolean sort)
+	public void setTypesAvailableList(final List<Type> aList, final boolean sort)
 	{
 		pnlFeatType.setAvailableList(aList, sort);
 	}
@@ -211,7 +211,7 @@ public class FeatBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesSelectedList(final List<String> aList, final boolean sort)
+	public void setTypesSelectedList(final List<Type> aList, final boolean sort)
 	{
 		pnlFeatType.setSelectedList(aList, sort);
 	}
@@ -275,12 +275,10 @@ public class FeatBasePanel extends BasePanel
 		thisFeat.put(ObjectKey.SELECTION_COST, new BigDecimal(getCost()));
 		thisFeat.put(IntegerKey.ADD_SPELL_LEVEL, getSpellLevels());
 
-		Object[] sel = getTypesSelectedList();
-		thisFeat.setTypeInfo(".CLEAR");
-
-		for (int i = 0; i < sel.length; ++i)
+		thisFeat.removeListFor(ListKey.TYPE);
+		for (Object o : getTypesSelectedList())
 		{
-			thisFeat.setTypeInfo(sel[i].toString());
+			thisFeat.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
@@ -304,16 +302,16 @@ public class FeatBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List<String> availableList = new ArrayList<String>();
-		List<String> selectedList = new ArrayList<String>();
+		List<Type> availableList = new ArrayList<Type>();
+		List<Type> selectedList = new ArrayList<Type>();
 
 		for (e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 		{
 			final Ability anAbility = (Ability) e.next();
 
-			for (String type : anAbility.getTypeList(false))
+			for (Type type : anAbility.getTrueTypeList(false))
 			{
-				if (!type.equals(Constants.s_CUSTOM))
+				if (!type.equals(Type.CUSTOM))
 				{
 					if (!availableList.contains(type))
 					{
@@ -324,9 +322,9 @@ public class FeatBasePanel extends BasePanel
 		}
 
 		// remove this feat's type from the available list and place into selected list
-		for (String type : thisFeat.getTypeList(false))
+		for (Type type : thisFeat.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				selectedList.add(type);
 				availableList.remove(type);

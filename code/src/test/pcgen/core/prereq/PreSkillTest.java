@@ -34,6 +34,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
@@ -42,6 +43,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 public class PreSkillTest extends AbstractCharacterTestCase
 {
@@ -84,7 +86,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		knowledge = new Skill();
 		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge.setName("KNOWLEDGE (ARCANA)");
-		knowledge.setTypeInfo("KNOWLEDGE.INT");
+		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
 		Globals.getContext().ref.importObject(knowledge);
 		Skill ks = character.addSkill(knowledge);
 		SkillRankControl.modRanks(8.0, myClass, true, character, ks);
@@ -92,7 +94,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
-		tumble.setTypeInfo("DEX");
+		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		Globals.getContext().ref.importObject(tumble);
 		Skill ts = character.addSkill(tumble);
 		SkillRankControl.modRanks(8.0, myClass, true, character, ts);
@@ -100,7 +102,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
-		balance.setTypeInfo("DEX");
+		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		Globals.getContext().ref.importObject(balance);
 		Skill bs = character.addSkill(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, bs);
@@ -108,19 +110,19 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		target = new Skill();
 		target.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		target.setName("Target");
-		target.setTypeInfo("STR");
+		target.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
 		Globals.getContext().ref.importObject(target);
 		
 		target2 = new Skill();
 		target2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		target2.setName("Target2");
-		target2.setTypeInfo("STR");
+		target2.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
 		Globals.getContext().ref.importObject(target2);
 
 		fake = new Skill();
 		fake.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		fake.setName("Fake");
-		fake.setTypeInfo("WIS");
+		fake.addToListFor(ListKey.TYPE, Type.getConstant("WIS"));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
 		Globals.getContext().ref.importObject(fake);
@@ -130,7 +132,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake2 = new Skill();
 		fake2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		fake2.setName("Fake 2");
-		fake2.setTypeInfo("INT");
+		fake2.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		Globals.getContext().ref.importObject(fake2);
 		Skill fs2 = character.addSkill(fake2);
 		SkillRankControl.modRanks(8.0, myClass, true, character, fs2);

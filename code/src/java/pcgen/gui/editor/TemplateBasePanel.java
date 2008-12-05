@@ -41,9 +41,11 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubRace;
 import pcgen.cdom.enumeration.SubRegion;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -345,7 +347,7 @@ public class TemplateBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesAvailableList(final List aList, final boolean sort)
+	public void setTypesAvailableList(final List<Type> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setAvailableList(aList, sort);
 	}
@@ -355,7 +357,7 @@ public class TemplateBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesSelectedList(final List aList, final boolean sort)
+	public void setTypesSelectedList(final List<Type> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setSelectedList(aList, sort);
 	}
@@ -458,12 +460,10 @@ public class TemplateBasePanel extends BasePanel
 		//
 		// Save types
 		//
-		Object[] sel = getTypesSelectedList();
-		thisPObject.setTypeInfo(".CLEAR");
-
-		for (int i = 0; i < sel.length; ++i)
+		thisPObject.removeListFor(ListKey.TYPE);
+		for (Object o : getTypesSelectedList())
 		{
-			thisPCTemplate.setTypeInfo(sel[i].toString());
+			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
@@ -475,14 +475,14 @@ public class TemplateBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List<String> availableList = new ArrayList<String>();
-		List<String> selectedList = new ArrayList<String>();
+		List<Type> availableList = new ArrayList<Type>();
+		List<Type> selectedList = new ArrayList<Type>();
 
 		for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 		{
-			for (String type : aTemplate.getTypeList(false))
+			for (Type type : aTemplate.getTrueTypeList(false))
 			{
-				if (!type.equals(Constants.s_CUSTOM))
+				if (!type.equals(Type.CUSTOM))
 				{
 					if (!availableList.contains(type))
 					{
@@ -495,9 +495,9 @@ public class TemplateBasePanel extends BasePanel
 		//
 		// remove this template's type from the available list and place into selected list
 		//
-		for (String type : thisPCTemplate.getTypeList(false))
+		for (Type type : thisPCTemplate.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				selectedList.add(type);
 				availableList.remove(type);

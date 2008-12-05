@@ -83,6 +83,7 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
@@ -919,7 +920,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 					// Adding this type to be
 					// correctly treated by Merge
-					eq.setTypeInfo("TEMPORARY");
+					eq.addType(Type.TEMPORARY);
 					addLocalEquipment(eq);
 				}
 			}
@@ -5669,8 +5670,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				&& (equip.getLocation() == Equipment.EQUIPPED_TWO_HANDS))
 			{
 				Equipment eqm = equip.clone();
-				eqm.removeType("Double");
-				eqm.setTypeInfo("Head1");
+				eqm.removeType(Type.DOUBLE);
+				eqm.addType(Type.HEAD1);
 
 				// Add "Head 1 only" to the name of the weapon
 				eqm.setWholeItemName(eqm.getName());
@@ -5689,14 +5690,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				eqm = equip.clone();
 
 				final String altType = eqm.getType(false);
-
 				if (altType.length() != 0)
 				{
-					eqm.setTypeInfo(".CLEAR." + altType);
+					eqm.removeListFor(ListKey.TYPE);
+					for (String s : altType.split("\\."))
+					{
+						eqm.addType(Type.getConstant(s));
+					}
 				}
 
-				eqm.removeType("Double");
-				eqm.setTypeInfo("Head2");
+				eqm.removeType(Type.DOUBLE);
+				eqm.addType(Type.HEAD2);
 				EquipmentHead head = eqm.getEquipmentHead(1);
 				String altDamage = eqm.getAltDamage(this);
 				if (altDamage.length() != 0)
@@ -5736,8 +5740,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// Strip off the Ranged portion, set range to 0
 				//
 				Equipment eqm = equip.clone();
-				eqm.setTypeInfo("Both");
-				eqm.removeType("Ranged.Thrown");
+				eqm.addType(Type.BOTH);
+				eqm.removeType(Type.RANGED);
+				eqm.removeType(Type.THROWN);
 				eqm.put(IntegerKey.RANGE, 0);
 				PlayerCharacterUtilities.setProf(equip, eqm);
 				weapList.set(idx, eqm);
@@ -5784,8 +5789,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// Add thrown portion, strip Melee
 				//
 				eqm = equip.clone();
-				eqm.setTypeInfo("Ranged.Thrown.Both");
-				eqm.removeType("Melee");
+				eqm.addType(Type.RANGED);
+				eqm.addType(Type.THROWN);
+				eqm.addType(Type.BOTH);
+				eqm.removeType(Type.MELEE);
 
 				// Add "Thrown" to the name of the weapon
 				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(),

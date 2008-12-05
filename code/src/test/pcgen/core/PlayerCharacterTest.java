@@ -47,6 +47,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.PCClassLevel;
@@ -123,7 +124,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Giant Class
 		giantClass = new PCClass();
 		giantClass.setName("Giant");
-		giantClass.addMyType("MONSTER");
+		giantClass.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
 		giantClass.addToListFor(ListKey.BONUS, babClassBonus);
 		Globals.getContext().ref.importObject(giantClass);
@@ -162,21 +163,21 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		class2LpfM = new PCClass();
 		class2LpfM.setName("2LpfM");
-		class2LpfM.addMyType("MONSTER");
+		class2LpfM.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
 		class2LpfM.put(IntegerKey.LEVELS_PER_FEAT, 2);
 		class2LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
 		Globals.getContext().ref.importObject(class2LpfM);
 		
 		class3LpfM = new PCClass();
 		class3LpfM.setName("3LpfM");
-		class3LpfM.addMyType("MONSTER");
+		class3LpfM.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
 		class3LpfM.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		class3LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
 		Globals.getContext().ref.importObject(class3LpfM);
 		
 		class3LpfBlank = new PCClass();
 		class3LpfBlank.setName("3LpfBlank");
-		class3LpfBlank.addMyType("Foo");
+		class3LpfBlank.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
 		class3LpfBlank.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		Globals.getContext().ref.importObject(class3LpfBlank);
 
@@ -205,19 +206,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		WeaponProf wpnProfTestA = new WeaponProf();
 		wpnProfTestA.setName("Weapon A");
 		wpnProfTestA.put(StringKey.KEY_NAME, "Weapon A");
-		wpnProfTestA.setTypeInfo("Exotic");
+		wpnProfTestA.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
 		Globals.getContext().ref.importObject(wpnProfTestA);
 	
 		WeaponProf wpnProfTestB = new WeaponProf();
 		wpnProfTestB.setName("Weapon B");
 		wpnProfTestB.put(StringKey.KEY_NAME, "Weapon B");
-		wpnProfTestB.setTypeInfo("Exotic");
+		wpnProfTestB.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
 		Globals.getContext().ref.importObject(wpnProfTestB);
 	
 		WeaponProf wpnProfTestC = new WeaponProf();
 		wpnProfTestC.setName("Weapon C");
 		wpnProfTestC.put(StringKey.KEY_NAME, "Weapon C");
-		wpnProfTestC.setTypeInfo("Exotic");
+		wpnProfTestC.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
 		Globals.getContext().ref.importObject(wpnProfTestC);
 	
 		SettingsHandler
@@ -608,21 +609,21 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		guiSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		guiSkill.setName("GUI");
-		guiSkill.setTypeInfo("INT");
+		guiSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		guiSkill.put(ObjectKey.VISIBILITY, Visibility.DISPLAY_ONLY);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, guiSkill);
 		pc.addSkill(guiSkill);
 
 		outputSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		outputSkill.setName("Output");
-		outputSkill.setTypeInfo("INT");
+		outputSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		outputSkill.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, outputSkill);
 		pc.addSkill(outputSkill);
 
 		defaultSkill.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		defaultSkill.setName("Default");
-		defaultSkill.setTypeInfo("INT");
+		defaultSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		defaultSkill.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, defaultSkill);
 		pc.addSkill(defaultSkill);

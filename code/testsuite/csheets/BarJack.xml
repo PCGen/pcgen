@@ -1063,7 +1063,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+			<type>Armor.Medium.Suit.Standard.METAL</type>
 			<weight>30</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1089,7 +1089,7 @@ BIO
 				<short>T</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.SIMPLE.MELEE.RANGED.PIERCING.STANDARD.THROWN.DAGGER.METAL</type>
+			<type>Weapon.Simple.Melee.Ranged.Piercing.Standard.Thrown.Dagger.METAL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1119,7 +1119,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+					<type>Armor.Medium.Suit.Standard.METAL</type>
 					<weight>30</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1140,7 +1140,7 @@ BIO
 						<short>T</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.MELEE.RANGED.PIERCING.STANDARD.THROWN.DAGGER.METAL</type>
+					<type>Weapon.Simple.Melee.Ranged.Piercing.Standard.Thrown.Dagger.METAL</type>
 					<weight>1</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1181,7 +1181,7 @@ BIO
 		<feat>
 			<name>Ambidexterity</name>
 			<description>The character ignores all penalties for using an off hand. The character is neither left-handed nor right-handed.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1192,7 +1192,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Light)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1202,7 +1202,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Medium)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1212,7 +1212,7 @@ BIO
 		<feat>
 			<name>Martial Weapon Proficiency</name>
 			<description>The character makes attack rolls with the weapon normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1222,7 +1222,7 @@ BIO
 		<feat>
 			<name>Shield Proficiency</name>
 			<description>The character can use a shield and suffer only the standard penalties.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1232,7 +1232,7 @@ BIO
 		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>The character makes attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1256,7 +1256,7 @@ BIO
 		<ability_object>
 			<name>Fast Movement</name>
 			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>SpecialQuality.Extraordinary</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1267,7 +1267,7 @@ BIO
 		<ability_object>
 			<name>+4 dodge bonus against giants</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1278,7 +1278,7 @@ BIO
 		<ability_object>
 			<name>+1 racial bonus to attack rolls against kobolds and goblinoids</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1289,7 +1289,7 @@ BIO
 		<ability_object>
 			<name>+2 racial bonus on saving throws against illusions</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1300,7 +1300,7 @@ BIO
 		<ability_object>
 			<name>Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1311,7 +1311,7 @@ BIO
 		<ability_object>
 			<name>Rage</name>
 			<description>0 times/day (5 rounds)</description>
-			<type>SPECIALQUALITY.ATTACKOPTION.MODIFYAC</type>
+			<type>SpecialQuality.AttackOption.ModifyAC</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1322,7 +1322,7 @@ BIO
 		<ability_object>
 			<name>Uncanny Dodge</name>
 			<description>Dex bonus to AC</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1334,7 +1334,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1345,7 +1345,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

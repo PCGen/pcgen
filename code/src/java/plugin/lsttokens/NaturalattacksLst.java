@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
@@ -192,8 +193,8 @@ public class NaturalattacksLst extends AbstractToken implements
 		StringTokenizer dotTok = new StringTokenizer(profType, Constants.DOT);
 		while (dotTok.hasMoreTokens())
 		{
-			String wt = dotTok.nextToken();
-			anEquip.setTypeInfo(wt);
+			Type type = Type.getConstant(dotTok.nextToken());
+			anEquip.addToListFor(ListKey.TYPE, type);
 		}
 
 		String numAttacks = commaTok.nextToken();
@@ -255,7 +256,7 @@ public class NaturalattacksLst extends AbstractToken implements
 		{
 			cwp = context.ref.constructNowIfNecessary(WEAPONPROF_CLASS,
 					attackName);
-			cwp.setTypeInfo("Natural");
+			cwp.addToListFor(ListKey.TYPE, Type.NATURAL);
 		}
 		CDOMSingleRef<WeaponProf> wp = context.ref.getCDOMReference(
 				WEAPONPROF_CLASS, attackName);

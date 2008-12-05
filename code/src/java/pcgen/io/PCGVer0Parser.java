@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
@@ -875,7 +876,7 @@ final class PCGVer0Parser implements PCGParser
 					eq.load(aLine, ";", "=", aPC);
 					if (!aEq.isType(Constants.s_CUSTOM))
 					{
-						aEq.addMyType(Constants.s_CUSTOM);
+						aEq.addType(Type.CUSTOM);
 					}
 					Globals.getContext().ref.importObject(eq.clone());
 					bFound = true;

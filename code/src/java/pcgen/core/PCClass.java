@@ -59,6 +59,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.AttackCycle;
@@ -1637,15 +1638,10 @@ public class PCClass extends PObject
 			return mon.booleanValue();
 		}
 
-		if (getMyTypeCount() == 0)
-		{
-			return false;
-		}
-
-		for (String type : getTypeList(false))
+		for (Type type : getTrueTypeList(false))
 		{
 			final ClassType aClassType =
-					SettingsHandler.getGame().getClassTypeByName(type);
+					SettingsHandler.getGame().getClassTypeByName(type.toString());
 
 			if ((aClassType != null) && aClassType.isMonster())
 			{
@@ -1937,10 +1933,10 @@ public class PCClass extends PObject
 		Formula cr = get(FormulaKey.CR);
 		if (cr == null)
 		{
-			for (String type : getTypeList(false))
+			for (Type type : getTrueTypeList(false))
 			{
 				final ClassType aClassType =
-						SettingsHandler.getGame().getClassTypeByName(type);
+						SettingsHandler.getGame().getClassTypeByName(type.toString());
 				if (aClassType != null)
 				{
 					String crf = aClassType.getCRFormula();
@@ -2135,10 +2131,10 @@ public class PCClass extends PObject
 	 */
 	public boolean hasXPPenalty()
 	{
-		for (String type : getTypeList(false))
+		for (Type type : getTrueTypeList(false))
 		{
 			final ClassType aClassType =
-					SettingsHandler.getGame().getClassTypeByName(type);
+					SettingsHandler.getGame().getClassTypeByName(type.toString());
 				if ((aClassType != null) && !aClassType.getXPPenalty())
 			{
 				return false;

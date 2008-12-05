@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -170,7 +171,10 @@ public class ProficiencyChoiceManager extends AbstractBasicPObjectChoiceManager<
 					for ( WeaponProf wp : pcHas )
 					{
 						// may have martial and exotic, etc.
-						if (wp.getMyTypeCount() != 1)
+						/*
+						 * TODO This assumption is broken - WeaponProfs have arbitrary # of TYPEs
+						 */
+						if (wp.getSafeSizeOfListFor(ListKey.TYPE) != 1)
 						{
 							availableList.add(wp);
 						}

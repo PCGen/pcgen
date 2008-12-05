@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Campaign;
 import pcgen.core.Description;
@@ -97,12 +98,12 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		// Create the humanoid class
 		humanoidClass = new PCClass();
 		humanoidClass.setName("Humanoid");
-		humanoidClass.setTypeInfo("Monster");
+		humanoidClass.addToListFor(ListKey.TYPE, Type.getConstant("Monster"));
 		Globals.getContext().ref.importObject(humanoidClass);
 
 		nymphClass = new PCClass();
 		nymphClass.setName("Nymph");
-		nymphClass.setTypeInfo("Monster");
+		nymphClass.addToListFor(ListKey.TYPE, Type.getConstant("Monster"));
 		Globals.getContext().ref.importObject(nymphClass);
 
 		megaCasterClass = new PCClass();

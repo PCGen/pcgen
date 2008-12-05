@@ -34,8 +34,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
@@ -138,12 +140,12 @@ final class SkillBasePanel extends BasePanel
 		return SettingsHandler.getGame().getUnmodifiableStatList().get(idx);
 	}
 
-	public void setTypesAvailableList(final List<String> aList, final boolean sort)
+	public void setTypesAvailableList(final List<Type> aList, final boolean sort)
 	{
 		pnlSkillType.setAvailableList(aList, sort);
 	}
 
-	public void setTypesSelectedList(final List<String> aList, final boolean sort)
+	public void setTypesSelectedList(final List<Type> aList, final boolean sort)
 	{
 		pnlSkillType.setSelectedList(aList, sort);
 	}
@@ -155,19 +157,17 @@ final class SkillBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		Skill thisSkill = (Skill) thisPObject;
-		Object[] sel = getTypesSelectedList();
-		thisPObject.setTypeInfo(".CLEAR");
+		thisPObject.removeListFor(ListKey.TYPE);
 
-		for (int i = 0; i < sel.length; ++i)
+		for (Object o : getTypesSelectedList())
 		{
-			thisSkill.setTypeInfo(sel[i].toString());
+			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 
-		thisSkill.put(ObjectKey.USE_UNTRAINED, getIsUntrained());
-		thisSkill.put(ObjectKey.EXCLUSIVE, getIsExclusive());
-		thisSkill.put(ObjectKey.KEY_STAT, getKeyStat());
-		thisSkill.put(ObjectKey.ARMOR_CHECK, SkillArmorCheck.values()[getArmorCheck()]);
+		thisPObject.put(ObjectKey.USE_UNTRAINED, getIsUntrained());
+		thisPObject.put(ObjectKey.EXCLUSIVE, getIsExclusive());
+		thisPObject.put(ObjectKey.KEY_STAT, getKeyStat());
+		thisPObject.put(ObjectKey.ARMOR_CHECK, SkillArmorCheck.values()[getArmorCheck()]);
 	}
 
 	public void updateView(PObject thisPObject)
@@ -177,14 +177,14 @@ final class SkillBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List<String> availableList = new ArrayList<String>();
-		List<String> selectedList = new ArrayList<String>();
+		List<Type> availableList = new ArrayList<Type>();
+		List<Type> selectedList = new ArrayList<Type>();
 
 		for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
-			for (String type : aSkill.getTypeList(false))
+			for (Type type : aSkill.getTrueTypeList(false))
 			{
-				if (!type.equals(Constants.s_CUSTOM))
+				if (!type.equals(Type.CUSTOM))
 				{
 					if (!availableList.contains(type))
 					{
@@ -197,9 +197,9 @@ final class SkillBasePanel extends BasePanel
 		//
 		// remove this skill's type from the available list and place into selected list
 		//
-		for (String type : thisSkill.getTypeList(false))
+		for (Type type : thisSkill.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				selectedList.add(type);
 				availableList.remove(type);

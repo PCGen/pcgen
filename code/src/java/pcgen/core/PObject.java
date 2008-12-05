@@ -32,10 +32,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -50,6 +48,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -97,8 +96,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private boolean isNewItem = true;
 
 	private URI sourceURI = null;
-	
-	private Set<String> types = new LinkedHashSet<String>();
 	
 	private final Class<?> myClass = getClass();
 	
@@ -191,8 +188,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public PObject clone() throws CloneNotSupportedException
 	{
 		final PObject retVal = (PObject) super.clone();
-		retVal.types = new LinkedHashSet<String>();
-		retVal.types.addAll(types);
 
 		retVal.setName(displayName);
 		retVal.put(StringKey.KEY_NAME, get(StringKey.KEY_NAME));
@@ -432,52 +427,25 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 	
 	/**
-	 * Get the user defined type by index
-	 * @param i
-	 * @return the user defined type by index
-	 */
-	public String getMyType(final int i)
-	{
-		if (i < getMyTypeCount())
-		{
-			//Yes, this in inefficient... it's done rarely enough it's ok for now
-			//Best performance improvement to offset this would be to make Type
-			// in campaigns NOT order sensitive...
-			return new ArrayList<String>(types).get(i);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Get the number of user defined types
-	 * @return the number of user defined types
-	 */
-	public int getMyTypeCount()
-	{
-		return types.size();
-	}
-
-	/**
 	 * Get the type of PObject
 	 * 
 	 * @return the type of PObject
 	 */
 	public String getType()
 	{
-		return StringUtil.join(getTypeList(false), ".");
+		return StringUtil.join(getTrueTypeList(false), ".");
 	}
 
-	public List<String> getTypeList(final boolean visibleOnly)
+	public List<Type> getTrueTypeList(final boolean visibleOnly)
 	{
-		final List<String> ret = new ArrayList<String>(types);
-		if (visibleOnly )
+		final List<Type> ret = getSafeListFor(ListKey.TYPE);
+		if (visibleOnly)
 		{
-			for ( String type : types )
+			for (Iterator<Type> it = ret.iterator(); it.hasNext();)
 			{
-				if ( SettingsHandler.getGame().isTypeHidden( myClass, type) )
+				if (SettingsHandler.getGame().isTypeHidden(myClass, it.next().toString()))
 				{
-					ret.remove(type);
+					it.remove();
 				}
 			}
 		}
@@ -497,11 +465,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public boolean isType(final String aType)
 	{
 		final String myType;
-		boolean match = false;
 
 		if (aType.length() == 0)
 		{
-			return match;
+			return false;
 		}
 		else if (aType.charAt(0) == '!')
 		{
@@ -520,59 +487,14 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		// Must match all listed types in order to qualify
 		//
 		StringTokenizer tok = new StringTokenizer(myType, ".");
-		if (tok.hasMoreTokens())
+		while (tok.hasMoreTokens())
 		{
-			match = true;
-			while(tok.hasMoreTokens())
+			if (!containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))
 			{
-				final String type = tok.nextToken();
-				if (!types.contains(type))
-				{
-					match = false;
-					break;
-				}
-			}
-			return match;
-		}
-		return types.contains(myType);
-	}
-
-	/**
-	 * Deal with the type, whether to ADD, REMOVE it etc.
-	 * @param aString
-	 */
-	public void setTypeInfo(final String aString)
-	{
-		boolean bRemove = false;
-		final StringTokenizer aTok = new StringTokenizer(aString.toUpperCase().trim(), ".");
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aType = aTok.nextToken();
-
-			if (bRemove)
-			{
-				removeMyType(aType);
-				bRemove = false;
-			}
-			else if ("ADD".equals(aType))
-			{
-				bRemove = false;
-			}
-			else if ("REMOVE".equals(aType))
-			{
-				bRemove = true;
-			}
-			else if ("CLEAR".equals(aType))
-			{
-				clearMyType();
-			}
-			else if (!types.contains(aType))
-			{
-				doGlobalTypeUpdate(aType);
-				addMyType(aType);
+				return false;
 			}
 		}
+		return true;
 	}
 
 	/**
@@ -584,22 +506,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		boolean b = removeFromListFor(ListKey.SAVE, bonusString);
 		if (!b) {
 			Logging.errorPrint("removeSave: Could not find: " + bonusString + " in saveList.");
-		}
-	}
-
-	/**
-	 * Remove user defined types
-	 * @param aString
-	 */
-	public final void removeType(final String aString)
-	{
-		final String typeString = aString.toUpperCase().trim();
-		final StringTokenizer aTok = new StringTokenizer(typeString, ".");
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aType = aTok.nextToken();
-			removeMyType(aType);
 		}
 	}
 
@@ -867,11 +773,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append(writer);
 		}
 
-		if (getMyTypeCount() != 0)
-		{
-			txt.append('\t').append(Constants.s_TAG_TYPE).append(getType());
-		}
-
 		aString = theSource.getPageNumber();
 
 		if (aString != null && aString.length() != 0)
@@ -1001,20 +902,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return aList;
 	}
 
-	/**
-	 * This method is used to add the type to the appropriate global list if we
-	 * are ever interested in knowing what types are available for a particular
-	 * object type (for example, all of the different equipment types)
-	 * 
-	 * @param type
-	 *            The name of the type that is to be added to the global list of
-	 *            types.
-	 */
-	protected void doGlobalTypeUpdate(final String type)
-	{
-		// Override in any class that wants to store type information
-	}
-
 	public void globalChecks(final PlayerCharacter aPC)
 	{
 		globalChecks(false, aPC);
@@ -1073,15 +960,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 	}
 
-	/**
-	 * Add a user defined type
-	 * @param myType
-	 */
-	void addMyType(final String myType)
-	{
-		types.add(myType);
-	}
-
 	/*
 	 * REFACTOR Get this OUT of PObject's interface since this is ONLY in PCClass.
 	 * Not to mention that the overload code will probably be removed from PCClass.
@@ -1127,11 +1005,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return newNameBuff.toString();
 	}
 
-	protected void clearMyType()
-	{
-		types.clear();
-	}
-
 	/**
 	 * Clear the selected weapon proficiency bonuses
 	 *
@@ -1139,11 +1012,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public void clearSelectedWeaponProfBonus()
 	{
 		removeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
-	}
-
-	protected void removeMyType(final String myType)
-	{
-		types.remove(myType);
 	}
 
 	/**

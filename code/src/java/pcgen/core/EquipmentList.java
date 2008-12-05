@@ -30,9 +30,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.EquipmentChoiceDriver;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
@@ -698,16 +698,16 @@ public class EquipmentList {
 
 			if (eqExists != null) { return; }
 
-			final String newType;
+			final Type newType;
 
 			if (isAutoGeneration()) {
-				newType = "AUTO_GEN";
+				newType = Type.AUTO_GEN;
 			} else {
-				newType = Constants.s_CUSTOM;
+				newType = Type.CUSTOM;
 			}
 
-			if (!eq.isType(newType)) {
-				eq.addMyType(newType);
+			if (!eq.isType(newType.toString())) {
+				eq.addType(newType);
 			}
 
 			//

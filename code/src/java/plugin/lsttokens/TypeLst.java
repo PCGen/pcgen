@@ -17,24 +17,151 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
+import java.util.Collection;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
  *
  */
-public class TypeLst implements GlobalLstToken
+public class TypeLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "TYPE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject cdo, String value)
 	{
-		obj.setTypeInfo(value);
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		if (value.startsWith(".CLEAR"))
+		{
+			context.getObjectContext().removeList(cdo, ListKey.TYPE);
+			if (value.length() == 6)
+			{
+				return true;
+			}
+			else if (value.charAt(6) == '.')
+			{
+				value = value.substring(7);
+				if (isEmpty(value))
+				{
+					Logging
+						.errorPrint(getTokenName()
+							+ "started with .CLEAR. but expected to have a Type after .: "
+							+ value);
+					return false;
+				}
+			}
+			else
+			{
+				Logging
+					.errorPrint(getTokenName()
+						+ "started with .CLEAR but expected next character to be .: "
+						+ value);
+				return false;
+			}
+		}
+		if (hasIllegalSeparator('.', value))
+		{
+			return false;
+		}
+
+		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
+
+		boolean bRemove = false;
+		while (aTok.hasMoreTokens())
+		{
+			final String aType = aTok.nextToken();
+			if (bRemove)
+			{
+				Type type = Type.getConstant(aType);
+				context.getObjectContext().removeFromList(cdo, ListKey.TYPE,
+					type);
+				bRemove = false;
+			}
+			else if ("ADD".equals(aType))
+			{
+				bRemove = false;
+			}
+			else if ("REMOVE".equals(aType))
+			{
+				bRemove = true;
+			}
+			else if ("CLEAR".equals(aType))
+			{
+				Logging.errorPrint("Non-sensical use of .CLEAR in "
+					+ getTokenName() + ": " + value);
+				return false;
+			}
+			else
+			{
+				Type type = Type.getConstant(aType);
+				context.getObjectContext().addToList(cdo, ListKey.TYPE, type);
+			}
+		}
+		if (bRemove)
+		{
+			Logging.errorPrint(getTokenName()
+				+ "ended with REMOVE, so didn't have any Type to remove: "
+				+ value);
+			return false;
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject cdo)
+	{
+		Changes<Type> changes =
+				context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
+		if (changes == null || changes.isEmpty())
+		{
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		Collection<?> added = changes.getAdded();
+		boolean globalClear = changes.includesGlobalClear();
+		if (globalClear)
+		{
+			sb.append(Constants.LST_DOT_CLEAR);
+		}
+		if (added != null && !added.isEmpty())
+		{
+			if (globalClear)
+			{
+				sb.append(Constants.DOT);
+			}
+			sb.append(StringUtil.join(added, Constants.DOT));
+		}
+		if (sb.length() == 0)
+		{
+			context.addWriteMessage(getTokenName()
+				+ " was expecting non-empty changes to include "
+				+ "added items or global clear");
+			return null;
+		}
+		return new String[]{sb.toString()};
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }

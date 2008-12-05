@@ -998,7 +998,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MARTIAL.MELEE.STANDARD.PIERCING.FINESSEABLE.SWORD.METAL</type>
+			<type>Weapon.Martial.Melee.Standard.Piercing.Finesseable.Sword.METAL</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1028,7 +1028,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.MARTIAL.MELEE.STANDARD.PIERCING.FINESSEABLE.SWORD.METAL</type>
+					<type>Weapon.Martial.Melee.Standard.Piercing.Finesseable.Sword.METAL</type>
 					<weight>3</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1069,7 +1069,7 @@ BIO
 		<feat>
 			<name>Ambidexterity</name>
 			<description>The character ignores all penalties for using an off hand. The character is neither left-handed nor right-handed.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1079,7 +1079,7 @@ BIO
 		<feat>
 			<name>Blind-Fight</name>
 			<description>In melee, every time a character misses because of concealment, the character can reroll the miss chance percentile roll one time to see if the character actually hit.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1089,7 +1089,7 @@ BIO
 		<feat>
 			<name>Dodge</name>
 			<description>During the character&#39;s action, the character designates an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1099,7 +1099,7 @@ BIO
 		<feat>
 			<name>Exotic Weapon Proficiency (Flail (Dire))</name>
 			<description>The character makes attack rolls with the weapon normally.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated>Flail (Dire)</associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -1109,7 +1109,7 @@ BIO
 		<feat>
 			<name>Two-Weapon Fighting</name>
 			<description>The character&#39;s penalties for fighting with two weapons are reduced by 2.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1120,7 +1120,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Heavy)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1130,7 +1130,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Light)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1140,7 +1140,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Medium)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1150,7 +1150,7 @@ BIO
 		<feat>
 			<name>Martial Weapon Proficiency</name>
 			<description>The character makes attack rolls with the weapon normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1160,7 +1160,7 @@ BIO
 		<feat>
 			<name>Shield Proficiency</name>
 			<description>The character can use a shield and suffer only the standard penalties.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1170,7 +1170,7 @@ BIO
 		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>The character makes attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1194,7 +1194,7 @@ BIO
 		<ability_object>
 			<name>Orc Blood</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1206,7 +1206,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1217,7 +1217,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -27,6 +27,8 @@
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -73,9 +75,9 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements
 			{
 				if (percentageSignPosition >= 0)
 				{
-					for (String type : aSkill.getTypeList(false))
+					for (Type type : aSkill.getTrueTypeList(false))
 					{
-						if (type.startsWith(
+						if (type.toString().startsWith(
 							skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;

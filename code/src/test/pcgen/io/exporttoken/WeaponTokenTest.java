@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -57,6 +58,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
+import pcgen.util.TestHelper;
 
 /**
  * <code>WeaponTokenTest</code> contains tests to verify that the
@@ -181,8 +183,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn = new Equipment();
 		dblWpn.setName("DoubleWpn");
 		dblWpn.put(StringKey.KEY_NAME, "KEY_DOUBLE_WPN");
-		dblWpn
-			.setTypeInfo("Weapon.Melee.Martial.Double.Standard.Bludgeoning.Flail");
+		TestHelper.addType(dblWpn, "Weapon.Melee.Martial.Double.Standard.Bludgeoning.Flail");
 		dblWpn.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		dblWpn.getEquipmentHead(2).put(StringKey.DAMAGE, "1d6");
 		dblWpn.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -211,7 +212,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp = new WeaponProf();
 		wp.setName("Sword (Bastard)");
 		wp.put(StringKey.KEY_NAME, "KEY_Sword (Bastard)");
-		wp.setTypeInfo("MARTIAL.EXOTIC");
+		TestHelper.addType(wp, "MARTIAL.EXOTIC");
 		Globals.getContext().ref.importObject(wp);
 		character.addWeaponProf(wp.getKeyName());
 
@@ -219,8 +220,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.setName("Sword, Bastard");
 		bastardSword.put(StringKey.KEY_NAME, "BASTARD_SWORD");
 		bastardSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
-		bastardSword
-			.setTypeInfo("Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
+		TestHelper.addType(bastardSword, "Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword");
 		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
@@ -231,7 +231,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp = new WeaponProf();
 		wp.setName("Longsword");
 		wp.put(StringKey.KEY_NAME, "KEY_LONGSWORD");
-		wp.setTypeInfo("MARTIAL");
+		wp.addToListFor(ListKey.TYPE, Type.getConstant("MARTIAL"));
 		Globals.getContext().ref.importObject(wp);
 		character.addWeaponProf(wp.getKeyName());
 
@@ -240,7 +240,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.put(StringKey.KEY_NAME, "KEY_LONGSWORD_LARGE");
 		largeSword.put(StringKey.OUTPUT_NAME, "Longsword (Large)");
 		largeSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
-		largeSword.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword");
+		TestHelper.addType(largeSword, "Weapon.Melee.Martial.Standard.Slashing.Sword");
 		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
@@ -254,8 +254,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.put(StringKey.KEY_NAME, "KEY_LONGSWORD_FINE");
 		fineSword.put(StringKey.OUTPUT_NAME, "Longsword (Fine)");
 		fineSword.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
-		fineSword
-			.setTypeInfo("Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
+		TestHelper.addType(fineSword, "Weapon.Melee.Martial.Standard.Slashing.Sword.Finesseable");
 		fineSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
@@ -267,7 +266,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.setName("Longspear");
 		longSpear.put(StringKey.KEY_NAME, "KEY_LONGSPEAR");
 		longSpear.put(StringKey.OUTPUT_NAME, "Longspear");
-		longSpear.setTypeInfo("Weapon.Melee.Martial.Standard.Piercing.Spear");
+		TestHelper.addType(longSpear, "Weapon.Melee.Martial.Standard.Piercing.Spear");
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
@@ -288,7 +287,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.setName("Silly Bite");
 		wp.put(StringKey.KEY_NAME, "SillyBite");
 		//wp.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
-		wp.setTypeInfo("Natural");
+		wp.addToListFor(ListKey.TYPE, Type.NATURAL);
 		Globals.getContext().ref.importObject(wp);
 		character.addWeaponProf(wp.getKeyName());
 
@@ -296,7 +295,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.setName("Silly Bite");
 		bite.put(StringKey.KEY_NAME, "SillyBite");
 		bite.put(StringKey.OUTPUT_NAME, "Silly Bite (For Test)");
-		bite.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
+		TestHelper.addType(bite, "Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 		bite.put(ObjectKey.SIZE, sam);
 		bite.put(ObjectKey.BASESIZE, sam);
@@ -334,7 +333,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		EquipmentModifier eqMod = new EquipmentModifier();
 		eqMod.setName("Plus 1 Enhancement");
 		eqMod.put(StringKey.KEY_NAME, "PLUS1W");
-		eqMod.setTypeInfo("Ammunition.Weapon");
+		TestHelper.addType(eqMod, "Ammunition.Weapon");
 		eqMod.put(IntegerKey.PLUS, 1);
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
@@ -350,7 +349,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Plus 2 Enhancement");
 		eqMod.put(StringKey.KEY_NAME, "PLUS2W");
-		eqMod.setTypeInfo("Ammunition.Weapon");
+		TestHelper.addType(eqMod, "Ammunition.Weapon");
 		eqMod.put(IntegerKey.PLUS, 2);
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
@@ -366,7 +365,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Masterwork");
 		eqMod.put(StringKey.KEY_NAME, "MWORKW");
-		eqMod.setTypeInfo("Ammunition.Weapon");
+		TestHelper.addType(eqMod, "Ammunition.Weapon");
 		eqMod.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
 		aBonus = Bonus.newBonus("WEAPON|TOHIT|1|TYPE=Enhancement");
 		

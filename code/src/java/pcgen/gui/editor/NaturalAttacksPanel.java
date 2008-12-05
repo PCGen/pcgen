@@ -53,6 +53,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.core.bonus.Bonus;
@@ -127,7 +128,10 @@ final class NaturalAttacksPanel extends JPanel
 			anEquip.setName(natWpn.nextToken());
 
 			// Set the weapon type
-			anEquip.setTypeInfo(natWpn.nextToken());
+			for (String s : natWpn.nextToken().split("\\."))
+			{
+				anEquip.addToListFor(ListKey.TYPE, Type.getConstant(s));
+			}
 
 			// Set the number of attacks
 			String attacksTxt = natWpn.nextToken();

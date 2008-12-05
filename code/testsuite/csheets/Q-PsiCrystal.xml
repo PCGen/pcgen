@@ -915,7 +915,7 @@ BIO
 		<feat>
 			<name>Alertness</name>
 			<description>You get a +2 bonus on all Listen checks and Spot checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

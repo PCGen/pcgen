@@ -22,25 +22,35 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.base.Constants;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <code>SpellBasePanel2</code>
@@ -70,8 +80,11 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		final Spell s = (Spell) thisPObject;
 
 		Object[] sel = pnlType.getSelectedList();
-		s.setTypeInfo(".CLEAR");
-		s.setTypeInfo(EditUtil.delimitArray(sel, '.'));
+		s.removeListFor(ListKey.TYPE);
+		for (Object o : sel)
+		{
+			s.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
+		}
 
 		sel = ((JListModel) lstVariants.getModel()).getElements();
 		s.removeListFor(ListKey.VARIANTS);
@@ -92,8 +105,8 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		//
 		// Populate the types
 		//
-		List<String> availableList = new ArrayList<String>();
-		List<String> selectedList = new ArrayList<String>();
+		List<Type> availableList = new ArrayList<Type>();
+		List<Type> selectedList = new ArrayList<Type>();
 
 		for (Iterator e = Globals.getSpellMap().values().iterator(); e.hasNext();)
 		{
@@ -115,9 +128,9 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		//
 		// remove this template's type from the available list and place into selected list
 		//
-		for (String type : thisPObject.getTypeList(false))
+		for (Type type : thisPObject.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				selectedList.add(type);
 				availableList.remove(type);

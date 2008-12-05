@@ -22,13 +22,14 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.PObject;
+import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JList;
-import java.awt.event.MouseEvent;
-import java.util.List;
+
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.PObject;
 
 /**
  * <code>EditUtil</code>
@@ -74,11 +75,11 @@ final class EditUtil
 		return false;
 	}
 
-	static void addPObjectTypes(final PObject pobj, List<String> l)
+	static void addPObjectTypes(final PObject pobj, List<Type> l)
 	{
-		for (String type : pobj.getTypeList(false))
+		for (Type type : pobj.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				if (!l.contains(type))
 				{

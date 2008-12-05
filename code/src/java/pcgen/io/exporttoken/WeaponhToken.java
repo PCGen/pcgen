@@ -30,8 +30,10 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.EqModControl;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
@@ -118,7 +120,7 @@ public class WeaponhToken extends WeaponToken
 			wp = new WeaponProf();
 			wp.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
 			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
-			wp.setTypeInfo("Simple");
+			wp.addToListFor(ListKey.TYPE, Type.SIMPLE);
 			Globals.getContext().ref.importObject(wp);
 		}
 		Equipment eq = new Equipment();
@@ -126,7 +128,14 @@ public class WeaponhToken extends WeaponToken
 		eq.put(StringKey.KEY_NAME, "KEY_Unarmed Strike");
 		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 		eq.put(StringKey.OUTPUT_NAME, PropertyFactory.getString("Equipment.UnarmedStrike"));
-		eq.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
+		eq.addType(Type.WEAPON);
+		eq.addType(Type.MELEE);
+		eq.addType(Type.SIMPLE);
+		eq.addType(Type.UNARMED);
+		eq.addType(Type.SUBDUAL);
+		eq.addType(Type.STANDARD);
+		eq.addType(Type.MONK);
+		eq.addType(Type.BLUDGEONING);
 		eq.put(ObjectKey.WIELD, WieldCategory.findByName("Light"));
 		eq.put(ObjectKey.COST, BigDecimal.ZERO);
 		eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);

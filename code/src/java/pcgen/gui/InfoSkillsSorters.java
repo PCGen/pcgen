@@ -20,15 +20,18 @@
  */
 package pcgen.gui;
 
+import java.util.Iterator;
+import java.util.ListIterator;
+
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.gui.tabs.InfoSkills;
 import pcgen.gui.utils.PObjectNode;
-
-import java.util.Iterator;
-import java.util.ListIterator;
 
 /**
  * @author  B. K. Oxley (binkley) <binkley@alumni.rice.edu>
@@ -44,12 +47,12 @@ public final class InfoSkillsSorters
 
 	private static boolean keystatsMatch(PObjectNode node, Skill skill)
 	{
-		if (Globals.isSkillTypeHidden(skill.getMyType(0)))
+		PCStat keyStat = skill.get(ObjectKey.KEY_STAT);
+		if (keyStat == null)
 		{
-			return false;
+			return node.toString().length() == 0;
 		}
-
-		return node.toString().equals(skill.getMyType(0));
+		return node.toString().equals(keyStat.getDisplayName());
 	}
 
 	/**
@@ -100,9 +103,10 @@ public final class InfoSkillsSorters
 
 		public Object whatPart(boolean available, Skill skill, PlayerCharacter pc)
 		{
-			if (skill.getSubtypeCount() > 0)
+			Iterator<Type> iter = skill.getSubtypeIterator();
+			if (iter.hasNext())
 			{
-				return skill.getSubtypeIterator();
+				return iter;
 			}
 
 			return InfoSkills.createSkillWrapper(available, skill, pc);
@@ -471,11 +475,12 @@ public final class InfoSkillsSorters
 
 		public Object whatPart(boolean available, Skill skill, PlayerCharacter pc)
 		{
-			if (Globals.isSkillTypeHidden(skill.getMyType(0)))
+			PCStat keyStat = skill.get(ObjectKey.KEY_STAT);
+			if (keyStat == null)
 			{
 				return "";
 			}
-			return skill.getMyType(0);
+			return keyStat.getDisplayName();
 		}
 	}
 

@@ -29,6 +29,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -139,23 +140,23 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		
 		Skill bar = new Skill();
 		bar.setName("Bar");
-		bar.setTypeInfo("Bar");
+		bar.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
 		Globals.getContext().ref.importObject(bar); 
 		
 		Skill foo = new Skill();
 		foo.setName("Foo");
 		foo.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(bar));
-		foo.setTypeInfo("Foo");
+		foo.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
 		Globals.getContext().ref.importObject(foo);
 		
 		Skill baz = new Skill();
 		baz.setName("Baz");
-		baz.setTypeInfo("Baz");
+		baz.addToListFor(ListKey.TYPE, Type.getConstant("Baz"));
 		Globals.getContext().ref.importObject(baz); 
 		
 		Skill fee = new Skill();
 		fee.setName("Fee");
-		fee.setTypeInfo("Bar");
+		fee.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
 		Globals.getContext().ref.importObject(fee); 
 		
 		
@@ -205,22 +206,22 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 
 		spy1 = new Skill();
 		spy1.setName("Spy 1");
-		spy1.setTypeInfo("Spy");
+		spy1.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
 		Globals.getContext().ref.importObject(spy1);
 
 		spy2 = new Skill();
 		spy2.setName("Spy 2");
-		spy2.setTypeInfo("Spy");
+		spy2.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
 		Globals.getContext().ref.importObject(spy2);
 
 		spy3 = new Skill();
 		spy3.setName("Spy 3");
-		spy3.setTypeInfo("Spy");
+		spy3.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
 		Globals.getContext().ref.importObject(spy3);
 
 		Skill spy4 = new Skill();
 		spy4.setName("Spy 4");
-		spy4.setTypeInfo("Spy");
+		spy4.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
 		Globals.getContext().ref.importObject(spy4);
 
 		myClass.setName("My Class");

@@ -32,6 +32,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import plugin.pretokens.test.PreTypeTester;
@@ -61,7 +63,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Celestial");
-		template.setTypeInfo("Outsider");
+		template.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -84,7 +86,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Celestial");
-		template.setTypeInfo("Outsider");
+		template.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -117,7 +119,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Fiendish");
-		template.setTypeInfo("Magical-Beast");
+		template.addToListFor(ListKey.TYPE, Type.getConstant("Magical-Beast"));
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();

@@ -25,6 +25,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Campaign;
 import pcgen.core.WeaponProf;
@@ -283,7 +284,10 @@ public abstract class LoadContext
 		typeMap.put(WeaponProf.class, typeSet);
 		for (WeaponProf wp : ref.getConstructedCDOMObjects(WeaponProf.class))
 		{
-			typeSet.addAll(wp.getTypeList(false));
+			for (Type t : wp.getTrueTypeList(false))
+			{
+				typeSet.add(t.toString());
+			}
 		}
 	}
 	

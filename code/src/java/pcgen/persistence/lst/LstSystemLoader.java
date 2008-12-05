@@ -50,6 +50,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
@@ -992,7 +993,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						aEq.load(aLine);
 						if (!aEq.isType(Constants.s_CUSTOM))
 						{
-							aEq.addMyType(Constants.s_CUSTOM);
+							aEq.addType(Type.CUSTOM);
 						}
 						Globals.getContext().ref.importObject(aEq);
 					}

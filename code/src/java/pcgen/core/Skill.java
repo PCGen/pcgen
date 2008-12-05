@@ -32,6 +32,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -55,45 +56,29 @@ public final class Skill extends PObject
 		// Empty Constructor
 	}
 
-    /**
-	 * Get a count of the sub types
-	 * 
-	 * @return count of sub types
-	 */
-	public int getSubtypeCount()
-	{
-		final int i = getMyTypeCount();
-
-		if (i == 0)
-		{
-			return 0;
-		}
-
-		return i - 1; // ignore first entry, the keystat
-	}
-
 	/**
 	 * Get an iterator for the sub types
 	 * 
 	 * @return iterator for the sub types
 	 */
-	public Iterator<String> getSubtypeIterator()
+	public Iterator<Type> getSubtypeIterator()
 	{
-		final Iterator<String> it = getTypeList(false).iterator();
-
-		if (it.hasNext())
+		List<Type> ret = getSafeListFor(ListKey.TYPE);
+		PCStat keystat = get(ObjectKey.KEY_STAT);
+		if (keystat == null)
 		{
-			if (get(ObjectKey.KEY_STAT) != null)
-			{
-				it.next(); // skip first entry, the keystat
-				/*
-				 * TODO This is magic, and makes tremendous assumptions about
-				 * the DATA - BAD BAD BAD
-				 */
-			}
+			ret.remove(Type.NONE);
 		}
-
-		return it;
+		else
+		{
+			// skip the keystat
+			ret.remove(Type.getConstant(keystat.getDisplayName()));
+			/*
+			 * TODO This is magic, and makes tremendous assumptions about the
+			 * DATA - BAD BAD BAD
+			 */
+		}
+		return ret.iterator();
 	}
 
 	@Override
@@ -123,7 +108,7 @@ public final class Skill extends PObject
 	public double getSkillRankBonusTo(PlayerCharacter aPC)
 	{
 		double bonus = aPC.getTotalBonusTo("SKILLRANK", getKeyName());
-		for (String singleType : getTypeList(false))
+		for (Type singleType : getTrueTypeList(false))
 		{
 			bonus += aPC.getTotalBonusTo("SKILLRANK", "TYPE." + singleType);
 		}
@@ -174,9 +159,7 @@ public final class Skill extends PObject
 		}
 	}
 
-	//
-	// Overrides PObject.globalChecks
-	//
+	@Override
 	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
 	{
 		aPC.setDirty(true);
@@ -240,12 +223,12 @@ public final class Skill extends PObject
 	 * @param typeList
 	 * @return List of stats that apply
 	 */
-	public List<PCStat> getKeyStatList(List<String> typeList)
+	public List<PCStat> getKeyStatList(List<Type> typeList)
 	{
 		List<PCStat> aList = new ArrayList<PCStat>();
 		if (Globals.getGameModeHasPointPool())
 		{
-			for (String aType : this.getTypeList(false))
+			for (Type aType : getTrueTypeList(false))
 			{
 				List<PCStat> statList = SettingsHandler.getGame()
 						.getUnmodifiableStatList();

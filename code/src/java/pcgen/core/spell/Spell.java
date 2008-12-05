@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.SpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
@@ -322,7 +323,7 @@ public final class Spell extends PObject
 
 		if (spellType.equals("ALL"))
 		{
-			for (String aType : getTypeList(false))
+			for (Type aType : getTrueTypeList(false))
 			{
 				dc += (int) aPC.getTotalBonusTo("DC", "TYPE." + aType);
 			}
@@ -351,12 +352,6 @@ public final class Spell extends PObject
 	public String getDuration()
 	{
 		return StringUtil.join(getListFor(ListKey.DURATION), ", ");
-	}
-
-	@Override
-	protected void doGlobalTypeUpdate(final String aType)
-	{
-		Globals.addTypeForSpells(aType);
 	}
 
 	@Override

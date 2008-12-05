@@ -24,6 +24,7 @@
 package pcgen.core;
 
 import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
@@ -98,7 +99,7 @@ public class EquipmentListTest extends PCGenTestCase
 		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
 		eq.put(ObjectKey.SIZE, sa);
 		eq.put(ObjectKey.BASESIZE, sa);
-		this.eq.setTypeInfo("WEAPON.MELEE.CHOCOLATE");
+		TestHelper.addType(eq, "WEAPON.MELEE.CHOCOLATE");
 
 		this.eq.put(StringKey.KEY_NAME, originalKey);
 	}

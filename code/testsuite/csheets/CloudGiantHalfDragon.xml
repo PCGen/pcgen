@@ -1154,7 +1154,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1180,7 +1180,7 @@ BIO
 				<short>H</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Bludgeoning</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1206,7 +1206,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1232,7 +1232,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+			<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1262,7 +1262,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1283,7 +1283,7 @@ BIO
 						<short>H</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Bludgeoning</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1304,7 +1304,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1325,7 +1325,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+					<type>Weapon.Natural.Melee.Finesseable.Piercing.Slashing</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1366,7 +1366,7 @@ BIO
 		<feat>
 			<name>Awesome Blow</name>
 			<description>As a standard action, the creature may choose to subtract 4 from its melee attack roll and deliver an awesome blow.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1376,7 +1376,7 @@ BIO
 		<feat>
 			<name>Cleave</name>
 			<description>If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
+			<type>General.Fighter.AttackOption</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1386,7 +1386,7 @@ BIO
 		<feat>
 			<name>Improved Bull Rush</name>
 			<description>When you perform a bull rush you do not provoke an attack of opportunity from the defender. You also gain a +4 bonus on the opposed Strength check you make to push back the defender.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
+			<type>General.Fighter.AttackOption</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1396,7 +1396,7 @@ BIO
 		<feat>
 			<name>Improved Overrun</name>
 			<description>When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 bonus on your Strength check to knock down your opponent.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
+			<type>General.Fighter.AttackOption</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1406,7 +1406,7 @@ BIO
 		<feat>
 			<name>Iron Will</name>
 			<description>You get a +2 bonus on all Will saving throws.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1416,7 +1416,7 @@ BIO
 		<feat>
 			<name>Power Attack</name>
 			<description>On your action, before making attack rolls for a round, you may choose to subtract up to 12 from all melee attack rolls and add the same number to all melee damage rolls.</description>
-			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
+			<type>General.Fighter.AttackOption</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1428,7 +1428,7 @@ BIO
 		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>You make attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1451,7 +1451,7 @@ BIO
 		<ability_object>
 			<name>Giant Traits</name>
 			<description>Giants eat/sleep/breathe</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1462,7 +1462,7 @@ BIO
 		<ability_object>
 			<name>Breath Weapon</name>
 			<description>60&#39; Line of Fire 1/day 6d8 (DC 27)</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>SpecialQuality.Extraordinary</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1473,7 +1473,7 @@ BIO
 		<ability_object>
 			<name>Half-Dragon Wings</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1484,7 +1484,7 @@ BIO
 		<ability_object>
 			<name>Immunity To Fire</name>
 			<description>You never take Fire damage</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.IMMUNITY</type>
+			<type>SpecialQuality.Extraordinary.Immunity</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1495,7 +1495,7 @@ BIO
 		<ability_object>
 			<name>Oversized Weapon (Morningstar)</name>
 			<description></description>
-			<type>SPECIALATTACK.EXTRAORDINARY</type>
+			<type>SpecialAttack.Extraordinary</type>
 			<associated>Morningstar</associated>
 			<count>1</count>
 			<auto>T</auto>
@@ -1506,7 +1506,7 @@ BIO
 		<ability_object>
 			<name>Rock Catching</name>
 			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>SpecialQuality.Extraordinary</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1517,7 +1517,7 @@ BIO
 		<ability_object>
 			<name>Rock Throwing</name>
 			<description></description>
-			<type>SPECIALATTACK.EXTRAORDINARY</type>
+			<type>SpecialAttack.Extraordinary</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1528,7 +1528,7 @@ BIO
 		<ability_object>
 			<name>Scent</name>
 			<description></description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.SENSE</type>
+			<type>SpecialQuality.Extraordinary.Sense</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1540,7 +1540,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1551,7 +1551,7 @@ BIO
 		<ability_object>
 			<name>Giant Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1562,7 +1562,7 @@ BIO
 		<ability_object>
 			<name>Maneuverability(Average)</name>
 			<description></description>
-			<type>MANEUVERABILITY</type>
+			<type>Maneuverability</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

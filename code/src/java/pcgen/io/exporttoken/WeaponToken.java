@@ -2046,9 +2046,9 @@ public class WeaponToken extends Token
 				continue;
 			}
 			//Prevents weapon from getting both melee & ranged bonuses
-			if ((range > -1 && type.equals("MELEE"))
-				|| (range == -1 && eq.isMelee() && (type.equals("THROWN") || type
-					.equals("RANGED"))))
+			if ((range > -1 && type.equalsIgnoreCase("MELEE"))
+				|| (range == -1 && eq.isMelee() && (type.equalsIgnoreCase("THROWN") || type
+					.equalsIgnoreCase("RANGED"))))
 			{
 				continue;
 			}
@@ -2597,9 +2597,9 @@ public class WeaponToken extends Token
 		for (String type : eq.typeList())
 		{
 			//Makes sure that thrown weapons only get the right bonus at the right time
-			if ((range > -1 && type.equals("MELEE"))
-				|| (range == -1 && (type.equals("THROWN") || type
-					.equals("RANGED"))))
+			if ((range > -1 && type.equalsIgnoreCase("MELEE"))
+				|| (range == -1 && (type.equalsIgnoreCase("THROWN") || type
+					.equalsIgnoreCase("RANGED"))))
 			{
 				continue;
 			}

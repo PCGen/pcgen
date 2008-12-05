@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -58,7 +59,7 @@ public final class SkillModifier
 		bonus += aPC.getTotalBonusTo("SKILL", keyName);
 
 		// loop through all current skill types checking for boni
-		for (String singleType : sk.getTypeList(false))
+		for (Type singleType : sk.getTrueTypeList(false))
 		{
 			bonus += aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
 		}
@@ -76,7 +77,7 @@ public final class SkillModifier
 			bonus += aPC.getTotalBonusTo("CSKILL", keyName);
 
 			// loop through all current skill types checking for boni
-			for (String singleType : sk.getTypeList(false))
+			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus += aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
 			}
@@ -90,7 +91,7 @@ public final class SkillModifier
 			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
 
 			// loop through all current skill types checking for boni
-			for (String singleType : sk.getTypeList(false))
+			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus += aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
 			}
@@ -127,7 +128,7 @@ public final class SkillModifier
 			int statMod = 0;
 			if (Globals.getGameModeHasPointPool())
 			{
-				ArrayList<String> typeList = new ArrayList<String>();
+				ArrayList<Type> typeList = new ArrayList<Type>();
 				sk.getKeyStatList(typeList);
 				for (int i = 0; i < typeList.size(); ++i)
 				{
@@ -224,7 +225,7 @@ public final class SkillModifier
 		appendBonusDesc(sk, bonusDetails, bonus, "OTHER");
 
 		// loop through all current skill types checking for boni
-		for (String singleType : sk.getTypeList(false))
+		for (Type singleType : sk.getTrueTypeList(false))
 		{
 			bonus = aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
 			appendBonusDesc(sk, bonusDetails, bonus, "TYPE." + singleType);
@@ -246,7 +247,7 @@ public final class SkillModifier
 			appendBonusDesc(sk, bonusDetails, bonus, "CSKILL");
 
 			// loop through all current skill types checking for boni
-			for (String singleType : sk.getTypeList(false))
+			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus = aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
 				SkillModifier
@@ -264,7 +265,7 @@ public final class SkillModifier
 			appendBonusDesc(sk, bonusDetails, bonus, "CCSKILL");
 
 			// loop through all current skill types checking for boni
-			for (String singleType : sk.getTypeList(false))
+			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus = aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
 				appendBonusDesc(sk, bonusDetails, bonus, "CCSKILL");

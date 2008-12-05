@@ -1780,23 +1780,22 @@ public class MainSource extends FilterAdapterPanel
 							&& shouldDisplayThis(camp)
 							&& (available ^ selectedCampaigns.contains(camp)))
 						{
-							int typeCount = camp.getMyTypeCount();
-							if (typeCount > 0)
+							String pub = camp.get(StringKey.DATA_PRODUCER);
+							if (pub != null)
 							{
-								String pub = camp.getMyType(0);
 								if (!nodeMap.containsKey(pub))
 								{
 									PObjectNode node = new PObjectNode(pub);
 									nodeMap.put(pub, node);
 								}
+								String fmt = camp.get(StringKey.DATA_FORMAT);
 								if (mode == VIEW_PUBLISH)
 								{
 									PObjectNode node = new PObjectNode(camp);
 									nodeMap.get(pub).addChild(node);
 								}
-								else if (typeCount > 1)
+								else if (fmt != null)
 								{
-									String fmt = camp.getMyType(1);
 									String pubfmt = pub + "." + fmt;
 									if (mode == VIEW_PUBFMTSET
 										&& !nodeMap.containsKey(pubfmt))
@@ -1805,9 +1804,9 @@ public class MainSource extends FilterAdapterPanel
 										nodeMap.put(pubfmt, node);
 										nodeMap.get(pub).addChild(node);
 									}
-									if (typeCount > 2)
+									String set = camp.get(StringKey.CAMPAIGN_SETTING);
+									if (set != null)
 									{
-										String set = camp.getMyType(2);
 										if (mode == VIEW_PUBFMTSET)
 										{
 											String pubfmtset =

@@ -30,6 +30,8 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -306,17 +308,17 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 
 		WeaponProf Longsword = new WeaponProf();
 		Longsword.setName("Longsword");
-		Longsword.setTypeInfo("Martial");
+		Longsword.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
 		Globals.getContext().ref.importObject(Longsword);
 
 		WeaponProf Longbow = new WeaponProf();
 		Longbow.setName("Longbow");
-		Longbow.setTypeInfo("Martial");
+		Longbow.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
 		Globals.getContext().ref.importObject(Longbow);
 
 		WeaponProf Dagger = new WeaponProf();
 		Dagger.setName("Dagger");
-		Dagger.setTypeInfo("Simple");
+		Dagger.addToListFor(ListKey.TYPE, Type.SIMPLE);
 		Globals.getContext().ref.importObject(Dagger);
 
 	}

@@ -38,6 +38,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
@@ -157,7 +158,10 @@ public final class FilterFactory implements FilterConstants
 			Set<String> typeSet = new HashSet<String>();
 			for (PCClass cl : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 			{
-				typeSet.addAll(cl.getTypeList(false));
+				for (Type t : cl.getTrueTypeList(false))
+				{
+					typeSet.add(t.toString());
+				}
 			}
 			// e.g. "Base", "Monster", "NPC", "PC", "Prestige" + more
 			for ( final String subType : typeSet )

@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -202,14 +203,14 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		race.setTypeInfo("Outsider");
+		race.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("aquatic"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("foo"));
 		Globals.getContext().ref.importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
-		fake.setTypeInfo("Humanoid");
+		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("desert"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("none"));
 		Globals.getContext().ref.importObject(fake);
@@ -247,13 +248,13 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race race = new Race();
 		race.setName("Human");
 		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Outsider"));
-		race.setTypeInfo("Outsider");
+		race.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
 		Globals.getContext().ref.importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
-		fake.setTypeInfo("Humanoid");
+		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
 		Globals.getContext().ref.importObject(fake);
 
 		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));
@@ -280,12 +281,12 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		race.setTypeInfo("Outsider");
+		race.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
 		Globals.getContext().ref.importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
-		fake.setTypeInfo("Humanoid");
+		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
 		Globals.getContext().ref.importObject(fake);
 		
 		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));

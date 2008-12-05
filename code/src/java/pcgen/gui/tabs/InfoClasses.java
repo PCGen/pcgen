@@ -79,6 +79,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -932,13 +933,13 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
-			for (String type : aClass.getTypeList(false))
+			for (Type type : aClass.getTrueTypeList(false))
 			{
-				if (!typeList.contains(type))
+				String aType = type.toString();
+				if (!typeList.contains(aType))
 				{
-					typeList.add(type);
+					typeList.add(aType);
 				}
-
 			}
 			String aString = null;
 			final SourceEntry se = aClass.getSourceEntry();

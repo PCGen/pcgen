@@ -39,6 +39,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
+import pcgen.util.TestHelper;
 
 /**
  * <code>ACTokenTest</code> tests the function of the AC token and 
@@ -104,7 +105,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		chainShirt = new Equipment();
 		chainShirt.setName("Chain Shirt");
 		chainShirt.put(StringKey.KEY_NAME, "KEY_Chain_Shirt");
-		chainShirt.setTypeInfo("Armor.Light.Suit.Standard");
+		TestHelper.addType(chainShirt, "Armor.Light.Suit.Standard");
 		chainShirt.put(IntegerKey.AC_CHECK, -2);
 		aBonus = Bonus.newBonus("COMBAT|AC|4|TYPE=Armor.REPLACE");
 		
@@ -118,7 +119,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		masterwork = new EquipmentModifier();
 		masterwork.setName("Masterwork");
 		masterwork.put(StringKey.KEY_NAME, "MWORKA");
-		masterwork.setTypeInfo("Armor.Shield");
+		TestHelper.addType(masterwork, "Armor.Shield");
 		masterwork.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
 		aBonus = Bonus.newBonus("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
 		
@@ -132,7 +133,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		plus1 = new EquipmentModifier();
 		plus1.setName("Plus 1 Enhancement");
 		plus1.put(StringKey.KEY_NAME, "PLUS1A");
-		plus1.setTypeInfo("Armor.Shield");
+		TestHelper.addType(plus1, "Armor.Shield");
 		plus1.put(IntegerKey.PLUS, 1);
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
 		plus1.addToListFor(ListKey.ITEM_TYPES, "Magic");

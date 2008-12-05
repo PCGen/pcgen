@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -171,8 +172,9 @@ public final class InfoViewModelBuilder
 		    nodeMap.put(raceType, raceTypeNode);
 		    root.addChild(raceTypeNode);
 		}
-		for (String type : race.getTypeList(true))
+		for (Type t : race.getTrueTypeList(true))
 		{
+			String type = t.toString();
 		    PObjectNode typeNode = nodeMap.get(type);
 		    if (typeNode == null)
 		    {

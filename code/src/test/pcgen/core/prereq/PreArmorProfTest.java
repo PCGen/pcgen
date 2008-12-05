@@ -31,6 +31,8 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -339,42 +341,50 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		Equipment chainmailArmor = new Equipment();
 		chainmailArmor.setName("Chainmail");
-		chainmailArmor.setTypeInfo("Armor.Medium");
+		chainmailArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		chainmailArmor.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
 		Globals.getContext().ref.importObject(chainmailArmor);
 		
 		Equipment breastplateArmor = new Equipment();
 		breastplateArmor.setName("Breastplate");
-		breastplateArmor.setTypeInfo("Armor.Medium");
+		breastplateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		breastplateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
 		Globals.getContext().ref.importObject(breastplateArmor);
 		
 		Equipment leatherArmor = new Equipment();
 		leatherArmor.setName("Leather");
-		leatherArmor.setTypeInfo("Armor.Light");
+		leatherArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		leatherArmor.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
 		Globals.getContext().ref.importObject(leatherArmor);
 		
 		Equipment fullPlateArmor = new Equipment();
 		fullPlateArmor.setName("Full Plate");
-		fullPlateArmor.setTypeInfo("Armor.Heavy");
+		fullPlateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		fullPlateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(fullPlateArmor);
 		
 		ArmorProf leather = new ArmorProf();
 		leather.setName("Leather");
-		leather.setTypeInfo("Armor.Light");
+		leather.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		leather.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
 		Globals.getContext().ref.importObject(leather);
 
 		ArmorProf chainmail = new ArmorProf();
 		chainmail.setName("Chainmail");
-		chainmail.setTypeInfo("Armor.Medium");
+		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
 		Globals.getContext().ref.importObject(chainmail);
 
 		ArmorProf breastplate = new ArmorProf();
 		breastplate.setName("Breastplate");
-		breastplate.setTypeInfo("Armor.Medium");
+		breastplate.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		breastplate.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
 		Globals.getContext().ref.importObject(breastplate);
 
 		ArmorProf fpprof = new ArmorProf();
 		fpprof.setName("Full Plate");
-		fpprof.setTypeInfo("Armor.Heavy");
+		fpprof.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
+		fpprof.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
 		Globals.getContext().ref.importObject(fpprof);
 }
 }

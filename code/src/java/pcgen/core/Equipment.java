@@ -33,8 +33,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -54,6 +56,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.list.AbilityList;
@@ -209,8 +212,6 @@ public final class Equipment extends PObject implements Serializable,
 	private String containerContentsString = "";
 
 	private List<EquipmentModifier> altEqModifierList = new ArrayList<EquipmentModifier>();
-
-	private List<String> altTypeList;
 
 	private String appliedBonusName = "";
 
@@ -484,7 +485,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		final List<String> tList = typeList(bPrimary);
-		boolean match = false;
 		final String myType;
 
 		if (aType.startsWith("TYPE=") || aType.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
@@ -502,17 +502,28 @@ public final class Equipment extends PObject implements Serializable,
 		StringTokenizer tok = new StringTokenizer(myType, ".");
 		if (tok.hasMoreTokens())
 		{
-			match = true;
 			while(tok.hasMoreTokens())
 			{
 				final String type = tok.nextToken();
-				if (!tList.contains(type))
+				//CONSIDER Faster method? Case sensitivity is a problem for containsInList
+				boolean found = false;
+				if (tList != null)
 				{
-					match = false;
-					break;
+					for (String s : tList)
+					{
+						if (type.equalsIgnoreCase(s))
+						{
+							found = true;
+							break;
+						}
+					}
+				}
+				if (!found)
+				{
+					return false;
 				}
 			}
-			return match;
+			return true;
 		}
 		return tList.contains(aType);
 	}
@@ -563,10 +574,6 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean isProjectile() {
 		// return isType("PROJECTILE");
 		return isRanged() && !isThrown();
-	}
-
-	protected List<String> getMyTypeList() {
-		return typeList();
 	}
 
 	/**
@@ -2494,24 +2501,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Adds to the altTypeList attribute of the Equipment object
-	 * 
-	 * @param argAltType
-	 *            The new altTypeList value
-	 */
-	public void addToAltTypeList(final String argAltType) {
-		final String altType = argAltType.toUpperCase();
-		final StringTokenizer aTok = new StringTokenizer(altType, ".");
-
-		while (aTok.hasMoreTokens()) {
-			final String type = aTok.nextToken();
-			addAltType(type);
-			usePrimaryCache = false;
-			useSecondaryCache = false;
-		}
-	}
-
-	/**
 	 * Description of the Method
 	 * 
 	 * @param aPC
@@ -2725,7 +2714,14 @@ public final class Equipment extends PObject implements Serializable,
 			eq.heads = new ArrayList<EquipmentHead>();
 			for (EquipmentHead head : heads)
 			{
-				eq.heads.add((EquipmentHead) head.clone());
+				if (head == null)
+				{
+					eq.heads.add(null);
+				}
+				else
+				{
+					eq.heads.add((EquipmentHead) head.clone());
+				}
 			}
 
 			//
@@ -3164,6 +3160,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final String itemName = getItemNameFromModifiers();
 		cleanTypes(pc);
+		setDefaultCrit(pc);
 		setName(itemName);
 		remove(StringKey.OUTPUT_NAME);
 
@@ -3565,11 +3562,6 @@ public final class Equipment extends PObject implements Serializable,
 		containerContentsString = tempStringBuffer.toString();
 	}
 
-	@Override
-	protected void doGlobalTypeUpdate(final String aString) {
-		S_EQUIPMENT_TYPES.add(aString);
-	}
-
 	/**
 	 * @param aPC The PC carrying the item
 	 */
@@ -3637,14 +3629,6 @@ public final class Equipment extends PObject implements Serializable,
 		FileAccess.newLine(output);
 
 		return true;
-	}
-
-	private int getAltTypeCount() {
-		if (altTypeList == null) {
-			return 0;
-		}
-
-		return altTypeList.size();
 	}
 
 	/**
@@ -4083,16 +4067,6 @@ public final class Equipment extends PObject implements Serializable,
 		return false;
 	}
 
-	private void addAltType(final String type) {
-		if (altTypeList == null) {
-			altTypeList = new ArrayList<String>(1);
-		}
-
-		altTypeList.add(type);
-		usePrimaryCache = false;
-		useSecondaryCache = false;
-	}
-
 	/**
 	 * Add a piece of Equipement
 	 * 
@@ -4297,62 +4271,61 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC That has the Equipment
 	 */
 	private void cleanTypes(final PlayerCharacter aPC) {
-
-		final String aType = super.getType();
-		final StringTokenizer aTok = new StringTokenizer(aType, ".");
-		final StringBuffer aCleaned = new StringBuffer(aType.length());
-		aCleaned.append(".CLEAR");
-
-		while (aTok.hasMoreTokens()) {
-			final String aString = aTok.nextToken();
-			int i;
-
-			for (i = 0; i <= (SettingsHandler.getGame()
-					.getSizeAdjustmentListSize() - 1); ++i) {
-				if (aString.equalsIgnoreCase(SettingsHandler.getGame()
-						.getSizeAdjustmentAtIndex(i).getDisplayName())) {
-					break;
-				}
-			}
-
-			//
-			// Ignore size or "Standard" unless previous tag
-			// was "ARMOR" and this is "MEDIUM"
-			//
-			if ("Standard".equalsIgnoreCase(aString)) {
-				continue;
-			}
-
-			if (i < SettingsHandler.getGame().getSizeAdjustmentListSize()) {
-				final SizeAdjustment sa = SettingsHandler.getGame()
-						.getSizeAdjustmentAtIndex(i);
-
-				if ((!sa.isDefaultSize())
-						|| !aCleaned.toString().toUpperCase().endsWith("ARMOR")) {
-					continue;
-				}
-			}
-
-			//
-			// Make sure "Magic" is the first thing in the list
-			//
-			if ("Magic".equalsIgnoreCase(aString)) {
-				if (aCleaned.length() > 0) {
-					aCleaned.insert(0, '.');
-				}
-
-				aCleaned.insert(0, aString);
-			} else {
-				if (aCleaned.length() > 0) {
-					aCleaned.append('.');
-				}
-
-				aCleaned.append(aString);
-			}
-		}
-
-		setTypeInfo(aCleaned.toString());
-		setDefaultCrit(aPC);
+//
+//		final String aType = super.getType();
+//		final StringTokenizer aTok = new StringTokenizer(aType, ".");
+//		final StringBuffer aCleaned = new StringBuffer(aType.length());
+//		aCleaned.append(".CLEAR");
+//
+//		while (aTok.hasMoreTokens()) {
+//			final String aString = aTok.nextToken();
+//			int i;
+//
+//			for (i = 0; i <= (SettingsHandler.getGame()
+//					.getSizeAdjustmentListSize() - 1); ++i) {
+//				if (aString.equalsIgnoreCase(SettingsHandler.getGame()
+//						.getSizeAdjustmentAtIndex(i).getDisplayName())) {
+//					break;
+//				}
+//			}
+//
+//			//
+//			// Ignore size or "Standard" unless previous tag
+//			// was "ARMOR" and this is "MEDIUM"
+//			//
+//			if ("Standard".equalsIgnoreCase(aString)) {
+//				continue;
+//			}
+//
+//			if (i < SettingsHandler.getGame().getSizeAdjustmentListSize()) {
+//				final SizeAdjustment sa = SettingsHandler.getGame()
+//						.getSizeAdjustmentAtIndex(i);
+//
+//				if ((!sa.isDefaultSize())
+//						|| !aCleaned.toString().toUpperCase().endsWith("ARMOR")) {
+//					continue;
+//				}
+//			}
+//
+//			//
+//			// Make sure "Magic" is the first thing in the list
+//			//
+//			if ("Magic".equalsIgnoreCase(aString)) {
+//				if (aCleaned.length() > 0) {
+//					aCleaned.insert(0, '.');
+//				}
+//
+//				aCleaned.insert(0, aString);
+//			} else {
+//				if (aCleaned.length() > 0) {
+//					aCleaned.append('.');
+//				}
+//
+//				aCleaned.append(aString);
+//			}
+//		}
+//
+//		setTypeInfo(aCleaned.toString());
 	}
 
 	private BigDecimal evaluateCost(
@@ -4567,27 +4540,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 	}
 
-	@Override
-	public void addMyType(final String myType) {
-		usePrimaryCache = false;
-		useSecondaryCache = false;
-		super.addMyType(myType);
-	}
-
-	@Override
-	protected void clearMyType() {
-		usePrimaryCache = false;
-		useSecondaryCache = false;
-		super.clearMyType();
-	}
-
-	@Override
-	protected void removeMyType(final String myType) {
-		usePrimaryCache = false;
-		useSecondaryCache = false;
-		super.removeMyType(myType);
-	}
-
 	/**
 	 * Returns a list of the types of this item.
 	 * 
@@ -4606,22 +4558,26 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// Use the primary type(s) if none defined for secondary
-		List<String> calculatedTypeList;
-
-		if (bPrimary || (getAltTypeCount() == 0)) {
-			calculatedTypeList = new ArrayList<String>(getTypeList(false));
-		} else {
-			if (!isDouble()) {
-				return new ArrayList<String>();
-			}
-
-			calculatedTypeList = new ArrayList<String>(getAltTypeCount());
-
-			if (altTypeList != null) {
-				calculatedTypeList.addAll(altTypeList);
-			}
+		List<Type> initializingList = getEquipmentHead(2).getListFor(
+				ListKey.TYPE);
+		if (bPrimary || (initializingList == null)
+				|| initializingList.isEmpty())
+		{
+			initializingList = getTrueTypeList(false);
+		}
+		else if (!isDouble())
+		{
+			return new ArrayList<String>();
 		}
 
+		Set<String> calculatedTypeList = new LinkedHashSet<String>();
+		if (initializingList != null)
+		{
+			for (Type t : initializingList)
+			{
+				calculatedTypeList.add(t.toString());
+			}
+		}
 		final Collection<String> modTypeList = new ArrayList<String>();
 
 		//
@@ -4657,13 +4613,13 @@ public final class Equipment extends PObject implements Serializable,
 			// If we've just replaced the armor type, then make sure it is
 			// not in the equipment modifier list
 			//
-			List<String> newTypeList = new ArrayList<String>(calculatedTypeList);
+			Set<String> newTypeList = new LinkedHashSet<String>(calculatedTypeList);
 			for (ChangeArmorType cat : eqMod.getSafeListFor(ListKey.ARMORTYPE))
 			{
 				List<String> tempTypeList = cat.applyModifier(newTypeList);
 				boolean noMatch = newTypeList.size() != tempTypeList.size()
 						|| tempTypeList.equals(newTypeList);
-				newTypeList = tempTypeList;
+				newTypeList = new LinkedHashSet<String>(tempTypeList);
 				if (!noMatch)
 				{
 					break;
@@ -4704,21 +4660,23 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		// Make sure MAGIC tag is the 1st entry
 		//
-		final int idx = calculatedTypeList.indexOf("MAGIC");
+		List<String> resultingTypeList = new ArrayList<String>(
+				calculatedTypeList);
+		final int idx = resultingTypeList.indexOf("MAGIC");
 
 		if (idx > 0) {
-			calculatedTypeList.remove(idx);
-			calculatedTypeList.add(0, "MAGIC");
+			resultingTypeList.remove(idx);
+			resultingTypeList.add(0, "MAGIC");
 		}
 
 		if (bPrimary) {
-			typeListCachePrimary = calculatedTypeList;
+			typeListCachePrimary = resultingTypeList;
 			usePrimaryCache      = true;
 		} else {
-			typeListCacheSecondary = calculatedTypeList;
+			typeListCacheSecondary = resultingTypeList;
 			useSecondaryCache      = true;
 		}
-		return calculatedTypeList;
+		return resultingTypeList;
 	}
 
 	/**
@@ -6181,5 +6139,23 @@ public final class Equipment extends PObject implements Serializable,
 				putBonusMap(type, String.valueOf(bonus + Float.parseFloat(aVal)));
 			}
 		}
+	}
+	
+	public void dumpTypeCache()
+	{
+		usePrimaryCache = false;
+		useSecondaryCache = false;
+	}
+
+	public void addType(Type newType)
+	{
+		addToListFor(ListKey.TYPE, newType);
+		dumpTypeCache();
+	}
+
+	public void removeType(Type t)
+	{
+		while (removeFromListFor(ListKey.TYPE, t)) {}
+		dumpTypeCache();
 	}
 }

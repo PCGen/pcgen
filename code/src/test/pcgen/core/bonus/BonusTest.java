@@ -30,6 +30,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.PointCost;
 import pcgen.core.Ability;
@@ -83,7 +84,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		final Skill rideSkill = new Skill();
 		rideSkill.setName("Ride");
 		rideSkill.put(StringKey.KEY_NAME, "Ride");
-		rideSkill.setTypeInfo("DEX");
+		rideSkill.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		final Ability skillFocus = new Ability();
 		skillFocus.setName("Skill Focus");
 		skillFocus.put(StringKey.KEY_NAME, "Skill Focus");
@@ -97,7 +98,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		final Equipment saddle = new Equipment();
 		saddle.setName("Saddle, Test");
-		saddle.setTypeInfo("SADDLE");
+		saddle.addToListFor(ListKey.TYPE, Type.getConstant("SADDLE"));
 
 		final PlayerCharacter pc = getCharacter();
 		rideSkill.activateBonuses(pc);

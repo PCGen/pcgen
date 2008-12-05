@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.GameMode;
@@ -48,6 +49,7 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.io.exporttoken.SkillToken;
+import pcgen.util.TestHelper;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the
@@ -138,7 +140,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge[0] = new Skill();
 		knowledge[0].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
-		knowledge[0].setTypeInfo("KNOWLEDGE.INT");
+		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intStat);
 		Globals.getContext().ref.importObject(knowledge[0]);
 		Skill ks0 = character.addSkill(knowledge[0]);
@@ -147,7 +149,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge[1] = new Skill();
 		knowledge[1].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
-		knowledge[1].setTypeInfo("KNOWLEDGE.INT");
+		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intStat);
 		Globals.getContext().ref.importObject(knowledge[1]);
 		Skill ks1 = character.addSkill(knowledge[1]);
@@ -156,7 +158,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
-		tumble.setTypeInfo("DEX");
+		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		tumble.put(ObjectKey.KEY_STAT, dexStat);
 		Globals.getContext().ref.importObject(tumble);
 		Skill ts = character.addSkill(tumble);
@@ -165,7 +167,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
-		balance.setTypeInfo("DEX");
+		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		balance.put(ObjectKey.KEY_STAT, dexStat);
 		aBonus = Bonus.newBonus("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		

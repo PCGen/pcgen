@@ -102,6 +102,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -2326,7 +2327,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				b.append(THREE_SPACES); 
 			}
 			b.append(PropertyFactory.getString("in_iskHtml_TYPE"))
-				.append(StringUtil.join(aSkill.getTypeList(true), ". ")); //$NON-NLS-1$
+				.append(StringUtil.join(aSkill.getTrueTypeList(true), ". ")); //$NON-NLS-1$
 
 			String aString = aSkill.getKeyStatFromStats();
 			if (aString.length() != 0)
@@ -3267,7 +3268,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							.hasNext();)
 						{
 							Object anObj = partIt.next();
-							if (anObj instanceof String)
+							if (anObj instanceof Type)
 							{
 								if (Globals.isSkillTypeHidden(anObj.toString()))
 								{

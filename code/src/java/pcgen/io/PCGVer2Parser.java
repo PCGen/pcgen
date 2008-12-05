@@ -48,6 +48,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
@@ -4867,7 +4868,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									aEquip.remove(StringKey.OUTPUT_NAME);
 									if (!aEquip.isType(Constants.s_CUSTOM))
 									{
-										aEquip.addMyType(Constants.s_CUSTOM);
+										aEquip.addType(Type.CUSTOM);
 									}
 									Globals.getContext().ref.importObject(aEquip
 										.clone());

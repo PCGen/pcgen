@@ -29,6 +29,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
@@ -39,6 +40,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreFeatParser;
 import plugin.pretokens.parser.PreSkillParser;
@@ -90,7 +92,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		knowledge = new Skill();
 		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge.setName("KNOWLEDGE (ARCANA)");
-		knowledge.setTypeInfo("KNOWLEDGE.INT");
+		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
 		Skill ks = character.addSkill(knowledge);
 		SkillRankControl.modRanks(8.0, myClass, true, character, ks);
 
@@ -151,37 +153,37 @@ public class PreMultTest extends AbstractCharacterTestCase
 	public void testMultiFeats() throws Exception
 	{
 		final Ability metamagic1 = new Ability();
-		metamagic1.setTypeInfo("METAMAGIC");
+		metamagic1.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic1.setName("MM1");
 		metamagic1.put(StringKey.KEY_NAME, "MM1");
 		metamagic1.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability metamagic2 = new Ability();
-		metamagic2.setTypeInfo("METAMAGIC");
+		metamagic2.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic2.setName("MM2");
 		metamagic2.put(StringKey.KEY_NAME, "MM2");
 		metamagic2.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability metamagic3 = new Ability();
-		metamagic3.setTypeInfo("METAMAGIC");
+		metamagic3.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic3.setName("MM3");
 		metamagic3.put(StringKey.KEY_NAME, "MM3");
 		metamagic3.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability item1 = new Ability();
-		item1.setTypeInfo("ItemCreation");
+		item1.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item1.setName("IC1");
 		item1.put(StringKey.KEY_NAME, "IC1");
 		item1.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability item2 = new Ability();
-		item2.setTypeInfo("ItemCreation");
+		item2.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item2.setName("IC2");
 		item2.put(StringKey.KEY_NAME, "IC2");
 		item2.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Ability item3 = new Ability();
-		item3.setTypeInfo("ItemCreation");
+		item3.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item3.setName("IC3");
 		item3.put(StringKey.KEY_NAME, "IC3");
 		item3.setCDOMCategory(AbilityCategory.FEAT);
@@ -253,7 +255,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		final Skill extraKnow = new Skill();
 		extraKnow.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		extraKnow.setName("KNOWLEDGE (RELIGION)");
-		extraKnow.setTypeInfo("KNOWLEDGE.INT");
+		TestHelper.addType(extraKnow, "KNOWLEDGE.INT");
 		Skill as = character.addSkill(extraKnow);
 		SkillRankControl.modRanks(5.0, myClass, true, character, as);
 

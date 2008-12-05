@@ -34,11 +34,13 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -222,7 +224,7 @@ public class TestHelper
 		final Skill aSkill = new Skill();
 		aSkill.setName(name);
 		aSkill.put(StringKey.KEY_NAME, ("KEY_" + name));
-		aSkill.setTypeInfo(type);
+		addType(aSkill, type);
 		aSkill.put(ObjectKey.KEY_STAT, intStat);
 		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
 		aSkill.put(ObjectKey.ARMOR_CHECK, armorCheck);
@@ -249,7 +251,7 @@ public class TestHelper
 		anAbility.setName(name);
 		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(useCat);
-		anAbility.setTypeInfo(type);
+		addType(anAbility, type);
 		Globals.addAbility(anAbility);
 		return anAbility;
 	}
@@ -267,7 +269,7 @@ public class TestHelper
 		anAbility.setName(name);
 		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(cat);
-		anAbility.setTypeInfo(type);
+		addType(anAbility, type);
 		Globals.addAbility(anAbility);
 		Globals.getContext().ref.importObject(anAbility);
 		return anAbility;
@@ -324,7 +326,7 @@ public class TestHelper
 		final WeaponProf aWpnProf = new WeaponProf();
 		aWpnProf.setName(name);
 		aWpnProf.put(StringKey.KEY_NAME, ("KEY_" + name));
-		aWpnProf.setTypeInfo(type);
+		addType(aWpnProf, type);
 		Globals.getContext().ref.importObject(aWpnProf);
 		return aWpnProf;
 	}
@@ -392,6 +394,15 @@ public class TestHelper
 			SettingsHandler.getGame().addAbilityCategory(aCategory);
 		}
 		return aCategory;
+	}
+
+	public static void addType(CDOMObject cdo, String string)
+	{
+		List<String> stringList = Arrays.asList(string.split("\\."));
+		for (String s : stringList)
+		{
+			cdo.addToListFor(ListKey.TYPE, Type.getConstant(s));
+		}
 	}
 
 }

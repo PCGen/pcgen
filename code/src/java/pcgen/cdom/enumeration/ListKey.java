@@ -250,6 +250,7 @@ public final class ListKey<T> {
 	public static final ListKey<SpellProhibitor> PROHIBITED_SPELLS = new ListKey<SpellProhibitor>();
 	public static final ListKey<String> COMMENT = new ListKey<String>();
 	public static final ListKey<PersistentTransitionChoice<?>> REMOVE = new ListKey<PersistentTransitionChoice<?>>();
+	public static final ListKey<Type> TYPE = new ListKey<Type>();
 	public static final ListKey<BaseKit> KIT_TASKS = new ListKey<BaseKit>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;

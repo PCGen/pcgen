@@ -35,6 +35,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -212,7 +213,10 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				continue;
 			}
 
-			typeSet.addAll(ability.getTypeList(true));
+			for (Type t : ability.getTrueTypeList(true))
+			{
+				typeSet.add(t.toString());
+			}
 		}
 		final PObjectNode[] ccTypes = new PObjectNode[typeSet.size()];
 		int i = 0;
@@ -379,7 +383,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case TYPE:
 				if (ability != null)
 				{
-					retVal = StringUtil.join(ability.getTypeList(true), ". ");
+					retVal = StringUtil.join(ability.getTrueTypeList(true), ". ");
 //					retVal = CoreUtility.join(ability.getTypeList(true), '.');
 				}
 				break;

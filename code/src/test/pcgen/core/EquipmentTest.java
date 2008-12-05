@@ -36,8 +36,10 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
@@ -332,7 +334,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		// Make it a weapon
 		eq.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
-		eq.setTypeInfo("WEAPON");
+		eq.addToListFor(ListKey.TYPE, Type.WEAPON);
 
 		// Create a base item
 		Equipment custEq = eq.clone();

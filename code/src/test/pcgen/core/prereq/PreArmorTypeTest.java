@@ -20,7 +20,8 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -51,7 +52,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 
 		final Equipment armor = new Equipment();
 		armor.setName("Leather");
-		armor.typeList().add("ARMOR");
+		armor.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
 
 		character.addEquipment(armor);
 
@@ -108,9 +109,9 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
 			character, null));
 
-		armor.typeList().add("ARMOR");
-		armor.typeList().add("MEDIUM");
-
+		armor.addType(Type.getConstant("ARMOR"));
+		armor.addType(Type.getConstant("MEDIUM"));
+		
 		assertTrue("Armor is medium", PrereqHandler.passes(prereq, character,
 			null));
 
@@ -147,8 +148,8 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 			"KEY_Armor Proficiency (Medium)", true, false);
 
 		final Equipment chainmail = new Equipment();
-		chainmail.typeList().add("ARMOR");
-		chainmail.typeList().add("MEDIUM");
+		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
+		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("MEDIUM"));
 		chainmail.setName("Chainmail");
 		Globals.getContext().ref.importObject(chainmail);
 		Globals.getContext().ref.resolveReferences();
@@ -170,8 +171,8 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		chainmail.setIsEquipped(false, character);
 
 		final Equipment fullPlate = new Equipment();
-		fullPlate.typeList().add("ARMOR");
-		fullPlate.typeList().add("HEAVY");
+		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
+		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("HEAVY"));
 		fullPlate.setName("Full Plate");
 		Globals.getContext().ref.importObject(fullPlate);
 

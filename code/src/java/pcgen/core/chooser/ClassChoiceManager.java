@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -96,21 +97,15 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                 if(choice.startsWith("TYPE="))
                 {
                     StringTokenizer tok2 = new StringTokenizer(choice.substring(5), ".");
-                    List<String> typeList = new ArrayList<String>();
+                    List<Type> typeList = new ArrayList<Type>();
                     while (tok2.hasMoreTokens())
                     {
-                    	typeList.add(tok2.nextToken().toUpperCase());
+                    	typeList.add(Type.getConstant(tok2.nextToken()));
                     }
                     
                     for (PCClass aClass : refContext.getConstructedCDOMObjects(PCClass.class))
                     {
-                        boolean bMatch = true;
-                        for (String type : typeList)
-                        {
-                            bMatch &= aClass.getTypeList(true).contains(type);
-                        }
-
-                        if(bMatch)
+                        if (aClass.getTrueTypeList(true).containsAll(typeList))
                         {
                             if(aClass.containsListFor(ListKey.SUB_CLASS))
                             {

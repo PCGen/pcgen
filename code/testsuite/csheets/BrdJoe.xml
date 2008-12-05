@@ -1000,7 +1000,7 @@ BIO
 		<feat>
 			<name>Skill Focus (Climb)</name>
 			<description>The character gets a +2 bonus on all skill checks with that skill.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated>Climb</associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -1011,7 +1011,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Light)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1021,7 +1021,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Medium)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1031,7 +1031,7 @@ BIO
 		<feat>
 			<name>Martial Weapon Proficiency (Shortbow (Composite))</name>
 			<description>The character makes attack rolls with the weapon normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated>Shortbow (Composite)</associated>
 			<count>1</count>
 			<auto>T</auto>
@@ -1041,7 +1041,7 @@ BIO
 		<feat>
 			<name>Shield Proficiency</name>
 			<description>The character can use a shield and suffer only the standard penalties.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1051,7 +1051,7 @@ BIO
 		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>The character makes attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1075,7 +1075,7 @@ BIO
 		<ability_object>
 			<name>Bardic Knowledge</name>
 			<description>+2 to see whether you know some relevant information about local notable people, legendary items, or noteworthy places.</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1086,7 +1086,7 @@ BIO
 		<ability_object>
 			<name>Bardic Music</name>
 			<description>1 times per day you can use your song or poetics to produce magical effects on those around you.</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1097,7 +1097,7 @@ BIO
 		<ability_object>
 			<name>Immunity to magic sleep spells and effects</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1108,7 +1108,7 @@ BIO
 		<ability_object>
 			<name>+2 racial saving throw bonus against Enchantment spells or effects</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1119,7 +1119,7 @@ BIO
 		<ability_object>
 			<name>Elven Blood</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1131,7 +1131,7 @@ BIO
 		<ability_object>
 			<name>Countersong</name>
 			<description>for 10 rounds you can use your music or poetics to counter magical effects that depend on sound</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SpecialQuality.Supernatural</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1142,7 +1142,7 @@ BIO
 		<ability_object>
 			<name>Fascinate</name>
 			<description>You can use your music or poetics to cause 1 creature(s) to become fascinated for up to 1 rounds</description>
-			<type>SPECIALATTACK.SPELLLIKE</type>
+			<type>SpecialAttack.SpellLike</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1153,7 +1153,7 @@ BIO
 		<ability_object>
 			<name>Inspire Courage</name>
 			<description>+2 to saves against charm or fear effects and +2 morale bonus on attack and damage rolls.</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SpecialQuality.Supernatural</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1165,7 +1165,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -1015,7 +1015,7 @@ BIO
 		<feat>
 			<name>Alertness</name>
 			<description>The character gets a +2 bonus on all Listen checks and Spot checks.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1025,7 +1025,7 @@ BIO
 		<feat>
 			<name>Combat Reflexes</name>
 			<description>When foes leave themselves open, the character may make a number of additional attacks of opportunity equal to the character&#39;s Dexterity modifier.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1035,7 +1035,7 @@ BIO
 		<feat>
 			<name>Leadership</name>
 			<description>Having this feat enables the character to attract loyal companions and devoted followers, subordinates who assist her.</description>
-			<type>GENERAL</type>
+			<type>General</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1045,7 +1045,7 @@ BIO
 		<feat>
 			<name>Maximize Spell</name>
 			<description>All variable, numeric effects of a maximized spell are maximized.</description>
-			<type>METAMAGIC.WIZARD</type>
+			<type>Metamagic.Wizard</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1056,7 +1056,7 @@ BIO
 		<feat>
 			<name>Deflect Arrows</name>
 			<description>The character must have at least one hand free (holding nothing) to use this feat. Once per round when the character would normally be hit with a ranged weapon, the character may make a Reflex saving throw against a DC of 20 (if the ranged weapon has a magical bonus to attack, the DC increases by that amount). If the character succeeds, the character deflects the weapon. The character must be aware of the attack and not flat-footed. Attempting to deflect a ranged weapon doesn&#39;t count as an action. Exceptional ranged weapons can&#39;t be deflected.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1066,7 +1066,7 @@ BIO
 		<feat>
 			<name>Improved Trip</name>
 			<description>If the character trips an opponent in melee combat, the character immediately gets a melee attack against that opponent as if the character hadn&#39;t used the character&#39;s attack for the trip attempt.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1076,7 +1076,7 @@ BIO
 		<feat>
 			<name>Improved Unarmed Strike</name>
 			<description>The character is considered to be armed even when unarmed.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1100,7 +1100,7 @@ BIO
 		<ability_object>
 			<name>Evasion</name>
 			<description>If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.MODIFYAC</type>
+			<type>SpecialQuality.Extraordinary.ModifyAC</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1111,7 +1111,7 @@ BIO
 		<ability_object>
 			<name>Flurry of Blows</name>
 			<description></description>
-			<type>SPECIALATTACK</type>
+			<type>SpecialAttack</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1122,7 +1122,7 @@ BIO
 		<ability_object>
 			<name>Leap of the Clouds</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1133,7 +1133,7 @@ BIO
 		<ability_object>
 			<name>Fast Movement</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1144,7 +1144,7 @@ BIO
 		<ability_object>
 			<name>Purity of Body</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1155,7 +1155,7 @@ BIO
 		<ability_object>
 			<name>Slow Fall</name>
 			<description>50 feet</description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1166,7 +1166,7 @@ BIO
 		<ability_object>
 			<name>Still Mind</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1177,7 +1177,7 @@ BIO
 		<ability_object>
 			<name>Stunning Attack</name>
 			<description>8 times per day (DC 16)</description>
-			<type>SPECIALATTACK</type>
+			<type>SpecialAttack</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1188,7 +1188,7 @@ BIO
 		<ability_object>
 			<name>Wholeness of Body</name>
 			<description>0 hp/day</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>SpecialQuality.Supernatural</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1200,7 +1200,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1211,7 +1211,7 @@ BIO
 		<ability_object>
 			<name>Leadership Score</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1222,7 +1222,7 @@ BIO
 		<ability_object>
 			<name>Monk AC</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1233,7 +1233,7 @@ BIO
 		<ability_object>
 			<name>Monk Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

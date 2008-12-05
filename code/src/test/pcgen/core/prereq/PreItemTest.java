@@ -22,6 +22,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -105,7 +106,7 @@ public class PreItemTest extends AbstractCharacterTestCase
 		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
 			character, null));
 
-		longsword.typeList().add("WEAPON");
+		longsword.addType(Type.WEAPON);
 
 		assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
 			character, null));
@@ -123,7 +124,7 @@ public class PreItemTest extends AbstractCharacterTestCase
 
 		final Equipment leather = new Equipment();
 		leather.setName("Leather");
-		leather.typeList().add("ARMOR");
+		leather.addType(Type.getConstant("ARMOR"));
 
 		character.addEquipment(leather);
 

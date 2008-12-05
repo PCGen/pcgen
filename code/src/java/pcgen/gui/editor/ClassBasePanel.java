@@ -37,12 +37,12 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.Globals;
@@ -85,7 +85,7 @@ class ClassBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesAvailableList(final List<String> aList, final boolean sort)
+	public void setTypesAvailableList(final List<Type> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setAvailableList(aList, sort);
 	}
@@ -95,7 +95,7 @@ class ClassBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesSelectedList(final List<String> aList, final boolean sort)
+	public void setTypesSelectedList(final List<Type> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setSelectedList(aList, sort);
 	}
@@ -146,12 +146,10 @@ class ClassBasePanel extends BasePanel
 		obj.put(ObjectKey.MOD_TO_SKILLS, modToSkills.getSelectedObjects() != null);
 		obj.put(ObjectKey.VISIBILITY, chkVisible.getSelectedObjects() == null ? Visibility.HIDDEN : Visibility.DEFAULT);
 
-		Object[] sel = getTypesSelectedList();
-		thisPObject.setTypeInfo(".CLEAR");
-
-		for (int i = 0; i < sel.length; ++i)
+		thisPObject.removeListFor(ListKey.TYPE);
+		for (Object o : getTypesSelectedList())
 		{
-			thisPObject.setTypeInfo(sel[i].toString());
+			thisPObject.addToListFor(ListKey.TYPE, Type.getConstant(o.toString()));
 		}
 	}
 
@@ -165,14 +163,14 @@ class ClassBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List<String> availableList = new ArrayList<String>();
-		List<String> selectedList = new ArrayList<String>();
+		List<Type> availableList = new ArrayList<Type>();
+		List<Type> selectedList = new ArrayList<Type>();
 
 		for (PCClass obj : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
-			for (String type : obj.getTypeList(false))
+			for (Type type : obj.getTrueTypeList(false))
 			{
-				if (!type.equals(Constants.s_CUSTOM))
+				if (!type.equals(Type.CUSTOM))
 				{
 					if (!availableList.contains(type))
 					{
@@ -183,9 +181,9 @@ class ClassBasePanel extends BasePanel
 		}
 
 		// remove this class's type from the available list and place into selected list
-		for (String type : thisPObject.getTypeList(false))
+		for (Type type : thisPObject.getTrueTypeList(false))
 		{
-			if (!type.equals(Constants.s_CUSTOM))
+			if (!type.equals(Type.CUSTOM))
 			{
 				selectedList.add(type);
 				availableList.remove(type);

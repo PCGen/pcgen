@@ -977,7 +977,7 @@ BIO
 		<feat>
 			<name>Blind-Fight</name>
 			<description>In melee, every time a character misses because of concealment, the character can reroll the miss chance percentile roll one time to see if the character actually hit.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>General.Fighter</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -988,7 +988,7 @@ BIO
 		<feat>
 			<name>Scribe Scroll</name>
 			<description>The character can create a scroll of any spell that the character knows.</description>
-			<type>ITEMCREATION.WIZARD</type>
+			<type>ItemCreation.Wizard</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1012,7 +1012,7 @@ BIO
 		<ability_object>
 			<name>+2 morale bonus on saving throws against fear</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1023,7 +1023,7 @@ BIO
 		<ability_object>
 			<name>Summon Familiar</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>SpecialQuality</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1035,7 +1035,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1046,7 +1046,7 @@ BIO
 		<ability_object>
 			<name>Wizard Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>Internal</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

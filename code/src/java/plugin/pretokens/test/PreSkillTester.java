@@ -32,6 +32,7 @@ import java.util.Set;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -178,8 +179,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 					}
 					else if((percentageSignPosition >= 0))
 					{
-						List<String> mockTypes = target.getTypeList(true);
-						for(String mockType: mockTypes)
+						List<Type> mockTypes = target.getTrueTypeList(true);
+						for(Type mockType: mockTypes)
 						{
 							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
 							foundSkill = (foundMatch)? true: false;
@@ -267,9 +268,9 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	private boolean matchesTypeWildCard(final String skillKey,
 		final int percentageSignPosition, boolean found, Skill aSkill)
 	{
-		for (String type : aSkill.getTypeList(false))
+		for (Type type : aSkill.getTrueTypeList(false))
 		{
-			if (type.startsWith(
+			if (type.toString().startsWith(
 				skillKey.substring(0, percentageSignPosition)))
 			{
 				found = true;

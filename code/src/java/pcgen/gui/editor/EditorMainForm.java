@@ -63,6 +63,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
@@ -582,7 +583,7 @@ public final class EditorMainForm extends JDialog
 			return;
 		}
 
-		thisPObject.setTypeInfo(Constants.s_CUSTOM);
+		thisPObject.addToListFor(ListKey.TYPE, Type.CUSTOM);
 
 		wasCancelled = false;
 		closeDialog();
@@ -2103,7 +2104,10 @@ public final class EditorMainForm extends JDialog
 			for (WeaponProf wp : Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class))
 			{
 				availableWeaponProfList.add(wp.getDisplayName());
-				wpnProfTypes.addAll(wp.getTypeList(false));
+				for (Type t : wp.getTrueTypeList(false))
+				{
+					wpnProfTypes.add(t.toString());
+				}
 			}
 			for (String typeName : wpnProfTypes)
 			{
@@ -2285,7 +2289,7 @@ public final class EditorMainForm extends JDialog
 					availableClassCrossClassList.add(aString);
 				}
 
-				for (String type : aSkill.getTypeList(false))
+				for (Type type : aSkill.getTrueTypeList(false))
 				{
 					aString = "TYPE." + type;
 

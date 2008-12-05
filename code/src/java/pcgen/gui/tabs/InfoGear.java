@@ -93,6 +93,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Quality;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.AbilityCategory;
@@ -604,7 +605,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			b.appendLineBreak();
 			
 			b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
-					StringUtil.join(aEq.getTypeList(true), ". "));
+					StringUtil.join(aEq.getTrueTypeList(true), ". "));
 //			CoreUtility.join(aEq.getTypeList(true), '.'));
 
 			//
@@ -1209,11 +1210,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 						newEq.put(StringKey.OUTPUT_NAME, newName);
 						newEq.put(StringKey.KEY_NAME, newKey);
 						newEq.resizeItem(pc, SettingsHandler.getGame().getSizeAdjustmentNamed(newSize));
-						newEq.removeType("AUTO_GEN");
-						newEq.removeType("STANDARD");
+						newEq.removeType(Type.AUTO_GEN);
+						newEq.removeType(Type.STANDARD);
 						if (!newEq.isType(Constants.s_CUSTOM))
 						{
-							newEq.addMyType(Constants.s_CUSTOM);
+							newEq.addType(Type.CUSTOM);
 						}
 
 						Globals.getContext().ref.importObject(newEq);
@@ -2096,7 +2097,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 		for (Equipment bEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 		{
-			List<String> typeList = bEq.getTypeList(true);
+			List<Type> typeList = bEq.getTrueTypeList(true);
 
 			if (typeList.isEmpty())
 			{
@@ -2104,7 +2105,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			}
 
 			// we only want the first TYPE to be in the top-level
-			String aString = typeList.get(0);
+			String aString = typeList.get(0).toString();
 
 			if (!aList.contains(aString))
 			{
@@ -2119,7 +2120,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			//ty=1 is intentional - 0 does not go in aList
 			for (int ty = 1; ty < typeList.size(); ty++)
 			{
-				aString = typeList.get(ty);
+				aString = typeList.get(ty).toString();
 
 				if (!bList.contains(aString))
 				{
@@ -2177,8 +2178,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 					continue;
 				}
 
-				for (String aString : bEq.getTypeList(true))
+				for (Type type : bEq.getTrueTypeList(true))
 				{
+					String aString = type.toString();
 					if (!aString.equals(topType) && !aList.contains(aString))
 					{
 						aList.add(aString);

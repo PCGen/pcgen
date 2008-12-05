@@ -14,8 +14,10 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -29,6 +31,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.pretokens.parser.PreFeatParser;
 
@@ -110,7 +113,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Equipment e = new Equipment();
 		e.setName("Rapier");
-		e.setTypeInfo("Weapon.Melee.Martial.Finesseable.Standard.Piercing.Sword");
+		TestHelper.addType(e, "Weapon.Melee.Martial.Finesseable.Standard.Piercing.Sword");
 		Globals.getContext().ref.importObject(e);
 
 		final Ability focusFeat = new Ability();
@@ -273,7 +276,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
-		armourProf.setTypeInfo("WPNPROF");
+		armourProf.addToListFor(ListKey.TYPE, Type.getConstant("WPNPROF"));
 		character.addFeat(armourProf, null);
 
 		PreFeatParser parser = new PreFeatParser();
