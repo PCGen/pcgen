@@ -109,7 +109,8 @@ public class ClassSkillsToken extends AbstractToken implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			if (Constants.LST_ALL.equals(tokText))
+			if (Constants.LST_ALL.equals(tokText)
+					|| Constants.LST_ANY.equals(tokText))
 			{
 				foundAny = true;
 				refs.add(allRef);
