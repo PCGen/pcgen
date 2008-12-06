@@ -61,7 +61,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.EquipmentLoader;
+import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -72,7 +72,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 public class TestHelper
 {
 	private static boolean loaded = false;
-	private static LstObjectFileLoader<Equipment> eqLoader = new EquipmentLoader();
+	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<Equipment>(Equipment.class);
 	private static LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
 	private static CampaignSourceEntry source = null;
 

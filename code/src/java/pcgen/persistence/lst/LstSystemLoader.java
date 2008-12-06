@@ -76,6 +76,7 @@ import pcgen.core.Skill;
 import pcgen.core.SourceEntry;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.EqModAttachment;
 import pcgen.gui.pcGenGUI;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
@@ -233,7 +234,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private final Set<URI> loadedFiles = new HashSet<URI>();
 	private PCClassLoader classLoader = new PCClassLoader();
 	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<PCTemplate>(PCTemplate.class);
-	private EquipmentLoader equipmentLoader = new EquipmentLoader();
+	private GenericLoader<Equipment> equipmentLoader = new GenericLoader<Equipment>(Equipment.class);
 	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
 	private KitLoader kitLoader = new KitLoader();
@@ -543,6 +544,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			context.ref.buildDerivedObjects();
 			context.ref.validate();
 			context.resolveReferences();
+			for (Equipment eq : context.ref
+					.getConstructedCDOMObjects(Equipment.class))
+			{
+				EqModAttachment.finishEquipment(eq);
+			}
 			context.buildTypeLists();
 
 			// Load custom items

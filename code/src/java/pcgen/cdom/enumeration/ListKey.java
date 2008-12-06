@@ -42,6 +42,7 @@ import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.Capacity;
+import pcgen.cdom.helper.EqModRef;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.ProfProvider;
@@ -254,6 +255,7 @@ public final class ListKey<T> {
 	public static final ListKey<BaseKit> KIT_TASKS = new ListKey<BaseKit>();
 	public static final ListKey<EquipmentModifier> EQMOD = new ListKey<EquipmentModifier>();
 	public static final ListKey<CDOMSingleRef<Race>> APPLIED_RACE = new ListKey<CDOMSingleRef<Race>>();
+	public static final ListKey<EqModRef> EQMOD_INFO = new ListKey<EqModRef>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	
