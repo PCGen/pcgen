@@ -25,13 +25,17 @@ COPYRIGHT:PCGen dataset conversion for Sidewinder: Recoiled Copyright 2004, PCGe
 
 # Stuff Imported from the MSRD
 
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_class.lst
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_occupations.lst
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_racial.lst
 ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
 TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
 FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst
+RACE:@/d20ogl/msrd/basics/modern_basics/modernbasics_races_animals.lst
 SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst
 CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
+CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_npc.lst|(INCLUDE:Animal)
 EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst|(EXCLUDE:AUTOFIRE|BURSTFIRE|DBLTAP|UPGRADE|ILLUMINATOR|LSR_SIGHT|SCP_ELE_OP|SPEED_LD|SPPRSS_PIS|SPPRSS_RFL)
 
 # Sidewinder data

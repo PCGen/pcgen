@@ -31,8 +31,6 @@ Bolts (Crossbow/12)	TYPE:Ammunition.Standard.Wooden.Bolt	COST:2	WT:0		BASEQTY:12
 .38 caliber (20)		TYPE:Ammunition.Firearm	COST:.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .41 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
 .41 caliber (20)		TYPE:Ammunition.Firearm	COST:1	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
-.44 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.44 caliber (20)		TYPE:Ammunition.Firearm	COST:1	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .44-40			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
 .44-40 (50)			TYPE:Ammunition.Firearm	COST:2	WT:0		BASEQTY:50		SOURCEPAGE:p. 145
 .45 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145

@@ -2,7 +2,6 @@
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by bD_92)
 
-# Weapon Name					Type
 #Ranged
 # Weapon Name					Type
 Harpers Ferry Pistol				TYPE:PersonalFirearm
@@ -71,6 +70,7 @@ Rifle Butt						TYPE:Simple
 Sap							TYPE:Simple
 Sledgehammer					TYPE:Simple
 Staff							TYPE:Simple
+Unarmed Strike					TYPE:Simple
 
 Ax							TYPE:Archaic
 Bayonet (Fixed)					TYPE:Archaic
