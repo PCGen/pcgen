@@ -30,8 +30,21 @@ package pcgen.cdom.base;
 public interface Category<T extends CategorizedCDOMObject<T>>
 {
 
+	/**
+	 * Returns the Parent Category for the current Category. Returns null if the
+	 * current Category is a "root" Category.
+	 * 
+	 * @return the Parent Category for the current Category; null if the current
+	 *         Category is a "root" Category.
+	 */
 	Category<T> getParentCategory();
 
+	/**
+	 * Returns the key name of the Category.
+	 * 
+	 * @return The key name of the Category.
+	 * 
+	 */
 	String getKeyName();
 
 }

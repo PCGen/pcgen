@@ -19,9 +19,45 @@ package pcgen.cdom.base;
 
 import pcgen.core.PlayerCharacter;
 
+/**
+ * A ChoiceActor is an object that can limit and apply choices of a particular
+ * type of object to a PlayerCharacter. This is typically an object that will
+ * act after a selection has been made by a user through a TransitionChoice
+ * object.
+ * 
+ * @param <T>
+ *            The type of object that this ChoiceActor can apply to a
+ *            PlayerCharacter
+ */
 public interface ChoiceActor<T>
 {
+	/**
+	 * Applies the given choice to the given PlayerCharacter.
+	 * 
+	 * @param choice
+	 *            The choice being applied to the given PlayerCharacter
+	 * @param pc
+	 *            The PlayerCharacter to which the given choice should be
+	 *            applied.
+	 */
 	public void applyChoice(CDOMObject owner, T choice, PlayerCharacter pc);
-	
+
+	/**
+	 * Returns true if the given choice should be allowed for the
+	 * PlayerCharacter under the provided stacking conditions.
+	 * 
+	 * @param choice
+	 *            The choice being tested to see if it should be allowed for the
+	 *            given PlayerCharacter
+	 * @param pc
+	 *            The PlayerCharacter to be used in determining if the given
+	 *            choice is allowed.
+	 * @param allowStack
+	 *            True if the given choice should be allowed to stack (meaning
+	 *            the PC can have more than one isntance of the choice); false
+	 *            otherwise
+	 * @return true if the given choice should be allowed for the
+	 *         PlayerCharacter under the provided stacking conditions.
+	 */
 	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack);
 }

@@ -65,6 +65,11 @@ public abstract class CDOMListObject<T extends PrereqObject> extends CDOMObject
 		return false;
 	}
 	
+	/**
+	 * Returns a String representation of this CDOMListObject
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{

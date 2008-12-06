@@ -20,7 +20,6 @@ package pcgen.cdom.base;
 import java.util.Collection;
 import java.util.Comparator;
 
-
 /**
  * CDOMObjectUtilities is a utility class designed to provide utility methods
  * when working with pcgen.cdom.base.CDOMObject Objects
@@ -28,10 +27,13 @@ import java.util.Comparator;
 public final class CDOMObjectUtilities
 {
 
-	public static final Comparator<CDOMObject> CDOM_SORTER =
-	new Comparator<CDOMObject>()
+	/**
+	 * Provides a Comparator that is capable of sorting CDOMObjects. This
+	 * sorting is performed based on the Key name of the CDOMObjects.
+	 */
+	public static final Comparator<CDOMObject> CDOM_SORTER = new Comparator<CDOMObject>()
 	{
-	
+
 		public int compare(CDOMObject arg0, CDOMObject arg1)
 		{
 			return compareKeys(arg0, arg1);
@@ -40,7 +42,7 @@ public final class CDOMObjectUtilities
 
 	private CDOMObjectUtilities()
 	{
-		//Utility class should not be constructed
+		// Utility class should not be constructed
 	}
 
 	/**
@@ -85,6 +87,22 @@ public final class CDOMObjectUtilities
 		return result.toString();
 	}
 
+	/**
+	 * Compares the Keys of two CDOMObjects. Returns a negative integer if the
+	 * key for the first object sorts before the key for the second object. Note
+	 * that null sorts last (though a CDOMObject should never return null from a
+	 * call to getKeyName(), this is error protected). This comparison is case
+	 * sensitive.
+	 * 
+	 * @param arg0
+	 *            The first CDOMObject, for which the key will be compared
+	 * @param arg1
+	 *            The second CDOMObject, for which the key will be compared
+	 * @return a negative integer if the key for the first object sorts before
+	 *         the key for the second object; a positive integer if the key for
+	 *         the first object sorts after the key for the second object, or 0
+	 *         if the keys are equal
+	 */
 	public static int compareKeys(CDOMObject arg0, CDOMObject arg1)
 	{
 		String base = arg0.getKeyName();

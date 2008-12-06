@@ -38,6 +38,11 @@ public class FixedStringList extends AbstractList<String> implements
 		List<String>, RandomAccess
 {
 
+	/**
+	 * Provides a Comparator for FixedStringList objects that will sort the
+	 * contents in a Case Sensitive order. Note that null sorts first (before
+	 * any non-null Strings)
+	 */
 	public static final Comparator<FixedStringList> CASE_SENSITIVE_ORDER = new Comparator<FixedStringList>()
 	{
 		public int compare(FixedStringList o1, FixedStringList o2)
@@ -47,6 +52,11 @@ public class FixedStringList extends AbstractList<String> implements
 		}
 	};
 
+	/**
+	 * Provides a Comparator for FixedStringList objects that will sort the
+	 * contents in a Case Insensitive order. Note that null sorts first (before
+	 * any non-null Strings)
+	 */
 	public static final Comparator<FixedStringList> CASE_INSENSITIVE_ORDER = new Comparator<FixedStringList>()
 	{
 		public int compare(FixedStringList o1, FixedStringList o2)
@@ -261,6 +271,13 @@ public class FixedStringList extends AbstractList<String> implements
 		return array.length + 29 * (array[0] == null ? 0 : array[0].hashCode());
 	}
 
+	/**
+	 * Returns true is this FixedStringList is equal to the given Object,
+	 * ignoring case in the underlying String objects. This method is consistent
+	 * with the equalsIgnoreCase behavior defined in java.lang.String
+	 * 
+	 * @see java.util.AbstractList#equals(java.lang.Object)
+	 */
 	public boolean equalsIgnoreCase(FixedStringList o)
 	{
 		int thisArrayLength = array.length;
@@ -290,6 +307,13 @@ public class FixedStringList extends AbstractList<String> implements
 		return true;
 	}
 
+	/**
+	 * Compares FixedStringList objects with the given String Comparator. Note
+	 * that a FixedStringList is sorted first on the size of the
+	 * FixedStringList, rather than on the contents. Note that relative to the
+	 * contents of a FixedStringList (tested after size), null sorts first
+	 * (before any non-null Strings).
+	 */
 	public static int compare(FixedStringList a, FixedStringList b,
 			Comparator<String> c)
 	{

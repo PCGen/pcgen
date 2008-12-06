@@ -30,6 +30,12 @@ import java.util.Comparator;
 public final class StringUtil
 {
 
+	/**
+	 * Provides a Comparator for Strings that sorts in Case Sensitive Order.
+	 * While this is generally the default for Strings (and thus this might seem
+	 * extraneous), it is valueable as it can be used by other objects as a
+	 * counterpart to String.CASE_INSENSITIVE_ORDER
+	 */
 	public static final Comparator<String> CASE_SENSITIVE_ORDER = new Comparator<String>()
 	{
 		public int compare(String o1, String o2)
