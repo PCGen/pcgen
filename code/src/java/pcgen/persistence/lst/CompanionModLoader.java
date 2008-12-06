@@ -27,7 +27,6 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
@@ -79,8 +78,6 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 		cmpMod.setSourceCampaign(source.getCampaign());
 		cmpMod.setSourceURI(source.getURI());
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				CompanionModLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String token = colToken.nextToken().trim();
@@ -110,17 +107,6 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 			if (context.processToken(cmpMod, key, value))
 			{
 				context.commit();
-			}
-			else if (tokenMap.containsKey(key))
-			{
-				CompanionModLstToken tok = (CompanionModLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, cmpMod, value);
-				if (!tok.parse(cmpMod, value))
-				{
-					Logging.errorPrint("Error parsing CompanionMod "
-							+ cmpMod.getDisplayName() + ':'
-							+ source.toString() + ':' + token + "\"");
-				}
 			}
 			else if (!PObjectLoader.parseTag(cmpMod, token))
 			{
