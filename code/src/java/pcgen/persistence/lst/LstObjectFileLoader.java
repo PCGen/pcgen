@@ -100,6 +100,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 */
 	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
+		processComplete = true;
 		// Track which sources have been loaded already
 		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
 
