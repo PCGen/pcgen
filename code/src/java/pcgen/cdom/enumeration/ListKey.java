@@ -252,6 +252,7 @@ public final class ListKey<T> {
 	public static final ListKey<PersistentTransitionChoice<?>> REMOVE = new ListKey<PersistentTransitionChoice<?>>();
 	public static final ListKey<Type> TYPE = new ListKey<Type>();
 	public static final ListKey<BaseKit> KIT_TASKS = new ListKey<BaseKit>();
+	public static final ListKey<EquipmentModifier> EQMOD = new ListKey<EquipmentModifier>();
 	public static final ListKey<CDOMSingleRef<Race>> APPLIED_RACE = new ListKey<CDOMSingleRef<Race>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;

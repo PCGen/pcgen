@@ -5719,9 +5719,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 				head.put(IntegerKey.CRIT_MULT, eqm.getAltCritMultiplier());
 				head.put(IntegerKey.CRIT_RANGE, eqm.getRawCritRange(false));
-				eqm.getEqModifierList(true).clear();
-				eqm.getEqModifierList(true)
-					.addAll(eqm.getEqModifierList(false));
+				head.removeListFor(ListKey.EQMOD);
+				head.addAllToListFor(ListKey.EQMOD, eqm.getEqModifierList(false));
 
 				// Add "Head 2 only" to the name of the weapon
 				eqm.setWholeItemName(eqm.getName());

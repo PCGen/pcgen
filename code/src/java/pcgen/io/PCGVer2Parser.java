@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
@@ -4849,7 +4850,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						{
 							// We clear out any eqmods that the base item has as the
 							// EQMODs on the saved item override them.
-							aEquip.clearAllEqModifiers();
+							EquipmentHead head = aEquip.getEquipmentHeadReference(1);
+							if (head != null)
+							{
+								head.removeListFor(ListKey.EQMOD);
+							}
 							aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$ //$NON-NLS-2$
 						}
 						else

@@ -189,8 +189,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	private BigDecimal costMod = BigDecimal.ZERO;
 
-	private List<EquipmentModifier> eqModifierList = new ArrayList<EquipmentModifier>();
-
 	private EquipmentCollection d_parent;
 
 	private List<Equipment> d_containedEquipment = new ArrayList<Equipment>();
@@ -210,8 +208,6 @@ public final class Equipment extends PObject implements Serializable,
 	private String containerCapacityString = null;
 
 	private String containerContentsString = "";
-
-	private List<EquipmentModifier> altEqModifierList = new ArrayList<EquipmentModifier>();
 
 	private String appliedBonusName = "";
 
@@ -642,12 +638,9 @@ public final class Equipment extends PObject implements Serializable,
 
 		aList.addAll(getBonusListOfType(pc, aType, aName));
 
-		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
-
-		if (!eqModList.isEmpty()) {
-			for (EquipmentModifier eqMod : eqModList) {
-				aList.addAll(eqMod.getBonusListOfType(this, aType, aName));
-			}
+		for (EquipmentModifier eqMod : getEqModifierList(bPrimary))
+		{
+			aList.addAll(eqMod.getBonusListOfType(this, aType, aName));
 		}
 
 		return aList;
@@ -732,33 +725,47 @@ public final class Equipment extends PObject implements Serializable,
 		// eg. in the case of adamantine armor, want to add
 		// the cost of the metal before the armor gets resized.
 		//
-		for (EquipmentModifier eqMod : eqModifierList) {
-			int iCount = getSelectCorrectedAssociationCount(eqMod);
+		EquipmentHead head = getEquipmentHeadReference(1);
+		if (head != null)
+		{
+			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
+			{
+				int iCount = getSelectCorrectedAssociationCount(eqMod);
 
-			if (iCount < 1) {
-				iCount = 1;
+				if (iCount < 1)
+				{
+					iCount = 1;
+				}
+
+				Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
+				Number bc = baseCost.resolve(this, true, aPC, "");
+				final BigDecimal eqModCost = new BigDecimal(bc.toString());
+				c = c.add(eqModCost.multiply(new BigDecimal(Integer
+								.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
+				c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST",
+						getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
 			}
-
-			Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
-			Number bc = baseCost.resolve(this, true, aPC, "");
-			final BigDecimal eqModCost = new BigDecimal(bc.toString());
-			c = c.add(eqModCost.multiply(new BigDecimal(Integer
-					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-			c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST", getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
 		}
+		EquipmentHead althead = getEquipmentHeadReference(2);
+		if (althead != null)
+		{
+			for (EquipmentModifier eqMod : althead.getSafeListFor(ListKey.EQMOD))
+			{
+				int iCount = getSelectCorrectedAssociationCount(eqMod);
 
-		for (EquipmentModifier eqMod : altEqModifierList) {
-			int iCount = getSelectCorrectedAssociationCount(eqMod);
+				if (iCount < 1)
+				{
+					iCount = 1;
+				}
 
-			if (iCount < 1) {
-				iCount = 1;
+				Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
+				Number bc = baseCost.resolve(this, false, aPC, "");
+				final BigDecimal eqModCost = new BigDecimal(bc.toString());
+				c = c.add(eqModCost.multiply(new BigDecimal(Integer
+								.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
+				c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST",
+						getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
 			}
-
-			Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
-			Number bc = baseCost.resolve(this, false, aPC, "");
-			final BigDecimal eqModCost = new BigDecimal(bc.toString());
-			c = c.add(eqModCost.multiply(new BigDecimal(Integer.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-			c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST", iCount, this));
 		}
 
 		// c has cost of the item's modifications at the item's original size
@@ -779,27 +786,53 @@ public final class Equipment extends PObject implements Serializable,
 		BigDecimal c1            = BigDecimal.ZERO;
 
 		int iPlus = 0;
-		for (EquipmentModifier eqMod : eqModifierList) {
-			int iCount = getSelectCorrectedAssociationCount(eqMod);
+		if (head != null)
+		{
+			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD)) {
+				int iCount = getSelectCorrectedAssociationCount(eqMod);
 
-			if (iCount < 1) {
-				iCount = 1;
-			}
+				if (iCount < 1) {
+					iCount = 1;
+				}
 
-			BigDecimal eqModCost;
-			Formula cost = eqMod.getSafe(FormulaKey.COST);
-			String costFormula = cost.toString();
-			Pattern pat = Pattern.compile("BASECOST");
-			Matcher mat;
+				BigDecimal eqModCost;
+				Formula cost = eqMod.getSafe(FormulaKey.COST);
+				String costFormula = cost.toString();
+				Pattern pat = Pattern.compile("BASECOST");
+				Matcher mat;
 
-			if (hasAssociations(eqMod)
-					&& !costFormula.equals(EqModCost.getCost(eqMod, getFirstAssociation(eqMod)))) {
-				eqModCost = BigDecimal.ZERO;
+				if (hasAssociations(eqMod)
+						&& !costFormula.equals(EqModCost.getCost(eqMod, getFirstAssociation(eqMod)))) {
+					eqModCost = BigDecimal.ZERO;
 
-				for (String assoc : getAssociationList(eqMod))
-				{
-					mat = pat.matcher(EqModCost.getCost(eqMod, assoc));
+					for (String assoc : getAssociationList(eqMod))
+					{
+						mat = pat.matcher(EqModCost.getCost(eqMod, assoc));
 
+						// make string (BASECOST/X) which will be substituted into
+						// the cost string which is then converted to a number
+						StringBuffer sB = new StringBuffer("(BASECOST/");
+						sB.append(getSafe(IntegerKey.BASE_QUANTITY));
+						sB.append(")");
+
+						String s = mat.replaceAll(sB.toString());
+						String v = getVariableValue(s, "", true, aPC).toString();
+						
+						final BigDecimal thisModCost = new BigDecimal(v);
+
+						eqModCost = eqModCost.add(thisModCost);
+
+						if (!EqModCost.getCostDouble(eqMod)) {
+							nonDoubleCost = nonDoubleCost.add(thisModCost);
+						} else {
+							modifierCosts.add(thisModCost);
+						}
+					}
+
+					iCount = 1;
+				} else {
+					mat = pat.matcher(cost.toString());
+					
 					// make string (BASECOST/X) which will be substituted into
 					// the cost string which is then converted to a number
 					StringBuffer sB = new StringBuffer("(BASECOST/");
@@ -808,46 +841,23 @@ public final class Equipment extends PObject implements Serializable,
 
 					String s = mat.replaceAll(sB.toString());
 					String v = getVariableValue(s, "", true, aPC).toString();
-					
-					final BigDecimal thisModCost = new BigDecimal(v);
 
-					eqModCost = eqModCost.add(thisModCost);
+					eqModCost = new BigDecimal(v);
 
 					if (!EqModCost.getCostDouble(eqMod)) {
-						nonDoubleCost = nonDoubleCost.add(thisModCost);
+						nonDoubleCost = nonDoubleCost.add(eqModCost);
 					} else {
-						modifierCosts.add(thisModCost);
+						modifierCosts.add(eqModCost);
 					}
 				}
 
-				iCount = 1;
-			} else {
-				mat = pat.matcher(cost.toString());
-				
-				// make string (BASECOST/X) which will be substituted into
-				// the cost string which is then converted to a number
-				StringBuffer sB = new StringBuffer("(BASECOST/");
-				sB.append(getSafe(IntegerKey.BASE_QUANTITY));
-				sB.append(")");
-
-				String s = mat.replaceAll(sB.toString());
-				String v = getVariableValue(s, "", true, aPC).toString();
-
-				eqModCost = new BigDecimal(v);
-
-				if (!EqModCost.getCostDouble(eqMod)) {
-					nonDoubleCost = nonDoubleCost.add(eqModCost);
-				} else {
-					modifierCosts.add(eqModCost);
+				// Per D20 FAQ adjustments for special materials are per piece;
+				if (eqMod.isType("BaseMaterial")) {
+					eqModCost = eqModCost.multiply(new BigDecimal(getSafe(IntegerKey.BASE_QUANTITY)));
 				}
+				c1 = c1.add(eqModCost);
+				iPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
 			}
-
-			// Per D20 FAQ adjustments for special materials are per piece;
-			if (eqMod.isType("BaseMaterial")) {
-				eqModCost = eqModCost.multiply(new BigDecimal(getSafe(IntegerKey.BASE_QUANTITY)));
-			}
-			c1 = c1.add(eqModCost);
-			iPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
 		}
 
 		//
@@ -858,19 +868,22 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		int altPlus = 0;
-		for (EquipmentModifier eqMod : altEqModifierList) {
-			int iCount = getSelectCorrectedAssociationCount(eqMod);
+		if (althead != null)
+		{
+			for (EquipmentModifier eqMod : althead.getSafeListFor(ListKey.EQMOD)) {
+				int iCount = getSelectCorrectedAssociationCount(eqMod);
 
-			if (iCount < 1) {
-				iCount = 1;
+				if (iCount < 1) {
+					iCount = 1;
+				}
+
+				Formula cost = eqMod.getSafe(FormulaKey.BASECOST);
+				Number bc = cost.resolve(this, false, aPC, "");
+				final BigDecimal eqModCost = new BigDecimal(bc.toString());
+				c1 = c1.add(eqModCost.multiply(new BigDecimal(Integer
+						.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
+				altPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
 			}
-
-			Formula cost = eqMod.getSafe(FormulaKey.BASECOST);
-			Number bc = cost.resolve(this, false, aPC, "");
-			final BigDecimal eqModCost = new BigDecimal(bc.toString());
-			c1 = c1.add(eqModCost.multiply(new BigDecimal(Integer
-					.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-			altPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
 		}
 
 		calculatingCost = false;
@@ -995,12 +1008,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The eqModifierList value
 	 */
-	public List<EquipmentModifier> getEqModifierList(final boolean bPrimary) {
-		if (bPrimary) {
-			return eqModifierList;
-		}
-
-		return altEqModifierList;
+	public List<EquipmentModifier> getEqModifierList(final boolean bPrimary)
+	{
+		return getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD);
 	}
 
 	/**
@@ -1016,7 +1026,7 @@ public final class Equipment extends PObject implements Serializable,
 			final boolean bPrimary) {
 
 		usePrimaryCache = false;
-		getEqModifierList(bPrimary).add(eqMod);
+		getEquipmentHead(bPrimary ? 1 : 2).addToListFor(ListKey.EQMOD, eqMod);
 		setDirty(true);
 	}
 
@@ -1166,12 +1176,28 @@ public final class Equipment extends PObject implements Serializable,
 			return getName();
 		}
 
-		final List<EquipmentModifier> modList =
-				new ArrayList<EquipmentModifier>(eqModifierList);
-		
-		final List<EquipmentModifier> altModList =
-				new ArrayList<EquipmentModifier>(altEqModifierList);
-		
+		final List<EquipmentModifier> modList;
+		EquipmentHead head = getEquipmentHeadReference(1);
+		if (head == null)
+		{
+			modList = Collections.emptyList();
+		}
+		else
+		{
+			modList = head.getSafeListFor(ListKey.EQMOD);
+		}
+
+		EquipmentHead althead = getEquipmentHeadReference(2);
+		final List<EquipmentModifier> altModList;
+		if (althead == null)
+		{
+			altModList = Collections.emptyList();
+		}
+		else
+		{
+			altModList = althead.getSafeListFor(ListKey.EQMOD);
+		}
+
 		final List<EquipmentModifier> commonList =
 				new ArrayList<EquipmentModifier>();
 
@@ -1329,11 +1355,13 @@ public final class Equipment extends PObject implements Serializable,
 			return;
 		}
 
-		final EquipmentModifier magicMod1 = getMagicBonus(eqModifierList);
-		final EquipmentModifier magicMod2 = getMagicBonus(altEqModifierList);
-
-		if (magicMod1 != null || magicMod2 != null) {
-			commonList.remove(eqMaster);
+		for (EquipmentHead head : heads)
+		{
+			if (getMagicBonus(head.getListFor(ListKey.EQMOD)) != null)
+			{
+				commonList.remove(eqMaster);
+				break;
+			}
 		}
 	}
 
@@ -1913,9 +1941,13 @@ public final class Equipment extends PObject implements Serializable,
 	public int getSlots(final PlayerCharacter aPC) {
 		int iSlots = getSafe(IntegerKey.SLOTS);
 
-		for (EquipmentModifier eqMod : eqModifierList) {
-			iSlots += (int) eqMod.bonusTo(aPC, "EQM", "HANDS", this);
-			iSlots += (int) eqMod.bonusTo(aPC, "EQM", "SLOTS", this);
+		EquipmentHead head = getEquipmentHeadReference(1);
+		if (head != null)
+		{
+			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD)) {
+				iSlots += (int) eqMod.bonusTo(aPC, "EQM", "HANDS", this);
+				iSlots += (int) eqMod.bonusTo(aPC, "EQM", "SLOTS", this);
+			}
 		}
 
 		if (iSlots < 0) {
@@ -1948,25 +1980,42 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return special properties of an Equipment.
 	 */
 	public String getSpecialProperties(final PlayerCharacter aPC) {
-		final List<EquipmentModifier> list1 = new ArrayList<EquipmentModifier>(
-				eqModifierList);
-		final List<EquipmentModifier> list2 = new ArrayList<EquipmentModifier>(
-				altEqModifierList);
+		final List<EquipmentModifier> modList;
+		EquipmentHead head = getEquipmentHeadReference(1);
+		if (head == null)
+		{
+			modList = Collections.emptyList();
+		}
+		else
+		{
+			modList = head.getSafeListFor(ListKey.EQMOD);
+		}
+
+		EquipmentHead althead = getEquipmentHeadReference(2);
+		final List<EquipmentModifier> altModList;
+		if (althead == null)
+		{
+			altModList = Collections.emptyList();
+		}
+		else
+		{
+			altModList = althead.getSafeListFor(ListKey.EQMOD);
+		}
 		final List<EquipmentModifier> comn = new ArrayList<EquipmentModifier>();
 
-		extractListFromCommon(comn, list1);
+		extractListFromCommon(comn, modList);
 
-		removeCommonFromList(list2, comn,
+		removeCommonFromList(altModList, comn,
 				"SPROP: eqMod expected but not found: ");
 
 		final String common = StringUtil.join(
 				getSpecialAbilityTimesList(getSpecialAbilityList(comn, aPC)),
 				", ");
 		final String saList1 = StringUtil.join(
-				getSpecialAbilityTimesList(getSpecialAbilityList(list1, aPC)),
+				getSpecialAbilityTimesList(getSpecialAbilityList(modList, aPC)),
 				", ");
 		final String saList2 = StringUtil.join(
-				getSpecialAbilityTimesList(getSpecialAbilityList(list2, aPC)),
+				getSpecialAbilityTimesList(getSpecialAbilityList(altModList, aPC)),
 				", ");
 		final StringBuffer sp = new StringBuffer();
 
@@ -2215,15 +2264,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Remove all equipment modifiers (EQMOD) from this equipment item.
-	 */
-	public void clearAllEqModifiers() {
-		if (eqModifierList != null) {
-			eqModifierList.clear();
-		}
-	}
-
-	/**
 	 * Add an equipment modifier and its associated information eg:
 	 * Bane|Vermin|Fey eg: Keen Adds a feature to the EqModifier attribute of
 	 * the Equipment object
@@ -2345,8 +2385,8 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		List<CDOMSingleRef<EquipmentModifier>> replaces = eqMod.getListFor(ListKey.REPLACED_KEYS);
-		List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
+		EquipmentHead head = getEquipmentHead(bPrimary ? 1 : 2);
 		if (replaces != null)
 		{
 			//
@@ -2356,11 +2396,11 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				EquipmentModifier mod = ref.resolvesTo();
 				String key = mod.getKeyName();
-				for (int i = eqModList.size() - 1; i >= 0; --i) {
-					final EquipmentModifier aMod = eqModList.get(i);
+				for (EquipmentModifier aMod : head.getListFor(ListKey.EQMOD))
+				{
 					if (key.equalsIgnoreCase(aMod.getKeyName()))
 					{
-						eqModList.remove(i);
+						head.removeFromListFor(ListKey.EQMOD, aMod);
 						if (bPrimary) {
 							usePrimaryCache = false;
 						} else {
@@ -2373,11 +2413,10 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		if (eqMod.isType("BaseMaterial")) {
-			for (int i = eqModList.size() - 1; i >= 0; --i) {
-				final EquipmentModifier aMod = eqModList.get(i);
-
+			for (EquipmentModifier aMod : head.getListFor(ListKey.EQMOD))
+			{
 				if (aMod.isType("BaseMaterial")) {
-					eqModList.remove(i);
+					head.removeFromListFor(ListKey.EQMOD, aMod);
 					if (bPrimary) {
 						usePrimaryCache = false;
 					} else {
@@ -2387,11 +2426,10 @@ public final class Equipment extends PObject implements Serializable,
 				}
 			}
 		} else if (eqMod.isType("MagicalEnhancement")) {
-			for (int i = eqModList.size() - 1; i >= 0; --i) {
-				final EquipmentModifier aMod = eqModList.get(i);
-
+			for (EquipmentModifier aMod : head.getListFor(ListKey.EQMOD))
+			{
 				if (aMod.isType("MagicalEnhancement")) {
-					eqModList.remove(i);
+					head.removeFromListFor(ListKey.EQMOD, aMod);
 					if (bPrimary) {
 						usePrimaryCache = false;
 					} else {
@@ -2421,7 +2459,7 @@ public final class Equipment extends PObject implements Serializable,
 				aMod = eqMod;
 			}
 
-			eqModList.add(aMod);
+			head.addToListFor(ListKey.EQMOD, aMod);
 			if (bPrimary) {
 				usePrimaryCache = false;
 			} else {
@@ -2446,7 +2484,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			if (allRemoved) {
-				eqModList.remove(aMod);
+				head.removeFromListFor(ListKey.EQMOD, aMod);
 				if (bPrimary) {
 					usePrimaryCache = false;
 				} else {
@@ -2454,8 +2492,6 @@ public final class Equipment extends PObject implements Serializable,
 				}
 			}
 		}
-
-		Globals.sortPObjectListByName(eqModList);
 
 		setBase(aPC);
 	}
@@ -2495,9 +2531,6 @@ public final class Equipment extends PObject implements Serializable,
 				addEqModifier(aEqModName, bPrimary, isLoading);
 			}
 		}
-
-		List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
-		Globals.sortPObjectListByName(eqModList);
 	}
 
 	/**
@@ -2603,28 +2636,21 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int calcPlusForCosting() {
 		int iPlus = 0;
-		int iCount;
 
-		for (EquipmentModifier eqMod : eqModifierList) {
-			iCount = getSelectCorrectedAssociationCount(eqMod);
+		for (EquipmentHead head : heads)
+		{
+			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
+			{
+				int iCount = getSelectCorrectedAssociationCount(eqMod);
 
-			if (iCount < 1) {
-				iCount = 1;
+				if (iCount < 1)
+				{
+					iCount = 1;
+				}
+
+				iPlus += (iCount * eqMod.getSafe(IntegerKey.PLUS));
 			}
-
-			iPlus += (iCount * eqMod.getSafe(IntegerKey.PLUS));
 		}
-
-		for (EquipmentModifier eqMod : altEqModifierList) {
-			iCount = getSelectCorrectedAssociationCount(eqMod);
-
-			if (iCount < 1) {
-				iCount = 1;
-			}
-
-			iPlus += (iCount * eqMod.getSafe(IntegerKey.PLUS));
-		}
-
 		return iPlus;
 	}
 
@@ -2747,8 +2773,12 @@ public final class Equipment extends PObject implements Serializable,
 					new ArrayList<Equipment>(d_containedEquipment);
 
 			eq.assocSupt = assocSupt.clone();
-			eq.eqModifierList = cloneEqModList(eq, true);
-			eq.altEqModifierList = cloneEqModList(eq, false);
+			eq.getEquipmentHead(1).removeListFor(ListKey.EQMOD);
+			eq.getEquipmentHead(2).removeListFor(ListKey.EQMOD);
+			eq.getEquipmentHead(1).addAllToListFor(ListKey.EQMOD,
+					cloneEqModList(eq, true));
+			eq.getEquipmentHead(2).addAllToListFor(ListKey.EQMOD,
+					cloneEqModList(eq, false));
 		} catch (CloneNotSupportedException e) {
 			ShowMessageDelegate.showMessageDialog(e.getMessage(),
 					Constants.s_APPNAME, MessageType.ERROR);
@@ -3257,7 +3287,6 @@ public final class Equipment extends PObject implements Serializable,
 			final boolean bPrimary,
 			PlayerCharacter pc) {
 
-		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 		final EquipmentModifier aMod = getEqModifierKeyed(eqMod.getKeyName(),
 				bPrimary);
 
@@ -3269,7 +3298,7 @@ public final class Equipment extends PObject implements Serializable,
 		// Remove the modifier if all associated choices are deleted
 		if (!hasAssociations(aMod)
 				|| !EquipmentChoiceDriver.getChoice(0, this, aMod, false, pc)) {
-			eqModList.remove(aMod);
+			getEquipmentHead(bPrimary ? 1 : 2).removeFromListFor(ListKey.EQMOD, aMod);
 			if (bPrimary) {
 				usePrimaryCache = false;
 			} else {
