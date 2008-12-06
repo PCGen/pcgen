@@ -61,6 +61,7 @@ import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -233,7 +234,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private PCClassLoader classLoader = new PCClassLoader();
 	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<PCTemplate>(PCTemplate.class);
 	private EquipmentLoader equipmentLoader = new EquipmentLoader();
-	private EquipmentModifierLoader eqModLoader = new EquipmentModifierLoader();
+	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
 	private KitLoader kitLoader = new KitLoader();
 	private PaperInfoLoader paperLoader = new PaperInfoLoader();
@@ -533,7 +534,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			checkRequiredDeities(context);
 
 			// Add default EQ mods
-			eqModLoader.addDefaultEquipmentMods(context);
+			addDefaultEquipmentMods(context);
 
 			classLoader.loadSubLines(context);
 			
@@ -580,6 +581,33 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			setChanged();
 			notifyObservers("DONE");
 		}
+	}
+
+	private void addDefaultEquipmentMods(LoadContext context)
+			throws PersistenceLayerException
+	{
+		CampaignSourceEntry source;
+		try {
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + eqModLoader.getClass().getName() + ".java"));
+		} catch (URISyntaxException e) {
+			throw new UnreachableError(e);
+		}
+		String aLine;
+		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
+		eqModLoader.parseLine(context, null, aLine, source);
+		
+		//
+		// Add internal equipment modifier for adding weapon/armor types to
+		// equipment
+		//
+		aLine = Constants.s_INTERNAL_EQMOD_WEAPON
+				+ "\tTYPE:Weapon\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
+		eqModLoader.parseLine(context, null, aLine, source);
+		
+		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
+				+ "\tTYPE:Armor\tVISIBLE:NO\tCHOOSE:NOCHOICE\tNAMEOPT:NONAME";
+		eqModLoader.parseLine(context, null, aLine, source);
 	}
 
 	private void validateAbilityCategories(GameMode gamemode)
