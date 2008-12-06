@@ -20,10 +20,7 @@ package plugin.lsttokens;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.AddLoader;
-import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -33,7 +30,7 @@ import pcgen.util.Logging;
  * @author djones4
  * 
  */
-public class AddLst extends AbstractToken implements GlobalLstToken,
+public class AddLst extends AbstractToken implements
 		CDOMPrimaryToken<CDOMObject>
 {
 	/*
@@ -45,33 +42,6 @@ public class AddLst extends AbstractToken implements GlobalLstToken,
 	public String getTokenName()
 	{
 		return "ADD";
-	}
-
-	public boolean parse(PObject obj, String value, int anInt)
-	{
-		int barLoc = value.indexOf(Constants.PIPE);
-		if (barLoc == -1)
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + " syntax: "
-				+ value + " ... must have a PIPE");
-			return false;
-		}
-		else if (barLoc == 0)
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + " syntax: "
-				+ value + " ... cannot start with a PIPE");
-			return false;
-		}
-		String key = value.substring(0, barLoc);
-		String contents = value.substring(barLoc + 1);
-		if (contents == null || contents.length() == 0)
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid " + getTokenName() + " syntax: "
-				+ value + " ... cannot end with a PIPE");
-			return false;
-		}
-		// Guaranteed to be the new syntax here...
-		return AddLoader.parseLine(obj, key, contents, anInt);
 	}
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
