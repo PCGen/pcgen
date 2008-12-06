@@ -133,6 +133,11 @@ public class Description extends ConcretePrereqObject
 					// even a single integer.  Assume we have a DESC field that
 					// is using a % unescaped.
 					theComponents.add(aString.substring(percentInd, percentInd+1));
+					Logging.log(
+						Logging.LST_WARNING,
+						"The % without a number in the description '"
+							+ aString
+							+ "' should be either escaped e.g. %% or made into a parameter reference e.g. %1 .");
 				}
 			}
 		}
