@@ -170,7 +170,7 @@ Diligent.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Appraise checks and 
 Dodge.MOD					DESC:.CLEAR		DESC:During your action, you designate an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.
 Empower Spell.MOD				DESC:.CLEAR		DESC:All variable, numeric effects of an empowered spell are increased by one-half.
 Endurance.MOD				DESC:.CLEAR		DESC:You gain a +4 bonus on checks relating to stamina or extended physical activity. Also, you may sleep in light or medium armor without becoming fatigued.
-Enlarge Spell.MOD				DESC:.CLEAR		DESC:You can alter a spell with a range of close, medium, or long to increase its range by 100%.
+Enlarge Spell.MOD				DESC:.CLEAR		DESC:You can alter a spell with a range of close, medium, or long to increase its range by 100%%.
 Eschew Materials.MOD			DESC:.CLEAR		DESC:You can cast any spell that has a material component costing 1 gp or less without needing that component.
 Exotic Weapon Proficiency.MOD		DESC:.CLEAR		DESC:Choose a type of exotic weapon. You understand how to use that type of exotic weapon in combat.
 Extend Spell.MOD				DESC:.CLEAR		DESC:An extended spell lasts twice as long as normal.
@@ -250,7 +250,7 @@ Weapon Finesse.MOD			DESC:.CLEAR		DESC:With a light weapon, rapier, whip, or spi
 Weapon Focus.MOD				DESC:.CLEAR		DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon.
 Weapon Specialization.MOD		DESC:.CLEAR		DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon.
 Whirlwind Attack.MOD			DESC:.CLEAR		DESC:When you use the full attack action, you can give up your regular attacks and instead make one melee attack at your full base attack bonus against each opponent within reach.
-Widen Spell.MOD				DESC:.CLEAR		DESC:You can alter a burst, emanation, line, or spread shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%. A widened spell uses up a spell slot three levels higher than the spell's actual level.
+Widen Spell.MOD				DESC:.CLEAR		DESC:You can alter a burst, emanation, line, or spread shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%%. A widened spell uses up a spell slot three levels higher than the spell's actual level.
 
 #
 # DONE

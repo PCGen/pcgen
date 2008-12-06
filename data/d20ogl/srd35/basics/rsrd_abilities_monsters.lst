@@ -468,11 +468,11 @@ Resistance To Charm	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.R
 
 ###Block: Vulnerabilities
 # Ability Name					Category of Ability		Type								Visible	Description
-Vulnerability To Acid				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%) damage as normal from Acid, regardless of whether a saving throw is allowed, or if the save is a success or failure
-Vulnerability To Cold				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%) damage as normal from Cold, regardless of whether a saving throw is allowed, or if the save is a success or failure
-Vulnerability To Fire				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%) damage as normal from Fire, regardless of whether a saving throw is allowed, or if the save is a success or failure
-Vulnerability To Electricity			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%) damage as normal from Electricity, regardless of whether a saving throw is allowed, or if the save is a success or failure
-Vulnerability To Sonic				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%) damage as normal from Sonic, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Acid				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%%) damage as normal from Acid, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Cold				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%%) damage as normal from Cold, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Fire				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%%) damage as normal from Fire, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Electricity			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%%) damage as normal from Electricity, regardless of whether a saving throw is allowed, or if the save is a success or failure
+Vulnerability To Sonic				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%%) damage as normal from Sonic, regardless of whether a saving throw is allowed, or if the save is a success or failure
 Vulnerability To Sunlight			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
 Vulnerability to Protection from Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
 
