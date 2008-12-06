@@ -52,13 +52,13 @@ CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:MIN=5	PRESKILL:2,Computers=8
 CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|Listen|Mechanics|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
 1	SAB:Hard-wired (Concentrate)|PREVARLT:CL,5	BONUS:SKILL|Concentration|4	BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|1|Hacker Core Ability
 2	SAB:Synchronize (Solo)|PREVARLT:CL,7
-3																																AUTO:FEAT|1|Advanced Skill Mastery(Mathematical Genius)
+3																																AUTO:FEAT|Advanced Skill Mastery(Mathematical Genius)
 4	SAB:Lockout (Single)|PREVARLT:CL,8	SAB:Sift
-5	SAB:Hard-wired (All-Nighter)|PREVARLT:CL,9																								AUTO:FEAT|1|Quick Use(Computers)
+5	SAB:Hard-wired (All-Nighter)|PREVARLT:CL,9																								AUTO:FEAT|Quick Use(Computers)
 6	SAB:Fingerprints
-7	SAB:Synchronize (Team)																												AUTO:FEAT|1|Grand Skill Mastery(Mathematical Genius)
+7	SAB:Synchronize (Team)																												AUTO:FEAT|Grand Skill Mastery(Mathematical Genius)
 8	SAB:Lockout (All)
-9	SAB:Hard-wired (Persevere)																											AUTO:FEAT|1|Perfect Skill Mastery(Mathematical Genius)
+9	SAB:Hard-wired (Persevere)																											AUTO:FEAT|Perfect Skill Mastery(Mathematical Genius)
 10	SAB:Ghost in the Machine
 
 
