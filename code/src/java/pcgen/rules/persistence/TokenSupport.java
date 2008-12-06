@@ -24,6 +24,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -45,7 +46,10 @@ public class TokenSupport
 	public static final Class<CDOMObject> CDOM_OBJECT_CLASS = CDOMObject.class;
 
 	public DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
-			new DoubleKeyMapToList<Class<?>, String, CDOMToken<?>>();
+		new DoubleKeyMapToList<Class<?>, String, CDOMToken<?>>();
+
+	public TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
+		new TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>>();
 
 	public <T extends CDOMObject> boolean processToken(LoadContext context,
 		T derivative, String typeStr, String argument)
@@ -87,15 +91,32 @@ public class TokenSupport
 		return list;
 	}
 
+	public <T> List<? extends CDOMToken<T>> getTokens(
+		Class<T> cl, String name, String subtoken)
+	{
+		List list = subTokenCache.getListFor(cl, name, subtoken);
+		if (list == null)
+		{
+			for (Iterator<CDOMSubToken<T>> it =
+					new SubTokenIterator<T, CDOMSubToken<T>>(cl, name, subtoken); it
+				.hasNext();)
+			{
+				CDOMToken<T> token = it.next();
+				subTokenCache.addToListFor(cl, name, subtoken, token);
+			}
+			list = subTokenCache.getListFor(cl, name, subtoken);
+		}
+		return list;
+	}
+
 	public <T> boolean processSubToken(LoadContext context, T cdo,
 		String tokenName, String key, String value)
 		throws PersistenceLayerException
 	{
-		for (Iterator<CDOMSubToken<T>> it =
-				new SubTokenIterator<T, CDOMSubToken<T>>((Class<T>) cdo
-					.getClass(), tokenName, key); it.hasNext();)
+		List<? extends CDOMToken<T>> tokenList = getTokens((Class<T>) cdo.getClass(), tokenName, key);
+		if (tokenList != null)
 		{
-			CDOMSubToken<T> token = it.next();
+			for (CDOMToken<T> token : tokenList)
 			if (token.parse(context, cdo, value))
 			{
 				return true;
