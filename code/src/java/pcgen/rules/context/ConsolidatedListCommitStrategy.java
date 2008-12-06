@@ -210,7 +210,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return new ListChanges<T>(tokenName, owner, null, swl, false);
 	}
 	
-	public <T extends CDOMObject> Set<CDOMReference> getActiveLists()
+	public Set<CDOMReference> getActiveLists()
 	{
 		return masterList.getKeySet();
 	}
