@@ -146,7 +146,7 @@ public final class SkillLanguage
 	 * @param available The list of languages that can be selected from
 	 * @param excludedLangs The list of languages that cannot be selected.
 	 */
-	private static void buildLanguageListsForSkill(PlayerCharacter aPC,
+	public static void buildLanguageListsForSkill(PlayerCharacter aPC,
 		Skill languageSkill, List<Language> selected, List<Language> available,
 		List<Language> excludedLangs)
 	{

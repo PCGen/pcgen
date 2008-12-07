@@ -17,8 +17,17 @@
  */
 package pcgen.cdom.content;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.core.Globals;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 
 /**
@@ -49,7 +58,8 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * 
 	 * @param sr
 	 *            The CDOMReference containing the spells to be part of this
-	 *            KnownSpellIdentifier
+	 *            KnownSpellIdentifier.  May be null if
+	 *            this KnownSpellIdentifier is not limited by Spell key.
 	 * @param levelLimit
 	 *            The spell level of this KnownSpellIdentifier. May be null if
 	 *            this KnownSpellIdentifier is not limited by level.
@@ -58,9 +68,10 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 */
 	public KnownSpellIdentifier(CDOMReference<Spell> sr, Integer levelLimit)
 	{
-		if (sr == null)
+		if (sr == null && levelLimit == null)
 		{
-			throw new IllegalArgumentException("Spell Reference cannot be null");
+			throw new IllegalArgumentException(
+				"Known Spell Identifier cannot have null spell reference and level limit");
 		}
 		ref = sr;
 		spellLevel = levelLimit;
@@ -84,8 +95,8 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 */
 	public boolean matchesFilter(Spell s, int testSpellLevel)
 	{
-		return ref.contains(s)
-				&& (spellLevel == null || testSpellLevel == spellLevel);
+		return (ref == null || ref.contains(s))
+			&& (spellLevel == null || testSpellLevel == spellLevel);
 	}
 
 	/**
@@ -109,6 +120,32 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	public Integer getSpellLevel()
 	{
 		return spellLevel;
+	}
+
+	public Collection<Spell> getContainedSpells(List<ClassSpellList> list)
+	{
+		if (ref == null)
+		{
+			return Globals.getSpellsIn(spellLevel, list);
+		}
+		List<Spell> spellList = new ArrayList<Spell>();
+		for (Spell sp : ref.getContainedObjects())
+		{
+			HashMapToList<CDOMList<Spell>, Integer> hml =
+					SpellLevel.getMasterLevelInfo(null, sp);
+			for (CDOMList<Spell> cdomList : hml.getKeySet())
+			{
+				if (list.contains(cdomList))
+				{
+					if (spellLevel == null
+						|| hml.getListFor(cdomList).contains(spellLevel))
+					{
+						spellList.add(sp);
+					}
+				}
+			}
+		}
+		return spellList;
 	}
 
 	/**
@@ -145,6 +182,10 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		if (spellLevel == null)
 		{
 			return other.spellLevel == null && ref.equals(other.ref);
+		}
+		if (ref == null)
+		{
+			return other.ref == null && spellLevel.equals(other.spellLevel);
 		}
 		return spellLevel.equals(other.spellLevel) && ref.equals(other.ref);
 	}
