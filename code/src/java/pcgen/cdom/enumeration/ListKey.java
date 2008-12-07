@@ -39,7 +39,6 @@ import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.helper.ArmorProfProvider;
-import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.helper.EqModRef;
@@ -100,7 +99,6 @@ import pcgen.persistence.lst.utils.DeferredLine;
  */
 public final class ListKey<T> {
 
-	public static final ListKey<Aspect> ASPECT = new ListKey<Aspect>();
 	/** FILE_ABILITY_CATEGORY - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_ABILITY_CATEGORY = new ListKey<CampaignSourceEntry>();
 	/** FILE_BIO_SET - a ListKey */
@@ -153,8 +151,6 @@ public final class ListKey<T> {
 	public static final ListKey<Pantheon> PANTHEON = new ListKey<Pantheon>();
 	/** RACE_PANTHEON - a ListKey */
 	public static final ListKey<String> RACEPANTHEON = new ListKey<String>();
-	/** REMOVE_STRING_LIST - a ListKey */
-	public static final ListKey<String> REMOVE_STRING_LIST = new ListKey<String>();
 	/** SAVE - a ListKey */
 	public static final ListKey<String> SAVE = new ListKey<String>();
 	/** SECTION 15 - a ListKey */
@@ -165,8 +161,6 @@ public final class ListKey<T> {
 	public static final ListKey<SpecialAbility> SPECIAL_ABILITY = new ListKey<SpecialAbility>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
-	/** Key for a list of virtual feats (feats granted regardless of the prereqs) */
-	public static final ListKey<Ability> VIRTUAL_FEATS = new ListKey<Ability>();
 //	/** Key for a list of weapon proficiencies */
 //	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
 	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();

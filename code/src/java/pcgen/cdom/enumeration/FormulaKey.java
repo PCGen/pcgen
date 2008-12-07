@@ -58,31 +58,11 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey PAGE_USAGE = getConstant("PAGE_USAGE");
 
-	public static final FormulaKey COMPANION_HP = getConstant("COMPANION_HP");
-
-	public static final FormulaKey COMPANION_BAB = getConstant("COMPANION_BAB");
-
-	public static final FormulaKey COMPANION_CHECK = getConstant("COMPANION_CHECK");
-
-	public static final FormulaKey ITEM_CREATION_MULTIPLIER = getConstant("ITEM_CREATION_MULTIPLIER");
-
 	public static final FormulaKey CR = getConstant("CR");
-
-	public static final FormulaKey MONSTER_SKILL_POINTS = getConstant("MONSTER_SKILL_POINTS");
-
-	public static final FormulaKey MONSTER_NON_SKILL_HD = getConstant("MONSTER_NON_SKILL_HD");
 
 	public static final FormulaKey SELECT = getConstant("SELECT", Formula.ONE);
 
-	public static final FormulaKey STAT_MOD = getConstant("STAT_MOD");
-
 	public static final FormulaKey POOL = getConstant("POOL");
-
-	public static final FormulaKey MASTER_BAB = getConstant("MASTER_BAB");
-
-	public static final FormulaKey MASTER_HP = getConstant("MASTER_HP");
-
-	public static final FormulaKey MASTER_CHECK = getConstant("MASTER_CHECK");
 
 	public static final FormulaKey NUMCHOICES = getConstant("NUMCHOICES");
 
