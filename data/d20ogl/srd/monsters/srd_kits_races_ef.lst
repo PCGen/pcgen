@@ -396,7 +396,7 @@ SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:9
 SKILL:Search		RANK:6
 FEAT:Improved Initiative
-FEAT:Spell-Like Ability Focus (Enchantment)
+FEAT:Spell Like Ability Focus(Enchantment)
 
 STARTPACK:Formian (Myrmarch) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Myrmarch)]
 RACE:Formian (Myrmarch)	!PRERACE:1,%
@@ -433,7 +433,7 @@ SKILL:Spot			RANK:23
 FEAT:Alertness
 FEAT:Great Fortitude
 FEAT:Iron Will
-FEAT:Spell Focus (Enchantment)
+FEAT:Spell Focus(Enchantment)
 FEAT:Quicken Spell
 
 STARTPACK:Frost Worm Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
