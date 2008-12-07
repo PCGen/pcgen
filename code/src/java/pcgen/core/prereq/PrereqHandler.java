@@ -29,14 +29,12 @@ package pcgen.core.prereq;
 
 
 import java.util.Collection;
-import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.persistence.PersistenceLayerException;
@@ -158,38 +156,6 @@ public class PrereqHandler {
 			}
 		}
 		return true;
-	}
-
-	public static boolean passesAtLeastOne(final List<Prerequisite> prereqList, final PlayerCharacter character, final PObject caller)
-	{
-		if (prereqList == null)
-		{
-			return true;
-		}
-		for ( Prerequisite element : prereqList )
-		{
-			if (passes(element, character, caller))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static boolean passesAtLeastOne(final List<Prerequisite> prereqList, final Equipment equip, PlayerCharacter currentPC)
-	{
-		if (prereqList == null)
-		{
-			return true;
-		}
-		for ( Prerequisite element : prereqList )
-		{
-			if (passes(element, equip, currentPC))
-			{
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**

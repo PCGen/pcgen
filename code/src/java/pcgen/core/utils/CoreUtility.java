@@ -26,10 +26,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -123,66 +121,6 @@ public final class CoreUtility
 	}
 
 	/**
-	 * Converts an array of Objects into a List of Objects
-	 * 
-	 * @param array
-	 *            the array to be converted. If this array is null then this
-	 *            method will return an empty list;
-	 * 
-	 * @return The list containing the objects passed in.
-	 * 
-	 * CONSIDER This should really be eliminated, as the only value over
-	 * Arrays.asList is the null check... - thpr 11/3/06
-	 */
-	public static <T> List<T> arrayToList(final T[] array)
-	{
-		if (array == null)
-		{
-			return new ArrayList<T>();
-		}
-
-		final List<T> list = new ArrayList<T>(array.length);
-		list.addAll(Arrays.asList(array));
-		return list;
-	}
-
-	/**
-	 * Verifies that a string is all numeric (integer).
-	 * 
-	 * @param numString
-	 *            String to check if all numeric [integer]
-	 * @return true if the String is numeric, else false
-	 */
-	public static boolean isIntegerString(final String numString)
-	{
-		boolean result;
-
-		try
-		{
-			Integer.parseInt(numString);
-			result = true;
-		}
-		catch (NumberFormatException nfe)
-		{
-			result = false;
-		}
-
-		return result;
-	}
-
-	/**
-	 * return true if the protocol of the URL represented is FTP or HTTP
-	 * 
-	 * @param URLString
-	 *            the URL to test for a network protocol
-	 * @return true if the string begins with FTP or HTTP
-	 */
-	public static boolean isNetURL(final String URLString)
-	{
-		return (URLString.startsWith("http:") || URLString.startsWith("ftp:"));
-	}
-
-	/**
 	 * return true if the protocol of the URL represented is FTP or HTTP
 	 * 
 	 * @param url
@@ -193,19 +131,6 @@ public final class CoreUtility
 	{
 		return "http".equalsIgnoreCase(url.getProtocol())
 				|| "ftp".equalsIgnoreCase(url.getProtocol());
-	}
-
-	/**
-	 * return true if the protocol of the URL represented is FTP or HTTP or FILE
-	 * 
-	 * @param URLString
-	 *            the string to test for a suitable protocol
-	 * @return true if the string begins with ftp: or http: or file:
-	 */
-	public static boolean isURL(final String URLString)
-	{
-		return (URLString.startsWith("http:") || URLString.startsWith("ftp:") || URLString
-				.startsWith("file:"));
 	}
 
 	/**
@@ -291,29 +216,6 @@ public final class CoreUtility
 	{
 		// If the difference is less than epsilon, treat as equal.
 		return Math.abs(a - b) < eps;
-	}
-
-	/**
-	 * Returns true if the checklist contains any row from targets.
-	 * 
-	 * @param checklist
-	 *            The collection to check
-	 * @param targets
-	 *            The collection to find in the checklist
-	 * @return TRUE if equal, ELSE false
-	 */
-	public static <T> boolean containsAny(final Collection<T> checklist,
-			final Collection<T> targets)
-	{
-		for (T target : targets)
-		{
-			if (checklist.contains(target))
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -512,22 +414,6 @@ public final class CoreUtility
 	public static String unEscapeColons2(final String in)
 	{
 		return in.replaceAll(Pattern.quote("&#59;"), ":");
-	}
-
-	/**
-	 * Convert to a String representation
-	 * 
-	 * @param list
-	 * @return List of Strings
-	 */
-	public static List<String> toStringRepresentation(List<?> list)
-	{
-		final List<String> returnList = new ArrayList<String>(list.size());
-		for (Iterator<?> i = list.iterator(); i.hasNext();)
-		{
-			returnList.add(i.next().toString());
-		}
-		return returnList;
 	}
 
 	public static List<Equipment> cloneEquipmentInList(

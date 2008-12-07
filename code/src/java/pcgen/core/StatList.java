@@ -129,20 +129,6 @@ public final class StatList implements Iterable<PCStat>
 		return ownerPC.getVariableValue(aString, "").intValue();
 	}
 
-	public String getPenaltyVar(final String aStat)
-	{
-		final int x = getIndexOfStatFor(aStat);
-
-		if (x == -1)
-		{
-			return "";
-		}
-
-		final PCStat stat = stats.get(x);
-
-		return stat.getPenaltyVar();
-	}
-
 	public int getStatModFor(final String aStat)
 	{
 		final int x = getIndexOfStatFor(aStat);

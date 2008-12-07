@@ -1951,28 +1951,6 @@ public class PCClass extends PObject
 		return cr == null ? 0 : cr.resolve(aPC, getQualifiedKey()).floatValue();
 	}
 
-	/*
-	 * PCCLASSLEVELONLY Since this is level dependent it only makes sense there.
-	 */
-	public String classLevelString()
-	{
-		StringBuffer aString = new StringBuffer();
-
-		if (!getSubClassKey().equals(Constants.s_NONE)
-			&& !"".equals(getSubClassKey()))
-		{
-			aString.append(getSubClassKey());
-		}
-		else
-		{
-			aString.append(getKeyName());
-		}
-
-		aString = aString.append(' ').append(level);
-
-		return aString.toString();
-	}
-
 	@Override
 	public PCClass clone()
 	{

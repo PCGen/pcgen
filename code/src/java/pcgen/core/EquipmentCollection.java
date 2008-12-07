@@ -74,11 +74,4 @@ interface EquipmentCollection
 	 * @param child
 	 */
 	void insertChild(PlayerCharacter aPC, Object child);
-
-	/**
-	 * Remove the i'th child.
-	 * @param aPC
-	 * @param i
-	 */
-	void removeChild(PlayerCharacter aPC, int i);
 }

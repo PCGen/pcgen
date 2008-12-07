@@ -2712,20 +2712,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Clears all child types
-	 */
-	public void clearChildTypes() {
-		d_childTypes.clear();
-	}
-
-	/**
-	 * Removes all items from this container.
-	 */
-	public void clearContainedEquipment() {
-		d_containedEquipment.clear();
-	}
-
-	/**
 	 * Description of the Method
 	 * 
 	 * @return Description of the Return Value
@@ -2799,17 +2785,6 @@ public final class Equipment extends PObject implements Serializable,
 		final Equipment e = (Equipment) o;
 
 		return getName().compareToIgnoreCase(e.getName());
-	}
-
-	/**
-	 * contains
-	 * 
-	 * @param e The equipmet to check for
-	 * 
-	 * @return true if containedEquipment contains the passed item
-	 */
-	public boolean containsContainedEquipment(final Equipment e) {
-		return d_containedEquipment.contains(e);
 	}
 
 	/**
@@ -3261,18 +3236,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Removes a child from the Equipment
-	 * 
-	 * @param aPC
-	 *            The PC carrying the item
-	 * @param childIndex
-	 *            The number of the child to remove
-	 */
-	public void removeChild(final PlayerCharacter aPC, final int childIndex) {
-		removeChild(aPC, getChild(childIndex));
-	}
-
-	/**
 	 * Description of the Method
 	 * 
 	 * @param eqMod
@@ -3647,10 +3610,6 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		return aType.toString();
-	}
-
-	boolean equalTo(final Object o) {
-		return super.equals(o);
 	}
 
 	boolean save(final BufferedWriter output) {
@@ -4076,24 +4035,6 @@ public final class Equipment extends PObject implements Serializable,
 				/ currSA.getBonusTo(aPC, "ITEMWEIGHT", typeList(), 1.0);
 
 		return getBaseWeight().multiply(new BigDecimal(mult));
-	}
-
-	/**
-	 * Checks whether the proposed type is one that is accepted
-	 * 
-	 * @param aString
-	 *            Description of the Parameter
-	 * @return The acceptsTypes value
-	 */
-	private boolean acceptsType(final String aString) {
-		for (Capacity cap : getSafeListFor(ListKey.CAPACITY))
-		{
-			if (cap.getType().equalsIgnoreCase(aString))
-			{
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**

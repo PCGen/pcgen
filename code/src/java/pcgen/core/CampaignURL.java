@@ -48,13 +48,13 @@ public class CampaignURL implements Comparable<CampaignURL>
 	}
 
 	/** The kind of url */
-	private URLKind urlKind;
+	private final URLKind urlKind;
 	/** The name of the url (only for ecommerce sites) */
-	private String urlName;
+	private final String urlName;
 	/** The URL itself */
-	private URL url;
+	private final URL url;
 	/** The displayed description of the url */
-	private String urlDesc;
+	private final String urlDesc;
 	
 	/**
 	 * Instantiates a new campaign url.
@@ -82,27 +82,11 @@ public class CampaignURL implements Comparable<CampaignURL>
 	}
 
 	/**
-	 * @param urlKind the urlKind to set
-	 */
-	void setUrlKind(URLKind urlKind)
-	{
-		this.urlKind = urlKind;
-	}
-
-	/**
 	 * @return the urlName
 	 */
 	public String getUrlName()
 	{
 		return urlName;
-	}
-
-	/**
-	 * @param urlName the urlName to set
-	 */
-	void setUrlName(String urlName)
-	{
-		this.urlName = urlName;
 	}
 
 	/**
@@ -114,27 +98,11 @@ public class CampaignURL implements Comparable<CampaignURL>
 	}
 
 	/**
-	 * @param url the url to set
-	 */
-	void setUrl(URL url)
-	{
-		this.url = url;
-	}
-
-	/**
 	 * @return the urlDesc
 	 */
 	public String getUrlDesc()
 	{
 		return urlDesc;
-	}
-
-	/**
-	 * @param urlDesc the urlDesc to set
-	 */
-	void setUrlDesc(String urlDesc)
-	{
-		this.urlDesc = urlDesc;
 	}
 
 	/* (non-Javadoc)

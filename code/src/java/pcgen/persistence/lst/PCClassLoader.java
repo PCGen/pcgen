@@ -509,12 +509,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-	public static String fixParameter(int aInt, final String colString)
-	{
-		return new StringBuffer().append(aInt).append("|").append(colString)
-			.toString();
-	}
-
 	public void loadSubLines(LoadContext context)
 	{
 		Collection<PCClass> allClasses = context.ref

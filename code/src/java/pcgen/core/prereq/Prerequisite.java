@@ -577,18 +577,6 @@ public class Prerequisite implements Cloneable
 			&& (categoryName == null || categoryName.equals(other.categoryName));
 	}
 
-	boolean deprecated = false;
-	
-	public void setDeprecated()
-	{
-		deprecated = true;
-	}
-	
-	public boolean isDeprecated()
-	{
-		return deprecated;
-	}
-
 	/**
 	 * Checks if a character is required to test this prerequisite.
 	 * 

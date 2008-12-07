@@ -617,59 +617,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Returns true if the PC has a bonus that is currently applied
-	 * @param aPC
-	 * @param anObj
-	 * @return true if the PC has a bonus that is currently applied
-	 */
-	public boolean passesPreApplied(final PlayerCharacter aPC, final PObject anObj)
-	{
-		if (!aPC.getUseTempMods())
-		{
-			return false;
-		}
-
-		// If anObj is null, use this objects tempBonusList
-		if (anObj == null)
-		{
-			for (BonusObj aBonus : getTempBonusList())
-			{
-				final Object abT = aBonus.getTargetObject();
-
-				if (abT instanceof PlayerCharacter)
-				{
-					final PlayerCharacter bPC = (PlayerCharacter) abT;
-
-					if (aBonus.isApplied() && (bPC == aPC))
-					{
-						return true;
-					}
-				}
-			}
-
-			return false;
-		}
-
-		// else use the anObj's tempBonusList
-		for (BonusObj aBonus : anObj.getTempBonusList())
-		{
-			final Object abT = aBonus.getTargetObject();
-
-			if (abT instanceof Equipment)
-			{
-				final Equipment aTarget = (Equipment) abT;
-
-				if (aBonus.isApplied() && aTarget.equals(anObj))
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Remove all abilities gained via a level
 	 * @param aLevel
 	 */

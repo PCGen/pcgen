@@ -40,7 +40,6 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -502,39 +501,6 @@ public final class Globals
 		}
 		return Collections.unmodifiableList(companionModMap.get(cList));
 	}
-	
-	/**
-	 * Get companion modifier.
-	 * @param aString
-	 * @return companion mod
-	 */
-	public static CompanionMod getCompanionMod(final String aString)
-	{
-		if (aString.length() <= 0)
-		{
-			return null;
-		}
-
-		StringTokenizer aTok = new StringTokenizer(aString.substring(9), "=", false);
-		final String classes = aTok.nextToken();
-		final int level = Integer.parseInt(aTok.nextToken());
-		for ( CompanionMod cMod : getAllCompanionMods() )
-		{
-			aTok = new StringTokenizer(classes, ",", false);
-
-			while (aTok.hasMoreTokens())
-			{
-				final String cString = aTok.nextToken();
-
-				if (cMod.getLevel(cString) == level)
-				{
-					return cMod;
-				}
-			}
-		}
-
-		return null;
-	}
 
 	/**
 	 * Gets a <tt>Collection</tt> of all <tt>CompanionMod</tt>s registered in
@@ -794,11 +760,6 @@ public final class Globals
 	 * @param aKey The key of the Ability to remove
 	 * @return true or false
 	 */
-	public static boolean removeAbilityKeyed( final AbilityCategory aCategory, final String aKey )
-	{
-		return abilityStore.removeKeyed(aCategory.getKeyName(), aKey);
-	}
-
 	// TODO - Remove this version
 	public static boolean removeAbilityKeyed( final String aCategory, final String aKey )
 	{
@@ -949,28 +910,6 @@ public final class Globals
 		return getPObjectsOfType(abilityList, aType);
 	}
 
-	public static Collection<String> getAbilityTypes(final AbilityCategory aCategory, final boolean visibleOnly)
-	{
-		final Set<String> typeList = new TreeSet<String>();
-		for ( final Categorisable c : getUnmodifiableAbilityList(aCategory.getKeyName()) )
-		{
-			Ability ability = null;
-			if ( c instanceof Ability )
-			{
-				ability = (Ability)c;
-			}
-			else if ( c instanceof AbilityInfo )
-			{
-				ability = ((AbilityInfo)c).getAbility();
-			}
-			for (Type t : ability.getTrueTypeList(visibleOnly))
-			{
-				typeList.add(t.toString());
-			}
-		}
-		return Collections.unmodifiableSet(typeList);
-	}
-	
 	/**
 	 * Get game mode AC abbreviation
 	 * @return game mode AC abbreviation
@@ -2320,19 +2259,6 @@ public final class Globals
 		return aList;
 	}
 	
-	/**
-	 * Sort Pcgen Object list by key
-	 * 
-	 * @param aList The list to be sorted.
-	 * @return Sorted list of Pcgen Objects
-	 */
-	public static <T extends PObject> List<T> sortPObjectListByKey(final List<T> aList)
-	{
-		Collections.sort(aList, pObjectStringComp);
-
-		return aList;
-	}
-	
 	static String getBonusFeatString() {
 		return SettingsHandler.getGame().getBonusFeatLevels().get(0);
 	}
@@ -2548,29 +2474,6 @@ public final class Globals
 			return aDamage;
 		}
 		return adjustDamage(aDamage, sizeInt(sBaseSize), sizeInt(sNewSize));
-	}
-
-	/**
-	 * Efficiently search for a PObject in a list with a particular key. The list
-	 * must be sorted by key, otherwise the search may fail find entries in the list.
-	 *   
-	 * @param aList The list to be searched, must be sorted by key.
-	 * @param keyName The key to be found.
-	 * @return The object found, or null if not found. 
-	 */
-	static <T extends PObject> T binarySearchPObject(final List<T> aList, final String keyName)
-	{
-		if ((keyName == null) || (keyName.length() <= 0))
-		{
-			return null;
-		}
-
-		int index = Collections.binarySearch(aList, keyName, pObjectStringComp);
-		if ( index >= 0 )
-		{
-			return aList.get(index);
-		}
-		return null;
 	}
 
 	static double calcEncumberedMove(final Load load, final double moveInt, final boolean checkLoad)

@@ -323,25 +323,6 @@ public class EquipmentList {
 	}
 
 	/**
-	 * Return an equipment object from the passed-in list matching the passed-in
-	 * name.
-	 *
-	 * @param name
-	 *          the name to match
-	 * @param aList
-	 *          the list to search in
-	 * @return the Equipment object matching the name
-	 */
-	public static Equipment getEquipmentNamed(final String name, final List<Equipment> aList) {
-		for ( Equipment eq : aList )
-		{
-			if (eq.getName().equalsIgnoreCase(name)) { return eq; }
-		}
-
-		return null;
-	}
-
-	/**
 	 * Get an Equipment object from the list matching the passed-in type(s).
 	 *
 	 * @param eqIterator
@@ -582,23 +563,6 @@ public class EquipmentList {
 				}
 			}
 		}
-	}
-
-	static EquipmentModifier getQualifiedModifierNamed(final String aName, final List<String> aType) {
-		for (EquipmentModifier aEqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
-		{
-			if (aEqMod.getDisplayName().equals(aName)) {
-				if (aEqMod.isType("All")) { return aEqMod; }
-
-				for (Iterator<String> e2 = aType.iterator(); e2.hasNext();) {
-					final String t = e2.next();
-
-					if (aEqMod.isType(t)) { return aEqMod; }
-				}
-			}
-		}
-
-		return null;
 	}
 
 	private static EquipmentModifier getModifierNamed(final String aName) {

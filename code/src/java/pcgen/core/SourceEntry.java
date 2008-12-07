@@ -67,23 +67,6 @@ public class SourceEntry implements Cloneable
 	}
 	
 	/**
-	 * Constructs a new <tt>SourceEntry</tt> from the specified <tt>Map</tt>
-	 * 
-	 * <p>The Map should contain key values for the fields and the data for the
-	 * values.
-	 * 
-	 * @param aSourceMap A Map of source format - source value pairs.
-	 * 
-	 * @throws ParseException If an invalid date is specified.
-	 */
-	public SourceEntry( final Map<String, String> aSourceMap ) 
-		throws ParseException
-	{
-		theSourceBook = Source.getSource( aSourceMap );
-		thePageNumber = aSourceMap.get( SourceFormat.PAGE );
-	}
-	
-	/**
 	 * Takes a <tt>Map</tt> of source type tags and values and sets the values
 	 * of the <tt>SourceEntry</tt> from it.
 	 * 

@@ -226,32 +226,12 @@ public class Movement
 	}
 
 	/**
-	 * Get a movement type at a particular index
-	 * @param x
-	 * @return a movement type
-	 */
-	public String getMovementTypeAt(int x)
-	{
-		return movementTypes[x];
-	}
-
-	/**
 	 * Get the movement types
 	 * @return the movement types
 	 */
 	public String[] getMovementTypes()
 	{
 		return movementTypes.clone();
-	}
-
-	/**
-	 * Get the movement at index x
-	 * @param x
-	 * @return the movement at index x
-	 */
-	public double getMovementAt(int x)
-	{
-		return movements[x].doubleValue();
 	}
 
 	/**
@@ -337,31 +317,6 @@ public class Movement
 			}
 		}
 		return movelabel.toString();
-	}
-
-	/**
-	 * Converts this Movement object into a format suitable for storage in an
-	 * LST or equivalent file. This method should be the complement of the
-	 * static getMovementFrom() method.
-	 *
-	 * @return a String in LST/PCC file format, suitable for persistent storage
-	 */
-	public String toLSTString()
-	{
-		StringBuilder txt = new StringBuilder();
-		txt.append("\tMOVE");
-		switch (moveRatesFlag)
-		{
-			case 2: // MOVECLONE:
-				txt.append("CLONE");
-				break;
-
-			default: // MOVE:
-				break;
-		}
-		txt.append(':');
-		addTokenContents(txt);
-		return txt.toString();
 	}
 
 	public void addTokenContents(StringBuilder txt)

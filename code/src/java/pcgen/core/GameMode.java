@@ -75,7 +75,6 @@ public final class GameMode implements Comparable<Object>
 	private Map<String, Map<String, LevelInfo>> levelInfo = new HashMap<String, Map<String, LevelInfo>>();
 	private List<String> loadStrings = new ArrayList<String>();
 	private List<String> skillMultiplierLevels = new ArrayList<String>();
-	private List<String> wcStepsList = new ArrayList<String>();
 	private List<WieldCategory> wieldCategoryList = new ArrayList<WieldCategory>();
 	private Map<String, List<String>> ACTypeAddMap = new HashMap<String, List<String>>();
 	private Map<String, List<String>> ACTypeRemoveMap = new HashMap<String, List<String>>();
@@ -1321,23 +1320,6 @@ public final class GameMode implements Comparable<Object>
 		wieldCategoryList.add(wCat);
 	}
 
-	/**
-	 * The "steps" up or down in the Wield Category chain
-	 * @param aLine
-	 **/
-	public void addWieldCategorySteps(final String aLine)
-	{
-		wcStepsList.clear();
-
-		final StringTokenizer aTok = new StringTokenizer(aLine, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aName = aTok.nextToken();
-			wcStepsList.add(aName);
-		}
-	}
-
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)
@@ -2076,17 +2058,6 @@ public final class GameMode implements Comparable<Object>
 	public String getAddWithMetamagicMessage()
 	{
 		return addWithMetamagic;
-	}
-
-	/**
-	 * Add to the bonus spell map
-	 * @param level
-	 * @param baseStatScore
-	 * @param statRange
-	 */
-	public void addToBonusSpellMap(final String level, final String baseStatScore, final String statRange)
-	{
-		bonusSpellMap.put(level, baseStatScore + '|' + statRange);
 	}
 
 	/**
@@ -2954,16 +2925,6 @@ public final class GameMode implements Comparable<Object>
 	
 	/**
 	 */
-	public void setSkillTabColumnVisible(final int columnIndex, final boolean bVisible)
-	{
-		if ((columnIndex >= 0) && (columnIndex < skillTabColumnVisible.length))
-		{
-			skillTabColumnVisible[columnIndex] = bVisible;
-		}
-	}
-
-	/**
-	 */
 	public boolean getSkillTabColumnVisible(final int columnIndex)
 	{
 		if ((columnIndex >= 0) && (columnIndex < skillTabColumnVisible.length))
@@ -3064,18 +3025,6 @@ public final class GameMode implements Comparable<Object>
 	public List<String> getUnmodifiableBonusStackList()
 	{
 		return Collections.unmodifiableList(bonusStackList);
-	}
-
-	/**
-	 * Checks if a bonus type should stack for this game mode.
-	 * 
-	 * @param aBonusType The bonus type
-	 * 
-	 * @return <tt>true</tt> if bonuses of this type stack.
-	 */
-	public boolean bonusStacks( final String aBonusType )
-	{
-		return bonusStackList.indexOf(aBonusType) != -1; // e.g. Dodge
 	}
 
 	/**

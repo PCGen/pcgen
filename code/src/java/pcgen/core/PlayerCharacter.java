@@ -3488,15 +3488,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Clear temp bonus filters
-	 * 
-	 */
-	public void clearTempBonusFilters()
-	{
-		tempBonusFilters.clear();
-	}
-
-	/**
 	 * set temp bonus filter
 	 * 
 	 * @param aBonusStr
@@ -4217,17 +4208,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	/**
 	 * Cache the output index of an automatic equipment item.
-	 * @param key The key of the equipment item.
-	 * @param index The output index.
-	 */
-	public void cacheOutputIndex(String key, int index)
-	{
-		Logging.debugPrint("Caching " + key + " - " + index + " direct");
-		autoEquipOutputOrderCache.put(key, index);
-	}
-
-	/**
-	 * Cache the output index of an automatic equipment item.
 	 * @param item The equipment item.
 	 */
 	public void cacheOutputIndex(Equipment item)
@@ -4617,16 +4597,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return iSize;
-	}
-
-	/**
-	 * @param aBonus
-	 *            This will be used when I expand the functionality of the
-	 *            TempBonus tab. Please leave -- JSC 08/08/03
-	 */
-	public void removeActiveBonus(final BonusObj aBonus)
-	{
-		activeBonusList.remove(aBonus);
 	}
 
 	public void removeEquipment(final Equipment eq)
@@ -5954,14 +5924,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			Constants.FEAT_CATEGORY, featName, Ability.Nature.ANY);
 	}
 
-	public Ability getFeatNamed(final String featName,
-		final Ability.Nature featType)
-	{
-		return AbilityUtilities.getAbilityFromList(AbilityUtilities
-			.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this),
-			Constants.FEAT_CATEGORY, featName, featType);
-	}
-
 	/**
 	 * Searches the characters feats for an Ability object which is a clone of
 	 * the same Base ability as the Ability passed in
@@ -6666,22 +6628,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * caster level.
 	 * 
 	 * @param spellType
-	 *            The type of spellcaster (i.e. "ARCANE" or "Divine")
-	 * @param minLevel
-	 *            The desired caster level
-	 * @return boolean
-	 */
-	public boolean isSpellCaster(final String spellType, final int minLevel)
-	{
-		return isSpellCaster(spellType, minLevel, false) > 0;
-	}
-
-	/**
-	 * Method will go through the list of classes that the player character has
-	 * and see if they are a spell caster of the desired type and of the desired
-	 * caster level.
-	 * 
-	 * @param spellType
 	 *            The type of spellcaster (i.e. "Arcane" or "Divine")
 	 * @param minLevel
 	 *            The desired caster level
@@ -6732,20 +6678,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return runningTotal >= minLevel ? 1 : 0;
 		}
 		return classTotal;
-	}
-
-	public boolean isSpellCastermax(final int maxLevel)
-	{
-		for (PCClass pcClass : classList)
-		{
-			if (pcClass.get(StringKey.SPELLTYPE) != null
-				&& (pcClass.getLevel() <= maxLevel))
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	public void getSpellList()
@@ -6906,34 +6838,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Computes the Caster Level for a Class
-	 * 
-	 * @param aClass
-	 * @return class caster level
-	 */
-	public int getClassCasterLevel(final PCClass aClass)
-	{
-		final int casterLevel =
-				getVariableValue("CASTERLEVEL", "CLASS:" + aClass.getKeyName())
-					.intValue();
-		return casterLevel;
-	}
-
-	/**
-	 * Computes the Caster Level for a race
-	 * 
-	 * @param aRace
-	 * @return race caster level
-	 */
-	public int getRaceCasterLevel(final Race aRace)
-	{
-		final int casterLevel =
-				getVariableValue("CASTERLEVEL", "RACE:" + aRace.getKeyName())
-					.intValue();
-		return casterLevel;
-	}
-
-	/**
 	 * Calculates total bonus from all stats
 	 * 
 	 * @param aType
@@ -6946,61 +6850,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				statList.getBonusListOfType(aType.toUpperCase(), aName
 					.toUpperCase());
 		return calcBonusFromList(aList);
-	}
-
-	/**
-	 * return bonus from Temporary Bonuses
-	 * 
-	 * @param aType
-	 * @param aName
-	 * @return temp bonus to
-	 */
-	public double getTempBonusTo(String aType, String aName)
-	{
-		double bonus = 0;
-
-		if (!getUseTempMods())
-		{
-			return bonus;
-		}
-
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		for (BonusObj bonusObj : getTempBonusList())
-		{
-			final String bString = bonusObj.toString();
-
-			if ((bString.indexOf(aType) < 0) || (bString.indexOf(aName) < 0))
-			{
-				continue;
-			}
-
-			final Object tarObj = bonusObj.getTargetObject();
-			final Object creObj = bonusObj.getCreatorObject();
-
-			if ((creObj == null) || (tarObj == null))
-			{
-				continue;
-			}
-
-			if (!(creObj instanceof CDOMObject)
-				|| !(tarObj instanceof PlayerCharacter))
-			{
-				continue;
-			}
-
-			final PlayerCharacter bPC = (PlayerCharacter) tarObj;
-
-			if (bPC != this)
-			{
-				continue;
-			}
-
-			bonus += bonusObj.resolve(this, "").doubleValue();
-		}
-
-		return bonus;
 	}
 
 	/**
@@ -11184,20 +11033,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param featType
 	 *            String category of feat to list.
-	 * @return List of Feats.
-	 */
-	public List<String> getAvailableFeatNames(final String featType)
-	{
-		return (getAvailableFeatNames(featType, false));
-	}
-
-	/**
-	 * Returns the list of names of available feats of given type. That is, all
-	 * feats from the global list, which match the given featType, the character
-	 * qualifies for, and the character does not already have.
-	 * 
-	 * @param featType
-	 *            String category of feat to list.
 	 * @param autoQualify
 	 *            assume PC qualifies for feat. Used for virtual feats
 	 * @return List of Feats.
@@ -11380,31 +11215,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * return the index of CharacterDomain matching domainName else return -1
-	 * 
-	 * @param domainKey
-	 * @return character domain index
-	 * @deprecated 10/21/06 thpr as part of PCClass rebuilding
-	 */
-	@Deprecated
-	public int getCharacterDomainIndex(final String domainKey)
-	{
-		for (int i = 0; i < characterDomainList.size(); ++i)
-		{
-			final CharacterDomain aCD = characterDomainList.get(i);
-			final Domain aDomain = aCD.getDomain();
-
-			if ((aDomain != null)
-				&& aDomain.getKeyName().equalsIgnoreCase(domainKey))
-			{
-				return i;
-			}
-		}
-
-		return -1;
 	}
 
 	public void addFreeLanguage(final Language aLang)
@@ -13216,179 +13026,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * returns the level of the highest spell in a given spellbook Yes, divine
-	 * casters can have a "spellbook"
-	 * 
-	 * @param aString
-	 * @return spell levels in book
-	 */
-	int countSpellLevelsInBook(final String aString)
-	{
-		int levelNum = 0;
-
-		final StringTokenizer aTok = new StringTokenizer(aString, ".");
-		final int classNum = Integer.parseInt(aTok.nextToken());
-		final int sbookNum = Integer.parseInt(aTok.nextToken());
-
-		String bookName = Globals.getDefaultSpellBook();
-
-		if (sbookNum > 0)
-		{
-			bookName = getSpellBooks().get(sbookNum);
-		}
-
-		final PObject aObject = getSpellClassAtIndex(classNum);
-
-		if (aObject != null)
-		{
-			for (levelNum = 0; levelNum >= 0; ++levelNum)
-			{
-				final List<CharacterSpell> aList =
-						getCharacterSpells(aObject, null, bookName, levelNum);
-
-				if (aList.size() < 1)
-				{
-					break;
-				}
-			}
-		}
-
-		return levelNum;
-	}
-
-	/**
-	 * returns the number of spells based on class, level and spellbook
-	 * 
-	 * @param aString
-	 * @return int
-	 */
-	int countSpellListBook(final String aString)
-	{
-		final int dot = aString.lastIndexOf('.');
-		int spellCount = 0;
-
-		if (dot < 0)
-		{
-			for (PCClass pcClass : classList)
-			{
-				spellCount += getAssocCount(pcClass, AssociationListKey.CHARACTER_SPELLS);
-			}
-		}
-		else
-		{
-			final int classNum = Integer.parseInt(aString.substring(17, dot));
-			final int levelNum =
-					Integer.parseInt(aString.substring(dot + 1, aString
-						.length() - 1));
-
-			final PObject aObject = getSpellClassAtIndex(classNum);
-
-			if (aObject != null)
-			{
-				final List<CharacterSpell> aList =
-						getCharacterSpells(aObject, null, Globals.getDefaultSpellBook(), levelNum);
-				spellCount = aList.size();
-			}
-		}
-
-		return spellCount;
-	}
-
-	/**
-	 * returns the number of times a spell is memorised Tag looks like:
-	 * (SPELLTIMES%class&period;%book&period;%level&period;%spell) aString looks
-	 * like: SPELLTIMES2&period;-1&period;4&period;15
-	 * 
-	 * where &period; is a full stop (or period if you are from USA ;p)
-	 * 
-	 * heavily stolen from replaceTokenSpellMem in ExportHandler.java
-	 * 
-	 * @param aString
-	 * @return spell times
-	 */
-	int countSpellTimes(final String aString)
-	{
-		boolean found = false;
-		final StringTokenizer aTok =
-				new StringTokenizer(aString.substring(10), ".");
-		final int classNum = Integer.parseInt(aTok.nextToken());
-		final int bookNum = Integer.parseInt(aTok.nextToken());
-		final int spellLevel = Integer.parseInt(aTok.nextToken());
-		final int spellNumber = Integer.parseInt(aTok.nextToken());
-
-		final PObject aObject = getSpellClassAtIndex(classNum);
-		String bookName = Globals.getDefaultSpellBook();
-
-		if (bookNum > 0)
-		{
-			bookName = getSpellBooks().get(bookNum);
-		}
-
-		if ((aObject != null) || (classNum == -1))
-		{
-			if (classNum == -1)
-			{
-				bookName = Globals.getDefaultSpellBook();
-			}
-
-			if (!"".equals(bookName))
-			{
-				SpellInfo si = null;
-
-				if (classNum == -1)
-				{
-					final List<CharacterSpell> charSpellList =
-							new ArrayList<CharacterSpell>();
-
-					for (PCClass pcClass : getClassList())
-					{
-						final List<CharacterSpell> bList =
-								getCharacterSpells(
-									pcClass, null, bookName, -1);
-
-						for (CharacterSpell cs : bList)
-						{
-							if (!charSpellList.contains(cs))
-							{
-								charSpellList.add(cs);
-							}
-						}
-					}
-
-					Collections.sort(charSpellList);
-
-					if (spellNumber < charSpellList.size())
-					{
-						final CharacterSpell cs =
-								charSpellList.get(spellNumber);
-						si = cs.getSpellInfoFor(bookName, -1, -1);
-						found = true;
-					}
-				}
-				else if (aObject != null)
-				{
-					final List<CharacterSpell> charSpells =
-							getCharacterSpells(aObject, null, bookName, spellLevel);
-
-					if (spellNumber < charSpells.size())
-					{
-						final CharacterSpell cs = charSpells.get(spellNumber);
-						si = cs.getSpellInfoFor(bookName, spellLevel, -1);
-						found = true;
-					}
-				}
-
-				if (found && (si != null))
-				{
-					return si.getTimes();
-				}
-			}
-		}
-
-		return 0;
-	}
-
-	/**
 	 * Counts the number of spells inside a spellbook Yes, divine casters can
 	 * have a "spellbook"
 	 * 
@@ -14892,17 +14529,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	/**
-	 * Remove the string for the characteristic
-	 * 
-	 * @param key
-	 * @return string removed
-	 */
-	public String removeStringFor(StringKey key)
-	{
-		return stringChar.remove(key);
-	}
-
 	private Float getEquippedQty(EquipSet eSet, Equipment eqI)
 	{
 		final String rPath = eSet.getIdPath();
@@ -15011,105 +14637,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return Constants.EMPTY_STRING;
-	}
-
-	/**
-	 * Returns a list of String locations the sepcified Equipment can be
-	 * equipped to.
-	 * 
-	 * @param eqSet
-	 * @param eqI
-	 * @param containers
-	 * @return
-	 */
-	public List<String> getEquippableLocations(EquipSet eqSet, Equipment eqI,
-		List<String> containers)
-	{
-		// Some Equipment locations are based on the number of hands
-		int hands = getHands();
-
-		List<String> aList = new ArrayList<String>();
-
-		if (eqI.isWeapon())
-		{
-			if (eqI.isUnarmed())
-			{
-				aList.add(Constants.S_UNARMED);
-			}
-			else if (eqI.isShield())
-			{
-				aList.add(Constants.S_SHIELD);
-			}
-			else if (eqI.isWeaponOutsizedForPC(this))
-			{
-				// do nothing for outsized weapons
-			}
-			else
-			{
-				if (eqI.isWeaponOneHanded(this))
-				{
-					aList = getWeaponLocationChoices(hands, Constants.S_BOTH);
-				}
-				else
-				{
-					aList.add(Constants.S_BOTH);
-				}
-
-				if (eqI.isMelee() && eqI.isDouble())
-				{
-					aList.add(Constants.S_DOUBLE);
-				}
-			}
-		}
-		else
-		{
-			String locName = getSingleLocation(eqI);
-
-			if (locName.length() != 0)
-			{
-				aList.add(locName);
-			}
-			else
-			{
-				aList.add(Constants.S_EQUIPPED);
-			}
-		}
-
-		if (!eqI.isUnarmed())
-		{
-			aList.add(Constants.S_CARRIED);
-			aList.add(Constants.S_NOTCARRIED);
-		}
-
-		//
-		// Generate a list of containers
-		//
-		if (containers != null)
-		{
-			if (eqSet != null)
-			{
-				final String idPath = eqSet.getIdPath();
-
-				// process all EquipSet Items
-				for (EquipSet es : getEquipSet())
-				{
-					String esID =
-							es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
-					String abID = idPath + EquipSet.PATH_SEPARATOR;
-
-					if (esID.startsWith(abID))
-					{
-						Equipment eq = es.getItem();
-						if ((eq != null) && eq.isContainer())
-						{
-							containers.add(eq.getName());
-						}
-					}
-				}
-			}
-		}
-
-		return aList;
 	}
 
 	/**
@@ -15844,17 +15371,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		theAbilities.put(aCategory, Ability.Nature.NORMAL, null);
 	}
 
-	public int getNumberOfRealAbilities(final AbilityCategory aCategory)
-	{
-		final List<Ability> abilities =
-				theAbilities.get(aCategory, Ability.Nature.NORMAL);
-		if (abilities == null)
-		{
-			return 0;
-		}
-		return abilities.size();
-	}
-
 	public HashMap<Ability.Nature, Set<Ability>> getAbilitiesSet()
 	{
 
@@ -16000,23 +15516,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return null;
-	}
-
-	/**
-	 * Returns the Feat definition searching by name, as contained in the <b>
-	 * chosen</b> feat list.
-	 * 
-	 * @param featName
-	 *            String key of the feat to check for.
-	 * 
-	 * @return the Feat (not the CharacterFeat) searched for, <code>null</code>
-	 *         if not found.
-	 */
-
-	public Ability getRealFeatNamed(final String featName)
-	{
-		return AbilityUtilities.getAbilityFromList(realAbilities
-			.get(AbilityCategory.FEAT), "FEAT", featName, Ability.Nature.ANY);
 	}
 
 	/**
@@ -16247,17 +15746,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void setAbilities(final AbilityCategory aCategory, final double arg)
-	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			setFeats(arg);
-			return;
-		}
-
-		// TODO: What about other types of ability pools?
-	}
-
 	public void setUserPoolBonus(final AbilityCategory aCategory,
 		final BigDecimal anAmount)
 	{
@@ -16485,16 +15973,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return BigDecimal.valueOf(spent);
 	}
 
-	public double getUsedAbilityCount(final AbilityCategory aCategory)
-	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return getUsedFeatCount();
-		}
-
-		return getAbilityPoolSpent(aCategory).doubleValue();
-	}
-
 	private void setVirtualFeatsStable(final boolean stable)
 	{
 		virtualFeatsStable = stable;
@@ -16588,27 +16066,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(),
 			"FEAT", aKey, Ability.Nature.ANY);
 
-	}
-
-	// TODO - Consolidate the various getXXXAbility functions to take a ability
-	// type parameter.
-	public Ability getVirtualAbilityKeyed(final AbilityCategory aCategory,
-		final String aKey)
-	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return getVirtualFeatKeyed(aKey);
-		}
-
-		final List<Ability> abilities = getVirtualAbilityList(aCategory);
-		for (final Ability ability : abilities)
-		{
-			if (ability.getKeyName().equals(aKey))
-			{
-				return ability;
-			}
-		}
-		return null;
 	}
 
 	public int addAbility(final PCLevelInfo LevelInfo,
@@ -16900,11 +16357,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return ret;
-	}
-
-	boolean isAutomaticAbilitiesStable(final AbilityCategory aCategory)
-	{
-		return theAbilities.get(aCategory, Ability.Nature.AUTOMATIC) != null;
 	}
 
 	public List<Ability> getVirtualFeatList()

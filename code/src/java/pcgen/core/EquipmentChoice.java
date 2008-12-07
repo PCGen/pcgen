@@ -57,6 +57,9 @@ public final class EquipmentChoice
 	private int maxValue = 0;
 	private int incValue = 1;
 	private int maxSelect = 0;
+	/*
+	 * CONSIDER This is never read, which is probably a bug - thpr Dec 6, 2008
+	 */
 	private int pool = 0;
 	private String title = null;
 

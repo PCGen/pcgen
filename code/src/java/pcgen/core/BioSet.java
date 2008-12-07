@@ -218,21 +218,6 @@ public final class BioSet extends PObject
 	}
 
 	/**
-	 * Add the supplied line to the race map. The race map contains an array
-	 * with an entry for each age set. The supplied index is used to ensure
-	 * that the value is placed in the correct age bracket.
-	 *
-	 * @param region The region the race is defined in.
-	 * @param race The race to be updated.
-	 * @param tag The tag to be entered. Must be in the form key:value
-	 * @param ageSetIndex The age set to be updated.
-	 */
-	public void addToRaceMap(final String region, final String race, final String tag, final int ageSetIndex)
-	{
-		addToMap(raceMap, region, race, tag, ageSetIndex);
-	}
-
-	/**
 	 * Add the supplied line to the user map. The user map contains an array with
 	 * an entry for each age set. The supplied index is used to ensure that the
 	 * value is placed in the correct age bracket.
@@ -243,11 +228,6 @@ public final class BioSet extends PObject
 	 * @param ageSetIndex The age set to be updated.
 	 */
 	public void addToUserMap(final String region, final String race, final String tag, final int ageSetIndex)
-	{
-		addToMap(userMap, region, race, tag, ageSetIndex);
-	}
-
-	private static void addToMap(final Map<String, List<String>> map, final String region, final String race, final String tag, final int ageSetIndex)
 	{
 		final int x = tag.indexOf(':');
 
@@ -260,7 +240,7 @@ public final class BioSet extends PObject
 
 		final String key = region + "." + race + "." + tag.substring(0, x);
 		final String value = tag.substring(x + 1);
-		List<String> r = map.get(key);
+		List<String> r = userMap.get(key);
 
 		if (r == null)
 		{
@@ -273,7 +253,7 @@ public final class BioSet extends PObject
 		}
 
 		r.set(ageSetIndex, value);
-		map.put(key, r);
+		userMap.put(key, r);
 	}
 
 	/**

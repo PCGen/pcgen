@@ -57,14 +57,6 @@ public final class SpellInfo
 	private int actualSpellPointCost = 0;
 	private int numPages = 0;
 
-	/**
-	 * added package-private constructor to enforce usage of public constructor
-	 */
-	SpellInfo()
-	{
-		// Empty Constructor
-	}
-
 	SpellInfo(final CharacterSpell owner, final int actualLevel,
 			final int times, final String book)
 	{
