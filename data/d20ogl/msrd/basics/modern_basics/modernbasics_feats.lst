@@ -185,7 +185,7 @@ Exotic Melee Weapon Proficiency.MOD	DESC:.CLEAR		DESC:Choose one exotic melee we
 Far Shot.MOD				DESC:.CLEAR		DESC:When the character uses a firearm or archaic ranged weapon, its range increment increases by one-half (multiply by 1.5). When the character throws a weapon, its range increment is doubled
 Focused.MOD					DESC:.CLEAR		DESC:The character gets get a +2 bonus on all Balance checks and Concentration checks
 Force Stop.MOD				DESC:.CLEAR		DESC:When the character at-tempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled side-ways skid
-Frightful Presence.MOD			DESC:.CLEAR		DESC:When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC %)|FrightfulPresenceDC
+Frightful Presence.MOD			DESC:.CLEAR		DESC:When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC %1)|FrightfulPresenceDC
 Gearhead.MOD				DESC:.CLEAR		DESC:The character gets a +2 bonus on all Computer Use checks and Repair checks
 Great Cleave.MOD				DESC:.CLEAR		DESC:As Cleave, except that the character has no limit to the number of times he or she can use it per round
 Great Fortitude.MOD			DESC:.CLEAR		DESC:The character gets a +2 bonus on all Fortitude saving throws
@@ -195,7 +195,7 @@ Improved Brawl.MOD			DESC:.CLEAR		DESC:When making an unarmed attack, the charac
 Improved Bull Rush.MOD			DESC:.CLEAR		DESC:When the character performs a bull rush, the character does not provoke an attack of opportunity from the defender
 Improved Combat Martial Arts.MOD	DESC:.CLEAR		DESC:The character's threat range on an unarmed strike im-proves to 19-20
 Improved Combat Throw.MOD		DESC:.CLEAR		DESC:In melee combat, if an opponent attacks and misses the character, the character may immediately make a trip attack against the opponent. This counts as an attack of opportunity, which the character can make even if he or she is unarmed
-Improved Damage Threshold.MOD		DESC:.CLEAR		DESC:The character increases his or her massive damage threshold by % points|DamageThreshold
+Improved Damage Threshold.MOD		DESC:.CLEAR		DESC:The character increases his or her massive damage threshold by %1 points|DamageThreshold
 Improved Disarm.MOD			DESC:.CLEAR		DESC:The character does not provoke an attack of opportunity when the character attempts to disarm an opponent, nor does the opponent get a chance to disarm the character
 Improved Feint.MOD			DESC:.CLEAR		DESC:The character can make a Bluff check in combat as a move action. The character receives a +2 bonus on Bluff checks made to feint in melee combat
 Improved Initiative.MOD			DESC:.CLEAR		DESC:The character gets a +4 circumstance bonus on initiative checks

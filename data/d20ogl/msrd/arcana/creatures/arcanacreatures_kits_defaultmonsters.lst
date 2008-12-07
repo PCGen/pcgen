@@ -799,8 +799,6 @@ SKILL:Spot			RANK:16
 SKILL:Tumble		RANK:24
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
 FEAT:Cleave
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
 FEAT:Multiattack
 FEAT:Power Attack
 
