@@ -36,7 +36,6 @@ import pcgen.cdom.choiceset.SpellCasterChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.rules.context.Changes;
@@ -60,37 +59,6 @@ public class SpellCasterToken extends AbstractToken implements
 	private String getFullName()
 	{
 		return getParentToken() + ":" + getTokenName();
-	}
-
-	public boolean parse(PObject target, String value, int level)
-	{
-		if (value.length() == 0)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " may not have empty argument");
-			return false;
-		}
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		String countString;
-		String items;
-		if (pipeLoc == -1)
-		{
-			countString = "1";
-			items = value;
-		}
-		else
-		{
-			if (pipeLoc != value.lastIndexOf(Constants.PIPE))
-			{
-				Logging.log(Logging.LST_ERROR, "Syntax of ADD:" + getTokenName()
-						+ " only allows one | : " + value);
-				return false;
-			}
-			countString = value.substring(0, pipeLoc);
-			items = value.substring(pipeLoc + 1);
-		}
-		target.addAddList(level, getTokenName() + "(" + items + ")"
-				+ countString);
-		return true;
 	}
 
 	@Override
