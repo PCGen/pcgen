@@ -25,20 +25,29 @@
 
 package plugin.lsttokens.kit.gear;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.core.Equipment;
 import pcgen.core.kit.KitGear;
-import pcgen.persistence.lst.KitGearLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
  * GEAR Token for KitGear
  */
-public class GearToken implements KitGearLstToken
+public class GearToken extends AbstractToken implements
+		CDOMSecondaryToken<KitGear>
 {
+	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "GEAR";
@@ -59,4 +68,38 @@ public class GearToken implements KitGearLstToken
 			.errorPrint("Ignoring second GEAR tag \"" + value + "\" in Kit.");
 		return false;
 	}
+
+	public Class<KitGear> getTokenClass()
+	{
+		return KitGear.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitGear kitGear, String value)
+	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		CDOMReference<Equipment> ref =
+				TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS,
+					value);
+		kitGear.setEquipment(ref);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitGear kitGear)
+	{
+		CDOMReference<Equipment> ref = kitGear.getEquipment();
+		if (ref == null)
+		{
+			return null;
+		}
+		return new String[]{ref.getLSTformat()};
+	}
+
 }

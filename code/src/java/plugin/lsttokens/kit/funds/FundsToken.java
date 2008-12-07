@@ -26,28 +26,51 @@
 package plugin.lsttokens.kit.funds;
 
 import pcgen.core.kit.KitFunds;
-import pcgen.persistence.lst.KitFundsLstToken;
-import pcgen.util.Logging;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * FUNDS Token for KitFunds
  */
-public class FundsToken implements KitFundsLstToken
+public class FundsToken extends AbstractToken implements
+		CDOMSecondaryToken<KitFunds>
 {
-	public boolean parse(KitFunds kitFunds, String value)
-	{
-		Logging.errorPrint("Ignoring second FUNDS tag \"" + value
-			+ "\" in Kit.");
-		return false;
-	}
 
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "FUNDS";
+	}
+
+	public Class<KitFunds> getTokenClass()
+	{
+		return KitFunds.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitFunds kitFunds, String value)
+	{
+		kitFunds.setName(value);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitFunds kitFunds)
+	{
+		String bd = kitFunds.getName();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
 	}
 }

@@ -25,36 +25,53 @@
 
 package plugin.lsttokens.kit.spells;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitSpells;
-import pcgen.persistence.lst.KitSpellsLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * COUNT Token for KitSpells
  */
-public class CountToken implements KitSpellsLstToken
+public class CountToken extends AbstractToken implements
+		CDOMSecondaryToken<KitSpells>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "COUNT";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kitSpells
-	 *            KitSpells
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitSpells kitSpells, String value)
+	public Class<KitSpells> getTokenClass()
 	{
-		kitSpells.setCountFormula(value);
+		return KitSpells.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitSpells kitSpells, String value)
+	{
+		kitSpells.setCount(FormulaFactory.getFormulaFor(value));
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitSpells kitSpells)
+	{
+		Formula bd = kitSpells.getCount();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
 	}
 }

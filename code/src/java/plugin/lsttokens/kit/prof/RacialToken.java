@@ -26,15 +26,21 @@
 package plugin.lsttokens.kit.prof;
 
 import pcgen.core.kit.KitProf;
-import pcgen.persistence.lst.KitProfLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.util.Logging;
 
-public class RacialToken implements KitProfLstToken
+public class RacialToken extends AbstractToken implements
+		CDOMSecondaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "RACIAL";
@@ -53,5 +59,57 @@ public class RacialToken implements KitProfLstToken
 	{
 		kitProf.setRacialProf(value.startsWith("Y"));
 		return true;
+	}
+
+	public Class<KitProf> getTokenClass()
+	{
+		return KitProf.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitProf obj, String value)
+		throws PersistenceLayerException
+	{
+		Boolean set;
+		char firstChar = value.charAt(0);
+		if (firstChar == 'y' || firstChar == 'Y')
+		{
+			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
+			{
+				Logging.errorPrint("You should use 'YES' as the "
+					+ getTokenName() + ": " + value);
+				return false;
+			}
+			set = Boolean.TRUE;
+		}
+		else
+		{
+			if (firstChar != 'N' && firstChar != 'n')
+			{
+				if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+				{
+					Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+					return false;
+				}
+			}
+			set = Boolean.FALSE;
+		}
+		obj.setRacialProf(set);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitProf obj)
+	{
+		Boolean mult = obj.getRacialProf();
+		if (mult == null)
+		{
+			return null;
+		}
+		return new String[]{mult.booleanValue() ? "YES" : "NO"};
 	}
 }

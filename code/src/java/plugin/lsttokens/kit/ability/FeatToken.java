@@ -25,29 +25,109 @@
 
 package plugin.lsttokens.kit.ability;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.kit.KitAbilities;
-import pcgen.persistence.lst.KitAbilityLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
- * FEAT Token for KitAbility
+ * FEAT Token for KitAbilities
  */
-public class FeatToken implements KitAbilityLstToken
+public class FeatToken extends AbstractToken implements
+		CDOMSecondaryToken<KitAbilities>
 {
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "FEAT";
 	}
 
-	public boolean parse(KitAbilities kitAbility, String value)
+	public Class<KitAbilities> getTokenClass()
 	{
-		Logging.errorPrint("Ignoring second FEAT or ABILITY tag \"" + value
-			+ "\" in Kit.");
-		return false;
+		return KitAbilities.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
+	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
+
+		StringTokenizer st = new StringTokenizer(value, "|");
+
+		AbilityCategory ac = AbilityCategory.FEAT;
+		kitAbil.setCategory(ac);
+
+		//		String categoryToken = st.nextToken();
+		//		if (token.startsWith(CATEGORY_START_TOKEN))
+		//		{
+		//			return token.substring(CATEGORY_START_TOKEN.length());
+		//		}
+		//		Logging.errorPrint("No Category set for Ability");
+
+		while (st.hasMoreTokens())
+		{
+			String token = st.nextToken();
+
+			if (token.startsWith("CATEGORY="))
+			{
+				Logging.errorPrint(
+					"Attempting to change the Category of a Feat to '" + token
+						+ "'", new Throwable());
+				return false;
+			}
+			CDOMReference<Ability> ref =
+					TokenUtilities.getTypeOrPrimitive(context, ABILITY_CLASS,
+						ac, token);
+			if (ref == null)
+			{
+				return false;
+			}
+			List<String> choices = null;
+			if (token.indexOf('(') != -1)
+			{
+				choices = new ArrayList<String>();
+				AbilityUtilities.getUndecoratedName(token, choices);
+			}
+			kitAbil.addAbility(ref, choices);
+		}
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitAbilities KitAbilities)
+	{
+		Collection<CDOMReference<Ability>> ref = KitAbilities.getAbilityKeys();
+		if (ref == null)
+		{
+			return null;
+		}
+		return new String[]{ReferenceUtilities.joinLstFormat(ref,
+			Constants.PIPE)};
 	}
 }

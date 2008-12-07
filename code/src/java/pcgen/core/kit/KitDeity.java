@@ -22,29 +22,33 @@
  */
 package pcgen.core.kit;
 
-import pcgen.core.*;
-import pcgen.core.analysis.DomainApplication;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.gui.CharacterInfo;
-import pcgen.gui.PCGen_Frame1;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.DomainApplication;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.gui.CharacterInfo;
+import pcgen.gui.PCGen_Frame1;
+
 /**
  * Deal with Dieties via Kits
  */
-public class KitDeity extends BaseKit implements Serializable, Cloneable
+public class KitDeity extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
+	private CDOMSingleRef<Deity> theDeityRef;
+	private Formula choiceCount;
 
-	private String theDeityKey = null;
-	private String countFormula = "";
-	private List<String> theDomains = null;
+	private List<CDOMSingleRef<Domain>> theDomains = null;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -52,41 +56,23 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	private transient List<Domain> domainsToAdd = null;
 
 	/**
-	 * Constructor
-	 * @param aDeityName
-	 */
-	public KitDeity(final String aDeityKey)
-	{
-		theDeityKey = aDeityKey;
-	}
-
-	/**
-	 * Get the deityName
-	 * @return the deityName
-	 */
-	public String getDeityKey()
-	{
-		return theDeityKey;
-	}
-
-	/**
 	 * Add the domain
-	 * @param aDomainName
+	 * @param ref
 	 */
-	public void addDomain(final String aDomainName)
+	public void addDomain(final CDOMSingleRef<Domain> ref)
 	{
 		if (theDomains == null)
 		{
-			theDomains = new ArrayList<String>(3);
+			theDomains = new ArrayList<CDOMSingleRef<Domain>>(3);
 		}
-		theDomains.add(aDomainName);
+		theDomains.add(ref);
 	}
 
 	/**
 	 * Get domains
 	 * @return list of domains
 	 */
-	public List<String> getDomains()
+	public List<CDOMSingleRef<Domain>> getDomains()
 	{
 		if (theDomains == null)
 		{
@@ -96,40 +82,23 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		return Collections.unmodifiableList(theDomains);
 	}
 
-	/**
-	 * Set the COUNT formula
-	 * @param argCountFormula
-	 */
-	public void setCountFormula(final String argCountFormula)
-	{
-		countFormula = argCountFormula;
-	}
-
-	/**
-	 * Get the COUNT formula
-	 * @return COUNT formula
-	 */
-	public String getCountFormula()
-	{
-		return countFormula;
-	}
-
 	@Override
 	public String toString()
 	{
 		StringBuffer buf = new StringBuffer();
 
-		buf.append(theDeityKey);
+		buf.append(theDeityRef.getLSTformat());
 
 		if (theDomains != null && theDomains.size() > 0)
 		{
 			buf.append(" (");
-			if (countFormula.length() > 0)
+			if (choiceCount != null)
 			{
-				buf.append(countFormula);
+				buf.append(choiceCount.toString());
 				buf.append(" of ");
 			}
-			for (Iterator<String> i = theDomains.iterator(); i.hasNext(); )
+			for (Iterator<CDOMSingleRef<Domain>> i = theDomains.iterator(); i
+				.hasNext();)
 			{
 				buf.append(i.next());
 				if (i.hasNext())
@@ -143,32 +112,23 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		return buf.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		theDeity = null;
 		domainsToAdd = null;
-		if (theDeityKey == null)
-		{
-			return false;
-		}
 
-		theDeity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, theDeityKey);
-		if (theDeity == null)
-		{
-			warnings.add("DEITY: Could not find deity '" + getDeityKey()
-						 + "'");
-			return false;
-		}
+		theDeity = theDeityRef.resolvesTo();
+
 		if (!aPC.canSelectDeity(theDeity))
 		{
-			warnings.add("DEITY: Cannot select deity \"" + theDeity.getDisplayName() +
-						 "\"");
+			warnings.add("DEITY: Cannot select deity \""
+				+ theDeity.getDisplayName() + "\"");
 			return false;
 		}
 		aPC.setDeity(theDeity);
 
-		List<String> domains = getDomains();
-		if (domains == null || domains.size() == 0)
+		if (theDomains == null || theDomains.size() == 0)
 		{
 			// nothing else to do.
 			return true;
@@ -180,24 +140,22 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 
 			return true;
 		}
-		final String choiceFormula = getCountFormula();
-		int          numberOfChoices;
-
-		if (choiceFormula.length() == 0)
+		int numberOfChoices;
+		if (choiceCount == null)
 		{
-			numberOfChoices = domains.size();
+			numberOfChoices = theDomains.size();
 		}
 		else
 		{
-			numberOfChoices = aPC.getVariableValue(choiceFormula, "").intValue();
+			numberOfChoices = choiceCount.resolve(aPC, "").intValue();
 		}
 
 		//
 		// Can't choose more entries than there are...
 		//
-		if (numberOfChoices > domains.size())
+		if (numberOfChoices > theDomains.size())
 		{
-			numberOfChoices = domains.size();
+			numberOfChoices = theDomains.size();
 		}
 
 		if (numberOfChoices == 0)
@@ -206,10 +164,10 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 			return true;
 		}
 
-		List<String> xs;
-		if (numberOfChoices == domains.size())
+		List<CDOMSingleRef<Domain>> xs;
+		if (numberOfChoices == theDomains.size())
 		{
-			xs = domains;
+			xs = theDomains;
 		}
 		else
 		{
@@ -218,11 +176,10 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 			//
 			while (true)
 			{
-				xs = Globals.getChoiceFromList(
-						"Choose Domains",
-						domains,
-						new ArrayList<String>(),
-						numberOfChoices);
+				xs =
+						Globals.getChoiceFromList("Choose Domains", theDomains,
+							new ArrayList<CDOMSingleRef<Domain>>(),
+							numberOfChoices);
 
 				if (xs.size() != 0)
 				{
@@ -233,53 +190,48 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		//
 		// Add to list of things to add to the character
 		//
-		for (Iterator<String> e = xs.iterator(); e.hasNext();)
+		for (CDOMSingleRef<Domain> ref : xs)
 		{
-			final String domainKey = e.next();
-
-			Domain domain = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
-			if (domain != null)
+			Domain domain = ref.resolvesTo();
+			if (!PrereqHandler.passesAll(domain.getPrerequisiteList(), aPC,
+				domain))
 			{
-				if (!PrereqHandler.passesAll(domain.getPrerequisiteList(), aPC, domain))
-				{
-					warnings.add("DEITY: Not qualified for domain \"" +
-								 domain.getDisplayName() + "\"");
-					continue;
-				}
-				CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
-
-				if (aCD == null)
-				{
-					aCD = aPC.getNewCharacterDomain();
-				}
-
-				if (aCD == null || (aPC.getCharacterDomainUsed() >= aPC.getMaxCharacterDomains()))
-				{
-					warnings.add("DEITY: No more allowed domains");
-
-					return false;
-				}
-
-				if (domainsToAdd == null)
-				{
-					domainsToAdd = new ArrayList<Domain>();
-				}
-				domainsToAdd.add(domain);
-
-				DomainApplication.applyDomain(aPC, domain);
-				aCD.setDomain(domain, aPC);
-				aPC.addCharacterDomain(aCD);
+				warnings.add("DEITY: Not qualified for domain \""
+					+ domain.getDisplayName() + "\"");
+				continue;
 			}
-			else
+			CharacterDomain aCD =
+					aPC.getCharacterDomainForDomain(domain.getKeyName());
+
+			if (aCD == null)
 			{
-				warnings.add("DEITY: Non-existant domain \""
-							 + domainKey + "\"");
+				aCD = aPC.getNewCharacterDomain();
 			}
+
+			if (aCD == null
+				|| (aPC.getCharacterDomainUsed() >= aPC
+					.getMaxCharacterDomains()))
+			{
+				warnings.add("DEITY: No more allowed domains");
+
+				return false;
+			}
+
+			if (domainsToAdd == null)
+			{
+				domainsToAdd = new ArrayList<Domain>();
+			}
+			domainsToAdd.add(domain);
+
+			DomainApplication.applyDomain(aPC, domain);
+			aCD.setDomain(domain, aPC);
+			aPC.addCharacterDomain(aCD);
 		}
 		aPC.calcActiveBonuses();
 		return true;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		if (theDeity == null)
@@ -292,9 +244,10 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		{
 			return;
 		}
-		for ( Domain domain : domainsToAdd )
+		for (Domain domain : domainsToAdd)
 		{
-			CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
+			CharacterDomain aCD =
+					aPC.getCharacterDomainForDomain(domain.getKeyName());
 
 			if (aCD == null)
 			{
@@ -321,13 +274,28 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	}
 
 	@Override
-	public KitDeity clone()
-	{
-		return (KitDeity) super.clone();
-	}
-
 	public String getObjectName()
 	{
 		return "Deity";
+	}
+
+	public void setCount(Formula formula)
+	{
+		choiceCount = formula;
+	}
+
+	public Formula getCount()
+	{
+		return choiceCount;
+	}
+
+	public void setDeity(CDOMSingleRef<Deity> ref)
+	{
+		theDeityRef = ref;
+	}
+
+	public CDOMSingleRef<Deity> getDeityRef()
+	{
+		return theDeityRef;
 	}
 }

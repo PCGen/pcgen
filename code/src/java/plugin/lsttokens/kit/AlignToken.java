@@ -44,11 +44,14 @@ import pcgen.util.Logging;
 public class AlignToken extends AbstractToken implements
 		CDOMSecondaryToken<KitAlignment>
 {
+	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "ALIGN";
@@ -78,7 +81,7 @@ public class AlignToken extends AbstractToken implements
 		{
 			String tokText = tok.nextToken();
 			PCAlignment ref = context.ref.getAbbreviatedObject(
-						PCAlignment.class, tokText);
+						ALIGNMENT_CLASS, tokText);
 			if (ref == null)
 			{
 				Logging.addParseMessage(Logging.LST_ERROR,

@@ -25,27 +25,54 @@
 
 package plugin.lsttokens.kit.clazz;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitClass;
-import pcgen.persistence.lst.KitClassLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * LevelToken (a component of Kits)
  */
-public class LevelToken implements KitClassLstToken
+public class LevelToken extends AbstractToken implements
+		CDOMSecondaryToken<KitClass>
 {
-	public boolean parse(KitClass kitClass, String value)
-	{
-		kitClass.setLevel(value);
-		return true;
-	}
 
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "LEVEL";
+	}
+
+	public Class<KitClass> getTokenClass()
+	{
+		return KitClass.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitClass kitClass, String value)
+	{
+		kitClass.setLevel(FormulaFactory.getFormulaFor(value));
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitClass kitClass)
+	{
+		Formula f = kitClass.getLevel();
+		if (f == null)
+		{
+			return null;
+		}
+		return new String[]{f.toString()};
 	}
 }

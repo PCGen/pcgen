@@ -26,6 +26,7 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Campaign;
 import pcgen.core.WeaponProf;
@@ -118,6 +119,7 @@ public abstract class LoadContext
 		getObjectContext().setSourceURI(sourceURI);
 		ref.setSourceURI(sourceURI);
 		getListContext().setSourceURI(sourceURI);
+		clearStatefulInformation();
 	}
 
 	/*
@@ -168,7 +170,7 @@ public abstract class LoadContext
 
 	private <T extends CDOMObject> void processRes(DeferredToken<T> token)
 	{
-		Class<T> cl = token.getTokenClass();
+		Class<T> cl = token.getDeferredTokenClass();
 		Collection<? extends ReferenceManufacturer> mfgs = ref
 				.getAllManufacturers();
 		for (ReferenceManufacturer<? extends T, ?> rm : mfgs)
@@ -318,5 +320,36 @@ public abstract class LoadContext
 	public URI getPathURI(String value)
 	{
 		return CampaignSourceEntry.getPathURI(sourceURI, value);
+	}
+
+	CDOMObject stateful;
+
+	public void clearStatefulInformation()
+	{
+		stateful = null;
+	}
+
+	public boolean addStatefulToken(String s) throws PersistenceLayerException
+	{
+		int colonLoc = s.indexOf(':');
+		if (colonLoc == -1)
+		{
+			//TODO error
+			return false;
+		}
+		if (stateful == null)
+		{
+			stateful = new ObjectCache();
+		}
+		return processToken(stateful, s.substring(0, colonLoc), s
+			.substring(colonLoc + 1));
+	}
+
+	public void addStatefulInformation(CDOMObject target)
+	{
+		if (stateful != null)
+		{
+			stateful.overlayCDOMObject(target);
+		}
 	}
 }

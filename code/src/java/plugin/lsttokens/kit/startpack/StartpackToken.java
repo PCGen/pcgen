@@ -26,37 +26,47 @@
 package plugin.lsttokens.kit.startpack;
 
 import pcgen.core.Kit;
-import pcgen.persistence.lst.KitStartpackLstToken;
-import pcgen.util.Logging;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * STARTPACK token for Kit Startpack
  */
-public class StartpackToken implements KitStartpackLstToken
+public class StartpackToken extends AbstractToken implements
+		CDOMSecondaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "STARTPACK";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kit
-	 *            Kit
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(Kit kit, String value)
+	public String getParentToken()
 	{
-		Logging.errorPrint("Ignoring second STARTPACK tag \"" + value
-			+ "\" in Kit.");
-		return false;
+		return "*KITTOKEN";
 	}
+
+	public Class<Kit> getTokenClass()
+	{
+		return Kit.class;
+	}
+
+	public boolean parse(LoadContext context, Kit kit, String value)
+		throws PersistenceLayerException
+	{
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, Kit obj)
+	{
+		return new String[]{obj.getDisplayName()};
+	}
+
 }

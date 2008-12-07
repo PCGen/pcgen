@@ -25,58 +25,65 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
-import pcgen.core.Kit;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.core.kit.KitBio;
-import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.KitLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * GENDER token for Kits
  */
-public class GenderToken extends KitLstToken
+public class GenderToken extends AbstractToken implements
+		CDOMSecondaryToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "GENDER";
 	}
 
-	/**
-	 * Handles the GENDER tag for a Kit. Also can accept a NAME tag on the same
-	 * line for historical reasons.
-	 * 
-	 * @param aKit
-	 *            the Kit object to add this information to
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
+	public Class<KitBio> getTokenClass()
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(value, SystemLoader.TAB_DELIM);
+		return KitBio.class;
+	}
 
-		KitBio kBio = new KitBio();
-		kBio.setGender(colToken.nextToken());
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
 
-		while (colToken.hasMoreTokens())
+	public boolean parse(LoadContext context, KitBio kitGender, String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			final String colString = colToken.nextToken();
-			if (colString.startsWith("NAME:"))
-			{
-				kBio.setCharacterName(colString.substring(5));
-			}
+			return false;
 		}
-		aKit.addObject(kBio);
-
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		while (st.hasMoreTokens())
+		{
+			kitGender.addGender(Gender.valueOf(st.nextToken()));
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitBio kitGender)
+	{
+		Collection<Gender> genders = kitGender.getGenders();
+		if (genders == null)
+		{
+			return null;
+		}
+		return new String[]{StringUtil.join(genders, Constants.PIPE)};
 	}
 }

@@ -25,31 +25,59 @@
 
 package plugin.lsttokens.kit.clazz;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCClass;
 import pcgen.core.kit.KitClass;
-import pcgen.persistence.lst.KitClassLstToken;
-import pcgen.util.Logging;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * CLASS token for KitClass
  */
-public class ClassToken implements KitClassLstToken
+public class ClassToken extends AbstractToken implements
+		CDOMSecondaryToken<KitClass>
 {
 
-	public boolean parse(KitClass kitClass, String value)
-	{
-		Logging.errorPrint("Ignoring second CLASS tag \"" + value
-			+ "\" in Kit.");
-		return false;
-	}
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "CLASS";
 	}
 
+	public Class<KitClass> getTokenClass()
+	{
+		return KitClass.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitClass kitClass, String value)
+	{
+		CDOMSingleRef<PCClass> ref =
+				context.ref.getCDOMReference(PCCLASS_CLASS, value);
+		kitClass.setPcclass(ref);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitClass kitClass)
+	{
+		CDOMReference<PCClass> ref = kitClass.getPcclass();
+		if (ref == null)
+		{
+			return null;
+		}
+		return new String[]{ref.getLSTformat()};
+	}
 }

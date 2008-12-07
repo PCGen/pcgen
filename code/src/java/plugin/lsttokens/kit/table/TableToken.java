@@ -25,38 +25,81 @@
 
 package plugin.lsttokens.kit.table;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Kit;
-import pcgen.persistence.lst.KitTableLstToken;
+import pcgen.core.kit.BaseKit;
+import pcgen.core.kit.KitTable;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
  * TABLE token for KitTable
  */
-public class TableToken implements KitTableLstToken
+public class TableToken extends AbstractToken implements
+		CDOMSecondaryToken<KitTable>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "TABLE";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kit
-	 *            Kit
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(Kit kit, final String tableName, String value)
+	public Class<KitTable> getTokenClass()
 	{
-		Logging.errorPrint("Ignoring second TABLE tag \"" + value
-			+ "\" in Kit.");
-		return false;
+		return KitTable.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitTable kitTable, String value)
+	{
+		kitTable.setTableName(value);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitTable kitTable)
+	{
+		String bd = kitTable.getTableName();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
+	}
+
+	public boolean process(LoadContext context, Kit obj)
+	{
+		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
+		{
+			if (bk instanceof KitTable)
+			{
+				obj.removeFromListFor(ListKey.KIT_TASKS, bk);
+				KitTable kt = obj.addTable((KitTable) bk);
+				if (kt != null)
+				{
+					Logging.errorPrint("Kit Table: " + kt.getTableName()
+						+ " in Kit " + obj.getKeyName() + " was a duplicate, "
+						+ "Kit had more than one table with that name.");
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	public Class<Kit> getDeferredTokenClass()
+	{
+		return Kit.class;
 	}
 }

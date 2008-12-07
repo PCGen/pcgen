@@ -22,11 +22,12 @@
  */
 package pcgen.core.kit;
 
-import pcgen.core.PCClass;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import pcgen.core.PCClass;
+import pcgen.core.spell.Spell;
 
 /**
  * Deals with a SpellBook Entry for Kits
@@ -36,7 +37,7 @@ public class KitSpellBookEntry
 	// TODO This variable is never used
 	private String className;
 	private String bookName;
-	private String theName = null;
+	private Spell spell;
 	private List<String> theModifierList = null;
 	private int theCount = 1;
 
@@ -50,11 +51,11 @@ public class KitSpellBookEntry
 	 * @param modifiers
 	 */
 	public KitSpellBookEntry(final String aClassName, final String aBookName,
-							 final String aName, final List<String> modifiers)
+							 final Spell sp, final List<String> modifiers)
 	{
 		className = aClassName;
 		bookName = aBookName;
-		theName = aName;
+		spell = sp;
 		if (modifiers != null && modifiers.size() > 0)
 		{
 			theModifierList = new ArrayList<String>();
@@ -81,12 +82,12 @@ public class KitSpellBookEntry
 	}
 
 	/**
-	 * Get the name
-	 * @return name
+	 * Get the spell
+	 * @return spell
 	 */
-	public String getName()
+	public Spell getSpell()
 	{
-		return theName;
+		return spell;
 	}
 
 	/**
@@ -113,16 +114,6 @@ public class KitSpellBookEntry
 	}
 
 	/**
-	 * Add copies
-	 * @param numCopies
-	 * @return the updated number of copies
-	 */
-	public int addCopies(final int numCopies)
-	{
-		return theCount += numCopies;
-	}
-
-	/**
 	 * Set the PC Class
 	 * @param aClass
 	 */
@@ -145,6 +136,6 @@ public class KitSpellBookEntry
 	@Override
 	public String toString()
 	{
-		return theName;
+		return spell.getDisplayName();
 	}
 }

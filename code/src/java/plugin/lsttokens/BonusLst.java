@@ -149,4 +149,9 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		}
 		return returnValue;
 	}
+
+	public Class<CDOMObject> getDeferredTokenClass()
+	{
+		return CDOMObject.class;
+	}
 }

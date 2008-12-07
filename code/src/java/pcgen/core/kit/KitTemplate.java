@@ -22,54 +22,53 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.StringTokenizer;
 
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Kit;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Kit;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Globals;
 
 /**
  * Deals with applying a Template via a Kit
  */
-public class KitTemplate extends BaseKit implements Serializable, Cloneable
+public class KitTemplate extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private String templateStr = null;
+	private HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
+			new HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List<PCTemplate> theTemplates = new ArrayList<PCTemplate>();
-
-	/**
-	 * Constructor
-	 * @param aTemplate
-	 */
-	public KitTemplate(final String aTemplate)
-	{
-		templateStr = aTemplate;
-	}
+	private transient HashMapToList<PCTemplate, PCTemplate> selectedMap =
+			new HashMapToList<PCTemplate, PCTemplate>();
 
 	/**
 	 * Actually applies the templates to this PC.
 	 *
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 
-		for ( PCTemplate template : theTemplates )
+		for (PCTemplate template : selectedMap.getKeySet())
 		{
-			Collection<PCTemplate> added = aPC.getTemplatesAdded(template);
+			List<PCTemplate> added = selectedMap.getListFor(template);
+			if (added != null)
+			{
+				for (PCTemplate subtemplate : added)
+				{
+					aPC.setTemplatesAdded(template, subtemplate);
+				}
+			}
 			aPC.addTemplate(template, added == null || added.size() == 0);
 		}
 
@@ -83,79 +82,55 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 	 * @param aKit Kit
 	 * @param warnings List
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		if (templateStr == null)
-		{
-			return false;
-		}
-
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 
-
-		final StringTokenizer aTok = new StringTokenizer(templateStr, "|");
-		while (aTok.hasMoreTokens())
+		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
 		{
-			final String template = aTok.nextToken();
-
-			final StringTokenizer subTok = new StringTokenizer(template, "[]");
-			PCTemplate templateToAdd = null;
-			while (subTok.hasMoreTokens())
+			PCTemplate templateToAdd;
+			try
 			{
-				String subStr = subTok.nextToken();
-				if (subStr.startsWith("TEMPLATE:"))
-				{
-					final String ownedTemplateName = subStr.substring(9);
-					PCTemplate ownedTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, ownedTemplateName);
-					if (ownedTemplate != null)
-					{
-						aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
-					}
-					else
-					{
-						if (warnings != null)
-						{
-							warnings.add(
-								"TEMPLATE: Could not add owned template \""
-								+ ownedTemplateName + "\"");
-						}
-					}
-				}
-				else
-				{
-					PCTemplate potentialTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCTemplate.class, subStr);
-					if (potentialTemplate != null)
-					{
-						try
-						{
-							templateToAdd = potentialTemplate.
-								clone();
-						}
-						catch (CloneNotSupportedException notUsed)
-						{
-							// Should never happen
-						}
-					}
-					else
-					{
-						if (warnings != null)
-						{
-							warnings.add("TEMPLATE: Could not add template \""
-										 + template + "\"");
-						}
-					}
-				}
-
+				templateToAdd = ref.resolvesTo().clone();
 			}
+			catch (CloneNotSupportedException e)
+			{
+				throw new UnreachableError("PCTemplate must support clone");
+			}
+			List<CDOMSingleRef<PCTemplate>> subList =
+					templateList.getListFor(ref);
+			List<PCTemplate> subAdded = new ArrayList<PCTemplate>();
+			if (subList != null)
+			{
+				for (CDOMSingleRef<PCTemplate> subRef : subList)
+				{
+					PCTemplate ownedTemplate;
+					try
+					{
+						ownedTemplate = subRef.resolvesTo().clone();
+					}
+					catch (CloneNotSupportedException e)
+					{
+						throw new UnreachableError(
+							"PCTemplate must support clone");
+					}
+					subAdded.add(ownedTemplate);
+					aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
+				}
+			}
+
 			Collection<PCTemplate> added = aPC.getTemplatesAdded(templateToAdd);
 			aPC.addTemplate(templateToAdd, added == null || added.size() == 0);
-			theTemplates.add(templateToAdd);
+			selectedMap.initializeListFor(templateToAdd);
+			selectedMap.addAllToListFor(templateToAdd, subAdded);
 		}
 
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 
-		if (theTemplates.size() > 0)
+		if (selectedMap.size() > 0)
 		{
 			return true;
 		}
@@ -163,11 +138,6 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 	}
 
 	@Override
-	public KitTemplate clone()
-	{
-		return (KitTemplate) super.clone();
-	}
-
 	public String getObjectName()
 	{
 		return "Templates";
@@ -176,6 +146,40 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 	@Override
 	public String toString()
 	{
-		return templateStr.replaceAll("\\|", ", ");
+		StringBuilder sb = new StringBuilder();
+		boolean needsPipe = false;
+		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
+		{
+			if (needsPipe)
+			{
+				sb.append(Constants.PIPE);
+			}
+			needsPipe = true;
+			sb.append(ref.getLSTformat());
+			List<CDOMSingleRef<PCTemplate>> subList =
+					templateList.getListFor(ref);
+			if (subList != null)
+			{
+				for (CDOMSingleRef<PCTemplate> subref : subList)
+				{
+					sb.append("[TEMPLATE:");
+					sb.append(subref.getLSTformat());
+					sb.append(']');
+				}
+			}
+		}
+		return sb.toString();
+	}
+
+	public void addTemplate(CDOMSingleRef<PCTemplate> ref,
+		List<CDOMSingleRef<PCTemplate>> subList)
+	{
+		templateList.initializeListFor(ref);
+		templateList.addAllToListFor(ref, subList);
+	}
+
+	public Collection<CDOMSingleRef<PCTemplate>> getTemplates()
+	{
+		return templateList.getKeySet();
 	}
 }

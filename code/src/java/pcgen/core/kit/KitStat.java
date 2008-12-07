@@ -22,10 +22,14 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
@@ -39,100 +43,80 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  *
  * @author boomer70
  */
-public class KitStat extends BaseKit implements Serializable, Cloneable
+public class KitStat extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
+	private Map<PCStat, Formula> statMap = new HashMap<PCStat, Formula>();
 
-	private String theStatName = null;
-	private String theStatValue = "";
-
-	private transient PCStat theStat = null;
-
-	/**
-	 * Constructor
-	 * @param aStatName
-	 * @param aStatValue
-	 */
-	public KitStat(final String aStatName, final String aStatValue)
-	{
-		theStatName = aStatName;
-		theStatValue = aStatValue;
-	}
-
-	/**
-	 * Get the name of the stat
-	 * @return the name of the stat
-	 */
-	public String getStatName()
-	{
-		return theStatName;
-	}
+	private transient List<PCStat> theStat;
 
 	@Override
 	public String toString()
 	{
-		StringBuffer ret = new StringBuffer(100);
-		ret.append(theStatName).append("=").append(theStatValue);
-		return ret.toString();
+		StringBuilder sb = new StringBuilder(100);
+		boolean needsPipe = false;
+		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
+		{
+			if (needsPipe)
+			{
+				sb.append(Constants.PIPE);
+			}
+			needsPipe = true;
+			sb.append(me.getKey().getAbb()).append('=').append(me.getValue());
+		}
+		return sb.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		boolean foundStat = false;
-		int sVal = aPC.getVariableValue(theStatValue,"").intValue();
-
-		final StatList statList = aPC.getStatList();
-		for ( int i = 0; i < statList.size(); i++ )
+		theStat = new ArrayList<PCStat>();
+		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
 		{
-			final PCStat currentStat = statList.getStatAt(i);
-			if ( !aPC.isNonAbility(i) &&
-				 currentStat.getAbb().equals(getStatName()) )
+			int sVal = me.getValue().resolve(aPC, "").intValue();
+			final StatList statList = aPC.getStatList();
+			for (int i = 0; i < statList.size(); i++)
 			{
-				currentStat.setBaseScore(sVal);
-				theStat = currentStat.clone();
-				foundStat = true;
-				if ("INT".equals(currentStat.getAbb()))
+				final PCStat currentStat = statList.getStatAt(i);
+				if (!aPC.isNonAbility(i)
+					&& currentStat.getAbb().equals(me.getKey().getAbb()))
 				{
-					recalculateSkillPoints(aPC);
+					currentStat.setBaseScore(sVal);
+					theStat.add(currentStat.clone());
+					if ("INT".equals(currentStat.getAbb()))
+					{
+						recalculateSkillPoints(aPC);
+					}
+					break;
 				}
-				break;
 			}
 		}
-
-		if (!foundStat && warnings != null)
-		{
-			warnings.add("STAT: Could not find stat \"" + getStatName()
-						 + "\"");
-		}
-
-		return false;
+		return true;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		// Non abilities will be null, so skip those.
-		if (theStat == null)
-		{
-			return;
-		}
-
 		final StatList aStatList = aPC.getStatList();
 		for (Iterator<PCStat> stat = aStatList.iterator(); stat.hasNext();)
 		{
 			final PCStat currentStat = stat.next();
-			if (currentStat.getAbb().equals(theStat.getAbb()))
+			for (PCStat setStat : theStat)
 			{
-				currentStat.setBaseScore(theStat.getBaseScore());
-				if ("INT".equals(currentStat.getAbb()))
+				if (currentStat.getAbb().equals(setStat.getAbb()))
 				{
-					recalculateSkillPoints(aPC);
+					currentStat.setBaseScore(setStat.getBaseScore());
+					if ("INT".equals(currentStat.getAbb()))
+					{
+						recalculateSkillPoints(aPC);
+					}
+					break;
 				}
-				break;
 			}
 		}
 	}
 
+	@Override
 	public String getObjectName()
 	{
 		return "Stats";
@@ -145,10 +129,11 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 		if (classes != null && classes.size() != 0)
 		{
 			aPC.setSkillPoints(0);
-			for ( PCClass pcClass : classes )
+			for (PCClass pcClass : classes)
 			{
 				pcClass.setSkillPool(0);
-				if (aPC.getLevelInfoSize() > 0 && pcClass.getSafe(ObjectKey.MOD_TO_SKILLS))
+				if (aPC.getLevelInfoSize() > 0
+					&& pcClass.getSafe(ObjectKey.MOD_TO_SKILLS))
 				{
 					final List<PCLevelInfo> pclList = aPC.getLevelInfo();
 					for (int j = 0; j < pclList.size(); j++)
@@ -156,12 +141,12 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 						final PCLevelInfo pcl = pclList.get(j);
 						if (pcl.getClassKeyName().equals(pcClass.getKeyName()))
 						{
-							final int spMod = pcClass.recalcSkillPointMod(aPC,
-								j + 1);
+							final int spMod =
+									pcClass.recalcSkillPointMod(aPC, j + 1);
 
 							pcl.setSkillPointsGained(spMod);
 							pcl.setSkillPointsRemaining(pcl
-									.getSkillPointsGained());
+								.getSkillPointsGained());
 							pcClass.setSkillPool(pcClass.skillPool() + spMod);
 
 							aPC.setSkillPoints(spMod + aPC.getSkillPoints());
@@ -169,6 +154,14 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 					}
 				}
 			}
+		}
+	}
+
+	public void addStat(PCStat stat, Formula statValue)
+	{
+		if (statMap.put(stat, statValue) != null)
+		{
+			throw new IllegalArgumentException("Cannot redefine stat: " + stat);
 		}
 	}
 }

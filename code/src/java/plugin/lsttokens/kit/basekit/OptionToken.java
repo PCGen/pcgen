@@ -27,16 +27,22 @@ package plugin.lsttokens.kit.basekit;
 
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.BaseKit;
-import pcgen.persistence.lst.BaseKitLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
-public class OptionToken implements BaseKitLstToken
+public class OptionToken extends AbstractToken implements
+		CDOMSecondaryToken<BaseKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "OPTION";
@@ -60,8 +66,63 @@ public class OptionToken implements BaseKitLstToken
 			{
 				lowVal = highVal = val;
 			}
-			baseKit.addOptionRange(lowVal, highVal);
+			Formula min = FormulaFactory.getFormulaFor(lowVal);
+			Formula max = FormulaFactory.getFormulaFor(highVal);
+			baseKit.setOptionBounds(min, max);
 		}
 		return true;
+	}
+
+	public Class<BaseKit> getTokenClass()
+	{
+		return BaseKit.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, BaseKit kit, String value)
+	{
+		int commaLoc = value.indexOf(',');
+		String minString;
+		String maxString;
+		if (commaLoc == -1)
+		{
+			minString = value;
+			maxString = value;
+		}
+		else if (commaLoc != value.lastIndexOf(','))
+		{
+			return false;
+		}
+		else
+		{
+			minString = value.substring(0, commaLoc);
+			maxString = value.substring(commaLoc + 1);
+		}
+		Formula min = FormulaFactory.getFormulaFor(minString);
+		Formula max = FormulaFactory.getFormulaFor(maxString);
+		kit.setOptionBounds(min, max);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, BaseKit kit)
+	{
+		Formula min = kit.getOptionMin();
+		Formula max = kit.getOptionMax();
+		if (min == null && max == null)
+		{
+			return null;
+		}
+		// TODO Error if only one is null
+		StringBuilder sb = new StringBuilder();
+		sb.append(min);
+		if (!min.equals(max))
+		{
+			sb.append(',').append(max);
+		}
+		return new String[]{sb.toString()};
 	}
 }

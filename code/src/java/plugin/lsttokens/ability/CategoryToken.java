@@ -83,4 +83,9 @@ public class CategoryToken implements CDOMPrimaryToken<Ability>,
 		return true;
 	}
 
+	public Class<Ability> getDeferredTokenClass()
+	{
+		return getTokenClass();
+	}
+
 }

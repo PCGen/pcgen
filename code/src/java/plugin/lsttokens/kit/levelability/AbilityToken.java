@@ -25,53 +25,111 @@
 
 package plugin.lsttokens.kit.levelability;
 
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.PCClass;
 import pcgen.core.kit.KitLevelAbility;
-import pcgen.persistence.lst.KitLevelAbilityLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with ABILITY lst token within KitLevelAbility
  */
-public class AbilityToken implements KitLevelAbilityLstToken
+public class AbilityToken extends AbstractToken implements
+		CDOMSecondaryToken<KitLevelAbility>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 *
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "ABILITY";
 	}
 
-	/**
-	 * parse
-	 *
-	 * @param kitLA
-	 *            KitLevelAbility
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitLevelAbility kitLA, String value)
+	public Class<KitLevelAbility> getTokenClass()
 	{
-		StringTokenizer pipeTok = new StringTokenizer(value, "|");
-		String ability = pipeTok.nextToken();
-		ArrayList<String> choices = new ArrayList<String>();
-		while (pipeTok.hasMoreTokens())
+		return KitLevelAbility.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitLevelAbility kitAbility,
+		String value) throws PersistenceLayerException
+	{
+		if (!value.startsWith("PROMPT:"))
 		{
-			choices.add(pipeTok.nextToken());
-		}
-		if (choices.size() < 1)
-		{
-			Logging.errorPrint("Missing choice in KitLevelAbility info \""
-				+ value + "\"");
+			Logging.errorPrint("Expected " + getTokenName()
+				+ " to start with PROMPT: " + value);
 			return false;
 		}
-		kitLA.addAbility(ability, choices);
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		String first = st.nextToken();
+		int openParenLoc = first.indexOf('(');
+		if (openParenLoc == -1)
+		{
+			Logging.errorPrint("Expected " + getTokenName() + " to have a ( : "
+				+ value);
+			return false;
+		}
+		int closeParenLoc = first.lastIndexOf(')');
+		if (openParenLoc == -1)
+		{
+			Logging.errorPrint("Expected " + getTokenName() + " to have a ) : "
+				+ value);
+			return false;
+		}
+		String key = first.substring(7, openParenLoc);
+		String choices = first.substring(openParenLoc + 1, closeParenLoc);
+		String count = "";
+		if (closeParenLoc != first.length() - 1)
+		{
+			count = first.substring(closeParenLoc + 1) + '|';
+		}
+		PCClass applied = new PCClass();
+		if (!context.processSubToken(applied, "ADD", key, count + choices))
+		{
+			return false;
+		}
+		context.commit();
+		PersistentTransitionChoice<?> ptc =
+				applied.getListFor(ListKey.ADD).get(0);
+		kitAbility.setAdd(ptc);
+		while (st.hasMoreTokens())
+		{
+			String choiceString = st.nextToken();
+			if (!choiceString.startsWith("CHOICE:"))
+			{
+				Logging.errorPrint("Expected " + getTokenName()
+					+ " choice string to start with CHOICE: " + value);
+				return false;
+			}
+			String choice = choiceString.substring(7);
+			if (ptc.decodeChoice(choice) == null)
+			{
+				Logging.errorPrint("Choice: " + choice
+					+ " is not a valid selection for ADD:" + key + '|' + count
+					+ choices);
+				return false;
+			}
+			kitAbility.addChoice(choice);
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitLevelAbility kitAbility)
+	{
+		return new String[]{"PROMPT:"};
 	}
 }

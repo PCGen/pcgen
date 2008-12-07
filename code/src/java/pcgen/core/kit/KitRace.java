@@ -22,47 +22,40 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.Globals;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.Kit;
 import pcgen.core.SettingsHandler;
 
 /**
  * Deals with apply RACE via a KIT
  */
-public class KitRace extends BaseKit implements Serializable, Cloneable
+public class KitRace extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private String raceStr = null;
-
-	// These members store the state of an instance of this class.  They are
-	// not cloned.
-	private transient Race theRace = null;
-
-	/**
-	 * Constructor
-	 * @param aRace
-	 */
-	public KitRace(final String aRace)
-	{
-		raceStr = aRace;
-	}
+	private CDOMSingleRef<Race> theRace = null;
 
 	/**
 	 * Actually applies the race to this PC.
 	 *
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		setPCRace(aPC);
+		// We want to level up as quietly as possible for kits.
+		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+		SettingsHandler.setShowHPDialogAtLevelUp(false);
+		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+		SettingsHandler.setShowFeatDialogAtLevelUp(false);
+		
+		aPC.setRace(theRace.resolvesTo());
+		
+		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
+		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
 
 	/**
@@ -72,32 +65,14 @@ public class KitRace extends BaseKit implements Serializable, Cloneable
 	 * @param aKit Kit
 	 * @param warnings List
 	 */
+	@Override
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
-		theRace = null;
-
-		if (Constants.s_NONESELECTED.equals(raceStr))
-		{
-			return false;
-		}
-		theRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, raceStr);
-
-		if (theRace == null)
-		{
-			warnings.add("RACE: Race " + raceStr + " not found.");
-			return false;
-		}
-		setPCRace(aPC);
-
+		apply(aPC);
 		return true;
 	}
 
 	@Override
-	public KitRace clone()
-	{
-		return (KitRace) super.clone();
-	}
-
 	public String getObjectName()
 	{
 		return "Race";
@@ -106,20 +81,16 @@ public class KitRace extends BaseKit implements Serializable, Cloneable
 	@Override
 	public String toString()
 	{
-		return raceStr;
+		return theRace.getLSTformat();
 	}
 
-	private void setPCRace(PlayerCharacter aPC)
+	public void setRace(CDOMSingleRef<Race> ref)
 	{
-		// We want to level up as quietly as possible for kits.
-		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
-		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		SettingsHandler.setShowFeatDialogAtLevelUp(false);
+		theRace = ref;
+	}
 
-		aPC.setRace(theRace);
-
-		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
-		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+	public CDOMReference<Race> getRace()
+	{
+		return theRace;
 	}
 }

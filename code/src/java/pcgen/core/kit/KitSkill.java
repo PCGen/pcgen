@@ -22,11 +22,23 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.core.*;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.Skill;
 import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -40,34 +52,25 @@ import pcgen.util.Logging;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class KitSkill extends BaseKit implements Serializable, Cloneable
+public final class KitSkill extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
+	private Boolean free = null;
+	private BigDecimal rank = null;
+	private List<CDOMReference<Skill>> skillList =
+			new ArrayList<CDOMReference<Skill>>();
+	private CDOMSingleRef<PCClass> className = null;
+	private Integer choiceCount;
 
-	private String skillName = "";
-	private String className = null;
-	private boolean free = false;
-	private double rank = 1.0;
-	private List<String> selection = new ArrayList<String>();
-
-	private transient List<KitWrapper> skillsToAdd = new ArrayList<KitWrapper>();
-
-	/**
-	 * Constructor.  Takes the name of the skill it will try and add.
-	 * @param argSkill The name of the skill to add.
-	 */
-	public KitSkill(final String argSkill)
-	{
-		skillName = argSkill;
-	}
+	private List<CDOMSingleRef<Language>> selection =
+			new ArrayList<CDOMSingleRef<Language>>();
+	private transient List<KitSkillAdd> skillsToAdd;
 
 	/**
 	 * Used to make purchasing ranks of this skill not come out of the skill
 	 * pool.
 	 * @param argFree <code>true</code> to make the skill ranks free.
 	 */
-	public void setFree(final boolean argFree)
+	public void setFree(Boolean argFree)
 	{
 		free = argFree;
 	}
@@ -78,93 +81,37 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 	 */
 	public boolean isFree()
 	{
-		return free;
+		return free != null && free;
 	}
 
-	/**
-	 * Sets the number of ranks to add
-	 * @param argRank String capable of being converted to a double
-	 */
-	public void setRank(final String argRank)
+	public void setRank(BigDecimal setRank)
 	{
-		try
-		{
-			rank = Double.parseDouble(argRank);
-		}
-		catch (NumberFormatException exc)
-		{
-			Logging.errorPrint("Invalid rank \"" + argRank + "\" in KitSkill.setRank");
-		}
+		rank = setRank;
 	}
 
 	/**
 	 * Get the rank of the skill
 	 * @return rank
 	 */
-	public double getRank()
+	public BigDecimal getRank()
 	{
 		return rank;
-	}
-
-	/**
-	 * Get the language selection value.
-	 * @return selection
-	 */
-	public List<String> getSelection()
-	{
-		return selection;
-	}
-
-	/**
-	 * Set the language selection.
-	 * @param selection The new selection value.
-	 */
-	public void setSelection(List<String> selection)
-	{
-		this.selection = selection;
-	}
-
-	/**
-	 * Get the name of the skill
-	 * @return name
-	 */
-	public String getSkillName()
-	{
-		return skillName;
-	}
-
-	/**
-	 * Get the name of the class of the skill
-	 * @return name of class
-	 */
-	public String getClassName()
-	{
-		return className;
-	}
-
-	/**
-	 * Set the class name of the skill
-	 * @param aClassName
-	 */
-	public void setClassName(String aClassName)
-	{
-		className = aClassName;
 	}
 
 	@Override
 	public String toString()
 	{
 		final StringBuffer info = new StringBuffer(100);
-		if (skillName.indexOf("|") != -1)
+		if (skillList.size() > 1)
 		{
 			// This is a choice of skills.
-			info.append(getChoiceCount() + " of (");
-			info.append(skillName.replaceAll("\\|", ", "));
+			info.append(getSafeCount() + " of (");
+			info.append(ReferenceUtilities.joinLstFormat(skillList, ", "));
 			info.append(")");
 		}
 		else
 		{
-			info.append(skillName);
+			info.append(skillList.get(0).getLSTformat());
 		}
 		info.append(" (").append(rank);
 
@@ -173,7 +120,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			info.setLength(info.length() - 2);
 		}
 
-		if (free)
+		if (isFree())
 		{
 			info.append("/free");
 		}
@@ -189,97 +136,93 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		return info.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		skillsToAdd = new ArrayList<KitWrapper>();
+		skillsToAdd = new ArrayList<KitSkillAdd>();
+		List<Skill> skillChoices = getSkillChoices();
 
-		String skillNameInstance = getSkillName();
-
-		if (skillNameInstance == null)
-		{
-			return false;
-		}
-
-		List<Skill> skillChoices = getSkillChoices(skillNameInstance);
-
+System.err.println("!" + skillChoices);
 		if (skillChoices == null || skillChoices.size() == 0)
 		{
 			// They didn't make a choice so don't add any ranks.
 			return false;
 		}
-		for ( Skill skill : skillChoices )
+		for (Skill skill : skillChoices)
 		{
-			if (skill == null)
+			BigDecimal ranksLeftToAdd = getRank();
+			if (ranksLeftToAdd == null)
 			{
-				warnings.add("SKILL: Non-existant skill \"" + skillNameInstance + "\"");
-
-				return false;
+				ranksLeftToAdd = BigDecimal.ONE;
 			}
-
-			double ranksLeftToAdd = getRank();
+			double ranksLeft = ranksLeftToAdd.doubleValue();
+System.err.println(skill + " " + ranksLeft);
 			List<PCClass> classList = new ArrayList<PCClass>();
-			if (getClassName() != null)
+			if (className != null)
 			{
+				String classKey = className.resolvesTo().getKeyName();
 				// Make sure if they specified a class to add from we try that
 				// class first.
-				PCClass pcClass = aPC.getClassKeyed(getClassName());
+				PCClass pcClass = aPC.getClassKeyed(classKey);
 				if (pcClass != null)
 				{
 					classList.add(pcClass);
 				}
 				else
 				{
-					warnings.add("SKILL: Could not find specified class " +
-								 getClassName() + " to add ranks from.");
+					warnings.add("SKILL: Could not find specified class "
+						+ classKey + " in PC to add ranks from.");
 				}
 			}
-			for ( PCClass pcClass : aPC.getClassList() )
+System.err.println("@" + classList);
+			for (PCClass pcClass : aPC.getClassList())
 			{
-				if (!classList.contains( pcClass ) )
+				if (!classList.contains(pcClass))
 				{
-					classList.add( pcClass );
+					classList.add(pcClass);
 				}
 			}
+System.err.println("#" + classList);
 
 			// Try and find a class we can add them from.
 			boolean oldImporting = aPC.isImporting();
 			aPC.setImporting(true);
-			for ( PCClass pcClass : classList )
+			for (PCClass pcClass : classList)
 			{
-				final KitSkillAdd sta = addRanks(aPC, pcClass, skill,
-												 ranksLeftToAdd, isFree(),
-												 warnings);
+				final KitSkillAdd sta =
+						addRanks(aPC, pcClass, skill, ranksLeft, isFree(),
+							warnings);
 				if (sta != null)
 				{
-					final KitWrapper tta = new KitWrapper(sta);
-					tta.setPObject(pcClass);
-					skillsToAdd.add(tta);
-					ranksLeftToAdd -= sta.getRanks();
-					if (ranksLeftToAdd == 0.0)
+					skillsToAdd.add(sta);
+					ranksLeft -= sta.getRanks();
+System.err.println(pcClass + " " + skill + " " + ranksLeft + " " + sta.getRanks());
+					if (ranksLeft <= 0.0)
 					{
 						break;
 					}
 				}
 			}
 			aPC.setImporting(oldImporting);
-			if (ranksLeftToAdd > 0.0)
+			if (ranksLeft > 0.0)
 			{
-				warnings.add("SKILL: Could not add " + ranksLeftToAdd
-							 + " ranks to " + skill.getKeyName()
-							 + ". Not enough points.");
+				warnings.add("SKILL: Could not add " + ranksLeft
+					+ " ranks to " + skill.getKeyName()
+					+ ". Not enough points.");
 			}
 		}
 		return true;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		/** @todo Fix this to return what panes need to be refreshed */
-		for ( KitWrapper wrapper : skillsToAdd )
+		for (KitSkillAdd ksa : skillsToAdd)
 		{
-			KitSkillAdd ksa = (KitSkillAdd)wrapper.getObject();
 			updatePCSkills(aPC, ksa.getSkill(), (int) ksa.getRanks(), ksa
-				.getCost(), ksa.getLanguages(), (PCClass) wrapper.getPObject());
+				.getCost(), ksa.getLanguages(), ksa.getPCClass());
 		}
 	}
 
@@ -296,14 +239,16 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 	 * @return <code>true</code> for success
 	 * TODO What about throwing on failure?
 	 */
-	private boolean updatePCSkills(final PlayerCharacter pc, final Skill aSkill,
-			final int aRank, final double aCost, List<Language> langList, final PCClass pcClass)
+	private boolean updatePCSkills(final PlayerCharacter pc,
+		final Skill aSkill, final int aRank, final double aCost,
+		List<Language> langList, final PCClass pcClass)
 	{
 		final Skill skill = pc.addSkill(aSkill);
 
 		boolean oldImporting = pc.isImporting();
 		pc.setImporting(true);
-		final String aString = SkillRankControl.modRanks(aRank, pcClass, true, pc, skill);
+		final String aString =
+				SkillRankControl.modRanks(aRank, pcClass, true, pc, skill);
 		pc.setImporting(oldImporting);
 
 		if (aString.length() > 0)
@@ -330,7 +275,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		double ptsToSpend = aCost;
 		if (ptsToSpend >= 0.0)
 		{
-			for ( PCLevelInfo info : pcLvlInfo )
+			for (PCLevelInfo info : pcLvlInfo)
 			{
 				if (info.getClassKeyName().equals(pcClass.getKeyName()))
 				{
@@ -340,7 +285,8 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 					{
 						continue;
 					}
-					int left = remaining - (int) Math.min(remaining, ptsToSpend);
+					int left =
+							remaining - (int) Math.min(remaining, ptsToSpend);
 					info.setSkillPointsRemaining(left);
 					ptsToSpend -= (remaining - left);
 					if (ptsToSpend <= 0)
@@ -357,36 +303,21 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		return true;
 	}
 
+	@Override
 	public String getObjectName()
 	{
 		return "Skills";
 	}
 
-	private List<Skill> getSkillChoices(final String aSkillKey)
+	private List<Skill> getSkillChoices()
 	{
 		final List<Skill> skillsOfType = new ArrayList<Skill>();
 
-		final StringTokenizer aTok = new StringTokenizer(aSkillKey,	"|");
-		while (aTok.hasMoreTokens())
+		for (CDOMReference<Skill> ref : skillList)
 		{
-			String skillKey = aTok.nextToken();
-			if (skillKey.startsWith("TYPE=") ||
-				skillKey.startsWith("TYPE."))
+			for (Skill s : ref.getContainedObjects())
 			{
-				final String skillType = skillKey.substring(5);
-
-				for ( Skill checkSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
-				{
-					if (checkSkill.isType(skillType))
-					{
-						skillsOfType.add(checkSkill);
-					}
-				}
-			}
-			else
-			{
-				Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
-				skillsOfType.add(skill);
+				skillsOfType.add(s);
 			}
 		}
 
@@ -401,14 +332,14 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 
 		List<Skill> skillChoices = new ArrayList<Skill>();
 		Globals.getChoiceFromList("Select skill", skillsOfType, skillChoices,
-								  this.getChoiceCount());
+			getSafeCount());
 
 		return skillChoices;
 	}
 
 	private KitSkillAdd addRanks(PlayerCharacter pc, PCClass pcClass,
-								 Skill aSkill, double ranksLeftToAdd,
-								 boolean isFree, List<String> warnings)
+		Skill aSkill, double ranksLeftToAdd, boolean isFree,
+		List<String> warnings)
 	{
 		if (!isFree && pcClass.getSkillPool(pc) == 0)
 		{
@@ -424,17 +355,16 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		double ranksToAdd = ranksLeftToAdd;
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && (ranksToAdd > 0.0))
 		{
-			ranksToAdd = Math.min(pc.getMaxRank(aSkill.getKeyName(),
-												pcClass).doubleValue(),
-								  curRank + ranksLeftToAdd);
+			ranksToAdd =
+					Math.min(pc.getMaxRank(aSkill.getKeyName(), pcClass)
+						.doubleValue(), curRank + ranksLeftToAdd);
 			ranksToAdd -= curRank;
 			if (ranksToAdd != ranksLeftToAdd)
 			{
-				warnings.add("SKILL: Could not add "
-							 + (ranksLeftToAdd - ranksToAdd) + " to "
-							 + aSkill.getDisplayName() + ". Excedes MAXRANK of "
-							 + pc.getMaxRank(aSkill.getDisplayName(), pcClass)
-							 + ".");
+				warnings.add("SKILL: Could not add " + (ranksLeftToAdd - ranksToAdd)
+					+ " to " + aSkill.getDisplayName()
+					+ ". Excedes MAXRANK of "
+					+ pc.getMaxRank(aSkill.getDisplayName(), pcClass) + ".");
 			}
 		}
 		int ptsToSpend = 0;
@@ -444,8 +374,8 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		{
 			double ranksAdded = 0.0;
 			int skillCost = pc.getSkillCostForClass(aSkill, pcClass).getCost();
-			ptsToSpend = (int)(ranksToAdd * skillCost);
-			for (int i = 0; i < pcLvlInfo.size(); i++ )
+			ptsToSpend = (int) (ranksToAdd * skillCost);
+			for (int i = 0; i < pcLvlInfo.size(); i++)
 			{
 				PCLevelInfo info = pcLvlInfo.get(i);
 				if (info.getClassKeyName().equals(pcClass.getKeyName()))
@@ -469,7 +399,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 				points[i] = left;
 				int spent = (remaining - left);
 				ptsToSpend -= spent;
-				ranksAdded += ((double)spent / (double) skillCost);
+				ranksAdded += ((double) spent / (double) skillCost);
 				if (ranksAdded == ranksToAdd || ptsToSpend <= 0)
 				{
 					break;
@@ -477,14 +407,17 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			}
 
 			ranksToAdd = ranksAdded;
-			ptsToSpend = (int)(ranksToAdd * skillCost);
+			ptsToSpend = (int) (ranksToAdd * skillCost);
 		}
 		final Skill skill = pc.addSkill(aSkill);
 
-		String ret = SkillRankControl.modRanks(ranksToAdd, pcClass, false, pc, skill);
+		String ret =
+				SkillRankControl
+					.modRanks(ranksToAdd, pcClass, false, pc, skill);
 		if (ret.length() > 0)
 		{
-			if (isFree && ret.indexOf("You do not have enough skill points.") != -1)
+			if (isFree
+				&& ret.indexOf("You do not have enough skill points.") != -1)
 			{
 				SkillRankControl.modRanks(ranksToAdd, pcClass, true, pc, skill);
 			}
@@ -507,13 +440,103 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 
 		}
 		List<Language> langList = new ArrayList<Language>();
-		if (SkillLanguage.isLanguage(aSkill) && selection != null
-			&& !selection.isEmpty())
+		if (SkillLanguage.isLanguage(aSkill) && !selection.isEmpty())
 		{
 			langList =
-					SkillLanguage.getLanguageList(selection, aSkill, pc,
+					KitSkill.getLanguageList(selection, aSkill, pc,
 						(int) ranksToAdd);
 		}
-		return new KitSkillAdd(aSkill, ranksToAdd, ptsToSpend, langList);
+		return new KitSkillAdd(aSkill, ranksToAdd, ptsToSpend, langList,
+			pcClass);
+	}
+
+	public Boolean getFree()
+	{
+		return free;
+	}
+
+	public void addSkill(CDOMReference<Skill> ref)
+	{
+		skillList.add(ref);
+	}
+
+	public Collection<CDOMReference<Skill>> getSkills()
+	{
+		return skillList;
+	}
+
+	public void setPcclass(CDOMSingleRef<PCClass> ref)
+	{
+		className = ref;
+	}
+
+	public CDOMReference<PCClass> getPcclass()
+	{
+		return className;
+	}
+
+	public void setCount(Integer quan)
+	{
+		choiceCount = quan;
+	}
+
+	public Integer getCount()
+	{
+		return choiceCount;
+	}
+
+	public int getSafeCount()
+	{
+		return choiceCount == null ? 1 : choiceCount;
+	}
+
+	public void addSelection(CDOMSingleRef<Language> ref)
+	{
+		selection.add(ref);
+	}
+
+	/**
+	 * Gets the list of languages from the langKeyList that are
+	 * valid to add to the character for the given skill. No more
+	 * than the specified number of languages will be returned. 
+	 * 
+	 * @param selection The list of language keys
+	 * @param skill The language skill 
+	 * @param aPC The character being processed
+	 * @param maxNumLangs The maximum number of languages to add
+	 * 
+	 * @return the language list
+	 */
+	public static List<Language> getLanguageList(
+		List<CDOMSingleRef<Language>> selection, Skill skill,
+		PlayerCharacter aPC, int maxNumLangs)
+	{
+		List<Language> selected = new ArrayList<Language>();
+		List<Language> available = new ArrayList<Language>();
+		List<Language> excludedLangs = new ArrayList<Language>();
+
+		SkillLanguage.buildLanguageListsForSkill(aPC, skill, selected,
+			available, excludedLangs);
+
+		List<Language> theLanguages = new ArrayList<Language>(maxNumLangs);
+		for (CDOMSingleRef<Language> langKey : selection)
+		{
+			Language lang = langKey.resolvesTo();
+			if (available.contains(lang))
+			{
+				theLanguages.add(lang);
+				if (theLanguages.size() >= maxNumLangs)
+				{
+					break;
+				}
+			}
+		}
+
+		return theLanguages;
+	}
+
+	public List<CDOMSingleRef<Language>> getSelections()
+	{
+		return selection;
 	}
 }

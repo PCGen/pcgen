@@ -26,26 +26,68 @@
 package plugin.lsttokens.kit.ability;
 
 import pcgen.core.kit.KitAbilities;
-import pcgen.persistence.lst.KitAbilityLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.util.Logging;
 
 /**
- * COUNT Token for KitAbility
+ * COUNT Token for KitAbilities
  */
-public class CountToken implements KitAbilityLstToken
+public class CountToken extends AbstractToken implements
+		CDOMSecondaryToken<KitAbilities>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "COUNT";
 	}
 
-	public boolean parse(KitAbilities kitAbility, String value)
+	public Class<KitAbilities> getTokenClass()
 	{
-		kitAbility.setChoiceCount(value);
-		return true;
+		return KitAbilities.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
+	{
+		try
+		{
+			Integer quan = Integer.valueOf(value);
+			if (quan.intValue() <= 0)
+			{
+				Logging.errorPrint(getTokenName() + " expected an integer > 0");
+				return false;
+			}
+			kitAbil.setCount(quan);
+			return true;
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint(getTokenName()
+				+ " expected an integer.  Tag must be of the form: "
+				+ getTokenName() + ":<int>");
+			return false;
+		}
+
+	}
+
+	public String[] unparse(LoadContext context, KitAbilities kitAbil)
+	{
+		Integer bd = kitAbil.getCount();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
 	}
 }

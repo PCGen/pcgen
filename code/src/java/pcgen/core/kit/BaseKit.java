@@ -23,107 +23,38 @@
  */
 package pcgen.core.kit;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import pcgen.base.lang.UnreachableError;
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.Logging;
 
 /**
  * Common code for the kits.
  * @author Jonas Karlson <jujutsunerd@sf.net>
  * @version $Revision$
  */
-public abstract class BaseKit extends ConcretePrereqObject implements Cloneable
+public abstract class BaseKit extends ConcretePrereqObject
 {
-	protected int choiceCount = 1;
-	private List<Range> options = new ArrayList<Range>();
-	private List<String> lookups = new ArrayList<String>();
-
-	/**
-	 * Set the number of choices (after converting to an integer.)
-	 * @param argChoiceCount the number of choices
-	 */
-	public void setChoiceCount(final String argChoiceCount)
+		
+		Formula minOption;
+		Formula maxOption;
+		
+		public void setOptionBounds(Formula min, Formula max)
 	{
-		try
-		{
-			choiceCount = Integer.parseInt(argChoiceCount);
-		}
-		catch (NumberFormatException exc)
-		{
-			Logging.errorPrint("Invalid choice count \"" + argChoiceCount + "\" in BaseKit.setChoiceCount");
-		}
+					minOption = min;
+					maxOption = max;
 	}
 
-	/**
-	 * Get the number of choices.
-	 * @return the number of choices
-	 */
-	public int getChoiceCount()
-	{
-		return choiceCount;
-	}
-
-	/**
-	 * Add the lookup to the lookups list
-	 * @param aLookup
-	 */
-	public void addLookup(final String aLookup)
-	{
-		lookups.add(aLookup);
-	}
-
-	/**
-	 * Get an unmodifiable copy of the lookups list
-	 * @return an unmodifiable copy of the lookups list
-	 */
-	public List<String> getLookups()
-	{
-		return Collections.unmodifiableList(lookups);
-	}
-
-	/**
-     * Clone this Base Kit
-     * @return cloned Base Kit 
-	 */
-    @Override
-	public BaseKit clone()
-	{
-		BaseKit aClone = null;
-		try
-		{
-			aClone = (BaseKit)super.clone();
-		}
-		catch (CloneNotSupportedException notUsed)
-		{
-			throw new UnreachableError(notUsed);
-		}
-		aClone.choiceCount = choiceCount;
-		if ( options != null )
-		{
-			aClone.options = new ArrayList<Range> (options);
-		}
-		if ( lookups != null )
-		{
-			aClone.lookups = new ArrayList<String> (lookups);
-		}
-		return aClone;
-	}
-
-	/**
-	 * Add range to the options
-	 * @param lowVal Start of the range
-	 * @param highVal End of the range
-	 */
-	public void addOptionRange(String lowVal, String highVal)
-	{
-		options.add(new Range(lowVal, highVal));
-	}
+			public Formula getOptionMin()
+	 	{
+			return minOption;
+	 	}
+			public Formula getOptionMax()
+		 	{
+				return maxOption;
+		 	}
 
 	/**
 	 * Returns true if the value is in the option range for this item
@@ -133,13 +64,9 @@ public abstract class BaseKit extends ConcretePrereqObject implements Cloneable
 	 */
 	public boolean isOption(PlayerCharacter pc, int val)
 	{
-		if (options.size() == 0)
+		if (minOption == null || minOption.resolve(pc, "").intValue() <= val)
 		{
-			return true;
-		}
-		for ( Range r : options )
-		{
-			if (r.isIn(pc, val))
+			if (maxOption == null || maxOption.resolve(pc, "").intValue() >= val)
 			{
 				return true;
 			}
@@ -230,36 +157,4 @@ public abstract class BaseKit extends ConcretePrereqObject implements Cloneable
 	 * @return object name
 	 */
 	public abstract String getObjectName();
-
-	static class Range
-	{
-		private String lowValue = "" + Integer.MIN_VALUE;
-		private String highValue = "" + Integer.MAX_VALUE;
-
-		/**
-		 * Constructor
-		 * @param lowVal
-		 * @param highVal
-		 */
-		public Range(String lowVal, String highVal)
-		{
-			lowValue = lowVal;
-			highValue = highVal;
-		}
-
-		/**
-		 * True if value falls within a range
-		 * @param pc
-		 * @param value
-		 * @return True if value falls within a range
-		 */
-		public boolean isIn(PlayerCharacter pc, int value)
-		{
-			int lv = pc.getVariableValue(lowValue, "").intValue();
-			int hv = pc.getVariableValue(highValue, "").intValue();
-			if (value >= lv && value <= hv)
-				return true;
-			return false;
-		}
-	}
 }

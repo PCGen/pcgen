@@ -48,6 +48,7 @@ public class KitAlignment extends BaseKit
 	 *
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		aPC.setAlignment(alignInd, false, true);
@@ -60,6 +61,7 @@ public class KitAlignment extends BaseKit
 	 * @param aKit Kit
 	 * @param warnings List
 	 */
+	@Override
 	public boolean testApply(Kit k, PlayerCharacter aPC, List<String> warnings)
 	{
 		PCAlignment align = null;
@@ -88,6 +90,7 @@ public class KitAlignment extends BaseKit
 			.toString(alignInd));
 	}
 
+	@Override
 	public String getObjectName()
 	{
 		return "Alignment";

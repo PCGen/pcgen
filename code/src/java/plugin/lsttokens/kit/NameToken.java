@@ -25,62 +25,57 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
-import java.util.StringTokenizer;
-
-import pcgen.core.Kit;
 import pcgen.core.kit.KitBio;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.KitLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * Handles the NAME tag for a Kit. Also can accept a GENDER tag on the same line
  * for historical reasons.
  */
-public class NameToken extends KitLstToken
+public class NameToken extends AbstractToken implements
+		CDOMSecondaryToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "NAME";
 	}
 
-	/**
-	 * Handles the NAME tag for a Kit. Also can accept a GENDER tag on the same
-	 * line for historical reasons.
-	 * 
-	 * @param aKit
-	 *            the Kit object to add this information to
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
-		throws PersistenceLayerException
+	public Class<KitBio> getTokenClass()
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(value, SystemLoader.TAB_DELIM);
+		return KitBio.class;
+	}
 
-		KitBio kBio = new KitBio();
-		kBio.setCharacterName(colToken.nextToken());
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
 
-		while (colToken.hasMoreTokens())
+	public boolean parse(LoadContext context, KitBio kitName, String value)
+	{
+		if (isEmpty(value))
 		{
-			final String colString = colToken.nextToken();
-			if (colString.startsWith("GENDER:"))
-			{
-				kBio.setGender(colString.substring(7));
-			}
+			return false;
 		}
-		aKit.addObject(kBio);
-
+		kitName.setCharacterName(value);
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, KitBio kitName)
+	{
+		String bd = kitName.getCharacterName();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
+	}
+
 }

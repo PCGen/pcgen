@@ -22,14 +22,27 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
 import pcgen.core.Kit;
+import pcgen.core.kit.KitAbilities;
 import pcgen.core.kit.KitAlignment;
-import pcgen.core.prereq.Prerequisite;
+import pcgen.core.kit.KitBio;
+import pcgen.core.kit.KitClass;
+import pcgen.core.kit.KitDeity;
+import pcgen.core.kit.KitFunds;
+import pcgen.core.kit.KitGear;
+import pcgen.core.kit.KitKit;
+import pcgen.core.kit.KitLevelAbility;
+import pcgen.core.kit.KitProf;
+import pcgen.core.kit.KitRace;
+import pcgen.core.kit.KitSelect;
+import pcgen.core.kit.KitSkill;
+import pcgen.core.kit.KitSpells;
+import pcgen.core.kit.KitStat;
+import pcgen.core.kit.KitTable;
+import pcgen.core.kit.KitTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMKitLoader;
@@ -52,40 +65,42 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 	{
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAlignment>(
 			"*KITTOKEN", "ALIGN", KitAlignment.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitRace>("*KITTOKEN",
-		//			"RACE", CDOMKitRace.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitSkill>(
-		//			"*KITTOKEN", "SKILL", CDOMKitSkill.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitGear>("*KITTOKEN",
-		//			"GEAR", CDOMKitGear.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitSpells>(
-		//			"*KITTOKEN", "SPELLS", CDOMKitSpells.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitStat>("*KITTOKEN",
-		//			"STAT", CDOMKitStat.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitAbility>(
-		//			"*KITTOKEN", "FEAT", CDOMKitAbility.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitAbility>(
-		//			"*KITTOKEN", "ABILITY", CDOMKitAbility.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitName>("*KITTOKEN",
-		//			"NAME", CDOMKitName.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitLevelAbility>(
-		//			"*KITTOKEN", "LEVELABILITY", CDOMKitLevelAbility.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitClass>(
-		//			"*KITTOKEN", "CLASS", CDOMKitClass.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitTemplate>(
-		//			"*KITTOKEN", "TEMPLATE", CDOMKitTemplate.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitDeity>(
-		//			"*KITTOKEN", "DEITY", CDOMKitDeity.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitKit>("*KITTOKEN",
-		//			"KIT", CDOMKitKit.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitTable>(
-		//			"*KITTOKEN", "TABLE", CDOMKitTable.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitSelect>(
-		//			"*KITTOKEN", "SELECT", CDOMKitSelect.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitGender>(
-		//			"*KITTOKEN", "GENDER", CDOMKitGender.class));
-		//		kitLoader.addLineLoader(new CDOMSubLineLoader<CDOMKitFunds>(
-		//			"*KITTOKEN", "FUNDS", CDOMKitFunds.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitRace>("*KITTOKEN",
+			"RACE", KitRace.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSkill>("*KITTOKEN",
+			"SKILL", KitSkill.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitGear>("*KITTOKEN",
+			"GEAR", KitGear.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSpells>("*KITTOKEN",
+			"SPELLS", KitSpells.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitStat>("*KITTOKEN",
+			"STAT", KitStat.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitProf>("*KITTOKEN",
+			"PROF", KitProf.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>(
+			"*KITTOKEN", "FEAT", KitAbilities.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>(
+			"*KITTOKEN", "ABILITY", KitAbilities.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("*KITTOKEN",
+			"NAME", KitBio.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitLevelAbility>(
+			"*KITTOKEN", "LEVELABILITY", KitLevelAbility.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitClass>("*KITTOKEN",
+			"CLASS", KitClass.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTemplate>("*KITTOKEN",
+			"TEMPLATE", KitTemplate.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitDeity>("*KITTOKEN",
+			"DEITY", KitDeity.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitKit>("*KITTOKEN",
+			"KIT", KitKit.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTable>("*KITTOKEN",
+			"TABLE", KitTable.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSelect>("*KITTOKEN",
+			"SELECT", KitSelect.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("*KITTOKEN",
+			"GENDER", KitBio.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitFunds>("*KITTOKEN",
+			"FUNDS", KitFunds.class));
 	}
 
 	@Override
@@ -99,132 +114,58 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 	public Kit parseLine(LoadContext context, Kit target, String inputLine,
 		CampaignSourceEntry source) throws PersistenceLayerException
 	{
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(KitLstToken.class);
-
-		// We will find the first ":" for the "controlling" line token
-		final int idxColon = inputLine.indexOf(':');
-		String key = "";
-		try
-		{
-			key = inputLine.substring(0, idxColon);
-		}
-		catch (StringIndexOutOfBoundsException e)
-		{
-			// TODO Handle Exception
-		}
-		KitLstToken token = (KitLstToken) tokenMap.get(key);
-
 		if (inputLine.startsWith("STARTPACK:"))
 		{
 			if (target != null)
 			{
 				completeObject(context, source, target);
 			}
-			target = new Kit();
+			StringTokenizer st = new StringTokenizer(inputLine, "\t");
+			String firstToken = st.nextToken();
+			int colonLoc = firstToken.indexOf(':');
+			target =
+					context.ref.constructCDOMObject(Kit.class, firstToken
+						.substring(colonLoc + 1));
 			target.setSourceCampaign(source.getCampaign());
 			target.setSourceURI(source.getURI());
-			if (kitPrereq != null)
+			//TODO Does this happen implicitly during construct??
+			context.addStatefulInformation(target);
+			while (st.hasMoreTokens())
 			{
-				target.addPrerequisite(KitLoader.kitPrereq);
-			}
-			if (globalTokens != null)
-			{
-				for (String tag : globalTokens)
+				String token = st.nextToken().trim();
+				int cLoc = token.indexOf(':');
+				if (cLoc == -1)
 				{
-					final String gt = tag.trim();
-					final int colonLoc = gt.indexOf(':');
-					if (colonLoc == -1)
-					{
-						Logging
-							.errorPrint("Invalid Token - does not contain a colon: "
-								+ gt);
-						continue;
-					}
-					else if (colonLoc == 0)
-					{
-						Logging
-							.errorPrint("Invalid Token - starts with a colon: "
-								+ gt);
-						continue;
-					}
-
-					String gkey = gt.substring(0, colonLoc);
-					String value =
-							(colonLoc == gt.length() - 1) ? null : gt
-								.substring(colonLoc + 1);
-					if (context.processToken(target, gkey, value))
-					{
-						context.commit();
-					}
-					else if (!PObjectLoader.parseTag(target, gt))
-					{
-						Logging.replayParsedMessages();
-					}
-					Logging.clearParseMessages();
+					Logging
+						.errorPrint("Invalid Token - does not contain a colon: "
+							+ token);
+					continue;
 				}
+				else if (cLoc == 0)
+				{
+					Logging.errorPrint("Invalid Token - starts with a colon: "
+						+ token);
+					continue;
+				}
+
+				String key = token.substring(0, cLoc);
+				String value =
+						(cLoc == token.length() - 1) ? null : token
+							.substring(cLoc + 1);
+				context.processToken(target, key, value);
 			}
 		}
-		if (kitLoader.parseSubLine(context, target, inputLine, source.getURI()))
+		else if (kitLoader.parseSubLine(context, target, inputLine, source
+			.getURI()))
 		{
 			Logging.clearParseMessages();
 			context.commit();
 		}
 		else
 		{
-			if (token == null)
-			{
-				Logging.replayParsedMessages();
-			}
-			else
-			{
-				final String value = inputLine.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, target, value);
-				if (!token.parse(target, value, source.getURI()))
-				{
-					Logging.replayParsedMessages();
-				}
-			}
+			Logging.replayParsedMessages();
 			Logging.clearParseMessages();
 		}
-//System.err.println(target.getListFor(ListKey.KIT_TASKS));
 		return target;
-	}
-
-	static List<String> globalTokens = null;
-
-	static Prerequisite kitPrereq = null;
-
-	public static void addGlobalToken(String string)
-	{
-		if (globalTokens == null)
-		{
-			globalTokens = new ArrayList<String>();
-		}
-		globalTokens.add(string);
-	}
-
-	public static void setKitPrerequisite(Prerequisite p)
-	{
-		kitPrereq = p;
-	}
-
-	public static void clearGlobalTokens()
-	{
-		globalTokens = null;
-	}
-
-	public static void clearKitPrerequisites()
-	{
-		kitPrereq = null;
-	}
-
-	@Override
-	protected void loadLstFile(LoadContext context, CampaignSourceEntry cse)
-	{
-		clearGlobalTokens();
-		clearKitPrerequisites();
-		super.loadLstFile(context, cse);
 	}
 }

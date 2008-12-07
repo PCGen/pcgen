@@ -24,5 +24,5 @@ public interface DeferredToken<T extends CDOMObject>
 {
 	public boolean process(LoadContext context, T obj);
 	
-	public Class<T> getTokenClass();
+	public Class<T> getDeferredTokenClass();
 }

@@ -25,38 +25,83 @@
 
 package plugin.lsttokens.kit.prof;
 
+import java.util.Collection;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.WeaponProf;
 import pcgen.core.kit.KitProf;
-import pcgen.persistence.lst.KitProfLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
  * PROF Token part of Kit Prof Lst Token
  */
-public class ProfToken implements KitProfLstToken
+public class ProfToken extends AbstractToken implements
+		CDOMSecondaryToken<KitProf>
 {
+	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "PROF";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kitProf
-	 *            KitProf
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitProf kitProf, String value)
+	public Class<KitProf> getTokenClass()
 	{
-		Logging
-			.errorPrint("Ignoring second PROF tag \"" + value + "\" in Kit.");
+		return KitProf.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitProf obj, String value)
+		throws PersistenceLayerException
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		while (tok.hasMoreTokens())
+		{
+			String tokText = tok.nextToken();
+			CDOMSingleRef<WeaponProf> ref =
+					context.ref.getCDOMReference(WEAPONPROF_CLASS, tokText);
+			if (ref == null)
+			{
+				Logging
+					.errorPrint("  Error was encountered while parsing KitProf.  "
+						+ tokText + " is not a valid WeaponProf");
+				continue;
+			}
+			obj.addProficiency(ref);
+		}
 		return false;
+	}
+
+	public String[] unparse(LoadContext context, KitProf obj)
+	{
+		Collection<CDOMSingleRef<WeaponProf>> ref = obj.getProficiencies();
+		if (ref == null)
+		{
+			return null;
+		}
+		return new String[]{ReferenceUtilities.joinLstFormat(ref,
+			Constants.PIPE)};
 	}
 }

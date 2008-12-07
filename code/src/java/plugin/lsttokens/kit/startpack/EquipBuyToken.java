@@ -25,36 +25,101 @@
 
 package plugin.lsttokens.kit.startpack;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
-import pcgen.persistence.lst.KitStartpackLstToken;
+import pcgen.core.QualifiedObject;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * EQUIPBUY Token for KitStartpack
  */
-public class EquipBuyToken implements KitStartpackLstToken
+public class EquipBuyToken extends AbstractToken implements
+		CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "EQUIPBUY";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kit
-	 *            Kit
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(Kit kit, String value)
+	public Class<Kit> getTokenClass()
 	{
-		kit.setBuyRate(value);
+		return Kit.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, Kit kit, String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+
+		String token = tok.nextToken();
+
+		if (token.startsWith("PRE") || token.startsWith("!PRE"))
+		{
+			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+				+ getTokenName());
+			return false;
+		}
+
+		Formula f = FormulaFactory.getFormulaFor(token);
+		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+
+		while (tok.hasMoreTokens())
+		{
+			token = tok.nextToken();
+			Prerequisite prereq = getPrerequisite(token);
+			if (prereq == null)
+			{
+				Logging.errorPrint("   (Did you put feats after the "
+					+ "PRExxx tags in " + getTokenName() + ":?)");
+				return false;
+			}
+			prereqs.add(prereq);
+		}
+		kit.put(ObjectKey.EQUIP_BUY, new QualifiedObject<Formula>(f, prereqs));
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, Kit kit)
+	{
+		QualifiedObject<Formula> qo = kit.get(ObjectKey.EQUIP_BUY);
+		if (qo == null)
+		{
+			return null;
+		}
+		Formula f = qo.getObject(null);
+		List<Prerequisite> prereqs = qo.getPrerequisiteList();
+		String ab = f.toString();
+		if (prereqs != null && !prereqs.isEmpty())
+		{
+			ab = ab + Constants.PIPE + getPrerequisiteString(context, prereqs);
+		}
+		return new String[]{ab};
+	}
+
 }

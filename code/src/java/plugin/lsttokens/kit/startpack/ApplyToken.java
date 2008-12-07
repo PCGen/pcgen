@@ -25,36 +25,54 @@
 
 package plugin.lsttokens.kit.startpack;
 
+import pcgen.cdom.enumeration.KitApply;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
-import pcgen.persistence.lst.KitStartpackLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Deals with APPLY lst token within KitStartpack 
  */
-public class ApplyToken implements KitStartpackLstToken
+public class ApplyToken extends AbstractToken implements
+		CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "APPLY";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kit
-	 *            Kit
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(Kit kit, String value)
+	public Class<Kit> getTokenClass()
 	{
-		kit.setApplyMode(value);
+		return Kit.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, Kit kit, String value)
+	{
+		KitApply ka = KitApply.valueOf(value);
+		kit.put(ObjectKey.APPLY_MODE, ka);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Kit kit)
+	{
+		KitApply bd = kit.get(ObjectKey.APPLY_MODE);
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
 	}
 }

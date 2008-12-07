@@ -25,36 +25,71 @@
 
 package plugin.lsttokens.kit.gear;
 
+import pcgen.core.SizeAdjustment;
 import pcgen.core.kit.KitGear;
-import pcgen.persistence.lst.KitGearLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * SIZE token for KitGear
  */
-public class SizeToken implements KitGearLstToken
+public class SizeToken extends AbstractToken implements
+		CDOMSecondaryToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "SIZE";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kitGear
-	 *            KitGear
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitGear kitGear, String value)
+	public Class<KitGear> getTokenClass()
 	{
-		kitGear.setSize(value);
+		return KitGear.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitGear kitGear, String value)
+	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		if ("PC".equals(value))
+		{
+			kitGear.setSizeToPC(true);
+		}
+		else
+		{
+			SizeAdjustment size =
+					context.ref.getAbbreviatedObject(SizeAdjustment.class,
+						value);
+			kitGear.setSize(size);
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitGear kitGear)
+	{
+		SizeAdjustment sz = kitGear.getSize();
+		if (sz == null)
+		{
+			Boolean b = kitGear.getSizeToPC();
+			if (b == null)
+			{
+				return null;
+			}
+			return new String[]{"PC"};
+		}
+		return new String[]{sz.getAbbreviation()};
 	}
 }

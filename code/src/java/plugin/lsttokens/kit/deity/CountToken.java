@@ -25,29 +25,54 @@
 
 package plugin.lsttokens.kit.deity;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitDeity;
-import pcgen.persistence.lst.KitDeityLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * COUNT Token for KitDeity
  */
-public class CountToken implements KitDeityLstToken
+public class CountToken extends AbstractToken implements
+		CDOMSecondaryToken<KitDeity>
 {
-
-	public boolean parse(KitDeity kitDeity, String value)
-	{
-		kitDeity.setCountFormula(value);
-		return true;
-	}
 
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "COUNT";
 	}
 
+	public Class<KitDeity> getTokenClass()
+	{
+		return KitDeity.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitDeity kitDeity, String value)
+	{
+		kitDeity.setCount(FormulaFactory.getFormulaFor(value));
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitDeity kitDeity)
+	{
+		Formula bd = kitDeity.getCount();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
+	}
 }

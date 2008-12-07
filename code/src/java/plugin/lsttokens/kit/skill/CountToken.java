@@ -26,35 +26,68 @@
 package plugin.lsttokens.kit.skill;
 
 import pcgen.core.kit.KitSkill;
-import pcgen.persistence.lst.KitSkillLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.util.Logging;
 
 /**
  * COUNT Token for KitSkill
  */
-public class CountToken implements KitSkillLstToken
+public class CountToken extends AbstractToken implements
+		CDOMSecondaryToken<KitSkill>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "COUNT";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kitSkill
-	 *            KitSkill
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitSkill kitSkill, String value)
+	public Class<KitSkill> getTokenClass()
 	{
-		kitSkill.setChoiceCount(value);
-		return true;
+		return KitSkill.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitSkill kitSkill,
+		String value)
+	{
+		try
+		{
+			Integer quan = Integer.valueOf(value);
+			if (quan.intValue() <= 0)
+			{
+				Logging.errorPrint(getTokenName() + " expected an integer > 0");
+				return false;
+			}
+			kitSkill.setCount(quan);
+			return true;
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint(getTokenName()
+				+ " expected an integer.  Tag must be of the form: "
+				+ getTokenName() + ":<int>");
+			return false;
+		}
+	}
+
+	public String[] unparse(LoadContext context, KitSkill kitSkill)
+	{
+		Integer bd = kitSkill.getCount();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
 	}
 }

@@ -22,18 +22,17 @@
  */
 package plugin.lsttokens.kit;
 
-import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.Kit;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Language;
 import pcgen.core.kit.KitLangBonus;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.KitLstToken;
-import pcgen.util.Logging;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * The Class <code>LangBonusToken</code> handles the LANGBONUS kit tag.
@@ -44,57 +43,59 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class LangBonusToken extends KitLstToken
+public class LangBonusToken extends AbstractToken implements
+		CDOMSecondaryToken<KitLangBonus>
 {
-	
+
+	private static final Class<Language> LANGUAGE_CLASS = Language.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "LANGBONUS";
 	}
 
-	/**
-	 * Handles parsing the LANGBONUS tag.
-	 * 
-	 * @param aKit the Kit object to add this information to
-	 * @param value the token string
-	 * @param source the source
-	 * 
-	 * @return true if parse OK
-	 * 
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
-		throws PersistenceLayerException
+	public Class<KitLangBonus> getTokenClass()
 	{
-		final StringTokenizer colToken =
-			new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		
-		String token = colToken.nextToken();
+		return KitLangBonus.class;
+	}
 
-		if (colToken.hasMoreTokens())
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitLangBonus kitLangBonus,
+		String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			Logging.log(Logging.LST_ERROR, "Extra tokens on the "
-				+ getTokenName() + " line " + getTokenName() + ":" + value
-				+ " ignored.");
-		}
-		
-		List<String> langKeys = new ArrayList<String>();
-		final StringTokenizer langToken =
-				new StringTokenizer(token, Constants.PIPE);
-		while (langToken.hasMoreTokens())
-		{
-			langKeys.add(langToken.nextToken());
+			return false;
 		}
 
-		KitLangBonus klb = new KitLangBonus(langKeys);
-		
-		aKit.addObject(klb);
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+
+		while (tok.hasMoreTokens())
+		{
+			kitLangBonus.addLanguage(context.ref.getCDOMReference(
+				LANGUAGE_CLASS, tok.nextToken()));
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)
+	{
+		List<CDOMSingleRef<Language>> languages = kitLangBonus.getLanguages();
+		if (languages == null)
+		{
+			return null;
+		}
+		return new String[]{ReferenceUtilities.joinLstFormat(languages,
+			Constants.PIPE)};
 	}
 }

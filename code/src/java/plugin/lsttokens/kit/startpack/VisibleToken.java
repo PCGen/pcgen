@@ -25,36 +25,92 @@
 
 package plugin.lsttokens.kit.startpack;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
-import pcgen.persistence.lst.KitStartpackLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * VISIBLE token for KitsStartpack
  */
-public class VisibleToken implements KitStartpackLstToken
+public class VisibleToken extends AbstractToken implements
+		CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "VISIBLE";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kit
-	 *            Kit
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(Kit kit, String value)
+	public Class<Kit> getTokenClass()
 	{
-		kit.setVisible(value);
+		return Kit.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, Kit kit, String value)
+	{
+		Visibility vis;
+		if (value.equals("QUALIFY"))
+		{
+			vis = Visibility.QUALIFY;
+		}
+		else if (value.equals("NO"))
+		{
+			vis = Visibility.HIDDEN;
+		}
+		else if (value.equals("YES"))
+		{
+			vis = Visibility.DEFAULT;
+		}
+		else
+		{
+			Logging.errorPrint("Can't understand Visibility: " + value);
+			return false;
+		}
+		kit.put(ObjectKey.VISIBILITY, vis);
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, Kit kit)
+	{
+		Visibility vis = kit.get(ObjectKey.VISIBILITY);
+		if (vis == null)
+		{
+			return null;
+		}
+		String visString;
+		if (vis.equals(Visibility.DEFAULT))
+		{
+			visString = "YES";
+		}
+		else if (vis.equals(Visibility.QUALIFY))
+		{
+			visString = "QUALIFY";
+		}
+		else if (vis.equals(Visibility.HIDDEN))
+		{
+			visString = "NO";
+		}
+		else
+		{
+			context.addWriteMessage("Visibility " + vis
+				+ " is not a valid Visibility for a Kit");
+			return null;
+		}
+		return new String[]{visString};
+	}
+
 }

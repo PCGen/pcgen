@@ -108,4 +108,9 @@ public class PreracetypeToken implements CDOMPrimaryToken<PCClass>,
 		return true;
 	}
 
+	public Class<PCClass> getDeferredTokenClass()
+	{
+		return getTokenClass();
+	}
+
 }

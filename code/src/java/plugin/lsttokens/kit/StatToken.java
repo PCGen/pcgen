@@ -25,12 +25,20 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Kit;
+import pcgen.core.PCStat;
+import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
-import pcgen.persistence.lst.KitLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
@@ -38,50 +46,88 @@ import pcgen.util.Logging;
  * The tag format is:<br>
  * <code>STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18</code>
  */
-public class StatToken extends KitLstToken
+public class StatToken extends AbstractToken implements
+		CDOMSecondaryToken<KitStat>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "STAT";
 	}
 
-	/**
-	 * Parses the STAT tag for a Kit. This tag is a pipe (|) separated list of
-	 * stats to set.
-	 * 
-	 * @param aKit
-	 *            the Kit object to add this information to
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
+	public Class<KitStat> getTokenClass()
 	{
-		KitStat stats = null;
-		// Remove the STAT:
-		final StringTokenizer aTok = new StringTokenizer(value, "|");
+		return KitStat.class;
+	}
 
-		while (aTok.hasMoreTokens())
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitStat kitStat, String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			final String statStr = aTok.nextToken();
-			// STAT:value
-			final int equalInd = statStr.indexOf("=");
-			if (equalInd < 0)
-			{
-				Logging.errorPrint("Invalid STAT tag \"" + statStr + "\"");
-				continue;
-			}
-			final String statType = statStr.substring(0, equalInd);
-			final String statVal = statStr.substring(equalInd + 1);
-			stats = new KitStat(statType, statVal);
-			aKit.addStat(stats);
+			return false;
 		}
-		return (stats != null);
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		while (st.hasMoreTokens())
+		{
+			String token = st.nextToken();
+			int equalLoc = token.indexOf('=');
+			if (equalLoc == -1)
+			{
+				Logging.errorPrint("Illegal " + getTokenName()
+					+ " did not have Stat=X format: " + value);
+				return false;
+			}
+			if (equalLoc != token.lastIndexOf('='))
+			{
+				Logging.errorPrint("Illegal " + getTokenName()
+					+ " had two equal signs, is not Stat=X format: " + value);
+				return false;
+			}
+			String statName = token.substring(0, equalLoc);
+			PCStat stat =
+					context.ref.getAbbreviatedObject(PCStat.class, statName);
+			if (stat == null)
+			{
+				Logging.errorPrint("Unable to find STAT: " + statName);
+				return false;
+			}
+			Formula statValue =
+					FormulaFactory.getFormulaFor(token.substring(equalLoc + 1));
+			kitStat.addStat(stat, statValue);
+		}
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitStat kitStat)
+	{
+		return new String[]{kitStat.toString()};
+	}
+
+	public boolean process(LoadContext context, Kit obj)
+	{
+		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
+		{
+			if (bk instanceof KitStat)
+			{
+				obj.removeFromListFor(ListKey.KIT_TASKS, bk);
+				obj.addStat((KitStat) bk);
+			}
+		}
+		return true;
+	}
+
+	public Class<Kit> getDeferredTokenClass()
+	{
+		return Kit.class;
 	}
 }

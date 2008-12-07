@@ -22,15 +22,15 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import pcgen.core.Globals;
+
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.levelability.LevelAbility;
-import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
  * <code>KitLevelAbility</code>.
@@ -38,165 +38,132 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  * @author Aaron Divinsky <boomer70@yahoo.com>
  * @version $Revision$
  */
-public final class KitLevelAbility extends BaseKit implements Serializable, Cloneable
+public final class KitLevelAbility extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private String theClassName = "";
-	private int theLevel = -1;
-	private List<AbilityChoice> theAbilities = new ArrayList<AbilityChoice>();
-
-	private transient PCClass theClass = null;
-
-	/** Constructor */
-	public KitLevelAbility()
-	{
-		// Empty Constructor
-	}
+	private CDOMSingleRef<PCClass> theClassName;
+	private int theLevel;
+	private List<String> choiceList = new ArrayList<String>();
+	private PersistentTransitionChoice<?> add;
 
 	/**
 	 * Set the class
 	 * @param className
 	 */
-	public void setClass(final String className)
+	public void setClass(CDOMSingleRef<PCClass> className)
 	{
 		theClassName = className;
+	}
+
+	public CDOMSingleRef<PCClass> getPCClass()
+	{
+		return theClassName;
 	}
 
 	/**
 	 * Set the level
 	 * @param level
 	 */
-	public void setLevel(final int level)
+	public void setLevel(int level)
 	{
 		theLevel = level;
 	}
 
-	static class AbilityChoice
+	public int getLevel()
 	{
-		private List<String> theChoices = new ArrayList<String>();
-		private String theAbilityName = "";
-
-		AbilityChoice(final String ability, final List<String> choices)
-		{
-			// Chop off the PROMPT:
-			theAbilityName = ability.substring(7);
-			theChoices.addAll(choices);
-		}
-
-		/**
-		 * Get the ability
-		 * @return ability
-		 */
-		public final String getAbility()
-		{
-			return theAbilityName;
-		}
-
-		/**
-		 * Get choices
-		 * @return choices
-		 */
-		public final List<String> getChoices()
-		{
-			return theChoices;
-		}
-	}
-
-	/**
-	 * Add an ability
-	 * @param anAbility
-	 * @param choices
-	 */
-	public void addAbility(final String anAbility, final List<String> choices)
-	{
-		theAbilities.add(new AbilityChoice(anAbility, choices));
+		return theLevel;
 	}
 
 	@Override
 	public String toString()
 	{
 		StringBuffer buf = new StringBuffer();
-		boolean firstTimeI = true;
-		for ( AbilityChoice choice : theAbilities )
+		//TODO is this clean (add.toString?)
+		buf.append(add);
+		buf.append(": [");
+		boolean firstTime = true;
+		for (String choiceStr : choiceList)
 		{
-			if (!firstTimeI)
+			if (!firstTime)
 			{
 				buf.append(", ");
 			}
-			buf.append(choice.getAbility());
-			buf.append(": [");
-			List<String> choices = choice.getChoices();
-			boolean firstTime = true;
-			for ( String choiceStr : choices )
-			{
-				if (!firstTime)
-				{
-					buf.append(", ");
-				}
-				buf.append(choiceStr);
+			buf.append(choiceStr);
 
-				firstTime = false;
-			}
-			buf.append("]");
-			firstTimeI = false;
+			firstTime = false;
 		}
+		buf.append("]");
 		return buf.toString();
 	}
 
-	private void addLevelAbility(final PlayerCharacter aPC,
-								 final PCClass pcClass,
-								 final AbilityChoice ac)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		LevelAbility la = theClass.addAddList(theLevel, ac.getAbility());
-		PCLevelInfo pcLevelInfo = aPC.getLevelInfoFor(theClass.getKeyName(), theLevel);
-
-		List<String> choiceList = new ArrayList<String>();
-
-		la.process(choiceList, aPC, pcLevelInfo);
-		choiceList.clear();
-
-		for ( String choice : ac.getChoices() )
-		{
-			// Remove CHOICE:
-			choiceList.add(choice.substring(7));
-		}
-		la.processChoice(null, choiceList, aPC, pcLevelInfo);
-	}
-
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		theClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, theClassName);
-		if (theClass == null)
-		{
-			warnings.add("LEVELABILITY: Could not find class \"" + theClassName
-						 + "\"");
-			return false;
-		}
-		for ( AbilityChoice ac : theAbilities )
-		{
-			addLevelAbility(aPC, theClass, ac);
-		}
-		return true;
-	}
-
-	public void apply(PlayerCharacter aPC)
-	{
-		for ( AbilityChoice ac : theAbilities )
-		{
-			addLevelAbility(aPC, theClass, ac);
-		}
+		return doApplication(aPC);
 	}
 
 	@Override
-	public KitLevelAbility clone()
+	public void apply(PlayerCharacter aPC)
 	{
-		return (KitLevelAbility) super.clone();
+		doApplication(aPC);
 	}
 
+	private boolean doApplication(PlayerCharacter aPC)
+	{
+		PCClass theClass = theClassName.resolvesTo();
+		PCClass classKeyed = aPC.getClassKeyed(theClass.getKeyName());
+		if (classKeyed == null)
+		{
+			//Error?
+		}
+		//Look for ADD in class
+		List<PersistentTransitionChoice<?>> adds =
+				theClass.getListFor(ListKey.ADD);
+		if (adds == null)
+		{
+			//Error?
+		}
+		for (PersistentTransitionChoice<?> ch : adds)
+		{
+			if (add.equals(ch))
+			{
+				process(aPC, classKeyed, ch);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private <T> void process(PlayerCharacter pc, PCClass cl,
+		PersistentTransitionChoice<T> ch)
+	{
+		List<T> list = new ArrayList<T>();
+		for (String s : choiceList)
+		{
+			list.add(ch.decodeChoice(s));
+		}
+		//use ch
+		ch.act(list, cl, pc);
+	}
+
+	@Override
 	public String getObjectName()
 	{
 		return "Class Feature";
+	}
+
+	public void addChoice(String string)
+	{
+		choiceList.add(string);
+	}
+
+	public void setAdd(PersistentTransitionChoice<?> name)
+	{
+		add = name;
+	}
+
+	public PersistentTransitionChoice<?> getAdd()
+	{
+		return add;
 	}
 }

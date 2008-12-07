@@ -25,36 +25,53 @@
 
 package plugin.lsttokens.kit.funds;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitFunds;
-import pcgen.persistence.lst.KitFundsLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * QTY Token
  */
-public class QtyToken implements KitFundsLstToken
+public class QtyToken extends AbstractToken implements
+		CDOMSecondaryToken<KitFunds>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "QTY";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kitFunds
-	 *            KitFunds
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitFunds kitFunds, String value)
+	public Class<KitFunds> getTokenClass()
 	{
-		kitFunds.setQty(value);
+		return KitFunds.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitFunds kitFunds, String value)
+	{
+		kitFunds.setQuantity(FormulaFactory.getFormulaFor(value));
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitFunds kitFunds)
+	{
+		Formula f = kitFunds.getQuantity();
+		if (f == null)
+		{
+			return null;
+		}
+		return new String[]{f.toString()};
 	}
 }

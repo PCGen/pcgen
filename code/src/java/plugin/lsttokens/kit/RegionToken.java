@@ -25,75 +25,89 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Kit;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.KitLoader;
-import pcgen.persistence.lst.KitLstToken;
-import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Handles the (persistent) REGION tag for Kits.
  */
-public class RegionToken extends KitLstToken
+public class RegionToken extends AbstractToken implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "REGION";
 	}
 
-	/**
-	 * Handles parsing the REGION tag for this Kit line.
-	 * 
-	 * @param aKit
-	 *            ignored
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
+	public boolean parse(LoadContext context, Kit obj, String value)
+		throws PersistenceLayerException
 	{
-		KitLoader.clearKitPrerequisites();
-		KitLoader.clearGlobalTokens();
-		
-		if (value == null || value.length() == 0)
+		context.clearStatefulInformation();
+		if (isEmpty(value))
 		{
+			//This is okay - just clears global tokens
 			return true;
 		}
-		
-		final StringTokenizer aTok = new StringTokenizer(value, "\t", false);
-		
-		String region = aTok.nextToken();
+		StringTokenizer st = new StringTokenizer(value, "\t");
 
-		if (!region.equalsIgnoreCase(Constants.s_NONE))
+		String region = st.nextToken();
+		if (!region.equalsIgnoreCase(Constants.LST_NONE))
 		{
 			// Add a real prereq for the REGION: tag
-			try
+			context.addStatefulToken("PREREGION:" + region);
+		}
+
+		if (st.hasMoreTokens())
+		{
+			String gt = st.nextToken();
+			final int colonLoc = gt.indexOf(':');
+			if (colonLoc == -1)
 			{
-				PreParserFactory factory = PreParserFactory.getInstance();
-				Prerequisite p = factory.parse("PREREGION:" + region);
-				KitLoader.setKitPrerequisite(p);
+				Logging.errorPrint("Invalid Token - does not contain a colon: "
+					+ gt);
+				return false;
 			}
-			catch (PersistenceLayerException ple)
+			else if (colonLoc == 0)
 			{
-				// TODO Deal with this Exception?
+				Logging
+					.errorPrint("Invalid Token - starts with a colon: " + gt);
+				return false;
+			}
+
+			String key = gt.substring(0, colonLoc);
+			String val =
+					(colonLoc == gt.length() - 1) ? null : gt
+						.substring(colonLoc + 1);
+			if (!context.processToken(obj, key, val))
+			{
+				return false;
 			}
 		}
 
-		if (aTok.hasMoreTokens())
-		{
-			KitLoader.addGlobalToken(aTok.nextToken());
-		}
-		return true;
+		return false;
 	}
+
+	public String[] unparse(LoadContext context, Kit obj)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Class<Kit> getTokenClass()
+	{
+		return Kit.class;
+	}
+
 }

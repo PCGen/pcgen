@@ -25,27 +25,62 @@
 
 package plugin.lsttokens.kit.clazz;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.SubClassCategory;
+import pcgen.core.SubClass;
 import pcgen.core.kit.KitClass;
-import pcgen.persistence.lst.KitClassLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * parses SUBCLASS token for Kit Class 
  */
-public class SubclassToken implements KitClassLstToken
+public class SubclassToken extends AbstractToken implements
+		CDOMSecondaryToken<KitClass>
 {
-	public boolean parse(KitClass kitClass, String value)
-	{
-		kitClass.setSubClass(value);
-		return true;
-	}
 
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "SUBCLASS";
+	}
+
+	public Class<KitClass> getTokenClass()
+	{
+		return KitClass.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitClass kitClass, String value)
+	{
+		/*
+		 * This call to kitClass.getPcclass() is safe, as the line is CLASS:
+		 * and thus the CLASS: token is always encountered first
+		 */
+		CDOMReference<SubClass> sc =
+				context.ref.getCDOMReference(SubClass.class, SubClassCategory
+					.getConstant(kitClass.getPcclass().getLSTformat()), value);
+		kitClass.setSubClass(sc);
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitClass kitClass)
+	{
+		CDOMReference<SubClass> ref = kitClass.getSubClass();
+		if (ref == null)
+		{
+			return null;
+		}
+		return new String[]{ref.getLSTformat()};
 	}
 }

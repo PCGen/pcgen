@@ -25,68 +25,54 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
-import java.util.StringTokenizer;
-
-import pcgen.core.Kit;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitSelect;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.BaseKitLoader;
-import pcgen.persistence.lst.KitLstToken;
-import pcgen.util.Logging;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * SELECT for Kit
  */
-public class SelectToken extends KitLstToken
+public class SelectToken extends AbstractToken implements
+		CDOMSecondaryToken<KitSelect>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "SELECT";
 	}
 
-	/**
-	 * Handles the SELECT tag for a Kit.
-	 * 
-	 * @param aKit
-	 *            the Kit object to add this information to
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
-		throws PersistenceLayerException
+	public Class<KitSelect> getTokenClass()
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		KitSelect kSelect = new KitSelect(colToken.nextToken());
+		return KitSelect.class;
+	}
 
-		while (colToken.hasMoreTokens())
-		{
-			final String colString = colToken.nextToken();
-			if (colString.startsWith("SELECT:"))
-			{
-				Logging.errorPrint("Ignoring second SELECT tag \"" + colString
-					+ "\" in SelectToken.parse");
-			}
-			else
-			{
-				if (BaseKitLoader.parseCommonTags(kSelect, colString, source) == false)
-				{
-					throw new PersistenceLayerException(
-						"Unknown KitSelect info " + " \"" + colString + "\"");
-				}
-			}
-		}
-		aKit.addObject(kSelect);
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitSelect kitSelect, String value)
+	{
+		kitSelect.setFormula(FormulaFactory.getFormulaFor(value));
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, KitSelect kitSelect)
+	{
+		Formula f = kitSelect.getFormula();
+		if (f == null)
+		{
+			return null;
+		}
+		return new String[]{f.toString()};
+	}
+
 }

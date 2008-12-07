@@ -120,4 +120,9 @@ public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>,
 		}
 		return true;
 	}
+
+	public Class<Race> getDeferredTokenClass()
+	{
+		return Race.class;
+	}
 }

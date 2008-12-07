@@ -26,50 +26,76 @@
 package plugin.lsttokens.kit.ability;
 
 import pcgen.core.kit.KitAbilities;
-import pcgen.persistence.lst.KitAbilityLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
- * FREE Token for KitAbility
+ * FREE Token for KitAbilities
  */
-public class FreeToken implements KitAbilityLstToken
+public class FreeToken extends AbstractToken implements
+		CDOMSecondaryToken<KitAbilities>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "FREE";
 	}
 
-	public boolean parse(KitAbilities kitAbility, String value)
+	public Class<KitAbilities> getTokenClass()
 	{
-		boolean set;
+		return KitAbilities.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
+	{
+		Boolean set;
 		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar =='Y')
+		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+				Logging.errorPrint("You should use 'YES' as the "
+					+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = true;
+			set = Boolean.TRUE;
 		}
-		else 
+		else
 		{
-			if (firstChar != 'N' && firstChar != 'n'
-				&& !value.equalsIgnoreCase("NO"))
+			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
-				return false;
+				if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+				{
+					Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+					return false;
+				}
 			}
-			set = false;
+			set = Boolean.FALSE;
 		}
-		kitAbility.setFree(set);
+		kitAbil.setFree(set);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitAbilities kitAbil)
+	{
+		Boolean mult = kitAbil.getFree();
+		if (mult == null)
+		{
+			return null;
+		}
+		return new String[]{mult.booleanValue() ? "YES" : "NO"};
 	}
 }

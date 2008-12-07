@@ -22,19 +22,19 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityInfo;
-import pcgen.core.AbilityStore;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Categorisable;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
@@ -46,86 +46,24 @@ import pcgen.core.SettingsHandler;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public final class KitAbilities extends BaseKit implements Serializable, Cloneable
+public final class KitAbilities extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long  serialVersionUID = 1;
-
-	private AbilityStore abilityStore     = new AbilityStore();
-	private boolean            free             = false;
-	private String       stringRep;
+	private Boolean free = null;
+	private Integer choiceCount;
+	private Map<CDOMReference<Ability>, List<String>> abilityMap =
+			new HashMap<CDOMReference<Ability>, List<String>>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List<Ability> theAbilities = new ArrayList<Ability>();
-	private transient List<AbilityInfo> abilitiesToAdd = null;
-
-	/**
-	 * Constructor that takes a | separated list of Abilities, with Interspersed
-	 * CATEGORY=FOO entries.
-	 *
-	 * @param  abString         the string containing the Abilities and
-	 *                          Categories
-	 * @param  defaultCategory  the default Category
-	 * @param  lockCategory     Whether the initial category a subsequent
-	 *                          CATEGORY= tag will be acted on or if it is an
-	 *                          error
-	 */
-	public KitAbilities(
-		final String abString,
-		String       defaultCategory,
-		boolean      lockCategory)
-	{
-		abilityStore.addAbilityInfo(abString, defaultCategory, "|", lockCategory, false);
-
-		final StringBuffer info = new StringBuffer();
-
-		if ((choiceCount != 1) || (abilityStore.size() != 1))
-		{
-			info.append(choiceCount).append(" of ");
-		}
-
-		boolean firstDone = false;
-
-		for (Iterator<Categorisable> it = this.getIterator(); it.hasNext();)
-		{
-			if (firstDone)
-			{
-				info.append("; ");
-			}
-			else
-			{
-				firstDone = true;
-			}
-
-			info.append(it.next().getKeyName());
-		}
-
-		if (free)
-		{
-			info.append(" (free)");
-		}
-
-		stringRep = info.toString();
-	}
-
-	/**
-	 * Get an Iterator over the AbilityInfo Objects stored in this KitAbilities
-	 * object
-	 *
-	 * @return  the AbilityInfo Iterator
-	 */
-	public Iterator<Categorisable> getIterator()
-	{
-		return abilityStore.getKeyIterator("ALL");
-	}
+	private transient List<AbilitySelection> abilitiesToAdd = null;
+	private AbilityCategory category;
 
 	/**
 	 * Set whether the kit is free.
 	 *
 	 * @param  argFree  true if the kit is free
 	 */
-	public void setFree(final boolean argFree)
+	public void setFree(Boolean argFree)
 	{
 		free = argFree;
 	}
@@ -140,59 +78,77 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 	@Override
 	public String toString()
 	{
-		return stringRep;
-	}
+		StringBuilder sb = new StringBuilder();
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		theAbilities = new ArrayList<Ability>();
-		abilitiesToAdd = null;
-
-		if (theAbilities == null)
+		if ((choiceCount != null) || (abilityMap.size() != 1))
 		{
-			return false;
+			sb.append(getSafeCount()).append(" of ");
 		}
 
-		final HashMap<String, AbilityInfo> nameMap    = new HashMap<String, AbilityInfo>();
-		final HashMap<String, AbilityInfo> catMap     = new HashMap<String, AbilityInfo>();
-		boolean useNameMap = true;
-		AbilityCategory abilityCat = AbilityCategory.FEAT;
+		boolean firstDone = false;
 
-		for (Iterator<Categorisable> kAbInnerIt = getIterator(); kAbInnerIt.hasNext();)
+		for (Map.Entry<CDOMReference<Ability>, List<String>> me : abilityMap
+			.entrySet())
 		{
-			final AbilityInfo info = (AbilityInfo) kAbInnerIt.next();
-
-			if (!info.qualifies(aPC))
+			if (firstDone)
 			{
-				continue;
+				sb.append("; ");
 			}
+			firstDone = true;
 
-			if (info.getAbility() != null)
+			List<String> choices = me.getValue();
+			for (Ability a : me.getKey().getContainedObjects())
 			{
-				AbilityInfo abI = nameMap.put(info.toString(), info);
-				catMap.put(info.getCategory() + " " + info.toString(), info);
-				abilityCat =
-						SettingsHandler.getGame().getAbilityCategory(
-							info.getCategory());
-
-				if (abI != null)
+				sb.append(a.getKeyName());
+				if (choices != null)
 				{
-					useNameMap = false;
+					sb.append(" (");
+					sb.append(StringUtil.joinToStringBuffer(choices, ", "));
+					sb.append(')');
 				}
 			}
-			else
+		}
+
+		if (isFree())
+		{
+			sb.append(" (free)");
+		}
+
+		return sb.toString();
+	}
+
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
+	{
+		abilitiesToAdd = new ArrayList<AbilitySelection>();
+		List<AbilitySelection> available = new ArrayList<AbilitySelection>();
+		for (Map.Entry<CDOMReference<Ability>, List<String>> me : abilityMap
+			.entrySet())
+		{
+			List<String> choices = me.getValue();
+			for (Ability a : me.getKey().getContainedObjects())
 			{
-				warnings.add("ABILITY: Non-existant Ability \"" + info.getKeyName()
-							 + "\"");
+				if (choices == null)
+				{
+					available.add(new AbilitySelection(a, ""));
+				}
+				else
+				{
+					for (String s : choices)
+					{
+						available.add(new AbilitySelection(a, s));
+					}
+				}
 			}
 		}
 
-		int numberOfChoices = getChoiceCount();
-
+		int numberOfChoices = getSafeCount();
 		// Can't choose more entries than there are...
-		if (numberOfChoices > nameMap.size())
+		// TODO this fails if SELECT != 1
+		if (numberOfChoices > available.size())
 		{
-			numberOfChoices = nameMap.size();
+			numberOfChoices = available.size();
 		}
 
 		/*
@@ -201,43 +157,41 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 		 */
 
 		boolean tooManyAbilities = false;
-		int     abilitiesChosen  = 0;
 		// Don't allow choosing of more than allotted number of abilities
-		if (!free
-			&& (numberOfChoices > (aPC.getAvailableAbilityPool(abilityCat)
-				.intValue() - abilitiesChosen)))
+		if (!isFree()
+			&& (numberOfChoices > (aPC.getAvailableAbilityPool(category)
+				.intValue())))
 		{
 			numberOfChoices =
-					aPC.getAvailableAbilityPool(abilityCat).intValue()
-						- abilitiesChosen;
+					aPC.getAvailableAbilityPool(category).intValue();
 			tooManyAbilities = true;
 		}
 
 		if (numberOfChoices == 0)
 		{
-			warnings.add("ABILITY: Not enough " + abilityCat.getPluralName() + " available to take \"" + this + "\"");
+			warnings.add("ABILITY: Not enough " + category.getPluralName()
+				+ " available to take \"" + this + "\"");
 			return false;
 		}
 
-		List<String> choices = useNameMap ?	new ArrayList<String>(nameMap.keySet()) : new ArrayList<String>(catMap.keySet());
-		List<String> xs;
+		List<AbilitySelection> selected;
 
-		if (numberOfChoices == nameMap.size())
+		if (numberOfChoices == available.size())
 		{
-			xs = choices;
+			selected = available;
 		}
 		else
 		{
+			selected = new ArrayList<AbilitySelection>();
 			// Force user to make enough selections
 			while (true)
 			{
-				xs = Globals.getChoiceFromList(
-						"Choose abilities",
-						choices,
-						new ArrayList<String>(),
-						numberOfChoices);
+				selected =
+						Globals.getChoiceFromList("Choose abilities",
+							available, new ArrayList<AbilitySelection>(),
+							numberOfChoices);
 
-				if (xs.size() != 0)
+				if (selected.size() != 0)
 				{
 					break;
 				}
@@ -245,95 +199,122 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 		}
 
 		// Add to list of things to add to the character
-		for (Iterator<String> e = xs.iterator(); e.hasNext();)
+		for (AbilitySelection as : selected)
 		{
-			if (abilitiesToAdd == null)
+			abilitiesToAdd.add(as);
+			Ability ability = as.ability;
+			if (isFree())
 			{
-				abilitiesToAdd = new ArrayList<AbilityInfo>();
-			}
-			final String  choice = e.next();
-			AbilityInfo ability = useNameMap ?
-				nameMap.get(choice):
-				catMap.get(choice);
-
-			if (ability != null)
-			{
-				abilitiesToAdd.add(ability);
-				++abilitiesChosen;
-				final AbilityCategory abilityCategory =
-						SettingsHandler.getGame().getAbilityCategory(
-							ability.getCategory());
+				// Need to pay for it first
 				if (free)
 				{
-					// Need to pay for it first
-					if (free)
-					{
-						aPC.adjustAbilities(abilityCategory, new BigDecimal(1));
-					}
+					aPC.adjustAbilities(category, new BigDecimal(1));
 				}
-				Iterator<String> choicesIter = ability.getChoicesIterator();
-				String abChoice = "";
-				do
-				{
-					if (choicesIter.hasNext())
-					{
-						abChoice = choicesIter.next();
-					}
-					AbilityUtilities.modAbility(aPC, null,
-						ability.getAbility(), abChoice, true, abilityCategory);
-				}
-				while (choicesIter.hasNext());
 			}
-			else
-			{
-				warnings.add("ABILITY: Non-existant Ability \"" + choice + "\"");
-			}
+			AbilityUtilities.modAbility(aPC, null, ability, as.selection, true,
+				category);
 		}
 
 		if (tooManyAbilities)
 		{
-			warnings.add("ABILITY: Some Abilities were not granted -- not enough remaining feats");
+			warnings
+				.add("ABILITY: Some Abilities were not granted -- not enough remaining feats");
 			return false;
 		}
 
 		return true;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		for ( AbilityInfo ability : abilitiesToAdd )
+		for (AbilitySelection as : abilitiesToAdd)
 		{
+			Ability ability = as.ability;
 			final AbilityCategory abilityCategory =
 					SettingsHandler.getGame().getAbilityCategory(
 						ability.getCategory());
-			Iterator<String> choicesIter = ability.getChoicesIterator();
-			String choice = "";
-			do
-			{
-				if (choicesIter.hasNext())
-				{
-					choice = choicesIter.next();
-				}
-				AbilityUtilities.modAbility(aPC, null, ability.getAbility(),
-					choice, true, abilityCategory);
-			}
-			while (choicesIter.hasNext());
+			AbilityUtilities.modAbility(aPC, null, ability, as.selection, true,
+				abilityCategory);
 
-			if (free)
+			if (isFree())
 			{
 				aPC.adjustAbilities(abilityCategory, new BigDecimal(1));
 			}
 		}
 	}
 
-	@Override
-	public KitAbilities clone()
+	/**
+	 * Returns if the skill will be purchased for free.
+	 * @return <code>true</code> if the skill will be free
+	 */
+	public boolean isFree()
 	{
-		return (KitAbilities) super.clone();
+		return free != null && free;
 	}
 
+	@Override
 	public String getObjectName()
 	{
 		return "Abilities";
+	}
+
+	public Boolean getFree()
+	{
+		return free;
+	}
+
+	public void setCount(Integer quan)
+	{
+		choiceCount = quan;
+	}
+
+	public Integer getCount()
+	{
+		return choiceCount;
+	}
+
+	public int getSafeCount()
+	{
+		return choiceCount == null ? 1 : choiceCount;
+	}
+
+	public void addAbility(CDOMReference<Ability> ref, List<String> choices)
+	{
+		abilityMap.put(ref, choices);
+	}
+
+	public Collection<CDOMReference<Ability>> getAbilityKeys()
+	{
+		return abilityMap.keySet();
+	}
+
+	private class AbilitySelection
+	{
+		public final Ability ability;
+		public final String selection;
+
+		public AbilitySelection(Ability a, String sel)
+		{
+			ability = a;
+			selection = sel;
+		}
+
+		@Override
+		public String toString()
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.append(ability.getDisplayName());
+			if (selection != null)
+			{
+				sb.append(" (").append(selection).append(')');
+			}
+			return sb.toString();
+		}
+	}
+
+	public void setCategory(AbilityCategory ac)
+	{
+		category = ac;
 	}
 }

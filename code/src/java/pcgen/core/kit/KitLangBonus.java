@@ -22,11 +22,11 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
@@ -40,33 +40,22 @@ import pcgen.core.PlayerCharacter;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class KitLangBonus extends BaseKit implements Serializable, Cloneable
+public class KitLangBonus extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
 	/** The list of language names. */
-	private List<String> langList = new ArrayList<String>();
+	private List<CDOMSingleRef<Language>> langList =
+			new ArrayList<CDOMSingleRef<Language>>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient List<Language> theLanguages = new ArrayList<Language>();
 
 	/**
-	 * Constructor.
-	 * 
-	 * @param aLangList The list of language keys
-	 */
-	public KitLangBonus(final List<String> aLangList)
-	{
-		this.langList.addAll(aLangList);
-	}
-
-	/**
 	 * Actually applies the bonus languages to this PC.
 	 * 
 	 * @param aPC The PlayerCharacter the languages are to be applied to
 	 */
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		aPC.addLanguages(theLanguages);
@@ -81,13 +70,10 @@ public class KitLangBonus extends BaseKit implements Serializable, Cloneable
 	 * 
 	 * @return true, if the languages could be added
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		if (langList.isEmpty())
-		{
-			return false;
-		}
-
 		final List<Language> availableLangs = new ArrayList<Language>();
 		final List<Language> selectedLangs = new ArrayList<Language>();
 		final List<Language> excludedLangs = new ArrayList<Language>();
@@ -101,24 +87,23 @@ public class KitLangBonus extends BaseKit implements Serializable, Cloneable
 		{
 			return false;
 		}
-		
+
 		theLanguages = new ArrayList<Language>(numLanguages);
-		for (String langKey : langList)
+		for (CDOMSingleRef<Language> langKey : langList)
 		{
-			Language lang = findLanguageInListByKey(availableLangs, langKey);
-			if (lang == null)
-			{
-				warnings.add(
-					"LANGUAGE: Could not add bonus language \""
-					+ langKey + "\"");
-			}
-			else
+			Language lang = langKey.resolvesTo();
+			if (availableLangs.contains(lang))
 			{
 				theLanguages.add(lang);
 				if (theLanguages.size() >= numLanguages)
 				{
 					break;
 				}
+			}
+			else
+			{
+				warnings.add("LANGUAGE: Could not add bonus language \""
+					+ langKey + "\"");
 			}
 		}
 
@@ -135,38 +120,10 @@ public class KitLangBonus extends BaseKit implements Serializable, Cloneable
 		return false;
 	}
 
-	/**
-	 * Retrieve a language from a list based on its key.
-	 * 
-	 * @param langList The list of languages
-	 * @param langKey The key of the language to be retrieved.
-	 * @return The language, or null if there is no match.
-	 */
-	private Language findLanguageInListByKey(
-		final List<Language> langList, String langKey)
-	{
-		for (Language language : langList)
-		{
-			if (langKey.equalsIgnoreCase(language.getKeyName()))
-			{
-				return language;
-			}
-		}
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.kit.BaseKit#clone()
-	 */
-	@Override
-	public KitLangBonus clone()
-	{
-		return (KitLangBonus) super.clone();
-	}
-
 	/* (non-Javadoc)
 	 * @see pcgen.core.kit.BaseKit#getObjectName()
 	 */
+	@Override
 	public String getObjectName()
 	{
 		return "Languages";
@@ -179,5 +136,15 @@ public class KitLangBonus extends BaseKit implements Serializable, Cloneable
 	public String toString()
 	{
 		return StringUtil.join(langList, ", ");
+	}
+
+	public void addLanguage(CDOMSingleRef<Language> reference)
+	{
+		langList.add(reference);
+	}
+
+	public List<CDOMSingleRef<Language>> getLanguages()
+	{
+		return langList;
 	}
 }

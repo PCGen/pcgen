@@ -393,4 +393,10 @@ public class NaturalattacksLst extends AbstractToken implements
 		}
 		return true;
 	}
+
+	public Class<CDOMObject> getDeferredTokenClass()
+	{
+		return getTokenClass();
+	}
+
 }

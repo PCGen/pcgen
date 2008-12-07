@@ -25,15 +25,17 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.Kit;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCTemplate;
 import pcgen.core.kit.KitTemplate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.BaseKitLoader;
-import pcgen.persistence.lst.KitLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
@@ -50,55 +52,89 @@ import pcgen.util.Logging;
  * &nbsp;&nbsp;&nbsp;&nbsp;Adds the "Celestial" template to the character.<br>
  * </p>
  */
-public class TemplateToken extends KitLstToken
+public class TemplateToken extends AbstractToken implements
+		CDOMSecondaryToken<KitTemplate>
 {
+	private static final Class<PCTemplate> TEMPLATE_CLASS = PCTemplate.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 *
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "TEMPLATE";
 	}
 
-	/**
-	 * Parse the TEMPLATE line. Handles the TEMPLATE tag as well as all common
-	 * tags.
-	 *
-	 * @param aKit
-	 *            the Kit object to add this information to
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
-		throws PersistenceLayerException
+	public Class<KitTemplate> getTokenClass()
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		KitTemplate kTemplate = new KitTemplate(colToken.nextToken());
+		return KitTemplate.class;
+	}
 
-		while (colToken.hasMoreTokens())
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitTemplate kitTemplate,
+		String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			final String colString = colToken.nextToken();
-			if (colString.startsWith("TEMPLATE:"))
+			return false;
+		}
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+
+		while (tok.hasMoreTokens())
+		{
+			String tokText = tok.nextToken();
+			int openLoc = tokText.indexOf('[');
+			String name;
+			List<CDOMSingleRef<PCTemplate>> subList;
+			if (openLoc == -1)
 			{
-				Logging.errorPrint("Ignoring second TEMPLATE tag \""
-					+ colString + "\" in TemplateToken.parse");
+				name = tokText;
+				subList = null;
 			}
 			else
 			{
-				if (BaseKitLoader.parseCommonTags(kTemplate, colString, source) == false)
+				name = tokText.substring(0, openLoc);
+				subList = new ArrayList<CDOMSingleRef<PCTemplate>>();
+				String rest = tokText.substring(openLoc + 1);
+				StringTokenizer subTok = new StringTokenizer(rest, "[]");
+				while (subTok.hasMoreTokens())
 				{
-					throw new PersistenceLayerException(
-						"Unknown KitTemplate info " + " \"" + colString + "\"");
+					String subStr = subTok.nextToken();
+					if (subStr.startsWith("TEMPLATE:"))
+					{
+						String ownedTemplateName = subStr.substring(9);
+
+						CDOMSingleRef<PCTemplate> ref =
+								context.ref.getCDOMReference(TEMPLATE_CLASS,
+									ownedTemplateName);
+						subList.add(ref);
+					}
+					else
+					{
+						Logging.errorPrint("Did not understand "
+							+ getTokenName() + " option: " + subStr
+							+ " in line: " + value);
+						return false;
+					}
 				}
 			}
+			CDOMSingleRef<PCTemplate> ref =
+					context.ref.getCDOMReference(TEMPLATE_CLASS, name);
+			kitTemplate.addTemplate(ref, subList);
 		}
-		aKit.addObject(kTemplate);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitTemplate kitTemplate)
+	{
+		return new String[]{kitTemplate.toString()};
 	}
 }

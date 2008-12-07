@@ -22,11 +22,11 @@
  */
 package pcgen.core.kit;
 
+import java.util.List;
+
+import pcgen.base.formula.Formula;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
-
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * <code>KitSelect</code>.
@@ -34,27 +34,15 @@ import java.util.List;
  * @author Aaron Divinsky <boomer70@yahoo.com>
  * @version $Revision$
  */
-public final class KitSelect extends BaseKit implements Serializable, Cloneable
+public final class KitSelect extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private String theFormula = "";
-
-	/**
-	 * Constructor
-	 * @param formula
-	 */
-	public KitSelect(final String formula)
-	{
-		theFormula = formula;
-	}
+	private Formula theFormula;
 
 	/**
 	 * Get formula
 	 * @return formula
 	 */
-	public String getFormla()
+	public Formula getFormula()
 	{
 		return theFormula;
 	}
@@ -63,7 +51,7 @@ public final class KitSelect extends BaseKit implements Serializable, Cloneable
 	 * Set formula
 	 * @param aFormula
 	 */
-	public void setFormula(final String aFormula)
+	public void setFormula(Formula aFormula)
 	{
 		theFormula = aFormula;
 	}
@@ -71,26 +59,24 @@ public final class KitSelect extends BaseKit implements Serializable, Cloneable
 	@Override
 	public String toString()
 	{
-		return theFormula;
+		return theFormula.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		aKit.setSelectValue(aPC.getVariableValue(theFormula, "").intValue());
+		aKit.setSelectValue(theFormula.resolve(aPC, "").intValue());
 		return true;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		// Nothing to do.
 	}
 
 	@Override
-	public KitSelect clone()
-	{
-		return (KitSelect) super.clone();
-	}
-
 	public String getObjectName()
 	{
 		return "Select";

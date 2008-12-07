@@ -22,46 +22,42 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import pcgen.core.Globals;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
  * Applies the Kit
  */
-public class KitKit extends BaseKit implements Serializable, Cloneable
+public class KitKit extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private String kitStr = null;
+	private List<CDOMSingleRef<Kit>> availableKits =
+			new ArrayList<CDOMSingleRef<Kit>>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient Kit theKit = null;
-	private transient List<BaseKit> thingsToAdd = null;
-	
-	/**
-	 * Constructor
-	 * @param aKit
-	 */
-	public KitKit(final String aKit)
-	{
-		kitStr = aKit;
-	}
+	private transient Map<Kit, List<BaseKit>> appliedKits =
+			new HashMap<Kit, List<BaseKit>>();
 
 	/**
 	 * Actually applies the kit to this PC.
 	 *
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		theKit.processKit(aPC, thingsToAdd);
+		for (Map.Entry<Kit, List<BaseKit>> me : appliedKits.entrySet())
+		{
+			me.getKey().processKit(aPC, me.getValue());
+		}
 	}
 
 	/**
@@ -71,26 +67,18 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 	 * @param aKit Kit The kit that has requested the application of the kit.
 	 * @param warnings List The warign list to be populated if anything fails.
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
-	{
-		String key = kitStr;
-		theKit = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Kit.class, key);
-		if (theKit == null)
-		{
-			warnings.add("KIT: Kit " + kitStr + " not found.");
-			return false;
-		}
-		thingsToAdd = new ArrayList<BaseKit>();
-		theKit.testApplyKit(aPC, thingsToAdd, warnings);
-		// We actually want this kit to get applied to the temp pc
-		theKit.processKit(aPC, thingsToAdd);
-		return true;
-	}
-
 	@Override
-	public KitKit clone()
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		return (KitKit) super.clone();
+		for (CDOMSingleRef<Kit> ref : availableKits)
+		{
+			Kit addedKit = ref.resolvesTo();
+			ArrayList<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
+			addedKit.testApplyKit(aPC, thingsToAdd, warnings);
+			appliedKits.put(addedKit, thingsToAdd);
+		}
+		return true;
 	}
 
 	@Override
@@ -102,6 +90,16 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 	@Override
 	public String toString()
 	{
-		return kitStr;
+		return ReferenceUtilities.joinLstFormat(availableKits, Constants.PIPE);
+	}
+
+	public void addKit(CDOMSingleRef<Kit> ref)
+	{
+		availableKits.add(ref);
+	}
+
+	public List<CDOMSingleRef<Kit>> getKits()
+	{
+		return availableKits;
 	}
 }

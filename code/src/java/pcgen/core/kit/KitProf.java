@@ -22,21 +22,22 @@
  */
 package pcgen.core.kit;
 
-import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.*;
-import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.PCClass;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.WeaponProf;
 
 /**
  * <code>KitFeat</code>.
@@ -44,15 +45,13 @@ import java.util.StringTokenizer;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class KitProf extends BaseKit implements Serializable, Cloneable
+public final class KitProf extends BaseKit
 {
-	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+	private Integer choiceCount;
 
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private final List<CDOMSingleRef<WeaponProf>> profList = new ArrayList<CDOMSingleRef<WeaponProf>>();
-	private boolean racialProf = false;
+	private final List<CDOMSingleRef<WeaponProf>> profList =
+			new ArrayList<CDOMSingleRef<WeaponProf>>();
+	private Boolean racialProf;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -60,43 +59,19 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 	private transient List<WeaponProf> weaponProfs = null;
 
 	/**
-	 * Constructor
-	 * @param argProfList
-	 */
-	public KitProf(final String argProfList)
-	{
-		StringTokenizer tok = new StringTokenizer(argProfList, Constants.PIPE);
-		LoadContext context = Globals.getContext();
-		while (tok.hasMoreTokens())
-		{
-			String tokText = tok.nextToken();
-			CDOMSingleRef<WeaponProf> ref = context.ref.getCDOMReference(
-					WEAPONPROF_CLASS, tokText);
-			if (ref == null)
-			{
-				Logging
-						.errorPrint("  Error was encountered while parsing KitProf.  "
-								+ tokText + " is not a valid WeaponProf");
-				continue;
-			}
-			profList.add(ref);
-		}
-	}
-
-	/**
 	 * True if it is a racial proficiency
 	 * @return True if it is a racial proficiency
 	 */
 	public boolean isRacial()
 	{
-		return racialProf;
+		return racialProf != null && racialProf;
 	}
 
 	/**
 	 * Set racial proficiency flag
 	 * @param argRacial
 	 */
-	public void setRacialProf(final boolean argRacial)
+	public void setRacialProf(Boolean argRacial)
 	{
 		racialProf = argRacial;
 	}
@@ -107,9 +82,9 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		final int maxSize = profList.size();
 		final StringBuffer info = new StringBuffer(maxSize * 10);
 
-		if ((choiceCount != 1) || (maxSize != 1))
+		if ((getSafeCount() != 1) || (maxSize != 1))
 		{
-			info.append(choiceCount).append(" of ");
+			info.append(getSafeCount()).append(" of ");
 		}
 
 		info.append(StringUtil.join(profList, ", "));
@@ -117,7 +92,9 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		return info.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
 		thePObject = null;
 		weaponProfs = null;
@@ -137,8 +114,8 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			}
 			if (pcRace.getSafeSizeOfListFor(weaponProfKey) != 0)
 			{
-				warnings.add(
-					"PROF: Race has already selected bonus weapon proficiency");
+				warnings
+					.add("PROF: Race has already selected bonus weapon proficiency");
 
 				return false;
 			}
@@ -157,7 +134,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 			// Search for a class that has bonusWeaponProfs.
 			PCClass pcClass = null;
-			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext(); )
+			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext();)
 			{
 				pcClass = i.next();
 				wpBonus = pcClass.getListMods(WeaponProf.STARTING_LIST);
@@ -169,8 +146,8 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			thePObject = pcClass;
 			if (pcClass.getSafeSizeOfListFor(weaponProfKey) != 0)
 			{
-				warnings.add(
-					"PROF: Class has already selected bonus weapon proficiency");
+				warnings
+					.add("PROF: Class has already selected bonus weapon proficiency");
 
 				return false;
 			}
@@ -184,7 +161,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 		final List<String> aProfList = new ArrayList<String>();
 
-		for ( CDOMSingleRef<WeaponProf> profKey : profList )
+		for (CDOMSingleRef<WeaponProf> profKey : profList)
 		{
 			WeaponProf wp = profKey.resolvesTo();
 			boolean found = false;
@@ -200,12 +177,12 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			if (!found)
 			{
 				warnings.add("PROF: Weapon proficiency \"" + wp.getKeyName()
-						+ "\" is not in list of choices");
+					+ "\" is not in list of choices");
 			}
-			
+
 		}
 
-		int numberOfChoices = getChoiceCount();
+		int numberOfChoices = getSafeCount();
 
 		//
 		// Can't choose more entries than there are...
@@ -233,11 +210,11 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			//
 			while (true)
 			{
-				xs = Globals.getChoiceFromList(
-						"Choose Proficiencies",
-						aProfList,
-						new ArrayList<String>(),
-						numberOfChoices);
+				xs =
+						Globals
+							.getChoiceFromList("Choose Proficiencies",
+								aProfList, new ArrayList<String>(),
+								numberOfChoices);
 
 				if (xs.size() != 0)
 				{
@@ -249,9 +226,11 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		//
 		// Add to list of things to add to the character
 		//
-		for ( String profKey : xs )
+		for (String profKey : xs)
 		{
-			final WeaponProf aProf = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
+			final WeaponProf aProf =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						WeaponProf.class, profKey);
 
 			if (aProf != null)
 			{
@@ -265,26 +244,49 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		return false;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		for ( WeaponProf prof : weaponProfs )
+		for (WeaponProf prof : weaponProfs)
 		{
 			thePObject.addSelectedWeaponProfBonus(prof.getKeyName());
 		}
 	}
 
 	@Override
-	public KitProf clone()
-	{
-		KitProf aClone = (KitProf)super.clone();
-		aClone.profList.addAll(profList);
-		aClone.racialProf = racialProf;
-
-		return aClone;
-	}
-
 	public String getObjectName()
 	{
 		return "Proficiencies";
 	}
+
+	public void setCount(Integer quan)
+	{
+		choiceCount = quan;
+	}
+
+	public Integer getCount()
+	{
+		return choiceCount;
+	}
+
+	public int getSafeCount()
+	{
+		return choiceCount == null ? 1 : choiceCount;
+	}
+
+	public void addProficiency(CDOMSingleRef<WeaponProf> ref)
+	{
+		profList.add(ref);
+	}
+
+	public Collection<CDOMSingleRef<WeaponProf>> getProficiencies()
+	{
+		return profList;
+	}
+
+	public Boolean getRacialProf()
+	{
+		return racialProf;
+	}
+
 }

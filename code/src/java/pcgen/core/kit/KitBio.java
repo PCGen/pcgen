@@ -22,13 +22,15 @@
  */
 package pcgen.core.kit;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.Gender;
+import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-import pcgen.core.Globals;
 
 /**
  * Code to represent a bio setting choices for a Kit.
@@ -39,7 +41,8 @@ import pcgen.core.Globals;
 public class KitBio extends BaseKit
 {
 	private String theCharacterName = null;
-	private String theGender = null;
+	private List<Gender> theGenders = null;
+	private transient Gender selectedGender = null;
 
 	/**
 	 * Set the character name to set for this kit item.
@@ -50,13 +53,9 @@ public class KitBio extends BaseKit
 		theCharacterName = aName;
 	}
 
-	/**
-	 * Set the gender to use for this kit item.
-	 * @param aGender Gender to use.  Can be any string.
-	 */
-	public void setGender(final String aGender)
+	public String getCharacterName()
 	{
-		theGender = aGender;
+		return theCharacterName;
 	}
 
 	/**
@@ -65,15 +64,16 @@ public class KitBio extends BaseKit
 	 *
 	 * @param aPC The character to apply the kit to.
 	 */
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		if (theCharacterName != null)
 		{
 			aPC.setName(theCharacterName);
 		}
-		if (theGender != null)
+		if (selectedGender != null)
 		{
-			aPC.setGender(theGender);
+			aPC.setGender(selectedGender.toString());
 		}
 	}
 
@@ -82,6 +82,7 @@ public class KitBio extends BaseKit
 	 *
 	 * @return object name
 	 */
+	@Override
 	public String getObjectName()
 	{
 		return "Bio Settings";
@@ -98,25 +99,20 @@ public class KitBio extends BaseKit
 	 *   apply the kit
 	 * @return true if OK
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		if (theGender != null)
+		if (theGenders != null)
 		{
-			ArrayList<String> genders = new ArrayList<String>();
-
-			StringTokenizer tok = new StringTokenizer(theGender, "|");
-			while (tok.hasMoreTokens())
+			if (theGenders.size() > 1)
 			{
-				String gen = tok.nextToken();
-				genders.add(gen);
-			}
-			if (genders.size() > 1)
-			{
-				List<String> selList = new ArrayList<String>(1);
-				Globals.getChoiceFromList("Choose Gender", genders, selList, 1);
+				List<Gender> selList = new ArrayList<Gender>(1);
+				Globals.getChoiceFromList("Choose Gender", theGenders, selList,
+					1);
 				if (selList.size() == 1)
 				{
-					theGender = selList.get(0);
+					selectedGender = selList.get(0);
 				}
 			}
 		}
@@ -134,11 +130,30 @@ public class KitBio extends BaseKit
 		{
 			info.append(" Name: " + theCharacterName);
 		}
-		if (theGender != null)
+		if (theGenders != null)
 		{
-			info.append(" Gender: " + theGender);
+			info.append(" Gender: " + StringUtil.join(theGenders, ", "));
 		}
 
 		return info.toString();
+	}
+
+	public void addGender(Gender gender)
+	{
+		if (theGenders == null)
+		{
+			theGenders = new ArrayList<Gender>();
+		}
+		if (theGenders.contains(gender))
+		{
+			throw new IllegalArgumentException("Cannot add Gender: " + gender
+				+ " twice");
+		}
+		theGenders.add(gender);
+	}
+
+	public Collection<Gender> getGenders()
+	{
+		return theGenders;
 	}
 }

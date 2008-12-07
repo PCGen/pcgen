@@ -26,35 +26,68 @@
 package plugin.lsttokens.kit.prof;
 
 import pcgen.core.kit.KitProf;
-import pcgen.persistence.lst.KitProfLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.util.Logging;
 
 /**
  * COUNT Token for KitProf
  */
-public class CountToken implements KitProfLstToken
+public class CountToken extends AbstractToken implements
+		CDOMSecondaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "COUNT";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kitProf
-	 *            KitProf
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitProf kitProf, String value)
+	public Class<KitProf> getTokenClass()
 	{
-		kitProf.setChoiceCount(value);
-		return true;
+		return KitProf.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitProf kitProf, String value)
+	{
+		try
+		{
+			Integer quan = Integer.valueOf(value);
+			if (quan.intValue() <= 0)
+			{
+				Logging.errorPrint(getTokenName() + " expected an integer > 0");
+				return false;
+			}
+			kitProf.setCount(quan);
+			return true;
+		}
+		catch (NumberFormatException nfe)
+		{
+			Logging.errorPrint(getTokenName()
+				+ " expected an integer.  Tag must be of the form: "
+				+ getTokenName() + ":<int>");
+			return false;
+		}
+
+	}
+
+	public String[] unparse(LoadContext context, KitProf kitProf)
+	{
+		Integer bd = kitProf.getCount();
+		if (bd == null)
+		{
+			return null;
+		}
+		return new String[]{bd.toString()};
 	}
 }

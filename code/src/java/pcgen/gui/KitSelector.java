@@ -69,11 +69,13 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.cdom.enumeration.KitApply;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.kit.BaseKit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.kit.BaseKit;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.IconUtilitities;
@@ -173,7 +175,7 @@ final class KitSelector extends JFrame
 		theKit.processKit(aPC, thingsToAdd);
 		forceTabUpdate();
 
-		if (theKit.getApplyMode() == Kit.APPLY_PERMANENT)
+		if (theKit.getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT)
 		{
 			( (KitListModel) (lstAvailable.getModel())).removeItem(theKit);
 			( (KitListModel) (lstSelected.getModel())).addItem(theKit);
@@ -641,12 +643,12 @@ final class KitSelector extends JFrame
 				else
 				{
 					dispString = "";
-					if (kit.getApplyMode() == Kit.APPLY_INSTANT)
+					if (kit.getSafe(ObjectKey.APPLY_MODE) == KitApply.INSTANT)
 					{
 						dispString = "<html><font color=\"" + SettingsHandler.getFeatVirtualColor() + "\">";
 					}
 					dispString += kit.getDisplayName();
-					if (kit.getApplyMode() == Kit.APPLY_INSTANT)
+					if (kit.getSafe(ObjectKey.APPLY_MODE) == KitApply.INSTANT)
 					{
 						dispString += "<html></font>";
 					}

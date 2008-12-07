@@ -21,16 +21,19 @@
  * $Id: $
  */
 
-
 package plugin.lsttokens.kit.skill;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Language;
 import pcgen.core.kit.KitSkill;
-import pcgen.persistence.lst.KitSkillLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * SELECTION token for KitSkill
@@ -41,38 +44,63 @@ import pcgen.persistence.lst.KitSkillLstToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class SelectionToken implements KitSkillLstToken
+public class SelectionToken extends AbstractToken implements
+		CDOMSecondaryToken<KitSkill>
 {
-	
+
+	private static final Class<Language> LANGUAGE_CLASS = Language.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "SELECTION";
 	}
 
-	/**
-	 * Parse the selection tag.
-	 * 
-	 * @param kitSkill The skill tag being modified
-	 * @param value String The value of the tag.
-	 * 
-	 * @return boolean true if the value could be parsed. 
-	 */
-	public boolean parse(KitSkill kitSkill, String value)
+	public Class<KitSkill> getTokenClass()
 	{
-		List<String> langKeys = new ArrayList<String>();
-		final StringTokenizer langToken =
-				new StringTokenizer(value, Constants.COMMA);
-		while (langToken.hasMoreTokens())
+		return KitSkill.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitSkill kitSkill, String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator(',', value))
 		{
-			langKeys.add(langToken.nextToken());
+			return false;
 		}
 
-		kitSkill.setSelection(langKeys);
+		StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
+
+		while (tok.hasMoreTokens())
+		{
+			kitSkill.addSelection(context.ref.getCDOMReference(LANGUAGE_CLASS,
+				tok.nextToken()));
+		}
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, KitSkill kitSkill)
+	{
+		List<CDOMSingleRef<Language>> ref = kitSkill.getSelections();
+		if (ref == null)
+		{
+			return null;
+		}
+		return new String[]{ReferenceUtilities.joinLstFormat(ref,
+			Constants.COMMA)};
+	}
+
+	//TODO DeferredToken - check this?
+	/*
+	 if (SkillLanguage.isLanguage(aSkill) && !selection.isEmpty())
+	 */
 }

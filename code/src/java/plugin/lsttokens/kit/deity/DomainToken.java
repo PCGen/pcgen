@@ -25,34 +25,72 @@
 
 package plugin.lsttokens.kit.deity;
 
+import java.util.Collection;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Domain;
 import pcgen.core.kit.KitDeity;
-import pcgen.persistence.lst.KitDeityLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * DOMAIN Token for KitDeity
  */
-public class DomainToken implements KitDeityLstToken
+public class DomainToken extends AbstractToken implements
+		CDOMSecondaryToken<KitDeity>
 {
-	public boolean parse(KitDeity kitDeity, String value)
-	{
-		final StringTokenizer pTok = new StringTokenizer(value, "|");
-		while (pTok.hasMoreTokens())
-		{
-			final String domain = pTok.nextToken();
-			kitDeity.addDomain(domain);
-		}
-		return true;
-	}
-
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "DOMAIN";
+	}
+
+	public Class<KitDeity> getTokenClass()
+	{
+		return KitDeity.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitDeity kitDeity, String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
+
+		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
+		while (pipeTok.hasMoreTokens())
+		{
+			String tokString = pipeTok.nextToken();
+			Class<Domain> DOMAIN_CLASS = Domain.class;
+			CDOMSingleRef<Domain> ref =
+					context.ref.getCDOMReference(DOMAIN_CLASS, tokString);
+			kitDeity.addDomain(ref);
+		}
+		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitDeity kitDeity)
+	{
+		Collection<CDOMSingleRef<Domain>> domains = kitDeity.getDomains();
+		if (domains == null || domains.isEmpty())
+		{
+			return null;
+		}
+		return new String[]{ReferenceUtilities.joinLstFormat(domains,
+			Constants.PIPE)};
 	}
 }

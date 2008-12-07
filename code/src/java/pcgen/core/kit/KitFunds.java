@@ -22,11 +22,11 @@
  */
 package pcgen.core.kit;
 
+import java.util.List;
+
+import pcgen.base.formula.Formula;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
-
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * <code>KitFunds</code>.
@@ -34,75 +34,63 @@ import java.util.List;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class KitFunds extends BaseKit implements Serializable, Cloneable
+public final class KitFunds extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private String name = "";
-	private String qty = "1";
+	private String name;
+	private Formula quantity;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient int theQty = 0;
 
-	/**
-	 * Constructor
-	 * @param fundsName
-	 */
-	public KitFunds(final String fundsName)
-	{
-		name = fundsName;
-	}
-
-	/**
-	 * Set the quantity
-	 * @param argQty
-	 */
-	public void setQty(final String argQty)
-	{
-		qty = argQty;
-	}
-
-	/**
-	 * Get the quantity
-	 * @return quantity
-	 */
-	public String getQty()
-	{
-		return qty;
-	}
-
 	@Override
 	public String toString()
 	{
-		return qty + ' ' + name;
+		return quantity.toString() + ' ' + name;
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
 		theQty = -1;
-		if (qty == null)
+		if (quantity == null)
 		{
 			return false;
 		}
-		theQty = aPC.getVariableValue(getQty(), "").intValue();
+		theQty = quantity.resolve(aPC, "").intValue();
 		return true;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		aPC.adjustGold(theQty);
 	}
 
 	@Override
-	public KitFunds clone()
-	{
-		return (KitFunds) super.clone();
-	}
-
 	public String getObjectName()
 	{
 		return "Funds";
+	}
+
+	public void setQuantity(Formula formula)
+	{
+		quantity = formula;
+	}
+
+	public void setName(String value)
+	{
+		name = value;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public Formula getQuantity()
+	{
+		return quantity;
 	}
 }

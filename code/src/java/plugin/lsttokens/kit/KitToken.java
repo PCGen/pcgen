@@ -25,68 +25,72 @@
 
 package plugin.lsttokens.kit;
 
-import java.net.URI;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Kit;
 import pcgen.core.kit.KitKit;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.BaseKitLoader;
-import pcgen.persistence.lst.KitLstToken;
-import pcgen.util.Logging;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 /**
  * Handles the KIT tag for Kits. Allows Common tags for this Kit line as well.
  */
-public class KitToken extends KitLstToken
+public class KitToken extends AbstractToken implements
+		CDOMSecondaryToken<KitKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
 	 * @return Name of the tag this class handles
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "KIT";
 	}
 
-	/**
-	 * Handles the parsing of the KIT tag for Kits. Can also accept Common tags.
-	 * 
-	 * @param aKit
-	 *            the Kit object to add this information to
-	 * @param value
-	 *            the token string
-	 * @return true if parse OK
-	 * @throws PersistenceLayerException
-	 */
-	@Override
-	public boolean parse(Kit aKit, String value, URI source)
-		throws PersistenceLayerException
+	public Class<KitKit> getTokenClass()
 	{
-		final StringTokenizer colToken =
-				new StringTokenizer(value, SystemLoader.TAB_DELIM);
-		KitKit kKit = new KitKit(colToken.nextToken());
+		return KitKit.class;
+	}
 
-		while (colToken.hasMoreTokens())
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
+	}
+
+	public boolean parse(LoadContext context, KitKit kitKit, String value)
+	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			final String colString = colToken.nextToken();
-			if (colString.startsWith("KIT:"))
-			{
-				Logging.errorPrint("Ignoring second KIT tag \"" + colString
-					+ "\" in KitToken.parse");
-			}
-			else
-			{
-				if (BaseKitLoader.parseCommonTags(kKit, colString, source) == false)
-				{
-					throw new PersistenceLayerException("Unknown KitKit info "
-						+ " \"" + colString + "\"");
-				}
-			}
+			return false;
 		}
-		aKit.addObject(kKit);
+
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+
+		while (tok.hasMoreTokens())
+		{
+			String tokText = tok.nextToken();
+			CDOMSingleRef<Kit> ref =
+					context.ref.getCDOMReference(Kit.class, tokText);
+			kitKit.addKit(ref);
+		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, KitKit kitKit)
+	{
+		List<CDOMSingleRef<Kit>> kits = kitKit.getKits();
+		if (kits == null || kits.isEmpty())
+		{
+			return null;
+		}
+		return new String[]{ReferenceUtilities.joinLstFormat(kits,
+			Constants.PIPE)};
 	}
 }

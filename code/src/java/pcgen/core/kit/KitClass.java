@@ -22,11 +22,17 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.core.*;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Kit;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SubClass;
 import pcgen.core.prereq.PrereqHandler;
 
 /**
@@ -35,14 +41,11 @@ import pcgen.core.prereq.PrereqHandler;
  * @author boomer70
  * @version $Id$
  */
-public class KitClass extends BaseKit implements Serializable, Cloneable
+public class KitClass extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long  serialVersionUID = 1;
-
-	private String theClassName = null;
-	private String theSubClass = null;
-	private String theLevelString = "";
+	private CDOMSingleRef<PCClass> pcClass;
+	private Formula levelFormula;
+	private CDOMReference<SubClass> subClass;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -51,104 +54,45 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	private transient int theLevel = -1;
 	private transient boolean doLevelAbilities = true;
 
-	/**
-	 * Constructor
-	 * @param aClassName
-	 */
-	public KitClass(final String aClassName)
-	{
-		theClassName = aClassName;
-	}
-
-	/**
-	 * Get the class name
-	 * @return class name
-	 */
-	public String getClassName()
-	{
-		return theClassName;
-	}
-
-	/**
-	 * Set the level
-	 * @param aLevelStr
-	 */
-	public void setLevel(final String aLevelStr)
-	{
-		theLevelString = aLevelStr;
-	}
-
-	/**
-	 * Get the level string
-	 * @return level string
-	 */
-	public String getLevelString()
-	{
-		return theLevelString;
-	}
-
-	/**
-	 * Set the sub class
-	 * @param aClassName
-	 */
-	public void setSubClass(final String aClassName)
-	{
-		theSubClass = aClassName;
-	}
-
-	/**
-	 * Get the sub class
-	 * @return sub class
-	 */
-	public String getSubClass()
-	{
-		return theSubClass;
-	}
-
 	@Override
 	public String toString()
 	{
 		StringBuffer ret = new StringBuffer(100);
-		ret.append(theClassName).append(theLevelString);
+		ret.append(pcClass.getLSTformat()).append(levelFormula);
 		return ret.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
-		theClass = null;
-		theClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, getClassName());
-
-		if (theClass == null)
-		{
-			warnings.add("CLASS: Class not found \"" + getClassName() + "\"");
-
-			return false;
-		}
+		theClass = pcClass.resolvesTo();
 
 		theOrigSubClass = theClass.getSubClassKey();
-		if (getSubClass() != null)
+		if (subClass != null)
 		{
 			// try and set a subclass too.
-			theClass.setSubClassKey(aPC, getSubClass());
+			theClass.setSubClassKey(aPC, getSubClass().getLSTformat());
 		}
 
 		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
 		{
 			PrereqHandler.toHtmlString(theClass.getPrerequisiteList());
-			warnings.add("CLASS: Not qualified for class \"" + getClassName() +
-						 "\".");
+			warnings.add("CLASS: Not qualified for class \""
+				+ theClass.getKeyName() + "\".");
 			return false;
 		}
 
 		doLevelAbilities = aKit.doLevelAbilities();
 
 		// Temporarily increase the PCs level.
-		theLevel = aPC.getVariableValue(theLevelString, "").intValue();
+		theLevel = levelFormula.resolve(aPC, "").intValue();
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
 
 		return true;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
@@ -156,21 +100,17 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		theClass = null;
 	}
 
-	@Override
-	public KitClass clone()
-	{
-		return (KitClass) super.clone();
-	}
-
-	private void addLevel(final PlayerCharacter pc, final int numLevels, final PCClass aClass, final boolean doLevelAbilitiesIn)
+	private void addLevel(final PlayerCharacter pc, final int numLevels,
+		final PCClass aClass, final boolean doLevelAbilitiesIn)
 	{
 		// We want to level up as quietly as possible for kits.
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
-//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-//		SettingsHandler.setShowFeatDialogAtLevelUp(false);
+		//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+		//		SettingsHandler.setShowFeatDialogAtLevelUp(false);
 		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		SettingsHandler
+			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 
 		boolean tempDoLevelAbilities = pc.doLevelAbilities();
 		pc.setDoLevelAbilities(doLevelAbilitiesIn);
@@ -178,12 +118,43 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		pc.setDoLevelAbilities(tempDoLevelAbilities);
 
 		SettingsHandler.setSingleChoicePreference(tempChoicePref);
-//		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
+		//		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
 
+	@Override
 	public String getObjectName()
 	{
 		return "Classes";
+	}
+
+	public void setPcclass(CDOMSingleRef<PCClass> ref)
+	{
+		pcClass = ref;
+	}
+
+	public CDOMReference<PCClass> getPcclass()
+	{
+		return pcClass;
+	}
+
+	public void setLevel(Formula formula)
+	{
+		levelFormula = formula;
+	}
+
+	public Formula getLevel()
+	{
+		return levelFormula;
+	}
+
+	public void setSubClass(CDOMReference<SubClass> sc)
+	{
+		subClass = sc;
+	}
+
+	public CDOMReference<SubClass> getSubClass()
+	{
+		return subClass;
 	}
 }

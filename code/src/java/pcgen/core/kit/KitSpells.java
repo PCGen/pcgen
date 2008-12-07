@@ -22,16 +22,20 @@
  */
 package pcgen.core.kit;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import pcgen.base.formula.Formula;
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -53,271 +57,183 @@ import pcgen.util.Logging;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class KitSpells extends BaseKit implements Serializable, Cloneable
+public final class KitSpells extends BaseKit
 {
-	// Only change the UID when the serialized form of the class has also changed
-	private static final long serialVersionUID = 1;
-
-	private HashMap<String, List<KitSpellBook>> spellMap = new HashMap<String, List<KitSpellBook>>();
-	private String countFormula = "";
+	private String spellBook;
+	private CDOMSingleRef<PCClass> castingClass;
+	DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer> spells =
+			new DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer>();
+	private Formula countFormula;
 
 	private transient List<KitSpellBookEntry> theSpells = null;
-
-	/** Constructor */
-	public KitSpells()
-	{
-		// Empty Constructor
-	}
 
 	/**
 	 * Set the count formula
 	 * @param argCountFormula
 	 */
-	public void setCountFormula(final String argCountFormula)
+	public void setCount(Formula f)
 	{
-		countFormula = argCountFormula;
+		countFormula = f;
 	}
 
 	/**
 	 * Get the count formula
 	 * @return count formula
 	 */
-	public String getCountFormula()
+	public Formula getCount()
 	{
 		return countFormula;
-	}
-
-	/**
-	 * Get classes
-	 * @return a list of the classes
-	 */
-	public List<String> getClasses()
-	{
-		Set<String> keySet = spellMap.keySet();
-		ArrayList<String> ret = new ArrayList<String>(keySet.size());
-		ret.addAll(keySet);
-		return ret;
-	}
-
-	/**
-	 * Get the spell books
-	 * @param className
-	 * @return the spell books
-	 */
-	public List<KitSpellBook> getSpellBooks(final String className)
-	{
-		return spellMap.get(className);
-	}
-
-	/**
-	 * Add a spell
-	 * @param aClass
-	 * @param aSpellBook
-	 * @param argSpell
-	 * @param metamagicFeats
-	 * @param countStr
-	 */
-	public void addSpell(final String aClass, final String aSpellBook,
-						 final String argSpell, final List<String> metamagicFeats,
-						 final String countStr)
-	{
-		// Check to see if we have any spellbooks for this class.
-		String classKey = aClass;
-		if (aClass == null)
-		{
-			classKey = "Default";
-		}
-		List<KitSpellBook> spellBooks = spellMap.get(classKey);
-		KitSpellBook spellBook = null;
-		if (spellBooks == null)
-		{
-			// We don't have a spell book list for this class
-			// create an empty book and add it to the list
-			spellBook = new KitSpellBook(classKey, aSpellBook);
-			spellBooks = new ArrayList<KitSpellBook>();
-			spellBooks.add(spellBook);
-			// Associate the list with this class.
-			spellMap.put(classKey, spellBooks);
-		}
-		else
-		{
-			// We already have some spell books for this class.
-			// Check to see if we have this one.
-			for (KitSpellBook ksb : spellBooks)
-			{
-				if (ksb.getName().equals(aSpellBook))
-				{
-					spellBook = ksb;
-					break;
-				}
-			}
-			if (spellBook == null)
-			{
-				spellBook = new KitSpellBook(classKey, aSpellBook);
-				spellBooks.add(spellBook);
-			}
-		}
-		spellBook.addSpell(argSpell, metamagicFeats, countStr);
 	}
 
 	@Override
 	public String toString()
 	{
-		final StringBuffer info = new StringBuffer();
-		final Set<String> classes = spellMap.keySet();
-		for (String className : classes)
+		StringBuilder sb = new StringBuilder();
+		if (castingClass != null)
 		{
-			if (!"Default".equals(className))
+			sb.append(castingClass.getLSTformat());
+		}
+		sb.append(' ').append(spellBook).append(": ");
+		boolean needComma = false;
+		for (KnownSpellIdentifier ksi : spells.getKeySet())
+		{
+			if (needComma)
 			{
-				info.append(className);
+				sb.append(',');
 			}
-			List<KitSpellBook> spellBooks = spellMap.get(className);
-			for (KitSpellBook ksb : spellBooks)
+			needComma = true;
+			sb.append(ksi.getLSTformat());
+			Set<List<CDOMSingleRef<Ability>>> abilities =
+					spells.getSecondaryKeySet(ksi);
+			for (List<CDOMSingleRef<Ability>> list : abilities)
 			{
-				info.append(" " + ksb);
+				if (list != null)
+				{
+					sb.append(" [");
+					sb.append(ReferenceUtilities.joinLstFormat(list, ","));
+					sb.append(']');
+				}
+				Integer count = spells.get(ksi, list);
+				if (count > 1)
+				{
+					sb.append(" (").append(count).append(")");
+				}
+
 			}
 		}
 
-		return info.toString();
+		return sb.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	@Override
+	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+		List<String> warnings)
 	{
 		theSpells = null;
 
-		for (String className : getClasses())
+		PCClass aClass = findDefaultSpellClass(castingClass, aPC);
+		if (aClass == null)
 		{
-			PCClass aClass = findDefaultSpellClass(className, aPC);
-			if (aClass == null)
+			warnings.add("SPELLS: Character does not have " + castingClass
+				+ " spellcasting class.");
+			return false;
+		}
+
+		String workingBook =
+				spellBook == null ? Globals.getDefaultSpellBook() : spellBook;
+		List<KitSpellBookEntry> aSpellList = new ArrayList<KitSpellBookEntry>();
+		if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
+			&& !workingBook.equals(Globals.getDefaultSpellBook()))
+		{
+			warnings.add("SPELLS: " + aClass.getDisplayName()
+				+ " can only add to " + Globals.getDefaultSpellBook());
+			return false;
+		}
+
+		for (KnownSpellIdentifier ksi : spells.getKeySet())
+		{
+			Collection<Spell> allSpells =
+					ksi.getContainedSpells(Collections.singletonList(aClass
+						.get(ObjectKey.CLASS_SPELLLIST)));
+			for (Spell sp : allSpells)
 			{
-				warnings.add("SPELLS: Character does not have " + className
-							+ " spellcasting class.");
-			   return false;
+				aSpellList.add(new KitSpellBookEntry(aClass.getKeyName(),
+					spellBook, sp, null));
 			}
-			List<KitSpellBook> spellBooks = getSpellBooks(className);
-			for (KitSpellBook sb : spellBooks)
+		}
+
+		final Formula choiceFormula = getCount();
+		int numberOfChoices;
+
+		if (choiceFormula == null)
+		{
+			numberOfChoices = aSpellList.size();
+		}
+		else
+		{
+			numberOfChoices = choiceFormula.resolve(aPC, "").intValue();
+		}
+
+		//
+		// Can't choose more entries than there are...
+		//
+		if (numberOfChoices > aSpellList.size())
+		{
+			numberOfChoices = aSpellList.size();
+		}
+
+		if (numberOfChoices == 0)
+		{
+			return false;
+		}
+
+		List<KitSpellBookEntry> xs;
+
+		if (numberOfChoices == aSpellList.size())
+		{
+			xs = aSpellList;
+		}
+		else
+		{
+			//
+			// Force user to make enough selections
+			//
+			while (true)
 			{
-				List<KitSpellBookEntry> aSpellList = new ArrayList<KitSpellBookEntry>();
-				final String bookName = sb.getName();
-				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) &&
-					!bookName.equals(Globals.getDefaultSpellBook()))
-				{
-					warnings.add("SPELLS: " + aClass.getDisplayName()
-								 + " can only add to " +
-								 Globals.getDefaultSpellBook());
-					return false;
-				}
-				for (List<KitSpellBookEntry> spells : sb.getSpells())
-				{
-					for (KitSpellBookEntry sbe : spells)
-					{
-						final String spellName = sbe.getName();
-
-						if (spellName.startsWith("LEVEL="))
-						{
-							List<Spell> allSpells = Globals.getSpellsIn(
-								Integer.parseInt(spellName.substring(6)),
-								Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST)));
-							for (Spell s : allSpells)
-							{
-								aSpellList.add(new KitSpellBookEntry(aClass.
-									getKeyName(), sbe.getBookName(),
-									s.toString(), null));
-							}
-						}
-						else
-						{
-							final Spell aSpell = Globals.getSpellKeyed(
-								spellName);
-
-							if (aSpell != null)
-							{
-								aSpellList.add(sbe);
-							}
-							else
-							{
-								warnings.add(
-									"SPELLS: Non-existant spell \"" +
-									spellName + "\"");
-							}
-						}
-					}
-				}
-
-				final String choiceFormula = getCountFormula();
-				int numberOfChoices;
-
-				if (choiceFormula.length() == 0)
-				{
-					numberOfChoices = aSpellList.size();
-				}
-				else
-				{
-					numberOfChoices = aPC.getVariableValue(choiceFormula, "").intValue();
-				}
-
-				//
-				// Can't choose more entries than there are...
-				//
-				if (numberOfChoices > aSpellList.size())
-				{
-					numberOfChoices = aSpellList.size();
-				}
-
-				if (numberOfChoices == 0)
-				{
-					continue;
-				}
-
-				List<KitSpellBookEntry> xs;
-
-				if (numberOfChoices == aSpellList.size())
-				{
-					xs = aSpellList;
-				}
-				else
-				{
-					//
-					// Force user to make enough selections
-					//
-					while (true)
-					{
-						xs = Globals.getChoiceFromList(
-								"Choose " + className + " spell(s) for " + bookName,
-								aSpellList,
+				xs =
+						Globals
+							.getChoiceFromList("Choose " + aClass.getKeyName()
+								+ " spell(s) for " + workingBook, aSpellList,
 								new ArrayList<KitSpellBookEntry>(),
 								numberOfChoices);
 
-						if (xs.size() != 0)
-						{
-							break;
-						}
-					}
-				}
-
-				//
-				// Add to list of things to add to the character
-				//
-				for (KitSpellBookEntry obj : xs)
+				if (xs.size() != 0)
 				{
-					if (obj != null)
-					{
-						obj.setPCClass(aClass);
-						if (theSpells == null)
-						{
-							theSpells = new ArrayList<KitSpellBookEntry>();
-						}
-						theSpells.add(obj);
-					}
-					else
-					{
-						warnings.add("SPELLS: Non-existant spell chosen");
-					}
+					break;
 				}
-
 			}
-
 		}
+
+		//
+		// Add to list of things to add to the character
+		//
+		for (KitSpellBookEntry obj : xs)
+		{
+			if (obj != null)
+			{
+				obj.setPCClass(aClass);
+				if (theSpells == null)
+				{
+					theSpells = new ArrayList<KitSpellBookEntry>();
+				}
+				theSpells.add(obj);
+			}
+			else
+			{
+				warnings.add("SPELLS: Non-existant spell chosen");
+			}
+		}
+
 		if (theSpells != null && theSpells.size() > 0)
 		{
 			return true;
@@ -325,28 +241,23 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		return false;
 	}
 
+	@Override
 	public void apply(PlayerCharacter aPC)
 	{
 		for (KitSpellBookEntry sbe : theSpells)
 		{
-			updatePCSpells(aPC, sbe, aPC.getClassKeyed(sbe.getPCClass().getKeyName()));
+			updatePCSpells(aPC, sbe, aPC.getClassKeyed(sbe.getPCClass()
+				.getKeyName()));
 		}
 	}
 
-	@Override
-	public KitSpells clone()
+	private PCClass findDefaultSpellClass(final CDOMSingleRef<PCClass> ref,
+		PlayerCharacter aPC)
 	{
-		KitSpells aClone = (KitSpells)super.clone();
-		aClone.spellMap = spellMap;
-		aClone.countFormula = countFormula;
-		return aClone;
-	}
-
-	private PCClass findDefaultSpellClass(final String aClassName, PlayerCharacter aPC)
-	{
-		if ("Default".equals(aClassName))
+		if (castingClass == null)
 		{
-			List<? extends PObject> spellcastingClasses = aPC.getSpellClassList();
+			List<? extends PObject> spellcastingClasses =
+					aPC.getSpellClassList();
 			for (PObject obj : spellcastingClasses)
 			{
 				if (obj instanceof PCClass)
@@ -356,8 +267,9 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			}
 			return null;
 		}
-		return aPC.getClassKeyed(aClassName);
+		return aPC.getClassKeyed(ref.resolvesTo().getKeyName());
 	}
+
 	/**
 	 * Add spells from this Kit to the PC
 	 *
@@ -365,12 +277,10 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	 * @param  aSpell   A Spell to add to the PC
 	 * @param  pcClass  The class instance the spells are to be added to.
 	 */
-	private void updatePCSpells(
-		final PlayerCharacter pc,
-		final KitSpellBookEntry           aSpell,
-		final PCClass         pcClass)
+	private void updatePCSpells(final PlayerCharacter pc,
+		final KitSpellBookEntry aSpell, final PCClass pcClass)
 	{
-		Spell spell = Globals.getSpellKeyed(aSpell.getName());
+		Spell spell = aSpell.getSpell();
 
 		int spLevel = 99;
 
@@ -382,7 +292,8 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 			for (CharacterDomain cd : pc.getCharacterDomainList())
 			{
 				Domain domain = cd.getDomain();
-				List<? extends CDOMList<Spell>> lists = domain.getSpellLists(pc);
+				List<? extends CDOMList<Spell>> lists =
+						domain.getSpellLists(pc);
 				int newLevel = SpellLevel.getFirstLevelForKey(spell, lists, pc);
 				if (newLevel > 0 && newLevel < spLevel)
 				{
@@ -394,19 +305,19 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 		if (spLevel == 99)
 		{
-			spLevel = SpellLevel.getFirstLevelForKey(spell, pcClass.getSpellLists(pc), pc);
+			spLevel =
+					SpellLevel.getFirstLevelForKey(spell, pcClass
+						.getSpellLists(pc), pc);
 			owner = pcClass;
 		}
 
 		if (spLevel < 0)
 		{
-			Logging.errorPrint(
-				"SPELLS: " + pcClass.getDisplayName() + " cannot cast spell \"" +
-				aSpell.getName() + "\"");
+			Logging.errorPrint("SPELLS: " + pcClass.getDisplayName()
+				+ " cannot cast spell \"" + spell.getKeyName() + "\"");
 
 			return;
 		}
-
 
 		final CharacterSpell cs = new CharacterSpell(owner, spell);
 		final List<String> modifierList = aSpell.getModifiers();
@@ -432,9 +343,9 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 		for (int numTimes = 0; numTimes < aSpell.getCopies(); numTimes++)
 		{
-			final String aString = pc.addSpell(cs, metamagicFeatList, pcClass.getKeyName(),
-											   aSpell.getBookName(), adjustedLevel,
-											   spLevel);
+			final String aString =
+					pc.addSpell(cs, metamagicFeatList, pcClass.getKeyName(),
+						aSpell.getBookName(), adjustedLevel, spLevel);
 			if (aString.length() != 0)
 			{
 				Logging.errorPrint("Add spell failed:" + aString);
@@ -446,8 +357,35 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		pane.refresh();
 	}
 
+	@Override
 	public String getObjectName()
 	{
 		return "Spells";
+	}
+
+	public void setSpellBook(String string)
+	{
+		spellBook = string;
+	}
+
+	public String getSpellBook()
+	{
+		return spellBook;
+	}
+
+	public void setCastingClass(CDOMSingleRef<PCClass> reference)
+	{
+		castingClass = reference;
+	}
+
+	public CDOMSingleRef<PCClass> getCastingClass()
+	{
+		return castingClass;
+	}
+
+	public void addSpell(KnownSpellIdentifier ksi,
+		ArrayList<CDOMSingleRef<Ability>> featList, int count)
+	{
+		spells.put(ksi, featList, count);
 	}
 }
