@@ -25,17 +25,15 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-import java.util.List;
 import pcgen.util.Logging;
-import java.util.ArrayList;
 
 /**
  * @author wardc
@@ -196,25 +194,5 @@ public class PreParserFactory
 	{
 		return (token.startsWith("PRE") || token.startsWith("!PRE"))
 			&& (token.indexOf(":") > 0);
-	}
-	
-	/**
-	 * Create a level prerequisite
-	 * @param obj The PObject that will 'own; the prereq.
-	 * @param level The minimum level
-	 * @return A prerequisite object
-	 * @throws PersistenceLayerException If the prereq could nto be created.
-	 */
-	public static Prerequisite createLevelPrereq(PObject obj, int level)
-		throws PersistenceLayerException
-	{
-		PreParserFactory factory = PreParserFactory.getInstance();
-		String preLevelString = "PRELEVEL:MIN=" + level; //$NON-NLS-1$
-		if (obj instanceof PCClass)
-		{
-			// Classes handle this differently
-			preLevelString = "PRECLASS:1," + obj.getKeyName() + "=" + level; //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		return factory.parse(preLevelString);
 	}
 }

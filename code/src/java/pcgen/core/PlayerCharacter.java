@@ -14553,43 +14553,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * This method gets a list of locations for a weapon
-	 * 
-	 * @param hands
-	 * @param multiHand
-	 * @return weapon location choices
-	 */
-	private static List<String> getWeaponLocationChoices(final int hands,
-		final String multiHand)
-	{
-		final List<String> result = new ArrayList<String>(hands + 2);
-
-		if (hands > 0)
-		{
-			result.add(Constants.S_PRIMARY);
-
-			for (int i = 1; i < hands; ++i)
-			{
-				if (i > 1)
-				{
-					result.add(Constants.S_SECONDARY + ' ' + i);
-				}
-				else
-				{
-					result.add(Constants.S_SECONDARY);
-				}
-			}
-
-			if (multiHand.length() > 0)
-			{
-				result.add(multiHand);
-			}
-		}
-
-		return result;
-	}
-
-	/**
 	 * If an item can only go in one location, return the name of that location
 	 * to add to an EquipSet
 	 * 
@@ -15295,17 +15258,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return (theAbilities
 			.get(AbilityCategory.FEAT, Ability.Nature.AUTOMATIC) != null)
 			&& virtualFeatsStable && aggregateFeatsStable;
-	}
-
-	public boolean isAggregateAbilitiesStable(final AbilityCategory aCategory)
-	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return isAggregateFeatsStable();
-		}
-		return theAbilities.get(aCategory, Ability.Nature.NORMAL) != null
-			&& theAbilities.get(aCategory, Ability.Nature.AUTOMATIC) != null
-			&& theAbilities.get(aCategory, Ability.Nature.VIRTUAL) != null;
 	}
 
 	/**
@@ -16059,13 +16011,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return null;
-	}
-
-	public Ability getVirtualFeatKeyed(final String aKey)
-	{
-		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(),
-			"FEAT", aKey, Ability.Nature.ANY);
-
 	}
 
 	public int addAbility(final PCLevelInfo LevelInfo,

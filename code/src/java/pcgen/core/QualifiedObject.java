@@ -124,8 +124,6 @@ public class QualifiedObject<T> extends ConcretePrereqObject
 		// TODO Auto-generated method stub
 		return result.toString();
 	}
-    
-    
 
 	/**
      * Create the qualified object 
@@ -174,29 +172,6 @@ public class QualifiedObject<T> extends ConcretePrereqObject
 		return new QualifiedObject<String>( obj, prereqs );
 	}
     
-    public static class LevelAwareQualifiedObject<AT> extends QualifiedObject<AT>
-    {
-    	public final int level;
-    	
-		public LevelAwareQualifiedObject(int lvl)
-		{
-			super();
-			level = lvl;
-		}
-
-		public LevelAwareQualifiedObject(int lvl, AT anObj, List<Prerequisite> aPrereqList)
-		{
-			super(anObj, aPrereqList);
-			level = lvl;
-		}
-
-		public LevelAwareQualifiedObject(int lvl, AT anObj)
-		{
-			super(anObj);
-			level = lvl;
-		}
-    }
-
 	@Override
 	public boolean equals(Object obj)
 	{

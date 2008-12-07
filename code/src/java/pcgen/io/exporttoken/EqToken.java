@@ -780,17 +780,6 @@ public class EqToken extends Token
 	}
 
 	/**
-	 * Get OutputName Token
-	 * @param eq
-	 * @param pc
-	 * @return OutputName Token
-	 */
-	public static String getOutputNameToken(Equipment eq, PlayerCharacter pc)
-	{
-		return getNameToken(eq, pc);
-	}
-
-	/**
 	 * Get QTY Token
 	 * @param eq
 	 * @return QTY Token
@@ -914,18 +903,6 @@ public class EqToken extends Token
 	}
 
 	/**
-	 * Get Total Weight Token
-	 * @param pc
-	 * @param eq
-	 * @return Total Weight Token
-	 */
-	public static String getTotalWeightToken(PlayerCharacter pc, Equipment eq)
-	{
-		return BigDecimalHelper.trimZeros(getTotalWeightTokenDouble(pc, eq)
-			+ "");
-	}
-
-	/**
 	 * Get Total Weight Token as double
 	 * @param pc
 	 * @param eq
@@ -935,18 +912,6 @@ public class EqToken extends Token
 		Equipment eq)
 	{
 		return getContentWeightTokenDouble(pc, eq) + getWtTokenDouble(pc, eq);
-	}
-
-	/**
-	 * Get TotalWt Token
-	 * @param pc
-	 * @param eq
-	 * @return TotalWt Token
-	 */
-	public static String getTotalWtToken(PlayerCharacter pc, Equipment eq)
-	{
-		return BigDecimalHelper.trimZeros(Double
-			.toString(getTotalWtTokenDouble(pc, eq)));
 	}
 
 	/**
@@ -979,17 +944,6 @@ public class EqToken extends Token
 	public static String getTypeToken(Equipment eq, int num)
 	{
 		return eq.typeIndex(num);
-	}
-
-	/**
-	 * Get TotalWT Token
-	 * @param pc
-	 * @param eq
-	 * @return TotalWT Token
-	 */
-	public static String getWtToken(PlayerCharacter pc, Equipment eq)
-	{
-		return BigDecimalHelper.trimZeros(eq.getWeight(pc).toString());
 	}
 
 	/**

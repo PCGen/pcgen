@@ -125,20 +125,6 @@ public class SkillRankControl
 	 * 
 	 * @param rankMod
 	 * @param aClass
-	 * @param aPC
-	 * @return message
-	 */
-	public static String modRanks(double rankMod, PCClass aClass,
-			PlayerCharacter aPC, Skill sk)
-	{
-		return modRanks(rankMod, aClass, false, aPC, sk);
-	}
-
-	/**
-	 * Modify the rank
-	 * 
-	 * @param rankMod
-	 * @param aClass
 	 * @param ignorePrereqs
 	 * @param aPC
 	 * @return message

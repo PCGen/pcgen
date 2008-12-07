@@ -43,8 +43,6 @@ import pcgen.util.Logging;
 
 public class TokenSupport
 {
-	public static final Class<CDOMObject> CDOM_OBJECT_CLASS = CDOMObject.class;
-
 	public DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
 		new DoubleKeyMapToList<Class<?>, String, CDOMToken<?>>();
 

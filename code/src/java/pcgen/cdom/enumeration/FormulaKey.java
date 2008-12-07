@@ -62,8 +62,6 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey SELECT = getConstant("SELECT", Formula.ONE);
 
-	public static final FormulaKey POOL = getConstant("POOL");
-
 	public static final FormulaKey NUMCHOICES = getConstant("NUMCHOICES");
 
 	public static final FormulaKey SIZE;
