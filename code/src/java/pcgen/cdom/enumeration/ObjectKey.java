@@ -30,6 +30,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Category;
@@ -249,6 +250,10 @@ public class ObjectKey<T>
 	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<TransitionChoice<Region>>(null);
 
 	public static final ObjectKey<Boolean> USE_MASTER_SKILL = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<KitApply> APPLY_MODE = new ObjectKey<KitApply>(KitApply.PERMANENT);
+
+	public static final ObjectKey<QualifiedObject<Formula>> EQUIP_BUY = new ObjectKey<QualifiedObject<Formula>>(null);
 
 	/*
 	 * TODO Okay, this is a hack.

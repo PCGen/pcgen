@@ -557,7 +557,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return abb;
 	}
 
-	protected final void overlayCDOMObject(CDOMObject cdo)
+	public final void overlayCDOMObject(CDOMObject cdo)
 	{
 		integerChar.putAll(cdo.integerChar);
 		stringChar.putAll(cdo.stringChar);
