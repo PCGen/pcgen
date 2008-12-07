@@ -81,12 +81,14 @@ public class ChooseLst extends AbstractToken implements
 			pipeLoc = val.indexOf(Constants.PIPE);
 			if (pipeLoc == -1)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-						+ " requires a SubToken");
-				return false;
+				key = val;
+				val = null;
 			}
-			key = val.substring(0, pipeLoc);
-			val = val.substring(pipeLoc + 1);
+			else
+			{
+				key = val.substring(0, pipeLoc);
+				val = val.substring(pipeLoc + 1);
+			}
 		}
 
 		return context.processSubToken(obj, getTokenName(), key, val);
