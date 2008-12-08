@@ -13715,20 +13715,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 
 			// remove this object from the feats lists
-			for (Iterator<Ability> iterator =
-					getRealAbilitiesList(AbilityCategory.FEAT).iterator(); iterator
-				.hasNext();)
+			for (Ability feat : getRealAbilitiesList(AbilityCategory.FEAT))
 			{
-				final Ability feat = iterator.next();
 				if (object == feat)
 				{
-					iterator.remove();
+					removeRealAbility(AbilityCategory.FEAT, feat);
 				}
 			}
+
 			// remove this object from the feats lists
 			for (Iterator<Ability> iterator =
-					theAbilities.get(AbilityCategory.FEAT,
-						Ability.Nature.VIRTUAL).iterator(); iterator.hasNext();)
+					getDirectVirtualAbilities(AbilityCategory.FEAT).iterator(); iterator
+				.hasNext();)
 			{
 				final Ability feat = iterator.next();
 				if (object == feat)
