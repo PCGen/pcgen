@@ -794,7 +794,7 @@ public final class Globals
 	public static Iterator<Categorisable> getAbilityKeyIterator (String aCategory)
 	{
 		String catKey = aCategory;
-		if (!aCategory.equals("ALL"))
+		if (!aCategory.equals(Constants.ALL_CATEGORIES))
 		{
 			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
 			if (cat != null)
@@ -815,7 +815,7 @@ public final class Globals
 	public static Iterator<? extends Categorisable> getAbilityNameIterator (String aCategory)
 	{
 		String catKey = aCategory;
-		if (!aCategory.equals("ALL"))
+		if (!aCategory.equals(Constants.ALL_CATEGORIES))
 		{
 			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
 			if (cat != null)
@@ -876,7 +876,7 @@ public final class Globals
 	public static List<? extends Categorisable> getUnmodifiableAbilityList(String aCategory)
 	{
 		String catKey = aCategory;
-		if (!aCategory.equals("ALL"))
+		if (!aCategory.equals(Constants.ALL_CATEGORIES))
 		{
 			AbilityCategory cat = AbilityUtilities.getAbilityCategory(aCategory);
 			if (cat != null)
