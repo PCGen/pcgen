@@ -130,7 +130,12 @@ public final class KitGear extends BaseKit
 
 	private void processLookups(Kit aKit, PlayerCharacter aPC)
 	{
-		for (NamedFormula lookup : getLookups())
+		Collection<NamedFormula> lookups = getLookups();
+		if (lookups == null)
+		{
+			return;
+		}
+		for (NamedFormula lookup : lookups)
 		{
 			KitTable kt = aKit.getTable(lookup.getName());
 			KitGear gear =
@@ -289,7 +294,10 @@ public final class KitGear extends BaseKit
 			theEquipment.nameItemFromModifiers(aPC);
 		}
 
-		theQty = actingQuantity.resolve(aPC, "").intValue();
+		if (actingQuantity != null)
+		{
+			theQty = actingQuantity.resolve(aPC, "").intValue();
+		}
 		int origQty = theQty;
 		final BigDecimal eqCost = theEquipment.getCost(aPC);
 
