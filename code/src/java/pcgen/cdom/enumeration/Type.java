@@ -31,7 +31,7 @@ import pcgen.cdom.base.Constants;
  * type-safe fashion, so that they can be quickly compared and use less memory
  * when identical Pantheons exist in two CDOMObjects.
  */
-public final class Type implements TypeSafeConstant
+public final class Type implements TypeSafeConstant, Comparable<Type>
 {
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
@@ -98,7 +98,7 @@ public final class Type implements TypeSafeConstant
 		if (name == null)
 		{
 			throw new IllegalArgumentException(
-					"Name for Pantheon cannot be null");
+					"Name for Type cannot be null");
 		}
 		ordinal = ordinalCount++;
 		fieldName = name;
@@ -194,4 +194,11 @@ public final class Type implements TypeSafeConstant
 		typeMap.clear();
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	public int compareTo(Type o)
+	{
+		return fieldName.compareTo(o.fieldName);
+	}
 }

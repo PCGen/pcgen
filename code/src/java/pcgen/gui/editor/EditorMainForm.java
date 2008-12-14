@@ -3195,7 +3195,10 @@ public final class EditorMainForm extends JDialog
 		if (anEditType != EditorConstants.EDIT_DOMAIN)
 		{
 			String[] spellSupportObj = Globals.getContext().unparse(thisPObject, "SPELLLEVEL");
-			selectedList.addAll(Arrays.asList(spellSupportObj));
+			if(spellSupportObj != null)
+			{
+				selectedList.addAll(Arrays.asList(spellSupportObj));
+			}
 		}
 		return selectedList;
 	}
