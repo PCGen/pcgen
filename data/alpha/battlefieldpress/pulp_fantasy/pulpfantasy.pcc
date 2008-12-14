@@ -7,7 +7,8 @@ BOOKTYPE:Campaign Setting
 SETTING:Pulp Fantasy
 TYPE:Alpha Datasets
 #TYPE:Battlefield Press.Pulp Fantasy
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,MSRD - Basics
+!PRECAMPAIGN:1,BOOKTYPE=MSRD.Partial,MSRD - Future, MSRD - Menaces, MSRD - Arcana
 PUBNAMELONG:Battlefield Press
 PUBNAMESHORT:Battlefield
 PUBNAMEWEB:http://battlefieldpress.com
@@ -60,6 +61,9 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=24701&it=1?affili
 
 #EXTRAFILE:OGL.txt
 
+#Excluded from MSRD - Basics
+LSTEXCLUDE:@/d20ogl/msrd/basics/modern_basics/modernbasics_kits_defaultmonsters_animals.lst
+
 ABILITY:pulpfantasy_abilities_occupations.lst
 ABILITY:pulpfantasy_abilities.lst
 ABILITYCATEGORY:pulpfantasy_ability_categories.lst
@@ -86,10 +90,11 @@ TEMPLATE:pulpfantasy_templates.lst
 WEAPONPROF:pulpfantasy_weaponprofs.lst
 ARMORPROF:pulpfantasy_profs_armor.lst
 
-#Stuff imported from the MSRD
-EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Scale Mail|Half Plate|Hide Armor|Banded Mail|Splint Mail)
+Stuff imported from the MSRD
+EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_armorshields.lst
+ABILITYCATEGORY:@/d20ogl/msrd/future/future_basics/futurebasics_ability_categories_future.lst|(INCLUDE:Charismatic Plus Talent,Dedicated Plus Talent,Fast Plus Talent,Smart Plus Talent,Strong Plus Talent,Tough Plus Talent)
 FEAT:@\d20ogl\msrd\future\future_basics\futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
-FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats.lst,(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
+FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
 RACE:@\d20ogl\msrd\arcana\creatures\arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
 RACE:@\d20ogl\msrd\basics\modern_creatures\moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
 RACE:@\d20ogl\msrd\menaces\menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)

@@ -42,11 +42,10 @@ Camera (Film).MOD																		SIZE:D	SOURCEPAGE:p.74
 
 ###Block: Professional Equipment
 # Equipment Name	Type				Cost		Weight	Size		Source Page		Bonus to skill										Special Property
-Chemical Kit	TYPE:Goods.Tools		COST:16	WT:6		SIZE:M	SOURCEPAGE:p.74	BONUS:SKILL|Craft (chemical)|CircumstanceAdjustment|TYPE=Circumstance
-Demolitions Kit	TYPE:Goods.Tools		COST:13	WT:5		SIZE:M	SOURCEPAGE:p.74													SPROP:Lic(+1)
+Demolitions Kit.MOD	SPROP:Lic(+1)
 Diving Suit		TYPE:Goods.Clothing	COST:27	WT:10		SIZE:M	SOURCEPAGE:p.74													SPROP:Lic(+1)
 Hand Drill		TYPE:Goods.Tools		COST:0	WT:2		SIZE:S	SOURCEPAGE:p.75
-Spike Strip		TYPE:Goods.Tools		COST:13	WT:22		SIZE:H	SOURCEPAGE:p.75
+Spike Strip.MOD		SIZE:H	SOURCEPAGE:p.75
 
 ###Block: Professional equipment MODs
 # Equipment Name				Size		Source Page		Special Property
@@ -69,7 +68,7 @@ Mechanical Tool Kit (Deluxe).MOD	SIZE:H	SOURCEPAGE:p.75
 # Equipment Name		Type						Cost		Weight	Size		Source Page
 Microscope (250x)		TYPE:Goods.Tools.Medical		COST:11	WT:5		SIZE:S	SOURCEPAGE:p.75
 Gauze bandages		TYPE:Goods.Tools.Medical.Consumable	COST:2	WT:0		SIZE:S	SOURCEPAGE:p.75
-Surgery Kit			TYPE:Goods.Tools.Medical		COST:16	WT:5		SIZE:M	SOURCEPAGE:p.75
+Surgery Kit.MOD			TYPE:Medical		SIZE:M	SOURCEPAGE:p.75
 Surgigal Gloves (100)	TYPE:Goods.Tools.Medical.Consumable	COST:3	WT:0		SIZE:S	SOURCEPAGE:p.75
 Thermometer			TYPE:Goods.Tools.Medical		COST:4	WT:0		SIZE:S	SOURCEPAGE:p.75
 Wheelchair			TYPE:Goods.Tools.Medical		COST:16	WT:7		SIZE:M	SOURCEPAGE:p.75
@@ -79,14 +78,14 @@ Pharmacist Kit.MOD													SOURCEPAGE:p.75
 
 ###Block:Survival Gear
 # Equipment Name			Output Name				Type				Cost		Weight	Modifier					Size		Source Page
-Flashlight (Battery Flood)	OUTPUTNAME:Flashlight, [NAME]	TYPE:Goods.General	COST:6	WT:2								SIZE:S	SOURCEPAGE:p.75
+Flashlight (Battery Flood).MOD	SIZE:S	SOURCEPAGE:p.75
 Map										TYPE:Goods.General	COST:4	WT:1								SIZE:T	SOURCEPAGE:p.75
-Portable Stove								TYPE:Goods.General	COST:9	WT:1								SIZE:T	SOURCEPAGE:p.75
+Portable Stove.MOD	SOURCEPAGE:p.75
 Tent (2-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:11	WT:4								SIZE:M	SOURCEPAGE:p.75
 Tent (4-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:12	WT:7								SIZE:M	SOURCEPAGE:p.75
 Tent (8-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:13	WT:10								SIZE:L	SOURCEPAGE:p.75
 Tent (25-person)			OUTPUTNAME:[NAME] tent		TYPE:Goods.General	COST:15	WT:15								SIZE:L	SOURCEPAGE:p.75
-Trail Rations (12)							TYPE:Goods.General	COST:5	WT:1		EQMOD:CHARGED_ITEM_12|CHARGES[12]	SIZE:T	SOURCEPAGE:p.75
+Trail Rations (12).MOD	EQMOD:CHARGED_ITEM_12|CHARGES[12]	SIZE:T	SOURCEPAGE:p.75
 
 ###Block: Survival Gear .MODs
 # Equipment Name			Output Name			Size		Source Page

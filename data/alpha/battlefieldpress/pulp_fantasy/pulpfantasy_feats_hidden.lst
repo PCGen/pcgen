@@ -210,7 +210,7 @@ Keep it Together		TYPE:CombatAceAbility	VISIBLE:NO	SAB:Keep it Together									
 # Feat Name			Type				Visible	Special ABility																														Define				Stackable?	Multiple?	Choose					Bonus to skill					Modify VAR									Source Page
 Profile			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Profile																																																															SOURCEPAGE:p.98
 Reference Material	TYPE:DetectiveAbility	VISIBLE:NO	SAB:Reference Material (%CHOICE)																																STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Knowledge	BONUS:SKILL|LIST|2|TYPE=Circumstance											SOURCEPAGE:p.99
-Contact - Detective	TYPE:DetectiveAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective"),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																			SOURCEPAGE:p.98
+Contact - Detective	TYPE:DetectiveAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective]"),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective]"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																			SOURCEPAGE:p.98
 Eye for Clues		TYPE:DetectiveAbility	VISIBLE:NO	SAB:Eye for Clues																																																														SOURCEPAGE:p.98
 Second Thought		TYPE:DetectiveAbility	VISIBLE:NO	SAB:Second Thought (x%)|SecondThoughtNum																										DEFINE:SecondThoughtNum|0			MULT:YES	CHOOSE:NOCHOICE											BONUS:VAR|SecondThoughtNum|floor(var("CL=Detective")/3)	SOURCEPAGE:p.99
 Discern Lie			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Discern Lie																																																														SOURCEPAGE:p.99
@@ -265,7 +265,7 @@ Over Sight				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Over Sight																		
 Art of Evasion			TYPE:MysteryManAbility	VISIBLE:NO	SAB:Art of Evasion																																																																																																																																					SOURCEPAGE:p.106
 Improved Investigation		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Improved Investigation																																																																																																																																				SOURCEPAGE:p.107
 Esoteric Knowledge		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Esoteric Knowledge +%|EsotericKnowledgeValue																								DEFINE:EsotericKnowledgeValue|0																																																																																									BONUS:VAR|EsotericKnowledgeValue|var("CL=Mystery Man")+INT	SOURCEPAGE:p.107
-Contact - Mystery Man		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man"),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man"),3							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																																																																																										SOURCEPAGE:p.107
+Contact - Mystery Man		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man]),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man]"),3							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																																																																																										SOURCEPAGE:p.107
 Action Boost - Mystery Man	TYPE:MysteryManAbility	VISIBLE:NO	SAB:Action Boost (Mystery Man Ability)																																																																																																																																		SOURCEPAGE:p.107
 Secret Headquarters		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Secret Headquarters																																																																																																																																					SOURCEPAGE:p.107
 Debonair				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Debonair																																																																																																																																						SOURCEPAGE:p.107
@@ -274,12 +274,12 @@ Debonair				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Debonair																						
 # Feat Name		Type				Visible	Special ABility																							Define				Stackable?	Multiple?	Choose				Template				Automaticaly Added to Inventory	Source Page
 Living Weapon	TYPE:MysticAbility	VISIBLE:NO	SAB:Living Weapon 1d%|LivingWeaponDice																			DEFINE:LivingWeaponDice|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE	TEMPLATE:Living Weapon Dice							SOURCEPAGE:p.109
 Flying Kick		TYPE:MysticAbility	VISIBLE:NO	SAB:Flying Kick																																																SOURCEPAGE:p.109
-Iron Fist		TYPE:MysticAbility	VISIBLE:NO	SAB:Iron Fist (one attack)|PREVAREQ:var("COUNT[FEATNAME=Iron Fist)]"),1	SAB:Iron Fist (all attacks)|PREVARGT:var("COUNT[FEATNAME=Iron Fist)]"),1								MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE												SOURCEPAGE:p.109
+Iron Fist		TYPE:MysticAbility	VISIBLE:NO	SAB:Iron Fist (one attack)|PREVAREQ:var("COUNT[FEATNAME=Iron Fist]"),1	SAB:Iron Fist (all attacks)|PREVARGT:var("COUNT[FEATNAME=Iron Fist]"),1								MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE												SOURCEPAGE:p.109
 Flurry of Blows	TYPE:MysticAbility	VISIBLE:NO	SAB:Flurry of Blows																																									AUTO:EQUIP|Flurry of Blows		SOURCEPAGE:p.109
 
 ###Block:News Hound Class Abilities
 # Feat Name				Type				Visible	Special ABility																																		Define				Stackable?	Multiple?	Choose				Bonus to skill						Bonus to skill rank						Modify VAR					Source Page
-Street Contact - News Hound	TYPE:NewsHoundAbility	VISIBLE:NO	SAB:Street Contact (low level)	SAB:Street Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - News Hound"),2	SAB:Street Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - News Hound"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																								SOURCEPAGE:p.111
+Street Contact - News Hound	TYPE:NewsHoundAbility	VISIBLE:NO	SAB:Street Contact (low level)	SAB:Street Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - News Hound]"),2	SAB:Street Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - News Hound]"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																								SOURCEPAGE:p.111
 Skilled Contact - News Hound	TYPE:NewsHoundAbility	VISIBLE:NO	SAB:Skilled Contact (x%)|SkilledContactNum																													DEFINE:SkilledContactNum|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																				BONUS:VAR|SkilledContactNum|1		SOURCEPAGE:p.111
 Language Training			TYPE:NewsHoundAbility	VISIBLE:NO	SAB:Language Training (x%)|LanguageTrainingNum																													DEFINE:LanguageTrainingNum|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE									BONUS:SKILLRANK|Read/Write Language,Speak Language|2	BONUS:VAR|LanguageTrainingNum|1	SOURCEPAGE:p.111
 Ally					TYPE:NewsHoundAbility	VISIBLE:NO	SAB:Ally (x%)|AllyNum																																	DEFINE:AllyNum|0			STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE																		BONUS:VAR|AllyNum|1			SOURCEPAGE:p.110
@@ -325,10 +325,6 @@ Cloak of Secrecy	TYPE:ShadowyAvengerAbility	VISIBLE:NO	SAB:Cloak of Secrecy					
 Cloak of Fear	TYPE:ShadowyAvengerAbility	VISIBLE:NO	SAB:Cloak of Fear																		SOURCEPAGE:p.119
 Phantom		TYPE:ShadowyAvengerAbility	VISIBLE:NO	SAB:Phantom																			SOURCEPAGE:p.119
 Quick Change	TYPE:ShadowyAvengerAbility	VISIBLE:NO	SAB:Quick Change																		SOURCEPAGE:p.119
-
-###Block:Soldier Class Abilities
-# Feat Name			Type
-Improved Critical.MOD	TYPE:Special.Hunter.Operator
 
 ###Block:Spy Class Abilities
 # Feat Name		Type			Visible	Special ABility																				Define				Modify VAR															Source Page

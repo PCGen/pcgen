@@ -95,13 +95,13 @@ Super Amalgamated		CATEGORY:Talent		TYPE:Talent.SmartTalent.Research			VISIBLE:Y
 ###Block:Dedicated Talents from MSRD
 # Feat Name				Type
 # Ability Name					Category of Ability	Type
-CATEGORY=Talent|Improved Aid Another.MOD	CATEGORY:Talent		TYPE:DedicatedPlus
-CATEGORY=Talent|Intuition.MOD			CATEGORY:Talent		TYPE:DedicatedPlus
-CATEGORY=Talent|Healing Touch I.MOD		CATEGORY:Talent		TYPE:DedicatedPlus
-CATEGORY=Talent|Healing Touch II.MOD	CATEGORY:Talent		TYPE:DedicatedPlus
-CATEGORY=Talent|Aware.MOD			CATEGORY:Talent		TYPE:DedicatedPlus
-CATEGORY=Talent|Faith.MOD			CATEGORY:Talent		TYPE:DedicatedPlus
-CATEGORY=Talent|Cool Under Pressure.MOD	CATEGORY:Talent		TYPE:DedicatedPlus
+CATEGORY=Talent|Improved Aid Another.MOD		TYPE:DedicatedPlus
+CATEGORY=Talent|Intuition.MOD					TYPE:DedicatedPlus
+CATEGORY=Talent|Healing Touch I.MOD				TYPE:DedicatedPlus
+CATEGORY=Talent|Healing Touch II.MOD			TYPE:DedicatedPlus
+CATEGORY=Talent|Aware.MOD					TYPE:DedicatedPlus
+CATEGORY=Talent|Faith.MOD					TYPE:DedicatedPlus
+CATEGORY=Talent|Cool Under Pressure.MOD		TYPE:DedicatedPlus
 
 ###Block:Dedicated Talents
 # Feat Name			Type							Visible	Special Ability				Define			Bonus to skill							Modify VAR						Source Page
@@ -113,12 +113,12 @@ Perceptive Synergy	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Attentive	VISIBL
 ###Block:Charismatic Talents from MSRD
 # Feat Name			Type
 # Ability Name					Category of Ability	Type
-CATEGORY=Talent|Favor.MOD			CATEGORY:Talent		TYPE:CharismaticPlus
-CATEGORY=Talent|Captivate.MOD			CATEGORY:Talent		TYPE:CharismaticPlus
-CATEGORY=Talent|Dazzle.MOD			CATEGORY:Talent		TYPE:CharismaticPlus
-CATEGORY=Talent|Taunt.MOD			CATEGORY:Talent		TYPE:CharismaticPlus
-CATEGORY=Talent|Inspiration.MOD		CATEGORY:Talent		TYPE:CharismaticPlus
-CATEGORY=Talent|Greater Inspiration.MOD	CATEGORY:Talent		TYPE:CharismaticPlus
+CATEGORY=Talent|Favor.MOD					TYPE:CharismaticPlus
+CATEGORY=Talent|Captivate.MOD					TYPE:CharismaticPlus
+CATEGORY=Talent|Dazzle.MOD					TYPE:CharismaticPlus
+CATEGORY=Talent|Taunt.MOD					TYPE:CharismaticPlus
+CATEGORY=Talent|Inspiration.MOD				TYPE:CharismaticPlus
+CATEGORY=Talent|Greater Inspiration.MOD			TYPE:CharismaticPlus
 
 ###Block:Charismatic Talents
 # Feat Name			Type								Visible	Required Feat			Maximum Level	Special Ability		Modify VAR			Source Page
@@ -130,3 +130,8 @@ Shakedown			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Authority		VISIBLE:YE
 Inherited Fortune		CATEGORY:Talent		TYPE:Talent.CharismaticTalent.ByGraceOfFortune	VISIBLE:YES									PREPCLEVEL:MAX=1			SAB:Inherited Fortune	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.25
 Heirloom			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.ByGraceOfFortune	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Inherited Fortune						SAB:Heirloom						SOURCEPAGE:p.25
 Inherited Treasure	CATEGORY:Talent		TYPE:Talent.CharismaticTalent.ByGraceOfFortune	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Inherited Fortune						SAB:Inherited Treasure	BONUS:VAR|WealthBonus|4	SOURCEPAGE:p.25
+
+# Improved Critical is an Ability (CATEGORY=Special Ability), so changing .MOD and location
+###Block:Soldier Class Abilities
+# Feat Name			Type
+CATEGORY=Special Ability|Improved Critical.MOD	TYPE:Special.Hunter.Operator

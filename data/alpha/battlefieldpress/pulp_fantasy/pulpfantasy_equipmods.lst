@@ -9,8 +9,6 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 # Modifier Name					Unique Key		Output Name		Naming Option	Type		Visible		Type granted		Source Page		Required Type	Var. Min. Value			Var. Max. Value						Stat bonus			Modify VAR													Special Property																																																																																																					Choose									Nb of Charges	Define
 SCP_STD.MOD									OUTPUTNAME:Scope													SOURCEPAGE:p.76
 
-Vehicle						KEY:AAVEHICLE				NAMEOPT:NOTHING																																															SPROP:Crew: %|vcrew	SPROP:Pass: %|vpass	SPROP:Pass: 0|PREVAREQ:vpass,0	SPROP:Cargo: % lbs.|vcargo	SPROP:Cargo: none|PREVAREQ:vcargo,0	SPROP:Init: %|vinit	SPROP:Init:+0|PREVAREQ:vinit,0	SPROP:Maneuver: %|vmaneuver	SPROP:Maneuver:+0|PREVAREQ:vmaneuver,0	SPROP:Top Speed: %(%)|max(v_max_speed,vt_speed)|max(v_max_speed/10,vt_speed/10)	SPROP:Defense: %|vdefense	SPROP:Hardness: %|vhard	SPROP:hp %|vhpee	SPROP:Size:S|PREVAREQ:vsize,3	SPROP:Size:M|PREVAREQ:vsize,4	SPROP:Size:L|PREVAREQ:vsize,5	SPROP:Size:H|PREVAREQ:vsize,6	SPROP:Size:G|PREVAREQ:vsize,7	SPROP:Size:C|PREVAREQ:vsize,8
-
 #Weird Gadget Base Invention Level
 Base Invention Level				KEY:GDGT_INV_LVL				NAMEOPT:NOTHING	TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Weird			SOURCEPAGE:p.88																					BONUS:VAR|BaseInventionLevel|%CHOICE								SPROP:Invention Level % higher than allowed!|min(0,InventionLevel-BaseInventionLevel)																																																																																									CHOOSE:NUMBER|MIN=1|MAX=22|TITLE=Intended Gadget Level
 
@@ -38,7 +36,3 @@ Miniaturize Invention Feat			KEY:GDGT_MINI				NAMEOPT:NOTHING										SOURCEPAG
 Simplified Invention Feat			KEY:GDGT_SMPL				NAMEOPT:NOTHING										SOURCEPAGE:p.90	PRETYPE:1,Weird						PREVARLTEQ:InventionLevel,BaseInventionLevel					BONUS:VAR|InventionLevel|1										SPROP:Simplified
 Improvised Invention Feat			KEY:GDGT_IMPRO				NAMEOPT:NOTHING										SOURCEPAGE:p.90	PRETYPE:1,Weird						PREVARLTEQ:InventionLevel,BaseInventionLevel					BONUS:VAR|InventionLevel|1										SPROP:Improvised
 Extend Invention Feat				KEY:GDGT_EXTND				NAMEOPT:NOTHING										SOURCEPAGE:p.90	PRETYPE:1,Weird						PREVARLTEQ:InventionLevel,BaseInventionLevel					BONUS:VAR|InventionLevel|1										SPROP:Extended Invention
-
-###Block: Charges for multi-use, limited items (like Trail Rations)
-# Modifier Name	Unique Key			Visible	Choose		Nb of Charges
-Charges (12)	KEY:CHARGED_ITEM_12	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|7

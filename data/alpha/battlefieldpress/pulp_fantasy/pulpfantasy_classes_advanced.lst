@@ -81,7 +81,7 @@ CLASS:Driver	HD:8		TYPE:Advanced.PC	ABB:Drv		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:C
 CLASS:Driver	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Driver	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
-1	ADD:FEAT|1|Uncanny Dodge I,Uncanny Dodge II							QUALIFY:FEAT|Uncanny Dodge I|Uncanny Dodge II
+1	ADD:ABILITY|1|Talent|NORMAL|Uncanny Dodge I,Uncanny Dodge II			QUALIFY:ABILITY=Talent|Uncanny Dodge I|Uncanny Dodge II
 2									AUTO:FEAT|Hit the weak Spot
 3	ADD:FEAT|1|TYPE.Driver					AUTO:FEAT|Vehicle Empathy
 4									AUTO:FEAT|Need for Speed
@@ -95,7 +95,7 @@ CLASS:Driver	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Cra
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus		Modify VAR
 CLASS:Explorer	HD:8		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill
-CLASS:Explorer	PREFEAT:1,Aware	PREMULT:2,[PRESKILL:3,Search=4,Knowledge (Earth and Life Sciences)=6,Survival=6],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4	PRESKILL:1
+CLASS:Explorer	PREFEAT:1,Aware	PREMULT:2,[PRESKILL:3,Search=4,Knowledge (Earth and Life Sciences)=6,Survival=6],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Explorer	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Read/Write Language|Research|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
 1							AUTO:FEAT|Explorer Lore|Guide|Track
