@@ -3883,10 +3883,13 @@
 				Notes:
 			</fo:block>
 |FOR,%note,0,COUNT[NOTES]-1,1,0|
+|IIF(NOTE.%note.NAME:DM Notes)|
+|ELSE|
 			<fo:block font-size="12pt" space-before.optimum="5mm" space-after.optimum="2mm">
 				|NOTE.%note.NAME|:
 			</fo:block>
 			|NOTE.%note.VALUE.<fo:block font-size="9pt" text-indent="5mm">.</fo:block>|
+|ENDIF|
 |ENDFOR|
 		</fo:flow>
 	</fo:page-sequence>

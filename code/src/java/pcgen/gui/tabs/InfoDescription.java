@@ -110,6 +110,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	private static final int OTHERASSETS_NOTEID = -5;
 	private static final int MAGICITEMS_NOTEID = -6;
 	private static final int PORTRAIT_NOTEID = -7;
+	private static final int DMNOTES_NOTEID = -8;
 	private static final String in_noPortraitChildrenMessage =
 			PropertyFactory.getString("in_noPortraitChildrenMessage");
 	private static final String in_noPortraitDeletionMessage =
@@ -251,6 +252,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	private NoteItem lastItem = null;
 	private NoteItem magicItemsNote = null;
 	private NoteItem otherAssetsNote = null;
+	private NoteItem dmNote = null;
 	private NoteItem portraitNote = null;
 	private NoteTreeNode rootTreeNode;
 	private PortraitChooser portrait;
@@ -303,6 +305,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		lastItem = null;
 		magicItemsNote = null;
 		otherAssetsNote = null;
+		dmNote = null;
 		portraitNote = null;
 		textIsDirty = false;
 	}
@@ -482,6 +485,12 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 					new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory
 						.getString("in_magicItems"), pc.getMiscList().get(2));
 			nodesToBeAddedList.add(order++, magicItemsNote);
+
+			dmNote =
+					new NoteItem(DMNOTES_NOTEID, -1, PropertyFactory
+						.getString("in_dmNotes"), pc.getMiscList().get(3));
+			nodesToBeAddedList.add(order++, dmNote);
+
 		}
 		else
 		{
@@ -1155,6 +1164,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		addComponentListener(new ComponentAdapter()
 		{
+			@Override
 			public void componentShown(ComponentEvent evt)
 			{
 				formComponentShown();
@@ -1163,6 +1173,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		addFocusListener(new FocusAdapter()
 		{
+			@Override
 			public void focusGained(FocusEvent evt)
 			{
 				refresh();
@@ -1183,6 +1194,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	{
 		addComponentListener(new ComponentAdapter()
 		{
+			@Override
 			public void componentShown(ComponentEvent evt)
 			{
 				formComponentShown();
@@ -1217,6 +1229,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		InputVerifier inputVerify = new InputVerifier()
 		{
+			@Override
 			public boolean shouldYieldFocus(JComponent input)
 			{
 				boolean valueOk = verify(input);
@@ -1224,6 +1237,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				return valueOk;
 			}
 
+			@Override
 			public boolean verify(JComponent input)
 			{
 				return true;
@@ -1276,6 +1290,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		MouseListener ml = new MouseAdapter()
 		{
+			@Override
 			public void mousePressed(MouseEvent e)
 			{
 				final int selRow =
@@ -1413,17 +1428,17 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				}
 
 				String message;
-				if(numChildren > 0)
+				if (numChildren > 0)
 				{
-					message = PropertyFactory
-						.getFormattedString("in_delNote1",
-					aNode.toString(),String.valueOf(numChildren));
+					message =
+							PropertyFactory.getFormattedString("in_delNote1",
+								aNode.toString(), String.valueOf(numChildren));
 				}
 				else
 				{
-					message = PropertyFactory
-						.getFormattedString("in_delNote2",
-						aNode.toString());
+					message =
+							PropertyFactory.getFormattedString("in_delNote2",
+								aNode.toString());
 				}
 
 				//The following line should be taken out and shot!
@@ -1529,6 +1544,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		dataText.addFocusListener(new FocusAdapter()
 		{
+			@Override
 			public void focusLost(FocusEvent evt)
 			{
 				updateNoteItem();
@@ -2077,6 +2093,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				pc.getMiscList().set(2, dataText.getText());
 				pc.setDirty(true);
 			}
+			else if (currentItem == dmNote)
+			{
+				pc.getMiscList().set(3, dataText.getText());
+				pc.setDirty(true);
+			}
 
 			textIsDirty = false;
 		}
@@ -2104,8 +2125,10 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		pc.setAge(Delta.parseInt("0" + ageText.getText()));
 		pc.setHeight(Globals.getGameModeUnitSet().convertHeightFromUnitSet(
 			Delta.parseDouble("0" + htText.getText())));
-		pc.setWeight((int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(
-			Delta.parseDouble("0" + wtText.getText())));
+		pc
+			.setWeight((int) Globals.getGameModeUnitSet()
+				.convertWeightFromUnitSet(
+					Delta.parseDouble("0" + wtText.getText())));
 	}
 
 	/**
@@ -2186,8 +2209,9 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		else if (input == wtText)
 		{
 			pc.setDirty(true);
-			pc.setWeight((int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(
-				Delta.parseDouble("0" + wtText.getText())));
+			pc.setWeight((int) Globals.getGameModeUnitSet()
+				.convertWeightFromUnitSet(
+					Delta.parseDouble("0" + wtText.getText())));
 		}
 		else if (input == playerNameText)
 		{
@@ -2254,11 +2278,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			tree.addKeyListener(myKeyListener);
 		}
 
+		@Override
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
 		}
 
+		@Override
 		public void mouseReleased(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
@@ -2336,6 +2362,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				super();
 			}
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				addButton.doClick();
@@ -2349,6 +2376,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				super();
 			}
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				moveButton.doClick();
@@ -2376,6 +2404,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				super();
 			}
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				deleteButton.doClick();
@@ -2389,6 +2418,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				super();
 			}
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				renameButton.doClick();

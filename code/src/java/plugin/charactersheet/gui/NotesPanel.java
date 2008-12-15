@@ -38,8 +38,7 @@ import pcgen.util.PropertyFactory;
 import plugin.charactersheet.CharacterSheetPlugin;
 
 /**
- *
- * @author  ddjone3
+ * This class details the Notes panel in the PCGen UI
  */
 public class NotesPanel extends FlippingSplitPane
 {
@@ -52,6 +51,7 @@ public class NotesPanel extends FlippingSplitPane
 	private NoteItem lastItem = null;
 	private NoteItem magicItemsNote = null;
 	private NoteItem otherAssetsNote = null;
+	private NoteItem dmNote = null;
 	private NoteTreeNode rootTreeNode;
 	private DefaultTreeModel notesModel;
 	private int serial = 0;
@@ -61,6 +61,9 @@ public class NotesPanel extends FlippingSplitPane
 	private static final int COMPANION_NOTEID = -4;
 	private static final int OTHERASSETS_NOTEID = -5;
 	private static final int MAGICITEMS_NOTEID = -6;
+	// -8 JIC it clashes in the mind set with the -7 for portrait in InfoDescription.java
+	// Not that it should matter :)
+	private static final int DMNOTES_NOTEID = -8;
 
 	/** Creates new form NotesPanel */
 	public NotesPanel()
@@ -95,6 +98,7 @@ public class NotesPanel extends FlippingSplitPane
 		notesArea.setWrapStyleWord(true);
 		notesArea.addFocusListener(new java.awt.event.FocusAdapter()
 		{
+			@Override
 			public void focusLost(java.awt.event.FocusEvent evt)
 			{
 				notesAreaFocusLost();
@@ -291,6 +295,7 @@ public class NotesPanel extends FlippingSplitPane
 
 		notesTree.addMouseListener(new MouseAdapter()
 		{
+			@Override
 			public void mousePressed(MouseEvent e)
 			{
 				int selRow = notesTree.getRowForLocation(e.getX(), e.getY());
@@ -359,6 +364,7 @@ public class NotesPanel extends FlippingSplitPane
 		lastItem = null;
 		magicItemsNote = null;
 		otherAssetsNote = null;
+		dmNote = null;
 	}
 
 	private void populateNotes()
@@ -425,29 +431,40 @@ public class NotesPanel extends FlippingSplitPane
 		List<NoteItem> testList = pc.getNotesList();
 		for (NoteItem testnote : testList)
 		{
-			//Don't fuck with this - I plan on uncommenting this later when I don't need to test the hidden node anymore -DJ
+			//Don't mess with this - I plan on uncommenting this later when I don't need to test the hidden node anymore -DJ
 			//if(!testnote.getName().equals("Hidden")) {
 			nodesToBeAddedList.add(testnote);
 			//}
 		}
+
+		// TODO Make bio label read from properties file
 		bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getBio());
 		nodesToBeAddedList.add(order++, bioNote);
+
 		descriptionNote =
 				new NoteItem(DESCRIPTION_NOTEID, -1, PropertyFactory
 					.getString("in_descrip"), pc.getDescription());
 		nodesToBeAddedList.add(order++, descriptionNote);
+
 		companionNote =
 				new NoteItem(COMPANION_NOTEID, -1, PropertyFactory
 					.getString("in_companions"), pc.getMiscList().get(1));
 		nodesToBeAddedList.add(order++, companionNote);
+
 		otherAssetsNote =
 				new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory
 					.getString("in_otherAssets"), pc.getMiscList().get(0));
 		nodesToBeAddedList.add(order++, otherAssetsNote);
+
 		magicItemsNote =
 				new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory
 					.getString("in_magicItems"), pc.getMiscList().get(2));
 		nodesToBeAddedList.add(order++, magicItemsNote);
+
+		dmNote =
+				new NoteItem(DMNOTES_NOTEID, -1, PropertyFactory
+					.getString("in_dmNotes"), pc.getMiscList().get(3));
+		nodesToBeAddedList.add(order++, dmNote);
 
 		addNodes(rootTreeNode, nodesToBeAddedList);
 	}
@@ -568,6 +585,11 @@ public class NotesPanel extends FlippingSplitPane
 				pc.getMiscList().set(2, notesArea.getText());
 				pc.setDirty(true);
 			}
+			else if (currentItem == dmNote)
+			{
+				pc.getMiscList().set(3, notesArea.getText());
+				pc.setDirty(true);
+			}
 
 			textIsDirty = false;
 		}
@@ -599,6 +621,7 @@ public class NotesPanel extends FlippingSplitPane
 			return pc.getDisplayName();
 		}
 
+		@Override
 		public void setUserObject(Object userObject)
 		{
 			super.setUserObject(userObject);
@@ -633,17 +656,17 @@ public class NotesPanel extends FlippingSplitPane
 			}
 
 			String message;
-			if(numChildren > 0)
+			if (numChildren > 0)
 			{
-				message = PropertyFactory
-					.getFormattedString("in_delNote1",
-					toString(),String.valueOf(numChildren));
+				message =
+						PropertyFactory.getFormattedString("in_delNote1",
+							toString(), String.valueOf(numChildren));
 			}
 			else
 			{
-				message = PropertyFactory
-					.getFormattedString("in_delNote2",
-					toString());
+				message =
+						PropertyFactory.getFormattedString("in_delNote2",
+							toString());
 			}
 
 			//The following line should be taken out and shot!
@@ -755,11 +778,13 @@ public class NotesPanel extends FlippingSplitPane
 			notesTree.addKeyListener(myKeyListener);
 		}
 
+		@Override
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
 		}
 
+		@Override
 		public void mouseReleased(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
@@ -829,6 +854,7 @@ public class NotesPanel extends FlippingSplitPane
 				super();
 			}
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				addButton.doClick();
@@ -856,6 +882,7 @@ public class NotesPanel extends FlippingSplitPane
 				super();
 			}
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				deleteButton.doClick();
@@ -869,6 +896,7 @@ public class NotesPanel extends FlippingSplitPane
 				super();
 			}
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				renameButton.doClick();

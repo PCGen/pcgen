@@ -49,7 +49,7 @@ interface IOConstants
 	String TAG_ABILITY = "ABILITY";
 
 	String TAG_ADDTOKEN = "ADD";
-	
+
 	/** Tag for Follower ADJUSTMENT */
 	String TAG_ADJUSTMENT = "ADJUSTMENT";
 
@@ -136,6 +136,9 @@ interface IOConstants
 
 	/** CHARACTERMAGIC */
 	String TAG_CHARACTERMAGIC = "CHARACTERMAGIC";
+
+	/** CHARACTERMAGIC */
+	String TAG_CHARACTERDMNOTES = "CHARACTERDMNOTES";
 
 	/** Character Name */
 	String TAG_CHARACTERNAME = "CHARACTERNAME";

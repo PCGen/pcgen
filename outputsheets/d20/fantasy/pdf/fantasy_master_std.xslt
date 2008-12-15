@@ -5395,14 +5395,16 @@
 						Notes:
 					</fo:block>
 					<xsl:for-each select="note">
-						<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
-							<xsl:value-of select="name"/>:
-						</fo:block>
-						<fo:block font-size="9pt" text-indent="5mm">
-							<xsl:call-template name="paragraghlist">
-								<xsl:with-param name="tag" select="'value'"/>
-							</xsl:call-template>
-						</fo:block>
+					    <xsl:if test="not(name = 'DM Notes')">
+							<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
+								<xsl:value-of select="name"/>:
+							</fo:block>
+							<fo:block font-size="9pt" text-indent="5mm">
+								<xsl:call-template name="paragraghlist">
+									<xsl:with-param name="tag" select="'value'"/>
+								</xsl:call-template>
+							</fo:block>
+						</xsl:if>
 					</xsl:for-each>
 				</fo:flow>
 			</fo:page-sequence>

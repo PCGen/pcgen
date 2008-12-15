@@ -403,6 +403,7 @@ final class PCGVer2Creator implements IOConstants
 		appendCharacterCompLine(buffer);
 		appendCharacterAssetLine(buffer);
 		appendCharacterMagicLine(buffer);
+		appendCharacterDmNotesLine(buffer);
 
 		/*
 		 * #Kits
@@ -656,6 +657,13 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
+	private void appendCharacterDmNotesLine(StringBuffer buffer)
+	{
+		buffer.append(TAG_CHARACTERDMNOTES).append(':');
+		buffer.append(EntityEncoder.encode(thePC.getMiscList().get(3)));
+		buffer.append(LINE_SEP);
+	}
+
 	/*
 	 * ###############################################################
 	 * Character Class(es) methods
@@ -745,7 +753,8 @@ final class PCGVer2Creator implements IOConstants
 			for (String save : pcClass.getSafeListFor(ListKey.SAVE))
 			{
 				boolean found = false;
-				for ( SpecialAbility sa : pcClass.getListFor(ListKey.SPECIAL_ABILITY) )
+				for (SpecialAbility sa : pcClass
+					.getListFor(ListKey.SPECIAL_ABILITY))
 				{
 					if (sa.getKeyName().equalsIgnoreCase(save))
 					{
@@ -766,8 +775,10 @@ final class PCGVer2Creator implements IOConstants
 						}
 						catch (NumberFormatException nfe)
 						{
-							Logging.errorPrint("Error parsing SA relevant level: " //$NON-NLS-1$
-								+ source.substring(source.lastIndexOf('|') + 1));
+							Logging
+								.errorPrint("Error parsing SA relevant level: " //$NON-NLS-1$
+									+ source
+										.substring(source.lastIndexOf('|') + 1));
 						}
 
 						specials.put(pcClass.getKeyName() + TAG_SA
@@ -782,7 +793,8 @@ final class PCGVer2Creator implements IOConstants
 				}
 			}
 
-			List<BonusObj> list = thePC.getAssocList(pcClass, AssociationListKey.BONUS);
+			List<BonusObj> list =
+					thePC.getAssocList(pcClass, AssociationListKey.BONUS);
 			if (list != null)
 			{
 				for (final BonusObj save : list)
@@ -795,7 +807,9 @@ final class PCGVer2Creator implements IOConstants
 			}
 			for (int i = 1; i <= pcClass.getLevel(); i++)
 			{
-				list = thePC.getAssocList(pcClass.getClassLevel(i), AssociationListKey.BONUS);
+				list =
+						thePC.getAssocList(pcClass.getClassLevel(i),
+							AssociationListKey.BONUS);
 				if (list != null)
 				{
 					for (final BonusObj save : list)
@@ -821,11 +835,16 @@ final class PCGVer2Creator implements IOConstants
 
 			if (pcClass == null)
 			{
-				pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
+				pcClass =
+						Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(PCClass.class,
+								classKeyName);
 
 				if (pcClass != null)
 				{
-					pcClass = thePC.getClassKeyed(pcClass.get(ObjectKey.EX_CLASS).resolvesTo().getKeyName());
+					pcClass =
+							thePC.getClassKeyed(pcClass.get(ObjectKey.EX_CLASS)
+								.resolvesTo().getKeyName());
 				}
 			}
 
@@ -953,7 +972,8 @@ final class PCGVer2Creator implements IOConstants
 
 			String del = Constants.EMPTY_STRING;
 
-			for (CDOMReference<Domain> ref : aDeity.getSafeListMods(Deity.DOMAINLIST))
+			for (CDOMReference<Domain> ref : aDeity
+				.getSafeListMods(Deity.DOMAINLIST))
 			{
 				for (Domain d : ref.getContainedObjects())
 				{
@@ -969,7 +989,8 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append('|');
 			buffer.append(TAG_ALIGNALLOW).append(':');
 			//TODO Need to clean this up?
-			for (final Description desc : aDeity.getSafeListFor(ListKey.DESCRIPTION))
+			for (final Description desc : aDeity
+				.getSafeListFor(ListKey.DESCRIPTION))
 			{
 				buffer.append('|');
 				buffer.append(TAG_DESC).append(':');
@@ -983,8 +1004,8 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(TAG_DEITYFAVWEAP).append(':');
 			buffer.append('[');
 
-			List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(
-					ListKey.DEITYWEAPON);
+			List<CDOMReference<WeaponProf>> dwp =
+					aDeity.getListFor(ListKey.DEITYWEAPON);
 			if (dwp != null)
 			{
 				del = Constants.EMPTY_STRING;
@@ -1060,7 +1081,8 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(assoc));
 			}
 
-			for (final Description desc : domain.getSafeListFor(ListKey.DESCRIPTION))
+			for (final Description desc : domain
+				.getSafeListFor(ListKey.DESCRIPTION))
 			{
 				buffer.append('|');
 				buffer.append(TAG_DOMAINGRANTS).append(':');
@@ -1279,12 +1301,13 @@ final class PCGVer2Creator implements IOConstants
 			for (final Ability ability : abilitiesToSave)
 			{
 				buffer.append(TAG_ABILITY).append(TAG_END);
-				buffer.append(EntityEncoder.encode(cat.getKeyName()))
-					.append(TAG_SEPARATOR);
+				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
+					TAG_SEPARATOR);
 				buffer.append(TAG_TYPE).append(TAG_END);
-				buffer.append(
-					EntityEncoder.encode(ability.getAbilityNature().toString()))
-					.append(TAG_SEPARATOR);
+				buffer
+					.append(
+						EntityEncoder.encode(ability.getAbilityNature()
+							.toString())).append(TAG_SEPARATOR);
 				buffer.append(TAG_CATEGORY).append(TAG_END);
 				buffer.append(EntityEncoder.encode(ability.getCategory()))
 					.append(TAG_SEPARATOR);
@@ -1294,7 +1317,8 @@ final class PCGVer2Creator implements IOConstants
 				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					buffer.append(TAG_APPLIEDTO).append(TAG_END);
-					List<FixedStringList> assocList = thePC.getDetailedAssociations(ability);
+					List<FixedStringList> assocList =
+							thePC.getDetailedAssociations(ability);
 					boolean first = true;
 					for (FixedStringList assocArray : assocList)
 					{
@@ -1317,15 +1341,15 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_TYPE).append(TAG_END);
 				buffer.append(EntityEncoder.encode(ability.getType()));
 
-				for (final String save : ability
-					.getSafeListFor(ListKey.SAVE))
+				for (final String save : ability.getSafeListFor(ListKey.SAVE))
 				{
 					buffer.append('|');
 					buffer.append(TAG_SAVE).append(':');
 					buffer.append(EntityEncoder.encode(save));
 				}
 
-				List<BonusObj> list = thePC.getAssocList(ability, AssociationListKey.BONUS);
+				List<BonusObj> list =
+						thePC.getAssocList(ability, AssociationListKey.BONUS);
 				if (list != null)
 				{
 					for (final BonusObj save : list)
@@ -1334,12 +1358,14 @@ final class PCGVer2Creator implements IOConstants
 						{
 							buffer.append('|');
 							buffer.append(TAG_SAVE).append(':');
-							buffer.append(EntityEncoder.encode("BONUS|" + save));
+							buffer
+								.append(EntityEncoder.encode("BONUS|" + save));
 						}
 					}
 				}
 
-				for (final Description desc : ability.getSafeListFor(ListKey.DESCRIPTION))
+				for (final Description desc : ability
+					.getSafeListFor(ListKey.DESCRIPTION))
 				{
 					buffer.append(Constants.PIPE);
 					buffer.append(TAG_DESC).append(':');
@@ -1395,7 +1421,8 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(follower.getName()));
 				buffer.append('|');
 				buffer.append(TAG_TYPE).append(':');
-				buffer.append(EntityEncoder.encode(follower.getType().getKeyName()));
+				buffer.append(EntityEncoder.encode(follower.getType()
+					.getKeyName()));
 				buffer.append('|');
 				buffer.append(TAG_RACE).append(':');
 				buffer.append(EntityEncoder.encode(follower.getRace()
@@ -1684,7 +1711,8 @@ final class PCGVer2Creator implements IOConstants
 	{
 		buffer.append(TAG_RACE).append(':');
 		buffer.append(EntityEncoder.encode(thePC.getRace().getKeyName()));
-		List<FixedStringList> assocList = thePC.getDetailedAssociations(thePC.getRace());
+		List<FixedStringList> assocList =
+				thePC.getDetailedAssociations(thePC.getRace());
 		if (assocList != null && !assocList.isEmpty())
 		{
 			buffer.append(TAG_SEPARATOR);
@@ -1721,7 +1749,6 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(LINE_SEP);
 		}
 	}
-
 
 	private void appendResidenceLine(StringBuffer buffer)
 	{
@@ -1879,7 +1906,8 @@ final class PCGVer2Creator implements IOConstants
 				new ArrayList<Skill>(thePC.getSkillList());
 		for (Skill skill : skillList)
 		{
-			Integer outputIndex = thePC.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex =
+					thePC.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
 			if ((SkillRankControl.getRank(thePC, skill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{
@@ -1891,10 +1919,12 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(outputIndex == null ? 0 : outputIndex);
 				buffer.append('|');
 
-				List<NamedValue> rankList = thePC.getAssocList(skill, AssociationListKey.SKILL_RANK);
+				List<NamedValue> rankList =
+						thePC
+							.getAssocList(skill, AssociationListKey.SKILL_RANK);
 				if (rankList != null)
 				{
-					for (NamedValue sd: rankList)
+					for (NamedValue sd : rankList)
 					{
 						final PCClass pcClass = thePC.getClassKeyed(sd.name);
 
@@ -1907,11 +1937,12 @@ final class PCGVer2Creator implements IOConstants
 						buffer.append(sd.getWeight());
 						buffer.append('|');
 						buffer.append(TAG_COST).append(':');
-						buffer.append(Integer.toString(thePC.getSkillCostForClass(skill, pcClass).getCost()));
+						buffer.append(Integer.toString(thePC
+							.getSkillCostForClass(skill, pcClass).getCost()));
 						buffer.append('|');
 						buffer.append(TAG_CLASSSKILL).append(':');
-						buffer.append((thePC.isClassSkill(skill, pcClass)) ? 'Y'
-							: 'N');
+						buffer.append((thePC.isClassSkill(skill, pcClass))
+							? 'Y' : 'N');
 						buffer.append(']');
 					}
 				}
@@ -1990,17 +2021,19 @@ final class PCGVer2Creator implements IOConstants
 
 		for (PCClass pcClass : thePC.getClassList())
 		{
-			for (CharacterSpell cSpell : thePC
-				.getCharacterSpells(pcClass, null, Constants.EMPTY_STRING, -1))
+			for (CharacterSpell cSpell : thePC.getCharacterSpells(pcClass,
+				null, Constants.EMPTY_STRING, -1))
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
-					List<? extends CDOMList<Spell>> lists = cSpell.getOwner().getSpellLists(thePC);
+					List<? extends CDOMList<Spell>> lists =
+							cSpell.getOwner().getSpellLists(thePC);
 
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
 						&& pcClass.isAutoKnownSpell(cSpell.getSpell()
-							.getKeyName(), SpellLevel.getFirstLevelForKey(cSpell.getSpell(), lists, thePC), thePC)
+							.getKeyName(), SpellLevel.getFirstLevelForKey(
+							cSpell.getSpell(), lists, thePC), thePC)
 						&& thePC.getAutoSpells())
 					{
 						continue;
@@ -2056,7 +2089,8 @@ final class PCGVer2Creator implements IOConstants
 					}
 
 					buffer.append('|');
-					appendSourceInTaggedFormat(buffer, cSpell.getOwner().getVariableSource());
+					appendSourceInTaggedFormat(buffer, cSpell.getOwner()
+						.getVariableSource());
 					buffer.append(LINE_SEP);
 				}
 			}
@@ -2082,7 +2116,8 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_SPELLLIST).append(':');
 				buffer.append(pcClass.getKeyName());
 
-				for (CDOMListObject<Spell> spell : pcClass.getClassSpellList(thePC))
+				for (CDOMListObject<Spell> spell : pcClass
+					.getClassSpellList(thePC))
 				{
 					buffer.append('|');
 					if (ClassSpellList.class.equals(spell.getClass()))
@@ -2192,7 +2227,8 @@ final class PCGVer2Creator implements IOConstants
 			//
 			// Save list of template names 'owned' by current template
 			//
-			Collection<PCTemplate> templatesAdded = thePC.getTemplatesAdded(template);
+			Collection<PCTemplate> templatesAdded =
+					thePC.getTemplatesAdded(template);
 			if (templatesAdded != null)
 			{
 				for (PCTemplate ownedTemplate : templatesAdded)
@@ -2204,7 +2240,8 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(']');
 				}
 			}
-			List<FixedStringList> assocList = thePC.getDetailedAssociations(template);
+			List<FixedStringList> assocList =
+					thePC.getDetailedAssociations(template);
 			if (assocList != null && !assocList.isEmpty())
 			{
 				buffer.append(TAG_SEPARATOR);
@@ -2400,7 +2437,7 @@ final class PCGVer2Creator implements IOConstants
 				}
 
 				String featKey = Compatibility.getKeyFor(entry.getKey());
-				
+
 				aString.append(TAG_CHOSENFEAT).append(':');
 				aString.append('[');
 				aString.append(TAG_MAPKEY).append(':').append(
@@ -2537,14 +2574,16 @@ final class PCGVer2Creator implements IOConstants
 
 	private void appendAddTokenInfo(StringBuffer buffer, CDOMObject pObj)
 	{
-		List<PersistentTransitionChoice<?>> addList = pObj.getListFor(ListKey.ADD);
+		List<PersistentTransitionChoice<?>> addList =
+				pObj.getListFor(ListKey.ADD);
 		if (addList == null)
 		{
 			return;
 		}
 		for (PersistentTransitionChoice<?> tc : addList)
 		{
-			List<Object> assocList = thePC.getAssocList(tc, AssociationListKey.ADD);
+			List<Object> assocList =
+					thePC.getAssocList(tc, AssociationListKey.ADD);
 			if (assocList == null)
 			{
 				continue;
@@ -2559,11 +2598,8 @@ final class PCGVer2Creator implements IOConstants
 
 			for (Object assoc : assocList)
 			{
-				buffer
-					.append('|')
-					.append(TAG_CHOICE)
-					.append(':')
-					.append(EntityEncoder.encode(tc.encodeChoice(assoc)));
+				buffer.append('|').append(TAG_CHOICE).append(':').append(
+					EntityEncoder.encode(tc.encodeChoice(assoc)));
 			}
 
 			buffer.append(']');

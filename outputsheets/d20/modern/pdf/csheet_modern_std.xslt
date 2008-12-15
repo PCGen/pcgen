@@ -4343,14 +4343,16 @@
 						Notes:
 					</fo:block>
 					<xsl:for-each select="note">
-						<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
-							<xsl:value-of select="name" />:
-						</fo:block>
-						<xsl:for-each select="value/para">
-							<fo:block font-size="9pt" text-indent="5mm">
-								<xsl:value-of select="." />
+						<xsl:if test="not(name = 'DM Notes')">
+							<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
+								<xsl:value-of select="name" />:
 							</fo:block>
-						</xsl:for-each>
+							<xsl:for-each select="value/para">
+								<fo:block font-size="9pt" text-indent="5mm">
+									<xsl:value-of select="." />
+								</fo:block>
+							</xsl:for-each>
+						</xsl:if>
 					</xsl:for-each>
 				</fo:flow>
 			</fo:page-sequence>
