@@ -7,12 +7,11 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-
-public class TypeTest  extends TestCase
+public class TypeTest extends TestCase
 {
-	
+
 	@Test
-	public void TestSortable()
+	public void testSortable()
 	{
 		try
 		{
@@ -20,11 +19,11 @@ public class TypeTest  extends TestCase
 			typeset.add(Type.getConstant("testitem 1"));
 			typeset.add(Type.getConstant("testitem 2"));
 		}
-		catch(ClassCastException cce)
+		catch (ClassCastException cce)
 		{
 			fail();
 		}
-		
+
 	}
 
 }
