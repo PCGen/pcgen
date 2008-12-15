@@ -90,7 +90,7 @@ TEMPLATE:pulpfantasy_templates.lst
 WEAPONPROF:pulpfantasy_weaponprofs.lst
 ARMORPROF:pulpfantasy_profs_armor.lst
 
-Stuff imported from the MSRD
+# Stuff imported from the MSRD
 EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_armorshields.lst
 ABILITYCATEGORY:@/d20ogl/msrd/future/future_basics/futurebasics_ability_categories_future.lst|(INCLUDE:Charismatic Plus Talent,Dedicated Plus Talent,Fast Plus Talent,Smart Plus Talent,Strong Plus Talent,Tough Plus Talent)
 FEAT:@\d20ogl\msrd\future\future_basics\futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
