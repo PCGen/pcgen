@@ -24,17 +24,23 @@ package pcgen.core;
 
 import pcgen.cdom.base.Constants;
 
-
 /**
- * <code>PaperInfo</code>.
+ * The Paper information for output sheets
  *
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
 public final class PaperInfo
 {
+	/** Array of 6 paper information variables to keep hold of */
 	private final String[] paperInfo = new String[7];
 
+	/**
+	 * Set a paper info item
+	 * 
+	 * @param infoType The type (key)
+	 * @param info The value
+	 */
 	public void setPaperInfo(final int infoType, final String info)
 	{
 		if (!validIndex(infoType))
