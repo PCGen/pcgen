@@ -20,7 +20,19 @@
  */
 package pcgen.util;
 
-import org.apache.fop.apps.*;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.fop.apps.Driver;
+import org.apache.fop.apps.FOInputHandler;
+import org.apache.fop.apps.FOPException;
+import org.apache.fop.apps.InputHandler;
+import org.apache.fop.apps.XSLTInputHandler;
 import org.apache.fop.render.Renderer;
 import org.apache.fop.render.awt.AWTRenderer;
 import org.apache.fop.viewer.SecureResourceBundle;
@@ -28,13 +40,9 @@ import org.xml.sax.XMLReader;
 
 import pcgen.cdom.base.Constants;
 
-import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Title:        FOPHandler.java
- * Description:  Interface to the Apache FOP API;
+ * Description:  Interface to the Apache FOP API (0.20.5);
  *               this class handles all the interaction
  * Copyright:    Copyright (c) 2001
  * Company:
@@ -45,8 +53,10 @@ public final class FOPHandler implements Runnable
 {
 	/** PDF_MODE = 0 */
 	public static final int PDF_MODE = 0;
+
 	/** AWT_MODE = 1 */
 	public static final int AWT_MODE = 1;
+
 	private Driver driver;
 	private File outFile;
 	private FileOutputStream fos;
@@ -57,7 +67,7 @@ public final class FOPHandler implements Runnable
 	private int mode;
 
 	/**
-	 *
+	 * Constructor, defaults us to PDF Mode
 	 */
 	public FOPHandler()
 	{
@@ -65,16 +75,13 @@ public final class FOPHandler implements Runnable
 		inputHandler = null;
 		outFile = null;
 		mode = PDF_MODE;
-
 		errBuffer = new StringBuffer();
-
-		// renderers
 		renderer = null;
 	}
 
 	/**
+	 * Get the error message
 	 * @return error message
-	 *
 	 */
 	public String getErrorMessage()
 	{
@@ -82,9 +89,8 @@ public final class FOPHandler implements Runnable
 	}
 
 	/**
-	 * Dekker500
-	 * Feb 1, 2003
-	 * Immediately convert file into appropriatee InputHandler type
+	 * Set the input file, e.g. immediately convert file into appropriate FOInputHandler type
+	 * 
 	 * @param in
 	 */
 	public void setInputFile(File in)
@@ -113,9 +119,8 @@ public final class FOPHandler implements Runnable
 	}
 
 	/**
-	 * Dekker500
-	 * Feb 1, 2003
-	 * Immediately convert file into appropriatee InputHandler type
+	 * Immediately convert file into appropriate InputHandler type
+	 * 
 	 * @param xmlFile
 	 * @param xsltFile
 	 */
@@ -167,8 +172,8 @@ public final class FOPHandler implements Runnable
 	}
 
 	/**
+	 * Set the mode
 	 * @param m
-	 *
 	 */
 	public void setMode(int m)
 	{
@@ -176,8 +181,8 @@ public final class FOPHandler implements Runnable
 	}
 
 	/**
+	 * Set the output file
 	 * @param out
-	 *
 	 */
 	public void setOutputFile(File out)
 	{
@@ -185,8 +190,8 @@ public final class FOPHandler implements Runnable
 	}
 
 	/**
+	 * Get the Renderer
 	 * @return Renderer
-	 *
 	 */
 	public Renderer getRenderer()
 	{
@@ -194,24 +199,23 @@ public final class FOPHandler implements Runnable
 	}
 
 	/**
-	 *
+	 * Run the FO to PDF/AWT conversion
 	 */
 	public void run()
 	{
 		errBuffer.delete(0, errBuffer.length());
 
-		// setting up driver
+		// Reset the driver from het last run
 		driver.reset();
 
+		// PDF Mode
 		if (mode == PDF_MODE)
 		{
 			fos = null;
 			renderer = null;
 			driver.setRenderer(Driver.RENDER_PDF);
 
-			/**
-			 * Dekker500
-			 * Feb 1, 2003
+			/* 
 			 * Expanded functionality to be able to handle XSLT files.
 			 * Now operates based on InputHandlers.
 			 */
@@ -219,14 +223,13 @@ public final class FOPHandler implements Runnable
 			{
 				XMLReader parser = inputHandler.getParser();
 
-				Map<String, Boolean> rendererOptions = new HashMap<String, Boolean>();
+				Map<String, Boolean> rendererOptions =
+						new HashMap<String, Boolean>();
 				rendererOptions.put("fineDetail", Boolean.valueOf(false));
 				driver.getRenderer().setOptions(rendererOptions);
 				driver.getRenderer().setProducer("PC Gen Character Generator");
-
-				driver.setOutputStream(fos = new FileOutputStream(outFile));
-
-				// render
+				fos = new FileOutputStream(outFile);
+				driver.setOutputStream(fos);
 				driver.render(parser, inputHandler.getInputSource());
 			}
 			catch (FOPException fopex)
@@ -264,20 +267,10 @@ public final class FOPHandler implements Runnable
 		{
 			renderer = createAWTRenderer();
 			driver.setRenderer(renderer);
-
-			/*            Hashtable rendererOptions = new Hashtable();
-			 rendererOptions.put("fineDetail", Boolean.FALSE);
-			 driver.getRenderer().setOptions(rendererOptions);
-			 driver.getRenderer().setProducer("PC Gen Character Generator");
-			 */
 			try
 			{
 				XMLReader parser;
 				parser = inputHandler.getParser();
-
-				//				parser.setFeature("http://xml.org/sax/features/namespace-prefixes",	true);
-				// render
-				//				driver.buildFOTree(parser, inputHandler.getInputSource());
 				driver.render(parser, inputHandler.getInputSource());
 			}
 			catch (FOPException fopex)
@@ -286,21 +279,6 @@ public final class FOPHandler implements Runnable
 					Constants.s_LINE_SEP);
 				Logging.errorPrint("Exception in FOPHandler:run", fopex);
 			}
-
-			/*            catch (IOException ioex)
-			 {
-			 errBuffer.append(ioex.getMessage()).append(Constants.s_LINE_SEP);
-			 Globals.errorPrint("Exception in FOPHandler:run", ioex);
-			 }
-			 */
-			/*            catch (SAXException ex)
-			 {
-			 errBuffer.append(ex.getMessage()).append(Constants.s_LINE_SEP);
-			 Globals.errorPrint("Exception in FOPHandler:run \n"
-			 + "Error in setting up parser feature namespace-prefixes\n"
-			 + "You need a parser which supports SAX version 2", ex);
-			 }
-			 */
 		}
 		else
 		{
@@ -309,7 +287,7 @@ public final class FOPHandler implements Runnable
 	}
 
 	/**
-	 * author: Thomas Behr 25-02-02
+	 * Get the AWT Renderer
 	 * @return AWTRenderer
 	 */
 	private static AWTRenderer createAWTRenderer()
