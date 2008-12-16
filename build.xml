@@ -893,10 +893,10 @@ Class-Path: ${test.manifest.extra.jars}
 	<!-- Create the Windows and POSIX scripts to externally run the tests -->
 	<target name="test.scripts" depends="init">
 		<echo file="${bin.dir}/${test.bin.pcgen.bat}">@echo off
-java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;lib/fop/xercesImpl-2.2.1.jar;lib/fop/avalon-framework-cvs-20020806.jar;lib/fop/xml-apis.jar;lib/fop/xalan-2.4.1.jar;lib/fop/batik.jar;lib/fop/fop.jar;lib/lnf/kunststoff.jar;lib/lnf/skinlf.jar;lib/lnf/wraplf.jar;lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;lib/fop/xercesImpl-2.2.1.jar;lib/fop/avalon-framework-cvs-20020806.jar;lib/fop/xml-apis.jar;lib/fop/xalan-2.5.2.jar;lib/fop/batik.jar;lib/fop/fop.jar;lib/lnf/kunststoff.jar;lib/lnf/skinlf.jar;lib/lnf/wraplf.jar;lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
 		<echo file="${bin.dir}/${test.bin.pcgen.sh}">#!/bin/sh
-java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/test/junit-4.1.jar:lib/test/xmlunit1.0.jar:lib/fop/xercesImpl-2.2.1.jar:lib/fop/avalon-framework-cvs-20020806.jar:lib/fop/xml-apis.jar:lib/fop/xalan-2.4.1.jar:lib/fop/batik.jar:lib/fop/fop.jar:lib/lnf/kunststoff.jar:lib/lnf/skinlf.jar:lib/lnf/wraplf.jar:lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/test/junit-4.1.jar:lib/test/xmlunit1.0.jar:lib/fop/xercesImpl-2.2.1.jar:lib/fop/avalon-framework-cvs-20020806.jar:lib/fop/xml-apis.jar:lib/fop/xalan-2.5.2.jar:lib/fop/batik.jar:lib/fop/fop.jar:lib/lnf/kunststoff.jar:lib/lnf/skinlf.jar:lib/lnf/wraplf.jar:lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
 		<chmod file="${bin.dir}/${test.bin.pcgen.sh}" perm="+x" />
 	</target>

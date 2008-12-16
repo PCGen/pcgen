@@ -21,32 +21,36 @@
 package pcgen.util;
 
 /**
- * Title:        FOPResourcesChecker.java
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author Thomas Behr
- * @version $Revision$
+ * This class checks that PCGen has the right resources in order to run Fop
  */
 public final class FOPResourceChecker
 {
+	/** Count of the number of missing resources */
 	private static int missingResourceCount;
+
+	/** A buffer containing the resources */
 	private static StringBuffer resourceBuffer;
+
+	/** String containing URL link if there are missing resources */
 	private static final String whereToGetIt =
 			"<a href=\"http://prdownloads.sourceforge.net/pcgen/pdf_new.zip\">pdf.zip</a>";
+
+	/** Handle to resource bundle message for where to get missing resources */
 	static final String getItHereMsg =
 			PropertyFactory.getString("in_FollowLink");
-	static final String missingLibMsg =
-			PropertyFactory.getString("MissingLibMessage").replace('|', '\n');   //TODO Why does this have a hardcoded line separator? JK070115
 
-	/**
-	 *
+	/** 
+	 * Handle to resource bundle message for when there is a missing resource
+	 *  
+	 * TODO Why does this have a hard coded line separator? JK070115
 	 */
+	static final String missingLibMsg =
+			PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
+
+	// This will automatically run once when this class is referenced 
 	static
 	{
 		missingResourceCount = 0;
-
-		//optimize stringbuffer initial size (0 should be right length. Hopefully we don't get an error. :)
 		resourceBuffer = new StringBuffer(0);
 		checkResource();
 	}
@@ -68,66 +72,66 @@ public final class FOPResourceChecker
 	{
 		if (missingResourceCount != 0)
 		{
+			// TODO Why does this have hardcoded line separators? JK070115
 			return resourceBuffer.toString() + "\n" + getItHereMsg
-				+ whereToGetIt + "\n" + missingLibMsg; //TODO Why does this have hardcoded line separators? JK070115
+				+ whereToGetIt + "\n" + missingLibMsg;
 		}
-
 		return "";
 	}
 
 	/**
 	 * Return TRUE if the resource exists in the jar
-	 * @param forName
+	 * 
+	 * @param resourceName
 	 * @param jarName
 	 * @param sb
 	 * @return TRUE if the resource exists in the jar
 	 */
-	public static boolean hasResource(final String forName,
+	public static boolean hasResource(final String resourceName,
 		final String jarName, StringBuffer sb)
 	{
 		try
 		{
-			Class.forName(forName);
-
+			Class.forName(resourceName);
 			return true;
 		}
 		catch (ClassNotFoundException cnfex)
 		{
-			sb.append("Missing resource: ").append(jarName).append('\n');//TODO Why does this have a hardcoded line separator? JK070115
+			// TODO Why does this have a hard coded line separator? JK070115
+			sb.append("Missing resource: ").append(jarName).append('\n');
 		}
 		catch (NoClassDefFoundError ncdfer)
 		{
+			// TODO Why does this have a hard coded line separator? JK070115
 			sb.append("Missing dependency of resource: ").append(jarName)
-				.append('\n');//TODO Why does this have a hardcoded line separator? JK070115
-			Logging.errorPrint("Error loading class " + forName + ": "
+				.append('\n');
+			Logging.errorPrint("Error loading class " + resourceName + ": "
 				+ ncdfer.toString(), ncdfer);
 		}
-
 		return false;
 	}
 
 	/**
-	 * 
+	 * Helper method, checks that the resources are in the corresponding jar file
 	 */
 	private static void checkResource()
 	{
 		final String[] resources =
 				{"org.apache.fop.apps.Fop", "fop.jar",
-					"org.apache.xalan.xslt.Process", "xalan-2.4.1.jar",
+					"org.apache.xalan.xslt.Process", "xalan-2.5.2.jar",
 					"org.apache.batik.dom.svg.SVGDocumentFactory", "batik.jar"};
+
+		String resource = null;
+		String jar = null;
 
 		for (int i = 0; i < (resources.length / 2); ++i)
 		{
-			if (!hasResource(resources[i * 2], resources[(i * 2) + 1],
-				resourceBuffer))
+			resource = resources[i * 2];
+			jar = resources[(i * 2) + 1];
+			if (!hasResource(resource, jar, resourceBuffer))
 			{
 				++missingResourceCount;
 			}
-		}
-
-		if (missingResourceCount > 0)
-		{
-			//			resourceBuffer.append("Look for the missing files on http://pcgen.sourceforge.net");
 		}
 	}
 }
