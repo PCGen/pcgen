@@ -1055,7 +1055,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		int iTimes = 1;
 
-		if ("VAR".equals(aType))
+		if (aPC != null && "VAR".equals(aType))
 		{
 			iTimes = Math.max(1, aPC.getDetailedAssociationCount(this));
 
@@ -1074,7 +1074,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			String bString = bonus.toString().toUpperCase();
 
-			if (aPC.hasAssociations(this))
+			if (aPC != null && aPC.hasAssociations(this))
 			{
 				int span = 4;
 				int idx = bString.indexOf("%VAR");
