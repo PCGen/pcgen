@@ -85,7 +85,7 @@ public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
 		{
-			Logging.errorPrint("COUNT:" + getTokenName()
+			Logging.log(Logging.LST_ERROR, "COUNT:" + getTokenName()
 					+ " requires three arguments, MIN=, MAX= and TITLE= : "
 					+ value);
 			return false;

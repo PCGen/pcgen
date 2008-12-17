@@ -85,7 +85,7 @@ public class ShieldProfToken extends AbstractToken implements
 			shieldProf = value.substring(0, openBracketLoc);
 			if (!value.endsWith("]"))
 			{
-				Logging.errorPrint("Unresolved Prerequisite in "
+				Logging.log(Logging.LST_ERROR, "Unresolved Prerequisite in "
 						+ getFullName() + " " + value + " in " + getFullName());
 				return false;
 			}
@@ -93,7 +93,7 @@ public class ShieldProfToken extends AbstractToken implements
 					.length() - 1));
 			if (prereq == null)
 			{
-				Logging.errorPrint("Error generating Prerequisite " + prereq
+				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite " + prereq
 						+ " in " + getFullName());
 				return false;
 			}
@@ -161,7 +161,7 @@ public class ShieldProfToken extends AbstractToken implements
 
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}

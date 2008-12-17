@@ -88,7 +88,7 @@ public class EquipToken extends AbstractToken implements
 			equipItems = value.substring(0, openBracketLoc);
 			if (!value.endsWith("]"))
 			{
-				Logging.errorPrint("Unresolved Prerequisite in " + value
+				Logging.log(Logging.LST_ERROR, "Unresolved Prerequisite in " + value
 						+ " in " + getFullName());
 				return false;
 			}
@@ -96,7 +96,7 @@ public class EquipToken extends AbstractToken implements
 					.length() - 1));
 			if (prereq == null)
 			{
-				Logging.errorPrint("Error generating Prerequisite " + prereq
+				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite " + prereq
 						+ " in " + getFullName());
 				return false;
 			}

@@ -51,7 +51,7 @@ public class UsemasterskillToken extends AbstractToken implements
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
 					+ getTokenName());
 				return false;
 			}
@@ -62,7 +62,7 @@ public class UsemasterskillToken extends AbstractToken implements
 			if (firstChar != 'N' && firstChar != 'n'
 				&& !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the "
 					+ getTokenName());
 				return false;
 			}

@@ -76,7 +76,7 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getTokenName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}

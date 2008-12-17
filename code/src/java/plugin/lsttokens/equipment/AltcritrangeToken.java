@@ -42,7 +42,7 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 			Integer cr = Integer.valueOf(value);
 			if (cr.intValue() < 0)
 			{
-				Logging.errorPrint(getTokenName() + " cannot be < 0");
+				Logging.log(Logging.LST_ERROR, getTokenName() + " cannot be < 0");
 				return false;
 			}
 			context.getObjectContext().put(eq.getEquipmentHead(2),

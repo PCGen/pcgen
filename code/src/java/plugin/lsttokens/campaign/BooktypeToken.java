@@ -38,7 +38,7 @@ public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 	{
 		if (value == null || value.length() == 0)
 		{
-			Logging.errorPrint(getTokenName() + " arguments may not be empty");
+			Logging.log(Logging.LST_ERROR, getTokenName() + " arguments may not be empty");
 			return false;
 		}
 		context.getObjectContext().put(camp, StringKey.BOOK_TYPE, value);

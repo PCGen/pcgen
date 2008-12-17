@@ -108,7 +108,7 @@ public class AlttypeToken extends AbstractToken implements
 			}
 			else if ("CLEAR".equals(aType))
 			{
-				Logging.errorPrint("Non-sensical use of .CLEAR in "
+				Logging.log(Logging.LST_ERROR, "Non-sensical use of .CLEAR in "
 					+ getTokenName() + ": " + value);
 				return false;
 			}
@@ -120,7 +120,7 @@ public class AlttypeToken extends AbstractToken implements
 		}
 		if (bRemove)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 				+ "ended with REMOVE, so didn't have any Type to remove: "
 				+ value);
 			return false;

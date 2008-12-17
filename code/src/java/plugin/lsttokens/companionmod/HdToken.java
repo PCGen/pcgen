@@ -44,7 +44,7 @@ public class HdToken extends AbstractToken implements
 			Integer in = Integer.valueOf(value);
 			if (in.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer > 0");
+				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer > 0");
 				return false;
 			}
 			context.getObjectContext().put(cMod, IntegerKey.HIT_DIE, in);
@@ -52,7 +52,7 @@ public class HdToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			Logging.log(Logging.LST_ERROR, getTokenName()
 				+ " expected an integer.  Tag must be of the form: "
 				+ getTokenName() + ":<int>");
 			return false;
