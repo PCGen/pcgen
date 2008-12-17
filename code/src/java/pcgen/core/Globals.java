@@ -1746,11 +1746,16 @@ public final class Globals
 		{
 			typeList = aEq.typeList();
 		}
+		List<String> upperTypeList = new ArrayList<String>(typeList.size());
+		for (String type : typeList)
+		{
+			upperTypeList.add(type.toUpperCase());
+		}
 
 		List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList();
 		for (String rType : resizeTypeList)
 		{
-			if (typeList.contains(rType.toUpperCase()))
+			if (upperTypeList.contains(rType.toUpperCase()))
 			{
 				return true;
 			}
