@@ -128,10 +128,10 @@
 			have a unique one of it's own, you would use this tag.</p>
 
 		<p class="indent1"><code>COPYMASTERBAB:MASTER</code></p>
-		<p class="indent0">Follows the Master's BAB progression (Common for familiars)</p>
+		<p class="indent2">Follows the Master's BAB progression (Common for familiars)</p>
 
 		<p class="indent1"><code>COPYMASTERBAB:5</code></p>
-		<p class="indent0">Sets the BAB of the creature to 5</p>
+		<p class="indent2">Sets the BAB of the creature to 5</p>
 
 <hr>
 
@@ -156,7 +156,6 @@
 		<h4>HD</h4>
 		<p class="indent0">This will grant bonus Hit Die of the creature type.</p>
 
-		<p class="indent0">EXAMPLE:</p>
 		<p class="indent1"><code>HD:5</code></p>
 		<p class="indent2">Will grant 5 bonus Hit Die (Or class levels) of the creatures type (The Creature TYPE is called RACETYPE and normally follows the standard choices. The RACETYPE can be changed inside the CompanionMod lst file any bonus HD will use that Race Type. If the Creature is Fey 
 			it will gain the HD and class benefits of being 5 HD stronger</p>
@@ -170,7 +169,6 @@
 		<p class="indent0">The uses of this tag are not to be underestimated, with this tag you can grant a level 
 			dependent bonus to the master at a certain level.</p>
 
-		<p class="indent0"><strong>EXAMPLE:</strong></p>
 		<p class="indent1"><code>MASTERBONUSRACE:Bat &lt;TAB&gt; BONUS:SKILL|Spot|3</code></p>
 		<p class="indent2">Would give the master +3 bonus to Spot checks if he has a Bat.</p>
 
@@ -206,15 +204,23 @@
 		<p class="indent0">Although this tag is not used in a <span class="lstfile">companionmods.lst</span> file, 
 			it does deserve mention in this class.</p>
 
-		<p class="indent0">The <code>BONUS:FOLLOWER</code> tag is what allows us to actually gain a creature in a particular TYPE or group. Without 
-			it you won't be able to select or add any creatures from that TYPE or group. This needs to match the <code>COMPANIONLIST</code> definition, 
-			which is seen as the companion type inside our actual file.</p>
+		<p class="indent0">The <code>BONUS:FOLLOWER</code> tag is what allows us to actually gain a creature 
+			in a particular TYPE or group. Without it you won't be able to select or add any creatures from 
+			that TYPE or group. This needs to match the <code>COMPANIONLIST</code> definition, which is seen 
+			as the companion type inside our actual file.</p>
 
+		<p class="indent0">The following line will be found in your non-companion mod lst file (e.g. <span class="lstfile">class.lst</span>, 
+			<span class="lstfile">feat.lst</span>, <span class="lstfile">race.lst</span>, <span class="lstfile">template.lst</span>, etc.)</p>
 		<p class="indent1"><code>BONUS:FOLLOWERS|<b>Familiar</b>|1</code></p>
 		<p class="indent2">You can gain one (1) Familiar</p>
 
+		<p class="indent0">The following line is the corresponding line in the <span class="lstfile">companionmod.lst</span>:</p>
 		<p class="indent1"><code>FOLLOWER:Whatever=1 &lt;TAB&gt; TYPE:<b>Familiar</b></code></p>
+		<p class="indent2"></p>
+		
+		<p class="indent0"></p>
 		<p class="indent1"><code>COMPANIONLIST:<b>Familiar</b>|Foo</code></p>
+		<p class="indent2"></p>
 
 		<p class="indent0">Notice the pattern, if you don't match those exactly you won't get access to that TYPE or group. I bolded the entries for you to see what must match.</p>
 
