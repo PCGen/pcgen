@@ -255,7 +255,7 @@ Light (Assante)									NAMEISPI:YES	OUTPUTNAME:Light, Bloodline								SCHOOL:E
 Blink.COPY=Blink (Emman)
 Blink (Emman).MOD									NAMEISPI:YES	OUTPUTNAME:Blink, Bloodline					CLASSES:.CLEARALL																																																																			DURATION:.CLEAR	DURATION:% rounds|ValBloodrank
 Cause Fear.COPY=Cause Fear (Baucisz)
-Cause Fear (Baucisz).MOD							NAMEISPI:YES	OUTPUTNAME:Cause Fear, Bloodline				CLASSES:.CLEARALL																																					RANGE:Close				TARGETAREA:% living creature(s) with 5 or fewer HD|ValBloodrank																																															DESC:% creature(s) of 5 HD or less flees for 1d4 rounds. all targets must have a clear line of sight to the Val; any form of visual concealment, such as obscuring mist, negates the effects; and any targets who are blind or otherwise cannot see the Val are immune.|ValBloodrank																					SOURCEPAGE:SpellsC.rtf
+Cause Fear (Baucisz).MOD							NAMEISPI:YES	OUTPUTNAME:Cause Fear, Bloodline				CLASSES:.CLEARALL																																					RANGE:Close				TARGETAREA:% living creature(s) with 5 or fewer HD|ValBloodrank																																															DESC:%1 creature(s) of 5 HD or less flees for 1d4 rounds. all targets must have a clear line of sight to the Val; any form of visual concealment, such as obscuring mist, negates the effects; and any targets who are blind or otherwise cannot see the Val are immune.|ValBloodrank																					SOURCEPAGE:SpellsC.rtf
 Fly.COPY=Fly (Haupt)
 Fly (Haupt).MOD									NAMEISPI:YES	OUTPUTNAME:Fly, Bloodline					CLASSES:.CLEARALL																																		RANGE:.CLEAR	RANGE:Personal			TARGETAREA:You
 Glyph of Warding.COPY=Glyph of Warding (Spell Glyph-Baucisz)
@@ -267,12 +267,7 @@ Polymorph (Baucisz).MOD								NAMEISPI:YES	OUTPUTNAME:Polymorph, Bloodline				C
 Protection from Energy.COPY=Protection from Energy (Emman)
 Protection from Energy (Emman).MOD						NAMEISPI:YES	OUTPUTNAME:Protection From Energy, Bloodline		CLASSES:.CLEARALL																																																																																																DESC:.CLEARALL	DESC:Absorb (min(CASTERLEVEL,10)*12) points of fire																																																											SOURCEPAGE:SpellsP-R.rtf
 Resist Energy.COPY=Resist Energy (Fire)
-Resist Energy (Fire).MOD																			CLASSES:.CLEARALL																																																																																																DESC:.CLEARALL	DESC:Ignores first ((1+(min(floor((CASTERLEVEL-3)/4),2)))*10) points of damage/attack from Fire.
-Speak with Animals.COPY=Speak with Animals (Baucisz)
-Speak with Animals (Baucisz).MOD						NAMEISPI:YES	OUTPUTNAME:Speak with Animals, Bloodline			CLASSES:.CLEARALL																																																																																																			DESC:You can communicate with felines per Sarish.																																																											SOURCEPAGE:SpellsS.rtf
-Summon Monster III.COPY=Summon Monster III (Baucisz)
-Summon Monster III (Baucisz).MOD						NAMEISPI:YES	OUTPUTNAME:Summon Monster III, Bloodline			CLASSES:.CLEARALL																									CASTTIME:.CLEAR		CASTTIME:1 standard action																																																																		DESC:Calls demons, devils or fiendish creature to fight for you.																																																									SOURCEPAGE:SpellsS.rtf
-Summon Nature's Ally I.COPY=Summon Nature's Ally I (MoH)
+Resist Energy (Fire).MOD																			CLASSES:.CLEARALL																																																																																																DESC:.CLEARALL	DESC:Ignores first ((1+(min(floor((CASTERLEVEL-3)/4),2)))*10) points of da$
 Summon Nature's Ally I (MoH).MOD									OUTPUTNAME:Summon Nature's Ally I (Canines Only)	CLASSES:.CLEARALL
 Summon Nature's Ally II.COPY=Summon Nature's Ally II (MoH)
 Summon Nature's Ally II (MoH).MOD									OUTPUTNAME:Summon Nature's Ally II (Canines Only)	CLASSES:.CLEARALL
@@ -283,9 +278,9 @@ Summon Nature's Ally IV (MoH).MOD									OUTPUTNAME:Summon Nature's Ally IV (Ca
 Summon Nature's Ally V.COPY=Summon Nature's Ally V (Dellenov)
 Summon Nature's Ally V (Dellenov).MOD					NAMEISPI:YES	OUTPUTNAME:Summon Nature's Ally V, Bloodline		CLASSES:.CLEARALL																									CASTTIME:.CLEAR		CASTTIME:1 standard action																																																																																																																																					SOURCEPAGE:SpellsS.rtf
 Tree Stride.COPY=Tree Stride (Dellanov)
-Tree Stride (Dellanov).MOD							NAMEISPI:YES	OUTPUTNAME:Tree Stride, Bloodline				CLASSES:.CLEARALL																									CASTTIME:.CLEAR		CASTTIME:1 full action																																			DURATION:.CLEAR	DURATION:1 round																											DESC:Step from one tree to another far away. Limited to % trees, 500 ft. transport range|ValBloodrank
+Tree Stride (Dellanov).MOD							NAMEISPI:YES	OUTPUTNAME:Tree Stride, Bloodline				CLASSES:.CLEARALL																									CASTTIME:.CLEAR		CASTTIME:1 full action																																			DURATION:.CLEAR	DURATION:1 round																											DESC:Step from one tree to another far away. Limited to %1 trees, 500 ft. transport range|ValBloodrank
 Word of Purification.COPY=Word of Purification (Assante)
-Word of Purification (Assante).MOD						NAMEISPI:YES	OUTPUTNAME:Word of Purification, Bloodline		CLASSES:.CLEARALL																																		RANGE:.CLEAR	RANGE:Personal			TARGETAREA:20-ft. radius burst centered on the caster.																DURATION:.CLEAR	DURATION:% round(s)|ValBloodrank																								DESC:Damage dealt to creatures with the Entropic or Tainted subtypes is altered to (2*%)d8; the burst of light, does not deal extra damage to fungi, mold, oozes, and slimes|ValBloodrank																										SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA		SOURCEPAGE:p.275
+Word of Purification (Assante).MOD						NAMEISPI:YES	OUTPUTNAME:Word of Purification, Bloodline		CLASSES:.CLEARALL																																		RANGE:.CLEAR	RANGE:Personal			TARGETAREA:20-ft. radius burst centered on the caster.																DURATION:.CLEAR	DURATION:% round(s)|ValBloodrank																								DESC:Damage dealt to creatures with the Entropic or Tainted subtypes is altered to (2*%1)d8; the burst of light, does not deal extra damage to fungi, mold, oozes, and slimes|ValBloodrank																										SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA		SOURCEPAGE:p.275
 
 ### Class Spells
 Detect Evil.COPY=Detect Infernal

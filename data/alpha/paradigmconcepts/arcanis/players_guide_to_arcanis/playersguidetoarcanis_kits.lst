@@ -8,7 +8,8 @@ GEAR:Longsword		SIZE:PC
 GEAR:Halberd		SIZE:PC
 GEAR:Crossbow (Heavy)	SIZE:PC
 TEMPLATE:ConscriptArmor
-GEAR:%LIST			SIZE:PC
+#GEAR:%LIST			SIZE:PC
+#Causing Errors.
 
 STARTPACK:Default Skeleton (Cloud Giant)	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Cloud Giant)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
