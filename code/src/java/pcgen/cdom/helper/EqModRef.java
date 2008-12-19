@@ -18,6 +18,7 @@
 package pcgen.cdom.helper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,7 +52,8 @@ public class EqModRef
 
 	public List<String> getChoices()
 	{
-		return choices == null ? null : new ArrayList<String>(choices);
+		return (choices == null ? Collections.<String> emptyList()
+			: new ArrayList<String>(choices));
 	}
 
 	@Override
