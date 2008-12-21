@@ -23,9 +23,9 @@
 
 package pcgen.gui.sources;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import pcgen.PCGenTestCase;
 
 
 /**
@@ -38,7 +38,7 @@ import org.junit.Test;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class SourceSelectionUtilsTest
+public class SourceSelectionUtilsTest extends PCGenTestCase
 {
 
 	/**
