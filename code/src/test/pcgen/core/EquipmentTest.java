@@ -26,6 +26,7 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -116,7 +117,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		GenericLoader<Equipment> eqLoader =
 				new GenericLoader<Equipment>(Equipment.class);
 		eq = eqLoader.parseLine(Globals.getContext(), null,
-			"Dummy	SIZE:M 	KEY:OrigKey", source);
+			"Dummy	SIZE:M 	KEY:OrigKey	TYPE:Weapon", source);
 		eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Equipment.class, OriginalKey);
 		
@@ -139,6 +140,10 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eqMod =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "MWORKW");
+
+		SettingsHandler.getGame().addPlusCalculation(
+			"WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)");
+
 	}
 
 	/*****************************************************************************
@@ -439,5 +444,31 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		assertEquals("Name after modifier added", "Masterwork Dummy", aEquip
 			.getItemNameFromModifiers());
 		
+	}
+	
+	/**
+	 * Validate the processing of the getCost function. 
+	 */
+	public void testGetCost()
+	{
+		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "MWORKW");
+		assertNotNull("Eqmod MWORKW should be present", eqMod);
+
+		EquipmentModifier eqModPlus = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
+		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
+
+		Equipment aEquip = eq.clone();
+		assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
+		
+		aEquip.addEqModifier(eqMod, true, getCharacter());
+		assertEquals(
+			"Invalid cost when adding an eqmod with a bonus to ITEMCOST", 300,
+			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		
+		aEquip.addEqModifier(eqModPlus, true, getCharacter());
+		assertEquals("Invalid cost when adding an eqmod with a plus", 2300,
+			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 	}
 }

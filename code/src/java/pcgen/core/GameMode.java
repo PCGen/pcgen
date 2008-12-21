@@ -689,7 +689,7 @@ public final class GameMode implements Comparable<Object>
 
 		if (plusCalcs != null)
 		{
-			aString = plusCalcs.get(type);
+			aString = plusCalcs.get(type.toUpperCase());
 		}
 
 		return aString;
