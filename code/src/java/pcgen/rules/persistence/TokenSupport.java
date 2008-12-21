@@ -120,7 +120,7 @@ public class TokenSupport
 				return true;
 			}
 			Logging.addParseMessage(Logging.LST_ERROR,
-				"Failed in parsing typeStr: " + key + " " + value);
+				"Failed in parsing subtoken: " + key + " of " + value);
 		}
 		/*
 		 * CONSIDER Better option than toString, given that T != CDOMObject
