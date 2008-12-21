@@ -434,7 +434,8 @@ public class ChooserUtilities
 		{
 			choiceString = aPObject.getChoiceString();
 		}
-		if (choiceString == null || choiceString.length() == 0)
+		// Note: Number is special temp mod only chooser and should not be actioned except by temp mods. 
+		if (choiceString == null || choiceString.length() == 0 || choiceString.startsWith("NUMBER"))
 		{
 			return null;
 		}
@@ -485,7 +486,7 @@ public class ChooserUtilities
 			Class[]  argsClass  = {
 					PObject.class,
 					choiceString.getClass(),
-					aPC.getClass()
+					PlayerCharacter.class
 					};
 			Object[] argsObject = {aPObject, choiceString, aPC};
 
