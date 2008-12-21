@@ -2396,7 +2396,7 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				EquipmentModifier mod = ref.resolvesTo();
 				String key = mod.getKeyName();
-				for (EquipmentModifier aMod : head.getListFor(ListKey.EQMOD))
+				for (EquipmentModifier aMod : head.getSafeListFor(ListKey.EQMOD))
 				{
 					if (key.equalsIgnoreCase(aMod.getKeyName()))
 					{
@@ -2413,7 +2413,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		if (eqMod.isType("BaseMaterial")) {
-			for (EquipmentModifier aMod : head.getListFor(ListKey.EQMOD))
+			for (EquipmentModifier aMod : head.getSafeListFor(ListKey.EQMOD))
 			{
 				if (aMod.isType("BaseMaterial")) {
 					head.removeFromListFor(ListKey.EQMOD, aMod);
@@ -2426,7 +2426,7 @@ public final class Equipment extends PObject implements Serializable,
 				}
 			}
 		} else if (eqMod.isType("MagicalEnhancement")) {
-			for (EquipmentModifier aMod : head.getListFor(ListKey.EQMOD))
+			for (EquipmentModifier aMod : head.getSafeListFor(ListKey.EQMOD))
 			{
 				if (aMod.isType("MagicalEnhancement")) {
 					head.removeFromListFor(ListKey.EQMOD, aMod);
@@ -5643,7 +5643,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (head == null)
 			{
 				head = new EquipmentHead(this, index);
-				heads.add(headsIndex, head);
+				heads.set(headsIndex, head);
 			}
 		}
 		return head;
