@@ -1160,7 +1160,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Armor.Heavy.Suit.Standard.METAL</type>
+			<type>ARMOR.HEAVY.SUIT.STANDARD.METAL</type>
 			<weight>35</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1186,7 +1186,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Shield.Buckler.Standard.METAL</type>
+			<type>SHIELD.BUCKLER.STANDARD.METAL</type>
 			<weight>5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1212,7 +1212,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Thrown.Club.WOODEN</type>
+			<type>WEAPON.SIMPLE.MELEE.RANGED.BLUDGEONING.STANDARD.THROWN.CLUB.WOODEN</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1238,7 +1238,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Weapon.Martial.Melee.Standard.Slashing.Axe.METAL</type>
+			<type>WEAPON.MARTIAL.MELEE.STANDARD.SLASHING.AXE.METAL</type>
 			<weight>5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1268,7 +1268,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Armor.Heavy.Suit.Standard.METAL</type>
+					<type>ARMOR.HEAVY.SUIT.STANDARD.METAL</type>
 					<weight>35</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1289,7 +1289,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Shield.Buckler.Standard.METAL</type>
+					<type>SHIELD.BUCKLER.STANDARD.METAL</type>
 					<weight>5</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1310,7 +1310,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Thrown.Club.WOODEN</type>
+					<type>WEAPON.SIMPLE.MELEE.RANGED.BLUDGEONING.STANDARD.THROWN.CLUB.WOODEN</type>
 					<weight>3</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1331,7 +1331,7 @@ BIO
 						<short>S</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Weapon.Martial.Melee.Standard.Slashing.Axe.METAL</type>
+					<type>WEAPON.MARTIAL.MELEE.STANDARD.SLASHING.AXE.METAL</type>
 					<weight>5</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1372,7 +1372,7 @@ BIO
 		<feat>
 			<name>Extra Turning</name>
 			<description>Allows a character to turn undead four more times per day than normal.</description>
-			<type>Special</type>
+			<type>SPECIAL</type>
 			<associated>TurnUndead</associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -1383,7 +1383,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Heavy)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>General</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1393,7 +1393,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Light)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>General</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1403,7 +1403,7 @@ BIO
 		<feat>
 			<name>Armor Proficiency (Medium)</name>
 			<description>When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>General</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1413,7 +1413,7 @@ BIO
 		<feat>
 			<name>Martial Weapon Proficiency (Longsword)</name>
 			<description>The character makes attack rolls with the weapon normally.</description>
-			<type>General</type>
+			<type>GENERAL</type>
 			<associated>Longsword</associated>
 			<count>1</count>
 			<auto>T</auto>
@@ -1423,7 +1423,7 @@ BIO
 		<feat>
 			<name>Shield Proficiency</name>
 			<description>The character can use a shield and suffer only the standard penalties.</description>
-			<type>General</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1433,7 +1433,7 @@ BIO
 		<feat>
 			<name>Simple Weapon Proficiency</name>
 			<description>The character makes attack rolls with simple weapons normally.</description>
-			<type>General</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1457,7 +1457,7 @@ BIO
 		<ability_object>
 			<name>Turn Undead</name>
 			<description>6/day (turn level 2) (turn damage 2d6+1)</description>
-			<type>SpecialAttack.Supernatural.Turning.TurnUndead</type>
+			<type>SPECIALATTACK.SUPERNATURAL.TURNING.TURNUNDEAD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1469,7 +1469,7 @@ BIO
 		<ability_object>
 			<name>Immunity to magic sleep spells and effects</name>
 			<description></description>
-			<type>SpecialQuality</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1480,7 +1480,7 @@ BIO
 		<ability_object>
 			<name>+2 racial saving throw bonus against Enchantment spells or effects</name>
 			<description></description>
-			<type>SpecialQuality</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1491,7 +1491,7 @@ BIO
 		<ability_object>
 			<name>Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for the door</name>
 			<description></description>
-			<type>SpecialQuality</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1503,7 +1503,7 @@ BIO
 		<ability_object>
 			<name>Spontaneous casting - Cure spells</name>
 			<description></description>
-			<type>Extraordinary</type>
+			<type>EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1515,7 +1515,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>Internal</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1526,7 +1526,7 @@ BIO
 		<ability_object>
 			<name>Basic Turning</name>
 			<description></description>
-			<type>Turning</type>
+			<type>TURNING</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

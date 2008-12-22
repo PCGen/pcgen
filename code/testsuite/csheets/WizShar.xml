@@ -994,7 +994,7 @@ BIO
 		<feat>
 			<name>Empower Spell</name>
 			<description>All variable, numeric effects of an empowered spell are increased by one-half.</description>
-			<type>Metamagic.Wizard</type>
+			<type>METAMAGIC.WIZARD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1004,7 +1004,7 @@ BIO
 		<feat>
 			<name>Expertise</name>
 			<description>When the character uses the attack action or full attack action in melee, the character can take a penalty of as much as -0 on the character&#39;s attack and add the same number to the character&#39;s Armor Class.</description>
-			<type>General.Fighter</type>
+			<type>GENERAL.FIGHTER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1015,7 +1015,7 @@ BIO
 		<feat>
 			<name>Scribe Scroll</name>
 			<description>The character can create a scroll of any spell that the character knows.</description>
-			<type>ItemCreation.Wizard</type>
+			<type>ITEMCREATION.WIZARD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1039,7 +1039,7 @@ BIO
 		<ability_object>
 			<name>Summon Familiar</name>
 			<description></description>
-			<type>SpecialQuality</type>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1051,7 +1051,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>Internal</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1062,7 +1062,7 @@ BIO
 		<ability_object>
 			<name>Wizard Weapon Proficiencies</name>
 			<description></description>
-			<type>Internal</type>
+			<type>INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -339,7 +339,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".TYPE"))
 			{
-				retString += aAbility.getType();
+				retString += aAbility.getType().toUpperCase();
 			}
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{

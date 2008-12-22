@@ -1354,7 +1354,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Goods.Container.General</type>
+			<type>GOODS.CONTAINER.GENERAL</type>
 			<weight>15</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1380,7 +1380,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Ammunition.Standard.Metal.Bullet.Individual</type>
+			<type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1406,7 +1406,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Ammunition.Standard.Metal.Bullet</type>
+			<type>AMMUNITION.STANDARD.METAL.BULLET</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1432,7 +1432,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Goods.Tools.Electronic.Photo</type>
+			<type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
 			<weight>0.5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1458,7 +1458,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Goods.Clothing.Resizable</type>
+			<type>GOODS.CLOTHING.RESIZABLE</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1484,7 +1484,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-			<type>Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile.MASTERCRAFT</type>
+			<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1510,7 +1510,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-			<type>Goods.Transportation.Civilian.Car.Container</type>
+			<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1536,7 +1536,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>can connect to a global (or, if in place, galactic) satellite network</special_properties>
-			<type>Goods.Tools.Electronic.Spellbook.CUSTOM</type>
+			<type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
 			<weight>0.5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1562,7 +1562,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>Weapon.Natural.Melee.Bludgeoning</type>
+			<type>WEAPON.NATURAL.MELEE.BLUDGEONING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1592,7 +1592,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Goods.Container.General</type>
+					<type>GOODS.CONTAINER.GENERAL</type>
 					<weight>15</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1613,7 +1613,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Ammunition.Standard.Metal.Bullet.Individual</type>
+					<type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1634,7 +1634,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Ammunition.Standard.Metal.Bullet</type>
+					<type>AMMUNITION.STANDARD.METAL.BULLET</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1655,7 +1655,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Goods.Tools.Electronic.Photo</type>
+					<type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
 					<weight>0.5</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1676,7 +1676,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Goods.Clothing.Resizable</type>
+					<type>GOODS.CLOTHING.RESIZABLE</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1697,7 +1697,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-					<type>Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile.MASTERCRAFT</type>
+					<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
 					<weight>3</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1718,7 +1718,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-					<type>Goods.Transportation.Civilian.Car.Container</type>
+					<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1739,7 +1739,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties>can connect to a global (or, if in place, galactic) satellite network</special_properties>
-					<type>Goods.Tools.Electronic.Spellbook.CUSTOM</type>
+					<type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
 					<weight>0.5</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1760,7 +1760,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>Weapon.Natural.Melee.Bludgeoning</type>
+					<type>WEAPON.NATURAL.MELEE.BLUDGEONING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1821,7 +1821,7 @@ BIO
 		<feat>
 			<name>Advanced Firearms Proficiency</name>
 			<description>The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an auto-fire setting)</description>
-			<type>General.Dedicated.Soldier.Gunslinger.Bodyguard.Investigator.Negotiator.Dreadnought.FieldOfficer.HelixWarrior.SpaceMonkey.Tracer.StreetWarrior</type>
+			<type>GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER.STREETWARRIOR</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1831,7 +1831,7 @@ BIO
 		<feat>
 			<name>Brawl</name>
 			<description>When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier</description>
-			<type>General.Athlete.Criminal.Investigative.Military.Rural.Strong.Tough.Soldier.Infiltrator.Daredevil.Investigator.Adventurer.Dogfighter.Dreadnought.Explorer.SpaceMonkey.Gladiator.ShadowHunter.SpeedDemon.Thrasher</type>
+			<type>GENERAL.ATHLETE.CRIMINAL.INVESTIGATIVE.MILITARY.RURAL.STRONG.TOUGH.SOLDIER.INFILTRATOR.DAREDEVIL.INVESTIGATOR.ADVENTURER.DOGFIGHTER.DREADNOUGHT.EXPLORER.SPACEMONKEY.GLADIATOR.SHADOWHUNTER.SPEEDDEMON.THRASHER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1841,7 +1841,7 @@ BIO
 		<feat>
 			<name>Combat Martial Arts</name>
 			<description>With an unarmed strike, the character deals lethal or nonlethal damage (the character&#39;s choice) equal to 1d4 + the character&#39;s Strength modifier. The character&#39;s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks</description>
-			<type>Battlemind.General.Law_Enforcement.Military.Strong.Dreadnought.Gladiator</type>
+			<type>BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1851,7 +1851,7 @@ BIO
 		<feat>
 			<name>Personal Firearms Proficiency</name>
 			<description>The character can fire any personal firearm without penalty</description>
-			<type>General.Occultist.Criminal.Investigative.Law_Enforcement.Military.Rural.Fast.FieldScientist.Techie.Investigator.FieldMedic.Negotiator.Adventurer.MechaJockey.StreetWarrior.TechnoMage.Wildlord</type>
+			<type>GENERAL.OCCULTIST.CRIMINAL.INVESTIGATIVE.LAW_ENFORCEMENT.MILITARY.RURAL.FAST.FIELDSCIENTIST.TECHIE.INVESTIGATOR.FIELDMEDIC.NEGOTIATOR.ADVENTURER.MECHAJOCKEY.STREETWARRIOR.TECHNOMAGE.WILDLORD</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1861,7 +1861,7 @@ BIO
 		<feat>
 			<name>Toughness</name>
 			<description>The character gains +3 hit points</description>
-			<type>General.Tough.Daredevil.Dreadnought.SpaceMonkey.Outcast</type>
+			<type>GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY.OUTCAST</type>
 			<associated></associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -1871,7 +1871,7 @@ BIO
 		<feat>
 			<name>Weapon Finesse (Pistol Whip)</name>
 			<description>Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain</description>
-			<type>Battlemind.General.Fast</type>
+			<type>BATTLEMIND.GENERAL.FAST</type>
 			<associated>Pistol Whip</associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -1882,7 +1882,7 @@ BIO
 		<feat>
 			<name>Simple Weapons Proficiency</name>
 			<description>The character makes attack rolls with simple weapons normally</description>
-			<type>General.AberrationProficiency.FeyProficiency.GiantProficiency.HumanoidProficiency.MonstrousHumanoidProficiency.OutsiderProficiency.UndeadProficiency</type>
+			<type>GENERAL.ABERRATIONPROFICIENCY.FEYPROFICIENCY.GIANTPROFICIENCY.HUMANOIDPROFICIENCY.MONSTROUSHUMANOIDPROFICIENCY.OUTSIDERPROFICIENCY.UNDEADPROFICIENCY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1917,7 +1917,7 @@ BIO
 		<ability_object>
 			<name>Improvised Implements</name>
 			<description></description>
-			<type>Class.SpecialAbility</type>
+			<type>CLASS.SPECIALABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1928,7 +1928,7 @@ BIO
 		<ability_object>
 			<name>Sweep</name>
 			<description></description>
-			<type>Class.SpecialAbility</type>
+			<type>CLASS.SPECIALABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1940,7 +1940,7 @@ BIO
 		<ability_object>
 			<name>Evasion</name>
 			<description></description>
-			<type>Talent.FastTalent.Defensive</type>
+			<type>TALENT.FASTTALENT.DEFENSIVE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1951,7 +1951,7 @@ BIO
 		<ability_object>
 			<name>Uncanny Dodge I</name>
 			<description></description>
-			<type>Talent.FastTalent.Defensive.FastPlus</type>
+			<type>TALENT.FASTTALENT.DEFENSIVE.FASTPLUS</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

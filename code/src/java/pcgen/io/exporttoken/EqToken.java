@@ -932,7 +932,7 @@ public class EqToken extends Token
 	 */
 	public static String getTypeToken(Equipment eq)
 	{
-		return eq.getType();
+		return eq.getType().toUpperCase();
 	}
 
 	/**
@@ -943,7 +943,7 @@ public class EqToken extends Token
 	 */
 	public static String getTypeToken(Equipment eq, int num)
 	{
-		return eq.typeIndex(num);
+		return eq.typeIndex(num).toUpperCase();
 	}
 
 	/**
