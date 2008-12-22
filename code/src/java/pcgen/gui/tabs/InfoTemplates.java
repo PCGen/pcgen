@@ -332,7 +332,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		for (int i = 0; i < pTypes.length; i++)
 		{
 			pTypes[i] = new PObjectNode();
-			pTypes[i].setItem(typeList.get(i).toString());
+			pTypes[i].setItem(typeList.get(i));
 			pTypes[i].setParent(typeRoot);
 		}
 		typeRoot.setChildren(pTypes);
