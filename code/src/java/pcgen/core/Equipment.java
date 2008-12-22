@@ -4545,7 +4545,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			for (Type t : initializingList)
 			{
-				calculatedTypeList.add(t.toString());
+				calculatedTypeList.add(t.getComparisonString());
 			}
 		}
 		final Collection<String> modTypeList = new ArrayList<String>();

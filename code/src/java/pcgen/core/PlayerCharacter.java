@@ -12027,7 +12027,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Add all weapons of type aString
 		// (e.g.: Simple, Martial, Exotic, Ranged, etc.)
-		else if (context.containsType(WeaponProf.class, aString))
+		else if (context.containsType(WeaponProf.class, Type.getConstant(aString).toString()))
 		{
 			for (WeaponProf weaponProf : Globals.getPObjectsOfType(context.ref
 				.getConstructedCDOMObjects(WeaponProf.class), aString))

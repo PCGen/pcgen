@@ -79,7 +79,7 @@ public interface Constants
 	/** What a character template file name starts with */
 	String s_CHARACTER_TEMPLATE_START = "csheet"; //$NON-NLS-1$
 	/** CUSTOM */
-	String s_CUSTOM = "CUSTOM"; //$NON-NLS-1$
+	String s_CUSTOM = "Custom"; //$NON-NLS-1$
 	/** Custom Equipment */
 	String s_CUSTOMSOURCE = "Custom Equipment"; //$NON-NLS-1$
 	/** Default */

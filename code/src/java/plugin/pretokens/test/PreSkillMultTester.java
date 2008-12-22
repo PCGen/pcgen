@@ -77,7 +77,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements
 				{
 					for (Type type : aSkill.getTrueTypeList(false))
 					{
-						if (type.toString().startsWith(
+						if (type.toString().toUpperCase().startsWith(
 							skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;

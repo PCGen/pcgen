@@ -107,7 +107,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	/**
 	 * Converts this Constant to a String (returns the name of this Constant)
 	 * 
-	 * @return The string representatin (name) of this Constant
+	 * @return The string representation (name) of this Constant
 	 */
 	@Override
 	public String toString()
@@ -121,6 +121,18 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	public int getOrdinal()
 	{
 		return ordinal;
+	}
+
+	/**
+	 * Converts this Constant to a String (returns the name of this Constant)
+	 * that is suitable for backwards compatible comparison. The returned 
+	 * value will always be uppercase.
+	 * 
+	 * @return The string representation (name) of this Constant
+	 */
+	public String getComparisonString()
+	{
+		return fieldName.toUpperCase();
 	}
 
 	/**

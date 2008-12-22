@@ -258,11 +258,13 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		return foo;
 	}
 	/**
+	 * Check if the skill's types match the supplied pattern.
+	 *  
 	 * Mar 6, 2008 - Joe.Frazier
-	 * @param skillKey
-	 * @param percentageSignPosition
-	 * @param foundMatch
-	 * @param aSkill
+	 * @param skillKey Upper case key to be matched.
+	 * @param percentageSignPosition Spot in the key which has the percentage sign
+	 * @param found Has a match already been found?
+	 * @param aSkill The skill to be checked.
 	 * @return
 	 */
 	private boolean matchesTypeWildCard(final String skillKey,
@@ -270,7 +272,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	{
 		for (Type type : aSkill.getTrueTypeList(false))
 		{
-			if (type.toString().startsWith(
+			if (type.toString().toUpperCase().startsWith(
 				skillKey.substring(0, percentageSignPosition)))
 			{
 				found = true;

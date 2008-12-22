@@ -3414,7 +3414,17 @@ public final class GameMode implements Comparable<Object>
 	public boolean isTypeHidden(Class<?> cl, String type)
 	{
 		Set<String> set = hiddenTypes.get(cl);
-		return set != null && set.contains(type);
+		if (type != null && set != null)
+		{
+			for (String string : set)
+			{
+				if (type.equalsIgnoreCase(string))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public int sizeIndex(SizeAdjustment sz)
