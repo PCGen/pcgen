@@ -31,7 +31,7 @@ public class SpellLevel
 			List<? extends CDOMList<Spell>> lists, int levelMatch,
 			PlayerCharacter aPC)
 	{
-		if (lists == null)
+		if (lists == null || aPC == null)
 		{
 			return false;
 		}
