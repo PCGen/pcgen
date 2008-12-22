@@ -333,7 +333,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	 * @param  selectedList
 	 * @param  aPC
 	 */
-	private void processDomain(final List selectedList, final PlayerCharacter aPC)
+	private void processDomain(final List<String> selectedList, final PlayerCharacter aPC)
 	{
 		int aLevel;
 
@@ -369,7 +369,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 			dnum = 1;
 		}
 
-		final Iterator i = selectedList.iterator();
+		final Iterator<String> i = selectedList.iterator();
 
 		while ((dnum > 0) && i.hasNext())
 		{
@@ -401,7 +401,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	 *
 	 * @param  selectedList  treats the first entry of the list as a Type to add
 	 */
-	private void processType(final List selectedList)
+	private void processType(final List<String> selectedList)
 	{
 		if (selectedList.size() > 0)
 		{

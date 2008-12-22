@@ -317,7 +317,7 @@ public final class InfoSkillsSorters
 		public boolean nodeGoHere(PObjectNode node, Skill skill)
 		{
 			String skillType;
-			for (Iterator it = skill.getSubtypeIterator(); it.hasNext();)
+			for (Iterator<Type> it = skill.getSubtypeIterator(); it.hasNext();)
 			{
 				skillType = it.next().toString();
 				if (!Globals.isSkillTypeHidden(skillType))
@@ -388,7 +388,7 @@ public final class InfoSkillsSorters
 		public boolean nodeGoHere(PObjectNode node, Skill skill)
 		{
 			String skillType;
-			for (Iterator it = skill.getSubtypeIterator(); it.hasNext();)
+			for (Iterator<Type> it = skill.getSubtypeIterator(); it.hasNext();)
 			{
 				skillType = it.next().toString();
 				if (!Globals.isSkillTypeHidden(skillType))

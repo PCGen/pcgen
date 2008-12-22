@@ -2145,10 +2145,10 @@ public final class InfoGear extends FilterAdapterPanel implements
 		for (int i = 0; i < aList.size(); i++)
 		{
 			cc[i] = new PObjectNode();
-			cc[i].setItem(aList.get(i).toString());
+			cc[i].setItem(aList.get(i));
 			cc[i].setParent((PObjectNode) typeSubtypeRoot);
 			dc[i] = new PObjectNode();
-			dc[i].setItem(aList.get(i).toString());
+			dc[i].setItem(aList.get(i));
 			dc[i].setParent((PObjectNode) typeRoot);
 		}
 
@@ -2204,7 +2204,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		for (int i = 0; i < bList.size(); i++)
 		{
 			ec[i] = new PObjectNode();
-			ec[i].setItem(bList.get(i).toString());
+			ec[i].setItem(bList.get(i));
 			ec[i].setParent((PObjectNode) allTypeRoot);
 		}
 

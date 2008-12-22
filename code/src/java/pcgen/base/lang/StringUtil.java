@@ -122,14 +122,14 @@ public final class StringUtil
 
 		boolean needjoin = false;
 
-		for (Object obj : strings)
+		for (String obj : strings)
 		{
 			if (needjoin)
 			{
 				result.append(separator);
 			}
 			needjoin = true;
-			result.append(obj.toString());
+			result.append(obj);
 		}
 
 		return result.toString();
