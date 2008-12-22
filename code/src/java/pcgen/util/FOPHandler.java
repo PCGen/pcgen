@@ -205,7 +205,16 @@ public final class FOPHandler implements Runnable
 	{
 		errBuffer.delete(0, errBuffer.length());
 
-		// Reset the driver from het last run
+		if (inputHandler == null)
+		{
+			errBuffer.append("Export request failed. Please see console for details.").append(
+				Constants.s_LINE_SEP);
+			Logging.errorPrint("Error in FOPHandler:run - previous errors stopped intermediate file " +
+					"from being produced. Could not produce output.");
+			return;
+		}
+		
+		// Reset the driver from the last run
 		driver.reset();
 
 		// PDF Mode
