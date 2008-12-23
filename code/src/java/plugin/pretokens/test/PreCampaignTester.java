@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -99,9 +100,9 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 		for (Campaign campaign : campList)
 		{
 			if (campaign.isLoaded()
-				&& bookType.equalsIgnoreCase(campaign.getBookType()))
+				&& bookType.equalsIgnoreCase(campaign.getSafe(StringKey.BOOK_TYPE)))
 			{
-				Logging.debugPrint("Adding campaign " + campaign.isLoaded() + " type:" + campaign.getBookType());
+				Logging.debugPrint("Adding campaign " + campaign.isLoaded() + " type:" + campaign.getSafe(StringKey.BOOK_TYPE));
 				matchingCampaigns.add(campaign);
 			}
 		}
@@ -112,7 +113,7 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
 
-			if (aCampaign != null && bookType.equalsIgnoreCase(aCampaign.getBookType()))
+			if (aCampaign != null && bookType.equalsIgnoreCase(aCampaign.getSafe(StringKey.BOOK_TYPE)))
 			{
 				matchingCampaigns.add(aCampaign);
 			}

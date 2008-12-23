@@ -62,7 +62,7 @@ public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "EQUIPTYPE|one.two");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(),
+		is(pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("EQUIPTYPE|one.two"));
 
 		PlayerCharacter aPC = getCharacter();

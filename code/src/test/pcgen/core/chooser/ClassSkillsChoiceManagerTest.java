@@ -106,7 +106,7 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "CSKILLS");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(), strEq("CSKILLS"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("CSKILLS"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -145,7 +145,7 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "CSKILLS");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(), strEq("CSKILLS"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("CSKILLS"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -192,7 +192,7 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "CSKILLS");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(), strEq("CSKILLS"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("CSKILLS"));
 
 		PlayerCharacter aPC = getCharacter();
 

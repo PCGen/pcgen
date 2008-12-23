@@ -62,7 +62,7 @@ public class WeaponFocusChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "WEAPONFOCUS|Foo");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(),
+		is(pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("WEAPONFOCUS|Foo"));
 
 		PlayerCharacter aPC = getCharacter();

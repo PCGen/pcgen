@@ -18,9 +18,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public StringKey getPublisherKey()
+		public String getPublisher(Campaign c)
 		{
-			return null;
+			return Constants.EMPTY_STRING;
 		}
 
 		@Override
@@ -39,9 +39,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public StringKey getPublisherKey()
+		public String getPublisher(Campaign c)
 		{
-			return null;
+			return Constants.EMPTY_STRING;
 		}
 
 		@Override
@@ -60,9 +60,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public StringKey getPublisherKey()
+		public String getPublisher(Campaign c)
 		{
-			return StringKey.PUB_NAME_LONG;
+			return c.getSafe(StringKey.PUB_NAME_LONG);
 		}
 
 		@Override
@@ -82,9 +82,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public StringKey getPublisherKey()
+		public String getPublisher(Campaign c)
 		{
-			return null;
+			return Constants.EMPTY_STRING;
 		}
 
 		@Override
@@ -103,9 +103,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public StringKey getPublisherKey()
+		public String getPublisher(Campaign c)
 		{
-			return null;
+			return Constants.EMPTY_STRING;
 		}
 
 		@Override
@@ -124,9 +124,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public StringKey getPublisherKey()
+		public String getPublisher(Campaign c)
 		{
-			return StringKey.PUB_NAME_WEB;
+			return c.getSafe(StringKey.PUB_NAME_WEB);
 		}
 
 		@Override
@@ -136,7 +136,7 @@ public enum SourceFormat
 		}
 	};
 
-	public abstract StringKey getPublisherKey();
+	public abstract String getPublisher(Campaign c);
 	
 	public abstract String getField(CDOMObject cdo);
 
@@ -197,12 +197,7 @@ public enum SourceFormat
 		{
 			// If sourceCampaign object exists, get it's publisher entry for
 			// the same key
-			StringKey pubkey = format.getPublisherKey();
-			if (pubkey != null)
-			{
-				String pub = campaign.get(pubkey);
-				publisher = pub == null ? "" : pub;
-			}
+			publisher = format.getPublisher(campaign);
 
 			// if this item's source is null, try to get it from theCampaign
 			if (source == null)

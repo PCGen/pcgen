@@ -25,6 +25,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -268,7 +269,7 @@ public class SkillRankControl
 
 		if (!aPC.isImporting())
 		{
-			String choiceString = sk.getChoiceString();
+			String choiceString = sk.getSafe(StringKey.CHOICE_STRING);
 			if ((choiceString.length() > 0) && !CoreUtility.doublesEqual(g, 0)
 					&& !CoreUtility.doublesEqual(curRank, (int) newRank))
 			{

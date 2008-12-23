@@ -55,6 +55,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.core.SettingsHandler;
 import pcgen.core.InstallableCampaign.Destination;
@@ -751,30 +752,29 @@ public class DataInstaller extends JFrame
 		}
 
 		// Validate that the campaign is compatible with our version
-		if (campaign.getMinDevVer() != null
-			&& !CoreUtility.isPriorToCurrent(campaign.getMinDevVer()))
+		if (campaign.getSafe(StringKey.MINDEVVER) != null
+			&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
 		{
-			if (CoreUtility.isCurrMinorVer(campaign.getMinDevVer()))
+			if (CoreUtility.isCurrMinorVer(campaign.getSafe(StringKey.MINDEVVER)))
 			{
 				Logging.errorPrint("Dataset " + campaign.getDisplayName()
 					+ " needs at least PCGen version "
-					+ campaign.getMinDevVer()
+					+ campaign.getSafe(StringKey.MINDEVVER)
 					+ " to run. It could not be installed.");
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
-					.getFormattedString("in_diVersionTooOldDev", campaign
-						.getMinDevVer(), campaign.getMinVer()), TITLE,
+					.getFormattedString("in_diVersionTooOldDev", campaign.getSafe(StringKey.MINDEVVER), campaign.getSafe(StringKey.MINVER)), TITLE,
 					MessageType.WARNING);
 				return false;
 			}
 		}
-		if (campaign.getMinVer() != null
-			&& !CoreUtility.isPriorToCurrent(campaign.getMinVer()))
+		if (campaign.getSafe(StringKey.MINVER) != null
+			&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
 		{
 			Logging.errorPrint("Dataset " + campaign.getDisplayName()
-				+ " needs at least PCGen version " + campaign.getMinVer()
+				+ " needs at least PCGen version " + campaign.getSafe(StringKey.MINVER)
 				+ " to run. It could not be installed.");
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getFormattedString("in_diVersionTooOld", campaign.getMinVer()),
+				.getFormattedString("in_diVersionTooOld", campaign.getSafe(StringKey.MINVER)),
 				TITLE, MessageType.WARNING);
 			return false;
 		}

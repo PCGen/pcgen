@@ -21,6 +21,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.EqModRef;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
@@ -68,7 +69,7 @@ public class EqModAttachment
 				{
 					// only make a copy if we need to
 					// add qualifiers to modifier
-					if (eqMod.getChoiceString().length() != 0)
+					if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
 					{
 						eqMod = eqMod.clone();
 					}
@@ -81,7 +82,7 @@ public class EqModAttachment
 				}
 	
 				// Add the associated choices
-				if (eqMod.getChoiceString().length() != 0)
+				if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
 				{
 					List<String> choices = modRef.getChoices();
 					for (String x : choices)
@@ -89,7 +90,7 @@ public class EqModAttachment
 						Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
 						if (min != null
 								&& min > 0
-								|| (eqMod.getChoiceString()
+								|| (eqMod.getSafe(StringKey.CHOICE_STRING)
 										.startsWith("EQBUILDER")))
 						{
 							// We clear the associated info to avoid a

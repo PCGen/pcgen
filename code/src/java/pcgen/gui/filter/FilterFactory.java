@@ -38,6 +38,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
@@ -414,14 +415,14 @@ public final class FilterFactory implements FilterConstants
 
 		for ( final Campaign campaign : Globals.getCampaignList() )
 		{
-			if (!campaign.getSetting().equals(Constants.EMPTY_STRING))
+			if (!campaign.getSafe(StringKey.SETTING).equals(Constants.EMPTY_STRING))
 			{
-				settingList.add(FilterFactory.createSettingFilter(campaign.getSetting()));
+				settingList.add(FilterFactory.createSettingFilter(campaign.getSafe(StringKey.SETTING)));
 			}
 
-			if (!campaign.getGenre().equals(Constants.EMPTY_STRING))
+			if (!campaign.getSafe(StringKey.GENRE).equals(Constants.EMPTY_STRING))
 			{
-				genreList.add(FilterFactory.createGenreFilter(campaign.getGenre()));
+				genreList.add(FilterFactory.createGenreFilter(campaign.getSafe(StringKey.GENRE)));
 			}
 		}
 
@@ -2048,7 +2049,7 @@ final class EffectTypeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			return ((Spell) pObject).getTarget().equals(effectType);
+			return ((Spell) pObject).getSafe(StringKey.TARGET_AREA).equals(effectType);
 		}
 
 		return true;

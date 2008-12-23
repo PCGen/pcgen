@@ -63,7 +63,7 @@ public class FeatListChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.put(StringKey.CHOICE_STRING, "FEATLIST|Wellie Throwing|Sheep Shearing|Synchronised Mincing");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
 		is(
-			pObj.getChoiceString(),
+			pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("FEATLIST|Wellie Throwing|Sheep Shearing|Synchronised Mincing"));
 
 		PlayerCharacter aPC = getCharacter();

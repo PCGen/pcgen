@@ -241,7 +241,7 @@ public class SpellBasePanel extends BasePanel
 		cmbComponents.setSelectedItem(thisSpell.getComponentList());
 		cmbCastingTime.setSelectedItem(thisSpell.getCastingTime());
 		cmbRange.setSelectedItem(thisSpell.getRange());
-		cmbTarget.setSelectedItem(thisSpell.getTarget());
+		cmbTarget.setSelectedItem(thisSpell.getSafe(StringKey.TARGET_AREA));
 		cmbDuration.setSelectedItem(thisSpell.getDuration());
 		cmbSavingThrow.setSelectedItem(thisSpell.getSaveInfo());
 		cmbSpellRes.setSelectedItem(thisSpell.getSpellResistance());

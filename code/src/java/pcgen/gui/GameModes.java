@@ -27,6 +27,7 @@ package pcgen.gui;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.*;
 import pcgen.gui.sources.SourceSelectionUtils;
 import pcgen.gui.utils.Utility;
@@ -222,7 +223,7 @@ public final class GameModes extends JMenu
 
 					JRadioButtonMenuItem campaignMenuItem = new JRadioButtonMenuItem(aCamp.getDisplayName());
 					gameModeGroup.add(firstSubMenu.add(campaignMenuItem));
-					Utility.setDescription(campaignMenuItem, aCamp.getInfoText());
+					Utility.setDescription(campaignMenuItem, aCamp.getSafe(StringKey.INFO_TEXT));
 					campaigns.add(aCamp);
 					campaignMenuItems.add(campaignMenuItem);
 					campaignMenuItem.addActionListener(checkBoxHandler);

@@ -25,6 +25,7 @@ import java.util.ListIterator;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -278,7 +279,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				//
 				final int subCount = aPC.getDetailedAssociationCount(aFeat);
 				if ((subCount > 1)
-					&& (aFeat.getChoiceString().endsWith("NOCHOICE")))
+					&& (aFeat.getSafe(StringKey.CHOICE_STRING).endsWith("NOCHOICE")))
 				{
 					aString.append('(');
 					aString.append(subCount);

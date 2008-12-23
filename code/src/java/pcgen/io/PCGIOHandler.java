@@ -39,6 +39,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -375,11 +376,11 @@ public final class PCGIOHandler extends IOHandler
 
 		for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
-			if (aFeat.getChoiceString().startsWith("SALIST|"))
+			if (aFeat.getSafe(StringKey.CHOICE_STRING).startsWith("SALIST|"))
 			{
 				List<String> aAvailable = new ArrayList<String>();
 				List<String> aBonus = new ArrayList<String>();
-				buildSALIST(aFeat.getChoiceString(), aAvailable, aBonus,
+				buildSALIST(aFeat.getSafe(StringKey.CHOICE_STRING), aAvailable, aBonus,
 					currentPC);
 
 				for (String aString : aPC.getAssociationList(aFeat))
@@ -473,7 +474,7 @@ public final class PCGIOHandler extends IOHandler
 					}
 				}
 			}
-			else if (aFeat.getChoiceString().startsWith("NONCLASSSKILLLIST|"))
+			else if (aFeat.getSafe(StringKey.CHOICE_STRING).startsWith("NONCLASSSKILLLIST|"))
 			{
 				for (String skillString : currentPC.getAssociationList(aFeat))
 				{

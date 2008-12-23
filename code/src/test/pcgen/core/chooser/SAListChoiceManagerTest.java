@@ -62,7 +62,7 @@ public class SAListChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "SALIST|Foo|Bar|Baz");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(), strEq("SALIST|Foo|Bar|Baz"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("SALIST|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 

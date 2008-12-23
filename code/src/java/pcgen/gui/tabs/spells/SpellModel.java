@@ -481,11 +481,11 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 				if ((aSpell != null) && (spellA != null))
 				{
-					return pc.parseSpellString(aSpell, aSpell.getTarget(),
+					return pc.parseSpellString(aSpell, aSpell.getSafe(StringKey.TARGET_AREA),
 						spellA.getOwner());
 				}
 
-				return (aSpell != null) ? aSpell.getTarget() : null;
+				return (aSpell != null) ? aSpell.getSafe(StringKey.TARGET_AREA) : null;
 
 			case COL_DURATION:
 

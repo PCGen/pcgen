@@ -25,8 +25,6 @@
 package pcgen.core;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 
@@ -45,14 +43,5 @@ public final class Deity extends PObject
 		DomainList wpl = new DomainList();
 		wpl.setName("*Domains");
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
-	}
-
-	/**
-	 * @return the name of the holy item of this deity
-	 */
-	public String getHolyItem()
-	{
-		String characteristic = get(StringKey.HOLY_ITEM);
-		return characteristic == null ? Constants.s_NONE : characteristic;
 	}
 }

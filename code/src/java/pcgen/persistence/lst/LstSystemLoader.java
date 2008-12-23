@@ -52,6 +52,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -1315,7 +1316,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					if (campaign.getSafe(ObjectKey.IS_MATURE))
 					{
 						matureCampaigns.append(SourceFormat.LONG.getField(campaign) + 
-							                   " (" + campaign.getPubNameLong() + ")<br>");
+							                   " (" + campaign.getSafe(StringKey.PUB_NAME_LONG) + ")<br>");
 					}
 			
 					// Load the LST files to be loaded for the campaign

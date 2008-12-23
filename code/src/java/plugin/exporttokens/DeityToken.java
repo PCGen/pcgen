@@ -122,8 +122,7 @@ public class DeityToken extends Token
 			}
 			else if ("APPEARANCE".equals(subTag))
 			{
-				String characteristic = deity.get(StringKey.APPEARANCE);
-				retString = characteristic == null ? "" : characteristic;
+				retString = deity.getSafe(StringKey.APPEARANCE);
 			}
 			else if ("DESCRIPTION".equals(subTag))
 			{
@@ -131,7 +130,7 @@ public class DeityToken extends Token
 			}
 			else if ("HOLYITEM".equals(subTag))
 			{
-				retString = deity.getHolyItem();
+				retString = deity.getSafe(StringKey.HOLY_ITEM);
 			}
 			else if ("FAVOREDWEAPON".equals(subTag))
 			{

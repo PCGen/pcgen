@@ -24,6 +24,7 @@ package plugin.lsttokens.campaign.installable;
 
 import java.net.URI;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.lst.InstallLstToken;
@@ -61,7 +62,7 @@ public class MindevverToken implements InstallLstToken
 			return false;
 		}
 		InstallableCampaign ic = (InstallableCampaign) campaign;
-		ic.setMinDevVer(value != null ? value.trim() : "");
+		ic.put(StringKey.MINDEVVER, value != null ? value.trim() : "");
 		return true;
 	}
 }

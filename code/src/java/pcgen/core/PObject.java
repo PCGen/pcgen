@@ -119,16 +119,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Get the temporary description of this object
-	 * @return the temporary description of this object
-	 */
-	public final String getTempDescription()
-	{
-		String characteristic = get(StringKey.TEMP_DESCRIPTION);
-		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
-	}
-
-	/**
 	 * Add to the 'save' for the character list
 	 * @param aString
 	 */
@@ -241,16 +231,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			otherKey = obj.toString();
 		}
 		return thisKey.equalsIgnoreCase( otherKey );
-	}
-
-	/**
-	 * Get the CHOICE string
-	 * @return the CHOICE string
-	 */
-	public final String getChoiceString()
-	{
-		String characteristic = get(StringKey.CHOICE_STRING);
-		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 
 	/**
@@ -644,7 +624,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			txt.append(getDisplayName());
 		}
 
-		aString = getChoiceString();
+		aString = getSafe(StringKey.CHOICE_STRING);
 
 		if ((aString != null) && (aString.length() != 0))
 		{
@@ -812,7 +792,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		if (flag)
 		{
-			getChoices(getChoiceString(), aPC);
+			getChoices(getSafe(StringKey.CHOICE_STRING), aPC);
 		}
 
 		if (this instanceof PCClass)
@@ -1006,7 +986,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			// SALIST will stick BONUS:VAR|...
 			// into bonus list so don't multiply
 			//
-			String choiceString = getChoiceString();
+			String choiceString = getSafe(StringKey.CHOICE_STRING);
 			if (choiceString.startsWith("SALIST|") && (choiceString.indexOf("|VAR|") >= 0))
 			{
 				iTimes = 1;

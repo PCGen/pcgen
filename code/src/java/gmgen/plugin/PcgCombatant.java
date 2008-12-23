@@ -41,6 +41,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -1099,7 +1100,7 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(spell, spell.getDuration(), cs.getOwner()));
 								spellBuff.append("\\");
-								spellBuff.append(aPC.parseSpellString(spell, spell.getTarget(), cs.getOwner()));
+								spellBuff.append(aPC.parseSpellString(spell, spell.getSafe(StringKey.TARGET_AREA), cs.getOwner()));
 								spellBuff.append('"' + " class=" + '"' + "dialog" + '"' + ">");
 
 								spellBuff.append(spell.getDisplayName());

@@ -207,15 +207,15 @@ class SourceBasePanel extends BasePanel
 		isD20.setSelected(theCampaign.isD20());
 		isLicensed.setSelected(theCampaign.getSafe(ObjectKey.IS_LICENSED));
 		showInMenu.setSelected(theCampaign.getSafe(ObjectKey.SHOW_IN_MENU));
-		infoText.setText(theCampaign.getInfoText());
+		infoText.setText(theCampaign.getSafe(StringKey.INFO_TEXT));
 		infoText.setCaretPosition(0); //Scroll to beginning of inserted text
-		bookType.setSelectedItem(theCampaign.getBookType());
-		setting.setText(theCampaign.getSetting());
+		bookType.setSelectedItem(theCampaign.getSafe(StringKey.BOOK_TYPE));
+		setting.setText(theCampaign.getSafe(StringKey.SETTING));
 		setting.setCaretPosition(0); //Scroll to beginning of inserted text
-		genre.setText(theCampaign.getGenre());
+		genre.setText(theCampaign.getSafe(StringKey.GENRE));
 		genre.setCaretPosition(0); //Scroll to beginning of inserted text
 
-		String a = theCampaign.getDestination();
+		String a = theCampaign.getSafe(StringKey.DESTINATION);
 
 		if (a.equals("") && (theCampaign.getSourceURI() != null))
 		{
@@ -238,7 +238,7 @@ class SourceBasePanel extends BasePanel
 		}
 		else
 		{
-			destination.setText(theCampaign.getDestination());
+			destination.setText(theCampaign.getSafe(StringKey.DESTINATION));
 		}
 		destination.setCaretPosition(0); //Scroll to beginning of inserted text
 	}
@@ -343,7 +343,7 @@ class SourceBasePanel extends BasePanel
 
 					if (theCampaign != null)
 					{
-						d = theCampaign.getDestination();
+						d = theCampaign.getSafe(StringKey.DESTINATION);
 					}
 
 					if ((d == null) || d.equals(""))

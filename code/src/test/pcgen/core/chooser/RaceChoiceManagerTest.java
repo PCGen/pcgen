@@ -62,7 +62,7 @@ public class RaceChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "RACE|Foo|Bar|Baz");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(3));
-		is(pObj.getChoiceString(), strEq("RACE|Foo|Bar|Baz"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("RACE|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 

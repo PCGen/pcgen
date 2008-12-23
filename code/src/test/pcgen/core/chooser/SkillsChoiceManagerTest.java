@@ -62,7 +62,7 @@ public class SkillsChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "SKILLS|Foo|Bar|Baz");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(), strEq("SKILLS|Foo|Bar|Baz"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("SKILLS|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 

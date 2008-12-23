@@ -25,6 +25,7 @@ package pcgen.core;
 
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -346,7 +347,7 @@ public final class EquipmentChoice
 			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					&& !this.getAvailableList().contains(anAbility.getKeyName()))
 			{
-				if (matchesType && (anAbility.getChoiceString().length() == 0))
+				if (matchesType && (anAbility.getSafe(StringKey.CHOICE_STRING).length() == 0))
 				{
 					this.getAvailableList().add(anAbility.getKeyName());
 				}
@@ -405,7 +406,7 @@ public final class EquipmentChoice
 		{
 			if (
 				!(sibling.equals(this)) &&
-				sibling.getChoiceString().startsWith(choiceType))
+				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
 			{
 				getAvailableList().addAll(parent.getAssociationList(sibling));
 			}

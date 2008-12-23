@@ -2367,8 +2367,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						SkillRankControl.getRank(mPC,
 							mPC.getSkillKeyed(skillKey)).doubleValue();
 
-				if ((newSkill.getChoiceString() != null)
-					&& (newSkill.getChoiceString().length() > 0))
+				if ((newSkill.getSafe(StringKey.CHOICE_STRING) != null)
+					&& (newSkill.getSafe(StringKey.CHOICE_STRING).length() > 0))
 				{
 					continue;
 				}
@@ -2667,11 +2667,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			String aDesc = aCreator.get(StringKey.DESCRIPTION);
-			if (aDesc == null)
-			{
-				aDesc = Constants.EMPTY_STRING;
-			}
+			String aDesc = aCreator.getSafe(StringKey.DESCRIPTION);
 
 			if (!aList.contains(aDesc))
 			{
@@ -9678,7 +9674,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (Skill skill : skillList)
 			{
-				if (skill.getChoiceString().indexOf("Language") >= 0)
+				if (skill.getSafe(StringKey.CHOICE_STRING).indexOf("Language") >= 0)
 				{
 					i += SkillRankControl.getTotalRank(this, skill).intValue();
 				}
@@ -15865,8 +15861,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			final int subfeatCount = getSelectCorrectedAssociationCount(aFeat);
 			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			if (aFeat.getChoiceString() != null
-				&& aFeat.getChoiceString().length() > 0)
+			if (aFeat.getSafe(StringKey.CHOICE_STRING) != null
+				&& aFeat.getSafe(StringKey.CHOICE_STRING).length() > 0)
 			{
 				iCount += Math.ceil(subfeatCount * cost);
 			}
@@ -15908,8 +15904,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						getSelectCorrectedAssociationCount(ability);
 				double cost =
 						ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-				if (ability.getChoiceString() != null
-					&& ability.getChoiceString().length() > 0)
+				if (ability.getSafe(StringKey.CHOICE_STRING) != null
+					&& ability.getSafe(StringKey.CHOICE_STRING).length() > 0)
 				{
 					spent += Math.ceil(subfeatCount * cost);
 				}
@@ -17663,7 +17659,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 		for (Skill aSkill : skillList)
 		{
-			if (aSkill.getChoiceString().indexOf(
+			if (aSkill.getSafe(StringKey.CHOICE_STRING).indexOf(
 				PropertyFactory.getString("in_language")) >= 0)
 			{
 				speakLanguage = aSkill;

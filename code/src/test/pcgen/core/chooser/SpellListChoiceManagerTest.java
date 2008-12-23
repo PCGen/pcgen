@@ -62,7 +62,7 @@ public class SpellListChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "SPELLLIST|Foo|Bar|Baz");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(), strEq("SPELLLIST|Foo|Bar|Baz"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("SPELLLIST|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 

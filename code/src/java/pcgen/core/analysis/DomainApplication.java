@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -134,7 +135,7 @@ public class DomainApplication
 		}
 
 		// sage_sam stop here
-		String choiceString = d.getChoiceString();
+		String choiceString = d.getSafe(StringKey.CHOICE_STRING);
 
 		if ((choiceString.length() > 0) && !pc.isImporting()
 				&& !choiceString.startsWith("FEAT|"))

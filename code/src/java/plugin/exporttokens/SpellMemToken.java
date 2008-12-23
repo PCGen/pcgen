@@ -301,8 +301,7 @@ public class SpellMemToken extends Token
 						{
 							String mString =
 									aPC
-										.parseSpellString(aSpell, aSpell
-											.getTarget(), selectedCSpell
+										.parseSpellString(aSpell, aSpell.getSafe(StringKey.TARGET_AREA), selectedCSpell
 											.getOwner());
 							retValue.append(mString);
 						}

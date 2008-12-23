@@ -398,12 +398,6 @@ public final class Spell extends PObject
 		return StringUtil.join(getListFor(ListKey.SPELL_SUBSCHOOL), ", ");
 	}
 
-	public String getTarget()
-	{
-		String target = get(StringKey.TARGET_AREA);
-		return target == null ? Constants.EMPTY_STRING : target;
-	}
-
 	////////////////////////////////////////////////////////////
 	// Public method(s)
 	////////////////////////////////////////////////////////////

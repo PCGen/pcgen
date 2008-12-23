@@ -63,7 +63,7 @@ public class SkillsNamedToCCSkillChoiceManagerTest extends
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "SKILLSNAMEDTOCCSKILL|Foo|Bar|Baz");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(),
+		is(pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("SKILLSNAMEDTOCCSKILL|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();

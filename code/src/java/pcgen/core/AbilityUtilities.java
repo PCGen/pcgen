@@ -33,6 +33,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -1244,12 +1245,12 @@ public class AbilityUtilities
 	
 		if (
 			(anAbility != null) &&
-			anAbility.getChoiceString().startsWith("SPELLLEVEL"))
+			anAbility.getSafe(StringKey.CHOICE_STRING).startsWith("SPELLLEVEL"))
 		{
 			spellLevelProcess = true;
 	
 			final StringTokenizer sTok = new StringTokenizer(
-					anAbility.getChoiceString(),
+					anAbility.getSafe(StringKey.CHOICE_STRING),
 					"[]",
 					false);
 			sTok.nextToken();
@@ -1337,12 +1338,11 @@ public class AbilityUtilities
 	
 			final List<String> aBonusList = new ArrayList<String>();
 			boolean spellLevelProcess = false;
-			if (ab.getChoiceString().startsWith("SPELLLEVEL"))
+			if (ab.getSafe(StringKey.CHOICE_STRING).startsWith("SPELLLEVEL"))
 			{
 				spellLevelProcess = true;
 	
-				final StringTokenizer sTok = new StringTokenizer(ab
-						.getChoiceString(), "[]", false);
+				final StringTokenizer sTok = new StringTokenizer(ab.getSafe(StringKey.CHOICE_STRING), "[]", false);
 				sTok.nextToken(); // COnsume CHOOSE (get to Bonuses)
 	
 				while (sTok.hasMoreTokens())

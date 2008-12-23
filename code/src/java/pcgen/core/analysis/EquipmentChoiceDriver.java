@@ -22,6 +22,7 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentChoice;
 import pcgen.core.EquipmentModifier;
@@ -41,7 +42,7 @@ public class EquipmentChoiceDriver
 	 */
 	public static boolean getChoice(final int pool, final Equipment parent, EquipmentModifier eqMod, final boolean bAdd, PlayerCharacter pc)
 	{
-		String choiceString = eqMod.getChoiceString();
+		String choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
 		if (choiceString.length() == 0)
 		{
@@ -172,7 +173,7 @@ public class EquipmentChoiceDriver
 		PlayerCharacter pc)
 	{
 		final EquipmentChoice equipChoice  = new EquipmentChoice(bAdd, pool);
-		String                choiceString = eqMod.getChoiceString();
+		String                choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
 		if (choiceString.length() == 0)
 		{

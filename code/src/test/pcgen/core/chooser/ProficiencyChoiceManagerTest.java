@@ -62,7 +62,7 @@ public class ProficiencyChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(),
+		is(pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial"));
 
 		PlayerCharacter aPC = getCharacter();

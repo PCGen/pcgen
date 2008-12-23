@@ -51,6 +51,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -998,7 +999,7 @@ final class PCGVer2Creator implements IOConstants
 			}
 			buffer.append('|');
 			buffer.append(TAG_HOLYITEM).append(':');
-			buffer.append(EntityEncoder.encode(aDeity.getHolyItem()));
+			buffer.append(EntityEncoder.encode(aDeity.getSafe(StringKey.HOLY_ITEM)));
 
 			buffer.append('|');
 			buffer.append(TAG_DEITYFAVWEAP).append(':');

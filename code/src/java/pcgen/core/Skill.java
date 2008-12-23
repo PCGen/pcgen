@@ -32,6 +32,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
@@ -175,7 +176,7 @@ public final class Skill extends PObject
 
 		if (flag)
 		{
-			getChoices(getChoiceString(), aPC);
+			getChoices(getSafe(StringKey.CHOICE_STRING), aPC);
 		}
 		activateBonuses(aPC);
 	}

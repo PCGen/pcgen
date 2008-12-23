@@ -53,6 +53,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -294,7 +295,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			{
 				if ((aCD.isFromPCClass() || aCD.isFromFeat())
 					&& (aCD.toString().length() != 0)
-					&& aCD.getDomain().getChoiceString().startsWith(
+					&& aCD.getDomain().getSafe(StringKey.CHOICE_STRING).startsWith(
 						"WEAPONPROF|"))
 				{
 					bonusCategory.add(aCD);
@@ -683,7 +684,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 				{
 					final Domain aDomain =
 							((CharacterDomain) profBonusObject).getDomain();
-					aDomain.getChoices(aDomain.getChoiceString(), pc);
+					aDomain.getChoices(aDomain.getSafe(StringKey.CHOICE_STRING), pc);
 				}
 				else
 				{

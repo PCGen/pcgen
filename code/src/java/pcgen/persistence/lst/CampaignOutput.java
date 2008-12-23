@@ -31,6 +31,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -61,7 +62,7 @@ public final class CampaignOutput
 		final File outFile =
 				new File(SettingsHandler.getPccFilesLocation()
 					.getAbsolutePath()
-					+ File.separator + campaign.getDestination());
+					+ File.separator + campaign.getSafe(StringKey.DESTINATION));
 		BufferedWriter out = null;
 
 		try

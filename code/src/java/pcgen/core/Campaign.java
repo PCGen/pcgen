@@ -31,7 +31,6 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -58,95 +57,6 @@ public class Campaign extends PObject
 	 */
 	public Campaign() {
 		super();
-	}
-
-	/**
-	 * Get the book type
-	 * @return bookType
-	 */
-	public String getBookType()
-	{
-		String characteristic = get(StringKey.BOOK_TYPE);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get the destination
-	 * @return destination
-	 */
-	public String getDestination()
-	{
-		String characteristic = get(StringKey.DESTINATION);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get the genre
-	 * @return genre
-	 */
-	public String getGenre()
-	{
-		String characteristic = get(StringKey.GENRE);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get the help
-	 * @return help
-	 */
-	public String getHelp()
-	{
-		String characteristic = get(StringKey.HELP);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * @return the info on this campaign
-	 */
-	public String getInfoText()
-	{
-		String characteristic = get(StringKey.INFO_TEXT);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get the publisher longname
-	 * @return publisher long name
-	 */
-	public String getPubNameLong()
-	{
-		String characteristic = get(StringKey.PUB_NAME_LONG);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * get the publisher short name
-	 * @return publisher short name
-	 */
-	public String getPubNameShort()
-	{
-		String characteristic = get(StringKey.PUB_NAME_SHORT);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get the publisher web name
-	 * @return publisher web name
-	 */
-	public String getPubNameWeb()
-	{
-		String characteristic = get(StringKey.PUB_NAME_WEB);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Get the setting
-	 * @return setting
-	 */
-	public String getSetting()
-	{
-		String characteristic = get(StringKey.SETTING);
-		return characteristic == null ? "" : characteristic;
 	}
 
 	/**

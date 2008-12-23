@@ -508,7 +508,7 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("RATEOFFIRE"))
 		{
-			return getRateOfFireToken(eq);
+			return eq.getSafe(StringKey.RATE_OF_FIRE);
 		}
 		else if (token.equals("ISLIGHT"))
 		{
@@ -1198,17 +1198,6 @@ public class WeaponToken extends Token
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
 			eq.getWeight(pc).doubleValue());
-	}
-
-	/**
-	 * Get rate of fire token
-	 * @param eq
-	 * @return rate of fire toke
-	 */
-	public static String getRateOfFireToken(Equipment eq)
-	{
-		String rof = eq.get(StringKey.RATE_OF_FIRE);
-		return rof == null ? "" : rof;
 	}
 
 	/**

@@ -59,7 +59,7 @@ public class FeatChoiceManagerTest extends AbstractCharacterTestCase
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "FEAT=Wellie Throwing");
-		is(pObj.getChoiceString(), strEq("FEAT=Wellie Throwing"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("FEAT=Wellie Throwing"));
 
 		PlayerCharacter aPC = getCharacter();
 

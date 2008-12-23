@@ -26,6 +26,7 @@
 package pcgen.core;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;
@@ -631,7 +632,7 @@ public final class CustomData
 	{
 		for ( Campaign c : Globals.getCampaignList() )
 		{
-			if (c.getDestination().length() > 0)
+			if (c.getSafe(StringKey.DESTINATION).length() > 0)
 			{
 				CampaignOutput.output(c);
 			}

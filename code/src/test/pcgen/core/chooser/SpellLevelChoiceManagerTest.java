@@ -63,7 +63,7 @@ public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "SPELLLEVEL|Foo|Bar|Baz");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(), strEq("SPELLLEVEL|Foo|Bar|Baz"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("SPELLLEVEL|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 

@@ -63,7 +63,7 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.put(StringKey.CHOICE_STRING, "DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
 		is(
-			pObj.getChoiceString(),
+			pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux"));
 
 		PlayerCharacter aPC = getCharacter();

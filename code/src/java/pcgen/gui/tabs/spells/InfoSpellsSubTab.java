@@ -59,6 +59,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -884,7 +885,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
                     pc.parseSpellString(aSpell, aSpell.getDuration(), cs
                         .getOwner()),
                     pc.getSpellRange(aSpell, cs.getOwner(), si),
-                    pc.parseSpellString(aSpell, aSpell.getTarget(), cs
+                    pc.parseSpellString(aSpell, aSpell.getSafe(StringKey.TARGET_AREA), cs
                         .getOwner()),
                     aSpell.getSaveInfo(),
                     aSpell.getSpellResistance()));

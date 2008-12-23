@@ -71,6 +71,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 import pcgen.core.Equipment;
@@ -401,7 +402,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			return repeatValue;
 		}
 
-		String aChoice = source.getChoiceString();
+		String aChoice = source.getSafe(StringKey.CHOICE_STRING);
 		StringTokenizer aTok = new StringTokenizer(aChoice, "|");
 
 		String testNumber = aChoice;
@@ -548,7 +549,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextSource" , bString); //$NON-NLS-1$
 			}
 
-			bString = aClass.getTempDescription();
+			bString = aClass.getSafe(StringKey.TEMP_DESCRIPTION);
 
 			if (bString.length() > 0)
 			{
@@ -571,7 +572,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextSource" , bString); //$NON-NLS-1$
 			}
 
-			bString = aFeat.getTempDescription();
+			bString = aFeat.getSafe(StringKey.TEMP_DESCRIPTION);
 
 			if (bString.length() > 0)
 			{
@@ -683,7 +684,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendI18nElement("in_itmInfoLabelTextProperties" , eqI.getInterestingDisplayString(pc) ); //$NON-NLS-1$
 			}
 
-			bString = eqI.getTempDescription();
+			bString = eqI.getSafe(StringKey.TEMP_DESCRIPTION);
 
 			if (bString.length() > 0)
 			{
@@ -698,7 +699,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aSkill.getDisplayName());
 
-			String bString = aSkill.getTempDescription();
+			String bString = aSkill.getSafe(StringKey.TEMP_DESCRIPTION);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
@@ -722,11 +723,11 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			b.appendSpacer();
 			b.appendI18nElement("in_itmInfoLabelTextRange",aSpell.getRange()); //$NON-NLS-1$
 			b.appendSpacer();
-			b.appendI18nElement("in_itmInfoLabelTextTarget",aSpell.getTarget()); //$NON-NLS-1$
+			b.appendI18nElement("in_itmInfoLabelTextTarget",aSpell.getSafe(StringKey.TARGET_AREA)); //$NON-NLS-1$
 			b.appendLineBreak();
 			b.appendI18nElement("in_itmInfoLabelTextSpellDescription",DescriptionFormatting.piDescSubString(pc, aSpell)); //$NON-NLS-1$
 
-			String bString = aSpell.getTempDescription();
+			String bString = aSpell.getSafe(StringKey.TEMP_DESCRIPTION);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
@@ -745,7 +746,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aTemp.getDisplayName());
 
-			String bString = aTemp.getTempDescription();
+			String bString = aTemp.getSafe(StringKey.TEMP_DESCRIPTION);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
@@ -1135,7 +1136,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						// dirty when the other case doesn't?
 						pc.setDirty(true);
 					}
-					if (aMod.getChoiceString().length() > 0)
+					if (aMod.getSafe(StringKey.CHOICE_STRING).length() > 0)
 					{
 						repeatValue = getBonusChoice(newB, aMod, repeatValue);
 					}

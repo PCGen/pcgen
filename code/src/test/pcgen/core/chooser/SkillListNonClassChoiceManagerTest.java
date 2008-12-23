@@ -63,7 +63,7 @@ public class SkillListNonClassChoiceManagerTest extends
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "NONCLASSSKILLLIST|Foo,Bar,Baz,Qux");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(),
+		is(pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("NONCLASSSKILLLIST|Foo,Bar,Baz,Qux"));
 
 		PlayerCharacter aPC = getCharacter();

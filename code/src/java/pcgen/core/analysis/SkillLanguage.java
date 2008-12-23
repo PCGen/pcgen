@@ -26,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
@@ -72,7 +73,7 @@ public final class SkillLanguage
 	 */
 	public static boolean isLanguage(Skill aSkill)
 	{
-		return aSkill.getChoiceString().toLowerCase().indexOf("language") >= 0;
+		return aSkill.getSafe(StringKey.CHOICE_STRING).toLowerCase().indexOf("language") >= 0;
 	}
 
 	/**
@@ -151,12 +152,12 @@ public final class SkillLanguage
 		List<Language> excludedLangs)
 	{
 		String reqType = null;
-		if (languageSkill.getChoiceString().toLowerCase().indexOf(
+		if (languageSkill.getSafe(StringKey.CHOICE_STRING).toLowerCase().indexOf(
 				"language(") >= 0)
 		{
 			// We expect to have a choice string like Language(foo)
 			// where foo is the type we have to limit choices by.
-			String choiceParts[] = languageSkill.getChoiceString().split(
+			String choiceParts[] = languageSkill.getSafe(StringKey.CHOICE_STRING).split(
 					"[\\(\\)]");
 			if (choiceParts.length >= 2)
 			{

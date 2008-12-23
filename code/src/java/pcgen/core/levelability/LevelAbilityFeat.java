@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -546,7 +547,7 @@ class LevelAbilityFeat extends LevelAbility
 		final List<String> availableList  = new ArrayList<String>(); // available list of choices
 		final List<String> selectedList   = new ArrayList<String>(); // selected list of choices
 
-		final String choiceString = anAbility.getChoiceString();
+		final String choiceString = anAbility.getSafe(StringKey.CHOICE_STRING);
 
 		if (
 			(choiceString.indexOf("NUMCHOICES=") < 0) &&
@@ -620,7 +621,7 @@ class LevelAbilityFeat extends LevelAbility
 			}
 		}
 
-		if (!anAbility.getChoiceString().startsWith("SPELLLIST|"))
+		if (!anAbility.getSafe(StringKey.CHOICE_STRING).startsWith("SPELLLIST|"))
 		{
 			for (Iterator<String> e = availableList.iterator(); e.hasNext();)
 			{

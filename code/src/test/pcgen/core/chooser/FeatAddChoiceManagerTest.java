@@ -62,7 +62,7 @@ public class FeatAddChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "FEATADD|choice");
 		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
-		is(pObj.getChoiceString(), strEq("FEATADD|choice"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("FEATADD|choice"));
 
 		PlayerCharacter aPC = getCharacter();
 

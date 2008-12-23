@@ -34,6 +34,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
@@ -296,7 +297,7 @@ public final class PrerequisiteUtilities
 		final String cType = subKey;
 		final List availableList = new ArrayList();
 		final List selectedList = new ArrayList();
-		final String aChoiceString = aFeat.getChoiceString();
+		final String aChoiceString = aFeat.getSafe(StringKey.CHOICE_STRING);
 		int runningTotal = 0;
 
 		ChooserUtilities.modChoices(

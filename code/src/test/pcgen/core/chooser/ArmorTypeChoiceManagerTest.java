@@ -111,7 +111,7 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "ARMORTYPE");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(), strEq("ARMORTYPE"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("ARMORTYPE"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -150,7 +150,7 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "ARMORTYPE");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(), strEq("ARMORTYPE"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("ARMORTYPE"));
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -196,7 +196,7 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "ARMORTYPE");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(), strEq("ARMORTYPE"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("ARMORTYPE"));
 
 		PlayerCharacter aPC = getCharacter();
 

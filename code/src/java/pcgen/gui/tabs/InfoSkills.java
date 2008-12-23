@@ -102,6 +102,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -721,7 +722,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					if (theSkill != null)
 					{
 						int points;
-						if (theSkill.getChoiceString() == null)
+						if (theSkill.getSafe(StringKey.CHOICE_STRING) == null)
 						{
 							points = 1;
 						}

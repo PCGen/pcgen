@@ -3062,15 +3062,15 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_DOMAIN:
 			case EditorConstants.EDIT_FEAT:
-				if (thisPObject.getChoiceString().length() != 0)
+				if (thisPObject.getSafe(StringKey.CHOICE_STRING).length() != 0)
 				{
-					selectedList.add("CHOOSE:" + thisPObject.getChoiceString());
+					selectedList.add("CHOOSE:" + thisPObject.getSafe(StringKey.CHOICE_STRING));
 				}
 
 				break;
 
 			case EditorConstants.EDIT_SKILL:
-				final String choiceString = thisPObject.getChoiceString();
+				final String choiceString = thisPObject.getSafe(StringKey.CHOICE_STRING);
 
 				if ((choiceString != null) && (choiceString.length() > 0))
 				{

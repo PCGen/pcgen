@@ -20,6 +20,7 @@
  */
 package pcgen.gui.filter;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -62,6 +63,6 @@ final class SettingFilter extends AbstractPObjectFilter
 			c = pObject.getSourceCampaign();
 		}
 
-		return ((c != null) && c.getSetting().equals(setting));
+		return ((c != null) && c.getSafe(StringKey.SETTING).equals(setting));
 	}
 }

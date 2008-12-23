@@ -62,7 +62,7 @@ public class FeatSelectChoiceManagerTest extends AbstractCharacterTestCase
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "FEATSELECT|Foo|Bar|Baz");
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(2));
-		is(pObj.getChoiceString(), strEq("FEATSELECT|Foo|Bar|Baz"));
+		is(pObj.getSafe(StringKey.CHOICE_STRING), strEq("FEATSELECT|Foo|Bar|Baz"));
 
 		PlayerCharacter aPC = getCharacter();
 

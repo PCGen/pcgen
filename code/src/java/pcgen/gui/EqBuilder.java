@@ -456,9 +456,9 @@ final class EqBuilder extends JPanel
 				//
 				final EquipmentModifier eqMod = dataModel.getDisplayModifiers().get(iSelected);
 
-				if (eqMod.getChoiceString().startsWith("EQBUILDER.SPELL"))
+				if (eqMod.getSafe(StringKey.CHOICE_STRING).startsWith("EQBUILDER.SPELL"))
 				{
-					jButtonSpellActionPerformed(eqMod, eqMod.getChoiceString().substring(15));
+					jButtonSpellActionPerformed(eqMod, eqMod.getSafe(StringKey.CHOICE_STRING).substring(15));
 
 					return;
 				}
@@ -1321,7 +1321,7 @@ final class EqBuilder extends JPanel
 									(JFrame) Utility.getParentNamed(getParent(), EQFrame.class.getName()),
 									aPC,
 									eqType,
-									metaAllowed, classList, levelList, spellBooks, eqMod.getChoiceString());
+									metaAllowed, classList, levelList, spellBooks, eqMod.getSafe(StringKey.CHOICE_STRING));
 		csd.setVisible(true);
 
 		if (!csd.getWasCancelled())

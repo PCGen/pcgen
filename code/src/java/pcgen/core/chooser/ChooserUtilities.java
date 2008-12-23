@@ -33,6 +33,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -316,7 +317,7 @@ public class ChooserUtilities
 		final List            selectedList,
 		final PlayerCharacter aPC)
 	{
-		String choiceString = aPObject.getChoiceString();
+		String choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
 
 		if (
 			!choiceString.startsWith("FEAT|")      &&
@@ -432,7 +433,7 @@ public class ChooserUtilities
 		}
 		else
 		{
-			choiceString = aPObject.getChoiceString();
+			choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
 		}
 		// Note: Number is special temp mod only chooser and should not be actioned except by temp mods. 
 		if (choiceString == null || choiceString.length() == 0 || choiceString.startsWith("NUMBER"))

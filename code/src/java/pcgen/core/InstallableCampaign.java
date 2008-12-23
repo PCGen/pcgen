@@ -23,8 +23,6 @@
 
 package pcgen.core;
 
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
 
 /**
  * <code>InstallableCampaign</code> is a campaign (or data set) that can be 
@@ -84,40 +82,6 @@ public class InstallableCampaign extends Campaign
 	public void setDest(Destination dest)
 	{
 		this.dest = dest;
-	}
-
-	/**
-	 * @return the minVer
-	 */
-	public String getMinVer()
-	{
-		String ver = get(StringKey.MINVER);
-		return ver == null ? Constants.EMPTY_STRING : ver;
-	}
-
-	/**
-	 * @param minVer the minVer to set
-	 */
-	public void setMinVer(String minVer)
-	{
-		put(StringKey.MINVER, minVer);
-	}
-
-	/**
-	 * @return the minDevVer
-	 */
-	public String getMinDevVer()
-	{
-		String ver = get(StringKey.MINDEVVER);
-		return ver == null ? Constants.EMPTY_STRING : ver;
-	}
-
-	/**
-	 * @param minDevVer the minDevVer to set
-	 */
-	public void setMinDevVer(String minDevVer)
-	{
-		put(StringKey.MINDEVVER, minDevVer);
 	}
 
 }

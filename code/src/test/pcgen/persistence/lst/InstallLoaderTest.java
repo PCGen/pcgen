@@ -179,12 +179,10 @@ public final class InstallLoaderTest extends PCGenTestCase
 			.get(1));
 		assertEquals("Checking copyright 3", COPYRIGHT_3, camp.getSafeListFor(ListKey.SECTION_15)
 			.get(2));
-		assertEquals("Checking info text", INFOTEXT, camp.getInfoText());
-		assertEquals("Checking pub name short", PUBNAMESHORT, camp
-			.getPubNameShort());
-		assertEquals("Checking pub name long", PUBNAMELONG, camp
-			.getPubNameLong());
-		assertEquals("Checking pub name web", SOURCEWEB, camp.getPubNameWeb());
+		assertEquals("Checking info text", INFOTEXT, camp.getSafe(StringKey.INFO_TEXT));
+		assertEquals("Checking pub name short", PUBNAMESHORT, camp.getSafe(StringKey.PUB_NAME_SHORT));
+		assertEquals("Checking pub name long", PUBNAMELONG, camp.getSafe(StringKey.PUB_NAME_LONG));
+		assertEquals("Checking pub name web", SOURCEWEB, camp.getSafe(StringKey.PUB_NAME_WEB));
 		assertEquals("Checking campaign name", CAMPAIGN_NAME, camp
 			.getDisplayName());
 		assertEquals("Checking source name short", SOURCESHORT, camp
@@ -208,8 +206,8 @@ public final class InstallLoaderTest extends PCGenTestCase
 		assertEquals("Checking source date", theDate, camp
 				.get(ObjectKey.SOURCE_DATE));
 
-		assertEquals("Checking min ver", MINVER, camp.getMinVer());
-		assertEquals("Checking min dev ver", MINVER, camp.getMinVer());
+		assertEquals("Checking min ver", MINVER, camp.getSafe(StringKey.MINVER));
+		assertEquals("Checking min dev ver", MINVER, camp.getSafe(StringKey.MINVER));
 		assertEquals("Checking destination", DEST, camp.getDest().toString());
 	}
 

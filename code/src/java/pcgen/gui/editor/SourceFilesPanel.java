@@ -23,6 +23,7 @@
 package pcgen.gui.editor;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -189,7 +190,7 @@ final class SourceFilesPanel extends JPanel
 
 					if (theCampaign != null)
 					{
-						d = theCampaign.getDestination();
+						d = theCampaign.getSafe(StringKey.DESTINATION);
 					}
 
 					if ((d == null) || d.equals(""))

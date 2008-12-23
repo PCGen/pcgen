@@ -852,7 +852,7 @@ public class PCClass extends PObject
 	 */
 	public final String getSpellType()
 	{
-		String castInfo = get(StringKey.SPELLTYPE);
+		String castInfo = getSafe(StringKey.SPELLTYPE);
 		return castInfo == null ? Constants.s_NONE : castInfo;
 	}
 

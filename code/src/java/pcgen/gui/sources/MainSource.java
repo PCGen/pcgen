@@ -513,7 +513,7 @@ public class MainSource extends FilterAdapterPanel
 		sb.append("<b>SOURCE</b>: ");
 		sb.append(bString);
 		sb.append(" <b>by</b> ");
-		sb.append(aCamp.getPubNameLong());
+		sb.append(aCamp.getSafe(StringKey.PUB_NAME_LONG));
 		sb.append("<br>\n");
 
 		String descr = aCamp.get(StringKey.DESCRIPTION);
@@ -576,7 +576,7 @@ public class MainSource extends FilterAdapterPanel
 		}
 		
 		boolean infoDisplayed = false;
-		bString = aCamp.getInfoText();
+		bString = aCamp.getSafe(StringKey.INFO_TEXT);
 
 		if (bString.length() > 0)
 		{
@@ -1242,7 +1242,7 @@ public class MainSource extends FilterAdapterPanel
 			if (pon.getItem() instanceof Campaign)
 			{
 				final Campaign theCamp = (Campaign) pon.getItem();
-				final String theURL = isProductNotHelp ? theCamp.get(StringKey.SOURCE_WEB) : theCamp.getHelp();
+				final String theURL = isProductNotHelp ? theCamp.get(StringKey.SOURCE_WEB) : theCamp.getSafe(StringKey.HELP);
 
 				if (theURL!=null && !theURL.equals(""))
 				{
@@ -1723,7 +1723,7 @@ public class MainSource extends FilterAdapterPanel
 
 						if (aCamp != null)
 						{
-							return aCamp.getBookType();
+							return aCamp.getSafe(StringKey.BOOK_TYPE);
 						}
 						break;
 

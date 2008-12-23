@@ -2311,7 +2311,7 @@ public final class Equipment extends PObject implements Serializable,
 
 			// only make a copy if we need to
 			// add qualifiers to modifier
-			if (eqMod.getChoiceString().length() != 0) {
+			if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0) {
 				eqMod = eqMod.clone();
 			}
 
@@ -2319,12 +2319,12 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// Add the associated choices
-		if (eqMod.getChoiceString().length() != 0) {
+		if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0) {
 			while (aTok.hasMoreTokens()) {
 				final String x = aTok.nextToken();
 				Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
 				if (min != null && min > 0
-						|| (eqMod.getChoiceString().startsWith("EQBUILDER") && !isLoading))
+						|| (eqMod.getSafe(StringKey.CHOICE_STRING).startsWith("EQBUILDER") && !isLoading))
 				{
 					// We clear the associated info to avoid a buildup of info
 					// like number of charges.
@@ -2449,7 +2449,7 @@ public final class Equipment extends PObject implements Serializable,
 			//
 			// only make a copy if we need to add qualifiers to modifier
 			//
-			if (eqMod.getChoiceString().length() != 0) {
+			if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0) {
 				aMod = eqMod.clone();
 
 				if (aMod == null) {
@@ -2475,7 +2475,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (!bImporting) {
 			boolean allRemoved = false;
 			if (selectedChoice != null && selectedChoice.length() > 0) {
-				if (!eqMod.getChoiceString().startsWith("EQBUILDER.")) {
+				if (!eqMod.getSafe(StringKey.CHOICE_STRING).startsWith("EQBUILDER.")) {
 					EquipmentChoiceDriver.setChoice(this, aMod, selectedChoice, equipChoice);
 					allRemoved = !hasAssociations(aMod);
 				}
@@ -4180,7 +4180,7 @@ public final class Equipment extends PObject implements Serializable,
 		for (EquipmentModifier eqMod : getEqModifierList(primary)) {
 
 			// only make a copy if we need to add qualifiers to modifier
-			if (eqMod.getChoiceString().length() != 0) {
+			if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0) {
 				EquipmentModifier newEqMod = eqMod.clone();
 				other.assocSupt.convertAssociations(eqMod, newEqMod);
 				eqMod = newEqMod;
