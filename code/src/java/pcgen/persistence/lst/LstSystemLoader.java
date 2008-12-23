@@ -572,6 +572,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				sourcesSet.add(SourceFormat.getFormattedString(campaign,
 					SourceFormat.MEDIUM, true));
 			}
+			context.setLoaded(aSelectedCampaignsList);
 
 			//  Show the licenses
 			showLicensesIfNeeded();

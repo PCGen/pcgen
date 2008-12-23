@@ -3419,7 +3419,7 @@ public final class GameMode implements Comparable<Object>
 			//Can do this because it's TreeSet/Case Insensitive
 			return set.contains(type);
 		}
-		return false;
+		return context.isTypeHidden(cl, type);
 	}
 
 	public int sizeIndex(SizeAdjustment sz)

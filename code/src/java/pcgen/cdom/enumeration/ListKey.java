@@ -252,6 +252,11 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMSingleRef<Race>> APPLIED_RACE = new ListKey<CDOMSingleRef<Race>>();
 	public static final ListKey<EqModRef> EQMOD_INFO = new ListKey<EqModRef>();
 	public static final ListKey<CampaignURL> CAMPAIGN_URL = new ListKey<CampaignURL>();
+	
+	//These are case sensitive, please do not change them to upper case
+	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();
+	public static final ListKey<String> HIDDEN_Ability = new ListKey<String>();
+	public static final ListKey<String> HIDDEN_Skill = new ListKey<String>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

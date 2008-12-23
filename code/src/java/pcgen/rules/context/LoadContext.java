@@ -18,13 +18,16 @@
 package pcgen.rules.context;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -42,11 +45,15 @@ import pcgen.util.Logging;
 public abstract class LoadContext
 {
 
+	private static final Class<String> STRING_CLASS = String.class;
+
 	public final ListContext list;
 
 	public final ObjectContext obj;
 
 	public final AbstractReferenceContext ref;
+	
+	private List<Campaign> campaignList = new ArrayList<Campaign>();
 
 	public LoadContext(AbstractReferenceContext rc, ListContext lc, ObjectContext oc)
 	{
@@ -351,5 +358,31 @@ public abstract class LoadContext
 		{
 			stateful.overlayCDOMObject(target);
 		}
+	}
+
+	public void setLoaded(List<Campaign> selectedCampaignsList)
+	{
+		campaignList.clear();
+		campaignList.addAll(selectedCampaignsList);
+	}
+
+	public boolean isTypeHidden(Class<?> cl, String type)
+	{
+		for (Campaign c : campaignList)
+		{
+			List<String> hiddentypes = c.getListFor(ListKey.getKeyFor(
+					STRING_CLASS, "HIDDEN_" + cl.getSimpleName()));
+			if (hiddentypes != null)
+			{
+				for (String s : hiddentypes)
+				{
+					if (s.equalsIgnoreCase(type))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 }

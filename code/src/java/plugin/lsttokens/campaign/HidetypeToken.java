@@ -1,71 +1,125 @@
+/*
+ * Copyright 2008 (C) Thomas Parker <thpr@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Ability;
 import pcgen.core.Campaign;
-import pcgen.core.Equipment;
-import pcgen.core.GameMode;
-import pcgen.core.Skill;
-import pcgen.core.SystemCollections;
-import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with HIDETYPE Token
  */
-public class HidetypeToken implements CampaignLstToken
+public class HidetypeToken extends AbstractToken implements
+		CDOMPrimaryToken<Campaign>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "HIDETYPE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
+	public boolean parse(LoadContext context, Campaign obj, String value)
+			throws PersistenceLayerException
 	{
-		for (String gmName : campaign.getSafeListFor(ListKey.GAME_MODE))
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			GameMode gm = SystemCollections.getGameModeNamed(gmName);
-			if (gm == null)
-			{
-				Logging.log(Logging.LST_ERROR, "Unknown game mode '" + gmName
-					+ "' in campaign: " + campaign.getDisplayName());
-				continue;
-			}
-
-			Class<?> cl = null;
-			String types = null;
-			if (value.startsWith("EQUIP|"))
-			{
-				cl = Equipment.class;
-				types = value.substring(6);
-			}
-			else if (value.startsWith("FEAT|"))
-			{
-				cl = Ability.class;
-				types = value.substring(5);
-			}
-			else if (value.startsWith("SKILL|"))
-			{
-				cl = Skill.class;
-				types = value.substring(6);
-			}
-			if (cl == null)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName () + " did not understand: " + value + " in "
-						+ sourceUri.toString());
-				return false;
-			}
-			StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
-			while (st.hasMoreTokens())
-			{
-				gm.addHiddenType(cl, st.nextToken());
-			}
+			return false;
+		}
+		ListKey<String> lk = null;
+		String types = null;
+		if (value.startsWith("EQUIP|"))
+		{
+			lk = ListKey.HIDDEN_Equipment;
+			types = value.substring(6);
+		}
+		else if (value.startsWith("FEAT|"))
+		{
+			lk = ListKey.HIDDEN_Ability;
+			types = value.substring(5);
+		}
+		else if (value.startsWith("SKILL|"))
+		{
+			lk = ListKey.HIDDEN_Skill;
+			types = value.substring(6);
+		}
+		if (lk == null)
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " did not understand: " + value + " in "
+					+ obj.getKeyName());
+			return false;
+		}
+		StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
+		while (st.hasMoreTokens())
+		{
+			context.obj.addToList(obj, lk, st.nextToken());
 		}
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, Campaign obj)
+	{
+		List<String> returnList = new ArrayList<String>();
+		Changes<String> ech = context.obj.getListChanges(obj,
+				ListKey.HIDDEN_Equipment);
+		Changes<String> ach = context.obj.getListChanges(obj,
+				ListKey.HIDDEN_Ability);
+		Changes<String> sch = context.obj.getListChanges(obj,
+				ListKey.HIDDEN_Skill);
+
+		Collection<String> added = ech.getAdded();
+		if (added != null)
+		{
+			returnList.add("EQUIP|" + StringUtil.join(added, Constants.PIPE));
+		}
+		added = ach.getAdded();
+		if (added != null)
+		{
+			returnList.add("FEAT|" + StringUtil.join(added, Constants.PIPE));
+		}
+		added = sch.getAdded();
+		if (added != null)
+		{
+			returnList.add("SKILL|" + StringUtil.join(added, Constants.PIPE));
+		}
+		if (returnList.isEmpty())
+		{
+			// Empty is okay - no token
+			return null;
+		}
+		return returnList.toArray(new String[returnList.size()]);
+	}
+
+	public Class<Campaign> getTokenClass()
+	{
+		return Campaign.class;
 	}
 }
