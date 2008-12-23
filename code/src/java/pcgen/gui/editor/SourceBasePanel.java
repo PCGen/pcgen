@@ -137,7 +137,7 @@ class SourceBasePanel extends BasePanel
 		theCampaign.put(StringKey.SOURCE_SHORT, pubNameShort.getText().trim());
 		theCampaign.put(StringKey.SOURCE_WEB, pubNameWeb.getText().trim());
 		theCampaign.put(ObjectKey.IS_OGL, isOGL.getSelectedObjects() != null);
-		theCampaign.setIsD20(isD20.getSelectedObjects() != null);
+		theCampaign.put(ObjectKey.IS_D20, isD20.getSelectedObjects() != null);
 		theCampaign.put(ObjectKey.SHOW_IN_MENU, showInMenu.getSelectedObjects() != null);
 		theCampaign.put(ObjectKey.IS_LICENSED, isLicensed.getSelectedObjects() != null);
 		theCampaign.put(StringKey.INFO_TEXT, infoText.getText().trim());
@@ -204,7 +204,7 @@ class SourceBasePanel extends BasePanel
 		pubNameShort.setCaretPosition(0);
 		pubNameWeb.setCaretPosition(0);
 		isOGL.setSelected(theCampaign.getSafe(ObjectKey.IS_OGL));
-		isD20.setSelected(theCampaign.isD20());
+		isD20.setSelected(theCampaign.getSafe(ObjectKey.IS_D20));
 		isLicensed.setSelected(theCampaign.getSafe(ObjectKey.IS_LICENSED));
 		showInMenu.setSelected(theCampaign.getSafe(ObjectKey.SHOW_IN_MENU));
 		infoText.setText(theCampaign.getSafe(StringKey.INFO_TEXT));

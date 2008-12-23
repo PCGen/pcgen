@@ -1292,7 +1292,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			
 					// Update whether licenses need shown
 					showOGL |= campaign.getSafe(ObjectKey.IS_OGL);
-					showD20 |= campaign.isD20();
+					showD20 |= campaign.getSafe(ObjectKey.IS_D20);
 					showLicensed |= campaign.getSafe(ObjectKey.IS_LICENSED);
 			
 					if (campaign.getSafe(ObjectKey.IS_LICENSED))
