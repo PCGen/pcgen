@@ -32,6 +32,8 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
@@ -69,6 +71,10 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		}
 	};
 
+	private final CDOMGroupRef<PCClass> allClasses;
+
+	private final List<String> spelltypes;
+
 	/**
 	 * The underlying Set of CDOMReferences that contain the objects in this
 	 * ClassReferenceChoiceSet
@@ -92,6 +98,8 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * of the Collection (after this constructor completes) does not result in
 	 * modifying the ClassReferenceChoiceSet, and the ClassReferenceChoiceSet
 	 * will not modify the given Collection.
+	 * @param spelltypes 
+	 * @param allRef 
 	 * 
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of objects
@@ -99,12 +107,15 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public SpellCasterChoiceSet(PrimitiveChoiceSet<PCClass> col,
-			PrimitiveChoiceSet<PCClass> prim)
+	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef,
+		List<String> spelltype, PrimitiveChoiceSet<PCClass> col,
+		PrimitiveChoiceSet<PCClass> prim)
 	{
 		super("SPELLCASTER", col == null ? EMPTY_CHOICE_SET : col);
 		pcset = col;
 		primitives = prim;
+		spelltypes = new ArrayList<String>(spelltype);
+		allClasses = allRef;
 	}
 
 	/**
@@ -118,6 +129,10 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		if (pcset != null)
 		{
 			list.add(pcset.getLSTformat());
+		}
+		if (!spelltypes.isEmpty())
+		{
+			list.addAll(spelltypes);
 		}
 		if (primitives != null)
 		{
@@ -177,6 +192,23 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		if (primitives != null)
 		{
 			returnSet.addAll(primitives.getSet(pc));
+		}
+		if (spelltypes != null)
+		{
+			for (PCClass pcc : allClasses.getContainedObjects())
+			{
+				TYPE: for (String type : spelltypes)
+				{
+					if (type.equals(pcc.get(StringKey.SPELLTYPE)))
+					{
+						if (pc.getClassKeyed(pcc.getKeyName()) != null)
+						{
+							returnSet.add(pcc);
+							break TYPE;
+						}
+					}
+				}
+			}
 		}
 		return returnSet;
 	}

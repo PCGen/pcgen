@@ -34,6 +34,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.choiceset.SpellCasterChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -110,24 +111,25 @@ public class SpellCasterToken extends AbstractToken implements
 
 		List<CDOMReference<PCClass>> groups = new ArrayList<CDOMReference<PCClass>>();
 		List<CDOMReference<PCClass>> prims = new ArrayList<CDOMReference<PCClass>>();
+		List<String> spelltypes = new ArrayList<String>();
+		CDOMGroupRef<PCClass> allRef = context.ref.getCDOMAllReference(PCCLASS_CLASS);
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
 			if (Constants.LST_ANY.equalsIgnoreCase(token))
 			{
 				foundAny = true;
-				groups.add(context.ref.getCDOMAllReference(PCCLASS_CLASS));
+				groups.add(allRef);
 			}
 			else
 			{
+				foundOther = true;
 				if (token.equals("Arcane") || token.equals("Divine")
 						|| token.equals("Psionic"))
 				{
-					// TODO Need deprecation warning here
-					token = "TYPE=" + token;
+					spelltypes.add(token);
 				}
-				foundOther = true;
-				if (token.startsWith(Constants.LST_TYPE_OLD)
+				else if (token.startsWith(Constants.LST_TYPE_OLD)
 						|| token.startsWith(Constants.LST_TYPE))
 				{
 					CDOMReference<PCClass> ref = TokenUtilities
@@ -163,12 +165,11 @@ public class SpellCasterToken extends AbstractToken implements
 				: new ReferenceChoiceSet<PCClass>(groups);
 		ReferenceChoiceSet<PCClass> prcs = prims.isEmpty() ? null
 				: new ReferenceChoiceSet<PCClass>(prims);
-		ChoiceSet<PCClass> cs = new SpellCasterChoiceSet(grcs, prcs);
+		ChoiceSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
 		PersistentTransitionChoice<PCClass> tc = new PersistentTransitionChoice<PCClass>(
 				cs, FormulaFactory.getFormulaFor(count));
 		tc.setTitle("Spell Caster Class Choice");
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-		tc.setTitle("Language Choice");
 		tc.setChoiceActor(this);
 		return true;
 
