@@ -257,13 +257,16 @@ public final class SourceSelectionUtils
 	}
 
 	/**
+	 * Returns a decoded path relative to the pcc file location or vendor data dir, if applicable.
+	 * Returns the provided path otherwise.
+	 * 
 	 * @param absPath
 	 * @return
 	 */
 	public static String convertPathToDataPath(String absPath)
 	{
-		String testpath = new File(absPath).toURI().toString();
-		String dataFolder = SettingsHandler.getPccFilesLocation().toURI().toString();
+		String testpath = new File(absPath).toURI().getPath();
+		String dataFolder = SettingsHandler.getPccFilesLocation().toURI().getPath();
 		if (testpath.startsWith(dataFolder))
 		{
 			return "@"+testpath.substring(dataFolder.length()-1);
@@ -271,7 +274,7 @@ public final class SourceSelectionUtils
 		
 		if (SettingsHandler.getPcgenVendorDataDir() != null)
 		{
-			String vendorDataFolder = SettingsHandler.getPcgenVendorDataDir().toURI().toString();
+			String vendorDataFolder = SettingsHandler.getPcgenVendorDataDir().toURI().getPath();
 			if (testpath.startsWith(vendorDataFolder))
 			{
 				return "&"+testpath.substring(vendorDataFolder.length()-1);
