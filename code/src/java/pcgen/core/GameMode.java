@@ -3416,13 +3416,8 @@ public final class GameMode implements Comparable<Object>
 		Set<String> set = hiddenTypes.get(cl);
 		if (type != null && set != null)
 		{
-			for (String string : set)
-			{
-				if (type.equalsIgnoreCase(string))
-				{
-					return true;
-				}
-			}
+			//Can do this because it's TreeSet/Case Insensitive
+			return set.contains(type);
 		}
 		return false;
 	}
