@@ -35,13 +35,14 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SourceEntry.SourceFormat;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -250,8 +251,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				continue;
 			}
 
-			final String sourceString =
-					ability.getSourceEntry().getSourceBook().getLongName();
+			final String sourceString = ability.get(StringKey.SOURCE_LONG);
 			if (sourceString != null)
 			{
 				sourceSet.add(sourceString);
@@ -817,9 +817,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			if (showAll || theFilter == null
 				|| theFilter.accept(theViewMode, ability))
 			{
-				String sourceString =
-						ability.getSourceEntry().getFormattedString(
-							SourceFormat.MEDIUM, false);
+				String sourceString = SourceFormat.getFormattedString(ability,
+						SourceFormat.MEDIUM, false);
 				if (sourceString == null || sourceString.trim().length() == 0)
 				{
 					sourceString = "None";

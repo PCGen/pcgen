@@ -27,6 +27,7 @@ import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
 
@@ -48,6 +49,7 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
+import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
@@ -254,6 +256,10 @@ public class ObjectKey<T>
 	public static final ObjectKey<KitApply> APPLY_MODE = new ObjectKey<KitApply>(KitApply.PERMANENT);
 
 	public static final ObjectKey<QualifiedObject<Formula>> EQUIP_BUY = new ObjectKey<QualifiedObject<Formula>>(null);
+
+	public static final ObjectKey<Date> SOURCE_DATE = new ObjectKey<Date>(null);
+
+	public static final ObjectKey<Campaign> SOURCE_CAMPAIGN = new ObjectKey<Campaign>(null);
 
 	/*
 	 * TODO Okay, this is a hack.

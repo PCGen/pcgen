@@ -23,8 +23,6 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.text.ParseException;
-import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.core.InstallableCampaign;
@@ -46,7 +44,6 @@ import pcgen.util.Logging;
 public class InstallLoader extends LstLineFileLoader
 {
 	private InstallableCampaign campaign = null;
-	private Map<String, String> sourceMap = new HashMap<String, String>();
 
 	/**
 	 * Creates a new instance of InstallLoader
@@ -62,10 +59,7 @@ public class InstallLoader extends LstLineFileLoader
 	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException
 	{
 		campaign = new InstallableCampaign();
-
 		super.loadLstString(context, fileName, lstData);
-
-		finishCampaign();
 	}
 
 	/* (non-Javadoc)
@@ -97,10 +91,6 @@ public class InstallLoader extends LstLineFileLoader
 					+ campaign.getDisplayName() + ':' + inputLine);
 			}
 		}
-		else if (inputLine.startsWith("SOURCE")) //$NON-NLS-1$
-		{
-			sourceMap.putAll(SourceLoader.parseLine(inputLine, sourceURI));
-		}
 		else
 		{
 			Logging.errorPrint("Unparsed line: " + inputLine + " in "
@@ -108,26 +98,6 @@ public class InstallLoader extends LstLineFileLoader
 		}
 	}
 
-	/**
-	 * This method finishes the campaign being loaded by saving its section 15
-	 * information as well as adding it to Globals, if it has not already been
-	 * loaded.
-	 */
-	protected void finishCampaign() throws PersistenceLayerException
-	{
-		if (sourceMap != null)
-		{
-			try
-			{
-				campaign.setSourceMap(sourceMap);
-			}
-			catch (ParseException e)
-			{
-				throw new PersistenceLayerException(e.toString());
-			}
-		}
-	}
-	
 	public InstallableCampaign getCampaign()
 	{
 		return campaign;

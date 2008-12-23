@@ -35,9 +35,9 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SourceEntry;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;
@@ -245,23 +245,23 @@ public class SourcesPanel extends PCGenPrefsPanel
 		switch (sourceOptions.getSelectedIndex())
 		{
 			case 0:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.LONG);
+				Globals.setSourceDisplay(SourceFormat.LONG);
 				break;
 
 			case 1:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.MEDIUM);
+				Globals.setSourceDisplay(SourceFormat.MEDIUM);
 				break;
 
 			case 2:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.SHORT);
+				Globals.setSourceDisplay(SourceFormat.SHORT);
 				break;
 
 			case 3:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.PAGE);
+				Globals.setSourceDisplay(SourceFormat.PAGE);
 				break;
 
 			case 4:
-				Globals.setSourceDisplay(SourceEntry.SourceFormat.WEB);
+				Globals.setSourceDisplay(SourceFormat.WEB);
 				break;
 
 			default:

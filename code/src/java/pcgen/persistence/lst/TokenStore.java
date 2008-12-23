@@ -42,7 +42,6 @@ public class TokenStore
 		//Campaign data
 		tokenTypeList.add(GlobalLstToken.class);
 		tokenTypeList.add(CampaignLstToken.class);
-		tokenTypeList.add(SourceLstToken.class);
 
 		//miscinfo.lst
 		tokenTypeList.add(GameModeLstToken.class);

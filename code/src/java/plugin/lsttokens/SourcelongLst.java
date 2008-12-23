@@ -4,34 +4,61 @@
  */
 package plugin.lsttokens;
 
-import java.util.Map;
+import java.net.URI;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.SourceLoader;
-import pcgen.persistence.lst.SourceLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Campaign;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.InstallLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class SourcelongLst implements GlobalLstToken, SourceLstToken
+public class SourcelongLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SOURCELONG";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
-		obj.getSourceEntry().getSourceBook().setLongName(value);
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		context.getObjectContext().put(obj, StringKey.SOURCE_LONG, value);
 		return true;
 	}
 
-	public boolean parse(Map<String, String> sourceMap, String value)
+	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		sourceMap.putAll(SourceLoader.parseSource("SOURCELONG:" + value));
+		String title = context.getObjectContext().getString(obj,
+				StringKey.SOURCE_LONG);
+		if (title == null)
+		{
+			return null;
+		}
+		return new String[] { title };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	public boolean parse(Campaign campaign, String value, URI sourceURI)
+	{
+		campaign.put(StringKey.SOURCE_LONG, value);
 		return true;
 	}
 }

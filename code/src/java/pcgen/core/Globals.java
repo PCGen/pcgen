@@ -58,6 +58,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.analysis.SpellLevel;
@@ -117,7 +118,7 @@ public final class Globals
 	/** The BioSet used for age calculations */
 	private static BioSet     bioSet          = new BioSet();
 	private static final List<String> custColumnWidth = new ArrayList<String>();
-	private static SourceEntry.SourceFormat sourceDisplay = SourceEntry.SourceFormat.LONG;
+	private static SourceFormat sourceDisplay = SourceFormat.LONG;
 	private static int        selectedPaper   = -1;
 
 	private static CategorisableStore abilityStore = new CategorisableStore();
@@ -1393,7 +1394,7 @@ public final class Globals
 	 * Set source display
 	 * @param sourceType
 	 */
-	public static void setSourceDisplay(final SourceEntry.SourceFormat sourceType)
+	public static void setSourceDisplay(final SourceFormat sourceType)
 	{
 		sourceDisplay = sourceType;
 	}
@@ -1402,7 +1403,7 @@ public final class Globals
 	 * Get source display
 	 * @return source display
 	 */
-	public static SourceEntry.SourceFormat getSourceDisplay()
+	public static SourceFormat getSourceDisplay()
 	{
 		return sourceDisplay;
 	}

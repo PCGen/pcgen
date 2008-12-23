@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import java.util.Date;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
@@ -139,11 +140,9 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 				{
 					// If the new object is more recent than the current
 					// one, use the new object
-					final Date pObjDate =
-							pObj.getSourceEntry().getSourceBook().getDate();
-					final Date currentObjDate =
-							matching.getSourceEntry().getSourceBook()
-								.getDate();
+					final Date pObjDate = pObj.get(ObjectKey.SOURCE_DATE);
+					final Date currentObjDate = matching
+							.get(ObjectKey.SOURCE_DATE);
 					if ((pObjDate != null)
 						&& ((currentObjDate == null) || ((pObjDate
 							.compareTo(currentObjDate) > 0))))

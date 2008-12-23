@@ -58,8 +58,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Source;
-import pcgen.core.SourceEntry;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JTableEx;
 
@@ -152,11 +150,9 @@ class SourceBasePanel extends BasePanel
 		}
 		game = tempBuff.toString();
 		theCampaign.setGameMode(game);
-		final Source source = new Source();
-		source.setLongName( pubNameLong.getText().trim() );
-		source.setShortName( pubNameShort.getText().trim() );
-		source.setWebsite( pubNameWeb.getText().trim() );
-		theCampaign.setSource( new SourceEntry(source) );
+		theCampaign.put(StringKey.SOURCE_LONG, pubNameLong.getText().trim());
+		theCampaign.put(StringKey.SOURCE_SHORT, pubNameShort.getText().trim());
+		theCampaign.put(StringKey.SOURCE_WEB, pubNameWeb.getText().trim());
 		theCampaign.setIsOGL(isOGL.getSelectedObjects() != null);
 		theCampaign.setIsD20(isD20.getSelectedObjects() != null);
 		theCampaign.setShowInMenu(showInMenu.getSelectedObjects() != null);
@@ -221,13 +217,9 @@ class SourceBasePanel extends BasePanel
 			else if ("Sidewinder".equals(aName))
 				gmsidewinder.setSelected(true);
 		}
-		final Source source = theCampaign.getSourceEntry().getSourceBook();
-		if ( source != null )
-		{
-			pubNameLong.setText( source.getLongName() );
-			pubNameShort.setText( source.getShortName() );
-			pubNameWeb.setText( source.getWebsite() );
-		}
+		pubNameLong.setText(theCampaign.get(StringKey.SOURCE_LONG));
+		pubNameShort.setText(theCampaign.get(StringKey.SOURCE_SHORT));
+		pubNameWeb.setText(theCampaign.get(StringKey.SOURCE_WEB));
 		pubNameLong.setCaretPosition(0); //Scroll to beginning of inserted text
 		pubNameShort.setCaretPosition(0);
 		pubNameWeb.setCaretPosition(0);

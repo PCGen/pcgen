@@ -78,6 +78,7 @@ import javax.swing.tree.TreePath;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.CampaignURL;
@@ -85,7 +86,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SourceEntry;
 import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -441,7 +441,7 @@ public class MainSource extends FilterAdapterPanel
 				final Campaign aCamp = (Campaign) aNode.getItem();
 
 				// We can turn on the website button, since now there is a source, if there is a URL for the campaign
-				final String web = aCamp.getSourceEntry().getSourceBook().getWebsite();
+				final String web = aCamp.get(StringKey.SOURCE_WEB);
 				websiteButton.setEnabled(web != null);
 
 				infoLabel.setText(buildInfoLabel(aCamp));
@@ -506,8 +506,8 @@ public class MainSource extends FilterAdapterPanel
 		String bString = aCamp.getDefaultSourceString();
 		if (bString.length() == 0)
 		{
-			bString = aCamp.getSourceEntry().getFormattedString(
-				SourceEntry.SourceFormat.LONG, true);
+			bString = SourceFormat.getFormattedString(aCamp,
+					SourceFormat.LONG, true);
 		}
 		sb.append("<b>SOURCE</b>: ");
 		sb.append(bString);
@@ -1241,7 +1241,7 @@ public class MainSource extends FilterAdapterPanel
 			if (pon.getItem() instanceof Campaign)
 			{
 				final Campaign theCamp = (Campaign) pon.getItem();
-				final String theURL = isProductNotHelp ? theCamp.getSourceEntry().getSourceBook().getWebsite() : theCamp.getHelp();
+				final String theURL = isProductNotHelp ? theCamp.get(StringKey.SOURCE_WEB) : theCamp.getHelp();
 
 				if (theURL!=null && !theURL.equals(""))
 				{

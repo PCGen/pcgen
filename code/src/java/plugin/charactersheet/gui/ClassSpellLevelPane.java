@@ -6,17 +6,21 @@
 
 package plugin.charactersheet.gui;
 
-import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.*;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.character.SpellInfo;
-import pcgen.core.spell.Spell;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellInfo;
+import pcgen.core.spell.Spell;
 
 /**
  *
@@ -634,11 +638,10 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			1, 0));
 		sourcePanel.setBackground(color);
 		source.setFont(new java.awt.Font(DIALOG, 1, 10));
-		final Source sourceObj = spell.getSourceEntry().getSourceBook();
 		final StringBuffer buf = new StringBuffer();
-		buf.append(sourceObj.getShortName(8));
+		buf.append(SourceFormat.formatShort(spell, 8));
 		buf.append(':').append(' ');
-		buf.append(spell.getSourceEntry().getPageNumber());
+		buf.append(spell.get(StringKey.SOURCE_PAGE));
 		source.setText(buf.toString());
 		sourcePanel.add(source);
 		gridBagConstraints = new java.awt.GridBagConstraints();

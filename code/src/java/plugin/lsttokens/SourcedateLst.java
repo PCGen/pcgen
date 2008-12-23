@@ -4,44 +4,100 @@
  */
 package plugin.lsttokens;
 
+import java.net.URI;
+import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import pcgen.core.PObject;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.SourceLoader;
-import pcgen.persistence.lst.SourceLstToken;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Campaign;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.InstallLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * @author zaister
- *
+ * 
  */
-public class SourcedateLst implements GlobalLstToken, SourceLstToken
+public class SourcedateLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SOURCEDATE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt)
+	public boolean parse(LoadContext context, CDOMObject obj, String value)
+			throws PersistenceLayerException
 	{
-		try
+		if (isEmpty(value))
 		{
-			obj.getSourceEntry().getSourceBook().setDate(value);
-		}
-		catch (ParseException e)
-		{
-			Logging.log(Logging.LST_ERROR, "Error parsing date", e);
 			return false;
 		}
+		Date theDate = getDate(value);
+		if (theDate == null)
+		{
+			return false;
+		}
+		context.getObjectContext().put(obj, ObjectKey.SOURCE_DATE, theDate);
 		return true;
 	}
 
-	public boolean parse(Map<String, String> sourceMap, String value)
+	private Date getDate(String value)
 	{
-		sourceMap.putAll(SourceLoader.parseSource("SOURCEDATE:" + value));
+		DateFormat df = new SimpleDateFormat("yyyy-MM"); //$NON-NLS-1$
+		Date theDate;
+		try
+		{
+			theDate = df.parse(value);
+		}
+		catch (ParseException pe)
+		{
+			df = DateFormat.getDateInstance();
+			try
+			{
+				theDate = df.parse(value);
+			}
+			catch (ParseException e)
+			{
+				Logging.log(Logging.LST_ERROR, "Error parsing date", e);
+				return null;
+			}
+		}
+		return theDate;
+	}
+
+	public String[] unparse(LoadContext context, CDOMObject obj)
+	{
+		Date title = context.getObjectContext().getObject(obj,
+				ObjectKey.SOURCE_DATE);
+		if (title == null)
+		{
+			return null;
+		}
+		return new String[] { title.toString() };
+	}
+
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	public boolean parse(Campaign campaign, String value, URI sourceURI)
+	{
+		Date theDate = getDate(value);
+		if (theDate == null)
+		{
+			return false;
+		}
+		campaign.put(ObjectKey.SOURCE_DATE, theDate);
 		return true;
 	}
 }

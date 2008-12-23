@@ -35,13 +35,14 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SourceEntry;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
@@ -70,6 +71,7 @@ public class SpellMemToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -78,6 +80,7 @@ public class SpellMemToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter aPC,
 		ExportHandler eh)
 	{
@@ -322,13 +325,11 @@ public class SpellMemToken extends Token
 						}
 						else if ("SOURCESHORT".equals(aLabel))
 						{
-							final SourceEntry se = aSpell.getSourceEntry();
-							retValue.append(se.getSourceBook().getShortName(8));
+							retValue.append(SourceFormat.formatShort(aSpell, 8));
 						}
 						else if ("SOURCEPAGE".equals(aLabel))
 						{
-							final SourceEntry se = aSpell.getSourceEntry();
-							retValue.append(se.getPageNumber());
+							retValue.append(aSpell.get(StringKey.SOURCE_PAGE));
 						}
 						else if ("SUBSCHOOL".equals(aLabel))
 						{

@@ -66,7 +66,10 @@ public class RegionToken extends AbstractToken implements CDOMPrimaryToken<Kit>
 		if (!region.equalsIgnoreCase(Constants.LST_NONE))
 		{
 			// Add a real prereq for the REGION: tag
-			context.addStatefulToken("PREREGION:" + region);
+			if (!context.addStatefulToken("PREREGION:" + region))
+			{
+				return false;
+			}
 		}
 
 		if (st.hasMoreTokens())

@@ -36,7 +36,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Source;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
@@ -89,15 +88,6 @@ public final class CampaignOutput
 			}
 
 			FileAccess.newLine(out);
-			FileAccess.write(out, "INFOTEXT:" + campaign.getInfoText());
-			FileAccess.newLine(out);
-			final Source source = campaign.getSourceEntry().getSourceBook();
-			FileAccess.write(out, "SOURCELONG:" + source.getLongName());
-			FileAccess.newLine(out);
-			FileAccess.write(out, "SOURCESHORT:" + source.getShortName());
-			FileAccess.newLine(out);
-			FileAccess.write(out, "SOURCEWEB:" + source.getWebsite());
-			FileAccess.newLine(out);
 			FileAccess.write(out, "ISD20:" + (campaign.isD20() ? "YES" : "NO"));
 			FileAccess.newLine(out);
 			FileAccess.write(out, "ISOGL:" + (campaign.isOGL() ? "YES" : "NO"));
@@ -113,13 +103,6 @@ public final class CampaignOutput
 			{
 				FileAccess.write(out, "OPTION:"
 					+ campaign.getOptions().getProperty(i.next()));
-				FileAccess.newLine(out);
-			}
-
-			for (Iterator<String> i = campaign.getSafeListFor(ListKey.SECTION_15).iterator(); i
-				.hasNext();)
-			{
-				FileAccess.write(out, "COPYRIGHT:" + i.next());
 				FileAccess.newLine(out);
 			}
 

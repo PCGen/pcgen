@@ -23,11 +23,12 @@
 
 package pcgen.core;
 
-import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Map;
+import javax.xml.transform.Source;
 
 import junit.framework.TestCase;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 
 /**
  * <code>SourceEntryTest</code> verifies the function of the SourceEntry class.
@@ -56,11 +57,10 @@ public class SourceEntryTest extends TestCase
 		campaign.setPubNameWeb("PubWeb");
 		campaign.setPubNameShort("PubShort");
 		campaign.setPubNameLong("PubLong");
-		source = new Source();
-		source.setCampaign(campaign);
-		source.setWebsite("http://website");
-		source.setShortName("ShortName");
-		source.setLongName("LongName");
+		campaign.put(StringKey.SOURCE_LONG, "LongName");
+		campaign.put(StringKey.SOURCE_SHORT, "ShortName");
+		campaign.put(StringKey.SOURCE_WEB, "http://website");
+		campaign.put(ObjectKey.SOURCE_CAMPAIGN, campaign);
 	}
 
 	/**
@@ -68,54 +68,17 @@ public class SourceEntryTest extends TestCase
 	 */
 	public void testGetFormattedString()
 	{
-		SourceEntry se = new SourceEntry(source);
-		se.setPageNumber("42");
-		assertEquals("Web", "PubWeb - http://website", se.getFormattedString(
-			SourceEntry.SourceFormat.WEB, true));
-		assertEquals("Short", "ShortName, 42", se.getFormattedString(
-			SourceEntry.SourceFormat.SHORT, true));
-		assertEquals("Medium", "LongName", se.getFormattedString(
-			SourceEntry.SourceFormat.MEDIUM, false));
-		assertEquals("Long", "PubLong - LongName, 42", se.getFormattedString(
-			SourceEntry.SourceFormat.LONG, true));
+		campaign.put(StringKey.SOURCE_PAGE, "42");
+		assertEquals("Web", "PubWeb - http://website", SourceFormat
+				.getFormattedString(campaign, SourceFormat.WEB, true));
+		assertEquals("Short", "ShortName, 42", SourceFormat.getFormattedString(
+				campaign, SourceFormat.SHORT, true));
+		assertEquals("Medium", "LongName", SourceFormat.getFormattedString(
+				campaign, SourceFormat.MEDIUM, false));
+		assertEquals("Long", "PubLong - LongName, 42", SourceFormat
+				.getFormattedString(campaign, SourceFormat.LONG, true));
 		campaign.setPubNameLong("");
-		assertEquals("Long", "LongName, 42", se.getFormattedString(
-			SourceEntry.SourceFormat.LONG, true));
-	}
-
-	public void testSetFromMapCleanStart() throws ParseException
-	{
-		SourceEntry se = new SourceEntry();
-		se.setFromMap(null);
-		assertEquals("Unchanged after null set", null, 
-			se.getFieldByType(SourceEntry.SourceFormat.SHORT));
-
-		Map<String, String> aSourceMap = new HashMap<String, String>();
-		aSourceMap.put(SourceEntry.SourceFormat.SHORT.toString(), "NewShortName");
-		se.setFromMap(aSourceMap);
-		assertEquals("Changed after set", "NewShortName", 
-			se.getFieldByType(SourceEntry.SourceFormat.SHORT));
-		assertEquals("Still empty after set", null, 
-			se.getFieldByType(SourceEntry.SourceFormat.LONG));
-		assertEquals("Campaign still null after set", null, 
-			se.getSourceBook().getCampaign());
-	}
-
-	public void testSetFromMapExistingSource() throws ParseException
-	{
-		SourceEntry se = new SourceEntry(source);
-		se.setFromMap(null);
-		assertEquals("Unchanged after null set", "ShortName", 
-			se.getFieldByType(SourceEntry.SourceFormat.SHORT));
-
-		Map<String, String> aSourceMap = new HashMap<String, String>();
-		aSourceMap.put(SourceEntry.SourceFormat.SHORT.toString(), "NewShortName");
-		se.setFromMap(aSourceMap);
-		assertEquals("Changed after set", "NewShortName", 
-			se.getFieldByType(SourceEntry.SourceFormat.SHORT));
-		assertEquals("Old value erased after set", null, 
-			se.getFieldByType(SourceEntry.SourceFormat.LONG));
-		assertEquals("Publisher still present after set", "PubLong", 
-			se.getSourceBook().getCampaign().getPubNameLong());
+		assertEquals("Long", "LongName, 42", SourceFormat.getFormattedString(
+				campaign, SourceFormat.LONG, true));
 	}
 }

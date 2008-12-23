@@ -1,10 +1,9 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -15,84 +14,31 @@ import pcgen.util.Logging;
 public class SourceLoader
 {
 
-	/**
-	 * @param lstLine
-	 * @param sourceFile
-	 * @return Map
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
-	 */
-	public static Map<String, String> parseLine(String lstLine,
-		URI sourceFile)
+	public static void parseLine(LoadContext context, String lstLine,
+			URI sourceFile)
 	{
-		Map<String, String> sourceMap = new HashMap<String, String>();
-
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(SourceLstToken.class);
+		final StringTokenizer colToken = new StringTokenizer(lstLine,
+				SystemLoader.TAB_DELIM);
 		while (colToken.hasMoreTokens())
 		{
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = "";
+			String colString = colToken.nextToken().trim();
 			try
 			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
-				// TODO Handle Exception
-			}
-			SourceLstToken token = (SourceLstToken) tokenMap.get(key);
-			if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, "SOURCE", sourceFile, value);
-				if (!token.parse(sourceMap, value))
+				if (context.addStatefulToken(colString))
 				{
-					Logging.errorPrint("Error parsing source: " + colString
-						+ " in: " + sourceFile);
+					context.commit();
 				}
+				else
+				{
+					Logging.replayParsedMessages();
+				}
+				Logging.clearParseMessages();
 			}
-			else
+			catch (PersistenceLayerException e)
 			{
-				Logging.errorPrint("Unknown tag '" + colString + "' in: "
-					+ sourceFile);
+				Logging.errorPrint("Error parsing source: " + colString
+						+ " in: " + sourceFile);
 			}
-
 		}
-
-		return sourceMap;
-	}
-
-	/**
-	 * This method parses a line in an LST file containing the source information
-	 * into the map form used by a PObject.
-	 *
-	 * @param value String LST formatted source information line
-	 * @return Map of source forms
-	 */
-	public static Map<String, String> parseSource(String value)
-	{
-		Map<String, String> sourceMap = new HashMap<String, String>();
-		if (value.indexOf("|") != -1)
-		{
-			LstUtils
-				.deprecationWarning("Use of SOURCELONG:<value>|SOURCESHORT:<value>|SOURCEWEB:<value>|SOURCEPAGE:<value> is deprecated.  These need to be split up into separate tokens");
-			LstUtils.deprecationWarning("The line was: " + value);
-		}
-		StringTokenizer aTok = new StringTokenizer(value, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			String arg = aTok.nextToken();
-			String key = arg.substring(6, arg.indexOf(':'));
-			String val = arg.substring(arg.indexOf(':') + 1);
-			sourceMap.put(key, val);
-		}
-
-		return sourceMap;
 	}
 }

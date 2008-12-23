@@ -27,13 +27,11 @@ package pcgen.core;
 import java.io.Serializable;
 import java.io.StringWriter;
 import java.net.URI;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -47,6 +45,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.PCClassLevel;
@@ -77,7 +76,7 @@ import pcgen.util.Logging;
  *
  */
 public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,
-	SourcedObject, KeyedListContainer
+	KeyedListContainer
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
@@ -87,8 +86,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	/** List of Level Abilities for the object  */
 	private List<LevelAbility> levelAbilityList = null;
-
-	private SourceEntry theSource = new SourceEntry();
 
 	/** The name to display to the user.  This should be internationalized. */
 	protected String displayName = Constants.EMPTY_STRING;
@@ -191,10 +188,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		retVal.setName(displayName);
 		retVal.put(StringKey.KEY_NAME, get(StringKey.KEY_NAME));
-
-		// added 04 Aug 2003 by sage_sam -- bug#765749
-		// need to copy map correctly during a clone
-		retVal.theSource = theSource.clone();
 
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
@@ -372,49 +365,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the source from a map of source values.
-	 * 
-	 * <p>The map has the form "source type" ==> "source value".  For example,
-	 * <code>"SHORT" ==> "RSRD"</code>.
-	 * 
-	 * @param arg A <tt>Map</tt> containing source values. 
-	 * @throws ParseException If the source date cannot be parsed.
-	 * 
-	 * @see pcgen.core.SourceEntry#setFromMap(Map)
-	 */
-	public final void setSourceMap(final Map<String, String> arg) 
-		throws ParseException
-	{
-		theSource.setFromMap( arg );
-	}
-
-	/**
-	 * Returns the source entry for this object.
-	 * 
-	 * @return a <tt>SourceEntry</tt>
-	 * 
-	 * @see pcgen.core.SourceEntry
-	 */
-	public SourceEntry getSourceEntry()
-	{
-		if ( theSource == null )
-		{
-			return new SourceEntry();
-		}
-		return theSource;
-	}
-	
-	/**
-	 * Sets the source entry for this object.
-	 * 
-	 * @param aSource A <tt>SourceEntry</tt> to set.
-	 */
-	public void setSource( final SourceEntry aSource )
-	{
-		theSource = aSource;
-	}
-	
-	/**
 	 * Gets the Source string for this object using the default source display
 	 * mode.
 	 * 
@@ -422,8 +372,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public String getDefaultSourceString()
 	{
-		return theSource.toString();
-
+		return SourceFormat.getFormattedString(this,
+				Globals.getSourceDisplay(), true);
 	}
 	
 	/**
@@ -523,7 +473,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public void setSourceCampaign(final Campaign arg)
 	{
-		theSource.getSourceBook().setCampaign( arg );
+		put(ObjectKey.SOURCE_CAMPAIGN, arg);
 	}
 
 	/**
@@ -535,7 +485,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 */
 	public Campaign getSourceCampaign()
 	{
-		return theSource.getSourceBook().getCampaign();
+		return get(ObjectKey.SOURCE_CAMPAIGN);
 	}
 	
 	/**
@@ -718,13 +668,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 				}
 			}
 			txt.append(writer);
-		}
-
-		aString = theSource.getPageNumber();
-
-		if (aString != null && aString.length() != 0)
-		{
-			txt.append("\tSOURCEPAGE:").append(aString);
 		}
 
 		return txt.toString();

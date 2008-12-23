@@ -51,6 +51,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -73,7 +74,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
-import pcgen.core.SourceEntry;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
@@ -568,8 +568,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			for (Campaign campaign : aSelectedCampaignsList)
 			{
-				sourcesSet.add(campaign.getSourceEntry().getFormattedString(
-					SourceEntry.SourceFormat.MEDIUM, true));
+				sourcesSet.add(SourceFormat.getFormattedString(campaign,
+					SourceFormat.MEDIUM, true));
 			}
 
 			//  Show the licenses
@@ -946,7 +946,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		
 		if (aCamp.isMature())
 		{
-			matureCampaigns.append(aCamp.getSourceEntry().getFieldByType(SourceEntry.SourceFormat.LONG) + 
+			matureCampaigns.append(SourceFormat.LONG.getField(aCamp) + 
 				                   " (" + aCamp.getPubNameLong() + ")<br>");
 		}
 

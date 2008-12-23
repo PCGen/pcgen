@@ -87,7 +87,6 @@ import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
-import pcgen.core.SourceEntry;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
@@ -609,8 +608,7 @@ public final class EditorMainForm extends JDialog
 
 		if (aString.length() != 0)
 		{
-			final SourceEntry source = thisPObject.getSourceEntry();
-			source.setPageNumber(aString);
+			thisPObject.put(StringKey.SOURCE_PAGE, aString);
 		}
 		LoadContext context = Globals.getContext();
 
@@ -1264,7 +1262,7 @@ public final class EditorMainForm extends JDialog
 
 		pnlMainTab.setNameText(thisPObject.getKeyName());
 		pnlMainTab.setProductIdentity(thisPObject.getSafe(ObjectKey.NAME_PI));
-		pnlMainTab.setSourceText(thisPObject.getSourceEntry().getPageNumber());
+		pnlMainTab.setSourceText(thisPObject.get(StringKey.SOURCE_PAGE));
 
 		pnlMainTab.updateView(thisPObject);
 

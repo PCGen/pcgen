@@ -36,6 +36,8 @@ import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -186,11 +188,11 @@ public final class InstallLoaderTest extends PCGenTestCase
 		assertEquals("Checking campaign name", CAMPAIGN_NAME, camp
 			.getDisplayName());
 		assertEquals("Checking source name short", SOURCESHORT, camp
-			.getSourceEntry().getSourceBook().getShortName());
+				.get(StringKey.SOURCE_SHORT));
 		assertEquals("Checking source name long", SOURCELONG, camp
-			.getSourceEntry().getSourceBook().getLongName());
+				.get(StringKey.SOURCE_LONG));
 		assertEquals("Checking source name web", SOURCEWEB, camp
-			.getSourceEntry().getSourceBook().getWebsite());
+				.get(StringKey.SOURCE_WEB));
 
 		Date theDate = null;
 		DateFormat df = new SimpleDateFormat("yyyy-MM"); //$NON-NLS-1$
@@ -203,8 +205,8 @@ public final class InstallLoaderTest extends PCGenTestCase
 			df = DateFormat.getDateInstance();
 			theDate = df.parse(SOURCEDATE);
 		}
-		assertEquals("Checking source date", theDate, camp.getSourceEntry()
-			.getSourceBook().getDate());
+		assertEquals("Checking source date", theDate, camp
+				.get(ObjectKey.SOURCE_DATE));
 
 		assertEquals("Checking min ver", MINVER, camp.getMinVer());
 		assertEquals("Checking min dev ver", MINVER, camp.getMinVer());

@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -295,7 +296,7 @@ public final class InfoViewModelBuilder
 	{
 	    if (filter.accept(pc, pobj))
 	    {
-		final String source = pobj.getSourceEntry().getSourceBook().getLongName();
+		final String source = pobj.get(StringKey.SOURCE_LONG);
 		if (source != null && source.length() > 0)
 		{
 		    PObjectNode node = nodeMap.get(source);

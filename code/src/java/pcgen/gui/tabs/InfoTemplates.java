@@ -72,6 +72,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -310,8 +311,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					typeList.add(aType);
 				}
 			}
-			final String sourceString =
-					template.getSourceEntry().getSourceBook().getLongName();
+			final String sourceString = template.get(StringKey.SOURCE_LONG);
 			if (sourceString == null)
 			{
 				Logging.errorPrint("PC template " + template.getDisplayName()
@@ -1326,9 +1326,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 				{
-					final String sourceString =
-							template.getSourceEntry().getSourceBook()
-								.getLongName();
+					final String sourceString = template.get(StringKey.SOURCE_LONG);
 					if (sourceString != null)
 					{
 						if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))

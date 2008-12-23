@@ -20,13 +20,13 @@
  */
 package pcgen.gui.filter;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SourceEntry;
 import pcgen.util.PropertyFactory;
-
-import java.util.StringTokenizer;
 
 /**
  * <code>SourceFilter</code>
@@ -69,7 +69,8 @@ final class SourceFilter extends AbstractPObjectFilter
 			return false;
 		}
 
-		final String sourceStr = pObject.getSourceEntry().getFormattedString( SourceEntry.SourceFormat.MEDIUM, true );
+		final String sourceStr = SourceFormat.getFormattedString(pObject,
+				SourceFormat.MEDIUM, true );
 		if (detailLevel == LOW)
 		{
 			return normalizeSource(sourceStr).equals(source);

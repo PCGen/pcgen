@@ -31,9 +31,9 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
-import pcgen.core.SourceEntry;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -147,8 +147,8 @@ public class CampaignLoader extends LstLineFileLoader
 			{
 				StringBuffer sec15 = Globals.getSection15();
 				sec15.append("<br><b>Source Material:</b>");
-				sec15.append(campaign.getSourceEntry().getFormattedString(
-					SourceEntry.SourceFormat.LONG, true));
+				sec15.append(SourceFormat.getFormattedString(campaign,
+						SourceFormat.LONG, true));
 				sec15.append("<br>");
 				sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
 				for (String license : copyright)

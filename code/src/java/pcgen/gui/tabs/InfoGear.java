@@ -2128,8 +2128,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				}
 			}
 
-			final String sourceString =
-					bEq.getSourceEntry().getSourceBook().getLongName();
+			final String sourceString = bEq.get(StringKey.SOURCE_LONG);
 			if ((sourceString != null) && (!sourceList.contains(sourceString)))
 			{
 				sourceList.add(sourceString);
@@ -4163,8 +4162,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		private void addChildSourceName(Equipment eq,
 			PObjectNode rootAsPObjectNode, boolean fireEvent)
 		{
-			final String sourceString =
-					eq.getSourceEntry().getSourceBook().getLongName();
+			final String sourceString = eq.get(StringKey.SOURCE_LONG);
 			if (fireEvent)
 			{
 				//Add custom node if it does not exist

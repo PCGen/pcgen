@@ -87,7 +87,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SourceEntry;
 import pcgen.core.SubClass;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.prereq.PrereqHandler;
@@ -941,12 +940,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					typeList.add(aType);
 				}
 			}
-			String aString = null;
-			final SourceEntry se = aClass.getSourceEntry();
-			if (se != null && se.getSourceBook() != null)
-			{
-				aString = se.getSourceBook().getLongName();
-			}
+			String aString = aClass.get(StringKey.SOURCE_LONG);
 			if (aString == null)
 			{
 				Logging.errorPrintLocalised("in_icPCClassHasNoSourceLongEntry",
@@ -2045,8 +2039,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 						{
 							final String sourceString =
-									aClass.getSourceEntry().getSourceBook()
-										.getLongName();
+									aClass.get(StringKey.SOURCE_LONG);
 							if (sourceString == null)
 							{
 								Logging.errorPrintLocalised("in_icPCClassHasNoSourceLongEntry",

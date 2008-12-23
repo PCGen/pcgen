@@ -24,7 +24,6 @@
  */
 package pcgen.persistence.lst;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -33,6 +32,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -80,7 +80,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	private List<ModEntry> copyLineList = new ArrayList<ModEntry>();
 	private List<String> forgetLineList = new ArrayList<String>();
 	private List<List<ModEntry>> modEntryList = new ArrayList<List<ModEntry>>();
-	private Map<String, String> sourceMap = null;
 	private boolean processComplete = true;
 	/** A list of objects that will not be included. */
 	protected List<String> excludedObjects = new ArrayList<String>();
@@ -124,7 +123,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		processCopies(context);
 
 		// Now handle .MOD items
-		sourceMap = null;
 		processComplete = false;
 		processMods(context);
 
@@ -191,19 +189,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			return;
 		}
 
-		// Make sure the source info was set
-		if (sourceMap != null)
-		{
-			try
-			{
-				pObj.setSourceMap(sourceMap);
-			}
-			catch (ParseException e)
-			{
-				throw new PersistenceLayerException(e.toString());
-			}
-		}
-		
 		if (includeObject(source, pObj))
 		{
 			finishObject(pObj);
@@ -233,11 +218,9 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				{
 					// If the new object is more recent than the current
 					// one, use the new object
-					final Date pObjDate =
-							pObj.getSourceEntry().getSourceBook().getDate();
-					final Date currentObjDate =
-							currentObj.getSourceEntry().getSourceBook()
-								.getDate();
+					final Date pObjDate = pObj.get(ObjectKey.SOURCE_DATE);
+					final Date currentObjDate = currentObj
+							.get(ObjectKey.SOURCE_DATE);
 					if ((pObjDate != null)
 						&& ((currentObjDate == null) || ((pObjDate
 							.compareTo(currentObjDate) > 0))))
@@ -357,8 +340,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		setChanged();
 		notifyObservers(sourceEntry.getURI());
 
-		sourceMap = null;
-
 		StringBuilder dataBuffer;
 
 		try
@@ -413,8 +394,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 				else
 				{
 					// Add the line to the class mod and don't process it yet.
-					classModLines.add(new ModEntry(sourceEntry, line, i + 1,
-						sourceMap));
+					classModLines.add(new ModEntry(sourceEntry, line, i + 1));
 					continue;
 				}
 			}
@@ -423,12 +403,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			// TODO - Figure out why we need to check SOURCE in this file
 			if (line.startsWith("SOURCE")) //$NON-NLS-1$
 			{
-				sourceMap = SourceLoader.parseLine(line, sourceEntry.getURI());
+				SourceLoader.parseLine(context, line, sourceEntry.getURI());
 			}
 			else if (firstToken.indexOf(COPY_SUFFIX) > 0)
 			{
 				copyLineList.add(new ModEntry(sourceEntry, line,
-					i + 1, sourceMap));
+					i + 1));
 			}
 			else if (firstToken.indexOf(MOD_SUFFIX) > 0)
 			{
@@ -438,14 +418,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
 					classModLines = new ArrayList<ModEntry>();
-					classModLines.add(new ModEntry(sourceEntry, line, i + 1,
-						sourceMap));
+					classModLines.add(new ModEntry(sourceEntry, line, i + 1));
 				}
 				else
 				{
 					List<ModEntry> modLines = new ArrayList<ModEntry>();
-					modLines.add(new ModEntry(sourceEntry, line, i + 1,
-						sourceMap));
+					modLines.add(new ModEntry(sourceEntry, line, i + 1));
 					modEntryList.add(modLines);
 				}
 			}
@@ -641,37 +619,13 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			{
 				try
 				{
-					boolean noSource = object.getSourceEntry() == null;
-					int hashCode = 0;
-					Campaign origCampaign = null;
-					if (!noSource)
-					{
-						hashCode = object.getSourceEntry().hashCode();
-						origCampaign = object.getSourceEntry().getSourceBook().getCampaign();
-					}
-
+					Campaign origCampaign = object.get(ObjectKey.SOURCE_CAMPAIGN);
+					
 					parseLine(context, object, element.getLstLine(), element.getSource());
 
-					if ((noSource && object.getSourceEntry() != null)
-						|| (!noSource && hashCode != object.getSourceEntry()
-							.hashCode()))
+					if (origCampaign != null)
 					{
-						// We never had a source and now we do so set the source
-						// map or we did have a source and now the hashCode is
-						// different so the MOD line must have updated it.
-						try
-						{
-							object.setSourceMap(element.getSourceMap());
-						}
-						catch (ParseException notUsed)
-						{
-							Logging.errorPrintLocalised(
-								"Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
-						}
-					}
-					else if (!noSource)
-					{
-						object.getSourceEntry().getSourceBook().setCampaign(origCampaign);
+						object.setSourceCampaign(origCampaign);
 					}
 				}
 				catch (PersistenceLayerException ple)
@@ -772,8 +726,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		 * @throws IllegalArgumentException if aSource or aLstLine is null.
 		 */
 		public ModEntry(final CampaignSourceEntry aSource,
-			final String aLstLine, final int aLineNumber,
-			final Map<String, String> aSourceMap)
+			final String aLstLine, final int aLineNumber)
 		{
 			super();
 
@@ -792,7 +745,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			this.source = aSource;
 			this.lstLine = aLstLine;
 			this.lineNumber = aLineNumber;
-			this.sourceMap = aSourceMap;
 		}
 
 		/**
@@ -811,15 +763,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		public CampaignSourceEntry getSource()
 		{
 			return source;
-		}
-
-		/**
-		 *
-		 * @return The source map for this MOD entry
-		 */
-		public Map<String, String> getSourceMap()
-		{
-			return sourceMap;
 		}
 
 		/**

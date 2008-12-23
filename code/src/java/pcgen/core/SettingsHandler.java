@@ -25,31 +25,43 @@
  */
 package pcgen.core;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Point;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.StringTokenizer;
+
+import javax.swing.SwingConstants;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
-import pcgen.gui.utils.Utility;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.filter.Filterable;
+import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Point;
-import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.*;
 
 /**
  * This class contains all settings-related code moved from Globals.java
@@ -1129,7 +1141,7 @@ public final class SettingsHandler
 		showMatureOnLoad = getPCGenOption("showMatureOnLoad", true); //$NON-NLS-1$
 		showSponsorsOnLoad = getPCGenOption("showSponsorsOnLoad", true); //$NON-NLS-1$
 
-		Globals.setSourceDisplay(SourceEntry.SourceFormat.valueOf(getPCGenOption("sourceDisplay", SourceEntry.SourceFormat.LONG.ordinal()))); //$NON-NLS-1$
+		Globals.setSourceDisplay(SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
 		Globals.setLanguage(getPCGenOption("language", null)); //$NON-NLS-1$
 		Globals.setCountry(getPCGenOption("country", null)); //$NON-NLS-1$
 
