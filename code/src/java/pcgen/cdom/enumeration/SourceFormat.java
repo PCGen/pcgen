@@ -18,9 +18,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public boolean includesPublisher()
+		public StringKey getPublisherKey()
 		{
-			return false;
+			return null;
 		}
 
 		@Override
@@ -39,9 +39,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public boolean includesPublisher()
+		public StringKey getPublisherKey()
 		{
-			return false;
+			return null;
 		}
 
 		@Override
@@ -60,9 +60,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public boolean includesPublisher()
+		public StringKey getPublisherKey()
 		{
-			return true;
+			return StringKey.PUB_NAME_LONG;
 		}
 
 		@Override
@@ -82,9 +82,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public boolean includesPublisher()
+		public StringKey getPublisherKey()
 		{
-			return true;
+			return null;
 		}
 
 		@Override
@@ -103,9 +103,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public boolean includesPublisher()
+		public StringKey getPublisherKey()
 		{
-			return true;
+			return null;
 		}
 
 		@Override
@@ -124,9 +124,9 @@ public enum SourceFormat
 		}
 
 		@Override
-		public boolean includesPublisher()
+		public StringKey getPublisherKey()
 		{
-			return true;
+			return StringKey.PUB_NAME_WEB;
 		}
 
 		@Override
@@ -136,14 +136,9 @@ public enum SourceFormat
 		}
 	};
 
+	public abstract StringKey getPublisherKey();
+	
 	public abstract String getField(CDOMObject cdo);
-
-	/**
-	 * Should this format include the publisher name if it is available?
-	 * 
-	 * @return <tt>true</tt> if the publisher info should be included.
-	 */
-	public abstract boolean includesPublisher();
 
 	/**
 	 * Does this format allow page information?
@@ -202,7 +197,12 @@ public enum SourceFormat
 		{
 			// If sourceCampaign object exists, get it's publisher entry for
 			// the same key
-			publisher = campaign.getPublisherWithKey(format.toString());
+			StringKey pubkey = format.getPublisherKey();
+			if (pubkey != null)
+			{
+				String pub = campaign.get(pubkey);
+				publisher = pub == null ? "" : pub;
+			}
 
 			// if this item's source is null, try to get it from theCampaign
 			if (source == null)
@@ -215,8 +215,7 @@ public enum SourceFormat
 			source = Constants.EMPTY_STRING;
 		}
 
-		if (format.includesPublisher() && publisher != null
-				&& publisher.trim().length() > 0)
+		if (publisher != null && publisher.trim().length() > 0)
 		{
 			ret.append(publisher);
 			ret.append(" - "); //$NON-NLS-1$

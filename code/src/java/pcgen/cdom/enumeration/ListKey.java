@@ -35,6 +35,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -250,6 +251,7 @@ public final class ListKey<T> {
 	public static final ListKey<EquipmentModifier> EQMOD = new ListKey<EquipmentModifier>();
 	public static final ListKey<CDOMSingleRef<Race>> APPLIED_RACE = new ListKey<CDOMSingleRef<Race>>();
 	public static final ListKey<EqModRef> EQMOD_INFO = new ListKey<EqModRef>();
+	public static final ListKey<CampaignURL> CAMPAIGN_URL = new ListKey<CampaignURL>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

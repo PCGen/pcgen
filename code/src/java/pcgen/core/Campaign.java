@@ -26,21 +26,13 @@ package pcgen.core;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
-import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -57,15 +49,8 @@ import pcgen.rules.context.RuntimeLoadContext;
  */
 public class Campaign extends PObject
 {
-	private Map<String, String> publisherMap = new HashMap<String, String>();
-	private Properties options = new Properties();
-	private List<CampaignURL> urlList = new ArrayList<CampaignURL>();
 	private boolean isD20;
-	private boolean isLicensed;
 	private boolean isLoaded;
-	private boolean isOGL;
-	private boolean isMature;
-	private boolean showInMenu;
 	private boolean isInitted;
 
 	/**
@@ -73,15 +58,6 @@ public class Campaign extends PObject
 	 */
 	public Campaign() {
 		super();
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addPccFile(final URI file)
-	{
-		addToListFor(ListKey.FILE_PCC, file);
 	}
 
 	/**
@@ -102,39 +78,6 @@ public class Campaign extends PObject
 	{
 		String characteristic = get(StringKey.DESTINATION);
 		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Returns the name of the game this campaign is intended for.
-	 * @return the name of the game
-	 */
-	public List<String> getGameModes()
-	{
-		return getSafeListFor(ListKey.GAME_MODE);
-	}
-
-	/**
-	 * Returns the game modes in a Human readable format
-	 *
-	 * @return game mode as a String
-	 **/
-	public String getGameModeString()
-	{
-		final StringBuffer sb = new StringBuffer();
-		List<String> gameModeList = getSafeListFor(ListKey.GAME_MODE);
-
-		for (Iterator<String> i = gameModeList.iterator(); i.hasNext();)
-		{
-			final String gameMode = i.next();
-			sb.append(gameMode);
-
-			if (i.hasNext())
-			{
-				sb.append(", ");
-			}
-		}
-
-		return sb.toString();
 	}
 
 	/**
@@ -164,15 +107,6 @@ public class Campaign extends PObject
 	{
 		String characteristic = get(StringKey.INFO_TEXT);
 		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
-	 * Returns the pccFileList.
-	 * @return List
-	 */
-	public List<URI> getPccFiles()
-	{
-		return getSafeListFor(ListKey.FILE_PCC);
 	}
 
 	/**
@@ -217,16 +151,6 @@ public class Campaign extends PObject
 
 	/**
 	 * Queries to see if this campaign is of a gameMode
-	 * @param gameMode    name of gameMode to test for
-	 * @return        boolean if present
-	 **/
-	public boolean isGameMode(final String gameMode)
-	{
-		return containsInList(ListKey.GAME_MODE, gameMode);
-	}
-
-	/**
-	 * Queries to see if this campaign is of a gameMode
 	 * @param gameModeList    list of gameModes to test for
 	 * @return        boolean if present
 	 **/
@@ -241,55 +165,6 @@ public class Campaign extends PObject
 		}
 
 		return false;
-	}
-
-	/**
-	 * Sets the name of the game this campaign is intended for.
-	 * @param gameMode name or '|' delimited list of names
-	 */
-	public void setGameMode(final String gameMode)
-	{
-		final StringTokenizer aTok = new StringTokenizer(gameMode, "|");
-		removeListFor(ListKey.GAME_MODE);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String tok = aTok.nextToken();
-			if (!(isGameMode(tok)))
-			{
-				addToListFor(ListKey.GAME_MODE, tok);
-			}
-		}
-	}
-
-	/**
-	 * Set the publisher long name
-	 * @param pubNameLong
-	 */
-	public void setPubNameLong(final String pubNameLong)
-	{
-		addPublisher("LONG:" + pubNameLong);
-		put(StringKey.PUB_NAME_LONG, pubNameLong);
-	}
-
-	/**
-	 * Set the publisher short name
-	 * @param pubNameShort
-	 */
-	public void setPubNameShort(final String pubNameShort)
-	{
-		addPublisher("SHORT:" + pubNameShort);
-		put(StringKey.PUB_NAME_SHORT, pubNameShort);
-	}
-
-	/**
-	 * Set the publisher web name
-	 * @param pubNameWeb
-	 */
-	public void setPubNameWeb(final String pubNameWeb)
-	{
-		addPublisher("WEB:" + pubNameWeb);
-		put(StringKey.PUB_NAME_WEB, pubNameWeb);
 	}
 
 	/**
@@ -327,48 +202,12 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Sets whether this campaign is licensed.
-	 * @param isLicensed
-	 */
-	public void setIsLicensed(final boolean isLicensed)
-	{
-		this.isLicensed = isLicensed;
-	}
-
-	/**
 	 * Sets whether the campaign is loaded.
 	 * @param isLoaded
 	 */
 	public void setIsLoaded(final boolean isLoaded)
 	{
 		this.isLoaded = isLoaded;
-	}
-
-	/**
-	 * Set the isOGL flag
-	 * @param isOGL
-	 */
-	public void setIsOGL(final boolean isOGL)
-	{
-		this.isOGL = isOGL;
-	}
-
-	/**
-	 * Set the isMature flag
-	 * @param isMature
-	 */
-	public void setIsMature(final boolean isMature)
-	{
-		this.isMature = isMature;
-	}
-
-	/**
-	 * Returns whether this campaign is licensed
-	 * @return true if this campaign is licensed
-	 */
-	public boolean isLicensed()
-	{
-		return isLicensed;
 	}
 
 	/**
@@ -380,126 +219,15 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * @return whether or not the OGL will pop up when this campaign is loaded
-	 */
-	public boolean isOGL()
-	{
-		return isOGL;
-	}
-
-	/**
-	 * @return whether or not the Mature dataset warning will pop up when this campaign is loaded
-	 */
-	public boolean isMature()
-	{
-		return isMature;
-	}
-
-	/**
-	 * Set the campaign options
-	 * @param options
-	 */
-	public void setOptions(final Properties options)
-	{
-		this.options = options;
-	}
-
-	/**
-	 * @return the options which are to apply to this campaign
-	 */
-	public Properties getOptions()
-	{
-		return options;
-	}
-
-	/**
-	 * Get the campaign options as a List
-	 * @return campaign options
-	 */
-	public List<String> getOptionsList()
-	{
-		final List<String> aList = new ArrayList<String>();
-
-		if (options != null)
-		{
-			for (Enumeration<?> e = options.propertyNames(); e.hasMoreElements();)
-			{
-				aList.add(e.nextElement().toString());
-			}
-		}
-
-		return aList;
-	}
-
-	/**
-	 * Returns the publisherMap.
-	 * @return Map
-	 */
-	public Map<String, String> getPublisherMap()
-	{
-		return publisherMap;
-	}
-
-	/**
-	 * Get the publisher with key
-	 * @param key
-	 * @return publisher
-	 */
-	public String getPublisherWithKey(final String key)
-	{
-		final String val = publisherMap.get(key);
-
-		return (val != null) ? val : "";
-	}
-
-	/**
-	 * Sets whether this campaign should be listed in the campaigns menu.
-	 * @param showInMenu
-	 */
-	public void setShowInMenu(final boolean showInMenu)
-	{
-		this.showInMenu = showInMenu;
-	}
-
-	/**
 	 * This method returns a reference to the Campaign that this object
 	 * originated from.  In this case, it will return (this).
 	 * @return Campaign instance referencing the file containing the
 	 *         source for this object
 	 */
+	@Override
 	public Campaign getSourceCampaign()
 	{
 		return this;
-	}
-
-	/**
-	 * Add a publisher
-	 * @param argPublisher
-	 */
-	public void addPublisher(final String argPublisher)
-	{
-		final String publisher;
-
-		if (argPublisher.startsWith("PUBNAME"))
-		{
-			publisher = argPublisher.substring(7);
-		}
-		else
-		{
-			publisher = argPublisher;
-		}
-
-		final String key = publisher.substring(0, publisher.indexOf(":"));
-		publisherMap.put(key, publisher.substring(publisher.indexOf(":") + 1));
-	}
-
-	/**
-	 * Returns whether this campaign should be listed in the campaigns menu
-	 * @return true if this campaign should be listed in the campaigns menu
-	 */
-	public boolean canShowInMenu()
-	{
-		return showInMenu;
 	}
 
 	/**
@@ -509,7 +237,7 @@ public class Campaign extends PObject
 	 */
 	public List<Campaign> getSubCampaigns()
 	{
-		final List<URI> pccFiles = getPccFiles();
+		final List<URI> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
 		final List<Campaign> ret = new ArrayList<Campaign>(pccFiles.size());
 		
@@ -529,7 +257,6 @@ public class Campaign extends PObject
 		try
 		{
 			newCampaign = (Campaign) super.clone();
-			newCampaign.options = (Properties) options.clone();
 		}
 		catch (CloneNotSupportedException exc)
 		{
@@ -537,41 +264,6 @@ public class Campaign extends PObject
 		}
 
 		return newCampaign;
-	}
-
-	/**
-	 * Adds the url.
-	 * 
-	 * @param campUrl the url to be added
-	 */
-	public void addURL(CampaignURL campUrl)
-	{
-		urlList.add(campUrl);
-	}
-
-	/**
-	 * @return the urlList
-	 */
-	public List<CampaignURL> getUrlList()
-	{
-		return Collections.unmodifiableList(urlList);
-	}
-
-	/**
-	 * Returnr a list of urls of the specified kind.
-	 * @return the urlList
-	 */
-	public List<CampaignURL> getUrlListForKind(URLKind kind)
-	{
-		List<CampaignURL> kindList = new ArrayList<CampaignURL>();
-		for (CampaignURL url : urlList)
-		{
-			if (url.getUrlKind() == kind)
-			{
-				kindList.add(url);
-			}
-		}
-		return kindList;
 	}
 
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();

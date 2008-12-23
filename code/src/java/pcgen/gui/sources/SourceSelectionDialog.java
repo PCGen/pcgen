@@ -55,6 +55,8 @@ import javax.swing.SwingConstants;
 import org.apache.commons.lang.ArrayUtils;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -222,11 +224,11 @@ public class SourceSelectionDialog extends JDialog implements
 		
 		for (Campaign aCamp : Globals.getCampaignList())
 		{
-			if (aCamp.canShowInMenu())
+			if (aCamp.getSafe(ObjectKey.SHOW_IN_MENU))
 			{
 				String name = aCamp.getDisplayName();
 				names.add(name);
-				nameToGameModeMap.put(name, aCamp.getGameModes().get(0));
+				nameToGameModeMap.put(name, aCamp.getSafeListFor(ListKey.GAME_MODE).get(0));
 				List<String> sourceKeys = new ArrayList<String>();
 				sourceKeys.add(aCamp.getKeyName());
 				nameToSourceMap.put(name, sourceKeys);

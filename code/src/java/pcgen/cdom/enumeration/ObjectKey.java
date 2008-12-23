@@ -261,6 +261,16 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Campaign> SOURCE_CAMPAIGN = new ObjectKey<Campaign>(null);
 
+	public static final ObjectKey<Boolean> IS_OGL = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<Boolean> IS_MATURE = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<Boolean> IS_LICENSED = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<Boolean> IS_D20 = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<Boolean> SHOW_IN_MENU = new ObjectKey<Boolean>(Boolean.FALSE);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

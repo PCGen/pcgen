@@ -24,45 +24,60 @@
 package plugin.lsttokens.campaign;
 
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CampaignURL;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.core.CampaignURL;
-import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.Changes;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * <code>UrlToken</code> is responsible for parsing the URL campaign token.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
+ * 
+ * Last Editor: $Author$ Last Edited: $Date: 2008-01-27 22:03:36
+ * -0500 (Sun, 27 Jan 2008) $
+ * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class UrlToken implements CampaignLstToken
+public class UrlToken implements CDOMPrimaryToken<Campaign>
 {
 
 	private static final String URL_KIND_NAME_WEBSITE = "WEBSITE";
 	private static final String URL_KIND_NAME_SURVEY = "SURVEY";
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.CampaignLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
-	public boolean parse(Campaign campaign, String value, URI sourceURI)
+	public String getTokenName()
+	{
+		return "URL";
+	}
+
+	public boolean parse(LoadContext context, Campaign obj, String value)
+			throws PersistenceLayerException
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		if (tok.countTokens() != 3)
 		{
 			Logging.log(Logging.LST_ERROR,
-				"URL token requires three arguments. Link kind, "
-					+ "link and description.  : " + value);
+					"URL token requires three arguments. Link kind, "
+							+ "link and description.  : " + value);
 			return false;
 		}
-		String urlTypeName = tok.nextToken(); 
-		String urlText = tok.nextToken(); 
+		String urlTypeName = tok.nextToken();
+		String urlText = tok.nextToken();
 		String urlDesc = tok.nextToken();
 		CampaignURL.URLKind urlType;
 
@@ -71,7 +86,7 @@ public class UrlToken implements CampaignLstToken
 			if (!urlTypeName.equals(URL_KIND_NAME_WEBSITE))
 			{
 				Logging.log(Logging.LST_WARNING,
-					"URL type should be WEBSITE in upper case : " + value);
+						"URL type should be WEBSITE in upper case : " + value);
 			}
 			urlType = CampaignURL.URLKind.WEBSITE;
 			urlTypeName = "";
@@ -81,7 +96,7 @@ public class UrlToken implements CampaignLstToken
 			if (!urlTypeName.equals(URL_KIND_NAME_SURVEY))
 			{
 				Logging.log(Logging.LST_WARNING,
-					"URL type should be SURVEY in upper case : " + value);
+						"URL type should be SURVEY in upper case : " + value);
 			}
 			urlType = CampaignURL.URLKind.SURVEY;
 			urlTypeName = "";
@@ -98,25 +113,49 @@ public class UrlToken implements CampaignLstToken
 		}
 		catch (MalformedURLException e)
 		{
-			Logging.log(Logging.LST_ERROR,
-				"Invalid URL (" + e.getMessage() + ") : " + value);
+			Logging.log(Logging.LST_ERROR, "Invalid URL (" + e.getMessage()
+					+ ") : " + value);
 			return false;
 		}
 		// Create URL object
-		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, url, urlDesc);
-		
+		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, url,
+				urlDesc);
+
 		// Add URL Object to campaign
-		campaign.addURL(campUrl);
- 
+		context.obj.addToList(obj, ListKey.CAMPAIGN_URL, campUrl);
+
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-	public String getTokenName()
+	public String[] unparse(LoadContext context, Campaign obj)
 	{
-		return "URL";
+		Changes<CampaignURL> changes = context.getObjectContext()
+				.getListChanges(obj, ListKey.CAMPAIGN_URL);
+		if (changes == null || changes.isEmpty())
+		{
+			return null;
+		}
+		Collection<CampaignURL> added = changes.getAdded();
+		if (added != null && !added.isEmpty())
+		{
+			List<String> list = new ArrayList<String>();
+			for (CampaignURL curl : added)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(curl.getUrlKind());
+				sb.append(Constants.PIPE);
+				sb.append(curl.getUrl().toString());
+				sb.append(Constants.PIPE);
+				sb.append(curl.getUrlDesc());
+			}
+			return list.toArray(new String[list.size()]);
+		}
+		return null;
+	}
+
+	public Class<Campaign> getTokenClass()
+	{
+		return Campaign.class;
 	}
 
 }

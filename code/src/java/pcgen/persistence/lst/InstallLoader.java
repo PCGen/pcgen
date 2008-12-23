@@ -59,6 +59,7 @@ public class InstallLoader extends LstLineFileLoader
 	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException
 	{
 		campaign = new InstallableCampaign();
+		campaign.setSourceURI(fileName);
 		super.loadLstString(context, fileName, lstData);
 	}
 

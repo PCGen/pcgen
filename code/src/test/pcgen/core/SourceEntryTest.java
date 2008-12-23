@@ -54,9 +54,9 @@ public class SourceEntryTest extends TestCase
 		super.setUp();
 		
 		campaign = new Campaign();
-		campaign.setPubNameWeb("PubWeb");
-		campaign.setPubNameShort("PubShort");
-		campaign.setPubNameLong("PubLong");
+		campaign.put(StringKey.PUB_NAME_WEB, "PubWeb");
+		campaign.put(StringKey.PUB_NAME_SHORT, "PubShort");
+		campaign.put(StringKey.PUB_NAME_LONG, "PubLong");
 		campaign.put(StringKey.SOURCE_LONG, "LongName");
 		campaign.put(StringKey.SOURCE_SHORT, "ShortName");
 		campaign.put(StringKey.SOURCE_WEB, "http://website");
@@ -77,7 +77,7 @@ public class SourceEntryTest extends TestCase
 				campaign, SourceFormat.MEDIUM, false));
 		assertEquals("Long", "PubLong - LongName, 42", SourceFormat
 				.getFormattedString(campaign, SourceFormat.LONG, true));
-		campaign.setPubNameLong("");
+		campaign.put(StringKey.PUB_NAME_LONG, "");
 		assertEquals("Long", "LongName, 42", SourceFormat.getFormattedString(
 				campaign, SourceFormat.LONG, true));
 	}

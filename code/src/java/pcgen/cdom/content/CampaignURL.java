@@ -21,7 +21,7 @@
  * $Id$
  */
 
-package pcgen.core;
+package pcgen.cdom.content;
 
 import java.net.URL;
 

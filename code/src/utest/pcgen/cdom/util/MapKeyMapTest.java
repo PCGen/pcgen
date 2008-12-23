@@ -157,16 +157,16 @@ public class MapKeyMapTest extends TestCase
 		assertEquals("Only element should be an aspect", MapKey.ASPECT, keySet
 			.toArray()[0]);
 		
-		mapKeyMap.addToMapFor(MapKey.TEST, "foo", "bar");
+		mapKeyMap.addToMapFor(MapKey.PROPERTY, "foo", "bar");
 		assertEquals(
 			"Still only one primary key, returned set should be independant of main collection",
 			1, keySet.size());
-		assertFalse("Set should not include test yet", keySet.contains(MapKey.TEST));
+		assertFalse("Set should not include test yet", keySet.contains(MapKey.PROPERTY));
 
 		keySet = mapKeyMap.getKeySet();
 		assertEquals("Now two primary keys", 2, keySet.size());
 		assertTrue("Set should include aspect", keySet.contains(MapKey.ASPECT));
-		assertTrue("Set should include test", keySet.contains(MapKey.TEST));
+		assertTrue("Set should include test", keySet.contains(MapKey.PROPERTY));
 	}
 
 	/**
@@ -177,21 +177,21 @@ public class MapKeyMapTest extends TestCase
 	public void testContainsMapFor()
 	{
 		assertTrue("Should have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.TEST));
+		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.PROPERTY));
 
-		mapKeyMap.addToMapFor(MapKey.TEST, "foo", "bar");
+		mapKeyMap.addToMapFor(MapKey.PROPERTY, "foo", "bar");
 		assertTrue("Should have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertTrue("Should have TEST now", mapKeyMap.containsMapFor(MapKey.TEST));
+		assertTrue("Should have TEST now", mapKeyMap.containsMapFor(MapKey.PROPERTY));
 
 		assertTrue("Should be true as item is present", mapKeyMap
-			.removeFromMapFor(MapKey.TEST, "foo"));
+			.removeFromMapFor(MapKey.PROPERTY, "foo"));
 		assertTrue("Should have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.TEST));
+		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.PROPERTY));
 
 		assertTrue("Should be true as item is present", mapKeyMap
 			.removeFromMapFor(MapKey.ASPECT, breedKey));
 		assertTrue("Should still have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.TEST));
+		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.PROPERTY));
 	}
 	
 	

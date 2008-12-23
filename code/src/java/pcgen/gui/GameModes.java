@@ -25,6 +25,8 @@
 package pcgen.gui;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.*;
 import pcgen.gui.sources.SourceSelectionUtils;
 import pcgen.gui.utils.Utility;
@@ -196,8 +198,8 @@ public final class GameModes extends JMenu
 			boolean firstCampaignEntry = true;
 			for (Campaign aCamp : Globals.getCampaignList())
 			{
-				if (aCamp.canShowInMenu()
-					&& aCamp.isGameMode((SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
+				if (aCamp.getSafe(ObjectKey.SHOW_IN_MENU)
+					&& aCamp.containsInList(ListKey.GAME_MODE, (SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
 				{
 					if (firstSubMenu == null)
 					{
@@ -312,7 +314,7 @@ public final class GameModes extends JMenu
 			{
 				// We can now specify multiple game modes in a PCC file.
 				// We assume here that the 1st one is the primary one.
-				List<String> gameModeList = (campaigns.get(campaignNum)).getGameModes();
+				List<String> gameModeList = (campaigns.get(campaignNum)).getSafeListFor(ListKey.GAME_MODE);
 				tempGameMode = gameModeList.get(0);
 				selectedCampaigns.add(campaigns.get(campaignNum));
 			}

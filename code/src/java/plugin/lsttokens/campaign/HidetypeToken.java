@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
@@ -26,7 +27,7 @@ public class HidetypeToken implements CampaignLstToken
 
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
-		for (String gmName : campaign.getGameModes())
+		for (String gmName : campaign.getSafeListFor(ListKey.GAME_MODE))
 		{
 			GameMode gm = SystemCollections.getGameModeNamed(gmName);
 			if (gm == null)

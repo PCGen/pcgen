@@ -75,18 +75,19 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CampaignURL;
+import pcgen.cdom.content.CampaignURL.URLKind;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.CampaignURL;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.core.CampaignURL.URLKind;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
@@ -523,7 +524,7 @@ public class MainSource extends FilterAdapterPanel
 			sb.append("<br>\n");
 		}
 		// Add the website URLs
-		List<CampaignURL> webURLs = aCamp.getUrlListForKind(URLKind.WEBSITE);
+		List<CampaignURL> webURLs = MainSource.getUrlListForKind(aCamp, URLKind.WEBSITE);
 		if (!webURLs.isEmpty())
 		{
 			sb.append("<b>WEBSITE</b>: ");
@@ -540,14 +541,14 @@ public class MainSource extends FilterAdapterPanel
 
 		sb.append("<b>RANK</b>: ")
 			.append(aCamp.getSafe(IntegerKey.CAMPAIGN_RANK));
-		if (aCamp.getGameModeString().length() > 0)
+		if (StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", ").length() > 0)
 		{
 			sb.append("&nbsp; <b>GAME MODE</b>: ")
-				.append(aCamp.getGameModeString());
+				.append(StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", "));
 		}
 
 		// Add the purchase URLs
-		List<CampaignURL> purchaseURLs = aCamp.getUrlListForKind(URLKind.PURCHASE);
+		List<CampaignURL> purchaseURLs = MainSource.getUrlListForKind(aCamp, URLKind.PURCHASE);
 		if (!purchaseURLs.isEmpty())
 		{
 			sb.append("<br><b>PURCHASE</b>: ");
@@ -556,7 +557,7 @@ public class MainSource extends FilterAdapterPanel
 		}
 
 		// Add the purchase URLs
-		List<CampaignURL> surveyURLs = aCamp.getUrlListForKind(URLKind.SURVEY);
+		List<CampaignURL> surveyURLs = MainSource.getUrlListForKind(aCamp, URLKind.SURVEY);
 		if (!surveyURLs.isEmpty())
 		{
 			sb.append("<br><b>SURVEY</b>: ");
@@ -1555,6 +1556,19 @@ public class MainSource extends FilterAdapterPanel
 		}
 	}
 	
+	public static List<CampaignURL> getUrlListForKind(Campaign c, URLKind kind)
+	{
+		List<CampaignURL> kindList = new ArrayList<CampaignURL>();
+		for (CampaignURL url : c.getSafeListFor(ListKey.CAMPAIGN_URL))
+		{
+			if (url.getUrlKind() == kind)
+			{
+				kindList.add(url);
+			}
+		}
+		return kindList;
+	}
+
 	/**
 	 * The basic idea of the TreeTableModel is that there is a single
 	 * <code>root</code> object. This root object has a null

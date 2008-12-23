@@ -27,9 +27,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.URI;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -71,50 +69,6 @@ public final class CampaignOutput
 			out =
 					new BufferedWriter(new OutputStreamWriter(
 						new FileOutputStream(outFile), "UTF-8"));
-			FileAccess.write(out, "CAMPAIGN:" + campaign.getKeyName());
-			FileAccess.newLine(out);
-			FileAccess.write(out, "GAMEMODE:");
-
-			for (Iterator<String> gm = campaign.getGameModes().iterator(); gm
-				.hasNext();)
-			{
-				String gmName = gm.next();
-				FileAccess.write(out, gmName);
-
-				if (gm.hasNext())
-				{
-					FileAccess.write(out, "|");
-				}
-			}
-
-			FileAccess.newLine(out);
-			FileAccess.write(out, "ISD20:" + (campaign.isD20() ? "YES" : "NO"));
-			FileAccess.newLine(out);
-			FileAccess.write(out, "ISOGL:" + (campaign.isOGL() ? "YES" : "NO"));
-			FileAccess.newLine(out);
-			FileAccess.write(out, "SHOWINMENU:"
-				+ (campaign.canShowInMenu() ? "YES" : "NO"));
-			FileAccess.newLine(out);
-			FileAccess.write(out, "ISLICENSED:"
-				+ (campaign.isLicensed() ? "YES" : "NO"));
-			FileAccess.newLine(out);
-
-			for (Iterator<String> i = campaign.getOptionsList().iterator(); i.hasNext();)
-			{
-				FileAccess.write(out, "OPTION:"
-					+ campaign.getOptions().getProperty(i.next()));
-				FileAccess.newLine(out);
-			}
-
-			List<URI> pccList = campaign.getListFor(ListKey.FILE_PCC);
-			if (pccList != null)
-			{
-				for (URI uri : pccList)
-				{
-					FileAccess.write(out, "PCC:" + uri);
-					FileAccess.newLine(out);
-				}
-			}
 
 			List<String> commentList = campaign.getListFor(ListKey.COMMENT);
 			if (commentList != null)

@@ -82,14 +82,16 @@ public class AspectToken extends AbstractToken implements
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " expecting '|', format is: "
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " expecting '|', format is: "
 					+ "AspectName|Aspect value|Variable|... was: " + value);
 			return false;
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " expecting non-empty type, "
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " expecting non-empty type, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
 					+ value);
 			return false;
@@ -97,14 +99,16 @@ public class AspectToken extends AbstractToken implements
 		String val = value.substring(pipeLoc + 1);
 		if (val.length() == 0)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " expecting non-empty value, "
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
 					+ value);
 			return false;
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName() + " expecting non-empty value, "
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
 					+ value);
 			return false;

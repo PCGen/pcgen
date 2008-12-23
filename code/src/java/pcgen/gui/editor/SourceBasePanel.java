@@ -35,7 +35,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import javax.swing.JButton;
@@ -52,8 +52,11 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
@@ -105,58 +108,38 @@ class SourceBasePanel extends BasePanel
 	{
 		theCampaign.put(IntegerKey.CAMPAIGN_RANK, Integer.parseInt(rank.getValue().toString()));
 		game = "";
-		StringBuffer tempBuff = new StringBuffer(30);
+		theCampaign.removeListFor(ListKey.GAME_MODE);
 		if (gm35e.isSelected())
 		{
-			if (tempBuff.length() == 0)
-				tempBuff.append("35e");
-			else
-				tempBuff.append("|35e");
+			theCampaign.addToListFor(ListKey.GAME_MODE, "35e");
 		}
 		if (gm3e.isSelected())
 		{
-			if (tempBuff.length() == 0)
-				tempBuff.append("3e");
-			else
-				tempBuff.append("|3e");
+			theCampaign.addToListFor(ListKey.GAME_MODE, "3e");
 		}
 		if (gmmodern.isSelected())
 		{
-			if (tempBuff.length() == 0)
-				tempBuff.append("Modern");
-			else
-				tempBuff.append("|Modern");
+			theCampaign.addToListFor(ListKey.GAME_MODE, "Modern");
 		}
 		if (gmspycraft.isSelected())
 		{
-			if (tempBuff.length() == 0)
-				tempBuff.append("Spycraft");
-			else
-				tempBuff.append("|Spycraft");
+			theCampaign.addToListFor(ListKey.GAME_MODE, "Spycraft");
 		}
 		if (gmxcrawl.isSelected())
 		{
-			if (tempBuff.length() == 0)
-				tempBuff.append("XCrawl");
-			else
-				tempBuff.append("|XCrawl");
+			theCampaign.addToListFor(ListKey.GAME_MODE, "XCrawl");
 		}
 		if (gmsidewinder.isSelected())
 		{
-			if (tempBuff.length() == 0)
-				tempBuff.append("Sidewinder");
-			else
-				tempBuff.append("|Sidewinder");
+			theCampaign.addToListFor(ListKey.GAME_MODE, "Sidewinder");
 		}
-		game = tempBuff.toString();
-		theCampaign.setGameMode(game);
 		theCampaign.put(StringKey.SOURCE_LONG, pubNameLong.getText().trim());
 		theCampaign.put(StringKey.SOURCE_SHORT, pubNameShort.getText().trim());
 		theCampaign.put(StringKey.SOURCE_WEB, pubNameWeb.getText().trim());
-		theCampaign.setIsOGL(isOGL.getSelectedObjects() != null);
+		theCampaign.put(ObjectKey.IS_OGL, isOGL.getSelectedObjects() != null);
 		theCampaign.setIsD20(isD20.getSelectedObjects() != null);
-		theCampaign.setShowInMenu(showInMenu.getSelectedObjects() != null);
-		theCampaign.setIsLicensed(isLicensed.getSelectedObjects() != null);
+		theCampaign.put(ObjectKey.SHOW_IN_MENU, showInMenu.getSelectedObjects() != null);
+		theCampaign.put(ObjectKey.IS_LICENSED, isLicensed.getSelectedObjects() != null);
 		theCampaign.put(StringKey.INFO_TEXT, infoText.getText().trim());
 		theCampaign.put(StringKey.BOOK_TYPE, bookType.getSelectedItem().toString());
 		theCampaign.put(StringKey.DESTINATION, destination.getText().trim());
@@ -165,15 +148,12 @@ class SourceBasePanel extends BasePanel
 		theCampaign.put(StringKey.SETTING, setting.getText().trim());
 		theCampaign.put(StringKey.GENRE, genre.getText().trim());
 
-		Properties options = new Properties();
-
 		for (int i = 0; i < sourceModel.getOptionList().size(); i++)
 		{
-			options.setProperty(sourceModel.getOptionList().get(i).toString(),
-			    sourceModel.getOptionValues().get(i));
+			theCampaign.addToMapFor(MapKey.PROPERTY, sourceModel
+					.getOptionList().get(i).toString(), sourceModel
+					.getOptionValues().get(i));
 		}
-
-		theCampaign.setOptions(options);
 
 		for (Iterator i = sourceModel.getLicenseList().iterator(); i.hasNext();)
 		{
@@ -194,10 +174,10 @@ class SourceBasePanel extends BasePanel
 		}
 
 		theCampaign = (Campaign) thisPObject;
-		sourceModel.setLists(theCampaign.getOptionsList(), theCampaign.getSafeListFor(ListKey.LICENSE),
+		sourceModel.setLists(buildOptionsList(theCampaign), theCampaign.getSafeListFor(ListKey.LICENSE),
 		    theCampaign.getSafeListFor(ListKey.SECTION_15));
 		rank.setValue(Integer.valueOf(theCampaign.getSafe(IntegerKey.CAMPAIGN_RANK)));
-		game = theCampaign.getGameModeString();
+		game = StringUtil.join(theCampaign.getSafeListFor(ListKey.GAME_MODE), ", ");
 
 		final StringTokenizer aTok = new StringTokenizer(game, ", ");
 
@@ -223,10 +203,10 @@ class SourceBasePanel extends BasePanel
 		pubNameLong.setCaretPosition(0); //Scroll to beginning of inserted text
 		pubNameShort.setCaretPosition(0);
 		pubNameWeb.setCaretPosition(0);
-		isOGL.setSelected(theCampaign.isOGL());
+		isOGL.setSelected(theCampaign.getSafe(ObjectKey.IS_OGL));
 		isD20.setSelected(theCampaign.isD20());
-		isLicensed.setSelected(theCampaign.isLicensed());
-		showInMenu.setSelected(theCampaign.canShowInMenu());
+		isLicensed.setSelected(theCampaign.getSafe(ObjectKey.IS_LICENSED));
+		showInMenu.setSelected(theCampaign.getSafe(ObjectKey.SHOW_IN_MENU));
 		infoText.setText(theCampaign.getInfoText());
 		infoText.setCaretPosition(0); //Scroll to beginning of inserted text
 		bookType.setSelectedItem(theCampaign.getBookType());
@@ -261,6 +241,17 @@ class SourceBasePanel extends BasePanel
 			destination.setText(theCampaign.getDestination());
 		}
 		destination.setCaretPosition(0); //Scroll to beginning of inserted text
+	}
+
+	private List<String> buildOptionsList(Campaign aCamp)
+	{
+		List<String> returnList = new ArrayList<String>();
+		Set<String> keys = aCamp.getKeysFor(MapKey.PROPERTY);
+		if (keys != null)
+		{
+			returnList.addAll(keys);
+		}
+		return returnList;
 	}
 
 	private void addCopyright()
@@ -644,7 +635,7 @@ class SourceBasePanel extends BasePanel
 				for (Iterator i = optionList.iterator(); i.hasNext();)
 				{
 					String aString = (String) i.next();
-					String val = SourceBasePanel.this.theCampaign.getOptions().getProperty(aString);
+					String val = theCampaign.get(MapKey.PROPERTY, aString);
 					optionValues.add(val);
 				}
 			}

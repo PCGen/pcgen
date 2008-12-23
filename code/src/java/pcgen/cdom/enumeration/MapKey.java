@@ -52,8 +52,7 @@ public final class MapKey<K, V>
 
 	/** ASPECT - a map key. */
 	public static final MapKey<AspectName, Aspect> ASPECT = new MapKey<AspectName, Aspect>();
-	/** TEST - a test map key. May be deleted and its usage replaced when a second Map Key is created. */
-	public static final MapKey<String, String> TEST = new MapKey<String, String>();
+	public static final MapKey<String, String> PROPERTY = new MapKey<String, String>();
 	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_MASTER_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
 	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_PC_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
 

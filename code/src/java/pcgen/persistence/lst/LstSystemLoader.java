@@ -34,7 +34,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,7 +41,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -51,6 +49,8 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.AbilityCategory;
@@ -704,15 +704,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 */
 	private static void setCampaignOptions(Campaign aCamp)
 	{
-		final Properties options = aCamp.getOptions();
-
-		if (options != null)
+		Set<String> keys = aCamp.getKeysFor(MapKey.PROPERTY);
+		if (keys != null)
 		{
-			for (Enumeration<?> e = options.propertyNames(); e
-				.hasMoreElements();)
+			for (String key : keys)
 			{
-				final String key = (String) e.nextElement();
-				final String value = options.getProperty(key);
+				String value = aCamp.get(MapKey.PROPERTY, key);
 				SettingsHandler.setPCGenOption(key, value);
 			}
 		}
@@ -897,80 +894,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				deityLoader.parseLine(context, null, aLine, globalCampaign);
 			}
 		}
-	}
-
-	/**
-	 * Reads the source file for the campaign aCamp and adds the names
-	 * of files to be loaded to raceFileList, classFileList etc.
-	 * @param aCamp
-	 */
-	private void loadCampaignFile(Campaign aCamp, GameMode game)
-	{
-		aCamp.setIsLoaded(true);
-
-		final URI sourceFile = aCamp.getSourceURI();
-
-		List<URI> files = getChosenCampaignSourcefiles(game);
-		// Update the list of chosen campaign source files
-		if (!files.contains(sourceFile))
-		{
-			files.add(sourceFile);
-			SettingsHandler.getOptions().setProperty(
-				"pcgen.files.chosenCampaignSourcefiles." + game.getName(),
-				StringUtil.join(files, ", "));
-//			CoreUtility.join(chosenCampaignSourcefiles, ','));
-		}
-
-		// Update whether licenses need shown
-		showOGL |= aCamp.isOGL();
-		showD20 |= aCamp.isD20();
-		showLicensed |= aCamp.isLicensed();
-
-		if (aCamp.isLicensed())
-		{
-			List<String> licenseList = aCamp.getSafeListFor(ListKey.LICENSE);
-			if (licenseList != null && licenseList.size() > 0)
-			{
-				licensesToDisplayString.append(licenseList);
-			}
-
-			List<URI> licenseURIs = aCamp.getSafeListFor(ListKey.LICENSE_FILE);
-			if (licenseURIs != null)
-			{
-				licenseFiles.addAll(licenseURIs);
-			}
-		}
-		
-		// check if maturity warning needs to be shown
-		showMature |= aCamp.isMature();
-		
-		if (aCamp.isMature())
-		{
-			matureCampaigns.append(SourceFormat.LONG.getField(aCamp) + 
-				                   " (" + aCamp.getPubNameLong() + ")<br>");
-		}
-
-		// Load the LST files to be loaded for the campaign
-		lstExcludeFiles.addAll(aCamp.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
-		raceFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_RACE));
-		classFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_CLASS));
-		companionmodFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_COMPANION_MOD));
-		skillFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_SKILL));
-		abilityCategoryFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
-		abilityFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_ABILITY));
-		featFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_FEAT));
-		deityFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_DEITY));
-		domainFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_DOMAIN));
-		weaponProfFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_WEAPON_PROF));
-		armorProfFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_ARMOR_PROF));
-		shieldProfFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_SHIELD_PROF));
-		equipmentFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_EQUIP));
-		spellFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_SPELL));
-		languageFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_LANGUAGE));
-		templateFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_TEMPLATE));
-		equipmodFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_EQUIP_MOD));
-		kitFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_KIT));
-		bioSetFileList.addAll(aCamp.getSafeListFor(ListKey.FILE_BIO_SET));
 	}
 
 	private void loadCustomItems()
@@ -1351,7 +1274,71 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// along with any options required by the campaigns...
 		for (Campaign campaign : aSelectedCampaignsList)
 		{
-			loadCampaignFile(campaign, game);
+			campaign.setIsLoaded(true);
+			
+					final URI sourceFile = campaign.getSourceURI();
+			
+					List<URI> files = getChosenCampaignSourcefiles(game);
+					// Update the list of chosen campaign source files
+					if (!files.contains(sourceFile))
+					{
+						files.add(sourceFile);
+						SettingsHandler.getOptions().setProperty(
+							"pcgen.files.chosenCampaignSourcefiles." + game.getName(),
+							StringUtil.join(files, ", "));
+			//			CoreUtility.join(chosenCampaignSourcefiles, ','));
+					}
+			
+					// Update whether licenses need shown
+					showOGL |= campaign.getSafe(ObjectKey.IS_OGL);
+					showD20 |= campaign.isD20();
+					showLicensed |= campaign.getSafe(ObjectKey.IS_LICENSED);
+			
+					if (campaign.getSafe(ObjectKey.IS_LICENSED))
+					{
+						List<String> licenseList = campaign.getSafeListFor(ListKey.LICENSE);
+						if (licenseList != null && licenseList.size() > 0)
+						{
+							licensesToDisplayString.append(licenseList);
+						}
+			
+						List<URI> licenseURIs = campaign.getSafeListFor(ListKey.LICENSE_FILE);
+						if (licenseURIs != null)
+						{
+							licenseFiles.addAll(licenseURIs);
+						}
+					}
+					
+					// check if maturity warning needs to be shown
+					showMature |= campaign.getSafe(ObjectKey.IS_MATURE);
+					
+					if (campaign.getSafe(ObjectKey.IS_MATURE))
+					{
+						matureCampaigns.append(SourceFormat.LONG.getField(campaign) + 
+							                   " (" + campaign.getPubNameLong() + ")<br>");
+					}
+			
+					// Load the LST files to be loaded for the campaign
+					lstExcludeFiles.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
+					raceFileList.addAll(campaign.getSafeListFor(ListKey.FILE_RACE));
+					classFileList.addAll(campaign.getSafeListFor(ListKey.FILE_CLASS));
+					companionmodFileList.addAll(campaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
+					skillFileList.addAll(campaign.getSafeListFor(ListKey.FILE_SKILL));
+					abilityCategoryFileList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+					abilityFileList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY));
+					featFileList.addAll(campaign.getSafeListFor(ListKey.FILE_FEAT));
+					deityFileList.addAll(campaign.getSafeListFor(ListKey.FILE_DEITY));
+					domainFileList.addAll(campaign.getSafeListFor(ListKey.FILE_DOMAIN));
+					weaponProfFileList.addAll(campaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
+					armorProfFileList.addAll(campaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
+					shieldProfFileList.addAll(campaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
+					equipmentFileList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP));
+					spellFileList.addAll(campaign.getSafeListFor(ListKey.FILE_SPELL));
+					languageFileList.addAll(campaign.getSafeListFor(ListKey.FILE_LANGUAGE));
+					templateFileList.addAll(campaign.getSafeListFor(ListKey.FILE_TEMPLATE));
+					equipmodFileList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
+					kitFileList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));
+					bioSetFileList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
 			if (loadedSet.add(campaign))
 			{
 				campaign.applyTo(context.ref);
@@ -1363,7 +1350,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 			
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (URI fName : campaign.getPccFiles())
+			for (URI fName : campaign.getSafeListFor(ListKey.FILE_PCC))
 			{
 				if (PCGFile.isPCGenCampaignFile(fName))
 				{

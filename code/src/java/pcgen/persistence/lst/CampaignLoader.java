@@ -83,6 +83,7 @@ public class CampaignLoader extends LstLineFileLoader
 	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		campaign = new Campaign();
+		campaign.setSourceURI(fileName);
 
 		super.loadLstFile(campaign.getCampaignContext(), fileName);
 
@@ -223,7 +224,7 @@ public class CampaignLoader extends LstLineFileLoader
 		baseCampaign.setInitted(true);
 		
 		// Add all sub-files to the main campaign, regardless of exclusions
-		for (URI fName : baseCampaign.getPccFiles())
+		for (URI fName : baseCampaign.getSafeListFor(ListKey.FILE_PCC))
 		{
 			if (PCGFile.isPCGenCampaignFile(fName))
 			{
