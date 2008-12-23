@@ -72,16 +72,8 @@ public class StringUtilTest extends TestCase
 
 	public void testJoinNullArrayContents()
 	{
-		try
-		{
-			assertEquals("Foo", StringUtil
-				.join(new String[]{"Foo", null}, ", "));
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			//Expected
-		}
+		assertEquals("Foo, null", StringUtil
+			.join(new String[]{"Foo", null}, ", "));
 	}
 
 	public void testJoinNullListContents()
