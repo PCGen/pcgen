@@ -48,7 +48,6 @@ import pcgen.rules.context.RuntimeLoadContext;
  */
 public class Campaign extends PObject
 {
-	private boolean isD20;
 	private boolean isLoaded;
 	private boolean isInitted;
 
@@ -75,23 +74,6 @@ public class Campaign extends PObject
 		}
 
 		return false;
-	}
-
-	/**
-	 * @return whether or not the d20 info will pop up when this campaign is loaded
-	 */
-	public boolean isD20()
-	{
-		return isD20;
-	}
-
-	/**
-	 * Set the isd20 flag
-	 * @param isD20
-	 */
-	public void setIsD20(final boolean isD20)
-	{
-		this.isD20 = isD20;
 	}
 
 	/**
