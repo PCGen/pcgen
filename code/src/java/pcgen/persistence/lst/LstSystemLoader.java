@@ -540,6 +540,14 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			classLoader.loadSubLines(context);
 			
+			/*
+			 * This is technically bad behavior, but we at least want to provide
+			 * the hint here since we are using WeakReferences as a container
+			 * for references to ensure those that are not used are not
+			 * resolved.
+			 */
+			System.gc();
+			
 			context.resolveDeferredTokens();
 			context.ref.buildDeferredObjects();
 			context.ref.buildDerivedObjects();

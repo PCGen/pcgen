@@ -101,7 +101,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * also stores the reference so that it can be appropriately resolved when
 	 * resolveReferences() is called.
 	 */
-	private final Map<String, SRT> referenced = new TreeMap<String, SRT>(
+	private final Map<String, WeakReference<SRT>> referenced = new TreeMap<String, WeakReference<SRT>>(
 			String.CASE_INSENSITIVE_ORDER);
 
 	/**
@@ -287,27 +287,31 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	public void resolveReferences()
 	{
 		List<String> throwaway = new ArrayList<String>();
-		for (Entry<String, SRT> me1 : referenced.entrySet())
+		for (Entry<String, WeakReference<SRT>> me1 : referenced.entrySet())
 		{
-			T activeObj = active.get(me1.getKey());
-			if (activeObj == null)
+			SRT value = me1.getValue().get();
+			if (value != null)
 			{
-				String reduced = AbilityUtilities.getUndecoratedName(me1
-						.getKey(), throwaway);
-				activeObj = active.get(reduced);
+				T activeObj = active.get(me1.getKey());
 				if (activeObj == null)
 				{
-					Logging.errorPrint("Unable to Resolve: " + refClass + " "
-							+ me1.getKey());
+					String reduced = AbilityUtilities.getUndecoratedName(me1
+							.getKey(), throwaway);
+					activeObj = active.get(reduced);
+					if (activeObj == null)
+					{
+						Logging.errorPrint("Unable to Resolve: " + refClass + " "
+								+ me1.getKey());
+					}
+					else
+					{
+						value.addResolution(activeObj);
+					}
 				}
 				else
 				{
-					me1.getValue().addResolution(activeObj);
+					value.addResolution(activeObj);
 				}
-			}
-			else
-			{
-				me1.getValue().addResolution(activeObj);
 			}
 		}
 		for (T obj : getAllObjects())
@@ -669,12 +673,17 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			}
 		}
 
-		SRT ref = referenced.get(val);
-		if (ref == null)
+		WeakReference<SRT> wr = referenced.get(val);
+		if (wr != null)
 		{
-			ref = getLocalReference(val);
-			referenced.put(val, ref);
+			SRT ref = wr.get();
+			if (ref != null)
+			{
+				return ref;
+			}
 		}
+		SRT ref = getLocalReference(val);
+		referenced.put(val, new WeakReference<SRT>(ref));
 		return ref;
 	}
 
@@ -792,21 +801,31 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			}
 		}
 		List<String> throwaway = new ArrayList<String>();
-		for (String s : referenced.keySet())
+		for (Iterator<Entry<String, WeakReference<SRT>>> it = referenced.entrySet().iterator(); it.hasNext();)
 		{
-			if (!active.containsKey(s) && !deferred.contains(s))
+			Entry<String, WeakReference<SRT>> me = it.next();
+			SRT value = me.getValue().get();
+			if (value == null)
 			{
-				String undec = AbilityUtilities
-						.getUndecoratedName(s, throwaway);
-				if (!active.containsKey(undec) && !deferred.contains(undec))
+				it.remove();
+			}
+			else
+			{
+				String s = me.getKey();
+				if (!active.containsKey(s) && !deferred.contains(s))
 				{
-					if (s.charAt(0) != '*')
+					String undec = AbilityUtilities
+							.getUndecoratedName(s, throwaway);
+					if (!active.containsKey(undec) && !deferred.contains(undec))
 					{
-						Logging.errorPrint("Unconstructed Reference: "
-								+ getReferenceDescription() + " " + s);
-						returnGood = false;
+						if (s.charAt(0) != '*')
+						{
+							Logging.errorPrint("Unconstructed Reference: "
+									+ getReferenceDescription() + " " + s);
+							returnGood = false;
+						}
+						constructObject(s);
 					}
-					constructObject(s);
 				}
 			}
 		}
@@ -906,7 +925,16 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 
 	protected Collection<SRT> getReferenced()
 	{
-		return referenced.values();
+		List<SRT> list = new ArrayList<SRT>();
+		for (WeakReference<SRT> wr : referenced.values())
+		{
+			SRT ref = wr.get();
+			if (ref != null)
+			{
+				list.add(ref);
+			}
+		}
+		return list;
 	}
 
 	/**

@@ -249,6 +249,12 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> boolean forget(T obj)
 	{
+		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
+		if (map != null)
+		{
+			map.remove(obj);
+		}
+
 		if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
