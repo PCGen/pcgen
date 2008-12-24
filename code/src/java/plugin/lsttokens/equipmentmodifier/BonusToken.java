@@ -42,7 +42,7 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		return "BONUS";
 	}
 
-	public boolean parse(LoadContext context, EquipmentModifier obj,
+	public boolean parse(LoadContext context, EquipmentModifier mod,
 			String value) throws PersistenceLayerException
 	{
 		BonusObj bon = Bonus.newBonus(value);
@@ -52,15 +52,15 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 					+ value);
 			return false;
 		}
-		bon.setCreatorObject(obj);
+		bon.setCreatorObject(mod);
 		bon.setTokenSource(getTokenName());
-		context.obj.addToList(obj, ListKey.BONUS, bon);
+		context.obj.addToList(mod, ListKey.BONUS, bon);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, EquipmentModifier obj)
+	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Changes<BonusObj> changes = context.obj.getListChanges(obj,
+		Changes<BonusObj> changes = context.obj.getListChanges(mod,
 				ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{

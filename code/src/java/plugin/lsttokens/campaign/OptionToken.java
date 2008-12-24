@@ -42,7 +42,7 @@ public class OptionToken extends AbstractToken implements
 		return "OPTION";
 	}
 
-	public boolean parse(LoadContext context, Campaign pcc, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 	{
 		if (isEmpty(value))
 		{
@@ -53,7 +53,7 @@ public class OptionToken extends AbstractToken implements
 		if (equalsPos < 0)
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid option line in campaign "
-					+ pcc.getKeyName() + " : " + value);
+					+ campaign.getKeyName() + " : " + value);
 			return false;
 		}
 		String optName = value.substring(0, equalsPos);
@@ -64,14 +64,14 @@ public class OptionToken extends AbstractToken implements
 		}
 
 		final String optValue = value.substring(equalsPos + 1);
-		context.obj.put(pcc, MapKey.PROPERTY, optName, optValue);
+		context.obj.put(campaign, MapKey.PROPERTY, optName, optValue);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign pcc)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		MapChanges<String, String> changes = context.getObjectContext()
-				.getMapChanges(pcc, MapKey.PROPERTY);
+				.getMapChanges(campaign, MapKey.PROPERTY);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

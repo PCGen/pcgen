@@ -62,7 +62,7 @@ public class ModifyabilitychoiceToken extends AbstractToken implements
 		return "MODIFYABILITYCHOICE";
 	}
 
-	public boolean parse(LoadContext context, Ability obj, String value)
+	public boolean parse(LoadContext context, Ability ability, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
@@ -77,14 +77,14 @@ public class ModifyabilitychoiceToken extends AbstractToken implements
 		{
 			String token = tok.nextToken();
 
-			CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(
+			CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(
 					context, ABILITY_CLASS, category, token);
-			if (ability == null)
+			if (ref == null)
 			{
 				return false;
 			}
 
-			refs.add(ability);
+			refs.add(ref);
 		}
 
 		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(refs);
@@ -96,13 +96,13 @@ public class ModifyabilitychoiceToken extends AbstractToken implements
 				+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
 				+ " to modify");
 		tc.setRequired(false);
-		context.getObjectContext().put(obj, ObjectKey.MODIFY_CHOICE, tc);
+		context.getObjectContext().put(ability, ObjectKey.MODIFY_CHOICE, tc);
 		tc.setChoiceActor(this);
 
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Ability obj)
+	public String[] unparse(LoadContext context, Ability ability)
 	{
 		// This is intentional, so as to have this export as MODIFYFEATCHOICE
 		return null;

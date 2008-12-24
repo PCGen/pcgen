@@ -42,7 +42,7 @@ public class LicenseToken extends AbstractToken implements
 		return "LICENSE";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 		throws PersistenceLayerException
 	{
 		if (isEmpty(value))
@@ -57,21 +57,21 @@ public class LicenseToken extends AbstractToken implements
 				//Error
 				return false;
 			}
-			context.obj.addToList(obj, ListKey.LICENSE_FILE, uri);
+			context.obj.addToList(campaign, ListKey.LICENSE_FILE, uri);
 		}
 		else
 		{
-			context.obj.addToList(obj, ListKey.LICENSE, value);
+			context.obj.addToList(campaign, ListKey.LICENSE, value);
 		}
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<String> changes =
-				context.getObjectContext().getListChanges(obj, ListKey.LICENSE);
+				context.getObjectContext().getListChanges(campaign, ListKey.LICENSE);
 		Changes<URI> filechanges =
-				context.getObjectContext().getListChanges(obj,
+				context.getObjectContext().getListChanges(campaign,
 					ListKey.LICENSE_FILE);
 		TreeSet<String> set = new TreeSet<String>();
 		Collection<String> added = changes.getAdded();

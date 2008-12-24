@@ -65,7 +65,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		return "URL";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 			throws PersistenceLayerException
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
@@ -122,15 +122,15 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 				urlDesc);
 
 		// Add URL Object to campaign
-		context.obj.addToList(obj, ListKey.CAMPAIGN_URL, campUrl);
+		context.obj.addToList(campaign, ListKey.CAMPAIGN_URL, campUrl);
 
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignURL> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.CAMPAIGN_URL);
+				.getListChanges(campaign, ListKey.CAMPAIGN_URL);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

@@ -37,7 +37,7 @@ public class IsoglToken extends AbstractToken implements
 		return "ISOGL";
 	}
 
-	public boolean parse(LoadContext context, Campaign pcc, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 	{
 		if (isEmpty(value))
 		{
@@ -71,13 +71,13 @@ public class IsoglToken extends AbstractToken implements
 			}
 			set = Boolean.FALSE;
 		}
-		context.getObjectContext().put(pcc, ObjectKey.IS_OGL, set);
+		context.getObjectContext().put(campaign, ObjectKey.IS_OGL, set);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign pcc)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Boolean isM = context.getObjectContext().getObject(pcc,
+		Boolean isM = context.getObjectContext().getObject(campaign,
 				ObjectKey.IS_OGL);
 		if (isM == null)
 		{

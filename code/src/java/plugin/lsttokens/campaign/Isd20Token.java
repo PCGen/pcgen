@@ -37,7 +37,7 @@ public class Isd20Token extends AbstractToken implements
 		return "ISD20";
 	}
 
-	public boolean parse(LoadContext context, Campaign pcc, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 	{
 		if (isEmpty(value))
 		{
@@ -71,13 +71,13 @@ public class Isd20Token extends AbstractToken implements
 			}
 			set = Boolean.FALSE;
 		}
-		context.getObjectContext().put(pcc, ObjectKey.IS_D20, set);
+		context.getObjectContext().put(campaign, ObjectKey.IS_D20, set);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign pcc)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Boolean isM = context.getObjectContext().getObject(pcc,
+		Boolean isM = context.getObjectContext().getObject(campaign,
 				ObjectKey.IS_D20);
 		if (isM == null)
 		{

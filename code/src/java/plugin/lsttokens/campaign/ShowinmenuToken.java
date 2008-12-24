@@ -47,7 +47,7 @@ public class ShowinmenuToken extends AbstractToken implements
 		return true;
 	}
 
-	public boolean parse(LoadContext context, Campaign pcc, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 	{
 		if (isEmpty(value))
 		{
@@ -87,13 +87,13 @@ public class ShowinmenuToken extends AbstractToken implements
 			}
 			set = Boolean.FALSE;
 		}
-		context.getObjectContext().put(pcc, ObjectKey.SHOW_IN_MENU, set);
+		context.getObjectContext().put(campaign, ObjectKey.SHOW_IN_MENU, set);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign pcc)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Boolean isM = context.getObjectContext().getObject(pcc,
+		Boolean isM = context.getObjectContext().getObject(campaign,
 				ObjectKey.SHOW_IN_MENU);
 		if (isM == null)
 		{

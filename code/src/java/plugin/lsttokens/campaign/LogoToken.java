@@ -66,14 +66,14 @@ public class LogoToken extends AbstractToken implements
 				sourceUri, value));
 		return true;
 	}
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 		throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(obj, value);
+		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{
 			//Error
@@ -91,14 +91,14 @@ public class LogoToken extends AbstractToken implements
 				+ value);
 			return false;
 		}
-		context.obj.addToList(obj, ListKey.FILE_LOGO, cse);
+		context.obj.addToList(campaign, ListKey.FILE_LOGO, cse);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(obj, ListKey.FILE_LOGO);
+				context.obj.getListChanges(campaign, ListKey.FILE_LOGO);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

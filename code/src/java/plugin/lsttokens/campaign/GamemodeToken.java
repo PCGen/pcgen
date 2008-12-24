@@ -43,27 +43,27 @@ public class GamemodeToken extends AbstractToken implements
 		return "GAMEMODE";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String gameMode)
+	public boolean parse(LoadContext context, Campaign campaign, String gameMode)
 			throws PersistenceLayerException
 	{
 		if (isEmpty(gameMode))
 		{
 			return false;
 		}
-		context.obj.removeList(obj, ListKey.GAME_MODE);
+		context.obj.removeList(campaign, ListKey.GAME_MODE);
 
 		StringTokenizer aTok = new StringTokenizer(gameMode, Constants.PIPE);
 		while (aTok.hasMoreTokens())
 		{
-			context.obj.addToList(obj, ListKey.GAME_MODE, aTok.nextToken());
+			context.obj.addToList(campaign, ListKey.GAME_MODE, aTok.nextToken());
 		}
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<String> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.GAME_MODE);
+				campaign, ListKey.GAME_MODE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

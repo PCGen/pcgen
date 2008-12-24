@@ -48,20 +48,20 @@ public class DescToken extends AbstractToken implements
 		return "DESC";
 	}
 
-	public boolean parse(LoadContext context, Campaign deity, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 	{
 		if (isEmpty(value))
 		{
 			return false;
 		}
-		context.getObjectContext().put(deity, StringKey.DESCRIPTION, value);
+		context.getObjectContext().put(campaign, StringKey.DESCRIPTION, value);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign deity)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		String title =
-				context.getObjectContext().getString(deity, StringKey.DESCRIPTION);
+				context.getObjectContext().getString(campaign, StringKey.DESCRIPTION);
 		if (title == null)
 		{
 			return null;

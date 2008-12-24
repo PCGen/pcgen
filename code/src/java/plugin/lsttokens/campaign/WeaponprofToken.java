@@ -42,27 +42,27 @@ public class WeaponprofToken extends AbstractToken implements CDOMPrimaryToken<C
 		return "WEAPONPROF";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 		throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(obj, value);
+		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{
 			//Error
 			return false;
 		}
-		context.obj.addToList(obj, ListKey.FILE_WEAPON_PROF, cse);
+		context.obj.addToList(campaign, ListKey.FILE_WEAPON_PROF, cse);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(obj, ListKey.FILE_WEAPON_PROF);
+				context.obj.getListChanges(campaign, ListKey.FILE_WEAPON_PROF);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

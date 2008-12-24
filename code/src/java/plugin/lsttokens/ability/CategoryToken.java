@@ -71,11 +71,11 @@ public class CategoryToken implements CDOMPrimaryToken<Ability>,
 		return Ability.class;
 	}
 
-	public boolean process(LoadContext context, Ability obj)
+	public boolean process(LoadContext context, Ability ability)
 	{
-		if (obj.get(ObjectKey.ABILITY_CAT) == null)
+		if (ability.get(ObjectKey.ABILITY_CAT) == null)
 		{
-			Logging.errorPrint("Ability " + obj.getKeyName()
+			Logging.errorPrint("Ability " + ability.getKeyName()
 					+ " did not have a Category specified.  "
 					+ "A Category is required for an Ability");
 			return false;

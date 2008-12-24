@@ -149,10 +149,10 @@ public class AspectToken extends AbstractToken implements
 	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext,
 	 *      java.lang.Object)
 	 */
-	public String[] unparse(LoadContext context, Ability obj)
+	public String[] unparse(LoadContext context, Ability ability)
 	{
 		MapChanges<AspectName, Aspect> changes = context.getObjectContext()
-				.getMapChanges(obj, MapKey.ASPECT);
+				.getMapChanges(ability, MapKey.ASPECT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

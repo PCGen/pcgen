@@ -35,12 +35,12 @@ public class RankToken implements CDOMPrimaryToken<Campaign>
 		return "RANK";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 		throws PersistenceLayerException
 	{
 		try
 		{
-			context.obj.put(obj, IntegerKey.CAMPAIGN_RANK, Integer
+			context.obj.put(campaign, IntegerKey.CAMPAIGN_RANK, Integer
 				.parseInt(value));
 			return true;
 		}
@@ -52,10 +52,10 @@ public class RankToken implements CDOMPrimaryToken<Campaign>
 		return false;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Integer rank =
-				context.getObjectContext().getInteger(obj,
+				context.getObjectContext().getInteger(campaign,
 					IntegerKey.CAMPAIGN_RANK);
 		if (rank == null)
 		{

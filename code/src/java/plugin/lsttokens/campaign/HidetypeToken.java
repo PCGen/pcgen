@@ -46,7 +46,7 @@ public class HidetypeToken extends AbstractToken implements
 		return "HIDETYPE";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 			throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
@@ -74,25 +74,25 @@ public class HidetypeToken extends AbstractToken implements
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " did not understand: " + value + " in "
-					+ obj.getKeyName());
+					+ campaign.getKeyName());
 			return false;
 		}
 		StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
-			context.obj.addToList(obj, lk, st.nextToken());
+			context.obj.addToList(campaign, lk, st.nextToken());
 		}
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		List<String> returnList = new ArrayList<String>();
-		Changes<String> ech = context.obj.getListChanges(obj,
+		Changes<String> ech = context.obj.getListChanges(campaign,
 				ListKey.HIDDEN_Equipment);
-		Changes<String> ach = context.obj.getListChanges(obj,
+		Changes<String> ach = context.obj.getListChanges(campaign,
 				ListKey.HIDDEN_Ability);
-		Changes<String> sch = context.obj.getListChanges(obj,
+		Changes<String> sch = context.obj.getListChanges(campaign,
 				ListKey.HIDDEN_Skill);
 
 		Collection<String> added = ech.getAdded();

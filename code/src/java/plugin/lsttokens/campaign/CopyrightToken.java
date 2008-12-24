@@ -49,21 +49,21 @@ public class CopyrightToken extends AbstractToken implements
 		return true;
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 		throws PersistenceLayerException
 	{
 		if (isEmpty(value))
 		{
 			return false;
 		}
-		context.obj.addToList(obj, ListKey.SECTION_15, value);
+		context.obj.addToList(campaign, ListKey.SECTION_15, value);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<String> changes =
-				context.getObjectContext().getListChanges(obj,
+				context.getObjectContext().getListChanges(campaign,
 					ListKey.SECTION_15);
 		TreeSet<String> set = new TreeSet<String>();
 		Collection<String> added = changes.getAdded();

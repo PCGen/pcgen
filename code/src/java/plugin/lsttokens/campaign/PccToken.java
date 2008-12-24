@@ -43,7 +43,7 @@ public class PccToken extends AbstractToken implements
 		return "PCC";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 			throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
@@ -56,13 +56,13 @@ public class PccToken extends AbstractToken implements
 			// Error
 			return false;
 		}
-		context.obj.addToList(obj, ListKey.FILE_PCC, uri);
+		context.obj.addToList(campaign, ListKey.FILE_PCC, uri);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<URI> cseChanges = context.obj.getListChanges(obj,
+		Changes<URI> cseChanges = context.obj.getListChanges(campaign,
 				ListKey.FILE_PCC);
 		Collection<URI> added = cseChanges.getAdded();
 		if (added == null)

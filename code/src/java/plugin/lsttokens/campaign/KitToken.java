@@ -43,27 +43,27 @@ public class KitToken extends AbstractToken implements
 		return "KIT";
 	}
 
-	public boolean parse(LoadContext context, Campaign obj, String value)
+	public boolean parse(LoadContext context, Campaign campaign, String value)
 		throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(obj, value);
+		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{
 			//Error
 			return false;
 		}
-		context.obj.addToList(obj, ListKey.FILE_KIT, cse);
+		context.obj.addToList(campaign, ListKey.FILE_KIT, cse);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Campaign obj)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(obj, ListKey.FILE_KIT);
+				context.obj.getListChanges(campaign, ListKey.FILE_KIT);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{
