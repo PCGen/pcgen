@@ -84,9 +84,9 @@ public class StartfeatsToken extends AbstractToken implements
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Race obj)
+	public String[] unparse(LoadContext context, Race race)
 	{
-		Changes<BonusObj> changes = context.obj.getListChanges(obj,
+		Changes<BonusObj> changes = context.obj.getListChanges(race,
 				ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{

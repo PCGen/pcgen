@@ -114,10 +114,10 @@ public class SpellPointCostToken implements CDOMPrimaryToken<Spell>
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Spell eq)
+	public String[] unparse(LoadContext context, Spell spell)
 	{
 		Changes<PointCost> changes = context.getObjectContext().getListChanges(
-				eq, ListKey.SPELL_POINT_COST);
+				spell, ListKey.SPELL_POINT_COST);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

@@ -44,7 +44,7 @@ public class SpecialtyknownToken extends AbstractToken implements
 		return "SPECIALTYKNOWN";
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel pcc, String value)
+	public boolean parse(LoadContext context, PCClassLevel level, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator(',', value))
 		{
@@ -68,15 +68,15 @@ public class SpecialtyknownToken extends AbstractToken implements
 			{
 				// OK, it must be a formula...
 			}
-			context.obj.addToList(pcc, ListKey.SPECIALTYKNOWN, FormulaFactory
+			context.obj.addToList(level, ListKey.SPECIALTYKNOWN, FormulaFactory
 					.getFormulaFor(tok));
 		}
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, PCClassLevel pcc)
+	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Changes<Formula> changes = context.obj.getListChanges(pcc,
+		Changes<Formula> changes = context.obj.getListChanges(level,
 				ListKey.SPECIALTYKNOWN);
 		if (changes == null || changes.isEmpty())
 		{

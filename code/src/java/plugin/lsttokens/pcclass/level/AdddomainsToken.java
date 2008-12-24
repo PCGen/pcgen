@@ -53,7 +53,7 @@ public class AdddomainsToken extends AbstractToken implements
 		return "ADDDOMAINS";
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel po, String value)
+	public boolean parse(LoadContext context, PCClassLevel level, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('.', value))
 		{
@@ -106,7 +106,7 @@ public class AdddomainsToken extends AbstractToken implements
 				}
 			}
 			AssociatedPrereqObject apo = context.getListContext().addToList(
-					getTokenName(), po, PCClass.ALLOWED_DOMAINS,
+					getTokenName(), level, PCClass.ALLOWED_DOMAINS,
 					context.ref.getCDOMReference(DOMAIN_CLASS, domainKey));
 			if (prereq != null)
 			{
@@ -117,10 +117,10 @@ public class AdddomainsToken extends AbstractToken implements
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, PCClassLevel po)
+	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
 		AssociatedChanges<CDOMReference<Domain>> changes = context
-				.getListContext().getChangesInList(getTokenName(), po,
+				.getListContext().getChangesInList(getTokenName(), level,
 						PCClass.ALLOWED_DOMAINS);
 		Collection<CDOMReference<Domain>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty()

@@ -48,7 +48,7 @@ public class HitdieLst extends AbstractToken implements
 		return "HITDIE";
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel pcl, String value)
+	public boolean parse(LoadContext context, PCClassLevel level, String value)
 	{
 		try
 		{
@@ -203,7 +203,7 @@ public class HitdieLst extends AbstractToken implements
 				hdm = new HitDieLock(new HitDie(i));
 			}
 
-			context.getObjectContext().put(pcl, ObjectKey.HITDIE, hdm);
+			context.getObjectContext().put(level, ObjectKey.HITDIE, hdm);
 			return true;
 		}
 		catch (NumberFormatException nfe)
@@ -215,9 +215,9 @@ public class HitdieLst extends AbstractToken implements
 		}
 	}
 
-	public String[] unparse(LoadContext context, PCClassLevel pcl)
+	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Modifier<HitDie> hdcf = context.getObjectContext().getObject(pcl,
+		Modifier<HitDie> hdcf = context.getObjectContext().getObject(level,
 				ObjectKey.HITDIE);
 		if (hdcf == null)
 		{

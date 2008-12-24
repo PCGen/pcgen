@@ -44,7 +44,7 @@ public class CastToken extends AbstractToken implements
 		return "CAST";
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel pcc, String value)
+	public boolean parse(LoadContext context, PCClassLevel level, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator(',', value))
 		{
@@ -68,16 +68,16 @@ public class CastToken extends AbstractToken implements
 			{
 				// OK, it must be a formula...
 			}
-			context.obj.addToList(pcc, ListKey.CAST, FormulaFactory
+			context.obj.addToList(level, ListKey.CAST, FormulaFactory
 					.getFormulaFor(tok));
 		}
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, PCClassLevel pcc)
+	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
 		Changes<Formula> changes = context.obj
-				.getListChanges(pcc, ListKey.CAST);
+				.getListChanges(level, ListKey.CAST);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

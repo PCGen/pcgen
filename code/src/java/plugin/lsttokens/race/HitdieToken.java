@@ -270,9 +270,9 @@ public class HitdieToken extends AbstractToken implements
 		}
 	}
 
-	public String[] unparse(LoadContext context, Race pcl)
+	public String[] unparse(LoadContext context, Race race)
 	{
-		Modifier<HitDie> hdcf = context.getObjectContext().getObject(pcl,
+		Modifier<HitDie> hdcf = context.getObjectContext().getObject(race,
 				ObjectKey.HITDIE);
 		if (hdcf == null)
 		{

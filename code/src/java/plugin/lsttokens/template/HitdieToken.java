@@ -269,9 +269,9 @@ public class HitdieToken extends AbstractToken implements
 		}
 	}
 
-	public String[] unparse(LoadContext context, PCTemplate pcl)
+	public String[] unparse(LoadContext context, PCTemplate template)
 	{
-		Modifier<HitDie> hdcf = context.getObjectContext().getObject(pcl,
+		Modifier<HitDie> hdcf = context.getObjectContext().getObject(template,
 				ObjectKey.HITDIE);
 		if (hdcf == null)
 		{

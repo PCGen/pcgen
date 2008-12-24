@@ -52,9 +52,9 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 		return "FEAT";
 	}
 
-	public boolean parse(LoadContext context, Race pct, String value)
+	public boolean parse(LoadContext context, Race race, String value)
 	{
-		return parseFeat(context, pct, value);
+		return parseFeat(context, race, value);
 	}
 
 	public boolean parseFeat(LoadContext context, CDOMObject obj, String value)
@@ -108,10 +108,10 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Race pct)
+	public String[] unparse(LoadContext context, Race race)
 	{
 		AssociatedChanges<CDOMReference<Ability>> changes = context
-				.getListContext().getChangesInList(getTokenName(), pct,
+				.getListContext().getChangesInList(getTokenName(), race,
 						Ability.FEATLIST);
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
 				.getAddedAssociations();

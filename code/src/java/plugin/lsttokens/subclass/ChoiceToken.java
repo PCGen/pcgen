@@ -46,18 +46,18 @@ public class ChoiceToken extends AbstractToken implements
 		return "CHOICE";
 	}
 
-	public boolean parse(LoadContext context, SubClass pcc, String value)
+	public boolean parse(LoadContext context, SubClass sc, String value)
 	{
-		SpellProhibitor sp = subParse(context, pcc, value);
+		SpellProhibitor sp = subParse(context, sc, value);
 		if (sp == null)
 		{
 			return false;
 		}
-		context.getObjectContext().put(pcc, ObjectKey.CHOICE, sp);
+		context.getObjectContext().put(sc, ObjectKey.CHOICE, sp);
 		return true;
 	}
 
-	public SpellProhibitor subParse(LoadContext context, SubClass pcc,
+	public SpellProhibitor subParse(LoadContext context, SubClass sc,
 			String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
@@ -102,7 +102,7 @@ public class ChoiceToken extends AbstractToken implements
 				|| type.equals(ProhibitedSpellType.SUBSCHOOL)
 				|| type.equals(ProhibitedSpellType.DESCRIPTOR))
 		{
-			SpellProhibitor spellProb = typeSafeParse(context, pcc, type, value
+			SpellProhibitor spellProb = typeSafeParse(context, sc, type, value
 					.substring(pipeLoc + 1));
 			if (spellProb == null)
 			{

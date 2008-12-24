@@ -65,7 +65,7 @@ public class ChooseLangautoToken extends AbstractToken implements
 		return "LANGAUTO";
 	}
 
-	public boolean parse(LoadContext context, Race obj, String value)
+	public boolean parse(LoadContext context, Race race, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
@@ -113,16 +113,16 @@ public class ChooseLangautoToken extends AbstractToken implements
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
 		PersistentTransitionChoice<Language> tc =
 				new PersistentTransitionChoice<Language>(cs, Formula.ONE);
-		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
+		context.getObjectContext().addToList(race, ListKey.ADD, tc);
 		tc.setTitle("Pick a Language");
 		tc.setChoiceActor(this);
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, Race obj)
+	public String[] unparse(LoadContext context, Race race)
 	{
 		Changes<PersistentTransitionChoice<?>> grantChanges =
-				context.getObjectContext().getListChanges(obj, ListKey.ADD);
+				context.getObjectContext().getListChanges(race, ListKey.ADD);
 		Collection<PersistentTransitionChoice<?>> addedItems =
 				grantChanges.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
