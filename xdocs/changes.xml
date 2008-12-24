@@ -5,6 +5,11 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
+    <release version="5.15.9" date="In SVN" description="Alpha Release">
+      <action dev="karianna" type="add" issue="2000008">Secret notes that don&#039;t export</action>  
+      <action dev="thpr" type="add" >Completion of token conversion for CDOM</action>  
+      <action dev="jdempsey" type="fix" issue="2457274">PDF Spellbook sheets fail</action>  
+    </release> 
     <release version="5.15.8" date="2008-12-04" description="Alpha Release"> 
       <action dev="jdempsey" type="add" issue="1625030">Simplified Source Loading Interface</action>  
       <action dev="jdempsey" type="add" issue="2332545">Allow CHOOSE to be used in templates</action>  
