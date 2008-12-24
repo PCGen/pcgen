@@ -24,18 +24,14 @@ package pcgen.gui.editor;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Description;
+import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.TokenStore;
-import pcgen.util.Logging;
+import pcgen.rules.context.LoadContext;
 
 /**
  * <code>DomainBasePanel</code>
@@ -91,26 +87,12 @@ public class DomainBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
+		LoadContext context = Globals.getContext();
 		final String desc = getDescriptionText();
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			GlobalLstToken.class);
-		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
-		if (tokenParser != null)
+		final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
+		while (tok.hasMoreTokens())
 		{
-			final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
-			while (tok.hasMoreTokens())
-			{
-				try
-				{
-					tokenParser.parse(thisPObject, tok.nextToken(), -9);
-				}
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint("Invalid Description: " + desc);
-					Logging.errorPrint("  Token Parse Failed: "
-						+ e.getLocalizedMessage());
-				}
-			}
+			context.unconditionallyProcess(thisPObject, "DESC", tok.nextToken());
 		}
 		thisPObject.put(ObjectKey.DESC_PI, getDescIsPI());
 	}

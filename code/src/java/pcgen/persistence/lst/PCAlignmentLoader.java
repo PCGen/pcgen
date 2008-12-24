@@ -96,7 +96,7 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 							+ sourceURI.toString() + ':' + token + "\"");
 				}
 			}
-			else if (!PObjectLoader.parseTag(alignment, token))
+			else
 			{
 				Logging.replayParsedMessages();
 			}

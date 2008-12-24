@@ -108,7 +108,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 			{
 				context.commit();
 			}
-			else if (!PObjectLoader.parseTag(cmpMod, token))
+			else
 			{
 				Logging.replayParsedMessages();
 			}

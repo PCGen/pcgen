@@ -29,7 +29,6 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.swing.DefaultComboBoxModel;
@@ -49,11 +48,7 @@ import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.TokenStore;
-import pcgen.util.Logging;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -212,26 +207,12 @@ final class DeityBasePanel extends BasePanel
 				getDeityAlignment());
 		thisPObject.put(ObjectKey.ALIGNMENT, align);
 
+		LoadContext context = Globals.getContext();
 		final String desc = getDescriptionText();
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			GlobalLstToken.class);
-		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
-		if (tokenParser != null)
+		final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
+		while (tok.hasMoreTokens())
 		{
-			final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
-			while (tok.hasMoreTokens())
-			{
-				try
-				{
-					tokenParser.parse(thisPObject, tok.nextToken(), -9);
-				}
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint("Invalid Description: " + desc);
-					Logging.errorPrint("  Token Parse Failed: "
-						+ e.getLocalizedMessage());
-				}
-			}
+			context.unconditionallyProcess(thisPObject, "DESC", tok.nextToken());
 		}
 	
 		thisPObject.put(ObjectKey.DESC_PI, getDescIsPI());

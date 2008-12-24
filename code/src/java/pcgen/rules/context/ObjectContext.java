@@ -25,6 +25,7 @@ import java.util.Set;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.HashMapToList;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -100,6 +101,11 @@ public class ObjectContext
 		edits.put(cpo, p);
 	}
 
+	public void clearPrerequisiteList(ConcretePrereqObject cpo)
+	{
+		edits.clearPrerequisiteList(cpo);
+	}
+
 	public void put(CDOMObject cdo, IntegerKey ik, Integer i)
 	{
 		edits.put(cdo, ik, i);
@@ -161,6 +167,14 @@ public class ObjectContext
 
 	public void commit()
 	{
+		for (URI uri : edits.preClearSet.getKeySet())
+		{
+			for (ConcretePrereqObject cpo : edits.preClearSet
+					.getListFor(uri))
+			{
+				commit.clearPrerequisiteList(cpo);
+			}
+		}
 		for (URI uri : edits.globalClearSet.getKeySet())
 		{
 			for (CDOMObject cdo : edits.globalClearSet.getSecondaryKeySet(uri))
@@ -379,6 +393,8 @@ public class ObjectContext
 		private final DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, ListKey<?>>(
 				HashMap.class, IdentityHashMap.class);
 
+		private final HashMapToList<URI, ConcretePrereqObject> preClearSet = new HashMapToList<URI, ConcretePrereqObject>();
+
 		private final TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet = new TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String>(
 				HashMap.class, IdentityHashMap.class, HashMap.class);
 
@@ -399,6 +415,11 @@ public class ObjectContext
 				negativeMap.put(source, cdo, negative);
 			}
 			return negative;
+		}
+
+		public void clearPrerequisiteList(ConcretePrereqObject cpo)
+		{
+			preClearSet.addToListFor(sourceURI, cpo);
 		}
 
 		public void put(ConcretePrereqObject cpo, Prerequisite p)
@@ -625,7 +646,8 @@ public class ObjectContext
 				ConcretePrereqObject obj)
 		{
 			return new CollectionChanges<Prerequisite>(getPositive(extractURI,
-					obj).getPrerequisiteList(), null, false);
+					obj).getPrerequisiteList(), null, preClearSet
+					.containsInList(extractURI, obj));
 		}
 
 		public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,

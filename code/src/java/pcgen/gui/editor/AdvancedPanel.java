@@ -58,7 +58,6 @@ import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PObjectLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -401,7 +400,7 @@ public final class AdvancedPanel extends JPanel
 				{
 					context.commit();
 				}
-				else if (!PObjectLoader.parseTag(thisPObject, token))
+				else
 				{
 					Logging.replayParsedMessages();
 				}

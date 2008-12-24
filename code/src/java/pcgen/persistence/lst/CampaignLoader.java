@@ -28,7 +28,6 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -107,27 +106,15 @@ public class CampaignLoader extends LstLineFileLoader
 					+ inputLine);
 			return;
 		}
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				CampaignLstToken.class);
 
 		String key = inputLine.substring(0, colonLoc);
 		String value = (colonLoc == inputLine.length() - 1) ? null : inputLine
 				.substring(colonLoc + 1);
-		if (tokenMap.containsKey(key))
-		{
-			CampaignLstToken token = (CampaignLstToken) tokenMap.get(key);
-			LstUtils.deprecationCheck(token, campaign, value);
-			if (!token.parse(campaign, value, sourceURI))
-			{
-				Logging.errorPrint("Error parsing campaign "
-					+ campaign.getDisplayName() + ':' + inputLine);
-			}
-		}
-		else if (context.processToken(campaign, key, value))
+		if (context.processToken(campaign, key, value))
 		{
 			context.commit();
 		}
-		else if (!PObjectLoader.parseTag(campaign, inputLine))
+		else
 		{
 			Logging.replayParsedMessages();
 		}

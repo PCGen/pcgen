@@ -201,4 +201,9 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 			}
 		}
 	}
+
+	public void clearPrerequisiteList(ConcretePrereqObject cpo)
+	{
+		cpo.clearPrerequisiteList();
+	}
 }

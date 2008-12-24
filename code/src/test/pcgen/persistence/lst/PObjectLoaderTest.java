@@ -141,12 +141,13 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		PObject object = new PObject();
 
-		PObjectLoader.parseTag(object, "PREVARLT:GreaterRage,1");
-		PObjectLoader.parseTag(object, "PREFEAT:1,Dodge");
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(object, "PREVARLT", "GreaterRage,1");
+		context.unconditionallyProcess(object, "PREFEAT", "1,Dodge");
 		List<Prerequisite> list = object.getPrerequisiteList();
 		assertEquals(2, list.size());
 
-		PObjectLoader.parseTag(object, "PRE:.CLEAR");
+		context.unconditionallyProcess(object, "PRE", ".CLEAR");
 		list = object.getPrerequisiteList();
 		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", list);
 		assertTrue("Prereqlist should be empty after the clear", list.isEmpty());

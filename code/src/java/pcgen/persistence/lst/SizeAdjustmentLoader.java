@@ -140,7 +140,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 							+ ':' + token + "\"");
 				}
 			}
-			else if (!PObjectLoader.parseTag(sa, token))
+			else
 			{
 				Logging.replayParsedMessages();
 			}

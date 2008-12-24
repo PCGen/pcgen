@@ -29,7 +29,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -49,12 +48,8 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.TokenStore;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.DecimalNumberField;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
 
@@ -246,26 +241,12 @@ public class FeatBasePanel extends BasePanel
 	public void updateData(PObject thisPObject)
 	{
 		Ability thisFeat = (Ability) thisPObject;
+		LoadContext context = Globals.getContext();
 		final String desc = getDescriptionText();
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			GlobalLstToken.class);
-		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
-		if (tokenParser != null)
+		final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
+		while (tok.hasMoreTokens())
 		{
-			final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
-			while (tok.hasMoreTokens())
-			{
-				try
-				{
-					tokenParser.parse(thisFeat, tok.nextToken(), -9);
-				}
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint("Invalid Description: " + desc);
-					Logging.errorPrint("  Token Parse Failed: "
-						+ e.getLocalizedMessage());
-				}
-			}
+			context.unconditionallyProcess(thisPObject, "DESC", tok.nextToken());
 		}
 
 		thisFeat.put(ObjectKey.DESC_PI, getDescIsPI());

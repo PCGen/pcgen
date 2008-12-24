@@ -48,11 +48,7 @@ import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.Visibility;
@@ -130,17 +126,7 @@ class ClassBasePanel extends BasePanel
 		obj.removeListFor(ListKey.QUALIFY);
 		if (qualify.getText().trim().length() > 0)
 		{
-			GlobalLstToken token =
-					(GlobalLstToken) TokenStore.inst().getTokenMap(
-						GlobalLstToken.class).get("QUALIFY");
-			try
-			{
-				token.parse(obj, qualify.getText(), -9);
-			}
-			catch (PersistenceLayerException e)
-			{
-				Logging.errorPrint("Invalid QUALIFY: " + qualify.getText(), e);
-			}
+			context.unconditionallyProcess(obj, "QUALIFY", qualify.getText());
 		}
 		context.unconditionallyProcess(obj, "EXCLASS", exClass.getText().trim());
 		obj.put(ObjectKey.MOD_TO_SKILLS, modToSkills.getSelectedObjects() != null);

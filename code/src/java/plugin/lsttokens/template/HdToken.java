@@ -27,7 +27,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PObjectLoader;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -125,15 +124,6 @@ public class HdToken implements CDOMPrimaryToken<PCTemplate>
 		if (context.processToken(derivative, typeStr, argument))
 		{
 			return true;
-		}
-		else
-		{
-			if (PObjectLoader.parseTag(template, typeStr + ":" + argument
-					+ "|PREHDSILENT:" + hdString))
-			{
-				Logging.clearParseMessages();
-				return true;
-			}
 		}
 		return false;
 	}

@@ -104,7 +104,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			{
 				context.commit();
 			}
-			else if (!PObjectLoader.parseTag(spell, token))
+			else
 			{
 				Logging.replayParsedMessages();
  			}

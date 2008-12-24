@@ -101,7 +101,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
@@ -1168,7 +1167,7 @@ public final class EditorMainForm extends JDialog
 					{
 						context.commit();
 					}
-					else if (!PObjectLoader.parseTag(thisPObject, token))
+					else
 					{
 						Logging.replayParsedMessages();
 					}

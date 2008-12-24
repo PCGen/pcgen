@@ -145,7 +145,7 @@ public final class GenericLoader<T extends PObject> extends
 			{
 				context.commit();
 			}
-			else if (!PObjectLoader.parseTag(po, token))
+			else
 			{
 				Logging.replayParsedMessages();
 			}

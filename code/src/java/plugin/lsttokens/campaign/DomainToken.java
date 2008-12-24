@@ -33,7 +33,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with DOMAIN Token
  */
-public class DomainToken extends AbstractToken implements CDOMPrimaryToken<Campaign>
+public class DomainToken extends AbstractToken implements
+		CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -42,9 +43,8 @@ public class DomainToken extends AbstractToken implements CDOMPrimaryToken<Campa
 		return "DOMAIN";
 	}
 
-
 	public boolean parse(LoadContext context, Campaign obj, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
@@ -53,7 +53,7 @@ public class DomainToken extends AbstractToken implements CDOMPrimaryToken<Campa
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(obj, value);
 		if (cse == null)
 		{
-			//Error
+			// Error
 			return false;
 		}
 		context.obj.addToList(obj, ListKey.FILE_DOMAIN, cse);
@@ -62,12 +62,12 @@ public class DomainToken extends AbstractToken implements CDOMPrimaryToken<Campa
 
 	public String[] unparse(LoadContext context, Campaign obj)
 	{
-		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(obj, ListKey.FILE_DOMAIN);
+		Changes<CampaignSourceEntry> cseChanges = context.obj.getListChanges(
+				obj, ListKey.FILE_DOMAIN);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{
-			//empty indicates no token
+			// empty indicates no token
 			return null;
 		}
 		Set<String> set = new TreeSet<String>();
@@ -81,4 +81,5 @@ public class DomainToken extends AbstractToken implements CDOMPrimaryToken<Campa
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;
-	}}
+	}
+}

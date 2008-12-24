@@ -95,7 +95,7 @@ public final class PCStatLoader extends LstLineFileLoader
 							+ sourceURI.toString() + ':' + token + "\"");
 				}
 			}
-			else if (!PObjectLoader.parseTag(stat, token))
+			else
 			{
 				Logging.replayParsedMessages();
 			}

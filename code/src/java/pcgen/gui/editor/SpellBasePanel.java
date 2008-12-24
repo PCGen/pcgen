@@ -34,7 +34,6 @@ import java.awt.event.WindowEvent;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.swing.AbstractAction;
@@ -62,13 +61,8 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.DecimalNumberField;
-import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -129,30 +123,15 @@ public class SpellBasePanel extends BasePanel
 		String aString;
 		final Spell s = (Spell) thisPObject;
 
+		LoadContext context = Globals.getContext();
 		final String desc = pnlDescription.getText();
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-			GlobalLstToken.class);
-		GlobalLstToken tokenParser = (GlobalLstToken) tokenMap.get("DESC");
-		if (tokenParser != null)
+		final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
+		while (tok.hasMoreTokens())
 		{
-			final StringTokenizer tok = new StringTokenizer(".CLEAR\t"+desc, "\t");
-			while (tok.hasMoreTokens())
-			{
-				try
-				{
-					tokenParser.parse(s, tok.nextToken(), -9);
-				}
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint("Invalid Description: " + desc);
-					Logging.errorPrint("  Token Parse Failed: "
-						+ e.getLocalizedMessage());
-				}
-			}
+			context.unconditionallyProcess(thisPObject, "DESC", tok.nextToken());
 		}
 		s.put(ObjectKey.DESC_PI, pnlDescription.getDescIsPI());
 
-		LoadContext context = Globals.getContext();
 		s.removeListFor(ListKey.COMPONENTS);
 		context.unconditionallyProcess(s, "COMPS", (String) cmbComponents
 				.getSelectedItem());

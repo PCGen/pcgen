@@ -305,7 +305,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				context.commit();
 			}
-			else if (!PObjectLoader.parseTagLevel(pcClass, token, lvl))
+			else
  			{
 				Logging.replayParsedMessages();
  			}
@@ -354,7 +354,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				context.commit();
 			}
-			else if (!PObjectLoader.parseTagLevel(pcClass, token, 0))
+			else
  			{
 				Logging.replayParsedMessages();
  			}

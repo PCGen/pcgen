@@ -85,4 +85,6 @@ public interface ObjectCommitStrategy
 	
 	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
 			String pattern);
+
+	public void clearPrerequisiteList(ConcretePrereqObject cpo);
 }

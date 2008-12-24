@@ -74,7 +74,7 @@ public class EqSizePenaltyLoader
 							+ " Game Mode" + ':' + token + "\"");
 				}
 			}
-			else if (!PObjectLoader.parseTag(eqSizePenaltyObj, token))
+			else
 			{
 				Logging.replayParsedMessages();
 			}

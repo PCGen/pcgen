@@ -93,7 +93,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 							+ ':' + token + "\"");
 				}
 			}
-			else if (!PObjectLoader.parseTag(obj, token))
+			else
 			{
 				Logging.replayParsedMessages();
 			}

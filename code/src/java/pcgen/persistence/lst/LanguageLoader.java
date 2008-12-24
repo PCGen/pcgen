@@ -102,7 +102,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			{
 				context.commit();
 			}
-			else if (!PObjectLoader.parseTag(lang, token))
+			else
 			{
 				Logging.replayParsedMessages();
  			}

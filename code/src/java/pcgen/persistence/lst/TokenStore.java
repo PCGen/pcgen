@@ -39,10 +39,6 @@ public class TokenStore
 
 	private void populateTokenTypeList()
 	{
-		//Campaign data
-		tokenTypeList.add(GlobalLstToken.class);
-		tokenTypeList.add(CampaignLstToken.class);
-
 		//miscinfo.lst
 		tokenTypeList.add(GameModeLstToken.class);
 		tokenTypeList.add(AbilityCategoryLstToken.class);

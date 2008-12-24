@@ -104,7 +104,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			{
 				context.commit();
 			}
-			else if (!PObjectLoader.parseTag(anAbility, token))
+			else
 			{
 				Logging.replayParsedMessages();
  			}
