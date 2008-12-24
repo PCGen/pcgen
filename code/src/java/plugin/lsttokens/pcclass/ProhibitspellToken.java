@@ -53,7 +53,7 @@ public class ProhibitspellToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
-		SpellProhibitor sp = subParse(context, pcc, value);
+		SpellProhibitor sp = subParse(context, value);
 		if (sp == null)
 		{
 			return false;
@@ -62,8 +62,7 @@ public class ProhibitspellToken extends AbstractToken implements
 		return true;
 	}
 
-	public SpellProhibitor subParse(LoadContext context, PCClass pcc,
-			String value)
+	public SpellProhibitor subParse(LoadContext context, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
@@ -100,7 +99,7 @@ public class ProhibitspellToken extends AbstractToken implements
 			return null;
 		}
 
-		SpellProhibitor spellProb = typeSafeParse(context, pcc, type, token
+		SpellProhibitor spellProb = typeSafeParse(context, type, token
 				.substring(dotLoc + 1));
 		if (spellProb == null)
 		{
@@ -134,7 +133,7 @@ public class ProhibitspellToken extends AbstractToken implements
 		return spellProb;
 	}
 
-	private SpellProhibitor typeSafeParse(LoadContext context, PCClass pcc,
+	private SpellProhibitor typeSafeParse(LoadContext context,
 			ProhibitedSpellType type, String args)
 	{
 		SpellProhibitor spellProb = new SpellProhibitor();

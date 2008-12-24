@@ -47,7 +47,7 @@ public class WeaponbonusToken extends AbstractToken implements
 		return "WEAPONBONUS";
 	}
 
-	public boolean parse(LoadContext context, PCClass template, String value)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
@@ -66,7 +66,7 @@ public class WeaponbonusToken extends AbstractToken implements
 				foundAny = true;
 				CDOMReference<WeaponProf> ref = context.ref
 						.getCDOMAllReference(WEAPONPROF_CLASS);
-				context.getListContext().addToList(getTokenName(), template,
+				context.getListContext().addToList(getTokenName(), pcc,
 						WeaponProf.STARTING_LIST, ref);
 			}
 			else
@@ -80,7 +80,7 @@ public class WeaponbonusToken extends AbstractToken implements
 							+ getTokenName());
 					return false;
 				}
-				context.getListContext().addToList(getTokenName(), template,
+				context.getListContext().addToList(getTokenName(), pcc,
 						WeaponProf.STARTING_LIST, ref);
 			}
 		}
@@ -93,10 +93,10 @@ public class WeaponbonusToken extends AbstractToken implements
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, PCClass pct)
+	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		AssociatedChanges<CDOMReference<WeaponProf>> changes = context
-				.getListContext().getChangesInList(getTokenName(), pct,
+				.getListContext().getChangesInList(getTokenName(), pcc,
 						WeaponProf.STARTING_LIST);
 		Collection<CDOMReference<WeaponProf>> added = changes.getAdded();
 		if (added == null || added.isEmpty())

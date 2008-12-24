@@ -48,7 +48,7 @@ public class MonskillToken extends AbstractToken implements
 		return "MONSKILL";
 	}
 
-	public boolean parse(LoadContext context, PCClass obj, String value)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 			throws PersistenceLayerException
 	{
 		if (isEmpty(value))
@@ -70,9 +70,9 @@ public class MonskillToken extends AbstractToken implements
 			return false;
 		}
 		bon.addPrerequisite(prereq);
-		bon.setCreatorObject(obj);
+		bon.setCreatorObject(pcc);
 		bon.setTokenSource(getTokenName());
-		context.obj.addToList(obj, ListKey.BONUS, bon);
+		context.obj.addToList(pcc, ListKey.BONUS, bon);
 		return true;
 	}
 

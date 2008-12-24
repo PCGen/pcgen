@@ -45,7 +45,7 @@ public class MonnonskillhdToken extends AbstractToken implements
 		return "MONNONSKILLHD";
 	}
 
-	public boolean parse(LoadContext context, PCClass obj, String value)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 			throws PersistenceLayerException
 	{
 		if (isEmpty(value))
@@ -59,9 +59,9 @@ public class MonnonskillhdToken extends AbstractToken implements
 					+ " was given invalid bonus value: " + value);
 			return false;
 		}
-		bon.setCreatorObject(obj);
+		bon.setCreatorObject(pcc);
 		bon.setTokenSource(getTokenName());
-		context.obj.addToList(obj, ListKey.BONUS, bon);
+		context.obj.addToList(pcc, ListKey.BONUS, bon);
 		return true;
 	}
 

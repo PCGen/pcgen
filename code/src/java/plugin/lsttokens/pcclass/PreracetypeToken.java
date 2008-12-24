@@ -45,7 +45,7 @@ public class PreracetypeToken implements CDOMPrimaryToken<PCClass>,
 		return "PRERACETYPE";
 	}
 
-	public boolean parse(LoadContext context, PCClass obj, String value)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 		throws PersistenceLayerException
 	{
 		Prerequisite p = new Prerequisite();
@@ -53,7 +53,7 @@ public class PreracetypeToken implements CDOMPrimaryToken<PCClass>,
 		p.setOperand("1");
 		p.setKey(value);
 		p.setOperator(PrerequisiteOperator.GTEQ);
-		context.obj.put(obj, p);
+		context.obj.put(pcc, p);
 		return true;
 	}
 

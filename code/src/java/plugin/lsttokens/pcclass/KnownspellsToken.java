@@ -55,7 +55,7 @@ public class KnownspellsToken extends AbstractToken implements
 		return "KNOWNSPELLS";
 	}
 
-	public boolean parse(LoadContext context, PCClass po, String value)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
@@ -79,7 +79,7 @@ public class KnownspellsToken extends AbstractToken implements
 									+ ": When used, .CLEARALL must be the first argument");
 					return false;
 				}
-				context.getObjectContext().removeList(po, ListKey.KNOWN_SPELLS);
+				context.getObjectContext().removeList(pcc, ListKey.KNOWN_SPELLS);
 				continue;
 			}
 			if (hasIllegalSeparator(',', totalFilter))
@@ -160,15 +160,15 @@ public class KnownspellsToken extends AbstractToken implements
 				sp = context.ref.getCDOMAllReference(SPELL_CLASS);
 			}
 			KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, levelLim);
-			context.getObjectContext().addToList(po, ListKey.KNOWN_SPELLS, ksi);
+			context.getObjectContext().addToList(pcc, ListKey.KNOWN_SPELLS, ksi);
 		}
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, PCClass po)
+	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Changes<KnownSpellIdentifier> changes = context.getObjectContext()
-				.getListChanges(po, ListKey.KNOWN_SPELLS);
+				.getListChanges(pcc, ListKey.KNOWN_SPELLS);
 		List<String> list = new ArrayList<String>();
 		if (changes.includesGlobalClear())
 		{

@@ -54,11 +54,11 @@ public class DomainToken extends AbstractToken implements
 		return "DOMAIN";
 	}
 
-	public boolean parse(LoadContext context, PCClass po, String value)
+	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			context.getObjectContext().removeList(po, ListKey.DOMAIN);
+			context.getObjectContext().removeList(pcc, ListKey.DOMAIN);
 			return true;
 		}
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
@@ -120,15 +120,15 @@ public class DomainToken extends AbstractToken implements
 			{
 				qo.addPrerequisite(prereq);
 			}
-			context.getObjectContext().addToList(po, ListKey.DOMAIN, qo);
+			context.getObjectContext().addToList(pcc, ListKey.DOMAIN, qo);
 		}
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, PCClass po)
+	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Changes<QualifiedObject<CDOMSingleRef<Domain>>> changes = context
-				.getObjectContext().getListChanges(po, ListKey.DOMAIN);
+				.getObjectContext().getListChanges(pcc, ListKey.DOMAIN);
 		List<String> list = new ArrayList<String>();
 		if (changes.includesGlobalClear())
 		{
@@ -157,7 +157,7 @@ public class DomainToken extends AbstractToken implements
 					if (prereqs.size() > 1)
 					{
 						context.addWriteMessage("Incoming Edge to "
-								+ po.getKeyName() + " had more than one "
+								+ pcc.getKeyName() + " had more than one "
 								+ "Prerequisite: " + prereqs.size());
 						return null;
 					}
