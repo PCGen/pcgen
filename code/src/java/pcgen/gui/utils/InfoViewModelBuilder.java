@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -288,28 +288,30 @@ public final class InfoViewModelBuilder
 	return root;
     }
 
-    public static PObjectNode buildSourceView(Filterable filter, PlayerCharacter pc, Collection<? extends PObject> pobjects)
-    {
-	PObjectNode root = new PObjectNode();
-	Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
-	for (final PObject pobj : pobjects)
+    public static PObjectNode buildSourceView(Filterable filter,
+			PlayerCharacter pc, Collection<? extends PObject> pobjects)
 	{
-	    if (filter.accept(pc, pobj))
-	    {
-		final String source = pobj.get(StringKey.SOURCE_LONG);
-		if (source != null && source.length() > 0)
+		PObjectNode root = new PObjectNode();
+		Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
+		for (final PObject pobj : pobjects)
 		{
-		    PObjectNode node = nodeMap.get(source);
-		    if (node == null)
-		    {
-			node = new PObjectNode(source);
-			nodeMap.put(source, node);
-			root.addChild(node);
-		    }
-		    node.addChild(new PObjectNode(pobj));
+			if (filter.accept(pc, pobj))
+			{
+				final String source = SourceFormat.getFormattedString(pobj,
+						SourceFormat.LONG, false);
+				if (source.length() != 0)
+				{
+					PObjectNode node = nodeMap.get(source);
+					if (node == null)
+					{
+						node = new PObjectNode(source);
+						nodeMap.put(source, node);
+						root.addChild(node);
+					}
+					node.addChild(new PObjectNode(pobj));
+				}
+			}
 		}
-	    }
+		return root;
 	}
-	return root;
-    }
 }

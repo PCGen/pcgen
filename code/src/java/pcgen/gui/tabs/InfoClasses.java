@@ -78,6 +78,7 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
@@ -940,11 +941,12 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					typeList.add(aType);
 				}
 			}
-			String aString = aClass.get(StringKey.SOURCE_LONG);
-			if (aString == null)
+			final String aString = SourceFormat.getFormattedString(aClass,
+					SourceFormat.LONG, false);
+			if (aString.length() == 0)
 			{
 				Logging.errorPrintLocalised("in_icPCClassHasNoSourceLongEntry",
-                                        aClass.getDisplayName());
+						aClass.getDisplayName());
 			}
 			else if (!sourceList.contains(aString))
 			{
@@ -2038,9 +2040,10 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 						{
-							final String sourceString =
-									aClass.get(StringKey.SOURCE_LONG);
-							if (sourceString == null)
+							final String sourceString = SourceFormat
+								.getFormattedString(aClass, SourceFormat.LONG,
+										false);
+							if (sourceString.length() == 0)
 							{
 								Logging.errorPrintLocalised("in_icPCClassHasNoSourceLongEntry",
                                                                         aClass.getDisplayName());

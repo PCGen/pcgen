@@ -92,6 +92,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Quality;
@@ -2128,8 +2129,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 				}
 			}
 
-			final String sourceString = bEq.get(StringKey.SOURCE_LONG);
-			if ((sourceString != null) && (!sourceList.contains(sourceString)))
+			final String sourceString = SourceFormat.getFormattedString(
+					bEq, SourceFormat.LONG, false);
+			if ((sourceString.length() == 0) && (!sourceList.contains(sourceString)))
 			{
 				sourceList.add(sourceString);
 			}
@@ -4162,7 +4164,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		private void addChildSourceName(Equipment eq,
 			PObjectNode rootAsPObjectNode, boolean fireEvent)
 		{
-			final String sourceString = eq.get(StringKey.SOURCE_LONG);
+			final String sourceString = SourceFormat.getFormattedString(
+					eq, SourceFormat.LONG, false);
 			if (fireEvent)
 			{
 				//Add custom node if it does not exist
@@ -4179,7 +4182,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			int length = rootAsPObjectNode.getChildCount(); // seperated out for performance reasons
 			for (int i = 0; i < length; i++)
 			{
-				if (sourceString == null)
+				if (sourceString.length() == 0)
 				{
 					Logging.errorPrintLocalised("in_igLogGearHasNoLongSource", 
 							eq.getName() ); //$NON-NLS-1$
