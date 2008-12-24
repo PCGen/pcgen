@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.15.9</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.15.9</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.15.9</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.15.9</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.15.9</a></h2>
+
+
+<p>PCGen v5.15.9 is an extra alpha release as we are a slight bit behind in our features 
+and not quite ready to go beta yet. Left to do are a couple of changes for Pathfinder support
+and the inclusion of the Pathfinder data itself.
+</p><p>
+As always your feedback on the release is welcome.</p> 
+<ul>
+
+</ul>
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.15.9</p>
+
+		<ul>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> Secret notes that don&#039;t export. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2000008">2000008</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#karianna">karianna</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> Completion of token conversion for CDOM. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=<action dev="thpr" type="add" >Completion of token conversion for CDOM</action>"><action dev="thpr" type="add" >Completion of token conversion for CDOM</action></a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>)</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"> PDF Spellbook sheets fail. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2457274">2457274</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+		</ul>
+<p><i>James Dempsey</i> for the PCGEN Team -- 24 December, 2008.</p>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>Most Characters from the 5.14 series of PCGen should load seamlessly in 5.15.9. 
+		  Characters created in the Modern gameMode will be effected by changes made to 
+		  the Occupations feature. Due to refinements to the Ability Object we 
+		  have reconfigured the Occupations feature. Newly created characters will see 
+		  no differences but when existing characters are opened PCGen will report that 
+		  the Occupation Ability and the associated skill abilities cannot be found. The 
+		  fix is simple however, simply note what abilities are missing and go to the 
+		  Background tab and reselect your choices.</p>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.15.9 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_full.zip?download">pcgen5159_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_partial.zip?download">pcgen5159_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_win_install.exe?download">pcgen5159_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_mac_install.dmg?download">pcgen5159_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5159_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.15.9</a></h2>
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1929419">1929419</a> ]	Support AUTO tokens on class level lines</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1999526">1999526</a> ]	[Performance] TokenIterator makes significant useless effort</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2096131">2096131</a> ]	Allow Fly to have Maneuverability</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190894">2190894</a> ]	[Nov 8] Campaign SHOWMENU Token rebuild</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190895">2190895</a> ]	[Nov 8] Campaign ISD20 Token.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190896">2190896</a> ]	[Nov 8] Campaign ISMATURE Token.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190897">2190897</a> ]	[Nov 8] Campaign ISLICENSED Token.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190899">2190899</a> ]	[Nov 8] Campaign ISOGL Token.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190903">2190903</a> ]	[Nov 8] Campaign COPYRIGHT Token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2190905">2190905</a> ]	[Nov 22] Cleanup of RaceLstLoader</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2393797">2393797</a> ]	Convert KIT tokens</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2393798">2393798</a> ]	Convert EQMOD/ALTEQMOD to new token system</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2393801">2393801</a> ]	Convert SOURCE: Global tokens</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2297596">2297596</a> ]	add .NOSIGN to CHECK token</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2393670">2393670</a> ]	Add &quot;ALL&quot; to ADD:CLASSSKILLS Docs</li>
+</ul>
+
+<h3>Output Sheet Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2000008">2000008</a> ]	Secret notes that don&#039;t export</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1460794">1460794</a> ]	Remove token parsing from core</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2206784">2206784</a> ]	BONUS:UDAM|CLASS.Monk giving errors but working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2244939">2244939</a> ]	removeObjectsForLevelInfo performs useless remove</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2265266">2265266</a> ]	ADD:ABILITY support for AUTOMATIC inconsistent</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2341712">2341712</a> ]	Reference to Constructed WeaponProf</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2341722">2341722</a> ]	Magical Key Change</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2365633">2365633</a> ]	PCC EXCLUDE broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2374684">2374684</a> ]	BONUS keeps adding each reload in SUBSTITUTIONCLASS</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2389521">2389521</a> ]	PCC LSTEXCLUDE token not working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2391163">2391163</a> ]	PCC INCLUDE  causes pcgen.base.lang.UnreachableError</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2391299">2391299</a> ]	Unconstructed Reference with INCLUDE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2391302">2391302</a> ]	AbilityCategory being referenced when unused</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2391633">2391633</a> ]	Source Reload causes messages about skipped .MOD tokens </li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2393425">2393425</a> ]	SPELLS token can cause NPE at runtime</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2393434">2393434</a> ]	Expert class skills not granted</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2393577">2393577</a> ]	ADD:CLASSSKILLS|10|ANY broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2398963">2398963</a> ]	[5.15.8] NPE when adding animal companion with kits</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2402644">2402644</a> ]	NUMCHOICES=x|NOCHOICE causing parse error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2413116">2413116</a> ]	LST Editor &quot;New&quot; function broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2414978">2414978</a> ]	Space in Vendor directory name breaks load</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2433472">2433472</a> ]	CHOOSE:NUMBER parsed as strings</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2435969">2435969</a> ]	Resizing equipment dropdown missing in customizer</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2440072">2440072</a> ]	NPE Error when trying to customize an item</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2457095">2457095</a> ]	[5.15.8] Mixed case type breaks export sheet logic</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2457983">2457983</a> ]	Stack Trace [JAMES]</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2434237">2434237</a> ]	Remove SOURCExxx tags from Starting Kit indexindex</li>
+</ul>
+
+<h3>Output Sheet Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2457274">2457274</a> ]	PDF Spellbook sheets fail </li>
+
+</ul>
+
+	</body>
+</html>
