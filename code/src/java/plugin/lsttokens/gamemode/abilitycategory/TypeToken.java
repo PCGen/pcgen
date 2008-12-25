@@ -58,6 +58,15 @@ public class TypeToken implements AbilityCategoryLstToken
 							+ " is redundant. Named types " + aCat.getAbilityTypes() + " will be ignored");
 					errorFlagged = true;
 				}
+				if (!aCat.getAbilityKeys().isEmpty() && !errorFlagged)
+				{
+					Logging.log(Logging.LST_WARNING,
+						"Use of ABILITYLIST along with TYPE:* in category "
+							+ aCat.getDisplayName()
+							+ " is redundant. Listed Keys "
+							+ aCat.getAbilityKeys() + " will be ignored");
+					errorFlagged = true;
+				}
 				aCat.setAllAbilityTypes(true);
 			}
 			else

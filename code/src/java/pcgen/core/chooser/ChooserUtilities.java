@@ -29,13 +29,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -274,6 +277,10 @@ public class ChooserUtilities
 			}
 		}
 		aMan.getChoices(aPC, availableList, selectedList);
+		if (aPObject instanceof Ability)
+		{
+			modifyAvailChoicesForAbilityCategory(availableList, category, (Ability) aPObject);
+		}
 
 		if (!process) {return false;}
 
@@ -297,6 +304,55 @@ public class ChooserUtilities
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * Restrict the available choices to what is allowed by the ability category.
+	 * 
+	 * @param availableList The list of available choices, will be modified.
+	 * @param category The ability category
+	 * @param ability The ability the choices are for.
+	 */
+	private static void modifyAvailChoicesForAbilityCategory(
+		List<String> availableList, AbilityCategory category, Ability ability)
+	{
+		AbilityCategory cat;
+		if (category == null)
+		{
+			cat = SettingsHandler.getGame().getAbilityCategory(
+				ability.getCategory());
+		}
+		else
+		{
+			cat = category;
+		}
+
+		if (cat.getAbilityKeys().isEmpty())
+		{
+			// Do nothing if there aren't any restrictions
+			return;
+		}
+
+		Set<String> allowedSet = new HashSet<String>();
+		for (String decoratedKey : cat.getAbilityKeys())
+		{
+			List<String> allowedChoice = new ArrayList<String>();
+			String bareKey = AbilityUtilities.getUndecoratedName(decoratedKey, allowedChoice);
+			if (bareKey.equals(ability.getKeyName()))
+			{
+				allowedSet.addAll(allowedChoice);
+			}
+			
+		}
+		// Remove any non allowed choices from the list
+		for (Iterator<String> iterator = availableList.iterator(); iterator.hasNext();)
+		{
+			String key = iterator.next();
+			if (!allowedSet.contains(key))
+			{
+				iterator.remove();
+			}
+		}
 	}
 
 	/**

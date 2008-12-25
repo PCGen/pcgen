@@ -186,6 +186,14 @@ public class AbilityCategoryLoader extends LstLineFileLoader
 			Logging.log(Logging.LST_ERROR, "TYPE is not valid in 'parent' category " + 
 				cat.getKeyName() + " of " + source + ".");
 		}
-			
+
+		if (!cat.getAbilityKeys().isEmpty() && 
+				cat.getAbilityCategory().equalsIgnoreCase(
+					cat.getKeyName()))
+			{
+				Logging.log(Logging.LST_ERROR, "ABILITYLIST is not valid in 'parent' category " + 
+					cat.getKeyName() + " of " + source + ".");
+			}
+
 	}
 }

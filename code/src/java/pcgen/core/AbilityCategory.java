@@ -52,6 +52,7 @@ public class AbilityCategory implements KeyedObject, Category<Ability>
 	
 	private String theAbilityCategory;
 	private Set<String> theAbilityTypes = null;
+	private Set<String> theAbilityKeys = null;
 	private boolean allAbilityTypes = false;
 	private String thePoolFormula = "0"; //$NON-NLS-1$
 	
@@ -191,6 +192,40 @@ public class AbilityCategory implements KeyedObject, Category<Ability>
 	public void setAllAbilityTypes(boolean allAbilityTypes)
 	{
 		this.allAbilityTypes = allAbilityTypes;
+	}
+
+	/**
+	 * Return the list of keys for abilities that will be directly included in 
+	 * the category.
+	 * @return the theAbilityKeys
+	 */
+	public Set<String> getAbilityKeys()
+	{
+		if ( theAbilityKeys == null )
+		{
+			return Collections.emptySet();
+		}
+		return theAbilityKeys;
+	}
+
+	/**
+	 * @param theAbilityKeys the theAbilityKeys to set
+	 */
+	public void setAbilityKeys(Set<String> theAbilityKeys)
+	{
+		this.theAbilityKeys = theAbilityKeys;
+	}
+
+	/**
+	 * @param key the Ability Key to add to the set
+	 */
+	public void addAbilityKey(String key)
+	{
+		if ( theAbilityKeys == null )
+		{
+			theAbilityKeys = new TreeSet<String>();
+		}
+		theAbilityKeys.add(key);
 	}
 
 	/**

@@ -852,14 +852,33 @@ public final class Globals
 				{
 					ret.add( ability );
 				}
-				else if ( aCategory.getAbilityTypes().size() > 0 )
+				else
 				{
-					for ( final String type : aCategory.getAbilityTypes() )
+					boolean added = false;
+					if (aCategory.getAbilityTypes().size() > 0)
 					{
-						if ( ability.isType(type) )
+						for (final String type : aCategory.getAbilityTypes())
 						{
-							ret.add( ability );
-							break;
+							if (ability.isType(type))
+							{
+								ret.add(ability);
+								added = true;
+								break;
+							}
+						}
+					}
+					if (!added && aCategory.getAbilityKeys().size() > 0)
+					{
+						for (final String key : aCategory.getAbilityKeys())
+						{
+							if (ability.getKeyName().equals(key)
+								|| ability.getKeyName().equals(
+									AbilityUtilities.getUndecoratedName(key,
+										new ArrayList<String>())))
+							{
+								ret.add(ability);
+								break;
+							}
 						}
 					}
 				}
