@@ -154,10 +154,7 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		chooser.setAllowsDups(dupsAllowed);
 		if (!dupsAllowed)
 		{
-			for (String o : reservedList)
-			{
-				availableList.remove(o);
-			}
+            availableList.removeAll(reservedList);
 		}
 
 		Globals.sortChooserLists(availableList, selectedList);

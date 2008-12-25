@@ -25,8 +25,6 @@
  */
 package plugin.initiative.gui;
 
-import com.electronicmuse.djep.JEP;
-import com.electronicmuse.djep.function.Roll;
 import gmgen.GMGenSystem;
 import plugin.initiative.DiceRollModel;
 
@@ -36,6 +34,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import pcgen.core.RollingMethods;
 
 /**
  * <p>
@@ -54,9 +53,6 @@ public class DiceRollDialog extends JDialog
 
 	/** Button to roll the skill checks */
 	protected JButton m_doRoll;
-
-	/** dJEP instance to do the calculationss */
-	protected JEP m_jep = new JEP();
 
 	/** Label to display the result of the check */
 	protected JLabel m_result;
@@ -88,7 +84,6 @@ public class DiceRollDialog extends JDialog
 	{
 		super();
 		m_model = model;
-		m_jep.addStandardFunctions();
 		initComponents();
 	}
 
@@ -113,13 +108,7 @@ public class DiceRollDialog extends JDialog
 	 */
 	protected void handleRoll(ActionEvent e)
 	{
-		boolean logging = Roll.isLogging();
-		Roll.setLogging(false);
-		m_jep.parseExpression(m_roll.getText());
-
-		int rollResult = (int) Math.floor(m_jep.getValue());
-		setResult(rollResult);
-		Roll.setLogging(logging);
+		setResult(RollingMethods.roll(m_roll.getText()));
 	}
 
 	/**

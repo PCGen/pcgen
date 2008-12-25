@@ -27,15 +27,12 @@
  */
 package plugin.dicebag.gui;
 
-import com.electronicmuse.djep.JEP;
 import gmgen.GMGenSystem;
-import gmgen.util.LogUtilities;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 import pcgen.util.Logging;
-import plugin.dicebag.DiceBagPlugin;
 
 import javax.swing.JOptionPane;
 import java.io.File;
@@ -44,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
+import pcgen.core.RollingMethods;
 
 /**
  * <p>The base data class of the DiceBag plugin.  This class maintains a single "Dice Bag," which
@@ -53,9 +51,6 @@ import java.util.Observable;
  */
 public class DiceBagModel extends Observable
 {
-	/** The dJEP instance for this bag. */
-	private JEP m_jep = new JEP();
-
 	/** List of dice strings. */
 	private List<String> m_dice = new ArrayList<String>();
 
@@ -73,7 +68,6 @@ public class DiceBagModel extends Observable
 	 */
 	public DiceBagModel()
 	{
-		m_jep.addStandardFunctions();
 	}
 
 	/**
@@ -244,21 +238,7 @@ public class DiceBagModel extends Observable
 
 		if (index < m_dice.size())
 		{
-			String expression = m_dice.get(index);
-			m_jep.parseExpression(expression);
-			returnValue = m_jep.getValue();
-			if (m_jep.hasError())
-			{
-				JOptionPane.showMessageDialog(GMGenSystem.inst, m_jep
-					.getErrorInfo());
-				LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
-					"Parse error: " + expression + ": " + m_jep.getErrorInfo());
-			}
-			else
-			{
-				LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
-					"Roll of: " + expression + ": " + returnValue);
-			}
+			returnValue = RollingMethods.roll(m_dice.get(index));
 		}
 
 		return returnValue;
@@ -273,22 +253,7 @@ public class DiceBagModel extends Observable
 	 */
 	public double rollDie(String expression)
 	{
-		double returnValue = 0;
-		m_jep.parseExpression(expression);
-		returnValue = m_jep.getValue();
-		if (m_jep.hasError())
-		{
-			JOptionPane.showMessageDialog(GMGenSystem.inst, m_jep
-				.getErrorInfo());
-			LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
-				"Parse error: " + expression + ": " + m_jep.getErrorInfo());
-		}
-		else
-		{
-			LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
-				"Roll of: " + expression + ": " + returnValue);
-		}
-
+		double returnValue = RollingMethods.roll(expression);
 		return returnValue;
 	}
 

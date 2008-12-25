@@ -34,7 +34,7 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 
-import com.electronicmuse.djep.JEP;
+import pcgen.core.RollingMethods;
 
 /**
  * <p>
@@ -131,9 +131,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 */
 		public void roll()
 		{
-			djep.parseExpression("1d20");
-			double r = djep.getValue();
-			roll = Integer.valueOf((int) r);
+			roll = RollingMethods.roll("1d20");
 			calc();
 		}
 
@@ -209,9 +207,6 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 			this.result = result;
 		}
 	}
-
-	/** A djep instance that allows dice rolling */
-	protected static final JEP djep = new JEP();
 
 	/** Name of the skill being currently used for rolls */
 	protected String skillName;

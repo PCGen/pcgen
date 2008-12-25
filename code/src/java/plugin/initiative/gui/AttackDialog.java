@@ -25,8 +25,6 @@
  */
 package plugin.initiative.gui;
 
-import com.electronicmuse.djep.JEP;
-import com.electronicmuse.djep.function.Roll;
 import gmgen.GMGenSystem;
 import gmgen.plugin.PcgCombatant;
 import plugin.initiative.AttackModel;
@@ -46,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
+import pcgen.core.RollingMethods;
 
 /**
  * @author Ross M. Lodge
@@ -495,10 +494,6 @@ public class AttackDialog extends JDialog
 		static final int COLUMN_INDEX_EDITABLE = 3;
 		static final int COLUMN_INDEX_KEY = 4;
 
-		/**
-		 * dJEP instance for rolling dice.
-		 */
-		private JEP m_jep = new JEP();
 
 		/** AC Type string */
 		private String m_acType = "Total";
@@ -860,7 +855,7 @@ public class AttackDialog extends JDialog
 
 					for (int i = 0; i < numberOfRolls; i++)
 					{
-						dmg += rollDice(damageString);
+						dmg += RollingMethods.roll(damageString);
 					}
 
 					setValueAt(Integer.valueOf(dmg), row,
@@ -881,7 +876,7 @@ public class AttackDialog extends JDialog
 		 */
 		private void rollAttack(int row)
 		{
-			setValueAt(Integer.valueOf(rollDice("1d20")), row,
+			setValueAt(Integer.valueOf(RollingMethods.roll("1d20")), row,
 				columnFromKey(COLUMN_KEY_ROLL));
 
 			if ((getIntAt(row, columnFromKey(COLUMN_KEY_ROLL)) >= m_attack
@@ -889,7 +884,7 @@ public class AttackDialog extends JDialog
 				&& ((Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_HIT)))
 					.booleanValue())
 			{
-				setValueAt(Integer.valueOf(rollDice("1d20")), row,
+				setValueAt(Integer.valueOf(RollingMethods.roll("1d20")), row,
 					columnFromKey(COLUMN_KEY_CRITROLL));
 			}
 			else
@@ -898,22 +893,5 @@ public class AttackDialog extends JDialog
 			}
 		}
 
-		/**
-		 * <p>Executes the requested dice expression and returns the integer value.</p>
-		 *
-		 * @param expression A dice expression
-		 * @return The integer result
-		 */
-		private int rollDice(String expression)
-		{
-			boolean logging = Roll.isLogging();
-			Roll.setLogging(false);
-			m_jep.parseExpression(expression);
-
-			int returnValue = (int) m_jep.getValue();
-			Roll.setLogging(logging);
-
-			return returnValue;
-		}
 	}
 }
