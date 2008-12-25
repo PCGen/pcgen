@@ -148,19 +148,17 @@ These files can be renamed and used for releases.
 		<mkdir dir="${build.classes.dir}" />
 		<mkdir dir="${build.testclasses.dir}" />
 		<mkdir dir="${build.dir}/test-results/xml" />
-		<mkdir dir="${build.src.dir}/pcgen/util" />
 		<mkdir dir="${build.rpt.dir}" />
 		<mkdir dir="${bin.dir}" />
 	</target>
 
 	<!-- Compile the JavaCC sources -->
 	<target name="compile-compile" depends="init, properties" description="Compile JavaCC sources">
-		<javacc target="${src.java.dir}/pcgen/util/DiceExpression.jj" javacchome="${lib.dir}" outputdirectory="${build.src.dir}/pcgen/util" />
 	</target>
 
 	<!-- Compile the java code -->
 	<target name="compile" depends="compile-compile" description="Compile Java sources">
-		<javac srcdir="${src.java.dir}:${build.src.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.5" target="1.5" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
+		<javac srcdir="${src.java.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="Yes" source="1.5" target="1.5" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="project.classpath" />
 		</javac>
 	</target>
