@@ -36,7 +36,6 @@ import javax.swing.tree.TreePath;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -861,7 +860,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				|| PrerequisiteUtilities.hasPreReqMatching(prereq, "ABILITY",
 					parentAbility.getKeyName())))
 			{
-				boolean alreadyPresent = false;
+				boolean alreadyPresent = anAbility.equals(parentAbility);
 				if (po.getChildCount() > 0)
 				{
 					for (PObjectNode pnode : po.getChildren())
