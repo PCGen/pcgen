@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -314,7 +315,7 @@ public class ChooserUtilities
 	 * @param ability The ability the choices are for.
 	 */
 	private static void modifyAvailChoicesForAbilityCategory(
-		List<String> availableList, AbilityCategory category, Ability ability)
+		List availableList, AbilityCategory category, Ability ability)
 	{
 		AbilityCategory cat;
 		if (category == null)
@@ -344,10 +345,26 @@ public class ChooserUtilities
 			}
 			
 		}
-		// Remove any non allowed choices from the list
-		for (Iterator<String> iterator = availableList.iterator(); iterator.hasNext();)
+
+		if (allowedSet.isEmpty())
 		{
-			String key = iterator.next();
+			// Do nothing if there aren't any restrictions
+			return;
+		}
+
+		// Remove any non allowed choices from the list
+		for (Iterator iterator = availableList.iterator(); iterator.hasNext();)
+		{
+			Object obj = iterator.next();
+			String key; 
+			if (obj instanceof CDOMObject)
+			{
+				key = ((CDOMObject)obj).getKeyName();
+			}
+			else
+			{
+				key = obj.toString();
+			}
 			if (!allowedSet.contains(key))
 			{
 				iterator.remove();
