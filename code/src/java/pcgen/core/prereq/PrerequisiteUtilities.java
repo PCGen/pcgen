@@ -295,20 +295,11 @@ public final class PrerequisiteUtilities
 	private static int checkForSubKeyMatch(final PlayerCharacter character, final boolean countMults, String key, String subKey, final boolean subKeyIsType, Ability aFeat)
 	{
 		final String cType = subKey;
-		final List availableList = new ArrayList();
 		final List selectedList = new ArrayList();
 		final String aChoiceString = aFeat.getSafe(StringKey.CHOICE_STRING);
 		int runningTotal = 0;
 
-		ChooserUtilities.modChoices(
-		aFeat,
-		availableList,
-		selectedList,
-		false,
-		character,
-		true,
-		null);
-		availableList.clear();
+		selectedList.addAll(character.getAssociationList(aFeat));
 
 		if (subKeyIsType) // TYPE syntax
 		{
