@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Sun Dec 28 00:22:27 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+CAMPAIGN:Paizo - GameMastery Module - D1: Crown of the Kobold King
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:PDF
+SETTING:35e
+TYPE:Paizo Publishing.GameMastery Module
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:D1: Crown of the Kobold King
+SOURCESHORT:GMMD1
+SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderModules/v5748btpy7yqz
+SOURCEDATE:2007-07
+ISOGL:YES
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:GameMastery Module D1: Crown of the Kobold King, Copyright 2007 Paizo Publishing, LLC. Author: Nicolas Logue.
+COPYRIGHT:PCGen Data Set Conversion of "GameMastery Module D1: Crown of the Kobold King" Copyright 2008, PCGen Data Team (including, but not limited to Eric C. Smith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:gmm_d1_racial_abilities.lst
+EQUIPMENT:gmm_d1_equipment_magic.lst
+EQUIPMENT:gmm_d1_equipment_weapons.lst
+KIT:gmm_d1_monster_kits.lst
+#KIT:gmm_d1_npc_kits.lst
+RACE:gmm_d1_race.lst
+TEMPLATE:gmm_d1_templates.lst
+WEAPONPROF:gmm_d1_weaponprofs.lst
+
+##
+## eof
+##
