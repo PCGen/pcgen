@@ -1,0 +1,232 @@
+OPEN GAME LICENSE Version 1.0a
+The following text is the property of Wizards of the Coast, Inc. and is Copyright 2000 Wizards of the Coast,
+Inc (“Wizards”). All Rights Reserved.
+
+1. Definitions: (a)”Contributors” means the copyright and/or trademark owners who have contributed
+Open Game Content; (b)”Derivative Material” means copyrighted material including derivative works
+and translations (including into other computer languages), potation, modification, correction, addition,
+extension, upgrade, improvement, compilation, abridgment or other form in which an existing work may
+be recast, transformed or adapted; (c) “Distribute” means to reproduce, license, rent, lease, sell, broadcast,
+publicly display, transmit or otherwise distribute; (d)”Open Game Content” means the game mechanic and
+includes the methods, procedures, processes and routines to the extent such content does not embody the
+Product Identity and is an enhancement over the prior art and any additional content clearly identified as
+Open Game Content by the Contributor, and means any work covered by this License, including translations
+and derivative works under copyright law, but specifically excludes Product Identity. (e) “Product Identity”
+means product and product line names, logos and identifying marks including trade dress; artifacts; creatures
+characters; stories, storylines, plots, thematic elements, dialogue, incidents, language, artwork, symbols,
+designs, depictions, likenesses, formats, poses, concepts, themes and graphic, photographic and other visual
+or audio representations; names and descriptions of characters, spells, enchantments, personalities, teams,
+personas, likenesses and special abilities; places, locations, environments, creatures, equipment, magical or
+supernatural abilities or effects, logos, symbols, or graphic designs; and any other trademark or registered
+trademark clearly identified as Product identity by the owner of the Product Identity, and which specifically
+excludes the Open Game Content; (f) “Trademark” means the logos, names, mark, sign, motto, designs that
+are used by a Contributor to identify itself or its products or the associated products contributed to the Open
+Game License by the Contributor (g) “Use”, “Used” or “Using” means to use, Distribute, copy, edit, format,
+modify, translate and otherwise create Derivative Material of Open Game Content. (h) “You” or “Your” means
+the licensee in terms of this agreement.
+
+2. The License: This License applies to any Open Game Content that contains a notice indicating that the
+Open Game Content may only be Used under and in terms of this License. You must affix such a notice to
+any Open Game Content that you Use. No terms may be added to or subtracted from this License except as
+described by the License itself. No other terms or conditions may be applied to any Open Game Content
+distributed using this License.
+
+3.Offer and Acceptance: By Using the Open Game Content You indicate Your acceptance of the terms of
+this License.
+
+4. Grant and Consideration: In consideration for agreeing to use this License, the Contributors grant You a
+perpetual, worldwide, royalty-free, non-exclusive license with the exact terms of this License to Use, the
+Open Game Content.
+
+5.Representation of Authority to Contribute: If You are contributing original material as Open Game Content,
+You represent that Your Contributions are Your original creation and/or You have sufficient rights to grant
+the rights conveyed by this License.
+
+6.Notice of License Copyright: You must update the COPYRIGHT NOTICE portion of this License to
+include the exact text of the COPYRIGHT NOTICE of any Open Game Content You are copying, modifying
+or distributing, and You must add the title, the copyright date, and the copyright holder’s name to the
+COPYRIGHT NOTICE of any original Open Game Content you Distribute.
+
+7. Use of Product Identity: You agree not to Use any Product Identity, including as an indication as to
+compatibility, except as expressly licensed in another, independent Agreement with the owner of each element
+of that Product Identity. You agree not to indicate compatibility or co-adaptability with any Trademark
+or Registered Trademark in conjunction with a work containing Open Game Content except as expressly
+licensed in another, independent Agreement with the owner of such Trademark or Registered Trademark. The
+use of any Product Identity in Open Game Content does not constitute a challenge to the ownership of that
+Product Identity. The owner of any Product Identity used in Open Game Content shall retain all rights, title
+and interest in and to that Product Identity.
+
+8. Identification: If you distribute Open Game Content You must clearly indicate which portions of the work
+that you are distributing are Open Game Content.
+
+9. Updating the License: Wizards or its designated Agents may publish updated versions of this License.
+You may use any authorized version of this License to copy, modify and distribute any Open Game Content
+originally distributed under any version of this License.
+
+10 Copy of this License: You MUST include a copy of this License with every copy of the Open Game
+Content You Distribute.
+
+11. Use of Contributor Credits: You may not market or advertise the Open Game Content using the name of
+any Contributor unless You have written permission from the Contributor to do so.
+
+12 Inability to Comply: If it is impossible for You to comply with any of the terms of this License with respect
+to some or all of the Open Game Content due to statute, judicial order, or governmental regulation then You
+may not Use any Open Game Material so affected.
+
+13 Termination: This License will terminate automatically if You fail to comply with all terms herein and
+fail to cure such breach within 30 days of becoming aware of the breach. All sublicenses shall survive the
+termination of this License.
+
+14 Reformation: If any provision of this License is held to be unenforceable, such provision shall be reformed
+only to the extent necessary to make it enforceable.
+
+15 COPYRIGHT NOTICE
+Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+
+System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet,
+Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John
+D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+
+Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill
+Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins,
+Rodney Thompson, and JD Wiker, based on material by Jonathan Tweet, Monte Cook, Skip Williams,
+Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+
+Unearthed Arcana, Copyright 2004, Wizards of the Coast, Inc.
+
+Spear of the Lohgin, Copyright 2000, Paradigm Concepts, Inc.
+
+Blood Reign of Nishanpur, Copyright 2001, Paradigm Concepts, Inc
+
+Bloody Sands of Sicaris, Copyright 2001, Paradigm Concepts, Inc,
+
+Codex Arcanis, Copyright 2001, Paradigm Concepts, Inc,
+
+Encyclopedia Arcane: Necromancy, Copyright 2001, Mongoose Publishing
+
+Encyclopedia Arcane: Illusion, Copyright 2002, Mongoose Publishing
+
+Nyambe: African Adventures, Copyright 2002, Atlas Games
+
+Forged in Magic, Copyright 2002, Paradigm Concepts, Inc.
+
+Gar’Udaks Necromantic Artes – Copyright 2002, Ambient
+
+Librium Equitis, Copyright 2001, Ambient
+
+Lords of the Peaks, Copyright 2002, Paradigm Concepts, Inc
+
+Carnival of Swords, Copyright 2002, Paradigm Concepts, Inc
+
+Eldest Sons, Copyright 2002, Paradigm Concepts, Inc
+
+Path of Magic, Copyright 2002, Fantasy Flight Games
+
+Path of Faith, Copyright 2002, Fantasy Flight Games
+
+Death in Freeport, Copyright 2000, Green Ronin Publishing
+
+Terror in Freeport, Copyright 2001, Green Ronin Publishing
+
+Madness in Freeport, Copyright 2001, Green Ronin Publishing
+
+Secret College of Necromancy, Copyright 2002, Green Ronin Publishing
+
+Freeport City of Adventure, Copyright 2002, Green Ronin Publishing
+
+Book of the Righteous, The, Copyright 2002, Green Ronin Publishing
+
+Mutants and Masterminds, Copyright 2003, Green Ronin Publishing
+
+Hammer & Helm, Copyright 2002, Green Ronin Publishing
+
+Evil, Copyright 2001, Alderac Entertainment Group
+
+Good, Copyright 2002, Alderac Entertainment Group
+
+Undead, Copyright 2001, Alderac Entertainment Group
+
+Magic, Copyright 2002, Alderac Entertainment Group
+
+Swashbuckling Adventures, Copyright 2002, Alderac Entertainment Group
+
+Lock & Load: Iron Kingdoms Character Primer, Copyright 2003, Privateer Press
+
+Relics and Rituals, Copyright 2000, White Wolf Publishing
+
+Players Guide to Wizards, Bards and Sorcerers, Copyright 2003, White Wolf Publishing
+
+Players Guide to Fighters and Barbarians, Copyright 2003, White Wolf Publishing
+
+Spells and Spellcraft, Copyright 2002, Fantasy Flight Games
+
+School of Evocation, Copyright 2003, Fantasy Flight Games
+
+School of Illusion, Copyright 2003, Fantasy Flight Games
+
+Slaves of the Moon, Copyright 2004, Paradigm Concepts, Inc.
+
+Shattered Dreams, Copyright 2003, Paradigm Concepts, Inc.
+
+In the Shadow of the Devil, Copyright 2000, Paradigm Concepts, Inc
+
+Legacy of Damnation, Copyright 2005, Paradigm Concepts, Inc.
+
+Player’s Guide to Arcanis, Copyright 2004, Paradigm Concepts, Inc.
+
+Ssethregore: In the Coils of the Serpent Empire, Copyright 2004 Paradigm Concepts, Inc.
+
+City of Secrets, Copyright 2004, Paradigm Concepts, Inc.
+
+Magic of Arcanis, Copyright 2005, Paradigm Concepts, Inc.
+
+Forged in Magic: Revised and Expanded, Copyright 2006, Paradigm Concepts, Inc.
+
+END OF LICENSE
+Except as otherwise identified, all portions of this publication are © 2000-2006 Paradigm Concepts, Inc. All
+rights reserved. The mention of, use of or reference to any company, trademark or product in this publication
+is not a challenge to the trademark of copyright in question. Dungeons & Dragons ® and D&D® are registered
+trademarks of Wizards of the Coast and are used with permission. “Wizards of the Coast is a trademark of
+Wizards of the Coast, Inc. in the United States and other countries and is used with permission.” The D20
+System and D20 System Logo are registered trademarks of Wizards of the Coast and are used under the terms
+of the D20 System Trademark License Version 6.0. The D20 System Trademark License Version 6.0a can be
+found at: http://www.wizards.com/d20/files/d20stlv6.rtf
+
+LIMITED LICENSE FOR THE USE OF PRODUCT IDENTITY (PI)
+Paradigm Concepts, Inc. hereby grants royalty-free limited license to use the Arcanis specific PI elements
+which appear in the names of Spells, Feats or Bloodline Powers contained in this book in OGL publications.
+Use of PI elements is restricted to using those PI elements in the Spell Name, Feat Name, Magic Item Name
+or Bloodline Power name and for no other use. EXAMPLE: The Bloodline Power name “Cadic Guides
+My Hand” may be used to apply to the Bloodline Power “Cadic Guides My Hand” even though the name
+“Cadic” remains PI of Paradigm Concepts, Inc. From this example alone, the name “Cadic” cannot be used
+in any other way except where it appears as part of the name of the Bloodline Power “Cadic Guides My
+Hand.” Any publication making use of such PI must bear a notice declaring 1) the Feat, Spell or Bloodline
+Power name is reserved Product Identity and 2) the Feat, Spell or Bloodline Power name is copyright 2006
+Paradigm Concepts, Inc.
+
+DESIGNATION OF OPEN CONTENT:
+Regardless of placement within this publication, all art and narrative fiction is CLOSED CONTENT.
+
+Regardless of placement within this publication, the following terms are CLOSED CONTENT: Arcanis,
+Onara, the World of Shattered Empires, the slogan ‘Leave Your Mark Upon the Shattered Empires’, the
+tag line ‘Mortals Stumble in Darkness; Heroes Light the Way’, Anshar, Althares, Belisarda, Beltine, Cadic,
+Kassegore, Illir, Hurrian, Nier, Sarish, Neroth, Umor, Larissa, Yarris, Saluwe, Coryan, Coryani, Milandir,
+Milandisian, Canceri, Elorii, Solanos Mor, Nol Dappa, Tultipet, Bealak Gempor, Deneki, Tir Bertoq, Encali,
+Ymandragore, Altheria, Ssethragore, Malfelen, Entaris, Seremas, Elonbe, Eltheleos, Khitani Empire, Ying
+hir, Skohir, Pengic, Kio, Kion, Undir, Voei, Grand Coryan, Old Coryan, Savonna, Sulpecci, Abbessios,
+Toranesta, Myrantia, Ardekene, Kelekene, Ossalikene, Marokene, Berokene, Valentia, Enpybn, Salantis,
+Illonia, Balantica, Cafela, Garundi, Ghauma, Magra, Nishanpur, Vrain, Hunder, Ventaka, Ashoka, Arkoshia,
+Kielmun, Lowach, Sobuk, Ashvan, Vulgast, Naeraanth, Yerrvak, Boskowitz, Treslau, Tralia, Lustia, Sylvania,
+Moratavia, Faervalden, Faerdlau, Mil Takara, Censure, Erduk, Sicaris, val’Assante, val’Abebi, val’Sheem,
+val’Borda, val’Mehan, val’Ossan, val’Sungha, val’Bausciz, val’Haupt, val’Sosi, val’Dellenov, val’Emman,
+val’Holryn, val’Inares, val’Ishi, val’Tensen, val’Virdan, val’Trisin, The Azure Way, The Hawk, The Shield,
+The Twilight Bough, the Emerald Society, the Mourners in Silence, the Orthodoxy, the Order of the White
+Veil, the Voiceless Ones, Capharra, Lillyfel, Uggur, Blackwand, Nerrothian, Sarishan, Nierite, Hurrianic,
+Illirite, Ss’ressen, Ssanu, Nelgazzi, Auxun, Auxunite, The Sleeping Emperor, Uhxbractit, Magadan, Kou,
+Kukkomir, Himmatah, Bastion, Tenji, Pleasance, Zhuan, Kautang, Sang-Dur, Sarasta, Muu, Vethen, Gaz,
+Metchaa, Angol, Stonefall, Lordship of Iron, Tulemigantzi, Ghashmet, Buhez, Caneturee, Ghashmet, Chuhar,
+Hamaimon, Kutcharg, Meliol, Tulemigantzi, Zalanadere, val’Vasik, Sanctorum of the Arcane, Gamelus
+Pravis,
+
+Regardless of placement within this publication, any mention of any other company’s trademark or title of
+work is CLOSED CONTENT

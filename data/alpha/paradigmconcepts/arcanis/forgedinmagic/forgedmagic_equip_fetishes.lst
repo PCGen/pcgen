@@ -1,0 +1,51 @@
+# CVS $Revision$ $Author$ -- Thu Apr 24 01:21:50 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#Original Entry:E. C. Smith (Maredudd) 2007; Andrew Maitland
+
+#Block: Animal Fetishes ---------------------------------------------------------------------------
+# Equipment Name		Type				Cost		Source Page		Add to base move						Bonus to skill							Special Property
+Horse Charm			TYPE:Fetish.Equipment	COST:4500	SOURCEPAGE:p.36	BONUS:MOVEADD|TYPE.Walk|10|TYPE=Enhancement
+Tiger Charm			TYPE:Fetish.Equipment	COST:2000	SOURCEPAGE:p.37									BONUS:SKILL|Balance,Jump|2|TYPE=Competence		SPROP:Pounce like a lion, ONCE. Afterwards this item is useless.
+Hyena Charm			TYPE:Fetish.Equipment	COST:1600	SOURCEPAGE:p.36									BONUS:SKILL|Sleight of Hand,Jump|2|TYPE=Competence
+Owl Charm			TYPE:Fetish.Equipment	COST:10000	SOURCEPAGE:p.36																		SPROP:+5 insight bonus when attempting to unravel a mystery or communicate with a strange culture
+Monkey Charm		TYPE:Fetish.Equipment	COST:1600	SOURCEPAGE:p.36									BONUS:SKILL|Sense Motive,Tumble|2|TYPE=Competence
+Rhino Charm			TYPE:Fetish.Equipment	COST:4000	SOURCEPAGE:p.37																		SPROP:1/day +2 competence bonus to hit and opposed bull rush checks when charging for one round.
+
+#Block: Monster Fetishes -----------------------------------------------------------
+Aboleth Charm		TYPE:Fetish.Equipment	COST:50000	SOURCEPAGE:p.37																		SPROP:1/day make a slime attack as an aboleth
+Ankheg Charm		TYPE:Fetish.Equipment	COST:10000	SOURCEPAGE:p.37																		SPROP:1/day gain tremorsense 60' for 10 minutes
+Basilisk Charm		TYPE:Fetish.Equipment	COST:3300	SOURCEPAGE:p.37																		SPROP:Use Flesh to Stone DC 19 on one creature ONCE, then item becomes useless
+Behir Charm			TYPE:Fetish.Equipment	COST:22680	SOURCEPAGE:p.37																		SPROP:3/day Emulate Behir's Lightbolt breath weapon
+Blink Dog Charm		TYPE:Fetish.Equipment	COST:21600	SOURCEPAGE:p.37																		SPROP:2/day Blink as Blink Dog
+Bulette Charm		TYPE:Fetish.Equipment	COST:20000	SOURCEPAGE:p.37																		SPROP:1/day Burrow speed of 10 for one hour
+Cloaker Charm		TYPE:Fetish.Equipment	COST:10000	SOURCEPAGE:p.37									BONUS:SKILL|Hide|10|TYPE=Competence
+Cockatrice Charm		TYPE:Fetish.Equipment	COST:78000	SOURCEPAGE:p.37																		SPROP:Immune to petrification, including the flesh to stone spell
+Darkmantle Charm		TYPE:Fetish.Equipment	COST:6480	SOURCEPAGE:p.37																		SPROP:3/day may use darkness spell
+Delver Charm		TYPE:Fetish.Equipment	COST:32400	SOURCEPAGE:p.38																		SPROP:3/day may use stone shape or soften earth and stone spell
+Destrachan Charm		TYPE:Fetish.Equipment	COST:60000	SOURCEPAGE:p.38																		SPROP:1/day may use Blidsight 60' for 1 hour
+Digester Charm		TYPE:Fetish.Equipment	COST:17280	SOURCEPAGE:p.38																		SPROP:3/day may use acid arrow
+Ettercap Charm		TYPE:Fetish.Equipment	COST:14400	SOURCEPAGE:p.38																		SPROP:4/day Web (DC 13)
+Frost Worm Charm		TYPE:Fetish.Equipment	COST:25200	SOURCEPAGE:p.38																		SPROP:1/day Cone of Cold (DC 17)
+Giant Spider Charm	TYPE:Fetish.Equipment	COST:8640	SOURCEPAGE:p.38																		SPROP:2/day Spider Climb spell
+Gorgon Charm		TYPE:Fetish.Equipment	COST:32400	SOURCEPAGE:p.38																		SPROP:1/day may use flesh to stone (DC 19)
+Igiho Charm			TYPE:Fetish.Equipment	COST:21600	SOURCEPAGE:p.38																		SPROP:2/day may use displacement
+Manticore Charm		TYPE:Fetish.Equipment	COST:16200	SOURCEPAGE:p.38																		SPROP:At will may use Magic Missile
+Mimic Charm			TYPE:Fetish.Equipment	COST:50000	SOURCEPAGE:p.38																		SPROP:2/day gain adhesive attack of mimic
+Naga Charm			TYPE:Fetish.Equipment	COST:14400	SOURCEPAGE:p.38																		SPROP:1/day may use Poison (DC 17)
+Naga Charm Greater	TYPE:Fetish.Equipment	COST:43200	SOURCEPAGE:p.39																		SPROP:1/day may use empowered poison (DC 23)
+Roper Charm			TYPE:Fetish.Equipment	COST:18000	SOURCEPAGE:p.39																		SPROP:At will, may use ray of enfeeblement
+Rust Monster Charm	TYPE:Fetish.Equipment	COST:57600	SOURCEPAGE:p.39																		SPROP:3/day may use rusting grasp
+Shocker Lizard Charm	TYPE:Fetish.Equipment	COST:32400	SOURCEPAGE:p.39																		SPROP:3/day may use lightning bolt (DC 14)
+Unicorn Charm		TYPE:Fetish.Equipment	COST:43200	SOURCEPAGE:p.39																		SPROP:3/day may use neutralize poison or cure moderate wounds
+Winter Wolf Charm		TYPE:Fetish.Equipment	COST:51840	SOURCEPAGE:p.39																		SPROP:4/day may use resist energy (cold)
+Yrthak Charm		TYPE:Fetish.Equipment	COST:6400	SOURCEPAGE:p.39																		SPROP:May replicate a greater shout (DC 22) once.
+
+#Block: Other Fetishes ----------------------------------------------------------------------------
+Artisan's Charm		TYPE:Fetish.Equipment	COST:800	SOURCEPAGE:p.39																		SPROP:+2 competence bonus to specified craft or profession
+Bone Staff			TYPE:Fetish.Equipment	COST:20000	SOURCEPAGE:p.39																		SPROP:Can turn undead as a 5th level cleric with 18 charisma, or gain +2 to turn undead if you can already turn undead. Bonus if Ehtzara
+Bone Rattle			TYPE:Fetish.Equipment	COST:10100	SOURCEPAGE:p.40																		SPROP:1/day Cast fear (DC 15 Will)
+Hero's Heart		TYPE:Fetish.Equipment	COST:12000	SOURCEPAGE:p.40																		SPROP:Gain benefit for eating the heart for next 24 hours.
+Shrunken Head		TYPE:Fetish.Equipment	COST:18000	SOURCEPAGE:p.40																		SPROP:1/day may cast Magic Jar
+Spirit Rattle		TYPE:Fetish.Equipment	COST:16380	SOURCEPAGE:p.40																		SPROP:1/day cast banishment as a 13th level caster
+
+#EOF

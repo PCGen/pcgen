@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Sat Apr 12 03:03:21 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#AUTHOR:E. C. Smith (Maredudd), 2007
+
+#Natural Weapon Proficiencies
+# Weapon Name	Type
+Kick			TYPE:Natural.Unarmed
+
+###Siege Weapons
+Catapult		TYPE:SiegeWeapon.Thrown.Catapult
+Balista		TYPE:SiegeWeapon.Projectile.Balista
+Ram			TYPE:SiegeWeapon.Melee.Ram
+
+Blowgun		TYPE:Ranged.Piercing.RangedPiercing.Blowgun
+Maul			TYPE:Melee.Bludgeoning.Maul
+
+
+Wind Staff		TYPE:Melee.Staff.Bludgeoning

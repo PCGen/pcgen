@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Sat Apr 12 03:03:21 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#Original Entry:E. C. Smith (Maredudd), 2007 & Andrew Maitland
+
+# Spell Name		Output Name				Classes of caster				School			Sub-School		Spell Descriptors			Type		Components		Casting Time			Range			Target Area or Effect											Duration						Save Info					Spell Resistance		Description																	Source Page
+Charm Person (Mass)	OUTPUTNAME:Charm Person, Mass	CLASSES:Sorcerer,Wizard=5|Bard=4	SCHOOL:Enchantment	SUBSCHOOL:Charm	DESCRIPTOR:Mind-Affecting	TYPE:Arcane	COMPS:V		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One or more creatures, no two of which can be nore than 30 ft. apart	DURATION:(CASTERLEVEL) days			SAVEINFO:Will negates			SPELLRES:Yes		DESC:Makes one or more humanoid creatures, whose total HD do not exceed (CASTERLEVEL*2) HD, your friend	SOURCEPAGE:p.164
+Enlarge Item							CLASSES:Sorcerer,Wizard=3		SCHOOL:Transmutation									TYPE:Arcane	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One touched object of up to (CASTERLEVEL*2) cu ft				DURATION:(CASTERLEVEL) days; see text	SAVEINFO:Will negates (object)	SPELLRES:Yes (object)	DESC:You may enlarge one item.													SOURCEPAGE:p.164
+Revelation								CLASSES:Cleric=7				SCHOOL:Divination										TYPE:Divine	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:(CASTERLEVEL*5) ft radius byrst centered on the caster				DURATION:Instantaneous				SAVEINFO:None				SPELLRES:No			DESC:This spell reveals all things within (CASTERLEVEL*5) ft as they really are.					SOURCEPAGE:p.164
