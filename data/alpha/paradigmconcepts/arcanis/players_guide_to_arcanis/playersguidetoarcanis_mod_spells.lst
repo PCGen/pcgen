@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Dec 27 22:46:24 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -268,6 +268,7 @@ Protection from Energy.COPY=Protection from Energy (Emman)
 Protection from Energy (Emman).MOD						NAMEISPI:YES	OUTPUTNAME:Protection From Energy, Bloodline		CLASSES:.CLEARALL																																																																																																DESC:.CLEARALL	DESC:Absorb (min(CASTERLEVEL,10)*12) points of fire																																																											SOURCEPAGE:SpellsP-R.rtf
 Resist Energy.COPY=Resist Energy (Fire)
 Resist Energy (Fire).MOD																			CLASSES:.CLEARALL																																																																																																DESC:.CLEARALL	DESC:Ignores first ((1+(min(floor((CASTERLEVEL-3)/4),2)))*10) points of da$
+Summon Nature's Ally I.COPY=Summon Nature's Ally I (MoH)
 Summon Nature's Ally I (MoH).MOD									OUTPUTNAME:Summon Nature's Ally I (Canines Only)	CLASSES:.CLEARALL
 Summon Nature's Ally II.COPY=Summon Nature's Ally II (MoH)
 Summon Nature's Ally II (MoH).MOD									OUTPUTNAME:Summon Nature's Ally II (Canines Only)	CLASSES:.CLEARALL
@@ -280,7 +281,7 @@ Summon Nature's Ally V (Dellenov).MOD					NAMEISPI:YES	OUTPUTNAME:Summon Nature'
 Tree Stride.COPY=Tree Stride (Dellanov)
 Tree Stride (Dellanov).MOD							NAMEISPI:YES	OUTPUTNAME:Tree Stride, Bloodline				CLASSES:.CLEARALL																									CASTTIME:.CLEAR		CASTTIME:1 full action																																			DURATION:.CLEAR	DURATION:1 round																											DESC:Step from one tree to another far away. Limited to %1 trees, 500 ft. transport range|ValBloodrank
 Word of Purification.COPY=Word of Purification (Assante)
-Word of Purification (Assante).MOD						NAMEISPI:YES	OUTPUTNAME:Word of Purification, Bloodline		CLASSES:.CLEARALL																																		RANGE:.CLEAR	RANGE:Personal			TARGETAREA:20-ft. radius burst centered on the caster.																DURATION:.CLEAR	DURATION:% round(s)|ValBloodrank																								DESC:Damage dealt to creatures with the Entropic or Tainted subtypes is altered to (2*%1)d8; the burst of light, does not deal extra damage to fungi, mold, oozes, and slimes|ValBloodrank																										SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA		SOURCEPAGE:p.275
+Word of Purification (Assante).MOD						NAMEISPI:YES	OUTPUTNAME:Word of Purification, Bloodline		CLASSES:.CLEARALL																																		RANGE:.CLEAR	RANGE:Personal			TARGETAREA:20-ft. radius burst centered on the caster.																DURATION:.CLEAR	DURATION:% round(s)|ValBloodrank																								DESC:Damage dealt to creatures with the Entropic or Tainted subtypes is altered to (2*%1)d8; the burst of light, does not deal extra damage to fungi, mold, oozes, and slimes|ValBloodrank																									SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA		SOURCEPAGE:p.275
 
 ### Class Spells
 Detect Evil.COPY=Detect Infernal
