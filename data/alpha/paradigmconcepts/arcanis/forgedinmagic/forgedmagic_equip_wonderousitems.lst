@@ -58,7 +58,7 @@ Cloak of the Green Lurker									TYPE:Magic.Wondrous.Cape	COST:21000	SOURCEPAGE
 Cloak of the Invincible Warrior								TYPE:Magic.Wondrous.Cape	COST:22500	SOURCEPAGE:p.72
 Clock of Chaos Confinement									TYPE:Magic.Wondrous.Cape	COST:365000	SOURCEPAGE:p.72									SPELLS:Clock of Chaos Confinement|TIMES=ATWILL|CASTERLEVEL=17|Dispel Chaos
 Cloud Cape												TYPE:Magic.Wondrous.Cape	COST:26200	SOURCEPAGE:p.72									SPELLS:Cloud Cape|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=5|Levitate	SPELLS:Cloud Cape|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=5|Gaseous Form
-Collar of Kinship											TYPE:Magic.Wondrous.Amulet	COST:18750	SOURCEPAGE:p.72									SPELLS:Collar of Kinship|TIMES=1|TIMEUNIT=Day|Wild Shape|PREABILITY:1,CATEGORY=FEAT,Wild Shape																			BONUS:SKILL|Wild Empathy,Handle Animal|5|TYPE=Competence
+Collar of Kinship											TYPE:Magic.Wondrous.Amulet	COST:18750	SOURCEPAGE:p.72																																											BONUS:SKILL|Wild Empathy,Handle Animal|5|TYPE=Competence																			SPROP:Wild Shape Properties
 Collar of Submission										TYPE:Magic.Wondrous.Amulet	COST:106200	SOURCEPAGE:p.73
 Corsair's Cloak											TYPE:Magic.Wondrous.Cape	COST:16500	SOURCEPAGE:p.73																																					BONUS:COMBAT|AC|2|TYPE=Deflection	BONUS:SKILL|Balance|5|TYPE=Competence						BONUS:STAT|DEX|2|TYPE=Enhancement
 Corsair's Cloak (Improved)		OUTPUTNAME:Corsair's Cloak, Improved	TYPE:Magic.Wondrous.Cape	COST:44500	SOURCEPAGE:p.73																																					BONUS:COMBAT|AC|3|TYPE=Deflection	BONUS:SKILL|Balance|5|TYPE=Competence						BONUS:STAT|DEX|4|TYPE=Enhancement
