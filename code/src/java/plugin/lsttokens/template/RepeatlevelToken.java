@@ -29,15 +29,18 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with REPEATLEVEL Token
  */
-public class RepeatlevelToken implements CDOMPrimaryToken<PCTemplate>
+public class RepeatlevelToken extends AbstractToken implements
+		CDOMPrimaryToken<PCTemplate>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "REPEATLEVEL";
@@ -46,6 +49,10 @@ public class RepeatlevelToken implements CDOMPrimaryToken<PCTemplate>
 	public boolean parse(LoadContext context, PCTemplate template, String value)
 			throws PersistenceLayerException
 	{
+		if (isEmpty(value) || hasIllegalSeparator(':', value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
 		//
 		// x|y|z:level:<level assigned item>
 		//
@@ -199,13 +206,10 @@ public class RepeatlevelToken implements CDOMPrimaryToken<PCTemplate>
 
 		String typeStr = value.substring(endLevel + 1, endAssignType);
 		String contentStr = value.substring(endAssignType + 1);
-		if (contentStr.length() == 0)
-		{
-			Logging.errorPrint("Malformed " + getTokenName()
-					+ " Token (No Content to SubToken)");
-			Logging.errorPrint("  Line was: " + value);
-			return false;
-		}
+		/*
+		 * typeStr and contentStr can't be null due to hasIllegalSeparator check
+		 * on colon above
+		 */
 
 		PCTemplate consolidator = new PCTemplate();
 		consolidator.put(IntegerKey.CONSECUTIVE, Integer.valueOf(consecutive));

@@ -59,6 +59,10 @@ public class LevelToken extends AbstractToken implements
 					ListKey.LEVEL_TEMPLATES);
 			return true;
 		}
+		if (isEmpty(value) || hasIllegalSeparator(':', value))
+		{
+			return false;
+		}
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.COLON);
 

@@ -29,13 +29,14 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with HD Token
  */
-public class HdToken implements CDOMPrimaryToken<PCTemplate>
+public class HdToken extends AbstractToken implements CDOMPrimaryToken<PCTemplate>
 {
 
 	/*
@@ -43,6 +44,7 @@ public class HdToken implements CDOMPrimaryToken<PCTemplate>
 	 * 
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "HD";
@@ -56,6 +58,10 @@ public class HdToken implements CDOMPrimaryToken<PCTemplate>
 			context.getObjectContext().removeList(template,
 					ListKey.HD_TEMPLATES);
 			return true;
+		}
+		if (isEmpty(value) || hasIllegalSeparator(':', value))
+		{
+			return false;
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.COLON);
