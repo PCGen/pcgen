@@ -152,12 +152,6 @@ public class MonccskillToken extends AbstractToken implements
 	private CDOMReference<Skill> getSkillReference(LoadContext context, Race r,
 			String tokText)
 	{
-		// if (Constants.LST_LIST.equals(tokText))
-		// {
-		// return new AssociationReference<Skill>(Skill.class, context.ref
-		// .getCDOMAllReference(SKILL_CLASS), r);
-		// }
-		// else
 		if (tokText.endsWith(Constants.LST_PATTERN))
 		{
 			return new PatternMatchingReference<Skill>(Skill.class, context.ref

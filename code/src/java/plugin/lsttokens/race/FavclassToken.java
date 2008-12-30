@@ -18,6 +18,7 @@
 package plugin.lsttokens.race;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
@@ -82,6 +83,10 @@ public class FavclassToken extends AbstractToken implements
 	private boolean parseFavoredChoose(LoadContext context, Race race,
 			String value)
 	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
 		boolean foundAny = false;
 		boolean foundOther = false;
 
@@ -135,10 +140,10 @@ public class FavclassToken extends AbstractToken implements
 		tc.setRequired(true);
 
 		Logging
-			.deprecationPrint("Use of FAVCLASS:CHOOSE is deprecated. "
-				+ "Please use FAVCLASS:%LIST with a CHOOSE:CLASS insetad of FAVCLASS:CHOOSE|"
-				+ value);
-		
+				.deprecationPrint("Use of FAVCLASS:CHOOSE is deprecated. "
+						+ "Please use FAVCLASS:%LIST with a CHOOSE:CLASS insetad of FAVCLASS:CHOOSE|"
+						+ value);
+
 		return true;
 	}
 
@@ -154,24 +159,25 @@ public class FavclassToken extends AbstractToken implements
 		{
 			String token = tok.nextToken();
 			if (Constants.LST_ALL.equalsIgnoreCase(token)
-				|| Constants.LST_ANY.equalsIgnoreCase(token)
-				|| Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
+					|| Constants.LST_ANY.equalsIgnoreCase(token)
+					|| Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
 				context.getObjectContext().put(cdo,
-					ObjectKey.ANY_FAVORED_CLASS, true);
+						ObjectKey.ANY_FAVORED_CLASS, true);
 				if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
+						|| Constants.LST_ANY.equalsIgnoreCase(token))
 				{
 					Logging.deprecationPrint("Use of FAVCLASS:" + token
-						+ " is deprecated. "
-						+ "Please use FAVCLASS:HIGHESTLEVELCLASS");
+							+ " is deprecated. "
+							+ "Please use FAVCLASS:HIGHESTLEVELCLASS");
 				}
 			}
 			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
 			{
-				context.getObjectContext().addToList(cdo,
-					ListKey.CHOOSE_ACTOR, this);
+				foundOther = true;
+				context.getObjectContext().addToList(cdo, ListKey.CHOOSE_ACTOR,
+						this);
 			}
 			else
 			{
@@ -185,6 +191,10 @@ public class FavclassToken extends AbstractToken implements
 				}
 				else
 				{
+					if (hasIllegalSeparator('.', token))
+					{
+						return false;
+					}
 					// SubClass
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
@@ -209,24 +219,38 @@ public class FavclassToken extends AbstractToken implements
 	{
 		Changes<CDOMReference<? extends PCClass>> changes = context
 				.getObjectContext().getListChanges(race, ListKey.FAVORED_CLASS);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
+		Changes<ChooseResultActor> listChanges = context.getObjectContext()
+				.getListChanges(race, ListKey.CHOOSE_ACTOR);
 		SortedSet<String> set = new TreeSet<String>();
-		for (CDOMReference<? extends PCClass> ref : changes.getAdded())
+		if (changes != null && !changes.isEmpty())
 		{
-			Class<? extends PCClass> refClass = ref.getReferenceClass();
-			if (SUBCLASS_CLASS.equals(refClass))
+			for (CDOMReference<? extends PCClass> ref : changes.getAdded())
 			{
-				Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
-						.getCDOMCategory();
-				set.add(parent.toString() + "." + ref.getLSTformat());
+				Class<? extends PCClass> refClass = ref.getReferenceClass();
+				if (SUBCLASS_CLASS.equals(refClass))
+				{
+					Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
+							.getCDOMCategory();
+					set.add(parent.toString() + "." + ref.getLSTformat());
+				}
+				else
+				{
+					set.add(ref.getLSTformat());
+				}
 			}
-			else
+		}
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		if (listAdded != null && !listAdded.isEmpty())
+		{
+			if (listAdded.contains(this))
 			{
-				set.add(ref.getLSTformat());
+				set.add("%LIST");
 			}
+		}
+		if (set.isEmpty())
+		{
+			// Zero indicates no add or clear
+			return null;
 		}
 		return new String[] { StringUtil.join(set, Constants.PIPE) };
 	}
@@ -236,28 +260,32 @@ public class FavclassToken extends AbstractToken implements
 		return Race.class;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter,
+	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
 	 */
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		PCClass cls =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					PCCLASS_CLASS, o);
+		PCClass cls = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
 		if (cls != null)
 		{
 			pc.addAssoc(obj, AssociationListKey.FAVCLASS, cls);
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter,
+	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
 	 */
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		PCClass cls =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					PCCLASS_CLASS, o);
+		PCClass cls = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
 		if (cls != null)
 		{
 			pc.removeAssoc(obj, AssociationListKey.FAVCLASS, cls);
