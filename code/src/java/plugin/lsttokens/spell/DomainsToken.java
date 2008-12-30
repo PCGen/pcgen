@@ -147,8 +147,8 @@ public class DomainsToken extends AbstractToken implements
 				}
 				else if (level.intValue() == -1)
 				{
-					Logging.deprecationPrint(getTokenName()
-							+ " should not use a negative level: " + value);
+					// Logging.deprecationPrint(getTokenName()
+					// + " should not use a negative level: " + value);
 				}
 			}
 			catch (NumberFormatException nfe)
