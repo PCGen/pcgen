@@ -72,4 +72,9 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 		pc.addAssoc(pcc, AssociationListKey.CSKILL, pcSkill);
 	}
 
+	public Integer getApplyRank()
+	{
+		return applyRank;
+	}
+
 }

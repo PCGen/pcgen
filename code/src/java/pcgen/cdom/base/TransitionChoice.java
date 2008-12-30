@@ -197,4 +197,9 @@ public class TransitionChoice<T>
 	{
 		return stackLimit == null ? 0 : stackLimit;
 	}
+
+	public ChoiceActor<T> getChoiceActor()
+	{
+		return choiceActor;
+	}
 }

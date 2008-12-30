@@ -126,6 +126,10 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	public String getLSTformat()
 	{
 		List<String> list = new ArrayList<String>();
+		if (primitives != null)
+		{
+			list.add(primitives.getLSTformat());
+		}
 		if (pcset != null)
 		{
 			list.add(pcset.getLSTformat());
@@ -133,10 +137,6 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		if (!spelltypes.isEmpty())
 		{
 			list.addAll(spelltypes);
-		}
-		if (primitives != null)
-		{
-			list.add(primitives.getLSTformat());
 		}
 		return StringUtil.join(list, Constants.COMMA);
 	}
@@ -222,7 +222,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public int hashCode()
 	{
-		return pcset.hashCode() * 29
+		return (pcset == null ? 0 : pcset.hashCode() * 29)
 				+ (primitives == null ? 0 : primitives.hashCode());
 	}
 
@@ -259,10 +259,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 			}
 			if (primitives == null)
 			{
-				if (other.primitives != null)
-				{
-					return false;
-				}
+				return other.primitives == null;
 			}
 			return primitives.equals(other.primitives);
 		}

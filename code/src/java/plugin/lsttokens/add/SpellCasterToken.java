@@ -71,30 +71,21 @@ public class SpellCasterToken extends AbstractToken implements
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
-		int count;
+		Formula count;
 		String items;
 		if (pipeLoc == -1)
 		{
-			count = 1;
+			count = Formula.ONE;
 			items = value;
 		}
 		else
 		{
 			String countString = value.substring(0, pipeLoc);
-			try
+			count = FormulaFactory.getFormulaFor(countString);
+			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
-				count = Integer.parseInt(countString);
-				if (count < 1)
-				{
-					Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
-							+ " must be > 0");
-					return false;
-				}
-			}
-			catch (NumberFormatException nfe)
-			{
-				Logging.log(Logging.LST_ERROR, "Invalid Count in " + getFullName() + ": "
-						+ countString);
+				Logging.log(Logging.LST_ERROR, "Count in " + getFullName()
+								+ " must be > 0");
 				return false;
 			}
 			items = value.substring(pipeLoc + 1);
@@ -167,7 +158,7 @@ public class SpellCasterToken extends AbstractToken implements
 				: new ReferenceChoiceSet<PCClass>(prims);
 		ChoiceSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
 		PersistentTransitionChoice<PCClass> tc = new PersistentTransitionChoice<PCClass>(
-				cs, FormulaFactory.getFormulaFor(count));
+				cs, count);
 		tc.setTitle("Spell Caster Class Choice");
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);

@@ -203,6 +203,12 @@ public class VFeatToken extends AbstractToken implements
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
+		if (refs.isEmpty())
+		{
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+					+ ": Contains no ability reference: " + value);
+			return false;
+		}
 
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
 				nature, allowStack, dupChoices);

@@ -156,7 +156,23 @@ public class ClassSkillsToken extends AbstractToken implements
 						return false;
 					}
 					String rankString = tokText.substring(9);
-					autoRank = Integer.decode(rankString);
+					try
+					{
+						autoRank = Integer.decode(rankString);
+						if (autoRank <= 0)
+						{
+							Logging.errorPrint("Expected AUTORANK= to be"
+									+ " greater than zero, found: "
+									+ autoRank);
+							return false;
+						}
+					}
+					catch (NumberFormatException e)
+					{
+						Logging.errorPrint("Expected AUTORANK= to have"
+								+ " an integer value, found: " + rankString);
+						return false;
+					}
 				}
 				else
 				{
@@ -181,6 +197,12 @@ public class ClassSkillsToken extends AbstractToken implements
 		{
 			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
+			return false;
+		}
+		if (refs.isEmpty())
+		{
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+					+ ": Contains no skill reference: " + value);
 			return false;
 		}
 
@@ -226,6 +248,13 @@ public class ClassSkillsToken extends AbstractToken implements
 					sb.append(fString).append(Constants.PIPE);
 				}
 				sb.append(cs.getLSTformat());
+				ClassSkillChoiceActor actor = (ClassSkillChoiceActor) container
+						.getChoiceActor();
+				Integer rank = actor.getApplyRank();
+				if (rank != null)
+				{
+					sb.append(Constants.COMMA).append("AUTORANK=" + rank);
+				}
 				addStrings.add(sb.toString());
 			}
 		}
