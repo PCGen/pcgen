@@ -232,4 +232,30 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Domain, Ability>
 	// runRoundRobin("TestWP1|TestWP1|PRERACE:1,Human",
 	// "TestWP2|TestWP2|PRERACE:1,Elf");
 	// }
+
+	@Test
+	public void testRoundRobinOneParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Paren)");
+	}
+
+	@Test
+	public void testRoundRobinTwoParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		runRoundRobin("TestWP1 (Paren)|TestWP2 (Other)");
+	}
+
+	@Test
+	public void testRoundRobinDupeParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Other)|TestWP1 (That)");
+	}
 }

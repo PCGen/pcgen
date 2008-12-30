@@ -37,6 +37,11 @@ public abstract class AbstractCampaignTokenTestCase extends
 	public abstract ListKey<?> getListKey();
 
 	public abstract boolean allowIncludeExclude();
+	
+	public Character getSeparator()
+	{
+		return null;
+	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -82,9 +87,12 @@ public abstract class AbstractCampaignTokenTestCase extends
 	@Test
 	public void testInvalidInputTwo() throws PersistenceLayerException
 	{
-		assertFalse(parse("String|Other"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
-		assertNoSideEffects();
+		if (getSeparator() == null)
+		{
+			assertFalse(parse("String|Other"));
+			assertFalse(primaryProf.containsListFor(getListKey()));
+			assertNoSideEffects();
+		}
 	}
 
 	// TODO 517 - Deprecated behavior in 5.15
