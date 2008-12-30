@@ -20,30 +20,12 @@ package plugin.lsttokens.equipment;
 import org.junit.Test;
 
 import pcgen.core.Equipment;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTextPropertyTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SPropTokenTest extends
-		AbstractTextPropertyTokenTestCase<Equipment>
+public class AltEqModTokenTest extends AbstractEqModTokenTestCase
 {
-	static SpropToken token = new SpropToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
 
-	@Override
-	public Class<Equipment> getCDOMClass()
-	{
-		return Equipment.class;
-	}
-
-	@Override
-	public CDOMLoader<Equipment> getLoader()
-	{
-		return loader;
-	}
+	static AlteqmodToken token = new AlteqmodToken();
 
 	@Override
 	public CDOMPrimaryToken<Equipment> getToken()
@@ -52,22 +34,8 @@ public class SPropTokenTest extends
 	}
 
 	@Test
-	public void testInvalidDoubleClear() throws PersistenceLayerException
+	public void dummyTest()
 	{
-		assertFalse(parse(".CLEAR|.CLEAR|Second"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidClearAsVariable() throws PersistenceLayerException
-	{
-		assertFalse(parse("Second|.CLEAR"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testValidClear() throws PersistenceLayerException
-	{
-		assertTrue(parse(".CLEAR"));
+		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 }
