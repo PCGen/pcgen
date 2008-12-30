@@ -56,11 +56,6 @@ public class DomainToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, PCClassLevel level, String value)
 	{
-		if (Constants.LST_DOT_CLEAR.equals(value))
-		{
-			context.getObjectContext().removeList(level, ListKey.DOMAIN);
-			return true;
-		}
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
@@ -68,9 +63,21 @@ public class DomainToken extends AbstractToken implements
 
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
+		boolean first = true;
 		while (pipeTok.hasMoreTokens())
 		{
 			String tok = pipeTok.nextToken();
+			if (Constants.LST_DOT_CLEAR.equals(tok))
+			{
+				if (!first)
+				{
+					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
+							+ ": .CLEAR was not the first list item");
+					return false;
+				}
+				context.getObjectContext().removeList(level, ListKey.DOMAIN);
+				continue;
+			}
 			// Note: May contain PRExxx
 			String domainKey;
 			Prerequisite prereq = null;
@@ -121,6 +128,7 @@ public class DomainToken extends AbstractToken implements
 				qo.addPrerequisite(prereq);
 			}
 			context.getObjectContext().addToList(level, ListKey.DOMAIN, qo);
+			first = false;
 		}
 		return true;
 	}

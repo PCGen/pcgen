@@ -27,6 +27,7 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
@@ -34,20 +35,25 @@ import pcgen.util.Logging;
 /**
  * Class deals with PRERACETYPE Token
  */
-public class PreracetypeToken implements CDOMPrimaryToken<PCClass>,
-		DeferredToken<PCClass>
+public class PreracetypeToken extends AbstractToken implements
+		CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>
 {
 
 	private static final String TOKEN_ROOT = "RACETYPE";
 
+	@Override
 	public String getTokenName()
 	{
 		return "PRERACETYPE";
 	}
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Prerequisite p = new Prerequisite();
 		p.setKind("RACETYPE");
 		p.setOperand("1");
@@ -69,10 +75,10 @@ public class PreracetypeToken implements CDOMPrimaryToken<PCClass>,
 		{
 			String kind = p.getKind();
 			if (kind == null
-				|| kind.regionMatches(true, 0, TOKEN_ROOT, 0, Math.min(
-					TOKEN_ROOT.length(), kind.length())))
+					|| kind.regionMatches(true, 0, TOKEN_ROOT, 0, Math.min(
+							TOKEN_ROOT.length(), kind.length())))
 			{
-				set.add(p.getOperand());
+				set.add(p.getKey());
 			}
 		}
 		if (set.isEmpty())
@@ -99,7 +105,7 @@ public class PreracetypeToken implements CDOMPrimaryToken<PCClass>,
 					if (!obj.isMonster())
 					{
 						Logging.errorPrint("PCClass " + obj.getKeyName()
-							+ " is not a Monster, but used PRERACETYPE");
+								+ " is not a Monster, but used PRERACETYPE");
 						return false;
 					}
 				}

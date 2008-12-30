@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.util.StringTokenizer;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
@@ -42,21 +40,50 @@ public class LevelsperfeatToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, PCClass pcc, String value)
 	{
-		if (isEmpty(value))
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
-		final StringTokenizer token = new StringTokenizer(value, "|");
-		if (token.countTokens() < 1 || token.countTokens() > 2)
+		int pipeLoc = value.indexOf('|');
+		String numLevels;
+		if (pipeLoc == -1)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " must be of the form: " + getTokenName() + ":<int> or "
-					+ getTokenName() + ":<int>|LEVELTYPE=<string>" + " Got "
-					+ getTokenName() + ":" + value);
-			return false;
+			numLevels = value;
+		}
+		else
+		{
+			if (pipeLoc != value.lastIndexOf('|'))
+			{
+				Logging.log(Logging.LST_ERROR, getTokenName()
+						+ " must be of the form: " + getTokenName()
+						+ ":<int> or " + getTokenName()
+						+ ":<int>|LEVELTYPE=<string>" + " Got "
+						+ getTokenName() + ":" + value);
+				return false;
+			}
+			numLevels = value.substring(0, pipeLoc);
+			String levelTypeTag = value.substring(pipeLoc + 1);
+			if (!levelTypeTag.startsWith("LEVELTYPE="))
+			{
+				Logging.log(Logging.LST_ERROR, "If " + getTokenName()
+						+ " has a | it must be of the form: " + getTokenName()
+						+ ":<int>|LEVELTYPE=<string>" + " Got "
+						+ getTokenName() + ":" + value);
+				return false;
+			}
+			String levelType = levelTypeTag.substring(10);
+			if (levelType == null || levelType.length() == 0)
+			{
+				Logging.log(Logging.LST_ERROR, "If " + getTokenName()
+						+ " has a | it must be of the form: " + getTokenName()
+						+ ":<int>|LEVELTYPE=<string>"
+						+ " Got an empty leveltype");
+				return false;
+			}
+			context.getObjectContext()
+					.put(pcc, StringKey.LEVEL_TYPE, levelType);
 		}
 
-		String numLevels = token.nextToken();
 		try
 		{
 			Integer in = Integer.valueOf(numLevels);
@@ -77,34 +104,6 @@ public class LevelsperfeatToken extends AbstractToken implements
 			return false;
 		}
 
-		if (token.hasMoreTokens())
-		{
-			String levelTypeTag = token.nextToken();
-			final StringTokenizer levelTypeToken = new StringTokenizer(
-					levelTypeTag, "=");
-			if (levelTypeToken.countTokens() != 2)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
-						+ " must be of the form: " + getTokenName()
-						+ ":<int> or " + getTokenName()
-						+ ":<int>|LEVELTYPE=<string>" + " Got "
-						+ getTokenName() + ":" + value);
-				return false;
-			}
-			String tag = levelTypeToken.nextToken();
-			if (!"LEVELTYPE".equals(tag))
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
-						+ " must be of the form: " + getTokenName()
-						+ ":<int> or " + getTokenName()
-						+ ":<int>|LEVELTYPE=<string>" + " Got "
-						+ getTokenName() + ":" + value);
-				return false;
-			}
-			String levelType = levelTypeToken.nextToken();
-			context.getObjectContext()
-					.put(pcc, StringKey.LEVEL_TYPE, levelType);
-		}
 		return true;
 	}
 
