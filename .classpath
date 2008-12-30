@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="**/.svn/*" kind="src" path="code/build/src"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/java"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/test"/>
 	<classpathentry kind="src" path="code/src/utest"/>
@@ -31,7 +30,6 @@
 	<classpathentry kind="lib" path="lib/jep/RngPack-1.1a.jar"/>
 	<classpathentry kind="lib" path="lib/test/xmlunit1.0.jar"/>
 	<classpathentry kind="lib" path="lib/javacc.jar"/>
-	<classpathentry kind="lib" path="lib/jep/djep-2.24.jar"/>
 	<classpathentry kind="lib" path="lib/cobra/cobra.jar"/>
 	<classpathentry kind="lib" path="lib/cobra/js.jar"/>
 	<classpathentry kind="lib" path="lib/apache/commons-lang-2.4.jar"/>
