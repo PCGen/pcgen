@@ -276,7 +276,7 @@ public class ListContext
 			for (CDOMObject child : edits.negativeMasterMap.getTertiaryKeySet(
 					list, ou))
 			{
-				AssociatedPrereqObject assoc = edits.positiveMasterMap.get(
+				AssociatedPrereqObject assoc = edits.negativeMasterMap.get(
 						list, ou, child);
 				commit.removeFromMasterList(assoc
 						.getAssociation(AssociationKey.TOKEN), ou.owner, list,
