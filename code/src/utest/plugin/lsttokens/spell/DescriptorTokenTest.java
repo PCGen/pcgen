@@ -84,6 +84,6 @@ public class DescriptorTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 }

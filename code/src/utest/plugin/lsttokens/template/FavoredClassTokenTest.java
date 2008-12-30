@@ -160,10 +160,39 @@ public class FavoredClassTokenTest extends
 		obj = secondaryContext.ref.constructCDOMObject(SubClass.class,
 				"Sub");
 		secondaryContext.ref.reassociateCategory(cat, obj);
-		System.err.println("!");
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2.Sub"
 				+ getJoinCharacter() + "TestWP3");
-		System.err.println("!!");
 	}
+
+	// TODO This really need to check the object is also not modified, not just
+	// that the graph is empty (same with other tests here)
+	@Test
+	public void testInvalidInputAnyItem() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			assertFalse(parse("ANY" + getJoinCharacter() + "TestWP1"));
+			assertNoSideEffects();
+		}
+	}
+
+	@Test
+	public void testInvalidInputItemAny() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			assertFalse(parse("TestWP1" + getJoinCharacter() + "ANY"));
+			assertNoSideEffects();
+		}
+	}
+
+	@Test
+	public void testRoundRobinList() throws PersistenceLayerException
+	{
+		runRoundRobin("%LIST");
+	}
+
 
 }

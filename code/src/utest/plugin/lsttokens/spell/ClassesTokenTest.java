@@ -203,6 +203,14 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	}
 
 	@Test
+	public void testInvalidInputBadPrerequisite()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("Fire=4[PREFOO:1,Human]"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputNotClass() throws PersistenceLayerException
 	{
 		assertTrue(parse("Wizard=4"));

@@ -422,7 +422,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 	// TODO This really need to check the object is also not modified, not just
 	// that the graph is empty (same with other tests here)
 	@Test
-	public void testInvalidInputAnyItem() throws PersistenceLayerException
+	public void testInvalidInputAllItem() throws PersistenceLayerException
 	{
 		if (isAllLegal())
 		{
@@ -433,7 +433,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
-	public void testInvalidInputItemAny() throws PersistenceLayerException
+	public void testInvalidInputItemAll() throws PersistenceLayerException
 	{
 		if (isAllLegal())
 		{

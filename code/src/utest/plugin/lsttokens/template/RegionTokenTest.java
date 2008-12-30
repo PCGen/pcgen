@@ -22,6 +22,7 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
@@ -81,4 +82,11 @@ public class RegionTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate>
 	{
 		return false;
 	}
+
+	@Test
+	public void testRoundRobinYes() throws PersistenceLayerException
+	{
+		runRoundRobin("YES");
+	}
+
 }

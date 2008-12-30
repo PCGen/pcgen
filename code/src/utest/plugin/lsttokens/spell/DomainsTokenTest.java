@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -199,6 +200,14 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=4[PRERACE:1,Human"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputBadPrerequisite()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("Fire=4[PREFOO:1,Human]"));
 		assertNoSideEffects();
 	}
 

@@ -79,10 +79,7 @@ public class FeatTokenTest extends
 	@Override
 	public boolean isTypeLegal()
 	{
-		/*
-		 * TODO Need to change this to true!
-		 */
-		return false;
+		return true;
 	}
 
 	@Override
@@ -100,7 +97,7 @@ public class FeatTokenTest extends
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -148,6 +145,32 @@ public class FeatTokenTest extends
 			// this is okay too :)
 		}
 		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinOneParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Paren)");
+	}
+
+	@Test
+	public void testRoundRobinTwoParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		runRoundRobin("TestWP1 (Paren)|TestWP2 (Other)");
+	}
+
+	@Test
+	public void testRoundRobinDupeParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Other)|TestWP1 (That)");
 	}
 
 	// @Test

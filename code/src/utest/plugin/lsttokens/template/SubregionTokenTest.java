@@ -22,6 +22,7 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
@@ -81,5 +82,11 @@ public class SubregionTokenTest extends
 	public boolean isClearLegal()
 	{
 		return false;
+	}
+
+	@Test
+	public void testRoundRobinYes() throws PersistenceLayerException
+	{
+		runRoundRobin("YES");
 	}
 }

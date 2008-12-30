@@ -111,6 +111,14 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	}
 
 	@Test
+	public void testRoundRobinFormula() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		runRoundRobin("Fighter|Formula");
+	}
+
+	@Test
 	public void testRoundRobinMultiple() throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");

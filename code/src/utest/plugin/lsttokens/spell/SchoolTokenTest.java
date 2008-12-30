@@ -84,6 +84,6 @@ public class SchoolTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 }
