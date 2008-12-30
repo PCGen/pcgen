@@ -218,7 +218,6 @@ public class MoncskillToken extends AbstractToken implements
 							.joinLstFormat(removedItems, "|.CLEAR."));
 		}
 		Collection<ChooseResultActor> listRemoved = listChanges.getRemoved();
-		System.err.println(listRemoved);
 		if (listRemoved != null && !listRemoved.isEmpty())
 		{
 			if (listRemoved.contains(this))
