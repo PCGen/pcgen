@@ -73,6 +73,7 @@ public class SubschoolToken extends AbstractToken implements
 						ListKey.SPELL_SUBSCHOOL, tokString);
 				Globals.getSubschools().add(tokString);
 			}
+			first = false;
 		}
 		return true;
 	}

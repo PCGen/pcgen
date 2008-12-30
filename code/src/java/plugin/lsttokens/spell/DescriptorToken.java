@@ -73,6 +73,7 @@ public class DescriptorToken extends AbstractToken implements
 						ListKey.SPELL_DESCRIPTOR, tokString);
 				Globals.addSpellDescriptorSet(tokString);
 			}
+			first = false;
 		}
 		return true;
 	}

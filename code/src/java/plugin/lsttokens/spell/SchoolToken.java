@@ -73,6 +73,7 @@ public class SchoolToken extends AbstractToken implements
 						ListKey.SPELL_SCHOOL, tokString);
 				SettingsHandler.getGame().addToSchoolList(tokString);
 			}
+			first = false;
 		}
 		return true;
 	}
