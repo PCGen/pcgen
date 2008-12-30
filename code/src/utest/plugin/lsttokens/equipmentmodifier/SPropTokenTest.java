@@ -64,4 +64,10 @@ public class SPropTokenTest extends
 		assertFalse(parse("Second|.CLEAR"));
 		assertNoSideEffects();
 	}
+
+	@Test
+	public void testValidClear() throws PersistenceLayerException
+	{
+		assertTrue(parse(".CLEAR"));
+	}
 }
