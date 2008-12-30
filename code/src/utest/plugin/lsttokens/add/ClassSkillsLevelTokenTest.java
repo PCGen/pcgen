@@ -22,6 +22,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -97,4 +98,72 @@ public class ClassSkillsLevelTokenTest extends
 	{
 		return true;
 	}
+
+
+	@Test
+	public void testRoundRobinTrained() throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + "TRAINED");
+	}
+
+	@Test
+	public void testRoundRobinUntrained() throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + "UNTRAINED");
+	}
+
+	@Test
+	public void testRoundRobinExclusive() throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + "EXCLUSIVE");
+	}
+
+	@Test
+	public void testRoundRobinNonExclusive() throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + "NONEXCLUSIVE");
+	}
+
+	@Test
+	public void testRoundRobinAutorank() throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=3");
+	}
+
+	@Test
+	public void testInvalidInputAutoRankNoRank() throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK="));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputAutoRankNegativeRank() throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=-3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputAutoRankZeroRank() throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=0"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputAutoRankDuplicated() throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=3,AUTORANK=2"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputOnlyAutoRank() throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "AUTORANK=3"));
+		assertNoSideEffects();
+	}
+
+
 }

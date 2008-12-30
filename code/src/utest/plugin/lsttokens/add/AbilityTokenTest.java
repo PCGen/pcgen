@@ -252,6 +252,33 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	}
 
 	@Test
+	public void testInvalidInputStacksNaN()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|'
+				+ "FEAT|NORMAL|STACKS=x,TestWP1" + getJoinCharacter()
+				+ "TestWP2"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputOnlyStacks()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|STACKS=4"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputMultTarget() throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|'
+				+ "FEAT|NORMAL|TestWP1(Foo,Bar)" + getJoinCharacter()
+				+ "TestWP2"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputClearDotTypeDoubleSeparator()
 			throws PersistenceLayerException
 	{
@@ -678,7 +705,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		runRoundRobin(getSubTokenName() + '|' + "FEAT|NORMAL|STACKS,TestWP1"
+		runRoundRobin(getSubTokenName() + '|' + "FEAT|VIRTUAL|STACKS,TestWP1"
 				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
 				+ "TestWP3");
 	}

@@ -70,7 +70,7 @@ public class SkillTokenTest extends
 	@Override
 	public boolean isAllLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -95,5 +95,11 @@ public class SkillTokenTest extends
 	public boolean allowsFormula()
 	{
 		return true;
+	}
+
+	@Override
+	public String getAllString()
+	{
+		return "ANY";
 	}
 }

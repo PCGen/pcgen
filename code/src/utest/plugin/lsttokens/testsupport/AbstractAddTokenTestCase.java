@@ -42,6 +42,11 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	public abstract boolean isTypeLegal();
 
 	public abstract boolean isAllLegal();
+	
+	public String getAllString()
+	{
+		return "ALL";
+	}
 
 	public abstract boolean allowsParenAsSub();
 
@@ -381,7 +386,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		}
 		if (isAllLegal())
 		{
-			assertTrue(parse(getSubTokenName() + '|' + "ALL"));
+			assertTrue(parse(getSubTokenName() + '|' + getAllString()));
 			assertTrue(primaryContext.ref.validate());
 		}
 	}
@@ -501,7 +506,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "ALL"
+			assertFalse(parse(getSubTokenName() + '|' + getAllString()
 				+ getJoinCharacter() + "TestWP1"));
 			assertNoSideEffects();
 		}
@@ -514,7 +519,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			construct(primaryContext, "TestWP1");
 			assertFalse(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}
@@ -524,7 +529,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "ALL"
+			assertFalse(parse(getSubTokenName() + '|' + getAllString()
 				+ getJoinCharacter() + "TYPE=TestType"));
 			assertNoSideEffects();
 		}
@@ -536,7 +541,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		if (isTypeLegal() && isAllLegal())
 		{
 			assertFalse(parse(getSubTokenName() + '|' + "TYPE=TestType"
-				+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}
@@ -601,7 +606,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
 			assertFalse(parse(getSubTokenName() + '|' + "TestWP3"
-				+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}

@@ -21,7 +21,6 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -30,12 +29,12 @@ import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class ClassSkillsTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Skill>
+public class SpellCasterTokenTest extends
+		AbstractAddTokenTestCase<CDOMObject, PCClass>
 {
 
 	static AddLst token = new AddLst();
-	static ClassSkillsToken subtoken = new ClassSkillsToken();
+	static SpellCasterToken subtoken = new SpellCasterToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
@@ -64,9 +63,9 @@ public class ClassSkillsTokenTest extends
 	}
 
 	@Override
-	public Class<Skill> getTargetClass()
+	public Class<PCClass> getTargetClass()
 	{
-		return Skill.class;
+		return PCClass.class;
 	}
 
 	@Override
@@ -99,69 +98,57 @@ public class ClassSkillsTokenTest extends
 		return true;
 	}
 
-	@Test
-	public void testRoundRobinTrained() throws PersistenceLayerException
+	@Override
+	public String getAllString()
 	{
-		runRoundRobin(getSubTokenName() + '|' + "TRAINED");
+		return "ANY";
+	}
+
+
+	@Test
+	public void testRoundRobinArcane() throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + "Arcane");
 	}
 
 	@Test
-	public void testRoundRobinUntrained() throws PersistenceLayerException
+	public void testRoundRobinDivine() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "UNTRAINED");
+		runRoundRobin(getSubTokenName() + '|' + "Divine");
 	}
 
 	@Test
-	public void testRoundRobinExclusive() throws PersistenceLayerException
+	public void testRoundRobinPsionic() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "EXCLUSIVE");
+		runRoundRobin(getSubTokenName() + '|' + "Psionic");
 	}
 
 	@Test
-	public void testRoundRobinNonExclusive() throws PersistenceLayerException
+	public void testRoundRobinThreeSpellType() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "NONEXCLUSIVE");
+		runRoundRobin(getSubTokenName() + '|' + "Arcane" + getJoinCharacter()
+			+ "Divine" + getJoinCharacter() + "Psionic");
 	}
 
 	@Test
-	public void testRoundRobinAutorank() throws PersistenceLayerException
+	public void testInvalidInputAnySpellType() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=3");
+		if (isAllLegal())
+		{
+			assertFalse(parse(getSubTokenName() + '|' + getAllString()
+				+ getJoinCharacter() + "Arcane"));
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
-	public void testInvalidInputAutoRankNoRank() throws PersistenceLayerException
+	public void testInvalidInputSpellTypeAny() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK="));
-		assertNoSideEffects();
+		if (isAllLegal())
+		{
+			assertFalse(parse(getSubTokenName() + '|' + "Arcane"
+				+ getJoinCharacter() + getAllString()));
+			assertNoSideEffects();
+		}
 	}
-
-	@Test
-	public void testInvalidInputAutoRankNegativeRank() throws PersistenceLayerException
-	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=-3"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidInputAutoRankZeroRank() throws PersistenceLayerException
-	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=0"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidInputAutoRankDuplicated() throws PersistenceLayerException
-	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=3,AUTORANK=2"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidInputOnlyAutoRank() throws PersistenceLayerException
-	{
-		assertFalse(parse(getSubTokenName() + '|' + "AUTORANK=3"));
-		assertNoSideEffects();
-	}
-
 }

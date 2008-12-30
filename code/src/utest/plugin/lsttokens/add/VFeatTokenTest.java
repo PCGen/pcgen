@@ -177,4 +177,31 @@ public class VFeatTokenTest extends
 		assertNoSideEffects();
 	}
 
+	@Test
+	public void testInvalidInputStacksNaN()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|'
+				+ "STACKS=x,TestWP1" + getJoinCharacter()
+				+ "TestWP2"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputOnlyStacks()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "STACKS=4"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputMultTarget() throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|'
+				+ "TestWP1(Foo,Bar)" + getJoinCharacter()
+				+ "TestWP2"));
+		assertNoSideEffects();
+	}
+
 }
