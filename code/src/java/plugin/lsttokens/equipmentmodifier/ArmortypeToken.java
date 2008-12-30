@@ -70,19 +70,12 @@ public class ArmortypeToken extends AbstractToken implements
 			/*
 			 * TODO Are the ArmorTypes really a subset of Encumbrence?
 			 */
-			try
-			{
-				String oldType = value.substring(0, pipeLoc);
-				String newType = value.substring(pipeLoc + 1);
-				/*
-				 * TODO Need some check if the Armor Types in value are not valid...
-				 */
-				cat = new ChangeArmorType(oldType, newType);
-			}
-			catch (IllegalArgumentException e)
-			{
-				return false;
-			}
+			String oldType = value.substring(0, pipeLoc);
+			String newType = value.substring(pipeLoc + 1);
+			/*
+			 * TODO Need some check if the Armor Types in value are not valid...
+			 */
+			cat = new ChangeArmorType(oldType, newType);
 		}
 		context.getObjectContext().addToList(mod, ListKey.ARMORTYPE, cat);
 		return true;
