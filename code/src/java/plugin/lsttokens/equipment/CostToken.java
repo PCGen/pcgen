@@ -22,15 +22,18 @@ import java.math.BigDecimal;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with COST token
  */
-public class CostToken implements CDOMPrimaryToken<Equipment>
+public class CostToken extends AbstractToken implements
+		CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "COST";
@@ -38,6 +41,10 @@ public class CostToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			BigDecimal cost = new BigDecimal(value);

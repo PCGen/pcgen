@@ -120,10 +120,12 @@ public class ContainsToken extends AbstractToken implements
 						weightCapacity));
 				if (BigDecimal.ZERO.compareTo(weightCap) > 0)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Weight Capacity must be >= 0: "
-									+ weightCapacity
-									+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
+					Logging
+							.addParseMessage(
+									Logging.LST_ERROR,
+									"Weight Capacity must be >= 0: "
+											+ weightCapacity
+											+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
 					return false;
 				}
 			}
@@ -219,7 +221,9 @@ public class ContainsToken extends AbstractToken implements
 	{
 		Changes<Capacity> changes = context.getObjectContext().getListChanges(
 				eq, ListKey.CAPACITY);
-		if (changes == null || changes.isEmpty())
+		Capacity totalCapacity = context.getObjectContext().getObject(eq,
+				ObjectKey.TOTAL_CAPACITY);
+		if (totalCapacity == null && (changes == null || changes.isEmpty()))
 		{
 			return null;
 		}
@@ -256,58 +260,41 @@ public class ContainsToken extends AbstractToken implements
 		}
 
 		Collection<Capacity> capacityList = changes.getAdded();
-		if (capacityList.size() == 1)
+		if (capacityList == null)
 		{
-			for (Capacity c : capacityList)
+			if (Capacity.UNLIMITED.equals(totalCapacity.getCapacity()))
 			{
-				if (c.getType() == null
-						&& Capacity.UNLIMITED.equals(c.getCapacity()))
-				{
-					// Special Case: Nothing additional
-					return new String[] { sb.toString() };
-				}
+				// Special Case: Nothing additional
+				return new String[] { sb.toString() };
 			}
 		}
 		BigDecimal limitedCapacity = BigDecimal.ZERO;
 		boolean limited = true;
-		Capacity total = null;
 		for (Capacity c : capacityList)
 		{
 			String capType = c.getType();
-			if (capType == null)
+			sb.append(Constants.PIPE);
+			BigDecimal thisCap = c.getCapacity();
+			sb.append(capType);
+			if (Capacity.UNLIMITED.equals(thisCap))
 			{
-				total = c;
+				limited = false;
 			}
 			else
 			{
-				sb.append(Constants.PIPE);
-				BigDecimal thisCap = c.getCapacity();
-				sb.append(capType);
-				if (Capacity.UNLIMITED.equals(thisCap))
+				if (limited)
 				{
-					limited = false;
+					limitedCapacity = limitedCapacity.add(thisCap);
 				}
-				else
-				{
-					if (limited)
-					{
-						limitedCapacity = limitedCapacity.add(thisCap);
-					}
-					sb.append(Constants.EQUALS).append(thisCap);
-				}
+				sb.append(Constants.EQUALS).append(thisCap);
 			}
 		}
-		if (total == null)
-		{
-			// Error
-			return null;
-		}
-		if (!limitedCapacity.equals(total.getCapacity())
-				&& !Capacity.UNLIMITED.equals(total.getCapacity()))
+		if (!limitedCapacity.equals(totalCapacity.getCapacity())
+				&& !Capacity.UNLIMITED.equals(totalCapacity.getCapacity()))
 		{
 			// Need to write out total
 			sb.append("Total").append(Constants.EQUALS).append(
-					total.getCapacity());
+					totalCapacity.getCapacity());
 		}
 		return new String[] { sb.toString() };
 	}

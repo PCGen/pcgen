@@ -27,13 +27,14 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with PROFICIENCY token
  */
 public class ProficiencyToken extends AbstractToken implements
-		CDOMPrimaryToken<Equipment>
+		CDOMPrimaryToken<Equipment>, DeferredToken<Equipment>
 {
 
 	@Override
@@ -151,5 +152,43 @@ public class ProficiencyToken extends AbstractToken implements
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;
+	}
+
+	public Class<Equipment> getDeferredTokenClass()
+	{
+		return Equipment.class;
+	}
+
+	public boolean process(LoadContext context, Equipment eq)
+	{
+		CDOMSingleRef<WeaponProf> wp = eq.get(ObjectKey.WEAPON_PROF);
+		if (eq.get(ObjectKey.SHIELD_PROF) != null)
+		{
+			if (eq.get(ObjectKey.ARMOR_PROF) != null)
+			{
+				Logging.errorPrint("Equipment " + eq.getKeyName()
+						+ " may not have both "
+						+ "ARMOR and SHIELD Proficiencies");
+				return false;
+			}
+			if (wp != null)
+			{
+				Logging.errorPrint("Equipment " + eq.getKeyName()
+						+ " may not have both "
+						+ "WEAPON and SHIELD Proficiencies");
+				return false;
+			}
+		}
+		if (wp != null)
+		{
+			if (eq.get(ObjectKey.ARMOR_PROF) != null)
+			{
+				Logging.errorPrint("Equipment " + eq.getKeyName()
+						+ " may not have both "
+						+ "ARMOR and WEAPON Proficiencies");
+				return false;
+			}
+		}
+		return true;
 	}
 }

@@ -42,23 +42,14 @@ public class WieldToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
-		try
+		WieldCategory wc = WieldCategory.findByName(value);
+		if (wc.equals(WieldCategory.DEFAULT_UNUSABLE))
 		{
-			WieldCategory wc = WieldCategory.findByName(value);
-			if (wc.equals(WieldCategory.DEFAULT_UNUSABLE))
-			{
-				Logging.log(Logging.LST_ERROR, "In " + getTokenName()
-						+ " unable to find WieldCategory for " + value);
-				return false;
-			}
-			context.getObjectContext().put(eq, ObjectKey.WIELD, wc);
-		}
-		catch (IllegalArgumentException iae)
-		{
-			Logging.log(Logging.LST_ERROR, "Invalid Wield provided in " + getTokenName()
-					+ ": " + value);
+			Logging.log(Logging.LST_ERROR, "In " + getTokenName()
+					+ " unable to find WieldCategory for " + value);
 			return false;
 		}
+		context.getObjectContext().put(eq, ObjectKey.WIELD, wc);
 		return true;
 	}
 

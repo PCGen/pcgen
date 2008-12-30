@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -38,6 +39,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ObjectContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Deals with EQMOD token
@@ -74,7 +76,13 @@ public class EqmodToken extends AbstractToken implements
 
 			if (modInfo.equalsIgnoreCase(Constants.s_NONE))
 			{
+				Logging.deprecationPrint("'NONE' EqMod in " + getTokenName()
+						+ " will be ignored");
 				continue;
+			}
+			if (hasIllegalSeparator('|', modInfo))
+			{
+				return false;
 			}
 			StringTokenizer aTok = new StringTokenizer(modInfo, Constants.PIPE);
 
@@ -153,7 +161,7 @@ public class EqmodToken extends AbstractToken implements
 		{
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return new String[] { StringUtil.join(set, Constants.DOT) };
 	}
 
 	public Class<Equipment> getTokenClass()

@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
- * Deals with ALTTYPE token 
+ * Deals with ALTTYPE token
  */
 public class AlttypeToken extends AbstractToken implements
 		CDOMPrimaryToken<Equipment>
@@ -52,34 +52,6 @@ public class AlttypeToken extends AbstractToken implements
 			return false;
 		}
 		EquipmentHead head = eq.getEquipmentHead(2);
-		if (value.startsWith(".CLEAR"))
-		{
-			context.getObjectContext().removeList(head, ListKey.TYPE);
-			if (value.length() == 6)
-			{
-				return true;
-			}
-			else if (value.charAt(6) == '.')
-			{
-				value = value.substring(7);
-				if (isEmpty(value))
-				{
-					Logging
-						.errorPrint(getTokenName()
-							+ "started with .CLEAR. but expected to have a Type after .: "
-							+ value);
-					return false;
-				}
-			}
-			else
-			{
-				Logging
-					.errorPrint(getTokenName()
-						+ "started with .CLEAR but expected next character to be .: "
-						+ value);
-				return false;
-			}
-		}
 		if (hasIllegalSeparator('.', value))
 		{
 			return false;
@@ -88,41 +60,65 @@ public class AlttypeToken extends AbstractToken implements
 		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
 
 		boolean bRemove = false;
+		boolean bAdd = false;
 		while (aTok.hasMoreTokens())
 		{
 			final String aType = aTok.nextToken();
-			if (bRemove)
+			if ("ADD".equals(aType))
 			{
-				Type type = Type.getConstant(aType);
-				context.getObjectContext().removeFromList(head, ListKey.TYPE,
-					type);
+				if (bRemove)
+				{
+					Logging.log(Logging.LST_ERROR,
+							"Non-sensical use of .REMOVE.ADD. in "
+									+ getTokenName() + ": " + value);
+					return false;
+				}
 				bRemove = false;
-			}
-			else if ("ADD".equals(aType))
-			{
-				bRemove = false;
+				bAdd = true;
 			}
 			else if ("REMOVE".equals(aType))
 			{
+				if (bAdd)
+				{
+					Logging.log(Logging.LST_ERROR,
+							"Non-sensical use of .ADD.REMOVE. in "
+									+ getTokenName() + ": " + value);
+					return false;
+				}
 				bRemove = true;
 			}
 			else if ("CLEAR".equals(aType))
 			{
 				Logging.log(Logging.LST_ERROR, "Non-sensical use of .CLEAR in "
-					+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value);
 				return false;
+			}
+			else if (bRemove)
+			{
+				Type type = Type.getConstant(aType);
+				context.getObjectContext().removeFromList(head, ListKey.TYPE,
+						type);
+				bRemove = false;
 			}
 			else
 			{
 				Type type = Type.getConstant(aType);
 				context.getObjectContext().addToList(head, ListKey.TYPE, type);
+				bAdd = false;
 			}
 		}
 		if (bRemove)
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
-				+ "ended with REMOVE, so didn't have any Type to remove: "
-				+ value);
+					+ "ended with REMOVE, so didn't have any Type to remove: "
+					+ value);
+			return false;
+		}
+		if (bAdd)
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ "ended with ADD, so didn't have any Type to add: "
+					+ value);
 			return false;
 		}
 		return true;
@@ -131,35 +127,28 @@ public class AlttypeToken extends AbstractToken implements
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		EquipmentHead head = eq.getEquipmentHead(2);
-		Changes<Type> changes =
-				context.getObjectContext().getListChanges(head, ListKey.TYPE);
+		Changes<Type> changes = context.getObjectContext().getListChanges(head,
+				ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
 		Collection<?> added = changes.getAdded();
 		boolean globalClear = changes.includesGlobalClear();
 		if (globalClear)
 		{
-			sb.append(Constants.LST_DOT_CLEAR);
-		}
-		if (added != null && !added.isEmpty())
-		{
-			if (globalClear)
-			{
-				sb.append(Constants.DOT);
-			}
-			sb.append(StringUtil.join(added, Constants.DOT));
-		}
-		if (sb.length() == 0)
-		{
 			context.addWriteMessage(getTokenName()
-				+ " was expecting non-empty changes to include "
-				+ "added items or global clear");
+					+ " does not support global clear");
 			return null;
 		}
-		return new String[]{sb.toString()};
+		if (added == null || added.isEmpty())
+		{
+			context.addWriteMessage(getTokenName()
+					+ " was expecting non-empty changes to include "
+					+ "added items");
+			return null;
+		}
+		return new String[] { StringUtil.join(added, Constants.DOT) };
 	}
 
 	public Class<Equipment> getTokenClass()
