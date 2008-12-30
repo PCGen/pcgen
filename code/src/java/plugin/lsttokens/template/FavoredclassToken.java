@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.template;
 
+import java.util.Collection;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -89,16 +90,16 @@ public class FavoredclassToken extends AbstractToken implements
 						ObjectKey.ANY_FAVORED_CLASS, true);
 				if (Constants.LST_ALL.equalsIgnoreCase(token)
 						|| Constants.LST_ANY.equalsIgnoreCase(token))
-					{
-						Logging.deprecationPrint("Use of " + getTokenName() + ":" + token
-							+ " is deprecated. "
-							+ "Please use " + getTokenName() + ":HIGHESTLEVELCLASS");
-					}
+				{
+					Logging.deprecationPrint("Use of " + getTokenName() + ":"
+							+ token + " is deprecated. " + "Please use "
+							+ getTokenName() + ":HIGHESTLEVELCLASS");
+				}
 			}
 			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
 			{
-				context.getObjectContext().addToList(cdo,
-					ListKey.CHOOSE_ACTOR, this);
+				context.getObjectContext().addToList(cdo, ListKey.CHOOSE_ACTOR,
+						this);
 			}
 			else
 			{
@@ -140,24 +141,38 @@ public class FavoredclassToken extends AbstractToken implements
 	{
 		Changes<CDOMReference<? extends PCClass>> changes = context
 				.getObjectContext().getListChanges(pct, ListKey.FAVORED_CLASS);
-		if (changes == null || changes.isEmpty())
-		{
-			return null;
-		}
+		Changes<ChooseResultActor> listChanges = context.getObjectContext()
+				.getListChanges(pct, ListKey.CHOOSE_ACTOR);
 		SortedSet<String> set = new TreeSet<String>();
-		for (CDOMReference<? extends PCClass> ref : changes.getAdded())
+		if (changes != null && !changes.isEmpty())
 		{
-			Class<? extends PCClass> refClass = ref.getReferenceClass();
-			if (SUBCLASS_CLASS.equals(refClass))
+			for (CDOMReference<? extends PCClass> ref : changes.getAdded())
 			{
-				Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
-						.getCDOMCategory();
-				set.add(parent.toString() + "." + ref.getLSTformat());
+				Class<? extends PCClass> refClass = ref.getReferenceClass();
+				if (SUBCLASS_CLASS.equals(refClass))
+				{
+					Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
+							.getCDOMCategory();
+					set.add(parent.toString() + "." + ref.getLSTformat());
+				}
+				else
+				{
+					set.add(ref.getLSTformat());
+				}
 			}
-			else
+		}
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		if (listAdded != null && !listAdded.isEmpty())
+		{
+			if (listAdded.contains(this))
 			{
-				set.add(ref.getLSTformat());
+				set.add("%LIST");
 			}
+		}
+		if (set.isEmpty())
+		{
+			// Zero indicates no add or clear
+			return null;
 		}
 		return new String[] { StringUtil.join(set, Constants.PIPE) };
 	}
@@ -167,28 +182,32 @@ public class FavoredclassToken extends AbstractToken implements
 		return PCTemplate.class;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter,
+	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
 	 */
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		PCClass cls =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					PCCLASS_CLASS, o);
+		PCClass cls = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
 		if (cls != null)
 		{
 			pc.addAssoc(obj, AssociationListKey.FAVCLASS, cls);
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter, pcgen.cdom.base.CDOMObject, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter,
+	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
 	 */
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		PCClass cls =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					PCCLASS_CLASS, o);
+		PCClass cls = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
 		if (cls != null)
 		{
 			pc.removeAssoc(obj, AssociationListKey.FAVCLASS, cls);
