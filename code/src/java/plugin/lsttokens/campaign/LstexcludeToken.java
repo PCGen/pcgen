@@ -30,7 +30,6 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
 
 /**
  * Class deals with LSTEXCLUDE Token
@@ -64,18 +63,11 @@ public class LstexcludeToken extends AbstractToken implements
 				//Error
 				return false;
 			}
-			if (!cse.getIncludeItems().isEmpty())
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " does not allow INCLUDE: "
-					+ value);
-				return false;
-			}
-			if (!cse.getExcludeItems().isEmpty())
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " does not allow EXCLUDE: "
-					+ value);
-				return false;
-			}
+			/*
+			 * No need to check for cse.getIncludeItems or getExcludeItems as
+			 * the use of pipe separator would have caused an error in fetching
+			 * the CSE
+			 */
 			context.obj.addToList(campaign, ListKey.FILE_LST_EXCLUDE, cse);
 		}
 

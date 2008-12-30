@@ -29,6 +29,7 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with GAMEMODE Token
@@ -46,7 +47,7 @@ public class GamemodeToken extends AbstractToken implements
 	public boolean parse(LoadContext context, Campaign campaign, String gameMode)
 			throws PersistenceLayerException
 	{
-		if (isEmpty(gameMode))
+		if (isEmpty(gameMode) || hasIllegalSeparator('|', gameMode))
 		{
 			return false;
 		}
@@ -69,11 +70,13 @@ public class GamemodeToken extends AbstractToken implements
 			return null;
 		}
 		Collection<?> added = changes.getAdded();
-		if (added != null && !added.isEmpty())
+		if (added == null || added.isEmpty())
 		{
-			return new String[] { StringUtil.join(added, Constants.PIPE) };
+			Logging.errorPrint("Found Game Mode changes in "
+					+ campaign.getKeyName() + " but none were added");
+			return null;
 		}
-		return null;
+		return new String[] { StringUtil.join(added, Constants.PIPE) };
 	}
 
 	public Class<Campaign> getTokenClass()

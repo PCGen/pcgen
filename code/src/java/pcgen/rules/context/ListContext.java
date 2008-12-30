@@ -475,7 +475,33 @@ public class ListContext
 					}
 				}
 			}
-			return new CollectionChanges<CDOMReference>(list, null,
+			set = negativeMasterMap.getKeySet();
+			ArrayList<CDOMReference> removelist = new ArrayList<CDOMReference>();
+			if (set != null)
+			{
+				LIST: for (CDOMReference<? extends CDOMList<?>> ref : set)
+				{
+					if (!cl.equals(ref.getReferenceClass()))
+					{
+						continue;
+					}
+					for (CDOMObject allowed : negativeMasterMap
+							.getTertiaryKeySet(ref, lo))
+					{
+						AssociatedPrereqObject assoc = negativeMasterMap.get(
+								ref, lo, allowed);
+						if (owner.equals(assoc
+								.getAssociation(AssociationKey.OWNER))
+								&& tokenName.equals(assoc
+										.getAssociation(AssociationKey.TOKEN)))
+						{
+							removelist.add(ref);
+							continue LIST;
+						}
+					}
+				}
+			}
+			return new CollectionChanges<CDOMReference>(list, removelist,
 					masterAllClear.containsInList(tokenName, lo));
 		}
 

@@ -404,6 +404,11 @@ public class CampaignSourceEntry
 
 		if (pipePos == -1)
 		{
+			if (value.startsWith("("))
+			{
+				Logging.errorPrint("Invalid Campaign File, cannot start with (:" + value);
+				return null;
+			}
 			cse =
 					new CampaignSourceEntry(campaign2, new URIFactory(
 						sourceUri, value));
