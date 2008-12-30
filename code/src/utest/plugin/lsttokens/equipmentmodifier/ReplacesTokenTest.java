@@ -97,4 +97,10 @@ public class ReplacesTokenTest extends
 	public void testReplacementInputsTwo() throws PersistenceLayerException
 	{
 	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return true;
+	}
 }

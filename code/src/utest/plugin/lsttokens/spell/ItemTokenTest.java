@@ -310,4 +310,10 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell>
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Yarra Valley"
 			+ getJoinCharacter() + "[Languedoc-Roussillon]");
 	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
+	}
 }

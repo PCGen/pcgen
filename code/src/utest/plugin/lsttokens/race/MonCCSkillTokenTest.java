@@ -17,8 +17,11 @@
  */
 package plugin.lsttokens.race;
 
+import org.junit.Test;
+
 import pcgen.core.Race;
 import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
@@ -81,6 +84,25 @@ public class MonCCSkillTokenTest extends AbstractListTokenTestCase<Race, Skill>
 	public boolean isClearLegal()
 	{
 		return true;
+	}
+
+	@Test
+	public void testRoundRobinPattern() throws PersistenceLayerException
+	{
+		runRoundRobin("TestWP%");
+	}
+
+	@Test
+	public void testRoundRobinThreePattern() throws PersistenceLayerException
+	{
+		runRoundRobin("TestWP%" + getJoinCharacter() + "TestWZ%");
+	}
+
+	@Test
+	public void testInvalidInputAllPattern() throws PersistenceLayerException
+	{
+		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
+		assertNoSideEffects();
 	}
 
 }

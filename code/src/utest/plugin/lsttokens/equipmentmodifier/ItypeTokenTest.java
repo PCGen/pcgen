@@ -105,6 +105,10 @@ public class ItypeTokenTest extends
 	public void testReplacementInputsTwo() throws PersistenceLayerException
 	{
 	}
-	
-	
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
+	}
 }

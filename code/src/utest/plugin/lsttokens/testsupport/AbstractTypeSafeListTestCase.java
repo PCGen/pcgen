@@ -29,6 +29,8 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		AbstractTokenTestCase<T>
 {
 
+	protected abstract boolean requiresPreconstruction();
+
 	public abstract Object getConstant(String string);
 
 	public abstract char getJoinCharacter();
@@ -313,26 +315,29 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	{
 		if (isClearDotLegal())
 		{
-			// DoNotConstruct TestWP1
 			assertTrue(parse(".CLEAR.TestWP1"));
-			assertFalse(primaryContext.ref.validate());
+			if (requiresPreconstruction())
+			{
+				assertFalse(primaryContext.ref.validate());
+			}
 		}
 	}
 
-	@Test
-	public void testInputInvalidAddsAfterClearDotNoSideEffect()
-		throws PersistenceLayerException
-	{
-		if (isClearDotLegal())
-		{
-			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
-				+ "TestWP2"));
-			assertFalse(parse("TestWP3" + getJoinCharacter() + ".CLEAR.TestWP2"
-				+ getJoinCharacter() + "ALL"));
-			assertNoSideEffects();
-		}
-	}
+	// TODO This is only invalid if ALL is legal
+	// @Test
+	// public void testInputInvalidAddsAfterClearDotNoSideEffect()
+	// throws PersistenceLayerException
+	// {
+	// if (isClearDotLegal() && isAllLegal())
+	// {
+	// assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+	// assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
+	// + "TestWP2"));
+	// assertFalse(parse("TestWP3" + getJoinCharacter() + ".CLEAR.TestWP2"
+	// + getJoinCharacter() + "ALL"));
+	// assertNoSideEffects();
+	//		}
+	//	}
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()

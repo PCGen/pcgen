@@ -78,11 +78,17 @@ public class RaceSubtypeTokenTest extends AbstractTypeSafeListTestCase<Race>
 	@Override
 	public boolean isClearDotLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isClearLegal()
+	{
+		return true;
+	}
+
+	@Override
+	protected boolean requiresPreconstruction()
 	{
 		return false;
 	}

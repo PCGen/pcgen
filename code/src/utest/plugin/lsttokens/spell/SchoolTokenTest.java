@@ -86,4 +86,10 @@ public class SchoolTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	{
 		return true;
 	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
+	}
 }

@@ -73,7 +73,7 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
 	@Override
 	public boolean isTypeLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -173,5 +173,31 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
 		runRoundRobin("TestWP1|TestWP1");
+	}
+
+	@Test
+	public void testRoundRobinOneParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Paren)");
+	}
+
+	@Test
+	public void testRoundRobinTwoParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		runRoundRobin("TestWP1 (Paren)|TestWP2 (Other)");
+	}
+
+	@Test
+	public void testRoundRobinDupeParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Other)|TestWP1 (That)");
 	}
 }

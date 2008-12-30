@@ -86,4 +86,9 @@ public class RaceTokenTest extends AbstractTypeSafeListTestCase<Deity>
 		return false;
 	}
 
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
+	}
 }

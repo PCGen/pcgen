@@ -86,4 +86,10 @@ public class PantheonTokenTest extends AbstractTypeSafeListTestCase<Deity>
 	{
 		return false;
 	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return true;
+	}
 }

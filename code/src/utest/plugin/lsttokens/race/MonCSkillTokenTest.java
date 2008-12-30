@@ -99,6 +99,12 @@ public class MonCSkillTokenTest extends AbstractListTokenTestCase<Race, Skill>
 	}
 
 	@Test
+	public void testValidInputClearList() throws PersistenceLayerException
+	{
+		assertTrue(parse(".CLEAR.LIST"));
+	}
+
+	@Test
 	public void testInvalidInputAllList() throws PersistenceLayerException
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "LIST"));
@@ -112,4 +118,9 @@ public class MonCSkillTokenTest extends AbstractListTokenTestCase<Race, Skill>
 		assertNoSideEffects();
 	}
 
+	@Test
+	public void testRoundRobinThreePattern() throws PersistenceLayerException
+	{
+		runRoundRobin("TestWP%" + getJoinCharacter() + "TestWZ%");
+	}
 }

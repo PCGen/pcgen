@@ -236,4 +236,10 @@ public class RaceSubtypeTokenTest extends
 	{
 		return false;
 	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
+	}
 }

@@ -86,4 +86,10 @@ public class DescriptorTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	{
 		return true;
 	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
+	}
 }
