@@ -123,6 +123,12 @@ public class VisibleTokenTest extends AbstractTokenTestCase<Skill>
 		assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
 		assertTrue(parse("YES"));
 		assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
+		assertTrue(parse("GUI"));
+		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
+		assertTrue(parse("CSHEET"));
+		assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
+		assertTrue(parse("ALWAYS"));
+		assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
 	}
 
 	@Test

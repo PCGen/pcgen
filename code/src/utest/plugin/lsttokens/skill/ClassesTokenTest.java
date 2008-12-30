@@ -131,7 +131,7 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 		}
 		catch (IllegalArgumentException e)
 		{
-			//Okay as well
+			// Okay as well
 		}
 	}
 
@@ -184,6 +184,20 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	{
 		// This technically gets caught by the PRECLASS parser...
 		assertFalse(parse("!ALL"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputNonSensicalAll() throws PersistenceLayerException
+	{
+		assertFalse(parse("ALL|!ALL"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputNonSensicalAllSpecific() throws PersistenceLayerException
+	{
+		assertFalse(parse("ALL|Wizard"));
 		assertNoSideEffects();
 	}
 

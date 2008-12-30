@@ -81,6 +81,8 @@ public class ExclusiveTokenTest extends AbstractTokenTestCase<Skill>
 		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
 		assertFalse(parse("ALL"));
 		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
+		assertFalse(parse("Yo!"));
+		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
 	}
 
 	@Test
