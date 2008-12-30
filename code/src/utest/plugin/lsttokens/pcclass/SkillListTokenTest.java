@@ -60,6 +60,13 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
+	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	{
+		assertFalse(parse("1"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputNaN() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

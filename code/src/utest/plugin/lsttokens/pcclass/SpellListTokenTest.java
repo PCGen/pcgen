@@ -61,6 +61,13 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
+	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	{
+		assertFalse(parse("1"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidNoObject() throws PersistenceLayerException
 	{
 		assertFalse(parse("1|"));

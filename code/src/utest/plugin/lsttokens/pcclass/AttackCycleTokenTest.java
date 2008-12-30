@@ -94,6 +94,13 @@ public class AttackCycleTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
+	public void testInvalidInputNaN() throws PersistenceLayerException
+	{
+		assertFalse(parse("BAB|x"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputDoublePipeTypeOne()
 			throws PersistenceLayerException
 	{

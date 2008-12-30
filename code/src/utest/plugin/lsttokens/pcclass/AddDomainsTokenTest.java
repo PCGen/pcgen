@@ -178,4 +178,14 @@ public class AddDomainsTokenTest extends
 		runRoundRobin("TestWP1[PRERACE:1,Dwarf]" + getJoinCharacter()
 				+ "TestWP2[PRERACE:1,Human]" + getJoinCharacter() + "TestWP3");
 	}
+
+	@Test
+	public void testInvalidInputBadPrerequisite()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		assertFalse(parse("TestWP1[PREFOO:1,Human]"));
+		assertNoSideEffects();
+	}
 }

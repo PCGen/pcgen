@@ -113,7 +113,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -186,4 +186,13 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 			+ "TestWP2[PRERACE:1,Human]" + getJoinCharacter() + "TestWP3");
 	}
 
+	@Test
+	public void testInvalidInputBadPrerequisite()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		assertFalse(parse("TestWP1[PREFOO:1,Human]"));
+		assertNoSideEffects();
+	}
 }

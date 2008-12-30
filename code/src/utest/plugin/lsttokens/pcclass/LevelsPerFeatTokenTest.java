@@ -89,6 +89,13 @@ public class LevelsPerFeatTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
+	public void testInvalidMissingLevelType1() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidMissingLevelType() throws PersistenceLayerException
 	{
 		assertFalse(parse("4|Foo"));
@@ -106,6 +113,27 @@ public class LevelsPerFeatTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidMissingLevelType3() throws PersistenceLayerException
 	{
 		assertFalse(parse("4|LEVELTYPE="));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMissingFormula() throws PersistenceLayerException
+	{
+		assertFalse(parse("|LEVELTYPE=Foo"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTooManyPipes() throws PersistenceLayerException
+	{
+		assertFalse(parse("4|LEVELTYPE=Foo|LEVELTYPE=Bar"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTooManyMiddlePipes() throws PersistenceLayerException
+	{
+		assertFalse(parse("4||LEVELTYPE=Foo"));
 		assertNoSideEffects();
 	}
 
