@@ -28,15 +28,18 @@ import pcgen.cdom.helper.PointCost;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with DURATION Token
  */
-public class SpellPointCostToken implements CDOMPrimaryToken<Spell>
+public class SpellPointCostToken extends AbstractToken implements
+		CDOMPrimaryToken<Spell>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLPOINTCOST";
@@ -44,6 +47,10 @@ public class SpellPointCostToken implements CDOMPrimaryToken<Spell>
 
 	public boolean parse(LoadContext context, Spell spell, String value)
 	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
 		boolean first = true;
@@ -125,11 +132,16 @@ public class SpellPointCostToken implements CDOMPrimaryToken<Spell>
 		Set<String> set = new TreeSet<String>();
 		for (PointCost q : changes.getAdded())
 		{
-			set.add(new StringBuilder().append(q.getType()).append(
-					Constants.PIPE).append(q.getCost()).toString());
+			StringBuilder sb = new StringBuilder();
+			String type = q.getType();
+			if (!"TOTAL".equals(type))
+			{
+				sb.append(type).append(Constants.EQUALS);
+			}
+			sb.append(q.getCost());
+			set.add(sb.toString());
 		}
-		return new String[] { StringUtil.join(changes.getAdded(),
-				Constants.PIPE) };
+		return new String[] { StringUtil.join(set, Constants.PIPE) };
 	}
 
 	public Class<Spell> getTokenClass()
