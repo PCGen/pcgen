@@ -47,15 +47,11 @@ public class AlttypeToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
-		if (isEmpty(value))
+		if (isEmpty(value) || hasIllegalSeparator('.', value))
 		{
 			return false;
 		}
 		EquipmentHead head = eq.getEquipmentHead(2);
-		if (hasIllegalSeparator('.', value))
-		{
-			return false;
-		}
 
 		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
 
