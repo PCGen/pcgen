@@ -21,6 +21,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 public class ConditionalChoiceActor extends ConcretePrereqObject implements
 		ChooseResultActor
@@ -48,6 +50,42 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		actor.remove(pc, obj, o);
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof ConditionalChoiceActor)
+		{
+			ConditionalChoiceActor other = (ConditionalChoiceActor) obj;
+			return actor.equals(other.actor) && equalsPrereqObject(other);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return actor.hashCode();
+	}
+
+	public String getSource()
+	{
+		return actor.getSource();
+	}
+
+	public String getLstFormat() throws PersistenceLayerException
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append(actor.getLstFormat());
+		if (hasPrerequisites())
+		{
+			sb.append('[').append(
+					new PrerequisiteWriter()
+							.getPrerequisiteString(getPrerequisiteList()))
+					.append(']');
+		}
+		return sb.toString();
 	}
 
 }

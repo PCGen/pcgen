@@ -70,6 +70,10 @@ public class EquipToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		String equipItems;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
 
@@ -175,9 +179,21 @@ public class EquipToken extends AbstractToken implements
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			if (listAdded.contains(this))
+			for (ChooseResultActor cra : listAdded)
 			{
-				list.add("LIST");
+				if (cra.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						list.add(cra.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
+					}
+				}
 			}
 		}
 		for (List<Prerequisite> prereqs : m.getKeySet())
@@ -243,4 +259,13 @@ public class EquipToken extends AbstractToken implements
 		}
 	}
 
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public String getLstFormat()
+	{
+		return "%LIST";
+	}
 }

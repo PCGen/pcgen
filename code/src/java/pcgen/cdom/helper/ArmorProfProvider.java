@@ -43,4 +43,10 @@ public class ArmorProfProvider extends AbstractProfProvider<ArmorProf>
 		return providesProficiency(eq.getArmorProf())
 				|| providesEquipmentType(eq.getType());
 	}
+
+	@Override
+	protected String getSubType()
+	{
+		return "ARMOR";
+	}
 }

@@ -191,7 +191,7 @@ public class FeatToken extends AbstractToken implements
 		{
 			AssociatedChanges<CDOMReference<Ability>> changes = context
 					.getListContext()
-					.getChangesInList(getTokenName(), obj, ref);
+					.getChangesInList(getFullName(), obj, ref);
 			MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
 					.getAddedAssociations();
 			for (CDOMReference<Ability> ab : mtl.getKeySet())

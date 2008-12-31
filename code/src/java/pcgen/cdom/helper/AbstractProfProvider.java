@@ -85,6 +85,8 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		return false;
 	}
 
+	protected abstract String getSubType();
+
 	public String getLstFormat()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -99,9 +101,91 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		}
 		if (!typeEmpty)
 		{
-			sb.append(ReferenceUtilities.joinLstFormat(byEquipType,
-					Constants.PIPE).replaceAll("TYPE=ARMOR.", "ARMORTYPE="));
+			boolean needPipe = false;
+			String subType = getSubType();
+			String dot = Constants.DOT;
+			for (CDOMReference<Equipment> ref : byEquipType)
+			{
+				if (needPipe)
+				{
+					sb.append(Constants.PIPE);
+				}
+				needPipe = true;
+				String lstFormat = ref.getLSTformat();
+				if (lstFormat.startsWith("TYPE="))
+				{
+					sb.append(subType).append("TYPE=");
+					StringTokenizer st = new StringTokenizer(lstFormat
+							.substring(5), dot);
+					boolean needDot = false;
+					while (st.hasMoreTokens())
+					{
+						String tok = st.nextToken();
+						if (!tok.equals(subType))
+						{
+							if (needDot)
+							{
+								sb.append(dot);
+							}
+							needDot = true;
+							sb.append(tok);
+						}
+					}
+				}
+			}
 		}
 		return sb.toString();
 	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof AbstractProfProvider)
+		{
+			AbstractProfProvider<T> other = (AbstractProfProvider<T>) obj;
+			if (!other.getSubType().equals(getSubType()))
+			{
+				return false;
+			}
+			if (direct == null)
+			{
+				if (other.direct != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!direct.equals(other.direct))
+				{
+					return false;
+				}
+			}
+			if (byEquipType == null)
+			{
+				if (other.byEquipType != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!byEquipType.equals(other.byEquipType))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return (direct == null ? 0 : direct.hashCode() * 29)
+				+ (byEquipType == null ? 0 : byEquipType.hashCode());
+	}
+	
+	
 }

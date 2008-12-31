@@ -40,6 +40,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -252,9 +253,21 @@ public class MoncskillToken extends AbstractToken implements
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			if (listAdded.contains(this))
+			for (ChooseResultActor cra : listAdded)
 			{
-				list.add("LIST");
+				if (cra.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						list.add(cra.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
+					}
+				}
 			}
 		}
 		if (list.isEmpty())
@@ -288,5 +301,15 @@ public class MoncskillToken extends AbstractToken implements
 		{
 			pc.removeAssoc(obj, AssociationListKey.MONCSKILL, skill);
 		}
+	}
+
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public String getLstFormat()
+	{
+		return "LIST";
 	}
 }

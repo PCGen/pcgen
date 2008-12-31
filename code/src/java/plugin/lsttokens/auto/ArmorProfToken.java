@@ -71,6 +71,10 @@ public class ArmorProfToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		String weaponProfs;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
 
@@ -181,20 +185,23 @@ public class ArmorProfToken extends AbstractToken implements
 		Changes<ArmorProfProvider> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_ARMORPROF);
 		Collection<ArmorProfProvider> added = changes.getAdded();
-		// TODO remove not supported?
+		Set<String> set = new TreeSet<String>();
 		if (added == null || added.isEmpty())
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
 		for (ArmorProfProvider spp : added)
 		{
 			StringBuilder sb = new StringBuilder();
 			sb.append(spp.getLstFormat());
+			if (sb.length() == 0)
+			{
+				sb.append("%LIST");
+			}
 			if (spp.hasPrerequisites())
 			{
 				sb.append('[');
-				sb.append(this.getPrerequisiteString(context, spp
+				sb.append(getPrerequisiteString(context, spp
 						.getPrerequisiteList()));
 				sb.append(']');
 			}
@@ -228,5 +235,15 @@ public class ArmorProfToken extends AbstractToken implements
 			pc.removeAssoc(obj, AssociationListKey.ARMORPROF,
 					new SimpleArmorProfProvider(wp));
 		}
+	}
+
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public String getLstFormat()
+	{
+		return "%LIST";
 	}
 }

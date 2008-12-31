@@ -71,6 +71,10 @@ public class ShieldProfToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		String shieldProf;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
 
@@ -93,8 +97,8 @@ public class ShieldProfToken extends AbstractToken implements
 					.length() - 1));
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite " + prereq
-						+ " in " + getFullName());
+				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite "
+						+ prereq + " in " + getFullName());
 				return false;
 			}
 		}
@@ -181,20 +185,23 @@ public class ShieldProfToken extends AbstractToken implements
 		Changes<ShieldProfProvider> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_SHIELDPROF);
 		Collection<ShieldProfProvider> added = changes.getAdded();
-		// TODO remove not supported?
+		Set<String> set = new TreeSet<String>();
 		if (added == null || added.isEmpty())
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
 		for (ShieldProfProvider spp : added)
 		{
 			StringBuilder sb = new StringBuilder();
 			sb.append(spp.getLstFormat());
+			if (sb.length() == 0)
+			{
+				sb.append("%LIST");
+			}
 			if (spp.hasPrerequisites())
 			{
 				sb.append('[');
-				sb.append(this.getPrerequisiteString(context, spp
+				sb.append(getPrerequisiteString(context, spp
 						.getPrerequisiteList()));
 				sb.append(']');
 			}
@@ -228,5 +235,15 @@ public class ShieldProfToken extends AbstractToken implements
 			pc.removeAssoc(obj, AssociationListKey.SHIELDPROF,
 					new SimpleShieldProfProvider(wp));
 		}
+	}
+
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public String getLstFormat()
+	{
+		return "%LIST";
 	}
 }

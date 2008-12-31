@@ -17,7 +17,6 @@
  */
 package plugin.lsttokens.auto;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -39,7 +38,6 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -71,6 +69,10 @@ public class WeaponProfToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		String weaponProfs;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
 
@@ -170,14 +172,13 @@ public class WeaponProfToken extends AbstractToken implements
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
-		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 		Changes<ChooseResultActor> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
 
-		// TODO remove not supported?
-
 		Changes<QualifiedObject<CDOMReference<WeaponProf>>> changes = context.obj
 				.getListChanges(obj, ListKey.WEAPONPROF);
+		QualifiedObject<Boolean> deityweap = context.obj.getObject(obj,
+				ObjectKey.HAS_DEITY_WEAPONPROF);
 		Collection<QualifiedObject<CDOMReference<WeaponProf>>> added = changes
 				.getAdded();
 		HashMapToList<List<Prerequisite>, CDOMReference<WeaponProf>> m = new HashMapToList<List<Prerequisite>, CDOMReference<WeaponProf>>();
@@ -191,10 +192,34 @@ public class WeaponProfToken extends AbstractToken implements
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			if (listAdded.contains(this))
+			for (ChooseResultActor cra : listAdded)
 			{
-				list.add("LIST");
+				if (cra.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						list.add(cra.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
+					}
+				}
 			}
+		}
+		if (deityweap != null)
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.append("DEITYWEAPONS");
+			if (deityweap.hasPrerequisites())
+			{
+				sb.append('[').append(
+						context.getPrerequisiteString(deityweap
+								.getPrerequisiteList())).append(']');
+			}
+			list.add(sb.toString());
 		}
 		for (List<Prerequisite> prereqs : m.getKeySet())
 		{
@@ -210,18 +235,7 @@ public class WeaponProfToken extends AbstractToken implements
 							+ getFullName());
 					return null;
 				}
-				Prerequisite p = prereqs.get(0);
-				StringWriter swriter = new StringWriter();
-				try
-				{
-					prereqWriter.write(swriter, p);
-				}
-				catch (PersistenceLayerException e)
-				{
-					context.addWriteMessage("Error writing Prerequisite: " + e);
-					return null;
-				}
-				ab = ab + '[' + swriter.toString() + ']';
+				ab = ab + '[' + context.getPrerequisiteString(prereqs) + ']';
 			}
 			list.add(ab);
 		}
@@ -257,5 +271,15 @@ public class WeaponProfToken extends AbstractToken implements
 		{
 			pc.removeAssoc(obj, AssociationListKey.WEAPONPROF, wp);
 		}
+	}
+
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public String getLstFormat()
+	{
+		return "%LIST";
 	}
 }

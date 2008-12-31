@@ -38,6 +38,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SubClass;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -164,9 +165,21 @@ public class FavoredclassToken extends AbstractToken implements
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			if (listAdded.contains(this))
+			for (ChooseResultActor cra : listAdded)
 			{
-				set.add("%LIST");
+				if (cra.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						set.add(cra.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
+					}
+				}
 			}
 		}
 		if (set.isEmpty())
@@ -213,5 +226,15 @@ public class FavoredclassToken extends AbstractToken implements
 			pc.removeAssoc(obj, AssociationListKey.FAVCLASS, cls);
 		}
 
+	}
+
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public String getLstFormat()
+	{
+		return "%LIST";
 	}
 }

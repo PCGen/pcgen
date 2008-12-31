@@ -33,6 +33,7 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -206,9 +207,21 @@ public class CskillLst extends AbstractToken implements
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			if (listAdded.contains(this))
+			for (ChooseResultActor cra : listAdded)
 			{
-				list.add("LIST");
+				if (cra.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						list.add(cra.getLstFormat());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
+					}
+				}
 			}
 		}
 		if (list.isEmpty())
@@ -241,5 +254,15 @@ public class CskillLst extends AbstractToken implements
 		{
 			pc.removeAssoc(obj, AssociationListKey.CSKILL, skill);
 		}
+	}
+
+	public String getSource()
+	{
+		return getTokenName();
+	}
+
+	public String getLstFormat()
+	{
+		return "LIST";
 	}
 }

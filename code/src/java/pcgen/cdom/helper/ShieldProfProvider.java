@@ -43,4 +43,10 @@ public class ShieldProfProvider extends AbstractProfProvider<ShieldProf>
 		return providesProficiency(eq.getShieldProf())
 				|| providesEquipmentType(eq.getType());
 	}
+
+	@Override
+	protected String getSubType()
+	{
+		return "SHIELD";
+	}
 }

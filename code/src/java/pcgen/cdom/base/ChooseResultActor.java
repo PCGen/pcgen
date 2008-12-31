@@ -19,6 +19,7 @@
 package pcgen.cdom.base;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 
 public interface ChooseResultActor
 {
@@ -26,5 +27,9 @@ public interface ChooseResultActor
 	void apply(PlayerCharacter pc, CDOMObject obj, String o);
 
 	void remove(PlayerCharacter pc, CDOMObject obj, String o);
+
+	String getSource();
+
+	String getLstFormat() throws PersistenceLayerException;
 
 }
