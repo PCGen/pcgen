@@ -68,7 +68,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment>
 	@Override
 	public ListKey<?> getListKey()
 	{
-		return ListKey.TYPE;
+		return null;
 	}
 
 	@Override
@@ -153,46 +153,4 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment>
 	{
 		return true;
 	}
-
-	/*
-	 * These are a bit nutty, but the testValid methods here are ignored because
-	 * the ListKey system doesn't work for TYPE stored in a head...
-	 */
-	@Override
-	public void testValidInputHyphen() throws PersistenceLayerException
-	{
-	}
-
-	@Override
-	public void testValidInputList() throws PersistenceLayerException
-	{
-	}
-
-	@Override
-	public void testValidInputMultList() throws PersistenceLayerException
-	{
-	}
-
-	@Override
-	public void testValidInputNonEnglish() throws PersistenceLayerException
-	{
-	}
-
-	@Override
-	public void testValidInputSimple() throws PersistenceLayerException
-	{
-	}
-
-	@Override
-	public void testValidInputSpace() throws PersistenceLayerException
-	{
-	}
-
-	@Override
-	public void testValidInputY() throws PersistenceLayerException
-	{
-	}
-	
-	
-
 }

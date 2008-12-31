@@ -45,100 +45,138 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		List<?> coll;
-		assertTrue(parse("Rheinhessen"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
-		assertTrue(primaryContext.ref.validate());
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Rheinhessen");
+			List<?> coll;
+			assertTrue(parse("Rheinhessen"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Rheinhessen")));
+			assertTrue(primaryContext.ref.validate());
+		}
 	}
 
 	@Test
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Niederösterreich");
-		List<?> coll;
-		assertTrue(parse("Niederösterreich"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(primaryContext.ref.validate());
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Niederösterreich");
+			List<?> coll;
+			assertTrue(parse("Niederösterreich"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
+			assertTrue(primaryContext.ref.validate());
+		}
 	}
 
 	@Test
 	public void testValidInputSpace() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
-		List<?> coll;
-		assertTrue(parse("Finger Lakes"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(primaryContext.ref.validate());
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Finger Lakes");
+			List<?> coll;
+			assertTrue(parse("Finger Lakes"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Finger Lakes")));
+			assertTrue(primaryContext.ref.validate());
+		}
 	}
 
 	@Test
 	public void testValidInputHyphen() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Languedoc-Roussillon");
-		List<?> coll;
-		assertTrue(parse("Languedoc-Roussillon"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(primaryContext.ref.validate());
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Languedoc-Roussillon");
+			List<?> coll;
+			assertTrue(parse("Languedoc-Roussillon"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+			assertTrue(primaryContext.ref.validate());
+		}
 	}
 
 	@Test
 	public void testValidInputY() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		List<?> coll;
-		assertTrue(parse("Yarra Valley"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Yarra Valley")));
-		assertTrue(primaryContext.ref.validate());
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
+			List<?> coll;
+			assertTrue(parse("Yarra Valley"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Yarra Valley")));
+			assertTrue(primaryContext.ref.validate());
+		}
 	}
 
 	@Test
 	public void testValidInputList() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Niederösterreich");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
-		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
-			+ "Finger Lakes"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(primaryContext.ref.validate());
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Niederösterreich");
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Finger Lakes");
+			List<?> coll;
+			assertTrue(parse("Niederösterreich" + getJoinCharacter()
+					+ "Finger Lakes"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(2, coll.size());
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
+			assertTrue(coll.contains(getConstant("Finger Lakes")));
+			assertTrue(primaryContext.ref.validate());
+		}
 	}
 
 	@Test
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Niederösterreich");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Languedoc-Roussillon");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
-			+ "Finger Lakes"));
-		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
-			+ "Rheinhessen"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(clearsByDefault() ? 2 : 4, coll.size());
-		if (!clearsByDefault())
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
 		{
-			assertTrue(coll.contains(getConstant("Niederösterreich")));
-			assertTrue(coll.contains(getConstant("Finger Lakes")));
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Niederösterreich");
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Finger Lakes");
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Languedoc-Roussillon");
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Rheinhessen");
+			List<?> coll;
+			assertTrue(parse("Niederösterreich" + getJoinCharacter()
+					+ "Finger Lakes"));
+			assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
+					+ "Rheinhessen"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(clearsByDefault() ? 2 : 4, coll.size());
+			if (!clearsByDefault())
+			{
+				assertTrue(coll.contains(getConstant("Niederösterreich")));
+				assertTrue(coll.contains(getConstant("Finger Lakes")));
+			}
+			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+			assertTrue(coll.contains(getConstant("Rheinhessen")));
+			assertTrue(primaryContext.ref.validate());
 		}
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
-		assertTrue(primaryContext.ref.validate());
 	}
 
 	@Test
