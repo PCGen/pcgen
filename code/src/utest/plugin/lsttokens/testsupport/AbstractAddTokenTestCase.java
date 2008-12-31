@@ -48,6 +48,11 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		return "ALL";
 	}
 
+	public String getTypePrefix()
+	{
+		return "";
+	}
+
 	public abstract boolean allowsParenAsSub();
 
 	public abstract boolean allowsFormula();
@@ -168,7 +173,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "TYPE="));
+			assertFalse(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE="));
 			assertNoSideEffects();
 		}
 	}
@@ -179,7 +184,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "TYPE=One."));
+			assertFalse(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE=One."));
 			assertNoSideEffects();
 		}
 	}
@@ -190,7 +195,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "TYPE=One..Two"));
+			assertFalse(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE=One..Two"));
 			assertNoSideEffects();
 		}
 	}
@@ -201,7 +206,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "TYPE=.One"));
+			assertFalse(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE=.One"));
 			assertNoSideEffects();
 		}
 	}
@@ -239,7 +244,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			try
 			{
-				boolean parse = parse(getSubTokenName() + '|' + "TYPE=Foo");
+				boolean parse = parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE=Foo");
 				if (parse)
 				{
 					// Only need to check if parsed as true
@@ -270,7 +275,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	// {
 	// if (!isTypeLegal())
 	// {
-	// assertTrue(token.parse(primaryContext, primaryProf, "TYPE=TestType"));
+	// assertTrue(token.parse(primaryContext, primaryProf, getTypePrefix() + "TYPE=TestType"));
 	// assertFalse(primaryContext.ref.validate());
 	// }
 	// }
@@ -337,7 +342,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TYPE=TestType" + getJoinCharacter()
+				+ getJoinCharacter() + getTypePrefix() + "TYPE=TestType" + getJoinCharacter()
 				+ "TestWP2"));
 			assertFalse(primaryContext.ref.validate());
 		}
@@ -353,7 +358,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		{
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TYPE.TestType.OtherTestType"
+				+ getJoinCharacter() + getTypePrefix() + "TYPE.TestType.OtherTestType"
 				+ getJoinCharacter() + "TestWP2"));
 			assertFalse(primaryContext.ref.validate());
 		}
@@ -371,17 +376,17 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		assertTrue(primaryContext.ref.validate());
 		if (isTypeLegal())
 		{
-			assertTrue(parse(getSubTokenName() + '|' + "TYPE=TestType"));
+			assertTrue(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE=TestType"));
 			assertTrue(primaryContext.ref.validate());
-			assertTrue(parse(getSubTokenName() + '|' + "TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate());
-			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
-				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-				+ "TYPE=TestType"));
+			assertTrue(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE.TestType"));
 			assertTrue(primaryContext.ref.validate());
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-				+ "TYPE=TestType.OtherTestType"));
+				+ getTypePrefix() + "TYPE=TestType"));
+			assertTrue(primaryContext.ref.validate());
+			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
+				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
+				+ getTypePrefix() + "TYPE=TestType.OtherTestType"));
 			assertTrue(primaryContext.ref.validate());
 		}
 		if (isAllLegal())
@@ -475,7 +480,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			construct(secondaryContext, "TestWP2");
 			runRoundRobin(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
-				+ "TYPE=OtherTestType" + getJoinCharacter() + "TYPE=TestType");
+				+ getTypePrefix() + "TYPE=OtherTestType" + getJoinCharacter() + getTypePrefix() + "TYPE=TestType");
 		}
 	}
 
@@ -484,7 +489,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		if (isTypeLegal())
 		{
-			runRoundRobin(getSubTokenName() + '|' + "TYPE=TestType");
+			runRoundRobin(getSubTokenName() + '|' + getTypePrefix() + "TYPE=TestType");
 		}
 	}
 
@@ -494,7 +499,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		if (isTypeLegal())
 		{
 			runRoundRobin(getSubTokenName() + '|'
-				+ "TYPE=TestAltType.TestThirdType.TestType");
+				+ getTypePrefix() + "TYPE=TestAltType.TestThirdType.TestType");
 		}
 	}
 
@@ -530,7 +535,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		if (isTypeLegal() && isAllLegal())
 		{
 			assertFalse(parse(getSubTokenName() + '|' + getAllString()
-				+ getJoinCharacter() + "TYPE=TestType"));
+				+ getJoinCharacter() + getTypePrefix() + "TYPE=TestType"));
 			assertNoSideEffects();
 		}
 	}
@@ -540,7 +545,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "TYPE=TestType"
+			assertFalse(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE=TestType"
 				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
@@ -563,7 +568,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
 			assertFalse(parse(getSubTokenName() + '|' + "TestWP3"
-				+ getJoinCharacter() + "TYPE="));
+				+ getJoinCharacter() + getTypePrefix() + "TYPE="));
 			assertNoSideEffects();
 		}
 	}
