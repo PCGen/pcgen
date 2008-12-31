@@ -116,7 +116,7 @@ public class UnencumberedmoveLst extends AbstractToken implements
 			}
 			else if (loadString.equalsIgnoreCase("LightArmor"))
 			{
-				if (!validateOnlyMove(hasMove))
+				if (!validateOnlyMove(hasArmor))
 				{
 					return false;
 				}
