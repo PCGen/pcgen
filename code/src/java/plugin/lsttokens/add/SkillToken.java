@@ -166,11 +166,10 @@ public class SkillToken extends AbstractToken implements
 							+ " Count");
 					return null;
 				}
-				String fString = f.toString();
 				StringBuilder sb = new StringBuilder();
-				if (!"1".equals(fString))
+				if (!FormulaFactory.ONE.equals(f))
 				{
-					sb.append(fString).append(Constants.PIPE);
+					sb.append(f).append(Constants.PIPE);
 				}
 				sb.append(cs.getLSTformat());
 				addStrings.add(sb.toString());
