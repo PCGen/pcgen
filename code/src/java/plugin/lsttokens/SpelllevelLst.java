@@ -225,7 +225,7 @@ public class SpelllevelLst extends AbstractToken implements
 
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedDomainLists = context
 				.getListContext().getChangedLists(obj, DomainSpellList.class);
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, Spell> domainMap = getMap(
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> domainMap = getMap(
 				context, obj, changedDomainLists);
 		for (String prereqs : domainMap.getKeySet())
 		{
@@ -234,7 +234,7 @@ public class SpelllevelLst extends AbstractToken implements
 
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedClassLists = context
 				.getListContext().getChangedLists(obj, ClassSpellList.class);
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, Spell> classMap = getMap(
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> classMap = getMap(
 				context, obj, changedClassLists);
 		for (String prereqs : classMap.getKeySet())
 		{
@@ -250,7 +250,7 @@ public class SpelllevelLst extends AbstractToken implements
 
 	private StringBuilder processUnparse(
 			String type,
-			TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, Spell> domainMap,
+			TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> domainMap,
 			String prereqs)
 	{
 		StringBuilder sb = new StringBuilder(type);
@@ -265,9 +265,9 @@ public class SpelllevelLst extends AbstractToken implements
 				sb.append(Constants.EQUALS);
 				sb.append(level);
 				sb.append(Constants.PIPE);
-				List<Spell> refs = domainMap.getListFor(prereqs, level, list);
+				List<CDOMReference<Spell>> refs = domainMap.getListFor(prereqs, level, list);
 				boolean first = true;
-				for (Spell lw : refs)
+				for (CDOMReference<Spell> lw : refs)
 				{
 					if (!first)
 					{
@@ -290,12 +290,12 @@ public class SpelllevelLst extends AbstractToken implements
 		return sb;
 	}
 
-	private TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, Spell> getMap(
+	private TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> getMap(
 			LoadContext context,
 			CDOMObject obj,
 			Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists)
 	{
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, Spell> map = new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, Spell>();
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> map = new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>>();
 
 		for (CDOMReference listRef : changedLists)
 		{
@@ -309,7 +309,7 @@ public class SpelllevelLst extends AbstractToken implements
 						+ " does not support .CLEAR");
 				return null;
 			}
-			MapToList<Spell, AssociatedPrereqObject> mtl = changes
+			MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl = changes
 					.getAddedAssociations();
 			if (mtl == null || mtl.isEmpty())
 			{
@@ -317,7 +317,8 @@ public class SpelllevelLst extends AbstractToken implements
 				// TODO Error message - unexpected?
 				return null;
 			}
-			for (Spell added : mtl.getKeySet())
+			System.err.println(mtl.getKeySet());
+			for (CDOMReference<Spell> added : mtl.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(added))
 				{
