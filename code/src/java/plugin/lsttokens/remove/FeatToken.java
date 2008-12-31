@@ -136,8 +136,15 @@ public class FeatToken extends AbstractToken implements
 			}
 			else if (token.startsWith("CLASS.") || token.startsWith("CLASS="))
 			{
+				String className = token.substring(6);
+				if (className.length() == 0)
+				{
+					Logging.errorPrint(getTokenName()
+							+ " must have Class name after " + token);
+					return false;
+				}
 				CDOMSingleRef<PCClass> pcc = context.ref.getCDOMReference(
-						PCCLASS_CLASS, token.substring(6));
+						PCCLASS_CLASS, className);
 				AbilityFromClassChoiceSet acs = new AbilityFromClassChoiceSet(
 						pcc);
 				pcs.add(acs);
@@ -190,8 +197,8 @@ public class FeatToken extends AbstractToken implements
 		}
 		if (pcs.isEmpty())
 		{
-			Logging.errorPrint(getFullName() + " did not have any references: "
-					+ value);
+			Logging.errorPrint("Internal Error: " + getFullName()
+					+ " did not have any references: " + value);
 			return false;
 		}
 		PrimitiveChoiceSet<AbilitySelection> ascs;
