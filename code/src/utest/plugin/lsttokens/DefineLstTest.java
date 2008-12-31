@@ -73,6 +73,13 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidInputUnlockArg() throws PersistenceLayerException
+	{
+		assertFalse(parse("UNLOCK.STR|3"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputNoResult() throws PersistenceLayerException
 	{
 		assertFalse(parse("Medium"));

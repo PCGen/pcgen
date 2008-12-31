@@ -113,6 +113,13 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidTypeRaceTypeEmpty() throws PersistenceLayerException
+	{
+		assertFalse(parse("Familiar|RACETYPE="));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidRaceCommaStarting() throws PersistenceLayerException
 	{
 		assertFalse(parse("Familiar|,Lion"));
@@ -272,6 +279,14 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion,Tiger");
+	}
+
+	@Test
+	public void testRoundRobinTwoWithRacetype() throws PersistenceLayerException
+	{
+		construct(Race.class, "Lion");
+		construct(Race.class, "Tiger");
+		runRoundRobin("Familiar|Lion,RACETYPE=Clawed");
 	}
 
 	@Test
