@@ -38,7 +38,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -348,12 +347,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
-		giantRace.put(VariableKey.getConstant("GiantVar1"), Formula.ZERO);
+		giantRace.put(VariableKey.getConstant("GiantVar1"), FormulaFactory.ZERO);
 		final BonusObj raceBonus = Bonus.newBonus("1|VAR|GiantVar1|7+HD");
 		giantClass.addToListFor(ListKey.BONUS, raceBonus);
 
 		giantClass.getClassLevel(1).put(VariableKey.getConstant("GiantClass1"),
-				Formula.ZERO);
+				FormulaFactory.ZERO);
 		final BonusObj babClassBonus =
 				Bonus.newBonus("1|VAR|GiantClass1|CL=Giant");
 		giantClass.addToListFor(ListKey.BONUS, babClassBonus);

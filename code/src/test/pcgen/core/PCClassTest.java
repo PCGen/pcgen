@@ -38,7 +38,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
-import pcgen.base.formula.Formula;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
@@ -266,7 +265,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
 		aNqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
-		aNqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
+		aNqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
 		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 
@@ -344,7 +343,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
 		aNqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
-		aNqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
+		aNqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
 		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 
@@ -914,7 +913,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");
 		nqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
-		nqClass.put(VariableKey.getConstant("Foo"), Formula.ONE);
+		nqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
 		nqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 	}

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -127,7 +127,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		Globals.setCurrentPC(pc);
 
 		// Create a variable
-		dummyFeat.put(VariableKey.getConstant("NegLevels"), Formula.ZERO);
+		dummyFeat.put(VariableKey.getConstant("NegLevels"), FormulaFactory.ZERO);
 
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();

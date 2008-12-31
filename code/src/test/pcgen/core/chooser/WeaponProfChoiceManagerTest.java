@@ -29,7 +29,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
@@ -61,7 +61,7 @@ public class WeaponProfChoiceManagerTest extends AbstractCharacterTestCase
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
 		pObj.put(StringKey.CHOICE_STRING, "WEAPONPROFS|Foo|Bar|Baz");
-		pObj.put(FormulaKey.NUMCHOICES, Formula.ONE);
+		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.ONE);
 		is(pObj.getSafe(StringKey.CHOICE_STRING),
 			strEq("WEAPONPROFS|Foo|Bar|Baz"));
 
