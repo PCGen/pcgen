@@ -70,6 +70,13 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	{
+		assertFalse(parse("2"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputMissingItem() throws PersistenceLayerException
 	{
 		assertFalse(parse("2|"));
@@ -211,6 +218,43 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	protected void construct(LoadContext loadContext, String one)
 	{
 		loadContext.ref.constructCDOMObject(Kit.class, one);
+	}
+
+	@Test
+	public void testInputInvalidAddsAllNoSideEffect()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		construct(primaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP3");
+		assertTrue(parse("1|TestWP1" + getJoinCharacter() + "TestWP2"));
+		assertTrue(parseSecondary("1|TestWP1" + getJoinCharacter() + "TestWP2"));
+		assertFalse(parse("1|TestWP3" + getJoinCharacter() + "ALL"));
+		assertNoSideEffects();
+	}
+
+	private char getJoinCharacter()
+	{
+		return '|';
+	}
+
+	@Test
+	public void testInvalidInputAllItem() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertFalse(parse("1|ALL" + getJoinCharacter() + "TestWP1"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputItemAll() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertFalse(parse("1|TestWP1" + getJoinCharacter() + "ALL"));
+		assertNoSideEffects();
 	}
 
 }

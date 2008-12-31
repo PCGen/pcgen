@@ -26,20 +26,21 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.PCTemplate;
-import pcgen.core.spell.Spell;
+import pcgen.core.PCClass;
+import pcgen.core.Skill;
+import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class QualifyTokenTest extends AbstractGlobalTokenTestCase
+public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 {
 
-	static CDOMPrimaryToken<CDOMObject> token = new QualifyToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMPrimaryToken<CDOMObject> token = new ServesAsToken();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>(
+			Skill.class);
 
 	@Override
 	@Before
@@ -49,15 +50,15 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMLoader<PCTemplate> getLoader()
+	public CDOMLoader<Skill> getLoader()
 	{
 		return loader;
 	}
 
 	@Override
-	public Class<PCTemplate> getCDOMClass()
+	public Class<Skill> getCDOMClass()
 	{
-		return PCTemplate.class;
+		return Skill.class;
 	}
 
 	@Override
@@ -70,7 +71,7 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	public void testInvalidObject() throws PersistenceLayerException
 	{
 		assertFalse(token.parse(primaryContext, new EquipmentModifier(),
-				"SPELL|Fireball"));
+				"Fireball"));
 	}
 
 	@Test
@@ -83,14 +84,14 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidTypeOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL"));
+		assertFalse(parse("SKILL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|"));
+		assertFalse(parse("SKILL|"));
 		assertNoSideEffects();
 	}
 
@@ -118,7 +119,7 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidNonCatTypeEquals() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL=Arcane|Fireball"));
+		assertFalse(parse("SKILL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -147,28 +148,37 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	public void testInvalidSpellbookAndSpellBarOnly()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|Fireball|"));
+		assertFalse(parse("SKILL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellBarStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL||Fireball"));
+		assertFalse(parse("SKILL||Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinJustSpell() throws PersistenceLayerException
+	public void testInvalidWrongType() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		runRoundRobin("SPELL|Fireball");
+		assertFalse(parse("SPELL|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinJustSkill() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
+		runRoundRobin("SKILL|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
+		primaryProf = new Ability();
+		secondaryProf = new Ability();
 		Ability a = primaryContext.ref.constructCDOMObject(
 				Ability.class, "My Feat");
 		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
@@ -178,32 +188,25 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("ABILITY=Feat|My Feat");
 	}
 
+	// @Test
+	// public void testRoundRobinJustSubClass() throws PersistenceLayerException
+	// {
+	// primaryProf = new SubClass();
+	// secondaryProf = new SubClass();
+	// primaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
+	// secondaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
+	// runRoundRobin("CLASS|Fireball");
+	//	}
+
 	@Test
 	public void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Spell.class,
+		primaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
+		primaryContext.ref.constructCDOMObject(Skill.class,
 				"Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class,
+		secondaryContext.ref.constructCDOMObject(Skill.class,
 				"Lightning Bolt");
-		runRoundRobin("SPELL|Fireball|Lightning Bolt");
-	}
-
-	@Test
-	public void testRoundRobinTwoBooksJustSpell()
-			throws PersistenceLayerException
-	{
-		Ability a = primaryContext.ref.constructCDOMObject(
-				Ability.class, "My Feat");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		a = secondaryContext.ref.constructCDOMObject(Ability.class,
-				"My Feat");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		primaryContext.ref.constructCDOMObject(Spell.class,
-				"Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class,
-				"Lightning Bolt");
-		runRoundRobin("ABILITY=Feat|My Feat", "SPELL|Lightning Bolt");
+		runRoundRobin("SKILL|Fireball|Lightning Bolt");
 	}
 }

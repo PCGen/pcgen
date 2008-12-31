@@ -20,6 +20,7 @@ package plugin.lsttokens;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Equipment;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -49,6 +50,13 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
+	}
+
+	@Test
+	public void testInvalidObject() throws PersistenceLayerException
+	{
+		assertFalse(token.parse(primaryContext, new Equipment(),
+				"Fly,40"));
 	}
 
 	@Test
@@ -107,6 +115,17 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	{
 		assertFalse(parse("Normal,Foo"));
 		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputNumber()
+		throws PersistenceLayerException
+	{
+		assertTrue(parse("30"));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertNotNull(unparsed);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", "Walk,30", unparsed[0]);
 	}
 
 	@Test
