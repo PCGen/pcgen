@@ -28,7 +28,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMCompoundOrReference;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -53,11 +52,6 @@ public class TemplateLst extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject cdo, String value)
 	{
-		if (cdo instanceof Campaign)
-		{
-			return false;
-		}
-
 		ListKey<CDOMReference<PCTemplate>> lk;
 		String remaining;
 		boolean consolidate = false;
@@ -134,6 +128,9 @@ public class TemplateLst extends AbstractToken implements
 	{
 		Changes<CDOMReference<PCTemplate>> changes = context.getObjectContext()
 				.getListChanges(cdo, ListKey.TEMPLATE);
+		Changes<CDOMReference<PCTemplate>> removechanges = context
+				.getObjectContext().getListChanges(cdo,
+						ListKey.REMOVE_TEMPLATES);
 
 		List<String> list = new ArrayList<String>();
 
@@ -194,6 +191,24 @@ public class TemplateLst extends AbstractToken implements
 					+ ReferenceUtilities.joinLstFormat(addedItems,
 							Constants.PIPE));
 		}
+
+		Collection<CDOMReference<PCTemplate>> radd = removechanges.getAdded();
+		if (radd != null && !radd.isEmpty())
+		{
+			sb = new StringBuilder();
+			boolean needPipe = false;
+			for (CDOMReference<PCTemplate> ref : radd)
+			{
+				if (needPipe)
+				{
+					sb.append(Constants.PIPE);
+				}
+				needPipe = true;
+				sb.append(ref.getLSTformat()).append(".REMOVE");
+			}
+			list.add(sb.toString());
+		}
+
 		if (list.isEmpty())
 		{
 			// Possible if none triggered
