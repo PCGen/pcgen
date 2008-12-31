@@ -289,13 +289,15 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	@Test
 	public void testInputInvalidClearDot() throws PersistenceLayerException
 	{
-		if (isClearDotLegal())
+		if (isClearDotLegal() && requiresPreconstruction())
 		{
 			// DoNotConstruct TestWP1
 			assertTrue(parse(".CLEAR.TestWP1"));
 			assertFalse(primaryContext.ref.validate());
 		}
 	}
+
+	protected abstract boolean requiresPreconstruction();
 
 	@Test
 	public void testInputInvalidAddsAfterClearDotNoSideEffect()
@@ -327,7 +329,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	public void testInputInvalidAddsAfterClearNoSideEffect()
 			throws PersistenceLayerException
 	{
-		if (isClearLegal())
+		if (isClearLegal() && isAllLegal())
 		{
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
@@ -337,4 +339,6 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 			assertNoSideEffects();
 		}
 	}
+
+	protected abstract boolean isAllLegal();
 }

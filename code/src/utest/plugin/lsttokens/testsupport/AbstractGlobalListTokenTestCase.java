@@ -467,7 +467,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	public void testInputInvalidAddsAfterClearNoSideEffect()
 		throws PersistenceLayerException
 	{
-		if (isClearLegal())
+		if (isClearLegal() && isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP1");

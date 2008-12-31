@@ -27,6 +27,14 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 {
 
 	@Test
+	public void testInvalidInputEmpty() throws PersistenceLayerException
+	{
+		assertFalse(parse(""));
+		assertEquals(null, primaryProf.get(getStringKey()));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
 		assertTrue(parse("Niederösterreich"));

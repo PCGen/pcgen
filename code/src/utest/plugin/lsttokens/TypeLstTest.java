@@ -81,7 +81,7 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Test
@@ -147,5 +147,38 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInputInvalidEmbeddedClear() throws PersistenceLayerException
+	{
+		assertFalse(parse("TestWP1.CLEAR.TestWP2"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInputInvalidDotClearDot() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR."));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInputInvalidDotClearStuff() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEARSTUFF"));
+		assertNoSideEffects();
+	}
+
+	@Override
+	protected boolean isAllLegal()
+	{
+		return false;
+	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
 	}
 }

@@ -85,7 +85,7 @@ public class VFeatLstTest extends AbstractGlobalListTokenTestCase<Ability>
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	static CDOMPrimaryToken<CDOMObject> token = new VFeatLst();
