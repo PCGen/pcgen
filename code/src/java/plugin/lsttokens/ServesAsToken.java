@@ -108,6 +108,13 @@ public class ServesAsToken extends AbstractToken implements
 						+ " expecting a POBJECT Type, found: " + key);
 				return false;
 			}
+			if (!servingClass.equals(obj.getClass()))
+			{
+				Logging.log(Logging.LST_ERROR, getTokenName()
+						+ " expecting a POBJECT Type valid for "
+						+ obj.getClass().getSimpleName() + ", found: " + key);
+				return false;
+			}
 			mfg = context.ref.getManufacturer(servingClass);
 		}
 		else
@@ -122,6 +129,13 @@ public class ServesAsToken extends AbstractToken implements
 			key = key.substring(0, equalLoc);
 			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(
 					category);
+			if (cat == null)
+			{
+				Logging.log(Logging.LST_ERROR,
+						"Could not find AbilityCategory " + category + " in "
+								+ getTokenName());
+				return false;
+			}
 			mfg = context.ref.getManufacturer(Ability.class, cat);
 		}
 		if (!st.hasMoreTokens())

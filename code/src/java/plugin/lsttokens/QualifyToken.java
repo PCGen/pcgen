@@ -77,7 +77,8 @@ public class QualifyToken extends AbstractToken implements
 	{
 		if (!getLegalTypes().contains(obj.getClass()))
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot use QUALIFY on a " + obj.getClass());
+			Logging.log(Logging.LST_ERROR, "Cannot use QUALIFY on a "
+					+ obj.getClass());
 			return false;
 		}
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
@@ -118,6 +119,12 @@ public class QualifyToken extends AbstractToken implements
 			categoryName = firstToken.substring(equalLoc + 1);
 		}
 		Class<? extends CDOMObject> c = StringPClassUtil.getClassFor(className);
+		if (c == null)
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " does not understand object type: " + className);
+			return false;
+		}
 		ReferenceManufacturer<? extends CDOMObject, ?> rm;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
