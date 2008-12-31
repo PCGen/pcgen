@@ -317,7 +317,6 @@ public class SpelllevelLst extends AbstractToken implements
 				// TODO Error message - unexpected?
 				return null;
 			}
-			System.err.println(mtl.getKeySet());
 			for (CDOMReference<Spell> added : mtl.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(added))
