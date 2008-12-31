@@ -31,12 +31,12 @@ import pcgen.core.Kit;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
- * Deals with APPLY lst token within KitStartpack 
+ * Deals with APPLY lst token within KitStartpack
  */
-public class ApplyToken extends AbstractToken implements
-		CDOMPrimaryToken<Kit>
+public class ApplyToken extends AbstractToken implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -54,16 +54,24 @@ public class ApplyToken extends AbstractToken implements
 		return Kit.class;
 	}
 
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
-	}
-
 	public boolean parse(LoadContext context, Kit kit, String value)
 	{
-		KitApply ka = KitApply.valueOf(value);
-		kit.put(ObjectKey.APPLY_MODE, ka);
-		return true;
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		try
+		{
+			KitApply ka = KitApply.valueOf(value);
+			kit.put(ObjectKey.APPLY_MODE, ka);
+			return true;
+		}
+		catch (IllegalArgumentException e)
+		{
+			Logging.errorPrint(getTokenName()
+					+ " encountered unexpected application type: " + value);
+			return false;
+		}
 	}
 
 	public String[] unparse(LoadContext context, Kit kit)
@@ -73,6 +81,6 @@ public class ApplyToken extends AbstractToken implements
 		{
 			return null;
 		}
-		return new String[]{bd.toString()};
+		return new String[] { bd.toString() };
 	}
 }

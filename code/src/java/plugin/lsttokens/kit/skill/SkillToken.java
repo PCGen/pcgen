@@ -79,8 +79,13 @@ public class SkillToken extends AbstractToken implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			kitSkill.addSkill(TokenUtilities.getTypeOrPrimitive(context,
-				SKILL_CLASS, tokText));
+			CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(
+					context, SKILL_CLASS, tokText);
+			if (ref == null)
+			{
+				return false;
+			}
+			kitSkill.addSkill(ref);
 		}
 		return true;
 	}
@@ -88,11 +93,11 @@ public class SkillToken extends AbstractToken implements
 	public String[] unparse(LoadContext context, KitSkill kitSkill)
 	{
 		Collection<CDOMReference<Skill>> ref = kitSkill.getSkills();
-		if (ref == null)
+		if (ref == null || ref.isEmpty())
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref,
-			Constants.PIPE)};
+		return new String[] { ReferenceUtilities.joinLstFormat(ref,
+				Constants.PIPE) };
 	}
 }

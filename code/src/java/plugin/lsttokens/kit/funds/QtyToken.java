@@ -61,6 +61,10 @@ public class QtyToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitFunds kitFunds, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitFunds.setQuantity(FormulaFactory.getFormulaFor(value));
 		return true;
 	}

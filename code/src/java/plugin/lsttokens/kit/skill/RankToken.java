@@ -62,6 +62,10 @@ public class RankToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitSkill kitSkill, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		try
 		{
 			BigDecimal rank = new BigDecimal(value);

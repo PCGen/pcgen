@@ -91,7 +91,7 @@ public class SelectionToken extends AbstractToken implements
 	public String[] unparse(LoadContext context, KitSkill kitSkill)
 	{
 		List<CDOMSingleRef<Language>> ref = kitSkill.getSelections();
-		if (ref == null)
+		if (ref == null || ref.isEmpty())
 		{
 			return null;
 		}

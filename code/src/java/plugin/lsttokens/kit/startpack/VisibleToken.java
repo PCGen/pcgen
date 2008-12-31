@@ -55,13 +55,12 @@ public class VisibleToken extends AbstractToken implements
 		return Kit.class;
 	}
 
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
-	}
-
 	public boolean parse(LoadContext context, Kit kit, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Visibility vis;
 		if (value.equals("QUALIFY"))
 		{

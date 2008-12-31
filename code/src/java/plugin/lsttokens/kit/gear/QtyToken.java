@@ -61,6 +61,10 @@ public class QtyToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitGear kitGear, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitGear.setQuantity(FormulaFactory.getFormulaFor(value));
 		return true;
 	}

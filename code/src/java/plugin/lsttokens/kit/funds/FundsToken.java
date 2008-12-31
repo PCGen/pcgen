@@ -60,6 +60,10 @@ public class FundsToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitFunds kitFunds, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitFunds.setName(value);
 		return true;
 	}

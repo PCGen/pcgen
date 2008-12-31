@@ -62,6 +62,10 @@ public class CountToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitDeity kitDeity, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitDeity.setCount(FormulaFactory.getFormulaFor(value));
 		return true;
 	}

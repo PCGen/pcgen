@@ -74,7 +74,7 @@ public class FeatToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
 	{
-		if (isEmpty(value))
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
@@ -123,7 +123,7 @@ public class FeatToken extends AbstractToken implements
 	public String[] unparse(LoadContext context, KitAbilities KitAbilities)
 	{
 		Collection<CDOMReference<Ability>> ref = KitAbilities.getAbilityKeys();
-		if (ref == null)
+		if (ref == null || ref.isEmpty())
 		{
 			return null;
 		}

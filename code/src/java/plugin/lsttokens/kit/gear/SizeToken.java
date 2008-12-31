@@ -30,6 +30,7 @@ import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.util.Logging;
 
 /**
  * SIZE token for KitGear
@@ -70,9 +71,14 @@ public class SizeToken extends AbstractToken implements
 		}
 		else
 		{
-			SizeAdjustment size =
-					context.ref.getAbbreviatedObject(SizeAdjustment.class,
-						value);
+			SizeAdjustment size = context.ref.getAbbreviatedObject(
+					SizeAdjustment.class, value);
+			if (size == null)
+			{
+				Logging.errorPrint(getTokenName()
+						+ " found invalid Size abbreviation: " + value);
+				return false;
+			}
 			kitGear.setSize(size);
 		}
 		return true;
@@ -88,8 +94,8 @@ public class SizeToken extends AbstractToken implements
 			{
 				return null;
 			}
-			return new String[]{"PC"};
+			return new String[] { "PC" };
 		}
-		return new String[]{sz.getAbbreviation()};
+		return new String[] { sz.getAbbreviation() };
 	}
 }

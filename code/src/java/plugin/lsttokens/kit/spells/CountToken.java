@@ -61,6 +61,10 @@ public class CountToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitSpells kitSpells, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitSpells.setCount(FormulaFactory.getFormulaFor(value));
 		return true;
 	}
@@ -72,6 +76,6 @@ public class CountToken extends AbstractToken implements
 		{
 			return null;
 		}
-		return new String[]{bd.toString()};
+		return new String[] { bd.toString() };
 	}
 }

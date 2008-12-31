@@ -64,6 +64,10 @@ public class TableToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitTable kitTable, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitTable.setTableName(value);
 		return true;
 	}

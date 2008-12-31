@@ -62,6 +62,10 @@ public class LevelToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitClass kitClass, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitClass.setLevel(FormulaFactory.getFormulaFor(value));
 		return true;
 	}

@@ -88,13 +88,6 @@ public class AbilityToken extends AbstractToken implements
 					+ "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
 			return false;
 		}
-		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
-		{
-			Logging.addParseMessage(Logging.LST_ERROR,
-				"Two pipes found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
-			return false;
-		}
 		String catString = value.substring(0, pipeLoc);
 		if (!catString.startsWith("CATEGORY="))
 		{
@@ -123,7 +116,7 @@ public class AbilityToken extends AbstractToken implements
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
 			return false;
 		}
-		StringTokenizer st = new StringTokenizer(rest, "|");
+		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
 		while (st.hasMoreTokens())
 		{
@@ -157,7 +150,7 @@ public class AbilityToken extends AbstractToken implements
 	{
 		Collection<CDOMReference<Ability>> references =
 				KitAbilities.getAbilityKeys();
-		if (references == null)
+		if (references == null || references.isEmpty())
 		{
 			return null;
 		}

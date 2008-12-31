@@ -63,11 +63,6 @@ public class EquipBuyToken extends AbstractToken implements
 		return Kit.class;
 	}
 
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
-	}
-
 	public boolean parse(LoadContext context, Kit kit, String value)
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))

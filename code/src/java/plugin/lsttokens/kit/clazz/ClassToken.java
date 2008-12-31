@@ -65,6 +65,10 @@ public class ClassToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitClass kitClass, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		CDOMSingleRef<PCClass> ref =
 				context.ref.getCDOMReference(PCCLASS_CLASS, value);
 		kitClass.setPcclass(ref);

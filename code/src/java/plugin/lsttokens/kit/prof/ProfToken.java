@@ -37,7 +37,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
 
 /**
  * PROF Token part of Kit Prof Lst Token
@@ -82,22 +81,15 @@ public class ProfToken extends AbstractToken implements
 			String tokText = tok.nextToken();
 			CDOMSingleRef<WeaponProf> ref =
 					context.ref.getCDOMReference(WEAPONPROF_CLASS, tokText);
-			if (ref == null)
-			{
-				Logging
-					.errorPrint("  Error was encountered while parsing KitProf.  "
-						+ tokText + " is not a valid WeaponProf");
-				continue;
-			}
 			obj.addProficiency(ref);
 		}
-		return false;
+		return true;
 	}
 
 	public String[] unparse(LoadContext context, KitProf obj)
 	{
 		Collection<CDOMSingleRef<WeaponProf>> ref = obj.getProficiencies();
-		if (ref == null)
+		if (ref == null || ref.isEmpty())
 		{
 			return null;
 		}

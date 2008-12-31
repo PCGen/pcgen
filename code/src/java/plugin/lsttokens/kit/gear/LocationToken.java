@@ -59,6 +59,10 @@ public class LocationToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitGear kitGear, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitGear.setLocation(value);
 		return true;
 	}

@@ -63,6 +63,10 @@ public class SubclassToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitClass kitClass, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		/*
 		 * This call to kitClass.getPcclass() is safe, as the line is CLASS:
 		 * and thus the CLASS: token is always encountered first

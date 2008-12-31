@@ -46,21 +46,6 @@ public class RacialToken extends AbstractToken implements
 		return "RACIAL";
 	}
 
-	/**
-	 * parse
-	 * 
-	 * @param kitProf
-	 *            KitProf
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitProf kitProf, String value)
-	{
-		kitProf.setRacialProf(value.startsWith("Y"));
-		return true;
-	}
-
 	public Class<KitProf> getTokenClass()
 	{
 		return KitProf.class;
@@ -74,6 +59,10 @@ public class RacialToken extends AbstractToken implements
 	public boolean parse(LoadContext context, KitProf obj, String value)
 		throws PersistenceLayerException
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
@@ -90,12 +79,15 @@ public class RacialToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-				{
-					Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-					return false;
-				}
+				return false;
+			}
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
 			}
 			set = Boolean.FALSE;
 		}

@@ -60,6 +60,10 @@ public class FreeToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitSkill kitSkill, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
@@ -67,7 +71,7 @@ public class FreeToken extends AbstractToken implements
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				Logging.errorPrint("You should use 'YES' as the "
-					+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value);
 				return false;
 			}
 			set = Boolean.TRUE;
@@ -76,12 +80,15 @@ public class FreeToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-				{
-					Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-					return false;
-				}
+				return false;
+			}
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
 			}
 			set = Boolean.FALSE;
 		}
@@ -96,6 +103,6 @@ public class FreeToken extends AbstractToken implements
 		{
 			return null;
 		}
-		return new String[]{mult.booleanValue() ? "YES" : "NO"};
+		return new String[] { mult.booleanValue() ? "YES" : "NO" };
 	}
 }

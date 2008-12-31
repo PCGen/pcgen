@@ -29,13 +29,13 @@ import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * STARTPACK token for Kit Startpack
  */
 public class StartpackToken extends AbstractToken implements
-		CDOMSecondaryToken<Kit>
+		CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -48,11 +48,6 @@ public class StartpackToken extends AbstractToken implements
 		return "STARTPACK";
 	}
 
-	public String getParentToken()
-	{
-		return "*KITTOKEN";
-	}
-
 	public Class<Kit> getTokenClass()
 	{
 		return Kit.class;
@@ -61,6 +56,10 @@ public class StartpackToken extends AbstractToken implements
 	public boolean parse(LoadContext context, Kit kit, String value)
 		throws PersistenceLayerException
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		return true;
 	}
 

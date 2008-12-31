@@ -200,12 +200,9 @@ public final class KitSpells extends BaseKit
 			//
 			while (true)
 			{
-				xs =
-						Globals
-							.getChoiceFromList("Choose " + aClass.getKeyName()
-								+ " spell(s) for " + workingBook, aSpellList,
-								new ArrayList<KitSpellBookEntry>(),
-								numberOfChoices);
+				xs = Globals.getChoiceFromList("Choose " + aClass.getKeyName()
+						+ " spell(s) for " + workingBook, aSpellList,
+						new ArrayList<KitSpellBookEntry>(), numberOfChoices);
 
 				if (xs.size() != 0)
 				{
@@ -305,9 +302,8 @@ public final class KitSpells extends BaseKit
 
 		if (spLevel == 99)
 		{
-			spLevel =
-					SpellLevel.getFirstLevelForKey(spell, pcClass
-						.getSpellLists(pc), pc);
+			spLevel = SpellLevel.getFirstLevelForKey(spell, pcClass
+					.getSpellLists(pc), pc);
 			owner = pcClass;
 		}
 
@@ -387,5 +383,22 @@ public final class KitSpells extends BaseKit
 		ArrayList<CDOMSingleRef<Ability>> featList, int count)
 	{
 		spells.put(ksi, featList, count);
+	}
+
+	public Collection<KnownSpellIdentifier> getSpells()
+	{
+		return spells.getKeySet();
+	}
+
+	public Collection<List<CDOMSingleRef<Ability>>> getAbilities(
+			KnownSpellIdentifier ksi)
+	{
+		return spells.getSecondaryKeySet(ksi);
+	}
+
+	public Integer getSpellCount(KnownSpellIdentifier ksi,
+			List<CDOMSingleRef<Ability>> abils)
+	{
+		return spells.get(ksi, abils);
 	}
 }
