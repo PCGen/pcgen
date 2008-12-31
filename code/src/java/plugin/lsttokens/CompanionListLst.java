@@ -161,10 +161,17 @@ public class CompanionListLst extends AbstractToken implements
 			}
 			else if (tokString.startsWith("RACETYPE="))
 			{
+				String raceType = tokString.substring(9);
+				if (raceType.length() == 0)
+				{
+					Logging.log(Logging.LST_ERROR, getTokenName()
+							+ " Error: RaceType was not specified.");
+					return false;
+				}
 				races.add(new ObjectMatchingReference<Race, RaceType>(tokString,
 						Race.class,
 						context.ref.getCDOMAllReference(Race.class),
-						ObjectKey.RACETYPE, RaceType.getConstant(value)));
+						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
 			}
 			else
 			{

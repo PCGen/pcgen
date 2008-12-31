@@ -200,6 +200,10 @@ public class AbilityLst extends AbstractToken implements
 				CDOMReference<Ability> ref =
 						TokenUtilities.getTypeOrPrimitive(context,
 							ABILITY_CLASS, category, clearText);
+				if (ref == null)
+				{
+					return false;
+				}
 				context.getListContext().removeFromList(getTokenName(), obj,
 					abilList, ref);
 			}
