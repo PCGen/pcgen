@@ -97,6 +97,13 @@ public class BenefitTokenTest extends AbstractTokenTestCase<Ability>
 	}
 
 	@Test
+	public void testInvalidPre() throws PersistenceLayerException
+	{
+		assertFalse(parse("SA Number One|PREFOO:1,Fighter=1"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidVarAfterPre() throws PersistenceLayerException
 	{
 		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
