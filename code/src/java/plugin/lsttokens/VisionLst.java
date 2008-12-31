@@ -67,13 +67,24 @@ public class VisionLst extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
-
-		List<Vision> list = new ArrayList<Vision>();
-		while (aTok.hasMoreTokens())
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
-			String visionString = aTok.nextToken();
+			return false;
+		}
+		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
+		String visionString = aTok.nextToken();
+		if (visionString.startsWith("PRE") || visionString.startsWith("!PRE"))
+		{
+			Logging.log(Logging.LST_ERROR,
+					"Cannot have only PRExxx subtoken in " + getTokenName()
+							+ ": " + value);
+			return false;
+		}
 
+		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
+
+		while (true)
+		{
 			if (".CLEAR".equals(visionString))
 			{
 				context.getListContext().removeAllFromList(getTokenName(), obj,
@@ -99,18 +110,28 @@ public class VisionLst extends AbstractToken implements
 					return false;
 				}
 			}
+			else if (visionString.startsWith("PRE")
+					|| visionString.startsWith("!PRE"))
+			{
+				break;
+			}
 			else
 			{
 				if (visionString.startsWith(".SET."))
 				{
-					// TODO Need a deprecation warning here
+					Logging.deprecationPrint(".SET. in " + getTokenName()
+							+ " has been deprecated, please use .CLEAR,x");
 					context.getListContext().removeAllFromList(getTokenName(),
 							obj, Vision.VISIONLIST);
 					visionString = visionString.substring(5);
 				}
 				try
 				{
-					list.add(Vision.getVision(visionString));
+					Vision vision = Vision.getVision(visionString);
+					AssociatedPrereqObject edge = context.getListContext()
+							.addToList(getTokenName(), obj, Vision.VISIONLIST,
+									new CDOMDirectSingleRef<Vision>(vision));
+					edgeList.add(edge);
 				}
 				catch (IllegalArgumentException e)
 				{
@@ -120,11 +141,31 @@ public class VisionLst extends AbstractToken implements
 					return false;
 				}
 			}
+			if (!aTok.hasMoreTokens())
+			{
+				return true;
+			}
+			visionString = aTok.nextToken();
 		}
-		for (Vision vis : list)
+		while (true)
 		{
-			context.getListContext().addToList(getTokenName(), obj,
-					Vision.VISIONLIST, new CDOMDirectSingleRef<Vision>(vis));
+			Prerequisite prereq = getPrerequisite(visionString);
+			if (prereq == null)
+			{
+				Logging.log(Logging.LST_ERROR,
+						"   (Did you put vision after the " + "PRExxx tags in "
+								+ getTokenName() + ":?)");
+				return false;
+			}
+			for (AssociatedPrereqObject edge : edgeList)
+			{
+				edge.addPrerequisite(prereq);
+			}
+			if (!aTok.hasMoreTokens())
+			{
+				break;
+			}
+			visionString = aTok.nextToken();
 		}
 		return true;
 	}
