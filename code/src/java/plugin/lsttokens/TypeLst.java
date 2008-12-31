@@ -33,7 +33,7 @@ import pcgen.util.Logging;
 
 /**
  * @author djones4
- *
+ * 
  */
 public class TypeLst extends AbstractToken implements
 		CDOMPrimaryToken<CDOMObject>
@@ -87,41 +87,65 @@ public class TypeLst extends AbstractToken implements
 		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
 
 		boolean bRemove = false;
+		boolean bAdd = false;
 		while (aTok.hasMoreTokens())
 		{
 			final String aType = aTok.nextToken();
-			if (bRemove)
+			if ("ADD".equals(aType))
 			{
-				Type type = Type.getConstant(aType);
-				context.getObjectContext().removeFromList(cdo, ListKey.TYPE,
-					type);
+				if (bRemove)
+				{
+					Logging.log(Logging.LST_ERROR,
+							"Non-sensical use of .REMOVE.ADD. in "
+									+ getTokenName() + ": " + value);
+					return false;
+				}
 				bRemove = false;
-			}
-			else if ("ADD".equals(aType))
-			{
-				bRemove = false;
+				bAdd = true;
 			}
 			else if ("REMOVE".equals(aType))
 			{
+				if (bAdd)
+				{
+					Logging.log(Logging.LST_ERROR,
+							"Non-sensical use of .ADD.REMOVE. in "
+									+ getTokenName() + ": " + value);
+					return false;
+				}
 				bRemove = true;
 			}
 			else if ("CLEAR".equals(aType))
 			{
 				Logging.errorPrint("Non-sensical use of .CLEAR in "
-					+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value);
 				return false;
+			}
+			else if (bRemove)
+			{
+				Type type = Type.getConstant(aType);
+				context.getObjectContext().removeFromList(cdo, ListKey.TYPE,
+						type);
+				bRemove = false;
 			}
 			else
 			{
 				Type type = Type.getConstant(aType);
 				context.getObjectContext().addToList(cdo, ListKey.TYPE, type);
+				bAdd = false;
 			}
 		}
 		if (bRemove)
 		{
 			Logging.errorPrint(getTokenName()
-				+ "ended with REMOVE, so didn't have any Type to remove: "
-				+ value);
+					+ "ended with REMOVE, so didn't have any Type to remove: "
+					+ value);
+			return false;
+		}
+		if (bAdd)
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ "ended with ADD, so didn't have any Type to add: "
+					+ value);
 			return false;
 		}
 		return true;
@@ -129,8 +153,8 @@ public class TypeLst extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		Changes<Type> changes =
-				context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
+		Changes<Type> changes = context.getObjectContext().getListChanges(cdo,
+				ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -153,11 +177,11 @@ public class TypeLst extends AbstractToken implements
 		if (sb.length() == 0)
 		{
 			context.addWriteMessage(getTokenName()
-				+ " was expecting non-empty changes to include "
-				+ "added items or global clear");
+					+ " was expecting non-empty changes to include "
+					+ "added items or global clear");
 			return null;
 		}
-		return new String[]{sb.toString()};
+		return new String[] { sb.toString() };
 	}
 
 	public Class<CDOMObject> getTokenClass()
