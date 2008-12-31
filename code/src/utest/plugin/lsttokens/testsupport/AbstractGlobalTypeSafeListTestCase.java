@@ -37,79 +37,107 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
-		List<?> coll;
-		assertTrue(parse("Rheinhessen"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Rheinhessen"));
+			coll = primaryProf.getListFor(getListKey());
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Rheinhessen")));
+		}
 	}
 
 	@Test
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
-		List<?> coll;
-		assertTrue(parse("Niederösterreich"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Niederösterreich"));
+			coll = primaryProf.getListFor(getListKey());
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
+		}
 	}
 
 	@Test
 	public void testValidInputSpace() throws PersistenceLayerException
 	{
-		List<?> coll;
-		assertTrue(parse("Finger Lakes"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Finger Lakes"));
+			coll = primaryProf.getListFor(getListKey());
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Finger Lakes")));
+		}
 	}
 
 	@Test
 	public void testValidInputHyphen() throws PersistenceLayerException
 	{
-		List<?> coll;
-		assertTrue(parse("Languedoc-Roussillon"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Languedoc-Roussillon"));
+			coll = primaryProf.getListFor(getListKey());
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		}
 	}
 
 	@Test
 	public void testValidInputY() throws PersistenceLayerException
 	{
-		List<?> coll;
-		assertTrue(parse("Yarra Valley"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Yarra Valley")));
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Yarra Valley"));
+			coll = primaryProf.getListFor(getListKey());
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("Yarra Valley")));
+		}
 	}
 
 	@Test
 	public void testValidInputList() throws PersistenceLayerException
 	{
-		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
-			+ "Finger Lakes"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Niederösterreich" + getJoinCharacter()
+					+ "Finger Lakes"));
+			coll = primaryProf.getListFor(getListKey());
+			assertEquals(2, coll.size());
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
+			assertTrue(coll.contains(getConstant("Finger Lakes")));
+		}
 	}
 
 	@Test
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
-		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
-			+ "Finger Lakes"));
-		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
-			+ "Rheinhessen"));
-		coll = primaryProf.getListFor(getListKey());
-		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			List<?> coll;
+			assertTrue(parse("Niederösterreich" + getJoinCharacter()
+					+ "Finger Lakes"));
+			assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
+					+ "Rheinhessen"));
+			coll = primaryProf.getListFor(getListKey());
+			assertEquals(4, coll.size());
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
+			assertTrue(coll.contains(getConstant("Finger Lakes")));
+			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+			assertTrue(coll.contains(getConstant("Rheinhessen")));
+		}
 	}
 
 	// FIXME Someday, when PCGen doesn't write out crappy stuff into custom
@@ -151,7 +179,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP2");
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
-			+ "TestWP1"));
+				+ "TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -189,13 +217,13 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	public void testRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Yarra Valley"
-			+ getJoinCharacter() + "Languedoc-Roussillon");
+				+ getJoinCharacter() + "Languedoc-Roussillon");
 	}
 
 	public static String[] getConstants()
 	{
-		return new String[]{"Niederösterreich", "Finger Lakes",
-			"Languedoc-Roussillon", "Rheinhessen", "Yarra Valley"};
+		return new String[] { "Niederösterreich", "Finger Lakes",
+				"Languedoc-Roussillon", "Rheinhessen", "Yarra Valley" };
 	}
 
 	public abstract boolean isClearLegal();
@@ -222,7 +250,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals("Expected item to be equal", "TestWP1"
-			+ getJoinCharacter() + "TestWP2", unparsed[0]);
+				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(".CLEAR"));
@@ -239,7 +267,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals("Expected item to be equal", "TestWP1"
-			+ getJoinCharacter() + "TestWP2", unparsed[0]);
+				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
@@ -271,41 +299,41 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 
 	@Test
 	public void testInputInvalidAddsAfterClearDotNoSideEffect()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		if (isClearDotLegal())
 		{
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
-				+ "TestWP2"));
+					+ "TestWP2"));
 			assertFalse(parse("TestWP3" + getJoinCharacter() + ".CLEAR.TestWP2"
-				+ getJoinCharacter() + "ALL"));
+					+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
 	}
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
-			+ "TestWP4"));
+				+ "TestWP4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInputInvalidAddsAfterClearNoSideEffect()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		if (isClearLegal())
 		{
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
-				+ "TestWP2"));
+					+ "TestWP2"));
 			assertFalse(parse(".CLEAR" + getJoinCharacter() + "TestWP3"
-				+ getJoinCharacter() + "ALL"));
+					+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
 	}

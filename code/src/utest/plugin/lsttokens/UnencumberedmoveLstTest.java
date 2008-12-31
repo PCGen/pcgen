@@ -95,9 +95,44 @@ public class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidInputDoubleLoad2() throws PersistenceLayerException
+	{
+		assertFalse(parse("MediumLoad|HeavyLoad"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDoubleLoad3() throws PersistenceLayerException
+	{
+		assertFalse(parse("HeavyLoad|Overload"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDoubleLoad4() throws PersistenceLayerException
+	{
+		assertFalse(parse("HeavyLoad|LightLoad"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputDoubleArmor() throws PersistenceLayerException
 	{
 		assertFalse(parse("MediumArmor|HeavyArmor"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDoubleArmor2() throws PersistenceLayerException
+	{
+		assertFalse(parse("HeavyArmor|MediumArmor"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputDoubleArmor3() throws PersistenceLayerException
+	{
+		assertFalse(parse("MediumArmor|LightArmor"));
 		assertNoSideEffects();
 	}
 

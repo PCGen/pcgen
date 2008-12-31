@@ -67,7 +67,7 @@ public class VFeatLstTest extends AbstractGlobalListTokenTestCase<Ability>
 	@Override
 	public boolean isTypeLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -246,5 +246,31 @@ public class VFeatLstTest extends AbstractGlobalListTokenTestCase<Ability>
 		construct(secondaryContext, "TestWP2");
 		runRoundRobin("TestWP1|PRECLASS:1,Fighter=1",
 			"TestWP2|PRECLASS:1,Wizard=1");
+	}
+
+	@Test
+	public void testRoundRobinOneParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Paren)");
+	}
+
+	@Test
+	public void testRoundRobinTwoParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		runRoundRobin("TestWP1 (Paren)|TestWP2 (Other)");
+	}
+
+	@Test
+	public void testRoundRobinDupeParen() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TestWP1 (Other)|TestWP1 (That)");
 	}
 }

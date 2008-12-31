@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens;
 
+import java.net.URISyntaxException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -26,13 +29,34 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreClassParser;
+import plugin.pretokens.parser.PreRaceParser;
+import plugin.pretokens.writer.PreClassWriter;
+import plugin.pretokens.writer.PreRaceWriter;
 
 public class VisionLstTest extends AbstractGlobalTokenTestCase
 {
 
+	PreClassParser preclass = new PreClassParser();
+	PreClassWriter preclasswriter = new PreClassWriter();
+	PreRaceParser prerace = new PreRaceParser();
+	PreRaceWriter preracewriter = new PreRaceWriter();
+
 	static CDOMPrimaryToken<CDOMObject> token = new VisionLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
 			PCTemplate.class);
+
+	@Override
+	@Before
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TokenRegistration.register(preclass);
+		TokenRegistration.register(preclasswriter);
+		TokenRegistration.register(prerace);
+		TokenRegistration.register(preracewriter);
+	}
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -160,6 +184,41 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidOnlyPre() throws PersistenceLayerException
+	{
+		assertFalse(parse("PRERACE:1,Dwarf"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTrailingPipe() throws PersistenceLayerException
+	{
+		assertFalse(parse("Darkvision|"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidLeadingPipe() throws PersistenceLayerException
+	{
+		assertFalse(parse("|Darkvision"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidDoublePipe() throws PersistenceLayerException
+	{
+		assertFalse(parse("Darkvision||PRERACE:1,Dwarf"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidMiddlePre() throws PersistenceLayerException
+	{
+		assertFalse(parse("Darkvision|PRERACE:1,Dwarf|Normal (100')"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testValidDistanceFormula() throws PersistenceLayerException
 	{
 		assertTrue(parse("Darkvision (zzzb32)"));
@@ -183,6 +242,12 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision");
+	}
+
+	@Test
+	public void testRoundRobinSimplePre() throws PersistenceLayerException
+	{
+		runRoundRobin("Darkvision|PRERACE:1,Dwarf");
 	}
 
 	@Test
@@ -234,6 +299,12 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 		throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (CL*10)|Normal (Form)");
+	}
+
+	@Test
+	public void testRoundRobinTwoPre() throws PersistenceLayerException
+	{
+		runRoundRobin("arkvision (20')|TestWP1|PRECLASS:1,Fighter=3|PRERACE:1,Dwarf");
 	}
 
 }

@@ -295,4 +295,91 @@ public class TemplateLstTest extends
 	// + getJoinCharacter() + "TestWP3");
 	// }
 	//
+
+	@Test
+	public void testRemoveInvalidInputString() throws PersistenceLayerException
+	{
+		assertTrue(parse("String.REMOVE"));
+		assertFalse(primaryContext.ref.validate());
+	}
+
+	@Test
+	public void testRemoveInvalidInputJoinedComma()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		assertTrue(parse("TestWP1.REMOVE,TestWP2.REMOVE"));
+		assertFalse(primaryContext.ref.validate());
+	}
+
+	@Test
+	public void testRemoveInvalidInputJoinedDot()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		assertTrue(parse("TestWP1.REMOVE.TestWP2.REMOVE"));
+		assertFalse(primaryContext.ref.validate());
+	}
+
+	@Test
+	public void testRemoveInvalidListEnd() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertFalse(parse("TestWP1.REMOVE" + getJoinCharacter()));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRemoveInvalidListStart() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertFalse(parse(getJoinCharacter() + "TestWP1.REMOVE"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRemoveInvalidListDoubleJoin()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		assertFalse(parse("TestWP2.REMOVE" + getJoinCharacter()
+				+ getJoinCharacter() + "TestWP1.REMOVE"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRemoveInvalidInputCheckMult()
+			throws PersistenceLayerException
+	{
+		// Explicitly do NOT build testChooseWP2
+		construct(primaryContext, "TestWP1");
+		assertTrue(parse("TestWP1.REMOVE" + getJoinCharacter() + "TestWP2.REMOVE"));
+		assertFalse(primaryContext.ref.validate());
+	}
+
+	@Test
+	public void testRemoveRoundRobinOne() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		runRoundRobin("TestWP1.REMOVE");
+	}
+
+	@Test
+	public void testRemoveRoundRobinThree() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(primaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP3");
+		runRoundRobin("TestWP1.REMOVE" + getJoinCharacter() + "TestWP2.REMOVE"
+				+ getJoinCharacter() + "TestWP3.REMOVE");
+	}
 }
