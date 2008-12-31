@@ -19,11 +19,12 @@ package pcgen.cdom.content;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.FormulaFactory;
 
 public class SpellResistance extends ConcretePrereqObject
 {
 
-	public static final SpellResistance NONE = new SpellResistance(Formula.ZERO);
+	public static final SpellResistance NONE = new SpellResistance(FormulaFactory.ZERO);
 	
 	private final Formula reduction;
 

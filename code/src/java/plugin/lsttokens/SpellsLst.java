@@ -232,8 +232,17 @@ public class SpellsLst extends AbstractToken implements
 			dkm.put(spell, AssociationKey.CASTER_LEVEL, casterLevel);
 			dkm.put(spell, AssociationKey.TIMES_PER_UNIT, FormulaFactory
 					.getFormulaFor(times));
-			dkm.put(spell, AssociationKey.TIME_UNIT, SettingsHandler.getGame()
-					.getTimeUnit(timeunit));
+			if (timeunit != null)
+			{
+				TimeUnit unit = SettingsHandler.getGame().getTimeUnit(timeunit);
+				if (unit == null)
+				{
+					Logging.errorPrint(getTokenName() + "found invalid Time Unit: "
+							+ timeunit);
+					return false;
+				}
+				dkm.put(spell, AssociationKey.TIME_UNIT, unit);
+			}
 			dkm.put(spell, AssociationKey.SPELLBOOK, spellBook);
 			if (commaLoc != -1)
 			{
@@ -351,7 +360,7 @@ public class SpellsLst extends AbstractToken implements
 				sb.append(am.get(AssociationKey.SPELLBOOK));
 				Formula times = AssociationKey.TIMES_PER_UNIT.cast(am
 						.get(AssociationKey.TIMES_PER_UNIT));
-				if (!Formula.ONE.equals(times))
+				if (!FormulaFactory.ONE.equals(times))
 				{
 					sb.append(Constants.PIPE).append("TIMES=").append(times);
 				}

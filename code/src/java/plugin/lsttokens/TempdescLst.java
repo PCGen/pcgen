@@ -21,15 +21,18 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.io.EntityEncoder;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * @author djones4
- *
+ * 
  */
-public class TempdescLst implements CDOMPrimaryToken<CDOMObject>
+public class TempdescLst extends AbstractToken implements
+		CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "TEMPDESC";
@@ -37,21 +40,24 @@ public class TempdescLst implements CDOMPrimaryToken<CDOMObject>
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION,
-			EntityEncoder.decode(value));
+				EntityEncoder.decode(value));
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		String descr =
-				context.getObjectContext().getString(obj,
-					StringKey.TEMP_DESCRIPTION);
+		String descr = context.getObjectContext().getString(obj,
+				StringKey.TEMP_DESCRIPTION);
 		if (descr == null)
 		{
 			return null;
 		}
-		return new String[]{EntityEncoder.encode(descr)};
+		return new String[] { EntityEncoder.encode(descr) };
 	}
 
 	public Class<CDOMObject> getTokenClass()

@@ -48,20 +48,23 @@ public class RegionLst extends AbstractToken implements
 		Formula count = FormulaFactory.getFormulaFor(item);
 		if (count.isStatic())
 		{
+			if (!tok.hasMoreTokens())
+			{
+				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+						+ " cannot have only a count: " + value);
+				return false;
+			}
 			item = tok.nextToken();
 			if (count.resolve(null, "").intValue() <= 0)
 			{
 				Logging.addParseMessage(Logging.LST_ERROR, "Count in "
-						+ getTokenName() + " must be > 0");
+						+ getTokenName() + " must be > 0: " + value);
 				return false;
 			}
-			if (!tok.hasMoreTokens())
-			{
-				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-						+ " must have a | separating "
-						+ "count from the list of possible values: " + value);
-				return false;
-			}
+		}
+		else
+		{
+			count = FormulaFactory.ONE;
 		}
 		List<Region> regions = new ArrayList<Region>();
 		while (true)
@@ -73,7 +76,7 @@ public class RegionLst extends AbstractToken implements
 			}
 			item = tok.nextToken();
 		}
-
+System.err.println(regions);
 		SimpleChoiceSet<Region> rcs = new SimpleChoiceSet<Region>(regions);
 		ChoiceSet<Region> cs = new ChoiceSet<Region>(getTokenName(), rcs);
 		TransitionChoice<Region> tc = new TransitionChoice<Region>(cs, count);
@@ -94,8 +97,8 @@ public class RegionLst extends AbstractToken implements
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		String count = tc.getCount().toString();
-		if (!"1".equals(count))
+		Formula count = tc.getCount();
+		if (!FormulaFactory.ONE.equals(count))
 		{
 			sb.append(count);
 			sb.append(Constants.PIPE);

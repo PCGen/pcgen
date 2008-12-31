@@ -132,7 +132,7 @@ public class AbilityToken extends AbstractToken implements
 		}
 		else if (tokenCount == 3)
 		{
-			count = Formula.ONE;
+			count = FormulaFactory.ONE;
 		}
 		else
 		{

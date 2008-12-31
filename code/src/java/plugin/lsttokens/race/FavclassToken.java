@@ -24,7 +24,6 @@ import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -32,6 +31,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ClassReferenceChoiceSet;
@@ -135,7 +135,7 @@ public class FavclassToken extends AbstractToken implements
 		ChoiceSet<? extends PCClass> cs = new ChoiceSet<PCClass>(
 				getTokenName(), rcs);
 		TransitionChoice<PCClass> tc = new TransitionChoice<PCClass>(cs,
-				Formula.ONE);
+				FormulaFactory.ONE);
 		context.getObjectContext().put(race, ObjectKey.FAVCLASS_CHOICE, tc);
 		tc.setTitle("Select favored class");
 		tc.setRequired(true);

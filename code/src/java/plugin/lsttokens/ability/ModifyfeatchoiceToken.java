@@ -21,13 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
@@ -90,7 +90,7 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
 		ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getTokenName(), gfd);
 		TransitionChoice<Ability> tc = new TransitionChoice<Ability>(cs,
-				Formula.ONE);
+				FormulaFactory.ONE);
 		tc.setTitle("Select a "
 				+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
 				+ " to modify");

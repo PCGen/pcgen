@@ -45,14 +45,9 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 		else
 		{
 			context.getObjectContext().put(obj, ObjectKey.SR,
-					getSpellResistance(value));
+					new SpellResistance(FormulaFactory.getFormulaFor(value)));
 		}
 		return true;
-	}
-
-	private SpellResistance getSpellResistance(String value)
-	{
-		return new SpellResistance(FormulaFactory.getFormulaFor(value));
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject obj)

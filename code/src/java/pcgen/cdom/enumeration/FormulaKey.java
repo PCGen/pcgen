@@ -23,6 +23,7 @@ import java.util.Collections;
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.SettingsHandler;
 
@@ -60,7 +61,7 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey CR = getConstant("CR");
 
-	public static final FormulaKey SELECT = getConstant("SELECT", Formula.ONE);
+	public static final FormulaKey SELECT = getConstant("SELECT", FormulaFactory.ONE);
 
 	public static final FormulaKey NUMCHOICES = getConstant("NUMCHOICES");
 
@@ -72,7 +73,7 @@ public class FormulaKey implements TypeSafeConstant
 
 	static
 	{
-		SIZE = new FormulaKey("SIZE", Formula.ZERO)
+		SIZE = new FormulaKey("SIZE", FormulaFactory.ZERO)
 		{
 			@Override
 			public Formula getDefault()
@@ -151,7 +152,7 @@ public class FormulaKey implements TypeSafeConstant
 		FormulaKey o = typeMap.get(s);
 		if (o == null)
 		{
-			o = new FormulaKey(s, Formula.ZERO);
+			o = new FormulaKey(s, FormulaFactory.ZERO);
 			typeMap.put(s, o);
 		}
 		return o;

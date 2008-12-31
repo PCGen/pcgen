@@ -58,7 +58,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 {
 	private List<Object>    bonusInfo       = new ArrayList<Object>();
 	private Map<String, String>     dependMap  = new HashMap<String, String>();
-	private Formula bonusFormula = Formula.ZERO;
+	private Formula bonusFormula = FormulaFactory.ZERO;
 	private Object  creatorObj;
 	private Object  targetObj;
 	/** The name of the bonus e.g. STAT or COMBAT */

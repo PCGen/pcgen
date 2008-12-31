@@ -28,6 +28,20 @@ import pcgen.core.PlayerCharacter;
 public final class FormulaFactory
 {
 
+	/**
+	 * A Formula for the integer constant ZERO. This is done in order to
+	 * minimize memory usage in the many cases where a default Formula of ZERO
+	 * is required.
+	 */
+	public final static Formula ZERO = new IntegerFormula(0);
+
+	/**
+	 * A Formula for the integer constant ONE. This is done in order to minimize
+	 * memory usage in the many cases where a default Formula of ONE is
+	 * required.
+	 */
+	public final static Formula ONE = new IntegerFormula(1);
+
 	private FormulaFactory()
 	{
 		// Can't instantiate Utility Class

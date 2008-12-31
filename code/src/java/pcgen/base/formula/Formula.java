@@ -27,89 +27,10 @@ import pcgen.core.PlayerCharacter;
  */
 public interface Formula
 {
-
-	/**
-	 * An Integer for the constant ONE. This is done in order to minimize
-	 * processing time in fetching this constant during formula resolution
-	 */
-	public static final Integer INT_ONE = Integer.valueOf(1);
-
-	/**
-	 * An Integer for the constant ZERO. This is done in order to minimize
-	 * processing time in fetching this constant during formula resolution
-	 */
-	public static final Integer INT_ZERO = Integer.valueOf(0);
-
-	/**
-	 * A Formula for the integer constant ZERO. This is done in order to
-	 * minimize memory usage in the many cases where a default Formula of ZERO
-	 * is required.
-	 */
-	public final Formula ZERO = new Formula()
-	{
-		public Integer resolve(PlayerCharacter pc, String source)
-		{
-			return INT_ZERO;
-		}
-
-		public Integer resolve(Equipment equipment, boolean primary,
-				PlayerCharacter apc, String string)
-		{
-			return INT_ZERO;
-		}
-
-		public boolean isStatic()
-		{
-			return true;
-		}
-
-		@Override
-		public String toString()
-		{
-			return "0";
-		}
-	};
-
-	/**
-	 * A Formula for the integer constant ONE. This is done in order to minimize
-	 * memory usage in the many cases where a default Formula of ONE is
-	 * required.
-	 */
-	public final Formula ONE = new Formula()
-	{
-		public Integer resolve(PlayerCharacter pc, String source)
-		{
-			return INT_ONE;
-		}
-
-		public Integer resolve(Equipment equipment, boolean primary,
-				PlayerCharacter apc, String string)
-		{
-			return INT_ONE;
-		}
-
-		public boolean isStatic()
-		{
-			return true;
-		}
-		
-		@Override
-		public String toString()
-		{
-			return "1";
-		}
-
-	};
-
-	/*
-	 * The idea is to hide JEP behind this interface, so that Formula are type
-	 * safe and other optimizations can be performed that may help speed up
-	 * PCGen... long way off, but at least the type safety will help out.
-	 */
-
 	public Number resolve(PlayerCharacter pc, String source);
 
 	public boolean isStatic();
 
-	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter apc, String string);
+	public Number resolve(Equipment equipment, boolean primary,
+			PlayerCharacter apc, String string);
 }

@@ -77,7 +77,7 @@ public class ClassSkillsToken extends AbstractToken implements
 		String items;
 		if (pipeLoc == -1)
 		{
-			count = Formula.ONE;
+			count = FormulaFactory.ONE;
 			items = value;
 		}
 		else
