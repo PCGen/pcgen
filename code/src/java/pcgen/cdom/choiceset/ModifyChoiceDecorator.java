@@ -61,4 +61,18 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 		return returnSet;
 	}
 
+	@Override
+	public boolean equals(Object obj)
+	{
+		return (obj instanceof ModifyChoiceDecorator)
+				&& ((ModifyChoiceDecorator) obj).set.equals(set);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return set.hashCode();
+	}
+
+	
 }

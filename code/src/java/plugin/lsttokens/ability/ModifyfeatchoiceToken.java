@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
@@ -109,7 +110,8 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		return new String[] { mc.getChoices().getLSTformat() };
+		return new String[] { StringUtil.replaceAll(mc.getChoices()
+				.getLSTformat(), ",", "|") };
 	}
 
 	public Class<Ability> getTokenClass()
