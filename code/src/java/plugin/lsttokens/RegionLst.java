@@ -76,7 +76,6 @@ public class RegionLst extends AbstractToken implements
 			}
 			item = tok.nextToken();
 		}
-System.err.println(regions);
 		SimpleChoiceSet<Region> rcs = new SimpleChoiceSet<Region>(regions);
 		ChoiceSet<Region> cs = new ChoiceSet<Region>(getTokenName(), rcs);
 		TransitionChoice<Region> tc = new TransitionChoice<Region>(cs, count);
