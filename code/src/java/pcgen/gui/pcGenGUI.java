@@ -37,7 +37,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.Observer;
@@ -81,6 +80,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.InputFactory;
@@ -567,12 +567,12 @@ public class pcGenGUI
 		aFrame.setVisible(true);
 	}
 
-	public static void showLicense(String title, List<URI> fileList)
+	public static void showLicense(String title, List<CampaignSourceEntry> fileList)
 	{
-		for (URI licenseFile : fileList)
+		for (CampaignSourceEntry licenseFile : fileList)
 		{
 			try {
-				StringBuilder dataBuffer = LstFileLoader.readFromURI(licenseFile);
+				StringBuilder dataBuffer = LstFileLoader.readFromURI(licenseFile.getURI());
 				showLicense(title, dataBuffer.toString());
 			} catch (PersistenceLayerException e) {
 				Logging.errorPrint("Could not read license at " + licenseFile, e);

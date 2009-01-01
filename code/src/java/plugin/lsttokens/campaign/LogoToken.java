@@ -77,6 +77,7 @@ public class LogoToken extends AbstractToken implements
 		if (cse == null)
 		{
 			//Error
+			Thread.dumpStack();
 			return false;
 		}
 		if (!cse.getIncludeItems().isEmpty())

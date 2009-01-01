@@ -24,7 +24,6 @@
 package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
-import java.net.URI;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -129,7 +128,7 @@ public final class ListKey<T> {
 	/** FILE_LST_EXCLUDE - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_LST_EXCLUDE = new ListKey<CampaignSourceEntry>();
 	/** FILE_PCC - a ListKey */
-	public static final ListKey<URI> FILE_PCC = new ListKey<URI>();
+	public static final ListKey<CampaignSourceEntry> FILE_PCC = new ListKey<CampaignSourceEntry>();
 	/** FILE_RACE - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_RACE = new ListKey<CampaignSourceEntry>();
 	/** FILE_SKILL - a ListKey */
@@ -145,7 +144,7 @@ public final class ListKey<T> {
 	/** LICENSE - a ListKey */
 	public static final ListKey<String> LICENSE = new ListKey<String>();
 	/** LICENSE_FILE - a ListKey */
-	public static final ListKey<URI> LICENSE_FILE = new ListKey<URI>();
+	public static final ListKey<CampaignSourceEntry> LICENSE_FILE = new ListKey<CampaignSourceEntry>();
 	/** FILE_LOGO - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_LOGO = new ListKey<CampaignSourceEntry>();
 	/** PANTHEON - a ListKey */

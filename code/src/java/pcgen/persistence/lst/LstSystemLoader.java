@@ -213,7 +213,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> languageFileList =
 			new ArrayList<CampaignSourceEntry>();
-	private List<URI> licenseFiles = new ArrayList<URI>();
+	private List<CampaignSourceEntry> licenseFiles = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> lstExcludeFiles =
 			new ArrayList<CampaignSourceEntry>();
 
@@ -1313,7 +1313,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 							licensesToDisplayString.append(licenseList);
 						}
 			
-						List<URI> licenseURIs = campaign.getSafeListFor(ListKey.LICENSE_FILE);
+						List<CampaignSourceEntry> licenseURIs = 
+							campaign.getSafeListFor(ListKey.LICENSE_FILE);
 						if (licenseURIs != null)
 						{
 							licenseFiles.addAll(licenseURIs);
@@ -1361,12 +1362,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 			
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (URI fName : campaign.getSafeListFor(ListKey.FILE_PCC))
+			for (CampaignSourceEntry fName : campaign.getSafeListFor(ListKey.FILE_PCC))
 			{
-				if (PCGFile.isPCGenCampaignFile(fName))
+				URI uri = fName.getURI();
+				if (PCGFile.isPCGenCampaignFile(uri))
 				{
-					Campaign subCampaign = Globals.getCampaignByURI(fName,
-							false);
+					Campaign subCampaign = Globals.getCampaignByURI(uri, false);
 					if (loadedSet.add(subCampaign))
 					{
 						subCampaign.applyTo(context.ref);

@@ -17,7 +17,6 @@
  */
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
@@ -25,6 +24,7 @@ import java.util.TreeSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -50,30 +50,31 @@ public class PccToken extends AbstractToken implements
 		{
 			return false;
 		}
-		URI uri = context.getPathURI(value);
-		if (uri == null)
+		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign,
+				value);
+		if (cse == null)
 		{
 			// Error
 			return false;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_PCC, uri);
+		context.obj.addToList(campaign, ListKey.FILE_PCC, cse);
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<URI> cseChanges = context.obj.getListChanges(campaign,
-				ListKey.FILE_PCC);
-		Collection<URI> added = cseChanges.getAdded();
+		Changes<CampaignSourceEntry> cseChanges = context.obj.getListChanges(
+				campaign, ListKey.FILE_PCC);
+		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{
 			// empty indicates no token
 			return null;
 		}
 		Set<String> set = new TreeSet<String>();
-		for (URI uri : added)
+		for (CampaignSourceEntry uri : added)
 		{
-			set.add(uri.toString());
+			set.add(uri.getLSTformat());
 		}
 		return set.toArray(new String[set.size()]);
 	}

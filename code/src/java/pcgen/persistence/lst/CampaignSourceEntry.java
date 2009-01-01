@@ -266,7 +266,7 @@ public class CampaignSourceEntry
 	 * @return String containing the converted absolute path or URL
 	 *         (as appropriate)
 	 */
-	public static URI getPathURI(URI pccPath, String basePath)
+	private static URI getPathURI(URI pccPath, String basePath)
 	{
 		if (basePath.length() <= 0)
 		{

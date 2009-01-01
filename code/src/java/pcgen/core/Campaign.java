@@ -24,7 +24,6 @@
  */
 package pcgen.core;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +33,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
@@ -129,13 +129,13 @@ public class Campaign extends PObject
 	 */
 	public List<Campaign> getSubCampaigns()
 	{
-		final List<URI> pccFiles = getSafeListFor(ListKey.FILE_PCC);
+		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
 		final List<Campaign> ret = new ArrayList<Campaign>(pccFiles.size());
 		
-		for ( final URI fileName : pccFiles )
+		for ( final CampaignSourceEntry fileName : pccFiles )
 		{
-			final Campaign campaign = Globals.getCampaignByURI(fileName, true);
+			final Campaign campaign = Globals.getCampaignByURI(fileName.getURI(), true);
 			ret.add(campaign);
 		}
 		return ret;

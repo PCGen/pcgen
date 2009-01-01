@@ -28,10 +28,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.reference.CategorizedCDOMReference;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -286,7 +288,10 @@ public final class KitAbilities extends BaseKit
 
 	public Collection<CDOMReference<Ability>> getAbilityKeys()
 	{
-		return abilityMap.keySet();
+		Set<CDOMReference<Ability>> wc = new TreeSet<CDOMReference<Ability>>(
+				ReferenceUtilities.REFERENCE_SORTER);
+		wc.addAll(abilityMap.keySet());
+		return wc;
 	}
 
 	private class AbilitySelection

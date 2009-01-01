@@ -18,10 +18,9 @@
 package plugin.lsttokens;
 
 import java.util.Collection;
-import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -135,7 +134,8 @@ public class MovecloneLst extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		WeightedCollection<String> set = new WeightedCollection<String>(
+				String.CASE_INSENSITIVE_ORDER);
 		for (Movement m : added)
 		{
 			StringBuilder sb = new StringBuilder();

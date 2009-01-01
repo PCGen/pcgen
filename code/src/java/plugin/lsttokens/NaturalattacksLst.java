@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -296,14 +297,14 @@ public class NaturalattacksLst extends AbstractToken implements
 				return null;
 			}
 			sb.append(name).append(Constants.COMMA);
-			String type = eq.getType();
-			if (type == null || type.length() == 0)
+			List<Type> type = eq.getListFor(ListKey.TYPE);
+			if (type == null || type.isEmpty())
 			{
 				context.addWriteMessage(getTokenName()
 						+ " expected Equipment to have a type");
 				return null;
 			}
-			sb.append(type);
+			sb.append(StringUtil.join(type, Constants.DOT));
 			sb.append(Constants.COMMA);
 			Boolean attProgress = eq.get(ObjectKey.ATTACKS_PROGRESS);
 			if (attProgress == null)

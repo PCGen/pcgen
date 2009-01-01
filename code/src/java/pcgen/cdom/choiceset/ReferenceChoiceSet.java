@@ -25,8 +25,8 @@ package pcgen.cdom.choiceset;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
@@ -53,7 +53,7 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 	 * The underlying Set of CDOMReferences that contain the objects in this
 	 * ReferenceChoiceSet
 	 */
-	private final Set<CDOMReference<T>> set;
+	private final Collection<CDOMReference<T>> set;
 
 	/**
 	 * Constructs a new ReferenceChoiceSet which contains the Set of objects
@@ -85,7 +85,7 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new HashSet<CDOMReference<T>>(col);
+		set = new WeightedCollection<CDOMReference<T>>(col);
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 	 */
 	public String getLSTformat()
 	{
-		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
+		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(set);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA);

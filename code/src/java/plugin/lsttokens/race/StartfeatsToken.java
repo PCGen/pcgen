@@ -18,9 +18,8 @@
 package plugin.lsttokens.race;
 
 import java.util.Collection;
-import java.util.Set;
-import java.util.TreeSet;
 
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
@@ -96,7 +95,8 @@ public class StartfeatsToken extends AbstractToken implements
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<String>();
+		Collection<String> bonusSet = new WeightedCollection<String>(
+				String.CASE_INSENSITIVE_ORDER);
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))

@@ -18,8 +18,9 @@
 package plugin.lsttokens.campaign;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.TreeSet;
+import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
@@ -65,7 +66,7 @@ public class CopyrightToken extends AbstractToken implements
 		Changes<String> changes =
 				context.getObjectContext().getListChanges(campaign,
 					ListKey.SECTION_15);
-		TreeSet<String> set = new TreeSet<String>();
+		List<String> set = new ArrayList<String>();
 		Collection<String> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
@@ -73,9 +74,7 @@ public class CopyrightToken extends AbstractToken implements
 		}
 		if (set.isEmpty())
 		{
-			context.addWriteMessage(getTokenName()
-				+ " was expecting non-empty changes to include "
-				+ "added items or global clear");
+			//Okay, no copyright info
 			return null;
 		}
 		return set.toArray(new String[set.size()]);

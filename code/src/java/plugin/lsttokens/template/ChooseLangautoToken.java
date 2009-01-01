@@ -18,7 +18,6 @@
 package plugin.lsttokens.template;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -30,22 +29,23 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 public class ChooseLangautoToken extends AbstractToken implements
-		CDOMSecondaryToken<PCTemplate>, PersistentChoiceActor<Language>
+		CDOMSecondaryToken<PCTemplate>, PersistentChoiceActor<Language>,
+		DeferredToken<PCTemplate>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -115,7 +115,7 @@ public class ChooseLangautoToken extends AbstractToken implements
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
 		PersistentTransitionChoice<Language> tc =
 				new PersistentTransitionChoice<Language>(cs, FormulaFactory.ONE);
-		context.getObjectContext().addToList(template, ListKey.ADD, tc);
+		context.getObjectContext().put(template, ObjectKey.CHOOSE_LANGAUTO, tc);
 		tc.setTitle("Pick a Language");
 		tc.setChoiceActor(this);
 		return true;
@@ -123,38 +123,26 @@ public class ChooseLangautoToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
-		Changes<PersistentTransitionChoice<?>> grantChanges =
-				context.getObjectContext().getListChanges(template, ListKey.ADD);
-		Collection<PersistentTransitionChoice<?>> addedItems =
-				grantChanges.getAdded();
-		if (addedItems == null || addedItems.isEmpty())
+		PersistentTransitionChoice<Language> container = context
+				.getObjectContext().getObject(template,
+						ObjectKey.CHOOSE_LANGAUTO);
+		if (container == null)
 		{
-			// Zero indicates no Token
 			return null;
 		}
-		List<String> addStrings = new ArrayList<String>();
-		for (TransitionChoice<?> container : addedItems)
+		ChoiceSet<?> cs = container.getChoices();
+		Formula f = container.getCount();
+		if (f == null)
 		{
-			ChoiceSet<?> cs = container.getChoices();
-			if (cs.getName().equals(getTokenName())
-				&& LANGUAGE_CLASS.equals(cs.getChoiceClass()))
-			{
-				Formula f = container.getCount();
-				if (f == null)
-				{
-					context.addWriteMessage("Unable to find " + getFullName()
-						+ " Count");
-					return null;
-				}
-				StringBuilder sb = new StringBuilder();
-				sb.append(cs.getLSTformat().replaceAll(Constants.COMMA,
-					Constants.PIPE));
-				addStrings.add(sb.toString());
-
-				// assoc.getAssociation(AssociationKey.CHOICE_MAXCOUNT);
-			}
+			context.addWriteMessage("Unable to find " + getFullName()
+					+ " Count");
+			return null;
 		}
-		return addStrings.toArray(new String[addStrings.size()]);
+		StringBuilder sb = new StringBuilder();
+		sb
+				.append(cs.getLSTformat().replaceAll(Constants.COMMA,
+						Constants.PIPE));
+		return new String[] { sb.toString() };
 	}
 
 	public Class<PCTemplate> getTokenClass()
@@ -188,5 +176,26 @@ public class ChooseLangautoToken extends AbstractToken implements
 		Language choice)
 	{
 		// No action required
+	}
+
+	public Class<PCTemplate> getDeferredTokenClass()
+	{
+		return PCTemplate.class;
+	}
+
+	/*
+	 * This is deferred into ListKey.ADD to ensure that ADD:.CLEAR doesn't
+	 * impact CHOOSE:LANGAUTO. It is hoped that CHOOSE:LANGAUTO can be
+	 * refactored into an ADD token in order to avoid this contortion
+	 */
+	public boolean process(LoadContext context, PCTemplate template)
+	{
+		PersistentTransitionChoice<Language> langauto = template
+				.get(ObjectKey.CHOOSE_LANGAUTO);
+		if (langauto != null)
+		{
+			template.addToListFor(ListKey.ADD, langauto);
+		}
+		return true;
 	}
 }

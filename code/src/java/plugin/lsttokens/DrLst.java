@@ -51,6 +51,10 @@ public class DrLst extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
+		{
+			return false;
+		}
 		if (".CLEAR".equals(value))
 		{
 			context.getObjectContext()
@@ -59,40 +63,21 @@ public class DrLst extends AbstractToken implements
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, "|");
-		DamageReduction dr;
-		try
+		String drString = tok.nextToken();
+		if (hasIllegalSeparator('/', drString))
 		{
-			String[] values = tok.nextToken().split("/");
-			if (values.length != 2)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
-						+ " failed to build DamageReduction with value "
-						+ value);
-				Logging
-						.errorPrint("  ...expected a String with one / as a separator");
-				return false;
-			}
-			if (values[0].length() == 0)
-			{
-				Logging.log(Logging.LST_ERROR, "Amount of Reduction in " + getTokenName()
-						+ " cannot be empty");
-				return false;
-			}
-			if (values[1].length() == 0)
-			{
-				Logging.log(Logging.LST_ERROR, "Damage Type in " + getTokenName()
-						+ " cannot be empty");
-				return false;
-			}
-			dr = new DamageReduction(values[0], values[1]);
-		}
-		catch (IllegalArgumentException iae)
-		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " failed to build DamageReduction with value " + value
-					+ " ... " + iae.getLocalizedMessage());
 			return false;
 		}
+		String[] values = drString.split("/");
+		if (values.length != 2)
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " failed to build DamageReduction with value " + value);
+			Logging
+					.errorPrint("  ...expected a String with one / as a separator");
+			return false;
+		}
+		DamageReduction dr = new DamageReduction(values[0], values[1]);
 
 		if (tok.hasMoreTokens())
 		{
@@ -128,7 +113,15 @@ public class DrLst extends AbstractToken implements
 		{
 			for (DamageReduction lw : added)
 			{
-				set.add(lw.getLSTformat());
+				StringBuilder sb = new StringBuilder();
+				sb.append(lw.getLSTformat());
+				if (lw.hasPrerequisites())
+				{
+					sb.append(Constants.PIPE);
+					sb.append(context.getPrerequisiteString(lw
+							.getPrerequisiteList()));
+				}
+				set.add(sb.toString());
 			}
 		}
 		list.addAll(set);

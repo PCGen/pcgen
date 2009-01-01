@@ -162,7 +162,7 @@ public class SpelllevelLst extends AbstractToken implements
 			return false;
 		}
 
-		if (hasIllegalSeparator(',', casterString))
+		if (isEmpty(casterString) || hasIllegalSeparator(',', casterString))
 		{
 			return false;
 		}
@@ -174,14 +174,7 @@ public class SpelllevelLst extends AbstractToken implements
 		{
 			String classString = clTok.nextToken();
 			CDOMReference<CL> ref;
-			if (classString.length() == 0)
-			{
-				Logging
-						.errorPrint("Cannot resolve empty SpellList reference in "
-								+ getTokenName());
-				return false;
-			}
-			else if (classString.startsWith("SPELLCASTER."))
+			if (classString.startsWith("SPELLCASTER."))
 			{
 				/*
 				 * This is actually a TYPE
@@ -261,7 +254,12 @@ public class SpelllevelLst extends AbstractToken implements
 					.getTertiaryKeySet(prereqs, level))
 			{
 				sb.append(Constants.PIPE);
-				sb.append(list.getLSTformat());
+				String lsts = list.getLSTformat();
+				if (lsts.startsWith("TYPE="))
+				{
+					lsts = "SPELLCASTER." + lsts.substring(5);
+				}
+				sb.append(lsts);
 				sb.append(Constants.EQUALS);
 				sb.append(level);
 				sb.append(Constants.PIPE);
@@ -273,12 +271,8 @@ public class SpelllevelLst extends AbstractToken implements
 					{
 						sb.append(',');
 					}
-					String lsts = lw.getLSTformat();
-					if (lsts.startsWith("TYPE="))
-					{
-						lsts = "SPELLCASTER." + lsts.substring(5);
-					}
-					sb.append(lsts);
+					first = false;
+					sb.append(lw.getLSTformat());
 				}
 			}
 		}

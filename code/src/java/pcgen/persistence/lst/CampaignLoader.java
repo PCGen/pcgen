@@ -211,8 +211,9 @@ public class CampaignLoader extends LstLineFileLoader
 		baseCampaign.setInitted(true);
 		
 		// Add all sub-files to the main campaign, regardless of exclusions
-		for (URI fName : baseCampaign.getSafeListFor(ListKey.FILE_PCC))
+		for (CampaignSourceEntry cse : baseCampaign.getSafeListFor(ListKey.FILE_PCC))
 		{
+			URI fName = cse.getURI();
 			if (PCGFile.isPCGenCampaignFile(fName))
 			{
 				Campaign globalSubCampaign =

@@ -324,11 +324,6 @@ public abstract class LoadContext
 		return CampaignSourceEntry.getNewCSE(source, sourceURI, value);
 	}
 
-	public URI getPathURI(String value)
-	{
-		return CampaignSourceEntry.getPathURI(sourceURI, value);
-	}
-
 	CDOMObject stateful;
 
 	public void clearStatefulInformation()

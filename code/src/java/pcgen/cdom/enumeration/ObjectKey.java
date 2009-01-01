@@ -35,6 +35,7 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
@@ -51,6 +52,7 @@ import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
+import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -270,6 +272,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<Boolean> IS_D20 = new ObjectKey<Boolean>(Boolean.FALSE);
 
 	public static final ObjectKey<Boolean> SHOW_IN_MENU = new ObjectKey<Boolean>(Boolean.FALSE);
+
+	public static final ObjectKey<PersistentTransitionChoice<Language>> CHOOSE_LANGAUTO = new ObjectKey<PersistentTransitionChoice<Language>>(null);
 
 	/*
 	 * TODO Okay, this is a hack.
