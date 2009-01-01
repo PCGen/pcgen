@@ -25,10 +25,16 @@
 
 package plugin.lsttokens.kit.basekit;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.helper.OptionBound;
 import pcgen.core.kit.BaseKit;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -48,31 +54,6 @@ public class OptionToken extends AbstractToken implements
 		return "OPTION";
 	}
 
-	public boolean parse(BaseKit baseKit, String value)
-	{
-		StringTokenizer tok = new StringTokenizer(value, "|");
-		while (tok.hasMoreTokens())
-		{
-			String val = tok.nextToken();
-			int ind = -1;
-			String lowVal;
-			String highVal;
-			if ((ind = val.indexOf(",")) != -1)
-			{
-				lowVal = val.substring(0, ind);
-				highVal = val.substring(ind + 1);
-			}
-			else
-			{
-				lowVal = highVal = val;
-			}
-			Formula min = FormulaFactory.getFormulaFor(lowVal);
-			Formula max = FormulaFactory.getFormulaFor(highVal);
-			baseKit.setOptionBounds(min, max);
-		}
-		return true;
-	}
-
 	public Class<BaseKit> getTokenClass()
 	{
 		return BaseKit.class;
@@ -85,44 +66,67 @@ public class OptionToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, BaseKit kit, String value)
 	{
-		int commaLoc = value.indexOf(',');
-		String minString;
-		String maxString;
-		if (commaLoc == -1)
-		{
-			minString = value;
-			maxString = value;
-		}
-		else if (commaLoc != value.lastIndexOf(','))
+		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
-		else
+		StringTokenizer tok = new StringTokenizer(value, "|");
+		while (tok.hasMoreTokens())
 		{
-			minString = value.substring(0, commaLoc);
-			maxString = value.substring(commaLoc + 1);
+			String subTok = tok.nextToken();
+			if (hasIllegalSeparator(',', subTok))
+			{
+				return false;
+			}
+			int commaLoc = subTok.indexOf(',');
+			String minString;
+			String maxString;
+			if (commaLoc == -1)
+			{
+				minString = subTok;
+				maxString = subTok;
+			}
+			else if (commaLoc != subTok.lastIndexOf(','))
+			{
+				return false;
+			}
+			else
+			{
+				minString = subTok.substring(0, commaLoc);
+				maxString = subTok.substring(commaLoc + 1);
+			}
+			Formula min = FormulaFactory.getFormulaFor(minString);
+			Formula max = FormulaFactory.getFormulaFor(maxString);
+			kit.setOptionBounds(min, max);
 		}
-		Formula min = FormulaFactory.getFormulaFor(minString);
-		Formula max = FormulaFactory.getFormulaFor(maxString);
-		kit.setOptionBounds(min, max);
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, BaseKit kit)
 	{
-		Formula min = kit.getOptionMin();
-		Formula max = kit.getOptionMax();
-		if (min == null && max == null)
+		Collection<OptionBound> bounds = kit.getBounds();
+		if (bounds == null)
 		{
 			return null;
 		}
-		// TODO Error if only one is null
-		StringBuilder sb = new StringBuilder();
-		sb.append(min);
-		if (!min.equals(max))
+		List<String> list = new ArrayList<String>();
+		for (OptionBound bound : bounds)
 		{
-			sb.append(',').append(max);
+			Formula min = bound.getOptionMin();
+			Formula max = bound.getOptionMax();
+			if (min == null || max == null)
+			{
+				// Error if only one is null
+				return null;
+			}
+			StringBuilder sb = new StringBuilder();
+			sb.append(min);
+			if (!min.equals(max))
+			{
+				sb.append(',').append(max);
+			}
+			list.add(sb.toString());
 		}
-		return new String[]{sb.toString()};
+		return new String[] { StringUtil.join(list, Constants.PIPE) };
 	}
 }

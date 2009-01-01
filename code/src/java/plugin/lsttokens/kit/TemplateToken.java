@@ -135,6 +135,7 @@ public class TemplateToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, KitTemplate kitTemplate)
 	{
-		return new String[]{kitTemplate.toString()};
+		return kitTemplate.isEmpty() ? null : new String[] { kitTemplate
+				.toString() };
 	}
 }

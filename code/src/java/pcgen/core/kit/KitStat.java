@@ -27,8 +27,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
@@ -52,18 +55,12 @@ public class KitStat extends BaseKit
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder(100);
-		boolean needsPipe = false;
+		Set<String> set = new TreeSet<String>();
 		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
 		{
-			if (needsPipe)
-			{
-				sb.append(Constants.PIPE);
-			}
-			needsPipe = true;
-			sb.append(me.getKey().getAbb()).append('=').append(me.getValue());
+			set.add(me.getKey().getAbb()+ '='+ me.getValue());
 		}
-		return sb.toString();
+		return StringUtil.join(set, Constants.PIPE);
 	}
 
 	@Override
@@ -163,5 +160,10 @@ public class KitStat extends BaseKit
 		{
 			throw new IllegalArgumentException("Cannot redefine stat: " + stat);
 		}
+	}
+	
+	public boolean isEmpty()
+	{
+		return statMap.isEmpty();
 	}
 }

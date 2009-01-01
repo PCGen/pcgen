@@ -84,25 +84,31 @@ public class StatToken extends AbstractToken implements
 			if (equalLoc == -1)
 			{
 				Logging.errorPrint("Illegal " + getTokenName()
-					+ " did not have Stat=X format: " + value);
+						+ " did not have Stat=X format: " + value);
 				return false;
 			}
 			if (equalLoc != token.lastIndexOf('='))
 			{
 				Logging.errorPrint("Illegal " + getTokenName()
-					+ " had two equal signs, is not Stat=X format: " + value);
+						+ " had two equal signs, is not Stat=X format: "
+						+ value);
 				return false;
 			}
 			String statName = token.substring(0, equalLoc);
-			PCStat stat =
-					context.ref.getAbbreviatedObject(PCStat.class, statName);
+			PCStat stat = context.ref.getAbbreviatedObject(PCStat.class,
+					statName);
 			if (stat == null)
 			{
 				Logging.errorPrint("Unable to find STAT: " + statName);
 				return false;
 			}
-			Formula statValue =
-					FormulaFactory.getFormulaFor(token.substring(equalLoc + 1));
+			String formula = token.substring(equalLoc + 1);
+			if (formula.length() == 0)
+			{
+				Logging.errorPrint("Unable to find STAT value: " + value);
+				return false;
+			}
+			Formula statValue = FormulaFactory.getFormulaFor(formula);
 			kitStat.addStat(stat, statValue);
 		}
 		return true;
@@ -110,7 +116,7 @@ public class StatToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, KitStat kitStat)
 	{
-		return new String[]{kitStat.toString()};
+		return kitStat.isEmpty() ? null : new String[] { kitStat.toString() };
 	}
 
 	public boolean process(LoadContext context, Kit obj)

@@ -182,4 +182,9 @@ public class KitTemplate extends BaseKit
 	{
 		return templateList.getKeySet();
 	}
+
+	public boolean isEmpty()
+	{
+		return templateList.isEmpty();
+	}
 }

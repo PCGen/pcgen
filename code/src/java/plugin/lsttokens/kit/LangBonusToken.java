@@ -91,7 +91,7 @@ public class LangBonusToken extends AbstractToken implements
 	public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)
 	{
 		List<CDOMSingleRef<Language>> languages = kitLangBonus.getLanguages();
-		if (languages == null)
+		if (languages == null ||languages.isEmpty())
 		{
 			return null;
 		}

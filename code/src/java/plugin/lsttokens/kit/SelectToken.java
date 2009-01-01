@@ -61,6 +61,10 @@ public class SelectToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitSelect kitSelect, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		kitSelect.setFormula(FormulaFactory.getFormulaFor(value));
 		return true;
 	}
@@ -72,7 +76,7 @@ public class SelectToken extends AbstractToken implements
 		{
 			return null;
 		}
-		return new String[]{f.toString()};
+		return new String[] { f.toString() };
 	}
 
 }

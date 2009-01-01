@@ -23,52 +23,56 @@
  */
 package pcgen.core.kit;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.helper.OptionBound;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
  * Common code for the kits.
+ * 
  * @author Jonas Karlson <jujutsunerd@sf.net>
  * @version $Revision$
  */
 public abstract class BaseKit extends ConcretePrereqObject
 {
-		
-		Formula minOption;
-		Formula maxOption;
-		
-		public void setOptionBounds(Formula min, Formula max)
-	{
-					minOption = min;
-					maxOption = max;
-	}
 
-			public Formula getOptionMin()
-	 	{
-			return minOption;
-	 	}
-			public Formula getOptionMax()
-		 	{
-				return maxOption;
-		 	}
+	List<OptionBound> bounds;
+
+	public void setOptionBounds(Formula min, Formula max)
+	{
+		if (bounds == null)
+		{
+			bounds = new ArrayList<OptionBound>();
+		}
+		bounds.add(new OptionBound(min, max));
+	}
 
 	/**
 	 * Returns true if the value is in the option range for this item
-	 * @param pc Charater the kit is being applied to.  Used to eval formulas
-	 * @param val the Select value
+	 * 
+	 * @param pc
+	 *            Charater the kit is being applied to. Used to eval formulas
+	 * @param val
+	 *            the Select value
 	 * @return true if the value is an option
 	 */
 	public boolean isOption(PlayerCharacter pc, int val)
 	{
-		if (minOption == null || minOption.resolve(pc, "").intValue() <= val)
+		if (bounds != null)
 		{
-			if (maxOption == null || maxOption.resolve(pc, "").intValue() >= val)
+			for (OptionBound bound : bounds)
 			{
-				return true;
+				if (bound.isOption(pc, val))
+				{
+					return true;
+				}
 			}
 		}
 		return false;
@@ -76,6 +80,7 @@ public abstract class BaseKit extends ConcretePrereqObject
 
 	/**
 	 * Evaluate the the EVAL expression
+	 * 
 	 * @param aPC
 	 * @param aValue
 	 * @return the answer
@@ -120,7 +125,7 @@ public abstract class BaseKit extends ConcretePrereqObject
 			}
 			if (nestingLevel != 0)
 			{
-				// We don't have a valid expression.  Maybe someone else will
+				// We don't have a valid expression. Maybe someone else will
 				// handle it.
 				return aValue;
 			}
@@ -139,22 +144,35 @@ public abstract class BaseKit extends ConcretePrereqObject
 
 	/**
 	 * Test applying a kit
-	 * @param aKit The owning kit for this item
-	 * @param aPC The character the kit is being applied to
-	 * @param warnings A list of warnings generated while attempting to apply the kit
+	 * 
+	 * @param aKit
+	 *            The owning kit for this item
+	 * @param aPC
+	 *            The character the kit is being applied to
+	 * @param warnings
+	 *            A list of warnings generated while attempting to apply the kit
 	 * @return true if OK
 	 */
-	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings);
+	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC,
+			List<String> warnings);
 
 	/**
 	 * Apply Kit
-	 * @param aPC The character to apply the kit to.
+	 * 
+	 * @param aPC
+	 *            The character to apply the kit to.
 	 */
 	public abstract void apply(PlayerCharacter aPC);
 
 	/**
 	 * Get object name
+	 * 
 	 * @return object name
 	 */
 	public abstract String getObjectName();
+
+	public Collection<OptionBound> getBounds()
+	{
+		return bounds == null ? null : Collections.unmodifiableList(bounds);
+	}
 }
