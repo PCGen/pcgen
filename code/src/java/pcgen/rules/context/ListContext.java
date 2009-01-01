@@ -629,9 +629,23 @@ public class ListContext
 			masterAllClear.clear();
 			masterClearSet.clear();
 			positiveMasterMap.clear();
+			negativeMasterMap.clear();
 			positiveMap.clear();
 			negativeMap.clear();
 			globalClearSet.clear();
+		}
+
+		public boolean equalsTracking(ListCommitStrategy obj)
+		{
+			if (obj instanceof TrackingListCommitStrategy)
+			{
+				TrackingListCommitStrategy other = (TrackingListCommitStrategy) obj;
+				return other.masterAllClear.equals(this.masterAllClear)
+						&& other.masterClearSet.equals(this.masterClearSet)
+						&& other.positiveMasterMap.equals(this.positiveMasterMap)
+						&& other.negativeMasterMap.equals(this.negativeMasterMap);
+			}
+			return false;
 		}
 	}
 
@@ -676,5 +690,10 @@ public class ListContext
 			}
 			return false;
 		}
+	}
+	
+	public boolean masterListsEqual(ListContext lc)
+	{
+		return commit.equalsTracking(lc.commit);
 	}
 }

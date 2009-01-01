@@ -69,4 +69,6 @@ public interface ListCommitStrategy
 	public void setExtractURI(URI sourceURI);
 
 	public void clearAllMasterLists(String tokenName, CDOMObject owner);
+
+	public boolean equalsTracking(ListCommitStrategy commit);
 }

@@ -239,4 +239,9 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return list;
 	}
 
+	public boolean equalsTracking(ListCommitStrategy commit)
+	{
+		return false;
+	}
+
 }
