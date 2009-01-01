@@ -25,6 +25,7 @@ import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.TripleKeyMapToList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -133,7 +134,8 @@ public class TokenSupport
 	public <T> String[] unparse(LoadContext context, T cdo, String tokenName)
 	{
 		char separator = tokenName.charAt(0) == '*' ? ':' : '|';
-		Set<String> set = new TreeSet<String>();
+		Collection<String> set = new WeightedCollection<String>(
+				String.CASE_INSENSITIVE_ORDER);
 		Class<T> cl = (Class<T>) cdo.getClass();
 		TokenFamilySubIterator<T> it =
 				new TokenFamilySubIterator<T>(cl, tokenName);
