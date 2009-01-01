@@ -58,6 +58,8 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	 */
 	private final String setName;
 
+	private final boolean useAny;
+
 	/**
 	 * Creates a new ChoiceSet with the given name and given underlying
 	 * PrimitiveChoiceSet.
@@ -72,6 +74,25 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	 */
 	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice)
 	{
+		this(name, choice, false);
+	}
+
+	/**
+	 * Creates a new ChoiceSet with the given name and given underlying
+	 * PrimitiveChoiceSet.
+	 * 
+	 * @param name
+	 *            The name of this ChoiceSet
+	 * @param choice
+	 *            The PrimitiveChoiceSet indicating the Collection of objects
+	 *            for this ChoiceSet
+	 * @param any
+	 *            Use "ANY" for the "ALL" reference if true
+	 * @throws IllegalArgumentException
+	 *             if the given name or PrimitiveChoiceSet is null
+	 */
+	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice, boolean any)
+	{
 		if (choice == null)
 		{
 			throw new IllegalArgumentException(
@@ -83,6 +104,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 		}
 		pcs = choice;
 		setName = name;
+		useAny = any;
 	}
 
 	/**
@@ -91,7 +113,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	 */
 	public String getLSTformat()
 	{
-		return pcs.getLSTformat();
+		return pcs.getLSTformat(useAny);
 	}
 
 	/**

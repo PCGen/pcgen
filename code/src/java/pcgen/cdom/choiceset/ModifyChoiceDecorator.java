@@ -41,9 +41,9 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 		return set.getChoiceClass();
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return set.getLSTformat();
+		return set.getLSTformat(useAny);
 	}
 
 	public Set<Ability> getSet(PlayerCharacter pc)

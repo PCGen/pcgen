@@ -37,7 +37,7 @@ public class AbilityFromClassChoiceSet implements
 		cl = pcc;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return "CLASS." + cl.getLSTformat();
 	}

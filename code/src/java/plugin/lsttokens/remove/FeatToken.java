@@ -211,7 +211,7 @@ public class FeatToken extends AbstractToken implements
 			ascs = new CompoundOrChoiceSet<AbilitySelection>(pcs);
 		}
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
-				getTokenName(), ascs);
+				getTokenName(), ascs, true);
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.REMOVE, tc);

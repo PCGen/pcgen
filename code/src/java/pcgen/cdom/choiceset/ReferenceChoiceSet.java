@@ -92,12 +92,13 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 	 * Returns a representation of this ReferenceChoiceSet, suitable for storing
 	 * in an LST file.
 	 */
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(set);
-		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA);
+		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
+				useAny);
 	}
 
 	/**

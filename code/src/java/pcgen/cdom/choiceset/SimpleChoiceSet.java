@@ -84,7 +84,7 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements PrimitiveChoice
 	 * Returns a representation of this SimpleChoiceSet, suitable for storing in
 	 * an LST file.
 	 */
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		return StringUtil.join(new TreeSet<T>(set), Constants.COMMA);
 	}

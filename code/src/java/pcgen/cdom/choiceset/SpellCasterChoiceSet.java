@@ -60,7 +60,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 			return PCClass.class;
 		}
 
-		public String getLSTformat()
+		public String getLSTformat(boolean useAny)
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -125,14 +125,23 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public String getLSTformat()
 	{
+		return getLSTformat(true);
+	}
+
+	/**
+	 * Returns a representation of this ClassReferenceChoiceSet, suitable for
+	 * storing in an LST file.
+	 */
+	public String getLSTformat(boolean b)
+	{
 		List<String> list = new ArrayList<String>();
 		if (primitives != null)
 		{
-			list.add(primitives.getLSTformat());
+			list.add(primitives.getLSTformat(b));
 		}
 		if (pcset != null)
 		{
-			list.add(pcset.getLSTformat());
+			list.add(pcset.getLSTformat(b));
 		}
 		if (!spelltypes.isEmpty())
 		{

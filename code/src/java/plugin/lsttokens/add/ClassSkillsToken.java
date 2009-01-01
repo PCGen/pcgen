@@ -207,7 +207,7 @@ public class ClassSkillsToken extends AbstractToken implements
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs, true);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
 				cs, count);
 		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(obj, autoRank);

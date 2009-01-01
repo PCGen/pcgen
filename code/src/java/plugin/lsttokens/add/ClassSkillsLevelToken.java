@@ -208,7 +208,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs, true);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
 				cs, count);
 		// TODO This is a hack, to get this to work pre-CDOM

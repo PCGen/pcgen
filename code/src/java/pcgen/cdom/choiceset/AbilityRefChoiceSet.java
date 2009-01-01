@@ -119,7 +119,7 @@ public class AbilityRefChoiceSet implements
 	 * Returns a representation of this AbilityRefChoiceSet, suitable for
 	 * storing in an LST file.
 	 */
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
@@ -127,7 +127,8 @@ public class AbilityRefChoiceSet implements
 		{
 			sortedSet.add(ar.getRef());
 		}
-		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA);
+		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
+				useAny);
 	}
 
 	/**

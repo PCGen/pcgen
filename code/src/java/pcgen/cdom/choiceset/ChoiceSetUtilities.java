@@ -37,10 +37,10 @@ public class ChoiceSetUtilities
 	public static int compareChoiceSets(PrimitiveChoiceSet<?> arg0,
 			PrimitiveChoiceSet<?> arg1)
 	{
-		String base = arg0.getLSTformat();
+		String base = arg0.getLSTformat(false);
 		if (base == null)
 		{
-			if (arg1.getLSTformat() == null)
+			if (arg1.getLSTformat(false) == null)
 			{
 				return 0;
 			}
@@ -51,13 +51,13 @@ public class ChoiceSetUtilities
 		}
 		else
 		{
-			if (arg1.getLSTformat() == null)
+			if (arg1.getLSTformat(false) == null)
 			{
 				return 1;
 			}
 			else
 			{
-				return base.compareTo(arg1.getLSTformat());
+				return base.compareTo(arg1.getLSTformat(false));
 			}
 		}
 	}
@@ -80,7 +80,7 @@ public class ChoiceSetUtilities
 	 *         given Collection of PrimitiveChoiceSet objects
 	 */
 	public static <T extends PrimitiveChoiceSet<?>> String joinLstFormat(
-			Collection<T> c, String separator)
+			Collection<T> c, String separator, boolean useAny)
 	{
 		if (c == null)
 		{
@@ -98,7 +98,7 @@ public class ChoiceSetUtilities
 				result.append(separator);
 			}
 			needjoin = true;
-			result.append(obj.getLSTformat());
+			result.append(obj.getLSTformat(useAny));
 		}
 
 		return result.toString();

@@ -181,4 +181,53 @@ public final class ReferenceUtilities
 		}
 		return COLLATOR.compare(arg0.getName(), arg1.getName());
 	}
+
+	/**
+	 * Concatenates the LST format of the given Collection of CDOMReference
+	 * objects into a String using the separator as the delimiter. This is a
+	 * secondary method that joins using ANY for the global reference rather
+	 * than ALL
+	 * 
+	 * The LST format for each CDOMReference is determined by calling the
+	 * getLSTformat() method on the CDOMReference.
+	 * 
+	 * The items will be joined in the order determined by the ordering of the
+	 * given Collection.
+	 * 
+	 * @param strings
+	 *            An Collection of CDOMReference objects
+	 * @param separator
+	 *            The separating string
+	 * @return A 'separator' separated String containing the LST format of the
+	 *         given Collection of CDOMReference objects
+	 */
+	public static <T extends CDOMReference<?>> String joinLstFormat(
+			Collection<T> c, String separator, boolean useAny)
+	{
+		if (c == null)
+		{
+			return "";
+		}
+
+		final StringBuilder result = new StringBuilder(c.size() * 10);
+
+		boolean needjoin = false;
+
+		for (T obj : c)
+		{
+			if (needjoin)
+			{
+				result.append(separator);
+			}
+			needjoin = true;
+			String out = obj.getLSTformat();
+			if (useAny && "ALL".equals(out))
+			{
+				out = "ANY";
+			}
+			result.append(out);
+		}
+
+		return result.toString();
+	}
 }

@@ -93,12 +93,13 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * Returns a representation of this ClassReferenceChoiceSet, suitable for
 	 * storing in an LST file.
 	 */
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(set);
-		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA);
+		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
+				useAny);
 	}
 
 	/**

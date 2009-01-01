@@ -144,7 +144,13 @@ public class FavoredclassToken extends AbstractToken implements
 				.getObjectContext().getListChanges(pct, ListKey.FAVORED_CLASS);
 		Changes<ChooseResultActor> listChanges = context.getObjectContext()
 				.getListChanges(pct, ListKey.CHOOSE_ACTOR);
+		Boolean anyfavored = context.getObjectContext().getObject(pct,
+				ObjectKey.ANY_FAVORED_CLASS);
 		SortedSet<String> set = new TreeSet<String>();
+		if (anyfavored != null && anyfavored)
+		{
+			set.add("HIGHESTLEVELCLASS");
+		}
 		if (changes != null && !changes.isEmpty())
 		{
 			for (CDOMReference<? extends PCClass> ref : changes.getAdded())

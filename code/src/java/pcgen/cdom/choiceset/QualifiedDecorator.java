@@ -41,9 +41,9 @@ public class QualifiedDecorator<T extends PObject> implements
 		return set.getChoiceClass();
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return set.getLSTformat();
+		return set.getLSTformat(useAny);
 	}
 
 	public Set<T> getSet(PlayerCharacter pc)

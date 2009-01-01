@@ -349,7 +349,7 @@ public class CompanionListLst extends AbstractToken implements
 							ReferenceUtilities.REFERENCE_SORTER);
 					raceSet.addAll(m.getListFor(prereqs, cl, fa));
 					sb.append(ReferenceUtilities.joinLstFormat(raceSet,
-							Constants.COMMA));
+							Constants.COMMA, true));
 					if (fa != null && fa != 0)
 					{
 						sb.append(Constants.PIPE);

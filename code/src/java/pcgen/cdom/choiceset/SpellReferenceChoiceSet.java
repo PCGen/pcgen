@@ -90,7 +90,7 @@ public class SpellReferenceChoiceSet implements
 	 * Returns a representation of this SpellReferenceChoiceSet, suitable for
 	 * storing in an LST file.
 	 */
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<CDOMReference<?>>(
 				ReferenceUtilities.REFERENCE_SORTER);

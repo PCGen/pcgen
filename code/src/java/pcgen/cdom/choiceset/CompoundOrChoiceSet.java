@@ -56,9 +56,9 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 		return returnSet;
 	}
 
-	public String getLSTformat()
+	public String getLSTformat(boolean useAny)
 	{
-		return ChoiceSetUtilities.joinLstFormat(set, Constants.COMMA);
+		return ChoiceSetUtilities.joinLstFormat(set, Constants.COMMA, useAny);
 	}
 
 	public Class<? super T> getChoiceClass()

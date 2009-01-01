@@ -133,7 +133,7 @@ public class SkillToken extends AbstractToken implements
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("SKILL", rcs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("SKILL", rcs, true);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);

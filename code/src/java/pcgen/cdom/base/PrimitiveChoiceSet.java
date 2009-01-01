@@ -61,6 +61,8 @@ public interface PrimitiveChoiceSet<T>
 	/**
 	 * Returns a representation of this PrimitiveChoiceSet, suitable for storing
 	 * in an LST file.
+	 * @param useAny use "ANY" for the global "ALL" reference when creating
+	 *                   the LST format
 	 */
-	public String getLSTformat();
+	public String getLSTformat(boolean useAny);
 }
