@@ -195,4 +195,10 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		assertFalse(parse("TestWP1[PREFOO:1,Human]"));
 		assertNoSideEffects();
 	}
+
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

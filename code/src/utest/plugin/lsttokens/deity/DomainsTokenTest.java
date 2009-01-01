@@ -234,4 +234,10 @@ public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
 		assertEquals(1, unparsed.length);
 		assertEquals("TestWP1,TestWP2", unparsed[0]);
 	}
+
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

@@ -199,6 +199,12 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinDupe() throws PersistenceLayerException
+	{
+		runRoundRobin("Walk,Fly,30", "Walk,Fly,30");
+	}
+
+	@Test
 	public void testRoundRobinMultiply() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,*2");

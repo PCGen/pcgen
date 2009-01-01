@@ -227,4 +227,9 @@ public class KnownspellsTokenTest extends
 		return ".CLEARALL";
 	}
 
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

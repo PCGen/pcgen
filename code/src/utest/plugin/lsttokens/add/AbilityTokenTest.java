@@ -769,4 +769,14 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 				+ "FEAT|NORMAL|STACKS=0,TestWP1"));
 		assertNoSideEffects();
 	}
+
+	@Test
+	public void testRoundRobinDupe() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin(getSubTokenName() + "|FEAT|NORMAL|TestWP1",
+				getSubTokenName() + "|FEAT|NORMAL|TestWP1");
+	}
+
 }

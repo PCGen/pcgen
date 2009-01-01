@@ -572,4 +572,9 @@ public class FavoredClassTokenTest extends
 		}
 	}
 
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

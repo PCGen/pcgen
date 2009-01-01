@@ -22,12 +22,8 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCAlignment;
-import pcgen.core.PCClass;
 import pcgen.core.kit.KitAlignment;
-import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;

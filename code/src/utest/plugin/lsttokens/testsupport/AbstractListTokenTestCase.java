@@ -29,6 +29,8 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 
 	public abstract Class<TC> getTargetClass();
 
+	public abstract boolean allowDups();
+
 	public abstract boolean isTypeLegal();
 
 	public abstract boolean isAllLegal();
@@ -384,6 +386,20 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 		construct(secondaryContext, "TestWP3");
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2"
 			+ getJoinCharacter() + "TestWP3");
+	}
+
+	@Test
+	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	{
+		if (allowDups())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(primaryContext, "TestWP3");
+			construct(secondaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP3");
+			runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP1"
+				+ getJoinCharacter() + "TestWP3");
+		}
 	}
 
 	@Test

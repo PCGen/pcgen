@@ -19,9 +19,6 @@ package plugin.lsttokens.kit;
 
 import org.junit.Test;
 
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
-import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.kit.KitTemplate;
 import pcgen.persistence.PersistenceLayerException;

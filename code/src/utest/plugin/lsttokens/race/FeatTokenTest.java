@@ -168,14 +168,6 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
 	}
 
 	@Test
-	public void testRoundRobinDupe() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		runRoundRobin("TestWP1|TestWP1");
-	}
-
-	@Test
 	public void testRoundRobinOneParen() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
@@ -199,5 +191,11 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
 		runRoundRobin("TestWP1 (Other)|TestWP1 (That)");
+	}
+
+	@Override
+	public boolean allowDups()
+	{
+		return true;
 	}
 }

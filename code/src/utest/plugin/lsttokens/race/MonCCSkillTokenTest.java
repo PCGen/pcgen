@@ -105,4 +105,9 @@ public class MonCCSkillTokenTest extends AbstractListTokenTestCase<Race, Skill>
 		assertNoSideEffects();
 	}
 
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

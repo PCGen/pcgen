@@ -100,4 +100,10 @@ public class DeityWeapTokenTest extends
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
+
 }

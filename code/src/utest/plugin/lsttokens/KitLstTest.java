@@ -204,6 +204,16 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP3");
+		runRoundRobin("2|TestWP1|TestWP1|TestWP3");
+	}
+
+	@Test
 	public void testRoundRobinTwoCountThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

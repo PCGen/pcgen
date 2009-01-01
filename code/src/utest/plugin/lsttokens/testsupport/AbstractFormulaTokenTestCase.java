@@ -19,24 +19,29 @@ package plugin.lsttokens.testsupport;
 
 import org.junit.Test;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
 
-public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject> extends
-		AbstractTokenTestCase<T>
+public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
+		extends AbstractTokenTestCase<T>
 {
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
 		assertTrue(parse("Variable1"));
-		assertEquals("Variable1", primaryProf.get(getFormulaKey()).toString());
+		assertEquals("Variable1", getFormula().toString());
 		assertTrue(parse("3"));
-		assertEquals("3", primaryProf.get(getFormulaKey()).toString());
+		assertEquals("3", getFormula().toString());
 		assertTrue(parse("3+CL(\"Fighter\""));
-		assertEquals("3+CL(\"Fighter\"", primaryProf.get(getFormulaKey())
-			.toString());
+		assertEquals("3+CL(\"Fighter\"", getFormula().toString());
+	}
+
+	protected Formula getFormula()
+	{
+		return primaryProf.get(getFormulaKey());
 	}
 
 	public abstract FormulaKey getFormulaKey();

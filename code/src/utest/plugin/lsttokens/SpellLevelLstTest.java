@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.PCTemplate;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -83,82 +84,151 @@ public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 		primaryContext.ref.constructCDOMObject(Spell.class, "Bless");
 		secondaryContext.ref.constructCDOMObject(Spell.class, "Bless");
 		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		runRoundRobin("CLASS|Wizard=3|Bless");
 	}
 
-	// @Test
-	// public void testInvalidDoublePipe() throws PersistenceLayerException
-	// {
-	// assertFalse(parse("CLASS||Cleric=1|Fireball"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testInvalidEndingPipe() throws PersistenceLayerException
-	// {
-	// assertFalse(parse("SA Number|"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testInvalidStartingPipe() throws PersistenceLayerException
-	// {
-	// assertFalse(parse("|Var"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testInvalidVarAfterPre() throws PersistenceLayerException
-	// {
-	// assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testInvalidOnlyPre() throws PersistenceLayerException
-	// {
-	// assertFalse(parse("PRECLASS:1,Fighter"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testRoundRobinBase() throws PersistenceLayerException
-	// {
-	// runRoundRobin("SA Number One");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinVariable() throws PersistenceLayerException
-	// {
-	// runRoundRobin("SA Number %|Variab");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinPre() throws PersistenceLayerException
-	// {
-	// runRoundRobin("SA Number One|PRECLASS:1,Fighter=1");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinDoublePre() throws PersistenceLayerException
-	// {
-	// runRoundRobin("SA Number One|PRECLASS:1,Fighter=1|PRERACE:1,Human");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinVarDoublePre() throws PersistenceLayerException
-	// {
-	// runRoundRobin("SA Number % before
-	// %|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinCompound() throws PersistenceLayerException
-	// {
-	// runRoundRobin(
-	// "SA Number % before %|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human",
-	// "SA Number One|PRECLASS:1,Fighter=1");
-	// }
-	//
+	@Test
+	public void testInvalidDoublePipe() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS||Cleric=1|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoSpell() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=1"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoLevel() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidClassOnly() throws PersistenceLayerException
+	{
+		assertFalse(parse("DOMAIN|Cleric|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidPrefix() throws PersistenceLayerException
+	{
+		assertFalse(parse("SKILL|Cleric=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoPrefix() throws PersistenceLayerException
+	{
+		assertFalse(parse("|Cleric=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoClass() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidOnlyPre1() throws PersistenceLayerException
+	{
+		assertFalse(parse("PRECLASS:1,Fighter"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidOnlyPre2() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|PRECLASS:1,Fighter"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidOnlyPre3() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|PRECLASS:1,Fighter"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadCasterComma1() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|,Cleric=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadCasterComma2() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric,=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadCasterComma3() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric,,Druid=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadComma1() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|,Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadComma2() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|Fireball,"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadComma3() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|Fireball,,Lightning Bolt"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Cleric");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Cleric");
+		runRoundRobin("CLASS|Cleric=2|Fireball|PRECLASS:1,Fighter=2");
+	}
+
+	@Test
+	public void testRoundRobinSpellCaster() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		runRoundRobin("CLASS|SPELLCASTER.Arcane=2|Fireball|PRECLASS:1,Fighter=2");
+	}
+
+	@Test
+	public void testRoundRobinDomain() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		runRoundRobin("DOMAIN|Fire=2|Fireball,Lightning Bolt|PRECLASS:1,Fighter=2");
+	}
 }

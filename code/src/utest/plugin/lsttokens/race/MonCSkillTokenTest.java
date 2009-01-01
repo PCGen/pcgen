@@ -123,4 +123,10 @@ public class MonCSkillTokenTest extends AbstractListTokenTestCase<Race, Skill>
 	{
 		runRoundRobin("TestWP%" + getJoinCharacter() + "TestWZ%");
 	}
+
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

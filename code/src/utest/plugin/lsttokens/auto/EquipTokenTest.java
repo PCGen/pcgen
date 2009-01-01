@@ -211,6 +211,14 @@ public class EquipTokenTest extends
 	}
 
 	@Test
+	public void testRoundRobinDupe() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin(getSubTokenName() + '|' + "TestWP1|TestWP1");
+	}
+
+	@Test
 	public void testInvalidInputBadPrerequisite()
 			throws PersistenceLayerException
 	{

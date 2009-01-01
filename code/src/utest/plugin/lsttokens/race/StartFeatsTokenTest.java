@@ -120,6 +120,12 @@ public class StartFeatsTokenTest extends AbstractTokenTestCase<Race>
 	}
 
 	@Test
+	public void testRoundRobinOneTwice() throws PersistenceLayerException
+	{
+		runRoundRobin("1", "1");
+	}
+
+	@Test
 	public void testRoundRobinFive() throws PersistenceLayerException
 	{
 		runRoundRobin("5");

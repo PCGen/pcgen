@@ -341,4 +341,18 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	}
 
 	protected abstract boolean isAllLegal();
+	
+	@Test
+	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+			"Languedoc-Roussillon");
+		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+			"Languedoc-Roussillon");
+		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Rheinhessen"
+			+ getJoinCharacter() + "Languedoc-Roussillon");
+	}
+
 }

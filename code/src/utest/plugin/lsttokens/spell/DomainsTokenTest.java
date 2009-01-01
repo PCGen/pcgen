@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;

@@ -194,5 +194,9 @@ public class FavoredClassTokenTest extends
 		runRoundRobin("%LIST");
 	}
 
-
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

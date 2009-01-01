@@ -287,6 +287,19 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			+ getJoinCharacter() + "Languedoc-Roussillon");
 	}
 
+	@Test
+	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+			"Languedoc-Roussillon");
+		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+			"Languedoc-Roussillon");
+		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Rheinhessen"
+			+ getJoinCharacter() + "Languedoc-Roussillon");
+	}
+
 	public abstract boolean isClearLegal();
 
 	public abstract boolean isClearDotLegal();

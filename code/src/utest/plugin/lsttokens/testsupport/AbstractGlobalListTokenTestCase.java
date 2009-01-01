@@ -504,4 +504,16 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			assertNoSideEffects();
 		}
 	}
+
+	@Test
+	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP3");
+		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP1"
+			+ getJoinCharacter() + "TestWP3");
+	}
+
 }

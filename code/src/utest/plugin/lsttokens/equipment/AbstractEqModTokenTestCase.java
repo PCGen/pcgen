@@ -229,4 +229,9 @@ public abstract class AbstractEqModTokenTestCase extends
 		runRoundRobin("_DAMAGE|4d6");
 	}
 
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

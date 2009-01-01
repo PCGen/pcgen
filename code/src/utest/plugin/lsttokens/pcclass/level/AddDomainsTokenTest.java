@@ -205,4 +205,9 @@ public class AddDomainsTokenTest extends
 		assertNoSideEffects();
 	}
 
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

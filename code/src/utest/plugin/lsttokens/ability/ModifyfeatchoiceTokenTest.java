@@ -130,4 +130,10 @@ public class ModifyfeatchoiceTokenTest extends
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
+
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

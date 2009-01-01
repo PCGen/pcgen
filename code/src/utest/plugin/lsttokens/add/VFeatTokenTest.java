@@ -204,4 +204,15 @@ public class VFeatTokenTest extends
 		assertNoSideEffects();
 	}
 
+	@Test
+	public void testRoundRobinDupe() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		runRoundRobin(getSubTokenName() + '|' + "TestWP1",
+				getSubTokenName() + '|' + "TestWP1");
+	}
+
 }

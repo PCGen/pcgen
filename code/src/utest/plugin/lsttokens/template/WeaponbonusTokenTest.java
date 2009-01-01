@@ -111,4 +111,10 @@ public class WeaponbonusTokenTest extends
 		secondaryContext.ref.constructCDOMObject(WeaponProfList.class,
 			"*Starting");
 	}
+
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }

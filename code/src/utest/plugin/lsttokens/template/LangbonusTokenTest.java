@@ -111,4 +111,10 @@ public class LangbonusTokenTest extends
 		secondaryContext.ref.constructCDOMObject(LanguageList.class,
 				"*Starting");
 	}
+
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
 }
