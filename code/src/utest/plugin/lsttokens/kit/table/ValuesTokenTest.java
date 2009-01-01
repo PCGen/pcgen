@@ -1,0 +1,207 @@
+/*
+ * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.kit.table;
+
+import java.net.URISyntaxException;
+
+import org.junit.Test;
+
+import pcgen.core.EquipmentModifier;
+import pcgen.core.kit.KitTable;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.CDOMSubLineLoader;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import plugin.lsttokens.kit.basekit.LookupToken;
+import plugin.lsttokens.kit.gear.EqmodToken;
+import plugin.lsttokens.testsupport.AbstractSubTokenTestCase;
+import plugin.lsttokens.testsupport.TokenRegistration;
+
+public class ValuesTokenTest extends AbstractSubTokenTestCase<KitTable>
+{
+
+	static ValuesToken token = new ValuesToken();
+	static EqmodToken eqmodToken = new EqmodToken();
+	static LookupToken lookupToken = new LookupToken();
+	static CDOMSubLineLoader<KitTable> loader = new CDOMSubLineLoader<KitTable>(
+			"*KITTOKEN", "TABLE", KitTable.class);
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		TokenRegistration.register(eqmodToken);
+		TokenRegistration.register(lookupToken);
+		super.setUp();
+	}
+
+	@Override
+	public Class<KitTable> getCDOMClass()
+	{
+		return KitTable.class;
+	}
+
+	@Override
+	public CDOMSubLineLoader<KitTable> getLoader()
+	{
+		return loader;
+	}
+
+	@Override
+	public CDOMSecondaryToken<KitTable> getToken()
+	{
+		return token;
+	}
+
+	public char getJoinCharacter()
+	{
+		return '.';
+	}
+
+	// TODO Implement after 5.16
+	// @Test
+	// public void testInvalidMiddleNone() throws PersistenceLayerException
+	// {
+	// assertFalse(parse("EQMOD1.NONE.EQMOD2"));
+	// assertNoSideEffects();
+	// }
+	//
+	// @Test
+	// public void testInvalidStartingNone() throws PersistenceLayerException
+	// {
+	// assertFalse(parse("NONE.EQMOD2"));
+	// assertNoSideEffects();
+	// }
+	//
+	// @Test
+	// public void testInvalidEndingNone() throws PersistenceLayerException
+	// {
+	// assertFalse(parse("EQMOD2.NONE"));
+	// assertNoSideEffects();
+	// }
+
+	@Test
+	public void testInvalidEmptyRange() throws PersistenceLayerException
+	{
+		assertFalse(parse("EQMOD:EQMOD2|"));
+	}
+
+	@Test
+	public void testInvalidRangeTwo() throws PersistenceLayerException
+	{
+		assertFalse(parse("EQMOD:MOD1|3,"));
+	}
+
+	@Test
+	public void testInvalidRangeOne() throws PersistenceLayerException
+	{
+		assertFalse(parse("EQMOD:MOD1|,3"));
+	}
+
+	@Test
+	public void testInvalidEqModDot() throws PersistenceLayerException
+	{
+		assertFalse(parse("EQMOD:MOD1.|5,7"));
+	}
+
+	@Test
+	public void testInvalidEqModOdd() throws PersistenceLayerException
+	{
+		assertFalse(parse("EQMOD:MOD1|5,7|EQMOD:MOD2"));
+	}
+
+	@Test
+	public void testInvalidDotEqMod() throws PersistenceLayerException
+	{
+		assertFalse(parse("EQMOD:.MOD1|5,7"));
+	}
+
+	// @Test
+	// public void testInvalidEmptyComplexAssociation()
+	// throws PersistenceLayerException
+	// {
+	// assertFalse(parse("MOD1|ModAssoc[]"));
+	// }
+	//
+	// @Test
+	// public void testInvalidNoOpenBracketComplexAssociation()
+	// throws PersistenceLayerException
+	// {
+	// assertFalse(parse("MOD1|ModAssoc Assoc]"));
+	// }
+	//
+	// @Test
+	// public void testInvalidTwoOpenBracketComplexAssociation()
+	// throws PersistenceLayerException
+	// {
+	// assertFalse(parse("MOD1|ModAssoc[[Assoc]"));
+	// }
+
+	@Test
+	public void testInvalidDoubleComma() throws PersistenceLayerException
+	{
+		assertFalse(parse("EQMOD:EQMOD2|5,,8"));
+	}
+
+	public void testRoundRobinOnlyAssociation()
+			throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+				"EQMOD2");
+		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+				"EQMOD2");
+		runRoundRobin("EQMOD:EQMOD2|5,10");
+	}
+
+	public void testRoundRobinComplex() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+				"EQMOD2");
+		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+				"EQMOD2");
+		runRoundRobin("EQMOD:EQMOD2|1,99|"
+				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]"
+				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]|100");
+	}
+
+	// public void testRoundRobinComplexAssociation()
+	// throws PersistenceLayerException
+	// {
+	// primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+	// "EQMOD2");
+	// secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+	// "EQMOD2");
+	// runRoundRobin("EQMOD2|COST[9500]");
+	// }
+
+	// public void testRoundRobinInnerBracketAssociation()
+	// throws PersistenceLayerException
+	// {
+	// runRoundRobin("EQMOD2|COST[[9500]]");
+	// }
+
+	@Test
+	public void testInvalidInputString() throws PersistenceLayerException
+	{
+		assertFalse(parse("String"));
+	}
+
+	@Test
+	public void testInvalidInputStringColon() throws PersistenceLayerException
+	{
+		assertFalse(parse("String:Strung"));
+	}
+}
