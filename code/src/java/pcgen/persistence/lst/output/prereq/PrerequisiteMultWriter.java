@@ -71,6 +71,12 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 			//
 			// Check to see if this is a special case for PREMULT
 			//
+			if (isSpecialCase(prereq))
+			{
+				handleSpecialCase(writer, prereq);
+				return;
+			}
+
 			if (prereq.getPrerequisites().size() != 0)
 			{
 				subreq = prereq.getPrerequisites().get(0);
@@ -84,12 +90,6 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 				{
 					return;
 				}
-			}
-
-			if (isSpecialCase(prereq))
-			{
-				handleSpecialCase(writer, prereq);
-				return;
 			}
 
 			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
