@@ -86,21 +86,21 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 	public void testNegateItem()
 	{
 		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
-				"PREMULT:1,[PRE" + getBaseString() + ":1,Foo],[!PRE"
+				"PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"
 						+ getBaseString() + ":1,TYPE=Bar]");
 	}
 
 	public void testNegateItemRaceType()
 	{
 		this.runSimpleRoundRobin("PRE" + getBaseString()
-				+ ":1,Foo,[RACETYPE=Bar]", "PREMULT:1,[PRE" + getBaseString()
+				+ ":1,Foo,[RACETYPE=Bar]", "PREMULT:2,[PRE" + getBaseString()
 				+ ":1,Foo],[!PRE" + getBaseString() + ":1,RACETYPE=Bar]");
 	}
 
 	public void testNegateItemRaceSubType()
 	{
 		this.runSimpleRoundRobin("PRE" + getBaseString()
-				+ ":1,Foo,[RACESUBTYPE=Bar]", "PREMULT:1,[PRE"
+				+ ":1,Foo,[RACESUBTYPE=Bar]", "PREMULT:2,[PRE"
 				+ getBaseString() + ":1,Foo],[!PRE" + getBaseString()
 				+ ":1,RACESUBTYPE=Bar]");
 	}
