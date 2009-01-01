@@ -73,19 +73,12 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 
 		try
 		{
-			//			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-			//			{
-			//				writer.write('!');
-			//			}
-			//
-			//			writer.write("PRESTAT:" + (prereq.isOverrideQualify() ? "Q:":"") + "1," + prereq.getKey().toUpperCase() + "=" + prereq.getOperand() );
-
 			writer.write("PRESTAT");
 			if (!prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{
 				writer.write(prereq.getOperator().toString().toUpperCase());
 			}
-			writer.write(":1," + prereq.getKey().toUpperCase() + "="
+			writer.write(":1," + prereq.getKey() + "="
 				+ prereq.getOperand());
 
 		}
