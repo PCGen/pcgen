@@ -169,6 +169,21 @@
 		<special_abilities.lightline><subattrib light=""/></special_abilities.lightline>
 		<special_abilities.darkline><subattrib medium=""/></special_abilities.darkline>
 
+		<special_attacks.title><subattrib centre="" inverse=""/></special_attacks.title>
+		<special_attacks.border padding="0.5pt"><subattrib border="" inverse=""/></special_attacks.border>
+		<special_attacks.lightline><subattrib light=""/></special_attacks.lightline>
+		<special_attacks.darkline><subattrib medium=""/></special_attacks.darkline>
+
+		<special_qualities.title><subattrib centre="" inverse=""/></special_qualities.title>
+		<special_qualities.border padding="0.5pt"><subattrib border="" inverse=""/></special_qualities.border>
+		<special_qualities.lightline><subattrib light=""/></special_qualities.lightline>
+		<special_qualities.darkline><subattrib medium=""/></special_qualities.darkline>
+
+		<salient_divine_abilities.title><subattrib centre="" inverse=""/></salient_divine_abilities.title>
+		<salient_divine_abilities.border padding="0.5pt"><subattrib border="" inverse=""/></salient_divine_abilities.border>
+		<salient_divine_abilities.lightline><subattrib light=""/></salient_divine_abilities.lightline>
+		<salient_divine_abilities.darkline><subattrib medium=""/></salient_divine_abilities.darkline>
+
 		<feats.title><subattrib centre="" inverse=""/></feats.title>
 		<feats.border padding="0.5pt"><subattrib border="" inverse=""/></feats.border>
 		<feats.lightline><subattrib light=""/></feats.lightline>

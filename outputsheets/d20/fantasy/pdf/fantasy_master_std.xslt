@@ -345,6 +345,9 @@
 						<xsl:apply-templates select="misc/magics"/>
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="special_abilities"/>
+						<xsl:apply-templates select="special_attacks"/>
+						<xsl:apply-templates select="special_qualities"/>
+						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="domains"/>
@@ -4408,12 +4411,63 @@
 	<!--
 ====================================
 ====================================
+	TEMPLATE - SPECIAL ATTACKS
+====================================
+====================================-->
+	<xsl:template match="special_attacks">
+		<xsl:if test="count(special_attack) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_attacks'" />
+				<xsl:with-param name="title" select="'SPECIAL ATTACKS'" />
+				<xsl:with-param name="list" select="special_attack"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - SPECIAL QUALITIES
+====================================
+====================================-->
+	<xsl:template match="special_qualities">
+		<xsl:if test="count(special_quality) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'SPECIAL QUALITIES'" />
+				<xsl:with-param name="list" select="special_quality"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - SALIENT DIVINE ABILITIES
+====================================
+====================================-->
+	<xsl:template match="salient_divine_abilities">
+		<xsl:if test="count(salient_divine_ability) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'salient_divine_abilities'" />
+				<xsl:with-param name="title" select="'SALIENT DIVINE ABILITIES'" />
+				<xsl:with-param name="list" select="salient_divine_ability"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
 	TEMPLATE - FEATS
 ====================================
 ====================================-->
 	<xsl:template match="feats">
 		<xsl:if test="count(feat[hidden != 'T' and name != '']) &gt; 0">
-			<xsl:call-template name="stripped.list">
+			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'feats'" />
 				<xsl:with-param name="title" select="'FEATS'" />
 				<xsl:with-param name="list" select="feat[hidden != 'T' and name != '']"/>
