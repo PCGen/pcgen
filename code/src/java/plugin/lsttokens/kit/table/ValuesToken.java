@@ -48,7 +48,7 @@ public class ValuesToken extends AbstractToken implements
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 *
+	 * 
 	 * @return Name of the tag this class handles
 	 */
 	@Override
@@ -68,7 +68,7 @@ public class ValuesToken extends AbstractToken implements
 	}
 
 	public boolean parse(LoadContext context, KitTable kitTable, String value)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
@@ -90,13 +90,16 @@ public class ValuesToken extends AbstractToken implements
 				if (colonLoc == -1)
 				{
 					Logging.errorPrint("Expected colon in Value item: " + s
-						+ " within: " + value);
+							+ " within: " + value);
 					return false;
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
-				context.processSubToken(optionInfo, getParentToken(), key,
-					thingValue);
+				if (!context.processSubToken(optionInfo, getParentToken(), key,
+						thingValue))
+				{
+					return false;
+				}
 			}
 			if (!st.hasMoreTokens())
 			{
@@ -107,7 +110,7 @@ public class ValuesToken extends AbstractToken implements
 			if (!processRange(kitTable, optionInfo, range))
 			{
 				Logging.errorPrint("Invalid Range in Value: " + range
-					+ " within " + value);
+						+ " within " + value);
 				return false;
 			}
 		}
@@ -116,8 +119,12 @@ public class ValuesToken extends AbstractToken implements
 	}
 
 	private boolean processRange(KitTable kitTable, KitGear optionInfo,
-		String range)
+			String range)
 	{
+		if (hasIllegalSeparator(',', range))
+		{
+			return false;
+		}
 		int commaLoc = range.indexOf(',');
 		String minString;
 		String maxString;
@@ -145,7 +152,11 @@ public class ValuesToken extends AbstractToken implements
 	{
 		StringBuilder sb = new StringBuilder();
 		List<TableEntry> list = kitTable.getList();
-		boolean first = false;
+		if (list.isEmpty())
+		{
+			return null;
+		}
+		boolean first = true;
 		for (TableEntry rl : list)
 		{
 			if (!first)
@@ -168,10 +179,13 @@ public class ValuesToken extends AbstractToken implements
 			}
 			sb.append(Constants.PIPE);
 			sb.append(rl.lowRange.toString());
-			sb.append(',');
-			sb.append(rl.highRange.toString());
+			if (!rl.lowRange.equals(rl.highRange))
+			{
+				sb.append(',');
+				sb.append(rl.highRange.toString());
+			}
 			first = false;
 		}
-		return new String[]{sb.toString()};
+		return new String[] { sb.toString() };
 	}
 }

@@ -25,9 +25,9 @@
 
 package plugin.lsttokens.kit.basekit;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedFormula;
@@ -88,11 +88,11 @@ public class LookupToken extends AbstractToken implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		List<String> list = new ArrayList<String>();
 		for (NamedFormula nf : lookups)
 		{
-			set.add(nf.getName() + "," + nf.getFormula().toString());
+			list.add(nf.getName() + "," + nf.getFormula().toString());
 		}
-		return set.toArray(new String[set.size()]);
+		return list.toArray(new String[list.size()]);
 	}
 }

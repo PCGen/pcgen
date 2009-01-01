@@ -103,7 +103,7 @@ public final class KitGear extends BaseKit
 			info.append(quantity).append('x');
 		}
 
-		info.append(equip.getLSTformat());
+		info.append(equip == null ? "null" : equip.getLSTformat());
 
 		if (mods != null)
 		{

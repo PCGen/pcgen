@@ -66,8 +66,12 @@ public class LevelAbilityToken extends AbstractToken implements
 	}
 
 	public boolean parse(LoadContext context, KitLevelAbility kitLA,
-		String value)
+			String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
 		{
@@ -77,13 +81,19 @@ public class LevelAbilityToken extends AbstractToken implements
 		if (equalLoc != value.lastIndexOf('='))
 		{
 			Logging.errorPrint(getTokenName() + " requires a single =: "
-				+ value);
+					+ value);
 			return false;
 		}
 		String className = value.substring(0, equalLoc);
+		if (className.length() == 0)
+		{
+			Logging.errorPrint(getTokenName()
+					+ " requires a class name before =: " + value);
+			return false;
+		}
 		String level = value.substring(equalLoc + 1);
-		CDOMSingleRef<PCClass> cl =
-				context.ref.getCDOMReference(PCClass.class, className);
+		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
+				className);
 		try
 		{
 			Integer lvl = Integer.valueOf(level);
@@ -97,8 +107,8 @@ public class LevelAbilityToken extends AbstractToken implements
 		catch (NumberFormatException nfe)
 		{
 			Logging.errorPrint(getTokenName()
-				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>");
+					+ " expected an integer.  Tag must be of the form: "
+					+ getTokenName() + ":<int>");
 			return false;
 		}
 		kitLA.setClass(cl);
@@ -108,8 +118,12 @@ public class LevelAbilityToken extends AbstractToken implements
 	public String[] unparse(LoadContext context, KitLevelAbility kitLA)
 	{
 		CDOMReference<PCClass> cl = kitLA.getPCClass();
+		if (cl == null)
+		{
+			return null;
+		}
 		Integer lvl = kitLA.getLevel();
-		return new String[]{cl.getLSTformat() + '=' + lvl};
+		return new String[] { cl.getLSTformat() + '=' + lvl };
 	}
 
 	public Class<Kit> getDeferredTokenClass()
@@ -128,20 +142,12 @@ public class LevelAbilityToken extends AbstractToken implements
 		}
 		return true;
 	}
-	
+
 	/*
-				KitLevelAbility kla = (KitLevelAbility) bk;
-				PersistentTransitionChoice<?> add = kla.getAdd();
-				CDOMSingleRef<PCClass> ref = kla.getPCClass();
-				PCClass pcc = ref.resolvesTo();
-				List<PersistentTransitionChoice<?>> addList = pcc.getListFor(ListKey.ADD);
-				if (addList == null)
-				{
-					//Error
-				}
-				else if (!addList.contains(add))
-				{
-					//Error
-				}
+	 * KitLevelAbility kla = (KitLevelAbility) bk; PersistentTransitionChoice<?>
+	 * add = kla.getAdd(); CDOMSingleRef<PCClass> ref = kla.getPCClass();
+	 * PCClass pcc = ref.resolvesTo(); List<PersistentTransitionChoice<?>>
+	 * addList = pcc.getListFor(ListKey.ADD); if (addList == null) { //Error }
+	 * else if (!addList.contains(add)) { //Error }
 	 */
 }
