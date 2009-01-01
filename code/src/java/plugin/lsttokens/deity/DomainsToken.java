@@ -181,7 +181,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 		{
 			list.add(Constants.LST_DOT_CLEAR_DOT
 					+ ReferenceUtilities.joinLstFormat(removedItems,
-							",.CLEAR."));
+							",.CLEAR.", true));
 		}
 		MapToList<CDOMReference<Domain>, AssociatedPrereqObject> mtl = changes
 				.getAddedAssociations();
