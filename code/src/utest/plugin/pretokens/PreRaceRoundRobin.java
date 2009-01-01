@@ -59,7 +59,7 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 
 	public void testRaceTypeComplex()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":3,Foo,RACETYPE=.Bar");
+		runRoundRobin("PRE" + getBaseString() + ":3,Foo,RACETYPE=Foo.Bar");
 	}
 
 	public void testRaceSubType()
@@ -74,7 +74,8 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 
 	public void testMultipleRaceSubType()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":1,RACESUBTYPE=Bar,RACESUBTYPE=Foo");
+		runRoundRobin("PRE" + getBaseString()
+				+ ":1,RACESUBTYPE=Bar,RACESUBTYPE=Foo");
 	}
 
 	public void testRaceSubTypeComplex()
@@ -82,4 +83,25 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,RACESUBTYPE=Bar");
 	}
 
+	public void testNegateItem()
+	{
+		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
+				"PREMULT:1,[PRE" + getBaseString() + ":1,Foo],[!PRE"
+						+ getBaseString() + ":1,TYPE=Bar]");
+	}
+
+	public void testNegateItemRaceType()
+	{
+		this.runSimpleRoundRobin("PRE" + getBaseString()
+				+ ":1,Foo,[RACETYPE=Bar]", "PREMULT:1,[PRE" + getBaseString()
+				+ ":1,Foo],[!PRE" + getBaseString() + ":1,RACETYPE=Bar]");
+	}
+
+	public void testNegateItemRaceSubType()
+	{
+		this.runSimpleRoundRobin("PRE" + getBaseString()
+				+ ":1,Foo,[RACESUBTYPE=Bar]", "PREMULT:1,[PRE"
+				+ getBaseString() + ":1,Foo],[!PRE" + getBaseString()
+				+ ":1,RACESUBTYPE=Bar]");
+	}
 }

@@ -42,4 +42,9 @@ public class PreLanguageRoundRobin extends AbstractBasicRoundRobin
 		return true;
 	}
 
+	public void testAny()
+	{
+		this.runRoundRobin("PRE" + getBaseString() + ":1,ANY");
+	}
+
 }

@@ -1,6 +1,6 @@
 /*
- * PreCampaignRoundRobin.java
- * Copyright 2008 (C) James Dempsey
+ * PreAgeSetRoundRobin.java
+ * Copyright 2008 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,30 +16,41 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12/07/2008 12:29:09
+ * Created on 1/04/2008
  *
- * $Id: $
+ * $Id: PreAgeSetRoundRobin.java 8147 2008-10-19 19:45:26Z thpr $
  */
 package plugin.pretokens;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.pretokens.parser.PreCampaignParser;
-import plugin.pretokens.writer.PreCampaignWriter;
+import plugin.pretokens.parser.PreSpecialAbilityParser;
+import plugin.pretokens.writer.PreSpecialAbilityWriter;
 
 /**
- * The Class <code>PreCampaignRoundRobin</code> is responsible for testing 
- * that PRECAMPAIGN tags can be read and written. 
- * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
- * 
+ * <code>PreAgeSetRoundRobin</code> verifies that preageset tags can be 
+ * read and written.
+ *
+ * Last Editor: $Author: thpr $
+ * Last Edited: $Date: 2008-10-19 15:45:26 -0400 (Sun, 19 Oct 2008) $
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision: 8147 $
  */
-public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
+public class PreSARoundRobin extends AbstractBasicRoundRobin
 {
+	
+	/**
+	 * The main method.
+	 * 
+	 * @param args the arguments
+	 */
+	public static void main(String args[])
+	{
+		TestRunner.run(PreSARoundRobin.class);
+	}
 
 	/**
 	 * Suite.
@@ -48,7 +59,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(PreCampaignRoundRobin.class);
+		return new TestSuite(PreSARoundRobin.class);
 	}
 
 	/* (non-Javadoc)
@@ -58,8 +69,8 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		TokenRegistration.register(new PreCampaignParser());
-		TokenRegistration.register(new PreCampaignWriter());
+		TokenRegistration.register(new PreSpecialAbilityParser());
+		TokenRegistration.register(new PreSpecialAbilityWriter());
 	}
 
 	/* (non-Javadoc)
@@ -68,23 +79,13 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 	@Override
 	public String getBaseString()
 	{
-		return "CAMPAIGN";
+		return "SA";
 	}
 
-	/* (non-Javadoc)
-	 * @see plugin.pretokens.AbstractBasicRoundRobin#isTypeAllowed()
-	 */
 	@Override
 	public boolean isTypeAllowed()
 	{
 		return false;
-	}
-
-	public void testNegateItem()
-	{
-		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
-				"PREMULT:1,[PRE" + getBaseString() + ":1,Foo],[!PRE"
-						+ getBaseString() + ":1,TYPE=Bar]");
 	}
 
 }
