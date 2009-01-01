@@ -136,7 +136,7 @@ public class DeityToken extends Token
 			{
 				List<CDOMReference<WeaponProf>> dwp = deity
 						.getSafeListFor(ListKey.DEITYWEAPON);
-				retString = ReferenceUtilities.joinLstFormat(dwp, "|");
+				retString = ReferenceUtilities.joinLstFormat(dwp, Constants.PIPE, true);
 			}
 			else if ("PANTHEONLIST".equals(subTag))
 			{
@@ -152,13 +152,11 @@ public class DeityToken extends Token
 			}
 			else if ("TITLE".equals(subTag))
 			{
-				String characteristic = deity.get(StringKey.TITLE);
-				retString = characteristic == null ? "" : characteristic;
+				retString = deity.getSafe(StringKey.TITLE);
 			}
 			else if ("WORSHIPPERS".equals(subTag))
 			{
-				String characteristic = deity.get(StringKey.WORSHIPPERS);
-				retString = characteristic == null ? "" : characteristic;
+				retString = deity.getSafe(StringKey.WORSHIPPERS);
 			}
 		}
 
