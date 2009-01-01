@@ -117,8 +117,8 @@ public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
 		loadContext.ref.constructCDOMObject(Domain.class, one);
 	}
 
-	@Test
-	public void testRoundRobinAll() throws PersistenceLayerException
+	@Override
+	public void testRoundRobinTestAll() throws PersistenceLayerException
 	{
 		runRoundRobin("ANY");
 	}

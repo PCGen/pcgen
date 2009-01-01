@@ -343,6 +343,16 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	protected abstract boolean isAllLegal();
 	
 	@Test
+	public void testRoundRobinTestAll() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			runRoundRobin("ALL");
+		}
+	}
+
+
+	@Test
 	public void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");

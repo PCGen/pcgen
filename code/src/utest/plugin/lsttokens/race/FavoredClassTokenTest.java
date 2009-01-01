@@ -577,4 +577,10 @@ public class FavoredClassTokenTest extends
 	{
 		return false;
 	}
+
+	@Override
+	public void testRoundRobinTestAll() throws PersistenceLayerException
+	{
+		runRoundRobin("HIGHESTLEVELCLASS");
+	}
 }

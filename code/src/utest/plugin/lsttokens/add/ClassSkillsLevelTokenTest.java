@@ -165,5 +165,11 @@ public class ClassSkillsLevelTokenTest extends
 		assertNoSideEffects();
 	}
 
+	@Override
+	public String getAllString()
+	{
+		return "ANY";
+	}
+
 
 }

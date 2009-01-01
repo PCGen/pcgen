@@ -164,4 +164,9 @@ public class ClassSkillsTokenTest extends
 		assertNoSideEffects();
 	}
 
+	@Override
+	public String getAllString()
+	{
+		return "ANY";
+	}
 }

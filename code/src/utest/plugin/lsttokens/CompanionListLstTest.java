@@ -282,6 +282,14 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinAnyRace() throws PersistenceLayerException
+	{
+		construct(Race.class, "Lion");
+		construct(Race.class, "Tiger");
+		runRoundRobin("Familiar|ANY");
+	}
+
+	@Test
 	public void testRoundRobinTwoWithRacetype() throws PersistenceLayerException
 	{
 		construct(Race.class, "Lion");

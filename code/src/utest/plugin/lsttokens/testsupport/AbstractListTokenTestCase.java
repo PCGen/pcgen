@@ -418,6 +418,15 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 	}
 
 	@Test
+	public void testRoundRobinTestAll() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			runRoundRobin("ALL");
+		}
+	}
+
+	@Test
 	public void testRoundRobinTestEquals() throws PersistenceLayerException
 	{
 		if (isTypeLegal())

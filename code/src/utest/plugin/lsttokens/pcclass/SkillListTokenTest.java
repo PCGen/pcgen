@@ -247,6 +247,12 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
+	public void testRoundRobinAll() throws PersistenceLayerException
+	{
+		runRoundRobin("1|ALL");
+	}
+
+	@Test
 	public void testRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

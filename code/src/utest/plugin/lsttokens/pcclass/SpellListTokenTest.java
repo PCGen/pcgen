@@ -291,6 +291,12 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
+	public void testRoundRobinAll() throws PersistenceLayerException
+	{
+		runRoundRobin("1|ALL");
+	}
+
+	@Test
 	public void testRoundRobinOneDomain() throws PersistenceLayerException
 	{
 		constructDomain(primaryContext, "TestWP1");

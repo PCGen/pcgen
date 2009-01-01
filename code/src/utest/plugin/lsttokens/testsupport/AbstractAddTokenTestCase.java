@@ -616,4 +616,13 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		}
 	}
 
+	@Test
+	public void testRoundRobinTestAll() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			runRoundRobin(getSubTokenName() + '|' + getAllString());
+		}
+	}
+
 }

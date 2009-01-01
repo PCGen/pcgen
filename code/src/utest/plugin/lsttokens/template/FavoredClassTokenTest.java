@@ -195,6 +195,12 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Override
+	public void testRoundRobinTestAll() throws PersistenceLayerException
+	{
+		runRoundRobin("HIGHESTLEVELCLASS");
+	}
+
+	@Override
 	public boolean allowDups()
 	{
 		return false;

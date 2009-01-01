@@ -516,4 +516,13 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			+ getJoinCharacter() + "TestWP3");
 	}
 
+	@Test
+	public void testRoundRobinTestAll() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			runRoundRobin("ALL");
+		}
+	}
+
 }
