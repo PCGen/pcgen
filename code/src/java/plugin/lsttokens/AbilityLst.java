@@ -285,17 +285,20 @@ public class AbilityLst extends AbstractToken implements
 						obj, ref);
 			MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl =
 					changes.getAddedAssociations();
-			for (CDOMReference<Ability> ab : mtl.getKeySet())
+			if (mtl != null)
 			{
-				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+				for (CDOMReference<Ability> ab : mtl.getKeySet())
 				{
-					Ability.Nature nature =
-							assoc.getAssociation(AssociationKey.NATURE);
-					AbilityCategory cat =
-							assoc.getAssociation(AssociationKey.CATEGORY);
-					m
-						.addToListFor(nature, cat, assoc.getPrerequisiteList(),
-							ab);
+					for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+					{
+						Ability.Nature nature =
+								assoc.getAssociation(AssociationKey.NATURE);
+						AbilityCategory cat =
+								assoc.getAssociation(AssociationKey.CATEGORY);
+						m
+							.addToListFor(nature, cat, assoc.getPrerequisiteList(),
+								ab);
+					}
 				}
 			}
 		}
