@@ -150,6 +150,11 @@ public abstract class AbstractPrerequisiteListParser extends
 		try
 		{
 			numRequired = Integer.parseInt(elements[0]);
+			if (elements.length == 1)
+			{
+				throw new PersistenceLayerException("Prerequisite " + kind
+						+ " can not have only a count: " + formula);
+			}
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -226,6 +231,13 @@ public abstract class AbstractPrerequisiteListParser extends
 				}
 				else
 				{
+					if (requiresValue())
+					{
+						throw new PersistenceLayerException(
+								"Prerequisites of kind "
+										+ kind
+										+ " require a target value, e.g. Key=Value");
+					}
 					hasKeyOnly = true;
 					subreq.setKey(elements[i]);
 					subreq.setOperator(PrerequisiteOperator.GTEQ);
@@ -300,6 +312,13 @@ public abstract class AbstractPrerequisiteListParser extends
 					}
 					else
 					{
+						if (requiresValue())
+						{
+							throw new PersistenceLayerException(
+									"Prerequisites of kind "
+											+ kind
+											+ " require a target value, e.g. Key=Value");
+						}
 						subreq.setOperand(elements[0]);
 						subreq.setKey(elements[i]);
 					}
@@ -313,5 +332,10 @@ public abstract class AbstractPrerequisiteListParser extends
 			subreq.setKind(kind.toLowerCase());
 			subreq.setOperator(PrerequisiteOperator.GTEQ);
 		}
+	}
+
+	protected boolean requiresValue()
+	{
+		return false;
 	}
 }
