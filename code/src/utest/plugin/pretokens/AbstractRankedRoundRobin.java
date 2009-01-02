@@ -40,34 +40,34 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		runRoundRobin("PREMULT:1,[PRE" + getBaseString()
 				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString()
-				+ ":2,Spot=3,Listen=4]");
+				+ ":2,Goo=3,Hot=4]");
 	}
 
 	public void testCombineSub()
 	{
 		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString()
-				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Spot=2]", "!PRE"
-				+ getBaseString() + ":1,Foo=1,Spot=2");
+				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Goo=2]", "!PRE"
+				+ getBaseString() + ":1,Foo=1,Goo=2");
 	}
 
 	public void testCombineSubNegative()
 	{
 		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString()
-				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Spot=2]", "PRE"
-				+ getBaseString() + ":1,Foo=1,Spot=2");
+				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Goo=2]", "PRE"
+				+ getBaseString() + ":1,Foo=1,Goo=2");
 	}
 
 	public void testNoCombineSubNegative()
 	{
 		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1,Foo=1],[!PRE"
-				+ getBaseString() + ":1,Spot=3]");
+				+ getBaseString() + ":1,Goo=3]");
 	}
 
 	public void testNoCombineMult()
 	{
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString()
 				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString()
-				+ ":1,Spot=3,Listen=4]");
+				+ ":1,Goo=3,Hot=4]");
 	}
 
 	public void testHigher()
