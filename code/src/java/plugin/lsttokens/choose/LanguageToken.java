@@ -106,12 +106,11 @@ public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
 		String chooseString = context.getObjectContext().getString(cdo,
 				StringKey.CHOICE_STRING);
 		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') == -1)
+				|| chooseString.indexOf("Language(") == -1)
 		{
 			return null;
 		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return new String[] { chooseString.substring(9) };
 	}
 
 	public Class<CDOMObject> getTokenClass()
