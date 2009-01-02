@@ -73,10 +73,16 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 
 		try
 		{
-			writer.write("PRESTAT");
-			if (!prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+			PrerequisiteOperator operator = prereq.getOperator();
+			if (operator.equals(PrerequisiteOperator.LT))
 			{
-				writer.write(prereq.getOperator().toString().toUpperCase());
+				writer.write("!");
+			}
+			writer.write("PRESTAT");
+			if (!operator.equals(PrerequisiteOperator.GTEQ)
+					&& !operator.equals(PrerequisiteOperator.LT))
+			{
+				writer.write(operator.toString().toUpperCase());
 			}
 			writer.write(":1," + prereq.getKey() + "="
 				+ prereq.getOperand());
@@ -88,4 +94,37 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, true);
+		if (po == null)
+		{
+			return false;
+		}
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		PrerequisiteOperator operator = prereq.getOperator();
+		writer.write("PRESTAT");
+		if (!operator.equals(PrerequisiteOperator.GTEQ)
+				&& !operator.equals(PrerequisiteOperator.LT))
+		{
+			writer.write(operator.toString().toUpperCase());
+		}
+		writer.write(':');
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+				: "1");
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			writer.write(',');
+			writer.write(p.getKey());
+			writer.write('=');
+			writer.write(p.getOperand());
+		}
+		return true;
+	}
 }
