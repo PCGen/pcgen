@@ -596,4 +596,16 @@ public class Prerequisite implements Cloneable
 	{
 		this.characterRequired = characterRequired;
 	}
+
+	private boolean nativeCheckMult = false;
+	
+	public void setOriginalCheckmult(boolean b)
+	{
+		nativeCheckMult = b;
+	}
+
+	public boolean isOriginalCheckMult()
+	{
+		return nativeCheckMult;
+	}
 }

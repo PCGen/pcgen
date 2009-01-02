@@ -69,6 +69,8 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements
 	{
 		Prerequisite prereq =
 				super.parse(kind, formula, invertResult, overrideQualify);
+		
+		prereq.setOriginalCheckmult(formula.indexOf(",CHECKMULT,") != -1);
 
 		//
 		// Negate the feat names wrapped in []'s. Then need to bump up the required number of matches
