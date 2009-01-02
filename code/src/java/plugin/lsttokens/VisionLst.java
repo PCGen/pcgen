@@ -89,10 +89,8 @@ public class VisionLst extends AbstractToken implements
 			{
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						Vision.VISIONLIST);
-				continue;
 			}
-
-			if (visionString.startsWith(".CLEAR."))
+			else if (visionString.startsWith(".CLEAR."))
 			{
 				try
 				{
