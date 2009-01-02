@@ -206,4 +206,10 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	{
 		cpo.clearPrerequisiteList();
 	}
+
+	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
+			ListKey<T> lk)
+	{
+		return new PatternChanges<T>(cdo.getListFor(lk), null, false);
+	}
 }

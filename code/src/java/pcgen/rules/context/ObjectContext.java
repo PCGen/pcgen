@@ -589,6 +589,14 @@ public class ObjectContext
 					cdo, lk));
 		}
 
+		public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo, ListKey<T> lk)
+		{
+			return new PatternChanges<T>(getPositive(extractURI, cdo)
+					.getListFor(lk), patternClearSet.getListFor(extractURI,
+					cdo, lk), globalClearSet
+					.containsInList(extractURI, cdo, lk));
+		}
+
 		public URI getExtractURI()
 		{
 			return extractURI;
@@ -751,5 +759,11 @@ public class ObjectContext
 			ListKey<?> lk, String pattern)
 	{
 		edits.removePatternFromList(cdo, lk, pattern);
+	}
+
+	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
+			ListKey<T> lk)
+	{
+		return commit.getListPatternChanges(cdo, lk);
 	}
 }

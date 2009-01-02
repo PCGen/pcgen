@@ -87,4 +87,7 @@ public interface ObjectCommitStrategy
 			String pattern);
 
 	public void clearPrerequisiteList(ConcretePrereqObject cpo);
+
+	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
+			ListKey<T> lk);
 }

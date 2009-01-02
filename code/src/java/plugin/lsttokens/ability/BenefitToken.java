@@ -29,8 +29,8 @@ import pcgen.core.Description;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.PatternChanges;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -77,14 +77,14 @@ public class BenefitToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		Changes<Description> changes = context.getObjectContext()
-				.getListChanges(ability, ListKey.BENEFIT);
+		PatternChanges<Description> changes = context.getObjectContext()
+				.getListPatternChanges(ability, ListKey.BENEFIT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		List<String> list = new ArrayList<String>();
-		Collection<Description> removedItems = changes.getRemoved();
+		Collection<String> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{
 			if (removedItems != null && !removedItems.isEmpty())
@@ -98,14 +98,11 @@ public class BenefitToken extends AbstractToken implements
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
-			for (Description d : removedItems)
+			for (String d : removedItems)
 			{
 				list.add(Constants.LST_DOT_CLEAR_DOT + d);
 			}
 		}
-		/*
-		 * TODO .CLEAR. is not properly round-robin capable
-		 */
 		Collection<Description> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
