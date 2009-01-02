@@ -133,7 +133,8 @@ public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 	{
 		String chooseString = context.getObjectContext().getString(cdo,
 				StringKey.CHOICE_STRING);
-		if (chooseString == null)
+		if (chooseString == null
+				|| chooseString.indexOf(getTokenName() + '|') == -1)
 		{
 			return null;
 		}
