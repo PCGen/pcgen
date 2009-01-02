@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.spell;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -130,18 +133,28 @@ public class SpellPointCostToken extends AbstractToken implements
 			return null;
 		}
 		Set<String> set = new TreeSet<String>();
-		for (PointCost q : changes.getAdded())
+		Collection<PointCost> added = changes.getAdded();
+		if (added != null)
 		{
-			StringBuilder sb = new StringBuilder();
-			String type = q.getType();
-			if (!"TOTAL".equals(type))
+			for (PointCost q : added)
 			{
-				sb.append(type).append(Constants.EQUALS);
+				StringBuilder sb = new StringBuilder();
+				String type = q.getType();
+				if (!"TOTAL".equals(type))
+				{
+					sb.append(type).append(Constants.EQUALS);
+				}
+				sb.append(q.getCost());
+				set.add(sb.toString());
 			}
-			sb.append(q.getCost());
-			set.add(sb.toString());
 		}
-		return new String[] { StringUtil.join(set, Constants.PIPE) };
+		List<String> list = new ArrayList<String>();
+		if (changes.includesGlobalClear())
+		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		list.addAll(set);
+		return new String[] { StringUtil.join(list, Constants.PIPE) };
 	}
 
 	public Class<Spell> getTokenClass()

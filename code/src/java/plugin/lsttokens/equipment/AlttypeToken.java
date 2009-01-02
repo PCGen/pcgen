@@ -47,11 +47,43 @@ public class AlttypeToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
-		if (isEmpty(value) || hasIllegalSeparator('.', value))
+		if (isEmpty(value))
 		{
 			return false;
 		}
 		EquipmentHead head = eq.getEquipmentHead(2);
+		if (value.startsWith(".CLEAR"))
+		{
+			context.getObjectContext().removeList(head, ListKey.TYPE);
+			if (value.length() == 6)
+			{
+				return true;
+			}
+			else if (value.charAt(6) == '.')
+			{
+				value = value.substring(7);
+				if (isEmpty(value))
+				{
+					Logging
+							.errorPrint(getTokenName()
+									+ "started with .CLEAR. but expected to have a Type after .: "
+									+ value);
+					return false;
+				}
+			}
+			else
+			{
+				Logging
+						.errorPrint(getTokenName()
+								+ "started with .CLEAR but expected next character to be .: "
+								+ value);
+				return false;
+			}
+		}
+		if (hasIllegalSeparator('.', value))
+		{
+			return false;
+		}
 
 		StringTokenizer aTok = new StringTokenizer(value, Constants.DOT);
 
@@ -129,22 +161,29 @@ public class AlttypeToken extends AbstractToken implements
 		{
 			return null;
 		}
+		StringBuilder sb = new StringBuilder();
 		Collection<?> added = changes.getAdded();
 		boolean globalClear = changes.includesGlobalClear();
 		if (globalClear)
 		{
-			context.addWriteMessage(getTokenName()
-					+ " does not support global clear");
-			return null;
+			sb.append(Constants.LST_DOT_CLEAR);
 		}
-		if (added == null || added.isEmpty())
+		if (added != null && !added.isEmpty())
+		{
+			if (globalClear)
+			{
+				sb.append(Constants.DOT);
+			}
+			sb.append(StringUtil.join(added, Constants.DOT));
+		}
+		if (sb.length() == 0)
 		{
 			context.addWriteMessage(getTokenName()
 					+ " was expecting non-empty changes to include "
-					+ "added items");
+					+ "added items or global clear");
 			return null;
 		}
-		return new String[] { StringUtil.join(added, Constants.DOT) };
+		return new String[] { sb.toString() };
 	}
 
 	public Class<Equipment> getTokenClass()
