@@ -110,7 +110,8 @@ public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
 		{
 			return null;
 		}
-		return new String[] { chooseString.substring(9) };
+		String lang = chooseString.substring(9);
+		return new String[] { lang.substring(0, lang.length() - 1) };
 	}
 
 	public Class<CDOMObject> getTokenClass()
