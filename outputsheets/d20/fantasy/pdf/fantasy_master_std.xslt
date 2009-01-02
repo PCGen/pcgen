@@ -135,6 +135,14 @@
 	<xsl:variable name="pagePrintableHeight">
 		<xsl:value-of select="($pageHeight - $pageMarginTop - $pageMarginBottom)"/>
 	</xsl:variable>
+	<xsl:variable name="skillmastery">
+		<xsl:for-each select="/character/special_qualities/special_quality">
+			<xsl:if test="substring(name,1,13)='Skill Mastery'">
+				<xsl:value-of select="associated"/>
+			</xsl:if>
+		</xsl:for-each>
+	</xsl:variable>
+
 
 
 	<!-- Include all of the output attributes -->
@@ -1900,7 +1908,14 @@
 								<fo:table-cell>
 									<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade, '.total')"/></xsl:call-template>
 									<fo:block text-align="center" space-before.optimum="1pt" font-size="8pt">
-										<xsl:value-of select="skill_mod"/>
+										<xsl:choose>
+											<xsl:when test="contains($skillmastery,name)">
+												<xsl:value-of select="concat(skill_mod,'*')"/>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="skill_mod"/>
+											</xsl:otherwise>
+										</xsl:choose>
 									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell number-columns-spanned="2">
@@ -1940,7 +1955,8 @@
 						<fo:table-cell number-columns-spanned="17" padding-top="1pt">
 							<fo:block text-align="center" font-size="6pt">
 								<fo:inline font-family="ZapfDingbats">&#x2713;</fo:inline>: can be used untrained.
-								<fo:inline font-family="ZapfDingbats">&#x2717;</fo:inline>: exclusive skills
+								<fo:inline font-family="ZapfDingbats">&#x2717;</fo:inline>: exclusive skills.
+								*: Skill Mastery.
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
