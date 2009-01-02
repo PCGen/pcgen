@@ -194,21 +194,24 @@ public class FeatToken extends AbstractToken implements
 					.getChangesInList(getFullName(), obj, ref);
 			MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
 					.getAddedAssociations();
-			for (CDOMReference<Ability> ab : mtl.getKeySet())
+			if (mtl != null)
 			{
-				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+				for (CDOMReference<Ability> ab : mtl.getKeySet())
 				{
-					if (!nature.equals(assoc
-							.getAssociation(AssociationKey.NATURE)))
+					for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 					{
-						continue;
+						if (!nature.equals(assoc
+								.getAssociation(AssociationKey.NATURE)))
+						{
+							continue;
+						}
+						if (!category.equals(assoc
+								.getAssociation(AssociationKey.CATEGORY)))
+						{
+							continue;
+						}
+						m.addToListFor(assoc.getPrerequisiteList(), ab);
 					}
-					if (!category.equals(assoc
-							.getAssociation(AssociationKey.CATEGORY)))
-					{
-						continue;
-					}
-					m.addToListFor(assoc.getPrerequisiteList(), ab);
 				}
 			}
 		}
