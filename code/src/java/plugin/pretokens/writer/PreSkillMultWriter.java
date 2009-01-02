@@ -73,14 +73,7 @@ public class PreSkillMultWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			if (prereq.isTotalValues())
-			{
-				writer.write("PRESKILLTOT:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
-			}
-			else
-			{
-				writer.write("PRESKILL:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
-			}
+			writer.write("PRESKILLMULT:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 			writer.write('=');
 			writer.write(prereq.getOperand());
@@ -91,4 +84,31 @@ public class PreSkillMultWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, true);
+		if (po == null)
+		{
+			return false;
+		}
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+				+ (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+				: "1");
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			writer.write(',');
+			writer.write(p.getKey());
+			writer.write('=');
+			writer.write(p.getOperand());
+		}
+		return true;
+	}
 }
