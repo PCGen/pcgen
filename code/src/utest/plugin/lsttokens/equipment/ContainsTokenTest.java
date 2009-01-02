@@ -477,6 +477,12 @@ public class ContainsTokenTest extends AbstractTokenTestCase<Equipment>
 	}
 
 	@Test
+	public void testRoundRobinSubUnlimited() throws PersistenceLayerException
+	{
+		this.runRoundRobin("3150|Any");
+	}
+
+	@Test
 	public void testRoundRobinTypeMultipleWeightUnlimited()
 		throws PersistenceLayerException
 	{
