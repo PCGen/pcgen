@@ -80,7 +80,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment>
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Test
