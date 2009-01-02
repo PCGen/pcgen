@@ -57,7 +57,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 	}
 
 	@Override
-	protected CompanionMod getObjectKeyed(String aKey) {
+	protected CompanionMod getObjectKeyed(LoadContext context, String aKey) {
 		return null;
 		//This is commented out to avoid problems - see Tracker 
 		//  - thpr 1/11/07
@@ -120,7 +120,8 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 	}
 
 	@Override
-	protected void performForget(CompanionMod objToForget) {
+	protected void performForget(LoadContext context, CompanionMod objToForget) {
+		super.performForget(context, objToForget);
 		Globals.removeCompanionMod(objToForget);
 	}
 }

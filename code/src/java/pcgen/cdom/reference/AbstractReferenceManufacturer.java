@@ -33,6 +33,7 @@ import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToInstanceList;
+import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.AbilityUtilities;
@@ -111,8 +112,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * are objects that have been constructed or imported into the
 	 * AbstractReferenceManufacturer.
 	 */
-	private final Map<String, T> active = new TreeMap<String, T>(
-			String.CASE_INSENSITIVE_ORDER);
+	private final KeyMap<T> active = new KeyMap<T>();
 
 	/**
 	 * Stores the duplicate objects for identifiers in this
@@ -524,19 +524,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			throw new IllegalArgumentException(
 					"Object to be forgotten does not match Class of this AbstractReferenceManufacturer");
 		}
-		/*
-		 * TODO This is a bug - the key name is not necessarily loaded into the
-		 * object, it may have been consumed by the object context... :P
-		 */
-		String key = obj.getKeyName();
-		CaseInsensitiveString ocik = new CaseInsensitiveString(key);
-		CDOMObject act = active.get(key);
-		if (act == null)
+		String key = active.getKeyFor(obj);
+		if (key != null)
 		{
-			throw new UnreachableError("Did not find " + obj + " under " + key);
-		}
-		if (act == obj)
-		{
+			CaseInsensitiveString ocik = new CaseInsensitiveString(key);
 			List<T> list = duplicates.getListFor(ocik);
 			if (list == null)
 			{
@@ -552,6 +543,12 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 		else
 		{
+			/*
+			 * TODO This is a bug - the key name is not necessarily loaded into the
+			 * object, it may have been consumed by the object context... :P
+			 */
+			CaseInsensitiveString ocik = new CaseInsensitiveString(obj
+					.getKeyName());
 			duplicates.removeFromListFor(ocik, obj);
 		}
 		return true;
@@ -962,9 +959,9 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 */
 	protected void injectConstructed(ReferenceManufacturer<T, ?> arm)
 	{
-		for (Map.Entry<String, T> me : active.entrySet())
+		for (String key : active.keySet())
 		{
-			arm.addObject(me.getValue(), me.getKey());
+			arm.addObject(active.get(key), key);
 		}
 		for (CaseInsensitiveString cis : duplicates.getKeySet())
 		{

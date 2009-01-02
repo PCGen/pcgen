@@ -35,7 +35,6 @@ import java.util.Set;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
@@ -127,7 +126,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		processMods(context);
 
 		// Finally, forget the .FORGET items
-		processForgets();
+		processForgets(context);
 	}
 
 	/**
@@ -203,9 +202,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 
 	protected void storeObject(LoadContext context, PObject pObj)
 	{
-		final T currentObj = getMatchingObject(pObj);
+		final T currentObj = getMatchingObject(context, pObj);
 
-		if (currentObj == null || !pObj.equals(currentObj))
+		if (!context.consolidate() || currentObj == null
+				|| !pObj.equals(currentObj))
 		{
 			addGlobalObject(pObj);
 		}
@@ -225,8 +225,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 						&& ((currentObjDate == null) || ((pObjDate
 							.compareTo(currentObjDate) > 0))))
 					{
-						performForget(currentObj);
-						context.ref.forget(currentObj);
+						performForget(context, currentObj);
 						addGlobalObject(pObj);
 					}
 				}
@@ -312,22 +311,24 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * This method retrieves a PObject from globals by its key.
 	 * This is used to avoid duplicate loads, get objects to forget or
 	 * modify, etc.
+	 * @param context TODO
 	 * @param aKey String key of PObject to retrieve
 	 * @return PObject from Globals
 	 */
-	protected abstract T getObjectKeyed(String aKey);
+	protected abstract T getObjectKeyed(LoadContext context, String aKey);
 
 	/**
 	 * This method retrieves a PObject from globals, attempting to match (by key
 	 * and category, if necessary), the given object. This is used to avoid
 	 * duplicate loads
-	 * 
+	 * @param context TODO
 	 * @param aKey The PObject to retrieve
+	 * 
 	 * @return PObject from Globals
 	 */
-	protected T getMatchingObject(PObject aKey)
+	protected T getMatchingObject(LoadContext context, PObject aKey)
 	{
-		return getObjectKeyed(aKey.getKeyName());
+		return getObjectKeyed(context, aKey.getKeyName());
 	}
 	
 	/**
@@ -486,25 +487,26 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	/**
 	 * This method, when implemented, will perform a single .FORGET
 	 * operation.
-	 *
+	 * @param context TODO
 	 * @param objToForget containing the object to forget
 	 */
-	protected void performForget(T objToForget)
+	protected void performForget(LoadContext context, T objToForget)
 	{
-		Globals.getContext().ref.forget(objToForget);
+		context.ref.forget(objToForget);
 	}
 
 	/**
 	 * This method will perform a single .COPY operation.
-	 *
-	 * @param baseName String name of the object to copy
+	 * @param context TODO
 	 * @param copyName String name of the target object
+	 * @param baseName String name of the object to copy
+	 *
 	 * @throws PersistenceLayerException 
 	 */
-	private T performCopy(String baseKey, String copyName)
+	private T performCopy(LoadContext context, String baseKey, String copyName)
 		throws PersistenceLayerException
 	{
-		T object = getObjectKeyed(baseKey);
+		T object = getObjectKeyed(context, baseKey);
 
 		try
 		{
@@ -558,7 +560,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		final int nameEnd = name.indexOf(COPY_SUFFIX);
 		final String baseName = name.substring(0, nameEnd);
 		final String copyName = name.substring(nameEnd + 6);
-		T copy = performCopy(baseName, copyName);
+		T copy = performCopy(context, baseName, copyName);
 		context.ref.importObject(copy);
 		if (copy != null)
 		{
@@ -595,7 +597,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		}
 
 		// get the actual object to modify
-		T object = getObjectKeyed(key);
+		T object = getObjectKeyed(context, key);
 
 		if (object == null)
 		{
@@ -666,8 +668,9 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 
 	/**
 	 * This method will process the lines containing a .FORGET directive
+	 * @param context TODO
 	 */
-	private void processForgets()
+	private void processForgets(LoadContext context)
 	{
 
 		for (String forgetKey : forgetLineList)
@@ -682,10 +685,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			// Commented out so that deprcated method no longer used
 			// performForget(forgetName);
 
-			T objToForget = getObjectKeyed(forgetKey);
+			T objToForget = getObjectKeyed(context, forgetKey);
 			if (objToForget != null)
 			{
-				performForget(objToForget);
+				performForget(context, objToForget);
 			}
 		}
 		forgetLineList.clear();

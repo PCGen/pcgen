@@ -74,6 +74,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			lang.setSourceURI(source.getURI());
 			if (isnew)
 			{
+				context.addStatefulInformation(lang);
 				context.ref.importObject(lang);
 			}
 		}
@@ -114,18 +115,18 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
 	 */
 	@Override
-	protected Language getObjectKeyed(String aKey)
+	protected Language getObjectKeyed(LoadContext context, String aKey)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aKey);
+		return context.ref.silentlyGetConstructedCDOMObject(Language.class, aKey);
 	}
 
 	@Override
 	protected void storeObject(LoadContext context, PObject pObj)
 	{
-		final Language matching = getMatchingObject(pObj);
+		final Language matching = getMatchingObject(context, pObj);
 
 		if (matching == null || !pObj.getType().equals(matching.getType()))
 		{
@@ -147,7 +148,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 						&& ((currentObjDate == null) || ((pObjDate
 							.compareTo(currentObjDate) > 0))))
 					{
-						performForget(matching);
+						performForget(context, matching);
 						context.ref.forget(matching);
 						addGlobalObject(pObj);
 					}

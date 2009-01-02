@@ -26,7 +26,6 @@ import java.lang.reflect.Modifier;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
-import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -117,6 +116,7 @@ public final class GenericLoader<T extends PObject> extends
 			po.setSourceURI(source.getURI());
 			if (isnew)
 			{
+				context.addStatefulInformation(po);
 				context.ref.importObject(po);
 			}
 		}
@@ -159,15 +159,15 @@ public final class GenericLoader<T extends PObject> extends
 
 	/**
 	 * Get the object with key aKey
-	 * 
 	 * @param aKey
+	 * 
 	 * @return PObject
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
 	 */
 	@Override
-	protected T getObjectKeyed(String aKey)
+	protected T getObjectKeyed(LoadContext context, String aKey)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return context.ref.silentlyGetConstructedCDOMObject(
 				baseClass, aKey);
 	}
 }

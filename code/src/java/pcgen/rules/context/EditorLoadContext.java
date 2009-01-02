@@ -20,4 +20,10 @@ public class EditorLoadContext extends LoadContext
 		return contextType;
 	}
 
+	@Override
+	public boolean consolidate()
+	{
+		return false;
+	}
+
 }

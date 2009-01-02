@@ -66,6 +66,7 @@ public final class FeatLoader extends AbilityLoader
 			String name = tabLoc == -1 ? lstLine : lstLine.substring(0, tabLoc);
 			feat.setName(name);
 			feat.setCDOMCategory(AbilityCategory.FEAT);
+			context.addStatefulInformation(feat);
 			context.ref.importObject(feat);
 		}
 		else
@@ -125,18 +126,18 @@ public final class FeatLoader extends AbilityLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
 	 */
 	@Override
-	protected Ability getObjectKeyed(final String aKey)
+	protected Ability getObjectKeyed(LoadContext context, final String aKey)
 	{
 		return Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aKey);
 	}
 	
 	@Override
-	protected Ability getMatchingObject(PObject aKey)
+	protected Ability getMatchingObject(LoadContext context, PObject aKey)
 	{
-		return getObjectKeyed(aKey.getKeyName());
+		return getObjectKeyed(context, aKey.getKeyName());
 	}
 	
 }

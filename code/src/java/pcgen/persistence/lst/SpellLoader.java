@@ -76,6 +76,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			spell.setSourceURI(source.getURI());
 			if (isnew)
 			{
+				context.addStatefulInformation(spell);
 				context.ref.importObject(spell);
 			}
 		}
@@ -116,10 +117,10 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
 	 */
 	@Override
-	protected Spell getObjectKeyed(final String aKey)
+	protected Spell getObjectKeyed(LoadContext context, final String aKey)
 	{
 		/*
 		 * TODO Wowzers.  This means that the MasterList info needs to be "cloned" when this is .COPY'd
@@ -191,11 +192,12 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(LoadContext, pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(final Spell objToForget)
+	protected void performForget(LoadContext context, final Spell objToForget)
 	{
+		super.performForget(context, objToForget);
 		Globals.removeFromSpellMap(objToForget.getKeyName());
 	}
 

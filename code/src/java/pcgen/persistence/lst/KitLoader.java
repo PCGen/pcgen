@@ -24,7 +24,6 @@ package pcgen.persistence.lst;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.kit.KitAbilities;
 import pcgen.core.kit.KitAlignment;
@@ -104,9 +103,9 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 	}
 
 	@Override
-	protected Kit getObjectKeyed(String aKey)
+	protected Kit getObjectKeyed(LoadContext context, String aKey)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return context.ref.silentlyGetConstructedCDOMObject(
 			Kit.class, aKey);
 	}
 
@@ -128,7 +127,6 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 						.substring(colonLoc + 1));
 			target.setSourceCampaign(source.getCampaign());
 			target.setSourceURI(source.getURI());
-			//TODO Does this happen implicitly during construct??
 			context.addStatefulInformation(target);
 			while (st.hasMoreTokens())
 			{

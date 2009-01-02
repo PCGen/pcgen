@@ -336,7 +336,7 @@ public abstract class LoadContext
 		int colonLoc = s.indexOf(':');
 		if (colonLoc == -1)
 		{
-			//TODO error
+			Logging.errorPrint("Found invalid stateful token: " + s);
 			return false;
 		}
 		if (stateful == null)
@@ -351,7 +351,7 @@ public abstract class LoadContext
 	{
 		if (stateful != null)
 		{
-			stateful.overlayCDOMObject(target);
+			target.overlayCDOMObject(stateful);
 		}
 	}
 
@@ -380,4 +380,6 @@ public abstract class LoadContext
 		}
 		return false;
 	}
+
+	public abstract boolean consolidate();
 }

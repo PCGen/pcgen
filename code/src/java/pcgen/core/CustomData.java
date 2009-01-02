@@ -634,7 +634,7 @@ public final class CustomData
 		{
 			if (c.getSafe(StringKey.DESTINATION).length() > 0)
 			{
-				CampaignOutput.output(c);
+				CampaignOutput.output(Globals.getContext(), c);
 			}
 		}
 	}

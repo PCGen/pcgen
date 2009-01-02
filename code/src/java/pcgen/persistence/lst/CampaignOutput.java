@@ -33,9 +33,9 @@ import java.util.List;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.io.FileAccess;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -57,7 +57,7 @@ public final class CampaignOutput
 	/**
 	 * @param campaign
 	 */
-	public static void output(Campaign campaign)
+	public static void output(LoadContext context, Campaign campaign)
 	{
 		final File outFile =
 				new File(SettingsHandler.getPccFilesLocation()
@@ -81,7 +81,7 @@ public final class CampaignOutput
 				}
 			}
 
-			Collection<String> lines = Globals.getContext().unparse(campaign);
+			Collection<String> lines = context.unparse(campaign);
 			if (lines != null)
 			{
 				for (String line : lines)

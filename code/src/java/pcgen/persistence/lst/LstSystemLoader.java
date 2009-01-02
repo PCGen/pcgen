@@ -441,124 +441,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// -- sage_sam
 		try
 		{
-			// The first thing we need to do is load the
-			// correct statsandchecks.lst file for this gameMode
-			GameMode gamemode = SettingsHandler.getGame();
-			if (gamemode == null)
-			{
-				// Autoload campaigns is set but there
-				// is no current gameMode, so just return
-				return;
-			}
 			LoadContext context = Globals.getContext();
-			File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
-			File specificGameModeDir = new File(gameModeDir, gamemode.getFolderName());
-			File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
-			statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
-
-			// Sort the campaigns
-			sortCampaignsByRank(aSelectedCampaignsList);
-
-			// Read the campaigns
-			readPccFiles(context, aSelectedCampaignsList, null, gamemode);
-
-			// Add custom campaign files at the start of the lists
-			addCustomFilesToStartOfList();
-
-			// Notify our observers of how many files we intend
-			// to load in total so that they can set up any
-			// progress meters that they want to.
-			setChanged();
-			notifyObservers(Integer.valueOf(countTotalFilesToLoad()));
-
-			// Load using the new LstFileLoaders
-
-			// load ability categories first as they used to only be at the game mode
-			abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
-			validateAbilityCategories(gamemode);
-
-			for (PCAlignment al : gamemode
-					.getUnmodifiableAlignmentList())
-			{
-				context.ref.registerAbbreviation(al, al.getKeyName());
-			}
-			for (PCStat st : gamemode
-					.getUnmodifiableStatList())
-			{
-				context.ref.registerAbbreviation(st, st.getAbb());
-			}
-			for (SizeAdjustment sz : gamemode
-					.getUnmodifiableSizeAdjustmentList())
-			{
-				context.ref.registerAbbreviation(sz, sz.getAbbreviation());
-			}
-			
-			// load weapon profs first
-			wProfLoader.loadLstFiles(context, weaponProfFileList);
-			aProfLoader.loadLstFiles(context, armorProfFileList);
-			sProfLoader.loadLstFiles(context, shieldProfFileList);
-
-			// load skills before classes to handle class skills
-			skillLoader.loadLstFiles(context, skillFileList);
-
-			// load before races to handle auto known languages
-			languageLoader.loadLstFiles(context, languageFileList);
-
-			// load before race or class to handle feats
-			featLoader.loadLstFiles(context, featFileList);
-
-			// load before race or class to handle abilities
-			abilityLoader.loadLstFiles(context, abilityFileList);
-
-			raceLoader.loadLstFiles(context, raceFileList);
-
-			//Domain must load before CLASS - thpr 10/29/06
-			domainLoader.loadLstFiles(context, domainFileList);
-
-			spellLoader.loadLstFiles(context, spellFileList);
-			deityLoader.loadLstFiles(context, deityFileList);
-
-			classLoader.loadLstFiles(context, classFileList);
-			
-			templateLoader.loadLstFiles(context, templateFileList);
-			
-			// loaded before equipment (required)
-			eqModLoader.loadLstFiles(context, equipmodFileList);
-
-			equipmentLoader.loadLstFiles(context, equipmentFileList);
-			companionModLoader.loadLstFiles(context, companionmodFileList);
-			kitLoader.loadLstFiles(context, kitFileList);
-			
-			// Load the bio settings files
-			bioLoader.loadLstFiles(context, bioSetFileList);
-
-			// Check for the default deities
-			checkRequiredDeities(context);
-
-			// Add default EQ mods
-			addDefaultEquipmentMods(context);
-
-			classLoader.loadSubLines(context);
-			
-			/*
-			 * This is technically bad behavior, but we at least want to provide
-			 * the hint here since we are using WeakReferences as a container
-			 * for references to ensure those that are not used are not
-			 * resolved.
-			 */
-			System.gc();
-			
-			context.resolveDeferredTokens();
-			context.ref.buildDeferredObjects();
-			context.ref.buildDerivedObjects();
-			context.ref.validate();
-			context.resolveReferences();
-			for (Equipment eq : context.ref
-					.getConstructedCDOMObjects(Equipment.class))
-			{
-				EqModAttachment.finishEquipment(eq);
-			}
-			context.buildTypeLists();
+			loadCampaigns(aSelectedCampaignsList, context);
 
 			// Load custom items
 			loadCustomItems();
@@ -597,6 +481,128 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			setChanged();
 			notifyObservers("DONE");
 		}
+	}
+
+	public void loadCampaigns(final List<Campaign> aSelectedCampaignsList,
+			LoadContext context) throws PersistenceLayerException
+	{
+		// The first thing we need to do is load the
+		// correct statsandchecks.lst file for this gameMode
+		GameMode gamemode = SettingsHandler.getGame();
+		if (gamemode == null)
+		{
+			// Autoload campaigns is set but there
+			// is no current gameMode, so just return
+			return;
+		}
+		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
+		File specificGameModeDir = new File(gameModeDir, gamemode.getFolderName());
+		File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
+		statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
+
+		// Sort the campaigns
+		sortCampaignsByRank(aSelectedCampaignsList);
+
+		// Read the campaigns
+		readPccFiles(context, aSelectedCampaignsList, null, gamemode);
+
+		// Add custom campaign files at the start of the lists
+		addCustomFilesToStartOfList();
+
+		// Notify our observers of how many files we intend
+		// to load in total so that they can set up any
+		// progress meters that they want to.
+		setChanged();
+		notifyObservers(Integer.valueOf(countTotalFilesToLoad()));
+
+		// Load using the new LstFileLoaders
+
+		// load ability categories first as they used to only be at the game mode
+		abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
+		validateAbilityCategories(gamemode);
+
+		for (PCAlignment al : gamemode
+				.getUnmodifiableAlignmentList())
+		{
+			context.ref.registerAbbreviation(al, al.getKeyName());
+		}
+		for (PCStat st : gamemode
+				.getUnmodifiableStatList())
+		{
+			context.ref.registerAbbreviation(st, st.getAbb());
+		}
+		for (SizeAdjustment sz : gamemode
+				.getUnmodifiableSizeAdjustmentList())
+		{
+			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
+		}
+		
+		// load weapon profs first
+		wProfLoader.loadLstFiles(context, weaponProfFileList);
+		aProfLoader.loadLstFiles(context, armorProfFileList);
+		sProfLoader.loadLstFiles(context, shieldProfFileList);
+
+		// load skills before classes to handle class skills
+		skillLoader.loadLstFiles(context, skillFileList);
+
+		// load before races to handle auto known languages
+		languageLoader.loadLstFiles(context, languageFileList);
+
+		// load before race or class to handle feats
+		featLoader.loadLstFiles(context, featFileList);
+
+		// load before race or class to handle abilities
+		abilityLoader.loadLstFiles(context, abilityFileList);
+
+		raceLoader.loadLstFiles(context, raceFileList);
+
+		//Domain must load before CLASS - thpr 10/29/06
+		domainLoader.loadLstFiles(context, domainFileList);
+
+		spellLoader.loadLstFiles(context, spellFileList);
+		deityLoader.loadLstFiles(context, deityFileList);
+
+		classLoader.loadLstFiles(context, classFileList);
+		
+		templateLoader.loadLstFiles(context, templateFileList);
+		
+		// loaded before equipment (required)
+		eqModLoader.loadLstFiles(context, equipmodFileList);
+
+		equipmentLoader.loadLstFiles(context, equipmentFileList);
+		companionModLoader.loadLstFiles(context, companionmodFileList);
+		kitLoader.loadLstFiles(context, kitFileList);
+		
+		// Load the bio settings files
+		bioLoader.loadLstFiles(context, bioSetFileList);
+
+		// Check for the default deities
+		checkRequiredDeities(context);
+
+		// Add default EQ mods
+		addDefaultEquipmentMods(context);
+
+		classLoader.loadSubLines(context);
+		
+		/*
+		 * This is technically bad behavior, but we at least want to provide
+		 * the hint here since we are using WeakReferences as a container
+		 * for references to ensure those that are not used are not
+		 * resolved.
+		 */
+		System.gc();
+		
+		context.resolveDeferredTokens();
+		context.ref.buildDeferredObjects();
+		context.ref.buildDerivedObjects();
+		context.ref.validate();
+		context.resolveReferences();
+		for (Equipment eq : context.ref
+				.getConstructedCDOMObjects(Equipment.class))
+		{
+			EqModAttachment.finishEquipment(eq);
+		}
+		context.buildTypeLists();
 	}
 
 	private void addDefaultEquipmentMods(LoadContext context)

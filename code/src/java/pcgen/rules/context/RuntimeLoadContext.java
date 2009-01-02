@@ -38,4 +38,9 @@ public class RuntimeLoadContext extends LoadContext
 		return contextType;
 	}
 
+	@Override
+	public boolean consolidate()
+	{
+		return true;
+	}
 }

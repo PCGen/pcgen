@@ -77,6 +77,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			anAbility.setSourceURI(source.getURI());
 			if (isnew)
 			{
+				context.addStatefulInformation(anAbility);
 				context.ref.importObject(anAbility);
 			}
 		}
@@ -116,10 +117,10 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
 	 */
 	@Override
-	protected Ability getObjectKeyed(String aKey)
+	protected Ability getObjectKeyed(LoadContext context, String aKey)
 	{
 		if (aKey == null || aKey.length() == 0)
 		{
@@ -147,11 +148,12 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(LoadContext, pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(Ability objToForget)
+	protected void performForget(LoadContext context, Ability objToForget)
 	{
+		super.performForget(context, objToForget);
 		String aCat = objToForget.getCategory();
 		String aKey = objToForget.getKeyName();
 		Globals.removeAbilityKeyed(aCat, aKey);
@@ -171,7 +173,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	}
 	
 	@Override
-	protected Ability getMatchingObject(PObject aKey)
+	protected Ability getMatchingObject(LoadContext context, PObject aKey)
 	{
 		return Globals.getAbilityKeyed(((Ability) aKey).getCategory(), aKey
 			.getKeyName());

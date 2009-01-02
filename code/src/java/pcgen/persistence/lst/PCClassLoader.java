@@ -29,7 +29,6 @@ import java.util.StringTokenizer;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.SubClass;
@@ -197,13 +196,14 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				pcClass.setName(name);
 				pcClass.setSourceURI(source.getURI());
 				pcClass.setSourceCampaign(source.getCampaign());
+				context.addStatefulInformation(pcClass);
 				context.ref.importObject(pcClass);
 			}
 			// need to grab PCClass instance for this .MOD minus the .MOD part of the name
 			else if (name.endsWith(".MOD"))
 			{
 				pcClass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, name.substring(0, name
+						context.ref.silentlyGetConstructedCDOMObject(PCClass.class, name.substring(0, name
 						.length() - 4));
 			}
 			parseLineIntoClass(context, pcClass, source, restOfLine);
@@ -483,9 +483,9 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
 	@Override
-	protected PCClass getObjectKeyed(String aKey)
+	protected PCClass getObjectKeyed(LoadContext context, String aKey)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aKey.startsWith("CLASS:") ? aKey
+		return context.ref.silentlyGetConstructedCDOMObject(PCClass.class, aKey.startsWith("CLASS:") ? aKey
 		.substring(6) : aKey);
 	}
 
