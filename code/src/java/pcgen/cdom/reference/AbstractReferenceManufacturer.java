@@ -27,6 +27,8 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
+import javax.swing.event.EventListenerList;
+
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.FixedStringList;
@@ -142,6 +144,12 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 
 	private final List<WeakReference<T>> manufactured = new ArrayList<WeakReference<T>>();
 	
+	/**
+	 * The EventListenerList which contains the listeners to this
+	 * AbstractReferenceManufacturer.
+	 */
+	private final transient EventListenerList listenerList = new EventListenerList();
+
 	/**
 	 * Constructs a new AbstractReferenceManufacturer for the given Class.
 	 * 
@@ -822,6 +830,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 						{
 							Logging.errorPrint("Unconstructed Reference: "
 									+ getReferenceDescription() + " " + s);
+							fireUnconstuctedEvent(value);
 							returnGood = false;
 						}
 						constructObject(s);
@@ -1008,5 +1017,45 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			manufactured.add(new WeakReference<T>(obj));
 		}
 		return obj;
+	}
+
+	public void addUnconstructedListener(UnconstructedListener listener)
+	{
+		listenerList.add(UnconstructedListener.class, listener);
+	}
+
+	public synchronized UnconstructedListener[] getUnconstructedListeners()
+	{
+		return listenerList.getListeners(UnconstructedListener.class);
+	}
+
+	public void removeUnconstructedListener(UnconstructedListener listener)
+	{
+		listenerList.remove(UnconstructedListener.class, listener);
+	}
+
+	private void fireUnconstuctedEvent(CDOMSingleRef<?> ref)
+	{
+		Object[] listeners = listenerList.getListenerList();
+		/*
+		 * This list is decremented from the end of the list to the beginning in
+		 * order to maintain consistent operation with how Java AWT and Swing
+		 * listeners are notified of Events (they are in reverse order to how
+		 * they were added to the Event-owning object).
+		 */
+		UnconstructedEvent uEvent = null;
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == UnconstructedListener.class)
+			{
+				// Lazily create event
+				if (uEvent == null)
+				{
+					uEvent = new UnconstructedEvent(this, ref); // NOPMD
+				}
+				((UnconstructedListener) listeners[i + 1])
+						.unconstructedReferenceFound(uEvent);
+			}
+		}
 	}
 }

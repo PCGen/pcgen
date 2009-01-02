@@ -1,0 +1,131 @@
+/*
+ * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.rules.context;
+
+import java.net.URI;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedEvent;
+import pcgen.cdom.reference.UnconstructedListener;
+import pcgen.util.Logging;
+
+public class TrackingReferenceContext extends ReferenceContext implements
+		UnconstructedListener
+{
+
+	private DoubleKeyMapToList<CDOMSingleRef<?>, URI, String> track = new DoubleKeyMapToList<CDOMSingleRef<?>, URI, String>();
+
+	@Override
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
+			Class<T> c, Category<T> cat, String val)
+	{
+		CDOMSingleRef<T> ref = super.getCDOMReference(c, cat, val);
+		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+		String source = null;
+		for (int i = 0; i < stackTrace.length; i++)
+		{
+			String className = stackTrace[i].getClassName();
+			if (className.startsWith("plugin.lsttokens"))
+			{
+				source = className;
+				break;
+			}
+		}
+		track.addToListFor(ref, getSourceURI(), source);
+		return ref;
+	}
+
+	@Override
+	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMReference(Class<T> c,
+			String val)
+	{
+		CDOMSingleRef<T> ref = super.getCDOMReference(c, val);
+		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+		String source = null;
+		for (int i = 0; i < stackTrace.length; i++)
+		{
+			String className = stackTrace[i].getClassName();
+			if (className.startsWith("plugin.lsttokens"))
+			{
+				source = className;
+				break;
+			}
+		}
+		track.addToListFor(ref, getSourceURI(), source);
+		return ref;
+	}
+
+	private Set<ReferenceManufacturer<?, ?>> listening = new HashSet<ReferenceManufacturer<?, ?>>();
+
+	@Override
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+			Class<T> cl, Category<T> cat)
+	{
+		ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> mfg = super
+				.getManufacturer(cl, cat);
+		if (!listening.contains(mfg))
+		{
+			mfg.addUnconstructedListener(this);
+			listening.add(mfg);
+		}
+		return mfg;
+	}
+
+	@Override
+	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+			Class<T> cl)
+	{
+		ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> mfg = super
+				.getManufacturer(cl);
+		if (!listening.contains(mfg))
+		{
+			mfg.addUnconstructedListener(this);
+			listening.add(mfg);
+		}
+		return mfg;
+	}
+
+	public void unconstructedReferenceFound(UnconstructedEvent e)
+	{
+		CDOMSingleRef<?> ref = e.getReference();
+		Set<URI> uris = track.getSecondaryKeySet(ref);
+		if (uris == null)
+		{
+			// Shouldn't happen, but this is reporting, not critical, so be safe
+			return;
+		}
+		for (URI uri : uris)
+		{
+			List<String> tokens = track.getListFor(ref, uri);
+			Set<String> tokenNames = new TreeSet<String>();
+			tokenNames.addAll(tokens);
+			Logging.errorPrint("  Was used in " + uri + " in tokens: "
+					+ tokenNames);
+		}
+	}
+
+}

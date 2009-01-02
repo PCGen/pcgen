@@ -49,6 +49,7 @@ import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.TrackingReferenceContext;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -3312,7 +3313,7 @@ public final class GameMode implements Comparable<Object>
 	}
 	
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
-	private LoadContext context = new RuntimeLoadContext(new ReferenceContext(), masterLCS);
+	private LoadContext context = new RuntimeLoadContext(getRefContext(), masterLCS);
 	private GameReferenceContext gameRefContext = new GameReferenceContext();
 	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
 	private String defaultSourceTitle;
@@ -3320,13 +3321,25 @@ public final class GameMode implements Comparable<Object>
 	public void clearLoadContext()
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
-		ReferenceContext referenceContext = new ReferenceContext();
+		ReferenceContext referenceContext = getRefContext();
 		for (TransparentReferenceManufacturer<? extends CDOMObject> rm : gameRefContext
 				.getAllManufacturers())
 		{
 			resolveReferenceManufacturer(referenceContext, rm);
 		}
 		context = new RuntimeLoadContext(referenceContext, masterLCS);
+	}
+
+	private ReferenceContext getRefContext()
+	{
+		if (SettingsHandler.inputUnconstructedMessages())
+		{
+			return new TrackingReferenceContext();
+		}
+		else
+		{
+			return new ReferenceContext();
+		}
 	}
 
 	private <T extends CDOMObject> void resolveReferenceManufacturer(

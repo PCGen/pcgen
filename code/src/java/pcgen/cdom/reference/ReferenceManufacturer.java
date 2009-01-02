@@ -319,4 +319,11 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 *         identifier.
 	 */
 	public T constructNowIfNecessary(String name);
+
+	public void addUnconstructedListener(UnconstructedListener listener);
+
+	public UnconstructedListener[] getUnconstructedListeners();
+
+	public void removeUnconstructedListener(UnconstructedListener listener);
+
 }

@@ -212,8 +212,10 @@ final class PreferencesDialog extends JDialog
 			PropertyFactory.getString("in_Prefs_output");
 	private static String in_input =
 			PropertyFactory.getString("in_Prefs_input");
-	private static String in_printDeprecation =
-			PropertyFactory.getString("in_Prefs_printDeprecation");
+	private static String in_printDeprecation = PropertyFactory
+			.getString("in_Prefs_printDeprecation");
+	private static String in_printUnconstructed = PropertyFactory
+			.getString("in_Prefs_printUnconstructed");
 	private static String in_outputSheetEqSet =
 			PropertyFactory.getString("in_Prefs_templateEqSet");
 	private static String in_pcgen =
@@ -399,6 +401,7 @@ final class PreferencesDialog extends JDialog
 
 	// Input
 	private JCheckBox printDeprecationMessages = new JCheckBox();
+	private JCheckBox printUnconstructedDetail = new JCheckBox();
 
 	// Location
 	private JTextField browserPath;
@@ -858,7 +861,9 @@ final class PreferencesDialog extends JDialog
 		
 		// Input
 		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages
-			.isSelected());
+				.isSelected());
+		SettingsHandler.setInputUnconstructedMessages(printUnconstructedDetail
+				.isSelected());
 		
 		// Location -- added 10 April 2000 by sage_sam
 		SettingsHandler.setBrowserPath(browserPath.getText());
@@ -1210,7 +1215,9 @@ final class PreferencesDialog extends JDialog
 
 		// Input
 		printDeprecationMessages.setSelected(SettingsHandler
-			.outputDeprecationMessages());
+				.outputDeprecationMessages());
+		printUnconstructedDetail.setSelected(SettingsHandler
+				.inputUnconstructedMessages());
 		
 		// Output
 		paperType.setSelectedIndex(Globals.getSelectedPaper());
@@ -1909,6 +1916,13 @@ final class PreferencesDialog extends JDialog
 					.outputDeprecationMessages());
 		gridbag.setConstraints(printDeprecationMessages, c);
 		inputPanel.add(printDeprecationMessages);
+		
+		Utility.buildConstraints(c, 0, 28, 3, 1, 0, 0);
+		printUnconstructedDetail =
+				new JCheckBox(in_printUnconstructed, SettingsHandler
+					.inputUnconstructedMessages());
+		gridbag.setConstraints(printUnconstructedDetail, c);
+		inputPanel.add(printUnconstructedDetail);
 		
 		return inputPanel;
 	}
