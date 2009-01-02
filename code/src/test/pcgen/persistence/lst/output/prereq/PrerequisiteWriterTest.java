@@ -78,7 +78,7 @@ public class PrerequisiteWriterTest extends TestCase
 	//
 	// Examples from the PCGen documentation - note that there are two columns for each entry below
 	//
-		"PREABILITY:1,CATEGORY=Special Attack,Sneak Attack",							"PREABILITY:1,CHECKMULT,CATEGORY=Special Attack,Sneak Attack",
+		"PREABILITY:1,CATEGORY=Special Attack,Sneak Attack",							"PREABILITY:1,CATEGORY=Special Attack,Sneak Attack",
 		"PREALIGN:LG,NG,CG",															"PREALIGN:LG,NG,CG",
 		"PREALIGN:2,5,8",																"PREALIGN:LE,NE,CE",
 		"PREALIGN:LG,Deity",															"PREALIGN:LG,Deity",
@@ -130,7 +130,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREEQUIPTWOWEAPON:1,Sword (Short)",											"PREEQUIPTWOWEAPON:1,Sword (Short)",
 		"PREEQUIPTWOWEAPON:1,Sword (Short%",											"PREEQUIPTWOWEAPON:1,Sword (Short%",
 		"PREEQUIPTWOWEAPON:1,TYPE=Slashing",											"PREEQUIPTWOWEAPON:1,TYPE=Slashing",
-		"PREFEAT:1,Dodge,Combat Reflexes",												"PREMULT:1,[PREFEAT:1,CHECKMULT,Dodge],[PREFEAT:1,CHECKMULT,Combat Reflexes]",
+		"PREFEAT:1,Dodge,Combat Reflexes",												"PREFEAT:1,Dodge,Combat Reflexes",
 		"PREFEAT:2,CHECKMULT,Spell Focus",												"PREFEAT:2,CHECKMULT,Spell Focus",
 //		"PREFEAT:2,CHECKMULT,Spell Focus,[Spell Focus(Enchantment)]",					"PREFEAT:2,CHECKMULT,Spell Focus\t!PREFEAT:1,CHECKMULT,Spell Focus (Enchantment)",
 		"PREFEAT:2,Weapon Focus(TYPE=Bow),Weapon Focus(Longsword)",						"PREMULT:2,[PREFEAT:1,CHECKMULT,Weapon Focus (TYPE=Bow)],[PREFEAT:1,CHECKMULT,Weapon Focus (Longsword)]",
