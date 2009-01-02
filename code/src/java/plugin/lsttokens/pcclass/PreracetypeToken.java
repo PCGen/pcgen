@@ -17,15 +17,11 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -38,8 +34,6 @@ import pcgen.util.Logging;
 public class PreracetypeToken extends AbstractToken implements
 		CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>
 {
-
-	private static final String TOKEN_ROOT = "RACETYPE";
 
 	@Override
 	public String getTokenName()
@@ -59,33 +53,18 @@ public class PreracetypeToken extends AbstractToken implements
 		p.setOperand("1");
 		p.setKey(value);
 		p.setOperator(PrerequisiteOperator.GTEQ);
-		context.obj.put(pcc, p);
+		context.obj.put(pcc, ObjectKey.PRERACETYPE, p);
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Set<String> set = new TreeSet<String>();
-		Changes<Prerequisite> changes = context.obj.getPrerequisiteChanges(obj);
-		if (changes == null || changes.isEmpty())
+		Prerequisite prereq = context.obj.getObject(obj, ObjectKey.PRERACETYPE);
+		if (prereq == null)
 		{
 			return null;
 		}
-		for (Prerequisite p : changes.getAdded())
-		{
-			String kind = p.getKind();
-			if (kind == null
-					|| kind.regionMatches(true, 0, TOKEN_ROOT, 0, Math.min(
-							TOKEN_ROOT.length(), kind.length())))
-			{
-				set.add(p.getKey());
-			}
-		}
-		if (set.isEmpty())
-		{
-			return null;
-		}
-		return set.toArray(new String[set.size()]);
+		return new String[] { prereq.getKey() };
 	}
 
 	public Class<PCClass> getTokenClass()
@@ -95,21 +74,16 @@ public class PreracetypeToken extends AbstractToken implements
 
 	public boolean process(LoadContext context, PCClass obj)
 	{
-		List<Prerequisite> prerequisiteList = obj.getPrerequisiteList();
-		if (prerequisiteList != null)
+		Prerequisite prereq = obj.get(ObjectKey.PRERACETYPE);
+		if (prereq != null)
 		{
-			for (Prerequisite p : prerequisiteList)
+			if (!obj.isMonster())
 			{
-				if ("RACETYPE".equalsIgnoreCase(p.getKind()))
-				{
-					if (!obj.isMonster())
-					{
-						Logging.errorPrint("PCClass " + obj.getKeyName()
-								+ " is not a Monster, but used PRERACETYPE");
-						return false;
-					}
-				}
+				Logging.errorPrint("PCClass " + obj.getKeyName()
+						+ " is not a Monster, but used PRERACETYPE");
+				return false;
 			}
+			obj.addPrerequisite(prereq);
 		}
 		return true;
 	}

@@ -65,6 +65,7 @@ import pcgen.core.SubClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.Ability.Nature;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
@@ -274,6 +275,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<Boolean> SHOW_IN_MENU = new ObjectKey<Boolean>(Boolean.FALSE);
 
 	public static final ObjectKey<PersistentTransitionChoice<Language>> CHOOSE_LANGAUTO = new ObjectKey<PersistentTransitionChoice<Language>>(null);
+
+	public static final ObjectKey<Prerequisite> PRERACETYPE = new ObjectKey<Prerequisite>(null);
 
 	/*
 	 * TODO Okay, this is a hack.
