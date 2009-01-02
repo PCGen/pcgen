@@ -49,15 +49,14 @@ public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		final String descriptor = prereq.getKey();
-		final int requiredLevel = Integer.parseInt(prereq.getSubKey());
-		final int requiredNumber = Integer.parseInt(prereq.getOperand());
+		final int requiredLevel = Integer.parseInt(prereq.getOperand());
 
 		final List<Spell> aArrayList =
 				character.aggregateSpellList(
 					"No-Match", "A", descriptor, requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
 		final int runningTotal =
-				prereq.getOperator().compare(aArrayList.size(), requiredNumber);
+				prereq.getOperator().compare(aArrayList.size(), 1);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -66,7 +65,7 @@ public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 	 */
 	public String kindHandled()
 	{
-		return "SPELL.DESCRIPTOR"; //$NON-NLS-1$
+		return "SPELLDESCRIPTOR"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)

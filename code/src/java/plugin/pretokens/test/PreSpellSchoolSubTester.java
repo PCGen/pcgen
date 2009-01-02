@@ -50,8 +50,7 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		final String subSchool = prereq.getKey();
-		final int requiredLevel = Integer.parseInt(prereq.getSubKey());
-		final int requiredNumber = Integer.parseInt(prereq.getOperand());
+		final int requiredLevel = Integer.parseInt(prereq.getOperand());
 
 		final List<Spell> aArrayList =
 				character
@@ -59,7 +58,7 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 						"No-Match", subSchool, "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
 		final int runningTotal =
-				prereq.getOperator().compare(aArrayList.size(), requiredNumber);
+				prereq.getOperator().compare(aArrayList.size(), 1);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -68,7 +67,7 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 	 */
 	public String kindHandled()
 	{
-		return "SPELL.SUBSCHOOL"; //$NON-NLS-1$
+		return "SPELLSCHOOLSUB"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)

@@ -28,41 +28,48 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-import java.io.IOException;
-import java.io.Writer;
-
 public class PreSpellSchoolWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
 	public String kindHandled()
 	{
-		return "spell.school";
+		return "spellschool";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-			PrerequisiteOperator.LT};
+		return new PrerequisiteOperator[] { PrerequisiteOperator.GTEQ,
+				PrerequisiteOperator.LT };
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer,
+	 *      pcgen.core.prereq.Prerequisite)
 	 */
 	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -73,12 +80,11 @@ public class PreSpellSchoolWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLSCHOOL:");
-			writer.write(prereq.getOperand());
-			writer.write(',');
+			writer.write("PRE" + kindHandled().toUpperCase() + ":"
+					+ (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
 			writer.write(prereq.getKey());
 			writer.write('=');
-			writer.write(prereq.getSubKey());
+			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)
 		{
@@ -86,14 +92,12 @@ public class PreSpellSchoolWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
-	 */
 	@Override
 	public boolean specialCase(Writer writer, Prerequisite prereq)
-		throws IOException
+			throws IOException
 	{
-		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, true);
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq,
+				true);
 		if (po == null)
 		{
 			return false;
@@ -103,7 +107,7 @@ public class PreSpellSchoolWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRESPELLSCHOOL:"
+		writer.write("PRE" + kindHandled().toUpperCase() + ":"
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");
@@ -112,7 +116,7 @@ public class PreSpellSchoolWriter extends AbstractPrerequisiteWriter implements
 			writer.write(',');
 			writer.write(p.getKey());
 			writer.write('=');
-			writer.write(p.getSubKey());
+			writer.write(p.getOperand());
 		}
 		return true;
 	}
