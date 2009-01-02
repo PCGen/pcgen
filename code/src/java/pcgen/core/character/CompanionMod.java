@@ -100,7 +100,9 @@ public final class CompanionMod extends PObject
 				return false;
 			}
 			return getSafe(IntegerKey.LEVEL) == cmpMod.getSafe(IntegerKey.LEVEL)
-				&& ar.equals(car) && ac.equals(cac) && av.equals(cav);
+				&& (ar == null || ar.equals(car))
+					&& (ac == null || ac.equals(cac))
+					&& (av == null || av.equals(cav));
 		}
 		return false;
 	}
