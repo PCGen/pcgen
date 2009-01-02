@@ -85,8 +85,7 @@ public class TrackingReferenceContext extends ReferenceContext implements
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> mfg = super
-				.getManufacturer(cl, cat);
+		ReferenceManufacturer mfg = super.getManufacturer(cl, cat);
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
@@ -99,8 +98,7 @@ public class TrackingReferenceContext extends ReferenceContext implements
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl)
 	{
-		ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> mfg = super
-				.getManufacturer(cl);
+		ReferenceManufacturer mfg = super.getManufacturer(cl);
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
