@@ -92,13 +92,11 @@ public class FeatToken implements CDOMSecondaryToken<CDOMObject>
 	{
 		String chooseString = context.getObjectContext().getString(cdo,
 				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') == -1)
+		if (chooseString == null || chooseString.indexOf("FEAT=") == -1)
 		{
 			return null;
 		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return new String[] { chooseString.substring(5) };
 	}
 
 	public Class<CDOMObject> getTokenClass()
