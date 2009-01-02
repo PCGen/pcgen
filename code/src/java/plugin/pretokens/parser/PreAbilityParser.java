@@ -76,6 +76,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	{
 		Prerequisite prereq =
 				super.parse(kind, formula, invertResult, overrideQualify);
+		prereq.setOriginalCheckmult(formula.indexOf(",CHECKMULT,") != -1);
 
 		// Extract category
 		extractCategory(prereq);
@@ -171,6 +172,12 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 				}
 			}
 		}
+		/*
+		 * TODO There is a special case here where
+		 * prereq.getPrerequisiteList().size() == 1 That can be consolidated
+		 * into one prereq ... question is how (and keep the operator, etc.
+		 * correct)
+		 */
 		if (categoryName.length() > 0)
 		{
 			for (Prerequisite p : prereq.getPrerequisites())

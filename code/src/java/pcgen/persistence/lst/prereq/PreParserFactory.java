@@ -173,7 +173,9 @@ public class PreParserFactory
 				&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
 				&& prereq.getOperand().equals("1"))
 			{
-				prereq = prereq.getPrerequisites().get(0);
+				Prerequisite sub = prereq.getPrerequisites().get(0);
+				sub.setOriginalCheckmult(prereq.isOriginalCheckMult());
+				prereq = sub;
 			}
 			return prereq;
 		}

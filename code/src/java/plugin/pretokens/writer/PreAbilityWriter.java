@@ -36,6 +36,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 /**
  * <code>PreAbilityWriter</code> outputs ability prereqs.
@@ -83,7 +84,8 @@ public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 			writer.write("PREABILITY:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
-			if (prereq.isCountMultiples())
+
+			if (prereq.isOriginalCheckMult())
 			{
 				writer.write("CHECKMULT,");
 			}
@@ -111,4 +113,93 @@ public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 		}
 	}
 
+	@Override
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+			throws IOException
+	{
+		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
+		if (po == null)
+		{
+			return false;
+		}
+		if (hasSubordinateCheckMult(prereq))
+		{
+			return false;
+		}
+		List<Prerequisite> prereqList = prereq.getPrerequisites();
+		String cat = null;
+		boolean foundCat = false;
+		for (Prerequisite p : prereqList)
+		{
+			if (foundCat)
+			{
+				String thiscat = p.getCategoryName();
+				if (thiscat == null)
+				{
+					if (cat != null)
+					{
+						return false;
+					}
+				}
+				else
+				{
+					if (!thiscat.equals(cat))
+					{
+						return false;
+					}
+				}
+			}
+			else
+			{
+				cat = p.getCategoryName();
+				foundCat = true;
+			}
+		}
+		if (!po.equals(prereq.getOperator()))
+		{
+			writer.write('!');
+		}
+
+		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+				+ (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+				: "1");
+		if (prereq.isOriginalCheckMult())
+		{
+			writer.write(",CHECKMULT");
+		}
+		if (cat == null)
+		{
+			writer.write(",CATEGORY=ANY");
+		}
+		else
+		{
+			writer.write(",CATEGORY=" + cat);
+		}
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			writer.write(',');
+			writer.write(p.getKey());
+		}
+		return true;
+	}
+
+	private boolean hasSubordinateCheckMult(Prerequisite prereq)
+	{
+		for (Prerequisite p : prereq.getPrerequisites())
+		{
+			if (p.isOriginalCheckMult())
+			{
+				return true;
+			}
+			for (Prerequisite sub : p.getPrerequisites())
+			{
+				if (hasSubordinateCheckMult(sub))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
