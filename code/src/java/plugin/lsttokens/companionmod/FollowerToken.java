@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedCDOMReference;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.core.character.CompanionMod;
@@ -87,7 +86,7 @@ public class FollowerToken extends AbstractToken implements
 			if (pcClass != null)
 			{
 				CDOMSingleRef<PCClass> pcc =
-						Globals.getContext().ref.getCDOMReference(
+						context.ref.getCDOMReference(
 							PCCLASS_CLASS, classKey);
 				context.getObjectContext().put(cMod, MapKey.APPLIED_CLASS, pcc,
 					lvl);
