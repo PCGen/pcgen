@@ -180,6 +180,12 @@ public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 		{
 			writer.write(',');
 			writer.write(p.getKey());
+			if (p.getSubKey() != null)
+			{
+				writer.write(" (");
+				writer.write(p.getSubKey());
+				writer.write(")");
+			}
 		}
 		return true;
 	}

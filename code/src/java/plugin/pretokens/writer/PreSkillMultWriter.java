@@ -75,6 +75,12 @@ public class PreSkillMultWriter extends AbstractPrerequisiteWriter implements
 
 			writer.write("PRESKILLMULT:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
+			if (prereq.getSubKey() != null)
+			{
+				writer.write(" (");
+				writer.write(prereq.getSubKey());
+				writer.write(")");
+			}
 			writer.write('=');
 			writer.write(prereq.getOperand());
 		}
@@ -106,6 +112,12 @@ public class PreSkillMultWriter extends AbstractPrerequisiteWriter implements
 		{
 			writer.write(',');
 			writer.write(p.getKey());
+			if (p.getSubKey() != null)
+			{
+				writer.write(" (");
+				writer.write(p.getSubKey());
+				writer.write(")");
+			}
 			writer.write('=');
 			writer.write(p.getOperand());
 		}

@@ -119,6 +119,12 @@ public class PreSkillWriter extends AbstractPrerequisiteWriter implements
 		{
 			writer.write(',');
 			writer.write(p.getKey());
+			if (p.getSubKey() != null)
+			{
+				writer.write(" (");
+				writer.write(p.getSubKey());
+				writer.write(")");
+			}
 			writer.write('=');
 			writer.write(p.getOperand());
 		}
