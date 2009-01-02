@@ -24,8 +24,6 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
-import pcgen.core.SettingsHandler;
-import pcgen.core.TimeUnit;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -63,9 +61,6 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		SettingsHandler.getGame().addTimeUnit(new TimeUnit("Week"));
-		SettingsHandler.getGame().addTimeUnit(new TimeUnit("Hour"));
-		SettingsHandler.getGame().addTimeUnit(new TimeUnit("Day"));
 	}
 
 	@Override

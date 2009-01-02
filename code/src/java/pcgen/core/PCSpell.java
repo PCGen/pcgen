@@ -22,7 +22,7 @@ public class PCSpell extends PObject {
 	private String timesPerDay = null;
 	private String casterLevelFormula = null;
 	private String dcFormula = null;
-	private TimeUnit timeUnit = null;
+	private String timeUnit = null;
 
 	public PCSpell() {
 		super();
@@ -36,7 +36,7 @@ public class PCSpell extends PObject {
 		sBuff.append(spellbook);
 		if(timeUnit != null && !timeUnit.equals("")) {
 			sBuff.append("|TIMEUNIT=");
-			sBuff.append(timeUnit.getKeyName());
+			sBuff.append(timeUnit);
 		}
 		if(timesPerDay != null && !timesPerDay.equals("")) {
 			sBuff.append("|TIMES=");
@@ -85,7 +85,7 @@ public class PCSpell extends PObject {
 	 * 
 	 * @param timeUnit the new time unit
 	 */
-	public void setTimeUnit(TimeUnit timeUnit)
+	public void setTimeUnit(String timeUnit)
 	{
 		this.timeUnit  = timeUnit;
 	}
@@ -93,7 +93,7 @@ public class PCSpell extends PObject {
 	/**
 	 * @return the timeUnit
 	 */
-	public TimeUnit getTimeUnit()
+	public String getTimeUnit()
 	{
 		return timeUnit;
 	}

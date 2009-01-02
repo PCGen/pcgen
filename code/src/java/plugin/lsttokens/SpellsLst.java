@@ -38,8 +38,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.core.SettingsHandler;
-import pcgen.core.TimeUnit;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.AssociatedChanges;
@@ -234,14 +232,7 @@ public class SpellsLst extends AbstractToken implements
 					.getFormulaFor(times));
 			if (timeunit != null)
 			{
-				TimeUnit unit = SettingsHandler.getGame().getTimeUnit(timeunit);
-				if (unit == null)
-				{
-					Logging.errorPrint(getTokenName() + "found invalid Time Unit: "
-							+ timeunit);
-					return false;
-				}
-				dkm.put(spell, AssociationKey.TIME_UNIT, unit);
+				dkm.put(spell, AssociationKey.TIME_UNIT, timeunit);
 			}
 			dkm.put(spell, AssociationKey.SPELLBOOK, spellBook);
 			if (commaLoc != -1)
@@ -364,12 +355,12 @@ public class SpellsLst extends AbstractToken implements
 				{
 					sb.append(Constants.PIPE).append("TIMES=").append(times);
 				}
-				TimeUnit timeunit = AssociationKey.TIME_UNIT.cast(am
+				String timeunit = AssociationKey.TIME_UNIT.cast(am
 						.get(AssociationKey.TIME_UNIT));
 				if (timeunit != null)
 				{
 					sb.append(Constants.PIPE).append("TIMEUNIT=").append(
-							timeunit.getKeyName());
+							timeunit);
 				}
 				String casterLvl = AssociationKey.CASTER_LEVEL.cast(am
 						.get(AssociationKey.CASTER_LEVEL));

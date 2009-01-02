@@ -11955,7 +11955,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					int resolvedTimes =
 							times.resolve(this, obj.getQualifiedKey())
 								.intValue();
-					TimeUnit timeunit =
+					String timeunit =
 							apo.getAssociation(AssociationKey.TIME_UNIT);
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
 

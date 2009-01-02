@@ -26,7 +26,6 @@
 package pcgen.core.character;
 
 import pcgen.core.Globals;
-import pcgen.core.TimeUnit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +51,7 @@ public final class SpellInfo
 	private String book = Globals.getDefaultSpellBook(); // name of book
 	private int actualLevel = -1;
 	private int times; // times the spell is in this list
-	private TimeUnit timeUnit; // the timeunit the times is for (day, week etc)
+	private String timeUnit; // the timeunit the times is for (day, week etc)
 	private int actualPPCost = -1;
 	private int actualSpellPointCost = 0;
 	private int numPages = 0;
@@ -125,7 +124,7 @@ public final class SpellInfo
 	/**
 	 * @return the timeUnit
 	 */
-	public TimeUnit getTimeUnit()
+	public String getTimeUnit()
 	{
 		return timeUnit;
 	}
@@ -133,7 +132,7 @@ public final class SpellInfo
 	/**
 	 * @param timeUnit the timeUnit to set
 	 */
-	public void setTimeUnit(TimeUnit timeUnit)
+	public void setTimeUnit(String timeUnit)
 	{
 		this.timeUnit = timeUnit;
 	}

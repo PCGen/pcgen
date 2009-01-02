@@ -187,9 +187,6 @@ public final class GameMode implements Comparable<Object>
 	private int maxDieSize = 12;
 	private int minDieSize = 4;
 	
-	private TimeUnit defaultTimeUnit;
-	private List<TimeUnit> theTimeUnits = new ArrayList<TimeUnit>();
-
 	private List<String> resizableTypeList = new ArrayList<String>();
 	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
 
@@ -214,8 +211,6 @@ public final class GameMode implements Comparable<Object>
 			ti.tabName = aTab.label();
 			tInfo.put(aTab, ti);
 		}
-		defaultTimeUnit = new TimeUnit("DAY", "Day");
-		theTimeUnits.add(defaultTimeUnit);
 	}
 
 	/**
@@ -3159,51 +3154,6 @@ public final class GameMode implements Comparable<Object>
 			}
 		}
 		return Collections.unmodifiableCollection(catList);
-	}
-
-	/**
-	 * Adds the time unit to the game mode's list.
-	 * 
-	 * @param timeUnit the time unit
-	 */
-	public void addTimeUnit(final TimeUnit timeUnit)
-	{
-		theTimeUnits.add(timeUnit);
-	}
-
-	/**
-	 * Gets the time unit based on its key.
-	 * 
-	 * @param aKey the key
-	 * 
-	 * @return the time unit
-	 */
-	public TimeUnit getTimeUnit(final String aKey)
-	{
-		for (final TimeUnit unit : theTimeUnits)
-		{
-			if (unit.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return unit;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * @return the defaultTimeUnit
-	 */
-	public TimeUnit getDefaultTimeUnit()
-	{
-		return defaultTimeUnit;
-	}
-
-	/**
-	 * @param defaultTimeUnit the defaultTimeUnit to set
-	 */
-	public void setDefaultTimeUnit(TimeUnit defaultTimeUnit)
-	{
-		this.defaultTimeUnit = defaultTimeUnit;
 	}
 
 	public void setPreviewDir(final String aDir)

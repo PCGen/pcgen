@@ -33,7 +33,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.TimeUnit;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
@@ -75,7 +74,7 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Formula> TIMES_PER_UNIT = new AssociationKey<Formula>();
 
-	public static final AssociationKey<TimeUnit> TIME_UNIT = new AssociationKey<TimeUnit>();
+	public static final AssociationKey<String> TIME_UNIT = new AssociationKey<String>();
 
 	public static final AssociationKey<String> SPELLBOOK = new AssociationKey<String>();
 
