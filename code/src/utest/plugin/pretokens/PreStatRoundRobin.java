@@ -65,4 +65,10 @@ public class PreStatRoundRobin extends AbstractRankedRoundRobin
 	{
 		return false;
 	}
+
+	@Override
+	public boolean isSubAllowed()
+	{
+		return false;
+	}
 }

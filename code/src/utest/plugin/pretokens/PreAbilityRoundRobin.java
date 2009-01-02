@@ -451,4 +451,62 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Override
+	public void testCombineSubSub()
+	{
+		String original = "PREMULT:2,[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)],[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Spot (Check)]";
+		String consolidatedPre = "!PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar),Spot (Check)";
+		try
+		{
+			Prerequisite p = PreParserFactory.getInstance().parse(original);
+			PrerequisiteWriterInterface writer = PrerequisiteWriterFactory
+					.getInstance().getWriter(p.getKind());
+			if (writer == null)
+			{
+				fail("Could not find Writer for: " + p.getKind());
+			}
+			StringWriter w = new StringWriter();
+			writer.write(w, p);
+			boolean consolidated = w.toString().equals(consolidatedPre);
+			boolean separate = w.toString().equals(original);
+			assertTrue(consolidated || separate);
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getLocalizedMessage());
+		}
+	}
+
+	@Override
+	public void testCombineSubNegativeSub()
+	{
+		String original = "!PREMULT:2,[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)],[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Spot (Check)]";
+		String consolidatedPre = "PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar),Spot (Check)";
+		try
+		{
+			Prerequisite p = PreParserFactory.getInstance().parse(original);
+			PrerequisiteWriterInterface writer = PrerequisiteWriterFactory
+					.getInstance().getWriter(p.getKind());
+			if (writer == null)
+			{
+				fail("Could not find Writer for: " + p.getKind());
+			}
+			StringWriter w = new StringWriter();
+			writer.write(w, p);
+			boolean consolidated = w.toString().equals(consolidatedPre);
+			boolean separate = w.toString().equals(original);
+			assertTrue(consolidated || separate);
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getLocalizedMessage());
+		}
+	}
+
 }

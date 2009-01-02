@@ -25,6 +25,11 @@ public abstract class AbstractBasicRoundRobin extends AbstractPreRoundRobin
 
 	public abstract boolean isTypeAllowed();
 
+	protected boolean isSubAllowed()
+	{
+		return true;
+	}
+
 	public String getPrefix()
 	{
 		return "";
@@ -125,6 +130,69 @@ public abstract class AbstractBasicRoundRobin extends AbstractPreRoundRobin
 		{
 			runRoundRobin("PRE" + getBaseString() + ":3," + getPrefix()
 					+ "Foo,TYPE=Bar");
+		}
+	}
+
+
+	public void testBasicSub()
+	{
+		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix() + "Foo (Bar)");
+	}
+
+	public void testMultipleSub()
+	{
+		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Spot (Bar),Listen (Goo)");
+	}
+
+	public void testNoCombineSubSub()
+	{
+		runRoundRobin("PREMULT:1,[PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar),Bar (Goo)],[PRE" + getBaseString() + ":2," + getPrefix()
+				+ "Spot (Check),Listen (For)]");
+	}
+
+	public void testNoCombineSubNegativeSub()
+	{
+		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar)],[!PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Spot (Goo)]");
+	}
+
+	public void testCombineSubSub()
+	{
+		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)],[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Spot (Check)]", "!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar),Spot (Check)");
+	}
+
+	public void testCombineSubNegativeSub()
+	{
+		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)],[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Spot (Check)]", "PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar),Spot (Check)");
+	}
+
+	public void testNoCombineMultSub()
+	{
+		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar),Bar (Goo)],[PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Spot (Har),Listen (Check)]");
+	}
+
+	public void testMultipleCountSub()
+	{
+		runRoundRobin("PRE" + getBaseString() + ":2," + getPrefix() + "Foo (Goo),Bar (Hoo)");
+	}
+
+	public void testComplexSub()
+	{
+		if (isTypeAllowed() && isSubAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString() + ":3," + getPrefix()
+					+ "Foo (Goo),TYPE=Bar");
 		}
 	}
 }

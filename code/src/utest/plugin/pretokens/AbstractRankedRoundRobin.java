@@ -24,6 +24,11 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 
 	public abstract boolean isTypeAllowed();
 
+	protected boolean isSubAllowed()
+	{
+		return true;
+	}
+
 	public abstract boolean isAnyAllowed();
 
 	public void testBasic()
@@ -39,8 +44,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	public void testNoCombineSub()
 	{
 		runRoundRobin("PREMULT:1,[PRE" + getBaseString()
-				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString()
-				+ ":2,Goo=3,Hot=4]");
+				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString() + ":2,Goo=3,Hot=4]");
 	}
 
 	public void testCombineSub()
@@ -66,8 +70,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	public void testNoCombineMult()
 	{
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString()
-				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString()
-				+ ":1,Goo=3,Hot=4]");
+				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString() + ":1,Goo=3,Hot=4]");
 	}
 
 	public void testHigher()
@@ -125,6 +128,100 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		if (isTypeAllowed())
 		{
 			runRoundRobin("PRE" + getBaseString() + ":3,Foo=3,TYPE.Bar=4");
+		}
+	}
+
+	public void testBasicSub()
+	{
+		if (isSubAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString() + ":1,Foo (Bar)=1");
+		}
+	}
+
+	public void testMultipleSub()
+	{
+		if (isSubAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1,Bar (Goo)=2");
+		}
+	}
+
+	public void testNoCombineSubSub()
+	{
+		if (isSubAllowed())
+		{
+			runRoundRobin("PREMULT:1,[PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1,Bar (Har)=2],[PRE" + getBaseString()
+					+ ":2,Goo (gle)=3,Hot (Cakes)=4]");
+		}
+	}
+
+	public void testCombineSubSub()
+	{
+		if (isSubAllowed())
+		{
+			runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1],[!PRE" + getBaseString()
+					+ ":1,Goo (gle)=2]", "!PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1,Goo (gle)=2");
+		}
+	}
+
+	public void testCombineSubNegativeSub()
+	{
+		if (isSubAllowed())
+		{
+			runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1],[!PRE" + getBaseString()
+					+ ":1,Goo (gle)=2]", "PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1,Goo (gle)=2");
+		}
+	}
+
+	public void testNoCombineSubNegativeSub()
+	{
+		if (isSubAllowed())
+		{
+			runRoundRobin("PREMULT:1,[!PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1],[!PRE" + getBaseString()
+					+ ":1,Goo (gle)=3]");
+		}
+	}
+
+	public void testNoCombineMultSub()
+	{
+		if (isSubAllowed())
+		{
+			runRoundRobin("PREMULT:2,[PRE" + getBaseString()
+					+ ":1,Foo (Bar)=1,Bar (Hoo)=2],[PRE" + getBaseString()
+					+ ":1,Goo (gle)=3,Hot=4]");
+		}
+	}
+
+	public void testHigherSub()
+	{
+		if (isSubAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString() + ":1,Foo (Bar)=3");
+		}
+	}
+
+	public void testBothMultipleSub()
+	{
+		if (isSubAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString()
+					+ ":2,Foo (Har)=3,Bar (Hoo)=5,Goo (gle)=6");
+		}
+	}
+
+	public void testSubComplex()
+	{
+		if (isTypeAllowed() && isSubAllowed())
+		{
+			runRoundRobin("PRE" + getBaseString() + ":3,Foo (Bar)=3,TYPE.Bar=4");
 		}
 	}
 
