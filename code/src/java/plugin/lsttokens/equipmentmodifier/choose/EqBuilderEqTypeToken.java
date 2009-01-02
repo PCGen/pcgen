@@ -153,6 +153,10 @@ public class EqBuilderEqTypeToken implements
 		}
 		else
 		{
+			if (chooseString.indexOf(getTokenName() + '|') == -1)
+			{
+				return null;
+			}
 			returnString = chooseString.substring(getTokenName().length() + 1);
 		}
 		return new String[] { returnString };

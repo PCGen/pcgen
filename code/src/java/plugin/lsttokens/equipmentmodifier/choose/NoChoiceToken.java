@@ -66,6 +66,10 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 		}
 		else
 		{
+			if (chooseString.indexOf(getTokenName() + '|') == -1)
+			{
+				return null;
+			}
 			returnString = chooseString.substring(getTokenName().length() + 1);
 		}
 		return new String[] { returnString };

@@ -149,7 +149,8 @@ public class SkillBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 	{
 		String chooseString = context.getObjectContext().getString(eqMod,
 				StringKey.CHOICE_STRING);
-		if (chooseString == null)
+		if (chooseString == null
+				|| chooseString.indexOf(getTokenName() + '|') == -1)
 		{
 			return null;
 		}
