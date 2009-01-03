@@ -126,7 +126,7 @@ Earth Glide										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
 Earth Mastery									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Eat Thoughts									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Elemental Endurance								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
-Energy Drain									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption		VISIBLE:YES	DEFINE:EnergyDrainLVLs|0	DEFINE:EnergyDrainDC|10+(TL/2)+CHA		DESC:Automatically sap a living opponent’s vital energy when your melee or ranged attack hits, bestowing %1 negative levels (twice that on a critical hit.)|EnergyDrainLevels																																									SOURCEPAGE:TypesSubtypesAbilities.rtf
+Energy Drain									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption		VISIBLE:YES	DEFINE:EnergyDrainLVLs|0	DEFINE:EnergyDrainDC|10+(TL/2)+CHA		DESC:Automatically sap a living opponent's vital energy when your melee or ranged attack hits, bestowing %1 negative levels (twice that on a critical hit.)|EnergyDrainLevels																																									SOURCEPAGE:TypesSubtypesAbilities.rtf
 Enervation Ray									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Engulf										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Enslave										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
