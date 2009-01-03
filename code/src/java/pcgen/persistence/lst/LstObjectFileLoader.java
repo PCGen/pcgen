@@ -24,6 +24,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -339,25 +340,30 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
-		notifyObservers(sourceEntry.getURI());
+		URI uri = sourceEntry.getURI();
+		notifyObservers(uri);
 
 		StringBuilder dataBuffer;
 
 		try
 		{
-			dataBuffer = LstFileLoader.readFromURI(sourceEntry.getURI());
+			dataBuffer = LstFileLoader.readFromURI(uri);
 		}
 		catch (PersistenceLayerException ple)
 		{
 			String message = PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
-				sourceEntry.getURI(), ple.getMessage());
+				uri, ple.getMessage());
 			Logging.errorPrint(message);
 			setChanged();
 			return;
 		}
 
 		final String aString = dataBuffer.toString();
+		if (context != null)
+		{
+			context.setSourceURI(uri);
+		}
 		T target = null;
 		ArrayList<ModEntry> classModLines = null;
 
@@ -404,7 +410,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			// TODO - Figure out why we need to check SOURCE in this file
 			if (line.startsWith("SOURCE")) //$NON-NLS-1$
 			{
-				SourceLoader.parseLine(context, line, sourceEntry.getURI());
+				SourceLoader.parseLine(context, line, uri);
 			}
 			else if (firstToken.indexOf(COPY_SUFFIX) > 0)
 			{
@@ -443,7 +449,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					String message =
 							PropertyFactory.getFormattedString(
 								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-								sourceEntry.getURI(), i + 1, ple.getMessage());
+								uri, i + 1, ple.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
 					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
@@ -453,7 +459,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					String message =
 							PropertyFactory.getFormattedString(
 								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-								sourceEntry.getURI(), i + 1, t.getMessage());
+								uri, i + 1, t.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
 					Logging.errorPrint(PropertyFactory
