@@ -232,7 +232,7 @@ public class KeyMap<V>
 	 */
 	public Collection<V> values()
 	{
-		return new ListSet<V>(reverseMap.keySet());
+		return new ListSet<V>(forwardMap.values());
 	}
 
 	/**

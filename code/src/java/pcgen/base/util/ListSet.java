@@ -21,6 +21,7 @@ package pcgen.base.util;
 
 import java.util.AbstractSet;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Set;
@@ -119,7 +120,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 * @throws NullPointerException
 	 *             if the given Set is null
 	 */
-	public ListSet(Set<T> otherSet)
+	public ListSet(Collection<T> otherSet)
 	{
 		list = new ArrayList<T>(otherSet);
 		comparator = null;

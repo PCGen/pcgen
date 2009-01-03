@@ -887,9 +887,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 */
 	public Collection<T> getAllObjects()
 	{
-		List<T> list = new ArrayList<T>(active.size());
-		list.addAll(active.values());
-		return list;
+		return active.values();
 	}
 
 	/**
