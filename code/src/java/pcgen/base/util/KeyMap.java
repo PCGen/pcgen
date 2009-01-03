@@ -18,8 +18,8 @@
 package pcgen.base.util;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.IdentityHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -139,7 +139,7 @@ public class KeyMap<V>
 	 */
 	public Set<String> keySet()
 	{
-		return new HashSet<String>(forwardMap.keySet());
+		return new LinkedHashSet<String>(forwardMap.keySet());
 	}
 
 	/**
@@ -232,7 +232,7 @@ public class KeyMap<V>
 	 */
 	public Collection<V> values()
 	{
-		return new HashSet<V>(reverseMap.keySet());
+		return new ListSet<V>(reverseMap.keySet());
 	}
 
 	/**
