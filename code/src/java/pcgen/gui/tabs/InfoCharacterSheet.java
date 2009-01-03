@@ -152,6 +152,17 @@ public class InfoCharacterSheet extends BaseCharacterInfoTab
 							+ "splitLeftRight", //$NON-NLS-1$
 							(int) ((this.getSize().getWidth() * 6) / 10));
 				theSplitPane.setDividerLocation(s);
+				theSplitPane.addPropertyChangeListener(
+					JSplitPane.DIVIDER_LOCATION_PROPERTY,
+					new PropertyChangeListener()
+					{
+						public void propertyChange(PropertyChangeEvent anEvt)
+						{
+							SettingsHandler.setPCGenOption("InfoCharacterSheet."
+								+ "splitLeftRight", //$NON-NLS-1$ 
+								anEvt.getNewValue().toString());
+						}
+					});
 			}
 		}
 	}
@@ -182,13 +193,12 @@ public class InfoCharacterSheet extends BaseCharacterInfoTab
 		} 
 		catch (Throwable e) 
 		{
-			// TODO Auto-generated catch block
 			final String errorMsg = "<html><body>Unable to process sheet<br>" + e + "</body></html>";
 			instream = new ByteArrayInputStream(errorMsg.getBytes());
 			try
 			{
-			final Document doc = theDocBuilder.parse(instream);
-			theSheetPanel.setDocument(doc, theRendererContext);
+				final Document doc = theDocBuilder.parse(instream);
+				theSheetPanel.setDocument(doc, theRendererContext);
 			}
 			catch (Exception ex)
 			{
@@ -260,17 +270,6 @@ public class InfoCharacterSheet extends BaseCharacterInfoTab
 		theSplitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, containerPanel, theSelectPanel);
 		theSplitPane.setOneTouchExpandable(true);
 		theSplitPane.setDividerSize(10);
-		theSplitPane.addPropertyChangeListener(
-				JSplitPane.DIVIDER_LOCATION_PROPERTY,
-				new PropertyChangeListener()
-				{
-					public void propertyChange(PropertyChangeEvent anEvt)
-					{
-						SettingsHandler.setPCGenOption("InfoCharacterSheet."
-							+ "splitLeftRight", //$NON-NLS-1$ 
-							anEvt.getNewValue().toString());
-					}
-				});
 		add(theSplitPane, BorderLayout.CENTER);
 
 		theSheetPanel.setPreferredWidth(this.getWidth());
