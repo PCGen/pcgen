@@ -5,7 +5,7 @@ import pcgen.core.Equipment;
 import pcgen.core.spell.Spell;
 
 /**
- * pcgen.core.term.TermEvaluator.java Copyright © 2008 Andrew Wilson
+ * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  * <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or modify it under
