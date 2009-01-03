@@ -146,25 +146,19 @@ public class AbilityToken extends AbstractToken implements
 		return true;
 	}
 
-	public String[] unparse(LoadContext context, KitAbilities KitAbilities)
+	public String[] unparse(LoadContext context, KitAbilities kitAbil)
 	{
 		Collection<CDOMReference<Ability>> references =
-				KitAbilities.getAbilityKeys();
+			kitAbil.getAbilityKeys();
 		if (references == null || references.isEmpty())
 		{
 			return null;
 		}
 		StringBuilder result = new StringBuilder();
+		result.append("CATEGORY=");
+		result.append(kitAbil.getCategory().getKeyName());
 		for (CDOMReference<Ability> ref : references)
 		{
-			if (result.length() == 0)
-			{
-				CategorizedCDOMReference<Ability> ccr =
-						(CategorizedCDOMReference<Ability>) ref;
-				Category<Ability> cat = ccr.getCDOMCategory();
-				result.append("CATEGORY=");
-				result.append(cat.toString());
-			}
 			result.append(Constants.PIPE);
 			result.append(ref.getLSTformat());
 		}

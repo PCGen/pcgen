@@ -322,4 +322,9 @@ public final class KitAbilities extends BaseKit
 	{
 		category = ac;
 	}
+
+	public AbilityCategory getCategory()
+	{
+		return category;
+	}
 }
