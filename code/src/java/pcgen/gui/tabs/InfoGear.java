@@ -1698,9 +1698,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				Equipment newEq = aEq.clone();
 				newEq.setRemainingCharges(charges);
+				newEq.setQty(1.0);
+				aEq.setQty(aEq.getQty() - 1.0);
 				pc.updateEquipSetItem(aEq, newEq);
 
-				if (aEq.getQty().floatValue() <= 1.0f)
+				if (aEq.getQty().floatValue() <= 0.0f)
 				{
 					pc.removeEquipment(aEq);
 				}
