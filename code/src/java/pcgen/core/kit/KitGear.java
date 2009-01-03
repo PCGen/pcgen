@@ -294,13 +294,16 @@ public final class KitGear extends BaseKit
 			theEquipment.nameItemFromModifiers(aPC);
 		}
 
-		if (actingQuantity != null)
+		if (actingQuantity == null)
+		{
+			theQty = 1;
+		}
+		else
 		{
 			theQty = actingQuantity.resolve(aPC, "").intValue();
 		}
 		int origQty = theQty;
 		final BigDecimal eqCost = theEquipment.getCost(aPC);
-
 		if (aBuyRate != 0)
 		{
 			final BigDecimal bdBuyRate =

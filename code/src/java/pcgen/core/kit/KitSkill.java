@@ -143,7 +143,6 @@ public final class KitSkill extends BaseKit
 		skillsToAdd = new ArrayList<KitSkillAdd>();
 		List<Skill> skillChoices = getSkillChoices();
 
-System.err.println("!" + skillChoices);
 		if (skillChoices == null || skillChoices.size() == 0)
 		{
 			// They didn't make a choice so don't add any ranks.
@@ -157,7 +156,6 @@ System.err.println("!" + skillChoices);
 				ranksLeftToAdd = BigDecimal.ONE;
 			}
 			double ranksLeft = ranksLeftToAdd.doubleValue();
-System.err.println(skill + " " + ranksLeft);
 			List<PCClass> classList = new ArrayList<PCClass>();
 			if (className != null)
 			{
@@ -175,7 +173,6 @@ System.err.println(skill + " " + ranksLeft);
 						+ classKey + " in PC to add ranks from.");
 				}
 			}
-System.err.println("@" + classList);
 			for (PCClass pcClass : aPC.getClassList())
 			{
 				if (!classList.contains(pcClass))
@@ -183,7 +180,6 @@ System.err.println("@" + classList);
 					classList.add(pcClass);
 				}
 			}
-System.err.println("#" + classList);
 
 			// Try and find a class we can add them from.
 			boolean oldImporting = aPC.isImporting();
@@ -197,7 +193,6 @@ System.err.println("#" + classList);
 				{
 					skillsToAdd.add(sta);
 					ranksLeft -= sta.getRanks();
-System.err.println(pcClass + " " + skill + " " + ranksLeft + " " + sta.getRanks());
 					if (ranksLeft <= 0.0)
 					{
 						break;
