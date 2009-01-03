@@ -93,7 +93,7 @@ public class DeityweapToken extends AbstractToken implements CDOMPrimaryToken<De
 			return null;
 		}
 		return new String[] { ReferenceUtilities.joinLstFormat(changes
-				.getAdded(), Constants.PIPE) };
+				.getAdded(), Constants.PIPE, true) };
 	}
 
 	public Class<Deity> getTokenClass()

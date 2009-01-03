@@ -226,7 +226,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 		{
 			try
 			{
-				boolean parse = parse("ALL");
+				boolean parse = parse(getAllString());
 				if (parse)
 				{
 					// Only need to check if parsed as true
@@ -353,7 +353,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 		}
 		if (isAllLegal())
 		{
-			assertTrue(parse("ALL"));
+			assertTrue(parse(getAllString()));
 			assertTrue(primaryContext.ref.validate());
 		}
 		if (isClearLegal())
@@ -422,8 +422,13 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 	{
 		if (isAllLegal())
 		{
-			runRoundRobin("ALL");
+			runRoundRobin(getAllString());
 		}
+	}
+
+	protected String getAllString()
+	{
+		return "ALL";
 	}
 
 	@Test
@@ -452,7 +457,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse("ALL" + getJoinCharacter() + "TestWP1"));
+			assertFalse(parse(getAllString() + getJoinCharacter() + "TestWP1"));
 			assertNoSideEffects();
 		}
 	}
@@ -463,7 +468,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse("TestWP1" + getJoinCharacter() + "ALL"));
+			assertFalse(parse("TestWP1" + getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}
@@ -473,7 +478,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
-			assertFalse(parse("ALL" + getJoinCharacter() + "TYPE=TestType"));
+			assertFalse(parse(getAllString() + getJoinCharacter() + "TYPE=TestType"));
 			assertNoSideEffects();
 		}
 	}
@@ -483,7 +488,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
-			assertFalse(parse("TYPE=TestType" + getJoinCharacter() + "ALL"));
+			assertFalse(parse("TYPE=TestType" + getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}
@@ -528,7 +533,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 				+ "TestWP2"));
 			assertFalse(parse("TestWP3" + getJoinCharacter() + ".CLEAR.TestWP2"
-				+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}
@@ -546,8 +551,8 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 				+ "TestWP2"));
-			assertTrue(parse("ALL"));
-			assertTrue(parse(".CLEAR.ALL"));
+			assertTrue(parse(getAllString()));
+			assertTrue(parse(".CLEAR." + getAllString()));
 			assertNoSideEffects();
 		}
 	}
@@ -606,7 +611,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 				+ "TestWP2"));
-			assertFalse(parse("TestWP3" + getJoinCharacter() + "ALL"));
+			assertFalse(parse("TestWP3" + getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}
@@ -627,7 +632,7 @@ public abstract class AbstractListTokenTestCase<T extends CDOMObject, TC extends
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 				+ "TestWP2"));
 			assertFalse(parse(getClearString() + getJoinCharacter() + "TestWP3"
-				+ getJoinCharacter() + "ALL"));
+				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
 	}

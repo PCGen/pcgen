@@ -106,4 +106,11 @@ public class DeityWeapTokenTest extends
 		return false;
 	}
 
+	@Override
+	protected String getAllString()
+	{
+		return "ANY";
+	}
+
+	
 }
