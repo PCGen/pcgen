@@ -55,7 +55,7 @@ public class AbilityTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("CATEGORY=Feat|Fireball"));
+		assertTrue(parse("CATEGORY=FEAT|Fireball"));
 		assertFalse(primaryContext.ref.validate());
 	}
 
@@ -68,7 +68,13 @@ public class AbilityTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 		ab = secondaryContext.ref
 				.constructCDOMObject(Ability.class, "Fireball");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		runRoundRobin("CATEGORY=Feat|Fireball");
+		runRoundRobin("CATEGORY=FEAT|Fireball");
+	}
+
+	@Test
+	public void testRoundRobinTest() throws PersistenceLayerException
+	{
+		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
 
 	@Test
@@ -84,13 +90,13 @@ public class AbilityTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
 		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "English");
 		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		runRoundRobin("CATEGORY=Feat|English" + getJoinCharacter() + "Fireball");
+		runRoundRobin("CATEGORY=FEAT|English" + getJoinCharacter() + "Fireball");
 	}
 
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("CATEGORY=Feat|TestWP1" + getJoinCharacter()));
+		assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
 	}
 
 	private char getJoinCharacter()
@@ -101,13 +107,13 @@ public class AbilityTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
-		assertFalse(parse("CATEGORY=Feat|" + getJoinCharacter() + "TestWP1"));
+		assertFalse(parse("CATEGORY=FEAT|" + getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
 	public void testInvalidListDoubleJoin() throws PersistenceLayerException
 	{
-		assertFalse(parse("CATEGORY=Feat|TestWP2" + getJoinCharacter() + getJoinCharacter()
+		assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 	}
 
