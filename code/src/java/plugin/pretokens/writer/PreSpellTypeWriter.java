@@ -46,7 +46,7 @@ public class PreSpellTypeWriter extends AbstractPrerequisiteWriter implements
 	 */
 	public String kindHandled()
 	{
-		return "spell.type";
+		return "spelltype";
 	}
 
 	/* (non-Javadoc)
@@ -73,12 +73,11 @@ public class PreSpellTypeWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLTYPE:" + (prereq.isOverrideQualify() ? "Q:":""));
-			writer.write(prereq.getOperand());
-			writer.write(',');
+			writer.write("PRE" + kindHandled().toUpperCase() + ":"
+					+ (prereq.isOverrideQualify() ? "Q:" : "") + "1,");
 			writer.write(prereq.getKey());
 			writer.write('=');
-			writer.write(prereq.getSubKey());
+			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)
 		{
@@ -103,7 +102,7 @@ public class PreSpellTypeWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRESPELLTYPE:"
+		writer.write("PRE" + kindHandled().toUpperCase() + ":"
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");
@@ -112,7 +111,7 @@ public class PreSpellTypeWriter extends AbstractPrerequisiteWriter implements
 			writer.write(',');
 			writer.write(p.getKey());
 			writer.write('=');
-			writer.write(p.getSubKey());
+			writer.write(p.getOperand());
 		}
 		return true;
 	}

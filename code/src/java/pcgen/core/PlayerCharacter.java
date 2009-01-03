@@ -8960,6 +8960,50 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
+	 * Method will go through the list of classes that the PC has and see if
+	 * they can cast spells of desired type at desired <b>spell level</b>.
+	 * 
+	 * @param spellType
+	 *            Spell type to check for
+	 * @param spellLevel
+	 *            Desired spell level
+	 * @return The number of spells castable
+	 **/
+	public int countSpellCastTypeLevel(final String spellType,
+		final int spellLevel)
+	{
+		int known = 0;
+		int cast = 0;
+		for (PCClass aClass : classList)
+		{
+			String classSpellType = aClass.get(StringKey.SPELLTYPE);
+			if (classSpellType != null
+				&& ("Any".equalsIgnoreCase(spellType) || classSpellType
+					.equalsIgnoreCase(spellType)))
+			{
+				// Get the number of known spells for the level
+				known += aClass.getKnownForLevel(spellLevel, this);
+				known += aClass.getSpecialtyKnownForLevel(spellLevel, this);
+
+				// See if the character can cast
+				// at the required spell level
+				cast += aClass.getCastForLevel(spellLevel, this);
+
+				// If they don't memorise spells and don't have
+				// a CastList then they use something funky
+				// like Power Points (psionic)
+				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
+					&& !aClass.hasKnownList() && aClass.zeroCastSpells())
+				{
+					return Integer.MAX_VALUE;
+				}
+			}
+		}
+
+		return known == 0 ? cast : known;
+	}
+
+	/**
 	 * Check whether a deity can be selected by this character
 	 * 
 	 * @return <code>true</code> means the deity can be a selected by a

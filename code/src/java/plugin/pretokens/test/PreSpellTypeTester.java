@@ -49,38 +49,23 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 	{
 		final String castingType = prereq.getKey();
 		int requiredLevel;
-		int requiredNumber;
 		try
 		{
-			requiredLevel = Integer.parseInt(prereq.getSubKey());
+			requiredLevel = Integer.parseInt(prereq.getOperand());
 		}
 		catch (NumberFormatException e)
 		{
 			requiredLevel = 1;
 			Logging
 				.errorPrintLocalised(
-					"PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
+					"PreSpellType.Badly_formed_spell_type", prereq.getOperand(), prereq.toString()); //$NON-NLS-1$
 		}
 
-		try
-		{
-			requiredNumber = Integer.parseInt(prereq.getOperand());
-		}
-		catch (NumberFormatException e)
-		{
-			requiredNumber = 1;
-			Logging
-				.errorPrintLocalised(
-					"PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
-		}
+		int count = character.countSpellCastTypeLevel(castingType,
+				requiredLevel);
 
-		int runningTotal = 0;
-		if (character.canCastSpellTypeLevel(castingType, requiredLevel,
-			requiredNumber))
-		{
-			runningTotal = requiredNumber;
-		}
-
+		final int runningTotal =
+			prereq.getOperator().compare(count, 1);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -89,7 +74,7 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 	 */
 	public String kindHandled()
 	{
-		return "SPELL.TYPE"; //$NON-NLS-1$
+		return "SPELLTYPE"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
