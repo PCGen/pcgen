@@ -188,6 +188,22 @@ public class KnownspellsTokenTest extends
 	}
 
 	@Test
+	public void testRoundRobinLevels() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4");
+	}
+
+	@Test
+	public void testRoundRobinComplex() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		runRoundRobin("TYPE=SpellType,LEVEL=0|TYPE=SpellType,LEVEL=1|TYPE=ZOther.ZType,LEVEL=1");
+	}
+
+	@Test
 	public void testRoundRobinTypeLevel() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

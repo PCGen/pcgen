@@ -20,12 +20,10 @@ package plugin.lsttokens.pcclass;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
-import java.util.Map.Entry;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.KnownSpellIdentifier;
@@ -184,35 +182,36 @@ public class KnownspellsToken extends AbstractToken implements
 		Collection<KnownSpellIdentifier> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			Map<CDOMReference<?>, Integer> map = new TreeMap<CDOMReference<?>, Integer>(
+			TreeMapToList<CDOMReference<?>, Integer> map = new TreeMapToList<CDOMReference<?>, Integer>(
 					ReferenceUtilities.REFERENCE_SORTER);
 			for (KnownSpellIdentifier ksi : added)
 			{
 				CDOMReference<Spell> ref = ksi.getSpellReference();
 				Integer i = ksi.getSpellLevel();
-				map.put(ref, i);
+				map.addToListFor(ref, i);
 			}
-			for (Entry<CDOMReference<?>, Integer> me : map.entrySet())
+			for (CDOMReference<?> ref : map.getKeySet())
 			{
-				StringBuilder sb = new StringBuilder();
-				boolean needComma = false;
-				CDOMReference<?> ref = me.getKey();
-				String refString = ref.getLSTformat();
-				if (!Constants.ALLREF_LST.equals(refString))
+				for (Integer lvl : map.getListFor(ref))
 				{
-					sb.append(refString);
-					needComma = true;
-				}
-				Integer i = me.getValue();
-				if (i != null)
-				{
-					if (needComma)
+					StringBuilder sb = new StringBuilder();
+					boolean needComma = false;
+					String refString = ref.getLSTformat();
+					if (!Constants.ALLREF_LST.equals(refString))
 					{
-						sb.append(',');
+						sb.append(refString);
+						needComma = true;
 					}
-					sb.append("LEVEL=").append(i);
+					if (lvl != null)
+					{
+						if (needComma)
+						{
+							sb.append(',');
+						}
+						sb.append("LEVEL=").append(lvl);
+					}
+					list.add(sb.toString());
 				}
-				list.add(sb.toString());
 			}
 		}
 		if (list.isEmpty())
