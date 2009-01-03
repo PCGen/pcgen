@@ -20,6 +20,8 @@ package pcgen.rules.context;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.Set;
 
 import pcgen.base.util.DoubleKeyMap;
@@ -413,9 +415,9 @@ public class ListContext
 		 * TODO These maps (throughout this entire class) are probably problems
 		 * because they are not using Identity characteristics
 		 */
-		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
+		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>(HashMap.class, HashMap.class, IdentityHashMap.class);
 
-		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();
+		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>(HashMap.class, HashMap.class, IdentityHashMap.class);
 		
 		private final HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI> masterClearSet = new HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI>();
 
@@ -538,11 +540,11 @@ public class ListContext
 					owner));
 		}
 
-		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>();
+		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>();
+		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>>();
+		private final DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>>(HashMap.class, IdentityHashMap.class);
 
 		private CDOMObject getPositive(URI source, CDOMObject cdo)
 		{
