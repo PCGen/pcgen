@@ -117,9 +117,15 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinPercent() throws PersistenceLayerException
+	{
+		runRoundRobin("SA at 50%% effectiveness");
+	}
+
+	@Test
 	public void testRoundRobinVariable() throws PersistenceLayerException
 	{
-		runRoundRobin("SA Number %|Variab");
+		runRoundRobin("SA Number %1|Variab");
 	}
 
 	@Test
@@ -137,14 +143,14 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinVarDoublePre() throws PersistenceLayerException
 	{
-		runRoundRobin("SA Number % before %|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human");
+		runRoundRobin("SA Number %1 before %2|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human");
 	}
 
 	@Test
 	public void testRoundRobinCompound() throws PersistenceLayerException
 	{
 		runRoundRobin(
-			"SA Number % before %|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human",
+			"SA Number %1 before %2|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human",
 			"SA Number One|PRECLASS:1,Fighter=1");
 	}
 

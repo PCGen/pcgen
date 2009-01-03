@@ -282,6 +282,11 @@ public class Description extends ConcretePrereqObject
 				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));
 				buf.append('%' + String.valueOf(ind));
 			}
+			else if (str.equals("%"))
+			{
+				//reescape
+				buf.append("%%");
+			}
 			else
 			{
 				buf.append(str);
