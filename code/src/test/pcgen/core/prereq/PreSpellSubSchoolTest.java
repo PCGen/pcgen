@@ -165,4 +165,47 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
+
+
+	public void testNotSimpleSUBSCHOOL() throws Exception
+	{
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("SpellSCHOOLSUB");
+		prereq.setKey("Fire");
+		prereq.setOperator(PrerequisiteOperator.LT);
+		prereq.setOperand("2");
+
+		final PlayerCharacter character = getCharacter();
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+		character.incrementClassLevel(1, wiz);
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+		character.incrementClassLevel(1, wiz);
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+	}
+
+	public void testNotTwoClassSUBSCHOOL() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite prereq = factory
+				.parse("!PRESPELLSCHOOLSUB:3,Fire=2,Useful=2");
+
+		assertTrue(PrereqHandler.passes(prereq, character, null));
+		character.incrementClassLevel(1, wiz);
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+		character.incrementClassLevel(1, wiz);
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+		character.incrementClassLevel(1, cle);
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+		character.incrementClassLevel(1, cle);
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+	}
 }
