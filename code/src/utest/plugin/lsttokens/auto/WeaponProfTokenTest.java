@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.auto;
 
+import java.net.URISyntaxException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -29,6 +32,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreRaceParser;
+import plugin.pretokens.writer.PreRaceWriter;
 
 public class WeaponProfTokenTest extends
 		AbstractAddTokenTestCase<CDOMObject, WeaponProf>
@@ -38,6 +44,17 @@ public class WeaponProfTokenTest extends
 	static WeaponProfToken subtoken = new WeaponProfToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
+	PreRaceParser prerace = new PreRaceParser();
+	PreRaceWriter preracewriter = new PreRaceWriter();
+
+	@Override
+	@Before
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TokenRegistration.register(prerace);
+		TokenRegistration.register(preracewriter);
+	}
 
 	@Override
 	public char getJoinCharacter()
