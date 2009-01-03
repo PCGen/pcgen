@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.Map.Entry;
 
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
@@ -61,50 +60,52 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 {
 
 	/**
+	 * Stores the Class to be used as the underlying Map for the map from the
+	 * third key of the TripleKeyMapToList to the value stored for the given
+	 * keys
+	 */
+	private final Class<? extends Map> thirdClass;
+
+	/**
 	 * The underlying map - of primary keys to Maps - for the TripleKeyMap. This
 	 * class protects its internal structure, so no method should ever return an
 	 * object capable of modifying the maps. All modifications should be done
 	 * through direct calls to the methods of TripleKeyMap.
 	 */
-	private Map<K1, Map<K2, Map<K3, V>>> map =
-			new HashMap<K1, Map<K2, Map<K3, V>>>();
+	private DoubleKeyMap<K1, K2, Map<K3, V>> map;
 
 	/**
 	 * Constructs a new (empty) TripleKeyMap
 	 */
 	public TripleKeyMap()
 	{
-		super();
+		thirdClass = HashMap.class;
+		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(HashMap.class,
+				HashMap.class);
 	}
 
 	/**
-	 * Constructs a new TripleKeyMap, with the same contents as the given
-	 * TripleKeyMap.
+	 * Constructs a new (empty) TripleKeyMap.
 	 * 
-	 * The given TripleKeyMap is not modified and the constructed TripleKeyMap
-	 * will be independent of the given TripleKeyMap other than the Objects used
-	 * to represent the keys and values. (In other words, modification of the
-	 * given TripleKeyMap will not alter the constructed TripleKeyMap, and vice
-	 * versa)
-	 * 
-	 * @param otherMap
-	 *            The TripleKeyMap whose contents should be copied into this
-	 *            TripleKeyMap.
-	 * @throws NullPointerException
-	 *             if the given TripleKeyMap is null
+	 * @throws IllegalArgumentException if any of the given Classes is null
 	 */
-	public TripleKeyMap(final TripleKeyMap<K1, K2, K3, V> otherMap)
+	public TripleKeyMap(Class<? extends Map> cl1,
+			Class<? extends Map> cl2, Class<? extends Map> cl3)
 	{
-		for (Entry<K1, Map<K2, Map<K3, V>>> me : otherMap.map.entrySet())
+		super();
+		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(cl1, cl2);
+		if (cl3 == null)
 		{
-			HashMap<K2, Map<K3, V>> localMap = new HashMap<K2, Map<K3, V>>();
-			map.put(me.getKey(), localMap);
-			for (Entry<K2, Map<K3, V>> subME : me.getValue().entrySet())
-			{
-				localMap.put(subME.getKey(), new HashMap<K3, V>(subME
-					.getValue()));
-			}
+			throw new IllegalArgumentException(
+					"Third underlying Class cannot be null for TripleKeyMap");
 		}
+		thirdClass = cl3;
+		/*
+		 * This "useless" call is designed to exercise the code to ensure that
+		 * the given class meets the restrictions imposed by TripleKeyMapToList
+		 * (public, zero-argument constructor)
+		 */
+		GenericMapToList.getMapToList(thirdClass);
 	}
 
 	/**
@@ -125,23 +126,14 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public V put(K1 key1, K2 key2, K3 key3, V value)
 	{
-		Map<K2, Map<K3, V>> localMap = map.get(key1);
-		Map<K3, V> subMap = null;
+		Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
-			localMap = new HashMap<K2, Map<K3, V>>();
-			map.put(key1, localMap);
+			localMap = createLocalMap();
+			map.put(key1, key2, localMap);
 		}
-		else
-		{
-			subMap = localMap.get(key2);
-		}
-		if (subMap == null)
-		{
-			subMap = new HashMap<K3, V>();
-			localMap.put(key2, subMap);
-		}
-		return subMap.put(key3, value);
+		V put = localMap.put(key3, value);
+		return put;
 	}
 
 	/**
@@ -159,17 +151,12 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public V get(K1 key1, K2 key2, K3 key3)
 	{
-		Map<K2, Map<K3, V>> localMap = map.get(key1);
+		Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
 			return null;
 		}
-		Map<K3, V> subMap = localMap.get(key2);
-		if (subMap == null)
-		{
-			return null;
-		}
-		return subMap.get(key3);
+		return localMap.get(key3);
 	}
 
 	/**
@@ -190,17 +177,12 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public boolean containsKey(K1 key1, K2 key2, K3 key3)
 	{
-		Map<K2, Map<K3, V>> localMap = map.get(key1);
+		Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
 			return false;
 		}
-		Map<K3, V> subMap = localMap.get(key2);
-		if (subMap == null)
-		{
-			return false;
-		}
-		return subMap.containsKey(key3);
+		return localMap.containsKey(key3);
 	}
 
 	/**
@@ -220,17 +202,12 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public V remove(K1 key1, K2 key2, K3 key3)
 	{
-		Map<K2, Map<K3, V>> localMap = map.get(key1);
+		Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
 			return null;
 		}
-		Map<K3, V> subMap = localMap.get(key2);
-		if (subMap == null)
-		{
-			return null;
-		}
-		V o = subMap.remove(key3);
+		V o = localMap.remove(key3);
 		/*
 		 * Clean up the primary maps if the secondary maps are empty. This is
 		 * required to avoid a false report from get*KeySet. Generally, if an
@@ -240,13 +217,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		 * KEY2 cleanup, though that is implicit and does not require special
 		 * code)
 		 */
-		if (subMap.isEmpty())
-		{
-			localMap.remove(key2);
-		}
 		if (localMap.isEmpty())
 		{
-			map.remove(key1);
+			map.remove(key1, key2);
 		}
 		return o;
 	}
@@ -264,7 +237,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public Set<K1> getKeySet()
 	{
-		return new HashSet<K1>(map.keySet());
+		return map.getKeySet();
 	}
 
 	/**
@@ -285,12 +258,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public Set<K2> getSecondaryKeySet(final K1 key1)
 	{
-		final Map<K2, Map<K3, V>> localMap = map.get(key1);
-		if (localMap == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<K2>(localMap.keySet());
+		return map.getSecondaryKeySet(key1);
 	}
 
 	/**
@@ -314,17 +282,12 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public Set<K3> getTertiaryKeySet(K1 key1, K2 key2)
 	{
-		final Map<K2, Map<K3, V>> localMap = map.get(key1);
+		final Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
 		}
-		Map<K3, V> subMap = localMap.get(key2);
-		if (subMap == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<K3>(subMap.keySet());
+		return new HashSet<K3>(localMap.keySet());
 	}
 
 	/**
@@ -352,7 +315,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public int firstKeyCount()
 	{
-		return map.size();
+		return map.primaryKeyCount();
 	}
 
 	/**
@@ -383,15 +346,16 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		 * Note the key and value objects are not cloned, so this is not truly a
 		 * deep clone, but is deep enough to protect the internal structure.
 		 */
-		tkm.map = new HashMap<K1, Map<K2, Map<K3, V>>>();
-		for (Entry<K1, Map<K2, Map<K3, V>>> me : map.entrySet())
+		tkm.map = new DoubleKeyMap<K1, K2, Map<K3, V>>();
+		for (K1 key1 : map.getKeySet())
 		{
-			HashMap<K2, Map<K3, V>> localMap = new HashMap<K2, Map<K3, V>>();
-			tkm.map.put(me.getKey(), localMap);
-			for (Entry<K2, Map<K3, V>> subME : me.getValue().entrySet())
+			for (K2 key2 : map.getSecondaryKeySet(key1))
 			{
-				localMap.put(subME.getKey(), new HashMap<K3, V>(subME
-					.getValue()));
+				Map<K3, V> local = map.get(key1, key2);
+				for (K3 key3 : local.keySet())
+				{
+					tkm.put(key1, key2, key3, local.get(key3));
+				}
 			}
 		}
 		return tkm;
@@ -414,17 +378,12 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 */
 	public Set<V> values(K1 key1, K2 key2)
 	{
-		final Map<K2, Map<K3, V>> localMap = map.get(key1);
+		final Map<K3, V> localMap = map.get(key1, key2);
 		if (localMap == null)
 		{
 			return Collections.emptySet();
 		}
-		Map<K3, V> subMap = localMap.get(key2);
-		if (subMap == null)
-		{
-			return Collections.emptySet();
-		}
-		return new HashSet<V>(subMap.values());
+		return new HashSet<V>(localMap.values());
 	}
 
 	/**
@@ -450,6 +409,33 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	{
 		return o instanceof TripleKeyMap
 				&& map.equals(((TripleKeyMap<?, ?, ?, ?>) o).map);
+	}
+
+
+	/**
+	 * Creates a new local map (map from the third key to the value of the
+	 * TripleKeyMap)
+	 * 
+	 * @return a new local map
+	 */
+	private Map<K3, V> createLocalMap()
+	{
+		try
+		{
+			return thirdClass.newInstance();
+		}
+		catch (InstantiationException e)
+		{
+			throw new IllegalArgumentException(
+					"Class for TripleKeyMap must possess a zero-argument constructor",
+					e);
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new IllegalArgumentException(
+					"Class for TripleKeyMap must possess a public zero-argument constructor",
+					e);
+		}
 	}
 
 }

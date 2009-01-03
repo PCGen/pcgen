@@ -92,7 +92,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 		if (cl3 == null)
 		{
 			throw new IllegalArgumentException(
-					"Third underlying Class cannot be null for DoubleKeyMap");
+					"Third underlying Class cannot be null for TripleKeyMapToList");
 		}
 		thirdClass = cl3;
 		/*
