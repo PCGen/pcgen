@@ -62,6 +62,8 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Integer> SPELL_LEVEL = new AssociationKey<Integer>();
 
+	public static final AssociationKey<Boolean> KNOWN = new AssociationKey<Boolean>();
+
 	public static final AssociationKey<List<String>> ASSOC_CHOICES = new AssociationKey<List<String>>();
 
 	public static final AssociationKey<Ability.Nature> NATURE = new AssociationKey<Ability.Nature>();

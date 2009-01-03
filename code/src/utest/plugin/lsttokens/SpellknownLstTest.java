@@ -1,0 +1,442 @@
+/*
+ * SpellknownLstTest.java
+ * Copyright 2008 (C) James Dempsey
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 31/12/2008 3:20:40 PM
+ *
+ * $Id: $
+ */
+package plugin.lsttokens;
+
+import java.net.URISyntaxException;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.PCTemplate;
+import pcgen.core.spell.Spell;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.CDOMLoader;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreClassParser;
+import plugin.pretokens.parser.PreRaceParser;
+import plugin.pretokens.writer.PreClassWriter;
+import plugin.pretokens.writer.PreRaceWriter;
+
+/**
+ * The Class <code>SpellknownLstTest</code> is responsible for testing the 
+ * function of the spellknownlst class.
+ * 
+ * Last Editor: $Author: $
+ * Last Edited: $Date:  $
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision:  $
+ */
+public class SpellknownLstTest extends AbstractGlobalTokenTestCase
+{
+
+	static CDOMPrimaryToken<CDOMObject> token = new SpellknownLst();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
+			PCTemplate.class);
+
+	/* (non-Javadoc)
+	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getLoader()
+	 */
+	@Override
+	public CDOMLoader<PCTemplate> getLoader()
+	{
+		return loader;
+	}
+
+	/* (non-Javadoc)
+	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getCDOMClass()
+	 */
+	@Override
+	public Class<PCTemplate> getCDOMClass()
+	{
+		return PCTemplate.class;
+	}
+
+	/* (non-Javadoc)
+	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getToken()
+	 */
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getToken()
+	{
+		return token;
+	}
+
+	PreClassParser preclass = new PreClassParser();
+	PreClassWriter preclasswriter = new PreClassWriter();
+	PreRaceParser prerace = new PreRaceParser();
+	PreRaceWriter preracewriter = new PreRaceWriter();
+
+	@Override
+	@Before
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TokenRegistration.register(preclass);
+		TokenRegistration.register(prerace);
+		TokenRegistration.register(preclasswriter);
+		TokenRegistration.register(preracewriter);
+	}
+
+	/**
+	 * Test invalid empty.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidEmpty() throws PersistenceLayerException
+	{
+		assertFalse(parse(""));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid nota category.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidNotaCategory() throws PersistenceLayerException
+	{
+		assertFalse(parse("NotaCategory|NORMAL|,TestWP1"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid no ability.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidNoAbility() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid category only.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidCategoryOnly() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid category bar only.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidCategoryBarOnly() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid empty category.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidEmptyCategory() throws PersistenceLayerException
+	{
+		assertFalse(parse("|NORMAL|Abil"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid empty nature.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidEmptyNature() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT||Abil"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid empty ability.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidEmptyAbility() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL|"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid only pre.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidOnlyPre() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL|PRERACE:1,Human"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid double bar ability.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidDoubleBarAbility() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL|Abil1||Abil2"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid inserted pre.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidInsertedPre() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL|Abil1|PRELEVEL:MIN=4|Abil2"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid double bar start ability.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidDoubleBarStartAbility()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL||Abil1|Abil2"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid bar end ability.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidBarEndAbility() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL|Abil1|"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Test invalid any nature.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testInvalidAnyNature() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|ANY|Abil1"));
+		assertNoSideEffects();
+	}
+
+	/**
+	 * Round robin test of a single spell added to a spell list.
+	 * 
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	public void testRoundRobinSingleSpell() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Bless");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Bless");
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Wizard");
+		runRoundRobin("CLASS|Wizard=3|Bless");
+	}
+
+	@Test
+	public void testInvalidDoublePipe() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS||Cleric=1|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoSpell() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=1"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoLevel() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidClassOnly() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidPrefix() throws PersistenceLayerException
+	{
+		assertFalse(parse("SKILL|Cleric=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoPrefix() throws PersistenceLayerException
+	{
+		assertFalse(parse("|Cleric=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNoClass() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidOnlyPre1() throws PersistenceLayerException
+	{
+		assertFalse(parse("PRECLASS:1,Fighter"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidOnlyPre2() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|PRECLASS:1,Fighter"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidOnlyPre3() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|PRECLASS:1,Fighter"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadCasterComma1() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|,Cleric=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadCasterComma2() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric,=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadCasterComma3() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric,,Druid=2|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadCasterComma4() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Druid=2,|Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadComma1() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|,Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadComma2() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|Fireball,"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadComma3() throws PersistenceLayerException
+	{
+		assertFalse(parse("CLASS|Cleric=2|Fireball,,Lightning Bolt"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinClass() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Cleric");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Cleric");
+		runRoundRobin("CLASS|Cleric=2|Fireball|PRECLASS:1,Fighter=2");
+	}
+
+	@Test
+	public void testRoundRobinSpellCaster() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		runRoundRobin("CLASS|SPELLCASTER.Arcane=2|Fireball|PRECLASS:1,Fighter=2");
+	}
+
+	@Test
+	public void testInvalidDomain() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		assertFalse(parse("DOMAIN|Fire=2|Fireball,Lightning Bolt|PRECLASS:1,Fighter=2"));
+		assertNoSideEffects();
+	}
+	
+}

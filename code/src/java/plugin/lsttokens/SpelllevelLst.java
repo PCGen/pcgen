@@ -24,7 +24,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.base.util.MapToList;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -37,9 +36,8 @@ import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractSpellListToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 
@@ -47,7 +45,7 @@ import pcgen.util.Logging;
  * @author djones4
  * 
  */
-public class SpelllevelLst extends AbstractToken implements
+public class SpelllevelLst extends AbstractSpellListToken implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
@@ -219,7 +217,7 @@ public class SpelllevelLst extends AbstractToken implements
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedDomainLists = context
 				.getListContext().getChangedLists(obj, DomainSpellList.class);
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> domainMap = getMap(
-				context, obj, changedDomainLists);
+				context, obj, changedDomainLists, false);
 		for (String prereqs : domainMap.getKeySet())
 		{
 			set.add(processUnparse("DOMAIN", domainMap, prereqs).toString());
@@ -228,7 +226,7 @@ public class SpelllevelLst extends AbstractToken implements
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedClassLists = context
 				.getListContext().getChangedLists(obj, ClassSpellList.class);
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> classMap = getMap(
-				context, obj, changedClassLists);
+				context, obj, changedClassLists, false);
 		for (String prereqs : classMap.getKeySet())
 		{
 			set.add(processUnparse("CLASS", classMap, prereqs).toString());
@@ -239,91 +237,6 @@ public class SpelllevelLst extends AbstractToken implements
 			return null;
 		}
 		return set.toArray(new String[set.size()]);
-	}
-
-	private StringBuilder processUnparse(
-			String type,
-			TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> domainMap,
-			String prereqs)
-	{
-		StringBuilder sb = new StringBuilder(type);
-		Set<Integer> levels = domainMap.getSecondaryKeySet(prereqs);
-		for (Integer level : new TreeSet<Integer>(levels))
-		{
-			for (CDOMReference<? extends CDOMList<? extends PrereqObject>> list : domainMap
-					.getTertiaryKeySet(prereqs, level))
-			{
-				sb.append(Constants.PIPE);
-				String lsts = list.getLSTformat();
-				if (lsts.startsWith("TYPE="))
-				{
-					lsts = "SPELLCASTER." + lsts.substring(5);
-				}
-				sb.append(lsts);
-				sb.append(Constants.EQUALS);
-				sb.append(level);
-				sb.append(Constants.PIPE);
-				List<CDOMReference<Spell>> refs = domainMap.getListFor(prereqs, level, list);
-				boolean first = true;
-				for (CDOMReference<Spell> lw : refs)
-				{
-					if (!first)
-					{
-						sb.append(',');
-					}
-					first = false;
-					sb.append(lw.getLSTformat());
-				}
-			}
-		}
-		if (prereqs != null)
-		{
-			sb.append(Constants.PIPE);
-			sb.append(prereqs);
-		}
-		return sb;
-	}
-
-	private TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> getMap(
-			LoadContext context,
-			CDOMObject obj,
-			Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists)
-	{
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> map = new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>>();
-
-		for (CDOMReference listRef : changedLists)
-		{
-			AssociatedChanges changes = context.getListContext()
-					.getChangesInList(getTokenName(), obj, listRef);
-			Collection<Spell> removedItems = changes.getRemoved();
-			if (removedItems != null && !removedItems.isEmpty()
-					|| changes.includesGlobalClear())
-			{
-				context.addWriteMessage(getTokenName()
-						+ " does not support .CLEAR");
-				return null;
-			}
-			MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl = changes
-					.getAddedAssociations();
-			if (mtl == null || mtl.isEmpty())
-			{
-				// Zero indicates no Token
-				// TODO Error message - unexpected?
-				return null;
-			}
-			for (CDOMReference<Spell> added : mtl.getKeySet())
-			{
-				for (AssociatedPrereqObject assoc : mtl.getListFor(added))
-				{
-					Integer lvl = assoc
-							.getAssociation(AssociationKey.SPELL_LEVEL);
-					String prereqString = getPrerequisiteString(context, assoc
-							.getPrerequisiteList());
-					map.addToListFor(prereqString, lvl, listRef, added);
-				}
-			}
-		}
-		return map;
 	}
 
 	public Class<CDOMObject> getTokenClass()
