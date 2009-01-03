@@ -49,6 +49,7 @@ import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.Quality;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -230,7 +231,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
-	public static final ListKey<QualifiedObject<CDOMReference<WeaponProf>>> WEAPONPROF = new ListKey<QualifiedObject<CDOMReference<WeaponProf>>>();
+	public static final ListKey<WeaponProfProvider> WEAPONPROF = new ListKey<WeaponProfProvider>();
 	public static final ListKey<CDOMSingleRef<WeaponProf>> IMPLIED_WEAPONPROF = new ListKey<CDOMSingleRef<WeaponProf>>();
 	public static final ListKey<QualifiedObject<CDOMReference<Equipment>>> EQUIPMENT = new ListKey<QualifiedObject<CDOMReference<Equipment>>>();
 	public static final ListKey<ArmorProfProvider> AUTO_ARMORPROF = new ListKey<ArmorProfProvider>();

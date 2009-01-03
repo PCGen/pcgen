@@ -22,16 +22,16 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalChoiceActor;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.cdom.helper.WeaponProfProvider;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
@@ -95,8 +95,8 @@ public class WeaponProfToken extends AbstractToken implements
 					.length() - 1));
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite " + prereq
-						+ " in " + getFullName());
+				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite "
+						+ prereq + " in " + getFullName());
 				return false;
 			}
 		}
@@ -110,6 +110,7 @@ public class WeaponProfToken extends AbstractToken implements
 		boolean foundOther = false;
 
 		StringTokenizer tok = new StringTokenizer(weaponProfs, Constants.PIPE);
+		WeaponProfProvider wpp = new WeaponProfProvider();
 
 		while (tok.hasMoreTokens())
 		{
@@ -137,25 +138,34 @@ public class WeaponProfToken extends AbstractToken implements
 			}
 			else
 			{
-				CDOMReference<WeaponProf> ref;
 				if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 				{
 					foundAny = true;
-					ref = context.ref.getCDOMAllReference(WEAPONPROF_CLASS);
+					context.obj.put(obj, ObjectKey.HAS_ALL_WEAPONPROF,
+							new QualifiedObject<Boolean>(Boolean.TRUE, prereq));
 				}
 				else
 				{
 					foundOther = true;
-					ref = TokenUtilities.getTypeOrPrimitive(context,
-							WEAPONPROF_CLASS, aProf);
+					if (aProf.startsWith(Constants.LST_TYPE_OLD)
+							|| aProf.startsWith(Constants.LST_TYPE))
+					{
+						CDOMGroupRef<WeaponProf> rr = TokenUtilities
+								.getTypeReference(context, WEAPONPROF_CLASS,
+										aProf.substring(5));
+						if (rr == null)
+						{
+							return false;
+						}
+						wpp.addWeaponProfType(rr);
+					}
+					else
+					{
+						CDOMSingleRef<WeaponProf> ref = context.ref
+								.getCDOMReference(WEAPONPROF_CLASS, aProf);
+						wpp.addWeaponProf(ref);
+					}
 				}
-				if (ref == null)
-				{
-					return false;
-				}
-				context.obj.addToList(obj, ListKey.WEAPONPROF,
-						new QualifiedObject<CDOMReference<WeaponProf>>(ref,
-								prereq));
 			}
 		}
 
@@ -165,7 +175,14 @@ public class WeaponProfToken extends AbstractToken implements
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
-
+		if (!wpp.isEmpty())
+		{
+			if (prereq != null)
+			{
+				wpp.addPrerequisite(prereq);
+			}
+			context.obj.addToList(obj, ListKey.WEAPONPROF, wpp);
+		}
 		return true;
 	}
 
@@ -174,21 +191,13 @@ public class WeaponProfToken extends AbstractToken implements
 		List<String> list = new ArrayList<String>();
 		Changes<ChooseResultActor> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
-
-		Changes<QualifiedObject<CDOMReference<WeaponProf>>> changes = context.obj
-				.getListChanges(obj, ListKey.WEAPONPROF);
+		Changes<WeaponProfProvider> changes = context.obj.getListChanges(obj,
+				ListKey.WEAPONPROF);
 		QualifiedObject<Boolean> deityweap = context.obj.getObject(obj,
 				ObjectKey.HAS_DEITY_WEAPONPROF);
-		Collection<QualifiedObject<CDOMReference<WeaponProf>>> added = changes
-				.getAdded();
-		HashMapToList<List<Prerequisite>, CDOMReference<WeaponProf>> m = new HashMapToList<List<Prerequisite>, CDOMReference<WeaponProf>>();
-		if (added != null)
-		{
-			for (QualifiedObject<CDOMReference<WeaponProf>> qo : added)
-			{
-				m.addToListFor(qo.getPrerequisiteList(), qo.getObject(null));
-			}
-		}
+		QualifiedObject<Boolean> allweap = context.obj.getObject(obj,
+				ObjectKey.HAS_ALL_WEAPONPROF);
+		Collection<WeaponProfProvider> added = changes.getAdded();
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
@@ -221,23 +230,39 @@ public class WeaponProfToken extends AbstractToken implements
 			}
 			list.add(sb.toString());
 		}
-		for (List<Prerequisite> prereqs : m.getKeySet())
+		if (allweap != null)
 		{
-			String ab = ReferenceUtilities.joinLstFormat(m.getListFor(prereqs),
-					Constants.PIPE);
-			if (prereqs != null && !prereqs.isEmpty())
+			StringBuilder sb = new StringBuilder();
+			sb.append("ALL");
+			if (allweap.hasPrerequisites())
 			{
-				if (prereqs.size() > 1)
-				{
-					context.addWriteMessage("Error: "
-							+ obj.getClass().getSimpleName()
-							+ " had more than one Prerequisite for "
-							+ getFullName());
-					return null;
-				}
-				ab = ab + '[' + context.getPrerequisiteString(prereqs) + ']';
+				sb.append('[').append(
+						context.getPrerequisiteString(allweap
+								.getPrerequisiteList())).append(']');
 			}
-			list.add(ab);
+			list.add(sb.toString());
+		}
+		if (added != null)
+		{
+			for (WeaponProfProvider wpp : added)
+			{
+				String ab = wpp.getLstFormat();
+				List<Prerequisite> prereqs = wpp.getPrerequisiteList();
+				if (prereqs != null && !prereqs.isEmpty())
+				{
+					if (prereqs.size() > 1)
+					{
+						context.addWriteMessage("Error: "
+								+ obj.getClass().getSimpleName()
+								+ " had more than one Prerequisite for "
+								+ getFullName());
+						return null;
+					}
+					ab = ab + '[' + context.getPrerequisiteString(prereqs)
+							+ ']';
+				}
+				list.add(ab);
+			}
 		}
 		if (list.isEmpty())
 		{

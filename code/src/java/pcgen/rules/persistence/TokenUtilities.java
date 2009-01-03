@@ -22,6 +22,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -47,7 +48,7 @@ public final class TokenUtilities
 		}
 	}
 
-	public static <T extends CDOMObject> CDOMReference<T> getTypeReference(
+	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
 			LoadContext context, Class<T> cl, String subStr)
 	{
 		if (subStr.length() == 0)

@@ -89,6 +89,7 @@ import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
@@ -4058,14 +4059,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				ret.put(prof.getKeyName(), prof);
 			}
 			// AUTO:WEAPONPROF except LIST
-			List<QualifiedObject<CDOMReference<WeaponProf>>> potentialProfs =
-					pobj.getSafeListFor(ListKey.WEAPONPROF);
-			for (QualifiedObject<CDOMReference<WeaponProf>> qo : potentialProfs)
+			 List<WeaponProfProvider> potentialProfs = pobj
+					.getSafeListFor(ListKey.WEAPONPROF);
+			for (WeaponProfProvider wpp : potentialProfs)
 			{
-				CDOMReference<WeaponProf> ref = qo.getObject(this);
-				if (ref != null)
+				if (wpp.qualifies(this))
 				{
-					for (WeaponProf wp : ref.getContainedObjects())
+					for (WeaponProf wp : wpp.getContainedProficiencies(this))
 					{
 						ret.put(wp.getKeyName(), wp);
 					}
@@ -4077,6 +4077,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (profs != null)
 			{
 				for (WeaponProf wp : profs)
+				{
+					ret.put(wp.getKeyName(), wp);
+				}
+			}
+			Boolean all =
+				pobj.getSafe(ObjectKey.HAS_ALL_WEAPONPROF)
+					.getObject(this);
+			if (all != null && all)
+			{
+				Collection<WeaponProf> allwps = Globals.getContext().ref
+						.getConstructedCDOMObjects(WeaponProf.class);
+				for (WeaponProf wp : allwps)
 				{
 					ret.put(wp.getKeyName(), wp);
 				}

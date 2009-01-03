@@ -64,6 +64,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.ShieldProfProvider;
+import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
@@ -3972,8 +3973,7 @@ public class PCClass extends PObject
 			addAllToListFor(ListKey.EQUIPMENT, e);
 		}
 
-		List<QualifiedObject<CDOMReference<WeaponProf>>> wp = otherClass
-				.getListFor(ListKey.WEAPONPROF);
+		List<WeaponProfProvider> wp = otherClass.getListFor(ListKey.WEAPONPROF);
 		if (wp != null)
 		{
 			addAllToListFor(ListKey.WEAPONPROF, wp);
@@ -3983,6 +3983,12 @@ public class PCClass extends PObject
 		if (otherWP != null)
 		{
 			put(ObjectKey.HAS_DEITY_WEAPONPROF, otherWP);
+		}
+		QualifiedObject<Boolean> otherAllWP = otherClass
+				.get(ObjectKey.HAS_ALL_WEAPONPROF);
+		if (otherAllWP != null)
+		{
+			put(ObjectKey.HAS_ALL_WEAPONPROF, otherWP);
 		}
 
 		List<ArmorProfProvider> ap = otherClass

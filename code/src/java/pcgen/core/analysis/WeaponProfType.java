@@ -36,21 +36,40 @@ public class WeaponProfType
 {
 	/**
 	 * Get the Weapon Profs
+	 * 
 	 * @param type
 	 * @param aPC
 	 * @return List of Weapon Profs
 	 */
 	public static List<WeaponProf> getWeaponProfs(final String type,
-		final PlayerCharacter aPC)
+			final PlayerCharacter aPC)
+	{
+		CDOMGroupRef<WeaponProf> master = Globals.getContext().ref
+				.getCDOMTypeReference(WeaponProf.class, type.split("\\."));
+		return getWeaponProfsInTarget(type, aPC, master);
+	}
+
+	public static List<WeaponProf> getWeaponProfsInTarget(
+			final PlayerCharacter aPC, CDOMGroupRef<WeaponProf> master)
+	{
+		String masterType = master.getLSTformat();
+		if (!masterType.startsWith("TYPE="))
+		{
+			throw new IllegalArgumentException("Cannot get targets for: "
+					+ masterType);
+		}
+		return getWeaponProfsInTarget(masterType.substring(5), aPC, master);
+	}
+
+	public static List<WeaponProf> getWeaponProfsInTarget(final String type,
+			final PlayerCharacter aPC, CDOMGroupRef<WeaponProf> master)
 	{
 		AbstractReferenceContext ref = Globals.getContext().ref;
-		CDOMGroupRef<WeaponProf> master =
-				ref.getCDOMTypeReference(WeaponProf.class, type.split("\\."));
 		List<WeaponProf> aList = new ArrayList<WeaponProf>();
-		//Can't use master because late called references may not have been initialized, see 2001287
-		Collection<WeaponProf> weaponProfsOfType =
-				Globals.getPObjectsOfType(ref
-					.getConstructedCDOMObjects(WeaponProf.class), type);
+		// Can't use master because late called references may not have been
+		// initialized, see 2001287
+		Collection<WeaponProf> weaponProfsOfType = Globals.getPObjectsOfType(
+				ref.getConstructedCDOMObjects(WeaponProf.class), type);
 		for (CDOMObject cdo : aPC.getCDOMObjectList())
 		{
 			List<ChangeProf> changes = cdo.getListFor(ListKey.CHANGEPROF);
@@ -58,6 +77,9 @@ public class WeaponProfType
 			{
 				for (ChangeProf cp : changes)
 				{
+					System.err.println(cp.getResult() + " " + master);
+					System.err.println(cp.getSource().getContainedObjects());
+					System.err.println(aList + " " + weaponProfsOfType);
 					if (cp.getResult().equals(master))
 					{
 						aList.addAll(cp.getSource().getContainedObjects());
@@ -65,7 +87,7 @@ public class WeaponProfType
 					else if (weaponProfsOfType != null)
 					{
 						weaponProfsOfType.removeAll(cp.getSource()
-							.getContainedObjects());
+								.getContainedObjects());
 					}
 				}
 			}
