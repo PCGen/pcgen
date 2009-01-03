@@ -59,7 +59,13 @@ public class PreCompatibilityToken implements
 	public boolean parse(LoadContext context, ConcretePrereqObject obj,
 			String value) throws PersistenceLayerException
 	{
-		Prerequisite p = token.parse(tokenRoot, value, invert, false);
+		boolean overrideQualify = false;
+		if (value.startsWith("Q:"))
+		{
+			value = value.substring(2);
+			overrideQualify = true;
+		}
+		Prerequisite p = token.parse(tokenRoot, value, invert, overrideQualify);
 		if (p == null)
 		{
 			return false;

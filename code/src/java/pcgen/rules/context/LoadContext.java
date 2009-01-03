@@ -256,12 +256,6 @@ public abstract class LoadContext
 //		return support.getChoiceSet(this, cdo, key, val);
 //	}
 
-	public Prerequisite getPrerequisite(String string, String value)
-			throws PersistenceLayerException
-	{
-		return support.getPrerequisite(this, string, value);
-	}
-
 	public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo, String newName)
 	{
 		T newObj = obj.cloneConstructedCDOMObject(cdo, newName);

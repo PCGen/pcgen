@@ -27,11 +27,8 @@ import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary.PreTokenIterator;
 import pcgen.rules.persistence.TokenLibrary.SubTokenIterator;
 import pcgen.rules.persistence.TokenLibrary.TokenIterator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -180,25 +177,5 @@ public class TokenSupport
 			return null;
 		}
 		return set;
-	}
-
-	public Prerequisite getPrerequisite(LoadContext context, String key,
-		String value) throws PersistenceLayerException
-	{
-		for (Iterator<PrerequisiteParserInterface> it =
-				new PreTokenIterator(key); it.hasNext();)
-		{
-			PrerequisiteParserInterface token = it.next();
-			Prerequisite p = token.parse(key, value, false, false);
-			if (p == null)
-			{
-				Logging.addParseMessage(Logging.LST_ERROR,
-					"Failed in parsing Prereq: " + key + " " + value);
-			}
-			return p;
-		}
-		Logging.addParseMessage(Logging.LST_ERROR, "Illegal Choice Token '"
-			+ key + "' '" + value + "'");
-		return null;
 	}
 }
