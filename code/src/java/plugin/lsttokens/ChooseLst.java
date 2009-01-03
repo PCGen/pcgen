@@ -113,6 +113,10 @@ public class ChooseLst extends AbstractToken implements
 			{
 				str[i] = choicesString + Constants.PIPE + str[i];
 			}
+			if (str[i].startsWith("FEAT|"))
+			{
+				str[i] = "FEAT=" + str[i].substring(5);
+			}
 		}
 		return str;
 	}
