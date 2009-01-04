@@ -17816,6 +17816,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<CharacterSpell> cspells =
 				getAssocList(po, AssociationListKey.CHARACTER_SPELLS);
+		// Add in the spells granted by objects
+		SpellLevel.addBonusKnowSpellsToList(this, po, cspells);
+
 		if (cspells != null)
 		{
 			for (CharacterSpell cs : cspells)
@@ -17844,6 +17847,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<CharacterSpell> csList =
 				getAssocList(spellSource, AssociationListKey.CHARACTER_SPELLS);
+		// Add in the spells granted by objects
+		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
+		
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		if (csList == null || csList.size() == 0)
 		{

@@ -1156,6 +1156,9 @@ public final class SpellModel extends AbstractTreeTableModel implements
 					Collection<CharacterSpell> cSpells =
 							pc.getSafeAssocList(aClass,
 								AssociationListKey.CHARACTER_SPELLS);
+					// Add in the spells granted by objects
+					SpellLevel.addBonusKnowSpellsToList(pc, aClass, cSpells);
+					
 					spellList.addAll(cSpells);
 					for (Object tempSpell : cSpells)
 					{

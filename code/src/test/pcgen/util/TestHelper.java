@@ -58,6 +58,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -374,6 +375,21 @@ public class TestHelper
 
 		Globals.getContext().ref.importObject(aClass);
 		return aClass;
+	}
+
+	/**
+	 * Set the important info about a Spell
+	 * @param name The spell name
+	 * @return The spell (which has also been added to global storage)
+	 */
+	public static Spell makeSpell(final String name)
+	{
+		final Spell aSpell = new Spell();
+		aSpell.setName(name);
+		aSpell.put(StringKey.KEY_NAME, ("KEY_" + name));
+
+		Globals.getContext().ref.importObject(aSpell);
+		return aSpell;
 	}
 	
 	/**

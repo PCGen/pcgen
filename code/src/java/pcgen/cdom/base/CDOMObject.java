@@ -548,6 +548,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return cdomListMods.getListFor(list, key);
 	}
 
+	/**
+	 * @return A list of references to the global lists that this CDOM Object has modified
+	 */
 	public final Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getModifiedLists()
 	{
 		return cdomListMods.getKeySet();

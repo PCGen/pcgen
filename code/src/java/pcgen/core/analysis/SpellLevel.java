@@ -2,7 +2,9 @@ package pcgen.core.analysis;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -20,9 +22,12 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
 
 public class SpellLevel
 {
@@ -245,4 +250,103 @@ public class SpellLevel
 		return levelInfo;
 	}
 
+	/**
+	 * Retrieve a map of the additional spells that will be added to the supplied class as a result 
+	 * of SPELLKNOWN tags.
+	 * 
+	 * @param pc The character being tested
+	 * @param pcc The PC class being checked/
+	 * @return A map of additional spell lists for each spell level 
+	 */
+	public static Map<Integer, List<Spell>> getPCBasedBonusKnownSpells(PlayerCharacter pc, PCClass pcc)
+	{
+		HashMap<Integer, List<Spell>> levelInfo = new HashMap<Integer, List<Spell>>();
+		
+		ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);
+		
+		for (CDOMObject cdo : pc.getCDOMObjectList())
+		{
+			// Get the global lists that are modified by the application of this object
+			Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> listrefs = cdo
+					.getModifiedLists();
+			for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : listrefs)
+			{
+				Collection<? extends CDOMList> lists = ref
+						.getContainedObjects();
+				for (CDOMList<Spell> list : lists)
+				{
+					if (list == csl)
+					{
+						CDOMReference<? extends CDOMList<Spell>> spelllistref = (CDOMReference<? extends CDOMList<Spell>>) ref;
+						Collection<CDOMReference<Spell>> mods = cdo
+								.getListMods(spelllistref);
+						for (CDOMReference<Spell> spellref : mods)
+						{
+							Collection<AssociatedPrereqObject> listAssocs = cdo
+									.getListAssociations(spelllistref,
+											spellref);
+							for (AssociatedPrereqObject apo : listAssocs)
+							{
+								// TODO This null for source is
+								// incorrect!
+								if (PrereqHandler.passesAll(apo
+										.getPrerequisiteList(), pc, null))
+								{
+									Integer lvl = apo
+											.getAssociation(AssociationKey.SPELL_LEVEL);
+									Boolean known = apo.getAssociation(AssociationKey.KNOWN);
+									if (known != null && known)
+									{
+										Collection<Spell> spells = spellref.getContainedObjects();
+										List<Spell> spellList = levelInfo.get(lvl);
+										if (spellList == null)
+										{
+											spellList = new ArrayList<Spell>();
+											levelInfo.put(lvl, spellList);
+										}
+										spellList.addAll(spells);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+		return levelInfo;
+	}
+
+
+	/**
+	 * Add to the supplied list the additional known spells for the class that are 
+	 * specified by SPELLKNOWN tags associated with the character. Any existing 
+	 * contents of the list are preserved.
+	 * 
+	 * @param pc The character being tested
+	 * @param aClass The PC class being checked
+	 * @param cSpells The list to be populated with the spells
+	 */
+	public static void addBonusKnowSpellsToList(PlayerCharacter pc, PObject aClass,
+		Collection<CharacterSpell> cSpells)
+	{
+		if (!(aClass instanceof PCClass))
+		{
+			return;
+		}
+		Map<Integer, List<Spell>> spellsMap =
+				SpellLevel.getPCBasedBonusKnownSpells(pc, (PCClass) aClass);
+		for (Integer spellLevel : spellsMap.keySet())
+		{
+			List<Spell> spells = spellsMap.get(spellLevel);
+			for (Spell spell : spells)
+			{
+				CharacterSpell acs =
+						new CharacterSpell(aClass, spell);
+				acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
+				cSpells.add(acs);
+			}
+		}
+	}
+	
 }
