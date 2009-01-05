@@ -25,6 +25,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 	/**
 	 * Main
+	 * 
 	 * @param args
 	 */
 	public static void main(final String[] args)
@@ -79,9 +80,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
-		template.putToList(Vision.VISIONLIST,
-				CDOMDirectSingleRef.getRef(new Vision(VisionType
-						.getVisionType("Normal"), "60")),
+		template.putToList(Vision.VISIONLIST, CDOMDirectSingleRef
+				.getRef(new Vision(VisionType.getVisionType("Normal"), "60")),
 				new SimpleAssociatedObject());
 
 		character.addTemplate(template);
@@ -118,6 +118,227 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionPresentTen() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
+		prereq.setOperand("ANY");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "10")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionNotPresentTen() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.LT);
+		prereq.setOperand("ANY");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "10")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionPresentZero() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
+		prereq.setOperand("ANY");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "0")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionNotPresentZero() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.LT);
+		prereq.setOperand("ANY");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "0")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionZeroTen() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
+		prereq.setOperand("0");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "10")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionNotZeroTen() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.LT);
+		prereq.setOperand("0");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "10")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionZeroZero() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
+		prereq.setOperand("0");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "0")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(passes);
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	public void testVisionNotZeroZero() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		final PCTemplate template = new PCTemplate();
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("vision");
+		prereq.setKey("darkvision");
+		prereq.setOperator(PrerequisiteOperator.LT);
+		prereq.setOperand("0");
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
+
+		template.putToList(Vision.VISIONLIST,
+				CDOMDirectSingleRef.getRef(new Vision(VisionType
+						.getVisionType("Darkvision"), "0")),
+				new SimpleAssociatedObject());
+
+		character.addTemplate(template);
+
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(passes);
 	}
 
 }
