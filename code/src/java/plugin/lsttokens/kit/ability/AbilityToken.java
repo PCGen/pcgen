@@ -31,9 +31,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
