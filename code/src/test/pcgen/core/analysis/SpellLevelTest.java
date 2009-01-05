@@ -30,24 +30,18 @@ import java.util.Map;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
-import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
-import plugin.lsttokens.SpellknownLst;
 
 /**
  * The Class <code>SpellLevelTest</code> checks the SpellLevel class.
@@ -98,7 +92,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		context.resolveDeferredTokens();
 		context.ref.buildDeferredObjects();
 		context.ref.buildDerivedObjects();
-		context.ref.validate();
+		context.ref.validate(null);
 		context.resolveReferences();
 		context.buildTypeLists();
 
