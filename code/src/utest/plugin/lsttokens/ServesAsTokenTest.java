@@ -26,6 +26,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -177,14 +178,16 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	{
 		primaryProf = new Ability();
 		secondaryProf = new Ability();
-		Ability a = primaryContext.ref.constructCDOMObject(
-				Ability.class, "My Feat");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		a = secondaryContext.ref.constructCDOMObject(Ability.class,
-				"My Feat");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		runRoundRobin("ABILITY=Feat|My Feat");
+		AbilityCategory ac = new AbilityCategory("NEWCAT");
+		SettingsHandler.getGame().addAbilityCategory(ac);
+		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
+		primaryContext.ref.reassociateCategory(ac, ab);
+		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
+				"Abil3");
+		secondaryContext.ref.reassociateCategory(ac, ab);
+		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
+
 
 	// @Test
 	// public void testRoundRobinJustSubClass() throws PersistenceLayerException

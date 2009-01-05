@@ -32,6 +32,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -106,7 +107,14 @@ public class ForwardRefToken extends AbstractToken implements
 			{
 				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
 						.getCDOMCategory();
-				key += '=' + cat.toString();
+				if (AbilityCategory.FEAT.equals(cat))
+				{
+					key = "FEAT";
+				}
+				else
+				{
+					key += '=' + cat.toString();
+				}
 			}
 			map.addToListFor(key, ref);
 		}

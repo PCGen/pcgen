@@ -30,12 +30,14 @@ import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.Race;
@@ -102,9 +104,18 @@ public class ServesAsToken extends AbstractToken implements
 					+ " must include at least one target object");
 			return false;
 		}
+		if (!rm.getReferenceClass().equals(obj.getClass()))
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " expecting a POBJECT Type valid for "
+					+ obj.getClass().getSimpleName() + ", found: "
+							+ firstToken);
+			return false;
+		}
 
+		String servekey = StringPClassUtil.getStringFor(obj.getClass());
 		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class,
-				"SERVES_AS_" + firstToken);
+				"SERVES_AS_" + servekey);
 		while (st.hasMoreTokens())
 		{
 			CDOMSingleRef<?> ref = rm.getReference(st.nextToken());
@@ -141,8 +152,16 @@ public class ServesAsToken extends AbstractToken implements
 			String mapKey = key;
 			if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
 			{
-				CategorizedCDOMReference<Ability> catref = (CategorizedCDOMReference<Ability>) ref;
-				mapKey = key + "=" + catref.getCDOMCategory().toString();
+				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
+						.getCDOMCategory();
+				if (AbilityCategory.FEAT.equals(cat))
+				{
+					mapKey = "FEAT";
+				}
+				else
+				{
+					mapKey += '=' + cat.toString();
+				}
 			}
 			map.addToListFor(mapKey, ref.getLSTformat());
 		}
