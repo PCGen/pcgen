@@ -317,9 +317,17 @@ public abstract class AbstractPrerequisiteListParser extends
 						}
 						catch (NumberFormatException nfe)
 						{
-							// i.e. TYPE=ItemCreation
-							subreq.setOperand(elements[0]);
-							subreq.setKey(elements[i]);
+							if (tokens[1].equals("ANY"))
+							{
+								subreq.setOperand(tokens[1]);
+								subreq.setKey(tokens[0]);
+							}
+							else
+							{
+								// i.e. TYPE=ItemCreation
+								subreq.setOperand(elements[0]);
+								subreq.setKey(elements[i]);
+							}
 						}
 					}
 					else

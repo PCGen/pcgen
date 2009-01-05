@@ -65,4 +65,10 @@ public class PreVisionRoundRobin extends AbstractRankedRoundRobin
 	{
 		return false;
 	}
+
+	public void testAnyTarget()
+	{
+		runRoundRobin("PRE" + getBaseString() + ":1,Foo=ANY");
+	}
+
 }
