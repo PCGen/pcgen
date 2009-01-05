@@ -215,8 +215,8 @@ public abstract class AbstractIntegrationTestCase<T extends CDOMObject> extends
 			}
 		}
 
-		assertTrue(primaryContext.ref.validate());
-		assertTrue(secondaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.validate(null));
 		assertEquals(expectedPrimaryMessageCount, primaryContext
 				.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
