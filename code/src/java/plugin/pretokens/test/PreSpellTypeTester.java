@@ -85,7 +85,7 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 	{
 		return PropertyFactory.getFormattedString("PreSpellType.toHtml", //$NON-NLS-1$
 			new Object[]{prereq.getOperator().toDisplayString(),
-				prereq.getOperand(), prereq.getKey(), prereq.getSubKey()});
+				1, prereq.getKey(), prereq.getOperand()});
 	}
 
 }
