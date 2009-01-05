@@ -27,6 +27,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
@@ -41,6 +43,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.TokenSupport;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 public abstract class LoadContext
 {
@@ -376,4 +379,100 @@ public abstract class LoadContext
 	}
 
 	public abstract boolean consolidate();
+
+	public ReferenceManufacturer<? extends CDOMObject, ?> getManufacturer(String firstToken)
+	{
+		int equalLoc = firstToken.indexOf('=');
+		String className;
+		String categoryName;
+		if (equalLoc != firstToken.lastIndexOf('='))
+		{
+			Logging
+					.log(Logging.LST_ERROR,
+							"  Error encountered: Found second = in ObjectType=Category");
+			Logging.log(Logging.LST_ERROR,
+					"  Format is: ObjectType[=Category]|Key[|Key] value was: "
+							+ firstToken);
+			Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
+					+ StringPClassUtil.getValidStrings());
+			return null;
+		}
+		else if (firstToken.equals("FEAT"))
+		{
+			className = "ABILITY";
+			categoryName = "FEAT";
+		}
+		else if (equalLoc == -1)
+		{
+			className = firstToken;
+			categoryName = null;
+		}
+		else
+		{
+			className = firstToken.substring(0, equalLoc);
+			categoryName = firstToken.substring(equalLoc + 1);
+		}
+		Class<? extends CDOMObject> c = StringPClassUtil.getClassFor(className);
+		if (c == null)
+		{
+			Logging.log(Logging.LST_ERROR, "Unrecognized ObjectType: "
+					+ className);
+			return null;
+		}
+		ReferenceManufacturer<? extends CDOMObject, ?> rm;
+		if (CategorizedCDOMObject.class.isAssignableFrom(c))
+		{
+			if (categoryName == null)
+			{
+				Logging
+						.log(Logging.LST_ERROR,
+								"  Error encountered: Found Categorized Type without =Category");
+				Logging.log(Logging.LST_ERROR,
+						"  Format is: ObjectType[=Category]|Key[|Key] value was: "
+								+ firstToken);
+				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
+						+ StringPClassUtil.getValidStrings());
+				return null;
+			}
+			
+			rm = getReferenceManufacturer((Class) c, categoryName);
+			if (rm == null)
+			{
+				Logging.log(Logging.LST_ERROR, "  Error encountered: "
+						+ className + " Category: " + categoryName
+						+ " not found");
+				return null;
+			}
+		}
+		else
+		{
+			if (categoryName != null)
+			{
+				Logging
+						.log(Logging.LST_ERROR,
+								"  Error encountered: Found Non-Categorized Type with =Category");
+				Logging.log(Logging.LST_ERROR,
+						"  Format is: ObjectType[=Category]|Key[|Key] value was: "
+								+ firstToken);
+				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
+						+ StringPClassUtil.getValidStrings());
+				return null;
+			}
+			rm = ref.getManufacturer(c);
+		}
+		return rm;
+	}
+
+	private <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<? extends CDOMObject, ?> getReferenceManufacturer(
+			Class<T> c, String categoryName)
+	{
+		Category<T> cat = StringPClassUtil.getCategoryFor(c, categoryName);
+		if (cat == null)
+		{
+			return null;
+		}
+		return ref.getManufacturer(c, cat);
+	}
+
+
 }

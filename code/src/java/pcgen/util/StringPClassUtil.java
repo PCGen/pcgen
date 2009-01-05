@@ -60,8 +60,8 @@ public class StringPClassUtil
 		stringMap.put(Skill.class, "SKILL");
 		stringMap.put(PCTemplate.class, "TEMPLATE");
 		stringMap.put(WeaponProf.class, "WEAPONPROF");
-		
-		//Hacks for ServesAs
+
+		// Hacks for ServesAs
 		stringMap.put(SubClass.class, "CLASS");
 		stringMap.put(SubstitutionClass.class, "CLASS");
 	}
@@ -82,11 +82,12 @@ public class StringPClassUtil
 	}
 
 	public static <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
-		Class<T> cl, String s)
+			Class<T> cl, String s)
 	{
 		if (cl.equals(Ability.class))
 		{
-			return (Category) SettingsHandler.getGame().silentlyGetAbilityCategory(s);
+			return (Category) SettingsHandler.getGame()
+					.silentlyGetAbilityCategory(s);
 		}
 		else
 		{

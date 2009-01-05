@@ -154,4 +154,10 @@ public class TransparentReferenceManufacturer<T extends CDOMObject>
 	{
 		return getReferenceClass().getSimpleName();
 	}
+
+	@Override
+	protected boolean validate(UnconstructedValidator validator, String s)
+	{
+		return validator.allow(getReferenceClass(), s);
+	}
 }

@@ -39,6 +39,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
@@ -47,6 +48,7 @@ import pcgen.util.Logging;
 public abstract class AbstractReferenceContext
 {
 
+	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
@@ -72,12 +74,12 @@ public abstract class AbstractReferenceContext
 
 	public abstract Collection<? extends ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers();
 
-	public boolean validate()
+	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
 		for (ReferenceManufacturer<?, ?> ref : getAllManufacturers())
 		{
-			returnGood &= ref.validate();
+			returnGood &= ref.validate(validator);
 		}
 		return returnGood;
 	}
@@ -108,7 +110,7 @@ public abstract class AbstractReferenceContext
 	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val)
 	{
 		T obj;
-		if (CategorizedCDOMObject.class.isAssignableFrom(c))
+		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(c))
 		{
 			Class cl = c;
 			obj = (T) getManufacturer(cl, null).constructObject(val);
@@ -151,7 +153,7 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> void reassociateKey(String key, T obj)
 	{
-		if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
+		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
 			reassociateCategorizedKey(key, obj, cl);
@@ -227,7 +229,7 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> void importObject(T orig)
 	{
-		if (CategorizedCDOMObject.class.isAssignableFrom(orig.getClass()))
+		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(orig.getClass()))
 		{
 			Class cl = orig.getClass();
 			importCategorized(orig, cl);
@@ -255,7 +257,7 @@ public abstract class AbstractReferenceContext
 			map.remove(obj);
 		}
 
-		if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
+		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
 			CategorizedCDOMObject cdo = (CategorizedCDOMObject) obj;

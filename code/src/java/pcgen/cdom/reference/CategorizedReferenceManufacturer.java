@@ -90,10 +90,10 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * validation. Any matches in the parent for unconstructed references in 
 	 * this class are registered as if they had been made in the child class.
 	 *   
-	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#validate()
+	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#validate(List<Campaign>)
 	 */
 	@Override
-	public boolean validate()
+	public boolean validate(UnconstructedValidator validator)
 	{
 		if (parentCrm != null)
 		{
@@ -118,7 +118,7 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 				}
 			}
 		}
-		return super.validate();
+		return super.validate(validator);
 	}
 	
 	/**
@@ -211,4 +211,11 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		return this.getClass().getName() + " [" + getReferenceClass() + " "
 				+ category + "]";
 	}
+	
+	@Override
+	protected boolean validate(UnconstructedValidator validator, String s)
+	{
+		return validator.allow(getReferenceClass(), category, s);
+	}
+
 }

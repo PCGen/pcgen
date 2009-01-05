@@ -26,13 +26,12 @@ import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -69,8 +68,8 @@ public class QualifyToken extends AbstractToken implements
 	public List<Class<? extends CDOMObject>> getLegalTypes()
 	{
 		return Arrays.asList(PCClassLevel.class, Ability.class, Deity.class,
-			Domain.class, Equipment.class, PCClass.class, Race.class,
-			Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
+				Domain.class, Equipment.class, PCClass.class, Race.class,
+				Skill.class, Spell.class, PCTemplate.class, WeaponProf.class);
 	}
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
@@ -89,131 +88,58 @@ public class QualifyToken extends AbstractToken implements
 		if (value.indexOf("|") == -1)
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
-				+ " requires at least two arguments, QualifyType and Key: "
-				+ value);
+					+ " requires at least two arguments, QualifyType and Key: "
+					+ value);
 			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
-		int equalLoc = firstToken.indexOf('=');
-		String className;
-		String categoryName;
-		if (equalLoc != firstToken.lastIndexOf('='))
-		{
-			Logging.log(Logging.LST_ERROR, "  Error encountered parsing " + getTokenName());
-			Logging.log(Logging.LST_ERROR, "  Found second = in QualifyType=Category");
-			Logging.log(Logging.LST_ERROR, "  Format is: QualifyType[=Category]|Key[|Key] value was: "
-					+ value);
-			Logging.log(Logging.LST_ERROR, "  Valid QualifyTypes are: "
-				+ StringPClassUtil.getValidStrings());
-			return false;
-		}
-		else if (equalLoc == -1)
-		{
-			className = firstToken;
-			categoryName = null;
-		}
-		else
-		{
-			className = firstToken.substring(0, equalLoc);
-			categoryName = firstToken.substring(equalLoc + 1);
-		}
-		Class<? extends CDOMObject> c = StringPClassUtil.getClassFor(className);
-		if (c == null)
+		ReferenceManufacturer<? extends CDOMObject, ?> rm = context
+				.getManufacturer(firstToken);
+		if (rm == null)
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
-					+ " does not understand object type: " + className);
+					+ " unable to generate manufacturer for type: " + value);
 			return false;
-		}
-		ReferenceManufacturer<? extends CDOMObject, ?> rm;
-		if (CategorizedCDOMObject.class.isAssignableFrom(c))
-		{
-			if (categoryName == null)
-			{
-				Logging.log(Logging.LST_ERROR, "  Error encountered parsing "
-					+ getTokenName());
-				Logging.log(Logging.LST_ERROR, "  Found Categorized Type without =Category");
-				Logging.log(Logging.LST_ERROR, "  Format is: QualifyType[=Category]|Key[|Key] value was: "
-						+ value);
-				Logging.log(Logging.LST_ERROR, "  Valid QualifyTypes are: "
-					+ StringPClassUtil.getValidStrings());
-				return false;
-			}
-			rm = getReferenceManufacturer(context, (Class) c, categoryName);
-			if (rm == null)
-			{
-				Logging.log(Logging.LST_ERROR, "  Error encountered parsing "
-						+ getTokenName());
-				Logging.log(Logging.LST_ERROR, "  " + className + " Category: "
-						+ categoryName + " not found");
-				return false;
-			}
-		}
-		else
-		{
-			if (categoryName != null)
-			{
-				Logging.log(Logging.LST_ERROR, "  Error encountered parsing "
-					+ getTokenName());
-				Logging.log(Logging.LST_ERROR, "  Found Non-Categorized Type with =Category");
-				Logging.log(Logging.LST_ERROR, "  Format is: QualifyType[=Category]|Key[|Key] value was: "
-						+ value);
-				Logging.log(Logging.LST_ERROR, "  Valid QualifyTypes are: "
-					+ StringPClassUtil.getValidStrings());
-				return false;
-			}
-			rm = context.ref.getManufacturer(c);
 		}
 
 		while (st.hasMoreTokens())
 		{
-			CDOMReference<? extends CDOMObject> ref =
-					rm.getReference(st.nextToken());
+			CDOMSingleRef<? extends CDOMObject> ref = rm.getReference(st
+					.nextToken());
 			context.obj.addToList(obj, ListKey.QUALIFY, new Qualifier(rm
-				.getReferenceClass(), ref));
+					.getReferenceClass(), ref));
 		}
 
 		return true;
 	}
 
-	private <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<? extends CDOMObject, ?> getReferenceManufacturer(
-		LoadContext context, Class<T> c, String categoryName)
-	{
-		Category<T> cat = StringPClassUtil.getCategoryFor(c, categoryName);
-		if (cat == null)
-		{
-			return null;
-		}
-		return context.ref.getManufacturer(c, cat);
-	}
-
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Qualifier> changes =
-				context.getObjectContext().getListChanges(obj, ListKey.QUALIFY);
+		Changes<Qualifier> changes = context.getObjectContext().getListChanges(
+				obj, ListKey.QUALIFY);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		Collection<Qualifier> quals = changes.getAdded();
-		HashMapToList<String, CDOMReference<?>> map =
-				new HashMapToList<String, CDOMReference<?>>();
+		HashMapToList<String, CDOMSingleRef<?>> map = new HashMapToList<String, CDOMSingleRef<?>>();
 		for (Qualifier qual : quals)
 		{
 			Class<? extends CDOMObject> cl = qual.getQualifiedClass();
 			String s = StringPClassUtil.getStringFor(cl);
-			CDOMReference<?> ref = qual.getQualifiedReference();
+			CDOMSingleRef<?> ref = qual.getQualifiedReference();
 			String key = s;
 			if (ref instanceof CategorizedCDOMReference)
 			{
-				Category<?> cat =
-						((CategorizedCDOMReference<?>) ref).getCDOMCategory();
+				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
+						.getCDOMCategory();
 				key += '=' + cat.toString();
 			}
 			map.addToListFor(key, ref);
 		}
-		Set<CDOMReference<?>> set =
-				new TreeSet<CDOMReference<?>>(ReferenceUtilities.REFERENCE_SORTER);
+		Set<CDOMSingleRef<?>> set = new TreeSet<CDOMSingleRef<?>>(
+				ReferenceUtilities.REFERENCE_SORTER);
 		Set<String> returnSet = new TreeSet<String>();
 		for (String key : map.getKeySet())
 		{
@@ -221,7 +147,7 @@ public class QualifyToken extends AbstractToken implements
 			set.addAll(map.getListFor(key));
 			StringBuilder sb = new StringBuilder();
 			sb.append(key).append(Constants.PIPE).append(
-				ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
+					ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
 			returnSet.add(sb.toString());
 		}
 		return returnSet.toArray(new String[returnSet.size()]);

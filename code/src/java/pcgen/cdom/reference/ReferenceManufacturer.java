@@ -281,14 +281,19 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 * 
 	 * (2) Any identifier to which a reference was made has a constructed or
 	 * imported object with that identifier present in the
-	 * ReferenceManufacturer.
+	 * ReferenceManufacturer. (or the warning was suppressed by the given
+	 * UnconstructedValidator)
 	 * 
 	 * (3) No two objects in the ReferenceManufacturer have a matching
 	 * identifier.
 	 * 
+	 * @param validator
+	 *            UnconstructedValidator which is can suppress unconstructed
+	 *            reference warnings
+	 * 
 	 * @return true if the ReferenceManufacturer is "valid"; false otherwise.
 	 */
-	public boolean validate();
+	public boolean validate(UnconstructedValidator validator);
 
 	/**
 	 * Triggers immediate construction of the object with the given identifier

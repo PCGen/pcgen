@@ -54,6 +54,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
@@ -595,7 +596,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		context.resolveDeferredTokens();
 		context.ref.buildDeferredObjects();
 		context.ref.buildDerivedObjects();
-		context.ref.validate();
+		context.ref.validate(new UnconstructedValidator(aSelectedCampaignsList));
 		context.resolveReferences();
 		for (Equipment eq : context.ref
 				.getConstructedCDOMObjects(Equipment.class))

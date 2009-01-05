@@ -751,7 +751,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * @return true if the AbstractReferenceManufacturer is "valid"; false
 	 *         otherwise.
 	 */
-	public boolean validate()
+	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
 		for (CaseInsensitiveString second : duplicates.getKeySet())
@@ -825,10 +825,12 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 					{
 						if (s.charAt(0) != '*')
 						{
-							Logging.errorPrint("Unconstructed Reference: "
-									+ getReferenceDescription() + " " + s);
-							fireUnconstuctedEvent(value);
-							returnGood = false;
+							if (!validate(validator, s))
+							{
+								Logging.errorPrint("Unconstructed Reference: "
+										+ getReferenceDescription() + " " + s);
+								returnGood = false;
+							}
 						}
 						constructObject(s);
 					}
@@ -837,6 +839,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 		return returnGood;
 	}
+
+	protected abstract boolean validate(UnconstructedValidator validator, String s);
 
 	/**
 	 * Returns a description of the type of Class or Class/Category that this

@@ -36,11 +36,9 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
@@ -89,54 +87,14 @@ public class ServesAsToken extends AbstractToken implements
 			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		String key = st.nextToken();
-		int equalLoc = key.indexOf('=');
-		Class<? extends PObject> servingClass;
-		ReferenceManufacturer<? extends PObject, ? extends CDOMSingleRef<?>> mfg;
-		if (equalLoc == -1)
+		String firstToken = st.nextToken();
+		ReferenceManufacturer<? extends CDOMObject, ?> rm = context
+				.getManufacturer(firstToken);
+		if (rm == null)
 		{
-			if ("ABILITY".equals(key))
-			{
-				Logging.log(Logging.LST_ERROR, "Invalid use of ABILITY in SERVESAS "
-						+ "(requires ABILITY=<category>): " + key);
-				return false;
-			}
-			servingClass = StringPClassUtil.getClassFor(key);
-			if (servingClass == null)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
-						+ " expecting a POBJECT Type, found: " + key);
-				return false;
-			}
-			if (!servingClass.equals(obj.getClass()))
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
-						+ " expecting a POBJECT Type valid for "
-						+ obj.getClass().getSimpleName() + ", found: " + key);
-				return false;
-			}
-			mfg = context.ref.getManufacturer(servingClass);
-		}
-		else
-		{
-			if (!"ABILITY".equals(key.substring(0, equalLoc)))
-			{
-				Logging.log(Logging.LST_ERROR, "Invalid use of = in SERVESAS "
-						+ "(only valid for ABILITY): " + key);
-				return false;
-			}
-			String category = key.substring(equalLoc + 1);
-			key = key.substring(0, equalLoc);
-			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(
-					category);
-			if (cat == null)
-			{
-				Logging.log(Logging.LST_ERROR,
-						"Could not find AbilityCategory " + category + " in "
-								+ getTokenName());
-				return false;
-			}
-			mfg = context.ref.getManufacturer(Ability.class, cat);
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " unable to generate manufacturer for type: " + value);
+			return false;
 		}
 		if (!st.hasMoreTokens())
 		{
@@ -146,10 +104,10 @@ public class ServesAsToken extends AbstractToken implements
 		}
 
 		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class,
-				"SERVES_AS_" + key);
+				"SERVES_AS_" + firstToken);
 		while (st.hasMoreTokens())
 		{
-			CDOMSingleRef<?> ref = mfg.getReference(st.nextToken());
+			CDOMSingleRef<?> ref = rm.getReference(st.nextToken());
 			context.obj.addToList(obj, listkey, ref);
 		}
 

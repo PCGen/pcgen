@@ -18,16 +18,16 @@
 package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CDOMSingleRef;
 
 public class Qualifier
 {
 
 	private final Class<? extends CDOMObject> qualClass;
-	private final CDOMReference<? extends CDOMObject> qualRef;
+	private final CDOMSingleRef<? extends CDOMObject> qualRef;
 
 	public Qualifier(Class<? extends CDOMObject> cl,
-		CDOMReference<? extends CDOMObject> ref)
+			CDOMSingleRef<? extends CDOMObject> ref)
 	{
 		if (cl == null)
 		{
@@ -46,7 +46,7 @@ public class Qualifier
 		return qualClass;
 	}
 
-	public CDOMReference<? extends CDOMObject> getQualifiedReference()
+	public CDOMSingleRef<? extends CDOMObject> getQualifiedReference()
 	{
 		return qualRef;
 	}
