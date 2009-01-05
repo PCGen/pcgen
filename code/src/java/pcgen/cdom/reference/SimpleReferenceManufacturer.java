@@ -111,6 +111,6 @@ public class SimpleReferenceManufacturer<T extends CDOMObject>
 	@Override
 	protected boolean validate(UnconstructedValidator validator, String s)
 	{
-		return validator.allow(getReferenceClass(), s);
+		return validator != null && validator.allow(getReferenceClass(), s);
 	}
 }

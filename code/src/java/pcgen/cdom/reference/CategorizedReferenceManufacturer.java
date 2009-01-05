@@ -215,7 +215,8 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	@Override
 	protected boolean validate(UnconstructedValidator validator, String s)
 	{
-		return validator.allow(getReferenceClass(), category, s);
+		return validator != null
+				&& validator.allow(getReferenceClass(), category, s);
 	}
 
 }
