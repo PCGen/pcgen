@@ -48,28 +48,49 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
-		final int requiredRange = Integer.parseInt(prereq.getOperand());
-		int runningTotal = 0;
+		String range = prereq.getOperand();
 		VisionType requiredVisionType =
-				VisionType.getVisionType(prereq.getKey());
-
+			VisionType.getVisionType(prereq.getKey());
+		int runningTotal = 0;
 		boolean found = false;
-		for (Vision charVision : character.getVisionList())
+		if (range.equals("ANY"))
 		{
-			if (charVision.getType().equals(requiredVisionType))
+			for (Vision charVision : character.getVisionList())
 			{
-				int visionRange = Integer.parseInt(charVision.getDistance());
-				runningTotal +=
-						prereq.getOperator()
-							.compare(visionRange, requiredRange);
-				found = true;
-				break;
+				if (charVision.getType().equals(requiredVisionType))
+				{
+					runningTotal += prereq.getOperator().compare(1, 0);
+					found = true;
+					break;
+				}
+			}
+			if (!found)
+			{
+				runningTotal += prereq.getOperator().compare(0, 1);
 			}
 		}
-		if (!found)
+		else
 		{
-			runningTotal += prereq.getOperator().compare(0, requiredRange);
+			int requiredRange = Integer.parseInt(range);
+			for (Vision charVision : character.getVisionList())
+			{
+				if (charVision.getType().equals(requiredVisionType))
+				{
+					int visionRange = Integer.parseInt(charVision.getDistance());
+					runningTotal +=
+							prereq.getOperator()
+								.compare(visionRange, requiredRange);
+					found = true;
+					break;
+				}
+			}
+			if (!found)
+			{
+				runningTotal += prereq.getOperator().compare(0, requiredRange);
+			}
 		}
+
+
 		return countedTotal(prereq, runningTotal);
 	}
 

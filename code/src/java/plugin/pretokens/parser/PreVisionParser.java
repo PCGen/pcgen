@@ -28,8 +28,11 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -41,5 +44,45 @@ public class PreVisionParser extends AbstractPrerequisiteListParser implements
 	public String[] kindsHandled()
 	{
 		return new String[]{"VISION"};
+	}
+
+	@Override
+	protected String getAssumedValue()
+	{
+		return "ANY";
+	}
+
+	@Override
+	public Prerequisite parse(String kind, String formula,
+			boolean invertResult, boolean overrideQualify)
+			throws PersistenceLayerException
+	{
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		if (!validateNotZero(prereq))
+		{
+			Logging.errorPrint("  Prerequisite was: " + formula);
+		}
+		return prereq;
+	}
+
+	private boolean validateNotZero(Prerequisite prereq)
+	{
+		boolean returnValue = true;
+		if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase("VISION"))
+		{
+			if ("0".equals(prereq.getOperand()))
+			{
+				Logging
+						.deprecationPrint("Found PREVISION that is invalid (vision=0 is always true)");
+				Logging.deprecationPrint("  You should use =1 or =ANY");
+				returnValue &= false;
+			}
+		}
+
+		for (Prerequisite element : prereq.getPrerequisites())
+		{
+			returnValue &= validateNotZero(element);
+		}
+		return returnValue;
 	}
 }

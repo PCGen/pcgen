@@ -238,10 +238,22 @@ public abstract class AbstractPrerequisiteListParser extends
 										+ kind
 										+ " require a target value, e.g. Key=Value");
 					}
+					String assumed = getAssumedValue();
+					if (assumed == null)
+					{
+						subreq.setOperand(Integer.toString(min));
+					}
+					else
+					{
+						Logging.deprecationPrint("Old syntax detected: "
+								+ "Prerequisites of kind " + kind
+								+ " now require a target value, "
+								+ "e.g. Key=Value.  Assuming Value=" + assumed);
+						subreq.setOperand(assumed);
+					}
 					hasKeyOnly = true;
 					subreq.setKey(elements[i]);
 					subreq.setOperator(PrerequisiteOperator.GTEQ);
-					subreq.setOperand(Integer.toString(min));
 				}
 				subreq.setOperand(Integer.toString(min));
 				prereq.addPrerequisite(subreq);
@@ -332,6 +344,11 @@ public abstract class AbstractPrerequisiteListParser extends
 			subreq.setKind(kind.toLowerCase());
 			subreq.setOperator(PrerequisiteOperator.GTEQ);
 		}
+	}
+
+	protected String getAssumedValue()
+	{
+		return null;
 	}
 
 	protected boolean requiresValue()
