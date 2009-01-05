@@ -114,7 +114,7 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	{
 		primaryContext.ref.constructCDOMObject(CompanionList.class, "Follower");
 		assertTrue(parse("Formula|Follower"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

@@ -49,14 +49,14 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse("String"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
 		assertTrue(parse("TestType"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1,TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -79,7 +79,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1|TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -91,7 +91,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1.TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -195,7 +195,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -209,7 +209,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TYPE=TestType"
 				+ getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -225,7 +225,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			assertTrue(parse("TestWP1" + getJoinCharacter()
 				+ "TYPE.TestType.OtherTestType" + getJoinCharacter()
 				+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -235,21 +235,21 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("TestWP1"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		if (isTypeLegal())
 		{
 			assertTrue(parse("TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse("TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"
 				+ getJoinCharacter() + "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"
 				+ getJoinCharacter() + "TYPE=TestType.OtherTestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -379,7 +379,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		{
 			// DoNotConstruct TestWP1
 			assertTrue(parse(".CLEAR.TestWP1"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 

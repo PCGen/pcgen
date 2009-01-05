@@ -55,7 +55,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains(getConstant("Rheinhessen")));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -72,7 +72,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains(getConstant("Niederösterreich")));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -89,7 +89,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains(getConstant("Finger Lakes")));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -106,7 +106,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -122,7 +122,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains(getConstant("Yarra Valley")));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -143,7 +143,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			assertEquals(2, coll.size());
 			assertTrue(coll.contains(getConstant("Niederösterreich")));
 			assertTrue(coll.contains(getConstant("Finger Lakes")));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -175,7 +175,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			}
 			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 			assertTrue(coll.contains(getConstant("Rheinhessen")));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -369,7 +369,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 			assertTrue(parse(".CLEAR.TestWP1"));
 			if (requiresPreconstruction())
 			{
-				assertFalse(primaryContext.ref.validate());
+				assertFalse(primaryContext.ref.validate(null));
 			}
 		}
 	}

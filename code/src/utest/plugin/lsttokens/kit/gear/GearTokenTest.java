@@ -55,7 +55,7 @@ public class GearTokenTest extends AbstractSubTokenTestCase<KitGear>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fireball"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -66,7 +66,7 @@ public class GearTokenTest extends AbstractSubTokenTestCase<KitGear>
 		primaryContext.ref.constructCDOMObject(Equipment.class, "English");
 		secondaryContext.ref.constructCDOMObject(Equipment.class, "English");
 		assertTrue(parse("Fireball,English"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

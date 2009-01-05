@@ -55,7 +55,7 @@ public class DomainTokenTest extends AbstractSubTokenTestCase<KitDeity>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fireball"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

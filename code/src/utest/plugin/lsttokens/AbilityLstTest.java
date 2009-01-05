@@ -263,8 +263,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
 		runRoundRobin("Feat|VIRTUAL|Abil1|Abil1|PRERACE:1,Human");
-		assertTrue(primaryContext.ref.validate());
-		assertTrue(secondaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -275,8 +275,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil1");
 		runRoundRobin("Feat|VIRTUAL|Abil1",
 				"Feat|VIRTUAL|Abil1|PRERACE:1,Human");
-		assertTrue(primaryContext.ref.validate());
-		assertTrue(secondaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -287,8 +287,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil1");
 		runRoundRobin("Feat|VIRTUAL|Abil1|Abil1|PRERACE:1,Elf",
 				"Feat|VIRTUAL|Abil1|PRERACE:1,Human");
-		assertTrue(primaryContext.ref.validate());
-		assertTrue(secondaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.validate(null));
 	}
 
 	private void construct(LoadContext context, String name)
@@ -385,7 +385,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		// consume the |
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE=TestType|TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -396,7 +396,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		// consume the |
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE.TestType.OtherTestType|TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

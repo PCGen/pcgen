@@ -144,7 +144,7 @@ public class FavoredClassTokenTest extends
 				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
 		primaryContext.ref.reassociateCategory(cat, obj);
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -159,7 +159,7 @@ public class FavoredClassTokenTest extends
 		obj = primaryContext.ref.constructCDOMObject(SubClass.class, "Two");
 		cat = SubClassCategory.getConstant("TestWP1");
 		primaryContext.ref.reassociateCategory(cat, obj);
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -223,7 +223,7 @@ public class FavoredClassTokenTest extends
 	public void testInvalidInputChooseString() throws PersistenceLayerException
 	{
 		assertTrue(parse("CHOOSE:String"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -235,7 +235,7 @@ public class FavoredClassTokenTest extends
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("CHOOSE:TestWP1,TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -250,7 +250,7 @@ public class FavoredClassTokenTest extends
 			boolean parse = parse("CHOOSE:TestWP1|TestWP2");
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate());
+				assertFalse(primaryContext.ref.validate(null));
 			}
 			else
 			{
@@ -268,7 +268,7 @@ public class FavoredClassTokenTest extends
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("CHOOSE:TestWP1.TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -327,7 +327,7 @@ public class FavoredClassTokenTest extends
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate());
+					assertFalse(primaryContext.ref.validate(null));
 				}
 				else
 				{
@@ -394,7 +394,7 @@ public class FavoredClassTokenTest extends
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -408,7 +408,7 @@ public class FavoredClassTokenTest extends
 			construct(primaryContext, "TestWP1");
 			assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter()
 					+ "TYPE=TestType" + getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -424,7 +424,7 @@ public class FavoredClassTokenTest extends
 			assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter()
 					+ "TYPE.TestType.OtherTestType" + getJoinCharacter()
 					+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 

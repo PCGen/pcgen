@@ -128,14 +128,14 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidReversed() throws PersistenceLayerException
 	{
 		assertTrue(parse("Martial=Hammer"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testInvalidResultPrimitive() throws PersistenceLayerException
 	{
 		assertTrue(parse("Hammer=Pipe"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

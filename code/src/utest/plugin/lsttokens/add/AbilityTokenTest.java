@@ -192,7 +192,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
 				+ '|' + "TestType"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -202,7 +202,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
 				+ '|' + "TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -313,7 +313,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate());
+					assertFalse(primaryContext.ref.validate(null));
 				}
 				else
 				{
@@ -340,7 +340,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate());
+					assertFalse(primaryContext.ref.validate(null));
 				}
 				else
 				{
@@ -408,7 +408,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -423,7 +423,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TYPE=TestType" + getJoinCharacter()
 					+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -439,7 +439,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TYPE.TestType.OtherTestType"
 					+ getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -449,31 +449,31 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		if (isTypeLegal())
 		{
 			assertTrue(parse(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
 					+ "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
 					+ "TYPE=TestType.OtherTestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 		if (isAllLegal())
 		{
 			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|ALL"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 

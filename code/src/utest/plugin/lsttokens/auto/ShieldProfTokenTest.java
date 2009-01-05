@@ -164,7 +164,7 @@ public class ShieldProfTokenTest extends
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1]");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 		else
 		{

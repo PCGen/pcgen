@@ -108,14 +108,14 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "String"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestType"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	// TODO Allow this once a method checks to exist if TestWP1 is a formula vs.
@@ -142,7 +142,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -222,7 +222,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate());
+					assertFalse(primaryContext.ref.validate(null));
 				}
 				else
 				{
@@ -248,7 +248,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 				if (parse)
 				{
 					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate());
+					assertFalse(primaryContext.ref.validate(null));
 				}
 				else
 				{
@@ -329,7 +329,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 			+ getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -344,7 +344,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + getTypePrefix() + "TYPE=TestType" + getJoinCharacter()
 				+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -360,7 +360,7 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + getTypePrefix() + "TYPE.TestType.OtherTestType"
 				+ getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -370,29 +370,29 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 			+ getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		if (isTypeLegal())
 		{
 			assertTrue(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse(getSubTokenName() + '|' + getTypePrefix() + "TYPE.TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
 				+ getTypePrefix() + "TYPE=TestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 			assertTrue(parse(getSubTokenName() + '|' + "TestWP1"
 				+ getJoinCharacter() + "TestWP2" + getJoinCharacter()
 				+ getTypePrefix() + "TYPE=TestType.OtherTestType"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 		if (isAllLegal())
 		{
 			assertTrue(parse(getSubTokenName() + '|' + getAllString()));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 

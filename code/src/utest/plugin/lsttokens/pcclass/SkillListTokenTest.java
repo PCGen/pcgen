@@ -115,7 +115,7 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputUnbuilt() throws PersistenceLayerException
 	{
 		assertTrue(parse("1|String"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -142,7 +142,7 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("1|TestWP1.TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	// TODO This really need to check the object is also not modified, not just
@@ -219,7 +219,7 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("1|TestWP1|TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -228,12 +228,12 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("1|TestWP1"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse("1|TestWP1|TestWP2"));
-		assertTrue(primaryContext.ref.validate());
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse("2|TestWP1|TestWP2"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test

@@ -15,31 +15,29 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens;
+package plugin.lsttokens.campaign;
 
 import java.net.URISyntaxException;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.EquipmentModifier;
-import pcgen.core.PCTemplate;
+import pcgen.core.Campaign;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class QualifyTokenTest extends AbstractGlobalTokenTestCase
+public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 {
 
-	static CDOMPrimaryToken<CDOMObject> token = new QualifyToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMPrimaryToken<Campaign> token = new ForwardRefToken();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
+			Campaign.class);
 
 	@Override
 	@Before
@@ -49,28 +47,21 @@ public class QualifyTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMLoader<PCTemplate> getLoader()
+	public CDOMLoader<Campaign> getLoader()
 	{
 		return loader;
 	}
 
 	@Override
-	public Class<PCTemplate> getCDOMClass()
+	public Class<Campaign> getCDOMClass()
 	{
-		return PCTemplate.class;
+		return Campaign.class;
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<Campaign> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void testInvalidObject() throws PersistenceLayerException
-	{
-		assertFalse(token.parse(primaryContext, new EquipmentModifier(),
-				"SPELL|Fireball"));
 	}
 
 	@Test

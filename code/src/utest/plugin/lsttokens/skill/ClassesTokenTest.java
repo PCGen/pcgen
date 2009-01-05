@@ -139,7 +139,7 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	public void testInvalidInputNotClass() throws PersistenceLayerException
 	{
 		assertTrue(parse("Wizard"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -147,7 +147,7 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 			throws PersistenceLayerException
 	{
 		assertTrue(parse("Wizard|Sorcerer"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	// @Test(expected = IllegalArgumentException.class)

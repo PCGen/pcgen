@@ -164,8 +164,8 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 			assertEquals("Expected " + i + " item to be equal", unparsed[i],
 					sUnparsed[i]);
 		}
-		assertTrue(primaryContext.ref.validate());
-		assertTrue(secondaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.validate(null));
 		assertEquals(expectedPrimaryMessageCount, primaryContext
 				.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());

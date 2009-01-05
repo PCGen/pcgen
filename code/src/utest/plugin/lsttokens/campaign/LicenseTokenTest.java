@@ -87,7 +87,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains((Object) "Rheinhessen"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -102,7 +102,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains((Object) "Niederösterreich"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -117,7 +117,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains((Object) "Finger Lakes"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -132,7 +132,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains((Object) "Languedoc-Roussillon"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -147,7 +147,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
 			assertTrue(coll.contains((Object) "Yarra Valley"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -164,7 +164,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 			assertEquals(2, coll.size());
 			assertTrue(coll.contains((Object) "Niederösterreich"));
 			assertTrue(coll.contains((Object) "Finger Lakes"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -185,7 +185,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(coll.contains((Object) "Finger Lakes"));
 			assertTrue(coll.contains((Object) "Languedoc-Roussillon"));
 			assertTrue(coll.contains((Object) "Rheinhessen"));
-			assertTrue(primaryContext.ref.validate());
+			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
 

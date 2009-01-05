@@ -99,7 +99,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "TestWP2");
 		if (parse("1|TestWP1,TestWP2"))
 		{
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -110,7 +110,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "TestWP2");
 		if (parse("1|TestWP1.TestWP2"))
 		{
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -169,7 +169,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("1|TestWP1|TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -178,9 +178,9 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("1|TestWP1"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse("1|TestWP1|TestWP2"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test

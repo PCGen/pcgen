@@ -151,14 +151,14 @@ public class FeatTokenTest extends
 	public void testInvalidInputClassUnbuilt() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "CLASS=Fighter"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testInvalidInputDoubleEquals() throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "CLASS==Fighter"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

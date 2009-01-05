@@ -56,7 +56,7 @@ public class AbilityTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("CATEGORY=FEAT|Fireball"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

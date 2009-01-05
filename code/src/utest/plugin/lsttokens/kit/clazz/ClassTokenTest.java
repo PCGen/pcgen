@@ -55,7 +55,7 @@ public class ClassTokenTest extends AbstractSubTokenTestCase<KitClass>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fireball"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -66,7 +66,7 @@ public class ClassTokenTest extends AbstractSubTokenTestCase<KitClass>
 		primaryContext.ref.constructCDOMObject(PCClass.class, "English");
 		secondaryContext.ref.constructCDOMObject(PCClass.class, "English");
 		assertTrue(parse("Fireball,English"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

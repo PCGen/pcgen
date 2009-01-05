@@ -91,7 +91,7 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 	public void testBadClass() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fighter:4"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

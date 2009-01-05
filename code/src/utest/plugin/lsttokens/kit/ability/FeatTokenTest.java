@@ -56,7 +56,7 @@ public class FeatTokenTest extends AbstractSubTokenTestCase<KitAbilities>
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fireball"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test

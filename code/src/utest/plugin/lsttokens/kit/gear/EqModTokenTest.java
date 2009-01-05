@@ -193,14 +193,14 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
 		assertTrue(parse("String"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
 		assertTrue(parse("TestType"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -211,7 +211,7 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1,TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -248,7 +248,7 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
 			assertTrue(parse("TestWP1.TestWP2"));
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 	}
 
@@ -299,7 +299,7 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -308,9 +308,9 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		assertTrue(parse("TestWP1"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test

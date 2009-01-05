@@ -214,7 +214,7 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testInvalidInputNotClass() throws PersistenceLayerException
 	{
 		assertTrue(parse("Wizard=4"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -225,14 +225,14 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 		secondaryContext.ref
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		assertTrue(parse("Wizard,Sorcerer=4"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputClearAll() throws PersistenceLayerException
 	{
 		assertTrue(parse(".CLEARALL"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test

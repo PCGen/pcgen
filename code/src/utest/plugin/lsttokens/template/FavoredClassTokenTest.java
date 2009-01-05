@@ -126,7 +126,7 @@ public class FavoredClassTokenTest extends
 				SubClass.class, "Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
 		primaryContext.ref.reassociateCategory(cat, obj);
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -141,7 +141,7 @@ public class FavoredClassTokenTest extends
 		obj = primaryContext.ref.constructCDOMObject(SubClass.class, "Two");
 		cat = SubClassCategory.getConstant("TestWP1");
 		primaryContext.ref.reassociateCategory(cat, obj);
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test

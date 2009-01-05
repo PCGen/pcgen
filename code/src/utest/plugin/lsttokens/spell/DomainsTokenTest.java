@@ -214,7 +214,7 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testInvalidInputNotClass() throws PersistenceLayerException
 	{
 		assertTrue(parse("Fire=4"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -225,14 +225,14 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
 		// Intentionally do NOT build Good
 		assertTrue(parse("Fire,Good=4"));
-		assertFalse(primaryContext.ref.validate());
+		assertFalse(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputClearAll() throws PersistenceLayerException
 	{
 		assertTrue(parse(".CLEARALL"));
-		assertTrue(primaryContext.ref.validate());
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test

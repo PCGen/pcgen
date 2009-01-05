@@ -184,7 +184,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		boolean parse = parse("Familiar|FOLLOWERADJUSTMENT:-3");
 		if (parse)
 		{
-			assertFalse(primaryContext.ref.validate());
+			assertFalse(primaryContext.ref.validate(null));
 		}
 		else
 		{
@@ -244,7 +244,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 			boolean parse = parse("Familiar|FOLLOWERADJUSTMENT:-3|PRERACE:1,Human");
 			if (parse)
 			{
-				assertFalse(primaryContext.ref.validate());
+				assertFalse(primaryContext.ref.validate(null));
 			}
 			else
 			{
