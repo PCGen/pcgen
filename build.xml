@@ -934,13 +934,13 @@ pcgen.filepaths=user
 	<!-- Compile the test classes -->
 	<target name="test.compile" depends="jar, jar-all-plugins">
 		<mkdir dir="${build.testclasses.dir}" />
+		<javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
+			<classpath refid="test.project.classpath" />
+		</javac>
 		<javac srcdir="${src.utest.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="test.project.classpath" />
 		</javac>
 		<javac srcdir="${src.itest.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
-			<classpath refid="test.project.classpath" />
-		</javac>
-		<javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="test.project.classpath" />
 		</javac>
 	</target>
