@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 12:23:32 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Tue Jan  6 12:37:19 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
@@ -230,7 +230,7 @@ Power of Istos		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Power 
 
 ###Block: Black Nail Class Abilities
 # Feat Name			Type			Visible	Special ABility				Automaticaly Gained Weapon Prof.
-# Ability Name		Category of Ability		Type			Visible	Special ABility				Define			Automaticaly Gained Weapon Prof.		Combat bonus
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Define			Automatically Gained Weapon Prof.		Combat bonus
 Oversize Greataxe		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)					AUTO:WEAPONPROF|Weapon Focus(Greataxe)
 Thick Hide			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide				DEFINE:BlackNailAC|0								BONUS:COMBAT|AC|BlackNailAC|TYPE=NaturalArmor
 Battle Cry			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Battle Cry
@@ -308,7 +308,7 @@ Voice of Vendak		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Voice
 
 ###Block: Weapon Proficiencies
 # Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
-# Ability Name			Category of Ability		Type			Visible	Automaticaly Gained Weapon Prof.
+# Ability Name			Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
 Slaver Weapon Proficiencies	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	AUTO:WEAPONPROF|Sap|Whip
 
 ###Block: Abilities
