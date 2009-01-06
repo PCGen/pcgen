@@ -92,7 +92,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		{
 			if (tokenName.equals(bonus.getTokenSource()))
 			{
-				String bonusString = bonus.toString();
+				String bonusString = bonus.getLSTformat();
 				if (prefixLength != 0)
 				{
 					if (bonusString.startsWith(prefix))

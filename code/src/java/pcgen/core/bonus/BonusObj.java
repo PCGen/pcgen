@@ -1128,5 +1128,21 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		return saveToPCG;
 	}
+
+	/*
+	 * This makes an editor a bit more difficult, but since CHOOSE is an early
+	 * target of 5.17, this probably isn't a big deal.
+	 */
+	private String originalString;
+
+	public void putOriginalString(String bonusString)
+	{
+		originalString = bonusString;
+	}
+	
+	public String getLSTformat()
+	{
+		return originalString;
+	}
 	
 }

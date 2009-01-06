@@ -266,6 +266,7 @@ public class Bonus
 
 		if (aBonus != null)
 		{
+			aBonus.putOriginalString(bonusString);
 			aBonus.setBonusName(bonusName);
 			aBonus.setTypeOfBonus(typeOfBonus);
 			aBonus.setValue(bValue);
