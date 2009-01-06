@@ -22,6 +22,7 @@ INFOTEXT:An abbreviated Section 15 entry for the Tome of Horrors was authorized 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:tome_of_horrors_abilities.lst
 CLASS:tome_of_horrors_classes_monsters_dragons.lst
 CLASS:tome_of_horrors_classes_monsters_specific.lst
 DEITY:tome_of_horrors_deities.lst

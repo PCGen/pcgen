@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Tue Jan  6 12:21:53 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+
+# Ability Name	Category of Ability		Type								Description																			Source Page
+Chemisorb		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AtkOptions	DESC:A tallow golem can break down and absorb chemicals from a living victim by making a successful grapple check.	SOURCEPAGE:p. 221
+
+#
+# End
+#

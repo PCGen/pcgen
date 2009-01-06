@@ -452,19 +452,19 @@ STARTPACK:Dracolisk (Black) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPB
 RACE:Dracolisk (Black)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+STARTPACK:Dracolisk (Blue) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
 RACE:Dracolisk (Blue)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+STARTPACK:Dracolisk (Green) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
 RACE:Dracolisk (Green)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+STARTPACK:Dracolisk (Red) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
 RACE:Dracolisk (Red)	!PRERACE:1,%
 KIT:Common Dracolisk
 
-STARTPACK:Dracolisk (Black) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
+STARTPACK:Dracolisk (White) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
 RACE:Dracolisk (White)	!PRERACE:1,%
 KIT:Common Dracolisk
 

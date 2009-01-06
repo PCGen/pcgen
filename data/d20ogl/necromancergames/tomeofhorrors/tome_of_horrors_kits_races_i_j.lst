@@ -17,7 +17,7 @@ FEAT:Alertness
 FEAT:Improved Initiative
 
 STARTPACK:Iron Cobra Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Iron Cobra]
-GENDER:None
+#GENDER:None
 ALIGN:TN
 RACE:Iron Cobra	!PRERACE:1,%
 NAME:Iron Cobra
@@ -27,7 +27,7 @@ STARTPACK:Jack-O-Lantern Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIP
 ALIGN:TN
 RACE:Jack-O-Lantern	!PRERACE:1,%
 NAME:Jack-O-Lantern
-GENDER:None
+#GENDER:None
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide			RANK:3
 SKILL:Listen		RANK:3
