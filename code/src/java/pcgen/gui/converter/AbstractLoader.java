@@ -160,7 +160,11 @@ public abstract class AbstractLoader implements Loader
 
 	private File findSubRoot(File root, File in)
 	{
-		if (in.getParentFile().equals(root))
+		if (in.getParentFile() == null)
+		{
+			return null;
+		}
+		if (in.getParentFile().getAbsolutePath().equals(root.getAbsolutePath()))
 		{
 			return in;
 		}

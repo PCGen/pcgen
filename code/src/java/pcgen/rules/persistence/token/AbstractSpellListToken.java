@@ -84,7 +84,7 @@ public abstract class AbstractSpellListToken extends AbstractToken
 			{
 				// Zero indicates no Token
 				// TODO Error message - unexpected?
-				return null;
+				continue;
 			}
 			for (CDOMReference<Spell> added : mtl.getKeySet())
 			{

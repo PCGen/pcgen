@@ -39,6 +39,10 @@ public abstract class AbstractTokenLoader extends AbstractLoader
 			throws PersistenceLayerException
 	{
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
+		if (tokens.length == 0)
+		{
+			return;
+		}
 		result.append(tokens[0]);
 		for (int tok = 1; tok < tokens.length; tok++)
 		{
