@@ -4,8 +4,8 @@ SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paiz
 # Template Name			Visible	Template											Required Vision			Prohibited Vision			Add to vision			Vision
 Liberator Darkvision		VISIBLE:NO	TEMPLATE:CHOOSE:Liberator New Darkvision|Liberator Bonus Darkvision
 
-Liberator New Darkvision	VISIBLE:NO																		!PREVISION:1,Darkvision=0						VISION:Darkvision (60')
-Liberator Bonus Darkvision	VISIBLE:NO													PREVISION:1,Darkvision=0						BONUS:VISION|Darkvision|60
+Liberator New Darkvision	VISIBLE:NO																		!PREVISION:1,Darkvision=ANY						VISION:Darkvision (60')
+Liberator Bonus Darkvision	VISIBLE:NO													PREVISION:1,Darkvision=ANY						BONUS:VISION|Darkvision|60
 
 #
 # End

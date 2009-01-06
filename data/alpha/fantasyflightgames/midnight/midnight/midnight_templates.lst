@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 11:25:11 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Tue Jan  6 13:10:00 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Eddy Anthony
 
@@ -32,15 +32,15 @@ Heroic Path (Warg)		OUTPUTNAME:Warg Heroic Path								VISIBLE:YES				TEMPLATE:C
 
 ###Block: Heroic Path Support
 
-# Template Name			Visible	Special ABility	Required Vision			Prohibited Vision				Add to vision			Vision
-Fey Vision (Normal)		VISIBLE:NO									!PREVISION:1,Low-light,Darkvision						VISION:Low-light
-Fey Vision (Low Light)		VISIBLE:NO				PREVISION:1,Low-light													VISION:Darkvision (60')
-Fey Vision (Darkvision 60)	VISIBLE:NO				PREVISION:1,Darkvision=60							BONUS:VISION|DarkVision|60
-Fey Vision (Darkvision 120)	VISIBLE:NO				PREVISION:1,Darkvision=120							BONUS:VISION|DarkVision|120
+# Template Name			Visible	Special ABility	Required Vision			Prohibited Vision					Add to vision			Vision
+Fey Vision (Normal)		VISIBLE:NO									!PREVISION:1,Low-light=ANY,Darkvision=ANY						VISION:Low-light
+Fey Vision (Low Light)		VISIBLE:NO				PREVISION:1,Low-light=ANY													VISION:Darkvision (60')
+Fey Vision (Darkvision 60)	VISIBLE:NO				PREVISION:1,Darkvision=60								BONUS:VISION|DarkVision|60
+Fey Vision (Darkvision 120)	VISIBLE:NO				PREVISION:1,Darkvision=120								BONUS:VISION|DarkVision|120
 
 Warg Wild Sense (Scent)		VISIBLE:NO	SAB:Scent (Ex)
-Warg Wild Sense (Low Light)	VISIBLE:NO									!PREVISION:1,Low-light								VISION:Low-light
-Warg Wild Sense (Darkvision)	VISIBLE:NO									!PREVISION:1,Darkvision								VISION:Darkvision (60')
+Warg Wild Sense (Low Light)	VISIBLE:NO									!PREVISION:1,Low-light=ANY								VISION:Low-light
+Warg Wild Sense (Darkvision)	VISIBLE:NO									!PREVISION:1,Darkvision=ANY								VISION:Darkvision (60')
 
 #
 # End

@@ -1,7 +1,9 @@
+# CVS $Revision$ $Author$ -- Tue Jan  6 13:16:05 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 
-ABILITYCATEGORY:Curse Repertoire	PLURAL:Curse Repertoires	CATEGORY:Special Ability	DISPLAYLOCATION:Class Abilities	TYPE:CurseRepertoire	EDITABLE:YES	EDITPOOL:YES
+# Ability Category			Editable or Static?	Change Pool?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Curse Repertoire	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CurseRepertoire	PLURAL:Curse Repertoires	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Blood Hexer Feat	PLURAL:Blood Hexer Feats	CATEGORY:FEAT			DISPLAYLOCATION:Feats			TYPE:Metamagic	EDITABLE:YES	EDITPOOL:YES	
+ABILITYCATEGORY:Blood Hexer Feat	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Metamagic		PLURAL:Blood Hexer Feats	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Hexomancer Choice	PLURAL:Hexomancer Choices	CATEGORY:Special Ability	DISPLAYLOCATION:Class Abilities	TYPE:CorruptingMagic	EDITABLE:YES	EDITPOOL:YES
-	
+ABILITYCATEGORY:Hexomancer Choice	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CorruptingMagic	PLURAL:Hexomancer Choices	DISPLAYLOCATION:Class Abilities
+
