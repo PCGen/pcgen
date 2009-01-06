@@ -19,6 +19,7 @@ package plugin.lsttokens.choose;
 
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -173,10 +174,14 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(value).append(suffix);
+		sb.append(getTokenName()).append('|').append(start).append('|').append(
+				value).append(suffix);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		context.obj.put(obj, FormulaKey.SELECT, FormulaFactory
-				.getFormulaFor(start));
+		Formula f = FormulaFactory.getFormulaFor(start);
+		if (!FormulaFactory.ONE.equals(f))
+		{
+			context.obj.put(obj, FormulaKey.SELECT, f);
+		}
 		return true;
 	}
 

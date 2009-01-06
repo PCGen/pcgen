@@ -144,11 +144,14 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(profs).append(suffix);
+		sb.append(getTokenName()).append('|').append(firstarg).append('|')
+				.append(profs).append(suffix);
 		Formula f = FormulaFactory.getFormulaFor(firstarg);
 		context.obj.put(obj, FormulaKey.NUMCHOICES, f);
-		context.obj.put(obj, FormulaKey.SELECT, FormulaFactory
-				.getFormulaFor(start));
+		if (!FormulaFactory.ONE.equals(f))
+		{
+			context.obj.put(obj, FormulaKey.SELECT, f);
+		}
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		/*
 		 * TODO Error catching here for SELECT/CHOOSE?

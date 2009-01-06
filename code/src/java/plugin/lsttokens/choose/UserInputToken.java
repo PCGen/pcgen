@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.choose;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -123,12 +124,16 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 					+ value);
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(title);
+		sb.append(getTokenName()).append('|').append(firstarg).append('|')
+				.append(title);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		if (firstarg != null)
 		{
-			context.obj.put(obj, FormulaKey.SELECT, FormulaFactory
-					.getFormulaFor(firstarg.toString()));
+			Formula f = FormulaFactory.getFormulaFor(firstarg);
+			if (!FormulaFactory.ONE.equals(f))
+			{
+				context.obj.put(obj, FormulaKey.SELECT, f);
+			}
 		}
 		return true;
 	}
