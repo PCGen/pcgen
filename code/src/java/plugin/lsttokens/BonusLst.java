@@ -86,11 +86,26 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
 		Set<String> bonusSet = new TreeSet<String>();
+		String prefix = obj.bonusStringPrefix();
+		int prefixLength = prefix.length();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))
 			{
-				bonusSet.add(bonus.toString());
+				String bonusString = bonus.toString();
+				if (prefixLength != 0)
+				{
+					if (bonusString.startsWith(prefix))
+					{
+						bonusString = bonusString.substring(prefixLength);
+					}
+					else
+					{
+						Logging.errorPrint("Expected BONUS to start with "
+								+ prefix);
+					}
+				}
+				bonusSet.add(bonusString);
 			}
 		}
 		if (bonusSet.isEmpty())
