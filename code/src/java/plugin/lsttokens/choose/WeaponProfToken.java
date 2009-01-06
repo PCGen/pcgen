@@ -147,12 +147,9 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 		sb.append(getTokenName()).append('|').append(firstarg).append('|')
 				.append(profs).append(suffix);
 		Formula f = FormulaFactory.getFormulaFor(firstarg);
-		context.obj.put(obj, FormulaKey.NUMCHOICES, f);
+		context.obj.put(obj, FormulaKey.EMBEDDED_NUMCHOICES, f);
 		context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
-		/*
-		 * TODO Error catching here for SELECT/CHOOSE?
-		 */
 		return true;
 	}
 

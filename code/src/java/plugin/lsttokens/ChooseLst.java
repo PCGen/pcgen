@@ -22,6 +22,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -145,6 +146,22 @@ public class ChooseLst extends AbstractToken implements
 			if (!FormulaFactory.ONE.equals(emb))
 			{
 				obj.put(FormulaKey.SELECT, emb);
+			}
+		}
+		emb = obj.get(FormulaKey.EMBEDDED_NUMCHOICES);
+		if (emb != null)
+		{
+			if (obj.get(FormulaKey.NUMCHOICES) != null)
+			{
+				Logging.errorPrint("CHOOSE with embedded choice count on "
+						+ obj.getClass().getSimpleName() + " "
+						+ obj.getKeyName() + " cannot have NUMCHOICES prefix:"
+						+ obj.get(StringKey.CHOICE_STRING));
+				return false;
+			}
+			if (!FormulaFactory.ONE.equals(emb))
+			{
+				obj.put(FormulaKey.NUMCHOICES, emb);
 			}
 		}
 		return true;
