@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 #Share Saving Throws - Automatic for Companions?
@@ -44,7 +44,7 @@ FOLLOWER:CompLevel=10	TYPE:Animal Partner	HD:1		SAB:Speak With Symbiote									
 #FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
 
 ###Block: Standard Companions
-# Class of the Master		Type			Automaticaly Gained Armor Prof.
+# Class of the Master		Type			Automatically Gained Armor Prof.
 FOLLOWER:NormalMount=1		TYPE:Mount		AUTO:ARMORPROF|ARMORTYPE=Barding
 FOLLOWER:NormalFollower=1	TYPE:Follower
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 18 13:02:00 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
@@ -43,14 +43,14 @@ CLASS:Medicine Man	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Pharmaceutical)|D
 
 1											BONUS:ABILITYPOOL|Medicine Man Drugs|1
 2											BONUS:ABILITYPOOL|Medicine Man Minor Miracle|1
-3	SAB:Medical Specialist (+%)|medSpec														BONUS:VAR|medSpec|1					BONUS:SKILL|Treat Injury|medSpec	DEFINE:medSpec|0
-4	SAB:Mutant Treatment (+4 to Medical Incompatability Rolls)										BONUS:VAR|Reputation|1
+3	SAB:Medical Specialist (+%)|medSpec														BONUS:SKILL|Treat Injury|medSpec	BONUS:VAR|medSpec|1					DEFINE:medSpec|0
+4	SAB:Mutant Treatment (+4 to Medical Incompatability Rolls)																BONUS:VAR|Reputation|1
 5	SAB:Mutant Drugs
-6																				BONUS:VAR|Reputation|1	BONUS:VAR|medSpec|1
+6																										BONUS:VAR|Reputation|1	BONUS:VAR|medSpec|1
 7	SAB:Second Chance
 8	SAB:Medical Miracle
-9																				BONUS:VAR|medSpec|1
-10											BONUS:ABILITYPOOL|Medicine Man Ancient Med Tech|1	BONUS:VAR|Reputation|1
+9																										BONUS:VAR|medSpec|1
+10											BONUS:ABILITYPOOL|Medicine Man Ancient Med Tech|1							BONUS:VAR|Reputation|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus									Combat bonus		Modify VAR
 CLASS:Mutant Hunter	HD:10		TYPE:Base.Epic	ABB:MHntr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 49	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
@@ -70,7 +70,7 @@ CLASS:Mutant Hunter	STARTSKILLPTS:5	CSKILL:Disguise|Escape Artist|Gather Informa
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Scientist	HD:6		TYPE:Base.Epic	ABB:Sci		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 51	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Skill
+# Class Name	Multiple Requirements
 CLASS:Scientist	PREMULT:2,[PRESKILL:2,Knowledge (Technology)=13,Research=13],[PRESKILL:1,Knowledge (Behavioral Sciences)=13,Knowledge (Earth and Life Sciences)=13,Knowledge (Physical Sciences)=13]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE.Craft|Decipher Script|Disable Device|Drive|TYPE.Knowledge|Navigate|Read/Write Language|Research|Search|Speak Language|Spot
@@ -110,15 +110,15 @@ CLASS:Trade Master	PREFEAT:2,Leadership,Market	PRESKILL:3,Bluff=10,Diplomacy=13,
 CLASS:Trade Master	STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gather Information|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (Business)|Navigate|Ride|Search|Sense Motive|Speak Language|Spot
 
 1	SAB:Distribution Network	SAB:Improved Cohort
-2	SAB:Leadership (+%)|ldrShip					BONUS:VAR|ldrShip|1											DEFINE:ldrShip|0
-3	SAB:Make a Deal (DC:%)|mkDeal					BONUS:VAR|mkDeal|10+CHA+CL										DEFINE:mkDeal|0
-4										BONUS:VAR|ldrShip|1
+2	SAB:Leadership (+%)|ldrShip														BONUS:VAR|ldrShip|1		DEFINE:ldrShip|0
+3	SAB:Make a Deal (DC:%)|mkDeal														BONUS:VAR|mkDeal|10+CHA+CL	DEFINE:mkDeal|0
+4																			BONUS:VAR|ldrShip|1
 5	SAB:Wise Man Speaks
-6										BONUS:VAR|ldrShip|1
-7	SAB:Peacemaker												BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|4
-8										BONUS:VAR|ldrShip|1
+6																			BONUS:VAR|ldrShip|1
+7	SAB:Peacemaker							BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|4
+8																			BONUS:VAR|ldrShip|1
 9	SAB:Market Leverage
-10										BONUS:VAR|ldrShip|1
+10																			BONUS:VAR|ldrShip|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Warrior Monk	HD:10		TYPE:Base.Epic	ABB:MHntr		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 57	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	BONUS:VAR|WeapSpecQualify|1

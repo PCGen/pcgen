@@ -1,18 +1,25 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 14:46:31 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 # Original Entry by: Arknight
 #
 # Ability Categories
 #
 
 ###Block: Ability Categories
-# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Background	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:Background	PLURAL:Backgrounds		DISPLAYLOCATION:Background
-ABILITYCATEGORY:Mutation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation		TYPE:Mutation	PLURAL:Mutations			DISPLAYLOCATION:Mutations & Defects
-ABILITYCATEGORY:Defect		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Defect		TYPE:Defect		PLURAL:Defects			DISPLAYLOCATION:Mutations & Defects
+
+# Master Categories
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Background		VISIBLE:NO		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background
+ABILITYCATEGORY:Mutation		VISIBLE:NO		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation
+ABILITYCATEGORY:Defect			VISIBLE:NO		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Defect
+
+# Child Categories
+ABILITYCATEGORY:Starting Background	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:Background	PLURAL:Backgrounds		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Mutations		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation		TYPE:Mutation	PLURAL:Mutations			DISPLAYLOCATION:Mutations & Defects
+ABILITYCATEGORY:Defects			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Defect		TYPE:Defect		PLURAL:Defects			DISPLAYLOCATION:Mutations & Defects
 
 ###Block:  Core Class Talent Pools
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
-ABILITYCATEGORY:PA Hero Talent					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:PAHeroTalent															PLURAL:PA Hero Talents					DISPLAYLOCATION:Talents
+ABILITYCATEGORY:PA Hero Talent					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:PAHeroTalent															PLURAL:PA Hero Talents					DISPLAYLOCATION:Class Abilities
 
 # Core Class Bonus Feat Pools
 ABILITYCATEGORY:PA Hero Feat						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:PAHero																PLURAL:PA Hero Feats					DISPLAYLOCATION:Feats
@@ -89,7 +96,7 @@ ABILITYCATEGORY:Medicine Man Drugs					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 ABILITYCATEGORY:Medicine Man Minor Miracle			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:MedicineManMinorMiracle													PLURAL:Medicine Man Minor Miracles			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Medicine Man Ancient Med Tech			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:AncientMedTech														PLURAL:Medicine Man Ancient Med Tech		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Scientist Smart Weapon				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:ScientistTalent														PLURAL:Scientist Smart Weapons			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Warrior Monk Superior Ability			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:WMSuperior															PLURAL:Warior Monk Talents				DISPLAYLOCATION:Talents
+ABILITYCATEGORY:Warrior Monk Superior Ability			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:WMSuperior															PLURAL:Warior Monk Talents				DISPLAYLOCATION:Class Abilities
 
 # Epic Class Bonus Feat Pools
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location

@@ -98,7 +98,7 @@ Energy Pike			TYPE:Archaic			HANDS:2
 Flail				TYPE:Archaic
 Greataxe			TYPE:Archaic			HANDS:2
 Greatclub			TYPE:Archaic			HANDS:2
-Greatsword			TYPE:Archaic			HANDS:2
+#Greatsword			TYPE:Archaic			HANDS:2
 Plasma Sword		TYPE:Archaic
 Power Sword			TYPE:Archaic
 Pick				TYPE:Archaic

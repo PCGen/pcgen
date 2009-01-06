@@ -8,7 +8,7 @@ CLASS:Post Apocalyptic Hero	HD:8		TYPE:Base.PC	ABB:PApoc		MAXLEVEL:10	BONUS:CHEC
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Post Apocalyptic Hero	STARTSKILLPTS:5	CSKILL:Climb|Hide|Jump|Knowledge (Mutant Lore)|Knowledge (Ancient Lore)|Knowledge (Twisted Earth)|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival
 #
-1																										TEMPLATE:Starting Background|Starting Benefits|Occupation	AUTO:FEAT|Simple Weapons Proficiency
+1																										TEMPLATE:Starting Background|Occupation	AUTO:FEAT|Simple Weapons Proficiency
 #
 1	BONUS:ABILITYPOOL|PA Hero Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP
 2	BONUS:ABILITYPOOL|PA Hero Feat|CL/2

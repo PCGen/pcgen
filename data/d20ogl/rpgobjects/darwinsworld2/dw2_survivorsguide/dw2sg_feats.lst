@@ -90,7 +90,7 @@ Unbalance Opponent.MOD			TYPE:Scav.Skulk.SisOTD.TechLooter
 Vehicle Dodge.MOD				TYPE:RdWarrior
 Vehicle Expert.MOD			TYPE:Raider
 Weapon Focus.MOD				TYPE:PAHero.Psionic.Raider
-Weapon Specialization.MOD		TYPE:WarriorMonk
+#Weapon Specialization.MOD		TYPE:WarriorMonk
 Whirlwind Attack.MOD			TYPE:WarriorMonk
 
 #Monster Feats

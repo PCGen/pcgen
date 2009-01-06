@@ -1,17 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 ###Block: Background and Occupation
 # Template Name		Visible	Template					Bonus to Ability Pool
-Starting Background	VISIBLE:NO							BONUS:ABILITYPOOL|Background|1
-Occupation.MOD				TEMPLATE:ADDCHOICE:PApocSkills	BONUS:ABILITYPOOL|Occupation|-1|!PREABILITY:1,CATEGORY=Background,TYPE=Background
+Starting Background	VISIBLE:NO							BONUS:ABILITYPOOL|Starting Background|1
+Occupation.MOD				TEMPLATE:ADDCHOICE:PApocSkills	BONUS:ABILITYPOOL|Occupation|-1
 
 ###Block: Assigned for Occupation prerequisites, it's how we know what class was taken first and thus which skills are 1st level class skills --Eddy
 # Template Name	Visible	Required Class
 PApocSkills		VISIBLE:NO	PRECLASS:1,Post Apocalyptic Hero=1
 
 ###Block: Backgrounds
-# Template Name				Visible	Bonus to Ability Pool																			Automaticaly Gained Feat			Apply Kit								Automatic Languages
+# Template Name				Visible	Bonus to Ability Pool																			Automatically Gained Feat			Apply Kit								Automatic Languages
 Background (Feral)			VISIBLE:NO	BONUS:ABILITYPOOL|Feral Background Skills|3	BONUS:ABILITYPOOL|Feral Background Feat|1															KIT:1|Equipment_AnySimpleWeapon
 Background (Tribal)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Tribal Background Skills|1	BONUS:ABILITYPOOL|Tribal Background Feat|1	AUTO:FEAT|Primitive Technology		KIT:1|Equipment_MWArchaicWeapon				LANGAUTO:Unislang
 Background (Ritual Preservationist)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Ritual Preservationist Background Skills|1						AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Gutter Talk
@@ -27,7 +27,7 @@ Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYP
 ###Block: Mutant
 # Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							Subrace
 Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:Yes
-Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|MUTATION|3	BONUS:ABILITYPOOL|DEFECT|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
+Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|3	BONUS:ABILITYPOOL|Defects|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
 Mutant Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
 
 ###Block: Templates to handle specific Mutations and Defects

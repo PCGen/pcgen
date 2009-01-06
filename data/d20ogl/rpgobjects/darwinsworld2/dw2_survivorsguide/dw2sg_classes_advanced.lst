@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Mar  6 13:19:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Jan  6 17:25:28 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
@@ -29,7 +29,7 @@ CLASS:Barbarian	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimida
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
 CLASS:Demagogue	HD:6		TYPE:Base.Advanced	ABB:Dem		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 77	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|2+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Req. Att.	Required Skill								Required Text
+# Class Name	Req. Att.	Required Skill									Required Text
 CLASS:Demagogue	PREATT:3	PRESKILL:2,Diplomacy=6,Knowledge (Theology and Philosophy)=6	PRETEXT:One Allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Demagogue	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Theology and Philosophy)|Listen|TYPE.Perform|Read/Write Language|Research|Sense Motive|Speak Language|Spot
@@ -49,12 +49,12 @@ CLASS:Guardian	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency,Personal Firearms 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guardian	STARTSKILLPTS:3	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Tactics)|Knowledge (Current Events)|Knowledge (Mutant Lore)|Listen|Ride|Sense Motive|Spot|Survival
 1						BONUS:ABILITYPOOL|Guardian Feat|(CL/3)
-1	SAB:Defender (+%)|defendLvl								BONUS:VAR|defendLvl|2	DEFINE:defendLvl|0
-2																					ADD:FEAT|Weapon Focus
-4	SAB:Tactical Aid										BONUS:VAR|tactAid|1	DEFINE:tactAid|0
-5																					ADD:FEAT|Weapon Specialization
-7													BONUS:VAR|defendLvl|2
-8																					ADD:FEAT|Greater Weapon Specialization
+1	SAB:Defender (+%)|defendLvl									BONUS:VAR|defendLvl|2	DEFINE:defendLvl|0
+2																						ADD:FEAT|Weapon Focus
+4	SAB:Tactical Aid											BONUS:VAR|tactAid|1	DEFINE:tactAid|0
+5						BONUS:ABILITYPOOL|Weapon Specialization
+7														BONUS:VAR|defendLvl|2
+8						BONUS:ABILITYPOOL|Greater Weapon Specialization
 10	SAB:Raider Bane
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
@@ -64,12 +64,12 @@ CLASS:Juju Doctor	PREATT:1	PREFEAT:1,Juju Medicine	PRESKILL:1,Treat Injury=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Juju Doctor	STARTSKILLPTS:7	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Knowledge (Technology)|Listen|TYPE.Perform|Read/Write Language|Research|Sense Motive|Speak Language|Spot
 1							BONUS:ABILITYPOOL|Juju Doctor Feat|(CL/3)
-1	SAB:Juju Specialist (+%)|jujuSpec								BONUS:VAR|jujuSpec|1	BONUS:SKILL|Treat Injury|jujuSpec	DEFINE:jujuSpec|0
+1	SAB:Juju Specialist (+%)|jujuSpec								BONUS:SKILL|Treat Injury|jujuSpec	BONUS:VAR|jujuSpec|1	DEFINE:jujuSpec|0
 2	SAB:Brew Potion	SAB:Expert Healer
 4	SAB:Juju Mastery
-5														BONUS:VAR|jujuSpec|1
+5																				BONUS:VAR|jujuSpec|1
 7	SAB:Potion Mastery
-8														BONUS:VAR|jujuSpec|1
+8																				BONUS:VAR|jujuSpec|1
 10	SAB:Juju Miracle
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
@@ -81,7 +81,7 @@ CLASS:Psionic	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Diplomacy|Intimidate|Kn
 1	SAB:Neural Specialization (+% to DC of Neural Mutations used)|(CL/2)
 2													BONUS:ABILITYPOOL|Psionic Neural Feat|((CL+1)/3)
 3													BONUS:ABILITYPOOL|Psionic Feat|(CL/3)
-4													BONUS:ABILITYPOOL|Mutation|((CL-1)/3)
+4													BONUS:ABILITYPOOL|Mutations|((CL-1)/3)
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
 CLASS:Raider	HD:10		TYPE:Base.Advanced	ABB:Rai		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 84	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
@@ -130,7 +130,7 @@ CLASS:Scav		STARTSKILLPTS:5	CSKILL:Bluff|Decipher Script|Disable Device|Drive|Es
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
 CLASS:Scholar	HD:6		TYPE:Base.Advanced	ABB:Sch		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 89	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Req. Att.	Required Skill
+# Class Name	Req. Att.	Multiple Requirements
 CLASS:Scholar	PREATT:1	PREMULT:2,[PRESKILL:1,TYPE.Knowledge=6],[PRESKILL:1,Research=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scholar	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE.Craft|Decipher Script|Drive|Gather Information|TYPE.Knowledge|Navigate|Read/Write Language|Repair|Research|Search|Speak Language|Spot
