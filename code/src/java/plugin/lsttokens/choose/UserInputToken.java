@@ -130,10 +130,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 		if (firstarg != null)
 		{
 			Formula f = FormulaFactory.getFormulaFor(firstarg);
-			if (!FormulaFactory.ONE.equals(f))
-			{
-				context.obj.put(obj, FormulaKey.SELECT, f);
-			}
+			context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
 		}
 		return true;
 	}

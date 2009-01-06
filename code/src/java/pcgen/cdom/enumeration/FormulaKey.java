@@ -67,6 +67,8 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey SIZE;
 
+	public static final FormulaKey EMBEDDED_SELECT = getConstant("SELECT", FormulaFactory.ONE);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

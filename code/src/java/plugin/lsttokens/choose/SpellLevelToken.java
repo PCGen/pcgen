@@ -178,10 +178,7 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 				value).append(suffix);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		Formula f = FormulaFactory.getFormulaFor(start);
-		if (!FormulaFactory.ONE.equals(f))
-		{
-			context.obj.put(obj, FormulaKey.SELECT, f);
-		}
+		context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
 		return true;
 	}
 

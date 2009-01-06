@@ -26,6 +26,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
@@ -33,7 +34,7 @@ import pcgen.util.Logging;
  * 
  */
 public class ChooseLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
 	@Override
@@ -125,5 +126,27 @@ public class ChooseLst extends AbstractToken implements
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	public Class<CDOMObject> getDeferredTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	/*
+	 * This makes an editor a bit more difficult, but since CHOOSE is an early
+	 * target of 5.17, this probably isn't a big deal.
+	 */
+	public boolean process(LoadContext context, CDOMObject obj)
+	{
+		Formula emb = obj.get(FormulaKey.EMBEDDED_SELECT);
+		if (emb != null)
+		{
+			if (!FormulaFactory.ONE.equals(emb))
+			{
+				obj.put(FormulaKey.SELECT, emb);
+			}
+		}
+		return true;
 	}
 }
