@@ -15,10 +15,12 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.equipment;
+package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -26,7 +28,7 @@ import pcgen.util.Logging;
 /**
  * Deals with HANDS token
  */
-public class HandsToken implements CDOMPrimaryToken<Equipment>
+public class HandsToken implements CDOMPrimaryToken<Equipment>, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -58,22 +60,17 @@ public class HandsToken implements CDOMPrimaryToken<Equipment>
 
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Integer hands = context.getObjectContext().getInteger(eq,
-				IntegerKey.SLOTS);
-		if (hands == null)
-		{
-			return null;
-		}
-		if (hands.intValue() < 0)
-		{
-			context.addWriteMessage(getTokenName() + " must be an integer > 0");
-			return null;
-		}
-		return new String[] { hands.toString() };
+		//Unparses as SLOTS
+		return null;
 	}
 
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;
+	}
+
+	public String getMessage(PObject obj, String value)
+	{
+		return getTokenName() + " is deprecated, please use SLOTS:";
 	}
 }
