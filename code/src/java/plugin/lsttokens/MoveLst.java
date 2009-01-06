@@ -133,9 +133,16 @@ public class MoveLst extends AbstractToken implements
 		Set<String> set = new TreeSet<String>();
 		for (Movement m : added)
 		{
-			StringBuilder sb = new StringBuilder();
-			m.addTokenContents(sb);
-			set.add(sb.toString());
+			if (m.getMoveRatesFlag() == 0)
+			{
+				StringBuilder sb = new StringBuilder();
+				m.addTokenContents(sb);
+				set.add(sb.toString());
+			}
+		}
+		if (set.isEmpty())
+		{
+			return null;
 		}
 		return set.toArray(new String[set.size()]);
 	}

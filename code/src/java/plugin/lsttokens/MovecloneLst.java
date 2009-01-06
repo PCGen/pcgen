@@ -138,9 +138,16 @@ public class MovecloneLst extends AbstractToken implements
 				String.CASE_INSENSITIVE_ORDER);
 		for (Movement m : added)
 		{
-			StringBuilder sb = new StringBuilder();
-			m.addTokenContents(sb);
-			set.add(sb.toString());
+			if (m.getMoveRatesFlag() == 2)
+			{
+				StringBuilder sb = new StringBuilder();
+				m.addTokenContents(sb);
+				set.add(sb.toString());
+			}
+		}
+		if (set.isEmpty())
+		{
+			return null;
 		}
 		return set.toArray(new String[set.size()]);
 	}
