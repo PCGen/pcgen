@@ -102,7 +102,8 @@ public class ChooseLst extends AbstractToken implements
 			return null;
 		}
 		Formula choices = context.obj.getFormula(obj, FormulaKey.NUMCHOICES);
-		String choicesString = choices == null ? null : choices.toString();
+		String choicesString = choices == null ? null : "NUMCHOICES="
+				+ choices.toString() + Constants.PIPE;
 		for (int i = 0; i < str.length; i++)
 		{
 			if (str[i].endsWith(Constants.PIPE))
@@ -111,7 +112,7 @@ public class ChooseLst extends AbstractToken implements
 			}
 			if (choicesString != null)
 			{
-				str[i] = choicesString + Constants.PIPE + str[i];
+				str[i] = choicesString + str[i];
 			}
 			if (str[i].startsWith("FEAT|"))
 			{
