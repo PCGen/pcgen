@@ -32,6 +32,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;
@@ -314,7 +315,9 @@ public final class Kit extends PObject implements Comparable<Object>
 	{
 		StringBuffer info = new StringBuffer(255);
 		info.append("<html>");
-		info.append("<b>").append(getDisplayName()).append("</b> - ");
+		info.append("<b><font size=+1>");
+		info.append(OutputNameFormatting.piString(this, false));
+		info.append("</font></b><br/>\n");
 
 		String aString = getPreReqHTMLStrings(aPC);
 
