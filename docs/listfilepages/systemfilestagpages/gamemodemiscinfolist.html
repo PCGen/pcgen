@@ -1,35 +1,37 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
-<!--
-	PCGen Documentation Project
+	<!--
+		PCGen Documentation Project
 
-	$Author$
-	$Date$
-	$Revision$
+		$Author$
+		$Date$
+		$Revision$
 
-	Contributors:
-	Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-	Eddy Anthony - eddybaATmindspringDOTcom
-	Terry FitzSimons - fitzsimonsATmintelDOTnet
-	Eric C. Smith - mareduddATblackrootDOTorg
+		Contributors:
+		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eddy Anthony - eddybaATmindspringDOTcom
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C. Smith - mareduddATblackrootDOTorg
 
-	Description:
-	Provides information on the use of PCGen Game Mode: Misc Info List File.
--->
-<head>
-	<title>Game Mode:Miscelaneous Information List</title>
-	<link rel="stylesheet" type="text/css" href="../../pcgen.css">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
+		Description:
+		Provides information on the use of PCGen Game Mode: Misc Info List File.
+	-->
+	<head>
+		<title>Game Mode:Miscelaneous Information List</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
 
-<body>
+	<body>
 		<h1>Game Mode: miscinfo.lst</h1>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="new">*** New 5.11.1</p>
 		<p class="indent0"><strong><a name="ABILITYCATEGORY">Tag Name:</a></strong> ABILITYCATEGORY:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text Text (Name of the Ability Category).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the Ability Category).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>ABILITYCATEGORY begins a line which defines a category of abilities.</li>
@@ -43,11 +45,14 @@
 		</ul>
 		<p class="indent1">The following tags are used in ABILITYCATEGORY lines:</p>
 		<ul class="indent2">
+			<li><a href="#ABILITYLIST">ABILITYLIST</a> - Defines a list of abilities that are included in the 
+				associated category.</li>
 			<li><a href="#CATEGORY">CATEGORY</a> - Defines the low-level ability category the category refers to.
-			<ul class="indent2">
-				<li>Class Abilities, Racial Abilities, Special Attacks, Special Qualities, Feat,
-				Skill, Supernatural, Extraordinary and Spell, etc...</li>
-			</ul>
+				<ul class="indent2">
+					<li>Class Abilities, Racial Abilities, Special Attacks, Special Qualities, Feat,
+					Skill, Supernatural, Extraordinary and Spell, etc...</li>
+				</ul>
+			</li>
 			<li><a href="#DISPLAYLOCATION">DISPLAYLOCATION</a> - Define the name of the sub tab that the ability category will be displayed on.</li>
 			<li><a href="#DISPLAYNAME">DISPLAYNAME</a> - Defines the display name of the category.</li>
 			<li><a href="#EDITABLE">EDITABLE</a> - Defines whether this category of abilities is user-editable.</li>
@@ -63,8 +68,41 @@
 		<p class="indent3">Defines a category named Special Attack.</p>
 		<p class="indent2"><code>ABILITYCATEGORY:Special Attack &lt;tab&gt; PLURAL=Ambush</code></p>
 		<p class="indent3">Defines a category named Special Attacka andsets the internationalized name to &quot;Ambush&quot;.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
+		<p class="new">*** New 5.15.10</p>
+		<p class="indent0"><strong><a name="ABILITYLIST">Tag Name:</a></strong> ABILITYLIST:x|x(y)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability Key).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Ability Sub-Choices).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Defines a list of abilities and their choices (aka sub keys) that are included in the 
+				associated category.</li>
+			<li>These abilities are in addition to the abilities included in the category by the TYPE tag.</li>
+			<li>When a subkey is specified for an ability, only the listed choices will be valid for 
+				that ability in the category.</li>
+			<li>This tag is valid only in "child" ability categpries. (See <a href="#CATEGORY">CATEGORY</a> tag.)</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong><br></p>
+		<p class="indent2"><code>ABILITYLIST:Mounted Combat|Skill Focus (Ride)|Skill Focus 
+			(Handle Animal)|Ride-By Attack</code></p>
+		<p class="indent3">Defines that Mounted Combat, Ride-By Attack and Skill Focus should be 
+			included in the category. However only Ride and Handle Animal will be offered if Skill 
+			Focus is chosen from this category.</p>
+		<p class="indent2"><code>ABILITYLIST:Weapon Finesse</code></p>
+		<p class="indent3">Defines that Weapon Finesse should be included in the category. As no 
+			subkey is defined, the normal choices will be offered if Weapon Finesse is chosen from 
+			this category.</p>
+		<p class="indent1"><strong>Where it is Used:</strong><br></p>
+		<p class="indent2">ABILITYCATEGORY Lines in <span class="lstfile">miscinfo.lst</span> and 
+			data source <span class="lstfile">abilitycategory.lst</span> files.</p>
+		<p></p>
+
+
+<hr>
+
 		<p class="new">*** New - Was DEFENSENAME.</p>
 		<p class="indent0"><strong><a name="ACNAME">Tag Name:</a></strong> ACNAME:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like to call
@@ -81,8 +119,10 @@
 		<p class="indent3">The Armor Rating is defined as &quot;Armor Class&quot;.</p>
 		<p class="indent2"><code>ACNAME:Defense</code></p>
 		<p class="indent3">The Armor Rating is defined as &quot;Defense&quot;.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="new">*** New - Was DEFENSEABBREV.</p>
 		<p class="indent0"><strong><a name="ACABBREV">Tag Name:</a></strong> ACABBREV:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (How you would like your
@@ -94,8 +134,10 @@
 		<p class="indent3">The Armor Rating abbreviation is defined as &quot;AC&quot;.</p>
 		<p class="indent2"><code>ACABBREV:Def</code></p>
 		<p class="indent3">The Armor Rating abbreviation is defined as &quot;Def&quot;.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong><a name="ACTYPE">Tag Name:</a></strong> ACTYPE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the Armor Class Type being defined by the line).</p>
@@ -109,8 +151,10 @@
 		<p class="indent3">Defines the ACTYPE Total as the Total AC bonuses</p>
 		<p class="indent2"><code>ACTYPE:Touch		ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield</code></p>
 		<p class="indent3">Defines the ACTYPE Touch as the Total AC minus Armor, NaturalArmor and Shield bonuses</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong><a name="ADD">Tag Name:</a></strong> ADD:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of a defined Armor Class Type).</p>
@@ -134,8 +178,10 @@
 		<p class="indent3">Adds ACTYPE:TOTAL to the ACTYPE being defined in the ACTYPE line.</p>
 		<p class="indent2"><code>ADD:Shield</code></p>
 		<p class="indent3">Adds ACTYPE:SHIELD to the ACTYPE being defined in the ACTYPE line.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="indent0"><strong><a name="ALLOWEDMODES">Tag Name:</a></strong> ALLOWEDMODES:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (A | delimited list of game modes).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -143,8 +189,10 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ALLOWEDMODES:DnD_v35e|DnD_Olerra</code></p>
 		<p class="indent3">The 3.5 and Olerra sources can be safely included with this source</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="indent0"><strong><a name="ALTHPABBREV">Tag Name:</a></strong> ALTHPABBREV:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games secondary HP
 			equivalent to be abbreviated to).</p>
