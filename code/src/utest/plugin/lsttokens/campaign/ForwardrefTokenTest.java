@@ -101,6 +101,27 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	}
 
 	@Test
+	public void testInvalidBadLeadingComma() throws PersistenceLayerException
+	{
+		assertFalse(parse("SPELL|,Fireball"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadTrailingComma() throws PersistenceLayerException
+	{
+		assertFalse(parse("SPELL|Fireball,"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidBadDoubleComma() throws PersistenceLayerException
+	{
+		assertFalse(parse("SPELL|Fireball,,LightningBolt"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidCatTypeNoEqual() throws PersistenceLayerException
 	{
 		assertFalse(parse("ABILITY|Abil"));
@@ -180,7 +201,7 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 				"Lightning Bolt");
 		secondaryContext.ref.constructCDOMObject(Spell.class,
 				"Lightning Bolt");
-		runRoundRobin("SPELL|Fireball|Lightning Bolt");
+		runRoundRobin("SPELL|Fireball,Lightning Bolt");
 	}
 
 	@Test

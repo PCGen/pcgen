@@ -58,15 +58,23 @@ public class ForwardRefToken extends AbstractToken implements
 			return false;
 		}
 
-		if (value.indexOf("|") == -1)
+		int pipeLoc = value.indexOf('|');
+		if (pipeLoc == -1)
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " requires at least two arguments, "
 					+ "ReferenceType and Key: " + value);
 			return false;
 		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		String firstToken = st.nextToken();
+		if (value.lastIndexOf('|') != pipeLoc)
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " requires at only two pipe separated arguments, "
+					+ "ReferenceType and Keys: " + value);
+			Logging.log(Logging.LST_ERROR, "  keys are comma separated");
+			return false;
+		}
+		String firstToken = value.substring(0, pipeLoc);
 		ReferenceManufacturer<? extends CDOMObject, ?> rm = context
 				.getManufacturer(firstToken);
 		if (rm == null)
@@ -76,6 +84,14 @@ public class ForwardRefToken extends AbstractToken implements
 			return false;
 		}
 
+		String rest = value.substring(pipeLoc + 1);
+		if (hasIllegalSeparator(',', rest))
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " keys are comma separated");
+			return false;
+		}
+		StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
 		while (st.hasMoreTokens())
 		{
 			CDOMSingleRef<? extends CDOMObject> ref = rm.getReference(st
@@ -127,7 +143,7 @@ public class ForwardRefToken extends AbstractToken implements
 			set.addAll(map.getListFor(key));
 			StringBuilder sb = new StringBuilder();
 			sb.append(key).append(Constants.PIPE).append(
-					ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
+					ReferenceUtilities.joinLstFormat(set, Constants.COMMA));
 			returnSet.add(sb.toString());
 		}
 		return returnSet.toArray(new String[returnSet.size()]);
