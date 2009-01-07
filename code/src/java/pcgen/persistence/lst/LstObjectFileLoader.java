@@ -182,7 +182,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @since 5.11
 	 */
 	public void completeObject(LoadContext context, CampaignSourceEntry source,
-		final PObject pObj) throws PersistenceLayerException
+		final T pObj) throws PersistenceLayerException
 	{
 		if (!processComplete || pObj == null)
 		{
@@ -201,7 +201,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		}
 	}
 
-	protected void storeObject(LoadContext context, PObject pObj)
+	protected void storeObject(LoadContext context, T pObj)
 	{
 		final T currentObj = getMatchingObject(context, pObj);
 
@@ -228,6 +228,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					{
 						performForget(context, currentObj);
 						addGlobalObject(pObj);
+					}
+					else
+					{
+						performForget(context, pObj);
 					}
 				}
 				else

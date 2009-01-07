@@ -26,9 +26,7 @@ import java.util.Date;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -124,7 +122,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	}
 
 	@Override
-	protected void storeObject(LoadContext context, PObject pObj)
+	protected void storeObject(LoadContext context, Language pObj)
 	{
 		final Language matching = getMatchingObject(context, pObj);
 
