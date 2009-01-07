@@ -181,27 +181,42 @@ TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
 
 
 # Epic
+ABILITY:@/d20ogl/srd35/epic/rsrd_abilities_class_epic.lst
+
 ABILITYCATEGORY:@/d20ogl/srd35/epic/rsrd_ability_categories_epic.lst
+
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_base_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_monsters_dragons_epic.lst
 CLASS:@/d20ogl/srd35/epic/rsrd_classes_prestige_epic.lst
+
 FEAT:@/d20ogl/srd35/epic/rsrd_feats_epic.lst
 FEAT:@/d20ogl/srd35/epic/rsrd_feats_monster_epic.lst
+
 KIT:@/d20ogl/srd35/epic/rsrd_kits_epic_races.lst
 KIT:@/d20ogl/srd35/epic/rsrd_kits_epic_races_dragons.lst
+
 RACE:@/d20ogl/srd35/epic/rsrd_races_epic.lst
 RACE:@/d20ogl/srd35/epic/rsrd_races_dragons_epic.lst
+
 TEMPLATE:@/d20ogl/srd35/epic/rsrd_templates_epic.lst
+
 SKILL:@/d20ogl/srd35/epic/rsrd_skills_epic.lst
+
 EQUIPMENT:@/d20ogl/srd35/epic/rsrd_equip_epic.lst
+
 EQUIPMOD:@/d20ogl/srd35/epic/rsrd_equipmods_epic_enhancing.lst
+
 SPELL:@/d20ogl/srd35/epic/rsrd_spells_epic.lst
+
+WEAPONPROF:@/d20ogl/srd35/epic/rsrd_weaponprofs_epic.lst
+
 HIDETYPE:FEAT|EpicBarbarian|EpicBard|EpicCleric|EpicDruid|EpicFighter|EpicMonk|EpicPaladin|EpicRanger|EpicRogue|EpicSorcerer|EpicWizard
 HIDETYPE:FEAT|EpicArcaneArcher|EpicArcaneTrickster|EpicAssassin|EpicBlackguard|EpicDragonDisciple|EpicDuelist|EpicDwarvenDefender|EpicEldritchKnight|EpicHorizonWalker|EpicLoremaster|EpicMysticTheurge|EpicShadowdancer
 HIDETYPE:FEAT|AgentRetriever|CosmicDescryer|DivineEmissary|GuardianParamount|HighProselytizer|LegendaryDreadnought|PerfectWight
 
 # Divine
+ABILITY:@/d20ogl/srd35/divine/rsrd_divine_abilities.lst
 ABILITY:@/d20ogl/srd35/divine/rsrd_divine_feats_sda.lst
 TEMPLATE:@/d20ogl/srd35/divine/rsrd_divine_templates.lst
 ABILITYCATEGORY:@/d20ogl/srd35/divine/rsrd_divine_abilitycategories.lst

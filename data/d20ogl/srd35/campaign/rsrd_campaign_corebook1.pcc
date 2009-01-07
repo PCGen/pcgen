@@ -83,6 +83,14 @@ HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
+# Suppress forward references
+FORWARDREF:EQMOD|FRT_HVY,FRT_LGHT,FRT_MOD,PLUS1A,PLUS1S,PLUS1W,PLUS2A,PLUS2S,PLUS2W,PLUS3A,PLUS3S,PLUS3W,PLUS4A,PLUS4S,PLUS4W,PLUS5A,PLUS5S,PLUS5W
+FORWARDREF:KIT|Ape Companion,Awakened Animal,Awakened Tree,Badger Companion,Bear (Black) Companion,Bear (Brown) Companion,Bear (Polar) Companion,Bison Companion,Boar Companion,Camel Companion,Camel Default,Cheetah Companion,Crocodile (Giant) Companion,Crocodile Companion,Dog (Riding) Companion,Dog Companion,Eagle Companion,Elephant Companion,Elephant Default,Hawk Companion,Horse (Heavy) Companion,Horse (Light) Companion,Leopard Companion,Lion Companion,Lizard (Monitor) Companion,Owl Companion,Pony Companion,Porpoise Companion,Rhinoceros Companion,Shark (Medium) Companion,Snake (Constrictor) Companion,Snake (Constrictor/Giant) Companion,Snake (Viper/Huge) Companion,Snake (Viper/Large) Companion,Snake (Viper/Medium) Companion,Snake (Viper/Small) Companion,Snake Familiar,Squid Companion,Tiger Companion,Wolf Companion,Wolverine Companion
+FORWARDREF:RACE|Ape,Baboon,Badger,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Cheetah,Crocodile,Dog,Eagle,Horse (Warhorse Heavy),Horse (Warhorse Light),Hyena,Leopard,Lion,Manta Ray,Monkey,Octopus,Porpoise,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Constrictor/Giant),Snake (Viper/Huge),Snake (Viper/Large),Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine
+FORWARDREF:CLASS|Warrior
+FORWARDREF:CLASSSPELLLIST|Adept
+FORWARDREF:FEAT|Awesome Blow,Flyby Attack,Improved Natural Attack
+
 #
 # End
 #
