@@ -73,6 +73,10 @@ HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools|
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
+# Suppress forward references
+FORWARDREF:RACE|Ape,Baboon,Badger,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Camel,Cheetah,Crocodile,Dog,Eagle,Elephant,Leopard,Lion,Monkey,Octopus,Porpoise,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Giant Constrictor),Snake (Huge Viper),Snake (Large Viper),Snake (Medium Viper),Snake (Small Viper),Squid,Tiger,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine
+FORWARDREF:KIT|Awakened Animal
+
 #
 # End
 #

@@ -96,6 +96,8 @@ ABILITY:@/d20ogl/srd/monsters/srd_abilities_mods.lst
 CLASS:@/d20ogl/srd/monsters/srd_classes_creature_specific.lst
 CLASS:@/d20ogl/srd/monsters/srd_classes_dragon.lst
 
+FEAT:@/d20ogl/srd/basics/srd_feats_monster.lst
+
 KIT:@/d20ogl/srd/monsters/srd_kits_races__dragons.lst
 KIT:@/d20ogl/srd/monsters/srd_kits_races__vermin.lst
 KIT:@/d20ogl/srd/monsters/srd_kits_races_abc.lst
