@@ -124,8 +124,12 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 					+ value);
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(firstarg).append('|')
-				.append(title);
+		sb.append(getTokenName()).append('|');
+		if (firstarg != null)
+		{
+			sb.append(firstarg).append('|');
+		}
+		sb.append(title);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		if (firstarg != null)
 		{
