@@ -159,6 +159,20 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		}
 	},
 
+	COMPLETE_EQ_PLUSTOTAL
+		("PLUSTOTAL",
+		 new String[] { "PLUSTOTAL" },
+	 	 true ) { 
+
+		public TermEvaluator getTermEvaluator(
+				final String expressionString,
+				final String src,
+				final String matchedSection) {
+
+			return new EQPlusTotalTermEvaluator(expressionString);
+		}
+	},
+
 	COMPLETE_EQ_RANGE
 		("RANGE",
 		 new String[] { "RANGE" },

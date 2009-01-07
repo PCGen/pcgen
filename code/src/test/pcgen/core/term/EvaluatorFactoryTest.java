@@ -13,7 +13,7 @@ import pcgen.util.TestHelper;
 
 /**
  * EvaluatorFactory Tester.
- * Copyright © 2008 Andrew Wilson <nuance@users.sourceforge.net>.
+ * Copyright ï¿½ 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -12162,6 +12162,44 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		is(field0, strEq(term), "GetTermEvaluator209 stored term is correct " + term);	       
 	}
 
+	/**
+	 * Method: getTermEvaluator(String term, String source)
+	 */
+	public void testGetTermEvaluatorPlusTotal() {
+		TestHelper.loadAll();
+
+		String term = "PLUSTOTAL";
+
+		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
+
+		is(t instanceof EQPlusTotalTermEvaluator, eq(true),
+		   "EQPlusTotalTermEvaluator evaluator correct for " + term);
+
+		Class<?> uClass = EQPlusTotalTermEvaluator.class;
+
+		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
+
+		String field0 = "";
+		boolean ok;
+		try
+		{
+			ok = true;
+			field0 = (String) pF0.get(t);
+		}
+		catch (ClassCastException e)
+		{
+			ok = false;
+		}
+		catch (IllegalAccessException e)
+		{
+			ok = false;
+		}
+
+		is(ok, eq(true), "No illegal access in testGetTermEvaluatorPlusTotal");
+
+		is(field0, strEq(term), "testGetTermEvaluatorPlusTotal stored term is correct " + term);	       
+	}
+
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
@@ -12333,7 +12371,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		System.err.println("Matched Size " + t);
 		is(t instanceof EQSizeTermEvaluator, eq(true),
 		   "GetTermEvaluator214 evaluator correct for " + term);
 
