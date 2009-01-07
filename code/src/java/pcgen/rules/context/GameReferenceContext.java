@@ -28,18 +28,24 @@ import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 
 public class GameReferenceContext extends AbstractReferenceContext
 {
 	private final Map<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
 
-	private final DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, Category<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
+	private final DoubleKeyMap<Class<?>, Category<?>, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, Category<?>, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>>();
 
 	@Override
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl)
 	{
+		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
+		{
+			throw new InternalError(cl
+					+ " is categorized but was fetched without a category");
+		}
 		TransparentReferenceManufacturer<T> mfg = (TransparentReferenceManufacturer<T>) map
 				.get(cl);
 		if (mfg == null)
@@ -66,11 +72,11 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		TransparentReferenceManufacturer<T> mfg = (TransparentReferenceManufacturer<T>) catmap
+		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
 				.get(cl, cat);
 		if (mfg == null)
 		{
-			mfg = new TransparentReferenceManufacturer<T>(cl);
+			mfg = new TransparentCategorizedReferenceManufacturer<T>(cl, cat);
 			catmap.put(cl, cat, mfg);
 		}
 		return mfg;

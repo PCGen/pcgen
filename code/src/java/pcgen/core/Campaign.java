@@ -28,8 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -179,7 +183,19 @@ public class Campaign extends PObject
 	private <T extends CDOMObject> void resolveReferenceManufacturer(
 			AbstractReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
-		rm.resolveUsing(rc.getManufacturer(rm.getReferenceClass()));
+		Class<T> c = rm.getReferenceClass();
+		ReferenceManufacturer<T, ?> mfg;
+		if (CategorizedCDOMObject.class.isAssignableFrom(c))
+		{
+			Category category = ((TransparentCategorizedReferenceManufacturer) rm)
+					.getCDOMCategory();
+			mfg = rc.getManufacturer((Class) c, category);
+		}
+		else
+		{
+			mfg = rc.getManufacturer(c);
+		}
+		rm.resolveUsing(mfg);
 	}
 
 }

@@ -41,6 +41,11 @@ public class ReferenceContext extends AbstractReferenceContext
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl)
 	{
+		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
+		{
+			throw new InternalError(cl
+					+ " is categorized but was fetched without a category");
+		}
 		ReferenceManufacturer<T, ?> mfg = (ReferenceManufacturer<T, ?>) map
 				.get(cl);
 		if (mfg == null)
