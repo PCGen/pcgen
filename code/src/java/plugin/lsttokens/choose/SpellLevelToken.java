@@ -174,8 +174,7 @@ public class SpellLevelToken implements CDOMSecondaryToken<CDOMObject>
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('|').append(start).append('|').append(
-				value).append(suffix);
+		sb.append(getTokenName()).append('|').append(value).append(suffix);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
 		Formula f = FormulaFactory.getFormulaFor(start);
 		context.obj.put(obj, FormulaKey.EMBEDDED_SELECT, f);
