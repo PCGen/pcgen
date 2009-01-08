@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 14 23:55:21 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Jan  7 21:23:13 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -115,7 +115,7 @@ Buff					KEY:Astral_Buff					CATEGORY:Special Ability	TYPE:SpecialQuality.Astral
 Celerity				KEY:Astral_Celerity				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																											BONUS:MOVEADD|TYPE.Walk|10
 Cleave				KEY:Astral_Cleave					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Cleave
 Deflection				KEY:Astral_Deflection				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																														BONUS:COMBAT|AC|1|TYPE=Deflection
-Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES		MOVE:Fly,20								ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)
+Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES		MOVE:Fly,20								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
 Improved Bull Rush		KEY:Astral_Improved Bull Rush			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Improved Bull Rush
 Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Improved Natural Attack
 Mobility				KEY:Astral_Mobility				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Mobility
@@ -137,7 +137,7 @@ Heavy Deflection			KEY:Astral_Heavy Deflection			CATEGORY:Special Ability	TYPE:S
 Improved Buff			KEY:Astral_Improved Buff			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																							BONUS:HP|CURRENTMAX|15
 Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY				AUTO:FEAT|Improved Critical
 Improved Damage Reduction	KEY:Astral_Improved Damage Reduction	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																			BONUS:DR|Magic|3																								DR:0/Magic
-Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	MOVE:Fly,40								ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)
+Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	MOVE:Fly,40								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
 Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Improved Grab
 Improved Swim			KEY:Astral_Improved Swim			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES		MOVE:Swim,60
 Muscle				KEY:Astral_Muscle					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																																BONUS:STAT|STR|4

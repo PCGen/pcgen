@@ -500,6 +500,18 @@ Construct Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:
 Incorporeal Traits	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic, 50%% chance to ignore any damage from a corporeal source. Can pass through solid objects at will, attacks pass through armor. Always moves silently
 Undead Traits		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DESC:Immune to mind-influencing effects/ poison/ sleep/ paralysis/ stunning/ disease, Not subject to critical hits/ subdual damage/ ability damage/ energy drain/ or death from massive damage
 
+###Block: Flight Maneuverability
+# Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Modify VAR							Temporary effect description
+Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	BONUS:VAR|Maneuverability|%CHOICE|PREAPPLY:PC	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number
+
+###Block: Maneuverability
+# Ability Name			Category of Ability		Type				Visible	ASPECT
+Maneuverability(Perfect)	CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Perfect
+Maneuverability(Good)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Good
+Maneuverability(Average)	CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Average
+Maneuverability(Poor)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Poor
+Maneuverability(Clumsy)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Clumsy
+
 #
 # End
 #

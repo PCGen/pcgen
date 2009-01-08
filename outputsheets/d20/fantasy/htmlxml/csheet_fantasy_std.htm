@@ -171,13 +171,13 @@ $Date$
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="119" class="font5"><br />WOUNDS/CURRENT HP</td>
+          <td align="center" width="130" class="font5"><br />WOUNDS/CURRENT HP</td>
           <td align="center"></td>
-          <td align="center" width="119" class="font5"><br />SUBDUAL DAMAGE</td>
+          <td align="center" width="130" class="font5"><br />SUBDUAL DAMAGE</td>
           <td align="center"></td>
-          <td align="center" width="60" class="font5"><br />DAMAGE<br />REDUCTION</td>
+          <td align="center" width="130" class="font5"><br />DAMAGE<br />REDUCTION</td>
           <td align="center"></td>
-          <td align="center" width="60" class="font5"><br />SPEED</td>
+          <td align="center" width="130" class="font5"><br />SPEED</td>
           </tr>
         <tr>
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></font>
@@ -190,7 +190,14 @@ $Date$
           <td align="center"><br /></td>
           <td align="center" class="border9"><b>&nbsp;|DR|&nbsp;</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><b>|MOVEMENT|<br /></b></td>
+          <td align="center" class="border9">
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
+|IIF(MOVE.%movement.NAME:Fly)|
+(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
+|ENDIF|
+|ENDFOR|
+	    </td>
           </tr>
        </table> <!-- STOP Hit Point Table -->
 |ELSE|
@@ -199,9 +206,9 @@ $Date$
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
           <td align="center"></td>
-          <td align="center" width="75" class="font5"><br />CURRENT VITALITY</td>
+          <td align="center" width="100" class="font5"><br />CURRENT VITALITY</td>
           <td align="center"></td>
-          <td align="center" width="75" class="font5"><br />SUBDUAL DAMAGE</td>
+          <td align="center" width="100" class="font5"><br />SUBDUAL DAMAGE</td>
           <td align="center"></td>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
@@ -210,7 +217,7 @@ $Date$
           <td align="center"></td>
           <td align="center" width="60" class="font5"><br />DAMAGE<br />REDUCTION</td>
           <td align="center"></td>
-          <td align="center" width="60" class="font5"><br />SPEED</td>
+          <td align="center" width="120" class="font5"><br />SPEED</td>
           </tr>
         <tr>
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>VP</b></font>
@@ -229,7 +236,14 @@ $Date$
           <td align="center"><br /></td>
           <td align="center" class="border9"><b>&nbsp;|DR|&nbsp;</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><b>|MOVEMENT|<br /></b></td>
+          <td align="center" class="border10">
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
+|IIF(MOVE.%movement.NAME:Fly)|
+(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
+|ENDIF|
+|ENDFOR|
+	    </td>
           </tr>
        </table> <!-- STOP Vitality/Wound Point Table -->
 |ENDIF|

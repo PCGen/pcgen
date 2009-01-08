@@ -636,7 +636,7 @@ function printSpaceReach(aSpace,aReach) {
 |ENDIF|
 |TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.RATE|
 |IIF(MOVE.%movement.NAME:Fly)|
-&nbsp;|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|
+&nbsp;(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
 |ENDIF|
 |IIF(%move:0)|
 &#x0020;(|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.MOVE.%move.SQUARES|&#x0020;

@@ -328,9 +328,9 @@ $Date$
           <td align="center"></td>
           <td align="center" width="119" class="lable">SUBDUAL DAMAGE</td>
           <td align="center"></td>
-          <td align="center" class="lable">&nbsp;&nbsp;DAMAGE REDUCTION&nbsp;&nbsp;</td>
+          <td align="center" width="119" class="lable">&nbsp;&nbsp;DAMAGE REDUCTION&nbsp;&nbsp;</td>
           <td align="center"></td>
-          <td align="center" class="lable">SPEED</td>
+          <td align="center" width="119" class="lable">SPEED</td>
           </tr>
         <tr>
           <td class="ab"><b>HP</b>
@@ -343,7 +343,14 @@ $Date$
           <td align="center"><br /></td>
           <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border10">&nbsp;|MOVEMENT|&nbsp;</td>
+          <td align="center" class="border9">
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
+|IIF(MOVE.%movement.NAME:Fly)|
+(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
+|ENDIF|
+|ENDFOR|
+	    </td>
           </tr>
        </table> 
 <!-- STOP Hit Point Table -->
@@ -384,7 +391,14 @@ $Date$
           <td></td>
           <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
           <td></td>
-          <td align="center" class="border10">|MOVEMENT|</td>
+          <td align="center" class="border9">
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
+|IIF(MOVE.%movement.NAME:Fly)|
+(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
+|ENDIF|
+|ENDFOR|
+	    </td>
           </tr>
        </table> 
 <!-- STOP Vitality/Wound Point Table -->
