@@ -254,3 +254,21 @@ ARMORPROF:playersguidetoarcanis_armorprofs.lst
 #EQUIPMOD:&/forgedinmagic/forgedmagic_equipmods_specialmaterials.lst
 #WEAPONPROF:&/forgedinmagic/forgedmagic_weaponprofs.lst
 
+# Player's Guide to Arcanis
+FORWARDREF:LANGUAGE|Draconic,Elven,Gnome,Halfling
+FORWARDREF:RACE|Dinosaur (Deinonychus),Dinosaur (Elasmosaurus),Dinosaur (Megaraptor),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus),Elf (Drow)
+FORWARDREF:EQUIPMENT|Talisman of the Sphere
+FORWARDREF:WEAPONPROF|Wind Staff
+FORWARDREF:EQMOD|ART,GEM
+FORWARDREF:DEITY|None
+FORWARDREF:DOMAINSPELLLIST|Chaos,Evil,Good,Law,Mind
+FORWARDREF:SKILL|Knowledge (Local),Profession (Hunter)
+FORWARDREF:SPELL|Chaos Hammer,Holy Aura,Holy Smite,Order's Wrath,Shield of Law,Unholy Aura,Unholy Blight
+FORWARDREF:DOMAIN|Good,Law
+FORWARDREF:ABILITY=Special Ability|Favored Enemy (Humanoid (Elf))
+FORWARDREF:ABILITY=Special Ability|Animal Companion
+FORWARDREF:ABILITY=Special Ability|Summon Familiar
+
+#
+# End
+#
