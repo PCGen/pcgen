@@ -12165,6 +12165,45 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	public void testGetTermEvaluatorAltPlusTotal() {
+		TestHelper.loadAll();
+
+		String term = "ALTPLUSTOTAL";
+
+		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
+
+		is(t instanceof EQAltPlusTotalTermEvaluator, eq(true),
+		   "EQAltPlusTotalTermEvaluator evaluator correct for " + term);
+
+		Class<?> uClass = EQAltPlusTotalTermEvaluator.class;
+
+		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
+
+		String field0 = "";
+		boolean ok;
+		try
+		{
+			ok = true;
+			field0 = (String) pF0.get(t);
+		}
+		catch (ClassCastException e)
+		{
+			ok = false;
+		}
+		catch (IllegalAccessException e)
+		{
+			ok = false;
+		}
+
+		is(ok, eq(true), "No illegal access in testGetTermEvaluatorAltPlusTotal");
+
+		is(field0, strEq(term), "testGetTermEvaluatorAltPlusTotal stored term is correct " + term);	       
+	}
+
+	
+	/**
+	 * Method: getTermEvaluator(String term, String source)
+	 */
 	public void testGetTermEvaluatorPlusTotal() {
 		TestHelper.loadAll();
 

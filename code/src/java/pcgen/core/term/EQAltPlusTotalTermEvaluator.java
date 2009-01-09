@@ -1,5 +1,5 @@
 /*
- * EQPlusTermEvaluator.java
+ * EQAltPlusTermEvaluator.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 07/01/2009 9:26:13 PM
+ * Created on 09/01/2009 7:26:13 PM
  *
  * $Id: $
  */
@@ -26,8 +26,8 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>EQPlusTotalTermEvaluator</code> is responsible for producing 
- * the value of the PLUS token for use in equipment and eqmod cost formulas. 
+ * The Class <code>EQAltPlusTotalTermEvaluator</code> is responsible for producing 
+ * the value of the ALTPLUSTOTAL token for use in equipment and eqmod cost formulas. 
  * 
  * Last Editor: $Author: $
  * Last Edited: $Date:  $
@@ -35,7 +35,7 @@ import pcgen.core.PlayerCharacter;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
+public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
 	
 	/**
@@ -43,7 +43,7 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 	 * 
 	 * @param expressionString the expression string
 	 */
-	public EQPlusTotalTermEvaluator(String expressionString)
+	public EQAltPlusTotalTermEvaluator(String expressionString)
 	{
 		this.originalText = expressionString;
 	}
@@ -66,7 +66,7 @@ public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements Ter
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return Integer.toString(eq.calcPlusForHead(true));
+		return Integer.toString(eq.calcPlusForHead(false));
 	}
 
 	/* (non-Javadoc)

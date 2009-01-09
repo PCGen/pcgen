@@ -41,6 +41,21 @@ package pcgen.core.term;
 
 public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 {
+
+	COMPLETE_EQ_ALTPLUSTOTAL
+		("ALTPLUSTOTAL",
+		 new String[] { "ALTPLUSTOTAL" },
+	 	 true ) { 
+
+		public TermEvaluator getTermEvaluator(
+				final String expressionString,
+				final String src,
+				final String matchedSection) {
+
+			return new EQAltPlusTotalTermEvaluator(expressionString);
+		}
+	},
+
 	COMPLETE_EQ_BASECOST
 		("BASECOST",
 		 new String[] { "BASECOST" },

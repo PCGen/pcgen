@@ -2655,6 +2655,38 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Calculates the plus value fo the specified head
+	 * 
+	 * @param bPrimary Which head is required, the primary (true) or the secondary (false)
+	 * @return The plus for the equipment head
+	 */
+	public int calcPlusForHead(boolean bPrimary) 
+	{
+		int iPlus = 0;
+
+		int headnum = bPrimary ? 1 : 2;
+		EquipmentHead head = getEquipmentHeadReference(headnum);
+		if (head == null)
+		{
+			return iPlus;
+		}
+		
+		for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
+		{
+			int iCount = getSelectCorrectedAssociationCount(eqMod);
+
+			if (iCount < 1)
+			{
+				iCount = 1;
+			}
+
+			iPlus += (iCount * eqMod.getSafe(IntegerKey.PLUS));
+		}
+
+		return iPlus;
+	}
+
+	/**
 	 * Can we add eqMod to this equipment?
 	 * 
 	 * @param eqMod
