@@ -14814,13 +14814,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					return true;
 				}
 
-				// if the item takes more slots, return false
-				if (existNum > (eSlot.getSlotCount() + (int) getTotalBonusTo(
-					"SLOTS", eSlot.getContainType())))
-				// if (existNum > (eSlot.getSlotCount() + (int)
-				// getBonusValue("SLOTS", eSlot.getContainType())))
+				for (String slotType : eSlot.getContainType())
 				{
-					return false;
+					if (eqI.isType(slotType))
+					{
+						// if the item takes more slots, return false
+						if (existNum > (eSlot.getSlotCount() + (int) getTotalBonusTo(
+							"SLOTS", slotType)))
+						{
+							return false;
+						}
+					}
 				}
 
 				return true;

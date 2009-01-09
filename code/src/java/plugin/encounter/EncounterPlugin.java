@@ -1267,11 +1267,17 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 					return true;
 				}
 
-				// if the item takes more slots, return false
-				if (existNum > (eSlot.getSlotCount() + (int) pc
-					.getTotalBonusTo("SLOTS", eSlot.getContainType())))
+				for (String slotType : eSlot.getContainType())
 				{
-					return false;
+					if (eqI.isType(slotType))
+					{
+						// if the item takes more slots, return false
+						if (existNum > (eSlot.getSlotCount() + (int) pc.getTotalBonusTo(
+							"SLOTS", slotType)))
+						{
+							return false;
+						}
+					}
 				}
 
 				return true;

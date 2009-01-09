@@ -26,9 +26,11 @@
  */
 package pcgen.core.character;
 
-import pcgen.core.Globals;
-
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
+
+import pcgen.core.Globals;
 
 /**
  * EquipSlot
@@ -37,17 +39,17 @@ import java.util.StringTokenizer;
  **/
 public final class EquipSlot
 {
-	private String containEq = "";
+	private Set<String> containEqList = new HashSet<String>();
 
 	/**
 	 *
 	 * the Structure of each EquipSlot is as follows:
 	 *
-	 * EQSLOT:Neck     CONTAINS:AMULET=1    NUMBER:HEAD
+	 * EQSLOT:Neck     CONTAINS:PERIAPT,AMULET=1    NUMBER:HEAD
 	 * EQSLOT:Fingers  CONTAINS:RING=2      NUMBER:HANDS
 	 *
 	 * slotName:    Name of this equipment slot (Neck, Body, etc)
-	 * containEq:     What type of equipment it can contain
+	 * containEqList:     What type of equipment it can contain
 	 * containNum:     The number of items each slot can hold
 	 * slotNumType:    The type of slot (used to get total number of slots)
 	 *
@@ -72,21 +74,12 @@ public final class EquipSlot
 	}
 
 	/**
-	 * Set container type
-	 * @param x
-	 */
-	public void setContainType(final String x)
-	{
-		containEq = x;
-	}
-
-	/**
 	 * Get container type
 	 * @return container type
 	 */
-	public String getContainType()
+	public Set<String> getContainType()
 	{
-		return containEq;
+		return containEqList;
 	}
 
 	/**
@@ -140,12 +133,24 @@ public final class EquipSlot
 		{
 			final String aType = aTok.nextToken();
 
-			if (aType.equalsIgnoreCase(containEq))
+			for (String allowed : containEqList)
 			{
-				return true;
+				if (aType.equalsIgnoreCase(allowed))
+				{
+					return true;
+				}
 			}
 		}
 
 		return false;
+	}
+
+	/**
+	 * Add a contained type to the map of valid types.
+	 * @param type The allowed item type
+	 */
+	public void addContainedType(String type)
+	{
+		containEqList.add(type);
 	}
 }
