@@ -48,6 +48,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 
 public class FeatToken extends AbstractToken implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
@@ -303,8 +304,10 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (a.getKeyName().equals(choice.getAbilityKey()))
 				{
-					Boolean multYes = a.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-					if (!multYes || !allowStack(a, allowStack)
+					if (!pc.canSelectAbility(a, false)
+							|| !a.getSafe(ObjectKey.VISIBILITY).equals(
+									Visibility.DEFAULT)
+							|| !allowStack(a, allowStack)
 							&& hasAssoc(pc.getAssociationList(a), choice))
 					{
 						return false;

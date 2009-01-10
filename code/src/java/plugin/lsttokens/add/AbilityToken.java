@@ -57,6 +57,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>AbilityToken</code> parses ADD:ABILITY entries.
@@ -382,13 +383,16 @@ public class AbilityToken extends AbstractToken implements
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
+		boolean isVirtual = Ability.Nature.VIRTUAL.equals(choice.getNature());
 		// Remove any already selected
 		for (Ability a : pc.getAllAbilities())
 		{
 			if (a.getKeyName().equals(choice.getAbilityKey()))
 			{
-				Boolean multYes = a.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-				if (!multYes || !allowStack(a, allowStack)
+				if (!pc.canSelectAbility(a, isVirtual)
+						|| !a.getSafe(ObjectKey.VISIBILITY).equals(
+								Visibility.DEFAULT)
+						|| !allowStack(a, allowStack)
 						&& hasAssoc(pc.getAssociationList(a), choice))
 				{
 					return false;
