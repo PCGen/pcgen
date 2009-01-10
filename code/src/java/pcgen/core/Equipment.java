@@ -5895,12 +5895,24 @@ public final class Equipment extends PObject implements Serializable,
 
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
-		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
+		return containsAssociated(obj, new FixedStringList(o));
 	}
 
 	public boolean containsAssociated(CDOMObject obj, FixedStringList o)
 	{
-		return assocSupt.containsAssoc(obj, AssociationListKey.CHOICES, o);
+		List<FixedStringList> list = assocSupt.getAssocList(obj,
+				AssociationListKey.CHOICES);
+		if (list != null)
+		{
+			for (FixedStringList fsl : list)
+			{
+				if (FixedStringList.CASE_INSENSITIVE_ORDER.compare(fsl, o) == 0)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
