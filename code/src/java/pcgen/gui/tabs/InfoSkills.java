@@ -206,8 +206,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private FlippingSplitPane splitPane;
 	private JButton addButton;
 	private JButton removeButton;
-	private JButton clearAvailableQFilterButton = new JButton("Clear");
-	private JButton clearSelectedQFilterButton = new JButton("Clear");
+	private JButton clearAvailableQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearSelectedQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
 	private JComboBoxEx currCharacterClass = null; // now contains Strings of Class/lvl
 
 	/** The output order selection drop-down */
@@ -217,8 +217,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JLabel exclusiveLabel = new JLabel();
 	private JLabel includeLabel = new JLabel();
-	private final JLabel lblAvailableQFilter = new JLabel("Filter:");
-	private final JLabel lblSelectedQFilter = new JLabel("Filter:");
+	private final JLabel lblAvailableQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
+	private final JLabel lblSelectedQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
 	private JLabel jLbClassSkillPoints = null;
 	private JLabel jLbMaxCrossSkill = new JLabel();
 	private JLabel jLbMaxSkill = new JLabel();

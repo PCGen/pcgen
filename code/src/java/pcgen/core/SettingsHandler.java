@@ -112,6 +112,8 @@ public final class SettingsHandler
 	private static GameMode game = new GameMode("default");
 	private static boolean grimHPMode = false;
 	private static boolean grittyACMode = false;
+	private static Dimension kitSelectorDimension = null;
+	private static Point kitSelectorLeftUpperCorner = null;
 	private static boolean useWaitCursor = true;
 	private static boolean showD20InfoAtStart = true;
 	private static boolean loadURLs = false;
@@ -945,6 +947,26 @@ public final class SettingsHandler
 		isGMGen = GMGen;
 	}
 
+	public static void setKitSelectorDimension(final Dimension d)
+	{
+		kitSelectorDimension = d;
+	}
+
+	public static Dimension getKitSelectorDimension()
+	{
+		return kitSelectorDimension;
+	}
+
+	public static void setKitSelectorLeftUpperCorner(final Point argLeftUpperCorner)
+	{
+		kitSelectorLeftUpperCorner = argLeftUpperCorner;
+	}
+
+	public static Point getKitSelectorLeftUpperCorner()
+	{
+		return kitSelectorLeftUpperCorner;
+	}
+
 	public static void setLastTipShown(final int argLastTipShown)
 	{
 		lastTipShown = argLastTipShown;
@@ -1110,6 +1132,17 @@ public final class SettingsHandler
 			setCustomizerDimension(new Dimension(dw.intValue(), dh.intValue()));
 		}
 
+
+		setKitSelectorLeftUpperCorner(new Point(getPCGenOption("kitSelector.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
+				getPCGenOption("kitSelector.windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
+		dw = getPCGenOption("kitSelector.windowWidth", 0.0); //$NON-NLS-1$
+		dh = getPCGenOption("kitSelector.windowHeight", 0.0); //$NON-NLS-1$
+
+		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		{
+			setKitSelectorDimension(new Dimension(dw.intValue(), dh.intValue()));
+		}
+		
 		//
 		// Read in the buy/sell percentages for the gear tab
 		// If not in the .ini file and ignoreCost is set, then use 0%
@@ -1519,6 +1552,18 @@ public final class SettingsHandler
 		{
 			setPCGenOption("customizer.windowWidth", getCustomizerDimension().getWidth()); //$NON-NLS-1$
 			setPCGenOption("customizer.windowHeight", getCustomizerDimension().getHeight()); //$NON-NLS-1$
+		}
+
+		if (getKitSelectorLeftUpperCorner() != null)
+		{
+			setPCGenOption("kitSelector.windowLeftUpperCorner.X", getKitSelectorLeftUpperCorner().getX()); //$NON-NLS-1$
+			setPCGenOption("kitSelector.windowLeftUpperCorner.Y", getKitSelectorLeftUpperCorner().getY()); //$NON-NLS-1$
+		}
+
+		if (getKitSelectorDimension() != null)
+		{
+			setPCGenOption("kitSelector.windowWidth", getKitSelectorDimension().getWidth()); //$NON-NLS-1$
+			setPCGenOption("kitSelector.windowHeight", getKitSelectorDimension().getHeight()); //$NON-NLS-1$
 		}
 
 		final String paperName = Globals.getPaperInfo(Constants.PAPERINFO_NAME);

@@ -40,6 +40,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -63,9 +64,12 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -78,9 +82,11 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.tabs.InfoTabUtils;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
+import pcgen.util.PropertyFactory;
 
 final class KitSelector extends JFrame
 {
@@ -110,6 +116,15 @@ final class KitSelector extends JFrame
 	private PlayerCharacter aPC = null;
 	private int userResponse = 0;
 
+	private final JLabel lblAvailableQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
+	private final JLabel lblSelectedQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
+	private JTextField textAvailableQFilter = new JTextField();
+	private JTextField textSelectedQFilter = new JTextField();
+	private JButton clearAvailableQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearSelectedQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private KitListModel availableModel;
+	private KitListModel selectedModel;
+	
 	/**
 	 * Creates new form KitSelector
 	 * @param argPC the PlayerCharacter the kit will be applied to
@@ -123,8 +138,46 @@ final class KitSelector extends JFrame
 		initComponents();
 		initComponentContents();
 
-		this.setSize(new Dimension(640, 460));
-		Utility.centerFrame(this, false);
+		int t = spChoices.getDividerLocation();
+		int u = spMain.getDividerLocation();
+
+		t = SettingsHandler.getPCGenOption("kitSelector.spChoices", t); //$NON-NLS-1$
+		u = SettingsHandler.getPCGenOption("kitSelector.spMain", u); //$NON-NLS-1$
+
+		if (t > 0)
+		{
+			spChoices.setDividerLocation(t);
+			SettingsHandler.setPCGenOption("InfoSkills.bsplit", t); //$NON-NLS-1$
+		}
+
+		if (u > 0)
+		{
+			spMain.setDividerLocation(u);
+			SettingsHandler.setPCGenOption("InfoSkills.asplit", u); //$NON-NLS-1$
+		}
+		
+		final Dimension kitSelDim = SettingsHandler.getKitSelectorDimension();
+		final Point kitSelLoc = SettingsHandler.getKitSelectorLeftUpperCorner();
+		int x = -11;
+		int y = -11;
+
+		if (kitSelLoc != null)
+		{
+			x = (int) kitSelLoc.getX();
+			y = (int) kitSelLoc.getY();
+		}
+
+		if ((x < -10) || (y < -10) || (kitSelDim == null) || (kitSelDim.height == 0)
+		    || (kitSelDim.width == 0))
+		{
+			setSize(new Dimension(640, 460));
+			Utility.centerFrame(this, false);
+		}
+		else
+		{
+			setLocation(kitSelLoc);
+			setSize(kitSelDim);
+		}
 	}
 
 	/**
@@ -132,9 +185,14 @@ final class KitSelector extends JFrame
 	 */
 	public void closeDialog()
 	{
-		//
-		// TODO: save window size and position of scroll pane dividers
-		//
+		// Save window size and position of scroll pane dividers
+		SettingsHandler.setKitSelectorLeftUpperCorner(getLocationOnScreen());
+		SettingsHandler.setKitSelectorDimension(getSize());
+		SettingsHandler.setPCGenOption(
+			"kitSelector.spChoices", spChoices.getDividerLocation()); //$NON-NLS-1$
+		SettingsHandler.setPCGenOption(
+			"kitSelector.spMain", spMain.getDividerLocation()); //$NON-NLS-1$
+		
 		setVisible(false);
 		dispose();
 	}
@@ -245,12 +303,15 @@ final class KitSelector extends JFrame
 	{
 		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
 
-		lstAvailable = new JList(new KitListModel(new ArrayList<Kit>()));
+		
+		availableModel = new KitListModel(new ArrayList<Kit>());
+		lstAvailable = new JList(availableModel);
 		lstAvailable.setCellRenderer(new MyCellRenderer());
 		lstAvailable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scpAvailable.setViewportView(lstAvailable);
 
-		lstSelected = new JList(new KitListModel(new ArrayList<Kit>()));
+		selectedModel = new KitListModel(new ArrayList<Kit>());
+		lstSelected = new JList(selectedModel);
 		lstSelected.setCellRenderer(new MyCellRenderer());
 		lstSelected.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scpSelected.setViewportView(lstSelected);
@@ -345,36 +406,60 @@ final class KitSelector extends JFrame
 		pnlAvailable.setLayout(new GridBagLayout());
 
 		pnlAvailable.setBorder(new EmptyBorder(new Insets(1, 3, 1, 3)));
-		btnAdd.setEnabled(false);
-		btnAdd.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					btnAddActionPerformed();
-				}
-			});
 
-		pnlAvailable.add(btnAdd, new GridBagConstraints());
+		gridBagConstraints = new GridBagConstraints();
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 0.0, 0.0,
+			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		pnlAvailable.add(InfoTabUtils.createFilterPane(null, null, lblAvailableQFilter,
+			textAvailableQFilter, clearAvailableQFilterButton), gridBagConstraints);
 
 		lblAvailable.setText("Available");
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 0.0, 0.0,
+			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		pnlAvailable.add(lblAvailable, gridBagConstraints);
 
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = GridBagConstraints.BOTH;
-		gridBagConstraints.weightx = 1.0;
-		gridBagConstraints.weighty = 1.0;
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 1.0, 1.0, GridBagConstraints.BOTH,
+			GridBagConstraints.WEST);
 		pnlAvailable.add(scpAvailable, gridBagConstraints);
 
+		btnAdd.setEnabled(false);
+		btnAdd.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
+				btnAddActionPerformed();
+			}
+		});
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 1.0, 1.0, GridBagConstraints.NONE,
+			GridBagConstraints.CENTER);
+		pnlAvailable.add(btnAdd, new GridBagConstraints());
+		
 		spChoices.setLeftComponent(pnlAvailable);
 
 		pnlSelected.setLayout(new GridBagLayout());
 
 		pnlSelected.setBorder(new EmptyBorder(new Insets(1, 3, 1, 3)));
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 0.0, 0.0,
+			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		pnlSelected.add(InfoTabUtils.createFilterPane(null, null, lblSelectedQFilter,
+			textSelectedQFilter, clearSelectedQFilterButton), gridBagConstraints);
+
+		lblSelected.setText("Selected");
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 0.0, 0.0,
+			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		pnlSelected.add(lblSelected, gridBagConstraints);
+
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 1.0, 1.0, GridBagConstraints.BOTH,
+			GridBagConstraints.WEST);
+		pnlSelected.add(scpSelected, gridBagConstraints);
+
 		btnRemove.setEnabled(false);
 		btnRemove.addActionListener(new ActionListener()
 			{
@@ -383,23 +468,12 @@ final class KitSelector extends JFrame
 					btnRemoveActionPerformed();
 				}
 			});
-
-		pnlSelected.add(btnRemove, new GridBagConstraints());
-
-		lblSelected.setText("Selected");
 		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = GridBagConstraints.WEST;
-		pnlSelected.add(lblSelected, gridBagConstraints);
-
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = GridBagConstraints.BOTH;
-		gridBagConstraints.weightx = 1.0;
-		gridBagConstraints.weighty = 1.0;
-		pnlSelected.add(scpSelected, gridBagConstraints);
-
+		Utility.buildRelativeConstraints(gridBagConstraints,
+			GridBagConstraints.REMAINDER, 1, 0.0, 0.0, GridBagConstraints.NONE,
+			GridBagConstraints.CENTER);
+		pnlSelected.add(btnRemove, gridBagConstraints);
+		
 		spChoices.setRightComponent(pnlSelected);
 
 		spMain.setLeftComponent(spChoices);
@@ -439,6 +513,57 @@ final class KitSelector extends JFrame
 		pnlFrame.add(spMain, BorderLayout.CENTER);
 
 		getContentPane().add(pnlFrame, BorderLayout.CENTER);
+		
+		textAvailableQFilter.getDocument().addDocumentListener(new DocumentListener()
+		{
+			public void changedUpdate(DocumentEvent evt)
+			{
+				setQFilter(availableModel);
+			}
+
+			public void insertUpdate(DocumentEvent evt)
+			{
+				setQFilter(availableModel);
+			}
+
+			public void removeUpdate(DocumentEvent evt)
+			{
+				setQFilter(availableModel);
+			}
+		});
+		clearAvailableQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
+				clearQFilter(availableModel);
+			}
+		});
+		
+		textSelectedQFilter.getDocument().addDocumentListener(new DocumentListener()
+		{
+			public void changedUpdate(DocumentEvent evt)
+			{
+				setQFilter(selectedModel);
+			}
+
+			public void insertUpdate(DocumentEvent evt)
+			{
+				setQFilter(selectedModel);
+			}
+
+			public void removeUpdate(DocumentEvent evt)
+			{
+				setQFilter(selectedModel);
+			}
+		});
+		clearSelectedQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
+				clearQFilter(selectedModel);
+			}
+		});
+		
 	}
 
 	private boolean kitPassesPrereqs(Kit theKit)
@@ -579,9 +704,57 @@ final class KitSelector extends JFrame
 		return userResponse;
 	}
 
+	private void clearQFilter(KitListModel model)
+	{
+		model.clearQFilter();
+		model.resetModel();
+		if (model == availableModel)
+		{
+			textAvailableQFilter.setText("");
+			clearAvailableQFilterButton.setEnabled(false);
+			lstAvailable.updateUI();
+		}
+		else
+		{
+			textSelectedQFilter.setText("");
+			clearSelectedQFilterButton.setEnabled(false);
+			lstSelected.updateUI();
+		}
+		//forceRefresh();
+	}
+
+	private void setQFilter(KitListModel model)
+	{
+		String aString =
+				model == availableModel ? textAvailableQFilter.getText()
+					: textSelectedQFilter.getText();
+
+		if (aString.length() == 0)
+		{
+			clearQFilter(model);
+			return;
+		}
+		model.setQFilter(aString);
+
+		model.resetModel();
+		if (model == availableModel)
+		{
+			clearAvailableQFilterButton.setEnabled(true);
+			lstAvailable.updateUI();
+		}
+		else
+		{
+			clearSelectedQFilterButton.setEnabled(true);
+			lstSelected.updateUI();
+		}
+		//forceRefresh();
+	}
+
 	private class KitListModel extends AbstractListModel
 	{
 		private List<Kit> theList = null;
+		private List<Kit> theVisibleList = null;
+		private String qFilter = null;
 
 		/**
 		 * Constructor
@@ -590,16 +763,33 @@ final class KitSelector extends JFrame
 		public KitListModel(final List<Kit> aList)
 		{
 			theList = new ArrayList<Kit>(aList);
+			theVisibleList = new ArrayList<Kit>();
+			resetModel();
+		}
+
+		public void resetModel()
+		{
+			theVisibleList.clear();
+			for (Kit aKit : theList)
+			{
+				if (qFilter == null
+						|| (aKit.getDisplayName().toLowerCase().indexOf(
+							qFilter) >= 0 || aKit.getType().toLowerCase()
+							.indexOf(qFilter) >= 0))
+				{
+					theVisibleList.add(aKit);
+				}
+			}
 		}
 
 		public Object getElementAt(int index)
 		{
-			return theList.get(index);
+			return theVisibleList.get(index);
 		}
 
 		public int getSize()
 		{
-			return theList.size();
+			return theVisibleList.size();
 		}
 
 		/**
@@ -609,6 +799,14 @@ final class KitSelector extends JFrame
 		public void addItem(Kit aKit)
 		{
 			theList.add(aKit);
+			if (qFilter == null
+					|| (aKit.getDisplayName().toLowerCase().indexOf(
+						qFilter) >= 0 || aKit.getType().toLowerCase()
+						.indexOf(qFilter) >= 0))
+			{
+				theVisibleList.add(aKit);
+				Collections.sort(theVisibleList);
+			}
 			Collections.sort(theList);
 		}
 
@@ -619,7 +817,42 @@ final class KitSelector extends JFrame
 		public void removeItem(Object item)
 		{
 			theList.remove(item);
+			theVisibleList.remove(item);
 		}
+
+		/**
+		 * Get the QuickFilter
+		 * @return QuickFilter
+		 */
+		public String getQFilter()
+		{
+			return qFilter;
+		}
+
+		/**
+		 * Set theQuickFilter
+		 * @param quickFilter
+		 */
+		public void setQFilter(String quickFilter)
+		{
+			if (quickFilter != null)
+			{
+				this.qFilter = quickFilter.toLowerCase();
+			}
+			else
+			{
+				this.qFilter = null;
+			}
+		}
+
+		/**
+		 * Clear the QuickFilter
+		 */
+		public void clearQFilter()
+		{
+			this.qFilter = null;
+		}
+		
 	}
 
 	private class MyCellRenderer extends DefaultListCellRenderer
