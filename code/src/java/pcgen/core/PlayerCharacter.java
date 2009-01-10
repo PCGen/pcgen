@@ -49,8 +49,8 @@ import java.util.Observable;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
@@ -230,7 +230,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private List<BonusObj> tempBonusList = new ArrayList<BonusObj>();
 	private Set<String> tempBonusFilters = new TreeSet<String>();
 
-	private Map<String, String> activeBonusMap = new TreeMap<String, String>();
+	private Map<String, String> activeBonusMap = new ConcurrentHashMap<String, String>();
 	private Race race = null;
 	private PCClass selectedFavoredClass = null;
 	private final StatList statList = new StatList(this);
