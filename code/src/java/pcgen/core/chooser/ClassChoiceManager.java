@@ -34,7 +34,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.ReferenceContext;
 
 // Referenced classes of package pcgen.core.chooser:
 //            AbstractBasicPObjectChoiceManager
@@ -71,7 +71,7 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
     		final List<PCClass>   availableList, 
     		final List<PCClass>   selectedList)
     {
-		AbstractReferenceContext refContext = Globals.getContext().ref;
+		ReferenceContext refContext = Globals.getContext().ref;
         for(String option : getChoiceList())
         {
             StringTokenizer tok1 = new StringTokenizer(option, ",");

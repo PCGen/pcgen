@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -505,7 +506,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		sortCampaignsByRank(aSelectedCampaignsList);
 
 		// Read the campaigns
-		readPccFiles(context, aSelectedCampaignsList, null, gamemode);
+		Collection<Campaign> loaded = readPccFiles(context,
+				aSelectedCampaignsList, null, gamemode);
 
 		// Add custom campaign files at the start of the lists
 		addCustomFilesToStartOfList();
@@ -536,6 +538,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				.getUnmodifiableSizeAdjustmentList())
 		{
 			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
+		}
+
+		for (Campaign c : loaded)
+		{
+			c.applyTo(context.ref);
 		}
 		
 		// load weapon profs first
@@ -1275,7 +1282,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param currentPC
 	 * @param game The gamemode that the campaigns are part of.
 	 */
-	private void readPccFiles(LoadContext context,
+	private Collection<Campaign> readPccFiles(LoadContext context,
 			final List<Campaign> aSelectedCampaignsList,
 			final PlayerCharacter currentPC,
 			final GameMode game)
@@ -1358,10 +1365,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					equipmodFileList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
 					kitFileList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));
 					bioSetFileList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
-			if (loadedSet.add(campaign))
-			{
-				campaign.applyTo(context.ref);
-			}
+			loadedSet.add(campaign);
 
 			if (SettingsHandler.isOptionAllowedInSources())
 			{
@@ -1402,6 +1406,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			SettingsHandler.getOptionsFromProperties(currentPC);
 		}
+		return loadedSet;
 	}
 
 	/**

@@ -29,7 +29,6 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -38,10 +37,10 @@ import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
 
 /**
@@ -171,7 +170,7 @@ public class Campaign extends PObject
 		return context;
 	}
 	
-	public void applyTo(AbstractReferenceContext rc)
+	public void applyTo(ReferenceContext rc)
 	{
 		for (TransparentReferenceManufacturer<? extends CDOMObject> rm : gameRefContext
 				.getAllManufacturers())
@@ -181,13 +180,13 @@ public class Campaign extends PObject
 	}
 
 	private <T extends CDOMObject> void resolveReferenceManufacturer(
-			AbstractReferenceContext rc, TransparentReferenceManufacturer<T> rm)
+			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();
 		ReferenceManufacturer<T, ?> mfg;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
-			Category category = ((TransparentCategorizedReferenceManufacturer) rm)
+			String category = ((TransparentCategorizedReferenceManufacturer) rm)
 					.getCDOMCategory();
 			mfg = rc.getManufacturer((Class) c, category);
 		}

@@ -38,8 +38,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
@@ -49,6 +52,7 @@ import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.context.TrackingReferenceContext;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
@@ -3338,14 +3342,26 @@ public final class GameMode implements Comparable<Object>
 		}
 		else
 		{
-			return new ReferenceContext();
+			return new RuntimeReferenceContext();
 		}
 	}
 
 	private <T extends CDOMObject> void resolveReferenceManufacturer(
 			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
-		rm.resolveUsing(rc.getManufacturer(rm.getReferenceClass()));
+		Class<T> c = rm.getReferenceClass();
+		ReferenceManufacturer<T, ?> mfg;
+		if (CategorizedCDOMObject.class.isAssignableFrom(c))
+		{
+			String category = ((TransparentCategorizedReferenceManufacturer) rm)
+					.getCDOMCategory();
+			mfg = rc.getManufacturer((Class) c, category);
+		}
+		else
+		{
+			mfg = rc.getManufacturer(c);
+		}
+		rm.resolveUsing(mfg);
 	}
 
 	public LoadContext getContext()

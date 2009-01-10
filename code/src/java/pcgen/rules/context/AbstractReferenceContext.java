@@ -45,7 +45,7 @@ import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
 
-public abstract class AbstractReferenceContext
+public abstract class AbstractReferenceContext implements ReferenceContext
 {
 
 	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
@@ -69,7 +69,7 @@ public abstract class AbstractReferenceContext
 	 * @param cat The category of the class.
 	 * @return The reference manufacturer
 	 */
-	public abstract <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	protected abstract <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl, Category<T> cat);
 
 	public abstract Collection<? extends ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers();
@@ -113,7 +113,7 @@ public abstract class AbstractReferenceContext
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(c))
 		{
 			Class cl = c;
-			obj = (T) getManufacturer(cl, null).constructObject(val);
+			obj = (T) getManufacturer(cl, (Category) null).constructObject(val);
 		}
 		else
 		{

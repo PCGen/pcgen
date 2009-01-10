@@ -24,15 +24,13 @@ import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.Qualifier;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedCDOMReference;
+import pcgen.cdom.reference.CDOMTransparentCategorizedSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -119,13 +117,13 @@ public class ForwardRefToken extends AbstractToken implements
 			String s = StringPClassUtil.getStringFor(cl);
 			CDOMSingleRef<?> ref = qual.getQualifiedReference();
 			String key = s;
-			if (ref instanceof CategorizedCDOMReference)
+			if (ref instanceof CDOMTransparentCategorizedSingleRef)
 			{
-				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
+				String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
 						.getCDOMCategory();
-				if (AbilityCategory.FEAT.equals(cat))
+				if (Constants.FEAT_CATEGORY.equals(cat))
 				{
-					key = "FEAT";
+					key = Constants.FEAT_CATEGORY;
 				}
 				else
 				{

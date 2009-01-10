@@ -17,85 +17,98 @@
  */
 package pcgen.rules.context;
 
-import java.util.ArrayList;
+import java.net.URI;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
-import pcgen.cdom.reference.SimpleReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedValidator;
 
-public class ReferenceContext extends AbstractReferenceContext
+public interface ReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>> map = new HashMap<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>>();
-
-	private final DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>>();
-
-	@Override
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
-			Class<T> cl)
-	{
-		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
-		{
-			throw new InternalError(cl
-					+ " is categorized but was fetched without a category");
-		}
-		ReferenceManufacturer<T, ?> mfg = (ReferenceManufacturer<T, ?>) map
-				.get(cl);
-		if (mfg == null)
-		{
-			mfg = new SimpleReferenceManufacturer<T>(cl);
-			map.put(cl, mfg);
-		}
-		return mfg;
-	}
+			Class<T> cl);
 
-	@Override
-	public Collection<ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers()
-	{
-		ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>> returnList = new ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>>(
-				map.values());
-		for (Class<?> cl : catmap.getKeySet())
-		{
-			returnList.addAll(catmap.values(cl));
-		}
-		return returnList;
-	}
-
-	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
-			Class<T> cl, Category<T> cat)
-	{
-		CategorizedReferenceManufacturer<T> mfg = (CategorizedReferenceManufacturer<T>) catmap
-				.get(cl, cat);
-		if (mfg == null)
-		{
-			mfg = new CategorizedReferenceManufacturer<T>(cl, cat);
-			catmap.put(cl, cat, mfg);
-			if (cat != null)
-			{
-				Category<T> parent = cat.getParentCategory();
-				if (parent != null)
-				{
-					CategorizedReferenceManufacturer<T> parentMfg = (CategorizedReferenceManufacturer<T>) catmap
-							.get(cl, parent);
-					if (parentMfg == null)
-					{
-						Category parentCat = parent;
-						parentMfg = new CategorizedReferenceManufacturer<T>(cl,
-								parentCat);
-						catmap.put(cl, cat, parentMfg);
-					}
-					mfg.setParentCRM(parentMfg);
-				}
-			}
-		}
-		return mfg;
-	}
+			Class<T> cl, String category);
+
+	public Collection<? extends ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers();
+
+	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val);
+
+	public <T extends CDOMObject> boolean containsConstructedCDOMObject(
+			Class<T> c, String s);
+
+	public <T extends CDOMObject> T constructNowIfNecessary(Class<T> cl,
+			String name);
+
+	public <T extends CDOMObject> void constructIfNecessary(Class<T> cl,
+			String value);
+
+	public <T extends CDOMObject> void importObject(T orig);
+
+	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMReference(Class<T> c,
+			String val);
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
+			Class<T> c, Category<T> cat, String val);
+
+	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMTypeReference(
+			Class<T> c, String... val);
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMTypeReference(
+			Class<T> c, Category<T> cat, String... val);
+
+	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMAllReference(Class<T> c);
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(
+			Class<T> c, Category<T> cat);
+
+	public <T extends CDOMObject> T silentlyGetConstructedCDOMObject(
+			Class<T> c, String val);
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> T silentlyGetConstructedCDOMObject(
+			Class<T> c, Category<T> cat, String val);
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
+			Category<T> cat, T obj);
+
+	public <T extends CDOMObject> void reassociateKey(String key, T obj);
+
+	public <T extends CDOMObject> boolean forget(T obj);
+
+	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
+			Class<T> c);
+
+	public Set<CDOMObject> getAllConstructedObjects();
+
+	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj);
+
+	public void registerAbbreviation(CDOMObject obj, String value);
+
+	public String getAbbreviation(CDOMObject obj);
+
+	public <T> T getAbbreviatedObject(Class<T> cl, String value);
+
+	public URI getExtractURI();
+
+	public void setExtractURI(URI extractURI);
+
+	public URI getSourceURI();
+
+	public void setSourceURI(URI sourceURI);
+
+	public void resolveReferences();
+
+	public void buildDerivedObjects();
+
+	public void buildDeferredObjects();
+
+	public boolean validate(UnconstructedValidator validator);
+
 }

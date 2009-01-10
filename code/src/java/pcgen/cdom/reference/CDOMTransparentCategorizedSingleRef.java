@@ -18,7 +18,6 @@
 package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.Category;
 
 /**
  * A CDOMTransparentCategorizedSingleRef is a CDOMReference which is intended to
@@ -37,14 +36,13 @@ import pcgen.cdom.base.Category;
  *            CDOMTransparentCategorizedSingleRef
  */
 public class CDOMTransparentCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
-		extends CDOMTransparentSingleRef<T> implements TransparentReference<T>,
-		CategorizedCDOMReference<T>
+		extends CDOMTransparentSingleRef<T> implements TransparentReference<T>
 {
 	/**
 	 * The Category of the object of the Class this CDOMCategorizedSingleRef
 	 * represents
 	 */
-	private final Category<T> category;
+	private final String category;
 
 	/**
 	 * Constructs a new CDOMTransparentCategorizedSingleRef for the given Class
@@ -57,7 +55,7 @@ public class CDOMTransparentCategorizedSingleRef<T extends CategorizedCDOMObject
 	 *            An identifier of the object this
 	 *            CDOMTransparentCategorizedSingleRef contains.
 	 */
-	public CDOMTransparentCategorizedSingleRef(Class<T> cl, Category<T> cat,
+	public CDOMTransparentCategorizedSingleRef(Class<T> cl, String cat,
 			String nm)
 	{
 		super(cl, nm);
@@ -100,7 +98,7 @@ public class CDOMTransparentCategorizedSingleRef<T extends CategorizedCDOMObject
 	 * @return the Category of the object this
 	 *         CDOMTransparentCategorizedSingleRef contains
 	 */
-	public Category<T> getCDOMCategory()
+	public String getCDOMCategory()
 	{
 		return category;
 	}

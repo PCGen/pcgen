@@ -37,7 +37,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 
 /**
@@ -74,7 +74,7 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 			final List<WeaponProf>            availableList,
 			final List<WeaponProf>            selectedList)
 	{
-		AbstractReferenceContext refContext = Globals.getContext().ref;
+		ReferenceContext refContext = Globals.getContext().ref;
 		for (String aString : getChoiceList())
 		{
 			if ("LIST".equalsIgnoreCase(aString))

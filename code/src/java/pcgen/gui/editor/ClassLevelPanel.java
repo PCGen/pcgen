@@ -151,9 +151,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			// Create the custom source entry
 			CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, sourceFile);
 
-			// Clear the level ability list
-			object.addAddList(-1, ".CLEAR");
-
 			// Loop through level tags.  Parse them to apply them to the PCClass.
 			for (Iterator<LevelTag> i = levelTagList.iterator(); i.hasNext();)
 			{

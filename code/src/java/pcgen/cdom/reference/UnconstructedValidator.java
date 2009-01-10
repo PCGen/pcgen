@@ -35,7 +35,7 @@ public class UnconstructedValidator
 	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
 	private final List<Campaign> campaignList;
 	private HashMapToList<Class<?>, String> simpleMap;
-	private DoubleKeyMapToList<Class<?>, Category<?>, String> categoryMap;
+	private DoubleKeyMapToList<Class<?>, String, String> categoryMap;
 
 	public UnconstructedValidator(List<Campaign> selectedCampaignsList)
 	{
@@ -81,7 +81,7 @@ public class UnconstructedValidator
 
 	private void buildCategoryMap()
 	{
-		categoryMap = new DoubleKeyMapToList<Class<?>, Category<?>, String>();
+		categoryMap = new DoubleKeyMapToList<Class<?>, String, String>();
 		for (Campaign c : campaignList)
 		{
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
@@ -89,9 +89,8 @@ public class UnconstructedValidator
 				Class<? extends CDOMObject> qcl = q.getQualifiedClass();
 				if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
 				{
-					CDOMSingleRef<? extends CDOMObject> ref = q
-							.getQualifiedReference();
-					Category<?> cat = ((CategorizedCDOMReference<?>) ref)
+					CDOMSingleRef ref = q.getQualifiedReference();
+					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
 							.getCDOMCategory();
 					categoryMap.addToListFor(qcl, cat, ref.getLSTformat());
 				}
@@ -106,7 +105,7 @@ public class UnconstructedValidator
 		{
 			buildCategoryMap();
 		}
-		List<String> list = categoryMap.getListFor(cl, cat);
+		List<String> list = categoryMap.getListFor(cl, cat.getKeyName());
 		if (list != null)
 		{
 			for (String key : list)

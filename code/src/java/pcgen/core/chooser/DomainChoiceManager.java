@@ -33,7 +33,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.ReferenceContext;
 
 /**
  * This is the chooser that deals with choosing a domain.
@@ -69,7 +69,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			final List<Domain>            availableList,
 			final List<Domain>            selectedList)
 	{
-		AbstractReferenceContext refContext = Globals.getContext().ref;
+		ReferenceContext refContext = Globals.getContext().ref;
 		for (String option : getChoiceList())
 		{
 			if ("ANY".equals(option))

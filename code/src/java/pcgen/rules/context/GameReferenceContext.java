@@ -30,12 +30,13 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
+import pcgen.cdom.reference.UnconstructedValidator;
 
 public class GameReferenceContext extends AbstractReferenceContext
 {
 	private final Map<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, TransparentReferenceManufacturer<? extends CDOMObject>>();
 
-	private final DoubleKeyMap<Class<?>, Category<?>, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, Category<?>, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>>();
+	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>>();
 
 	@Override
 	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
@@ -68,9 +69,8 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
-	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
-			Class<T> cl, Category<T> cat)
+			Class<T> cl, String cat)
 	{
 		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
 				.get(cl, cat);
@@ -80,5 +80,21 @@ public class GameReferenceContext extends AbstractReferenceContext
 			catmap.put(cl, cat, mfg);
 		}
 		return mfg;
+	}
+
+	
+	
+	@Override
+	public boolean validate(UnconstructedValidator validator)
+	{
+		return true;
+	}
+
+	@Override
+	protected <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+			Class<T> cl, Category<T> cat)
+	{
+		throw new UnsupportedOperationException(
+				"GameReferenceContext cannot construct objects");
 	}
 }

@@ -19,7 +19,6 @@ package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.Category;
 
 /**
  * A TransparentCategorizedReferenceManufacturer is a ReferenceManufacturer
@@ -40,7 +39,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 	 * Stores the Category of the CategorizedCDOMObjects that this
 	 * TransparentCategorizedReferenceManufacturer constructs and references.
 	 */
-	private final Category<T> category;
+	private final String category;
 
 	/**
 	 * Constructs a new TransparentCategorizedReferenceManufacturer for the
@@ -52,7 +51,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 	 *            reference.
 	 */
 	public TransparentCategorizedReferenceManufacturer(Class<T> cl,
-			Category<T> cat)
+			String cat)
 	{
 		super(cl);
 		if (cat == null)
@@ -182,7 +181,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 		return validator != null && validator.allow(getReferenceClass(), s);
 	}
 
-	public Category<T> getCDOMCategory()
+	public String getCDOMCategory()
 	{
 		return category;
 	}

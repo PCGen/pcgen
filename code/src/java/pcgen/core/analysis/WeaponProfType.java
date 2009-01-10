@@ -30,7 +30,7 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.ReferenceContext;
 
 public class WeaponProfType
 {
@@ -64,7 +64,7 @@ public class WeaponProfType
 	public static List<WeaponProf> getWeaponProfsInTarget(final String type,
 			final PlayerCharacter aPC, CDOMGroupRef<WeaponProf> master)
 	{
-		AbstractReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().ref;
 		List<WeaponProf> aList = new ArrayList<WeaponProf>();
 		// Can't use master because late called references may not have been
 		// initialized, see 2001287

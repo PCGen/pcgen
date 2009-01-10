@@ -28,7 +28,6 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
@@ -54,11 +53,11 @@ public abstract class LoadContext
 
 	public final ObjectContext obj;
 
-	public final AbstractReferenceContext ref;
+	public final ReferenceContext ref;
 	
 	private List<Campaign> campaignList = new ArrayList<Campaign>();
 
-	public LoadContext(AbstractReferenceContext rc, ListContext lc, ObjectContext oc)
+	public LoadContext(ReferenceContext rc, ListContext lc, ObjectContext oc)
 	{
 		if (rc == null)
 		{
@@ -435,7 +434,7 @@ public abstract class LoadContext
 				return null;
 			}
 			
-			rm = getReferenceManufacturer((Class) c, categoryName);
+			rm = ref.getManufacturer(((Class) c), categoryName);
 			if (rm == null)
 			{
 				Logging.log(Logging.LST_ERROR, "  Error encountered: "
@@ -462,17 +461,4 @@ public abstract class LoadContext
 		}
 		return rm;
 	}
-
-	private <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<? extends CDOMObject, ?> getReferenceManufacturer(
-			Class<T> c, String categoryName)
-	{
-		Category<T> cat = StringPClassUtil.getCategoryFor(c, categoryName);
-		if (cat == null)
-		{
-			return null;
-		}
-		return ref.getManufacturer(c, cat);
-	}
-
-
 }

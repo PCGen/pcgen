@@ -33,7 +33,7 @@ import pcgen.cdom.reference.UnconstructedEvent;
 import pcgen.cdom.reference.UnconstructedListener;
 import pcgen.util.Logging;
 
-public class TrackingReferenceContext extends ReferenceContext implements
+public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		UnconstructedListener
 {
 
@@ -82,7 +82,7 @@ public class TrackingReferenceContext extends ReferenceContext implements
 	private Set<ReferenceManufacturer<?, ?>> listening = new HashSet<ReferenceManufacturer<?, ?>>();
 
 	@Override
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	protected <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		ReferenceManufacturer mfg = super.getManufacturer(cl, cat);
