@@ -87,23 +87,6 @@ public final class Race extends PObject
 		return "1d3";
 	}
 
-	/**
-	 * Produce a tailored PCC output, used for saving custom races.
-	 * @return PCC Text
-	 */
-	@Override
-	public String getPCCText()
-	{
-		// 29 July 2003 : sage_sam corrected order
-		final StringBuffer txt = new StringBuffer(super.getPCCText());
-
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
-				this), "\t"));
-		txt.append("\t");
-		return txt.toString();
-	}
-
 	@Override
 	public Race clone()
 	{
