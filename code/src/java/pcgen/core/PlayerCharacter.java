@@ -17862,6 +17862,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<CharacterSpell> csList =
 				getAssocList(spellSource, AssociationListKey.CHARACTER_SPELLS);
+		if (csList == null)
+		{
+			csList = new ArrayList<CharacterSpell>();
+		}
 		// Add in the spells granted by objects
 		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
 		
