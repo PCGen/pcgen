@@ -48,7 +48,7 @@ public class Bonus
 
 	private static int bonusTagMapNum = 0;
 
-	private static final HashMap<String, bonusMapEntry> BONUS_TAG_MAP = new HashMap<String, bonusMapEntry>();
+	private static final HashMap<String, BonusMapEntry> BONUS_TAG_MAP = new HashMap<String, BonusMapEntry>();
 
 	private Bonus() {
 		// Constructor
@@ -61,7 +61,7 @@ public class Bonus
 	 */
 	public static int getBonusTypeFromName(final String bonusName)
 	{
-		bonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
+		BonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
 		if (bEntry == null)
 		{
 			final int equalOffset = bonusName.indexOf('=');
@@ -86,7 +86,7 @@ public class Bonus
 	{
 		for ( String key : BONUS_TAG_MAP.keySet() )
 		{
-			final bonusMapEntry bme = BONUS_TAG_MAP.get(key);
+			final BonusMapEntry bme = BONUS_TAG_MAP.get(key);
 			if (bme.getBonusType() == bonusType)
 			{
 				return key;
@@ -220,7 +220,7 @@ public class Bonus
 
 
 		int equalOffset = -1;
-		bonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
+		BonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
 		if (bEntry == null)
 		{
 			equalOffset = bonusName.indexOf('=');
@@ -375,14 +375,14 @@ public class Bonus
 				added = true;
 				for (int i = 0; i < handled.length; ++i)
 				{
-					BONUS_TAG_MAP.put(handled[i], new bonusMapEntry(bonusName, bonusTagMapNum++, bonusClass));
+					BONUS_TAG_MAP.put(handled[i], new BonusMapEntry(bonusName, bonusTagMapNum++, bonusClass));
 				}
 			}
 		}
 		return added;
 	}
 
-	private static class bonusMapEntry
+	private static class BonusMapEntry
 	{
 		private int bonusType = BONUS_UNDEFINED;
 		private String bonusObjectName = "";
@@ -394,7 +394,7 @@ public class Bonus
 		 * @param bonusType
 		 * @param bonusClass
 		 */
-		public bonusMapEntry(final String bonusObjectName, final int bonusType, final Class bonusClass)
+		public BonusMapEntry(final String bonusObjectName, final int bonusType, final Class bonusClass)
 		{
 			this.bonusObjectName = bonusObjectName;
 			this.bonusType = bonusType;
