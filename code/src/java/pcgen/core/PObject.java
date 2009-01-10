@@ -604,6 +604,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		txt.append("\t");
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
+		txt.append("\t");
 		txt.append(getPCCText(false));
 		return txt.toString();
 	}
@@ -622,13 +623,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (saveName)
 		{
 			txt.append(getDisplayName());
-		}
-
-		aString = getSafe(StringKey.CHOICE_STRING);
-
-		if ((aString != null) && (aString.length() != 0))
-		{
-			txt.append("\tCHOOSE:").append(aString);
 		}
 
 		if (hasPrerequisites())

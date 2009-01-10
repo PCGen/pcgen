@@ -91,7 +91,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.utils.DeferredLine;
-import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -1679,18 +1679,6 @@ public class PCClass extends PObject
 					.unparse(me.getValue()), "\t"));
 		}
 
-		List<LevelAbility> levelAbilityList = getLevelAbilityList();
-		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
-		{
-			for (LevelAbility ability : levelAbilityList)
-			{
-				pccTxt.append(lineSep).append(String.valueOf(ability.level()))
-					.append("\tADD:").append(ability.getTagData());
-			}
-		}
-
-		// TODO - Add ABILITY tokens.
-
 		return pccTxt.toString();
 	}
 
@@ -2288,7 +2276,7 @@ public class PCClass extends PObject
 		if (classSkillList == null)
 		{
 			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
-			AbstractReferenceContext ref = Globals.getContext().ref;
+			ReferenceContext ref = Globals.getContext().ref;
 			Class<ClassSkillList> cl = ClassSkillList.class;
 			ClassSkillList l = ref.silentlyGetConstructedCDOMObject(cl, getKeyName());
 			if (l != null)
@@ -2543,7 +2531,7 @@ public class PCClass extends PObject
 		//
 		String aDamage;
 
-		AbstractReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().ref;
 		final Equipment eq =
 			ref.silentlyGetConstructedCDOMObject(
 					Equipment.class, "KEY_Unarmed Strike");

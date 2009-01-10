@@ -71,25 +71,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Produce a tailored PCC output, used for saving custom templates.
-	 * 
-	 * @return PCC Text
-	 */
-	@Override
-	public String getPCCText()
-	{
-		final StringBuffer txt = new StringBuffer(200);
-		txt.append(getDisplayName());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
-				this), "\t"));
-		txt.append("\t");
-		txt.append(super.getPCCText(false));
-
-		return txt.toString();
-	}
-
-	/**
 	 * Get the override that this template applies to subracetype
 	 * 
 	 * @return The new subracetype
