@@ -902,14 +902,17 @@
 
 <hr>
 
-	<p class="new">*** New 5.15.10</p><p></p>
-	<p class="indent0"><strong><a name="SPELLKNOWN">Tag Name:</a></strong>SPELLKNOWN:CLASS|w=x|y|w=x|y|w=x|y|w=x|y|w=x|y|z|z</p>
+	<p class="new">*** New 5.15.10</p>
+	<p class="indent0"><strong><a name="SPELLKNOWN">Tag Name:</a></strong>SPELLKNOWN:CLASS|w=x|y|w=x|y|z|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (Class Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Spell Level)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Spell Name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Spell List)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> PRExxx tag</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tag adds spells to the character's list of known spells.</p>
+	<ul class="indent2">
+		<li>This tag adds spells to the character's list of known spells.</li>
+		<li>The spell list (y) is a comma-delmited list of spell names.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLKNOWN:CLASS|Arawnite Guardian=0|Create Water,Detect Magical Aura,Light,Mending,Read Magic,Resistance,Virtue</code></p>
 	<p class="indent3">This is the character's known spell's for the Arawnite Guardian class.</p>
@@ -917,22 +920,23 @@
 	<p class="indent3">This is the character's known spell's for the first level Trundlefolk Shaman class.</p>
 	<p class="indent2"><code>SUBCLASSLEVEL:1 &lt;tab&gt; SPELLKNOWN:CLASS|Holy Warrior=1|Bless,Bless Water,Bless Weapon,Create Water,Cure Light Wounds,Detect Poison,Detect Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from Evil,Read Magic,Resistance,Virtue</code></p>
 	<p class="indent3">This is the character's known spell's for the first level Holy Warrior subclass.</p>
-	<p class="indent2"><code>Trundlefolk Shaman.MOD &lt;tab&gt; SPELLKNOWN:CLASS|Trundlefolk Shaman.CLEAR &lt;tab&gt; SPELLKNOWN:CLASS|Trundlefolk Shaman=0|Comprehend Languages,Expeditious Retreat,Grease,Identify,Sleep,Summon Monster I,Unseen Servant</code></p>
-	<p class="indent3">This changes the character's known spell's for the first level Trundlefolk Shaman class.</p>
 	<p></p>
 
 <hr>
 
-	<p class="new">*** Updated 5.11.4</p><p></p>
-	<p class="indent0"><strong><a name="SPELLLEVEL">Tag Name:</a></strong>SPELLLEVEL:v|w=x|y|w=x|y|w=x|y|w=x|y|w=x|y|z|z</p>
+	<p class="new">*** Updated 5.11.4</p>
+	<p class="indent0"><strong><a name="SPELLLEVEL">Tag Name:</a></strong>SPELLLEVEL:v|w=x|y|w=x|y|z|z</p>
 	<p class="indent1"><strong>Variables Used (v):</strong> DOMAIN</p>
 	<p class="indent1"><strong>Variables Used (v):</strong> CLASS</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (Domain or Class Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Spell Level)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Spell Name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Spell List)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> PRExxx tag</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is the character's spell list.</p>
+	<ul class="indent2">
+		<li>This is the character's spell list.</li>
+		<li>The spell list (y) is a comma-delmited list of spell names.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLLEVEL:DOMAIN|Cold=1|Endure Elements|Cold=2|Chill Metal|Cold=3|Sleet Storm|Cold=4|Wall of Ice|Cold=5|Cone of Cold|Cold=6|Freezing Sphere|Cold=7|Control Weather|Cold=8|Finger of Death|Cold=9|Elemental Swarm</code></p>
 	<p class="indent3">This is the character's spell's for the Cold domain.</p>
@@ -944,8 +948,6 @@
 	<p class="indent3">This is the character's spell's for the first level subclass Holy Warrior class.</p>
 	<p class="indent2"><code>The Dead &lt;tab&gt; NAMEISPI:NO &lt;tab&gt; SPELLLEVEL:DOMAIN|The Dead=1|Detect Return|The Dead=2|Consecrate|The Dead=3|Negative Energy Protection|The Dead=4|Touch of Return|The Dead=5|Hallow|The Dead=6|Heal|The Dead=7|Greater Restoration|The Dead=8|Greater Return|The Dead=9|Imprison Soul</code></p>
 	<p class="indent3">This is the character's spell's for the Domain.</p>
-	<p class="indent2"><code>Trundlefolk Shaman.MOD &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk Shaman.CLEAR &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk Shaman=0|Comprehend Languages,Expeditious Retreat,Grease,Identify,Sleep,Summon Monster I,Unseen Servant</code></p>
-	<p class="indent3">This changes the character's spell's for the first level Trundlefolk Shaman class.</p>
 	<p></p>
 
 <hr>
