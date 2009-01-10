@@ -345,20 +345,6 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				}
 			}
 		}
-		if (allRef != null && allRef.getObjectCount() == 0)
-		{
-			Logging.errorPrint("Error: No " + getReferenceDescription()
-					+ " objects were loaded but were referred to in the data");
-		}
-		for (TRT ref : typeReferences.values())
-		{
-			if (ref.getObjectCount() == 0)
-			{
-				Logging.errorPrint("Error: No " + getReferenceDescription()
-						+ " objects of " + ref.getLSTformat()
-						+ " were loaded but were referred to in the data");
-			}
-		}
 	}
 
 	/**
