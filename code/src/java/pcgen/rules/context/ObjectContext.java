@@ -518,8 +518,8 @@ public class ObjectContext
 
 		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
 		{
-			return new MapChanges<K, V>(getPositive(sourceURI, cdo).getMapFor(
-				mk), getNegative(sourceURI, cdo).getMapFor(mk), false);
+			return new MapChanges<K, V>(getPositive(extractURI, cdo).getMapFor(
+				mk), getNegative(extractURI, cdo).getMapFor(mk), false);
 		}
 		
 		// ==== end of MapKey manipulation functions ====
