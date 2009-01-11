@@ -348,5 +348,26 @@ public class SpellLevel
 			}
 		}
 	}
+
+	/**
+	 * Calculate the number of bonus known spells added for the class and level  
+	 * by SPELLKNOWN tags associated with the character. 
+	 * 
+	 * @param pc The character being tested
+	 * @param aClass The PC class being checked
+	 * @param spellLevel The level of the spells to check
+	 */
+	public static int getNumBonusKnowSpellsForLevel(PlayerCharacter pc,
+		PObject aClass, int spellLevel)
+	{
+		if (!(aClass instanceof PCClass))
+		{
+			return 0;
+		}
+		Map<Integer, List<Spell>> spellsMap =
+				SpellLevel.getPCBasedBonusKnownSpells(pc, (PCClass) aClass);
+		List<Spell> spells = spellsMap.get(spellLevel);
+		return spells != null ? spells.size() : 0;
+	}
 	
 }

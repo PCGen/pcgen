@@ -2448,6 +2448,9 @@ public class PCClass extends PObject
 			}
 		}
 
+		// Add in any from SPELLKNOWN
+		total += SpellLevel.getNumBonusKnowSpellsForLevel(aPC, this, spellLevel);
+		
 		return total;
 	}
 
