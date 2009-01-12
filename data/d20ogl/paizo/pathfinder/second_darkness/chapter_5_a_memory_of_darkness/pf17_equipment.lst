@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Jan  2 22:25:18 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Second Darkness - Chapter 5: A Memory of Darkness	SOURCESHORT:PF17	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tr	SOURCEDATE:2008-12
+# Original Entry by Eddy Anthony (MoSaT)
+
+# Equipment Name	Required Proficiency		Type							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Requires Modification?	Size		Special Property
+Blackaxe		PROFICIENCY:WEAPON|Greataxe	TYPE:Weapon.Melee.Martial.Slashing.Axe	COST:80	WT:60		CRITMULT:x3			CRITRANGE:1			DAMAGE:4d6	EQMOD:PLUS5W	WIELD:TwoHanded	MODS:NO			SIZE:H	SPROP:+1d6 acid damage/+2d10 acid damage on a successful critical hit. Treated as an adamantine weapon for overcoming hardness and DR.
+
+###Block: Artifact
+# Equipment Name	Type			Cost		Weight	Source Page
+Maleficus Spike	TYPE:Artifact	COST:0	WT:16		SOURCEPAGE:p. 25
+
+#
+# End
+#
