@@ -265,6 +265,8 @@ FORWARDREF:DOMAINSPELLLIST|Chaos,Evil,Good,Law,Mind
 FORWARDREF:SKILL|Knowledge (Local),Profession (Hunter)
 FORWARDREF:SPELL|Chaos Hammer,Holy Aura,Holy Smite,Order's Wrath,Shield of Law,Unholy Aura,Unholy Blight
 FORWARDREF:DOMAIN|Good,Law
+FORWARDREF:ABILITY=Favored Enemy|Favored Enemy (Humanoid (Elf))
+FORWARDREF:ABILITY=Special Ability|Favored Enemy (Humanoid (Human))
 FORWARDREF:ABILITY=Special Ability|Favored Enemy (Humanoid (Elf))
 FORWARDREF:ABILITY=Special Ability|Animal Companion
 FORWARDREF:ABILITY=Special Ability|Summon Familiar
