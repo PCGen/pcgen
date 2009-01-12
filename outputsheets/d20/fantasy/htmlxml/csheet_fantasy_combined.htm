@@ -283,7 +283,8 @@ var AbArr = new Array();
 // Ability modifiers
 var ModToStat = new Array();
 var ModToStatMod = new Array();
-
+// List of Potential Skill Mastery Special Abilities
+var PotentialSkillMasteryList = new Array();
 // List of supported character states
 var StateArr = new Array();
 // List of all weapons
@@ -314,6 +315,12 @@ AbArr[%stat] = new Ability("|STAT.%stat.NAME|","|STAT.%stat.LONGNAME|","|STAT.%s
 //Set up stat modifier array
 ModToStat[%stat] = 0;
 ModToStatMod[%stat] = 0;
+|ENDFOR|
+
+// Set up Skill Mastery List
+// TODO When count("NAME.Name(sub name)) can be utilised then we can use that as the simple check
+|FOR,%ability,0,count("ABILITIES")-1,1,1|
+PotentialSkillMasteryList[%ability] = new String("|ABILITY.Special Ability.%ability|");
 |ENDFOR|
 
 // ***********************************
@@ -550,6 +557,21 @@ function Skill(nName,nAbility,nTotal,nStatMod,nRank,nMiscMod,nUseUntrained){
 		this.bUseUntrained = FALSE;
 	this.baseStatModified = SkillFlag;
 	this.notInRageMode = checkRedList;
+
+	this.bSkillMastery = false;
+	// Figure out whether we have Skill Mastery for this Skill
+	for (var i = 0; i < PotentialSkillMasteryList.length; i++)
+	{
+		var specialAbility = PotentialSkillMasteryList[i].substring(0,13);
+		if (specialAbility == "Skill Mastery")
+		{
+			var lastIndex = PotentialSkillMasteryList[i].lastIndexOf(")");
+			if (PotentialSkillMasteryList[i].substring(15, lastIndex) == this.name)
+			{
+				this.bSkillMastery = true;
+			}
+		}
+	}
 }
 function checkRedList() {
 	tempFlag = FALSE;
@@ -945,11 +967,15 @@ function ComprehensiveSkillPrint()
 		tempHTML = tempHTML + '<td class="c8">';
 		if ( SkillArr[i].bUseUntrained == TRUE )
 			tempHTML = tempHTML + '&#9670;';
+		if ( SkillArr[i].bSkillMastery == TRUE )
+			tempHTML = tempHTML + '*';
+
 		tempHTML = tempHTML + '<\/td>';
 		tempHTML = tempHTML + '<td class="l8">'+SkillArr[i].name+'<\/td><td class="c8">'+SkillArr[i].ability+'<\/td><td class="cb8b">'+SkillArr[i].total()+'<\/td><td class="cb8mB">=<\/td><td class="cb8bB">'+SkillArr[i].statmodifier()+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].rank+'<br /><\/td><td class="cb8mB">+<\/td><td class="cb8bB">'+SkillArr[i].miscmodifier+'<br /><\/td><\/tr>';
 	}
 	tempHTML = tempHTML + '<\/table>';
-	tempHTML = tempHTML + '<span class="l8">&#9670; = Useable Untrained<\/span>';
+	tempHTML = tempHTML + '<span class="l8">&nbsp;&nbsp;&#9670; = Useable Untrained<\/span>,&nbsp;&nbsp;';
+	tempHTML = tempHTML + '<span class="l8">* = Skill Mastery<\/span>';
 	document.getElementById('SkillsComprehensive').innerHTML = tempHTML;
 	return;
 }
@@ -2545,7 +2571,7 @@ function DefensiveCombatMods( newDefState )
 			break;
 		}
 	}
-//	StatusBgColor = "white"
+//  StatusBgColor = "white"
 	// Figure out what we have to do to "back out" old defense state
 	if ( this.internalState == "Defensive" )
 	{
