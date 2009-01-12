@@ -17831,6 +17831,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<CharacterSpell> cspells =
 				getAssocList(po, AssociationListKey.CHARACTER_SPELLS);
+		if (cspells == null)
+		{
+			cspells = new ArrayList<CharacterSpell>();
+		}
 		// Add in the spells granted by objects
 		SpellLevel.addBonusKnowSpellsToList(this, po, cspells);
 
@@ -17868,6 +17872,47 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		// Add in the spells granted by objects
 		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
+		
+		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
+		if (csList == null || csList.size() == 0)
+		{
+			return aList;
+		}
+
+		for (CharacterSpell cs : csList)
+		{
+			if ((aSpell == null) || cs.getSpell().equals(aSpell))
+			{
+				final SpellInfo si = cs.getSpellInfoFor(book, level, -1, null);
+
+				if (si != null)
+				{
+					aList.add(cs);
+				}
+			}
+		}
+
+		return aList;
+	}
+
+	/**
+	 * Get a list of CharacterSpells from the character spell list
+	 * @param fList
+	 * @param spellSource TODO
+	 * @param aSpell
+	 * @param book
+	 * @param level
+	 * @return list of CharacterSpells from the character spell list
+	 */
+	public final List<CharacterSpell> getCharacterSpellsNoBonus(PObject spellSource,
+		final Spell aSpell, final String book, final int level)
+	{
+		List<CharacterSpell> csList =
+				getAssocList(spellSource, AssociationListKey.CHARACTER_SPELLS);
+		if (csList == null)
+		{
+			csList = new ArrayList<CharacterSpell>();
+		}
 		
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		if (csList == null || csList.size() == 0)
