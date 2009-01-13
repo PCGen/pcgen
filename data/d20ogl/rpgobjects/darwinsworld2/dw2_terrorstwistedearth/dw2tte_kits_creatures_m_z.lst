@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jan 13 13:51:29 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 STARTPACK:Marionette Worm Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Marionette Worm],[!PRERACE:1,%]
@@ -18,10 +18,10 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 SKILL:Survival	RANK:1
 ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
-ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:NO
-ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:NO
-ABILITY:CATEGORY=FEAT|Great Fortitude			FREE:NO
-ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)		FREE:NO
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)
 GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Greataxe		LOCATION:Carried
 
@@ -85,9 +85,9 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)	FREE:YES
-ABILITY:CATEGORY=FEAT|Alertness		FREE:NO
-ABILITY:CATEGORY=FEAT|Cleave			FREE:NO
-ABILITY:CATEGORY=FEAT|Power Attack		FREE:NO
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Mutant Bug Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mutant Bug],[!PRERACE:1,%]
 RACE:Mutant Bug	!PRERACE:1,%
@@ -111,9 +111,9 @@ SKILL:Search					RANK:1
 SKILL:Spot						RANK:2
 SKILL:Survival					RANK:2
 ABILITY:CATEGORY=FEAT|Advanced Technology			FREE:YES
-ABILITY:CATEGORY=FEAT|Alertness				FREE:NO
-ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:NO
-ABILITY:CATEGORY=FEAT|Futuristic Firearm Proficiency	FREE:NO
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Futuristic Firearm Proficiency
 GEAR:Multipurpose Tool				LOCATION:Carried
 GEAR:Acid Rifle (Mutant Bug)			LOCATION:Carried
 GEAR:Power Source (Power Clip)	QTY:2	LOCATION:Carried
@@ -138,7 +138,7 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:4
 ABILITY:CATEGORY=FEAT|Alertness	FREE:YES
-ABILITY:CATEGORY=FEAT|Run		FREE:NO
+ABILITY:CATEGORY=FEAT|Run
 
 STARTPACK:Pit Creature Default	TYPE:DefaultMonster.MutantBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Pit Creature],[!PRERACE:1,%]
 RACE:Pit Creature	!PRERACE:1,%
@@ -251,7 +251,7 @@ SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 ABILITY:CATEGORY=Background|Sandman
-ABILITY:CATEGORY=FEAT|Improved Initiative	FREE:NO
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Screamer Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Screamer],[!PRERACE:1,%]
 RACE:Screamer	!PRERACE:1,%
@@ -304,7 +304,7 @@ SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 ABILITY:CATEGORY=FEAT|Alertness	FREE:YES
-ABILITY:CATEGORY=FEAT|Power Attack	FREE:NO
+ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Stealthy	FREE:YES
 
 STARTPACK:Snoffle Hog Default	TYPE:DefaultMonster.MutantBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Snoffle Hog],[!PRERACE:1,%]
@@ -349,9 +349,9 @@ SKILL:Jump			RANK:2
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-ABILITY:CATEGORY=FEAT|Cleave		FREE:NO
-ABILITY:CATEGORY=FEAT|Multiattack	FREE:NO
-ABILITY:CATEGORY=FEAT|Power Attack	FREE:NO
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Two-Headed Mutant Bear Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Two-Headed Mutant Bear],[!PRERACE:1,%]
 RACE:Two-Headed Mutant Bear	!PRERACE:1,%
@@ -374,9 +374,9 @@ SKILL:Survival		RANK:1
 ABILITY:CATEGORY=FEAT|Simple Weapons Proficiency	FREE:YES
 ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
 ABILITY:CATEGORY=FEAT|Troglodyte				FREE:YES
-GEAR:Longspear			LOCATION:Both Hands
-GEAR:Dart			QTY:4	LOCATION:Carried
-GEAR:Leather Armor		LOCATION:Equipped
+GEAR:Spear			LOCATION:Both Hands
+#GEAR:Dart			QTY:4	LOCATION:Carried
+GEAR:Leather Armor	LOCATION:Equipped
 
 STARTPACK:Utarn Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Utarn],[!PRERACE:1,%]
 RACE:Utarn	!PRERACE:1,%
@@ -392,7 +392,7 @@ CLASS:Aberration (Basic)	LEVEL:4
 STAT:STR=19|DEX=9|CON=15|INT=11|WIS=10|CHA=11
 SKILL:Hide	RANK:7
 SKILL:Jump	RANK:11
-ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)	FREE:NO
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Wild Man Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wild Man],[!PRERACE:1,%]
 RACE:Wild Man	!PRERACE:1,%
@@ -403,7 +403,7 @@ SKILL:Jump			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:1
-ABILITY:CATEGORY=FEAT|Alertness	FREE:NO
+ABILITY:CATEGORY=FEAT|Alertness
 ABILITY:CATEGORY=FEAT|Duck		FREE:YES
 GEAR:Club		LOCATION:Primary Hand
 GEAR:Javelin	LOCATION:Carried
@@ -419,12 +419,12 @@ SKILL:Search	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Survival	RANK:4
 ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
-ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:NO
-ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:NO
-ABILITY:CATEGORY=FEAT|Hover					FREE:NO
-ABILITY:CATEGORY=FEAT|Wingover				FREE:NO
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Wingover
 GEAR:Leather Armor			LOCATION:Equipped
-GEAR:Longbow				LOCATION:Both Hands
+GEAR:Compound Bow				LOCATION:Both Hands
 GEAR:Arrow			QTY:24	LOCATION:Carried
 
 STARTPACK:Plague Zombie Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zombie (Plague)],[!PRERACE:1,%]

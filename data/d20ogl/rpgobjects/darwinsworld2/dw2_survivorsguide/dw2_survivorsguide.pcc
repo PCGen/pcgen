@@ -40,6 +40,7 @@ ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categori
 
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_class.lst|(EXCLUDE:CATEGORY=Special Ability,Electronic Mastercraft,Mechanical Mastercraft)
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
+ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_racial.lst
 ABILITY:@/d20ogl/msrd/future/future_basics/futurebasics_abilities_talents_mod.lst
 
 CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst

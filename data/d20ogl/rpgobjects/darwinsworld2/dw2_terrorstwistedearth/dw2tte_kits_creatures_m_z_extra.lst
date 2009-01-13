@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jan 13 14:05:06 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 STARTPACK:Mongoliant Raider Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mongoliant],[!PRERACE:1,%]
 RACE:Mongoliant	!PRERACE:1,%
 NAME:Mongoliant Raider
 CLASS:Raider	LEVEL:3
-LEVELABILITY:Raider=3	ABILITY:PROMPT:FEAT(TYPE.Raider)|CHOICE:Intimidating Strength
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Climb		RANK:2
 SKILL:Intimidate	RANK:6
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Survival	RANK:3
+ABILITY:CATEGORY=Raider Feat|Intimidating Strength
 ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
-ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:NO
-ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:NO
-ABILITY:CATEGORY=FEAT|Great Fortitude			FREE:NO
-ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)		FREE:NO
-ABILITY:CATEGORY=FEAT|Power Attack				FREE:NO
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Greataxe		LOCATION:Carried
 
@@ -32,13 +32,12 @@ SKILL:Hide			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-ABILITY:CATEGORY=FEAT|Occupation (None)	FREE:YES
-ABILITY:CATEGORY=FEAT|Sandman			FREE:YES
-ABILITY:CATEGORY=FEAT|Blind-Fight		FREE:YES
-ABILITY:CATEGORY=FEAT|Multiattack		FREE:YES
-ABILITY:CATEGORY=FEAT|Improved Initiative	FREE:NO
-ABILITY:CATEGORY=FEAT|Cleave			FREE:NO
-ABILITY:CATEGORY=FEAT|Power Attack		FREE:NO
+#ABILITY:CATEGORY=FEAT|Sandman			FREE:YES
+ABILITY:CATEGORY=FEAT|Blind-Fight				FREE:YES
+ABILITY:CATEGORY=FEAT|Multiattack				FREE:YES
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=Strong Talent|Melee Smash
 ABILITY:CATEGORY=Strong Talent|Improved Melee Smash
 
@@ -46,8 +45,6 @@ STARTPACK:Shadow Person Psionic Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREM
 RACE:Shadow People	!PRERACE:1,%
 NAME:Shadow Person Psionic
 CLASS:Psionic	LEVEL:3
-LEVELABILITY:Psionic=2	ABILITY:PROMPT:FEAT(TYPE.Psionic)|CHOICE:Mind Blast
-LEVELABILITY:Psionic=3	ABILITY:PROMPT:FEAT(TYPE.NeuralFeat)|CHOICE:Mind Strike
 STAT:STR=10|DEX=14|CON=11|INT=8|WIS=13|CHA=14
 TEMPLATE:Shadow People Character CSkills
 SKILL:Bluff				RANK:1
@@ -60,10 +57,12 @@ SKILL:Move Silently		RANK:1
 SKILL:Sense Motive		RANK:1
 SKILL:Spot				RANK:1
 SKILL:Survival			RANK:1
+ABILITY:CATEGORY=Psionic Feat|Mind Blast
+ABILITY:CATEGORY=Psionic Neural Feat|Mind Strike
 ABILITY:CATEGORY=Background|Shadow Person
 ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:YES
 ABILITY:CATEGORY=FEAT|Improved Initiative			FREE:YES
-ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:NO
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
 GEAR:Leather Armor	LOCATION:Equipped
 GEAR:Falchion		LOCATION:Primary Hand
 GEAR:Javelin		LOCATION:Carried
@@ -78,11 +77,11 @@ SKILL:Hide		RANK:5
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:3
 SKILL:Survival	RANK:6
-ABILITY:CATEGORY=FEAT|Cleave			FREE:NO
-ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)	FREE:NO
-ABILITY:CATEGORY=FEAT|Forsaken		FREE:YES
-ABILITY:CATEGORY=FEAT|Iron Will		FREE:YES
-ABILITY:CATEGORY=FEAT|Toughness		FREE:YES
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Forsaken				FREE:YES
+ABILITY:CATEGORY=FEAT|Iron Will				FREE:YES
+ABILITY:CATEGORY=FEAT|Toughness				FREE:YES
 ABILITY:CATEGORY=Strong Talent|Melee Smash
 ABILITY:CATEGORY=Strong Talent|Improved Melee Smash
 GEAR:Shortspear	LOCATION:Primary Hand
@@ -103,13 +102,13 @@ SKILL:Survival		RANK:1
 ABILITY:CATEGORY=FEAT|Simple Weapons Proficiency	FREE:YES
 ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
 ABILITY:CATEGORY=FEAT|Troglodyte				FREE:YES
-ABILITY:CATEGORY=FEAT|Stealthy				FREE:NO
-ABILITY:CATEGORY=FEAT|Weapon Finesse			FREE:NO
+ABILITY:CATEGORY=FEAT|Stealthy
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 ABILITY:CATEGORY=Fast Talent|Evasion
 ABILITY:CATEGORY=Fast Talent|Uncanny Dodge I
-GEAR:Longspear			LOCATION:Both Hands
-GEAR:Dart			QTY:4	LOCATION:Carried
-GEAR:Leather Armor		LOCATION:Equipped
+GEAR:Spear			LOCATION:Both Hands
+#GEAR:Dart			QTY:4	LOCATION:Carried
+GEAR:Leather Armor	LOCATION:Equipped
 
 STARTPACK:Wild Man Fast Hero Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wild Man],[!PRERACE:1,%]
 RACE:Wild Man	!PRERACE:1,%
@@ -122,10 +121,10 @@ SKILL:Jump			RANK:3
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:4
-ABILITY:CATEGORY=FEAT|Alertness	FREE:NO
-ABILITY:CATEGORY=FEAT|Duck		FREE:YES
-ABILITY:CATEGORY=FEAT|Dodge		FREE:NO
-ABILITY:CATEGORY=FEAT|Mobility	FREE:NO
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Duck				FREE:YES
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=Fast Talent|Evasion
 ABILITY:CATEGORY=Fast Talent|Uncanny Dodge I
 GEAR:Club		LOCATION:Primary Hand
@@ -135,7 +134,6 @@ STARTPACK:Winged One Raider Default	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:
 RACE:Winged One	!PRERACE:1,%
 NAME:Winged One Raider
 CLASS:Raider	LEVEL:3
-LEVELABILITY:Raider=3	ABILITY:PROMPT:FEAT(TYPE.Raider)|CHOICE:Post Apocalyptic Technology
 STAT:STR=10|DEX=14|CON=14|INT=8|WIS=13|CHA=12
 TEMPLATE:Winged One Character CSkills
 SKILL:Hide		RANK:2
@@ -144,12 +142,13 @@ SKILL:Navigate	RANK:3
 SKILL:Search	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Survival	RANK:4
-ABILITY:CATEGORY=FEAT|Primitive Technology		FREE:YES
-ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:NO
-ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:NO
-ABILITY:CATEGORY=FEAT|Hover					FREE:NO
-ABILITY:CATEGORY=FEAT|Wingover				FREE:NO
-ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency	FREE:NO
+ABILITY:CATEGORY=Raider Feat|Post Apocalyptic Technology
+ABILITY:CATEGORY=FEAT|Primitive Technology			FREE:YES
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Wingover
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
 GEAR:Leather Armor						LOCATION:Equipped
 GEAR:Bushmaster M-17S (5.56mm assault rifle)		LOCATION:Both Hands
 GEAR:Bullet (5.56mm/20)					QTY:2	LOCATION:Carried

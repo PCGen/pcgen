@@ -32,6 +32,7 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 #EXTRAFILE:OGL.txt
 
 #msrd files
+ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_ability_categories.lst
 TEMPLATE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_templates.lst
 
 #DW2 Specific/Modified files
@@ -47,3 +48,5 @@ TEMPLATE:dw2tte_templates.lst
 
 EQUIPMENT:dw2tte_equip_weap_melee.lst
 EQUIPMENT:dw2tte_equip_weap_ranged_firearms.lst
+
+WEAPONPROF:dw2tte_weaponprofs.lst

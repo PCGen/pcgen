@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jan 13 14:08:33 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 #	DW2 & MSRD Melee Weapons
@@ -26,6 +26,7 @@ Tonfa.MOD																																								COST:10
 Battleaxe								PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing																		COST:10	WT:7		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8													SIZE:M	SOURCEPAGE:p. 188
 Bayonet (Fixed).MOD																																						COST:12
 Energy Pike								PROFICIENCY:WEAPON|Energy Pike		TYPE:Weapon.Melee.Archaic.Standard.Piercing.Metal.Futuristic.Container								CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:4		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d8											REACH:10	SIZE:L	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack; 30'Radius Glow
+Falchion								PROFICIENCY:WEAPON|Falchion			TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal																	COST:12	WT:16		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d4													SIZE:L	SOURCEPAGE:p. 188
 Flail (Heavy)		OUTPUTNAME:Flail, [NAME]	PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:20	WT:20		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10													SIZE:L	SOURCEPAGE:p. 188
 Flail (Light)		OUTPUTNAME:Flail, [NAME]	PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Archaic.Standard.Bludgeoning.Flail																	COST:15	WT:5		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8													SIZE:M	SOURCEPAGE:p. 188
 Greataxe								PROFICIENCY:WEAPON|Greataxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing.Axe																		COST:20	WT:20		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d12													SIZE:L	SOURCEPAGE:p. 188
