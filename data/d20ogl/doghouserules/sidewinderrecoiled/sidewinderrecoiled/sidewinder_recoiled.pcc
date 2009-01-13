@@ -61,6 +61,11 @@ ARMORPROF:sr_profs_armor.lst
 LANGUAGE:sr_languages.lst
 TEMPLATE:sr_templates.lst
 
+# Suppress forward references
+FORWARDREF:EQMOD|AUTOFIRE,DBLTAP
+FORWARDREF:SKILL|Computer Use,Control Shape,Craft (Electronic),Drive,Pilot
+FORWARDREF:WEAPONPROF|Flamethrower
+
 #
 # End
 #

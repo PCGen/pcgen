@@ -123,4 +123,11 @@ HIDETYPE:FEAT|MutantAbility|EnergyResist
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
-#
+# Suppress forward references
+FORWARDREF:RACE|Bat,Cat,Cynemie,Desert Horse,Ferret,Fraxx Steed,Grunt,Hawk,Lurking Panther,Owl,Rad Wolf,Rat,Ravening Hound,Snake (Tiny/Viper),Snoffle Hog,Toad,Two Headed Mutant Bear
+FORWARDREF:SKILL|Profession
+FORWARDREF:ARMORPROF|Chainmail Shirt,Concealable Vest,Forced Entry Unit,Leather Armor,Leather Jacket,Light Undercover Shirt,Light-Duty Vest,Plate Mail,Pull-up Pouch Vest,Special Response Vest,Tactical Vest,Undercover Vest
+FORWARDREF:SHIELDPROF|Shield
+FORWARDREF:WEAPONPROF|Axe (Raider Double),Dagger,Plasma Rifle,Remington Streetsweeper
+FORWARDREF:ABILITY=Wealth|Starting Wealth
+FORWARDREF:ABILITY=Special Ability|Incorporeal Traits
