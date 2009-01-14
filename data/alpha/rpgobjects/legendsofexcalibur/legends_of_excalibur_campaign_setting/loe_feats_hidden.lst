@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:56:59 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Jan 13 23:13:07 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 
@@ -10,7 +10,7 @@ CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:STAT|DEX|INT|WIS|CH
 ###Block: Power Source
 # Feat Name						Type			Visible	Prohibited Class					Special ABility
 Power Source (Crusaders)			TYPE:Special	VISIBLE:NO	!PRECLASS:1,Crusader=1				SAB:Power Source (Crusaders)
-Power Source (Druids/Minstrels)		TYPE:Special	VISIBLE:NO	!PRECLASS:2,Druid,Minstrel=1			SAB:Power Source (Druids/Minstrels)
+Power Source (Druids/Minstrels)		TYPE:Special	VISIBLE:NO	!PRECLASS:2,Druid=1,Minstrel=1		SAB:Power Source (Druids/Minstrels)
 Power Source (Hedge Mage/Enchantress)	TYPE:Special	VISIBLE:NO	!PRECLASS:2,Hedge Mage=1,Enchantress=1	SAB:Power Source (Hedge Mage/Enchantress)
 Power Source (Hermits)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Hermit=1				SAB:Power Source (Hermits)
 Power Source (Priest)				TYPE:Special	VISIBLE:NO	!PRECLASS:1,Priest=1				SAB:Power Source (Priest)
@@ -23,6 +23,10 @@ Minstrel Music	TYPE:Special	VISIBLE:NO	SAB:Minstrel music %/day|MinstrelMusicTim
 ###Block: Knight's Warhorse
 # Feat Name		Type			Visible	Special ABility			Define			Allow Follower			Allowed Companions
 Knight's Warhorse	TYPE:Special	VISIBLE:NO	SAB:Knight's Warhorse (Ex)	DEFINE:KnightLevel|0	FOLLOWERS:Knight's Mount|1	COMPANIONLIST:Knight's Mount|Horse (Light),Horse (Heavy),Horse (Warhorse Heavy),Horse (Warhorse Light)
+
+###Block: Literacy
+# Feat Name	Type			Visible	Automatic Languages
+Literacy	TYPE:Special	VISIBLE:NO	LANGAUTO:Literacy
 
 #
 # End

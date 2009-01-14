@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Jan 13 23:13:07 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
-# Template Name		Visible	Req. Special Ability	Modify VAR				FAVOREDCLASS		Removable?
+# Template Name		Visible	Req. Special Ability	Modify VAR				Favored Class		Removable?
 Dark Heritage template	VISIBLE:NO										FAVOREDCLASS:Hedge Mage
 
 Vow of Chastity		VISIBLE:YES	PRESA:1,Denial		BONUS:VAR|BONUSPOWERPOINTS|3					REMOVABLE:YES

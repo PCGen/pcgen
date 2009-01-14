@@ -25,6 +25,37 @@ INFOTEXT:The Campaign Setting
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# RSRD files that are included
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst|(EXCLUDE:CATEGORY=Special Ability,Flurry of Blows)
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
+ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(INCLUDE:Barbarian|Ex Barbarian|Ex Druid|Ex Paladin|Fighter|Rogue)
+CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst|(INCLUDE:Arcane Trickster)
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal)
+COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
+FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
+FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Improved Natural Attack,Multiattack)
+EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
+EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_basetypes.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_coinsgems.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ranged.lst
+RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Warhorse Heavy)|Horse (Warhorse Light)|Mule|Pony|Pony (War)|Camel|Camel (Bactrian)|Elephant|Elephant (Indian))
+SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
+SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
+WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
+ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
+SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
+KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
+TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst|(INCLUDE:Combat Expertise trade off)
+TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
+
 
 # LOE HC files
 CLASS:loe_classes_base.lst
@@ -46,31 +77,15 @@ SPELL:loe_spells_mod.lst
 TEMPLATE:loe_templates_nationalities.lst
 TEMPLATE:loe_templates.lst
 
-# RSRD files that are included
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
-ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
-ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
-CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(INCLUDE:Barbarian|Fighter|Rogue)
-CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst|(INCLUDE:Arcane Trickster)
-COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
-FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
-EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
-EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_basetypes.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_armorshields.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_coinsgems.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ammo.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_melee.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ranged.lst
-RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Warhorse Heavy)|Horse (Warhorse Light)|Mule|Pony|Pony (War)|Camel|Camel (Bactrian)|Elephant|Elephant (Indian))
-SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
-SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
-WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
-ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
-SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
+
+# Suppress forward references
+FORWARDREF:EQUIPMENT|Flurry of Blows
+FORWARDREF:CLASSSPELLLIST|Adept,Bard,Cleric,Druid,Paladin,Ranger,Sorcerer,Wizard
+FORWARDREF:DOMAINSPELLLIST|Air,Animal,Chaos,Death,Destruction,Earth,Evil,Fire,Good,Healing,Knowledge,Law,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water
+FORWARDREF:RACE|Ape,Baboon,Badger,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Cheetah,Crocodile,Dog,Eagle,Hyena,Leopard,Lion,Lizard,Manta Ray,Monkey,Octopus,Porpoise,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Constrictor/Giant),Snake (Viper/Huge),Snake (Viper/Large),Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine
+FORWARDREF:TEMPLATE|Awakened Animal_Standard,Awakened Animal_Will,Dragon Disciple Attacks,Dragon Disciple Attacks Large,Dragon Disciple Attacks Medium,Dragon Disciple Attacks Small,RighteousMightDR,Timeless Body,Timeless Body ~ Adult,Timeless Body ~ Middle Age,Timeless Body ~ Old,Timeless Body ~ Venerable
+FORWARDREF:LANGUAGE|Goblin
+FORWARDREF:ABILITY=Special Ability|Flurry of Blows
 
 #
 # End
