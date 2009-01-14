@@ -12,6 +12,7 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Sigurdur H. Olafsson - shoATtnDOTis
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
+		Eric C Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the use of Output Sheet Tokens: Miscellaneous.
@@ -29,24 +30,25 @@
 <hr>
 		
 		<p class="indent0"><strong><a name="MATH">Token Name:</a></strong> x&lt;Mathematical Operator&gt;x </p>
-		<p class="indent1"><strong> Variables Used (x):</strong>  Number (Operand - can both be either numbers
-			or valid numeric tokens.).</p>
-		<p class="indent1"><strong> Variables Used (Mathematical Operator):</strong> Text (Operator).</p>
-		<ul class="indent2">
-			<li>+ (Addition operator).</li>
-			<li>- (Subtraction operator).</li>
-			<li>* (Multiplication operator).</li>
-			<li>/ (Divisor operator).</li>
-			<li>@ (Divisor operator that returns an integer).</li>
-			<li>^ (Exponentiation operator).</li>
-			<li>INTVAL (Displays just the integer portion of the result).</li>
-			<li>NOZERO (Displays blank if the result is zero, otherwise displays the result with the appropriate sign).</li>
-			<li>SIGN (Pre-pends a sign (+ or -) to the result. This is ignored if it already has a sign).</li>
-			<li>TRUNC (Displays the integer and the first decimal place of the result).</li>
-		</ul>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number or Numeric Token (Operand).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Mathematical Operator</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Simple mathematical operations are supported in the output sheets.</li>
+			<li>Valid operators include the following:
+				<ul>
+					<li>+ (Addition operator).</li>
+					<li>- (Subtraction operator).</li>
+					<li>* (Multiplication operator).</li>
+					<li>/ (Divisor operator).</li>
+					<li>@ (Divisor operator that returns an integer).</li>
+					<li>^ (Exponentiation operator).</li>
+					<li>INTVAL (Displays just the integer portion of the result).</li>
+					<li>NOZERO (Displays blank if the result is zero, otherwise displays the result with the appropriate sign).</li>
+					<li>SIGN (Pre-pends a sign (+ or -) to the result. This is ignored if it already has a sign).</li>
+					<li>TRUNC (Displays the integer and the first decimal place of the result).</li>
+				</ul>
+			</li>
 			<li>Do not use spaces in between the operands and the operator.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -669,9 +671,14 @@ look like:<br/>
 
 <hr>
 		
-		<p class="indent0"><strong><a name="SUB">Token Name:</a></strong> SUB#.</p>
+		<p class="indent0"><strong><a name="SUB">Token Name:</a></strong> SUBx.y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Text Characters)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Subtoken (OS Token)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Limits the length of the string written to the output sheet to no more than # characters. For it to work it as to be the first subtoken.</p>
+		<ul class="indent2">
+			<li>Limits the length of the string written to the output sheet to no more than x characters.</li>
+			<li>Must be the first subtoken.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUB10.SPELLMEM.0.0.0.0.COMPONENTS</code></p>
 		<p class="indent3">Would limit the output from the above tag to no more than 10 characters.</p>
@@ -679,24 +686,36 @@ look like:<br/>
 
 <hr>
 		
-		<p class="indent0"><strong><a name="TEXT">Token Name:</a></strong> TEXT.x.</p>
-		<p class="indent1"><strong> Variables Used (x):</strong>LOWER, LOWERCASE, REPLACE, REPLACEALL, SENTENCE, SENTENCECASE, TITLE, TITLECASE, UPPER, UPPERCASE or NUMSUFFIX</p>
+		<p class="indent0"><strong><a name="TEXT">Token Name:</a></strong> TEXT.x.y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> LOWER</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> LOWERCASE</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> REPLACE</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> REPLACEALL</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> SENTENCE</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> SENTENCECASE</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TITLE</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TITLECASE</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> UPPER</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> UPPERCASE</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NUMSUFFIX</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Subtoken (OS Token)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Alters the output of the following tag. For it to work it has to be the first subtoken.  The following are the subrags allowed and their effect.</p>
+		<p class="indent2">Alters the output of the following OS token. For it to work it has to be the first subtoken.  The following are the subrags allowed and their effect.</p>
 		<ul class="indent2">
-			<li>LENGTH - Returns the length of the string the specified token produces. (Mostly useful to test for 0 length strings)</li>
-			<li>LOWER, LOWERCASE - Output the tag result in lower case. e.g. the vitamins are in my fresh brussels sprouts</li>
-			<li>NUMSUFFIX - Output a numeric suffix appropriate for the tag result. e.g th or rd</li>
-			<li>REPLACE, REPLACEALL - Performs a regular expression based search and replace on the string produced by the associated token. Multiple replacements can be specified and are processed right to left.
-			<li>SENTENCE, SENTENCECASE - Output the tag result in sentence case. e.g. The vitamins are in my fresh brussels sprouts</li>
-			<li>TITLE, TITLECASE - Output the tag result in title case. e.g. The Vitamins Are In My Fresh Brussels Sprouts</li>
-			<li>UPPER, UPPERCASE - Output the tag result in upper case. e.g. THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS</li>
+			<li><code>LENGTH</code> - Returns the length of the string the specified token produces. (Mostly useful to test for 0 length strings)</li>
+			<li><code>LOWER</code>, <code>LOWERCASE</code> - Output the tag result in lower case. e.g. the vitamins are in my fresh brussels sprouts</li>
+			<li><code>NUMSUFFIX</code> - Output a numeric suffix appropriate for the tag result. e.g &quot;th&quot; or &quot;rd&quot;</li>
+			<li><code>REPLACE</code>, <code>REPLACEALL</code> - Performs a regular expression based search and replace on the string produced by the associated token. Multiple replacements can be specified and are processed right to left.
+			<li><code>SENTENCE</code>, <code>SENTENCECASE</code> - Output the tag result in sentence case. e.g. The vitamins are in my fresh brussels sprouts</li>
+			<li><code>TITLE</code>, <code>TITLECASE</code> - Output the tag result in title case. e.g. The Vitamins Are In My Fresh Brussels Sprouts</li>
+			<li><code>UPPER</code>, <code>UPPERCASE</code> - Output the tag result in upper case. e.g. THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME</code></p>
 		<p class="indent3">Would output the name for the spell in lower case.</p>
 		<p class="indent2"><code>TEXT.NUMSUFFIX.22</code></p>
-		<p class="indent3">Would output a suffix of nd rather than the value 22.</p>
+		<p class="indent3">Would output a suffix of &quot;nd&quot; rather than the value 22.</p>
 		<p></p>
 
 <hr>
@@ -711,7 +730,7 @@ look like:<br/>
 				the result with no decimal points (as an integer).</li>
 			<li>It is possible to define the Turn Undead variable more than once. The program keeps track of this. (say one instance
 				is 2 and the other 4).</li>
-			<li>Also .MINVAL should be included if instead of the default maximum of multiple defines, you want the minimum.</li>
+			<li>Also <code>.MINVAL</code> should be included if instead of the default maximum of multiple defines, you want the minimum.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VAR.Turn Undead.MINVAL.INTVAL</code></p>
@@ -723,12 +742,14 @@ look like:<br/>
 		<p class="indent2"><code>VAR.Turn Undead</code></p>
 		<p class="indent3">Would return 4.0.</p>
 
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
+<hr>
 
-</body>
+		<p>
+			<a href="http://validator.w3.org/check?uri=referer"><img
+       		src="../../images/system/valid-html401.png"
+			alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+		</p>
+
+	</body>
 
 </html>
