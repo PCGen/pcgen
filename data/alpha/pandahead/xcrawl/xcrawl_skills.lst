@@ -5,5 +5,5 @@ SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCr
 Drive					KEYSTAT:DEX	USEUNTRAINED:YES	TYPE:Dexterity
 Knowledge (Astronomy)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge
 Knowledge (Dungeon Crawl)	KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge
-Knowledge (Moster Lore)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge
+Knowledge (Monster Lore)	KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge
 Knowledge (Sports)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge

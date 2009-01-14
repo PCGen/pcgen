@@ -38,7 +38,7 @@ CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	BONUS:CHECKS|BASE.Fo
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Dungeon Crawl)|Knowledge (Sports)|Perform|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Weapon Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Sport
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Sport
 ###Block: Normal Level Progression
 1	SAB:Constant Training	SAB:% Favored Sports|FavSports	BONUS:VAR|FavSports|CL/5+1	DEFINE:FavSports|0	ADD:FEAT|1|TYPE=Athlete
 4																				ADD:FEAT|1|TYPE=Athlete
@@ -55,7 +55,7 @@ CLASS:Master Celebrity	PRESKILL:3,Perform=10,Sense Motive=10,Bluff=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Diplomacy|Disguise|Innuendo|Intimidate|Perform|TYPE.Profession|Sense Motive
 ###Block: Proficiencies
-1	AUTO:FEAT|All Automatic Weapon Proficiencies	AUTO:WEAPONPROF|TYPE.Dagger|TYPE.Pistol
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:WEAPONPROF|TYPE.Dagger|TYPE.Pistol
 ###Block: Normal Level Progression
 1	SAB:Make It Look Natural	SAB:Eminence
 2	SAB:Work the Media
@@ -70,7 +70,7 @@ CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Handle Animal=6,Knowledge (Mon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hide|Intuit Direction|Knowledge (Monster Lore)|Listen|Move Silently|Search|Sense Motive|Spot|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|Net|Tranquilizer Rifle
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|Net|Arrow (tranquilizer)
 ###Block: Normal Level Progression
 1	SAB:Subdual Specialist	SAB:Favored Prey
 2	SAB:Scent	SAB:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT|1|Exotic Weapon Proficiency
