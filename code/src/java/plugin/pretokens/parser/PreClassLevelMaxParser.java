@@ -124,6 +124,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 			}
 			p.setOperand(oper);
 			p.setOperator(PrerequisiteOperator.LT);
+			p.setCountMultiples(false);
 		}
 	}
 
