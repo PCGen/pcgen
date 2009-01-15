@@ -33,6 +33,7 @@ import pcgen.core.kit.KitDeity;
 import pcgen.core.kit.KitFunds;
 import pcgen.core.kit.KitGear;
 import pcgen.core.kit.KitKit;
+import pcgen.core.kit.KitLangBonus;
 import pcgen.core.kit.KitLevelAbility;
 import pcgen.core.kit.KitProf;
 import pcgen.core.kit.KitRace;
@@ -99,7 +100,9 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("*KITTOKEN",
 			"GENDER", KitBio.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitFunds>("*KITTOKEN",
-			"FUNDS", KitFunds.class));
+				"FUNDS", KitFunds.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitLangBonus>(
+				"*KITTOKEN", "LANGBONUS", KitLangBonus.class));
 	}
 
 	@Override
