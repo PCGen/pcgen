@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubClassCategory;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -337,6 +338,11 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			constructCDOMObject(CLASSSKILLLIST_CLASS, key);
 			// TODO Need to limit which are built to only spellcasters...
 			ClassSpellList csl = constructCDOMObject(CLASSSPELLLIST_CLASS, key);
+			String spelltype = pcc.get(StringKey.SPELLTYPE);
+			if (spelltype != null)
+			{
+				csl.addToListFor(ListKey.TYPE, Type.getConstant(spelltype));
+			}
 			pcc.put(ObjectKey.CLASS_SPELLLIST, csl);
 			// simple.constructCDOMObject(SPELLPROGRESSION_CLASS, key);
 			// Collection<CDOMSubClass> subclasses = categorized
@@ -353,6 +359,10 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 					// TODO Need to limit which are built to only
 					// spellcasters...
 					csl = constructCDOMObject(CLASSSPELLLIST_CLASS, subKey);
+					if (spelltype != null)
+					{
+						csl.addToListFor(ListKey.TYPE, Type.getConstant(spelltype));
+					}
 					subcl.put(ObjectKey.CLASS_SPELLLIST, csl);
 					// constructCDOMObject(SPELLPROGRESSION_CLASS, subKey);
 					/*
