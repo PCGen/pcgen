@@ -172,7 +172,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 		if (o == null)
 		{
 			throw new IllegalArgumentException(s
-					+ " is not a previously defined Pantheon");
+					+ " is not a previously defined Type");
 		}
 		return o;
 	}
