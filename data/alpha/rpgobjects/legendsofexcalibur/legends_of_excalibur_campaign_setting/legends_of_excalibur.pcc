@@ -63,7 +63,6 @@ CLASS:loe_classes_base_mod.lst
 CLASS:loe_classes_prestige.lst
 CLASS:loe_classes_prestige_mod.lst
 COMPANIONMOD:loe_companionmods.lst
-DEITY:loe_deities.lst
 EQUIPMENT:loe_equip_weap_melee.lst
 FEAT:loe_feats.lst
 FEAT:loe_feats_hidden.lst
@@ -77,12 +76,14 @@ SPELL:loe_spells_mod.lst
 TEMPLATE:loe_templates_nationalities.lst
 TEMPLATE:loe_templates.lst
 
+# Commented out this file as there is no Domain tab in this gameMode to access it
+#DEITY:loe_deities.lst
 
 # Suppress forward references
 FORWARDREF:EQUIPMENT|Flurry of Blows
 FORWARDREF:CLASSSPELLLIST|Adept,Bard,Cleric,Druid,Paladin,Ranger,Sorcerer,Wizard
 FORWARDREF:DOMAINSPELLLIST|Air,Animal,Chaos,Death,Destruction,Earth,Evil,Fire,Good,Healing,Knowledge,Law,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water
-FORWARDREF:RACE|Ape,Baboon,Badger,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Cheetah,Crocodile,Dog,Eagle,Hyena,Leopard,Lion,Lizard,Manta Ray,Monkey,Octopus,Porpoise,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Constrictor/Giant),Snake (Viper/Huge),Snake (Viper/Large),Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine
+FORWARDREF:RACE|Ape,Baboon,Badger,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Cheetah,Crocodile,Dog,Eagle,Hyena,Leopard,Lion,Lizard,Manta Ray,Monkey,Octopus,Porpoise,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Constrictor/Giant),Snake (Viper/Huge),Snake (Viper/Large),Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine,Crocodile (Giant),Lizard (Monitor),Octopus (Giant),Squid (Giant)
 FORWARDREF:TEMPLATE|Awakened Animal_Standard,Awakened Animal_Will,Dragon Disciple Attacks,Dragon Disciple Attacks Large,Dragon Disciple Attacks Medium,Dragon Disciple Attacks Small,RighteousMightDR,Timeless Body,Timeless Body ~ Adult,Timeless Body ~ Middle Age,Timeless Body ~ Old,Timeless Body ~ Venerable
 FORWARDREF:LANGUAGE|Goblin
 FORWARDREF:ABILITY=Special Ability|Flurry of Blows
