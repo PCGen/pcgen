@@ -3498,8 +3498,8 @@ public final class Equipment extends PObject implements Serializable,
 			}
 			cachedNameWithoutCharges = buffer.toString();
 
-			if (addCharges && (getRemainingCharges() > getMinCharges())
-					&& (getRemainingCharges() < getMaxCharges())) {
+			if (addCharges && (getRemainingCharges() < getMaxCharges()))
+			{
 				buffer.append("(").append(getRemainingCharges()).append(")");
 			}
 			cachedNameWithCharges = buffer.toString();
