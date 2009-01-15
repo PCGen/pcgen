@@ -1408,16 +1408,26 @@ public final class EditorMainForm extends JDialog
 
 						if (obj instanceof Spell)
 						{
-							int lvl = SpellLevel.getFirstLvlForKey((Spell) obj,
-								((Domain) thisPObject)
-										.get(ObjectKey.DOMAIN_SPELLLIST), null);
-							if (lvl != -1)
+							HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel
+								.getMasterLevelInfo(null, (Spell) obj);
+							List<Integer> levelList = hml
+								.getListFor(((Domain) thisPObject)
+										.get(ObjectKey.DOMAIN_SPELLLIST));
+							if (levelList == null || levelList.isEmpty())
 							{
-								selectedSpellList.add(encodeSpellEntry(obj.toString(), Integer.toString(lvl)));
+								availableSpellList.add((Spell)obj);
 							}
 							else
 							{
-								availableSpellList.add((Spell)obj);
+								int lvl = levelList.get(0);
+								if (lvl == -1)
+								{
+									availableSpellList.add((Spell)obj);
+								}
+								else
+								{
+									selectedSpellList.add(encodeSpellEntry(obj.toString(), Integer.toString(lvl)));
+								}
 							}
 						}
 					}
@@ -1776,19 +1786,28 @@ public final class EditorMainForm extends JDialog
 				List<String> availableDomainsList = new ArrayList<String>();
 				List<String> selectedDomainsList = new ArrayList<String>();
 
+				HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel
+					.getMasterLevelInfo(null, (Spell) thisPObject);
 				for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
 				{
-					Integer lvl = SpellLevel.getFirstLvlForKey((Spell) thisPObject,
-						aDomain.get(ObjectKey.DOMAIN_SPELLLIST), null);
-
-					if (lvl != -1)
+					List<Integer> levelList = hml
+						.getListFor(aDomain.get(ObjectKey.DOMAIN_SPELLLIST));
+					if (levelList == null || levelList.isEmpty())
 					{
-						selectedDomainsList.add(encodeDomainEntry(aDomain.getKeyName(), lvl.toString()));
-						++iCount;
+						availableDomainsList.add(aDomain.getKeyName());
 					}
 					else
 					{
-						availableDomainsList.add(aDomain.getKeyName());
+						int lvl = levelList.get(0);
+						if (lvl == -1)
+						{
+							availableDomainsList.add(aDomain.getKeyName());
+						}
+						else
+						{
+							selectedDomainsList.add(encodeDomainEntry(aDomain.getKeyName(), Integer.toString(lvl)));
+							++iCount;
+						}
 					}
 				}
 
@@ -1804,17 +1823,24 @@ public final class EditorMainForm extends JDialog
 				for (Iterator<PCClass> e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e.hasNext();)
 				{
 					final PCClass aClass = e.next();
-					Integer lvl = SpellLevel.getFirstLvlForKey((Spell) thisPObject,
-						aClass.get(ObjectKey.CLASS_SPELLLIST), null);
-
-					if (lvl != -1)
+					List<Integer> levelList = hml.getListFor(aClass
+						.get(ObjectKey.CLASS_SPELLLIST));
+					if (levelList == null || levelList.isEmpty())
 					{
-						selectedClassesList.add(encodeDomainEntry(aClass.getKeyName(), lvl.toString()));
-						++iCount;
+						availableClassesList.add(aClass.getKeyName());
 					}
 					else
 					{
-						availableClassesList.add(aClass.getKeyName());
+						int lvl = levelList.get(0);
+						if (lvl == -1)
+						{
+							availableClassesList.add(aClass.getKeyName());
+						}
+						else
+						{
+							selectedClassesList.add(encodeDomainEntry(aClass.getKeyName(), Integer.toString(lvl)));
+							++iCount;
+						}
 					}
 				}
 
