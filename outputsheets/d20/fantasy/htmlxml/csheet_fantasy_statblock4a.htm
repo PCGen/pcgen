@@ -1079,21 +1079,18 @@ Domains:
 <!-- User Feats -->
 <br /><b>Feats</b> 
 |MANUALWHITESPACE|
-|FOR,%numfeats,COUNT[FEATSNOTAUTO.VISIBLE]-1,COUNT[FEATSNOTAUTO.VISIBLE]-1,1,0|
+|FOR,%numfeats,COUNT[FEATSALL.VISIBLE]-1,COUNT[FEATSALL.VISIBLE]-1,1,0|
 <!-- |VAR.%numfeats| -->
 |IIF(%numfeats:-1)|
 &mdash;
 |ENDIF|
 |ENDFOR|
-|FOR,%feat,0,COUNT[FEATSNOTAUTO.VISIBLE]-1,1,0|
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |IIF(%feat:0)|
 |ELSE|
 ,&#x0020;
 |ENDIF|
-|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATNOTAUTO.VISIBLE.%feat.NAME|
-|IIF(FEATNOTAUTO.VISIBLE.%feat.NATURE:VIRTUAL)|
-<sup>B</sup>
-|ENDIF|
+|TEXT.REPLACEALL{__LP__\d__PLUS____RP__,"<font face=\"ScalaSans Caps\">$1</font>"}.FEATALL.VISIBLE.%feat.NAME|
 |ENDFOR|
 |ENDMANUALWHITESPACE|
 <!-- Skills -->
