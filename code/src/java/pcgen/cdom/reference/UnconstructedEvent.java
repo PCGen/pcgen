@@ -19,11 +19,13 @@ package pcgen.cdom.reference;
 
 import java.util.EventObject;
 
+import pcgen.cdom.base.CDOMReference;
+
 public class UnconstructedEvent extends EventObject
 {
-	private final CDOMSingleRef<?> reference;
+	private final CDOMReference<?> reference;
 
-	public UnconstructedEvent(Object arg0, CDOMSingleRef<?> ref)
+	public UnconstructedEvent(Object arg0, CDOMReference<?> ref)
 	{
 		super(arg0);
 		if (ref == null)
@@ -34,7 +36,7 @@ public class UnconstructedEvent extends EventObject
 		reference = ref;
 	}
 
-	public CDOMSingleRef<?> getReference()
+	public CDOMReference<?> getReference()
 	{
 		return reference;
 	}

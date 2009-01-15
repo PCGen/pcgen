@@ -21,9 +21,11 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
@@ -35,6 +37,7 @@ import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToInstanceList;
 import pcgen.base.util.KeyMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
@@ -142,8 +145,24 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 */
 	private final List<String> deferred = new ArrayList<String>();
 
+	/**
+	 * Contains a list of manufactured objects (those that are built implicitly
+	 * by tokens like NATURALATTACKS). These can be "displaced" by object which
+	 * are later built explicitly in a WeaponProf LST file, for example.
+	 */
 	private final List<WeakReference<T>> manufactured = new ArrayList<WeakReference<T>>();
-	
+
+	/**
+	 * Contains a list of unconstructed objects (those that are caught during
+	 * validate as not having been built. These are queued in order to avoid
+	 * building a "real" object, but instead knowing inside of "resolve
+	 * references" when it is safe to populate the reference with an otherwise
+	 * "empty" object. This insertion of a reference is done to avoid null
+	 * pointer exceptions at runtime (and to avoid constant checking of whether
+	 * a CDOMSingleRef resolves to null or a real object)
+	 */
+	private final Set<String> unconstructed = new HashSet<String>();
+
 	/**
 	 * The EventListenerList which contains the listeners to this
 	 * AbstractReferenceManufacturer.
@@ -308,6 +327,14 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 					activeObj = active.get(reduced);
 					if (activeObj == null)
 					{
+						if (unconstructed.contains(me1.getKey())
+								|| unconstructed.contains(reduced))
+						{
+							activeObj = buildObject(me1.getKey());
+						}
+					}
+					if (activeObj == null)
+					{
 						Logging.errorPrint("Unable to Resolve: " + refClass + " "
 								+ me1.getKey());
 					}
@@ -343,6 +370,22 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				{
 					me.getValue().addResolution(obj);
 				}
+			}
+		}
+		if (allRef != null && allRef.getObjectCount() == 0)
+		{
+			Logging.errorPrint("Error: No " + getReferenceDescription()
+					+ " objects were loaded but were referred to in the data");
+			fireUnconstuctedEvent(allRef);
+		}
+		for (TRT ref : typeReferences.values())
+		{
+			if (ref.getObjectCount() == 0)
+			{
+				Logging.errorPrint("Error: No " + getReferenceDescription()
+						+ " objects of " + ref.getLSTformat()
+						+ " were loaded but were referred to in the data");
+				fireUnconstuctedEvent(ref);
 			}
 		}
 	}
@@ -441,7 +484,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
-	 * this AbstractReferenceManufacturer
+	 * this AbstractReferenceManufacturer. This also adds the object to the list
+	 * of constructed objects within this AbstractReferenceManufacturer.
 	 * 
 	 * Implementation Note: At this point, the "key" provided is likely to be
 	 * the "display name" of an object, not the actual "KEY". This is due to the
@@ -459,6 +503,28 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 */
 	public T constructObject(String val)
 	{
+		T obj = buildObject(val);
+		addObject(obj, val);
+		return obj;
+	}
+
+	/**
+	 * Constructs a new CDOMObject of the Class or Class/Category represented by
+	 * this AbstractReferenceManufacturer
+	 * 
+	 * This should remain private (vs. public) as it is for "internal use only";
+	 * it serves as a convenience method to wrap the .newInstance call and the
+	 * possible Exceptions.  Other classes should use constructObject(String)
+	 * 
+	 * @param key
+	 *            The identifier of the CDOMObject to be constructed
+	 * @return The new CDOMObject of the Class or Class/Category represented by
+	 *         this AbstractReferenceManufacturer
+	 * @throws IllegalArgumentException
+	 *             if the given identifier is null or empty (length is zero)
+	 */
+	private T buildObject(String val)
+	{
 		if (val == null || val.equals(""))
 		{
 			throw new IllegalArgumentException("Cannot build empty name");
@@ -467,7 +533,6 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		{
 			T obj = refClass.newInstance();
 			obj.setName(val);
-			addObject(obj, val);
 			return obj;
 		}
 		catch (InstantiationException e)
@@ -745,9 +810,6 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * (3) No two objects in the AbstractReferenceManufacturer have a matching
 	 * identifier.
 	 * 
-	 * TODO Condition (3) is not enforced presently, due to issues with some
-	 * classes allowing duplicates (e.g. Languages)
-	 * 
 	 * @return true if the AbstractReferenceManufacturer is "valid"; false
 	 *         otherwise.
 	 */
@@ -829,10 +891,11 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 							{
 								Logging.errorPrint("Unconstructed Reference: "
 										+ getReferenceDescription() + " " + s);
+								fireUnconstuctedEvent(value);
 								returnGood = false;
 							}
 						}
-						constructObject(s);
+						unconstructed.add(s);
 					}
 				}
 			}
@@ -1033,7 +1096,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		listenerList.remove(UnconstructedListener.class, listener);
 	}
 
-	private void fireUnconstuctedEvent(CDOMSingleRef<?> ref)
+	private void fireUnconstuctedEvent(CDOMReference<?> ref)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		/*
