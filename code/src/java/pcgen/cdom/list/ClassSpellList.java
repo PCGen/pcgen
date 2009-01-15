@@ -17,7 +17,11 @@
  */
 package pcgen.cdom.list;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.spell.Spell;
 
 /**
@@ -40,14 +44,28 @@ public class ClassSpellList extends CDOMListObject<Spell>
 		return Spell.class;
 	}
 
-	/**
-	 * Lists never have a Type, so this returns false
-	 */
 	@Override
-	public boolean isType(String str)
+	public boolean isType(final String aType)
 	{
-		return false;
+		if (aType.length() == 0)
+		{
+			return false;
+		}
+
+		//
+		// Must match all listed types in order to qualify
+		//
+		StringTokenizer tok = new StringTokenizer(aType, ".");
+		while (tok.hasMoreTokens())
+		{
+			if (!containsInList(ListKey.TYPE, Type.getConstant(tok.nextToken())))
+			{
+				return false;
+			}
+		}
+		return true;
 	}
+
 
 	// No additional Functionality :)
 
