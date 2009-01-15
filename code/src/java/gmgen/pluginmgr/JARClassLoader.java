@@ -238,6 +238,10 @@ public class JARClassLoader extends ClassLoader
 				PluginLoader.pluginError(jar.getPath(), "plugin-error.start-error", args);
 			}
 		}
+		if (plugins.isEmpty())
+		{
+			closeZipFile();
+		}
 		Collections.sort(plugins, new Plugin.PluginComperator());
 		for ( Plugin pl : plugins )
 		{
