@@ -25,8 +25,10 @@ import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedEvent;
@@ -37,25 +39,14 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		UnconstructedListener
 {
 
-	private DoubleKeyMapToList<CDOMSingleRef<?>, URI, String> track = new DoubleKeyMapToList<CDOMSingleRef<?>, URI, String>();
+	private DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<CDOMReference<?>, URI, String>();
 
 	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
 			Class<T> c, Category<T> cat, String val)
 	{
 		CDOMSingleRef<T> ref = super.getCDOMReference(c, cat, val);
-		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-		String source = null;
-		for (int i = 0; i < stackTrace.length; i++)
-		{
-			String className = stackTrace[i].getClassName();
-			if (className.startsWith("plugin.lsttokens"))
-			{
-				source = className;
-				break;
-			}
-		}
-		track.addToListFor(ref, getSourceURI(), source);
+		track.addToListFor(ref, getSourceURI(), getSource());
 		return ref;
 	}
 
@@ -64,18 +55,42 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			String val)
 	{
 		CDOMSingleRef<T> ref = super.getCDOMReference(c, val);
-		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-		String source = null;
-		for (int i = 0; i < stackTrace.length; i++)
-		{
-			String className = stackTrace[i].getClassName();
-			if (className.startsWith("plugin.lsttokens"))
-			{
-				source = className;
-				break;
-			}
-		}
-		track.addToListFor(ref, getSourceURI(), source);
+		track.addToListFor(ref, getSourceURI(), getSource());
+		return ref;
+	}
+
+	@Override
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(
+			Class<T> c, Category<T> cat)
+	{
+		CDOMGroupRef<T> ref = super.getCDOMAllReference(c, cat);
+		track.addToListFor(ref, getSourceURI(), getSource());
+		return ref;
+	}
+
+	@Override
+	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
+	{
+		CDOMGroupRef<T> ref = super.getCDOMAllReference(c);
+		track.addToListFor(ref, getSourceURI(), getSource());
+		return ref;
+	}
+
+	@Override
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMTypeReference(
+			Class<T> c, Category<T> cat, String... val)
+	{
+		CDOMGroupRef<T> ref = super.getCDOMTypeReference(c, cat, val);
+		track.addToListFor(ref, getSourceURI(), getSource());
+		return ref;
+	}
+
+	@Override
+	public <T extends CDOMObject> CDOMGroupRef<T> getCDOMTypeReference(
+			Class<T> c, String... val)
+	{
+		CDOMGroupRef<T> ref = super.getCDOMTypeReference(c, val);
+		track.addToListFor(ref, getSourceURI(), getSource());
 		return ref;
 	}
 
@@ -109,7 +124,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 
 	public void unconstructedReferenceFound(UnconstructedEvent e)
 	{
-		CDOMSingleRef<?> ref = e.getReference();
+		CDOMReference<?> ref = e.getReference();
 		Set<URI> uris = track.getSecondaryKeySet(ref);
 		if (uris == null)
 		{
@@ -124,6 +139,22 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Logging.errorPrint("  Was used in " + uri + " in tokens: "
 					+ tokenNames);
 		}
+	}
+
+	private String getSource()
+	{
+		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+		String source = null;
+		for (int i = 0; i < stackTrace.length; i++)
+		{
+			String className = stackTrace[i].getClassName();
+			if (className.startsWith("plugin.lsttokens"))
+			{
+				source = className;
+				break;
+			}
+		}
+		return source;
 	}
 
 }
