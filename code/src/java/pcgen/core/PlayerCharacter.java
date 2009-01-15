@@ -9789,41 +9789,46 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// TypedBonus.totalBonusesByType(bonuses);
 		// return CoreUtility.commaDelimit(bonusStrings);
 
+		final Set<String> keys = new TreeSet<String>();
 		for (String aKey : getActiveBonusMap().keySet())
 		{
 			if (aKey.startsWith(prefix))
 			{
-				// make a list of keys that end with .REPLACE
-				if (aKey.endsWith(".REPLACE"))
+				keys.add(aKey);
+			}
+		}
+		for (String aKey : keys)
+		{
+			// make a list of keys that end with .REPLACE
+			if (aKey.endsWith(".REPLACE"))
+			{
+				aList.add(aKey);
+			}
+			else
+			{
+				String reason = "";
+
+				if (aKey.length() > prefix.length())
 				{
-					aList.add(aKey);
+					reason = aKey.substring(prefix.length() + 1);
 				}
-				else
+
+				final int b = (int) getActiveBonusForMapKey(aKey, 0);
+
+				if (b == 0)
 				{
-					String reason = "";
-
-					if (aKey.length() > prefix.length())
-					{
-						reason = aKey.substring(prefix.length() + 1);
-					}
-
-					final int b = (int) getActiveBonusForMapKey(aKey, 0);
-
-					if (b == 0)
-					{
-						continue;
-					}
-
-					if (!"NULL".equals(reason) && (reason.length() > 0))
-					{
-						if (buf.length() > 0)
-						{
-							buf.append(", ");
-						}
-						buf.append(reason).append(' ');
-					}
-					buf.append(Delta.toString(b));
+					continue;
 				}
+
+				if (!"NULL".equals(reason) && (reason.length() > 0))
+				{
+					if (buf.length() > 0)
+					{
+						buf.append(", ");
+					}
+					buf.append(reason).append(' ');
+				}
+				buf.append(Delta.toString(b));
 			}
 		}
 
