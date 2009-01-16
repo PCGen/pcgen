@@ -798,8 +798,6 @@ public final class Equipment extends PObject implements Serializable,
 				BigDecimal eqModCost;
 				Formula cost = eqMod.getSafe(FormulaKey.COST);
 				String costFormula = cost.toString();
-				Pattern pat = Pattern.compile("BASECOST");
-				Matcher mat;
 
 				if (hasAssociations(eqMod)
 						&& !costFormula.equals(EqModCost.getCost(eqMod, getFirstAssociation(eqMod)))) {
@@ -807,16 +805,7 @@ public final class Equipment extends PObject implements Serializable,
 
 					for (String assoc : getAssociationList(eqMod))
 					{
-						mat = pat.matcher(EqModCost.getCost(eqMod, assoc));
-
-						// make string (BASECOST/X) which will be substituted into
-						// the cost string which is then converted to a number
-						StringBuffer sB = new StringBuffer("(BASECOST/");
-						sB.append(getSafe(IntegerKey.BASE_QUANTITY));
-						sB.append(")");
-
-						String s = mat.replaceAll(sB.toString());
-						String v = getVariableValue(s, "", true, aPC).toString();
+						String v = calcEqModCost(aPC, EqModCost.getCost(eqMod, assoc));
 						
 						final BigDecimal thisModCost = new BigDecimal(v);
 
@@ -831,16 +820,7 @@ public final class Equipment extends PObject implements Serializable,
 
 					iCount = 1;
 				} else {
-					mat = pat.matcher(cost.toString());
-					
-					// make string (BASECOST/X) which will be substituted into
-					// the cost string which is then converted to a number
-					StringBuffer sB = new StringBuffer("(BASECOST/");
-					sB.append(getSafe(IntegerKey.BASE_QUANTITY));
-					sB.append(")");
-
-					String s = mat.replaceAll(sB.toString());
-					String v = getVariableValue(s, "", true, aPC).toString();
+					String v = calcEqModCost(aPC, cost.toString());
 
 					eqModCost = new BigDecimal(v);
 
@@ -937,6 +917,28 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		return c1.add(itemCost).add(costMod);
+	}
+
+	/**
+	 * @param aPC The character we are calculating the cost for.
+	 * @param costFormula The formula to be evaluated.
+	 * @return
+	 */
+	private String calcEqModCost(final PlayerCharacter aPC,
+		String costFormula)
+	{
+		Pattern pat = Pattern.compile("BASECOST");
+		Matcher mat = pat.matcher(costFormula);
+
+		// make string (BASECOST/X) which will be substituted into
+		// the cost string which is then converted to a number
+		StringBuffer sB = new StringBuffer("(BASECOST/");
+		sB.append(getSafe(IntegerKey.BASE_QUANTITY));
+		sB.append(")");
+		String s = mat.replaceAll(sB.toString());
+		
+		String v = getVariableValue(s, "", true, aPC).toString();
+		return v;
 	}
 
 	/**
