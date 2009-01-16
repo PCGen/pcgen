@@ -81,7 +81,7 @@ public class FeatToken extends AbstractToken implements
 					return false;
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
-						Ability.FEATLIST);
+						Ability.TEMPLATE_FEATLIST);
 			}
 			else
 			{
@@ -93,7 +93,7 @@ public class FeatToken extends AbstractToken implements
 					return false;
 				}
 				AssociatedPrereqObject assoc = context.getListContext()
-						.addToList(getTokenName(), obj, Ability.FEATLIST,
+						.addToList(getTokenName(), obj, Ability.TEMPLATE_FEATLIST,
 								ability);
 				assoc.setAssociation(AssociationKey.NATURE,
 						Ability.Nature.AUTOMATIC);
@@ -113,7 +113,7 @@ public class FeatToken extends AbstractToken implements
 	{
 		AssociatedChanges<CDOMReference<Ability>> changes = context
 				.getListContext().getChangesInList(getTokenName(), pct,
-						Ability.FEATLIST);
+						Ability.TEMPLATE_FEATLIST);
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
 				.getAddedAssociations();
 		if (mtl == null || mtl.isEmpty())

@@ -17113,7 +17113,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<String> feats = new ArrayList<String>();
 
-		for (CDOMReference<Ability> ref : pct.getSafeListMods(Ability.FEATLIST))
+		for (CDOMReference<Ability> ref : pct.getSafeListMods(Ability.TEMPLATE_FEATLIST))
 		{
 			/*
 			 * This is a hack for 5.x core compatibility... should use
@@ -17201,7 +17201,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// We haven't selected one yet. Ask for one if we are allowed.
-		if (featKey == null && lt.hasListMods(Ability.FEATLIST))
+		if (featKey == null && lt.hasListMods(Ability.TEMPLATE_FEATLIST))
 		{
 			getLevelFeat(lt, lvl, lvlKey);
 		}
@@ -17228,7 +17228,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			List<String> featList = new ArrayList<String>();
 			List<String> featChoices = new ArrayList<String>();
 			for (CDOMReference<Ability> ref : pct
-				.getSafeListMods(Ability.FEATLIST))
+				.getSafeListMods(Ability.TEMPLATE_FEATLIST))
 			{
 				/*
 				 * This is a hack for 5.x core compatibility... should use

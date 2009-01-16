@@ -40,12 +40,16 @@ import pcgen.core.utils.ShowMessageDelegate;
 public final class Ability extends PObject implements Categorisable, CategorizedCDOMObject<Ability>
 {
 	public static final CDOMReference<AbilityList> FEATLIST;
+	public static final CDOMReference<AbilityList> TEMPLATE_FEATLIST;
 
 	static
 	{
 		AbilityList wpl = new AbilityList();
 		wpl.setName("*Feats");
 		FEATLIST = CDOMDirectSingleRef.getRef(wpl);
+		wpl = new AbilityList();
+		wpl.setName("*TemplateFeats");
+		TEMPLATE_FEATLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
 
 	/** An enum for the various types of ability options. */

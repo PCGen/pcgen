@@ -928,7 +928,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save feats
 				//
-				thisPCTemplate.removeAllFromList(Ability.FEATLIST);
+				thisPCTemplate.removeAllFromList(Ability.TEMPLATE_FEATLIST);
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
 				context.unconditionallyProcess(thisPCTemplate, "FEAT", aString);
@@ -1945,7 +1945,7 @@ public final class EditorMainForm extends JDialog
 					availableTemplateFeatsList.add(anAbility.getKeyName());
 				}
 
-				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
+				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.TEMPLATE_FEATLIST))
 				{
 					for (Ability a : ref.getContainedObjects())
 					{
