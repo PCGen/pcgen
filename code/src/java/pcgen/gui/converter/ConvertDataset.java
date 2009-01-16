@@ -169,8 +169,8 @@ public class ConvertDataset
 			{
 				SettingsHandler.setGame(modes.get(0));
 				EditorLoadContext lc = new EditorLoadContext();
-				new BatchConverter(outputDirectory, rootDirectory).process(
-						list, lc);
+				new BatchConverter(lc, outputDirectory, rootDirectory, list)
+						.process();
 			}
 		}
 		catch (PersistenceLayerException e)

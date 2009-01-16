@@ -15,19 +15,34 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.gui.converter;
+package pcgen.gui.converter.loader;
 
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.core.Campaign;
+import pcgen.gui.converter.Loader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
-public interface Loader
+public class SelfCopyLoader implements Loader
 {
-	public void process(StringBuilder sb, int line, String lineString)
-			throws PersistenceLayerException, InterruptedException;
 
-	public List<CampaignSourceEntry> getFiles(Campaign campaign);
+	public void process(StringBuilder sb, int line, String lineString)
+			throws PersistenceLayerException, InterruptedException
+	{
+		sb.append(lineString);
+	}
+
+	public List<CampaignSourceEntry> getFiles(Campaign c)
+	{
+		return Collections.singletonList(new CampaignSourceEntry(c, c
+				.getSourceURI()));
+	}
+
+	public String getLoadName()
+	{
+		return "Self";
+	}
 
 }

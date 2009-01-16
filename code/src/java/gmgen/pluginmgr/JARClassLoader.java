@@ -45,6 +45,8 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
+import pcgen.gui.converter.TokenConverter;
+import pcgen.gui.converter.event.TokenProcessorPlugin;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.persistence.lst.LstToken;
@@ -460,8 +462,21 @@ public class JARClassLoader extends ClassLoader
 			loadBonusTokens(clazz, name, modifiers);
 			loadPreTokens(clazz, modifiers);
 			loadJepCommands(clazz, modifiers);
+			loadConvertCommands(clazz, modifiers);
 		}
 		return loadPluginClass(clazz, modifiers, name, system);
+	}
+
+	private void loadConvertCommands(Class<?> clazz, int modifiers)
+			throws InstantiationException, IllegalAccessException
+	{
+		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers)
+				&& TokenProcessorPlugin.class.isAssignableFrom(clazz))
+		{
+			TokenProcessorPlugin tpp = (TokenProcessorPlugin) clazz
+					.newInstance();
+			TokenConverter.addToTokenMap(tpp);
+		}
 	}
 
 	private Plugin loadPluginClass(Class<?> clazz, int modifiers, String name, String system) throws Exception {

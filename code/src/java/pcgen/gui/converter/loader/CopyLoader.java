@@ -15,19 +15,39 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.gui.converter;
+package pcgen.gui.converter.loader;
 
 import java.util.List;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
+import pcgen.gui.converter.Loader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
-public interface Loader
+public class CopyLoader implements Loader
 {
-	public void process(StringBuilder sb, int line, String lineString)
-			throws PersistenceLayerException, InterruptedException;
+	private final ListKey<CampaignSourceEntry> listkey;
 
-	public List<CampaignSourceEntry> getFiles(Campaign campaign);
+	public CopyLoader(ListKey<CampaignSourceEntry> lk)
+	{
+		listkey = lk;
+	}
+
+	public void process(StringBuilder sb, int line, String lineString)
+			throws PersistenceLayerException, InterruptedException
+	{
+		sb.append(lineString);
+	}
+
+	public List<CampaignSourceEntry> getFiles(Campaign c)
+	{
+		return c.getSafeListFor(listkey);
+	}
+
+	public String getLoadName()
+	{
+		return "Copy " + listkey.toString();
+	}
 
 }

@@ -15,19 +15,33 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.gui.converter;
+package plugin.converter;
 
-import java.util.List;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Ability;
+import pcgen.gui.converter.event.TokenProcessEvent;
+import pcgen.gui.converter.event.TokenProcessorPlugin;
 
-import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.CampaignSourceEntry;
-
-public interface Loader
+public class CategoryConvertPlugin implements TokenProcessorPlugin
 {
-	public void process(StringBuilder sb, int line, String lineString)
-			throws PersistenceLayerException, InterruptedException;
+	// Just process over these magical tokens for now
+	public String process(TokenProcessEvent tpe)
+	{
+		tpe.append('\t');
+		tpe.append(tpe.getKey());
+		tpe.append(':');
+		tpe.append(tpe.getValue());
+		tpe.consume();
+		return null;
+	}
 
-	public List<CampaignSourceEntry> getFiles(Campaign campaign);
+	public Class<? extends CDOMObject> getProcessedClass()
+	{
+		return Ability.class;
+	}
 
+	public String getProcessedToken()
+	{
+		return "CATEGORY";
+	}
 }
