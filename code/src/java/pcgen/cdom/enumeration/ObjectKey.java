@@ -23,6 +23,7 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.net.URI;
@@ -52,6 +53,7 @@ import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
+import pcgen.core.GameMode;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
@@ -279,6 +281,12 @@ public class ObjectKey<T>
 	public static final ObjectKey<Prerequisite> PRERACETYPE = new ObjectKey<Prerequisite>(null);
 
 	public static final ObjectKey<QualifiedObject<Boolean>> HAS_ALL_WEAPONPROF = new ObjectKey<QualifiedObject<Boolean>>(new QualifiedObject<Boolean>(Boolean.FALSE));
+
+	public static final ObjectKey<File> DIRECTORY = new ObjectKey<File>(null);
+
+	public static final ObjectKey<File> WRITE_DIRECTORY = new ObjectKey<File>(null);
+
+	public static final ObjectKey<GameMode> GAME_MODE = new ObjectKey<GameMode>(null);
 
 	/*
 	 * TODO Okay, this is a hack.

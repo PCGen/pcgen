@@ -398,7 +398,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			.getAbsolutePath());
 
 		// Now that those are loaded, make sure to initialize the recursive campaigns
-		campaignLoader.initRecursivePccFiles();
+		initRecursivePccFiles();
 
 		Globals.sortPObjectListByName(Globals.getCampaignList());
 	}
@@ -1110,7 +1110,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		new File(aDirectory).list(pccFileFilter);
 	}
 
-	private void loadPCCFilesInDirectory(File aDirectory)
+	public void loadPCCFilesInDirectory(File aDirectory)
 	{
 		aDirectory.list(pccFileFilter);
 	}
@@ -1179,7 +1179,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 	}
 
-	private void loadGameModes()
+	public void loadGameModes()
 	{
 		final String[] gameFiles = getGameFilesList();
 
@@ -1619,6 +1619,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	{
 		Logging.errorPrint(message, e);
 		setChanged();
+	}
+
+	public void initRecursivePccFiles() throws PersistenceLayerException
+	{
+		campaignLoader.initRecursivePccFiles();
 	}
 
 }
