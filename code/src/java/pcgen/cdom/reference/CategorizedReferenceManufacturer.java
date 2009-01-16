@@ -187,15 +187,15 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	}
 
 	/**
-	 * Constructs a new CDOMObject of the Class and Category this
+	 * Builds a new CDOMObject of the Class and Category this
 	 * CategorizedReferenceManufacturer constructs.
 	 * 
 	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#constructObject(java.lang.String)
 	 */
 	@Override
-	public T constructObject(String val)
+	protected T buildObject(String val)
 	{
-		T obj = super.constructObject(val);
+		T obj = super.buildObject(val);
 		obj.setCDOMCategory(category);
 		return obj;
 	}

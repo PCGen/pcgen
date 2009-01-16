@@ -220,10 +220,10 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 			{
 				if (!parent.equals(obj.getCDOMCategory()))
 				{
-					throw new IllegalArgumentException("Cannot resolve a "
+					throw new IllegalArgumentException("Cannot resolve "
 							+ getReferenceClass().getSimpleName() + " "
-							+ obj.getCDOMCategory() + " Reference to category "
-							+ category);
+							+ getName() + obj.getCDOMCategory()
+							+ " Reference to category " + category);
 				}
 			}
 		}

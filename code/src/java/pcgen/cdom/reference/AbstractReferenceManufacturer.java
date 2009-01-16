@@ -512,7 +512,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
 	 * this AbstractReferenceManufacturer
 	 * 
-	 * This should remain private (vs. public) as it is for "internal use only";
+	 * This should remain protected (vs. public) as it is for "internal use only";
 	 * it serves as a convenience method to wrap the .newInstance call and the
 	 * possible Exceptions.  Other classes should use constructObject(String)
 	 * 
@@ -523,7 +523,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
 	 */
-	private T buildObject(String val)
+	protected T buildObject(String val)
 	{
 		if (val == null || val.equals(""))
 		{
