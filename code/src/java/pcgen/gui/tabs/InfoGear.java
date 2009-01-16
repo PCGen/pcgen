@@ -1707,9 +1707,18 @@ public final class InfoGear extends FilterAdapterPanel implements
 					pc.removeEquipment(aEq);
 				}
 
-				pc.addEquipment(newEq);
+				Equipment overlap = pc.getEquipmentNamed(newEq.getName());
+				if (overlap == null)
+				{
+					pc.addEquipment(newEq);
+					updateEqInfo(newEq);
+				}
+				else
+				{
+					overlap.setQty(overlap.getQty() + 1.0);
+					updateEqInfo(overlap);
+				}
 
-				updateEqInfo(newEq);
 				updateSelectedModel();
 				pc.setDirty(true);
 
