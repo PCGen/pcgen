@@ -540,6 +540,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	{
 		for (DeferredLine dl : sc.getSafeListFor(ListKey.SUB_CLASS_LEVEL))
 		{
+			context.setSourceURI(dl.source.getURI());
 			String lstLine = dl.lstLine;
 			try
 			{

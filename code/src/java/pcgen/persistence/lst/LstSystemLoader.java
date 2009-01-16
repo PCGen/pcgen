@@ -585,7 +585,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		bioLoader.loadLstFiles(context, bioSetFileList);
 
 		// Check for the default deities
-		checkRequiredDeities(context);
+		checkRequiredDeities(specificGameModeDir, context);
 
 		// Add default EQ mods
 		addDefaultEquipmentMods(context);
@@ -616,13 +616,18 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private void addDefaultEquipmentMods(LoadContext context)
 			throws PersistenceLayerException
 	{
-		CampaignSourceEntry source;
-		try {
-			source = new CampaignSourceEntry(new Campaign(),
-					new URI("file:/" + eqModLoader.getClass().getName() + ".java"));
-		} catch (URISyntaxException e) {
+		URI uri;
+		try
+		{
+			uri = new URI("file:/" + eqModLoader.getClass().getName() + ".java");
+		}
+		catch (URISyntaxException e)
+		{
 			throw new UnreachableError(e);
 		}
+		context.setSourceURI(uri);
+		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
+				uri);
 		String aLine;
 		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)";
 		eqModLoader.parseLine(context, null, aLine, source);
@@ -905,8 +910,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *                                   method being invoked more than once, a change to DeityLoader, or
 	 *                                   an invalid LST file containing the default deities.
 	 */
-	private void checkRequiredDeities(LoadContext context) throws PersistenceLayerException
+	private void checkRequiredDeities(File dir, LoadContext context) throws PersistenceLayerException
 	{
+		context.setSourceURI(new File(dir, "miscinfo.lst").toURI());
 		//
 		// Add in the default deities (unless they're already there)
 		//
