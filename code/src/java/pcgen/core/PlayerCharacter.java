@@ -16645,23 +16645,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							{
 								continue;
 							}
+							Nature nature = apo
+									.getAssociation(AssociationKey.NATURE);
+							AbilityCategory cat = apo
+									.getAssociation(AssociationKey.CATEGORY);
+							List<String> choices = apo
+									.getAssociation(AssociationKey.ASSOC_CHOICES);
+							if (choices == null)
+							{
+								choices = Collections.emptyList();
+							}
+							List<Ability> abilities =
+								theAbilities.get(cat, nature);
 							for (Ability ab : ref.getContainedObjects())
 							{
-								List<String> choices =
-										apo
-											.getAssociation(AssociationKey.ASSOC_CHOICES);
-								if (choices == null)
-								{
-									choices = Collections.emptyList();
-								}
-								Nature nature =
-										apo
-											.getAssociation(AssociationKey.NATURE);
-								AbilityCategory cat =
-										apo
-											.getAssociation(AssociationKey.CATEGORY);
-								List<Ability> abilities =
-										theAbilities.get(cat, nature);
 								Ability added =
 										AbilityUtilities
 											.addAbilityToListwithChoices(this,
