@@ -20,8 +20,9 @@ jar-all-plugins - Generate the plugin jar files
 	<property name="lstplugins.dir" value="${plugins.dir}/lstplugins" />
 	<property name="systemlstplugins.dir" value="${plugins.dir}/systemlstplugins" />
 	<property name="jepplugins.dir" value="${plugins.dir}/jepplugins" />
+	<property name="converterplugins.dir" value="${plugins.dir}/converterplugins" />
 
-	<target name="jar-all-plugins" depends="makeplugindirs,jar-gmgen-plugins,jar-export-plugins,jar-bonus-plugins,jar-pre-plugins,jar-lst-plugins, jar-systemlst-plugins, jar-jep-plugins, jar-deprecated-plugin" description="Build (Link) plugin jar files">
+	<target name="jar-all-plugins" depends="makeplugindirs,jar-gmgen-plugins,jar-export-plugins,jar-bonus-plugins,jar-pre-plugins,jar-lst-plugins, jar-systemlst-plugins, jar-converter-plugins, jar-jep-plugins, jar-deprecated-plugin" description="Build (Link) plugin jar files">
 	</target>
 
 	<target name="jar-gmgen-plugins" depends="makeplugindirs" description="Build (Link) GMGen plugin jar files">
@@ -3110,7 +3111,7 @@ jar-all-plugins - Generate the plugin jar files
 					<include name="plugin/lsttokens/pcclass/AllowBaseClassToken.class" />
 				</patternset>
 			</fileset>
-		</jar>		
+		</jar>
 		<jar jarfile="${lstplugins.dir}/ClassLstToken-HASSUBSTITUTIONLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -3287,7 +3288,7 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 	</target>
-	
+
 	<target name="jar-lst-pcclass-level-plugins" depends="makeplugindirs" description="Build (Link) Class Level Lst Token plugin jar files">
 		<jar jarfile="${lstplugins.dir}/ClassLevelLstToken-ADDDOMAINS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
@@ -3887,7 +3888,7 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 	</target>
-		
+
 	<target name="jar-lst-race-plugins" depends="makeplugindirs" description="Build (Link) Race Lst Token plugin jar files">
 		<!-- Race tokens-->
 		<jar jarfile="${lstplugins.dir}/RaceLstToken-CHOOSELANGAUTO.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
@@ -4833,6 +4834,30 @@ jar-all-plugins - Generate the plugin jar files
 
 	</target>
 
+	<target name="jar-converter-plugins" depends="makeplugindirs" description="Build (Link) Converter plugin jar files">
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/AbbConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-CATEGORY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/CategoryConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-KEY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/KeyConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
 	<target name="jar-jep-plugins" depends="makeplugindirs" description="Build (Link) Jep Command plugin jar files">
 		<jar jarfile="${jepplugins.dir}/JepCommand-CEIL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
@@ -5119,7 +5144,7 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		
+
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-DEFAULTSPELLBOOK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5316,7 +5341,7 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-				
+
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ROLLMETHOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6239,6 +6264,9 @@ Class-Path: ${manifest.extra.jars}
 		<delete>
 			<fileset dir="${jepplugins.dir}" includes="*.jar" />
 		</delete>
+		<delete>
+			<fileset dir="${converterplugins.dir}" includes="*.jar" />
+		</delete>
 	</target>
 
 	<target name="makeplugindirs" description="Creates any needed directories">
@@ -6248,6 +6276,7 @@ Class-Path: ${manifest.extra.jars}
 		<mkdir dir="${lstplugins.dir}" />
 		<mkdir dir="${systemlstplugins.dir}" />
 		<mkdir dir="${jepplugins.dir}" />
+		<mkdir dir="${converterplugins.dir}" />
 	</target>
 
 </project>
