@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Jan 15 23:01:29 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
 
@@ -111,11 +111,11 @@ Alternate Form (Thinblood Yuan-ti)	CATEGORY:Dawnforge Ability	TYPE:DoppelAltForm
 #TODO: Talent feats from the choosen form,...
 
 ###Block: Racial Transformations
-# Ability Name				Category of Ability		Type						Visible	Required Lvl	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Bonus to Ability Pool						Combat bonus					Add to vision			Modify VAR				Source Page
-Doppelganger Darkvision			CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES	PRELEVEL:MIN=4																											MULT:NO																				BONUS:VISION|DarkVision|60						SOURCEPAGE:p.20
+# Ability Name				Category of Ability		Type						Visible	Required Lvl	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Bonus to Ability Pool						Combat bonus					Modify VAR				Add to vision			Source Page
+Doppelganger Darkvision			CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES	PRELEVEL:MIN=4																											MULT:NO																									BONUS:VISION|DarkVision|60	SOURCEPAGE:p.20
 Detect Thoughts				CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES	PRELEVEL:MIN=6												SAB:Detect Thoughts												MULT:NO																														SOURCEPAGE:p.20
-Unusal Physiology				CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES															SAB:Unusal Physiology (%%)|UnusalPhysiology	DEFINE:UnusalPhysiology|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|UnusalPhysiology|10	SOURCEPAGE:p.20
-Change Shape				CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES	PRELEVEL:MIN=6												SAB:Change Shape (%/day)|ChangeShape		DEFINE:ChangeShape|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|ChangeShape|1		SOURCEPAGE:p.20
+Unusal Physiology				CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES															SAB:Unusal Physiology (%%)|UnusalPhysiology	DEFINE:UnusalPhysiology|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|UnusalPhysiology|10						SOURCEPAGE:p.20
+Change Shape				CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES	PRELEVEL:MIN=6												SAB:Change Shape (%/day)|ChangeShape		DEFINE:ChangeShape|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|ChangeShape|1							SOURCEPAGE:p.20
 Doppelganger Natural Armor		CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES																														MULT:NO													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											SOURCEPAGE:p.20
 Doppelganger Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Doppelganger Transformation Skill|5																		SOURCEPAGE:p.22
 Doppelganger Transformation Feats	CATEGORY:Dawnforge Ability	TYPE:DoppelRacialTransformation	VISIBLE:YES				PRETEXT:This racial trait may not be selected twice in a row														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Doppelganger Transformation Feat|1																		SOURCEPAGE:p.22
@@ -147,22 +147,22 @@ Dwarf Transformation Feats	CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransforma
 ##################
 
 ###Block: Racial Talents
-# Ability Name		Category of Ability		Type					Visible	Required Ability									Required Lvl	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Bonus to Ability Pool				Combat bonus										Modify VAR				Source Page		Temporary effect description
-Lesser Spellcasting I	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES																										SAB:Lesser Spellcasting I											MULT:NO																												SOURCEPAGE:p.25
-Lesser Spellcasting II	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Lesser Spellcasting I	PRELEVEL:MIN=7												SAB:Lesser Spellcasting II											MULT:NO																												SOURCEPAGE:p.25
-Voice of the Woodlands	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES																										SAB:Voice of the Woodlands											MULT:NO																												SOURCEPAGE:p.25
-Woodland Fighting		CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row	SAB:Woodland Fighting (+%)|WoodlandFighting	DEFINE:WoodlandFighting|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:COMBAT|TOHIT|WoodlandFighting|PREAPPLY:PC|TYPE=WoodlandFighting	BONUS:VAR|WoodlandFighting|1	SOURCEPAGE:p.25	TEMPDESC:Apply this bonus when fighting in woodland areas
-Dawn Elf Talent Skills	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES																																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Talent Skill|5																		SOURCEPAGE:p.25
-Dawn Elf Talent Feats	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Talent Feat|1																		SOURCEPAGE:p.25
+# Ability Name				Output Name					Category of Ability		Type					Visible	Required Ability									Required Lvl	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Bonus to Ability Pool				Combat bonus										Modify VAR				Source Page		Temporary effect description
+Dawn Elf Lesser Spellcasting I	OUTPUTNAME:Lesser Spellcasting I	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES																										SAB:Lesser Spellcasting I											MULT:NO																												SOURCEPAGE:p.25
+Dawn Elf Lesser Spellcasting II	OUTPUTNAME:Lesser Spellcasting II	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Lesser Spellcasting I	PRELEVEL:MIN=7												SAB:Lesser Spellcasting II											MULT:NO																												SOURCEPAGE:p.25
+Voice of the Woodlands									CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES																										SAB:Voice of the Woodlands											MULT:NO																												SOURCEPAGE:p.25
+Woodland Fighting										CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row	SAB:Woodland Fighting (+%)|WoodlandFighting	DEFINE:WoodlandFighting|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:COMBAT|TOHIT|WoodlandFighting|PREAPPLY:PC|TYPE=WoodlandFighting	BONUS:VAR|WoodlandFighting|1	SOURCEPAGE:p.25	TEMPDESC:Apply this bonus when fighting in woodland areas
+Dawn Elf Talent Skills									CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES																																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Talent Skill|5																		SOURCEPAGE:p.25
+Dawn Elf Talent Feats									CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Talent Feat|1																		SOURCEPAGE:p.25
 
 ###Block: Racial Transformations
-# Ability Name				Category of Ability		Type						Visible	Required Text									Special ABility			Stackable?	Multiple?	Choose		Bonus to Ability Pool						Source Page
-Elfsight					CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Elfsight					MULT:NO													SOURCEPAGE:p.25
-Improved Spell Immunity			CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Improved Spell Immunity			MULT:NO													SOURCEPAGE:p.25
-Wild Empathy				CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												ABILITY:Special Ability|VIRTUAL|Wild Empathy					MULT:NO													SOURCEPAGE:p.25
-Ageless					CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Ageless						MULT:NO													SOURCEPAGE:p.25
-Dawn Elf Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Transformation Skill|5	SOURCEPAGE:p.22
-Dawn Elf Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Transformation Feat|1	SOURCEPAGE:p.22
+# Ability Name				Category of Ability		Type						Visible	Required Text									Special ABility			Stackable?	Multiple?	Choose		Ability							Bonus to Ability Pool						Source Page
+Elfsight					CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Elfsight					MULT:NO																					SOURCEPAGE:p.25
+Improved Spell Immunity			CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Improved Spell Immunity			MULT:NO																					SOURCEPAGE:p.25
+Wild Empathy				CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES																			MULT:NO				ABILITY:Special Ability|VIRTUAL|Wild Empathy										SOURCEPAGE:p.25
+Ageless					CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES												SAB:Ageless						MULT:NO																					SOURCEPAGE:p.25
+Dawn Elf Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:ABILITYPOOL|Dawn Elf Transformation Skill|5	SOURCEPAGE:p.22
+Dawn Elf Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:DawnElfRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row						STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:ABILITYPOOL|Dawn Elf Transformation Feat|1	SOURCEPAGE:p.22
 
 #TODO: Improved Spell Immunity, Arcane Mastery, Lesser Spellcasting
 
@@ -244,11 +244,11 @@ Highlander Talent Feats	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	V
 Voice of the Highlands	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTalent	VISIBLE:YES												SAB:Voice of the Highlands			MULT:NO												SOURCEPAGE:p.32
 
 ###Block: Racial Transformations
-# Ability Name				Category of Ability		Type						Visible	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Bonus to Ability Pool						Add to base move			Modify VAR				Source Page
-Disciplined Mind				CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES												SAB:Disciplined Mind (%/day)|DisciplinedMind	DEFINE:DisciplinedMind|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|DisciplinedMind|1	SOURCEPAGE:p.32
-Fast Movement				CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES												SAB:Fast Movement											STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:MOVEADD|TYPE.Walk|5						SOURCEPAGE:p.32
-Highlander Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Highlander Transformation Skill|5											SOURCEPAGE:p.32
-Highlander Transformation Feats	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Highlander Transformation Feat|1											SOURCEPAGE:p.32
+# Ability Name				Output Name				Category of Ability		Type						Visible	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Bonus to Ability Pool						Add to base move			Modify VAR				Source Page
+Disciplined Mind									CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES												SAB:Disciplined Mind (%/day)|DisciplinedMind	DEFINE:DisciplinedMind|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|DisciplinedMind|1	SOURCEPAGE:p.32
+Highlander Fast Movement		OUTPUTNAME:Fast Movement	CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES												SAB:Fast Movement											STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:MOVEADD|TYPE.Walk|5						SOURCEPAGE:p.32
+Highlander Transformation Skills						CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Highlander Transformation Skill|5											SOURCEPAGE:p.32
+Highlander Transformation Feats						CATEGORY:Dawnforge Ability	TYPE:HighlanderRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Highlander Transformation Feat|1											SOURCEPAGE:p.32
 
 #TODO: Fast Learner
 
@@ -264,12 +264,12 @@ Lowlander Talent Skills	CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VI
 Lowlander Talent Feats	CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTalent	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Talent Feat|1							SOURCEPAGE:p.37
 
 ###Block: Racial Transformations
-# Ability Name				Category of Ability		Type						Visible	Required Text									Special ABility	Stackable?	Multiple?	Choose		Bonus to Ability Pool						Save checks bonus		Add to base move			Source Page
-Fast Movement				CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row				STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
-Great Swimmer				CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES												SAB:Great Swimmer			MULT:NO																						SOURCEPAGE:p.40
-Strength of Body Mind and Spirit	CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES															STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:CHECKS|ALL|1						SOURCEPAGE:p.40
-Lowlander Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES															STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Skill|5										SOURCEPAGE:p.40
-Lowlander Transformation Feats	CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Feat|1										SOURCEPAGE:p.40
+# Ability Name				Output Name				Category of Ability		Type						Visible	Required Text									Special ABility	Stackable?	Multiple?	Choose		Bonus to Ability Pool						Save checks bonus		Add to base move			Source Page
+Lowlander Fast Movement			OUTPUTNAME:Fast Movement	CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row				STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
+Great Swimmer									CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES												SAB:Great Swimmer			MULT:NO																						SOURCEPAGE:p.40
+Strength of Body Mind and Spirit						CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES															STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:CHECKS|ALL|1						SOURCEPAGE:p.40
+Lowlander Transformation Skills						CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES															STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Skill|5										SOURCEPAGE:p.40
+Lowlander Transformation Feats						CATEGORY:Dawnforge Ability	TYPE:LowlanderRacialTransformation	VISIBLE:YES	PRETEXT:This racial trait may not be selected twice in a row				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Feat|1										SOURCEPAGE:p.40
 
 ########################
 ### Human, Saltblood ###
@@ -297,27 +297,27 @@ Saltblood Transformation Feats	CATEGORY:Dawnforge Ability	TYPE:SaltbloodRacialTr
 #######################
 
 ###Block: Racial Talents
-# Ability Name		Category of Ability		Type					Visible	Required Ability									Required Lvl	Required Text									Special ABility				Define			Stackable?	Multiple?	Choose		Bonus to Ability Pool				Modify VAR			Source Page
-Lesser Spellcasting I	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																										SAB:Lesser Spellcasting I								MULT:NO															SOURCEPAGE:p.41
-Lesser Spellcasting II	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Lesser Spellcasting I	PRELEVEL:MIN=7												SAB:Lesser Spellcasting II								MULT:NO															SOURCEPAGE:p.41
-Trueborn Talent Skills	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Trueborn Talent Skill|5					SOURCEPAGE:p.41
-Trueborn Talent Feats	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Trueborn Talent Feat|1					SOURCEPAGE:p.41
-Horse Shield		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row	SAB:Horse Shield (+%)|HorseShield	DEFINE:HorseShield|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|HorseShield|2	SOURCEPAGE:p.41
-Natural Rider		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																										SAB:Natural Rider										MULT:NO															SOURCEPAGE:p.41
-Mounted Warrior		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																										SAB:Mounted Warrior (+1)								MULT:NO															SOURCEPAGE:p.41
+# Ability Name				Output Name					Category of Ability		Type					Visible	Required Ability									Required Lvl	Required Text									Special ABility				Define			Stackable?	Multiple?	Choose		Bonus to Ability Pool				Modify VAR			Source Page
+Trueborn Lesser Spellcasting I	OUTPUTNAME:Lesser Spellcasting I	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																										SAB:Lesser Spellcasting I								MULT:NO															SOURCEPAGE:p.41
+Trueborn Lesser Spellcasting II	OUTPUTNAME:Lesser Spellcasting II	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Lesser Spellcasting I	PRELEVEL:MIN=7												SAB:Lesser Spellcasting II								MULT:NO															SOURCEPAGE:p.41
+Trueborn Talent Skills									CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Trueborn Talent Skill|5					SOURCEPAGE:p.41
+Trueborn Talent Feats									CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Trueborn Talent Feat|1					SOURCEPAGE:p.41
+Horse Shield										CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row	SAB:Horse Shield (+%)|HorseShield	DEFINE:HorseShield|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|HorseShield|2	SOURCEPAGE:p.41
+Natural Rider										CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																										SAB:Natural Rider										MULT:NO															SOURCEPAGE:p.41
+Mounted Warrior										CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES																										SAB:Mounted Warrior (+1)								MULT:NO															SOURCEPAGE:p.41
 
 #TODO: Lesser Spellcasting ..
 
 ###Block: Racial Transformations
-# Ability Name				Category of Ability		Type						Visible	Required Ability							Required Lvl	Required Text									Special ABility			Stackable?	Multiple?	Choose		Template				Bonus to Ability Pool						Combat bonus				Add to vision			Source Page
-Trueborn Outsider				CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=6																			MULT:NO				TEMPLATE:Trueborn Outsider																					SOURCEPAGE:p.41
-Aura of Good				CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																								ABILITY:Special Ability|AUTOMATIC|Aura of Good					MULT:NO																													SOURCEPAGE:p.41
-Trueborn Natural Armor			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																															MULT:NO																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor						SOURCEPAGE:p.41
-Trueborn Spell Resistance		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Aura of Good	PRELEVEL:MIN=6												SAB:Spell Resistance (%)|5+TL			MULT:NO																													SOURCEPAGE:p.41
-Angel Wings					CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=8												SAB:Angel Wings					MULT:NO																													SOURCEPAGE:p.41
-Trueborn Darkvision			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=4																			MULT:NO																								BONUS:VISION|DarkVision|60	SOURCEPAGE:p.41
-Trueborn Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Trueborn Transformation Skill|5												SOURCEPAGE:p.41
-Trueborn Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES													PRETEXT:This racial trait may not be selected twice in a row						STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Trueborn Transformation Feat|1												SOURCEPAGE:p.41
+# Ability Name				Category of Ability		Type						Visible	Required Ability							Required Lvl	Required Text									Special ABility			Stackable?	Multiple?	Choose		Template				Ability							Bonus to Ability Pool						Combat bonus				Add to vision			Source Page
+Trueborn Outsider				CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=6																			MULT:NO				TEMPLATE:Trueborn Outsider																													SOURCEPAGE:p.41
+Aura of Good				CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																															MULT:NO									ABILITY:Special Ability|AUTOMATIC|Aura of Good																					SOURCEPAGE:p.41
+Trueborn Natural Armor			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																															MULT:NO																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor						SOURCEPAGE:p.41
+Trueborn Spell Resistance		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Aura of Good	PRELEVEL:MIN=6												SAB:Spell Resistance (%)|5+TL			MULT:NO																																					SOURCEPAGE:p.41
+Angel Wings					CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=8												SAB:Angel Wings					MULT:NO																																					SOURCEPAGE:p.41
+Trueborn Darkvision			CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES										PRELEVEL:MIN=4																			MULT:NO																																BONUS:VISION|DarkVision|60	SOURCEPAGE:p.41
+Trueborn Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Trueborn Transformation Skill|5												SOURCEPAGE:p.41
+Trueborn Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTransformation	VISIBLE:YES													PRETEXT:This racial trait may not be selected twice in a row						STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Trueborn Transformation Feat|1												SOURCEPAGE:p.41
 
 ##################
 ### Lizardfolk ###
@@ -422,11 +422,11 @@ Tiefling Talent Feats	CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent	VISIB
 #TODO:Demonic Familiar, Infernal Gift.. Natural Armor?
 
 ###Block: Racial Transformations
-# Ability Name				Category of Ability		Type						Visible	Restricted Ability										Required Lvl	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Template				Bonus to Ability Pool						Combat bonus					Add to vision			Modify VAR																					Source Page
+# Ability Name				Category of Ability		Type						Visible	Restricted Ability										Required Lvl	Required Text									Special ABility						Define				Stackable?	Multiple?	Choose		Template				Bonus to Ability Pool						Combat bonus					Modify VAR																					Add to vision			Source Page
 Outsider					CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES																																											MULT:NO				TEMPLATE:Tiefling Outsider																																												SOURCEPAGE:p.53
-Tiefling Fire Resistance		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Tiefling Fire Resistance																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:VAR|FireResistance|5	BONUS:VAR|FireImmunity|1|PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Tiefling Fire Resistance	SOURCEPAGE:p.53
-Tiefling Darkvision			CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES														PRELEVEL:MIN=4																											MULT:NO																									BONUS:VISION|DarkVision|60																							SOURCEPAGE:p.53
-Infernal Presence				CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES																												SAB:Infernal Presence (%/day)|InfernalPresence	DEFINE:InfernalPresence|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:VAR|InfernalPresence|1																		SOURCEPAGE:p.53
+Tiefling Fire Resistance		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Tiefling Fire Resistance																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|FireResistance|5	BONUS:VAR|FireImmunity|1|PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Tiefling Fire Resistance						SOURCEPAGE:p.53
+Tiefling Darkvision			CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES														PRELEVEL:MIN=4																											MULT:NO																																															BONUS:VISION|DarkVision|60	SOURCEPAGE:p.53
+Infernal Presence				CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES																												SAB:Infernal Presence (%/day)|InfernalPresence	DEFINE:InfernalPresence|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|InfernalPresence|1																							SOURCEPAGE:p.53
 Tiefling Natural Armor			CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES																																											MULT:NO																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																												SOURCEPAGE:p.53
 Tiefling Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Tiefling Transformation Skill|5																																			SOURCEPAGE:p.53
 Tiefling Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISIBLE:YES														PRELEVEL:MIN=4	PRETEXT:This racial trait may not be selected twice in a row														STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Tiefling Transformation Feat|1																																			SOURCEPAGE:p.53
@@ -443,8 +443,8 @@ Tiefling Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTra
 # Ability Name		Category of Ability		Type					Visible	Required Ability									Required Lvl	Required Text									Special ABility			Innate Spells									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Source Page
 Bite Attack			CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES																										SAB:Bite Attack																MULT:NO												SOURCEPAGE:p.55
 Poison Attack		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES																										SAB:Poison Attack																MULT:NO												SOURCEPAGE:p.55
-Lesser Psionics I		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES																										SAB:Lesser Psionics I		SPELLS:Innate|TIMES=1|Chameleon,11|Detect Poison,10|Produce Acid			MULT:NO												SOURCEPAGE:p.55
-Lesser Psionics II	CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Lesser Psionics I		PRELEVEL:MIN=5												SAB:Lesser Psionics II		SPELLS:Innate|TIMES=1|Alternate Form|Aversion,12					MULT:NO												SOURCEPAGE:p.55
+Lesser Psionics I		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES																										SAB:Lesser Psionics I		SPELLS:Innate|TIMES=1|Chameleon,11|Detect Poison,10|Acid Splash			MULT:NO												SOURCEPAGE:p.55
+Lesser Psionics II	CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Lesser Psionics I		PRELEVEL:MIN=5												SAB:Lesser Psionics II		SPELLS:Innate|TIMES=1|Alter Self|Aversion,12						MULT:NO												SOURCEPAGE:p.55
 Psionic Mastery		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES																										SAB:Psionic Mastery															MULT:NO												SOURCEPAGE:p.55
 Invisible Psionics	CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Lesser Psionics II																SAB:Invisible Psionics															MULT:NO												SOURCEPAGE:p.55
 Thinblood Talent Skills	CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Talent Skill|5	SOURCEPAGE:p.55

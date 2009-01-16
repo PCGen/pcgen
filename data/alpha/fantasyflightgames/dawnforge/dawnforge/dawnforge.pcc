@@ -55,6 +55,7 @@ FEAT:dawnforge_feats_hidden_legendary.lst
 
 EQUIPMENT:dawnforge_equip_shields.lst
 EQUIPMENT:dawnforge_equip_weap.lst
+SKILL:dawnforge_skills.lst
 WEAPONPROF:dawnforge_weaponprofs.lst
 
 # Talents & Transformations to Abililtes

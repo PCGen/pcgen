@@ -86,7 +86,7 @@ Fast Learner		TYPE:RacialTalent.HalflRacialTalent.HHighlRacialTalent.HLowlRacial
 
 ### Generic Racial Transformations
 # Feat Name			Type																							Visible	Required Class				Required Lvl	Special ABility		Multiple?	Template				Source Page
-Monstrous Humanoid	TYPE:MinotaurRacialTransformation.DoppelRacialTransformation													VISIBLE:NO							PRELEVEL:MIN=6					MULT:NO	TEMPLATE:Monstrous Humanoid	SOURCEPAGE:p.47
+Monstrous Humanoid	TYPE:MinotaurRacialTransformation.DoppelRacialTransformation													VISIBLE:NO							PRELEVEL:MIN=6					MULT:NO	TEMPLATE:Monstrous Humanoid Transformation	SOURCEPAGE:p.47
 #Darkvision					TYPE:RacialTransformation		MULT:NO			VISIBLE:NO							BONUS:VISION|DarkVision|60						SOURCEPAGE:p.22							PRELEVEL:MIN=4
 #Turns out that Darkvision has different prereqs for different races:(
 

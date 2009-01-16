@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Jan 15 23:01:29 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
@@ -29,7 +29,7 @@ Elemental Form	TYPE:ShamanElementalForm	VISIBLE:NO	SAB:Elemental Form (%CHOICE)	
 
 
 ###Block: Shapers Divine focuses
-# Feat Name			Type				Visible	Special ABility																		Innate Spells																	Virtual Feat			Add							Combat bonus								Bonus to skill
+# Feat Name			Type				Visible	Special ABility																		Innate Spells																	Virtual Feat			Add 							Combat bonus								Bonus to skill
 Divine Focus Alignment	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Alignment (Domains:Chaos, Good, Evil, Lawful)	SAB:Damage reduction 1/opposed alignment|PRECLASS:1,Shaper=10	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Undetectable Alignment,12+CHA
 Divine Focus Defense	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Defense (Domains:Protection, Sun, Travel)																																												BONUS:COMBAT|AC|1	BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10
 Divine Focus Elemental	TYPE:ShaperDivineFocus	VISIBLE:NO	SAB:Elemental (Domains:Air, Earth, Fire, Water)	SAB:Elemental resistance 10
