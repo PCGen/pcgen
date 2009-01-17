@@ -55,6 +55,7 @@ import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
+import pcgen.core.Campaign;
 import pcgen.core.DamageReduction;
 import pcgen.core.Deity;
 import pcgen.core.Description;
@@ -253,6 +254,7 @@ public final class ListKey<T> {
 	public static final ListKey<EqModRef> EQMOD_INFO = new ListKey<EqModRef>();
 	public static final ListKey<CampaignURL> CAMPAIGN_URL = new ListKey<CampaignURL>();
 	public static final ListKey<Qualifier> FORWARDREF = new ListKey<Qualifier>();
+	public static final ListKey<Campaign> CAMPAIGN = new ListKey<Campaign>();
 	
 	//These are case sensitive, please do not change them to upper case
 	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();
