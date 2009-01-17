@@ -85,9 +85,9 @@ public class ClassLoader implements Loader
 		for (int tok = 1; tok < tokens.length; tok++)
 		{
 			String token = tokens[tok];
+			sb.append(FIELD_SEPARATOR);
 			if (token.length() == 0)
 			{
-				sb.append(FIELD_SEPARATOR);
 				continue;
 			}
 

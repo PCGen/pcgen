@@ -27,7 +27,6 @@ public class CategoryConvertPlugin implements TokenProcessorPlugin
 	// Just process over these magical tokens for now
 	public String process(TokenProcessEvent tpe)
 	{
-		tpe.append('\t');
 		tpe.append(tpe.getKey());
 		tpe.append(':');
 		tpe.append(tpe.getValue());

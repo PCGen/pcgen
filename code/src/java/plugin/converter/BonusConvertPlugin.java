@@ -15,100 +15,86 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.gui.converter.loader;
-
-import java.util.List;
+package plugin.converter;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Campaign;
-import pcgen.gui.converter.Loader;
+import pcgen.cdom.inst.ObjectCache;
 import pcgen.gui.converter.TokenConverter;
 import pcgen.gui.converter.event.TokenProcessEvent;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.gui.converter.event.TokenProcessorPlugin;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public class BasicLoader<T extends CDOMObject> implements Loader
+public class BonusConvertPlugin implements TokenProcessorPlugin
 {
-
-	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
-	private final Class<T> cdomClass;
-	private final ListKey<CampaignSourceEntry> listkey;
-	private final LoadContext context;
-
-	public BasicLoader(LoadContext lc, Class<T> cl,
-			ListKey<CampaignSourceEntry> lk)
+	// Just process over these magical tokens for now
+	public String process(TokenProcessEvent tpe)
 	{
-		context = lc;
-		cdomClass = cl;
-		listkey = lk;
-	}
-
-	public void process(StringBuilder sb, int line, String lineString)
-			throws PersistenceLayerException, InterruptedException
-	{
-		String[] tokens = lineString.split(FIELD_SEPARATOR);
-		if (tokens.length == 0)
+		tpe.append(tpe.getKey());
+		tpe.append(':');
+		String value = tpe.getValue();
+		StringBuilder result = new StringBuilder(value.length() + 10);
+		while (true)
 		{
-			return;
-		}
-		sb.append(tokens[0]);
-		for (int tok = 1; tok < tokens.length; tok++)
-		{
-			String token = tokens[tok];
-			sb.append(FIELD_SEPARATOR);
-			if (token.length() == 0)
+			int pipeLoc = value.lastIndexOf('|');
+			String preString = value.substring(pipeLoc + 1);
+			if (pipeLoc == -1
+					|| (!preString.startsWith("PRE") && !preString
+							.startsWith("!PRE")))
 			{
-				continue;
+				break;
 			}
-
-			T obj = context.ref.constructCDOMObject(cdomClass, line + "Test"
-					+ tok);
-			processToken(sb, obj, token);
+			String pre = process(tpe.getContext(), preString);
+			result.insert(0, pre);
+			result.insert(0, '|');
+			value = value.substring(0, pipeLoc);
 		}
+		tpe.append(value);
+		tpe.append(result);
+		tpe.consume();
+		return null;
 	}
 
-	private void processToken(StringBuilder sb, CDOMObject obj, String token)
-			throws PersistenceLayerException, InterruptedException
+	private String process(LoadContext context, String token)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
 			Logging.errorPrint("Invalid Token - does not contain a colon: "
 					+ token);
-			return;
+			return null;
 		}
 		else if (colonLoc == 0)
 		{
 			Logging.errorPrint("Invalid Token - starts with a colon: " + token);
-			return;
+			return null;
 		}
 
 		String key = token.substring(0, colonLoc);
 		String value = (colonLoc == token.length() - 1) ? null : token
 				.substring(colonLoc + 1);
-		TokenProcessEvent tpe = new TokenProcessEvent(context, key, value, obj);
+
+		CDOMObject cdo = new ObjectCache();
+		TokenProcessEvent tpe = new TokenProcessEvent(context, key, value, cdo);
 		String error = TokenConverter.process(tpe);
 		if (tpe.isConsumed())
 		{
-			sb.append(tpe.getResult());
+			return tpe.getResult();
 		}
 		else
 		{
 			Logging.errorPrint(error);
 		}
+		return null;
 	}
 
-	public List<CampaignSourceEntry> getFiles(Campaign c)
+	public Class<? extends CDOMObject> getProcessedClass()
 	{
-		return c.getSafeListFor(listkey);
+		return CDOMObject.class;
 	}
 
-	public String getLoadName()
+	public String getProcessedToken()
 	{
-		return cdomClass.getSimpleName();
+		return "BONUS";
 	}
-
 }

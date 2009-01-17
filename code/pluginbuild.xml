@@ -4842,6 +4842,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-BONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/BonusConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${converterplugins.dir}/ConverterPlugin-CATEGORY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

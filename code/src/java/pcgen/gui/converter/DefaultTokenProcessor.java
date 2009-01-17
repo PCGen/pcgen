@@ -28,8 +28,6 @@ import pcgen.util.Logging;
 
 public class DefaultTokenProcessor implements TokenProcessor
 {
-	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
-
 	public String process(TokenProcessEvent tpe)
 	{
 		try
@@ -57,7 +55,6 @@ public class DefaultTokenProcessor implements TokenProcessor
 			}
 			for (String s : output)
 			{
-				tpe.append(FIELD_SEPARATOR);
 				tpe.append(s);
 			}
 			tpe.consume();

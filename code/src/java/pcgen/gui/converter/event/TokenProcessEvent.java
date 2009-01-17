@@ -64,7 +64,7 @@ public class TokenProcessEvent extends EventObject
 		return value;
 	}
 
-	public void append(String s)
+	public void append(CharSequence s)
 	{
 		result.append(s);
 	}
