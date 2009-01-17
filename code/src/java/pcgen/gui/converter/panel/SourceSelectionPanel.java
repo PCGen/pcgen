@@ -17,21 +17,25 @@
  */
 package pcgen.gui.converter.panel;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.SpringLayout;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.SettingsHandler;
 import pcgen.gui.converter.event.ProgressEvent;
-import pcgen.gui.converter.event.TaskStrategyMessage;
 
 public class SourceSelectionPanel extends ConvertSubPanel
 {
@@ -40,11 +44,50 @@ public class SourceSelectionPanel extends ConvertSubPanel
 
 	private SpringLayout layout = new SpringLayout();
 
-	private final JLabel fileLabel;
+	private JRadioButton radioButtons[];
+	
+	private enum SourceFolder {
+		DATA ("Data directory", SettingsHandler.getPccFilesLocation()),
+		VENDORDATA ("Vendor data directory", SettingsHandler.getPcgenVendorDataDir()),
+		OTHER ("Other directory", new File("."));
+		
+		private final String title;
+
+		private File file;
+		
+		SourceFolder(String title, File file)
+		{
+			this.title = title;
+			this.file = file;
+		}
+		
+		/**
+		 * @return the file
+		 */
+		public File getFile()
+		{
+			return file;
+		}
+
+		/**
+		 * @param file the file to set
+		 */
+		public void setFile(File file)
+		{
+			this.file = file;
+		}
+
+		/**
+		 * @return the title
+		 */
+		public String getTitle()
+		{
+			return title;
+		}
+	}
 
 	public SourceSelectionPanel()
 	{
-		fileLabel = new JLabel();
 	}
 
 	public String getPath()
@@ -55,17 +98,6 @@ public class SourceSelectionPanel extends ConvertSubPanel
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
-		TaskStrategyMessage.sendStatus(this, "Finding Data Directories");
-		path = pc.get(ObjectKey.DIRECTORY);
-		if (path != null)
-		{
-			fileLabel.setText(path.getAbsolutePath());
-		}
-		else
-		{
-			path = new File(".");
-		}
-		pc.put(ObjectKey.DIRECTORY, path);
 		fireProgressEvent(ProgressEvent.ALLOWED);
 		return true;
 	}
@@ -89,7 +121,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				JFileChooser chooser = new JFileChooser();
+				JFileChooser chooser = new JFileChooser(SourceFolder.OTHER.getFile());
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				chooser.setDialogType(JFileChooser.OPEN_DIALOG);
 				chooser.setSelectedFile(path);
@@ -102,8 +134,11 @@ public class SourceSelectionPanel extends ConvertSubPanel
 						if (fileToOpen.isDirectory())
 						{
 							path = fileToOpen;
+							SourceFolder.OTHER.setFile(fileToOpen);
 							pc.put(ObjectKey.DIRECTORY, path);
-							fileLabel.setText(path.getAbsolutePath());
+							JRadioButton button = radioButtons[SourceFolder.OTHER.ordinal()];
+							button.setSelected(true);
+							button.setText(buildFolderText(SourceFolder.OTHER, fileToOpen.getAbsolutePath()));
 							break;
 						}
 						JOptionPane.showMessageDialog(null,
@@ -118,20 +153,102 @@ public class SourceSelectionPanel extends ConvertSubPanel
 			}
 		});
 		panel.add(label);
-		panel.add(fileLabel);
-		panel.add(button);
 		layout.putConstraint(SpringLayout.NORTH, label, 50, SpringLayout.NORTH,
 				panel);
-		layout.putConstraint(SpringLayout.NORTH, fileLabel, 75 + label
-				.getPreferredSize().height, SpringLayout.NORTH, panel);
-		layout.putConstraint(SpringLayout.NORTH, button, 75 + label
-				.getPreferredSize().height, SpringLayout.NORTH, panel);
 		layout.putConstraint(SpringLayout.WEST, label, 25, SpringLayout.WEST,
 				panel);
-		layout.putConstraint(SpringLayout.WEST, fileLabel, 25,
+		
+		radioButtons = new JRadioButton[SourceFolder.values().length];
+		String selectedPath = null;
+		File selectedFile = pc.get(ObjectKey.DIRECTORY);
+		if (selectedFile != null)
+		{
+			selectedPath = selectedFile.getAbsolutePath();
+		}
+		JComponent prevComp = label; 
+		ButtonGroup group = new ButtonGroup();
+		boolean haveSelected = false;
+		Font font = panel.getFont();
+		font = font.deriveFont(Font.PLAIN);
+		for (SourceFolder folder : SourceFolder.values())
+		{
+			JRadioButton pathButton = new JRadioButton();
+			final SourceFolder buttonFolder = folder;
+			pathButton.addActionListener(new ActionListener() {
+
+				public void actionPerformed(ActionEvent e)
+				{
+					pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
+				}
+			});
+			
+			String path;
+			if (folder.getFile() == null)
+			{
+				path = "Undefined";
+				pathButton.setEnabled(false);
+			}
+			else
+			{
+				path = folder.getFile().getAbsolutePath();
+				if (path.equals(selectedPath))
+				{
+					pathButton.setSelected(true);
+					haveSelected = true;
+				}
+			}
+			pathButton.setText(buildFolderText(folder, path));
+			pathButton.setFont(font);
+			radioButtons[folder.ordinal()] = pathButton;
+			group.add(pathButton);
+			panel.add(pathButton);
+			layout.putConstraint(SpringLayout.NORTH, pathButton, 25,
+				SpringLayout.SOUTH, prevComp);
+			layout.putConstraint(SpringLayout.WEST, pathButton, 25,
 				SpringLayout.WEST, panel);
-		layout.putConstraint(SpringLayout.EAST, button, -50, SpringLayout.EAST,
-				panel);
-		fileLabel.setText(path.getAbsolutePath());
+
+			if (folder == SourceFolder.OTHER)
+			{
+				panel.add(button);
+				layout.putConstraint(SpringLayout.NORTH, button, 0,
+					SpringLayout.NORTH, pathButton);
+				layout.putConstraint(SpringLayout.EAST, button, -50, SpringLayout.EAST,
+					panel);
+				layout.putConstraint(SpringLayout.EAST, pathButton, -20,
+					SpringLayout.WEST, button);
+			}
+			prevComp = pathButton;
+		}
+		
+		if (!haveSelected)
+		{
+			if (radioButtons[SourceFolder.VENDORDATA.ordinal()].isEnabled())
+			{
+				JRadioButton btn = radioButtons[SourceFolder.VENDORDATA.ordinal()];
+				btn.setSelected(true);
+				selectedFile = SourceFolder.VENDORDATA.getFile();
+			}
+			else
+			{
+				JRadioButton btn = radioButtons[SourceFolder.DATA.ordinal()];
+				btn.setSelected(true);
+				selectedFile = SourceFolder.DATA.getFile();
+			}
+		}
+		
+		pc.put(ObjectKey.DIRECTORY, selectedFile);
+				
+	}
+
+	/**
+	 * Create the label text label for a folder and path. Normally used on the 
+	 * radio buttons.
+	 * @param folder The folder to be shown
+	 * @param path The path to be shown.
+	 * @return The new html label text
+	 */
+	private String buildFolderText(SourceFolder folder, String path)
+	{
+		return "<html><b>" + folder.getTitle() + ":</b> " + path + "</html>";
 	}
 }

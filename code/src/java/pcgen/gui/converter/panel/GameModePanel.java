@@ -23,6 +23,7 @@ import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SpringLayout;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -34,12 +35,13 @@ import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstSystemLoader;
-import pcgen.util.PropertyFactory;
 
 public class GameModePanel extends ConvertSubPanel
 {
 
 	JComboBoxEx gameModeCombo;
+
+	private SpringLayout layout = new SpringLayout();
 
 	private final LstSystemLoader loader;
 
@@ -98,9 +100,14 @@ public class GameModePanel extends ConvertSubPanel
 	@Override
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{
-		JLabel introLabel = new JLabel(PropertyFactory
-				.getString("in_qsrc_gameModeIntro"));
+		panel.setLayout(layout);
+		JLabel introLabel =
+				new JLabel("Please select the Game Mode to Convert:");
 		panel.add(introLabel);
+		layout.putConstraint(SpringLayout.NORTH, introLabel, 50,
+			SpringLayout.NORTH, panel);
+		layout.putConstraint(SpringLayout.WEST, introLabel, 25,
+			SpringLayout.WEST, panel);
 
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
 		String gameModeNames[] = new String[games.size()];
@@ -120,5 +127,9 @@ public class GameModePanel extends ConvertSubPanel
 		gameModeCombo.setSelectedItem(SettingsHandler.getGame().getName());
 
 		panel.add(gameModeCombo);
+		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20,
+			SpringLayout.SOUTH, introLabel);
+		layout.putConstraint(SpringLayout.WEST, gameModeCombo, 25,
+			SpringLayout.WEST, panel);
 	}
 }
