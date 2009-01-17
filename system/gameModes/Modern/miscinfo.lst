@@ -72,9 +72,6 @@ MENUTOOLTIP:Use Modern character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Modern
 
-
-DEITY:None		DOMAINS:ALL		DESC:None	SYMBOL:None		SOURCEPAGE:None
-
 #
 #SHORTRANGE sets the Short Range as referenced by TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
 # Integer value, defaults to zero if tag not present to allow GameModes without shortrange bonus/limitations
