@@ -150,7 +150,12 @@ public class CampaignPanel extends ConvertSubPanel
 						{
 							if (lsm.isSelectedIndex(i))
 							{
-								int modelRow = table.convertRowIndexToModel(i);
+								/*
+								 * TODO This at least functions for the moment.
+								 * It seems to have problems with multiple selections (control/shift click)
+								 */
+								int modelRow = table.getSelectedRow();
+								//Java 6 call int modelRow = table.convertRowIndexToModel(i);
 								Campaign selCampaign =
 										(Campaign) model
 											.getValueAt(modelRow, 0);
