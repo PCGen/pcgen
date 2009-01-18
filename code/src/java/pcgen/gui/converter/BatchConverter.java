@@ -151,11 +151,7 @@ public class BatchConverter
 				e.printStackTrace();
 			}
 
-			int procs = Math.max(1, Runtime.getRuntime().availableProcessors());
-			for (int i = 0; i <= procs; i++)
-			{
-				startItem(campaign);
-			}
+			startItem(campaign);
 		}
 	}
 
