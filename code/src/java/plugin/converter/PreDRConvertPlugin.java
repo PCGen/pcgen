@@ -25,7 +25,7 @@ import pcgen.gui.converter.event.TokenProcessorPlugin;
 
 public class PreDRConvertPlugin implements TokenProcessorPlugin
 {
-	// Just process over these magical tokens for now
+
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.append(tpe.getKey());
