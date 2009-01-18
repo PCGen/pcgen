@@ -28,15 +28,16 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.converter.panel.CampaignPanel;
 import pcgen.gui.converter.panel.ConvertSubPanel;
 import pcgen.gui.converter.panel.GameModePanel;
 import pcgen.gui.converter.panel.MessagePanel;
+import pcgen.gui.converter.panel.RunConvertPanel;
 import pcgen.gui.converter.panel.SourceSelectionPanel;
 import pcgen.gui.converter.panel.StartupPanel;
+import pcgen.gui.converter.panel.SummaryPanel;
 import pcgen.gui.converter.panel.WriteDirectoryPanel;
 import pcgen.gui.utils.AWTUtilities;
 import pcgen.persistence.lst.LstSystemLoader;
@@ -80,23 +81,17 @@ public final class PCGenDataConvert extends JFrame
 		panels.put(new CampaignPanel());
 
 		panels.put(new WriteDirectoryPanel());
-		panels.put(new MessagePanel(buildReadyToConvertMessage(pc),
-			ProgressEvent.ALLOWED));
 
+		panels.put(new SummaryPanel());
+
+		panels.put(new RunConvertPanel());
 		panels.put(new MessagePanel("PCGen Data Conversion Complete!",
-				ProgressEvent.NOT_ALLOWED));
+			ProgressEvent.NOT_ALLOWED));
 
 		frame.getContentPane().add(installPanel);
 		frame.pack();
 		frame.setLocation(AWTUtilities.computeWindowLocation(frame));
 		return frame;
-	}
-
-	private static String buildReadyToConvertMessage(CDOMObject pc)
-	{
-		StringBuffer result = new StringBuffer("Ready to convert.\n");
-		result.append("Press Next to beign converting using the following settings:\n");
-		return result.toString();
 	}
 
 	public static void main(String[] args) throws InterruptedException
