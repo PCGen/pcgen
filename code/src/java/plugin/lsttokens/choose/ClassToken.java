@@ -79,7 +79,7 @@ public class ClassToken implements CDOMSecondaryToken<CDOMObject>
 					+ " arguments uses double separator ,, : " + value);
 			return false;
 		}
-		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
 		while (st.hasMoreTokens())
 		{
 			String tokString = st.nextToken();
