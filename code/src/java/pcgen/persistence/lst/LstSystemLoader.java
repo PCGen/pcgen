@@ -1105,7 +1105,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		return gameMode;
 	}
 
-	private void loadPCCFilesInDirectory(String aDirectory)
+	public void loadPCCFilesInDirectory(String aDirectory)
 	{
 		new File(aDirectory).list(pccFileFilter);
 	}

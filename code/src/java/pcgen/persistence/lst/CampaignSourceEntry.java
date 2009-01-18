@@ -610,4 +610,15 @@ public class CampaignSourceEntry
 		}
 		return sb;
 	}
+
+	public CampaignSourceEntry getRelatedTarget(String fileName)
+	{
+		if (uriFac == null)
+		{
+			throw new IllegalStateException(
+					"getRelatedTarget can only be called on a CampaignSourceEntry that uses a URI Factory");
+		}
+		return new CampaignSourceEntry(campaign, new URIFactory(uriFac.u,
+				fileName));
+	}
 }

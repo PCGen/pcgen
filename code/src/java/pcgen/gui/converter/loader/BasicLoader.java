@@ -17,10 +17,12 @@
  */
 package pcgen.gui.converter.loader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.gui.converter.Loader;
 import pcgen.gui.converter.TokenConverter;
@@ -46,15 +48,16 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		listkey = lk;
 	}
 
-	public void process(StringBuilder sb, int line, String lineString)
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString)
 			throws PersistenceLayerException, InterruptedException
 	{
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
 		if (tokens.length == 0)
 		{
-			return;
+			return null;
 		}
 		sb.append(tokens[0]);
+		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		for (int tok = 1; tok < tokens.length; tok++)
 		{
 			String token = tokens[tok];
@@ -66,11 +69,17 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 
 			T obj = context.ref.constructCDOMObject(cdomClass, line + "Test"
 					+ tok);
-			processToken(sb, obj, token);
+			obj.put(StringKey.CONVERT_NAME, tokens[0]);
+			List<CDOMObject> injected = processToken(sb, obj, token);
+			if (injected != null)
+			{
+				list.addAll(injected);
+			}
 		}
+		return list;
 	}
 
-	private void processToken(StringBuilder sb, CDOMObject obj, String token)
+	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj, String token)
 			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
@@ -78,12 +87,12 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		{
 			Logging.errorPrint("Invalid Token - does not contain a colon: "
 					+ token);
-			return;
+			return null;
 		}
 		else if (colonLoc == 0)
 		{
 			Logging.errorPrint("Invalid Token - starts with a colon: " + token);
-			return;
+			return null;
 		}
 
 		String key = token.substring(0, colonLoc);
@@ -99,6 +108,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		{
 			Logging.errorPrint(error);
 		}
+		return tpe.getInjected();
 	}
 
 	public List<CampaignSourceEntry> getFiles(Campaign c)

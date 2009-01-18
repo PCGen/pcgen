@@ -38,7 +38,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.NonGuiChooser;
 import pcgen.gui.utils.NonGuiChooserRadio;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
+import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
@@ -93,10 +93,17 @@ public class ConvertDataset
 		ChooserFactory.setRadioInterfaceClassname(NonGuiChooserRadio.class
 				.getName());
 
-		final PersistenceManager pManager = PersistenceManager.getInstance();
+		LstSystemLoader loader = new LstSystemLoader();
 		try
 		{
-			pManager.initialize();
+			loader.loadGameModes();
+			// Load the initial campaigns
+			loader.loadPCCFilesInDirectory(SettingsHandler.getPccFilesLocation()
+				.getAbsolutePath());
+			loader.loadPCCFilesInDirectory(SettingsHandler.getPcgenVendorDataDir()
+				.getAbsolutePath());
+
+			Globals.sortPObjectListByName(Globals.getCampaignList());
 
 			boolean first = true;
 			String outputDirectory = null;

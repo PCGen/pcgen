@@ -19,6 +19,7 @@ package pcgen.gui.converter.loader;
 
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.gui.converter.Loader;
@@ -34,10 +35,11 @@ public class CopyLoader implements Loader
 		listkey = lk;
 	}
 
-	public void process(StringBuilder sb, int line, String lineString)
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString)
 			throws PersistenceLayerException, InterruptedException
 	{
 		sb.append(lineString);
+		return null;
 	}
 
 	public List<CampaignSourceEntry> getFiles(Campaign c)

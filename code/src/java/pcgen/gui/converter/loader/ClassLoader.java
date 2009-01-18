@@ -17,6 +17,7 @@
  */
 package pcgen.gui.converter.loader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
@@ -46,7 +47,7 @@ public class ClassLoader implements Loader
 		context = lc;
 	}
 
-	public void process(StringBuilder sb, int line, String lineString)
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString)
 			throws PersistenceLayerException, InterruptedException
 	{
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
@@ -82,6 +83,7 @@ public class ClassLoader implements Loader
 			buildClass = PCClassLevel.class;
 			buildParent = PCClass.class;
 		}
+		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		for (int tok = 1; tok < tokens.length; tok++)
 		{
 			String token = tokens[tok];
@@ -101,11 +103,16 @@ public class ClassLoader implements Loader
 						+ "Test" + tok);
 				obj.put(ObjectKey.PARENT, parent);
 			}
-			processToken(sb, obj, parent, token);
+			List<CDOMObject> injected = processToken(sb, obj, parent, token);
+			if (injected != null)
+			{
+				list.addAll(injected);
+			}
 		}
+		return list;
 	}
 
-	private void processToken(StringBuilder sb, CDOMObject obj, CDOMObject alt,
+	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj, CDOMObject alt,
 			String token) throws PersistenceLayerException,
 			InterruptedException
 	{
@@ -114,12 +121,12 @@ public class ClassLoader implements Loader
 		{
 			Logging.errorPrint("Invalid Token - does not contain a colon: "
 					+ token);
-			return;
+			return null;
 		}
 		else if (colonLoc == 0)
 		{
 			Logging.errorPrint("Invalid Token - starts with a colon: " + token);
-			return;
+			return null;
 		}
 
 		String key = token.substring(0, colonLoc);
@@ -140,6 +147,7 @@ public class ClassLoader implements Loader
 		{
 			Logging.errorPrint(error);
 		}
+		return tpe.getInjected();
 	}
 
 	public List<CampaignSourceEntry> getFiles(Campaign c)

@@ -20,6 +20,7 @@ package pcgen.gui.converter.loader;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.gui.converter.Loader;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,10 +29,11 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 public class SelfCopyLoader implements Loader
 {
 
-	public void process(StringBuilder sb, int line, String lineString)
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString)
 			throws PersistenceLayerException, InterruptedException
 	{
 		sb.append(lineString);
+		return null;
 	}
 
 	public List<CampaignSourceEntry> getFiles(Campaign c)

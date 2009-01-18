@@ -19,7 +19,9 @@
  */
 package pcgen.gui.converter.event;
 
+import java.util.ArrayList;
 import java.util.EventObject;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.rules.context.LoadContext;
@@ -33,6 +35,7 @@ public class TokenProcessEvent extends EventObject
 	private final CDOMObject obj;
 	private StringBuilder result = new StringBuilder();
 	private boolean consumed = false;
+	private List<CDOMObject> injected;
 
 	public TokenProcessEvent(LoadContext lc, String tokenName,
 			String tokenValue, CDOMObject object)
@@ -87,5 +90,19 @@ public class TokenProcessEvent extends EventObject
 	public LoadContext getContext()
 	{
 		return context;
+	}
+
+	public void inject(CDOMObject cdo)
+	{
+		if (injected == null)
+		{
+			injected = new ArrayList<CDOMObject>();
+		}
+		injected.add(cdo);
+	}
+
+	public List<CDOMObject> getInjected()
+	{
+		return injected == null ? null : new ArrayList<CDOMObject>(injected);
 	}
 }
