@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -134,6 +135,40 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 			map.put(key1, key2, localMap);
 		}
 		localMap.addToListFor(key3, value);
+	}
+
+	/**
+	 * Adds all of the Objects in the given list to the (internal) List for the
+	 * given keys. The null value cannot be used as a key in a
+	 * TripleKeyMapToList. This method will automatically initialize the list
+	 * for the given key if there is not already a List for that key.
+	 * 
+	 * This method is reference-semantic and this TripleKeyMapToList will
+	 * maintain a strong reference to both the key objects and the objects in
+	 * the given list.
+	 * 
+	 * @param key1
+	 *            The primary key indicating which List the given object should
+	 *            be added to.
+	 * @param key2
+	 *            The secondary key indicating which List the given object
+	 *            should be added to.
+	 * @param key3
+	 *            The tertiary key indicating which List the given object should
+	 *            be added to.
+	 * @param value
+	 *            A Collection containing the items to be added to the List for
+	 *            the given keys.
+	 */
+	public void addAllToListFor(K1 key1, K2 key2, K3 key3, Collection<V> value)
+	{
+		MapToList<K3, V> localMap = map.get(key1, key2);
+		if (localMap == null)
+		{
+			localMap = GenericMapToList.getMapToList(thirdClass);
+			map.put(key1, key2, localMap);
+		}
+		localMap.addAllToListFor(key3, value);
 	}
 
 	/**
