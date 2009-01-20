@@ -76,7 +76,7 @@ STARTPACK:Skin Shifter Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PR
 RACE:Skin Shifter	!PRERACE:1,%
 NAME:Skin Shifter
 ALIGN:CE
-SKILL:Craft%			RANK:6
+SKILL:TYPE.Craft			RANK:6
 SKILL:Intimidate			RANK:6
 SKILL:Knowledge (Indian Lore)	RANK:6
 SKILL:Listen			RANK:6

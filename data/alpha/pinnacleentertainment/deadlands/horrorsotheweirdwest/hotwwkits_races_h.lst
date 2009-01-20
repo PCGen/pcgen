@@ -58,7 +58,7 @@ SKILL:Spot			RANK:5
 SKILL:Wilderness Lore	RANK:5
 SKILL:Intimidate		RANK:6
 SKILL:Ridicule		RANK:6
-FEAT:Exotic Weapon Proficiency (Cavalry Saber)
+FEAT:Exotic Weapon Proficiency(Cavalry Saber)
 FEAT:Track
 
 STARTPACK:Hellfish Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellfish]

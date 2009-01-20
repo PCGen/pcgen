@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Tue Jan 20 00:11:55 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm
+
+# Weapon Name		Type
+Macahuitl			TYPE:Simple
+Barbed Axe Handle		TYPE:Martial
+Judge's Gun Scythe	TYPE:Exotic

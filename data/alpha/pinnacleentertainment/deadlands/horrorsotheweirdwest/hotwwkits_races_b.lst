@@ -7,7 +7,7 @@ NAME:Barranca Prowler
 ALIGN:TN
 SKILL:Balance		RANK:5
 SKILL:Hide			RANK:5
-SKILL:Move silently	RANK:5
+SKILL:Move Silently	RANK:5
 SKILL:Tumble		RANK:5
 SKILL:Climb			RANK:8
 SKILL:Intimidate		RANK:9
@@ -22,7 +22,7 @@ ALIGN:LE
 SKILL:Hide			RANK:5
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
-FEAT:Exotic Weapon Proficiency (Rifle Bayonet)
+FEAT:Exotic Weapon Proficiency(Rifle Bayonet)
 
 STARTPACK:Blob Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blob]
 RACE:Blob	!PRERACE:1,%

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Mon Jan 19 23:17:03 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
 ###Block: Agency Operative class features
@@ -52,7 +52,7 @@ Greased Lightning	TYPE:ClassAbility	VISIBLE:NO	SAB:Greased Lightnin' +%|GreaseLi
 ###Block: Huckster class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
 Old Hand			TYPE:ClassAbility	VISIBLE:NO	SAB:Old Hand %|OldHand				DEFINE:OldHand|0		SOURCEPAGE:p.30
-Blood Magician		TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Magic									SOURCEPAGE:p.30
+Blood Magic			TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Magic									SOURCEPAGE:p.30
 Huckster Hex Points	TYPE:Internal	VISIBLE:NO	SAB:Huckster max Hex Points (%)|HexPoints	DEFINE:HexPoints|0	SOURCEPAGE:p.30
 
 ###Block: Huckster spells known
@@ -79,6 +79,7 @@ Jinx			TYPE:ClassAbility	VISIBLE:NO	SAB:Jinx						SOURCEPAGE:p.32
 Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)					SOURCEPAGE:p.34
 Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																	SOURCEPAGE:p.34
 Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.34
+Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind																		SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities
@@ -93,7 +94,7 @@ Vision Quest		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Vision Quest (Su)			
 View Hunting Grounds	TYPE:ClassAbility				VISIBLE:NO	SAB:View Hunting Grounds										SOURCEPAGE:p.40
 One with Nature		TYPE:ClassAbility				VISIBLE:NO	SAB:One with Nature											SOURCEPAGE:p.40
 Open Portal			TYPE:ClassAbility				VISIBLE:NO	SAB:Open Portal												SOURCEPAGE:p.40
-Shaman Favors Points	TYPE:Internal				VISIBLE:NO	SAB:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
+Shaman Favor Points	TYPE:Internal				VISIBLE:NO	SAB:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
 
 ###Block: Shaman spells known
 # Feat Name				Type			Visible	Multiple?	Choose												Source Page
@@ -112,7 +113,25 @@ Shaman up to 9th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVE
 National Law Enforcement	TYPE:ClassAbility	VISIBLE:NO	SAB:National Law Enforcement																	SOURCEPAGE:p.92
 Ranger's Bible			TYPE:ClassAbility	VISIBLE:NO	SAB:Ranger's Bible								BONUS:SKILL|Gather Information|2					SOURCEPAGE:p.92
 Ranger's Presence			TYPE:ClassAbility	VISIBLE:NO	SAB:Presence +%|RangerPres			DEFINE:RangerPres|0	BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres	SOURCEPAGE:p.92
-One Riot - One Ranger		TYPE:ClassAbility	VISIBLE:NO	SAB:One Riot- One Ranger %|RiotRanger|1	DEFINE:RiotRanger|0											SOURCEPAGE:p.92
+One Riot - One Ranger		TYPE:ClassAbility	VISIBLE:NO	SAB:One Riot - One Ranger %|RiotRanger|1	DEFINE:RiotRanger|0											SOURCEPAGE:p.92
 Chapter 13				TYPE:ClassAbility	VISIBLE:NO	SAB:Chapter 13									BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
 
+###Block: Special abilities (used by multiple classes)
+# Feat Name		Type					Visible		Special ABility																										Define																			Description						Stackable?	Multiple?	Choose										Selections		Modify VAR							Source Page						Temporary effect description
+Defensive Roll	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Defensive Roll																																																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Evasion							VISIBLE:NO		SAB:Evasion (Ex)|PHBFeatEvasion																							DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Improved Evasion (Ex)																																																																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Leadership Score	TYPE:Special			VISIBLE:NO																																																											MULT:YES	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment				BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC								TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+Sneak Attack	TYPE:Special			VISIBLE:NO		SAB:Sneak Attack %1d%2|SneakAttack|SneakAttackDie																				DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	TYPE:RogueSpecialAbilities	VISIBLE:EXPORT																																																	DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL								SELECT:3+INT									SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Uncanny Dodge						VISIBLE:NO		SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 
+###Block: Turning
+# Feat Name		Type						Visible	Required AL				Prohibited Var. Value			Special ABility																							Define																																									Source Page
+Basic Turning	TYPE:Special.Turning			VISIBLE:NO																																					DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Turn Undead		TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	SAB:Turn Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Rebuke Undead	TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	SAB:Rebuke Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+
+#
+# End
+#

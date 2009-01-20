@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Tue Jan 20 17:09:30 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 # This needs to refer to the MM TYPE file. - Tir Gwaith
 
@@ -79,6 +79,13 @@ CLASS:Giant		HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:CHECKS|BASE
 CLASS:Giant		PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Max Level		Source Page		Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Humanoid	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Humanoid	PRERACETYPE:Humanoid
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
+CLASS:Humanoid	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2+INT			MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
 
 # Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
 CLASS:Magical Beast	HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude|2+(CL/2)	BONUS:CHECKS|BASE.Reflex|2+(CL/2)	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

@@ -101,7 +101,7 @@ ALIGN:CE
 SKILL:Black Magic			RANK:4
 SKILL:Bluff				RANK:5
 SKILL:Climb				RANK:5
-SKILL:Craft				RANK:3
+SKILL:TYPE.Craft			RANK:3
 SKILL:Knowledge (Indian Lore)	RANK:3
 SKILL:Hide				RANK:7
 SKILL:Listen			RANK:6
@@ -122,7 +122,7 @@ ALIGN:CE
 SKILL:Black Magic			RANK:4
 SKILL:Bluff				RANK:5
 SKILL:Climb				RANK:5
-SKILL:Craft				RANK:3
+SKILL:TYPE.Craft			RANK:3
 SKILL:Knowledge (Indian Lore)	RANK:3
 SKILL:Hide				RANK:7
 SKILL:Listen			RANK:6

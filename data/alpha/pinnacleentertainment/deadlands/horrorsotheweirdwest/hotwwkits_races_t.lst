@@ -79,7 +79,7 @@ RACE:Two-Faces	!PRERACE:1,%
 NAME:Two-Faces
 ALIGN:CE
 SKILL:Climb				RANK:5
-SKILL:Craft%			RANK:8
+SKILL:TYPE.Craft			RANK:8
 SKILL:Knowledge (Indian Lore)	RANK:8
 SKILL:Hide				RANK:6
 SKILL:Move Silently		RANK:6
