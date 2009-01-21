@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Dec  6 09:56:05 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Jan 20 22:03:13 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by Barak)
 
@@ -95,13 +95,13 @@ CLASS:Maverick	PREFEAT:1,Card Sharp	PRESKILL:1,Gamble=6	PRESKILL:1,Sleight of Ha
 CLASS:Maverick	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot
 1	SAB:Poker Face
 2	SAB:Ace in the Hole
-3						ADD:FEAT|1|TYPE=Maverick
-4	SAB:Wild Card			ADD:FEAT|1|TYPE=Talent
-5											ABILITY:Special Ability|AUTOMATIC|Improved Evasion	ABILITY:Talent|AUTOMATIC|Evasion
-6						ADD:FEAT|1|TYPE=Maverick
+3												ADD:FEAT|1|TYPE=Maverick
+4	SAB:Wild Card			BONUS:ABILITYPOOL|Maverick Talent|1
+5																	ABILITY:Special Ability|AUTOMATIC|Improved Evasion	ABILITY:Talent|AUTOMATIC|Evasion
+6												ADD:FEAT|1|TYPE=Maverick
 7	SAB:Nothing Up My Sleeve
 8	SAB:Lady Luck
-9						ADD:FEAT|1|TYPE=Maverick
+9												ADD:FEAT|1|TYPE=Maverick
 10	SAB:Hear the Footsteps
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR

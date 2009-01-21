@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:21:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Jan 20 22:03:13 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by bD_92)
 
@@ -87,3 +87,13 @@ Sword cane						TYPE:Archaic
 
 Chain							TYPE:Exotic
 Claymore						TYPE:Exotic
+
+#Improvised
+Improvised Weapon (Diminutive)		TYPE:Improvised
+Improvised Weapon (Tiny)			TYPE:Improvised
+Improvised Weapon (Small)			TYPE:Improvised
+Improvised Weapon (Medium)			TYPE:Improvised
+Improvised Weapon (Large)			TYPE:Improvised
+Improvised Weapon (Huge)			TYPE:Improvised
+Improvised Weapon (Gargantuan)		TYPE:Improvised
+Improvised Weapon (Colossal)			TYPE:Improvised

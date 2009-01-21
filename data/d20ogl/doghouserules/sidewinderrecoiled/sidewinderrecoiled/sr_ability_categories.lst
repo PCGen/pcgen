@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 14:39:30 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Jan 20 22:03:13 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 #SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
@@ -30,6 +30,10 @@ ABILITYCATEGORY:Prospector Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRA
 ABILITYCATEGORY:Ranch Hand Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:RanchHand		PLURAL:Ranch Hand Feats				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Sodbuster Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Sodbuster		PLURAL:Sodbuster Feats				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Tribal Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Tribal			PLURAL:Tribal Feats				DISPLAYLOCATION:Feats
+
+###Block: Maverick Talent
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object													Plural description for UI	Display Location
+ABILITYCATEGORY:Maverick Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:StrongTalent.FastTalent.ToughTalent.SmartTalent.DedicatedTalent.CharismaticTalent	PLURAL:Maverick Talents		DISPLAYLOCATION:Class Abilities
 
 #
 ## EOF
