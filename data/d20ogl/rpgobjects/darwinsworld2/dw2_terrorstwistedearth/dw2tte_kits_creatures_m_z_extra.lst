@@ -142,7 +142,7 @@ SKILL:Navigate	RANK:3
 SKILL:Search	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Survival	RANK:4
-ABILITY:CATEGORY=Raider Feat|Post Apocalyptic Technology
+ABILITY:CATEGORY=Raider Feat|Post-Apocalyptic Technology
 ABILITY:CATEGORY=FEAT|Primitive Technology			FREE:YES
 ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
 ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
