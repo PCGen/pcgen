@@ -11,7 +11,7 @@ SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCr
 20GA Scattergun		TYPE:Rifle
 10GA Scattergun		TYPE:Rifle
 Bringdown Launcher	TYPE:Firearms
-Arrow (boffer)		TYPE:Martial
+Arrow (boffer)		TYPE:Martial.Boffer
 Arrow (tranquilizer)	TYPE:Exotic
 Baseball			TYPE:Sport
 Bat (aluminum)		TYPE:Sport
@@ -20,17 +20,17 @@ Brass Knuckles		TYPE:Simple
 Buckler (throwing)	TYPE:Martial
 Chain (fighting)		TYPE:Martial
 Chainsaw			TYPE:Exotic
-Club (boffer)		TYPE:Simple
+Club (boffer)		TYPE:Simple.Boffer
 Flying disc (combat)	TYPE:Sport
 Golf club			TYPE:Sport
 Hockey Stick		TYPE:Sport
 Ice Pick (combat)		TYPE:Martial
-Knife (boffer)		TYPE:Simple
+Knife (boffer)		TYPE:Simple.Boffer
 Mace (double-headed)	TYPE:Exotic
 Machete			TYPE:Simple
 Pitchfork			TYPE:Simple
 Shiv				TYPE:Simple
 Slingshot			TYPE:Simple
-Sword (boffer)		TYPE:Simple
+Sword (boffer)		TYPE:Simple.Boffer
 Wrist Blade			TYPE:Martial
 Wrist Blade (double)	TYPE:Martial

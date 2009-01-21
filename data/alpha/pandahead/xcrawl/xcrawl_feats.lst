@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 14 13:16:52 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Jan 20 21:30:41 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Feat Name				Type				Req. Att.	Required Class		Required Feat					Required Lvl	Required Skill		Required Stat	Description											Automatically Gained Weapon Prof.	Weapon prof. bonus
@@ -18,7 +18,8 @@ Spring Attack.MOD			TYPE:Athlete
 Stunning Fist.MOD			TYPE:Athlete
 Toughness.MOD			TYPE:Athlete
 
-Automatic Weapon Proficiency	TYPE:General																																					AUTO:WEAPONPROF|TYPE=LightAuto
+Automatic Weapon Proficiency	TYPE:General
+# AUTO:WEAPONPROF|TYPE=LightAuto was removed from Automatic Weapon Proficiency because there is no TYPE=LightAuto weapon profs
 Crowd Favorite			TYPE:General																		PRESKILL:1,Perform=4	PRESTAT:1,CHA=16	DESC:You gaina +4 to all rolls to motivate the crowd or grandstanding
 Curveball				TYPE:General.Athlete			PRECLASS:1,Athlete=1																																				BONUS:WEAPONPROF=Baseball|TOHIT|2	BONUS:WEAPONPROF=Baseball|TOHIT-SHORTRANGE|-2
 Doubleshot				TYPE:General		PREATT:6					PREFEAT:2,Point Blank Shot,Rapid Shot
