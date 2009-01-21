@@ -2342,7 +2342,7 @@ BIO
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
-						<description>The caster gains attack, damage bonus, +(CASTERLEVEL/3).</description>
+						<description>The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))).</description>
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
