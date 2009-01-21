@@ -22,6 +22,9 @@
  */
 package pcgen.gui.converter.panel;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
@@ -31,8 +34,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.SpringLayout;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
@@ -44,6 +45,7 @@ import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.gui.converter.event.ProgressEvent;
+import pcgen.gui.utils.Utility;
 
 /**
  * The Class <code>CampaignPanel</code> displays a panel allowing 
@@ -57,8 +59,6 @@ import pcgen.gui.converter.event.ProgressEvent;
  */
 public class CampaignPanel extends ConvertSubPanel
 {
-
-	private SpringLayout layout = new SpringLayout();
 
 	private List<Campaign> gameModeCampaigns;
 	private String folderName;
@@ -107,14 +107,16 @@ public class CampaignPanel extends ConvertSubPanel
 	@Override
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{
-		panel.setLayout(layout);
+		panel.setLayout(new GridBagLayout());
 		JLabel introLabel =
 				new JLabel("Please select the Campaign(s) to Convert:");
-		panel.add(introLabel);
-		layout.putConstraint(SpringLayout.NORTH, introLabel, 20,
-			SpringLayout.NORTH, panel);
-		layout.putConstraint(SpringLayout.WEST, introLabel, 25,
-			SpringLayout.WEST, panel);
+		GridBagConstraints gbc = new GridBagConstraints();
+		Utility
+			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+				1.0, 0, GridBagConstraints.HORIZONTAL,
+				GridBagConstraints.NORTHWEST);
+		gbc.insets = new Insets(25, 25, 5, 25);
+		panel.add(introLabel, gbc);
 		
 		final CampaignTableModel model = new CampaignTableModel(gameModeCampaigns, folderName);
 		final JTable table = new JTable(model){    
@@ -132,35 +134,19 @@ public class CampaignPanel extends ConvertSubPanel
 			{
 				public void valueChanged(ListSelectionEvent event)
 				{
-					ListSelectionModel lsm =
-							(ListSelectionModel) event.getSource();
-
-					//int viewRow = table.getSelectedRow();
 					pc.removeListFor(ListKey.CAMPAIGN);
-					if (lsm.isSelectionEmpty())
+					int[] selRows = table.getSelectedRows();
+					if (selRows.length == 0)
 					{
 						fireProgressEvent(ProgressEvent.NOT_ALLOWED);
 					}
 					else
 					{
-						// Find out which indexes are selected.
-						int minIndex = lsm.getMinSelectionIndex();
-						int maxIndex = lsm.getMaxSelectionIndex();
-						for (int i = minIndex; i <= maxIndex; i++)
+						for (int row : selRows)
 						{
-							if (lsm.isSelectedIndex(i))
-							{
-								/*
-								 * TODO This at least functions for the moment.
-								 * It seems to have problems with multiple selections (control/shift click)
-								 */
-								int modelRow = table.getSelectedRow();
-								//Java 6 call int modelRow = table.convertRowIndexToModel(i);
-								Campaign selCampaign =
-										(Campaign) model
-											.getValueAt(modelRow, 0);
-								pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
-							}
+							Campaign selCampaign =
+									(Campaign) model.getValueAt(row, 0);
+							pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
 						}
 						fireProgressEvent(ProgressEvent.ALLOWED);
 					}
@@ -169,15 +155,10 @@ public class CampaignPanel extends ConvertSubPanel
 		);
 
 		JScrollPane listScroller = new JScrollPane(table);
-		panel.add(listScroller);
-		layout.putConstraint(SpringLayout.NORTH, listScroller, 20,
-			SpringLayout.SOUTH, introLabel);
-		layout.putConstraint(SpringLayout.WEST, listScroller, 25,
-			SpringLayout.WEST, panel);
-		layout.putConstraint(SpringLayout.SOUTH, listScroller, -50,
-			SpringLayout.SOUTH, panel);
-		layout.putConstraint(SpringLayout.EAST, listScroller, -25,
-			SpringLayout.EAST, panel);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER,
+			GridBagConstraints.REMAINDER, 1.0, 1.0);
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(listScroller, gbc);
 		
 	}
 

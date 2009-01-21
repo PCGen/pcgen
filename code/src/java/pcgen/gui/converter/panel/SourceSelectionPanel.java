@@ -18,31 +18,41 @@
 package pcgen.gui.converter.panel;
 
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.SpringLayout;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.converter.event.ProgressEvent;
+import pcgen.gui.utils.Utility;
 
+/**
+ * The Class <code>SourceSelectionPanel</code> gathers the source 
+ * folder for the conversion process from the user.
+ * 
+ * Last Editor: $Author: $
+ * Last Edited: $Date:  $
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision:  $
+ */
 public class SourceSelectionPanel extends ConvertSubPanel
 {
 
 	private File path = null;
-
-	private SpringLayout layout = new SpringLayout();
 
 	private JRadioButton radioButtons[];
 	
@@ -111,9 +121,16 @@ public class SourceSelectionPanel extends ConvertSubPanel
 	@Override
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{
-		panel.setLayout(layout);
-		JLabel label = new JLabel(
-				"Please select the Source Directory to Convert: ");
+		panel.setLayout(new GridBagLayout());
+
+		JLabel label = new JLabel("Please select the Source Directory to Convert: ");
+		GridBagConstraints gbc = new GridBagConstraints();
+		Utility
+			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+				1.0, 0, GridBagConstraints.HORIZONTAL,
+				GridBagConstraints.NORTHWEST);
+		gbc.insets = new Insets(50, 25, 10, 25);
+		panel.add(label, gbc);
 
 		JButton button = new JButton("Browse...");
 		button.setMnemonic('r');
@@ -152,11 +169,6 @@ public class SourceSelectionPanel extends ConvertSubPanel
 				}
 			}
 		});
-		panel.add(label);
-		layout.putConstraint(SpringLayout.NORTH, label, 50, SpringLayout.NORTH,
-				panel);
-		layout.putConstraint(SpringLayout.WEST, label, 25, SpringLayout.WEST,
-				panel);
 		
 		radioButtons = new JRadioButton[SourceFolder.values().length];
 		String selectedPath = null;
@@ -165,7 +177,6 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		{
 			selectedPath = selectedFile.getAbsolutePath();
 		}
-		JComponent prevComp = label; 
 		ButtonGroup group = new ButtonGroup();
 		boolean haveSelected = false;
 		Font font = panel.getFont();
@@ -201,24 +212,36 @@ public class SourceSelectionPanel extends ConvertSubPanel
 			pathButton.setFont(font);
 			radioButtons[folder.ordinal()] = pathButton;
 			group.add(pathButton);
-			panel.add(pathButton);
-			layout.putConstraint(SpringLayout.NORTH, pathButton, 25,
-				SpringLayout.SOUTH, prevComp);
-			layout.putConstraint(SpringLayout.WEST, pathButton, 25,
-				SpringLayout.WEST, panel);
+			if (folder == SourceFolder.OTHER)
+			{
+				Utility.buildRelativeConstraints(gbc, 1,
+					GridBagConstraints.REMAINDER, 1.0, 0,
+					GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST);
+			}
+			else
+			{
+				Utility
+					.buildRelativeConstraints(gbc,
+						GridBagConstraints.REMAINDER, 1, 1.0, 0,
+						GridBagConstraints.HORIZONTAL,
+						GridBagConstraints.NORTHWEST);
+			}
+			gbc.insets = new Insets(10, 25, 10, 25);
+			panel.add(pathButton, gbc);
 
 			if (folder == SourceFolder.OTHER)
 			{
-				panel.add(button);
-				layout.putConstraint(SpringLayout.NORTH, button, 0,
-					SpringLayout.NORTH, pathButton);
-				layout.putConstraint(SpringLayout.EAST, button, -50, SpringLayout.EAST,
-					panel);
-				layout.putConstraint(SpringLayout.EAST, pathButton, -20,
-					SpringLayout.WEST, button);
+				Utility.buildRelativeConstraints(gbc,
+					GridBagConstraints.REMAINDER, 1, 0, 0,
+					GridBagConstraints.NONE, GridBagConstraints.NORTHEAST);
+				gbc.insets = new Insets(10, 25, 10, 25);
+				panel.add(button, gbc);
 			}
-			prevComp = pathButton;
 		}
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER,
+			GridBagConstraints.REMAINDER, 1.0, 1.0,
+			GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST);
+		panel.add(new JLabel(" "), gbc);
 		
 		if (!haveSelected)
 		{

@@ -24,17 +24,21 @@
 package pcgen.gui.converter.panel;
 
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.gui.converter.event.ProgressEvent;
+import pcgen.gui.utils.Utility;
 
 /**
  * The Class <code>SummaryPanel</code> presents a summary of the user's 
@@ -48,8 +52,6 @@ import pcgen.gui.converter.event.ProgressEvent;
  */
 public class SummaryPanel extends ConvertSubPanel
 {
-
-	private SpringLayout layout = new SpringLayout();
 
 	/* (non-Javadoc)
 	 * @see pcgen.gui.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
@@ -76,15 +78,24 @@ public class SummaryPanel extends ConvertSubPanel
 	@Override
 	public void setupDisplay(JPanel panel, CDOMObject pc)
 	{
-		panel.setLayout(layout);
-		JLabel introLabel =
-				new JLabel("<html><b>Ready to convert.</b><br/>" +
-						"Press Next to begin converting using the following settings:</html>");
-		panel.add(introLabel);
-		layout.putConstraint(SpringLayout.NORTH, introLabel, 20,
-			SpringLayout.NORTH, panel);
-		layout.putConstraint(SpringLayout.WEST, introLabel, 25,
-			SpringLayout.WEST, panel);
+		panel.setLayout(new GridBagLayout());
+
+		JLabel introLabel = new JLabel("Ready to convert.");
+		GridBagConstraints gbc = new GridBagConstraints();
+		Utility
+			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+				1.0, 0, GridBagConstraints.HORIZONTAL,
+				GridBagConstraints.NORTHWEST);
+		gbc.insets = new Insets(50, 25, 10, 25);
+		panel.add(introLabel, gbc);
+
+		JLabel instructLabel = new JLabel("Press Next to begin converting using the following settings:");
+		Utility
+			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+				1.0, 0, GridBagConstraints.HORIZONTAL,
+				GridBagConstraints.NORTHWEST);
+		gbc.insets = new Insets(10, 25, 20, 25);
+		panel.add(instructLabel, gbc);
 
 		JLabel labels[] = new JLabel[4];
 		JLabel values[] = new JLabel[4];
@@ -104,35 +115,34 @@ public class SummaryPanel extends ConvertSubPanel
 			campDisplay.append("<br>");
 		}
 		campDisplay.append("</html>");
-		values[3] = new JLabel(campDisplay.toString());
+		values[3] = new JLabel(campDisplay.toString(), SwingConstants.LEFT);
+		values[3].setVerticalAlignment(SwingConstants.TOP);
 
 		// Place the labels on the page and lay them out
 		Font plainFont = panel.getFont().deriveFont(Font.PLAIN); 
 		for (int i = 0; i < labels.length; i++)
 		{
-			panel.add(labels[i]);
-			panel.add(values[i]);
-			values[i].setFont(plainFont);
-			if (i == 0)
+			Utility.buildRelativeConstraints(gbc, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST);
+			gbc.insets = new Insets(10, 25, 10, 10);
+			panel.add(labels[i], gbc);
+			if (i < labels.length - 1)
 			{
-				layout.putConstraint(SpringLayout.NORTH, labels[i], 20,
-					SpringLayout.SOUTH, introLabel);
-				layout.putConstraint(SpringLayout.WEST, values[i], 20,
-					SpringLayout.EAST, labels[1]);
+				Utility
+					.buildRelativeConstraints(gbc,
+						GridBagConstraints.REMAINDER, 1, 1.0, 0,
+						GridBagConstraints.HORIZONTAL,
+						GridBagConstraints.NORTHWEST);
 			}
 			else
 			{
-				layout.putConstraint(SpringLayout.NORTH, labels[i], 20,
-					SpringLayout.SOUTH, values[i-1]);
-				layout.putConstraint(SpringLayout.WEST, values[i], 0,
-					SpringLayout.WEST, values[i-1]);
+				Utility.buildRelativeConstraints(gbc,
+					GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER,
+					1.0, 1.0, GridBagConstraints.BOTH,
+					GridBagConstraints.NORTHWEST);
 			}
-			layout.putConstraint(SpringLayout.WEST, labels[i], 25,
-				SpringLayout.WEST, panel);
-			layout.putConstraint(SpringLayout.NORTH, values[i], 0,
-				SpringLayout.NORTH, labels[i]);
-			layout.putConstraint(SpringLayout.EAST, values[i], -25,
-				SpringLayout.EAST, panel);
+			gbc.insets = new Insets(10, 10, 10, 25);
+			panel.add(values[i], gbc);
+			values[i].setFont(plainFont);
 		}
 
 	}
