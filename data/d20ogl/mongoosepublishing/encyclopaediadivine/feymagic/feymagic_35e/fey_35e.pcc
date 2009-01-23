@@ -46,3 +46,5 @@ TEMPLATE:../fey_templates.lst
 
 CLASS:fey_classes_35e.lst
 FEAT:fey_feats_35e.lst
+
+FORWARDREF:SKILL|Alchemy,Animal Empathy,Intuit Direction,Perform,Wilderness Lore
