@@ -209,7 +209,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private List<BonusObj> getBonusFromName(String sName, String tName)
 	{
-		//sName = SPELL=Haste
+		//sName = NAME=Haste
 		//tName = PC
 		String sourceStr = sName.substring(TAG_TEMPBONUS.length() + 1);
 		String targetStr = tName.substring(TAG_TEMPBONUSTARGET.length() + 1);
@@ -222,7 +222,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			oSource = thePC.getFeatKeyed(sourceStr);
 			if (oSource == null)
 			{
-				oSource = Globals.getAbilityKeyed("Special Ability", sourceStr);
+		 		for (final AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
+				{
+		 			Object abilSourceObj = null;
+					abilSourceObj = Globals.getAbilityKeyed(cat, sourceStr);
+		 			if (abilSourceObj != null)
+		 			{
+		 				oSource = abilSourceObj;
+		 			}
+				}
 			}
 		}
 		else if (sourceStr.startsWith(TAG_SPELL + '='))
@@ -2261,7 +2269,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		//# EquipSet Temp Bonuses
-		//EQSETBONUS:0.2|TEMPBONUS:SPELL=Haste|TBTARGET:PC|TEMPBONUS:SPELL=Shield of Faith|TBTARGET:PC
+		//EQSETBONUS:0.2|TEMPBONUS:NAME=Haste|TBTARGET:PC|TEMPBONUS:SPELL=Shield of Faith|TBTARGET:PC
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
 		for (final PCGElement element : tokens.getElements())
@@ -5280,11 +5288,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					aFeat = Globals.getAbilityKeyed("Special Ability", cKey);
 				}
 
-				//				if (aFeat == null)
-				//				{
-				//					aFeat = Globals.getAbilityNamed("FEAT", cKey);
-				//				}
-
 				if (aFeat != null)
 				{
 					newB = Bonus.newBonus(bonus);
@@ -5367,6 +5370,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					newB = Bonus.newBonus(bonus);
 					newB.setCreatorObject(aSpell);
 				}
+			}
+			else if (cType.equals(TAG_NAME))
+			{
+					newB = Bonus.newBonus(bonus);
+					//newB.setCreatorObject(thePC);
 			}
 
 			if (newB == null)

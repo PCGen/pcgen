@@ -2570,6 +2570,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				//
+				// Do we also need to Iterate Globals.getAbilityKeyIterator(Constants.ALL_CATEGORIES); ?
+				// or will they be covered by getClassList()?
+				//
 				// iterate thru all PC's Classes
 				for (PCClass aClass : pc.getClassList())
 				{

@@ -2181,7 +2181,7 @@ final class PCGVer2Creator implements IOConstants
 			// TODO Isn't this the same as outString?  Hmm, yes it is, why was it coded this way?
 			final String tarString = tempBonusName(creObj, tarObj);
 			buffer.append(tarString);
-
+			
 			// TODO Why do we loop through the bonuses again?  Are there sub bonuses for each bouns?
 			for (BonusObj subBonus : thePC.getTempBonusList())
 			{
@@ -2508,7 +2508,6 @@ final class PCGVer2Creator implements IOConstants
 		final StringBuffer cb = new StringBuffer();
 
 		cb.append(TAG_TEMPBONUS).append(':');
-
 		if (creator instanceof PObject)
 		{
 			final PObject oCreator = (PObject) creator;
@@ -2543,12 +2542,13 @@ final class PCGVer2Creator implements IOConstants
 			}
 
 			cb.append(EntityEncoder.encode(oCreator.getKeyName()));
+			// Hmm, need to get the Type of oCreater also?
+			// Might be required so the PCGVer2Parser can search correct type to re-create
 		}
 		else
 		{
 			return Constants.EMPTY_STRING;
 		}
-
 		cb.append('|');
 		cb.append(TAG_TEMPBONUSTARGET).append(':');
 
