@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 18 00:02:40 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Jan 24 17:11:54 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -349,15 +349,15 @@ CLASS:Milandisian Canton	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Cantn		MAXLEVE
 CLASS:Milandisian Canton	PREATT:2	PREFEAT:1,Conscript	PREREGION:Milandir	PRESKILL:1,TYPE.Craft=5,TYPE.Profession=5	PREVARGTEQ:(STAT.3.BASEMOD)+(STAT.4.BASEMOD)+(STAT.5.BASEMOD),0
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Milandisian Canton	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Heal|Jump|TYPE.History|TYPE.Nobility|TYPE.Profession|Survival|Swim
-1											ADD:FEAT|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes	ABILITY:Special Ability|VIRTUAL|Defensive Line
+1											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes	ABILITY:Special Ability|VIRTUAL|Defensive Line
 1:REPEATLEVEL:4					BONUS:VAR|LineBonus|1
-2																																						ABILITY:Special Ability|VIRTUAL|Always Set
-3																																						ABILITY:Special Ability|VIRTUAL|Line Defense
-4											ADD:FEAT|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
-6																																						ABILITY:Special Ability|VIRTUAL|Counter Charge
-7			SAB:Line Attack (Ex)																																ABILITY:Special Ability|VIRTUAL|Line Attack
-8											ADD:FEAT|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
-10																																						ABILITY:Special Ability|VIRTUAL|Rapid Set
+2																																				ABILITY:Special Ability|VIRTUAL|Always Set
+3																																				ABILITY:Special Ability|VIRTUAL|Line Defense
+4											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
+6																																				ABILITY:Special Ability|VIRTUAL|Counter Charge
+7			SAB:Line Attack (Ex)																														ABILITY:Special Ability|VIRTUAL|Line Attack
+8											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
+10																																				ABILITY:Special Ability|VIRTUAL|Rapid Set
 
 ##############################################################################################################################################################################################################################################################################################################################################
 

@@ -9,15 +9,12 @@ Altharin				NAMEISPI:YES	TYPE:Spoken.Written.Read
 Ancient Altharin(Imperial)	NAMEISPI:YES	TYPE:Spoken.Written.Imperial
 Cancerese				NAMEISPI:YES	TYPE:Spoken.Written.Canceri
 Chauni				NAMEISPI:YES	TYPE:Spoken.Written.Chauni
-Druidic							TYPE:Secret.Spoken.Written.Druidic
-Dwarven							TYPE:Spoken.Written.Dwarf
 Eloran				NAMEISPI:YES	TYPE:Spoken.Written.Elorii
 Gnollish							TYPE:Spoken
 Golic					NAMEISPI:YES	TYPE:Spoken.Written
 Harnen				NAMEISPI:YES	TYPE:Spoken.Written
 High Coryani			NAMEISPI:YES	TYPE:Spoken.Written.High
 High Khitani			NAMEISPI:YES	TYPE:Spoken.Written.HighK
-Infernal				NAMEISPI:YES	TYPE:Spoken.Written.Infernal
 Kio					NAMEISPI:YES	TYPE:Spoken.Written
 Low Coryani				NAMEISPI:YES	TYPE:Spoken.Written.Low
 Low Khitani				NAMEISPI:YES	TYPE:Spoken.Written.LowK
@@ -29,7 +26,3 @@ Unden					NAMEISPI:YES	TYPE:Spoken.Written
 Yhing Hir				NAMEISPI:YES	TYPE:Spoken.Written.Ying
 Ymandrake				NAMEISPI:YES	TYPE:Spoken.Written
 Literacy							TYPE:Written
-
-#Elemental Languages
-Celestial							TYPE:Spoken
-Sylvan							TYPE:Spoken

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct 30 13:08:10 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Jan 24 17:11:54 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 
 ###:Block: Universal Category
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
@@ -16,6 +16,7 @@ ABILITYCATEGORY:Bonus Known Slot			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FR
 ABILITYCATEGORY:Flexible Known Slot			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlexSpellSlot		PLURAL:Flexible Known Slot		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Spell Studies				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpellStudiesSlot		PLURAL:Spell Studies			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Turn Infernal				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TurnInfernal			PLURAL:Turn Infernal			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Turn Shadow				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TurnShadow			PLURAL:Turn Shadows			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Samnite Combat Style Mastery	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SamniteCSM			PLURAL:Samnite CSM			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Murmillo Combat Style Mastery	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MurmilloCS			PLURAL:Murmillo CSM			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Emerald Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EmeraldProficiency		PLURAL:Emerald Proficiency		DISPLAYLOCATION:Class Abilities
