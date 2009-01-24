@@ -24,14 +24,24 @@
 package pcgen.gui.converter.panel;
 
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -40,13 +50,15 @@ import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.gui.converter.LSTConverter;
 import pcgen.gui.converter.ObjectInjector;
-import pcgen.gui.converter.UnstretchingGridLayout;
 import pcgen.gui.converter.event.ProgressEvent;
+import pcgen.gui.converter.event.TaskStrategyMessage;
+import pcgen.gui.utils.Utility;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>RunConvertPanel</code> provides a display while 
@@ -58,13 +70,19 @@ import pcgen.rules.context.LoadContext;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class RunConvertPanel extends ConvertSubPanel
+public class RunConvertPanel extends ConvertSubPanel implements Observer
 {
+	int totalFileCount = 0;
+	int currentFileCount = 0;
 
-	private JPanel message;
 	private JProgressBar progressBar;
 	private ArrayList<Campaign> totalCampaigns;
 	private final LoadContext context;
+	private JTextArea messageArea;
+	private JScrollPane messageAreaContainer;
+	private boolean errorState = false;
+	private String lastNotifiedFilename = "";
+	private String currFilename = "";
 
 	public RunConvertPanel()
 	{
@@ -88,7 +106,7 @@ public class RunConvertPanel extends ConvertSubPanel
 	{
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final String outDir = pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath();
-		totalCampaigns = new ArrayList<Campaign>();
+		totalCampaigns = new ArrayList<Campaign>(pc.getSafeListFor(ListKey.CAMPAIGN));
 		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions
@@ -108,8 +126,10 @@ public class RunConvertPanel extends ConvertSubPanel
 		{
 			public void run()
 			{
+				Logging.registerHandler( getHandler() );
 				LSTConverter converter = new LSTConverter(context, rootDir,
 						outDir);
+				converter.addObserver(RunConvertPanel.this);
 				try
 				{
 					converter.doStartup();
@@ -119,11 +139,15 @@ public class RunConvertPanel extends ConvertSubPanel
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				int step = 1;
+				int numFiles = 0;
+				for (Campaign campaign : totalCampaigns)
+				{
+					numFiles += converter.getNumFilesInCampaign(campaign);
+				}
+				setTotalFileCount(numFiles);
 				for (Campaign campaign : totalCampaigns)
 				{
 					converter.processCampaign(campaign);
-					progressBar.setValue(step++);
 				}
 				ObjectInjector oi = new ObjectInjector(context, outDir,
 						rootDir, converter);
@@ -137,8 +161,20 @@ public class RunConvertPanel extends ConvertSubPanel
 					e.printStackTrace();
 				}
 
-				message.add(new JLabel("Conversion complete, press next button to finish..."));
-				message.revalidate();
+				converter.deleteObserver( RunConvertPanel.this );
+				Logging.removeHandler( getHandler() );
+				try
+				{
+					// Wait for any left over messages to catch up
+					Thread.sleep(1000);
+				}
+				catch (InterruptedException e)
+				{
+					// Ignore exception
+				}
+				setCurrentFilename("");
+				addMessage("\nConversion complete, press next button to finish...");
+				progressBar.setValue(progressBar.getMaximum());
 		        
 				fireProgressEvent(ProgressEvent.ALLOWED);
 			}
@@ -152,22 +188,199 @@ public class RunConvertPanel extends ConvertSubPanel
 	@Override
 	public void setupDisplay(JPanel panel, CDOMObject pc)
 	{
-				
-		message = new JPanel();
-		message.setLayout(new UnstretchingGridLayout(0, 1));
-		message.add(new JLabel("Conversion in progress"));
-		message.add(new JLabel(" "));
+		panel.setLayout(new GridBagLayout());
 
-        progressBar = new JProgressBar(0, totalCampaigns.size());
-        progressBar.setValue(0);
+		JLabel introLabel = new JLabel("Conversion in progress");
+		GridBagConstraints gbc = new GridBagConstraints();
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.insets = new Insets(0, 10, 5, 10);
+		panel.add(introLabel, gbc);
+
+        progressBar = getProgressBar();
         Dimension d = progressBar.getPreferredSize();
         d.width = 400;
         progressBar.setPreferredSize(d);
         progressBar.setStringPainted(true);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(progressBar, gbc);
 
-        message.add(progressBar);
-		message.add(new JLabel(" "));
-		panel.add(message);
+		messageAreaContainer = new JScrollPane(getMessageArea());
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0, 1.0);
+		gbc.fill = GridBagConstraints.BOTH;
+		panel.add(messageAreaContainer, gbc);
+		
 		panel.setPreferredSize(new Dimension(800, 500));
 	}
+
+	private LoadHandler handler = null;
+
+	private Handler getHandler()
+	{
+		if (handler == null)
+		{
+			handler = new LoadHandler();
+		}
+		return handler;
+	}
+
+	public void setCurrentFilename(String filename)
+	{
+		TaskStrategyMessage.sendStatus(this, "Converting " + filename);
+		currFilename = filename;
+	}
+
+	public void addMessage(String message)
+	{
+		if (currFilename.length() > 0 && !currFilename.equals(lastNotifiedFilename))
+		{
+			getMessageArea().append("\n" + currFilename + "\n");
+			lastNotifiedFilename = currFilename;
+		}
+		getMessageArea().append(message + "\n");
+	}
+
+	/**
+	 * Keeps track if there has been set an error message.
+	 *
+	 * @param errorState <code>true</code> if there was an error message
+	 */
+	public void setErrorState(boolean errorState)
+	{
+		this.errorState = errorState;
+	}
+
+	public boolean getErrorState()
+	{
+		return errorState;
+	}
+
+
+	/**
+	 * This method initializes progressBar
+	 *
+	 * @return javax.swing.JProgressBar
+	 */
+	private JProgressBar getProgressBar()
+	{
+		if (progressBar == null)
+		{
+			progressBar = new JProgressBar();
+			progressBar.setValue(0);
+			progressBar.setStringPainted(true);
+		}
+
+		return progressBar;
+	}
+
+	/**
+	 * This method initializes messageArea
+	 *
+	 * @return javax.swing.JTextArea
+	 */
+	private JTextArea getMessageArea()
+	{
+		if (messageArea == null)
+		{
+			messageArea = new JTextArea();
+			messageArea.setName("errorMessageBox");
+			messageArea.setEditable(false);
+			messageArea.setTabSize(8);
+		}
+
+		return messageArea;
+	}
+
+	public void update(Observable o, Object arg)
+	{
+		if (arg instanceof URI)
+		{
+			setCurrentFileCount(currentFileCount + 1);
+
+			final URI uri = (URI) arg;
+			setCurrentFilename(uri.toString());
+		}
+		else if (arg instanceof Exception)
+		{
+			final Exception e = (Exception)arg;
+			Runnable doWork = new Runnable()
+			{
+				public void run()
+				{
+					addMessage(e.getMessage());
+					setErrorState(true);
+				}
+			};
+			SwingUtilities.invokeLater(doWork);
+			System.out.println("Persistence Observer: ERROR: " + e.getMessage());
+		}
+		else
+		{
+			System.out.println("Persistence Observer: UNKNOWN: " + arg);
+		}
+	}
+
+	/**
+	 * @param iFileCount The totalFileCount to set.
+	 */
+	protected void setTotalFileCount(final int iFileCount)
+	{
+		totalFileCount = iFileCount;
+		Runnable doWork = new Runnable() {
+			public void run()
+			{
+				getProgressBar().setMaximum(iFileCount);
+			}
+		};
+		SwingUtilities.invokeLater(doWork);
+	}
+
+	public void setCurrentFileCount(int curr)
+	{
+		currentFileCount = curr;
+		getProgressBar().setValue(curr);
+	}
+
+	
+	/**
+	 * A log handler to capture load errors and warnings and 
+	 * display them in the message section of the panel.
+	 */
+	private class LoadHandler extends Handler
+	{
+
+		public LoadHandler()
+		{
+			setLevel(Logging.LST_WARNING);
+		}
+
+		@Override
+		public void close() throws SecurityException
+		{
+			// Nothing to do
+		}
+
+		@Override
+		public void flush()
+		{
+			// Nothing to do
+		}
+
+		@Override
+		public void publish(final LogRecord arg0)
+		{
+			Runnable doWork = new Runnable()
+			{
+				public void run()
+				{
+					addMessage(arg0.getLevel() + " " + arg0.getMessage());
+					setErrorState(true);
+				}
+			};
+			SwingUtilities.invokeLater(doWork);
+		}
+		
+	}
+
 }

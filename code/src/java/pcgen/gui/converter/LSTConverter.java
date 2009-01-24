@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Observable;
 import java.util.Set;
 
 import pcgen.base.util.DoubleKeyMapToList;
@@ -63,7 +64,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
-public class LSTConverter
+public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
 	private final StatsAndChecksLoader statCheckLoader = new StatsAndChecksLoader();
@@ -82,6 +83,23 @@ public class LSTConverter
 		loaders = setupLoaders(context);
 	}
 
+	/**
+	 * Return the number of files referred to by the campaign
+	 * @param campaign The campaign to be tallied.
+	 * @return The number of lst files used.
+	 */
+	public int getNumFilesInCampaign(Campaign campaign)
+	{
+		int numFiles = 0;
+	
+		for (final Loader loader : loaders)
+		{
+			List<CampaignSourceEntry> files = loader.getFiles(campaign);
+			numFiles += files.size();
+		}
+		return numFiles;
+	}
+	
 	public void processCampaign(Campaign campaign)
 	{
 		// load ability categories first as they used to only be at the game
@@ -108,6 +126,8 @@ public class LSTConverter
 			for (final CampaignSourceEntry cse : files)
 			{
 				final URI uri = cse.getURI();
+				setChanged();
+				notifyObservers(uri);
 				if (written.contains(uri))
 				{
 					continue;
@@ -117,11 +137,11 @@ public class LSTConverter
 				File base = findSubRoot(rootDir, in);
 				String relative = in.toString().substring(
 						base.toString().length() + 1);
-				File outFile = new File(rootDir, File.separator + outDir
-						+ File.separator + relative);
+				File outFile = new File(outDir, File.separator + relative);
 				if (outFile.exists())
 				{
-					System.err.println("Won't overwrite: " + outFile);
+					Logging.log(Logging.WARNING, "Won't overwrite: " + outFile);
+					continue;
 				}
 				ensureParents(outFile.getParentFile());
 				try

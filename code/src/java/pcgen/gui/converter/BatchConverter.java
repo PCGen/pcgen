@@ -71,7 +71,8 @@ public class BatchConverter
 	private void startCampaign(List<Campaign> list)
 			throws PersistenceLayerException
 	{
-		LSTConverter converter = new LSTConverter(context, rootDir, outDir);
+		File outFile = new File(rootDir, File.separator + outDir);
+		LSTConverter converter = new LSTConverter(context, rootDir, outFile.getAbsolutePath());
 		converter.doStartup();
 		for (Campaign campaign : list)
 		{
