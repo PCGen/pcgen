@@ -40,6 +40,18 @@ public abstract class ConvertSubPanel implements ProgressMonitor
 		support = new ProgressSupport(this);
 	}
 
+	/**
+	 * Can the user return to this panel by means of the previous button?
+	 * By default this will be false. Panels which can support previous 
+	 * should override this to return true.
+	 * 
+	 * @return true if the user can navigate back to this panel safely.
+	 */
+	public boolean returnAllowed()
+	{
+		return false;
+	}
+
 	public void addProgressListener(ProgressListener listener)
 	{
 		support.addProgressListener(listener);

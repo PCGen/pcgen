@@ -73,6 +73,15 @@ public class CampaignPanel extends ConvertSubPanel
 	}
 
 	/* (non-Javadoc)
+	 * @see pcgen.gui.converter.panel.ConvertSubPanel#returnAllowed()
+	 */
+	@Override
+	public boolean returnAllowed()
+	{
+		return true;
+	}
+	
+	/* (non-Javadoc)
 	 * @see pcgen.gui.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override

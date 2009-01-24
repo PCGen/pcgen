@@ -21,7 +21,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.BlockingQueue;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -42,10 +42,13 @@ import pcgen.gui.utils.CursorControlUtilities;
 
 public class ConvertPanel extends JPanel
 {
+	private static final long serialVersionUID = 1686411319132380251L;
 
 	private final JPanel basePanel = new JPanel();
 
 	private final JButton finishButton;
+
+	private final JButton prevButton;
 
 	private final JButton nextButton;
 
@@ -55,9 +58,11 @@ public class ConvertPanel extends JPanel
 
 	private final ProgressListener pl;
 
-	private final BlockingQueue<ConvertSubPanel> queue;
+	private final List<ConvertSubPanel> queue;
+	
+	private int currentPanel = -1;
 
-	public ConvertPanel(BlockingQueue<ConvertSubPanel> bq)
+	public ConvertPanel(List<ConvertSubPanel> bq)
 	{
 		super(new BorderLayout());
 		final JLabel statusLabel = new JLabel();
@@ -92,11 +97,11 @@ public class ConvertPanel extends JPanel
 
 		properties = new ObjectCache();
 		Box buttonBox = Box.createHorizontalBox();
-		// prevButton = new JButton("< Previous");
-		// prevButton.setMnemonic('P');
-		// prevButton.addActionListener(new PreviousButtonListener());
-		// prevButton.setEnabled(false); // FUTURE Need to reenable this
-		// buttonBox.add(prevButton);
+		prevButton = new JButton("< Previous");
+		prevButton.setMnemonic('P');
+		prevButton.addActionListener(new PreviousButtonListener());
+		prevButton.setEnabled(false); // FUTURE Need to reenable this
+		buttonBox.add(prevButton);
 		nextButton = new JButton("Next >");
 		nextButton.setMnemonic('N');
 		pl = new ProgressListener()
@@ -162,16 +167,17 @@ public class ConvertPanel extends JPanel
 		runNextPanel();
 	}
 
-	public void prepare(ConvertSubPanel panel)
+	public void prepare(ConvertSubPanel panel, boolean allowPrev)
 	{
-		setButtonVisibility(panel.isLast());
+		setButtonVisibility(panel.isLast(), allowPrev);
 		panel.addProgressListener(pl);
 		panel.performAnalysis(properties);
 	}
 
-	private void setButtonVisibility(boolean displayingLast)
+	private void setButtonVisibility(boolean displayingLast, boolean allowPrev)
 	{
 		nextButton.setEnabled(false);
+		prevButton.setEnabled(allowPrev);
 		finishButton.setVisible(displayingLast);
 		cancelButton.setVisible(!displayingLast);
 	}
@@ -195,19 +201,70 @@ public class ConvertPanel extends JPanel
 		ConvertSubPanel nextpanel = null;
 		do
 		{
-			try
+			boolean allowPrev = false;
+			if (currentPanel >= 0 && currentPanel<queue.size())
 			{
-				nextpanel = queue.take();
-				prepare(nextpanel);
-				basePanel.removeAll();
-				nextpanel.setupDisplay(basePanel, properties);
-				basePanel.repaint();
+				allowPrev = queue.get(currentPanel).returnAllowed();
 			}
-			catch (InterruptedException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				currentPanel++;
+				if (currentPanel<queue.size())
+				{
+					nextpanel = queue.get(currentPanel);
+					prepare(nextpanel, allowPrev);
+					basePanel.removeAll();
+					nextpanel.setupDisplay(basePanel, properties);
+					basePanel.repaint();
+				}
+				else
+				{
+					nextpanel = null;
+				}
 		} while (nextpanel != null && nextpanel.autoAdvance(properties));
+	}
+
+
+	/**
+		 * The Class <code>PreviousButtonListener</code> ...
+		 * 
+		 * Last Editor: $Author: $
+		 * Last Edited: $Date:  $
+		 * 
+		 * @author James Dempsey <jdempsey@users.sourceforge.net>
+		 * @version $Revision:  $
+		 */
+	public class PreviousButtonListener implements ActionListener
+	{
+
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
+		public void actionPerformed(ActionEvent e)
+		{
+			CursorControlUtilities.startWaitCursor(basePanel);
+			ConvertSubPanel prevpanel = null;
+			do
+			{
+				currentPanel--;
+				if (currentPanel >= 0 && currentPanel<queue.size())
+				{
+					prevpanel = queue.get(currentPanel);
+					boolean allowPrev = false;
+					if (currentPanel > 0)
+					{
+						allowPrev = queue.get(currentPanel-1).returnAllowed();
+					}
+					prepare(prevpanel, allowPrev);
+					basePanel.removeAll();
+					prevpanel.setupDisplay(basePanel, properties);
+					basePanel.repaint();
+				}
+				else
+				{
+					prevpanel = null;
+				}
+			} while (prevpanel != null && prevpanel.autoAdvance(properties));
+			CursorControlUtilities.stopWaitCursor(basePanel);
+		}
+
 	}
 }

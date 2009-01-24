@@ -20,8 +20,8 @@ package pcgen.gui.converter;
 import java.awt.CardLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -44,6 +44,7 @@ import pcgen.persistence.lst.LstSystemLoader;
 
 public final class PCGenDataConvert extends JFrame
 {
+	private static final long serialVersionUID = 3921586726890440663L;
 
 	private final JPanel contentPanel = new JPanel(new CardLayout());
 
@@ -62,9 +63,9 @@ public final class PCGenDataConvert extends JFrame
 	{
 		PCGenDataConvert frame = new PCGenDataConvert();
 		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		BlockingQueue<ConvertSubPanel> panels = new LinkedBlockingQueue<ConvertSubPanel>();
+		List<ConvertSubPanel> panels = new ArrayList<ConvertSubPanel>();
 		LstSystemLoader loader = new LstSystemLoader();
-		panels.put(new StartupPanel(loader));
+		panels.add(new StartupPanel(loader));
 
 		final ConvertPanel installPanel = new ConvertPanel(panels);
 		frame.addWindowListener(new WindowAdapter()
@@ -76,16 +77,16 @@ public final class PCGenDataConvert extends JFrame
 			}
 		});
 
-		panels.put(new SourceSelectionPanel());
-		panels.put(new GameModePanel(loader));
-		panels.put(new CampaignPanel());
+		panels.add(new SourceSelectionPanel());
+		panels.add(new GameModePanel(loader));
+		panels.add(new CampaignPanel());
 
-		panels.put(new WriteDirectoryPanel());
+		panels.add(new WriteDirectoryPanel());
 
-		panels.put(new SummaryPanel());
+		panels.add(new SummaryPanel());
 
-		panels.put(new RunConvertPanel());
-		panels.put(new MessagePanel("PCGen Data Conversion Complete!",
+		panels.add(new RunConvertPanel());
+		panels.add(new MessagePanel("PCGen Data Conversion Complete!",
 			ProgressEvent.NOT_ALLOWED));
 
 		frame.getContentPane().add(installPanel);

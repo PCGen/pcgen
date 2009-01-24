@@ -76,6 +76,15 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.gui.converter.panel.ConvertSubPanel#returnAllowed()
+	 */
+	@Override
+	public boolean returnAllowed()
+	{
+		return true;
+	}
+	
 	@Override
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{

@@ -56,6 +56,14 @@ public class GameModePanel extends ConvertSubPanel
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.gui.converter.panel.ConvertSubPanel#returnAllowed()
+	 */
+	@Override
+	public boolean returnAllowed()
+	{
+		return true;
+	}
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
