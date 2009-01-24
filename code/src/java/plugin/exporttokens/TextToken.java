@@ -137,8 +137,8 @@ public class TextToken extends Token
 		{
 			retString = String.valueOf(retString.length());
 		}
-		// TEXT.REPLACEALL(regex,newtext) or
-		// TEXT.REPLACEFIRST(regex,newtext)
+		// TEXT.REPLACEALL{regex,newtext} or
+		// TEXT.REPLACEFIRST{regex,newtext}
 		else if (action.startsWith("REPLACE"))
 		{
 			final String replaceType = action.substring(7, action.indexOf('{'));
@@ -178,7 +178,7 @@ public class TextToken extends Token
 			}
 			else if (replaceType.equalsIgnoreCase("FIRST"))
 			{
-				retString = retString.replaceAll(pattern, replacement);
+				retString = retString.replaceFirst(pattern, replacement);
 			}
 		}
 		return retString;
