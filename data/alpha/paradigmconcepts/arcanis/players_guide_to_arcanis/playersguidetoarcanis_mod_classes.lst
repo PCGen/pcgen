@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Dec  3 22:40:15 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Jan 24 15:02:52 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -271,6 +271,8 @@ SUBCLASSLEVEL:1																																				CSKILL:Survival														
 4	BONUS:VAR|ChannelLevelBase|CL+2|PREDEITY:1,Beltine,Neroth
 5																		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Special Mount	ABILITY:Special Ability|AUTOMATIC|Faithful Steed
 
+# Class Name	Prohibited Class
+CLASS:Ranger.MOD	!PRECLASS:1,Urban Sentinel=1
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:TYPE.Dungeoneering|TYPE.Nature|TYPE.Geography|TYPE.Religion
 1											VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))|Exotic Weapon Proficiency(Flintlock (Pistol))[PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]]

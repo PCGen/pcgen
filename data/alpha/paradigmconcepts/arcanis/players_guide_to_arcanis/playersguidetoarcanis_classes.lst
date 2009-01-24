@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Dec 27 22:51:17 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Jan 24 15:02:52 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -129,6 +129,8 @@ SUBCLASSLEVEL:3																																																																	
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Urban Sentinel	HD:8		TYPE:Base.PC	ABB:USntl		MAXLEVEL:20	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.69	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Prohibited Class
+CLASS:Urban Sentinel	!PRECLASS:1,Ranger=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Urban Sentinel	STARTSKILLPTS:6	CSKILL:Balance|Black Market|Climb|Concentration|TYPE.Craft|Escape Artist|Gather Information|Handle Animal|Hide|Intimidate|Jump|TYPE.Local|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
