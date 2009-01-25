@@ -42,6 +42,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 
@@ -53,7 +54,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 {
 
 	private Equipment eq = null;
+	private Equipment eqDouble = null;
 	private final String OriginalKey = "OrigKey";
+	private CampaignSourceEntry source;
 
 	/**
 	 * Main
@@ -103,7 +106,6 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
-		CampaignSourceEntry source;
 		try
 		{
 			source = new CampaignSourceEntry(new Campaign(),
@@ -120,6 +122,12 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			"Dummy	SIZE:M 	KEY:OrigKey	TYPE:Weapon", source);
 		eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Equipment.class, OriginalKey);
+
+		eqDouble = eqLoader.parseLine(Globals.getContext(), null,
+			"Dummy	SIZE:M 	KEY:DoubleKey	TYPE:Weapon.Double", source);
+
+		eqDouble = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Equipment.class, "DoubleKey");
 		
 		GenericLoader<EquipmentModifier> loader =
 				new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
@@ -470,5 +478,61 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		aEquip.addEqModifier(eqModPlus, true, getCharacter());
 		assertEquals("Invalid cost when adding an eqmod with a plus", 2300,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+	}
+	
+	/**
+	 * Test the use of HEADPLUSTOTAL in COST and BONUS:ITEMCOST formulas on 
+	 * both primary and alternate heads.
+	 * @throws Exception
+	 */
+	public void testGetCostWithHeadPlus() throws Exception
+	{
+		GenericLoader<EquipmentModifier> loader =
+				new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
+		loader
+			.parseLine(
+				Globals.getContext(),
+				null,
+				"HeadPlusTest		KEY:HEADPT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*20	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*5	VISIBLE:YES",
+				source);
+		EquipmentModifier eqMod =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					EquipmentModifier.class, "HEADPT");
+		assertNotNull("Eqmod HEADPT should be present", eqMod);
+
+		loader
+			.parseLine(
+				Globals.getContext(),
+				null,
+				"HeadPlusTest		KEY:HEADPT2	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*21	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*7	VISIBLE:YES",
+				source);
+		EquipmentModifier eqMod2 =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					EquipmentModifier.class, "HEADPT2");
+
+	
+		EquipmentModifier eqModPlus = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
+		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
+
+		Equipment aEquip = eqDouble.clone();
+		assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
+		
+		aEquip.addEqModifier(eqMod, true, getCharacter());
+		assertEquals("Invalid cost when adding an eqmod with no plus", 0,
+			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		
+		aEquip.addEqModifier(eqModPlus, true, getCharacter());
+		assertEquals("Invalid cost when adding an eqmod with a plus", 2025,
+			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+
+		aEquip.addEqModifier(eqMod2, false, getCharacter());
+		assertEquals("Invalid cost when adding an eqmod to alt head with no plus", 2025,
+			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		
+		aEquip.addEqModifier(eqModPlus, false, getCharacter());
+		assertEquals("Invalid cost when adding an eqmod to alt head with a plus", 4053,
+			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		
 	}
 }

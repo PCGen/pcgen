@@ -27,7 +27,6 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
@@ -42,7 +41,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;
-import pcgen.util.Logging;
 
 /**
  * Definition and games rules for an equipment modifier.
@@ -211,22 +209,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		final AssociationStore          obj)
 	{
 		double res =  super.bonusTo(aType, aName, obj, getBonusList(obj), aPC);
-		if (obj instanceof Equipment)
-		{
-			Map<String, String> bonusMap = ((Equipment) obj).getBonusMap();
-			String testKey = aType + "." + aName;
-			double equipRes = 0;
-			for (String key : bonusMap.keySet())
-			{
-				if (key.startsWith(testKey))
-				{
-					String value = bonusMap.get(key);
-					equipRes += Double.valueOf(value);
-				}
-			}
-			Logging.debugPrint("Replacing result of " + res + " with " + equipRes + " for " + aType + " - " + aName);
-			res = equipRes;
-		}
 		return res;
 	}
 

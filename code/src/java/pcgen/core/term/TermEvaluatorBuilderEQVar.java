@@ -174,6 +174,20 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		}
 	},
 
+	COMPLETE_EQ_HEADPLUSTOTAL
+		("HEADPLUSTOTAL",
+		 new String[] { "HEADPLUSTOTAL" },
+	 	 true ) { 
+
+		public TermEvaluator getTermEvaluator(
+				final String expressionString,
+				final String src,
+				final String matchedSection) {
+
+			return new EQHeadPlusTotalTermEvaluator(expressionString);
+		}
+	},
+
 	COMPLETE_EQ_PLUSTOTAL
 		("PLUSTOTAL",
 		 new String[] { "PLUSTOTAL" },

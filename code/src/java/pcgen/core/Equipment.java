@@ -725,48 +725,8 @@ public final class Equipment extends PObject implements Serializable,
 		// eg. in the case of adamantine armor, want to add
 		// the cost of the metal before the armor gets resized.
 		//
-		EquipmentHead head = getEquipmentHeadReference(1);
-		if (head != null)
-		{
-			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
-			{
-				int iCount = getSelectCorrectedAssociationCount(eqMod);
-
-				if (iCount < 1)
-				{
-					iCount = 1;
-				}
-
-				Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
-				Number bc = baseCost.resolve(this, true, aPC, "");
-				final BigDecimal eqModCost = new BigDecimal(bc.toString());
-				c = c.add(eqModCost.multiply(new BigDecimal(Integer
-								.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-				c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST",
-						getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
-			}
-		}
-		EquipmentHead althead = getEquipmentHeadReference(2);
-		if (althead != null)
-		{
-			for (EquipmentModifier eqMod : althead.getSafeListFor(ListKey.EQMOD))
-			{
-				int iCount = getSelectCorrectedAssociationCount(eqMod);
-
-				if (iCount < 1)
-				{
-					iCount = 1;
-				}
-
-				Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
-				Number bc = baseCost.resolve(this, false, aPC, "");
-				final BigDecimal eqModCost = new BigDecimal(bc.toString());
-				c = c.add(eqModCost.multiply(new BigDecimal(Integer
-								.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-				c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST",
-						getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
-			}
-		}
+		c = c.add(getPreSizingCostForHead(aPC, true));
+		c = c.add(getPreSizingCostForHead(aPC, false));
 
 		// c has cost of the item's modifications at the item's original size
 
@@ -782,63 +742,11 @@ public final class Equipment extends PObject implements Serializable,
 		calculatingCost   = true;
 		weightAlreadyUsed = false;
 
-		BigDecimal nonDoubleCost = BigDecimal.ZERO;
-		BigDecimal c1            = BigDecimal.ZERO;
-
-		int iPlus = 0;
-		if (head != null)
-		{
-			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD)) {
-				int iCount = getSelectCorrectedAssociationCount(eqMod);
-
-				if (iCount < 1) {
-					iCount = 1;
-				}
-
-				BigDecimal eqModCost;
-				Formula cost = eqMod.getSafe(FormulaKey.COST);
-				String costFormula = cost.toString();
-
-				if (hasAssociations(eqMod)
-						&& !costFormula.equals(EqModCost.getCost(eqMod, getFirstAssociation(eqMod)))) {
-					eqModCost = BigDecimal.ZERO;
-
-					for (String assoc : getAssociationList(eqMod))
-					{
-						String v = calcEqModCost(aPC, EqModCost.getCost(eqMod, assoc));
-						
-						final BigDecimal thisModCost = new BigDecimal(v);
-
-						eqModCost = eqModCost.add(thisModCost);
-
-						if (!EqModCost.getCostDouble(eqMod)) {
-							nonDoubleCost = nonDoubleCost.add(thisModCost);
-						} else {
-							modifierCosts.add(thisModCost);
-						}
-					}
-
-					iCount = 1;
-				} else {
-					String v = calcEqModCost(aPC, cost.toString());
-
-					eqModCost = new BigDecimal(v);
-
-					if (!EqModCost.getCostDouble(eqMod)) {
-						nonDoubleCost = nonDoubleCost.add(eqModCost);
-					} else {
-						modifierCosts.add(eqModCost);
-					}
-				}
-
-				// Per D20 FAQ adjustments for special materials are per piece;
-				if (eqMod.isType("BaseMaterial")) {
-					eqModCost = eqModCost.multiply(new BigDecimal(getSafe(IntegerKey.BASE_QUANTITY)));
-				}
-				c1 = c1.add(eqModCost);
-				iPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
-			}
-		}
+		EquipmentHeadCostSummary costSum =
+				getPostSizingCostForHead(aPC, modifierCosts, true);
+		BigDecimal nonDoubleCost = costSum.nonDoubleCost;
+		BigDecimal c1            = costSum.postSizeCost;
+		int iPlus                = costSum.headPlus;
 
 		//
 		// Get costs from lowest to highest
@@ -847,24 +755,14 @@ public final class Equipment extends PObject implements Serializable,
 			Collections.sort(modifierCosts);
 		}
 
-		int altPlus = 0;
-		if (althead != null)
-		{
-			for (EquipmentModifier eqMod : althead.getSafeListFor(ListKey.EQMOD)) {
-				int iCount = getSelectCorrectedAssociationCount(eqMod);
-
-				if (iCount < 1) {
-					iCount = 1;
-				}
-
-				Formula cost = eqMod.getSafe(FormulaKey.BASECOST);
-				Number bc = cost.resolve(this, false, aPC, "");
-				final BigDecimal eqModCost = new BigDecimal(bc.toString());
-				c1 = c1.add(eqModCost.multiply(new BigDecimal(Integer
-						.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
-				altPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
-			}
-		}
+		// Note: When calculating the second head's costs we expect not to see 
+		// any modifier costs and discard them if they do occur. These should be 
+		// applicable for weapons, which are the only dual headed items currently.
+		EquipmentHeadCostSummary altCostSum =
+				getPostSizingCostForHead(aPC, new ArrayList<BigDecimal>(), false);
+		nonDoubleCost = nonDoubleCost.add(altCostSum.nonDoubleCost);
+		c1 = c1.add(altCostSum.postSizeCost);
+		int altPlus = altCostSum.headPlus;
 
 		calculatingCost = false;
 
@@ -920,12 +818,142 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Calculate the parts of the cost for the equipment's head that are 
+	 * affected by size.
+	 *  
+	 * @param aPC The character who owns the equipment.
+	 * @param primaryHead Are we calculating for the primary or alternate head.
+	 * @return The cost of the head
+	 */
+	private BigDecimal getPreSizingCostForHead(final PlayerCharacter aPC,
+		boolean primaryHead)
+	{
+		BigDecimal c = BigDecimal.ZERO;
+		EquipmentHead head = getEquipmentHeadReference(primaryHead ? 1 : 2);
+		if (head != null)
+		{
+			bonusPrimary = primaryHead;
+			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
+			{
+				int iCount = getSelectCorrectedAssociationCount(eqMod);
+
+				if (iCount < 1)
+				{
+					iCount = 1;
+				}
+
+				Formula baseCost = eqMod.getSafe(FormulaKey.BASECOST);
+				Number bc = baseCost.resolve(this, primaryHead, aPC, "");
+				final BigDecimal eqModCost = new BigDecimal(bc.toString());
+				c = c.add(eqModCost.multiply(new BigDecimal(Integer
+								.toString(getSafe(IntegerKey.BASE_QUANTITY) * iCount))));
+				c = c.add(EqModCost.addItemCosts(eqMod, aPC, "ITEMCOST",
+						getSafe(IntegerKey.BASE_QUANTITY) * iCount, this));
+			}
+		}
+		return c;
+	}
+
+	/**
+	 * Calculate the parts of the cost for the equipment's head that are not 
+	 * affected by size.
+	 *  
+	 * @param aPC The character who owns the equipment.
+	 * @param modifierCosts The array of costs to be doubled if the location demands it
+	 * @param primaryHead Are we calculating for the primary or alternate head.
+	 * @return The cost, non doubling cost and total plus of the head
+	 */
+	private EquipmentHeadCostSummary getPostSizingCostForHead(
+		final PlayerCharacter aPC, final List<BigDecimal> modifierCosts,
+		boolean primaryHead)
+	{
+		EquipmentHeadCostSummary costSum = new EquipmentHeadCostSummary();
+		EquipmentHead head = getEquipmentHeadReference(primaryHead ? 1 : 2);
+		
+		if (head != null)
+		{
+			for (EquipmentModifier eqMod : head.getSafeListFor(ListKey.EQMOD))
+			{
+				int iCount = getSelectCorrectedAssociationCount(eqMod);
+
+				if (iCount < 1)
+				{
+					iCount = 1;
+				}
+
+				BigDecimal eqModCost;
+				Formula cost = eqMod.getSafe(FormulaKey.COST);
+				String costFormula = cost.toString();
+
+				if (hasAssociations(eqMod)
+					&& !costFormula.equals(EqModCost.getCost(eqMod,
+						getFirstAssociation(eqMod))))
+				{
+					eqModCost = BigDecimal.ZERO;
+
+					for (String assoc : getAssociationList(eqMod))
+					{
+						String v =
+								calcEqModCost(aPC, EqModCost.getCost(eqMod,
+									assoc), primaryHead);
+						final BigDecimal thisModCost = new BigDecimal(v);
+						eqModCost = eqModCost.add(thisModCost);
+
+						if (!EqModCost.getCostDouble(eqMod))
+						{
+							costSum.nonDoubleCost =
+									costSum.nonDoubleCost.add(thisModCost);
+						}
+						else
+						{
+							modifierCosts.add(thisModCost);
+						}
+					}
+
+					iCount = 1;
+				}
+				else
+				{
+					String v = calcEqModCost(aPC, cost.toString(), primaryHead);
+					eqModCost = new BigDecimal(v);
+
+					if (!EqModCost.getCostDouble(eqMod))
+					{
+						costSum.nonDoubleCost =
+								costSum.nonDoubleCost.add(eqModCost);
+					}
+					else
+					{
+						modifierCosts.add(eqModCost);
+					}
+				}
+
+				// Per D20 FAQ adjustments for special materials are per piece;
+				if (eqMod.isType("BaseMaterial"))
+				{
+					eqModCost =
+							eqModCost.multiply(new BigDecimal(
+								getSafe(IntegerKey.BASE_QUANTITY)));
+				}
+				costSum.postSizeCost = costSum.postSizeCost.add(eqModCost);
+
+				costSum.headPlus += (eqMod.getSafe(IntegerKey.PLUS) * iCount);
+			}
+		}
+		return costSum;
+	}
+
+	/**
+	 * Calculates the value of a formula. Does some preprocesing for variables 
+	 * that cannot be properly evaluated with just the equipment context that 
+	 * is held by the variable processor.  
 	 * @param aPC The character we are calculating the cost for.
 	 * @param costFormula The formula to be evaluated.
-	 * @return
+	 * @param primaryHead Is the formula for an eqmod on the main (or only) head  
+	 * @return The value of the formula
 	 */
 	private String calcEqModCost(final PlayerCharacter aPC,
-		String costFormula)
+		String costFormula, boolean primaryHead)
 	{
 		Pattern pat = Pattern.compile("BASECOST");
 		Matcher mat = pat.matcher(costFormula);
@@ -936,8 +964,8 @@ public final class Equipment extends PObject implements Serializable,
 		sB.append(getSafe(IntegerKey.BASE_QUANTITY));
 		sB.append(")");
 		String s = mat.replaceAll(sB.toString());
-		
-		String v = getVariableValue(s, "", true, aPC).toString();
+
+		String v = getVariableValue(s, "", primaryHead, aPC).toString();
 		return v;
 	}
 
@@ -6177,5 +6205,16 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		while (removeFromListFor(ListKey.TYPE, t)) {}
 		dumpTypeCache();
+	}
+	
+	/**
+	 * The Class <code>EquipmentHeadCostSummary</code> carries the multi 
+	 * valued response back when calculating the cost of a head.  
+	 */
+	private class EquipmentHeadCostSummary
+	{
+		BigDecimal postSizeCost = BigDecimal.ZERO;
+		BigDecimal nonDoubleCost = BigDecimal.ZERO;
+		int headPlus = 0;
 	}
 }
