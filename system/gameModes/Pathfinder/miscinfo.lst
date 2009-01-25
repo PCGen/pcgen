@@ -1,7 +1,7 @@
 #
-# Current Ver: $Revision: 5041 $
-# Last Editor: $Author: eddyanthony $
-# Last Edited: $Date: 2008-01-29 19:25:33 +0100 (Tue, 29 Jan 2008) $
+# Current Ver: $Revision$
+# Last Editor: $Author$
+# Last Edited: $Date$
 #
 # message displayed when experience added allows character to advance a level
 LEVELMSG:Congratulations, you can advance with that much experience!
