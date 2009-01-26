@@ -18,7 +18,7 @@
  *
  * Created on 09/11/2008 11:07:19 AM
  *
- * $Id: $
+ * $Id$
  */
 
 package pcgen.gui.sources;
@@ -48,11 +48,11 @@ import pcgen.util.SwingWorker;
  * The Class <code>SourceSelectionUtils</code> holds common
  * functionality for source selection and loading.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision$
  */
 public final class SourceSelectionUtils
 {

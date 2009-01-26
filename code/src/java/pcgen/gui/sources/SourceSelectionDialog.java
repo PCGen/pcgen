@@ -18,7 +18,7 @@
  *
  * Created on 9/11/2008 08:01:30
  *
- * $Id: $
+ * $Id$
  */
 
 package pcgen.gui.sources;
@@ -77,11 +77,11 @@ import pcgen.util.PropertyFactory;
  * combinations as well as making source selection easier for first 
  * time users. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class SourceSelectionDialog extends JDialog implements

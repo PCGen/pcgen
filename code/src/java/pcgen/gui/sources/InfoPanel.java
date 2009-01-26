@@ -18,7 +18,7 @@
  *
  * Created on 16/11/2008 3:34:16 PM
  *
- * $Id: $
+ * $Id$
  */
 
 package pcgen.gui.sources;
@@ -50,11 +50,11 @@ import pcgen.util.enumeration.Tab;
  * The Class <code>InfoPanel</code> provides a guide for first time 
  * users on what to do next and what sources are loaded.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class InfoPanel extends JPanel

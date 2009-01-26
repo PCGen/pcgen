@@ -18,7 +18,7 @@
  *
  * Created on 18/11/2008 08:26:36
  *
- * $Id: $
+ * $Id$
  */
 package pcgen.gui.sources;
 
@@ -55,11 +55,11 @@ import pcgen.util.PropertyFactory;
  * new source collection that will be displayed in the 
  * SourceSelectionDialog.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision$
  */
 @SuppressWarnings("serial")
 class CreateSourceDialog extends JDialog implements ActionListener
