@@ -1139,8 +1139,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param gameModeFolderName the name of the folder that the game mode is located in
 	 * @param lstFileName the lst file to load
 	 * @param showMissing show the missing file as a warning. Some files are optional and shouldn't generate a warning
+	 * @return true if the file was loaded, false if it was missing.
 	 */
-	private void loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
+	private boolean loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
 		String gameModeName, String gameModeFolderName, String lstFileName, final boolean showMissing)
 	{
 		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
@@ -1152,7 +1153,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			if (gameModeFile.exists())
 			{
 				lstFileLoader.loadLstFile(context, gameModeFile.toURI(), gameModeName);
-				return;
+				return true;
 			}
 		}
 		catch (PersistenceLayerException ple)
@@ -1167,6 +1168,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			if (gameModeFile.exists())
 			{
 				lstFileLoader.loadLstFile(context, gameModeFile.toURI(), gameModeName);
+				return true;
 			}
 		}
 		catch (PersistenceLayerException ple2)
@@ -1177,6 +1179,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						+ " is missing file " + lstFileName);
 			}
 		}
+		return false;
 	}
 
 	public void loadGameModes()
@@ -1274,8 +1277,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 		if (useGameModeFile)
 		{
-			loadGameModeLstFile(context, pointBuyLoader, gmName, gameFile,
-				"pointbuymethods.lst", false);
+			if (!loadGameModeLstFile(context, pointBuyLoader, gmName, gameFile,
+				"pointbuymethods.lst", false))
+			{
+				loadGameModeLstFile(context, pointBuyLoader, gmName, gameFile,
+					"pointbuymethods_system.lst", false);
+			}
 		}
 	}
 
