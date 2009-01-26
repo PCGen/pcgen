@@ -191,7 +191,6 @@ class CreateSourceDialog extends JDialog implements ActionListener
 			pr.println("SHOWINMENU:YES");
 			pr.println("SOURCELONG:Custom - " + name);
 			pr.println("SOURCESHORT:Custom");
-			pr.println("SOURCEWEB:");
 			pr.println("");
 
 			for (URI uri : campList)
