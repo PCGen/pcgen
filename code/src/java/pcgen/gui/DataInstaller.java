@@ -248,9 +248,11 @@ public class DataInstaller extends JFrame
 			{
 				msg.append(' ').append(filename).append("\n");
 			}
-			int result = JOptionPane.showConfirmDialog(this, PropertyFactory
-				.getFormattedString("in_diNonStandardFiles", msg.toString()),
-				TITLE, JOptionPane.YES_NO_CANCEL_OPTION);
+			DIWarningDialog dialog =
+					new DIWarningDialog(this, msg.toString(), PropertyFactory
+						.getFormattedString("in_diNonStandardFiles"));
+			dialog.setVisible(true);
+			int result = dialog.getResponse();
 			if (result == JOptionPane.CANCEL_OPTION)
 			{
 				return false;
@@ -297,9 +299,11 @@ public class DataInstaller extends JFrame
 			{
 				msg.append(' ').append(filename).append("\n");
 			}
-			int result = JOptionPane.showConfirmDialog(this, PropertyFactory
-				.getFormattedString("in_diOverwriteFiles", msg.toString()),
-				TITLE, JOptionPane.YES_NO_CANCEL_OPTION);
+			DIWarningDialog dialog =
+					new DIWarningDialog(this, msg.toString(), PropertyFactory
+						.getFormattedString("in_diOverwriteFiles"));
+			dialog.setVisible(true);
+			int result = dialog.getResponse();
 			if (result == JOptionPane.CANCEL_OPTION)
 			{
 				return false;
