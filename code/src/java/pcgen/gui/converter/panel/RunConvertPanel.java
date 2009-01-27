@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Handler;
@@ -48,6 +49,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.gui.converter.ConversionDecider;
 import pcgen.gui.converter.LSTConverter;
 import pcgen.gui.converter.ObjectInjector;
 import pcgen.gui.converter.event.ProgressEvent;
@@ -70,7 +72,7 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class RunConvertPanel extends ConvertSubPanel implements Observer
+public class RunConvertPanel extends ConvertSubPanel implements Observer, ConversionDecider
 {
 	int totalFileCount = 0;
 	int currentFileCount = 0;
@@ -128,7 +130,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer
 			{
 				Logging.registerHandler( getHandler() );
 				LSTConverter converter = new LSTConverter(context, rootDir,
-						outDir);
+						outDir, RunConvertPanel.this);
 				converter.addObserver(RunConvertPanel.this);
 				try
 				{
@@ -381,6 +383,16 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer
 			SwingUtilities.invokeLater(doWork);
 		}
 		
+	}
+
+
+	/* (non-Javadoc)
+	 * @see pcgen.gui.converter.ConversionDecider#getConversionDecision(java.lang.String, java.util.List, java.util.List)
+	 */
+	public String getConversionDecision(String overallDescription,
+		List<String> choiceDescriptions, List<String> choiceTokenResults)
+	{
+		return choiceTokenResults.get(0);
 	}
 
 }

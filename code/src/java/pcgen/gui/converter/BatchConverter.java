@@ -72,7 +72,9 @@ public class BatchConverter
 			throws PersistenceLayerException
 	{
 		File outFile = new File(rootDir, File.separator + outDir);
-		LSTConverter converter = new LSTConverter(context, rootDir, outFile.getAbsolutePath());
+		LSTConverter converter =
+				new LSTConverter(context, rootDir, outFile.getAbsolutePath(),
+					null);
 		converter.doStartup();
 		for (Campaign campaign : list)
 		{

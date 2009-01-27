@@ -75,7 +75,7 @@ public class LSTConverter extends Observable
 	private final File rootDir;
 	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<Loader, URI, CDOMObject>();
 
-	public LSTConverter(LoadContext lc, File root, String outputDir)
+	public LSTConverter(LoadContext lc, File root, String outputDir, ConversionDecider decider)
 	{
 		context = lc;
 		rootDir = root;
