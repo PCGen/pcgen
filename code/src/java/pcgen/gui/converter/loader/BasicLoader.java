@@ -24,6 +24,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
+import pcgen.gui.converter.ConversionDecider;
 import pcgen.gui.converter.Loader;
 import pcgen.gui.converter.TokenConverter;
 import pcgen.gui.converter.event.TokenProcessEvent;
@@ -48,7 +49,8 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		listkey = lk;
 	}
 
-	public List<CDOMObject> process(StringBuilder sb, int line, String lineString)
+	public List<CDOMObject> process(StringBuilder sb, int line,
+			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
@@ -70,7 +72,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 			T obj = context.ref.constructCDOMObject(cdomClass, line + "Test"
 					+ tok);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
-			List<CDOMObject> injected = processToken(sb, obj, token);
+			List<CDOMObject> injected = processToken(sb, obj, token, decider);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -79,7 +81,8 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		return list;
 	}
 
-	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj, String token)
+	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj,
+			String token, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
@@ -98,7 +101,8 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		String key = token.substring(0, colonLoc);
 		String value = (colonLoc == token.length() - 1) ? null : token
 				.substring(colonLoc + 1);
-		TokenProcessEvent tpe = new TokenProcessEvent(context, key, value, obj);
+		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
+				value, obj);
 		String error = TokenConverter.process(tpe);
 		if (tpe.isConsumed())
 		{

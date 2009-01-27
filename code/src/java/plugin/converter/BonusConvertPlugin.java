@@ -19,6 +19,7 @@ package plugin.converter;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
+import pcgen.gui.converter.ConversionDecider;
 import pcgen.gui.converter.TokenConverter;
 import pcgen.gui.converter.event.TokenProcessEvent;
 import pcgen.gui.converter.event.TokenProcessorPlugin;
@@ -44,7 +45,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 			{
 				break;
 			}
-			String pre = process(tpe.getContext(), preString);
+			String pre = process(tpe.getContext(), tpe.getDecider(), preString);
 			result.insert(0, pre);
 			result.insert(0, '|');
 			value = value.substring(0, pipeLoc);
@@ -55,7 +56,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
-	private String process(LoadContext context, String token)
+	private String process(LoadContext context, ConversionDecider decider, String token)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
@@ -75,7 +76,8 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 				.substring(colonLoc + 1);
 
 		CDOMObject cdo = new ObjectCache();
-		TokenProcessEvent tpe = new TokenProcessEvent(context, key, value, cdo);
+		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
+				value, cdo);
 		String error = TokenConverter.process(tpe);
 		if (tpe.isConsumed())
 		{

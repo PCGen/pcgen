@@ -22,6 +22,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
+import pcgen.gui.converter.ConversionDecider;
 import pcgen.gui.converter.Loader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -29,7 +30,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 public class SelfCopyLoader implements Loader
 {
 
-	public List<CDOMObject> process(StringBuilder sb, int line, String lineString)
+	public List<CDOMObject> process(StringBuilder sb, int line,
+			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
 		sb.append(lineString);

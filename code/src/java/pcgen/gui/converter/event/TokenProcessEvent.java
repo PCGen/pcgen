@@ -24,6 +24,7 @@ import java.util.EventObject;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.gui.converter.ConversionDecider;
 import pcgen.rules.context.LoadContext;
 
 public class TokenProcessEvent extends EventObject
@@ -36,15 +37,17 @@ public class TokenProcessEvent extends EventObject
 	private StringBuilder result = new StringBuilder();
 	private boolean consumed = false;
 	private List<CDOMObject> injected;
+	private final ConversionDecider decider;
 
-	public TokenProcessEvent(LoadContext lc, String tokenName,
-			String tokenValue, CDOMObject object)
+	public TokenProcessEvent(LoadContext lc, ConversionDecider cd,
+			String tokenName, String tokenValue, CDOMObject object)
 	{
 		super(object);
 		key = tokenName;
 		value = tokenValue;
 		obj = object;
 		context = lc;
+		decider = cd;
 	}
 
 	public void consume()
@@ -90,6 +93,11 @@ public class TokenProcessEvent extends EventObject
 	public LoadContext getContext()
 	{
 		return context;
+	}
+
+	public ConversionDecider getDecider()
+	{
+		return decider;
 	}
 
 	public void inject(CDOMObject cdo)

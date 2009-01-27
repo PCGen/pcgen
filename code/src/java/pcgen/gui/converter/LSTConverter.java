@@ -74,13 +74,16 @@ public class LSTConverter extends Observable
 	private final String outDir;
 	private final File rootDir;
 	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<Loader, URI, CDOMObject>();
+	private final ConversionDecider decider;
 
-	public LSTConverter(LoadContext lc, File root, String outputDir, ConversionDecider decider)
+	public LSTConverter(LoadContext lc, File root, String outputDir,
+			ConversionDecider cd)
 	{
 		context = lc;
 		rootDir = root;
 		outDir = outputDir;
 		loaders = setupLoaders(context);
+		decider = cd;
 	}
 
 	/**
@@ -274,7 +277,7 @@ public class LSTConverter extends Observable
 			else
 			{
 				List<CDOMObject> newObj = loader.process(resultBuffer, line,
-						lineString);
+						lineString, decider);
 				if (newObj != null)
 				{
 					for (CDOMObject cdo : newObj)

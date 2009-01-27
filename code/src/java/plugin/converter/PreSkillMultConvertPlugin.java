@@ -15,21 +15,14 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.gui.converter;
+package plugin.converter;
 
-import java.util.List;
+import pcgen.rules.persistence.token.AbstractPreEqualConvertPlugin;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.CampaignSourceEntry;
-
-public interface Loader
+public class PreSkillMultConvertPlugin extends AbstractPreEqualConvertPlugin
 {
-	public List<CDOMObject> process(StringBuilder sb, int line,
-			String lineString, ConversionDecider decider)
-			throws PersistenceLayerException, InterruptedException;
-
-	public List<CampaignSourceEntry> getFiles(Campaign campaign);
-
+	public String getProcessedToken()
+	{
+		return "SKILLMULT";
+	}
 }

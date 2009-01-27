@@ -47,13 +47,13 @@ public class ObjectInjector
 	private final DoubleKeyMapToList<URI, File, String> fileData = new DoubleKeyMapToList<URI, File, String>();
 
 	private final Collection<Loader> loaders;
-	private final String outDir;
+	private final File outDir;
 	private final File rootDir;
 
-	public ObjectInjector(LoadContext context, String outputDirectory,
+	public ObjectInjector(LoadContext context, File outputDir,
 			File rootDirectory, LSTConverter converter)
 	{
-		outDir = outputDirectory;
+		outDir = outputDir;
 		rootDir = rootDirectory;
 		loaders = converter.getInjectedLoaders();
 		for (Loader l : loaders)
@@ -101,7 +101,10 @@ public class ObjectInjector
 		File in = new File(uri.getPath().substring(1));
 		File base = findSubRoot(rootDir, in);
 		String relative = in.toString().substring(base.toString().length() + 1);
-		File outputFileSibling = new File(rootDir, File.separator + outDir
+		File actualRoot = generateCommonRoot(rootDir, outDir);
+		String outString = outDir.getAbsolutePath().substring(
+				actualRoot.getAbsolutePath().length());
+		File outputFileSibling = new File(actualRoot, File.separator + outString
 				+ File.separator + relative);
 		return outputFileSibling;
 	}
@@ -243,4 +246,44 @@ public class ObjectInjector
 		return findSubRoot(root, in.getParentFile());
 	}
 
+
+	private File generateCommonRoot(File a, File b)
+	{
+		/*
+		 * FUTURE Think of whether this correctly works for items which may
+		 * require a path resolution; is there a flag for that or should there
+		 * be another method for that, or just tough luck to users requiring
+		 * that?
+		 */
+		if (a.equals(b))
+		{
+			return a;
+		}
+		List<File> al = generateDirectoryHierarchy(a);
+		List<File> bl = generateDirectoryHierarchy(b);
+		File returnFile = null;
+		for (File f : al)
+		{
+			if (bl.contains(f))
+			{
+				returnFile = f;
+			}
+			else
+			{
+				break;
+			}
+		}
+		return returnFile;
+	}
+
+	private List<File> generateDirectoryHierarchy(File a)
+	{
+		List<File> l = new ArrayList<File>();
+		while (a != null)
+		{
+			l.add(0, a);
+			a = a.getParentFile();
+		}
+		return l;
+	}
 }

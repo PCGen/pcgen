@@ -29,6 +29,7 @@ import pcgen.core.Campaign;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
+import pcgen.gui.converter.ConversionDecider;
 import pcgen.gui.converter.Loader;
 import pcgen.gui.converter.TokenConverter;
 import pcgen.gui.converter.event.TokenProcessEvent;
@@ -47,7 +48,8 @@ public class ClassLoader implements Loader
 		context = lc;
 	}
 
-	public List<CDOMObject> process(StringBuilder sb, int line, String lineString)
+	public List<CDOMObject> process(StringBuilder sb, int line,
+			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
@@ -103,7 +105,8 @@ public class ClassLoader implements Loader
 						+ "Test" + tok);
 				obj.put(ObjectKey.PARENT, parent);
 			}
-			List<CDOMObject> injected = processToken(sb, obj, parent, token);
+			List<CDOMObject> injected = processToken(sb, obj, parent, token,
+					decider);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -112,9 +115,9 @@ public class ClassLoader implements Loader
 		return list;
 	}
 
-	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj, CDOMObject alt,
-			String token) throws PersistenceLayerException,
-			InterruptedException
+	private List<CDOMObject> processToken(StringBuilder sb, CDOMObject obj,
+			CDOMObject alt, String token, ConversionDecider decider)
+			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
@@ -132,11 +135,12 @@ public class ClassLoader implements Loader
 		String key = token.substring(0, colonLoc);
 		String value = (colonLoc == token.length() - 1) ? null : token
 				.substring(colonLoc + 1);
-		TokenProcessEvent tpe = new TokenProcessEvent(context, key, value, obj);
+		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
+				value, obj);
 		String error = TokenConverter.process(tpe);
 		if (!tpe.isConsumed() && alt != null)
 		{
-			tpe = new TokenProcessEvent(context, key, value, alt);
+			tpe = new TokenProcessEvent(context, decider, key, value, alt);
 			error += TokenConverter.process(tpe);
 		}
 		if (tpe.isConsumed())

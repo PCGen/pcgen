@@ -86,7 +86,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	private boolean errorState = false;
 	private String lastNotifiedFilename = "";
 	private String currFilename = "";
-	private JPanel panel;
 
 	public RunConvertPanel()
 	{
@@ -109,7 +108,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	public boolean performAnalysis(CDOMObject pc)
 	{
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
-		final String outDir = pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath();
+		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
 		totalCampaigns = new ArrayList<Campaign>(pc.getSafeListFor(ListKey.CAMPAIGN));
 		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
 		{
@@ -132,7 +131,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			{
 				Logging.registerHandler( getHandler() );
 				LSTConverter converter = new LSTConverter(context, rootDir,
-						outDir, RunConvertPanel.this);
+						outDir.getAbsolutePath(), RunConvertPanel.this);
 				converter.addObserver(RunConvertPanel.this);
 				try
 				{
@@ -192,7 +191,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	@Override
 	public void setupDisplay(JPanel panel, CDOMObject pc)
 	{
-		this.panel = panel;
 		panel.setLayout(new GridBagLayout());
 
 		JLabel introLabel = new JLabel("Conversion in progress");
