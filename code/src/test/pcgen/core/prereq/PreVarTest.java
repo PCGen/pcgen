@@ -13,11 +13,12 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
- * Tests PREVISION token
+ * Tests PREVAR token
  */
 public class PreVarTest extends AbstractCharacterTestCase
 {
@@ -43,7 +44,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	/**
 	 * @throws Exception
 	 */
-	public void testVision2Pass() throws Exception
+	public void testVarPass() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -63,5 +64,55 @@ public class PreVarTest extends AbstractCharacterTestCase
 
 		assertTrue("Test fails with ability present.", PrereqHandler.passes(
 				prereq, character, null));
+	}
+	
+	public void testMutiplePositive() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		setPCStat(character, "STR", 10);
+		setPCStat(character, "DEX", 14);
+		character.calcActiveBonuses();
+
+		PreVariableParser parser = new PreVariableParser();
+		Prerequisite prereq =
+				parser.parse("VAR", "abs(STR),1,abs(DEX),3", false, false);
+		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
+			prereq, character, null));
+
+		setPCStat(character, "STR", 12);
+		character.calcActiveBonuses();
+		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
+			prereq, character, null));
+
+		setPCStat(character, "DEX", 16);
+		character.calcActiveBonuses();
+		assertTrue("Test should match now both stats pass", PrereqHandler.passes(
+			prereq, character, null));
+		
+	}
+	
+	public void testMutipleNegative() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+		setPCStat(character, "STR", 10);
+		setPCStat(character, "DEX", 14);
+		character.calcActiveBonuses();
+
+		PreVariableParser parser = new PreVariableParser();
+		Prerequisite prereq =
+				parser.parse("VAR", "abs(STR),1,abs(DEX),3", true, false);
+		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
+			prereq, character, null));
+
+		setPCStat(character, "STR", 12);
+		character.calcActiveBonuses();
+		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
+			prereq, character, null));
+
+		setPCStat(character, "DEX", 16);
+		character.calcActiveBonuses();
+		assertFalse("Test should match now both stats pass", PrereqHandler.passes(
+			prereq, character, null));
+		
 	}
 }

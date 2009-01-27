@@ -148,7 +148,14 @@ public class PreVariableWriter extends AbstractPrerequisiteWriter implements
 			}
 		}
 		writer.write("PREVAR");
-		writer.write(oper.toString().toUpperCase());
+		if (prereq.getOperator() == PrerequisiteOperator.LT)
+		{
+			writer.write(oper.invert().toString().toUpperCase());
+		}
+		else
+		{
+			writer.write(oper.toString().toUpperCase());
+		}
 		writer.write(':' + (prereq.isOverrideQualify() ? "Q:" : ""));
 		boolean first = true;
 		for (Prerequisite p : prereq.getPrerequisites())
