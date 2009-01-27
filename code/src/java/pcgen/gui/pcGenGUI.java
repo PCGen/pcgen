@@ -85,6 +85,7 @@ import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 
 /**
@@ -239,11 +240,14 @@ public class pcGenGUI
 		
 		if (!SettingsHandler.useAdvancedSourceSelect())
 		{
-			PCGen_Frame1.setMessageAreaText("Source Selection...");
+			PCGen_Frame1.setMessageAreaText(PropertyFactory
+				.getString("in_qsrc_messageText"));
 
 			SourceSelectionDialog dialog =
 					new SourceSelectionDialog(frame, false);
 			dialog.setVisible(true);
+
+			PCGen_Frame1.restoreMessageAreaText();
 		}
 	}
 

@@ -120,7 +120,8 @@ final class Options extends JMenu // extends Preferences
 	{
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			PCGen_Frame1.setMessageAreaText("Source Selection...");
+			PCGen_Frame1.setMessageAreaText(PropertyFactory
+				.getString("in_qsrc_messageText"));
 
 			SourceSelectionDialog dialog =
 					new SourceSelectionDialog(PCGen_Frame1.getInst(), true);

@@ -1121,6 +1121,21 @@ public class MainSource extends FilterAdapterPanel
 					}
 				});
 			jPanel1n.add(unloadAllButton);
+
+			JButton basicButton = new JButton(PropertyFactory.getString("in_Src_basic_source"));
+			{
+				basicButton.addActionListener(new ActionListener()
+					{
+						public void actionPerformed(ActionEvent e)
+						{
+							PCGen_Frame1.getInst().switchSourceSelectMeans(false);
+						}
+					});
+			}
+
+			basicButton.setToolTipText(PropertyFactory.getString("in_Src_basic_sourceTip"));
+			jPanel1s.add(basicButton);
+			
 		}
 		
 		removeAllButton = new JButton("Remove All");
@@ -1174,6 +1189,7 @@ public class MainSource extends FilterAdapterPanel
 		pccButton.setToolTipText("Customise your own source to ease your loading process");
 		jPanel1s.add(pccButton);
 
+		
 		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane, bRightPane);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);

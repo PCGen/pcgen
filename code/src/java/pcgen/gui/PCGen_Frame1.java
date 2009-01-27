@@ -114,6 +114,7 @@ import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.filter.Filterable;
 import pcgen.gui.sources.InfoPanel;
 import pcgen.gui.sources.MainSource;
+import pcgen.gui.sources.SourceSelectionDialog;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.LinkableHtmlMessage;
 import pcgen.gui.utils.Utility;
@@ -3063,5 +3064,45 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		{
 			characterPane.refreshCharInfoTabs();
 		}
+	}
+	
+	/**
+	 * Switch the source selection method in use between the basic (quick 
+	 * source dialog) and advanced (MainSource). Also sets the preference 
+	 * to match for next time.
+	 * @param advanced Should the advanced page be used (true) or the basic page (false).
+	 */
+	public void switchSourceSelectMeans(boolean advanced)
+	{
+		GameMode game = SettingsHandler.getGame();
+		if (advanced)
+		{
+			baseTabbedPane.setComponentAt(0, mainSource);
+			baseTabbedPane.setTitleAt(0, game.getTabName(Tab.SOURCES));
+			baseTabbedPane.setToolTipTextAt(0, SettingsHandler
+				.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
+		}
+		else
+		{
+			if (infoPanel == null)
+			{
+				infoPanel = new InfoPanel();
+			}
+			baseTabbedPane.setComponentAt(0, infoPanel);
+			baseTabbedPane.setTitleAt(0, game.getTabName(Tab.INFO));
+			baseTabbedPane.setToolTipTextAt(0, SettingsHandler
+				.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
+
+			PCGen_Frame1.setMessageAreaText(PropertyFactory
+				.getString("in_qsrc_messageText"));
+
+			SourceSelectionDialog dialog =
+					new SourceSelectionDialog(PCGen_Frame1.getInst(), true);
+			dialog.setVisible(true);
+
+			PCGen_Frame1.restoreMessageAreaText();
+		}
+
+		SettingsHandler.setUseAdvancedSourceSelect(advanced);
 	}
 }

@@ -65,6 +65,7 @@ import pcgen.core.SystemCollections;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceManager;
@@ -93,7 +94,8 @@ public class SourceSelectionDialog extends JDialog implements
 	private static final String ACTION_HIDE = "hide";
 	private static final String ACTION_UNHIDE = "unhide";
 	private static final String ACTION_ADD = "add";
-	
+	private static final String ACTION_ADVANCED = "advanced";
+		
 	private JList sourceList;
 	private DefaultListModel sourceModel;
 	private Map<String, List<String>> nameToSourceMap = new HashMap<String, List<String>>();
@@ -153,7 +155,7 @@ public class SourceSelectionDialog extends JDialog implements
 			sourceList.setSelectedValue(lastLoadedCollection, true);
 		}
 
-		Utility.buildRelativeConstraints(gbc, 1, 3, 100, 100,
+		Utility.buildRelativeConstraints(gbc, 2, 3, 100, 100,
 			GridBagConstraints.BOTH, GridBagConstraints.WEST);
 		getContentPane().add(listScrollPane, gbc);
 
@@ -177,6 +179,13 @@ public class SourceSelectionDialog extends JDialog implements
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
 		getContentPane().add(unhideButton, gbc);
 
+		JButton advancedButton = new JButton(PropertyFactory.getString("in_qsrc_advanced"));
+		advancedButton.setActionCommand(ACTION_ADVANCED);
+		getRootPane().setDefaultButton(advancedButton);
+		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
+			GridBagConstraints.NONE, GridBagConstraints.WEST);
+		getContentPane().add(advancedButton, gbc);
+
 		JButton loadButton = new JButton(PropertyFactory.getString("in_load"));
 		loadButton.setActionCommand(ACTION_LOAD);
 		getRootPane().setDefaultButton(loadButton);
@@ -194,6 +203,7 @@ public class SourceSelectionDialog extends JDialog implements
 		addButton.addActionListener(this);
 		hideButton.addActionListener(this);
 		unhideButton.addActionListener(this);
+		advancedButton.addActionListener(this);
 		loadButton.addActionListener(this);
 		cancelButton.addActionListener(this);
 
@@ -381,6 +391,10 @@ public class SourceSelectionDialog extends JDialog implements
 		{
 			unhideButtonAction();
 		}
+		else if (ACTION_ADVANCED.equals(e.getActionCommand()))
+		{
+			advancedButtonAction();
+		}
 	}
 
 	private void addButtonAction()
@@ -412,6 +426,16 @@ public class SourceSelectionDialog extends JDialog implements
 			sourceModel.addElement(string);
 		}
 
+	}
+
+	/**
+	 * Process a request to use the advanced sources screen 
+	 */
+	private void advancedButtonAction()
+	{
+		PCGen_Frame1.getInst().switchSourceSelectMeans(true);
+		setVisible(false);
+		this.dispose();
 	}
 
 	/**
