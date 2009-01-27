@@ -4874,13 +4874,63 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/converter/PreDRConvertPlugin.class" />
+					<include name="plugin/converter/PreDRInvertedConvertPlugin.class" />
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${converterplugins.dir}/ConverterPlugin-!PREDR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PRECHECKBASE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/converter/PreDRInvertedConvertPlugin.class" />
+					<include name="plugin/converter/PreCheckBaseConvertPlugin.class" />
+					<include name="plugin/converter/PreCheckBaseInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PRECHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreCheckConvertPlugin.class" />
+					<include name="plugin/converter/PreCheckInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PRECLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreClassConvertPlugin.class" />
+					<include name="plugin/converter/PreClassInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PRECLASSLEVELMAX.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreClassLevelMaxConvertPlugin.class" />
+					<include name="plugin/converter/PreClassLevelMaxInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PREMOVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreMoveConvertPlugin.class" />
+					<include name="plugin/converter/PreMoveInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PRESKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreSkillConvertPlugin.class" />
+					<include name="plugin/converter/PreSkillInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PRESKILLMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreSkillMultConvertPlugin.class" />
+					<include name="plugin/converter/PreSkillMultInvertedConvertPlugin.class" />
 				</patternset>
 			</fileset>
 		</jar>
