@@ -29,6 +29,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,6 +86,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	private boolean errorState = false;
 	private String lastNotifiedFilename = "";
 	private String currFilename = "";
+	private JPanel panel;
 
 	public RunConvertPanel()
 	{
@@ -190,6 +192,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	@Override
 	public void setupDisplay(JPanel panel, CDOMObject pc)
 	{
+		this.panel = panel;
 		panel.setLayout(new GridBagLayout());
 
 		JLabel introLabel = new JLabel("Conversion in progress");
@@ -392,7 +395,32 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	public String getConversionDecision(String overallDescription,
 		List<String> choiceDescriptions, List<String> choiceTokenResults)
 	{
-		return choiceTokenResults.get(0);
+		final ConversionChoiceDialog ccd =
+				new ConversionChoiceDialog(null, overallDescription,
+					choiceDescriptions);
+		int result = 0;
+
+		Runnable showDialog = new Runnable()
+		{
+			public void run()
+			{
+				ccd.setVisible(true);
+			}
+		};
+		try
+		{
+			SwingUtilities.invokeAndWait(showDialog);
+		}
+		catch (InterruptedException e)
+		{
+			Logging.errorPrint("Failed to display user choice, due to: ", e);
+		}
+		catch (InvocationTargetException e)
+		{
+			Logging.errorPrint("Failed to display user choice, due to: ", e);
+		}
+		result = ccd.getResult();
+		return choiceTokenResults.get(result);
 	}
 
 }
