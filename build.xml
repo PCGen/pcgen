@@ -78,7 +78,7 @@ These files can be renamed and used for releases.
 	<!-- For writing the compatibility checker jar -->
 	<property name="convert-jar.bin.file" value="batch-convert.jar" />
 	<property name="convert-manifest.file" value="code/comp-manifest" />
-	<property name="convert-manifest.main.class" value="pcgen.gui.converter.ConvertDataset" />
+	<property name="convert-manifest.main.class" value="pcgen.gui.converter.PCGenDataConvert" />
 
 	<!-- Text files always shipped along -->
 	<property name="project.license.file" value="LICENSE" />
