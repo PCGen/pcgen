@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Wed Jan 21 22:23:06 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Second Darkness - Chapter 6: Descent Into Midnight	SOURCESHORT:PF18	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84bc	SOURCEDATE:2009-01
+
+# Template Name	Level Adjustment	Source Page		Required AL	Required Race																																Prohibited Race				Combat bonus					Misc bonus		Stat bonus										Ability																												Clone Movement		Subrace	Main Race Type		Race Subtype		Vision
+Black-Blooded	LEVELADJUSTMENT:3	SOURCEPAGE:p. 82	PREALIGN:CE	PRERACE:1,RACETYPE=Aberration,RACETYPE=Animal,RACETYPE=Dragon,RACETYPE=Fey,RACETYPE=Giant,RACETYPE=Humanoid,RACETYPE=Magical Beast,RACETYPE=Monstrous Humanoid,RACETYPE=Ooze,RACETYPE=Plant,RACETYPE=Vermin	!PRERACE:1,RACESUBTYPE=Incorporeal	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MISC|CR|1	BONUS:STAT|STR,DEX,CHA|2	BONUS:STAT|CON|4	BONUS:STAT|INT|-4	ABILITY:Special Ability|AUTOMATIC|Amphibious|Immunity To Energy Drain|Immunity To Cold|Immunity To Poison|Blood Rain|Tainted Life|Black-Blooded Breath Weapon|Cold Damage	MOVECLONE:Walk,Swim,0	SUBRACE:YES	RACETYPE:Aberration	RACESUBTYPE:Aquatic	VISION:Darkvision (120')|Low-light
+
+#
+# End
+#

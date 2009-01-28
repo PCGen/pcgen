@@ -1,0 +1,41 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness - Chapter 6: Descent Into Midnight
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Second Darkness - Player's Guide
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Second Darkness - Chapter 6: Descent Into Midnight
+SOURCESHORT:PF18
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84bc
+SOURCEDATE:2009-01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 18: Descent into Midnight. Copyright 2009, Paizo Publishing, LLC; Author: Brian Cortijo.
+COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author: Matthew Sernett.
+COPYRIGHT:Book of Fiends. Copyright 2003, Green Ronin Publishing, LL; Authors Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Kobold Quarterly #7. Copyright 2008, Open Design; Author; Wolfgang Baur, Philip Larwood, et al.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Authors: Scott Greene, Casey Christofferson, Eric Balsley, Kevin Baase, Lance Hawvermale, Travis Hawvermale, Ian S. Johnston, Patrick Lawringer, Nathan Paul, Clark Peterson, Greg Ragland, Robert Schwalb, Bill Webb.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder 18: Descent Into Midnight" Copyright 2009, PCGen Data Team (including, but not limited to, Eddy Anthony (MoSaT))
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:pf18_abilities.lst
+DEITY:pf18_demon_lords.lst
+EQUIPMENT:pf18_equipment.lst
+KIT:pf18_kits_monsters.lst
+RACE:pf18_races.lst
+TEMPLATE:pf18_templates.lst
+
+#
+# End
+#
