@@ -97,7 +97,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * simplicity [and due to lack of user presentation of this value] this sort
 	 * does not correct for internationalization)
 	 */
-	private final Map<FixedStringList, TRT> typeReferences = new TreeMap<FixedStringList, TRT>(
+	private final Map<FixedStringList, WeakReference<TRT>> typeReferences = new TreeMap<FixedStringList, WeakReference<TRT>>(
 			FixedStringList.CASE_INSENSITIVE_ORDER);
 
 	/**
@@ -258,14 +258,18 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 		Arrays.sort(types);
 		FixedStringList typeList = new FixedStringList(types);
-		TRT ref = typeReferences.get(typeList);
+		WeakReference<TRT> ref = typeReferences.get(typeList);
 		if (ref != null)
 		{
-			return ref;
+			TRT trt = ref.get();
+			if (trt != null)
+			{
+				return trt;
+			}
 		}
 		// Didn't find the appropriate key, create new
 		TRT cgr = getLocalTypeReference(types);
-		typeReferences.put(typeList, cgr);
+		typeReferences.put(typeList, new WeakReference<TRT>(cgr));
 		return cgr;
 	}
 
@@ -355,7 +359,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			{
 				allRef.addResolution(obj);
 			}
-			for (Map.Entry<FixedStringList, TRT> me : typeReferences.entrySet())
+			for (Map.Entry<FixedStringList, WeakReference<TRT>> me : typeReferences.entrySet())
 			{
 				boolean typeOkay = true;
 				for (String type : me.getKey())
@@ -368,7 +372,11 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				}
 				if (typeOkay)
 				{
-					me.getValue().addResolution(obj);
+					TRT trt = me.getValue().get();
+					if (trt != null)
+					{
+						trt.addResolution(obj);
+					}
 				}
 			}
 		}
@@ -378,14 +386,15 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 					+ " objects were loaded but were referred to in the data");
 			fireUnconstuctedEvent(allRef);
 		}
-		for (TRT ref : typeReferences.values())
+		for (WeakReference<TRT> ref : typeReferences.values())
 		{
-			if (ref.getObjectCount() == 0)
+			TRT trt = ref.get();
+			if (trt != null && trt.getObjectCount() == 0)
 			{
 				Logging.errorPrint("Error: No " + getReferenceDescription()
-						+ " objects of " + ref.getLSTformat()
+						+ " objects of " + trt.getLSTformat()
 						+ " were loaded but were referred to in the data");
-				fireUnconstuctedEvent(ref);
+				fireUnconstuctedEvent(trt);
 			}
 		}
 	}
@@ -991,7 +1000,22 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 
 	protected Collection<TRT> getTypeReferences()
 	{
-		return typeReferences.values();
+		List<TRT> list = new ArrayList<TRT>(typeReferences.size());
+		for (Iterator<WeakReference<TRT>> it = typeReferences.values()
+				.iterator(); it.hasNext();)
+		{
+			WeakReference<TRT> wr = it.next();
+			TRT trt = wr.get();
+			if (trt == null)
+			{
+				it.remove();
+			}
+			else
+			{
+				list.add(trt);
+			}
+		}
+		return list;
 	}
 
 	protected Collection<SRT> getReferenced()
