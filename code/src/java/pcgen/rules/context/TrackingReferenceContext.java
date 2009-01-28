@@ -18,10 +18,12 @@
 package pcgen.rules.context;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.WeakHashMap;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMObject;
@@ -39,7 +41,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		UnconstructedListener
 {
 
-	private DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<CDOMReference<?>, URI, String>();
+	private DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<CDOMReference<?>, URI, String>(WeakHashMap.class, HashMap.class);
 
 	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
