@@ -426,15 +426,12 @@ public class SpellsChoiceManager extends
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 				List<Spell> availableList)
 		{
-			if (!spell.isType(listname))
-			{
-				return;
-			}
-			HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getLevelInfo(spell);
-			boolean useDomain = "DIVINE".equalsIgnoreCase(listname);
+			HashMapToList<CDOMList<Spell>, Integer> levelInfo = SpellLevel
+					.getMasterLevelInfo(null, spell);
+			levelInfo.addAllLists(pc.getPCBasedLevelInfo(spell));
 			for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 			{
-				if (useDomain && spellList instanceof DomainSpellList)
+				if (spellList.isType(listname))
 				{
 					for (Integer level : levelInfo.getListFor(spellList))
 					{
@@ -442,28 +439,6 @@ public class SpellsChoiceManager extends
 						{
 							availableList.add(spell);
 							return;
-						}
-					}
-				}
-				else
-				{
-					for (PCClass cl : pc.getClassList())
-					{
-						if (!listname.equalsIgnoreCase(cl.getSpellType()))
-						{
-							continue;
-						}
-						if (cl.getSpellLists(pc).contains(spellList))
-						{
-							for (Integer level : levelInfo
-									.getListFor(spellList))
-							{
-								if (passesRestriction(spell, pc, level))
-								{
-									availableList.add(spell);
-									return;
-								}
-							}
 						}
 					}
 				}
@@ -518,7 +493,9 @@ public class SpellsChoiceManager extends
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 				List<Spell> availableList)
 		{
-			HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getLevelInfo(spell);
+			HashMapToList<CDOMList<Spell>, Integer> levelInfo = SpellLevel
+					.getMasterLevelInfo(null, spell);
+			levelInfo.addAllLists(pc.getPCBasedLevelInfo(spell));
 			for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 			{
 				for (Integer level : levelInfo.getListFor(spellList))

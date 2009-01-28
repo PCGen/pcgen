@@ -78,6 +78,8 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 
 	public static final Type TEMPORARY = getConstant("TEMPORARY");
 
+	public static final Type DIVINE = getConstant("Divine");
+
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
 	 */

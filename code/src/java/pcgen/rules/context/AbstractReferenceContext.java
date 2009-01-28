@@ -329,6 +329,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		for (Domain d : domains)
 		{
 			DomainSpellList dsl = constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
+			dsl.addToListFor(ListKey.TYPE, Type.DIVINE);
 			d.put(ObjectKey.DOMAIN_SPELLLIST, dsl);
 		}
 		Collection<PCClass> classes = getConstructedCDOMObjects(PCClass.class);

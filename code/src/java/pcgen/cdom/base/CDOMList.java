@@ -40,4 +40,6 @@ public interface CDOMList<T extends PrereqObject> extends PrereqObject
 	public Class<T> getListClass();
 	
 	public String getKeyName();
+
+	public boolean isType(String type);
 }
