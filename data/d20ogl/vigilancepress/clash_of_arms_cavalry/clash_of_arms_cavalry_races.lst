@@ -1,0 +1,54 @@
+# CVS $Revision$ $Author$ -- Tue Jan 27 22:44:24 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
+
+
+# Race Name
+Camel.COPY=Camel (Old Nag)
+Dog (Riding).COPY=Dog (Riding/Old Nag)
+Donkey.COPY=Donkey (Old Nag)
+Horse (Heavy).COPY=Horse (Heavy/Old Nag)
+Horse (Light).COPY=Horse (Light/Old Nag)
+Horse (Warhorse Heavy).COPY=Horse (Warhorse Heavy/Old Nag)
+Horse (Warhorse Light).COPY=Horse (Warhorse Light/Old Nag)
+Mule.COPY=Mule (Old Nag)
+Pony.COPY=Pony (Old Nag)
+Pony (War).COPY=Pony (War/Old Nag)
+
+Camel.COPY=Camel (Bag of Bones)
+Dog (Riding).COPY=Dog (Riding/Bag of Bones)
+Donkey.COPY=Donkey (Bag of Bones)
+Horse (Heavy).COPY=Horse (Heavy/Bag of Bones)
+Horse (Light).COPY=Horse (Light/Bag of Bones)
+Horse (Warhorse Heavy).COPY=Horse (Warhorse Heavy/Bag of Bones)
+Horse (Warhorse Light).COPY=Horse (Warhorse Light/Bag of Bones)
+Mule.COPY=Mule (Bag of Bones)
+Pony.COPY=Pony (Bag of Bones)
+Pony (War).COPY=Pony (War/Bag of Bones)
+
+###Block: .MODs
+# Race Name						Monster Class Name and Starting Level	Template
+Camel (Old Nag).MOD				MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Dog (Riding/Old Nag).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+Donkey (Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+Horse (Heavy/Old Nag).MOD			MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Horse (Light/Old Nag).MOD			MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Horse (Warhorse Heavy/Old Nag).MOD		MONSTERCLASS:Animal:3				TEMPLATE:Mount Quality (Old Nag)
+Horse (Warhorse Light/Old Nag).MOD		MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Mule (Old Nag).MOD				MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Pony (Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+Pony (War/Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+
+Camel (Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Dog (Riding/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
+Donkey (Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
+Horse (Heavy/Bag of Bones).MOD		MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Horse (Light/Bag of Bones).MOD		MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Horse (Warhorse Heavy/Bag of Bones).MOD	MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Bag of Bones)
+Horse (Warhorse Light/Bag of Bones).MOD	MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Mule (Bag of Bones).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Pony (Bag of Bones).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
+Pony (War/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
+
+#
+# End
+#

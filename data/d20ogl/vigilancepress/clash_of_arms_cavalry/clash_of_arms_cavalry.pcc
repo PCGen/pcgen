@@ -33,6 +33,7 @@ ABILITY:clash_of_arms_cavalry_ability_class.lst
 CLASS:clash_of_arms_cavalry_class.lst
 COMPANIONMOD:clash_of_arms_cavalry_companionmod.lst
 EQUIPMOD:clash_of_arms_cavalry_equipmod.lst
+RACE:clash_of_arms_cavalry_races.lst
 TEMPLATE:clash_of_arms_cavalry_template.lst
 
 #
