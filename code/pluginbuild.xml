@@ -4934,6 +4934,14 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PREVISION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreVisionConvertPlugin.class" />
+					<include name="plugin/converter/PreVisionInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 
 	<target name="jar-jep-plugins" depends="makeplugindirs" description="Build (Link) Jep Command plugin jar files">

@@ -28,9 +28,9 @@ import pcgen.gui.converter.event.TokenProcessorPlugin;
 public abstract class AbstractPreEqualConvertPlugin implements
 		TokenProcessorPlugin
 {
-	private static final String FLOW_LEFT = "Set unspecified values to next identified value (items queue until set/equals sign flows left)";
-	private static final String FLOW_RIGHT = "Set unspecified values to previous identified value (equals sign holds on unspecified items until redefined)";
-	private static final String SET_ONE = "Set unspecified values to one (identify as 'present')";
+	public static final String FLOW_LEFT = "Set unspecified values to next identified value (items queue until set/equals sign flows left)";
+	public static final String FLOW_RIGHT = "Set unspecified values to previous identified value (equals sign holds on unspecified items until redefined)";
+	public static final String SET_ONE = "Set unspecified values to one (identify as 'present')";
 
 	// Just process over these magical tokens for now
 	public String process(TokenProcessEvent tpe)
@@ -146,17 +146,17 @@ public abstract class AbstractPreEqualConvertPlugin implements
 					if (equalLoc == -1)
 					{
 						one.append("=1");
-						left.append('=');
+						right.append('=');
 						if (lastValue == null)
 						{
-							left.append('1');
+							right.append('1');
 						}
 						else
 						{
-							left.append(lastValue);
+							right.append(lastValue);
 						}
-						right.append('=');
-						right.append(getNextValue(strings, i));
+						left.append('=');
+						left.append(getNextValue(strings, i));
 					}
 					else
 					{
