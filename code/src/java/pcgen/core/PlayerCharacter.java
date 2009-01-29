@@ -17796,7 +17796,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			hml = SpellLevel.getMasterLevelInfo(this, sp);
 			cache.addToMapFor(MapKey.SPELL_MASTER_INFO, sp, hml);
 		}
-		return hml;
+		HashMapToList<CDOMList<Spell>, Integer> newhml = new HashMapToList<CDOMList<Spell>, Integer>();
+		newhml.addAllLists(hml);
+		return newhml;
 	}
 
 	public HashMapToList<CDOMList<Spell>, Integer> getPCBasedLevelInfo(Spell sp)
@@ -17808,7 +17810,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			hml = SpellLevel.getPCBasedLevelInfo(this, sp);
 			cache.addToMapFor(MapKey.SPELL_PC_INFO, sp, hml);
 		}
-		return hml;
+		HashMapToList<CDOMList<Spell>, Integer> newhml = new HashMapToList<CDOMList<Spell>, Integer>();
+		newhml.addAllLists(hml);
+		return newhml;
 	}
 
 	/**
