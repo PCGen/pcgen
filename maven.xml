@@ -11,22 +11,19 @@
 		<ant:ant dir="${basedir}" antfile="build.xml" target="manifest">
 			<property name="build.classes.dir" value="${maven.build.dest}"/>
 		</ant:ant>
+		<ant:ant dir="${basedir}" antfile="build.xml" target="convert-jar">
+			<property name="build.classes.dir" value="${maven.build.dest}"/>
+		</ant:ant>
+		
 	</goal>
 
 	<preGoal name="java:compile">
-		<attainGoal name="javacc:javacc-generate"/>
-		<!-- Kludge around a typo in the JavaCC  -->
-		<ant:path id="maven.javacc.compile.src.set"
-			location="${basedir}/target/generated-src"/>
-		<maven:addPath id="maven.compile.src.set"
-			refid="maven.javacc.compile.src.set"/>
 	</preGoal>
 	<postGoal name="java:compile">
 		<attainGoal name="generate-jars" />
 	</postGoal>
 
 	<preGoal name="maven-javadoc-plugin:report">
-		<attainGoal name="javacc:javacc-generate"/>
 	</preGoal>
 
 	<preGoal name="xdoc:jelly-transform">
@@ -66,6 +63,7 @@
 				<include name="pcgen.jar"/>
 			</fileset>
 			<fileset dir="${basedir}/code/bin">
+				<include name="batch-convert.jar"/>
 				<include name="pcgen.sh"/>
 				<include name="pcgen.bat"/>
 				<include name="pcgen_low_mem.bat"/>

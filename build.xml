@@ -209,13 +209,15 @@ These files can be renamed and used for releases.
 	</target>
 
 	<!-- Jar up PCGen -->
-	<target name="jar" depends="compile, manifest" description="Build (Link) program jar files">
+	<target name="jar" depends="compile, manifest,convert-jar" description="Build (Link) program jar files">
 		<mkdir dir="${bin.dir}" />
 		<jar jarfile="${bin.dir}/${jar.bin.file}" manifest="${manifest.file}">
 			<fileset dir="${src.java.dir}" includes="images/" />
 			<fileset dir="${build.classes.dir}" excludes="test/**,src/**,plugin/**" />
 			<fileset dir="." includes="${project.license.file}" />
 		</jar>
+	</target>
+	<target name="convert-jar" depends="compile, manifest" description="Build (Link) converter jar files">
 		<jar jarfile="${bin.dir}/${convert-jar.bin.file}" manifest="${convert-manifest.file}">
 			<fileset dir="${src.java.dir}" includes="images/" />
 			<fileset dir="${build.classes.dir}" excludes="test/**,src/**,plugin/**" />

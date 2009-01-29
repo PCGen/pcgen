@@ -410,6 +410,7 @@ Section Uninstall
 	Delete /REBOOTOK "pcgen.bat"
 	Delete /REBOOTOK "pcgen.sh"
 	Delete /REBOOTOK "pcgen_low_mem.bat"
+	Delete /REBOOTOK "batch-convert.jar"
 
 	End:
 
