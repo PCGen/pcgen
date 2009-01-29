@@ -27,7 +27,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
 
 public class SpellLevel
 {
@@ -42,6 +41,7 @@ public class SpellLevel
 		}
 		Set<Integer> resultList = new TreeSet<Integer>();
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo = aPC.getMasterLevelInfo(sp);
+		HashMapToList<CDOMList<Spell>, Integer> pcli = aPC.getPCBasedLevelInfo(sp);
 		for (CDOMList<Spell> spellList : lists)
 		{
 			List<Integer> levels = levelInfo.getListFor(spellList);
@@ -51,8 +51,7 @@ public class SpellLevel
 			}
 			if (resultList.isEmpty())
 			{
-				levelInfo = aPC.getPCBasedLevelInfo(sp);
-				levels = levelInfo.getListFor(spellList);
+				levels = pcli.getListFor(spellList);
 				if (levels != null)
 				{
 					resultList.addAll(levels);
@@ -162,8 +161,12 @@ public class SpellLevel
 		if (levelInt.length > 0)
 		{
 			for (int i = 0; i < levelInt.length; i++)
+			{
 				if (levelInt[i] > -1)
+				{
 					return levelInt[i];
+				}
+			}
 		}
 
 		return result;
