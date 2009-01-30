@@ -126,7 +126,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantClass.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
 		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
 		giantClass.addToListFor(ListKey.BONUS, babClassBonus);
-		Globals.getContext().ref.importObject(giantClass);
+		LoadContext context = Globals.getContext();
+		context.ref.importObject(giantClass);
 	
 		// Human
 		human = new Race();
@@ -145,7 +146,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		giantRace.addToListFor(ListKey.BONUS, giantRaceFeatBonus);
 	
-		Globals.getContext().ref.importObject(giantRace);
+		context.ref.importObject(giantRace);
 	
 		// Create the monster class type
 		SettingsHandler.getGame().addClassType(
@@ -154,31 +155,31 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		Globals.getContext().ref.importObject(pcClass);
+		context.ref.importObject(pcClass);
 	
 		classWarmind = new PCClass();
 		classWarmind.setName("Warmind");
-		Globals.getContext().ref.importObject(classWarmind);
+		context.ref.importObject(classWarmind);
 	
 		class2LpfM = new PCClass();
 		class2LpfM.setName("2LpfM");
 		class2LpfM.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
 		class2LpfM.put(IntegerKey.LEVELS_PER_FEAT, 2);
 		class2LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
-		Globals.getContext().ref.importObject(class2LpfM);
+		context.ref.importObject(class2LpfM);
 		
 		class3LpfM = new PCClass();
 		class3LpfM.setName("3LpfM");
 		class3LpfM.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
 		class3LpfM.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		class3LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
-		Globals.getContext().ref.importObject(class3LpfM);
+		context.ref.importObject(class3LpfM);
 		
 		class3LpfBlank = new PCClass();
 		class3LpfBlank.setName("3LpfBlank");
 		class3LpfBlank.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
 		class3LpfBlank.put(IntegerKey.LEVELS_PER_FEAT, 3);
-		Globals.getContext().ref.importObject(class3LpfBlank);
+		context.ref.importObject(class3LpfBlank);
 
 		toughness = new Ability();
 		toughness.setName("Toughness");
@@ -200,33 +201,36 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 					"General.Fighter");
 		exoticWpnProf.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		exoticWpnProf.put(StringKey.CHOICE_STRING, "PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
-		Globals.getContext().unconditionallyProcess(exoticWpnProf, "AUTO", "WEAPONPROF|%LIST");
+		context.unconditionallyProcess(exoticWpnProf, "AUTO", "WEAPONPROF|%LIST");
 	
 		WeaponProf wpnProfTestA = new WeaponProf();
 		wpnProfTestA.setName("Weapon A");
 		wpnProfTestA.put(StringKey.KEY_NAME, "Weapon A");
 		wpnProfTestA.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
-		Globals.getContext().ref.importObject(wpnProfTestA);
+		context.ref.importObject(wpnProfTestA);
 	
 		WeaponProf wpnProfTestB = new WeaponProf();
 		wpnProfTestB.setName("Weapon B");
 		wpnProfTestB.put(StringKey.KEY_NAME, "Weapon B");
 		wpnProfTestB.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
-		Globals.getContext().ref.importObject(wpnProfTestB);
+		context.ref.importObject(wpnProfTestB);
 	
 		WeaponProf wpnProfTestC = new WeaponProf();
 		wpnProfTestC.setName("Weapon C");
 		wpnProfTestC.put(StringKey.KEY_NAME, "Weapon C");
 		wpnProfTestC.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
-		Globals.getContext().ref.importObject(wpnProfTestC);
+		context.ref.importObject(wpnProfTestC);
 	
 		SettingsHandler
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 	
-		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
-		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
-		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
+		context.unconditionallyProcess(pcClass.getClassLevel(1), "ADD",
+				"FEAT|KEY_Exotic Weapon Proficiency (Weapon A)");
+		context.unconditionallyProcess(pcClass.getClassLevel(2), "ADD",
+				"FEAT|KEY_Exotic Weapon Proficiency (Weapon B)");
+		context.unconditionallyProcess(pcClass.getClassLevel(3), "ADD",
+				"FEAT|KEY_Exotic Weapon Proficiency (Weapon C)");
 		
 		specialFeatCat = new AbilityCategory("Special Feat");
 		specialFeatCat.setAbilityCategory(AbilityCategory.FEAT.getKeyName());
@@ -248,6 +252,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetBonusFeatsForNewLevel1() throws Exception
 	{
+		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -260,6 +265,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetBonusFeatsForNewLevel3() throws Exception
 	{
+		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
@@ -275,6 +281,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetMonsterBonusFeatsForNewLevel1() throws Exception
 	{
+		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(giantRace);
@@ -375,6 +382,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValueStatMod() throws Exception
 	{
+		Globals.getContext().resolveReferences();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatMod()");
 		final PlayerCharacter character = new PlayerCharacter();
@@ -395,6 +403,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableValueStatModNew() throws Exception
 	{
+		Globals.getContext().resolveReferences();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatModNew()");
 		final PlayerCharacter character = new PlayerCharacter();
@@ -415,6 +424,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testGetVariableCaching()
 	{
+		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		final StatList statList = character.getStatList();
@@ -444,6 +454,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testModFeat()
 	{
+		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
@@ -469,6 +480,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testExoticWpnProf()
 	{
+		Globals.getContext().resolveReferences();
 		PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 
@@ -650,6 +662,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testAddSpells()
 	{
+		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
