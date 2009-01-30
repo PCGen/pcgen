@@ -752,7 +752,7 @@
 		<li>The Special Ability will not be displayed if the last variable or formula equals zero.</li>
 		<li><code>SAB:.CLEAR</code> can be used in conjunction with the <code>.MOD</code> but does not support
 		cross-level interactions.</li>
-		<li><code>SAB:.CLEAR</code> will only clear a previous SAB in the same object (class, template,
+		<li><code>SAB:.CLEAR</code> will only clear a previous <code>SAB</code> in the same object (class, template,
 			etc.). It will not clear them across objects.</li>
 		<li><code>SAB:.CLEAR.Text</code> must include the exact text of the Special Ability to be removed but 
 			only the exact text up to the first open-parentheses. The <code>CLEAR</code> and Replace tags should 
@@ -778,6 +778,12 @@
 	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
 	<p class="indent2"><code>SAB:.CLEAR.Poison</code></p>
 	<p class="indent3">Clears the &quot;Poison&quot; value and replaces it with nothing.</p>
+	<p class="indent2"><code>CLASS:Toto</code></p>
+	<p class="indent2"><code>1 SAB:Big Papa|PREVARLT:CL,3</code></p>
+	<p class="indent2"><code>2 SAB:Big Mama</code></p>
+	<p class="indent2"><code>3 SAB:Very Big Papa</code></p>
+	<p class="indent3">Causes the special ability &quot;Big Papa&quot; to be removed at 3rd level while adding the 
+		special ability &quot;Very Big Papa&quot;.</p>
 	<p></p>
 
 <hr>
@@ -1338,13 +1344,6 @@
 		</ul>
 	</p>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>CLASS:Toto</code></p>
-	<p class="indent2"><code>1 &lt;tab&gt; SAB:Big Papa</code></p>
-	<p class="indent2"><code>2 &lt;tab&gt; SAB:Big Mama</code></p>
-	<p class="indent2"><code>3 &lt;tab&gt; SAB:.CLEAR.Big Papa &lt;tab&gt; SAB:Very Big Papa</code></p>
-	<p class="indent3">At level 3 <code>.CLEAR</code> is used to delete the special ability 
-		<span class="lstobj">Big Papa</span> because it becomes redundant or unnecessary when 
-		the class gets the special ability <span class="lstobj">Very Big Papa</span>.</p>
 	<p class="indent2"><code>CLASS:Ranger.MOD &lt;tab&gt; CSKILL:.CLEAR.Animal Empathy</code></p>
 	<p class="indent3">Modifies the <span class="lstobj">Ranger</span> class by eliminating the 
 		<span class="lstobj">Animal Empathy</span> skill from its class skill list.</p>
