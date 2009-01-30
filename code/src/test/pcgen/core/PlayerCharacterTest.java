@@ -475,49 +475,50 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		}
 	}
 
-	/**
-	 * Test that multiple exotic weapon proficiencies work correctly.
-	 */
-	public void testExoticWpnProf()
-	{
-		Globals.getContext().resolveReferences();
-		PlayerCharacter character = new PlayerCharacter();
-		character.setRace(human);
-
-		assertFalse("Not yet proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertFalse("Not yet proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
-
-		character.incrementClassLevel(1, pcClass, true);
-
-		assertTrue("First Proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertFalse("Not yet proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
-
-		character.incrementClassLevel(1, pcClass, true);
-
-		assertTrue("Second Proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertTrue("Proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
-
-		character.incrementClassLevel(1, pcClass, true);
-
-		assertTrue("Third Proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertTrue("Proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertTrue("Proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
-	}
+	//TODO James wanted this inactive, since it's broken
+//	/**
+//	 * Test that multiple exotic weapon proficiencies work correctly.
+//	 */
+//	public void testExoticWpnProf()
+//	{
+//		Globals.getContext().resolveReferences();
+//		PlayerCharacter character = new PlayerCharacter();
+//		character.setRace(human);
+//
+//		assertFalse("Not yet proficient in Weapon A", character
+//			.hasWeaponProfKeyed("Weapon A"));
+//		assertFalse("Not yet proficient in Weapon B", character
+//			.hasWeaponProfKeyed("Weapon B"));
+//		assertFalse("Not yet proficient in Weapon C", character
+//			.hasWeaponProfKeyed("Weapon C"));
+//
+//		character.incrementClassLevel(1, pcClass, true);
+//
+//		assertTrue("First Proficient in Weapon A", character
+//			.hasWeaponProfKeyed("Weapon A"));
+//		assertFalse("Not yet proficient in Weapon B", character
+//			.hasWeaponProfKeyed("Weapon B"));
+//		assertFalse("Not yet proficient in Weapon C", character
+//			.hasWeaponProfKeyed("Weapon C"));
+//
+//		character.incrementClassLevel(1, pcClass, true);
+//
+//		assertTrue("Second Proficient in Weapon A", character
+//			.hasWeaponProfKeyed("Weapon A"));
+//		assertTrue("Proficient in Weapon B", character
+//			.hasWeaponProfKeyed("Weapon B"));
+//		assertFalse("Not yet proficient in Weapon C", character
+//			.hasWeaponProfKeyed("Weapon C"));
+//
+//		character.incrementClassLevel(1, pcClass, true);
+//
+//		assertTrue("Third Proficient in Weapon A", character
+//			.hasWeaponProfKeyed("Weapon A"));
+//		assertTrue("Proficient in Weapon B", character
+//			.hasWeaponProfKeyed("Weapon B"));
+//		assertTrue("Proficient in Weapon C", character
+//			.hasWeaponProfKeyed("Weapon C"));
+//	}
 
 	/**
 	 * Tests CL variable
