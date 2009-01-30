@@ -1,0 +1,46 @@
+# CVS $Revision$ $Author$ -- Wed Jan 28 22:54:32 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Weapon proficiencies
+# Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells (Ray)|Grapple
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
+Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
+Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|DEITYWEAPONS
+Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shortspear|Shuriken|Siangham|Sling|Spear|Sword (Short)|Unarmed Strike
+Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
+Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+
+###Block: Shared Class Abilities
+# Ability Name	Category of Ability		Type									Visible		Required Ability						Special ABility						Define					Description		Modify VAR																						Source Page
+Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	DESC:See Text	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
+
+###Block: Uncanny Dodge
+# Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
+# Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
+# put this on class line one of any class that gets Uncanny Dodge
+#	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
+# Ability Name		Category of Ability		Type						Visible	Define										Description		Ability																											Modify VAR								Source Page
+Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0				ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVAREQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+#
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:See Text																																						SOURCEPAGE:p.40
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:See Text																													BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:p.40
+
+
+###Block: Companion support
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Define
+Summon Familiar	CATEGORY:Special Ability	TYPE:Special	VISIBLE:YES	SAB:Summon Familiar	DEFINE:FMLevel|0
+#FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel	SOURCEPAGE:ClassesII.rtf
+
+
+###Block: Alignemt Auras
+# Ability Name	Category of Ability		Type							Visible	Define			Description		Modify VAR
+Aura of Chaos	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraChaos|0	DESC:See Text	BONUS:VAR|AuraChaos|AlignmentAuraBase
+Aura of Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraEvil|0		DESC:See Text	BONUS:VAR|AuraEvil|AlignmentAuraBase
+Aura of Good	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraGood|0		DESC:See Text	BONUS:VAR|AuraGood|AlignmentAuraBase
+Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraLaw|0		DESC:See Text	BONUS:VAR|AuraLaw|AlignmentAuraBase
+
+###Block: More abilties
+# Ability Name	Category of Ability		Type						Visible	Define											Description		Modify VAR											Source Page
+Wild Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy	DESC:See Text	BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	SOURCEPAGE:p.36

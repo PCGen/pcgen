@@ -1,0 +1,70 @@
+# CVS $Revision$ $Author$ -- Wed Jan 28 22:54:32 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Dwarf Abilities
+# Ability Name			Output Name				Category of Ability		Type						Visible	Description									Automatically Gained Weapon Prof.			Bonus to skill																															Weapon prof. bonus						Change Weapon Prof. Category		Source Page		Ignore Encumberance
+Defensive Training ~ Dwarf	OUTPUTNAME:Defensive Training	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																																																																SOURCEPAGE:p.9
+Greed										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																																																																SOURCEPAGE:p.8
+Hatred ~ Dwarf			OUTPUTNAME:Hatred			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																																																																SOURCEPAGE:p.9
+Hearty									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																																																																SOURCEPAGE:p.8
+Keen Senses ~ Dwarf		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																BONUS:SKILL|Perception (Taste),Perception (Touch)|2																																								SOURCEPAGE:p.8
+Steady									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																																																																SOURCEPAGE:p.8	UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor
+Stability									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																																																																SOURCEPAGE:p.9
+Stonecunning								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing),Perception (Notice unusual stonework)|2|TYPE=Racial																SOURCEPAGE:p.8
+Weapon Familiarity ~ Dwarf	OUTPUTNAME:Weapon Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text"dwarven" in its name as a martial weapon.	AUTO:WEAPONPROF|Battleaxe|Handaxe|Warhammer																																		BONUS:WEAPONPROF=Waraxe (Dwarven)|WIELDCATEGORY|-1	CHANGEPROF:TYPE.Dwarven=Martial	SOURCEPAGE:p.8
+#
+
+###Block: Elf Abilities
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility			Description																																					Automatically Gained Weapon Prof.				Bonus to skill							Change Weapon Prof. Category	Source Page
+#Ability Bonus (see Human)
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility			Description								Automatically Gained Weapon Prof.				Bonus to skill							Change Weapon Prof. Category	Source Page
+Elven Immunities ~ Elf		OUTPUTNAME:Elven Immunities	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Elven Immunities (Ex)	DESC:See Text																														SOURCEPAGE:p.9
+Elven Magic									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Elven Magic (Ex)		DESC:See Text																BONUS:SKILL|Appraise (Identify Magic Item)|2							SOURCEPAGE:p.9
+Keen Senses ~ Elf			OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Keen Senses (Ex)		DESC:See Text																BONUS:SKILL|Perception (Sight),Perception (Sound)|2						SOURCEPAGE:p.9
+Weapon Familiarity ~ Elf	OUTPUTNAME:Weapon Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Weapon Familiarity (Ex)	DESC:See Text"elven" in its name as a martial weapon.	AUTO:WEAPONPROF|Longsword|Rapier|Longbow|Shortbow										CHANGEPROF:TYPE.Elven=Martial	SOURCEPAGE:p.9
+
+###Block: Gnome Abilities
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility			Innate Spells																						Description								Bonus to DC				Bonus to skill							Change Weapon Prof. Category	Source Page
+Defensive Training ~ Gnome	OUTPUTNAME:Defensive Training	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Defensive Training (Ex)																									DESC:See Text																										SOURCEPAGE:p.10
+Gnome Magic									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Gnome Magic (Ex)		SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Dancing Lights,10+CHA|Ghost Sound,10+CHA|Prestidigitation,10+CHA|Speak with Animals,11+CHA|PRESTAT:1,CHA=11	DESC:See Text							BONUS:DC|SCHOOL.Illusion|1															SOURCEPAGE:p.9
+Hatred ~ Gnome			OUTPUTNAME:Hatred			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Hatred (Ex)																											DESC:See Text																										SOURCEPAGE:p.9
+Illusion Resistant							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Illusion Resistant (Ex)																									DESC:See Text																										SOURCEPAGE:p.9
+Keen Senses ~ Gnome		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Keen Senses (Ex)																										DESC:See Text												BONUS:SKILL|Perception (Smell),Perception (Touch)|2						SOURCEPAGE:p.9
+Obsessive									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Obsessive (Ex)																										DESC:See Text																										SOURCEPAGE:p.9
+Weapon Familiarity ~ Gnome	OUTPUTNAME:Weapon Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Weapon Familiarity (Ex)																									DESC:See Text"gnome" in its name as a martial weapon.															CHANGEPROF:TYPE.Gnome=Martial	SOURCEPAGE:p.9
+
+###Block: Half-Elf Abilities
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility			Description		Bonus to skill							Source Page
+Adaptability								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Adaptability (Ex)		DESC:See Text										SOURCEPAGE:p.10
+Keen Senses ~ Half-Elf		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Keen Senses (Ex)		DESC:See Text	BONUS:SKILL|Perception (Sight),Perception (Sound)|2	SOURCEPAGE:p.10
+Elf Blood									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Elf Blood (Ex)		DESC:See Text										SOURCEPAGE:p.10
+Elven Immunities ~ Half-Elf	OUTPUTNAME:Elven Immunities	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Elven Immunities (Ex)	DESC:See Text										SOURCEPAGE:p.10
+
+###Block: Half-Orc Abilities
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility			Description								Automatically Gained Weapon Prof.	Change Weapon Prof. Category	Source Page
+Orc Blood									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Orc Blood (Ex)		DESC:See Text																		SOURCEPAGE:p.10
+Orc Ferocity								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Orc Ferocity (Ex)		DESC:See Text																		SOURCEPAGE:p.10
+Weapon Familiarity ~ Orc	OUTPUTNAME:Weapon Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Weapon Familiarity (Ex)	DESC:See Text"orc" in its name as a martial weapon.	AUTO:WEAPONPROF|Greataxe|Falchion	CHANGEPROF:TYPE.Orc=Martial	SOURCEPAGE:p.10
+
+###Block: Halfling Abilities
+# Ability Name			Output Name				Category of Ability		Type						Visible	Special ABility			Description									Automatically Gained Weapon Prof.	Save checks bonus				Bonus to skill							Change Weapon Prof. Category		Source Page
+Keen Senses ~ Halfling		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Keen Senses (Ex)		DESC:See Text																				BONUS:SKILL|Perception (Sound),Perception (Taste)|2							SOURCEPAGE:p.11
+Sure Footed									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Sure Footed (Ex)		DESC:See Text																				BONUS:SKILL|Acrobatics,Climb|2|TYPE=Racial								SOURCEPAGE:p.11
+Halfling Luck								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Halfling Luck (Ex)		DESC:See Text														BONUS:CHECKS|ALL|1|TYPE=Racial																SOURCEPAGE:p.11
+Fearless									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Fearless (Ex)			DESC:See Text																																			SOURCEPAGE:p.11
+Weapon Familiarity ~ Halfling	OUTPUTNAME:Weapon Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Weapon Familiarity (Ex)	DESC:See Text"halfling" in its name as a martial weapon.	AUTO:WEAPONPROF|Sling																		CHANGEPROF:TYPE.Halfling=Martial	SOURCEPAGE:p.11
+
+###Block: Human Abilities
+# Ability Name		Output Name				Category of Ability		Type						Visible	Description		Bonus to Ability Pool																	Source Page
+Skilled								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text																					SOURCEPAGE:p.11
+Weapon Training ~ Human	OUTPUTNAME:Weapon Training	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See Text	BONUS:ABILITYPOOL|Racial Weapon Training|1|!PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies	SOURCEPAGE:p.11
+
+###Block: Common Abilities
+# Ability Name	Category of Ability		Type			Visible	Stackable?	Multiple?	Choose	Stat bonus
+Ability Bonus	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:STAT	BONUS:STAT|%LIST|2|TYPE=Racial|PRERACE:1,Half-Elf,Human
+
+###Block: Favored Class bonuses
+# Ability Name	Category of Ability		Type				Visible		Stackable?	Multiple?	Choose																		Bonus to HP			Bonus to skill rank
+Bonus Hit Point	CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:HP|CURRENTMAX|1
+Bonus Skill Point	CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma					BONUS:SKILLRANK|LIST|1

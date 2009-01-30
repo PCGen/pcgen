@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Paizo - Pathfinder RPG (Beta Playtest Edition Web Enhancement)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:1
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition Web Enhancement)
+SOURCESHORT:PFRPGBWE
+SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0
+SOURCEDATE:2008-08
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Beta playtest edition. Copyright 2008, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Malhavoc Press; Author: Monte J. Cook.
+COPYRIGHT:PCGen dataset conversion for the Pathfinder Roleplaying Game Beta playtest edition Copyright 2008-2009, PCGen Data team (Including, but not limited to Stefan Radermacher)
+
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com>>>>>>> .r9043
+
+EQUIPMENT:pathfinder_beta_web_equip_wondrousitems.lst
+SPELL:pathfinder_beta_web_spells.lst

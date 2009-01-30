@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Sat Jan  3 13:26:51 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Conditional Skills for output only
+# Skill Name						Key Stat	Untrained?		Classes	Type			Visible		Source Page		Bonus to skill
+Acrobatics (Jump)						KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.54	BONUS:SKILL|Acrobatics (Jump)|skillinfo("MODIFIER","Acrobatics")-DEX
+Appraise (Identify Magic Item)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.55	BONUS:SKILL|Appraise (Identify Magic Item)|skillinfo("MODIFIER","Appraise")-INT
+Perception (Notice unusual stonework)		KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Notice unusual stonework)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Sight)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Sight)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Smell)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Smell)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Sound)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Sound)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Taste)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Taste)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Touch)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Touch)|skillinfo("MODIFIER","Perception")-WIS
+Spellcraft (Cast defensively)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.72	BONUS:SKILL|Spellcraft (Cast defensively)|skillinfo("MODIFIER","Spellcraft")-INT
+Survival (Follow or identify tracks)		KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.73	BONUS:SKILL|Survival (Follow or identify tracks)|skillinfo("MODIFIER","Survival")-WIS
+Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.74	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|skillinfo("MODIFIER","Swim")-STR
+
+
+###Block: Skill .MODs
+# Skill Name	Bonus to skill rank
+Acrobatics.MOD	BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("RANK","Acrobatics")|PREVARNEQ:skillinfo("MODIFIER","Acrobatics (Jump)"),skillinfo("MODIFIER","Acrobatics")
+Appraise.MOD	BONUS:SKILLRANK|Appraise (Identify Magic Item)|skillinfo("RANK","Appraise")|PREVARNEQ:skillinfo("MODIFIER","Appraise (Identify Magic Item)"),skillinfo("MODIFIER","Appraise")
+Spellcraft.MOD	BONUS:SKILLRANK|Spellcraft (Cast defensively)|skillinfo("RANK","Spellcraft")|PREVARNEQ:skillinfo("MODIFIER","Spellcraft (Cast defensively)"),skillinfo("MODIFIER","Spellcraft")
+Perception.MOD	BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Notice unusual stonework)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Sight)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Sight)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Smell)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Smell)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Sound)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Sound)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Taste)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Taste)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Touch)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Touch)"),skillinfo("MODIFIER","Perception")
+Survival.MOD	BONUS:SKILLRANK|Survival (Follow or identify tracks)|skillinfo("RANK","Survival")|PREVARNEQ:skillinfo("MODIFIER","Survival (Follow or identify tracks)"),skillinfo("MODIFIER","Survival")
+Swim.MOD		BONUS:SKILLRANK|Swim (Avoid taking nonlethal fatigue damage)|skillinfo("RANK","Swim")|PREVARNEQ:skillinfo("MODIFIER","Swim (Avoid taking nonlethal fatigue damage)"),skillinfo("MODIFIER","Swim")

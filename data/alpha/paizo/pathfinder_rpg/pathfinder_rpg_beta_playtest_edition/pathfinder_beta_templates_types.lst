@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Fri Oct 31 14:39:22 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block: Creature Types
+# Template Name	Visible	Define			Bonus to HP
+Construct		VISIBLE:NO	DEFINE:LOCK.CON|10	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10
+Undead		VISIBLE:NO	DEFINE:LOCK.CON|10	BONUS:HP|CURRENTMAX|TL*CHA
+
+###Block: Creature Subtypes
+#Swarm			VISIBLE:NO	DEFINE:CanNotGrapple|1																							ABILITY:Special Ability|AUTOMATIC|Swarm Traits|Distraction
+
+###Block: Variable Type Traits
+# Template Name	Visible	Define
+Mindless		VISIBLE:NO	DEFINE:LOCK.INT|10	DEFINE:LOCK.CHA|10

@@ -1,0 +1,58 @@
+# CVS $Revision$ $Author$ -- Wed Jan 28 22:54:32 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original RSRD Entry by: PCGen Data Team
+# Original Entry by: Stefan Radermacher
+
+###Block: Creature Abilities
+# Ability Name	Category of Ability		Type								Visible	Define			Description
+Pounce		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:See Text
+Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES	DEFINE:ScentRange|30	DESC:See Text
+
+###Block: Energy Immunities
+# Ability Name		Category of Ability		Type								Visible	Description		ASPECT
+Immunity to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Acid
+Immunity to Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Cold
+Immunity to Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Fire
+Immunity to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Electricity
+Immunity to Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Sonic
+
+###Block: Other Immunities
+# Ability Name				Category of Ability		Type								Visible	Description		ASPECT
+Immunity to Mind-Affecting Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Mind-Affecting
+Immunity to Disease			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Disease
+Immunity to Exhaustion			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Exhaustion
+Immunity to Fatigue			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Fatigue
+Immunity to Flanking			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Flanking
+Immunity to Pain Effects		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Pain
+Immunity to Paralysis			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Paralysis
+Immunity to Poison			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Poison
+Immunity to Sleep				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Sleep
+Immunity to Stunning			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:See Text	ASPECT:Immunity|Stunning
+
+###Block: Energy Resistances
+# Ability Name			Category of Ability		Visible	Define					Ability
+Resistance to Acid		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Acid,Vulnerability to Acid
+Resistance to Cold		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Cold,Vulnerability to Cold
+Resistance to Fire		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fire,Vulnerability to Fire
+Resistance to Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance to Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Electricity,Vulnerability to Electricity
+Resistance to Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Sonic,Vulnerability to Sonic
+
+###Block: Energy Resistances Output
+# Ability Name				Output Name						Category of Ability		Type								Visible	Description		ASPECT
+Resistance to Acid Output		OUTPUTNAME:Resistance to Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:See Text	ASPECT:Resistance|Acid	ASPECT:Ability Benefit|%1|AcidResistanceBonus
+Resistance to Cold Output		OUTPUTNAME:Resistance to Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:See Text	ASPECT:Resistance|Cold	ASPECT:Ability Benefit|%1|ColdResistanceBonus
+Resistance to Fire Output		OUTPUTNAME:Resistance to Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:See Text	ASPECT:Resistance|Fire	ASPECT:Ability Benefit|%1|FireResistanceBonus
+Resistance to Electricity Output	OUTPUTNAME:Resistance to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:See Text	ASPECT:Resistance|Electricity	ASPECT:Ability Benefit|%1|ElectricityResistanceBonus
+Resistance to Sonic Output		OUTPUTNAME:Resistance to Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:See Text	ASPECT:Resistance|Sonic	ASPECT:Ability Benefit|%1|SonicResistanceBonus
+
+###Block: Energy Vulnerabilities
+# Ability Name			Category of Ability		Type								Visible	Description
+Vulnerability to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:See Text
+Vulnerability to Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:See Text
+Vulnerability to Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:See Text
+Vulnerability to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:See Text
+Vulnerability to Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:See Text
+
+###Block: Specials
+# Ability Name	Category of Ability		Type			Visible	Special ABility																							Define			Save checks bonus							Combat bonus				Bonus to skill
+Negative Levels	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)

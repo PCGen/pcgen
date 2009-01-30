@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Thu Sep 18 22:54:45 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block: Coins
+# Equipment Name		Type		Cost		Weight	Source Page
+Coin (Platinum Piece)	TYPE:Coin	COST:10	WT:.02	SOURCEPAGE:p.98
+Coin (Gold Piece)		TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.98
+Coin (Silver Piece)	TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:p.98
+Coin (Copper Piece)	TYPE:Coin	COST:.01	WT:.02	SOURCEPAGE:p.98

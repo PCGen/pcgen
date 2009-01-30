@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Wed Jan 28 22:54:32 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block: Abilities
+# Ability Name	Category of Ability		Type								Visible	Define				Description		Modify VAR								Source Page		ASPECT
+Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:See Text	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus(Poison)
+Turn Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DEFINE:TurnResistance|0		DESC:See Text										SOURCEPAGE:p.398	ASPECT:Ability Bonus|+%1|TurnResistance

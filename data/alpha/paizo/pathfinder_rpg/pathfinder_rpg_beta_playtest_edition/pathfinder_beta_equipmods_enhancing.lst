@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Thu Sep 25 16:26:32 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block: Charged items
+# Modifier Name	Unique Key			Cost							Visible	Choose		Nb of Charges
+Charges (10)	KEY:CHARGED_ITEM_10	COST:((BASECOST/10)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|10
+
+###Block: Use per day items
+# Modifier Name	Unique Key			Visible	Choose		Nb of Charges
+Uses per Day (1)	KEY:USES_PER_DAY_1	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|1
+Uses per Day (2)	KEY:USES_PER_DAY_2	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:2|2
+Uses per Day (3)	KEY:USES_PER_DAY_3	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:3|3
+
+
+###Block: Magic Item abilities
+# Modifier Name					Unique Key		Naming Option	Type																					Cost															Visible		Type granted				Source Page				Choose			Nb of Charges
+Spell Effect (Single Use/Use Activated)	KEY:SPL_1USE	NAMEOPT:SPELL	TYPE:Potion.Oil																			COST:(50*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)			VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	CHOOSE:EQBUILDER.SPELL
+Spell Effect (50 Charges/Spell Trigger)	KEY:SPL_CHRG	NAMEOPT:SPELL	TYPE:Armor.Shield.Weapon.Amulet.Belt.Bracer.Cape.Glove.Headgear.Instrument.Mantle.Ring.Robe.Shirt.Eyegear.Boot.Staff.Wand	COST:((15*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))*%CHARGES	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic			SOURCEPAGE:MagicItemsI.rtf	CHOOSE:EQBUILDER.SPELL	CHARGES:1|50

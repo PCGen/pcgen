@@ -1,0 +1,83 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Paizo - Pathfinder RPG (Beta Playtest Edition)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:1
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition)
+SOURCESHORT:PFRPGB
+SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0
+SOURCEDATE:2008-08
+ISOGL:YES
+ISLICENSED:NO
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Beta playtest edition. Copyright 2008, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Malhavoc Press; Author: Monte J. Cook.
+COPYRIGHT:PCGen dataset conversion for the "Pathfinder Roleplaying Game Beta playtest edition" Copyright 2008, PCGen Data team (Including, but not limited to Stefan Radermacher)
+
+COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+
+#Do Not Remove Comment
+#INFOTEXT:OGL.txt
+
+ABILITY:pathfinder_beta_abilities_class.lst
+ABILITY:pathfinder_beta_abilities_class_common.lst
+ABILITY:pathfinder_beta_abilities_general.lst
+ABILITY:pathfinder_beta_abilities_monsters.lst
+ABILITY:pathfinder_beta_abilities_racial.lst
+ABILITYCATEGORY:pathfinder_beta_ability_categories_core.lst
+ARMORPROF:pathfinder_beta_profs_armor.lst
+CLASS:pathfinder_beta_classes_base.lst
+CLASS:pathfinder_beta_classes_npc.lst
+CLASS:pathfinder_beta_classes_monsters.lst
+DEITY:pathfinder_beta_deities.lst
+DOMAIN:pathfinder_beta_domains.lst
+EQUIPMENT:pathfinder_beta_equip.lst
+EQUIPMENT:pathfinder_beta_equip_baseitems.lst
+EQUIPMENT:pathfinder_beta_equip_coins.lst
+EQUIPMENT:pathfinder_beta_equip_gems.lst
+EQUIPMENT:pathfinder_beta_equip_armorshields.lst
+EQUIPMENT:pathfinder_beta_equip_armorshields_specific.lst
+EQUIPMENT:pathfinder_beta_equip_potions.lst
+EQUIPMENT:pathfinder_beta_equip_scrolls.lst
+EQUIPMENT:pathfinder_beta_equip_rings.lst
+EQUIPMENT:pathfinder_beta_equip_rods.lst
+EQUIPMENT:pathfinder_beta_equip_wands.lst
+EQUIPMENT:pathfinder_beta_equip_staves.lst
+EQUIPMENT:pathfinder_beta_equip_weap_ammo.lst
+EQUIPMENT:pathfinder_beta_equip_weap_melee.lst
+EQUIPMENT:pathfinder_beta_equip_weap_natural.lst
+EQUIPMENT:pathfinder_beta_equip_weap_ranged.lst
+EQUIPMENT:pathfinder_beta_equip_weapons_specific.lst
+EQUIPMOD:pathfinder_beta_equipmods_base.lst
+EQUIPMOD:pathfinder_beta_equipmods_enhancing.lst
+EQUIPMOD:pathfinder_beta_equipmods_armorshields.lst
+EQUIPMOD:pathfinder_beta_equipmods_material.lst
+EQUIPMOD:pathfinder_beta_equipmods_weapons.lst
+FEAT:pathfinder_beta_feats.lst
+FEAT:pathfinder_beta_feats_monsters.lst
+LANGUAGE:pathfinder_beta_languages.lst
+#RACE:pathfinder_beta_races__animals.lst
+RACE:pathfinder_beta_races__base.lst
+SHIELDPROF:pathfinder_beta_profs_shield.lst
+SKILL:pathfinder_beta_skills.lst
+SKILL:pathfinder_beta_skills_conditional.lst
+SPELL:pathfinder_beta_spells.lst
+SPELL:pathfinder_beta_spells_domain.lst
+TEMPLATE:pathfinder_beta_templates_types.lst
+WEAPONPROF:pathfinder_beta_weaponprofs.lst
+
+#Hide internal feat types
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|WizardBonus|RacialWeaponTraining
+HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
+
+
+
+EQUIPMENT:pathfinder_beta_equip_wondrousitems.lst
