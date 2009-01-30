@@ -103,28 +103,24 @@ public class TransitionChoice<T>
 		c.setTitle(title);
 		Set<? extends T> set = choices.getSet(pc);
 		Set<T> allowed = new HashSet<T>();
+		List<Object> assocList = pc.getAssocList(this, AssociationListKey.ADD);
 		for (T o : set)
 		{
 			if (choiceActor == null || choiceActor.allow(o, pc, allowStack))
 			{
-				if (stackLimit != null && stackLimit > 0)
+				if (assocList != null && stackLimit != null && stackLimit > 0)
 				{
-					List<Object> assocList = pc.getAssocList(this,
-							AssociationListKey.ADD);
-					if (assocList != null)
+					int takenCount = 0;
+					for (Object choice : assocList)
 					{
-						int takenCount = 0;
-						for (Object choice : assocList)
+						if (choice.equals(o))
 						{
-							if (choice.equals(o))
-							{
-								takenCount++;
-							}
+							takenCount++;
 						}
-						if (stackLimit <= takenCount)
-						{
-							continue;
-						}
+					}
+					if (stackLimit <= takenCount)
+					{
+						continue;
 					}
 				}
 				allowed.add(o);
