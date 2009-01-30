@@ -1997,7 +1997,7 @@ public class PCClass extends PObject
 	@Override
 	public final String toString()
 	{
-		return displayName;
+		return getDisplayName();
 	}
 
 	/*
@@ -3180,7 +3180,7 @@ public class PCClass extends PObject
 			{
 				Logging
 					.errorPrint("ERROR: could not find class/level info for "
-						+ displayName + "/" + level);
+						+ getDisplayName() + "/" + level);
 			}
 
 			// XXX Why is the feat decrementing done twice (here and in

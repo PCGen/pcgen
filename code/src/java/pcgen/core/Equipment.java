@@ -703,7 +703,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (baseItem == null) {
 			return getKeyName();
 		}
-		return baseItem.resolvesTo().displayName;
+		return baseItem.resolvesTo().getDisplayName();
 	}
 
 	/**
@@ -1949,7 +1949,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The name value
 	 */
 	public String getSimpleName() {
-		return displayName;
+		return getDisplayName();
 	}
 
 	/**
@@ -3521,7 +3521,7 @@ public final class Equipment extends PObject implements Serializable,
 				|| (cachedNameWithCharges == null && cachedNameWithoutCharges == null)) {
 			// If we have modified the equipment details with
 			// respect to the name then rebuid the names
-			final StringBuffer buffer = new StringBuffer(displayName);
+			final StringBuffer buffer = new StringBuffer(getDisplayName());
 
 			if (modifiedName.length() > 0) {
 				buffer.append(" (").append(modifiedName).append(")");

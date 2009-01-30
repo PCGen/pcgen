@@ -112,7 +112,7 @@ public final class SpecialAbility extends TextProperty
 			if (classKey.equals(oldClass))
 			{
 				Logging.errorPrint("Source class changed from " + oldClass //$NON-NLS-1$
-					+ " to " + newClass + " for " + displayName); //$NON-NLS-1$ //$NON-NLS-2$
+					+ " to " + newClass + " for " + getDisplayName()); //$NON-NLS-1$ //$NON-NLS-2$
 
 				setSASource(typeString + "=" + newClass + "|" + levelString);
 			}
@@ -191,7 +191,7 @@ public final class SpecialAbility extends TextProperty
 	@Override
 	public String toString()
 	{
-		return displayName;
+		return getDisplayName();
 	}
 
 	/**

@@ -68,7 +68,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	@Override
 	public String toString()
 	{
-		return displayName;
+		return getDisplayName();
 	}
 
 	boolean pcQualifiesFor(final PlayerCharacter pc)
