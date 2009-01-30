@@ -66,6 +66,7 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
@@ -372,7 +373,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	Integer epicBAB = null;
 	HashMap<Integer, Integer> epicCheckMap = new HashMap<Integer, Integer>();
 
-	private IdentityHashMap<PCTemplate, String> chosenFeatStrings = null;
 	private HashMapToList<CDOMObject, PCTemplate> templatesAdded =
 			new HashMapToList<CDOMObject, PCTemplate>();
 
@@ -8189,22 +8189,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		getAutoLanguages();
 		addNaturalWeapons(inTmpl.getListFor(ListKey.NATURAL_WEAPON));
 
-		if (PlayerCharacterUtilities.canReassignTemplateFeats())
-		{
-			final List<String> templateFeats =
-					feats(inTmpl, getTotalLevels(), totalHitDice(), true);
-
-			for (int i = 0, x = templateFeats.size(); i < x; ++i)
-			{
-				AbilityUtilities.modFeatsFromList(this, null, templateFeats
-					.get(i), true, false);
-			}
-		}
-		else
-		{
-			setAutomaticAbilitiesStable(null, false);
-			// setAutomaticFeatsStable(false);
-		}
+		setAutomaticAbilitiesStable(null, false);
 
 		if (doChoose)
 		{
@@ -8222,11 +8207,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			// Do chooser (if any)
-			boolean choiceMade =
-					ChooserUtilities.modChoices(inTmpl, new ArrayList(),
-						new ArrayList(), true, this, true, null);
+			ChooserUtilities.modChoices(inTmpl, new ArrayList(),
+					new ArrayList(), true, this, true, null);
 
 			getSpellList();
+			feats(inTmpl, getTotalLevels(), totalHitDice(), true);
 			inTmpl.globalChecks(this);
 		}
 
@@ -10701,12 +10686,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		if (!PlayerCharacterUtilities.canReassignTemplateFeats())
-		{
-			// TODO - ABILITYOBJECT
-			// setAutomaticAbilitiesStable( null, false );
-			setAutomaticFeatsStable(false);
-		}
+		// TODO - ABILITYOBJECT
+		setAutomaticFeatsStable(false);
 
 		// karianna 1184888
 		adjustMoveRates();
@@ -13501,8 +13482,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Handle any feat changes as a result of level changes
-		if (!PlayerCharacterUtilities.canReassignTemplateFeats())
-		{
 			for (PCTemplate template : templateList)
 			{
 				final List<String> templateFeats =
@@ -13514,7 +13493,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.get(j), true, false);
 				}
 			}
-		}
 
 		setAggregateAbilitiesStable(null, false);
 		// setAggregateFeatsStable(false);
@@ -16755,8 +16733,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS), abilities);
 		}
 
-		if (!PlayerCharacterUtilities.canReassignTemplateFeats()
-			&& !getTemplateList().isEmpty())
+		if (!getTemplateList().isEmpty())
 		{
 			for (final PCTemplate aTemplate : getTemplateList())
 			{
@@ -17113,188 +17090,87 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<String> feats = new ArrayList<String>();
 
-		for (CDOMReference<Ability> ref : pct.getSafeListMods(Ability.TEMPLATE_FEATLIST))
-		{
-			/*
-			 * This is a hack for 5.x core compatibility... should use
-			 * ref.getContainedObjects(), but this ref string gives us back
-			 * items in () which were lost during resolution...
-			 */
-			feats.add(ref.getLSTformat());
-		}
-
-		// arknight modified this back in 1.27 with the comment: Added support
-		// for
-		// Spycraft Game Mode we no longer support Spycraft (at this time), and
-		// this
-		// breaks other modes, so I've reverting back to the old method. I am
-		// also fixing
-		// a bug in the code I'm commenting out. levelStrings is used in the 2nd
-		// loop
-		// instead of hitDiceStrings. - Byngl Sept 25, 2003
-		//
-		// Scrap all that. I'm using a HashMap to save those feats that have
-		// been taken when
-		// the required level/hitdie has been met. We need to do this so that
-		// removing the
-		// template will also remove the selected feat(s). PCTemplate instances
-		// will also
-		// need to be cloned() when adding them to PlayerCharacter.
-		if (chosenFeatStrings != null)
-		{
-			feats.addAll(chosenFeatStrings.values());
-		}
-
 		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				Integer lvl = lt.get(IntegerKey.LEVEL);
-				if (addNew && lvl <= level)
+				List<String> featList = getAssocList(lt,
+						AssociationListKey.TEMPLATE_FEAT);
+				if (featList == null && addNew
+						&& lt.get(IntegerKey.LEVEL) <= level)
 				{
-					doFeatOnTemplate(lt, lvl);
+					featList = getLevelFeat(lt);
+				}
+				if (featList != null)
+				{
+					feats.addAll(featList);
 				}
 			}
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			Integer lvl = lt.get(IntegerKey.LEVEL);
-			if (addNew && lvl <= level)
+			List<String> featList = getAssocList(lt,
+					AssociationListKey.TEMPLATE_FEAT);
+			if (featList == null && addNew && lt.get(IntegerKey.LEVEL) <= level)
 			{
-				doFeatOnTemplate(lt, lvl);
+				featList = getLevelFeat(lt);
+			}
+			if (featList != null)
+			{
+				feats.addAll(featList);
 			}
 		}
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			final String featKey =
-					"H" + lt.get(IntegerKey.HD_MIN) + "-"
-						+ lt.get(IntegerKey.HD_MAX);
-			String featName = null;
-
-			if (chosenFeatStrings != null)
-			{
-				featName = chosenFeatStrings.get(featKey);
-			}
-
-			if ((featName == null) && addNew)
-			{
-				if (lt.get(IntegerKey.HD_MAX) <= hitdice
+			List<String> featList = getAssocList(lt,
+					AssociationListKey.TEMPLATE_FEAT);
+			if (featList == null && addNew
+					&& lt.get(IntegerKey.HD_MAX) <= hitdice
 					&& lt.get(IntegerKey.HD_MIN) >= hitdice)
-				{
-					getLevelFeat(lt, -1, featKey);
-				}
+			{
+				featList = getLevelFeat(lt);
+			}
+			if (featList != null)
+			{
+				feats.addAll(featList);
 			}
 		}
 
 		return feats;
 	}
 
-	private void doFeatOnTemplate(PCTemplate lt, int lvl)
-	{
-		// Check for an already selected value
-		final String lvlKey = "L" + String.valueOf(lvl);
-		String featKey = null;
-		if (chosenFeatStrings != null)
-		{
-			featKey = chosenFeatStrings.get(lt);
-		}
-
-		// We haven't selected one yet. Ask for one if we are allowed.
-		if (featKey == null && lt.hasListMods(Ability.TEMPLATE_FEATLIST))
-		{
-			getLevelFeat(lt, lvl, lvlKey);
-		}
-	}
-
 	/**
 	 * This is the function that implements a chooser for Feats granted by level
 	 * and/or HD by Templates.
 	 * 
-	 * @param levelString
-	 *            The string to be parsed for the choices to offer
-	 * @param lvl
-	 *            The level this is being added at
-	 * @param featKey
-	 *            either L<lvl> or H<lvl>
-	 * @param aPC
-	 *            The PC that this Template is appled to
+	 * @param pct
+	 *            The template to be checked for the choices to offer
 	 */
-	private void getLevelFeat(PCTemplate pct, final int lvl, final String aKey)
+	private List<String> getLevelFeat(PCTemplate pct)
 	{
-		String featKe = null;
-		while (true)
+		List<String> list = new ArrayList<String>();
+		List<PersistentTransitionChoice<?>> templateFeatChoices = pct
+				.getListFor(ListKey.TEMPLATE_FEAT);
+		if (templateFeatChoices != null)
 		{
-			List<String> featList = new ArrayList<String>();
-			List<String> featChoices = new ArrayList<String>();
-			for (CDOMReference<Ability> ref : pct
-				.getSafeListMods(Ability.TEMPLATE_FEATLIST))
+			for (PersistentTransitionChoice<?> choice : templateFeatChoices)
 			{
-				/*
-				 * This is a hack for 5.x core compatibility... should use
-				 * ref.getContainedObjects(), but this ref string gives us back
-				 * items in () which were lost during resolution...
-				 */
-				featChoices.add(ref.getLSTformat());
+				Collection<?> result = actOn(pct, choice);
+				for (Object o : result)
+				{
+					list.add(o.toString());
+				}
 			}
-			final LevelAbility la =
-					LevelAbility.createAbility(pct, lvl, "FEAT("
-						+ StringUtil.join(featChoices, Constants.COMMA) + ")");
-
-			la.process(featList, this, null);
-
-			switch (featList.size())
-			{
-				case 1:
-					featKe = featList.get(0);
-
-					break;
-
-				default:
-
-					if (!isImporting())
-					{
-						Collections.sort(featList);
-
-						final ChooserInterface c =
-								ChooserFactory.getChooserInstance();
-						c.setTotalChoicesAvail(1);
-						c.setTitle("Feat Choice");
-						c.setAvailableList(featList);
-						c.setVisible(true);
-						featList = c.getSelectedList();
-
-						if ((featList != null) && (featList.size() != 0))
-						{
-							featKe = featList.get(0);
-
-							break;
-						}
-					}
-
-					// fall-through intentional
-				case 0:
-					return;
-			}
-
-			break;
 		}
-
-		addChosenFeat(pct, featKe);
+		return list;
 	}
 
-	public void addChosenFeat(PCTemplate pct, String feat)
+	private <T> Collection<? extends T> actOn(PCTemplate pct, PersistentTransitionChoice<T> ptc)
 	{
-		if (chosenFeatStrings == null)
-		{
-			chosenFeatStrings = new IdentityHashMap<PCTemplate, String>();
-		}
-		chosenFeatStrings.put(pct, feat);
-	}
-
-	public Map<PCTemplate, String> getChosenFeatStrings()
-	{
-		return chosenFeatStrings;
+		Collection<? extends T> result = ptc.driveChoice(this);
+		ptc.act(result, pct, this);
+		return result;
 	}
 
 	void selectTemplates(CDOMObject po, boolean isImporting)

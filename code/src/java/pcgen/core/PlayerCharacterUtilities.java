@@ -38,18 +38,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 public class PlayerCharacterUtilities
 {
 	/**
-	 * Bryan wanted this to be optional, but if you can reassign racial auto
-	 * feats, when you reopen the character, you get the feats that were
-	 * exchanged back
-	 *
-	 * @return  false
-	 */
-	static boolean canReassignTemplateFeats()
-	{
-		return false;
-	}
-
-	/**
 	 * Picks the biggest die size from two strings in the form V|WdX, YdZ (where
 	 * the WdX represents W X sided dice).  If Z is larger than X, returns
 	 * V|YdZ, otherwise it returns V|WdX

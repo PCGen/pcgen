@@ -88,9 +88,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private List<LevelAbility> levelAbilityList = null;
 
 	/** The name to display to the user.  This should be internationalized. */
-	protected String displayName = Constants.EMPTY_STRING;
-
-	private boolean isNewItem = true;
+	private String displayName = Constants.EMPTY_STRING;
 
 	private URI sourceURI = null;
 	
@@ -275,32 +273,15 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * Get name
 	 * @return name
 	 */
+	@Override
 	public String getDisplayName()
 	{
 		return displayName;
 	}
 
-	/**
-	 * Set the item as new flag
-	 * @param newItem
-	 */
-	public final void setNewItem(final boolean newItem)
-	{
-		this.isNewItem = newItem;
-	}
-
 	///////////////////////////////////////////////////////////////////////
 	// Accessor(s) and Mutator(s)
 	///////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Returns true if the item is new
-	 * @return true if the item is new
-	 */
-	public final boolean isNewItem()
-	{
-		return isNewItem;
-	}
 
 	/**
 	 * Get the output name of the item

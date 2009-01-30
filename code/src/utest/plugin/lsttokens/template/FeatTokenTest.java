@@ -267,6 +267,6 @@ public class FeatTokenTest extends
 	@Override
 	public boolean allowDups()
 	{
-		return true;
+		return false;
 	}
 }

@@ -55,6 +55,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -682,8 +683,9 @@ public final class EditorMainForm extends JDialog
 				context.unconditionallyProcess(thisPObject, "FEAT", aString);
 
 				sel = pnlQSpells.getSelectedList();
-				if (thisPObject.isNewItem())
-					thisPObject.setNewItem(false);
+				Domain thisDomain = (Domain) thisPObject;
+				if (thisDomain.isNewItem())
+					thisDomain.setNewItem(false);
 				thisPObject.clearSpellListInfo();
 
 				for (int i = 0; i < sel.length; ++i)
@@ -928,7 +930,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save feats
 				//
-				thisPCTemplate.removeAllFromList(Ability.TEMPLATE_FEATLIST);
+				thisPCTemplate.removeListFor(ListKey.TEMPLATE_FEAT);
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
 				context.unconditionallyProcess(thisPCTemplate, "FEAT", aString);
@@ -1385,7 +1387,8 @@ public final class EditorMainForm extends JDialog
 				List<Spell> availableSpellList = new ArrayList<Spell>();
 				List<String> selectedSpellList = new ArrayList<String>();
 
-				if (thisPObject.isNewItem())
+				Domain thisDomain = (Domain) thisPObject;
+				if (thisDomain.isNewItem())
 				{
 					thisPObject.clearSpellListInfo();
 					for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
@@ -1945,15 +1948,15 @@ public final class EditorMainForm extends JDialog
 					availableTemplateFeatsList.add(anAbility.getKeyName());
 				}
 
-				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.TEMPLATE_FEATLIST))
+				List<PersistentTransitionChoice<?>> lista = thisPObject.getListFor(ListKey.TEMPLATE_FEAT);
+				for (PersistentTransitionChoice<?> ptc : lista)
 				{
-					for (Ability a : ref.getContainedObjects())
+					for (String str : ptc.getChoices().getLSTformat().split(","))
 					{
-						aString = a.getKeyName();
-						if (!selectedTemplateFeatsList.contains(aString))
+						if (!selectedTemplateFeatsList.contains(str))
 						{
-							availableTemplateFeatsList.remove(aString);
-							selectedTemplateFeatsList.add(aString);
+							availableTemplateFeatsList.remove(str);
+							selectedTemplateFeatsList.add(str);
 						}
 					}
 				}

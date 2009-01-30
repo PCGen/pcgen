@@ -30,7 +30,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -2423,33 +2422,62 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
-	private String chosenFeats(PCTemplate aTemplate)
+	private String chosenFeats(PCTemplate pct)
 	{
-		final StringBuffer aString = new StringBuffer(50);
-		Map<PCTemplate, String> cfm = thePC.getChosenFeatStrings();
-
-		if (cfm != null)
+		final StringBuilder aString = new StringBuilder(50);
+		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
-			for (Map.Entry<PCTemplate, String> entry : cfm.entrySet())
+			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				if (aString.length() != 0)
+				List<String> featList = thePC.getAssocList(lt,
+						AssociationListKey.TEMPLATE_FEAT);
+				if (featList != null)
 				{
-					aString.append('|');
+					writeTemplateFeat(aString, lt, featList);
 				}
-
-				String featKey = Compatibility.getKeyFor(entry.getKey());
-
-				aString.append(TAG_CHOSENFEAT).append(':');
-				aString.append('[');
-				aString.append(TAG_MAPKEY).append(':').append(
-					EntityEncoder.encode(featKey)).append('|');
-				aString.append(TAG_MAPVALUE).append(':').append(
-					EntityEncoder.encode(entry.getValue()));
-				aString.append(']');
+			}
+		}
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		{
+			List<String> featList = thePC.getAssocList(lt,
+					AssociationListKey.TEMPLATE_FEAT);
+			if (featList != null)
+			{
+				writeTemplateFeat(aString, lt, featList);
 			}
 		}
 
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
+		{
+			List<String> featList = thePC.getAssocList(lt,
+					AssociationListKey.TEMPLATE_FEAT);
+			if (featList != null)
+			{
+				writeTemplateFeat(aString, lt, featList);
+			}
+		}
 		return aString.toString();
+	}
+
+	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct, List<String> featList)
+	{
+		for (String s : featList)
+		{
+			if (aString.length() != 0)
+			{
+				aString.append('|');
+			}
+
+			String featKey = Compatibility.getKeyFor(pct);
+
+			aString.append(TAG_CHOSENFEAT).append(':');
+			aString.append('[');
+			aString.append(TAG_MAPKEY).append(':').append(
+				EntityEncoder.encode(featKey)).append('|');
+			aString.append(TAG_MAPVALUE).append(':').append(
+				EntityEncoder.encode(s));
+			aString.append(']');
+		}
 	}
 
 	/**

@@ -26,7 +26,6 @@ import java.awt.geom.Point2D;
 import java.math.BigDecimal;
 import java.util.List;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;

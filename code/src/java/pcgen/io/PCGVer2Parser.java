@@ -4366,13 +4366,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 						if ((mapKey != null) && (mapValue != null))
 						{
-							PCTemplate subt =
-									Compatibility.getTemplateFor(aPCTemplate,
-										EntityEncoder.decode(mapKey),
-										EntityEncoder.decode(mapValue));
+							String feat = EntityEncoder.decode(mapValue);
+							PCTemplate subt = Compatibility.getTemplateFor(
+									aPCTemplate, EntityEncoder.decode(mapKey),
+									feat);
 							if (subt != null)
 							{
-								thePC.addChosenFeat(subt, mapValue);
+								thePC.addAssoc(subt,
+										AssociationListKey.TEMPLATE_FEAT, feat);
 							}
 						}
 					}

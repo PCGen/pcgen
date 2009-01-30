@@ -105,6 +105,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<PCClass> FAVCLASS =
 			new AssociationListKey<PCClass>();
 
+	public static final AssociationListKey<String> TEMPLATE_FEAT = new AssociationListKey<String>();
+
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
 	private AssociationListKey()

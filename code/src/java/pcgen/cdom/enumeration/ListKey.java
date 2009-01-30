@@ -260,6 +260,7 @@ public final class ListKey<T> {
 	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();
 	public static final ListKey<String> HIDDEN_Ability = new ListKey<String>();
 	public static final ListKey<String> HIDDEN_Skill = new ListKey<String>();
+	public static final ListKey<PersistentTransitionChoice<?>> TEMPLATE_FEAT = new ListKey<PersistentTransitionChoice<?>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	
