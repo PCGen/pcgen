@@ -53,6 +53,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
+	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	private final Map<Class<?>, OneToOneMap<CDOMObject, String>> abbMap = new HashMap<Class<?>, OneToOneMap<CDOMObject, String>>();
 
@@ -353,9 +354,14 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			if (pcc.containsListFor(ListKey.SUB_CLASS))
 			{
 				SubClassCategory cat = SubClassCategory.getConstant(key);
+				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS);
 				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))
 				{
 					String subKey = subcl.getKeyName();
+					if (subKey.equalsIgnoreCase(key))
+					{
+						needSelf = false;
+					}
 					constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
 					// TODO Need to limit which are built to only
 					// spellcasters...
@@ -372,6 +378,11 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 					 */
 					subcl.setCDOMCategory(cat);
 					importObject(subcl);
+				}
+				if (needSelf)
+				{
+					SubClass self = constructCDOMObject(SUBCLASS_CLASS, key);
+					reassociateCategory(SUBCLASS_CLASS, self, null, cat);
 				}
 			}
 		}
