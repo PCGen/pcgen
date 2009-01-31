@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.15.10</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.15.10</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.15.10</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.15.10</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.15.10</a></h2>
+
+
+<p>There has been a bit of a gap in releases over January, but we are back with 
+our first beta release for the 5.16 cycle. We haven't been idle though - we've 
+fixed a slew of bugs, included a few neat new features and added a whole new 
+game system... Pathfinder RPG (Beta Playtest Edition). 
+</p><p>
+Given this is the first release to include the Pathfinder RPG data set, it is 
+still an alpha set and will be getting a lot of attention during the beta cycle. 
+You can currently create characters of any race, but some classes such as druids 
+are not available yet. However don't let that put you off - the best help you 
+can give us is giving it a go and letting us know how it works! Try it out with 
+your favourite character - if the numbers are off or you see a typo let us know. 
+If a feat, class, spell etc is missing, please let us know. The 
+<a href="http://tech.groups.yahoo.com/group/pcgen_experimental/">PCGen Experimental</a> 
+mailing list is the best place to follow the discussion on our implementation of the 
+Pathfinder RPG. Putting [PFRPG] in the subject will help us to track them too.
+</p><p>
+Also premiering in this release is the new data converter. This will ensure that 
+the data files you have written or purchased will continue to function in future 
+versions of PCGen. As long as your data loaded cleanly in 5.14, you can convert 
+it to match the syntax in 5.16 and beyond. In most cases this will be automatic, 
+but the tool will requests decisions from you where there is ambiguity about the 
+data. You can find it either as a jar  
+</p><p>
+A final word about what a beta release is for the PCGen team. This is a build that 
+has all of the new features that we plan shipping with v5.16. The beta cycle is where 
+we focus on bug fixing and in the case of special work like the Pathfinder RPG, filling
+in the missing pieces. An essential part of this is of course you trying it out and 
+letting us know of any issues you find. Our trained monkeys are ready and waiting for 
+your email!
+</p>
+<h3>Notable Changes</h3>
+
+<p>Notable changes released in in 5.15.10 are:</p>
+ 
+<ul>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Pathfinder] ABILITYLIST tag for Ability Categories. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2430832">2430832</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> Implement Flight Maneuverability. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2288872">2288872</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#eddyanthony">eddyanthony</a>)</li>
+<li><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"> Add Quick Search and filtering to the Kit window. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2016157">2016157</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> PCGen 5.16 Automated Data Converter. Fixes <a href="http://sourceforge.net/support/tracker.php?aid="></a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>)</li>
+</ul>
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.15.10</p>
+
+		<ul>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Paizo] Pathfinder RPG (Beta Playtest Edition). Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2204696">2204696</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#zaister">zaister</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Paradigm Concepts] Forged In Magic. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1048168">1048168</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#amaitland">amaitland</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Paizo] Module D0: Hollow's Last Hope. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2425397">2425397</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#maredudd800">maredudd800</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Paizo] Module D1: Crown of the Kobold King. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2437826">2437826</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#maredudd800">maredudd800</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Paizo] Module D1.5: Revenge of the Kobold King. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2444404">2444404</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#maredudd800">maredudd800</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Paizo] Second Darkness, Chapter 5: A Memory of Darkness. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2483232">2483232</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#eddyanthony">eddyanthony</a>)</li>
+		</ul>
+
+<p><i>James Dempsey</i> for the PCGEN Team -- 1 February, 2009.</p>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>Most Characters from the 5.14 series of PCGen should load seamlessly in 5.15.10. 
+		  Characters created in the Modern gameMode will be effected by changes made to 
+		  the Occupations feature. Due to refinements to the Ability Object we 
+		  have reconfigured the Occupations feature. Newly created characters will see 
+		  no differences but when existing characters are opened PCGen will report that 
+		  the Occupation Ability and the associated skill abilities cannot be found. The 
+		  fix is simple however, simply note what abilities are missing and go to the 
+		  Background tab and reselect your choices.</p>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.15.10 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_full.zip?download">pcgen51510_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_partial.zip?download">pcgen51510_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_win_install.exe?download">pcgen51510_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_mac_install.dmg?download">pcgen51510_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51510_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.15.10</a></h2>
+<h3>New Data Source Development</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1048168">1048168</a> ]	[Paradigm Concepts] Forged In Magic</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2204696">2204696</a> ]	[Paizo] Pathfinder RPG (Beta Playtest Edition)</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2425397">2425397</a> ]	[Paizo] Module D0: Hollow&#039;s Last Hope</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2437826">2437826</a> ]	[Paizo] Module D1: Crown of the Kobold King</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2444404">2444404</a> ]	[Paizo] Module D1.5: Revenge of the Kobold King</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2483232">2483232</a> ]	[Paizo] Second Darkness, Chapter 5: A Memory of Darkness</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2527744">2527744</a> ]	[Paizo] Second Darkness - Chapter 6</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2547168">2547168</a> ]	[Paizo] Pathfinder RPG (Beta Playtest Web Enhancement)</li>
+</ul>
+
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1250730">1250730</a> ]	PLUSCOST calculations: Add PLUSTOTAL as a COST tag variable</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1994088">1994088</a> ]	[Proposal] PREVISION:1,Foo=ANY</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1999241">1999241</a> ]	Conversion of X=Y PRE tokens</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2016157">2016157</a> ]	Add Quick Search and filtering to the Kit window</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2062577">2062577</a> ]	Need method to track references</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2076102">2076102</a> ]	EQUIPSLOTs in gamemode improvement</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2108079">2108079</a> ]	NAMEISPI In a KIT File</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2215419">2215419</a> ]	FORWARDREF pcc tag for suppressing unconstructed messages</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2357045">2357045</a> ]	Automatic conversion of the FAVCLASS:CHOOSE syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2430832">2430832</a> ]	[Pathfinder] ABILITYLIST tag for Ability Categories</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2477449">2477449</a> ]	[Pathfinder] Adding Known Spells through Abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2486857">2486857</a> ]	Automatic Conversion of PREVISION:1,Foo=0</li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1410411">1410411</a> ]	[Dawnforge]Chooser for Disciple Innate Spells</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1970459">1970459</a> ]	Convert PREVISION to non-ambiguous syntax</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2288872">2288872</a> ]	Implement Flight Maneuverability</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2490349">2490349</a> ]	Change HANDS to SLOTS in Equipment</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2536562">2536562</a> ]	[Pathfinder RPG] Implement Cleric domain powers</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2536585">2536585</a> ]	[Pathfinder RPG] Rings</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2536587">2536587</a> ]	[Pathfinder RPG] Staves</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2467692">2467692</a> ]	Document new Ability category tag ABILITYLIST</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2490358">2490358</a> ]	HANDS and SLOTS in Equipment</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2491440">2491440</a> ]	Add SPELLKNOWN Tag to docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2491671">2491671</a> ]	UPdate the LST Doc Standard</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2491675">2491675</a> ]	Update PRExxx Page Intro</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2492585">2492585</a> ]	Update Settings Menu Image</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2492588">2492588</a> ]	Add Load Sources Dialog Box image to docs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2492611">2492611</a> ]	Update Settings/Preferences:PCGen:Sources Image</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2536201">2536201</a> ]	3 new equipmod variables</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2546625">2546625</a> ]	Update x.CLEAR.y entry</li>
+</ul>
+
+<h3>Output Sheet Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1830847">1830847</a> ]	[PDF] New blocks for Special Attacks &amp; Special Qualities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1830849">1830849</a> ]	[PDF] New blocks for Salient Divine Abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1874811">1874811</a> ]	Add indicator for &quot;Skill Mastery&quot; skills on skills list</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1460794">1460794</a> ]	Remove token parsing from core</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1872447">1872447</a> ]	Removal of Master Template does not remove Slave Templates</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1910516">1910516</a> ]	PRESPELLTYPE, PRESPELL*  issues</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1937889">1937889</a> ]	PREVISION Bugged?</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1959564">1959564</a> ]	PRECLASSLEVELMAX Bug</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2112474">2112474</a> ]	PCGen does not close plugin JARs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2175469">2175469</a> ]	BONUS:VAR and PREFEAT not working together</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2183236">2183236</a> ]	QUALIFY token error with FEAT as first argument</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2203608">2203608</a> ]	[5.15.5] Support for using exotic weapons 1-handed broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2385081">2385081</a> ]	SEVERE Reference to Constructed &lt;Entity&gt; is ambiguous</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2387797">2387797</a> ]	TEMPBONUS:FEAT= broken for abilities</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2391299">2391299</a> ]	Unconstructed Reference with INCLUDE</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2424889">2424889</a> ]	PRExxx:Q:x,y being read improperly</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2463392">2463392</a> ]	!PREABILITY causing LOOP</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2481564">2481564</a> ]	TIMEUNIT giving incorrect errors.</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2482624">2482624</a> ]	Stack Trace from VisionLst</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2482731">2482731</a> ]	CHANGEPROF does not appear to work</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2482980">2482980</a> ]	Modifying Charges for Wands causes unexpected behavior</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2483025">2483025</a> ]	Kits are not granting GEAR</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2483203">2483203</a> ]	Pull Down Menus not listing entries in alphabetical order</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2484692">2484692</a> ]	ADD:ABILITY - not respecting PRExxx in choices</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2488878">2488878</a> ]	Concurrent modification error [STARTSKILLPTS with leveling]</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2491012">2491012</a> ]	LANGBONUS in kits broken</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2496770">2496770</a> ]	IllegalState can be caused by empty type</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2497041">2497041</a> ]	ClassSpellList Types are not being populated</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2497141">2497141</a> ]	TYPE Stacking rules on equipment BONUS not respected</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2498749">2498749</a> ]	VFEAT in a template causing VIRTUAL and AUTOMATIC feat</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2501219">2501219</a> ]	Multiple .COPY of a race has unexpected (and wrong) behavior</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2505095">2505095</a> ]	FORWARDREF:ARMORPROF &amp; SHIELDPROF not working</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2508331">2508331</a> ]	Forward references create objects</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2508779">2508779</a> ]	Spell LST Editor can&#039;t copy or make New spell</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2512195">2512195</a> ]	SEVERE Exception loading files</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2525607">2525607</a> ]	False positive: No WeaponProf objects</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2530373">2530373</a> ]	Spelllist chooser not popping</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2534389">2534389</a> ]	CHOOSE:SPELLS bug</li>
+</ul>
+
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1340174">1340174</a> ]	[Mongoose] Fey Magic - Feat &amp; Equipment issues</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1701746">1701746</a> ]	Robes and Armor should not be separate body slots</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2007847">2007847</a> ]	[Clash of Arms - Cavalry] bad ADDLEVEL usage</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181137">2181137</a> ]	Darwin&#039;s World 2nd Edition - Survivors Guide - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181142">2181142</a> ]	DW 2nd Edition - Terrors of Twisted Earth - Clean Up (nolist</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181144">2181144</a> ]	PE - Deadlands Core Rulebook - Deadlands D20 - Clean up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181149">2181149</a> ]	Review and clean up Deadlands Supplements</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181152">2181152</a> ]	Legends of Excalibur - Arthurian Adventures - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181163">2181163</a> ]	Sidewinder: Recoiled - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181166">2181166</a> ]	Sidewinder Supplements - Review and Clean up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181171">2181171</a> ]	Pandahead - XCrawl - Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2181172">2181172</a> ]	Xcrawl Supplements - Review and Clean Up</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2480906">2480906</a> ]	RSRD: Spells should not include focus in COST</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2481942">2481942</a> ]	Destruction Domain does not add Smite Special Ability</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2483037">2483037</a> ]	Adding Cold Iron to Flame Tongue doubles entire price</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2483044">2483044</a> ]	Flame Tongue does not have the Flaming and Bursting desc</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2512291">2512291</a> ]	[SRD] Divine Favor has mismatched parens</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2512331">2512331</a> ]	 SEVERE Error: No Equipment objects of TYPE=Medium.SHIELD</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2513829">2513829</a> ]	Remove unused DEITY entry in Modern miscinfo.lst</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2533808">2533808</a> ]	Can&#039;t use .COPY &amp; .FORGET on the same object</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2533868">2533868</a> ]	[PGtA] Hierophant.MOD issues</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2541998">2541998</a> ]	[RSRD] Epic Magic Items cost is low by a factor of 10</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2508336">2508336</a> ]	[OS] TEXT.REPLACE docs need clarification</li>
+
+</ul>
+
+	</body>
+</html>
