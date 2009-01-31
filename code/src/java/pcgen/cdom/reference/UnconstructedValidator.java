@@ -119,4 +119,15 @@ public class UnconstructedValidator
 		return false;
 	}
 
+	public boolean allowDuplicates(Class<?> cl)
+	{
+		for (Campaign c : campaignList)
+		{
+			if (c.containsInList(ListKey.DUPES_ALLOWED, cl))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

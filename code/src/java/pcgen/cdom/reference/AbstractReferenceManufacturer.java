@@ -825,37 +825,40 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
-		for (CaseInsensitiveString second : duplicates.getKeySet())
+		if (!validator.allowDuplicates(getReferenceClass()))
 		{
-			List<T> list = duplicates.getListFor(second);
-			T good = active.get(second.toString());
-			for (int i = 0; i < list.size(); i++)
+			for (CaseInsensitiveString second : duplicates.getKeySet())
 			{
-				T dupe = list.get(i);
-				if (dupe.isCDOMEqual(good))
+				List<T> list = duplicates.getListFor(second);
+				T good = active.get(second.toString());
+				for (int i = 0; i < list.size(); i++)
 				{
-					for (Iterator<WeakReference<T>> it = manufactured
-							.iterator(); it.hasNext();)
+					T dupe = list.get(i);
+					if (dupe.isCDOMEqual(good))
 					{
-						WeakReference<T> wr = it.next();
-						T mfg = wr.get();
-						if (mfg == null)
+						for (Iterator<WeakReference<T>> it = manufactured
+								.iterator(); it.hasNext();)
 						{
-							it.remove();
-						}
-						else if (mfg == good)
-						{
-							forgetObject(good);
-							break;
+							WeakReference<T> wr = it.next();
+							T mfg = wr.get();
+							if (mfg == null)
+							{
+								it.remove();
+							}
+							else if (mfg == good)
+							{
+								forgetObject(good);
+								break;
+							}
 						}
 					}
 				}
-			}
-			if (duplicates.containsListFor(second))
-			{
-				Logging.errorPrint("More than one " + refClass.getSimpleName()
-						+ " with key/name " + second + " was built");
-				returnGood = false;
+				if (duplicates.containsListFor(second))
+				{
+					Logging.errorPrint("More than one " + refClass.getSimpleName()
+							+ " with key/name " + second + " was built");
+					returnGood = false;
+				}
 			}
 		}
 		for (Object second : active.keySet())
