@@ -2,7 +2,7 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 # Ability Name		Output Name			Category of Ability		Type								Visible	Define									Description
-Automatic Actions						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:AutomaticActions|0	DEFINE:AutomaticActionsDC|0	DESC:%1, max DC %2)|AutomaticActions|AutomaticActionsDC
+Automatic Actions						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:AutomaticActions|0	DEFINE:AutomaticActionsDC|0	DESC:%1, max DC %2|AutomaticActions|AutomaticActionsDC
 Block Sensing						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES											DESC:%1 Hours|DivineRank
 Communication						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Communicate	VISIBLE:YES
 Create Artifact						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES

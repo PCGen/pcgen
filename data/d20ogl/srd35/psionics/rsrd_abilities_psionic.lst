@@ -71,7 +71,7 @@ Cognizance Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES	
 # Ability Name			Output Name				Category of Ability		Type						Visible	Define					Description																	ASPECT
 Uncarnate Armor								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:UncarnateIncorporealTouch|0	DESC:%1d6 (3x/day)|UncarnateIncorporealTouch											ASPECT:Ability Benefit|%1d6|UncarnateIncorporealTouch
-Shed Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:ShedBody|0				DESC:%1x/day)|ShedBody
+Shed Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:ShedBody|0				DESC:%1x/day|ShedBody
 Assume Equipment								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Assume Likeness								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Telekinetic Force								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:TelekineticForceDC|0		DESC:DC %1 (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC|PREVARGT:TelekineticForceDC,0
