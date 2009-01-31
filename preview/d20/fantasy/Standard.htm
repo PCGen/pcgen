@@ -2144,7 +2144,12 @@ at will
   <td colspan="2" class="sptab2"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
  </tr>
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-  <td colspan="8" class="sptab1"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+  <td colspan="8" class="sptab1"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SPELLPOINTCOST:0)|
+|ELSE|
+  &nbsp;&nbsp; <i>Spell Point Cost:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.SPELLPOINTCOST|
+|ENDIF|
+<br /></td>
   <td colspan="2" class="sptab2"><i>Caster Level:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|<br /></td>
  </tr>
 |ENDFOR|
