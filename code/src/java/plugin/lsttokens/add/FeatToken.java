@@ -307,8 +307,8 @@ public class FeatToken extends AbstractToken implements
 					if (!pc.canSelectAbility(a, false)
 							|| !a.getSafe(ObjectKey.VISIBILITY).equals(
 									Visibility.DEFAULT)
-							|| !allowStack(a, allowStack)
-							&& hasAssoc(pc.getAssociationList(a), choice))
+							|| (!allowStack(a, allowStack)
+							&& hasAssoc(pc.getAssociationList(a), choice)))
 					{
 						return false;
 					}
@@ -323,17 +323,16 @@ public class FeatToken extends AbstractToken implements
 	{
 		if (associationList == null)
 		{
-			// Huh?
-			return true;
+			return false;
 		}
 		for (String a : associationList)
 		{
 			if (choice.containsAssociation(a))
 			{
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	private boolean allowStack(Ability a, boolean allowStack)

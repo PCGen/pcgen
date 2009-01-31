@@ -226,9 +226,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 	
 		context.unconditionallyProcess(pcClass.getClassLevel(1), "ADD",
-				"FEAT|KEY_Exotic Weapon Proficiency (Weapon A)");
-		context.unconditionallyProcess(pcClass.getClassLevel(2), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon B)");
+		context.unconditionallyProcess(pcClass.getClassLevel(2), "ADD",
+				"FEAT|KEY_Exotic Weapon Proficiency (Weapon A)");
 		context.unconditionallyProcess(pcClass.getClassLevel(3), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon C)");
 		
@@ -475,50 +475,49 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		}
 	}
 
-	//TODO James wanted this inactive, since it's broken
-//	/**
-//	 * Test that multiple exotic weapon proficiencies work correctly.
-//	 */
-//	public void testExoticWpnProf()
-//	{
-//		Globals.getContext().resolveReferences();
-//		PlayerCharacter character = new PlayerCharacter();
-//		character.setRace(human);
-//
-//		assertFalse("Not yet proficient in Weapon A", character
-//			.hasWeaponProfKeyed("Weapon A"));
-//		assertFalse("Not yet proficient in Weapon B", character
-//			.hasWeaponProfKeyed("Weapon B"));
-//		assertFalse("Not yet proficient in Weapon C", character
-//			.hasWeaponProfKeyed("Weapon C"));
-//
-//		character.incrementClassLevel(1, pcClass, true);
-//
-//		assertTrue("First Proficient in Weapon A", character
-//			.hasWeaponProfKeyed("Weapon A"));
-//		assertFalse("Not yet proficient in Weapon B", character
-//			.hasWeaponProfKeyed("Weapon B"));
-//		assertFalse("Not yet proficient in Weapon C", character
-//			.hasWeaponProfKeyed("Weapon C"));
-//
-//		character.incrementClassLevel(1, pcClass, true);
-//
-//		assertTrue("Second Proficient in Weapon A", character
-//			.hasWeaponProfKeyed("Weapon A"));
-//		assertTrue("Proficient in Weapon B", character
-//			.hasWeaponProfKeyed("Weapon B"));
-//		assertFalse("Not yet proficient in Weapon C", character
-//			.hasWeaponProfKeyed("Weapon C"));
-//
-//		character.incrementClassLevel(1, pcClass, true);
-//
-//		assertTrue("Third Proficient in Weapon A", character
-//			.hasWeaponProfKeyed("Weapon A"));
-//		assertTrue("Proficient in Weapon B", character
-//			.hasWeaponProfKeyed("Weapon B"));
-//		assertTrue("Proficient in Weapon C", character
-//			.hasWeaponProfKeyed("Weapon C"));
-//	}
+	/**
+	 * Test that multiple exotic weapon proficiencies work correctly.
+	 */
+	public void testExoticWpnProf()
+	{
+		Globals.getContext().resolveReferences();
+		PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+
+		assertFalse("Not yet proficient in Weapon A", character
+			.hasWeaponProfKeyed("Weapon A"));
+		assertFalse("Not yet proficient in Weapon B", character
+			.hasWeaponProfKeyed("Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", character
+			.hasWeaponProfKeyed("Weapon C"));
+
+		character.incrementClassLevel(1, pcClass, true);
+
+		assertFalse("First Proficient in Weapon A", character
+			.hasWeaponProfKeyed("Weapon A"));
+		assertTrue("Not yet proficient in Weapon B", character
+			.hasWeaponProfKeyed("Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", character
+			.hasWeaponProfKeyed("Weapon C"));
+
+		character.incrementClassLevel(1, pcClass, true);
+
+		assertTrue("Second Proficient in Weapon A", character
+			.hasWeaponProfKeyed("Weapon A"));
+		assertTrue("Proficient in Weapon B", character
+			.hasWeaponProfKeyed("Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", character
+			.hasWeaponProfKeyed("Weapon C"));
+
+		character.incrementClassLevel(1, pcClass, true);
+
+		assertTrue("Third Proficient in Weapon A", character
+			.hasWeaponProfKeyed("Weapon A"));
+		assertTrue("Proficient in Weapon B", character
+			.hasWeaponProfKeyed("Weapon B"));
+		assertTrue("Proficient in Weapon C", character
+			.hasWeaponProfKeyed("Weapon C"));
+	}
 
 	/**
 	 * Tests CL variable
