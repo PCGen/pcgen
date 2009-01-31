@@ -12054,36 +12054,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final String aString, final boolean isAuto)
 	{
 		LoadContext context = Globals.getContext();
-		if (aString.startsWith("WEAPONTYPE=")
-			|| aString.startsWith("WEAPONTYPE."))
-		{
-			for (Equipment weap : EquipmentList.getEquipmentOfType("WEAPON."
-				+ aString.substring(11), ""))
-			{
-				CDOMSingleRef<WeaponProf> ref = weap.get(ObjectKey.WEAPON_PROF);
-
-				if (ref != null)
-				{
-					addWeaponProfToList(aFeatList, ref.resolvesTo()
-						.getKeyName(), isAuto);
-				}
-			}
-
-			return;
-		}
-
-		// Add all weapons of type aString
-		// (e.g.: Simple, Martial, Exotic, Ranged, etc.)
-		else if (context.containsType(WeaponProf.class, Type.getConstant(aString).toString()))
-		{
-			for (WeaponProf weaponProf : Globals.getPObjectsOfType(context.ref
-				.getConstructedCDOMObjects(WeaponProf.class), aString))
-			{
-				addWeaponProfToList(aFeatList, weaponProf.getKeyName(), isAuto);
-			}
-
-			return;
-		}
 
 		final WeaponProf wp =
 				context.ref.silentlyGetConstructedCDOMObject(WeaponProf.class,
