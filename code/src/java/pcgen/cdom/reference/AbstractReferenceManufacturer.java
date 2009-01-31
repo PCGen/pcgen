@@ -825,7 +825,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
-		if (!validator.allowDuplicates(getReferenceClass()))
+		if (validator == null
+				|| !validator.allowDuplicates(getReferenceClass()))
 		{
 			for (CaseInsensitiveString second : duplicates.getKeySet())
 			{
