@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 31 15:47:29 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Jan 31 16:12:52 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith)
@@ -33,30 +33,30 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 #Cloak of Resistance +4							TYPE:Magic.Wondrous.Cape						COST:16000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance
 #Cloak of Resistance +5							TYPE:Magic.Wondrous.Cape						COST:25000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|5|TYPE=Resistance
 #Elixir of Fire Breath							TYPE:Magic.Wondrous.Potion.Consumable				COST:1100	WT:0										SOURCEPAGE:p.374																																																																							SPROP:Breathe fire three times, 4d6 fire damage against a single target, Reflex save DC 13 for half damage, max. duration 1 hour.
-#Gauntlet of Rust								TYPE:Magic.Wondrous.Glove					COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.376
-#Handy Haversack								TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5								SOURCEPAGE:p.377
-#Headband of Alluring Charisma +2					TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|CHA|2|TYPE=Enhancement
-#Headband of Alluring Charisma +4					TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|CHA|4|TYPE=Enhancement
-#Headband of Alluring Charisma +6					TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|CHA|6|TYPE=Enhancement
-#Headband of Inspired Wisdom +2					TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|WIS|2|TYPE=Enhancement
-#Headband of Inspired Wisdom +4					TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|WIS|4|TYPE=Enhancement
-#Headband of Inspired Wisdom +6					TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|WIS|6|TYPE=Enhancement
-#Headband of Vast Intelligence +2					TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1								SOURCEPAGE:p.378																		BONUS:SKILLPOINTS|NUMBER|-1	BONUS:STAT|INT|2|TYPE=Enhancement
-#Headband of Vast Intelligence +4					TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1								SOURCEPAGE:p.378																		BONUS:SKILLPOINTS|NUMBER|-2	BONUS:STAT|INT|4|TYPE=Enhancement
-#Headband of Vast Intelligence +6					TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1								SOURCEPAGE:p.378																		BONUS:SKILLPOINTS|NUMBER|-3	BONUS:STAT|INT|6|TYPE=Enhancement
-# Equipment Name				Output Name			Type						Contains		Cost		Weight	Modifier					Source Page		Combat bonus															Bonus to skill point/L		Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus
-Pearl of Power (1st Level)						TYPE:Magic.Wondrous						COST:1000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (2nd Level)						TYPE:Magic.Wondrous						COST:4000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (3rd Level)						TYPE:Magic.Wondrous						COST:9000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (4th Level)						TYPE:Magic.Wondrous						COST:16000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (5th Level)						TYPE:Magic.Wondrous						COST:25000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (6th Level)						TYPE:Magic.Wondrous						COST:36000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (7th Level)						TYPE:Magic.Wondrous						COST:49000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (8th Level)						TYPE:Magic.Wondrous						COST:64000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (9th Level)						TYPE:Magic.Wondrous						COST:81000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (2 Spells)						TYPE:Magic.Wondrous						COST:70000	WT:0		EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.382
-Robe (Monk's)				OUTPUTNAME:Robe, Monk's	TYPE:Magic.Wondrous.Robe					COST:13000	WT:1								SOURCEPAGE:p.384	BONUS:COMBAT|AC|1|PREVAREQ:ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|PREVAREQ:MonkACLVL,0												BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLVL|5	BONUS:VAR|StunningFistAttack|1	BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|3|PREVAREQ:MonkACLVL,0
-Universal Solvent								TYPE:Magic.Wondrous.Vial.Consumable				COST:50	WT:0								SOURCEPAGE:p.387
+#Gauntlet of Rust								TYPE:Magic.Wondrous.Glove						COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.376
+#Handy Haversack								TYPE:Magic.Wondrous.Container			CONTAINS:*120	COST:2000	WT:5										SOURCEPAGE:p.377
+#Headband of Alluring Charisma +2					TYPE:Magic.Wondrous.Headgear						COST:4000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|CHA|2|TYPE=Enhancement
+#Headband of Alluring Charisma +4					TYPE:Magic.Wondrous.Headgear						COST:16000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|CHA|4|TYPE=Enhancement
+#Headband of Alluring Charisma +6					TYPE:Magic.Wondrous.Headgear						COST:36000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|CHA|6|TYPE=Enhancement
+#Headband of Inspired Wisdom +2					TYPE:Magic.Wondrous.Headgear						COST:4000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|WIS|2|TYPE=Enhancement
+#Headband of Inspired Wisdom +4					TYPE:Magic.Wondrous.Headgear						COST:16000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|WIS|4|TYPE=Enhancement
+#Headband of Inspired Wisdom +6					TYPE:Magic.Wondrous.Headgear						COST:36000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|WIS|6|TYPE=Enhancement
+#Headband of Vast Intelligence +2					TYPE:Magic.Wondrous.Headgear						COST:4000	WT:1										SOURCEPAGE:p.378																																		BONUS:SKILLPOINTS|NUMBER|-1	BONUS:STAT|INT|2|TYPE=Enhancement
+#Headband of Vast Intelligence +4					TYPE:Magic.Wondrous.Headgear						COST:16000	WT:1										SOURCEPAGE:p.378																																		BONUS:SKILLPOINTS|NUMBER|-2	BONUS:STAT|INT|4|TYPE=Enhancement
+#Headband of Vast Intelligence +6					TYPE:Magic.Wondrous.Headgear						COST:36000	WT:1										SOURCEPAGE:p.378																																		BONUS:SKILLPOINTS|NUMBER|-3	BONUS:STAT|INT|6|TYPE=Enhancement
+# Equipment Name				Output Name			Type							Contains		Cost		Weight	Slot Needed	Modifier					Source Page		Save checks bonus							Combat bonus															Bonus to skill					Bonus to skill point/L		Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus								Special Property
+Pearl of Power (1st Level)						TYPE:Magic.Wondrous							COST:1000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (2nd Level)						TYPE:Magic.Wondrous							COST:4000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (3rd Level)						TYPE:Magic.Wondrous							COST:9000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (4th Level)						TYPE:Magic.Wondrous							COST:16000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (5th Level)						TYPE:Magic.Wondrous							COST:25000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (6th Level)						TYPE:Magic.Wondrous							COST:36000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (7th Level)						TYPE:Magic.Wondrous							COST:49000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (8th Level)						TYPE:Magic.Wondrous							COST:64000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (9th Level)						TYPE:Magic.Wondrous							COST:81000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (2 Spells)						TYPE:Magic.Wondrous							COST:70000	WT:0				EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.382
+Robe (Monk's)				OUTPUTNAME:Robe, Monk's	TYPE:Magic.Wondrous.Robe						COST:13000	WT:1										SOURCEPAGE:p.384										BONUS:COMBAT|AC|1|PREVAREQ:ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|PREVAREQ:MonkACLVL,0																			BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLVL|5	BONUS:VAR|StunningFistAttack|1	BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|3|PREVAREQ:MonkACLVL,0
+Universal Solvent								TYPE:Magic.Wondrous.Vial.Consumable					COST:50	WT:0										SOURCEPAGE:p.387
 
 
 ###Block: Tir from scratch.
@@ -206,10 +206,9 @@ Gloves of Swimming and Climbing							TYPE:Magic.Wondrous.Glove													COST
 Goggles of Minute Seeing								TYPE:Magic.Wondrous.Eyegear													COST:1250	WT:.02			SOURCEPAGE:p.376					BONUS:SKILL|Disable Device|5|TYPE=Competence
 Goggles Of Night										TYPE:Magic.Wondrous.Eyegear													COST:12000	WT:.02			SOURCEPAGE:p.376	VISION:Darkvision (60')
 
-###Block: H-
+###Block: H
 # Equipment Name						Output Name					Type						Contains		Cost		Weight	Source Page		Innate Spells										Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
 Hand Of Glory												TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2		SOURCEPAGE:p.376	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility															BONUS:SLOTS|Ring|1
-#p.377
 Hand of the Mage												TYPE:Magic.Wondrous.Amulet					COST:900	WT:2		SOURCEPAGE:p.377	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
 Handy Haversack												TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5		SOURCEPAGE:p.377
 Harp of Charming												TYPE:Magic.Wondrous.Instrument				COST:7500	WT:5		SOURCEPAGE:p.377
@@ -230,10 +229,10 @@ Headband of Mental Prowess (WIS/CHA) +2								TYPE:Magic.Wondrous.Headgear					
 Headband of Mental Prowess (WIS/CHA) +4								TYPE:Magic.Wondrous.Headgear					COST:40000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS,CHA|4|TYPE=Enhancement
 Headband of Mental Prowess (WIS/CHA) +6								TYPE:Magic.Wondrous.Headgear					COST:90000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS,CHA|6|TYPE=Enhancement
 # Not implemented: the Skill ranks chosen for Vast Intelligence, Mental Superiority, and Mental Prowess with INT.
-#p.378
 Headband of Mental Superiority +2									TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT,WIS,CHA|2|TYPE=Enhancement
 Headband of Mental Superiority +4									TYPE:Magic.Wondrous.Headgear					COST:64000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
 Headband of Mental Superiority +6									TYPE:Magic.Wondrous.Headgear					COST:144000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement
+# Not implemented: the Skill ranks chosen for Vast Intelligence, Mental Superiority, and Mental Prowess with INT.
 Headband of Vast Intelligence +2									TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT|2|TYPE=Enhancement
 Headband of Vast Intelligence +4									TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT|4|TYPE=Enhancement
 Headband of Vast Intelligence +6									TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT|6|TYPE=Enhancement
