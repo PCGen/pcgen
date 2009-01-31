@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 13:16:05 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Jan 30 22:50:29 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
 # Original Entry by: Eddy Anthony (MoSaT)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	ABB:BldHx		MAXLEVEL:10	SOURCEPAGE:p. 14	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Feat							Required Skill						Req. Known Spell		Required Casting Type
-CLASS:Blood Hexer	PREALIGN:CG,CN,CE	PREFEAT:2,Curse of Blood,Curse of Blood - Greater	PRESKILL:1,Knowledge (Arcana),Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
+CLASS:Blood Hexer	PREALIGN:CG,CN,CE	PREFEAT:2,Curse of Blood,Curse of Blood - Greater	PRESKILL:1,Knowledge (Arcana)=10,Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Perform|TYPE.Profession|Spellcraft|Use Magic Device
 1								BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Metacurse Affinity|Blood Curse Reprieve
@@ -22,8 +22,8 @@ CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Intimidate|Kno
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Evil Eye	HD:6		TYPE:PC.Prestige	ABB:EvlEy		MAXLEVEL:5	SOURCEPAGE:p. 16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL+2)/2)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Feat						Required Skill				Req. Spell Type
-CLASS:Evil Eye	PREALIGN:LE,NE,CE	PREFEAT:2,Death Curse Contingency,Iron Will	PRESKILL:3,Bluff,Intimidate,Spot=4	PRESPELLTYPE:1,Arcane=3,Divine=3
+# Class Name	Required AL		Required Feat						Required Skill					Req. Spell Type
+CLASS:Evil Eye	PREALIGN:LE,NE,CE	PREFEAT:2,Death Curse Contingency,Iron Will	PRESKILL:3,Bluff=4,Intimidate=4,Spot=4	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft|Psicraft|Spot
 ###Block: Proficiencies
@@ -31,7 +31,7 @@ CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|
 1												AUTO:FEAT|Armor Proficiency (Light)
 1												AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
-1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness|Evil Eye|Warlock Superstition
+1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness|Evil Eye ~ Curses|Warlock Superstition
 2																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness ~ Enhanced Darkvision|Expanded Awareness ~ Darkvision
 ###COMMENT: Can't tell why an ADD:FEAT was used here, no choices pop up as far as I can tell. ADD:FEAT|Expanded Awareness ~ Enhanced Darkvision	ADD:FEAT|Expanded Awareness ~ Darkvision
 3																	ADD:SPELLCASTER|ANY
