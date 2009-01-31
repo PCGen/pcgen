@@ -6,7 +6,20 @@
   </properties>  
   <body> 
     <release version="5.15.10" date="In SVN" description="Beta Release">
-      <action dev="jdempsey" type="add" issue="2430832">[Pathfinder] ABILITYLIST tag for Ability Categories</action> 
+      <action dev="jdempsey" type="add" issue="2430832">[Pathfinder] ABILITYLIST tag for Ability Categories</action>
+      <action dev="eddyanthony" type="add" issue="2288872">Implement Flight Maneuverability</action>
+      <action dev="jdempsey" type="update" issue="2016157">Add Quick Search and filtering to the Kit window</action>
+      <action dev="thpr" type="add" issue="">PCGen 5.16 Automated Data Converter</action>
+      <action dev="zaister" type="add" issue="2204696">[Paizo] Pathfinder RPG (Beta Playtest Edition)</action>
+      <action dev="zaister" type="add" issue="2547168">[Paizo] Pathfinder RPG (Beta Playtest Web Enhancement)</action>
+      <action dev="amaitland" type="add" issue="1048168">[Paradigm Concepts] Forged In Magic</action>
+      <action dev="maredudd800" type="add" issue="2425397">[Paizo] Module D0: Hollow's Last Hope</action>
+      <action dev="maredudd800" type="add" issue="2437826">[Paizo] Module D1: Crown of the Kobold King</action>
+      <action dev="maredudd800" type="add" issue="2444404">[Paizo] Module D1.5: Revenge of the Kobold King</action>
+      <action dev="eddyanthony" type="add" issue="2483232">[Paizo] Second Darkness, Chapter 5: A Memory of Darkness</action>
+      <action dev="eddyanthony" type="add" issue="2527744">[Paizo] Second Darkness - Chapter 6</action>
+      <action dev="eddyanthony" type="add" issue="1812299">[En Publishing] Elements of Magic (Revised)</action>
+   
     </release> 
     <release version="5.15.9" date="2008-12-24" description="Alpha Release"> 
       <action dev="karianna" type="add" issue="2000008">Secret notes that don't export</action>  
