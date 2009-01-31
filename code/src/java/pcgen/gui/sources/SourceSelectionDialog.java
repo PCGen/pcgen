@@ -33,6 +33,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,12 +52,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JToggleButton;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import org.apache.commons.lang.ArrayUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -86,7 +90,7 @@ import pcgen.util.PropertyFactory;
  */
 @SuppressWarnings("serial")
 public class SourceSelectionDialog extends JDialog implements
-		ActionListener
+		ActionListener, ListSelectionListener
 {
 
 	static final String ACTION_CANCEL = "cancel";
@@ -95,12 +99,16 @@ public class SourceSelectionDialog extends JDialog implements
 	private static final String ACTION_UNHIDE = "unhide";
 	private static final String ACTION_ADD = "add";
 	private static final String ACTION_ADVANCED = "advanced";
+	private static final String ACTION_MODIFY = "modify";
+	private static final String ACTION_DELETE = "delete";
 		
 	private JList sourceList;
 	private DefaultListModel sourceModel;
 	private Map<String, List<String>> nameToSourceMap = new HashMap<String, List<String>>();
 	private Map<String, String> nameToGameModeMap = new HashMap<String, String>();
 	private String lastLoadedCollection;
+	private JButton deleteButton;
+	private JButton modifyButton;
 
 	/**
 	 * Creates new form SourceSelectionDialog.
@@ -149,13 +157,13 @@ public class SourceSelectionDialog extends JDialog implements
 		sourceList.setVisibleRowCount(2);
 		sourceList.setCellRenderer(new SourceListCellRenderer());
 		JScrollPane listScrollPane = new JScrollPane(sourceList);
-		listScrollPane.setPreferredSize(new Dimension(480, 240));
+		listScrollPane.setPreferredSize(new Dimension(480, 260));
 		if (lastLoadedCollection != null && lastLoadedCollection.length() > 0)
 		{
 			sourceList.setSelectedValue(lastLoadedCollection, true);
 		}
 
-		Utility.buildRelativeConstraints(gbc, 2, 3, 100, 100,
+		Utility.buildRelativeConstraints(gbc, 2, 5, 100, 100,
 			GridBagConstraints.BOTH, GridBagConstraints.WEST);
 		getContentPane().add(listScrollPane, gbc);
 
@@ -164,6 +172,12 @@ public class SourceSelectionDialog extends JDialog implements
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		getContentPane().add(addButton, gbc);
+
+		modifyButton = new JButton(PropertyFactory.getString("in_modify"));
+		modifyButton.setActionCommand(ACTION_MODIFY);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		getContentPane().add(modifyButton, gbc);
 
 		JButton hideButton =
 				new JButton(PropertyFactory.getString("in_hide"));
@@ -178,6 +192,12 @@ public class SourceSelectionDialog extends JDialog implements
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
 		getContentPane().add(unhideButton, gbc);
+
+		deleteButton = new JButton(PropertyFactory.getString("in_delete"));
+		deleteButton.setActionCommand(ACTION_DELETE);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
+		getContentPane().add(deleteButton, gbc);
 
 		JButton advancedButton = new JButton(PropertyFactory.getString("in_qsrc_advanced"));
 		advancedButton.setActionCommand(ACTION_ADVANCED);
@@ -201,11 +221,15 @@ public class SourceSelectionDialog extends JDialog implements
 
 		//Listen for actions on the buttons
 		addButton.addActionListener(this);
+		modifyButton.addActionListener(this);
+		deleteButton.addActionListener(this);
 		hideButton.addActionListener(this);
 		unhideButton.addActionListener(this);
 		advancedButton.addActionListener(this);
 		loadButton.addActionListener(this);
 		cancelButton.addActionListener(this);
+		sourceList.addListSelectionListener(this);
+		valueChanged(null);
 
 		//Listen for actions on the list
 		sourceList.addMouseListener(new MouseAdapter()
@@ -395,6 +419,14 @@ public class SourceSelectionDialog extends JDialog implements
 		{
 			advancedButtonAction();
 		}
+		else if (ACTION_DELETE.equals(e.getActionCommand()))
+		{
+			deleteButtonAction();
+		}
+		else if (ACTION_MODIFY.equals(e.getActionCommand()))
+		{
+			//deleteButtonAction();
+		}
 	}
 
 	private void addButtonAction()
@@ -500,6 +532,42 @@ public class SourceSelectionDialog extends JDialog implements
 		this.dispose();
 	}
 
+	private void deleteButtonAction()
+	{
+		int selIndex = sourceList.getSelectedIndex();
+		// verify a source is selected
+		if (selIndex < 0)
+		{
+			return;
+		}
+
+		String sourceTitle = (String) sourceList.getSelectedValue();
+		List<String> sources = nameToSourceMap.get(sourceTitle);
+		if (sources.size()==1)
+		{
+			Campaign camp = Globals.getCampaignKeyed(sources.get(0));
+			URI uri = camp.getSourceURI();
+			File sourceFIle = new File(uri);
+			if (!sourceFIle.delete())
+			{
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getFormattedString("in_qsrc_err_delete", sourceFIle
+						.getAbsolutePath()), PropertyFactory
+					.getString("in_qsrc_title"), MessageType.ERROR);
+				return;
+			}
+
+			sourceModel.remove(selIndex);
+			if (selIndex < sourceModel.getSize())
+			{
+				sourceList.setSelectedIndex(selIndex);
+			}
+			rebuildQuickSourcePrefsString();
+
+		}
+		
+	}
+
 	private void hideButtonAction()
 	{
 		int selIndex = sourceList.getSelectedIndex();
@@ -544,6 +612,27 @@ public class SourceSelectionDialog extends JDialog implements
 	{
 		UnhideDialog dialog = new UnhideDialog((Frame) this.getParent(), true, sourceModel);
 		dialog.setVisible(true);
+	}
+
+	/* (non-Javadoc)
+	 * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
+	 */
+	public void valueChanged(ListSelectionEvent e)
+	{
+		boolean isCustomCampaign = false;
+		if (sourceList.getSelectedIndex() >= 0)
+		{
+			String sourceTitle = (String) sourceList.getSelectedValue();
+			List<String> sources = nameToSourceMap.get(sourceTitle);
+			if (sources.size()==1)
+			{
+				Campaign camp = Globals.getCampaignKeyed(sources.get(0));
+				String producer = camp.get(StringKey.DATA_PRODUCER);
+				isCustomCampaign = ("Custom".equalsIgnoreCase(producer));
+			}
+		}
+		deleteButton.setEnabled(isCustomCampaign);
+		modifyButton.setEnabled(false);
 	}
 
 	/**
