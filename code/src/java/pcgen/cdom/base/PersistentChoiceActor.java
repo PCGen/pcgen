@@ -80,4 +80,6 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice);
+	
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice);
 }

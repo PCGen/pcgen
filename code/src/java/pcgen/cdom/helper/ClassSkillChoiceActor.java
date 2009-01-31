@@ -77,4 +77,15 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 		return applyRank;
 	}
 
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	{
+		Skill pcSkill = pc.addSkill(choice);
+		PCClass pcc = pc.getClassKeyed(source.getKeyName());
+		if (applyRank != null)
+		{
+			SkillRankControl.modRanks(-applyRank, pcc, false, pc, pcSkill);
+		}
+		pc.removeAssoc(pcc, AssociationListKey.CSKILL, pcSkill);
+	}
+
 }

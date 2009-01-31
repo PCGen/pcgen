@@ -54,8 +54,6 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
-import pcgen.core.levelability.LevelAbility;
-import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -84,9 +82,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/** a boolean for whether something should recurse, default is false */
 	private static boolean dontRecurse = false;
 
-	/** List of Level Abilities for the object  */
-	private List<LevelAbility> levelAbilityList = null;
-
 	/** The name to display to the user.  This should be internationalized. */
 	private String displayName = Constants.EMPTY_STRING;
 
@@ -97,15 +92,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	/* ************
 	 * Methods
 	 * ************/
-
-	/**
-	 * Get the level ability list for this object
-	 * @return the level ability list for this object
-	 */
-	public final List<LevelAbility> getLevelAbilityList()
-	{
-		return levelAbilityList;
-	}
 
 	/**
 	 * Get the list of temporary bonuses for this list
@@ -177,17 +163,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		retVal.setName(displayName);
 		retVal.put(StringKey.KEY_NAME, get(StringKey.KEY_NAME));
 
-		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
-		{
-			retVal.levelAbilityList = new ArrayList<LevelAbility>();
-
-			for ( LevelAbility ab : levelAbilityList )
-			{
-				ab = (LevelAbility) ab.clone();
-				ab.setOwner(retVal);
-				retVal.levelAbilityList.add(ab);
-			}
-		}
 		return retVal;
 	}
 
@@ -448,125 +423,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		return get(ObjectKey.SOURCE_CAMPAIGN);
 	}
-	
-	/**
-	 * Add the level and ability to the level ability list
-	 * @param aLevel
-	 * @param aString
-	 * @return the LevelAbility
-	 */
-	public LevelAbility addAddList(final int aLevel, final String aString)
-	{
-		if (levelAbilityList == null)
-		{
-			levelAbilityList = new ArrayList<LevelAbility>();
-		}
-
-		if (aString.startsWith(".CLEAR"))
-		{
-			if (".CLEAR".equals(aString))
-			{
-				if (aLevel > 0)
-				{
-					Logging.errorPrint("Warning: You performed a Dangerous .CLEAR in a ADD: Token");
-					Logging.errorPrint("  A non-level limited .CLEAR was used in a Class Level line");
-					Logging.errorPrint("  Today, this performs a .CLEAR on the entire PCClass");
-					Logging.errorPrint("  However, you are using undocumented behavior that is subject to change");
-					Logging.errorPrint("  Hint: It will change after PCGen 5.14");
-					Logging.errorPrint("  Please level limit the .CLEAR (e.g. .CLEAR.LEVEL2)");
-					Logging.errorPrint("  ... or put the ADD:.CLEAR on a non-level Class line");
-				}
-				levelAbilityList.clear();
-			}
-			else if (aString.indexOf(".LEVEL") >= 0)
-			{
-				int level;
-
-				try
-				{
-					level = Integer.parseInt(aString.substring(12));
-				}
-				catch (NumberFormatException e)
-				{
-					Logging.errorPrint("Badly formed addAddList attribute: " + aString.substring(12));
-					level = -1;
-				}
-
-				if (aLevel > 0 && aLevel != level)
-				{
-					Logging.errorPrint("Warning: You performed a Dangerous .CLEAR in a ADD: Token");
-					Logging.errorPrint("  A level limited .CLEAR was used in a Class Level line");
-					Logging.errorPrint("  But was asked to clear a different Class Level than the Class Level Line it appeared on");
-					Logging.errorPrint("  However, you are using undocumented behavior");
-					Logging.errorPrint("  Please match the level to the limit on the .CLEAR (e.g. 2<tab>ADD:.CLEAR.LEVEL2)");
-					Logging.errorPrint("  ... or put the ADD:.CLEAR on a non-level Class line");
-				}
-				
-				if (level >= 0)
-				{
-					for (int x = levelAbilityList.size() - 1; x >= 0; --x)
-					{
-						final LevelAbility ability = levelAbilityList.get(x);
-
-						if (ability.level() == level)
-						{
-							levelAbilityList.remove(x);
-						}
-					}
-				}
-			}
-		}
-		else
-		{
-			final LevelAbility la = LevelAbility.createAbility(this, aLevel, aString);
-			levelAbilityList.add(la);
-
-			return la;
-		}
-
-		return null;
-	}
-
-	/**
-	 * Remove all abilities gained via a level
-	 * @param aLevel
-	 */
-	public void removeAllLevelAbilities(final int aLevel)
-	{
-		if (levelAbilityList != null)
-		{
-			for (int x = levelAbilityList.size() - 1; x >= 0; --x)
-			{
-				if (levelAbilityList.get(x).level() == aLevel)
-				{
-					levelAbilityList.remove(x);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Remove an ability gained via a level
-	 * @param aLevel
-	 * @param aString
-	 * @return true if successful
-	 */
-	public boolean removeLevelAbility(final int aLevel, final String aString)
-	{
-		for (int x = levelAbilityList.size() - 1; x >= 0; --x)
-		{
-			final LevelAbility ability = levelAbilityList.get(x);
-
-			if ((ability.level() == aLevel) && (ability.getTagData().equals(aString)))
-			{
-				levelAbilityList.remove(x);
-
-				return true;
-			}
-		}
-
-		return false;
-	}
 
 	@Override
 	public String toString()
@@ -626,89 +482,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		return txt.toString();
-	}
-
-
-	/**
-	 * TODO DOCUMENT ME!
-	 *
-	 * @param  aLevel
-	 * @param  aPC
-	 * @param  pcLevelInfo
-	 */
-	protected void addAddsForLevel(
-		final int             aLevel,
-		final PlayerCharacter aPC,
-		final PCLevelInfo     pcLevelInfo)
-	{
-		if (
-			aPC == null ||
-			aPC.isImporting() ||
-			!aPC.doLevelAbilities())
-		{
-			return;
-		}
-
-		if (levelAbilityList == null || levelAbilityList.isEmpty())
-		{
-			return;
-		}
-
-		for ( LevelAbility levAbility : levelAbilityList )
-		{
-			levAbility.setOwner(this);
-
-			if ((levAbility.level() == aLevel) && levAbility.canProcess())
-			{
-				boolean canProcess = true;
-
-				if (
-					(levAbility.isFeat()) &&
-					!SettingsHandler.getShowFeatDialogAtLevelUp())
-				{
-					// Check the list of feats for at least one that is hidden or for
-					// output only Show the popup if there is one
-
-					Logging.errorPrint("PObject addAddsForLevel");
-					canProcess = false;
-
-					final List<String> featList = new ArrayList<String>();
-					levAbility.process(featList, aPC, pcLevelInfo);
-
-					for ( String key : featList )
-					{
-						final Ability anAbility = Globals.getAbilityKeyed(
-								"FEAT",
-								key);
-
-						if (anAbility != null)
-						{
-							switch (anAbility.getSafe(ObjectKey.VISIBILITY))
-							{
-								case HIDDEN:
-								case OUTPUT_ONLY:
-									canProcess = true;
-									break;
-
-								default:
-									continue;
-							}
-
-							break;
-						}
-					}
-				}
-
-				if (canProcess)
-				{
-					levAbility.process(aPC, pcLevelInfo);
-				}
-				else
-				{
-					aPC.adjustFeats(1); // need to add 1 feat to total available
-				}
-			}
-		}
 	}
 
 	public List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
@@ -773,36 +546,16 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (this instanceof PCClass)
 		{
 			final PCClass aClass = (PCClass) this;
-			final PCLevelInfo pcLevelInfo = aPC.getLevelInfoFor(getKeyName(), aClass.level);
-			addAddsForLevel(aClass.level, aPC, pcLevelInfo);
 			PCClassLevel classLevel = aClass.getClassLevel(aClass.level);
 			classLevel.addAdds(aPC);
 			classLevel.checkRemovals(aPC);
 		}
 		else
 		{
-			addAddsForLevel(-9, aPC, null);
-			addAddsForLevel(0, aPC, null);
 			addAdds(aPC);
 			checkRemovals(aPC);
 		}
 		activateBonuses(aPC);
-	}
-
-	protected void subAddsForLevel(final int aLevel, final PlayerCharacter aPC)
-	{
-		if ((aPC == null) || (levelAbilityList == null) || levelAbilityList.isEmpty())
-		{
-			return;
-		}
-
-		for (LevelAbility ability : levelAbilityList)
-		{
-			if (ability.level() == aLevel)
-			{
-				ability.subForLevel(aPC);
-			}
-		}
 	}
 
 	/*
@@ -1218,10 +971,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		return bonus * iTimes;
-	}
-
-	public void clearAdds() {
-		levelAbilityList.clear();
 	}
 
 	/*

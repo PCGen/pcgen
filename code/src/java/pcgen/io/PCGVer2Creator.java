@@ -84,7 +84,6 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
-import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
@@ -888,7 +887,6 @@ final class PCGVer2Creator implements IOConstants
 				//
 				// Remember what choices were made for each of the ADD: tags
 				//
-				appendLevelAbilityInfo(buffer, pcClass, lvl);
 				appendAddTokenInfo(buffer, pcClass.getClassLevel(lvl + 1));
 			}
 
@@ -2597,7 +2595,6 @@ final class PCGVer2Creator implements IOConstants
 	//
 	private void appendLevelAbilityInfo(StringBuffer buffer, PObject pObj)
 	{
-		appendLevelAbilityInfo(buffer, pObj, -10);
 		appendAddTokenInfo(buffer, pObj);
 	}
 
@@ -2632,40 +2629,6 @@ final class PCGVer2Creator implements IOConstants
 			}
 
 			buffer.append(']');
-		}
-	}
-
-	private void appendLevelAbilityInfo(StringBuffer buffer, PObject pObj,
-		final int lvl)
-	{
-		final List<LevelAbility> laList = pObj.getLevelAbilityList();
-		if (laList != null)
-		{
-			for (LevelAbility la : laList)
-			{
-				if ((la.level() - 1) != lvl)
-				{
-					continue;
-				}
-
-				if (thePC.hasAssociations(la))
-				{
-					//
-					// |ABILITY:[PROMPT:blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
-					//
-					buffer.append('|').append(TAG_LEVELABILITY).append(':')
-						.append('[').append(TAG_PROMPT).append(':').append(
-							EntityEncoder.encode(la.getTagData()));
-
-					for (String s : thePC.getExpandedAssociations(la))
-					{
-						buffer.append('|').append(TAG_CHOICE).append(':');
-						buffer.append(EntityEncoder.encode(s));
-					}
-
-					buffer.append(']');
-				}
-			}
 		}
 	}
 

@@ -28,7 +28,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
@@ -37,7 +39,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.levelability.LevelAbility;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -122,13 +123,13 @@ public final class Skill extends PObject
 	private void updateAdds(PlayerCharacter aPC, double bonus)
 	{
 		// Check for ADDs
-		List<LevelAbility> laList = getLevelAbilityList();
-		if (laList != null)
+		List<PersistentTransitionChoice<?>> adds = getListFor(ListKey.ADD);
+		if (adds != null)
 		{
 			int iCount = 0;
-			for (LevelAbility la : laList)
+			for (PersistentTransitionChoice<?> ptc : adds)
 			{
-				iCount += aPC.getDetailedAssociationCount(la);
+				iCount += aPC.getAssocCount(ptc, AssociationListKey.ADD);
 			}
 
 			if (CoreUtility.doublesEqual(SkillRankControl.getRank(aPC, this).doubleValue() + bonus,
@@ -141,7 +142,7 @@ public final class Skill extends PObject
 				//
 				if (iCount != 0)
 				{
-					subAddsForLevel(-9, aPC);
+					removeAdds(aPC);
 				}
 			}
 			else
@@ -153,7 +154,6 @@ public final class Skill extends PObject
 				//
 				if (iCount == 0)
 				{
-					addAddsForLevel(-9, aPC, null);
 					addAdds(aPC);
 				}
 			}

@@ -53,7 +53,6 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
@@ -64,6 +63,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -121,7 +121,6 @@ import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.chooser.ChooserUtilities;
-import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -140,8 +139,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
@@ -155,6 +152,8 @@ import pcgen.util.enumeration.Visibility;
 public final class PlayerCharacter extends Observable implements Cloneable,
 		VariableContainer, AssociationStore
 {
+	private static final Class<Language> LANGUAGE_CLASS = Language.class;
+
 	// Constants for use in getBonus
 	/** ATTACKBONUS = 0 */
 	public static final int ATTACKBONUS = 0;
@@ -2393,12 +2392,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		oldCompanionMods.removeAll(companionModList);
 		for (CompanionMod cMod : oldCompanionMods)
 		{
-			cMod.subAddsForLevel(-9, this);
+			cMod.removeAdds(this);
 		}
 
 		for (CompanionMod cMod : newCompanionMods)
 		{
-			cMod.addAddsForLevel(-9, this, null);
 			cMod.addAdds(this);
 
 			for (CDOMReference<PCTemplate> ref : cMod
@@ -7659,12 +7657,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final Language aLang =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Language.class, aKey);
+					LANGUAGE_CLASS, aKey);
 
 		if (aLang != null)
 		{
 			addLanguage(aLang);
 		}
+	}
+
+	public void removeLanguage(Language aLang)
+	{
+		languages.remove(aLang);
+		setDirty(true);
 	}
 
 	public void addNaturalWeapons(final List<Equipment> weapons)
@@ -9728,22 +9732,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		//
-		// Check all classes for ADD:LANGUAGE
+		// Check all for ADD:LANGUAGE
 		//
-		for (PCClass pcClass : classList)
+		for (CDOMObject cdo : getCDOMObjectList())
 		{
-			final int classLevel = pcClass.getLevel();
-			final List<LevelAbility> laList = pcClass.getLevelAbilityList();
-
-			if (laList != null)
+			List<PersistentTransitionChoice<?>> adds = cdo
+					.getListFor(ListKey.ADD);
+			if (adds != null)
 			{
-				for (int x = laList.size() - 1; x >= 0; --x)
+				for (PersistentTransitionChoice<?> ptc : adds)
 				{
-					final LevelAbility la = laList.get(x);
-
-					if (la.isLanguage() && classLevel >= la.level())
+					ChoiceSet<?> ch = ptc.getChoices();
+					if (LANGUAGE_CLASS.equals(ch.getChoiceClass()))
 					{
-						++i;
+						i += this.getAssocCount(ptc, AssociationListKey.ADD);
 					}
 				}
 			}
@@ -11266,6 +11268,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		this.languages.add(aLang);
 		++freeLangs;
+		setDirty(true);
+	}
+
+	public void removeFreeLanguage(final Language aLang)
+	{
+		languages.remove(aLang);
+		--freeLangs;
 		setDirty(true);
 	}
 
@@ -16783,6 +16792,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					for (String aString : getAssociationList(aDomain))
 					{
+System.err.println("DA: " + aString);
 						if (aString.startsWith("FEAT"))
 						{
 							final int idx = aString.indexOf('?');
@@ -16795,6 +16805,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 												this, abilities,
 												Constants.FEAT_CATEGORY,
 												aString.substring(idx + 1));
+System.err.println(added);
 								if (added != null)
 								{
 									added
@@ -16979,26 +16990,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		reach += (int) getTotalBonusTo("COMBAT", "REACH");
 		return reach;
-	}
-
-	/**
-	 * Fire any adds for any objects other than classes that 
-	 * should be received at the character's current level. 
-	 */
-	public void addAddsFromAllObjForLevel()
-	{
-		int totalCharacterLevel = getTotalCharacterLevel();
-		for (PObject pobj : getPObjectList())
-		{
-			if (!(pobj instanceof PCClass))
-			{
-				pobj.addAddsForLevel(totalCharacterLevel, this, null);
-			}
-		}
-		for (PObject pobj : getConditionalTemplateObjects())
-		{
-			pobj.addAddsForLevel(totalCharacterLevel, this, null);
-		}
 	}
 
 	/**

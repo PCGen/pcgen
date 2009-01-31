@@ -186,4 +186,10 @@ public class TemplateToken extends AbstractToken implements
 	{
 		//No action required
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			PCTemplate choice)
+	{
+		pc.removeTemplate(choice);
+	}
 }

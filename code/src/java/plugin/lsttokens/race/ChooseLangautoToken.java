@@ -196,4 +196,10 @@ public class ChooseLangautoToken extends AbstractToken implements
 		}
 		return true;
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			Language choice)
+	{
+		pc.removeFreeLanguage(choice);
+	}
 }

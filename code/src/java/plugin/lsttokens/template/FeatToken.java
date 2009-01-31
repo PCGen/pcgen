@@ -271,4 +271,11 @@ public class FeatToken extends AbstractToken implements
 	{
 		return PCTemplate.class;
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			AbilitySelection choice)
+	{
+		AbilityUtilities.modFeat(pc, null, choice.getFullAbilityKey(), false,
+				true);
+	}
 }

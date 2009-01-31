@@ -23,7 +23,6 @@ package pcgen.core;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import pcgen.core.levelability.LevelAbilityTest;
 import pcgen.core.utils.CoreUtilityTest;
 import pcgen.persistence.lst.FeatTest;
 
@@ -134,7 +133,6 @@ public class AllJUnitTests extends TestCase
 		// core.levelability
 		suite.addTest(new TestSuite(
 			pcgen.core.levelability.AddClassSkillsTest.class));
-		suite.addTest(new TestSuite(LevelAbilityTest.class));
 
 		// core.prereq
 		suite.addTest(new TestSuite(

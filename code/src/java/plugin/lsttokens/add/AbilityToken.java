@@ -443,4 +443,12 @@ public class AbilityToken extends AbstractToken implements
 		// Ability.Nature.NORMAL, featName);
 		// pc.addAssoc(owner, AssociationListKey.ADDED_ABILITY, aFeat);
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			AbilitySelection choice)
+	{
+		AbilityUtilities.modAbility(pc, null, choice.getAbility(), choice
+				.getSelection(), false, (AbilityCategory) choice
+				.getAbilityCategory());
+	}
 }

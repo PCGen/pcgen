@@ -436,7 +436,7 @@ public class AbilityUtilities
 			removed = aPC.removeRealAbility(category, ability);
 			aPC.removeNaturalWeapons(ability);
 			aPC.removeTemplatesFrom(ability);
-			ability.subAddsForLevel(-9, aPC);
+			ability.removeAdds(aPC);
 		}
 
 		if (singleChoice && !adjustedAbilityPool)

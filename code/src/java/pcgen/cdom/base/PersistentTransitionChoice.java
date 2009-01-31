@@ -17,7 +17,10 @@
  */
 package pcgen.cdom.base;
 
+import java.util.List;
+
 import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -58,4 +61,17 @@ public class PersistentTransitionChoice<T> extends TransitionChoice<T>
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
 	}
+
+	public void remove(CDOMObject owner, PlayerCharacter apc)
+	{
+		List<Object> ch = apc.removeAllAssocs(this, AssociationListKey.ADD);
+		if (ch != null)
+		{
+			for (Object o : ch)
+			{
+				choiceActor.removeChoice(apc, owner, castChoice(o));
+			}
+		}
+	}
+
 }

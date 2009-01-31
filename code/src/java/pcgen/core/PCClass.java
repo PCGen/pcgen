@@ -79,7 +79,6 @@ import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -88,9 +87,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
@@ -2696,7 +2693,6 @@ public class PCClass extends PObject
 		aPC.setAutomaticAbilitiesStable(null, false);
 		//		aPC.setAutomaticFeatsStable(false);
 		doPlusLevelMods(newLevel, aPC, pcLevelInfo);
-		aPC.addAddsFromAllObjForLevel();
 
 		// Don't roll the hit points if the gui is not being used.
 		// This is so GMGen can add classes to a person without pcgen flipping
@@ -2966,7 +2962,7 @@ public class PCClass extends PObject
 	 */
 	void doMinusLevelMods(final PlayerCharacter aPC, final int oldLevel)
 	{
-		subAddsForLevel(oldLevel, aPC);
+		getClassLevel(oldLevel).removeAdds(aPC);
 		aPC.removeVariable("CLASS:" + getKeyName() + "|"
 			+ Integer.toString(oldLevel));
 	}
@@ -2988,7 +2984,6 @@ public class PCClass extends PObject
 		// moved after changeSpecials and addVariablesForLevel
 		// for bug #688564 -- sage_sam, 18 March 2003
 		aPC.calcActiveBonuses();
-		addAddsForLevel(newLevel, aPC, pcLevelInfo);
 		if (!aPC.isImporting() && aPC.doLevelAbilities())
 		{
 			getClassLevel(newLevel).addAdds(aPC);
@@ -3181,21 +3176,6 @@ public class PCClass extends PObject
 				Logging
 					.errorPrint("ERROR: could not find class/level info for "
 						+ getDisplayName() + "/" + level);
-			}
-
-			// XXX Why is the feat decrementing done twice (here and in
-			// subAddsForLevel())? The code works correctly, but I don't know
-			// why.
-			List<LevelAbility> levelAbilityList = getLevelAbilityList();
-			if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
-			{
-				for (LevelAbility levAbility : levelAbilityList)
-				{
-					if ((levAbility.level() == level) && levAbility.isFeat())
-					{
-						aPC.adjustFeats(-1);
-					}
-				}
 			}
 
 			final Integer zeroInt = Integer.valueOf(0);
@@ -4069,7 +4049,6 @@ public class PCClass extends PObject
 		{
 			levelMap.clear();
 			copyLevelsFrom(otherClass);
-			((SubClass) otherClass).applyLevelArrayModsTo(this);
 		}
 
 		addAllToListFor(ListKey.NATURAL_WEAPON, otherClass
@@ -4379,32 +4358,6 @@ public class PCClass extends PObject
 		return "0|";
 	}
 
-	/*
-	 * This exists solely due to the token transition.  The new load method
-	 * is during LST load (not deferred), so it can resolve references.  The 
-	 * problem is that this means old tokens load into the SubClass, not 
-	 * the PCClass and are lost.  So this is a hack to restore them 
-	 * into the PCClass when the SubClass is applied, without disrupting 
-	 * the class levels that are in the PCClass. (which would cause duplication 
-	 * or other errors)
-	 */
-	public void performReallyBadHackForOldTokens(DeferredLine line)
-	{
-		SortedMap<Integer, PCClassLevel> saveLevelMap = levelMap;
-		levelMap = new TreeMap<Integer, PCClassLevel>();
-		final PCClassLoader classLoader = new PCClassLoader();
-		try
-		{
-			classLoader.parseLine(Globals.getContext(), this, line.lstLine, line.source);
-		}
-		catch (PersistenceLayerException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		levelMap = saveLevelMap;
-	}
-
 	public void stealClassLevel(PCClass pcc, int cl)
 	{
 		try
@@ -4430,7 +4383,7 @@ public class PCClass extends PObject
 		List<BonusObj> list = super.getRawBonusList(pc);
 		for (int i = 1; i <= level; i++)
 		{
-			PCClassLevel pcl = getClassLevel(i);
+			PCClassLevel pcl = levelMap.get(i);
 			if (pcl != null)
 			{
 				List<BonusObj> bonusList = pcl.getListFor(ListKey.BONUS);

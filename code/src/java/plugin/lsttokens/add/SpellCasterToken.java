@@ -246,4 +246,17 @@ public class SpellCasterToken extends AbstractToken implements
 	{
 		// No action required
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			PCClass choice)
+	{
+		PCClass theClass = pc.getClassKeyed(choice.getKeyName());
+
+		if (theClass != null)
+		{
+			BonusAddition.removeBonus("PCLEVEL|" + theClass.getKeyName() + "|1", "",
+					pc, owner);
+			theClass.setLevel(theClass.getLevel(), pc);
+		}
+	}
 }

@@ -201,4 +201,10 @@ public class EquipToken extends AbstractToken implements
 	{
 		// No action required
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			Equipment choice)
+	{
+		pc.removeEquipment(choice);
+	}
 }

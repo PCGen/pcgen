@@ -365,4 +365,14 @@ public class VFeatToken extends AbstractToken implements
 		// Ability.Nature.VIRTUAL, featName);
 		// pc.addAssoc(owner, AssociationListKey.ADDED_ABILITY, aFeat);
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			AbilitySelection choice)
+	{
+		//TODO Need to reverse this action:
+		// String featName = choice.getFullAbilityKey();
+		// final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT",
+		// featName, pc.getDirectVirtualAbilities(AbilityCategory.FEAT),
+		// pc, null);
+	}
 }

@@ -71,7 +71,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.levelability.LevelAbility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JComboBoxEx;
@@ -185,18 +184,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		levelTagList.clear();
 		obj = (PCClass) po;
-
-		List<LevelAbility> aList = obj.getLevelAbilityList();
-
-		if (aList != null)
-		{
-			for (Iterator<LevelAbility> i = aList.iterator(); i.hasNext();)
-			{
-				LevelAbility la = i.next();
-				LevelTag lt = new LevelTag(la.level(), LevelTag.TAG_ADD, la.getTagData());
-				levelTagList.add(lt);
-			}
-		}
 
 		for (PCClassLevel pcl : obj.getClassLevelCollection())
 		{
@@ -544,18 +531,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				}
 
 				boolean bRemoved = false;
-
-				switch (lt.getTagVal())
-				{
-					case LevelTag.TAG_ADD:
-						obj.removeLevelAbility(lt.getLevel(), lt.getValue());
-						bRemoved = true;
-
-						break;
-
-					default:
-						break;
-				}
 
 				// TODO: based upon the lt.getTag() value (e.g. "ADD") remove it from the
 				// appropriate list in the class

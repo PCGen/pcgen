@@ -22,14 +22,10 @@
  */
 package pcgen.core;
 
-import java.util.List;
-
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.persistence.lst.utils.DeferredLine;
 
 /**
  * <code>SubClass</code>.
@@ -69,24 +65,6 @@ public final class SubClass extends PCClass implements CategorizedCDOMObject<Sub
 			return prohib;
 		}
 		return getSafe(IntegerKey.COST);
-	}
-
-	/**
-	 * Apply the level mods to a class
-	 * @param aClass
-	 */
-	public void applyLevelArrayModsTo(final PCClass aClass)
-	{
-		List<DeferredLine> levelArray = getListFor(ListKey.SUB_CLASS_LEVEL);
-		if (levelArray == null)
-		{
-			return;
-		}
-
-		for ( DeferredLine line : levelArray )
-		{
-			aClass.performReallyBadHackForOldTokens(line);
-		}
 	}
 
 	public String getSupplementalDisplayInfo() {

@@ -23,7 +23,6 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -71,7 +70,7 @@ public final class BonusAddition
 	 *            The player character to remove th bonus from.
 	 */
 	public static void removeBonus(String bonusString, String chooseString,
-			PlayerCharacter aPC, PObject target)
+			PlayerCharacter aPC, CDOMObject target)
 	{
 		String bonus = target.bonusStringPrefix() + makeBonusString(bonusString, chooseString, aPC);
 

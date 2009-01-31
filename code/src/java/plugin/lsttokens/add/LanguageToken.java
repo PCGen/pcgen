@@ -215,4 +215,10 @@ public class LanguageToken extends AbstractToken implements
 	{
 		// No action required\
 	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			Language choice)
+	{
+		pc.removeLanguage(choice);
+	}
 }

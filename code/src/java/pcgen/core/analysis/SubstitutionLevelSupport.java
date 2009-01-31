@@ -69,12 +69,6 @@ public class SubstitutionLevelSupport
 		{
 			// remove all stuff from the original level
 			aClass.stealClassLevel(sc, aLevel);
-			aClass.removeAllLevelAbilities(aLevel);
-			// Now add in each new level line in turn.
-			for (DeferredLine line : newLevels)
-			{
-				aClass.performReallyBadHackForOldTokens(line);
-			}
 		}
 	}
 

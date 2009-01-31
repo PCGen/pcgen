@@ -89,7 +89,6 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
-import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -5814,66 +5813,45 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (it2.hasNext())
 		{
-			LevelAbility la;
-			final PCLevelInfo pcLevelInfo;
-
 			final String dString = EntityEncoder.decode(it2.next().getText());
 
+			PersistentTransitionChoice<?> ptc = null;
+			try
+			{
+				ptc = Compatibility
+						.processOldAdd(Globals.getContext(), dString);
+			}
+			catch (PersistenceLayerException ple)
+			{
+				warnings.add(pObj.getDisplayName() + "("
+						+ pObj.getClass().getName()
+						+ ")\nCould not process LevelAbility: " + dString
+						+ "\n" + ple.getLocalizedMessage());
+				return;
+			}
+		
+			if (ptc == null)
+			{
+				warnings.add(pObj.getDisplayName() + "("
+						+ pObj.getClass().getName()
+						+ ")\nCould not process LevelAbility: " + dString);
+				return;
+			}
+
+			CDOMObject target = pObj;
 			if (pObj instanceof PCClass)
 			{
-				la = pObj.addAddList(level, dString);
-				pcLevelInfo = thePC.getLevelInfoFor(pObj.getKeyName(), level);
+				target = ((PCClass) pObj).getClassLevel(level);
 			}
-			else
+			for (PersistentTransitionChoice<?> tptc : target.getSafeListFor(ListKey.ADD))
 			{
-				la = null;
-
-				for (LevelAbility laTemp : pObj.getLevelAbilityList())
+				if (tptc.equals(ptc))
 				{
-					if (laTemp.getTagData().startsWith(dString))
+					while (it2.hasNext())
 					{
-						la = laTemp;
-						break;
-					}
-				}
-
-				if (la == null)
-				{
-					warnings.add(pObj.getDisplayName() + "("
-						+ pObj.getClass().getName()
-						+ ")\nCould not find LevelAbility: " + dString);
-					//
-					// Couldn't find it, so add it and hope for the best...
-					//
-					la = pObj.addAddList(level, dString);
-				}
-
-				pcLevelInfo = null;
-			}
-
-			final List<String> choiceList = new ArrayList<String>();
-
-			if (la != null)
-			{
-				la.process(choiceList, thePC, pcLevelInfo);
-				choiceList.clear();
-
-				while (it2.hasNext())
-				{
-					final String choice =
-							EntityEncoder.decode(it2.next().getText());
-					choiceList.add(choice);
-				}
-
-				if (pcLevelInfo != null)
-				{
-					la.processChoice(null, choiceList, thePC, pcLevelInfo);
-				}
-				else
-				{
-					for (String choice : choiceList)
-					{
-						thePC.addAssociation(la, choice);
+						final String choice =
+								EntityEncoder.decode(it2.next().getText());
+						thePC.addAssoc(tptc, AssociationListKey.ADD, choice);
 					}
 				}
 			}

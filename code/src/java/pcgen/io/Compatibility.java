@@ -2,9 +2,13 @@ package pcgen.io;
 
 import java.util.List;
 
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 public class Compatibility
@@ -95,6 +99,39 @@ public class Compatibility
 			hd.append(level);
 		}
 		return hd.toString();
+	}
+
+	public static PersistentTransitionChoice<?> processOldAdd(
+			LoadContext context, String first) throws PersistenceLayerException
+	{
+		int openParenLoc = first.indexOf('(');
+		if (openParenLoc == -1)
+		{
+			Logging.errorPrint("Expected to have a ( : " + first);
+			return null;
+		}
+		int closeParenLoc = first.lastIndexOf(')');
+		if (openParenLoc == -1)
+		{
+			Logging.errorPrint("Expected to have a ) : " + first);
+			return null;
+		}
+		String key = first.substring(7, openParenLoc);
+		String choices = first.substring(openParenLoc + 1, closeParenLoc);
+		String count = "";
+		if (closeParenLoc != first.length() - 1)
+		{
+			count = first.substring(closeParenLoc + 1) + '|';
+		}
+		PCClass applied = new PCClass();
+		if (!context.processSubToken(applied, "ADD", key, count + choices))
+		{
+			return null;
+		}
+		context.commit();
+		PersistentTransitionChoice<?> ptc = applied.getListFor(ListKey.ADD)
+				.get(0);
+		return ptc;
 	}
 
 }

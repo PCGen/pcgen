@@ -29,9 +29,8 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PCClass;
 import pcgen.core.kit.KitLevelAbility;
+import pcgen.io.Compatibility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -76,35 +75,13 @@ public class AbilityToken extends AbstractToken implements
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String first = st.nextToken();
-		int openParenLoc = first.indexOf('(');
-		if (openParenLoc == -1)
+		PersistentTransitionChoice<?> ptc = Compatibility.processOldAdd(
+				context, first);
+		if (ptc == null)
 		{
-			Logging.errorPrint("Expected " + getTokenName() + " to have a ( : "
-				+ value);
+			Logging.errorPrint("Error was in " + getTokenName() + " " + value);
 			return false;
 		}
-		int closeParenLoc = first.lastIndexOf(')');
-		if (openParenLoc == -1)
-		{
-			Logging.errorPrint("Expected " + getTokenName() + " to have a ) : "
-				+ value);
-			return false;
-		}
-		String key = first.substring(7, openParenLoc);
-		String choices = first.substring(openParenLoc + 1, closeParenLoc);
-		String count = "";
-		if (closeParenLoc != first.length() - 1)
-		{
-			count = first.substring(closeParenLoc + 1) + '|';
-		}
-		PCClass applied = new PCClass();
-		if (!context.processSubToken(applied, "ADD", key, count + choices))
-		{
-			return false;
-		}
-		context.commit();
-		PersistentTransitionChoice<?> ptc =
-				applied.getListFor(ListKey.ADD).get(0);
 		kitAbility.setAdd(ptc);
 		while (st.hasMoreTokens())
 		{
@@ -119,8 +96,7 @@ public class AbilityToken extends AbstractToken implements
 			if (ptc.decodeChoice(choice) == null)
 			{
 				Logging.errorPrint("Choice: " + choice
-					+ " is not a valid selection for ADD:" + key + '|' + count
-					+ choices);
+					+ " is not a valid selection for ADD:" + first);
 				return false;
 			}
 			kitAbility.addChoice(choice);
