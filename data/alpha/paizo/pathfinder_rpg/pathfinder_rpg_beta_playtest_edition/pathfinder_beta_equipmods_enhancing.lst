@@ -5,7 +5,27 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 
 ###Block: Charged items
 # Modifier Name	Unique Key			Cost							Visible	Choose		Nb of Charges
+Staff Charges	KEY:CHARGED_STAFF		COST:0						VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|10
+
+Charges (3)		KEY:CHARGED_ITEM_3	COST:((BASECOST/3)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|3
+Charges (4)		KEY:CHARGED_ITEM_4	COST:((BASECOST/4)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|4
+Charges (5)		KEY:CHARGED_ITEM_5	COST:((BASECOST/5)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|5
+Charges (6)		KEY:CHARGED_ITEM_6	COST:((BASECOST/6)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|6
 Charges (10)	KEY:CHARGED_ITEM_10	COST:((BASECOST/10)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|10
+Charges (12)	KEY:CHARGED_ITEM_12	COST:((BASECOST/12)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|12
+Charges (34)	KEY:CHARGED_ITEM_34	COST:((BASECOST/34)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|34
+Charges (36)	KEY:CHARGED_ITEM_36	COST:((BASECOST/36)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|36
+Charges (50)	KEY:CHARGED_ITEM_50	COST:((BASECOST/50)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|50
+Charges (101)	KEY:CHARGED_ITEM_101	COST:((BASECOST/101)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|101
+
+# These EQMODs are used for adding charges to items which are not associated with a spell effect.
+# Its set to VISIBLE:NO because this would only be called from an item and so should not be available in the customizer.
+# The COST modifies the base items cost by the number of charges it has left, when fully charged the items base COST is unchanged, at half the number of charges the items price is half its listed value, etc...
+# There is a CHOOSE tag in the line because I found that the checkboxes would not display on the OS unless its there.
+# The NAMEOPT:SPELL prevents the number of charges from being tacked on to the name of the item unless there is less than the maximum number of charges.
+# With this EQMOD in place one only needs to add this line to any item which needs 10 charges:
+
+# EQMOD:CHARGED_ITEM_10|CHARGES[10]
 
 ###Block: Use per day items
 # Modifier Name	Unique Key			Visible	Choose		Nb of Charges
@@ -18,3 +38,25 @@ Uses per Day (3)	KEY:USES_PER_DAY_3	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:3|3
 # Modifier Name					Unique Key		Naming Option	Type																					Cost															Visible		Type granted				Source Page				Choose			Nb of Charges
 Spell Effect (Single Use/Use Activated)	KEY:SPL_1USE	NAMEOPT:SPELL	TYPE:Potion.Oil																			COST:(50*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)			VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	CHOOSE:EQBUILDER.SPELL
 Spell Effect (50 Charges/Spell Trigger)	KEY:SPL_CHRG	NAMEOPT:SPELL	TYPE:Armor.Shield.Weapon.Amulet.Belt.Bracer.Cape.Glove.Headgear.Instrument.Mantle.Ring.Robe.Shirt.Eyegear.Boot.Staff.Wand	COST:((15*(max(%SPELLLEVEL,(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))*%CHARGES	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic			SOURCEPAGE:MagicItemsI.rtf	CHOOSE:EQBUILDER.SPELL	CHARGES:1|50
+
+###Block: Generic Magical Enhancment modifiers
+# This can be added to specific Armors and Weapons to adjust the cost to the equivilant plus value or monitary cost
+# This is usefull because if the item is resized the cost modifier due to size is taken from the COST tag in the item and this EQMOD cost is not factored in
+
+# Modifier Name			Unique Key			Plus		Cost			Choose
+Magical Enhancments (+1)	KEY:MAGIC_ENHANCE_1	PLUS:1
+Magical Enhancments (+2)	KEY:MAGIC_ENHANCE_2	PLUS:2
+Magical Enhancments (+3)	KEY:MAGIC_ENHANCE_3	PLUS:3
+Magical Enhancments (+4)	KEY:MAGIC_ENHANCE_4	PLUS:4
+Magical Enhancments (+5)	KEY:MAGIC_ENHANCE_5	PLUS:5
+Magical Enhancments (+6)	KEY:MAGIC_ENHANCE_6	PLUS:6
+Magical Enhancments (+7)	KEY:MAGIC_ENHANCE_7	PLUS:7
+Magical Enhancments (+8)	KEY:MAGIC_ENHANCE_8	PLUS:8
+Magical Enhancments (+9)	KEY:MAGIC_ENHANCE_9	PLUS:9
+Magical Enhancments (+10)	KEY:MAGIC_ENHANCE_10	PLUS:10
+
+Magical Enhancment Cost		KEY:MAGIC_COST				COST:%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=1000000|TITLE=Additional Cost
+
+#
+# End
+#
