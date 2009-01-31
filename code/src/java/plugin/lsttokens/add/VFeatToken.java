@@ -329,17 +329,16 @@ public class VFeatToken extends AbstractToken implements
 	{
 		if (associationList == null)
 		{
-			// Huh?
-			return true;
+			return false;
 		}
 		for (String a : associationList)
 		{
 			if (choice.containsAssociation(a))
 			{
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	private boolean allowStack(Ability a, boolean allowStack)
