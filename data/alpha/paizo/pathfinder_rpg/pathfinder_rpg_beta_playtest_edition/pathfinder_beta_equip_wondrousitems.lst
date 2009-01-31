@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 31 10:44:28 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Jan 31 15:47:29 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith)
@@ -26,199 +26,227 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 #Bracers of Armor +6							TYPE:Magic.Wondrous.ArmorLike.Bracer				COST:36000	WT:1		SLOTS:2							SOURCEPAGE:p.369										BONUS:COMBAT|AC|6|TYPE=Armor
 #Bracers of Armor +7							TYPE:Magic.Wondrous.ArmorLike.Bracer				COST:49000	WT:1		SLOTS:2							SOURCEPAGE:p.369										BONUS:COMBAT|AC|7|TYPE=Armor
 #Bracers of Armor +8							TYPE:Magic.Wondrous.ArmorLike.Bracer				COST:64000	WT:1		SLOTS:2							SOURCEPAGE:p.369										BONUS:COMBAT|AC|8|TYPE=Armor
-# Equipment Name				Output Name			Type							Contains		Cost		Weight	Slot Needed	Modifier					Source Page		Save checks bonus							Combat bonus															Bonus to skill					Bonus to skill point/L		Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus								Special Property
-Cloak of Elvenkind							TYPE:Magic.Wondrous.Cape						COST:2500	WT:1										SOURCEPAGE:p.371																											BONUS:SKILL|Stealth|5|TYPE=Competence
-Cloak of Resistance +1							TYPE:Magic.Wondrous.Cape						COST:1000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance
-Cloak of Resistance +2							TYPE:Magic.Wondrous.Cape						COST:4000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance
-Cloak of Resistance +3							TYPE:Magic.Wondrous.Cape						COST:9000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Resistance
-Cloak of Resistance +4							TYPE:Magic.Wondrous.Cape						COST:16000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance
-Cloak of Resistance +5							TYPE:Magic.Wondrous.Cape						COST:25000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|5|TYPE=Resistance
-Elixir of Fire Breath							TYPE:Magic.Wondrous.Potion.Consumable				COST:1100	WT:0										SOURCEPAGE:p.374																																																																							SPROP:Breathe fire three times, 4d6 fire damage against a single target, Reflex save DC 13 for half damage, max. duration 1 hour.
-Gauntlet of Rust								TYPE:Magic.Wondrous.Glove						COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.376
-Handy Haversack								TYPE:Magic.Wondrous.Container			CONTAINS:*120	COST:2000	WT:5										SOURCEPAGE:p.377
-Headband of Alluring Charisma +2					TYPE:Magic.Wondrous.Headgear						COST:4000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|CHA|2|TYPE=Enhancement
-Headband of Alluring Charisma +4					TYPE:Magic.Wondrous.Headgear						COST:16000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|CHA|4|TYPE=Enhancement
-Headband of Alluring Charisma +6					TYPE:Magic.Wondrous.Headgear						COST:36000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|CHA|6|TYPE=Enhancement
-Headband of Inspired Wisdom +2					TYPE:Magic.Wondrous.Headgear						COST:4000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|WIS|2|TYPE=Enhancement
-Headband of Inspired Wisdom +4					TYPE:Magic.Wondrous.Headgear						COST:16000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|WIS|4|TYPE=Enhancement
-Headband of Inspired Wisdom +6					TYPE:Magic.Wondrous.Headgear						COST:36000	WT:1										SOURCEPAGE:p.377																																							BONUS:STAT|WIS|6|TYPE=Enhancement
-Headband of Vast Intelligence +2					TYPE:Magic.Wondrous.Headgear						COST:4000	WT:1										SOURCEPAGE:p.378																																		BONUS:SKILLPOINTS|NUMBER|-1	BONUS:STAT|INT|2|TYPE=Enhancement
-Headband of Vast Intelligence +4					TYPE:Magic.Wondrous.Headgear						COST:16000	WT:1										SOURCEPAGE:p.378																																		BONUS:SKILLPOINTS|NUMBER|-2	BONUS:STAT|INT|4|TYPE=Enhancement
-Headband of Vast Intelligence +6					TYPE:Magic.Wondrous.Headgear						COST:36000	WT:1										SOURCEPAGE:p.378																																		BONUS:SKILLPOINTS|NUMBER|-3	BONUS:STAT|INT|6|TYPE=Enhancement
-Pearl of Power (1st Level)						TYPE:Magic.Wondrous							COST:1000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (2nd Level)						TYPE:Magic.Wondrous							COST:4000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (3rd Level)						TYPE:Magic.Wondrous							COST:9000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (4th Level)						TYPE:Magic.Wondrous							COST:16000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (5th Level)						TYPE:Magic.Wondrous							COST:25000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (6th Level)						TYPE:Magic.Wondrous							COST:36000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (7th Level)						TYPE:Magic.Wondrous							COST:49000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (8th Level)						TYPE:Magic.Wondrous							COST:64000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (9th Level)						TYPE:Magic.Wondrous							COST:81000	WT:0				EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
-Pearl of Power (2 Spells)						TYPE:Magic.Wondrous							COST:70000	WT:0				EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.382
-Robe (Monk's)				OUTPUTNAME:Robe, Monk's	TYPE:Magic.Wondrous.Robe						COST:13000	WT:1										SOURCEPAGE:p.384										BONUS:COMBAT|AC|1|PREVAREQ:ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|PREVAREQ:MonkACLVL,0																			BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLVL|5	BONUS:VAR|StunningFistAttack|1	BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|3|PREVAREQ:MonkACLVL,0
-Universal Solvent								TYPE:Magic.Wondrous.Vial.Consumable					COST:50	WT:0										SOURCEPAGE:p.387
+#Cloak of Elvenkind							TYPE:Magic.Wondrous.Cape						COST:2500	WT:1										SOURCEPAGE:p.371																											BONUS:SKILL|Stealth|5|TYPE=Competence
+#Cloak of Resistance +1							TYPE:Magic.Wondrous.Cape						COST:1000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance
+#Cloak of Resistance +2							TYPE:Magic.Wondrous.Cape						COST:4000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance
+#Cloak of Resistance +3							TYPE:Magic.Wondrous.Cape						COST:9000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Resistance
+#Cloak of Resistance +4							TYPE:Magic.Wondrous.Cape						COST:16000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance
+#Cloak of Resistance +5							TYPE:Magic.Wondrous.Cape						COST:25000	WT:1										SOURCEPAGE:p.372	BONUS:CHECKS|Fortitude,Reflex,Will|5|TYPE=Resistance
+#Elixir of Fire Breath							TYPE:Magic.Wondrous.Potion.Consumable				COST:1100	WT:0										SOURCEPAGE:p.374																																																																							SPROP:Breathe fire three times, 4d6 fire damage against a single target, Reflex save DC 13 for half damage, max. duration 1 hour.
+#Gauntlet of Rust								TYPE:Magic.Wondrous.Glove					COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.376
+#Handy Haversack								TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5								SOURCEPAGE:p.377
+#Headband of Alluring Charisma +2					TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|CHA|2|TYPE=Enhancement
+#Headband of Alluring Charisma +4					TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|CHA|4|TYPE=Enhancement
+#Headband of Alluring Charisma +6					TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|CHA|6|TYPE=Enhancement
+#Headband of Inspired Wisdom +2					TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|WIS|2|TYPE=Enhancement
+#Headband of Inspired Wisdom +4					TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|WIS|4|TYPE=Enhancement
+#Headband of Inspired Wisdom +6					TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1								SOURCEPAGE:p.377																							BONUS:STAT|WIS|6|TYPE=Enhancement
+#Headband of Vast Intelligence +2					TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1								SOURCEPAGE:p.378																		BONUS:SKILLPOINTS|NUMBER|-1	BONUS:STAT|INT|2|TYPE=Enhancement
+#Headband of Vast Intelligence +4					TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1								SOURCEPAGE:p.378																		BONUS:SKILLPOINTS|NUMBER|-2	BONUS:STAT|INT|4|TYPE=Enhancement
+#Headband of Vast Intelligence +6					TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1								SOURCEPAGE:p.378																		BONUS:SKILLPOINTS|NUMBER|-3	BONUS:STAT|INT|6|TYPE=Enhancement
+# Equipment Name				Output Name			Type						Contains		Cost		Weight	Modifier					Source Page		Combat bonus															Bonus to skill point/L		Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus
+Pearl of Power (1st Level)						TYPE:Magic.Wondrous						COST:1000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (2nd Level)						TYPE:Magic.Wondrous						COST:4000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (3rd Level)						TYPE:Magic.Wondrous						COST:9000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (4th Level)						TYPE:Magic.Wondrous						COST:16000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (5th Level)						TYPE:Magic.Wondrous						COST:25000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (6th Level)						TYPE:Magic.Wondrous						COST:36000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (7th Level)						TYPE:Magic.Wondrous						COST:49000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (8th Level)						TYPE:Magic.Wondrous						COST:64000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (9th Level)						TYPE:Magic.Wondrous						COST:81000	WT:0		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.382
+Pearl of Power (2 Spells)						TYPE:Magic.Wondrous						COST:70000	WT:0		EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.382
+Robe (Monk's)				OUTPUTNAME:Robe, Monk's	TYPE:Magic.Wondrous.Robe					COST:13000	WT:1								SOURCEPAGE:p.384	BONUS:COMBAT|AC|1|PREVAREQ:ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|PREVAREQ:MonkACLVL,0												BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLVL|5	BONUS:VAR|StunningFistAttack|1	BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|3|PREVAREQ:MonkACLVL,0
+Universal Solvent								TYPE:Magic.Wondrous.Vial.Consumable				COST:50	WT:0								SOURCEPAGE:p.387
 
 
 ###Block: Tir from scratch.
-# Equipment Name						Output Name						Type						Contains		Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier				Source Page		Ability								Vision			Combat bonus						Add to magical move					Bonus to skill					Stat bonus								Weapon prof. bonus																																																																											Automatic Languages	Special Property
-Amulet of Mighty Fists +1											TYPE:Magic.Wondrous.Amulet													COST:5000	WT:.02								SOURCEPAGE:p.366																																														BONUS:WEAPONPROF=Unarmed Strike|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|1|TYPE=Enhancement
-Amulet of Mighty Fists +2											TYPE:Magic.Wondrous.Amulet													COST:20000	WT:.02								SOURCEPAGE:p.366																																														BONUS:WEAPONPROF=Unarmed Strike|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|2|TYPE=Enhancement
-Amulet of Mighty Fists +3											TYPE:Magic.Wondrous.Amulet													COST:45000	WT:.02								SOURCEPAGE:p.366																																														BONUS:WEAPONPROF=Unarmed Strike|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|3|TYPE=Enhancement
-Amulet of Mighty Fists +4											TYPE:Magic.Wondrous.Amulet													COST:80000	WT:.02								SOURCEPAGE:p.366																																														BONUS:WEAPONPROF=Unarmed Strike|4|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|4|TYPE=Enhancement
-Amulet of Mighty Fists +5											TYPE:Magic.Wondrous.Amulet													COST:125000	WT:.02								SOURCEPAGE:p.366																																														BONUS:WEAPONPROF=Unarmed Strike|5|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|5|TYPE=Enhancement
+
+
+###Block:A
+# Equipment Name						Type					Cost		Weight	Source Page		Combat bonus						Weapon prof. bonus															Special Property
+Amulet of Mighty Fists +1				TYPE:Magic.Wondrous.Amulet	COST:5000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|1|TYPE=Enhancement
+Amulet of Mighty Fists +2				TYPE:Magic.Wondrous.Amulet	COST:20000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|2|TYPE=Enhancement
+Amulet of Mighty Fists +3				TYPE:Magic.Wondrous.Amulet	COST:45000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|3|TYPE=Enhancement
+Amulet of Mighty Fists +4				TYPE:Magic.Wondrous.Amulet	COST:80000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|4|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|4|TYPE=Enhancement
+Amulet of Mighty Fists +5				TYPE:Magic.Wondrous.Amulet	COST:125000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|5|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|5|TYPE=Enhancement
 #Amulet of Mighty Fists: Need to make modifier for this. COST=PLUS*PLUS*5000, max PLUS w/o Epic is +5, must have +1 minimum.
-Amulet of Natural Armor +1											TYPE:Magic.Wondrous.Amulet													COST:2000	WT:.02								SOURCEPAGE:p.366														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +2											TYPE:Magic.Wondrous.Amulet													COST:8000	WT:.02								SOURCEPAGE:p.366														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +3											TYPE:Magic.Wondrous.Amulet													COST:18000	WT:.02								SOURCEPAGE:p.366														BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +4											TYPE:Magic.Wondrous.Amulet													COST:32000	WT:.02								SOURCEPAGE:p.366														BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
-Amulet of Natural Armor +5											TYPE:Magic.Wondrous.Amulet													COST:50000	WT:.02								SOURCEPAGE:p.366														BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE
-Amulet of The Planes												TYPE:Magic.Wondrous.Amulet													COST:120000	WT:.02								SOURCEPAGE:p.366																																																																																																																																SPROP:This amulet allows its wearer to utilize Plane Shift.
-Amulet of Proof Against Detection and Location								TYPE:Magic.Wondrous.Amulet													COST:35000	WT:.02								SOURCEPAGE:p.366																																																																																																																																SPROP:Protects the wearer from scrying and magical location as Nondetection.
-Bag of Holding (Type I)												TYPE:Magic.Wondrous.Container		CONTAINS:*250									COST:2500	WT:15									SOURCEPAGE:p.366
-Bag of Holding (Type II)											TYPE:Magic.Wondrous.Container		CONTAINS:*500									COST:5000	WT:25									SOURCEPAGE:p.366
-Bag of Holding (Type III)											TYPE:Magic.Wondrous.Container		CONTAINS:*1000									COST:7400	WT:35									SOURCEPAGE:p.366
-Bag of Holding (Type IV)											TYPE:Magic.Wondrous.Container		CONTAINS:*1500									COST:10000	WT:60									SOURCEPAGE:p.366
-Bag Of Tricks (Gray)												TYPE:Magic.Wondrous														COST:3400										SOURCEPAGE:p.367																																																																																																																																SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
-Bag Of Tricks (Rust)												TYPE:Magic.Wondrous														COST:8500										SOURCEPAGE:p.367																																																																																																																																SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
-Bag Of Tricks (Tan)												TYPE:Magic.Wondrous														COST:16000										SOURCEPAGE:p.367																																																																																																																																SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
+Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet	COST:2000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet	COST:8000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet	COST:18000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet	COST:32000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
+Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet	COST:50000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE
+Amulet of The Planes					TYPE:Magic.Wondrous.Amulet	COST:120000	WT:.02	SOURCEPAGE:p.366																											SPROP:This amulet allows its wearer to utilize Plane Shift.
+Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet	COST:35000	WT:.02	SOURCEPAGE:p.366																											SPROP:Protects the wearer from scrying and magical location as Nondetection.
+
+###Block: B
+# Equipment Name				Output Name						Type						Contains		Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier				Source Page		Ability								Vision			Combat bonus			Add to magical move					Bonus to skill					Stat bonus								Weapon prof. bonus																																																																											Automatic Languages	Special Property
+Bag of Holding (Type I)										TYPE:Magic.Wondrous.Container		CONTAINS:*250									COST:2500	WT:15									SOURCEPAGE:p.366
+Bag of Holding (Type II)									TYPE:Magic.Wondrous.Container		CONTAINS:*500									COST:5000	WT:25									SOURCEPAGE:p.366
+Bag of Holding (Type III)									TYPE:Magic.Wondrous.Container		CONTAINS:*1000									COST:7400	WT:35									SOURCEPAGE:p.366
+Bag of Holding (Type IV)									TYPE:Magic.Wondrous.Container		CONTAINS:*1500									COST:10000	WT:60									SOURCEPAGE:p.366
+Bag of Tricks (Gray)										TYPE:Magic.Wondrous														COST:3400										SOURCEPAGE:p.367																																																																																																																													SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
+Bag of Tricks (Rust)										TYPE:Magic.Wondrous														COST:8500										SOURCEPAGE:p.367																																																																																																																													SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
+Bag of Tricks (Tan)										TYPE:Magic.Wondrous														COST:16000										SOURCEPAGE:p.367																																																																																																																													SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
 # Weight not listed for Bag of Tricks
-Bead of Force													TYPE:Magic.Wondrous.Consumable												COST:3000	WT:.02								SOURCEPAGE:p.367																																																																																																																																SPROP:Upon sharp impact, the bead explodes, sending forth a burst that deals 5d6 points of force damage to all creatures within a 10-foot radius.
-Belt of Dwarvenkind												TYPE:Magic.Wondrous.Belt													COST:14900	WT:1									SOURCEPAGE:p.367	ABILITY:Special Ability|VIRTUAL|Stonecunning|Hearty	VISION:Darkvision (60')																								BONUS:STAT|CON|2|TYPE=Enhancement|!PRERACE:1,Dwarf%																																																																															LANGAUTO:Dwarven		SPROP:+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halfings, and a –2 competence penalty on similar checks when dealing with anyone else.
-Belt of Giant Strength +2											TYPE:Magic.Wondrous.Belt													COST:4000	WT:1									SOURCEPAGE:p.367																																					BONUS:STAT|STR|2|TYPE=Enhancement
-Belt of Giant Strength +4											TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.367																																					BONUS:STAT|STR|4|TYPE=Enhancement
-Belt of Giant Strength +6											TYPE:Magic.Wondrous.Belt													COST:36000	WT:1									SOURCEPAGE:p.367																																					BONUS:STAT|STR|6|TYPE=Enhancement
-Belt of Incredible Dexterity +2										TYPE:Magic.Wondrous.Belt													COST:4000	WT:1									SOURCEPAGE:p.367																																					BONUS:STAT|DEX|2|TYPE=Enhancement
-Belt of Incredible Dexterity +4										TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.367																																					BONUS:STAT|DEX|4|TYPE=Enhancement
-Belt of Incredible Dexterity +6										TYPE:Magic.Wondrous.Belt													COST:36000	WT:1									SOURCEPAGE:p.367																																					BONUS:STAT|DEX|6|TYPE=Enhancement
-Belt Of Mighty Constitution +2										TYPE:Magic.Wondrous.Belt													COST:4000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|CON|2|TYPE=Enhancement
-Belt Of Mighty Constitution +4										TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|CON|4|TYPE=Enhancement
-Belt Of Mighty Constitution +6										TYPE:Magic.Wondrous.Belt													COST:36000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|CON|6|TYPE=Enhancement
-Belt of Physical Might (STR/DEX) +2										TYPE:Magic.Wondrous.Belt													COST:10000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,DEX|2|TYPE=Enhancement
-Belt of Physical Might (STR/DEX) +4										TYPE:Magic.Wondrous.Belt													COST:40000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,DEX|4|TYPE=Enhancement
-Belt of Physical Might (STR/DEX) +6										TYPE:Magic.Wondrous.Belt													COST:90000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,DEX|6|TYPE=Enhancement
-Belt of Physical Might (STR/CON) +2										TYPE:Magic.Wondrous.Belt													COST:10000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,CON|2|TYPE=Enhancement
-Belt of Physical Might (STR/CON) +4										TYPE:Magic.Wondrous.Belt													COST:40000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,CON|4|TYPE=Enhancement
-Belt of Physical Might (STR/CON) +6										TYPE:Magic.Wondrous.Belt													COST:90000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,CON|6|TYPE=Enhancement
-Belt of Physical Might (DEX/CON) +2										TYPE:Magic.Wondrous.Belt													COST:10000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|DEX,CON|2|TYPE=Enhancement
-Belt of Physical Might (DEX/CON) +4										TYPE:Magic.Wondrous.Belt													COST:40000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|DEX,CON|4|TYPE=Enhancement
-Belt of Physical Might (DEX/CON) +6										TYPE:Magic.Wondrous.Belt													COST:90000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|DEX,CON|6|TYPE=Enhancement
-Belt of Physical Perfection +2										TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,DEX,CON|2|TYPE=Enhancement
-Belt of Physical Perfection +4										TYPE:Magic.Wondrous.Belt													COST:64000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,DEX,CON|4|TYPE=Enhancement
-Belt of Physical Perfection +6										TYPE:Magic.Wondrous.Belt													COST:144000	WT:1									SOURCEPAGE:p.368																																					BONUS:STAT|STR,DEX,CON|6|TYPE=Enhancement
-Blessed Book													TYPE:Magic.Wondrous.Spellbook					NUMPAGES:1000	PAGEUSAGE:max(SPELLLEVEL,1)	COST:12500	WT:1									SOURCEPAGE:p.368
-Boat (Folding)						OUTPUTNAME:Boat, [NAME]				TYPE:Magic.Wondrous.Container		CONTAINS:UNLIM									COST:7200	WT:4									SOURCEPAGE:p.368																																																																																																																																SPROP:If a command word is given, the box unfolds itself to form a boat.
-Boots of Elvenkind												TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2						SOURCEPAGE:p.368																														BONUS:SKILL|Acrobatics|5|TYPE=Competence
-Boots of Levitation												TYPE:Magic.Wondrous.Boot													COST:7500	WT:1		SLOTS:2						SOURCEPAGE:p.368																																																																																																																																SPROP:On command, allows the wearer to Levitate as the spell.
-Boots of Speed													TYPE:Magic.Wondrous.Boot													COST:12000	WT:1		SLOTS:2						SOURCEPAGE:p.368																																																																																																																																SPROP:As free action, Haste for up to 10 rounds each day
-Boots of Striding And Springing										TYPE:Magic.Wondrous.Boot													COST:5500	WT:1		SLOTS:2						SOURCEPAGE:p.369																						BONUS:POSTMOVEADD|TYPE=Walk|10|TYPE=Enhancement	BONUS:SKILL|Acrobatics|5|TYPE=Competence
-Boots of Teleportation												TYPE:Magic.Wondrous.Boot													COST:49000	WT:3		SLOTS:2						SOURCEPAGE:p.369																																																																																																																																SPROP:Teleport 3/day
-Boots of The Winterlands											TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2						SOURCEPAGE:p.369																																																																																																																																SPROP:Travel across snow and slippery ice at normal speed leaving no tracks.
-Boots (Winged)						OUTPUTNAME:Boots, [NAME]			TYPE:Magic.Wondrous.Boot													COST:16000	WT:1		SLOTS:2						SOURCEPAGE:p.369																																																																																																																																SPROP:3/day on command, allows user to Fly, as spell for up to 5 minutes
-Bottle of Air													TYPE:Magic.Wondrous														COST:7250	WT:2									SOURCEPAGE:p.369																																																																																																																																SPROP:Retains air within it at all times, continually renewing its contents.
-Bracelet of Friends												TYPE:Magic.Wondrous.Glove													COST:19000	WT:.02	SLOTS:1	EQMOD:SPL_CHRG|CHARGES[4]	SOURCEPAGE:p.369																																																																																																																																SPROP:When a charm is grasped and the name of the keyed individual is spoken, that person is called to the spot (a standard action)
-Bracers of Archery (Greater)				OUTPUTNAME:Bracers Of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:25000	WT:1		SLOTS:2						SOURCEPAGE:p.369																																														BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|2|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|2|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|DAMAGE|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
-Bracers of Archery (Lesser)				OUTPUTNAME:Bracers Of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:5000	WT:1		SLOTS:2						SOURCEPAGE:p.369																																														BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
-Bracers of Armor +1												TYPE:Magic.Wondrous.Bracer													COST:1000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|1|TYPE=Armor
-Bracers of Armor +2												TYPE:Magic.Wondrous.Bracer													COST:4000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|2|TYPE=Armor
-Bracers of Armor +3												TYPE:Magic.Wondrous.Bracer													COST:9000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|3|TYPE=Armor
-Bracers of Armor +4												TYPE:Magic.Wondrous.Bracer													COST:16000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|4|TYPE=Armor
-Bracers of Armor +5												TYPE:Magic.Wondrous.Bracer													COST:25000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|5|TYPE=Armor
-Bracers of Armor +6												TYPE:Magic.Wondrous.Bracer													COST:36000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|6|TYPE=Armor
-Bracers of Armor +7												TYPE:Magic.Wondrous.Bracer													COST:49000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|7|TYPE=Armor
-Bracers of Armor +8												TYPE:Magic.Wondrous.Bracer													COST:64000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|8|TYPE=Armor
+Bead of Force											TYPE:Magic.Wondrous.Consumable												COST:3000	WT:.02								SOURCEPAGE:p.367																																																																																																																													SPROP:Upon sharp impact, the bead explodes, sending forth a burst that deals 5d6 points of force damage to all creatures within a 10-foot radius.
+Belt of Dwarvenkind										TYPE:Magic.Wondrous.Belt													COST:14900	WT:1									SOURCEPAGE:p.367	ABILITY:Special Ability|VIRTUAL|Stonecunning|Hearty	VISION:Darkvision (60')																					BONUS:STAT|CON|2|TYPE=Enhancement|!PRERACE:1,Dwarf%																																																																															LANGAUTO:Dwarven		SPROP:+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halfings, and a –2 competence penalty on similar checks when dealing with anyone else.
+Belt of Giant Strength +2									TYPE:Magic.Wondrous.Belt													COST:4000	WT:1									SOURCEPAGE:p.367																																		BONUS:STAT|STR|2|TYPE=Enhancement
+Belt of Giant Strength +4									TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.367																																		BONUS:STAT|STR|4|TYPE=Enhancement
+Belt of Giant Strength +6									TYPE:Magic.Wondrous.Belt													COST:36000	WT:1									SOURCEPAGE:p.367																																		BONUS:STAT|STR|6|TYPE=Enhancement
+Belt of Incredible Dexterity +2								TYPE:Magic.Wondrous.Belt													COST:4000	WT:1									SOURCEPAGE:p.367																																		BONUS:STAT|DEX|2|TYPE=Enhancement
+Belt of Incredible Dexterity +4								TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.367																																		BONUS:STAT|DEX|4|TYPE=Enhancement
+Belt of Incredible Dexterity +6								TYPE:Magic.Wondrous.Belt													COST:36000	WT:1									SOURCEPAGE:p.367																																		BONUS:STAT|DEX|6|TYPE=Enhancement
+Belt of Mighty Constitution +2								TYPE:Magic.Wondrous.Belt													COST:4000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|CON|2|TYPE=Enhancement
+Belt of Mighty Constitution +4								TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|CON|4|TYPE=Enhancement
+Belt of Mighty Constitution +6								TYPE:Magic.Wondrous.Belt													COST:36000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|CON|6|TYPE=Enhancement
+Belt of Physical Might (STR/DEX) +2								TYPE:Magic.Wondrous.Belt													COST:10000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,DEX|2|TYPE=Enhancement
+Belt of Physical Might (STR/DEX) +4								TYPE:Magic.Wondrous.Belt													COST:40000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,DEX|4|TYPE=Enhancement
+Belt of Physical Might (STR/DEX) +6								TYPE:Magic.Wondrous.Belt													COST:90000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,DEX|6|TYPE=Enhancement
+Belt of Physical Might (STR/CON) +2								TYPE:Magic.Wondrous.Belt													COST:10000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,CON|2|TYPE=Enhancement
+Belt of Physical Might (STR/CON) +4								TYPE:Magic.Wondrous.Belt													COST:40000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,CON|4|TYPE=Enhancement
+Belt of Physical Might (STR/CON) +6								TYPE:Magic.Wondrous.Belt													COST:90000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,CON|6|TYPE=Enhancement
+Belt of Physical Might (DEX/CON) +2								TYPE:Magic.Wondrous.Belt													COST:10000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|DEX,CON|2|TYPE=Enhancement
+Belt of Physical Might (DEX/CON) +4								TYPE:Magic.Wondrous.Belt													COST:40000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|DEX,CON|4|TYPE=Enhancement
+Belt of Physical Might (DEX/CON) +6								TYPE:Magic.Wondrous.Belt													COST:90000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|DEX,CON|6|TYPE=Enhancement
+Belt of Physical Perfection +2								TYPE:Magic.Wondrous.Belt													COST:16000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,DEX,CON|2|TYPE=Enhancement
+Belt of Physical Perfection +4								TYPE:Magic.Wondrous.Belt													COST:64000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,DEX,CON|4|TYPE=Enhancement
+Belt of Physical Perfection +6								TYPE:Magic.Wondrous.Belt													COST:144000	WT:1									SOURCEPAGE:p.368																																		BONUS:STAT|STR,DEX,CON|6|TYPE=Enhancement
+Blessed Book											TYPE:Magic.Wondrous.Spellbook					NUMPAGES:1000	PAGEUSAGE:max(SPELLLEVEL,1)	COST:12500	WT:1									SOURCEPAGE:p.368
+Boat (Folding)				OUTPUTNAME:Boat, [NAME]				TYPE:Magic.Wondrous.Container		CONTAINS:UNLIM									COST:7200	WT:4									SOURCEPAGE:p.368																																																																																																																													SPROP:If a command word is given, the box unfolds itself to form a boat.
+Boots of Elvenkind										TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2						SOURCEPAGE:p.368																											BONUS:SKILL|Acrobatics|5|TYPE=Competence
+Boots of Levitation										TYPE:Magic.Wondrous.Boot													COST:7500	WT:1		SLOTS:2						SOURCEPAGE:p.368																																																																																																																													SPROP:On command, allows the wearer to Levitate as the spell.
+Boots of Speed											TYPE:Magic.Wondrous.Boot													COST:12000	WT:1		SLOTS:2						SOURCEPAGE:p.368																																																																																																																													SPROP:As free action, Haste for up to 10 rounds each day
+Boots of Striding And Springing								TYPE:Magic.Wondrous.Boot													COST:5500	WT:1		SLOTS:2						SOURCEPAGE:p.369																			BONUS:POSTMOVEADD|TYPE=Walk|10|TYPE=Enhancement	BONUS:SKILL|Acrobatics|5|TYPE=Competence
+Boots of Teleportation										TYPE:Magic.Wondrous.Boot													COST:49000	WT:3		SLOTS:2						SOURCEPAGE:p.369																																																																																																																													SPROP:Teleport 3/day
+Boots of The Winterlands									TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2						SOURCEPAGE:p.369																																																																																																																													SPROP:Travel across snow and slippery ice at normal speed leaving no tracks.
+Boots (Winged)				OUTPUTNAME:Boots, [NAME]			TYPE:Magic.Wondrous.Boot													COST:16000	WT:1		SLOTS:2						SOURCEPAGE:p.369																																																																																																																													SPROP:3/day on command, allows user to Fly, as spell for up to 5 minutes
+Bottle of Air											TYPE:Magic.Wondrous														COST:7250	WT:2									SOURCEPAGE:p.369																																																																																																																													SPROP:Retains air within it at all times, continually renewing its contents.
+Bracelet of Friends										TYPE:Magic.Wondrous.Glove													COST:19000	WT:.02	SLOTS:1	EQMOD:SPL_CHRG|CHARGES[4]	SOURCEPAGE:p.369																																																																																																																													SPROP:When a charm is grasped and the name of the keyed individual is spoken, that person is called to the spot (a standard action)
+Bracers of Archery (Greater)		OUTPUTNAME:Bracers of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:25000	WT:1		SLOTS:2						SOURCEPAGE:p.369																																											BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|2|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|2|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|DAMAGE|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
+Bracers of Archery (Lesser)		OUTPUTNAME:Bracers of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:5000	WT:1		SLOTS:2						SOURCEPAGE:p.369																																											BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
+Bracers of Armor +1										TYPE:Magic.Wondrous.Bracer													COST:1000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|1|TYPE=Armor
+Bracers of Armor +2										TYPE:Magic.Wondrous.Bracer													COST:4000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|2|TYPE=Armor
+Bracers of Armor +3										TYPE:Magic.Wondrous.Bracer													COST:9000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|3|TYPE=Armor
+Bracers of Armor +4										TYPE:Magic.Wondrous.Bracer													COST:16000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|4|TYPE=Armor
+Bracers of Armor +5										TYPE:Magic.Wondrous.Bracer													COST:25000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|5|TYPE=Armor
+Bracers of Armor +6										TYPE:Magic.Wondrous.Bracer													COST:36000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|6|TYPE=Armor
+Bracers of Armor +7										TYPE:Magic.Wondrous.Bracer													COST:49000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|7|TYPE=Armor
+Bracers of Armor +8										TYPE:Magic.Wondrous.Bracer													COST:64000	WT:1		SLOTS:2						SOURCEPAGE:p.369														BONUS:COMBAT|AC|8|TYPE=Armor
 #Bracers of Armor: Need to make modifier for this. COST=PLUS*PLUS*1000, max PLUS w/o Epic is +8, must have +1 minimum.
-Brooch Of Shielding												TYPE:Magic.Wondrous														COST:1500	WT:.02			EQMOD:SPL_CHRG|CHARGES[101]	SOURCEPAGE:p.370
-Broom Of Flying													TYPE:Magic.Wondrous														COST:17000	WT:3									SOURCEPAGE:p.370																																																																																																																																SPROP:9 hrs/day Overland Flight
-Candle Of Truth													TYPE:Magic.Wondrous.Consumable												COST:25000	WT:.5									SOURCEPAGE:p.370
-Cape Of The Mountebank												TYPE:Magic.Wondrous.Cape													COST:10080	WT:1									SOURCEPAGE:p.370																																																																																																																																SPROP:On Command, Dimension Door 1/day
-Carpet of Flying (5x5)												TYPE:Magic.Wondrous														COST:20000	WT:8									SOURCEPAGE:p.370
-Carpet of Flying (5x10)												TYPE:Magic.Wondrous														COST:35000	WT:10									SOURCEPAGE:p.370
-Carpet of Flying (10x10)											TYPE:Magic.Wondrous														COST:60000	WT:15									SOURCEPAGE:p.370
+Brooch of Shielding										TYPE:Magic.Wondrous														COST:1500	WT:.02			EQMOD:SPL_CHRG|CHARGES[101]	SOURCEPAGE:p.370
+Broom of Flying											TYPE:Magic.Wondrous														COST:17000	WT:3									SOURCEPAGE:p.370																																																																																																																													SPROP:9 hrs/day Overland Flight
+
+###Block:C-D
+# Equipment Name				Output Name						Type						Cost		Weight	Slot Needed	Modifier				Source Page		Save checks bonus				Combat bonus						Bonus to skill					Special Property
+Candle of Truth											TYPE:Magic.Wondrous.Consumable	COST:25000	WT:.5									SOURCEPAGE:p.370
+Cape of The Mountebank										TYPE:Magic.Wondrous.Cape		COST:10080	WT:1									SOURCEPAGE:p.370																						SPROP:On Command, Dimension Door 1/day
+Carpet of Flying (5x5)										TYPE:Magic.Wondrous			COST:20000	WT:8									SOURCEPAGE:p.370
+Carpet of Flying (5x10)										TYPE:Magic.Wondrous			COST:35000	WT:10									SOURCEPAGE:p.370
+Carpet of Flying (10x10)									TYPE:Magic.Wondrous			COST:60000	WT:15									SOURCEPAGE:p.370
 # Carpet of Flying: include +5 Fly check bonus or not?
-Chime of Interruption												TYPE:Magic.Wondrous														COST:16800	WT:1									SOURCEPAGE:p.370																																																																																																																																SPROP:This instrument can be struck once every 10 minutes, and its resonant tone lasts for 3 full minutes.
-Chime of Opening													TYPE:Magic.Wondrous														COST:3000	WT:1				EQMOD:SPL_CHRG|CHARGES[10]	SOURCEPAGE:p.370
+Chime of Interruption										TYPE:Magic.Wondrous			COST:16800	WT:1									SOURCEPAGE:p.370																						SPROP:This instrument can be struck once every 10 minutes, and its resonant tone lasts for 3 full minutes.
+Chime of Opening											TYPE:Magic.Wondrous			COST:3000	WT:1				EQMOD:SPL_CHRG|CHARGES[10]	SOURCEPAGE:p.370
+Circlet of Persuasion										TYPE:Magic.Wondrous.Headgear		COST:4500	WT:.02								SOURCEPAGE:p.371															BONUS:SKILL|STAT.CHA|3|TYPE=Competence
+# Any other "Charisma based checks" besides Skills?
+Cloak of Arachnida										TYPE:Magic.Wondrous.Cape		COST:14000	WT:1									SOURCEPAGE:p.371																						SPROP:Move as Spider Climb, 1/day +2 luck bonus on Fortitude saves against poison from spiders
+Cloak of the Bat											TYPE:Magic.Wondrous.Cape		COST:26000	WT:1									SOURCEPAGE:p.371															BONUS:SKILL|Stealth|5|TYPE=Competence	SPROP:Fly as spell in near darkness for up to 7 minutes
+Cloak of Displacement (Major)		OUTPUTNAME:Cloak of Displacement, [NAME]	TYPE:Magic.Wondrous.Cape		COST:50000	WT:1									SOURCEPAGE:p.371																						SPROP:On command, Displacement up to 15 rounds/day
+Cloak of Displacement (Minor)		OUTPUTNAME:Cloak of Displacement, [NAME]	TYPE:Magic.Wondrous.Cape		COST:24000	WT:1									SOURCEPAGE:p.371																						SPROP:20%% miss chance on attacks against wearer
+Cloak of Elvenkind										TYPE:Magic.Wondrous.Cape		COST:2500	WT:1									SOURCEPAGE:p.371															BONUS:SKILL|Stealth|5|TYPE=Competence
+Cloak of Etherealness										TYPE:Magic.Wondrous.Cape		COST:55000	WT:1									SOURCEPAGE:p.371																						SPROP:On command, Ethereal Jaunt for up to 10 minutes per day.
+Cloak of the Manta Ray										TYPE:Magic.Wondrous.Cape		COST:7200	WT:1									SOURCEPAGE:p.372							BONUS:COMBAT|AC|3|TYPE=NaturalArmor|PREAPPLY:PC								SPROP:Gain abilities like Manta Ray when in saltwater.
+#Swim speed of 60 with PREAPPLY???
+Cloak of Resistance +1										TYPE:Magic.Wondrous.Cape		COST:1000	WT:1									SOURCEPAGE:p.372	BONUS:CHECKS|ALL|1|TYPE=Resistance
+Cloak of Resistance +2										TYPE:Magic.Wondrous.Cape		COST:4000	WT:1									SOURCEPAGE:p.372	BONUS:CHECKS|ALL|2|TYPE=Resistance
+Cloak of Resistance +3										TYPE:Magic.Wondrous.Cape		COST:9000	WT:1									SOURCEPAGE:p.372	BONUS:CHECKS|ALL|3|TYPE=Resistance
+Cloak of Resistance +4										TYPE:Magic.Wondrous.Cape		COST:16000	WT:1									SOURCEPAGE:p.372	BONUS:CHECKS|ALL|4|TYPE=Resistance
+Cloak of Resistance +5										TYPE:Magic.Wondrous.Cape		COST:25000	WT:1									SOURCEPAGE:p.372	BONUS:CHECKS|ALL|5|TYPE=Resistance
+Crown of Blasting (Minor)		OUTPUTNAME:Crown of Blasting, [NAME]	TYPE:Magic.Wondrous.Headgear		COST:6480	WT:1									SOURCEPAGE:p.372																						SPROP:On command, Searing Light (3d8 damage) 1/day.
+Crown of Blasting (Major)		OUTPUTNAME:Crown of Blasting, [NAME]	TYPE:Magic.Wondrous.Headgear		COST:23760	WT:1									SOURCEPAGE:p.372																						SPROP:On command, Searing Light (40 damage) 1/day.
+Crystal Ball											TYPE:Magic.Wondrous			COST:42000	WT:7									SOURCEPAGE:p.372
+Crystal Ball with See Invisibility								TYPE:Magic.Wondrous			COST:50000	WT:7									SOURCEPAGE:p.372
+Crystal Ball with Detect Thoughts								TYPE:Magic.Wondrous			COST:51000	WT:7									SOURCEPAGE:p.372
+Crystal Ball with Telepathy									TYPE:Magic.Wondrous			COST:70000	WT:7									SOURCEPAGE:p.372
+Crystal Ball with True Seeing									TYPE:Magic.Wondrous			COST:80000	WT:7									SOURCEPAGE:p.372
+Cube of Frost Resistance									TYPE:Magic.Wondrous			COST:27000	WT:2									SOURCEPAGE:p.372																						SPROP:Absorbes all cold-based attacks in area when activated.
+Cubic Gate												TYPE:Magic.Wondrous			COST:164000	WT:2									SOURCEPAGE:p.372
+Decanter of Endless Water									TYPE:Magic.Wondrous			COST:9000	WT:2									SOURCEPAGE:p.373
+Dimensional Shackles										TYPE:Magic.Wondrous.Glove		COST:28000	WT:5		SLOTS:2						SOURCEPAGE:p.373																						SPROP:Fits Small to Large creatures
+Drums of Panic											TYPE:Magic.Wondrous			COST:30000	WT:10									SOURCEPAGE:p.373																						SPROP:Usable 1/day
+Dust of Appearance										TYPE:Magic.Wondrous.Consumable	COST:1800	WT:.02								SOURCEPAGE:p.373															BONUS:SKILL|Stealth|-30|PREAPPLY:ANYPC	SPROP:Lasts for 5 minutes
+Dust of Disappearance										TYPE:Magic.Wondrous.Consumable	COST:3500	WT:.02								SOURCEPAGE:p.373																						SPROP:Lasts for 2d6 rounds
+Dust of Dryness											TYPE:Magic.Wondrous.Consumable	COST:850	WT:.02								SOURCEPAGE:p.373
+Dust of Illusion											TYPE:Magic.Wondrous.Consumable	COST:1200	WT:.02								SOURCEPAGE:p.374																						SPROP:Lasts 2 hours
+Dust of Tracelessness										TYPE:Magic.Wondrous.Consumable	COST:250	WT:.02								SOURCEPAGE:p.374
 
-###BLock: Not done
+###Block: E-G
+# Equipment Name				Output Name					Type							Contains									Cost		Weight	Slot Needed	Source Page		Vision			Bonus to skill								Special Property
+Efficient Quiver										TYPE:Magic.Wondrous.Container			CONTAINS:*UNLIM|Arrow=60|Javelin=18|Bow=6|Spear=6|Staff=6	COST:1800	WT:2				SOURCEPAGE:p.374
+Efreeti Bottle										TYPE:Magic.Wondrous														COST:145000	WT:1				SOURCEPAGE:p.374															SPROP:Can only be opened 1/day.
+Elemental Gem (Air)			OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable												COST:22500	WT:.02			SOURCEPAGE:p.374															SPROP:Summons Large Elemental
+Elemental Gem (Earth)			OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable												COST:22500	WT:.02			SOURCEPAGE:p.374															SPROP:Summons Large Elemental
+Elemental Gem (Fire)			OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable												COST:22500	WT:.02			SOURCEPAGE:p.374															SPROP:Summons Large Elemental
+Elemental Gem (Water)			OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable												COST:22500	WT:.02			SOURCEPAGE:p.374															SPROP:Summons Large Elemental
+Elixir of Fire Breath									TYPE:Magic.Wondrous.Elixir.Consumable											COST:1100	WT:.02			SOURCEPAGE:p.374															SPROP:3 blasts, 4d6 fire damage up to 25 ft. away.
+Elixir of Hiding										TYPE:Magic.Wondrous.Elixir.Consumable											COST:250	WT:.02			SOURCEPAGE:p.374					BONUS:SKILL|Stealth|10|TYPE=Competence|PREAPPLY:ANYPC
+Elixir of Love										TYPE:Magic.Wondrous.Elixir.Consumable											COST:150	WT:.02			SOURCEPAGE:p.375															SPROP:Lasts 1d3 hours
+Elixir of Swimming									TYPE:Magic.Wondrous.Elixir.Consumable											COST:250	WT:.02			SOURCEPAGE:p.375					BONUS:SKILL|Swim|10|TYPE=Competence|PREAPPLY:ANYPC		SPROP:Lasts 1 hour
+Elixir of Truth										TYPE:Magic.Wondrous.Elixir.Consumable											COST:500	WT:.02			SOURCEPAGE:p.375															SPROP:Lasts 10 minutes
+Elixir of Tumbling									TYPE:Magic.Wondrous.Elixir.Consumable											COST:250	WT:.02			SOURCEPAGE:p.375					BONUS:SKILL|Acrobatics|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
+Elixir of Vision										TYPE:Magic.Wondrous.Elixir.Consumable											COST:250	WT:.02			SOURCEPAGE:p.375					BONUS:SKILL|Perception|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
+Eversmoking Bottle									TYPE:Magic.Wondrous														COST:5400	WT:1				SOURCEPAGE:p.375
+Eyes of Charming										TYPE:Magic.Wondrous.Eyegear													COST:56000	WT:.02			SOURCEPAGE:p.375
+Eyes of Doom										TYPE:Magic.Wondrous.Eyegear													COST:25000	WT:.02			SOURCEPAGE:p.375
+Eyes of the Eagle										TYPE:Magic.Wondrous.Eyegear													COST:2500	WT:.02			SOURCEPAGE:p.375					BONUS:SKILL|Perception|5|TYPE=Competence
+Gauntlet of Rust										TYPE:Magic.Wondrous.Glove													COST:11500	WT:2		SLOTS:1	SOURCEPAGE:p.376
+Gem of Seeing										TYPE:Magic.Wondrous														COST:75000	WT:.02			SOURCEPAGE:p.376															SPROP:Up to 30 min/day
+Gloves of Arrow Snaring									TYPE:Magic.Wondrous.Glove													COST:4000	WT:.02	SLOTS:2	SOURCEPAGE:p.376															SPROP:2/day
+Glove of Storing										TYPE:Magic.Wondrous.Glove													COST:10000	WT:.02	SLOTS:1	SOURCEPAGE:p.376
+Gloves of Swimming and Climbing							TYPE:Magic.Wondrous.Glove													COST:6250	WT:.02	SLOTS:2	SOURCEPAGE:p.376					BONUS:SKILL|Swim,Climb|5|TYPE=Competence
+Goggles of Minute Seeing								TYPE:Magic.Wondrous.Eyegear													COST:1250	WT:.02			SOURCEPAGE:p.376					BONUS:SKILL|Disable Device|5|TYPE=Competence
+Goggles Of Night										TYPE:Magic.Wondrous.Eyegear													COST:12000	WT:.02			SOURCEPAGE:p.376	VISION:Darkvision (60')
+
+###Block: H-
+# Equipment Name						Output Name					Type						Contains		Cost		Weight	Source Page		Innate Spells										Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
+Hand Of Glory												TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2		SOURCEPAGE:p.376	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility															BONUS:SLOTS|Ring|1
+#p.377
+Hand of the Mage												TYPE:Magic.Wondrous.Amulet					COST:900	WT:2		SOURCEPAGE:p.377	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
+Handy Haversack												TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5		SOURCEPAGE:p.377
+Harp of Charming												TYPE:Magic.Wondrous.Instrument				COST:7500	WT:5		SOURCEPAGE:p.377
+Hat of Disguise												TYPE:Magic.Wondrous.Headgear					COST:1800	WT:.02	SOURCEPAGE:p.377
+Headband of Alluring Charisma +2									TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|CHA|2|TYPE=Enhancement
+Headband of Alluring Charisma +4									TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|CHA|4|TYPE=Enhancement
+Headband of Alluring Charisma +6									TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|CHA|6|TYPE=Enhancement
+Headband of Inspired Wisdom +2									TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS|2|TYPE=Enhancement
+Headband of Inspired Wisdom +4									TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS|4|TYPE=Enhancement
+Headband of Inspired Wisdom +6									TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS|6|TYPE=Enhancement
+Headband of Mental Prowess (INT/WIS) +2								TYPE:Magic.Wondrous.Headgear					COST:10000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|INT,WIS|2|TYPE=Enhancement
+Headband of Mental Prowess (INT/WIS) +4								TYPE:Magic.Wondrous.Headgear					COST:40000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|INT,WIS|4|TYPE=Enhancement
+Headband of Mental Prowess (INT/WIS) +6								TYPE:Magic.Wondrous.Headgear					COST:90000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|INT,WIS|6|TYPE=Enhancement
+Headband of Mental Prowess (INT/CHA) +2								TYPE:Magic.Wondrous.Headgear					COST:10000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|INT,CHA|2|TYPE=Enhancement
+Headband of Mental Prowess (INT/CHA) +4								TYPE:Magic.Wondrous.Headgear					COST:40000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|INT,CHA|4|TYPE=Enhancement
+Headband of Mental Prowess (INT/CHA) +6								TYPE:Magic.Wondrous.Headgear					COST:90000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|INT,CHA|6|TYPE=Enhancement
+Headband of Mental Prowess (WIS/CHA) +2								TYPE:Magic.Wondrous.Headgear					COST:10000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS,CHA|2|TYPE=Enhancement
+Headband of Mental Prowess (WIS/CHA) +4								TYPE:Magic.Wondrous.Headgear					COST:40000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS,CHA|4|TYPE=Enhancement
+Headband of Mental Prowess (WIS/CHA) +6								TYPE:Magic.Wondrous.Headgear					COST:90000	WT:1		SOURCEPAGE:p.377																															BONUS:STAT|WIS,CHA|6|TYPE=Enhancement
+# Not implemented: the Skill ranks chosen for Vast Intelligence, Mental Superiority, and Mental Prowess with INT.
+#p.378
+Headband of Mental Superiority +2									TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT,WIS,CHA|2|TYPE=Enhancement
+Headband of Mental Superiority +4									TYPE:Magic.Wondrous.Headgear					COST:64000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
+Headband of Mental Superiority +6									TYPE:Magic.Wondrous.Headgear					COST:144000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement
+Headband of Vast Intelligence +2									TYPE:Magic.Wondrous.Headgear					COST:4000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT|2|TYPE=Enhancement
+Headband of Vast Intelligence +4									TYPE:Magic.Wondrous.Headgear					COST:16000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT|4|TYPE=Enhancement
+Headband of Vast Intelligence +6									TYPE:Magic.Wondrous.Headgear					COST:36000	WT:1		SOURCEPAGE:p.378																															BONUS:STAT|INT|6|TYPE=Enhancement
+# Not implemented: the Skill ranks chosen for Vast Intelligence, Mental Superiority, and Mental Prowess with INT.
+Helm of Comprehend Languages and Read Magic							TYPE:Magic.Wondrous.Headgear					COST:5200	WT:3		SOURCEPAGE:p.378													BONUS:SKILL|Linguistics (Understand exotic written messages)|5|TYPE=Competence
+#Helm of Comprehend ...: Need conditional skill for Linguistics.
+Helm of Telepathy												TYPE:Magic.Wondrous.Headgear					COST:27000	WT:3		SOURCEPAGE:p.378	SPELLS:Helm of Telepathy|TIMES=ATWILL|CASTERLEVEL=5|Detect Thoughts																										SPROP:Suggestion 1/day with Telepathy
+Helm of Teleportation											TYPE:Magic.Wondrous						COST:73500	WT:3		SOURCEPAGE:p.378	SPELLS:Helm of Teleportation|TIMES=3|CASTERLEVEL=9|Teleport
+Helm of Underwater Action										TYPE:Magic.Wondrous.Headgear					COST:35000	WT:3 lb.	SOURCEPAGE:p.378
+Horn of Blasting												TYPE:Magic.Wondrous.Instrument				COST:20000	WT:1 lb.	SOURCEPAGE:p.378																																						SPROP:On command, 5d6 sonic damage and deafened for 2d6 rounds
+Horn of Blasting (Greater)				OUTPUTNAME:Horn Of Blasting, [NAME]	TYPE:Magic.Wondrous						COST:70000	WT:1 lb.	SOURCEPAGE:p.378																																						SPROP:On command, 10d6 sonic damage and deafened for 4d6 rounds
+#p.379
+
+###Block: Not done
 # Equipment Name
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
