@@ -309,7 +309,11 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 		if (index == 0)
 		{
-			return (Filterable) getBaseTabbedPane().getComponentAt(index);
+			Object tab = getBaseTabbedPane().getComponentAt(index);
+			if (tab instanceof Filterable)
+			{
+				return (Filterable) tab;
+			}
 		}
 		else if (index >= FIRST_CHAR_TAB)
 		{
