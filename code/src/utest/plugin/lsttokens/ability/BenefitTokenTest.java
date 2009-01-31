@@ -111,6 +111,13 @@ public class BenefitTokenTest extends AbstractTokenTestCase<Ability>
 	}
 
 	@Test
+	public void testInvalidParen() throws PersistenceLayerException
+	{
+		assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
 		assertFalse(parse("PRECLASS:1,Fighter"));

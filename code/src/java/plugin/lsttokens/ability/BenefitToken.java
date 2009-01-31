@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
@@ -140,8 +141,14 @@ public class BenefitToken extends AbstractToken implements
 			Logging.errorPrint("  PRExxx can not be only value");
 			return null;
 		}
-		final Description desc = new Description(EntityEncoder
-				.decode(firstToken));
+		String ds = EntityEncoder.decode(firstToken);
+		if (!StringUtil.hasBalancedParens(ds))
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " encountered imbalanced Parenthesis: " + aDesc);
+			return null;
+		}
+		Description desc = new Description(ds);
 
 		boolean isPre = false;
 		while (tok.hasMoreTokens())

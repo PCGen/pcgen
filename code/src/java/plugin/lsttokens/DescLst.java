@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -98,7 +99,14 @@ public class DescLst extends AbstractToken implements
 				+ aDesc);
 			return null;
 		}
-		Description desc = new Description(EntityEncoder.decode(descString));
+		String ds = EntityEncoder.decode(descString);
+		if (!StringUtil.hasBalancedParens(ds))
+		{
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " encountered imbalanced Parenthesis: " + aDesc);
+			return null;
+		}
+		Description desc = new Description(ds);
 
 		if (!tok.hasMoreTokens())
 		{

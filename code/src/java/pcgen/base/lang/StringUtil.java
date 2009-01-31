@@ -22,6 +22,7 @@ package pcgen.base.lang;
 
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.StringTokenizer;
 
 /**
  * StringUtil is a utility class designed to provide utility methods when
@@ -173,6 +174,29 @@ public final class StringUtil
 		}
 
 		return sb.toString();
+	}
+
+	public static boolean hasBalancedParens(String ds)
+	{
+		int level = 0;
+		StringTokenizer st = new StringTokenizer(ds, "()", true);
+		while (st.hasMoreTokens())
+		{
+			String tok = st.nextToken();
+			if (")".equals(tok))
+			{
+				level--;
+			}
+			else if ("(".equals(tok))
+			{
+				level++;
+			}
+			if (level < 0)
+			{
+				return false;
+			}
+		}
+		return level == 0;
 	}
 
 }

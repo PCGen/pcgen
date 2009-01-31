@@ -111,6 +111,13 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidParen() throws PersistenceLayerException
+	{
+		assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number One");
