@@ -52,6 +52,9 @@ TEMPLATE:srd_templates_psionic.lst
 
 WEAPONPROF:srd_weapprofs_psionic.lst
 
+# Suppress Duplicate Spell Warnings
+ALLOWDUPES:SPELL
+
 #
 # End
 #

@@ -66,6 +66,9 @@ FORWARDREF:EQMOD|AUTOFIRE,DBLTAP
 FORWARDREF:SKILL|Computer Use,Control Shape,Craft (Electronic),Drive,Pilot
 FORWARDREF:WEAPONPROF|Flamethrower
 
+# Suppress Duplicate Language Warnings
+ALLOWDUPES:LANGUAGE
+
 #
 # End
 #

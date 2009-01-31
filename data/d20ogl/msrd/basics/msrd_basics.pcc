@@ -24,6 +24,12 @@ PCC:modern_basics/modernbasics.pcc
 PCC:modern_creatures/moderncreatures.pcc
 PCC:modern_fx/modernfx.pcc
 
+# Suppress Duplicate Language Warnings
+ALLOWDUPES:LANGUAGE
+
+# Suppress Duplicate Spell Warnings
+ALLOWDUPES:SPELL
+
 #
 # End
 #

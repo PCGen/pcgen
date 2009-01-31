@@ -34,6 +34,9 @@ PCC:@/d20ogl/srd/monsters/srdmonsters.pcc
 # Psionics
 PCC:@/d20ogl/srd/psionics/srdpsionics.pcc
 
+# Suppress Duplicate Spell Warnings
+ALLOWDUPES:SPELL
+
 #
 # End
 #

@@ -62,3 +62,6 @@ HIDETYPE:SKILL|Science
 HIDETYPE:FEAT|Leadership
 #Fix till ABILITY is recoginized
 HIDETYPE:FEAT|Leadership|AberrationProficiency|FeyProficiency|GiantProficiency|HumanoidProficiency|MonstrousHumanoidProficiency|OutsiderProficiency|UndeadProficiency
+
+# Suppress Duplicate Language Warnings
+ALLOWDUPES:LANGUAGE
