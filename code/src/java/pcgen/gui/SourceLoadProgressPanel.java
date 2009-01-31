@@ -27,6 +27,9 @@
 package pcgen.gui;
 
 import javax.swing.*;
+
+import pcgen.gui.utils.Utility;
+
 import java.awt.*;
 
 public class SourceLoadProgressPanel extends JPanel {
@@ -70,7 +73,7 @@ public class SourceLoadProgressPanel extends JPanel {
 		else
 		{
 			getFilenameArea().setText(
-					shortenString(fm, filename, getFilenameArea().getWidth()));
+					Utility.shortenString(fm, filename, getFilenameArea().getWidth()));
 		}
 	}
 
@@ -207,27 +210,5 @@ public class SourceLoadProgressPanel extends JPanel {
 		}
 
 		return messageAreaContainer;
-	}
-
-	/**
-	 * @param fm
-	 * @param string
-	 * @param maxWidth
-	 * @return String
-	 */
-	private String shortenString(FontMetrics fm, String string, int maxWidth)
-	{
-		for (int i=string.length() ; i>0 ; i-=5)
-		{
-			String foo = "..." + string.substring( string.length()-i);
-
-			int width = fm.stringWidth(foo);
-			//System.out.println("testing '"+foo+"' = "+width);
-			if (width < maxWidth)
-			{
-				return foo;
-			}
-		}
-		return "";
 	}
 }  //  @jve:visual-info  decl-index=0 visual-constraint="10,10"

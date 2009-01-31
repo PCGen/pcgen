@@ -23,7 +23,10 @@
 
 package pcgen.gui.converter.panel;
 
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -86,10 +89,12 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	private boolean errorState = false;
 	private String lastNotifiedFilename = "";
 	private String currFilename = "";
+	private Component statusField;
 
-	public RunConvertPanel()
+	public RunConvertPanel(Component statusField)
 	{
 		context = new EditorLoadContext();
+		this.statusField = statusField;
 	}
 	
 	/* (non-Javadoc)
@@ -230,7 +235,19 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 	public void setCurrentFilename(String filename)
 	{
-		TaskStrategyMessage.sendStatus(this, "Converting " + filename);
+		Graphics g = statusField.getGraphics();
+		FontMetrics fm = g.getFontMetrics();
+		String message =
+				(filename == null || filename.length() == 0) ? ""
+					: "Converting " + filename;
+		int width = fm.stringWidth(message);
+		if (width >= statusField.getWidth())
+		{
+			message =
+					Utility.shortenString(fm, message, statusField.getWidth());
+		}
+
+		TaskStrategyMessage.sendStatus(this, message);
 		currFilename = filename;
 	}
 

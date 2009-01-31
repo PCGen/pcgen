@@ -18,7 +18,11 @@
 package pcgen.gui.converter;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -39,6 +43,7 @@ import pcgen.gui.converter.event.TaskStrategyListener;
 import pcgen.gui.converter.event.TaskStrategyMessage;
 import pcgen.gui.converter.panel.ConvertSubPanel;
 import pcgen.gui.utils.CursorControlUtilities;
+import pcgen.gui.utils.Utility;
 
 public class ConvertPanel extends JPanel
 {
@@ -62,10 +67,12 @@ public class ConvertPanel extends JPanel
 	
 	private int currentPanel = -1;
 
+	private final JLabel statusLabel;
+
 	public ConvertPanel(List<ConvertSubPanel> bq)
 	{
 		super(new BorderLayout());
-		final JLabel statusLabel = new JLabel();
+		statusLabel = new JLabel();
 		TaskStrategyListener tsl = new TaskStrategyListener()
 		{
 			private String status;
@@ -159,9 +166,15 @@ public class ConvertPanel extends JPanel
 		jsp
 				.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		add(jsp);
-		JPanel buttonLayout = new JPanel(new BorderLayout());
-		buttonLayout.add(buttonBox, BorderLayout.EAST);
-		buttonLayout.add(statusLabel, BorderLayout.WEST);
+		JPanel buttonLayout = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0,
+			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		gbc.insets = new Insets(0, 10, 5, 10);
+		buttonLayout.add(statusLabel, gbc);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
+			0, 0, GridBagConstraints.NONE, GridBagConstraints.EAST);
+		buttonLayout.add(buttonBox, gbc);
 		add(buttonLayout, BorderLayout.SOUTH);
 		queue = bq;
 		runNextPanel();
@@ -266,5 +279,14 @@ public class ConvertPanel extends JPanel
 			CursorControlUtilities.stopWaitCursor(basePanel);
 		}
 
+	}
+
+
+	/**
+	 * @return The field which will be used for status display
+	 */
+	public Component getStatusField()
+	{
+		return statusLabel;
 	}
 }
