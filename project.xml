@@ -318,6 +318,12 @@
       <version>0.9.9</version>
       <url>http://jline.sourceforge.net/</url>
     </dependency>
+    <dependency>
+		<groupId>com.google.collections</groupId>
+		<artifactId>google-collections</artifactId>
+		<version>0.8</version>
+    </dependency>
+
     <!--
         <dependency>
             <groupId>maven-plugins</groupId>
