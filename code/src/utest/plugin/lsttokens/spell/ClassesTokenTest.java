@@ -203,6 +203,13 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	}
 
 	@Test
+	public void testInvalidInputNegativePre() throws PersistenceLayerException
+	{
+		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputBadPrerequisite()
 			throws PersistenceLayerException
 	{
@@ -333,4 +340,21 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 		runRoundRobin("ALL=3");
 	}
 
+	@Test
+	public void testReplacementInputs() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Wizard");
+		String[] unparsed;
+		assertTrue(parse("Wizard=-1"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertNull("Expected item to be null", unparsed);
+		assertTrue(parse("Wizard=1"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertEquals("Expected item to be equal", "Wizard=1", unparsed[0]);
+		assertTrue(parse("Wizard=-1"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertNull("Expected item to be null", unparsed);
+	}
 }

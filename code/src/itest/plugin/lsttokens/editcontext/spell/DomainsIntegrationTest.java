@@ -113,6 +113,30 @@ public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
+	public void testRoundRobinTestMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Fire=-1");
+		commit(modCampaign, tc, "Fire=4");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinModMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Fire=4");
+		commit(modCampaign, tc, "Fire=-1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
@@ -191,6 +215,65 @@ public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, ".CLEARALL");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAllClearMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "ALL=2");
+		commit(modCampaign, tc, "ALL=-1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAllSupplementMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Fire=-1");
+		commit(modCampaign, tc, "Fire=1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAllSupplementMinusMod() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Fire=1");
+		commit(modCampaign, tc, "Fire=-1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearEmtpyMinus()
+			throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Fire=-1");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinEmptyCleaMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, "Fire=-1");
 		completeRoundRobin(tc);
 	}
 

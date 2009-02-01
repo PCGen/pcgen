@@ -524,7 +524,19 @@ public class ListContext
 					map.addToListFor((T) lw, apo);
 				}
 			}
-			return new AssociatedCollectionChanges<T>(map, null, masterClearSet
+			MapToList<T, AssociatedPrereqObject> rmap = new TreeMapToList<T, AssociatedPrereqObject>(
+					CDOMObjectUtilities.CDOM_SORTER);
+			Set<CDOMObject> removed = negativeMasterMap
+					.getTertiaryKeySet(swl, lo);
+			for (CDOMObject lw : removed)
+			{
+				AssociatedPrereqObject apo = negativeMasterMap.get(swl, lo, lw);
+				if (tokenName.equals(apo.getAssociation(AssociationKey.TOKEN)))
+				{
+					rmap.addToListFor((T) lw, apo);
+				}
+			}
+			return new AssociatedCollectionChanges<T>(map, rmap, masterClearSet
 					.containsInList(swl, lo));
 		}
 

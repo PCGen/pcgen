@@ -189,6 +189,13 @@ public class DomainsToken extends AbstractToken implements
 				}
 				if (level == -1)
 				{
+					if (prereq != null)
+					{
+						Logging.errorPrint("Cannot use Prerequisiste "
+								+ "on effective CLEAR (using level == -1) in "
+								+ getTokenName());
+						return false;
+					}
 					context.getListContext().removeFromMasterList(
 							getTokenName(), spell, ref, spell);
 				}
@@ -225,9 +232,41 @@ public class DomainsToken extends AbstractToken implements
 		}
 		if (masterChanges.hasRemovedItems())
 		{
-			context.addWriteMessage(getTokenName()
-					+ " does not support .CLEAR.");
-			return null;
+			for (CDOMReference<DomainSpellList> swl : masterChanges.getRemoved())
+			{
+				AssociatedChanges<Spell> changes = context.getListContext()
+						.getChangesInMasterList(getTokenName(), spell, swl);
+				MapToList<Spell, AssociatedPrereqObject> map = changes
+						.getRemovedAssociations();
+				if (map != null && !map.isEmpty())
+				{
+					for (Spell added : map.getKeySet())
+					{
+						if (!spell.getLSTformat().equals(added.getLSTformat()))
+						{
+							context.addWriteMessage("Spell " + getTokenName()
+									+ " token cannot remove another Spell "
+									+ "(must only remove itself)");
+							return null;
+						}
+						for (AssociatedPrereqObject assoc : map
+								.getListFor(added))
+						{
+							List<Prerequisite> prereqs = assoc
+									.getPrerequisiteList();
+							if (prereqs != null && prereqs.size() != 0)
+							{
+								context.addWriteMessage("Incoming Remove "
+										+ "Edge to " + spell.getKeyName()
+										+ " had a " + "Prerequisite: "
+										+ prereqs.size());
+								return null;
+							}
+							dkmtl.addToListFor(null, -1, swl);
+						}
+					}
+				}
+			}
 		}
 		for (CDOMReference<DomainSpellList> swl : masterChanges.getAdded())
 		{
@@ -327,21 +366,8 @@ public class DomainsToken extends AbstractToken implements
 				{
 					sb.append(Constants.PIPE);
 				}
-				boolean needComma = false;
-				for (CDOMReference<DomainSpellList> wr : set)
-				{
-					if (needComma)
-					{
-						sb.append(',');
-					}
-					needComma = true;
-					String s = wr.getLSTformat();
-					if (Constants.LST_ANY.equals(s))
-					{
-						s = Constants.LST_ALL;
-					}
-					sb.append(s);
-				}
+				sb.append(ReferenceUtilities
+						.joinLstFormat(set, Constants.COMMA));
 				sb.append('=').append(i);
 				needPipe = true;
 			}

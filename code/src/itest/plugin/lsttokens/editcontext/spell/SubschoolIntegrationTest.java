@@ -77,6 +77,6 @@ public class SubschoolIntegrationTest extends
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 }

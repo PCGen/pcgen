@@ -119,6 +119,32 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
+	public void testRoundRobinTestMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Wizard");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Wizard=-1");
+		commit(modCampaign, tc, "Wizard=4");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinModMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Wizard");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Wizard=4");
+		commit(modCampaign, tc, "Wizard=-1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
@@ -200,6 +226,73 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, ".CLEARALL");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAllClearMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "ALL=2");
+		commit(modCampaign, tc, "ALL=-1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAllSupplementMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Sorcerer");
+		secondaryContext.ref.constructCDOMObject(ClassSpellList.class,
+				"Sorcerer");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Sorcerer=-1");
+		commit(modCampaign, tc, "Sorcerer=1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAllSupplementMinusMod() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Sorcerer");
+		secondaryContext.ref.constructCDOMObject(ClassSpellList.class,
+				"Sorcerer");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Sorcerer=1");
+		commit(modCampaign, tc, "Sorcerer=-1");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearEmtpyMinus()
+			throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Sorcerer");
+		secondaryContext.ref.constructCDOMObject(ClassSpellList.class,
+				"Sorcerer");
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Sorcerer=-1");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinEmptyCleaMinus() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		primaryContext.ref
+				.constructCDOMObject(ClassSpellList.class, "Sorcerer");
+		secondaryContext.ref.constructCDOMObject(ClassSpellList.class,
+				"Sorcerer");
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, "Sorcerer=-1");
 		completeRoundRobin(tc);
 	}
 

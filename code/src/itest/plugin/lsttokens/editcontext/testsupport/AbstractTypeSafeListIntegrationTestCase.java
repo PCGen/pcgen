@@ -70,6 +70,25 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 	}
 
 	@Test
+	public void testRoundRobinClear() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			if (requiresPreconstruction())
+			{
+				getConstant("Languedoc-Roussillon");
+			}
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, "Languedoc-Roussillon");
+			commit(testCampaign, tc, ".CLEAR");
+			tc = new TestContext();
+			tc.putText(testCampaign.getURI(), null);
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
 	public void testRoundRobinAddSame() throws PersistenceLayerException
 	{
 		if (requiresPreconstruction())
@@ -109,6 +128,44 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 		commit(testCampaign, tc, "TestWP2");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinDotClearJoinedOne()
+			throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			if (requiresPreconstruction())
+			{
+				getConstant("TestWP1");
+				getConstant("TestWP2");
+			}
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, ".CLEAR" + getJoinCharacter() + "TestWP2");
+			commit(modCampaign, tc, "TestWP1");
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
+	public void testRoundRobinDotClearJoinedTwo()
+			throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			if (requiresPreconstruction())
+			{
+				getConstant("TestWP1");
+				getConstant("TestWP2");
+			}
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, "TestWP1");
+			commit(modCampaign, tc, ".CLEAR" + getJoinCharacter() + "TestWP2");
+			completeRoundRobin(tc);
+		}
 	}
 
 	@Test
@@ -160,7 +217,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 
 	@Test
 	public void testRoundRobinUselessDotClear()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		if (isClearLegal())
 		{
@@ -192,7 +249,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 
 	@Test
 	public void testRoundRobinUselessDotClearDot()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		if (isClearDotLegal())
 		{
@@ -224,7 +281,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "TestWP1" + getJoinCharacter() + "TestWP2");
 			commit(modCampaign, tc, ".CLEAR.TestWP1" + getJoinCharacter()
-				+ ".CLEAR.TestWP2");
+					+ ".CLEAR.TestWP2");
 			completeRoundRobin(tc);
 		}
 	}
