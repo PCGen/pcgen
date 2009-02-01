@@ -172,6 +172,50 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
 
 
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Visible	Save checks bonus											Combat bonus
+CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex Paladin	VISIBLE:YES	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Paladin	PREALIGN:LG
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Paladin	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
+CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASS:1,Paladin=4
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
+###Block: Level progression
+1				BONUS:VAR|AuraGood,DetectEvilLVL,SmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1		ABILITY:Special Ability|AUTOMATIC|Aura of Good|Detect Evil|Smite Evil
+2				BONUS:VAR|LayOnHandsLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Grace|Lay on Hands
+3																			ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
+4	CAST:0,0		BONUS:VAR|ChannelEnergyLVL|CL-3	BONUS:VAR|ChannelEnergyTimes|1+CHA				ABILITY:Special Ability|AUTOMATIC|Channel Energy
+5	CAST:0,1		BONUS:VAR|DivineBondLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Bond
+6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL											ABILITY:Special Ability|AUTOMATIC|Remove Disease
+7	CAST:0,1,0
+8	CAST:0,1,1																	ABILITY:Special Ability|AUTOMATIC|Aura of Resolve
+9	CAST:0,2,1																	ABILITY:Special Ability|AUTOMATIC|Remove Curse
+10	CAST:0,2,1,0
+11	CAST:0,2,1,1																ABILITY:Special Ability|AUTOMATIC|Aura of Justice
+12	CAST:0,2,2,1																ABILITY:Special Ability|AUTOMATIC|Neutralize Poison
+13	CAST:0,3,2,1,0
+14	CAST:0,3,2,1,1																ABILITY:Special Ability|AUTOMATIC|Aura of Faith
+15	CAST:0,3,2,2,1																ABILITY:Special Ability|AUTOMATIC|Break Enchantment
+16	CAST:0,3,3,2,1
+17	CAST:0,4,3,2,1																ABILITY:Special Ability|AUTOMATIC|Aura of Righteousness
+18	CAST:0,4,3,2,2																ABILITY:Special Ability|AUTOMATIC|Heal
+19	CAST:0,4,3,3,2
+20	CAST:0,4,4,3,3																ABILITY:Special Ability|AUTOMATIC|Holy Champion
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Visible	Save checks bonus											Combat bonus
+CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		SOURCEPAGE:p.34	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
+
+
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -290,9 +334,6 @@ CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wiza
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Automatic Languages	Bonus Languages	Visible	Save checks bonus											Combat bonus
 CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	LANGAUTO:Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Visible	Save checks bonus											Combat bonus
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex Paladin	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 
 # Class Name	Hit Dice	Type			Abbreviation	Visible	Save checks bonus											Combat bonus
 CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

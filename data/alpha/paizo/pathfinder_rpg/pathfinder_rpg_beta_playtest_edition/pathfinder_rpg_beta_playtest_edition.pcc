@@ -29,6 +29,7 @@ COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publis
 ABILITY:pathfinder_beta_abilities_class.lst
 ABILITY:pathfinder_beta_abilities_class_common.lst
 ABILITY:pathfinder_beta_abilities_general.lst
+ABILITY:pathfinder_beta_abilities_companions.lst
 ABILITY:pathfinder_beta_abilities_monsters.lst
 ABILITY:pathfinder_beta_abilities_racial.lst
 ABILITYCATEGORY:pathfinder_beta_ability_categories_core.lst
@@ -36,6 +37,7 @@ ARMORPROF:pathfinder_beta_profs_armor.lst
 CLASS:pathfinder_beta_classes_base.lst
 CLASS:pathfinder_beta_classes_npc.lst
 CLASS:pathfinder_beta_classes_monsters.lst
+COMPANIONMOD:pathfinder_beta_companionmods.lst
 DEITY:pathfinder_beta_deities.lst
 DOMAIN:pathfinder_beta_domains.lst
 EQUIPMENT:pathfinder_beta_equip.lst

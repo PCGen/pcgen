@@ -38,9 +38,9 @@ ABILITYCATEGORY:Arcane School			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Arcane School Prohibition	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ArcaneSchoolProhibition	PLURAL:Arcane Schools Prohibition	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Expert Class Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ExpertClassSkills		PLURAL:Expert Class Skills		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Monk Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:MonkBonusFeat		PLURAL:Monk Bonus Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Divine Bond			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:DivineBond			PLURAL:Divine Bond			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Ranger Combat Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:RangerCombatStyle		PLURAL:Ranger Combat Styles		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Ranger Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:RangerBonusFeat		PLURAL:Ranger Bonus Feats		DISPLAYLOCATION:Feats
-
 
 ###Block: Favored Class bonuses
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object			Plural description for UI	Display Location
