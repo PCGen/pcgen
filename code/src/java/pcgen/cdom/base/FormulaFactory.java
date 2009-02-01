@@ -149,6 +149,12 @@ public final class FormulaFactory
 			return i;
 		}
 
+		/**
+		 * Resolves this IntegerFormula, returning the Integer in this
+		 * IntegerFormula.
+		 * 
+		 * @return the Integer in this IntegerFormula.
+		 */
 		public Integer resolve(Equipment equipment, boolean primary,
 				PlayerCharacter apc, String string)
 		{
@@ -189,6 +195,10 @@ public final class FormulaFactory
 					&& ((IntegerFormula) o).i.equals(i);
 		}
 
+		/**
+		 * Returns true as an IntegerFormula has an underlying integer (static)
+		 * value
+		 */
 		public boolean isStatic()
 		{
 			return true;
@@ -235,6 +245,12 @@ public final class FormulaFactory
 			return i;
 		}
 
+		/**
+		 * Resolves this DoubleFormula, returning the Double in this
+		 * DoubleFormula.
+		 * 
+		 * @return the Double in this DoubleFormula.
+		 */
 		public Double resolve(Equipment equipment, boolean primary,
 				PlayerCharacter apc, String string)
 		{
@@ -275,6 +291,10 @@ public final class FormulaFactory
 					&& ((DoubleFormula) o).i.equals(i);
 		}
 
+		/**
+		 * Returns true as an DoubleFormula has an underlying double (static)
+		 * value
+		 */
 		public boolean isStatic()
 		{
 			return true;

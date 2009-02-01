@@ -176,6 +176,17 @@ public final class StringUtil
 		return sb.toString();
 	}
 
+	/**
+	 * Tests to see if the given String has balanced parenthesis. Balanced means
+	 * that it has an equal number of open and close parenthesis, and also that
+	 * the parenthesis are in a "sensible" format. "Sensible" means that a close
+	 * parenthesis cannot appear before an open parenthesis.
+	 * 
+	 * @param ds
+	 *            The String to be tested to see if it has balanced parenthesis
+	 * @return true if the given String has balanced parenthesis; false
+	 *         otherwise
+	 */
 	public static boolean hasBalancedParens(String ds)
 	{
 		int level = 0;

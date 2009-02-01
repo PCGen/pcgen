@@ -27,10 +27,57 @@ import pcgen.core.PlayerCharacter;
  */
 public interface Formula
 {
+	/**
+	 * Resolves the formula relative to the given PlayerCharacter and source
+	 * object. Variables are taken from the active objects on the
+	 * PlayerCharacter, and any required context beyond the PlayerCharacter is
+	 * taken from the source object. Formatting of the source String may vary.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter relative to which the Formula should be
+	 *            resolved.
+	 * @param source
+	 *            The source object of the Formula, for purposes of resolution.
+	 * @return The Number indicating the result of the Formula when resolved in
+	 *         the given context.
+	 */
 	public Number resolve(PlayerCharacter pc, String source);
 
-	public boolean isStatic();
-
+	/**
+	 * Resolves the formula relative to the given Equipment, EquipmentHead,
+	 * PlayerCharacter and source object. Variables are taken from the active
+	 * objects on the Equipment and PlayerCharacter, and any required context
+	 * beyond the PlayerCharacter is taken from the source object. Formatting of
+	 * the source String may vary.
+	 * 
+	 * @param equipment
+	 *            The Equipment relative to which the Formula should be
+	 *            resolved.
+	 * @param primary
+	 *            True if the primary head of the given Equipment should be used
+	 *            for resolution, false if the secondary head should be used for
+	 *            resolution.
+	 * @param apc
+	 *            The PlayerCharacter relative to which the Formula should be
+	 *            resolved.
+	 * @param string
+	 *            The source object of the Formula, for purposes of resolution.
+	 * @return The Number indicating the result of the Formula when resolved in
+	 *         the given context.
+	 */
 	public Number resolve(Equipment equipment, boolean primary,
 			PlayerCharacter apc, String string);
+
+	/**
+	 * Returns true if the underlying Formula is known to be static.
+	 * 
+	 * Implementation of this method may vary, and a static Formula may return
+	 * true or false to this method. The only requirement is that if true is
+	 * returned, then the Formula must be static.
+	 * 
+	 * @return true if the underlying Formula is known to be static; false
+	 *         otherwise
+	 */
+	public boolean isStatic();
+
 }

@@ -38,8 +38,27 @@ public interface CDOMList<T extends PrereqObject> extends PrereqObject
 	 * @return the Class of Object this CDOMList will identify
 	 */
 	public Class<T> getListClass();
-	
+
+	/**
+	 * Returns the key name for this CDOMList. This is the unique identifer of
+	 * the CDOMList. Theoretically, this is unique relative to the ListClass
+	 * (from getListClass()), not globally unique. However, this "uniqueness" is
+	 * not enforced (since this is merely an interface).
+	 * 
+	 * @return The key name for this CDOMList
+	 */
 	public String getKeyName();
 
+	/**
+	 * Returns true if this CDOMList has the given Type. This test the CDOMList
+	 * itself, not the contents of the CDOMList. A CDOMList can have a type, for
+	 * example, because a ClassSpellList (A form of CDOMList) can be "Arcane" or
+	 * "Divine".
+	 * 
+	 * @param type
+	 *            The String representation of the Type that this CDOMList
+	 *            should be tested for.
+	 * @return true if this CDOMList has the given type; false otherwise.
+	 */
 	public boolean isType(String type);
 }

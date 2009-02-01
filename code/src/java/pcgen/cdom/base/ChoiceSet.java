@@ -58,6 +58,11 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	 */
 	private final String setName;
 
+	/**
+	 * An identifier to check if the ChoiceSet (and the underlying
+	 * PrimitiveChoiceSet) should use the "ANY" identifier (vs. "ALL") when
+	 * referring to the global collection of objects of a certain type.
+	 */
 	private final boolean useAny;
 
 	/**
