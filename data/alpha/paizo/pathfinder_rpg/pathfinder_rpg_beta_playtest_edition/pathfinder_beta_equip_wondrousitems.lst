@@ -241,9 +241,9 @@ Helm of Comprehend Languages and Read Magic							TYPE:Magic.Wondrous.Headgear		
 #Helm of Comprehend ...: Need conditional skill for Linguistics.
 Helm of Telepathy												TYPE:Magic.Wondrous.Headgear					COST:27000	WT:3		SOURCEPAGE:p.378	SPELLS:Helm of Telepathy|TIMES=ATWILL|CASTERLEVEL=5|Detect Thoughts																										SPROP:Suggestion 1/day with Telepathy
 Helm of Teleportation											TYPE:Magic.Wondrous						COST:73500	WT:3		SOURCEPAGE:p.378	SPELLS:Helm of Teleportation|TIMES=3|CASTERLEVEL=9|Teleport
-Helm of Underwater Action										TYPE:Magic.Wondrous.Headgear					COST:35000	WT:3 lb.	SOURCEPAGE:p.378
-Horn of Blasting												TYPE:Magic.Wondrous.Instrument				COST:20000	WT:1 lb.	SOURCEPAGE:p.378																																						SPROP:On command, 5d6 sonic damage and deafened for 2d6 rounds
-Horn of Blasting (Greater)				OUTPUTNAME:Horn Of Blasting, [NAME]	TYPE:Magic.Wondrous						COST:70000	WT:1 lb.	SOURCEPAGE:p.378																																						SPROP:On command, 10d6 sonic damage and deafened for 4d6 rounds
+Helm of Underwater Action										TYPE:Magic.Wondrous.Headgear					COST:35000	WT:3		SOURCEPAGE:p.378
+Horn of Blasting												TYPE:Magic.Wondrous.Instrument				COST:20000	WT:1		SOURCEPAGE:p.378																																						SPROP:On command, 5d6 sonic damage and deafened for 2d6 rounds
+Horn of Blasting (Greater)				OUTPUTNAME:Horn Of Blasting, [NAME]	TYPE:Magic.Wondrous						COST:70000	WT:1		SOURCEPAGE:p.378																																						SPROP:On command, 10d6 sonic damage and deafened for 4d6 rounds
 #p.379
 
 ###Block: Not done
