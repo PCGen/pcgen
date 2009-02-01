@@ -4271,7 +4271,7 @@ public class PCClass extends PObject
 			try
 			{
 				PCClassLevel lvl = me.getValue().clone();
-				lvl.put(ObjectKey.PARENT, this);
+				//lvl.put(ObjectKey.PARENT, this);
 				levelMap.put(me.getKey(), lvl);
 			}
 			catch (CloneNotSupportedException e)
@@ -4365,7 +4365,7 @@ public class PCClass extends PObject
 		try
 		{
 			PCClassLevel lvl = pcc.getClassLevel(cl).clone();
-			lvl.put(ObjectKey.PARENT, this);
+			//lvl.put(ObjectKey.PARENT, this);
 			levelMap.put(cl, lvl);
 		}
 		catch (CloneNotSupportedException e)
