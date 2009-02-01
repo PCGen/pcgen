@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>5.15.9</currentVersion>
+  <currentVersion>5.15.10</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -319,11 +319,10 @@
       <url>http://jline.sourceforge.net/</url>
     </dependency>
     <dependency>
-		<groupId>com.google.collections</groupId>
-		<artifactId>google-collections</artifactId>
-		<version>0.8</version>
+      <groupId>com.google.collections</groupId>
+      <artifactId>google-collections</artifactId>
+      <version>0.8</version>
     </dependency>
-
     <!--
         <dependency>
             <groupId>maven-plugins</groupId>
@@ -593,6 +592,11 @@
       <id>5.15.9</id>
       <name>5.15.9</name>
       <tag>release-5.15.9</tag>
+    </version>
+    <version>
+      <id>5.15.10</id>
+      <name>5.15.10</name>
+      <tag>release-5.15.10</tag>
     </version>
   </versions>
 </project>
