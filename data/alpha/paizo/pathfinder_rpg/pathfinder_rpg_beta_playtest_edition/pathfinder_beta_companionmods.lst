@@ -1,0 +1,16 @@
+# CVS $Revision: 8435 $ $Author: eddyanthony $ -- Sat Nov 15 00:03:52 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block:Special Mount
+# Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define		Combat bonus						Add to base move																																					Stat bonus		Main Race Type
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Share Saving Throws|Empathic Link|Share Spells|Improved Evasion	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
+FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Speed															DEFINE:LOCK.INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Own Kind															DEFINE:LOCK.INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																									DEFINE:LOCK.INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
+FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
+FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
+FOLLOWER:SMLevel=19	TYPE:Special Mount			SR:24
+FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
