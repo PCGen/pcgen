@@ -113,13 +113,6 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 		AssociatedChanges<CDOMReference<Ability>> changes = context
 				.getListContext().getChangesInList(getTokenName(), race,
 						Ability.FEATLIST);
-		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
-				.getAddedAssociations();
-		if (mtl == null || mtl.isEmpty())
-		{
-			// Zero indicates no Token
-			return null;
-		}
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> added = changes
 				.getAddedAssociations();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();

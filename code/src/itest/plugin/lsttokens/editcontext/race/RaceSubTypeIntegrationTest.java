@@ -79,7 +79,7 @@ public class RaceSubTypeIntegrationTest extends
 	@Override
 	public boolean isClearDotLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

@@ -21,9 +21,11 @@ import org.junit.Test;
 
 import pcgen.core.Race;
 import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
+import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.race.MoncskillToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
@@ -99,4 +101,20 @@ public class MonCSkillIntegrationTest extends
 	{
 		return true;
 	}
+
+	@Test
+	public void testRoundRobinDotClearDotList() throws PersistenceLayerException
+	{
+		if (isClearDotLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, getPrefix() + "LIST");
+			commit(modCampaign, tc, getPrefix() + ".CLEAR.LIST");
+			completeRoundRobin(tc);
+		}
+	}
+
 }

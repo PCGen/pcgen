@@ -74,7 +74,7 @@ public class AltTypeIntegrationTest extends
 	@Override
 	public char getJoinCharacter()
 	{
-		return ',';
+		return '.';
 	}
 
 	@Override
