@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 15 15:43:54 2008 -- reformated by prettylst.pl v1.38 (build 6600)
+# CVS $Revision$ $Author$ -- Mon Feb  2 13:06:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 
 # Class Name		List of Class Spells by Level
 CLASS:Beast Handler.MOD	SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide from Animals,Reduce Person|Beast Handler=2|Charm Animal,Magic Fang (Greater),Summon Nature's Ally II
@@ -39,7 +39,7 @@ CLASS:Rake.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:1,Combat Expertise	PRESKILL:2,Bluff=
 # Class Name	Remove Class Skill	Class Skill
 CLASS:Rake.MOD	CSKILL:.CLEAR		CSKILL:Balance|Bluff|Climb|Gather Information|Intimidate|Jump|TYPE.Perform|Sleight of Hand|Tumble
 
-# Class Name			Automaticaly Gained Feat
+# Class Name			Automatically Gained Feat
 CLASS:Wandering Squire.MOD	AUTO:FEAT|Combat Expertise
 # Class Name			Clear Prereq.	Req. Att.	Required Feat
 CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:3,Dodge,Two Weapon Fighting,Weapon Focus(Quarterstaff)

@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Mon Feb  2 13:16:50 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
+
+
+# Ability Name	Category of Ability		Type						Visible
+Polymorph		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+Flight		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES

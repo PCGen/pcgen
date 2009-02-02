@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 12:43:19 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Mon Feb  2 12:51:19 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 
-# Class Name		Removed Class Skill	Class Skill
+# Class Name		Remove Class Skill	Class Skill
 CLASS:Bargainer.MOD	CSKILL:.CLEAR		CSKILL:Bluff|TYPE.Craft|Decipher Script|Diplomacy|Gather Information|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
 
 # Class Name		Clear Prereq.	Required AL	Req. Att.	Required Feat											Required Skill
 CLASS:Blood Archer.MOD	PRE:.CLEAR		PREALIGN:LE	PREATT:6	PREFEAT:4,Endurance,Point Blank Shot,Track,Weapon Specialization(Longbow)	PRESKILL:3,Craft (Bowyer/Fletcher)=6,Hide=4,Survival=7
-# Class Name		Removed Class Skill	Class Skill
+# Class Name		Remove Class Skill	Class Skill
 CLASS:Blood Archer.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Craft (Bowyer/Fletcher)|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Ride|Search|Swim|Survival|Tumble

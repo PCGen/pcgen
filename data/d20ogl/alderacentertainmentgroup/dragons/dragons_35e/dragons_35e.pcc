@@ -28,12 +28,13 @@ URL:Amazon.com|http://www.amazon.com/gp/product/188795337X?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:dragons_ability_35e.lst
 CLASS:dragonsclasses_35e.lst
 EQUIPMENT:dragonsequipweapons_35e.lst
 FEAT:dragonsfeats_35e.lst
 SKILL:dragonsskills_35e.lst
 
-
+ABILITY:../dragons_ability_class.lst|(EXCLUDE:CATEGORY=Special Ability,Summon Air Elemental)
 CLASS:../dragonsclasses.lst
 DEITY:../dragonsdeities.lst
 EQUIPMENT:../dragonsequip.lst
@@ -46,3 +47,5 @@ EQUIPMOD:../dragonsequipmods.lst
 FEAT:../dragonsfeats.lst
 SPELL:../dragonsspells.lst
 WEAPONPROF:../dragonsweapprofs.lst
+
+FORWARDREF:FEAT|Ride-By Attack,Sunder

@@ -46,3 +46,6 @@ EQUIPMENT:evil_equip_potionsscrolls.lst
 EQUIPMENT:evil_equip_rodsstaffswands.lst
 EQUIPMENT:evil_equip_wondrousitems.lst
 EQUIPMENT:evil_equip_artifacts.lst
+
+# Import for Dungeons for .MOD
+SPELL:@/d20ogl/alderacentertainmentgroup/dungeons/dungeonsspells.lst|(INCLUDE:Cloaked Sphere of Radiance|Distant Light|Sphere of Pure Air)

@@ -33,3 +33,6 @@ SKILL:../warskills.lst
 SPELL:../warspells.lst
 DEITY:../wardeities.lst
 WEAPONPROF:../war_profs_weapon.lst
+
+FORWARDREF:SPELL|Animal Friendship,Charm Person or Animal,Endurance,Enlarge,Greater Magic Fang,Healing Circle,Invisibility to Animals,Lesser Restoration,Minor Globe of Invulnerability,Negative Energy Protection,Reduce
+FORWARDREF:FEAT|Ambidexterity,Expertise,Two-Weapon Fighting

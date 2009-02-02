@@ -30,7 +30,7 @@ SPELL:evil_spells_35e.lst
 
 LANGUAGE:../evil_languages.lst
 DEITY:../evil_deities.lst
-DOMAIN:../evil_domains.lst
+DOMAIN:../evil_domains.lst|(EXCLUDE:Darkness)
 RACE:../evil_races.lst
 SKILL:../evil_skills.lst
 CLASS:../evil_classes.lst
