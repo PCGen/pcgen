@@ -27,11 +27,9 @@ import java.util.TreeSet;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.ReferenceUtilities;
@@ -84,8 +82,9 @@ public class FeatToken extends AbstractToken implements
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.log(Logging.LST_ERROR, "Cannot have only PRExxx subtoken in "
-					+ getFullName() + ": " + value);
+			Logging.log(Logging.LST_ERROR,
+					"Cannot have only PRExxx subtoken in " + getFullName()
+							+ ": " + value);
 			return false;
 		}
 
@@ -102,7 +101,8 @@ public class FeatToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getFullName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical "
+							+ getFullName()
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
@@ -156,8 +156,9 @@ public class FeatToken extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "   (Did you put feats after the "
-						+ "PRExxx tags in " + getFullName() + ":?)");
+				Logging.log(Logging.LST_ERROR,
+						"   (Did you put feats after the " + "PRExxx tags in "
+								+ getFullName() + ":?)");
 				return false;
 			}
 			for (AssociatedPrereqObject edge : edgeList)
@@ -176,42 +177,44 @@ public class FeatToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists = context
-				.getListContext().getChangedLists(obj, AbilityList.class);
-		if (changedLists == null || changedLists.isEmpty())
-		{
-			// Zero indicates no Token
-			return null;
-		}
 		Set<String> returnSet = new TreeSet<String>();
+		List<String> returnList = new ArrayList<String>();
 		MapToList<List<Prerequisite>, CDOMReference<Ability>> m = new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Ability.Nature.AUTOMATIC;
-		for (CDOMReference ref : changedLists)
+
+		CDOMReference<AbilityList> abilList = AbilityList
+				.getAbilityListReference(category, nature);
+		AssociatedChanges<CDOMReference<Ability>> changes = context
+				.getListContext()
+				.getChangesInList(getFullName(), obj, abilList);
+		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
+		if (changes.includesGlobalClear())
 		{
-			AssociatedChanges<CDOMReference<Ability>> changes = context
-					.getListContext()
-					.getChangesInList(getFullName(), obj, ref);
-			MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
-					.getAddedAssociations();
-			if (mtl != null)
+			if (removedItems != null && !removedItems.isEmpty())
 			{
-				for (CDOMReference<Ability> ab : mtl.getKeySet())
+				context.addWriteMessage("Non-sensical relationship in "
+						+ getTokenName()
+						+ ": global .CLEAR and local .CLEAR. performed");
+				return null;
+			}
+			returnList.add(Constants.LST_DOT_CLEAR);
+		}
+		else if (removedItems != null && !removedItems.isEmpty())
+		{
+			returnList.add(Constants.LST_DOT_CLEAR_DOT
+					+ ReferenceUtilities.joinLstFormat(removedItems,
+							"|.CLEAR.", true));
+		}
+		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
+				.getAddedAssociations();
+		if (mtl != null)
+		{
+			for (CDOMReference<Ability> ab : mtl.getKeySet())
+			{
+				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 				{
-					for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
-					{
-						if (!nature.equals(assoc
-								.getAssociation(AssociationKey.NATURE)))
-						{
-							continue;
-						}
-						if (!category.equals(assoc
-								.getAssociation(AssociationKey.CATEGORY)))
-						{
-							continue;
-						}
-						m.addToListFor(assoc.getPrerequisiteList(), ab);
-					}
+					m.addToListFor(assoc.getPrerequisiteList(), ab);
 				}
 			}
 		}
@@ -228,8 +231,8 @@ public class FeatToken extends AbstractToken implements
 			}
 			returnSet.add(sb.toString());
 		}
-
-		return returnSet.toArray(new String[returnSet.size()]);
+		returnList.addAll(returnSet);
+		return returnList.toArray(new String[returnList.size()]);
 	}
 
 	public Class<CDOMObject> getTokenClass()
