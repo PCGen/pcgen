@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 16 02:58:51 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Feb  1 20:19:46 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -38,7 +38,7 @@ Shield (Tower)		OUTPUTNAME:Shield, Tower		PROFICIENCY:SHIELD|Tower Shield	TYPE:S
 ###Block: Barding
 #Barding ---------------------------------------------------------------------------------				--------------------------------
 #Light Weight
-# Equipment Name			Required Proficiency			Type									Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page				% of Spell Failure	Combat bonus
+# Equipment Name			Required Proficiency			Type									Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Barding (Padded)			PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.Standard.Nonmetal.Barding.Mount	COST:10	WT:10		ACCHECK:0		EQMOD:CLOTH		MAXDEX:8		SOURCEPAGE:p.118	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
 Barding (Leather)			PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.Standard.Nonmetal.Barding.Mount	COST:20	WT:15		ACCHECK:0		EQMOD:LEATHER	MAXDEX:6		SOURCEPAGE:p.118	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 Barding (Studded Leather)	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.Standard.Barding.Mount			COST:50	WT:20		ACCHECK:-1		EQMOD:STEEL		MAXDEX:5		SOURCEPAGE:p.118	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE

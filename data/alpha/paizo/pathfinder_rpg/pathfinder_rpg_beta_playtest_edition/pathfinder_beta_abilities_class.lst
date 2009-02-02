@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 28 22:54:32 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sun Feb  1 20:19:46 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -86,8 +86,8 @@ Deadly Performance	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Bard
 Orisons ~ Cleric	OUTPUTNAME:Orisons	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:YES	DESC:See Text
 
 ###Block: Cleric Channel Energy
-# Ability Name		Category of Ability		Type								Visible		Required AL				Define																																												Description		Bonus to Ability Pool			Modify VAR																																			Source Page
-Channel Energy		CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO							DEFINE:ChannelEnergyTimes|0	DEFINE:ChannelEnergyDice|0	DEFINE:ChannelEnergyDC|0	DEFINE:ChannelEnergyLVL|0	DEFINE:ChannelPositiveEnergyDurationPlus|0	DEFINE:ChannelNegativeEnergyHitDice|0	DEFINE:ChannelEnergyDieSize|6	DEFINE:ChannelEnergyPlus|0				BONUS:ABILITYPOOL|Channel Energy|1	BONUS:VAR|ChannelEnergyDice|(ChannelEnergyLVL+1)/2	BONUS:VAR|ChannelEnergyDC|10+(ChannelEnergyLVL/2)+CHA	BONUS:VAR|ChannelPositiveEnergyDurationPlus|CHA	BONUS:VAR|ChannelNegativeEnergyHitDice|ChannelEnergyLVL	SOURCEPAGE:p.22
+# Ability Name		Category of Ability		Type								Visible	Required AL				Define																																												Description		Bonus to Ability Pool			Modify VAR																																			Source Page
+Channel Energy		CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO						DEFINE:ChannelEnergyTimes|0	DEFINE:ChannelEnergyDice|0	DEFINE:ChannelEnergyDC|0	DEFINE:ChannelEnergyLVL|0	DEFINE:ChannelPositiveEnergyDurationPlus|0	DEFINE:ChannelNegativeEnergyHitDice|0	DEFINE:ChannelEnergyDieSize|6	DEFINE:ChannelEnergyPlus|0				BONUS:ABILITYPOOL|Channel Energy|1	BONUS:VAR|ChannelEnergyDice|(ChannelEnergyLVL+1)/2	BONUS:VAR|ChannelEnergyDC|10+(ChannelEnergyLVL/2)+CHA	BONUS:VAR|ChannelPositiveEnergyDurationPlus|CHA	BONUS:VAR|ChannelNegativeEnergyHitDice|ChannelEnergyLVL	SOURCEPAGE:p.22
 Channel Positive Energy	CATEGORY:Special Ability	TYPE:ChannelEnergy.SpecialAttack.Supernatural	VISIBLE:YES	PREALIGN:LG,LN,NG,TN,CG,CN																																														DESC:See Text																																											SOURCEPAGE:p.22
 Channel Negative Energy	CATEGORY:Special Ability	TYPE:ChannelEnergy.SpecialAttack.Supernatural	VISIBLE:YES	PREALIGN:LN,LE,TN,NE,CN,CE																																														DESC:See Text																																											SOURCEPAGE:p.22
 
@@ -287,33 +287,35 @@ Snatch Arrows		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVA
 Spring Attack		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10	VFEAT:Spring Attack
 
 ###Block: Paladin abilities
-# Ability Name	Category of Ability		Type								Visible	Special ABility													Define								Innate Spells										Save checks bonus						Modify VAR							Source Page
-Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DESC:See text	DEFINE:DetectEvilLVL|0	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS																	SOURCEPAGE:p.31
-Smite Evil		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DESC:See text	DEFINE:SmiteEvilTimes|0	DEFINE:SmiteEvilAttackBonus|0	DEFINE:SmiteEvilDamageBonus|0	DEFINE:SmiteEvilLVL|0	BONUS:VAR|SmiteEvilTimes|min((SmiteEvilLVL+2)/3,7)	BONUS:VAR|SmiteEvilAttackBonus|max(CHA,0)	BONUS:VAR|SmiteEvilDamageBonus|SmiteEvilLVL		SOURCEPAGE:p.31
-Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DESC:See text	DEFINE:DivineGrace|0	BONUS:VAR|DivineGrace|max(CHA,0)	BONUS:CHECKS|Fortitude,Reflex,Will|DivineGrace	SOURCEPAGE:p.31
-Divine Health	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:See text	SOURCEPAGE:p.32
-Holy Champion	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DESC:See text	SOURCEPAGE:p.34	BONUS:DR|Evil|5
+# Ability Name	Category of Ability		Type						Visible	Define																	Innate Spells										Description		Save checks bonus						Damage reduction	Modify VAR																							Source Page
+Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	DEFINE:DetectEvilLVL|0															SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS	DESC:See text																																				SOURCEPAGE:p.31
+Smite Evil		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:SmiteEvilTimes|0	DEFINE:SmiteEvilAttackBonus|0	DEFINE:SmiteEvilDamageBonus|0	DEFINE:SmiteEvilLVL|0													DESC:See text												BONUS:VAR|SmiteEvilTimes|min((SmiteEvilLVL+2)/3,7)	BONUS:VAR|SmiteEvilAttackBonus|max(CHA,0)	BONUS:VAR|SmiteEvilDamageBonus|SmiteEvilLVL	SOURCEPAGE:p.31
+Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:DivineGrace|0																											DESC:See text	BONUS:CHECKS|Fortitude,Reflex,Will|DivineGrace				BONUS:VAR|DivineGrace|max(CHA,0)																			SOURCEPAGE:p.31
+Divine Health	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																															DESC:See text																																				SOURCEPAGE:p.32
+Holy Champion	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES																															DESC:See text									BONUS:DR|Evil|5																									SOURCEPAGE:p.34
 
 ###Block: Paladin Aura abilities
-Aura of Courage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.32
-Aura of Resolve		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.33
-Aura of Justice		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.33
-Aura of Faith		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.34
-Aura of Righteousness	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.34	DR:5/Evil
+# Ability Name		Category of Ability		Type							Visible	Description		Damage Reduction	Source Page
+Aura of Courage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES	DESC:See text				SOURCEPAGE:p.32
+Aura of Resolve		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES	DESC:See text				SOURCEPAGE:p.33
+Aura of Justice		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES	DESC:See text				SOURCEPAGE:p.33
+Aura of Faith		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES	DESC:See text				SOURCEPAGE:p.34
+Aura of Righteousness	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES	DESC:See text	DR:5/Evil		SOURCEPAGE:p.34
 
 ###Block: Paladin Lay on Hands abilities
-Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.LayOnHands	VISIBLE:YES	DESC:See text	DEFINE:LayOnHands|0	DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsLVL|0	BONUS:VAR|LayOnHands|LayOnHandsLVL	BONUS:VAR|LayOnHandsTimes|(LayOnHandsLVL/2)+max(CHA,0)	SOURCEPAGE:p.31
-Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.33
-Remove Curse	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.33
-Neutralize Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.33
-Break Enchantment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.34
-Heal			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES	DESC:See text	SOURCEPAGE:p.34
+# Ability Name	Category of Ability		Type								Visible	Define												Description		Modify VAR															Source Page
+Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.LayOnHands	VISIBLE:YES	DEFINE:LayOnHands|0	DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsLVL|0	DESC:See text	BONUS:VAR|LayOnHands|LayOnHandsLVL	BONUS:VAR|LayOnHandsTimes|(LayOnHandsLVL/2)+max(CHA,0)	SOURCEPAGE:p.31
+Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.33
+Remove Curse	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.33
+Neutralize Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.33
+Break Enchantment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.34
+Heal			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.34
 
 ###Block: Paladin Divine Bond
-# Ability Name	Category of Ability		Type							Visible	Define													Modify VAR																											Source Page
-Divine Bond		CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO	BONUS:ABILITYPOOL|Divine Bond|1	DEFINE:DivineBondLVL|0
-Celestial Spirit	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DivineBond	VISIBLE:YES	DESC:See text	DEFINE:CelestialSpiritDuration|0	DEFINE:CelestialSpiritBonus|0	DEFINE:CelestialSpiritTimes|0	BONUS:VAR|CelestialSpiritDuration|DivineBondLVL	BONUS:VAR|CelestialSpiritBonus|min((DivineBondLVL-2)/3,6)	BONUS:VAR|CelestialSpiritTimes|min((DivineBondLVL-1)/4,4)	SOURCEPAGE:p.32
-Special Mount	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DivineBond	VISIBLE:YES	DESC:See text	DEFINE:SMLevel|0	BONUS:VAR|SMLevel|DivineBondLVL			FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY	SOURCEPAGE:p.32
+# Ability Name	Category of Ability		Type							Visible	Define															Description		Bonus to Ability Pool			Modify VAR																											Allow Follower			Allowed Companions			Source Page
+Divine Bond		CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO	DEFINE:DivineBondLVL|0																BONUS:ABILITYPOOL|Divine Bond|1
+Celestial Spirit	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DivineBond	VISIBLE:YES	DEFINE:CelestialSpiritDuration|0	DEFINE:CelestialSpiritBonus|0	DEFINE:CelestialSpiritTimes|0	DESC:See text							BONUS:VAR|CelestialSpiritDuration|DivineBondLVL	BONUS:VAR|CelestialSpiritBonus|min((DivineBondLVL-2)/3,6)	BONUS:VAR|CelestialSpiritTimes|min((DivineBondLVL-1)/4,4)												SOURCEPAGE:p.32
+Special Mount	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DivineBond	VISIBLE:YES	DEFINE:SMLevel|0														DESC:See text							BONUS:VAR|SMLevel|DivineBondLVL																							FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY	SOURCEPAGE:p.32
 
 ###Block: Ranger abilities
 # Ability Name	Category of Ability		Type						Visible	Define						Description		Bonus to skill								Modify VAR					Source Page

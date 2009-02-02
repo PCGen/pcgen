@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 30 12:11:53 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sun Feb  1 20:19:46 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -185,26 +185,26 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1				BONUS:VAR|AuraGood,DetectEvilLVL,SmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1		ABILITY:Special Ability|AUTOMATIC|Aura of Good|Detect Evil|Smite Evil
-2				BONUS:VAR|LayOnHandsLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Grace|Lay on Hands
-3																			ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
-4	CAST:0,0		BONUS:VAR|ChannelEnergyLVL|CL-3	BONUS:VAR|ChannelEnergyTimes|1+CHA				ABILITY:Special Ability|AUTOMATIC|Channel Energy
-5	CAST:0,1		BONUS:VAR|DivineBondLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Bond
-6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL											ABILITY:Special Ability|AUTOMATIC|Remove Disease
+1				BONUS:VAR|AuraGood,DetectEvilLVL,SmiteEvilLVL|CL				DEFINE:AllowHolyAvenger|1	ABILITY:Special Ability|AUTOMATIC|Aura of Good|Detect Evil|Smite Evil
+2				BONUS:VAR|LayOnHandsLVL|CL													ABILITY:Special Ability|AUTOMATIC|Divine Grace|Lay on Hands
+3																					ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
+4	CAST:0,0		BONUS:VAR|ChannelEnergyLVL|CL-3	BONUS:VAR|ChannelEnergyTimes|1+CHA						ABILITY:Special Ability|AUTOMATIC|Channel Energy
+5	CAST:0,1		BONUS:VAR|DivineBondLVL|CL													ABILITY:Special Ability|AUTOMATIC|Divine Bond
+6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL													ABILITY:Special Ability|AUTOMATIC|Remove Disease
 7	CAST:0,1,0
-8	CAST:0,1,1																	ABILITY:Special Ability|AUTOMATIC|Aura of Resolve
-9	CAST:0,2,1																	ABILITY:Special Ability|AUTOMATIC|Remove Curse
+8	CAST:0,1,1																			ABILITY:Special Ability|AUTOMATIC|Aura of Resolve
+9	CAST:0,2,1																			ABILITY:Special Ability|AUTOMATIC|Remove Curse
 10	CAST:0,2,1,0
-11	CAST:0,2,1,1																ABILITY:Special Ability|AUTOMATIC|Aura of Justice
-12	CAST:0,2,2,1																ABILITY:Special Ability|AUTOMATIC|Neutralize Poison
+11	CAST:0,2,1,1																		ABILITY:Special Ability|AUTOMATIC|Aura of Justice
+12	CAST:0,2,2,1																		ABILITY:Special Ability|AUTOMATIC|Neutralize Poison
 13	CAST:0,3,2,1,0
-14	CAST:0,3,2,1,1																ABILITY:Special Ability|AUTOMATIC|Aura of Faith
-15	CAST:0,3,2,2,1																ABILITY:Special Ability|AUTOMATIC|Break Enchantment
+14	CAST:0,3,2,1,1																		ABILITY:Special Ability|AUTOMATIC|Aura of Faith
+15	CAST:0,3,2,2,1																		ABILITY:Special Ability|AUTOMATIC|Break Enchantment
 16	CAST:0,3,3,2,1
-17	CAST:0,4,3,2,1																ABILITY:Special Ability|AUTOMATIC|Aura of Righteousness
-18	CAST:0,4,3,2,2																ABILITY:Special Ability|AUTOMATIC|Heal
+17	CAST:0,4,3,2,1																		ABILITY:Special Ability|AUTOMATIC|Aura of Righteousness
+18	CAST:0,4,3,2,2																		ABILITY:Special Ability|AUTOMATIC|Heal
 19	CAST:0,4,3,3,2
-20	CAST:0,4,4,3,3																ABILITY:Special Ability|AUTOMATIC|Holy Champion
+20	CAST:0,4,4,3,3																		ABILITY:Special Ability|AUTOMATIC|Holy Champion
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Visible	Save checks bonus											Combat bonus
 CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		SOURCEPAGE:p.34	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

@@ -1,12 +1,12 @@
-# CVS $Revision: 9154 $ $Author: eddyanthony $ -- Wed Jan 28 22:54:32 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision: 9154 $ $Author: eddyanthony $ -- Sun Feb  1 20:19:46 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Original Entry by: Stefan Radermacher
 
 ###Block: Companion Modifier Abilities
-# Ability Name			Output Name											Category of Ability		Type						Visible
-Command Own Kind			OUTPUTNAME:Command creatures of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:See text
-Empathic Link															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:See text
-Improved Speed															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See text
-Share saving throws														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:See text
-Share Spells															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:See text
+# Ability Name		Output Name						Category of Ability		Type						Visible	Description
+Command Own Kind		OUTPUTNAME:Command creatures of its kind	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:See text
+Empathic Link									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:See text
+Improved Speed									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:See text
+Share saving throws								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:See text
+Share Spells									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:See text
