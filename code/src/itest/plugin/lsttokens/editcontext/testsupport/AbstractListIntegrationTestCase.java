@@ -69,6 +69,11 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 		return "";
 	}
 
+	public String getTypePrefix()
+	{
+		return "";
+	}
+
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();
 	PreRaceParser prerace = new PreRaceParser();
@@ -141,7 +146,8 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, getPrefix() + "TestWP1");
-			commit(modCampaign, tc, getPrefix() + "TYPE=TestType");
+			commit(modCampaign, tc, getPrefix() + getTypePrefix()
+					+ "TYPE=TestType");
 			completeRoundRobin(tc);
 		}
 	}
@@ -205,7 +211,7 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 			construct(secondaryContext, "TestWP2");
 			verifyCleanStart();
 			TestContext tc = new TestContext();
-			commit(testCampaign, tc, getPrefix()
+			commit(testCampaign, tc, getPrefix() + getTypePrefix()
 					+ "TYPE=TestAltType.TestThirdType.TestType");
 			commit(modCampaign, tc, getPrefix() + "TestWP2");
 			completeRoundRobin(tc);
@@ -273,8 +279,9 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, getPrefix() + "TestWP1"
-					+ getJoinCharacter() + "TYPE=TestType");
-			commit(modCampaign, tc, getPrefix() + ".CLEAR.TYPE=TestType");
+					+ getJoinCharacter() + getTypePrefix() + "TYPE=TestType");
+			commit(modCampaign, tc, getPrefix() + ".CLEAR." + getTypePrefix()
+					+ "TYPE=TestType");
 			completeRoundRobin(tc);
 		}
 	}
