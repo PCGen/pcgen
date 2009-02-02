@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 14:57:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Mon Feb  2 15:42:18 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -128,6 +128,9 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+###Block: Spellcasting abilities
+1	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid
+1	ABILITY:Special Ability|AUTOMATIC|Spontaneous casting - Summon Nature's Ally spells
 ###Block: Level progression
 1	CAST:3,1
 2	CAST:4,2
