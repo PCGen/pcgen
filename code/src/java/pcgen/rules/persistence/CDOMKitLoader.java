@@ -166,8 +166,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		{
 			lc.setExtractURI(cse.getURI());
 			URI writeURI = cse.getWriteURI();
-			String path = writeURI.getPath().substring(1);
-			File f = new File(path);
+			File f = new File(writeURI);
 			ensureCreated(f.getParentFile());
 			try
 			{

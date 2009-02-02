@@ -98,7 +98,7 @@ public class ObjectInjector
 
 	private File getNewOutputName(URI uri)
 	{
-		File in = new File(uri.getPath().substring(1));
+		File in = new File(uri);
 		File base = findSubRoot(rootDir, in);
 		String relative = in.toString().substring(base.toString().length() + 1);
 		File actualRoot = generateCommonRoot(rootDir, outDir);
