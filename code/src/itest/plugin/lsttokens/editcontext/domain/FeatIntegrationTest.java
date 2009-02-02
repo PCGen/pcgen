@@ -22,7 +22,6 @@ import org.junit.Test;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
-import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -31,7 +30,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class FeatIntegrationTest extends
-		AbstractListIntegrationTestCase<Domain, WeaponProf>
+		AbstractListIntegrationTestCase<Domain, Ability>
 {
 
 	static FeatToken token = new FeatToken();
@@ -57,9 +56,9 @@ public class FeatIntegrationTest extends
 	}
 
 	@Override
-	public Class<WeaponProf> getTargetClass()
+	public Class<Ability> getTargetClass()
 	{
-		return WeaponProf.class;
+		return Ability.class;
 	}
 
 	@Override
