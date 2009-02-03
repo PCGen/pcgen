@@ -74,7 +74,8 @@ public class CskillLst extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
+					Logging.log(Logging.LST_ERROR, "  Non-sensical "
+							+ getTokenName()
 							+ ": .CLEAR was not the first list item");
 					return false;
 				}
@@ -82,25 +83,32 @@ public class CskillLst extends AbstractToken implements
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
-				CDOMReference<Skill> ref;
 				String clearText = tokText.substring(7);
 				if (Constants.LST_ALL.equals(clearText))
 				{
-					ref = context.ref.getCDOMAllReference(SKILL_CLASS);
+					context.getObjectContext().removeFromList(obj,
+							ListKey.CSKILL,
+							context.ref.getCDOMAllReference(SKILL_CLASS));
+				}
+				else if (Constants.LST_LIST.equals(clearText))
+				{
+					context.getObjectContext().removeFromList(obj,
+							ListKey.CHOOSE_ACTOR, this);
 				}
 				else
 				{
-					ref = TokenUtilities.getTypeOrPrimitive(context,
-							SKILL_CLASS, clearText);
+					CDOMReference<Skill> ref = TokenUtilities
+							.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
+					if (ref == null)
+					{
+						Logging.log(Logging.LST_ERROR,
+								"  Error was encountered while parsing "
+										+ getTokenName());
+						return false;
+					}
+					context.getObjectContext().removeFromList(obj,
+							ListKey.CSKILL, ref);
 				}
-				if (ref == null)
-				{
-					Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
-							+ getTokenName());
-					return false;
-				}
-				context.getObjectContext().removeFromList(obj, ListKey.CSKILL,
-						ref);
 			}
 			else
 			{
@@ -184,8 +192,8 @@ public class CskillLst extends AbstractToken implements
 				return null;
 			}
 			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities.joinLstFormat(removedItems,
-							",|.CLEAR."));
+					+ ReferenceUtilities
+							.joinLstFormat(removedItems, "|.CLEAR."));
 		}
 		Collection<ChooseResultActor> listRemoved = listChanges.getRemoved();
 		if (listRemoved != null && !listRemoved.isEmpty())
