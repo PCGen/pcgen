@@ -53,7 +53,7 @@ import java.util.Map.Entry;
  * **WARNING** MapCollection is KNOWN to NOT fail fast in the case of a
  * Concurrent Modification - such a feature is considered more advanced than
  * this Class is trying to provide (the additional cost of memory and CPU of
- * monitoring the map is considered an unreasonable burden.
+ * monitoring the map is considered an unreasonable burden).
  */
 public class MapCollection extends AbstractCollection<Object>
 {
@@ -75,7 +75,12 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Builds a new MapCollection, providing a facade to the given Map. The
 	 * given Map must be non-null.
 	 * 
-	 * @param m The map to be treated as a Collection.
+	 * This constructor is reference-semantic. A direct reference to the
+	 * provided Map is maintained, in order to iterate over the contents of the
+	 * Map.
+	 * 
+	 * @param m
+	 *            The map to be treated as a Collection.
 	 * @throws IllegalArgumentException
 	 *             if the given Map is null
 	 */
@@ -169,6 +174,9 @@ public class MapCollection extends AbstractCollection<Object>
 	 * Objects in the given Collection is not relevant to the ability to match a
 	 * Key or a Value in the underlying Map. The given Collection must be not be
 	 * null.
+	 * 
+	 * This method is value-semantic in that the given Collection and the
+	 * contents of the Collection are not modified by this method call.
 	 * 
 	 * @param arg0
 	 *            The Collection of Objects to be tested for presence in the

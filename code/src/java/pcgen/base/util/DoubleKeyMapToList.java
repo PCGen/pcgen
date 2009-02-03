@@ -164,9 +164,10 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * DoubleKeyMapToList. This method will automatically initialize the list
 	 * for the given key if there is not already a List for that key.
 	 * 
-	 * This method is reference-semantic and this DoubleKeyMapToList will
-	 * maintain a strong reference to both the key objects and the objects in
-	 * the given list.
+	 * This method is both reference-semantic and value-semantic. This
+	 * DoubleKeyMapToList will not maintain a reference to the given Collection.
+	 * However, This DoubleKeyMapToList will maintain a strong reference to both
+	 * the key objects and the objects in the given Collection.
 	 * 
 	 * @param key1
 	 *            The primary key indicating which List the given objects should
@@ -346,6 +347,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 
 	/**
 	 * Returns a Set indicating the primary Keys of this DoubleKeyMapToList.
+	 * 
 	 * Ownership of the Set is transferred to the calling Object, no association
 	 * is kept between the Set and this MapToList. (Thus, removal of a key from
 	 * the returned Set will not remove that key from this DoubleKeyMapToList)
@@ -376,9 +378,9 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * all of the lists associated with those keys are empty, yet this method
 	 * will return a non-zero length Set.
 	 * 
-	 * Note: This Set is reference-semantic. The ownership of the Set is
-	 * transferred to the calling Object; therefore, changes to the returned Set
-	 * will NOT impact the DoubleKeyMapToList.
+	 * Note: Ownership of the Set is transferred to the calling Object;
+	 * therefore, changes to the returned Set will NOT impact the
+	 * DoubleKeyMapToList.
 	 * 
 	 * @param aPrimaryKey
 	 *            The primary key to retrieve keys for.

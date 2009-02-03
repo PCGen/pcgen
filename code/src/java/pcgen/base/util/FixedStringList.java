@@ -158,8 +158,8 @@ public class FixedStringList extends AbstractList<String> implements
 	 * replace the first null values within the FixedStringList (in order
 	 * returned by the Iterator provided by the Collection).
 	 * 
-	 * This constructor is value-semantic, in that the given Collection will not
-	 * be modified by this constructor, and no reference to the given Collection
+	 * This method is value-semantic, in that the given Collection will not be
+	 * modified by this constructor, and no reference to the given Collection
 	 * will be maintained. (References to the Strings within the Collection will
 	 * be maintained, but as Strings are immutable objects, that is a 'safe'
 	 * operation)

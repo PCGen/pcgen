@@ -131,7 +131,7 @@ public class KeyMap<V>
 	/**
 	 * Returns a Set of the keys for this KeyMap
 	 * 
-	 * Note: This Set is reference-semantic. The ownership of the Set is
+	 * Note: The returned Set is value-semantic. The ownership of the Set is
 	 * transferred to the calling Object; therefore, changes to the returned Set
 	 * will NOT impact the KeyMap.
 	 * 
@@ -175,6 +175,11 @@ public class KeyMap<V>
 	 * If the given Map contains a Key or Value more than once, then the *last*
 	 * instance of that Key or Value in the Map (as determined by the iterator
 	 * of the given Map) will be stored in the KeyMap.
+	 * 
+	 * This method is both reference-semantic and value-semantic. It will not
+	 * modify or maintain a reference to the given Map. However, this
+	 * OneToOneMap will maintain a strong reference to both the key objects and
+	 * the objects contained in the given Map.
 	 * 
 	 * @param m
 	 *            The Map for which the key/value combinations should be placed
@@ -224,9 +229,11 @@ public class KeyMap<V>
 	/**
 	 * Returns a Collection of the values for this KeyMap.
 	 * 
-	 * Note: This Collection is reference-semantic. The ownership of the
-	 * Collection is transferred to the calling Object; therefore, changes to
-	 * the returned Collection will NOT impact the KeyMap.
+	 * Note: This Collection is both reference-semantic and value-semantic. The
+	 * ownership of the Collection is transferred to the calling Object;
+	 * therefore, changes to the returned Collection will NOT impact the KeyMap.
+	 * However, changes to the objects contained within the returned Collection
+	 * will change objects contained within this KeyMap.
 	 * 
 	 * @return A Collection of the values for this KeyMap
 	 */

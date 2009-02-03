@@ -143,9 +143,10 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 * TripleKeyMapToList. This method will automatically initialize the list
 	 * for the given key if there is not already a List for that key.
 	 * 
-	 * This method is reference-semantic and this TripleKeyMapToList will
-	 * maintain a strong reference to both the key objects and the objects in
-	 * the given list.
+	 * This method is both reference-semantic and value-semantic. It will not
+	 * modify or maintain a reference to the given Collection of objects.
+	 * However, this TripleKeyMapToList will maintain a strong reference to both
+	 * the key objects and the objects contained in the given Collection.
 	 * 
 	 * @param key1
 	 *            The primary key indicating which List the given object should

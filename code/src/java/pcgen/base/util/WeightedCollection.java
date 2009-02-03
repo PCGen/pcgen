@@ -85,6 +85,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * provided. All the elements added will have the default weight equal to
 	 * the number of times they appear in the given collection.
 	 * 
+	 * This constructor is both reference-semantic and value-semantic. It will
+	 * not modify or maintain a reference to the given Collection of objects.
+	 * However, references to the objects contained in the Collection are
+	 * maintained by the WeightedCollection, and the WeightedCollection may
+	 * return references to those objects contained in the Collection.
+	 * 
 	 * @param c
 	 *            The <tt>Collection</tt> to copy.
 	 * @throws NullPointerException
@@ -138,6 +144,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	/**
 	 * Adds all the elements from the specified <tt>Collection</tt> to this
 	 * WeightedCollection with the default weight of 1.
+	 * 
+	 * This method is both reference-semantic and value-semantic. It will not
+	 * modify or maintain a reference to the given Collection of objects.
+	 * However, references to the objects contained in the Collection are
+	 * maintained by the WeightedCollection, and the WeightedCollection may
+	 * return references to those objects contained in the Collection.
 	 * 
 	 * @param c
 	 *            The <tt>Collection</tt> to add the elements from.
@@ -243,6 +255,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * WeightedCollection. This Iterator <i>accounts for the weight of the
 	 * elements in the WeightedCollection</i>.
 	 * 
+	 * This method is reference-semantic. While ownership of the Iterator is
+	 * transferred to the calling object (no reference to the iterator is
+	 * maintained by the WeightedCollection), actions on the returned Iterator
+	 * (e.g. remove()) can alter the WeightedCollection on which this method was
+	 * called.
+	 * 
 	 * @return An <tt>Iterator</tt> for the WeightedCollection.
 	 * 
 	 * @see java.util.Collection#iterator()
@@ -259,6 +277,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * the elements in the WeightedCollection</i>. Therefore in a list with
 	 * three elements of differing weights, this iterator simply returns each
 	 * element in turn.
+	 * 
+	 * This method is reference-semantic. While ownership of the Iterator is
+	 * transferred to the calling object (no reference to the iterator is
+	 * maintained by the WeightedCollection), actions on the returned Iterator
+	 * (e.g. remove()) can alter the WeightedCollection on which this method was
+	 * called.
 	 * 
 	 * @return An <tt>Iterator</tt> for the WeightedCollection.
 	 */
@@ -432,6 +456,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	/**
 	 * Adds each element in the specified collection with the indicated weight
 	 * value.
+	 * 
+	 * This method is both reference-semantic and value-semantic. It will not
+	 * modify or maintain a reference to the given Collection of objects.
+	 * However, references to the objects contained in the Collection are
+	 * maintained by the WeightedCollection, and the WeightedCollection may
+	 * return references to those objects contained in the Collection.
 	 * 
 	 * @param aWeight
 	 *            The weight value to use for each element added.

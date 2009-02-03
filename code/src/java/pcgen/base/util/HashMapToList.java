@@ -76,7 +76,12 @@ public class HashMapToList<K, V> extends AbstractMapToList<K, V>
 	}
 
 	/**
-	 * Creates a new HashSet for use by AbstractMapToList
+	 * Creates a new HashSet for use by AbstractMapToList. It is intended that
+	 * this will only be used by AbstractMapToList.
+	 * 
+	 * Ownership of the constructed Set is transferred to the calling object,
+	 * and no reference to it is maintained by HashMapToList due to this method
+	 * call.
 	 * 
 	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
 	 */

@@ -111,6 +111,10 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	/**
 	 * Puts a new object into the TripleKeyMap.
 	 * 
+	 * This method is reference-semantic and this TripleKeyMap will maintain a
+	 * strong reference to both the key object and the value object given as
+	 * arguments to this method.
+	 * 
 	 * @param key1
 	 *            The primary key used to store the value in this TripleKeyMap.
 	 * @param key2
@@ -365,9 +369,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * Returns a Set of the values stored in this TripleKeyMap for the given
 	 * primary and secondary keys.
 	 * 
-	 * Note: This Set is reference-semantic. The ownership of the Set is
-	 * transferred to the calling Object; therefore, changes to the returned Set
-	 * will NOT impact the TripleKeyMap.
+	 * The ownership of the Set is transferred to the calling Object; therefore,
+	 * changes to the returned Set will NOT impact the TripleKeyMap. However,
+	 * changes to the underlying keys can impact this TripleKeyMap.
 	 * 
 	 * @param key1
 	 *            The primary key for which the values will be returned

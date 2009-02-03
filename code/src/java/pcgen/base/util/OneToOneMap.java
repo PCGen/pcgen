@@ -121,9 +121,8 @@ public class OneToOneMap<K, V>
 	/**
 	 * Returns a Set of the keys for this OneToOneMap
 	 * 
-	 * Note: This Set is reference-semantic. The ownership of the Set is
-	 * transferred to the calling Object; therefore, changes to the returned Set
-	 * will NOT impact the OneToOneMap.
+	 * Note: Ownership of the Set is transferred to the calling Object;
+	 * therefore, changes to the returned Set will NOT impact the OneToOneMap.
 	 * 
 	 * @return A Set of the keys for this OneToOneMap
 	 */
@@ -165,6 +164,11 @@ public class OneToOneMap<K, V>
 	 * If the given Map contains a Key or Value more than once, then the *last*
 	 * instance of that Key or Value in the Map (as determined by the iterator
 	 * of the given Map) will be stored in the OneToOneMap.
+	 * 
+	 * This method is both reference-semantic and value-semantic. It will not
+	 * modify or maintain a reference to the given Map. However, this
+	 * OneToOneMap will maintain a strong reference to both the key objects and
+	 * the objects contained in the given Map.
 	 * 
 	 * @param m
 	 *            The Map for which the key/value combinations should be placed
@@ -210,9 +214,9 @@ public class OneToOneMap<K, V>
 	/**
 	 * Returns a Collection of the values for this OneToOneMap.
 	 * 
-	 * Note: This Collection is reference-semantic. The ownership of the
-	 * Collection is transferred to the calling Object; therefore, changes to
-	 * the returned Collection will NOT impact the OneToOneMap.
+	 * Note: Ownership of the Collection is transferred to the calling Object;
+	 * therefore, changes to the returned Collection will NOT impact the
+	 * OneToOneMap.
 	 * 
 	 * @return A Collection of the values for this OneToOneMap
 	 */

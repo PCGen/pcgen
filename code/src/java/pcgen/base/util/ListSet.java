@@ -106,17 +106,18 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	/**
 	 * Construct a new ListSet with the contents of the given Set.
 	 * 
-	 * No reference is maintained to the internal structure of the given
-	 * Set, so modifications to this Set are not reflected in the given
-	 * Set (and vice versa). However, objects from the given
-	 * Set are maintained by reference, so modification to the objects contained in 
-	 * either this Set or the given Set will be reflected in the other Set (this
-	 * is consistent behavior with the analogous constructors in the
-	 * java.util.Set implementations)
+	 * This method is both reference-semantic and value-semantic. No reference
+	 * is maintained to the internal structure of the given Collection, so
+	 * modifications to this Set are not reflected in the given Collection (and
+	 * vice versa). However, objects from the given Collection are maintained by
+	 * reference, so modification to the objects contained in either this Set or
+	 * the given Collection will be reflected in the other (this is consistent
+	 * behavior with the analogous constructors in the java.util.Set
+	 * implementations)
 	 * 
 	 * @param otherSet
-	 *            The Set to use as a source of objects for
-	 *            initializing this ListSet
+	 *            The Set to use as a source of objects for initializing this
+	 *            ListSet
 	 * @throws NullPointerException
 	 *             if the given Set is null
 	 */

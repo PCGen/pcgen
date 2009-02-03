@@ -135,8 +135,10 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * method will automatically initialize the list for the given key if there
 	 * is not already a List for that key.
 	 * 
-	 * This method is reference-semantic and this MapToList will maintain a
-	 * strong reference to both the key object and the object in the given list.
+	 * This method is both reference-semantic and value-semantic. This MapToList
+	 * will not maintain a reference to or modify the given Collection. However,
+	 * this MapToList will maintain a strong reference to both the key object
+	 * and the objects in the given Collection.
 	 * 
 	 * @param key
 	 *            The key indicating which List the objects in the given List
@@ -167,9 +169,10 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * resulting lists are independent, however, since MapToList is
 	 * reference-semantic, the List keys and values in each list are identical.
 	 * 
-	 * This method is reference-semantic and this MapToList will maintain a
-	 * strong reference to all key objects and objects in each list of the given
-	 * MapToList.
+	 * This method is both reference-semantic and value-semantic. This MapToList
+	 * will not maintain a reference to or modify the given MapToList. However,
+	 * this MapToList will maintain a strong reference to all key objects and
+	 * objects in each list of the given MapToList.
 	 * 
 	 * @param mtl
 	 *            The MapToList from which all of the Lists should be imported
@@ -268,7 +271,9 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * 
 	 * This method is value-semantic in that no changes are made to the object
 	 * passed into the method and ownership of the returned List is transferred
-	 * to the class calling this method.
+	 * to the class calling this method. Modification of the returned List will
+	 * not modify this MapToList and modification of this MapToList will not
+	 * modify the returned List.
 	 * 
 	 * Note: If you are only acquiring a single instance from a given list (and
 	 * acquiring that by the order in which it appears in the list) it is
@@ -418,10 +423,11 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
-	 * Returns a Set indicating the Keys of this MapToList. Ownership of the Set
-	 * is transferred to the calling Object, no association is kept between the
-	 * Set and this MapToList. (Thus, removal of a key from the returned Set
-	 * will not remove that key from this MapToList)
+	 * Returns a Set indicating the Keys of this MapToList.
+	 * 
+	 * Ownership of the Set is transferred to the calling Object, no association
+	 * is kept between the Set and this MapToList. (Thus, removal of a key from
+	 * the returned Set will not remove that key from this MapToList)
 	 * 
 	 * NOTE: This method returns all of the keys this MapToList contains. It
 	 * DOES NOT determine whether the Lists defined for the keys are empty.

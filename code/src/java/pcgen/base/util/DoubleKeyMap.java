@@ -194,6 +194,14 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * any of the key combinations in the given DoubleKeyMap, the previous value
 	 * is overwritten.
 	 * 
+	 * No reference is maintained to the internal structure of the given
+	 * DoubleKeyMap, so modifications to this Map are not reflected in the given
+	 * Map (and vice versa). However, the Key and Value objects from the given
+	 * Map are maintained by reference, so modification to the Keys or Values of
+	 * either this Map or the given Map will be reflected in the other Map (this
+	 * is consistent behavior with the analogous constructors in the
+	 * java.util.Map implementations)
+	 * 
 	 * @param dkm
 	 *            The DoubleKeyMap for which the key/value combinations should
 	 *            be placed into this DoubleKeyMap
@@ -237,6 +245,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	/**
 	 * Retrieves the Map from DoubleKeyMap for the given primary key. If this DoubleKeyMap
 	 * does not a mapping for the given key, an empty map is returned.
+	 * 
+	 * This method is value-semantic in that no changes are made to the object
+	 * passed into the method and ownership of the returned List is transferred
+	 * to the class calling this method.
 	 * 
 	 * @param key1
 	 *            The primary key for retrieving the map
@@ -315,6 +327,11 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	/**
 	 * Removes all objects with the given primary key from the DoubleKeyMap.
 	 * 
+	 * This method is value-semantic in that no changes are made to the object
+	 * passed into the method and ownership of the returned Map is transferred
+	 * to the class calling this method (no reference to the returned Map is
+	 * maintained by DoubleKeyMap)
+	 * 
 	 * @param key1
 	 *            The primary key used to remove the value in this DoubleKeyMap.
 	 * @return the Map of objects stored in this DoubleKeyMap for the given
@@ -329,9 +346,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	/**
 	 * Returns a Set of the primary keys for this DoubleKeyMap
 	 * 
-	 * Note: This Set is reference-semantic. The ownership of the Set is
-	 * transferred to the calling Object; therefore, changes to the returned Set
-	 * will NOT impact the DoubleKeyMap.
+	 * Note: Ownership of the Set is transferred to the calling Object;
+	 * therefore, changes to the returned Set will NOT impact the DoubleKeyMap.
+	 * However, changes to the underlying object will impact the objects
+	 * contained within this DoubleKeyMap.
 	 * 
 	 * @return A Set of the primary keys for this DoubleKeyMap
 	 */

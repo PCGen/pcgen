@@ -55,6 +55,9 @@ public final class StringUtil
 	 * Concatenates the Collection of Strings into a String using the separator
 	 * as the delimiter.
 	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Collection of strings.
+	 * 
 	 * @param strings
 	 *            An Collection of strings
 	 * @param separator
@@ -70,6 +73,11 @@ public final class StringUtil
 	/**
 	 * Concatenates the Collection of Strings into a StringBuffer using the
 	 * separator as the delimiter.
+	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Collection of strings. Ownership of the returned
+	 * StringBuilder is transferred to the calling object. No reference to the
+	 * StringBuilder is maintained by StringUtil.
 	 * 
 	 * @param strings
 	 *            An Collection of strings
@@ -105,6 +113,9 @@ public final class StringUtil
 	/**
 	 * Concatenates the Array of Strings into a String using the separator as
 	 * the delimiter.
+	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Array of strings.
 	 * 
 	 * @param strings
 	 *            An Array of strings
