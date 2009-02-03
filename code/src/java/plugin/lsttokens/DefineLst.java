@@ -107,7 +107,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		catch (IllegalArgumentException e)
 		{
 			Logging.log(Logging.LST_ERROR, "Illegal Formula found in " + getTokenName()
-					+ ": " + value);
+					+ ": " + value + " " + e.getLocalizedMessage());
 			return false;
 		}
 	}
