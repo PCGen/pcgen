@@ -94,4 +94,104 @@ public class VisionIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Test
+	public void testRoundRobinclearMod() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Normal (30')");
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearBase() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, "Normal (30')");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearBoth() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearNoSet() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearNoReset() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
+
+	@Test
+	public void testRoundRobinClearDotMod() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "Normal (30')");
+		commit(modCampaign, tc, ".CLEAR.Normal");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearDotBase() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR.Normal");
+		commit(modCampaign, tc, "Normal (30')");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearDotBoth() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR.Normal");
+		commit(modCampaign, tc, ".CLEAR.Normal");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearDotNoSet() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, ".CLEAR.Normal");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearDotNoReset() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR.Normal");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
 }
