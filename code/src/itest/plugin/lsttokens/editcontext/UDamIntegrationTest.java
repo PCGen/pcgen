@@ -84,4 +84,54 @@ public class UDamIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Test
+	public void testRoundRobinClearBase() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, "1,2,3,4*form,5*form,6,7*form,8,9");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearMod() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "1,2,3,4,5,6,7,8,9");
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearBoth() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearNoSet() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearNoReset() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
 }
