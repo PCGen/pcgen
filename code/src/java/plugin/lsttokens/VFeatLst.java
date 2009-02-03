@@ -157,13 +157,6 @@ public class VFeatLst extends AbstractToken implements
 		AssociatedChanges<CDOMReference<Ability>> changes = context
 				.getListContext().getChangesInList(getTokenName(), obj,
 						Ability.FEATLIST);
-		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes
-				.getAddedAssociations();
-		if (mtl == null || mtl.isEmpty())
-		{
-			// Zero indicates no Token
-			return null;
-		}
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> added = changes
 				.getAddedAssociations();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
@@ -188,9 +181,9 @@ public class VFeatLst extends AbstractToken implements
 		if (added != null && !added.isEmpty())
 		{
 			HashMapToList<List<Prerequisite>, CDOMReference<Ability>> m = new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
-			for (CDOMReference<Ability> ab : mtl.getKeySet())
+			for (CDOMReference<Ability> ab : added.getKeySet())
 			{
-				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+				for (AssociatedPrereqObject assoc : added.getListFor(ab))
 				{
 					m.addToListFor(assoc.getPrerequisiteList(), ab);
 				}
