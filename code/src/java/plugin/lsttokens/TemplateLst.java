@@ -134,36 +134,10 @@ public class TemplateLst extends AbstractToken implements
 
 		List<String> list = new ArrayList<String>();
 
-		Collection<CDOMReference<PCTemplate>> removed = changes.getRemoved();
-		StringBuilder sb = new StringBuilder();
-		if (changes.includesGlobalClear())
-		{
-			sb.append(Constants.LST_DOT_CLEAR);
-		}
-		if (removed != null && !removed.isEmpty())
-		{
-			boolean first = sb.length() == 0;
-			for (CDOMReference<PCTemplate> ref : removed)
-			{
-				if (!first)
-				{
-					sb.append(Constants.PIPE);
-				}
-				list.add(Constants.LST_DOT_CLEAR_DOT + ref.getLSTformat());
-			}
-		}
 		Collection<CDOMReference<PCTemplate>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			if (sb.length() != 0)
-			{
-				sb.append(Constants.PIPE);
-			}
-			sb.append(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
-		}
-		if (sb.length() != 0)
-		{
-			list.add(sb.toString());
+			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
 
 		Changes<CDOMReference<PCTemplate>> choosechanges = context
@@ -195,7 +169,7 @@ public class TemplateLst extends AbstractToken implements
 		Collection<CDOMReference<PCTemplate>> radd = removechanges.getAdded();
 		if (radd != null && !radd.isEmpty())
 		{
-			sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder();
 			boolean needPipe = false;
 			for (CDOMReference<PCTemplate> ref : radd)
 			{

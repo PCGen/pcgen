@@ -21,10 +21,12 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.TemplateLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
+import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class TemplateIntegrationTest extends
@@ -101,4 +103,135 @@ public class TemplateIntegrationTest extends
 		return false;
 	}
 
+	@Test
+	public void testRoundRobinAddRemove() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "TestWP1.REMOVE");
+		commit(modCampaign, tc, "TestWP2.REMOVE");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinMergeRemove() throws PersistenceLayerException
+	{
+		if (isMerge())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(primaryContext, "TestWP2");
+			construct(secondaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP2");
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, "TestWP1.REMOVE");
+			commit(testCampaign, tc, "TestWP2.REMOVE");
+			tc = new TestContext();
+			tc.putText(testCampaign.getURI(), new String[] { "TestWP1.REMOVE"
+					+ getJoinCharacter() + "TestWP2.REMOVE" });
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
+	public void testRoundRobinRemoveSame() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "TestWP1.REMOVE");
+		commit(modCampaign, tc, "TestWP1.REMOVE");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoOriginalRemove()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, "TestWP2.REMOVE");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoModRemove() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "TestWP2.REMOVE");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinAddChoose() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP2");
+		construct(primaryContext, "TestWP3");
+		construct(primaryContext, "TestWP4");
+		construct(secondaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP4");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "CHOOSE:TestWP1|TestWP2");
+		commit(modCampaign, tc, "CHOOSE:TestWP3|TestWP4");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinChooseSame() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP3");
+		construct(primaryContext, "TestWP4");
+		construct(secondaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP4");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "CHOOSE:TestWP3|TestWP4");
+		commit(modCampaign, tc, "CHOOSE:TestWP3|TestWP4");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoOriginalChoose()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP3");
+		construct(primaryContext, "TestWP4");
+		construct(secondaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP4");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, "CHOOSE:TestWP3|TestWP4");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoModChoose() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP3");
+		construct(primaryContext, "TestWP4");
+		construct(secondaryContext, "TestWP3");
+		construct(secondaryContext, "TestWP4");
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "CHOOSE:TestWP3|TestWP4");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
 }
