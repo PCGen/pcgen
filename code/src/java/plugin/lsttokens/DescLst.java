@@ -29,8 +29,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Description;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.io.EntityEncoder;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.PatternChanges;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -161,14 +161,14 @@ public class DescLst extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Description> changes =
-				context.obj.getListChanges(obj, ListKey.DESCRIPTION);
+		PatternChanges<Description> changes =
+				context.obj.getListPatternChanges(obj, ListKey.DESCRIPTION);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		List<String> list = new ArrayList<String>();
-		Collection<Description> removedItems = changes.getRemoved();
+		Collection<String> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{
 			if (removedItems != null && !removedItems.isEmpty())
@@ -182,14 +182,11 @@ public class DescLst extends AbstractToken implements
 		}
 		if (removedItems != null && !removedItems.isEmpty())
 		{
-			for (Description d : removedItems)
+			for (String d : removedItems)
 			{
 				list.add(Constants.LST_DOT_CLEAR_DOT + d);
 			}
 		}
-		/*
-		 * TODO .CLEAR. is not properly round-robin capable
-		 */
 		Collection<Description> addedItems = changes.getAdded();
 		if (addedItems != null)
 		{
