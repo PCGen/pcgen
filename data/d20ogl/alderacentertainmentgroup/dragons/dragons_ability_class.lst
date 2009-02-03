@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 12:28:16 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Mon Feb  2 22:24:07 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
 
 ###Block: Air Lord
@@ -39,18 +39,14 @@ Thunder of the Dragon	CATEGORY:Special Ability	SAB:Thunder of the Dragon
 Master of the Dragon	CATEGORY:Special Ability	SAB:Master of the Dragon
 
 ###Block: Wyrmfoe
-# Ability Name		Category of Ability		Special ABility
-Dragon Magic I		CATEGORY:Special Ability	SAB:Dragon Magic I
-Dragon Claws		CATEGORY:Special Ability	SAB:Dragon Claws
-Damage Resistance I	CATEGORY:Special Ability	SAB:Damage Resistance I
-Dragon Magic II		CATEGORY:Special Ability	SAB:Dragon Magic II
-Dragon Creature Type	CATEGORY:Special Ability	SAB:Dragon Creature Type
-Damage Resistance II	CATEGORY:Special Ability	SAB:Damage Resistance II
-Dragon Magic III		CATEGORY:Special Ability	SAB:Dragon Magic III
-Damage Resistance III	CATEGORY:Special Ability	SAB:Damage Resistance III
-Dragon Breath		CATEGORY:Special Ability	SAB:Dragon Breath
-Dragon Magic IV		CATEGORY:Special Ability	SAB:Dragon Magic IV
-
+# Ability Name				Category of Ability		Type					Visible		Special ABility														Define					Ability								Modify VAR
+Dragon Magic				CATEGORY:Special Ability									SAB:Dragon Magic (-% metamagic or +% casterlevel)|DragonMagicProgression|DragonMagicProgression	DEFINE:DragonMagicProgression|0
+Dragon Claws				CATEGORY:Special Ability									SAB:Dragon Claws
+Dragon Creature Type			CATEGORY:Special Ability									SAB:Dragon Creature Type
+Dragon Breath				CATEGORY:Special Ability									SAB:Dragon Breath
+Wyrmfoe Damage Resistance (Acid)	CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY																	DEFINE:WyrmfoeDR|0			ABILITY:Special Ability|AUTOMATIC|Resistance To Acid	BONUS:VAR|AcidResistanceBonus|WyrmfoeDR
+Wyrmfoe Damage Resistance (Cold)	CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY																	DEFINE:WyrmfoeDR|0			ABILITY:Special Ability|AUTOMATIC|Resistance To Cold	BONUS:VAR|ColdResistanceBonus|WyrmfoeDR
+Wyrmfoe Damage Resistance (Fire)	CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY																	DEFINE:WyrmfoeDR|0			ABILITY:Special Ability|AUTOMATIC|Resistance To Fire	BONUS:VAR|FireResistanceBonus|WyrmfoeDR
 
 ###Block: Wyrm Spawn
 # Ability Name		Category of Ability		Special ABility

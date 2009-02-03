@@ -51,13 +51,13 @@ CLASS:The Dying	STARTSKILLPTS:2
 1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Level progression
 1							SAB:Incurable (Su)	SAB:Resist Taint																			BONUS:STAT|CON|-1
-2																																BONUS:STAT|STR|-1	ADD:FEAT|1|Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
+2																																BONUS:STAT|STR|-1	ADD:FEAT|1|Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
 3							SAB:Fervor (Su)																							BONUS:STAT|CHA|-1
-4							SAB:Tireless (Su)																							BONUS:STAT|DEX|-1	ADD:FEAT|1|Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
+4							SAB:Tireless (Su)																							BONUS:STAT|DEX|-1	ADD:FEAT|1|Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
 5							SAB:Improved Turn Undead (Su)												BONUS:HP|CURRENTMAX|-10
-6							SAB:Doom (Sp)	SAB:Incurable (Su)	SAB:Protection from Evil(Sp)	SAB:Regeneration (Sp)													ADD:FEAT|1|Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
+6							SAB:Doom (Sp)	SAB:Incurable (Su)	SAB:Protection from Evil(Sp)	SAB:Regeneration (Sp)													ADD:FEAT|1|Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
 7							SAB:Radiate Evil (Su)	SAB:Unearthly Courage (Su)
-8																											BONUS:MOVEADD|TYPE=Walk|-10				ADD:FEAT|1|Blind-Fight,Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
+8																											BONUS:MOVEADD|TYPE=Walk|-10				ADD:FEAT|1|Cleave,Death Angel,Fearless,Great Cleave,Great Fortitude,Improved Critical,Improved Endurance,Iron Will,Invincible,Pure Hearted,Sixth Sense,Stout Hearted,Thick Skin(Cold),Thick Skin(Hot),Toughness,Turn Outsider,TYPE=Fighter
 9	VISION:Darkvision (60')	DR:15/+2	SAB:Blindness (Su)
 10							SAB:Death
 

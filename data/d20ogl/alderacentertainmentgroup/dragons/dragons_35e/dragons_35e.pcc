@@ -34,6 +34,7 @@ EQUIPMENT:dragonsequipweapons_35e.lst
 FEAT:dragonsfeats_35e.lst
 SKILL:dragonsskills_35e.lst
 
+ABILITYCATEGORY:../dragonsabilitycategories.lst
 ABILITY:../dragons_ability_class.lst|(EXCLUDE:CATEGORY=Special Ability,Summon Air Elemental)
 CLASS:../dragonsclasses.lst
 DEITY:../dragonsdeities.lst

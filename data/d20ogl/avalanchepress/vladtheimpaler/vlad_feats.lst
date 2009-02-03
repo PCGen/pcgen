@@ -5,6 +5,6 @@ SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCES
 # Feat Name			Type			Req. Att.	Required Feat									Required Skill	Description																											Automatically Gained Weapon Prof.	Weapon prof. bonus						Source Page
 Amputate			TYPE:General														PRESKILL:1,Heal=8	DESC:This is the brutal but often necessary task of removing a shattered or sevearly injured limb either because it is ruined or to prevent the onset of gangrene.																SOURCEPAGE:p.33
 Behead			TYPE:General	PREATT:4	PREFEAT:1,Power Attack	PREFEAT:1,Weapon Focus(TYPE.Slashing)				DESC:See Text																																									SOURCEPAGE:p.33
-Firearms Proficiency	TYPE:General																	DESC:The character is experienced in the use of an arquebuse.																		AUTO:WEAPONPROF|TYPE.Arquebuse	BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty	SOURCEPAGE:p.33
+Firearms Proficiency	TYPE:General																	DESC:The character is experienced in the use of an arquebuse.																		AUTO:WEAPONPROF|TYPE.Arquebus		BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty	SOURCEPAGE:p.33
 Gunnery			TYPE:General																	DESC:The character is trained in the use of field cannon for sieges.																	AUTO:WEAPONPROF|TYPE.Cannon		BONUS:WEAPONPROF=Cannon|TOHIT|0|TYPE=GunneryPenalty	SOURCEPAGE:p.33
 

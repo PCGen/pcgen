@@ -21,26 +21,26 @@ COPYRIGHT:PCGen dataset conversion for Black Flags: Piracy in the Caribbean Copy
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# I get the feeling this was originally coded to handle a specific campaign setting, that would be better off in an ALTPCC... - Tir Gwaith
-
 CLASS:blackflags_classes.lst
 SKILL:blackflags_skills.lst
 FEAT:blackflags_feats.lst
 FEAT:blackflags_feats_hidden.lst
 
+# I get the feeling this was originally coded to handle a specific campaign setting, that would be better off in an ALTPCC... - Tir Gwaith
+
 # Stuff from the SRD.
-SKILL:@/d20ogl/srd/basics/srd_skills.lst
-FEAT:@/d20ogl/srd/basics/srd_feats.lst
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,All Martial Weapon Proficiencies,All Automatic Proficiencies)
-RACE:@/d20ogl/srd/basics/srd_races__base.lst|(INCLUDE:Human)
-WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
-EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
-TEMPLATE:@/d20ogl/srd/basics/srd_templates_types.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_armorshields.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_coinsgems.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ammo.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_melee.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ranged.lst
+#SKILL:@/d20ogl/srd/basics/srd_skills.lst
+#FEAT:@/d20ogl/srd/basics/srd_feats.lst
+#ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,All Martial Weapon Proficiencies,All Automatic Proficiencies)
+#RACE:@/d20ogl/srd/basics/srd_races__base.lst|(INCLUDE:Human)
+#WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
+#EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
+#TEMPLATE:@/d20ogl/srd/basics/srd_templates_types.lst
+#EQUIPMENT:@/d20ogl/srd/basics/srd_equip_armorshields.lst
+#EQUIPMENT:@/d20ogl/srd/basics/srd_equip_coinsgems.lst
+#EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
+#EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ammo.lst
+#EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_melee.lst
+#EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ranged.lst
 #TODO... still need to type in all Black Flag specific equipment!
 
