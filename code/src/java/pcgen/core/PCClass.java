@@ -3865,7 +3865,7 @@ public class PCClass extends PObject
 		}
 
 		pc.removeAllAssocs(this, AssociationListKey.CLASSSKILLLIST);
-		for (ClassSkillList st : csc.driveChoice(null))
+		for (ClassSkillList st : csc.driveChoice(pc))
 		{
 			pc.addAssoc(pc, AssociationListKey.CLASSSKILLLIST, st);
 		}
@@ -3885,7 +3885,7 @@ public class PCClass extends PObject
 		}
 
 		clearClassSpellList(pc);
-		for (CDOMListObject<Spell> st : csc.driveChoice(null))
+		for (CDOMListObject<Spell> st : csc.driveChoice(pc))
 		{
 			addClassSpellList(st, pc);
 		}
