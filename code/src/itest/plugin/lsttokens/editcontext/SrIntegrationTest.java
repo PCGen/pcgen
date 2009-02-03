@@ -17,12 +17,16 @@
  */
 package plugin.lsttokens.editcontext;
 
+import org.junit.Test;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.SrLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractFormulaIntegrationTestCase;
+import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SrIntegrationTest extends
@@ -55,5 +59,55 @@ public class SrIntegrationTest extends
 	public boolean isNegativeAllowed()
 	{
 		return false;
+	}
+
+	@Test
+	public void testRoundRobinSimpleClear() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, "2");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearMod() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "1");
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinIdenticalClear() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoSetClear() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, ".CLEAR");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoResetClear() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, ".CLEAR");
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
 	}
 }

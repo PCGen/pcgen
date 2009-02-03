@@ -90,4 +90,6 @@ public interface ObjectCommitStrategy
 
 	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
 			ListKey<T> lk);
+
+	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok);
 }

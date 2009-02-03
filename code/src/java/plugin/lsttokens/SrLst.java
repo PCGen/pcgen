@@ -17,7 +17,11 @@
  */
 package plugin.lsttokens;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -38,7 +42,7 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		if (".CLEAR".equals(value))
+		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			context.getObjectContext().remove(obj, ObjectKey.SR);
 		}
@@ -54,15 +58,21 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 	{
 		SpellResistance sr = context.getObjectContext().getObject(obj,
 				ObjectKey.SR);
-		/*
-		 * TODO This can't unparse .CLEAR
-		 */
-		if (sr == null)
+		boolean b = context.getObjectContext().wasRemoved(obj, ObjectKey.SR);
+		List<String> list = new LinkedList<String>();
+		if (b)
 		{
-			// Zero indicates no Token (so nothing to do)
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		if (sr != null)
+		{
+			list.add(sr.getLSTformat());
+		}
+		if (list.isEmpty())
+		{
 			return null;
 		}
-		return new String[] { sr.getLSTformat() };
+		return list.toArray(new String[list.size()]);
 	}
 
 	public Class<CDOMObject> getTokenClass()

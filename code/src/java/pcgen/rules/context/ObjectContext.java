@@ -466,7 +466,8 @@ public class ObjectContext
 
 		public void remove(CDOMObject cdo, ObjectKey<?> sk)
 		{
-			getPositive(sourceURI, cdo).remove(sk);
+			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_OBJECTKEY,
+					sk);
 		}
 
 		public void put(CDOMObject cdo, IntegerKey ik, Integer i)
@@ -663,6 +664,12 @@ public class ObjectContext
 		{
 			patternClearSet.addToListFor(sourceURI, cdo, lk, pattern);
 		}
+
+		public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
+		{
+			return getNegative(extractURI, cdo).containsInList(
+					ListKey.REMOVED_OBJECTKEY, ok);
+		}
 	}
 
 	public Changes<Prerequisite> getPrerequisiteChanges(ConcretePrereqObject obj)
@@ -765,5 +772,10 @@ public class ObjectContext
 			ListKey<T> lk)
 	{
 		return commit.getListPatternChanges(cdo, lk);
+	}
+
+	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
+	{
+		return commit.wasRemoved(cdo, ok);
 	}
 }

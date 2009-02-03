@@ -212,4 +212,9 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	{
 		return new PatternChanges<T>(cdo.getListFor(lk), null, false);
 	}
+
+	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
+	{
+		return false;
+	}
 }
