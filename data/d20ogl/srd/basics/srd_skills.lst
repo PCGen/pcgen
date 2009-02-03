@@ -60,7 +60,7 @@ Listen						KEYSTAT:WIS											TYPE:Wisdom							SOURCEPAGE:srdskillsii.rtf
 Literacy								USEUNTRAINED:NO								TYPE:None.Language					SOURCEPAGE:srdskillsii.rtf																																											BONUS:VAR|IlliteracyLVL|-1|PRESKILL:1,Literacy=1
 Move Silently					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity						SOURCEPAGE:srdskillsii.rtf
 Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity						SOURCEPAGE:srdskillsii.rtf																BONUS:SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC																							TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check
-Perform						KEYSTAT:CHA											TYPE:Charisma						SOURCEPAGE:srdskillsii.rtf					BONUS:ABILITYPOOL|Perform Skill Choice|var("SKILLRANK=Perform")
+Perform						KEYSTAT:CHA											TYPE:Charisma.Perform					SOURCEPAGE:srdskillsii.rtf					BONUS:ABILITYPOOL|Perform Skill Choice|var("SKILLRANK=Perform")
 Pick Pocket						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity						SOURCEPAGE:srdskillsii.rtf																BONUS:SKILL|Pick Pocket|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK
 Profession (Apothecary)				KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession					SOURCEPAGE:srdskillsii.rtf
 Profession (Boater)				KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession					SOURCEPAGE:srdskillsii.rtf
