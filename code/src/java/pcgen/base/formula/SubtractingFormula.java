@@ -51,6 +51,9 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	 * constructor of this SubtractingFormula from the given Number. Only one
 	 * input Number is permitted.
 	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Array of Numbers.
+	 * 
 	 * @return the result of the subtraction
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument

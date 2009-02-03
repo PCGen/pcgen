@@ -60,6 +60,9 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * integer given in the constructor of this DividingFormula. Only one input
 	 * Number is permitted.
 	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Array of Numbers.
+	 * 
 	 * @return the result of the division
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument

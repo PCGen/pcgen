@@ -50,6 +50,9 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	 * constructor of this AddingFormula to the given Number. Only one input
 	 * Number is permitted.
 	 * 
+	 * This method is value-semantic and will not modify or maintain a reference
+	 * to the given Array of Numbers.
+	 * 
 	 * @return the result of the addition
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument
