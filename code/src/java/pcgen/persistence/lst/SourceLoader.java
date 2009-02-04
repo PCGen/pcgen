@@ -30,6 +30,7 @@ public class SourceLoader
 				}
 				else
 				{
+					context.rollback();
 					Logging.replayParsedMessages();
 				}
 				Logging.clearParseMessages();

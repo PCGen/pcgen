@@ -160,6 +160,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		}
 		else
 		{
+			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}
@@ -175,6 +176,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		}
 		else
 		{
+			secondaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}

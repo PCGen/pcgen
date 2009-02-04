@@ -63,6 +63,7 @@ public class CDOMSubLineLoader<T>
 			}
 			else
 			{
+				context.rollback();
 				Logging.rewindParseMessages();
 				Logging.replayParsedMessages();
 				returnValue &= false;

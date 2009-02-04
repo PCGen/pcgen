@@ -82,20 +82,24 @@ public final class PCCheckLoader extends LstLineFileLoader
 			{
 				context.commit();
 			}
-			else if (tokenMap.containsKey(key))
-			{
-				PCCheckLstToken tok = (PCCheckLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, obj, value);
-				if (!tok.parse(obj, value))
-				{
-					Logging.errorPrint("Error parsing PCCheck "
-							+ obj.getDisplayName() + ':' + sourceURI.toString()
-							+ ':' + token + "\"");
-				}
-			}
 			else
 			{
-				Logging.replayParsedMessages();
+				context.rollback();
+				if (tokenMap.containsKey(key))
+				{
+					PCCheckLstToken tok = (PCCheckLstToken) tokenMap.get(key);
+					LstUtils.deprecationCheck(tok, obj, value);
+					if (!tok.parse(obj, value))
+					{
+						Logging.errorPrint("Error parsing PCCheck "
+								+ obj.getDisplayName() + ':'
+								+ sourceURI.toString() + ':' + token + "\"");
+					}
+				}
+				else
+				{
+					Logging.replayParsedMessages();
+				}
 			}
 			Logging.clearParseMessages();
 		}

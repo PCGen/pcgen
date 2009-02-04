@@ -1171,6 +1171,7 @@ public final class EditorMainForm extends JDialog
 					}
 					else
 					{
+						context.rollback();
 						Logging.replayParsedMessages();
 					}
 					Logging.clearParseMessages();

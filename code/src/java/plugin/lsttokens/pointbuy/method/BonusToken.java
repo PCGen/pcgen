@@ -60,6 +60,7 @@ public class BonusToken implements PointBuyMethodLstToken
 			}
 			else
 			{
+				context.rollback();
 				return false;
 			}
 		}

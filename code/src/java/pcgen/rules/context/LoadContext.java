@@ -230,6 +230,7 @@ public abstract class LoadContext
 			}
 			else
 			{
+				rollback();
 				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();

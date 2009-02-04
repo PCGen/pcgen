@@ -128,23 +128,26 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 			{
 				context.commit();
 			}
-			else if (tokenMap.containsKey(key))
-			{
-				SizeAdjustmentLstToken tok = (SizeAdjustmentLstToken) tokenMap
-						.get(key);
-				LstUtils.deprecationCheck(tok, sa, value);
-				if (!tok.parse(sa, value))
-				{
-					Logging.errorPrint("Error parsing SizeAdjustment "
-							+ sa.getDisplayName() + ':' + sourceURI.toString()
-							+ ':' + token + "\"");
-				}
-			}
 			else
 			{
-				Logging.replayParsedMessages();
-			}
-			Logging.clearParseMessages();
+				context.rollback();
+				if (tokenMap.containsKey(key))
+				{
+					SizeAdjustmentLstToken tok = (SizeAdjustmentLstToken) tokenMap
+							.get(key);
+					LstUtils.deprecationCheck(tok, sa, value);
+					if (!tok.parse(sa, value))
+					{
+						Logging.errorPrint("Error parsing SizeAdjustment "
+								+ sa.getDisplayName() + ':'
+								+ sourceURI.toString() + ':' + token + "\"");
+					}
+				}
+				else
+				{
+					Logging.replayParsedMessages();
+				}
+			}			Logging.clearParseMessages();
 		}
 	}
 }

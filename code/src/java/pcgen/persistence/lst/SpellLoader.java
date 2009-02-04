@@ -107,6 +107,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			}
 			else
 			{
+				context.rollback();
 				Logging.replayParsedMessages();
  			}
 			Logging.clearParseMessages();

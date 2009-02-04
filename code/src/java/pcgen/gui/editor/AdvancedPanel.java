@@ -402,6 +402,7 @@ public final class AdvancedPanel extends JPanel
 				}
 				else
 				{
+					context.rollback();
 					Logging.replayParsedMessages();
 				}
 				Logging.clearParseMessages();

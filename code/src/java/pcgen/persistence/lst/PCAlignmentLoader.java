@@ -84,21 +84,25 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 			{
 				context.commit();
 			}
-			else if (tokenMap.containsKey(key))
-			{
-				PCAlignmentLstToken tok = (PCAlignmentLstToken) tokenMap
-						.get(key);
-				LstUtils.deprecationCheck(tok, alignment, value);
-				if (!tok.parse(alignment, value))
-				{
-					Logging.errorPrint("Error parsing Alignment "
-							+ alignment.getDisplayName() + ':'
-							+ sourceURI.toString() + ':' + token + "\"");
-				}
-			}
 			else
 			{
-				Logging.replayParsedMessages();
+				context.rollback();
+				if (tokenMap.containsKey(key))
+				{
+					PCAlignmentLstToken tok = (PCAlignmentLstToken) tokenMap
+							.get(key);
+					LstUtils.deprecationCheck(tok, alignment, value);
+					if (!tok.parse(alignment, value))
+					{
+						Logging.errorPrint("Error parsing Alignment "
+								+ alignment.getDisplayName() + ':'
+								+ sourceURI.toString() + ':' + token + "\"");
+					}
+				}
+				else
+				{
+					Logging.replayParsedMessages();
+				}
 			}
 			Logging.clearParseMessages();
 		}

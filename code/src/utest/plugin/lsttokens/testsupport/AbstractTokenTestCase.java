@@ -191,6 +191,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		}
 		else
 		{
+			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}
@@ -206,6 +207,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		}
 		else
 		{
+			secondaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}

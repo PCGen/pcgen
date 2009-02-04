@@ -108,6 +108,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 			}
 			else
 			{
+				context.rollback();
 				Logging.rewindParseMessages();
 				Logging.replayParsedMessages();
 				returnValue &= false;

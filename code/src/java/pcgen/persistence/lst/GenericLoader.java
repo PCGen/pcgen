@@ -147,6 +147,7 @@ public final class GenericLoader<T extends PObject> extends
 			}
 			else
 			{
+				context.rollback();
 				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();

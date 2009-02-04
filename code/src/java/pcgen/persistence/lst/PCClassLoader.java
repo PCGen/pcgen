@@ -307,6 +307,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
  			{
+				context.rollback();
 				Logging.replayParsedMessages();
  			}
 			Logging.clearParseMessages();
@@ -356,6 +357,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
  			{
+				context.rollback();
 				Logging.replayParsedMessages();
  			}
 			Logging.clearParseMessages();

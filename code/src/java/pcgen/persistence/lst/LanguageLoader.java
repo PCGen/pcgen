@@ -103,6 +103,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			}
 			else
 			{
+				context.rollback();
 				Logging.replayParsedMessages();
  			}
 			Logging.clearParseMessages();

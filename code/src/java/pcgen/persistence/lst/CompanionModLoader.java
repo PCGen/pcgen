@@ -110,6 +110,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 			}
 			else
 			{
+				context.rollback();
 				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();

@@ -87,6 +87,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			}
 			else
 			{
+				context.rollback();
 				Logging.replayParsedMessages();
 				returnValue &= false;
 			}

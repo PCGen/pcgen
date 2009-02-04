@@ -63,20 +63,25 @@ public class EqSizePenaltyLoader
 			{
 				context.commit();
 			}
-			else if (tokenMap.containsKey(key))
-			{
-				EqSizePenaltyLstToken tok = (EqSizePenaltyLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, eqSizePenaltyObj, value);
-				if (!tok.parse(eqSizePenaltyObj, value))
-				{
-					Logging.errorPrint("Error parsing EQ Size Penalty:"
-							+ "miscinfo.lst from the " + gameMode.getName()
-							+ " Game Mode" + ':' + token + "\"");
-				}
-			}
 			else
 			{
-				Logging.replayParsedMessages();
+				context.rollback();
+				if (tokenMap.containsKey(key))
+				{
+					EqSizePenaltyLstToken tok = (EqSizePenaltyLstToken) tokenMap
+							.get(key);
+					LstUtils.deprecationCheck(tok, eqSizePenaltyObj, value);
+					if (!tok.parse(eqSizePenaltyObj, value))
+					{
+						Logging.errorPrint("Error parsing EQ Size Penalty:"
+								+ "miscinfo.lst from the " + gameMode.getName()
+								+ " Game Mode" + ':' + token + "\"");
+					}
+				}
+				else
+				{
+					Logging.replayParsedMessages();
+				}
 			}
 			Logging.clearParseMessages();
 		}

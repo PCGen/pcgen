@@ -107,6 +107,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			}
 			else
 			{
+				context.rollback();
 				Logging.replayParsedMessages();
  			}
 			Logging.clearParseMessages();

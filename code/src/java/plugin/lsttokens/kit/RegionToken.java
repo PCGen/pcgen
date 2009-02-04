@@ -32,13 +32,13 @@ import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 /**
  * Handles the (persistent) REGION tag for Kits.
  */
-public class RegionToken extends AbstractToken implements CDOMPrimaryToken<Kit>
+public class RegionToken extends AbstractToken implements CDOMSecondaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -111,6 +111,11 @@ public class RegionToken extends AbstractToken implements CDOMPrimaryToken<Kit>
 	public Class<Kit> getTokenClass()
 	{
 		return Kit.class;
+	}
+
+	public String getParentToken()
+	{
+		return "*KITTOKEN";
 	}
 
 }

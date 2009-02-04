@@ -180,6 +180,7 @@ public abstract class AbstractSubTokenTestCase<T> extends TestCase
 		}
 		else
 		{
+			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}
@@ -195,6 +196,7 @@ public abstract class AbstractSubTokenTestCase<T> extends TestCase
 		}
 		else
 		{
+			secondaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
 		}

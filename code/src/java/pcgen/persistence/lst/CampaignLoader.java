@@ -116,6 +116,7 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 		else
 		{
+			context.rollback();
 			Logging.replayParsedMessages();
 		}
 		Logging.clearParseMessages();

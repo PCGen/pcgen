@@ -84,20 +84,24 @@ public final class PCStatLoader extends LstLineFileLoader
 			{
 				context.commit();
 			}
-			else if (tokenMap.containsKey(key))
-			{
-				PCStatLstToken tok = (PCStatLstToken) tokenMap.get(key);
-				LstUtils.deprecationCheck(tok, stat, value);
-				if (!tok.parse(stat, value))
-				{
-					Logging.errorPrint("Error parsing PCStat "
-							+ stat.getDisplayName() + ':'
-							+ sourceURI.toString() + ':' + token + "\"");
-				}
-			}
 			else
 			{
-				Logging.replayParsedMessages();
+				context.rollback();
+				if (tokenMap.containsKey(key))
+				{
+					PCStatLstToken tok = (PCStatLstToken) tokenMap.get(key);
+					LstUtils.deprecationCheck(tok, stat, value);
+					if (!tok.parse(stat, value))
+					{
+						Logging.errorPrint("Error parsing PCStat "
+								+ stat.getDisplayName() + ':'
+								+ sourceURI.toString() + ':' + token + "\"");
+					}
+				}
+				else
+				{
+					Logging.replayParsedMessages();
+				}
 			}
 			Logging.clearParseMessages();
 		}
