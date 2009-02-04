@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
@@ -25,8 +24,7 @@ import pcgen.util.Logging;
 
 public class CDOMKitLoader implements CDOMLoader<Kit>
 {
-	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap =
-			new HashMap<String, CDOMSubLineLoader<? extends BaseKit>>();
+	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap = new HashMap<String, CDOMSubLineLoader<? extends BaseKit>>();
 
 	private final Class<Kit> targetClass = Kit.class;
 
@@ -38,15 +36,17 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 	}
 
 	public boolean parseSubLine(LoadContext context, Kit obj, String val,
-		URI source)
+			URI source)
 	{
 		int sepLoc = val.indexOf('\t');
 		String firstToken = (sepLoc == -1) ? val : val.substring(0, sepLoc);
 		int colonLoc = firstToken.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Unsure what to do with line without "
-				+ "a colon in first token: " + val + " in file: " + source);
+			Logging.addParseMessage(Logging.LST_ERROR,
+					"Unsure what to do with line without "
+							+ "a colon in first token: " + val + " in file: "
+							+ source);
 			return false;
 		}
 
@@ -54,8 +54,9 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		CDOMSubLineLoader<? extends BaseKit> loader = loadMap.get(prefix);
 		if (loader == null)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Unsure what to do with line with prefix: "
-				+ prefix + ".  Line was: " + val + " in file: " + source);
+			Logging.addParseMessage(Logging.LST_ERROR,
+					"Unsure what to do with line with prefix: " + prefix
+							+ ".  Line was: " + val + " in file: " + source);
 			return false;
 		}
 		try
@@ -74,51 +75,15 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		return true;
 	}
 
-	public boolean parseLine(LoadContext context, Kit obj, String val, URI source)
-		throws PersistenceLayerException
+	public boolean parseLine(LoadContext context, Kit obj, String val,
+			URI source) throws PersistenceLayerException
 	{
-		StringTokenizer st = new StringTokenizer(val, "\t");
-		boolean returnValue = true;
-		while (st.hasMoreTokens())
-		{
-			String token = st.nextToken().trim();
-			int colonLoc = token.indexOf(':');
-			if (colonLoc == -1)
-			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-					+ token);
-				returnValue &= false;
-				continue;
-			}
-			else if (colonLoc == 0)
-			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-					+ token);
-				returnValue &= false;
-				continue;
-			}
-			String key = token.substring(0, colonLoc);
-			String value =
-					(colonLoc == token.length() - 1) ? null : token
-						.substring(colonLoc + 1);
-			if (context.processSubToken(obj, "*KITTOKEN", key, value))
-			{
-				Logging.clearParseMessages();
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				Logging.rewindParseMessages();
-				Logging.replayParsedMessages();
-				returnValue &= false;
-			}
-		}
-		return returnValue;
+		//TODO shell
+		return false;
 	}
 
 	public void loadLstFiles(LoadContext context,
-		Collection<CampaignSourceEntry> sources)
+			Collection<CampaignSourceEntry> sources)
 	{
 		throw new IllegalStateException("Can't do this yet");
 	}
@@ -128,9 +93,9 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		throw new IllegalStateException("Can't do this yet");
 	}
 
-	private <CC extends BaseKit> boolean subParse(
-		LoadContext context, Kit kit, CDOMSubLineLoader<CC> loader, String line, URI uri)
-		throws PersistenceLayerException
+	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
+			CDOMSubLineLoader<CC> loader, String line, URI uri)
+			throws PersistenceLayerException
 	{
 		CC obj = loader.getCDOMObject(context);
 		Class cl = obj.getClass();
@@ -140,8 +105,8 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 
 	protected Kit getCDOMObject(LoadContext context, String name)
 	{
-		Kit obj =
-				context.ref.silentlyGetConstructedCDOMObject(targetClass, name);
+		Kit obj = context.ref.silentlyGetConstructedCDOMObject(targetClass,
+				name);
 		if (obj == null)
 		{
 			obj = context.ref.constructCDOMObject(targetClass, name);
@@ -155,10 +120,9 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 	}
 
 	public void unloadLstFiles(LoadContext lc,
-		Collection<CampaignSourceEntry> files)
+			Collection<CampaignSourceEntry> files)
 	{
-		HashMapToList<Class<?>, CDOMSubLineLoader<?>> loaderMap =
-				new HashMapToList<Class<?>, CDOMSubLineLoader<?>>();
+		HashMapToList<Class<?>, CDOMSubLineLoader<?>> loaderMap = new HashMapToList<Class<?>, CDOMSubLineLoader<?>>();
 		for (CDOMSubLineLoader<?> loader : loadMap.values())
 		{
 			loaderMap.addToListFor(loader.getLoadedClass(), loader);
@@ -183,13 +147,12 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 						if (unparse != null)
 						{
 							sb.append("\t").append(
-								StringUtil.join(unparse, "\t"));
+									StringUtil.join(unparse, "\t"));
 						}
 						sb.append("\n");
 
-						Changes<BaseKit> changes =
-								lc.getObjectContext().getListChanges(k,
-									ListKey.KIT_TASKS);
+						Changes<BaseKit> changes = lc.getObjectContext()
+								.getListChanges(k, ListKey.KIT_TASKS);
 						Collection<BaseKit> tasks = changes.getAdded();
 						if (tasks == null)
 						{
@@ -197,8 +160,8 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 						}
 						for (BaseKit kt : tasks)
 						{
-							List<CDOMSubLineLoader<?>> loaders =
-									loaderMap.getListFor(kt.getClass());
+							List<CDOMSubLineLoader<?>> loaders = loaderMap
+									.getListFor(kt.getClass());
 							for (CDOMSubLineLoader loader : loaders)
 							{
 								processTask(lc, kt, loader, sb);
@@ -224,8 +187,8 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		}
 	}
 
-	private <T extends BaseKit> void processTask(LoadContext lc,
-		T kt, CDOMSubLineLoader<T> loader, StringBuilder pw)
+	private <T extends BaseKit> void processTask(LoadContext lc, T kt,
+			CDOMSubLineLoader<T> loader, StringBuilder pw)
 	{
 		loader.unloadObject(lc, kt, pw);
 	}

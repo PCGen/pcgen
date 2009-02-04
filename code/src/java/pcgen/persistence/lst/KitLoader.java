@@ -24,6 +24,7 @@ package pcgen.persistence.lst;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Kit;
 import pcgen.core.kit.KitAbilities;
 import pcgen.core.kit.KitAlignment;
@@ -64,41 +65,41 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 	public KitLoader()
 	{
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAlignment>(
-			"*KITTOKEN", "ALIGN", KitAlignment.class));
+				"*KITTOKEN", "ALIGN", KitAlignment.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitRace>("*KITTOKEN",
-			"RACE", KitRace.class));
+				"RACE", KitRace.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSkill>("*KITTOKEN",
-			"SKILL", KitSkill.class));
+				"SKILL", KitSkill.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitGear>("*KITTOKEN",
-			"GEAR", KitGear.class));
+				"GEAR", KitGear.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSpells>("*KITTOKEN",
-			"SPELLS", KitSpells.class));
+				"SPELLS", KitSpells.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitStat>("*KITTOKEN",
-			"STAT", KitStat.class));
+				"STAT", KitStat.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitProf>("*KITTOKEN",
-			"PROF", KitProf.class));
+				"PROF", KitProf.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>(
-			"*KITTOKEN", "FEAT", KitAbilities.class));
+				"*KITTOKEN", "FEAT", KitAbilities.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitAbilities>(
-			"*KITTOKEN", "ABILITY", KitAbilities.class));
+				"*KITTOKEN", "ABILITY", KitAbilities.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("*KITTOKEN",
-			"NAME", KitBio.class));
+				"NAME", KitBio.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitLevelAbility>(
-			"*KITTOKEN", "LEVELABILITY", KitLevelAbility.class));
+				"*KITTOKEN", "LEVELABILITY", KitLevelAbility.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitClass>("*KITTOKEN",
-			"CLASS", KitClass.class));
+				"CLASS", KitClass.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTemplate>("*KITTOKEN",
-			"TEMPLATE", KitTemplate.class));
+				"TEMPLATE", KitTemplate.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitDeity>("*KITTOKEN",
-			"DEITY", KitDeity.class));
+				"DEITY", KitDeity.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitKit>("*KITTOKEN",
-			"KIT", KitKit.class));
+				"KIT", KitKit.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitTable>("*KITTOKEN",
-			"TABLE", KitTable.class));
+				"TABLE", KitTable.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitSelect>("*KITTOKEN",
-			"SELECT", KitSelect.class));
+				"SELECT", KitSelect.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("*KITTOKEN",
-			"GENDER", KitBio.class));
+				"GENDER", KitBio.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitFunds>("*KITTOKEN",
 				"FUNDS", KitFunds.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitLangBonus>(
@@ -108,13 +109,12 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 	@Override
 	protected Kit getObjectKeyed(LoadContext context, String aKey)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(
-			Kit.class, aKey);
+		return context.ref.silentlyGetConstructedCDOMObject(Kit.class, aKey);
 	}
 
 	@Override
 	public Kit parseLine(LoadContext context, Kit target, String inputLine,
-		CampaignSourceEntry source) throws PersistenceLayerException
+			CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		if (inputLine.startsWith("STARTPACK:"))
 		{
@@ -125,9 +125,8 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 			StringTokenizer st = new StringTokenizer(inputLine, "\t");
 			String firstToken = st.nextToken();
 			int colonLoc = firstToken.indexOf(':');
-			target =
-					context.ref.constructCDOMObject(Kit.class, firstToken
-						.substring(colonLoc + 1));
+			target = context.ref.constructCDOMObject(Kit.class, firstToken
+					.substring(colonLoc + 1));
 			target.setSourceCampaign(source.getCampaign());
 			target.setSourceURI(source.getURI());
 			context.addStatefulInformation(target);
@@ -138,34 +137,74 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				if (cLoc == -1)
 				{
 					Logging
-						.errorPrint("Invalid Token - does not contain a colon: "
-							+ token);
+							.errorPrint("Invalid Token - does not contain a colon: "
+									+ token);
 					continue;
 				}
 				else if (cLoc == 0)
 				{
 					Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
+							+ token);
 					continue;
 				}
 
 				String key = token.substring(0, cLoc);
-				String value =
-						(cLoc == token.length() - 1) ? null : token
-							.substring(cLoc + 1);
+				String value = (cLoc == token.length() - 1) ? null : token
+						.substring(cLoc + 1);
 				context.processToken(target, key, value);
 			}
 		}
-		else if (kitLoader.parseSubLine(context, target, inputLine, source
-			.getURI()))
+		else if (inputLine.startsWith("REGION:"))
 		{
-			Logging.clearParseMessages();
-			context.commit();
+			String value = inputLine.substring(7);
+			context.clearStatefulInformation();
+			if (value != null && value.length() > 0)
+			{
+				StringTokenizer st = new StringTokenizer(value, "\t");
+
+				String region = st.nextToken();
+				if (!region.equalsIgnoreCase(Constants.LST_NONE))
+				{
+					// Add a real prereq for the REGION: tag
+					if (context.addStatefulToken("PREREGION:" + region))
+					{
+						context.commit();
+					}
+					else
+					{
+						context.rollback();
+						Logging.errorPrint("Invalid Stateful Token"
+								+ " from Region NONE: PREREGION:" + region);
+						Logging.replayParsedMessages();
+					}
+					Logging.clearParseMessages();
+				}
+
+				while (st.hasMoreTokens())
+				{
+					String gt = st.nextToken();
+					if (!context.addStatefulToken(gt))
+					{
+						Logging.errorPrint("Invalid Stateful Token: " + gt);
+					}
+				}
+			}
 		}
 		else
 		{
-			Logging.replayParsedMessages();
-			Logging.clearParseMessages();
+			context.rollback();
+			if (kitLoader.parseSubLine(context, target, inputLine, source
+					.getURI()))
+			{
+				Logging.clearParseMessages();
+				context.commit();
+			}
+			else
+			{
+				context.rollback();
+				Logging.replayParsedMessages();
+				Logging.clearParseMessages();
+			}
 		}
 		return target;
 	}

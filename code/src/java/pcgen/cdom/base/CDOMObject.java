@@ -568,6 +568,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final void overlayCDOMObject(CDOMObject cdo)
 	{
+		addAllPrerequisites(cdo.getPrerequisiteList());
 		integerChar.putAll(cdo.integerChar);
 		stringChar.putAll(cdo.stringChar);
 		formulaChar.putAll(cdo.formulaChar);
