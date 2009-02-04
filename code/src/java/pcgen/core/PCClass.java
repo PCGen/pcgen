@@ -4376,7 +4376,7 @@ public class PCClass extends PObject
 	}
 
 	@Override
-	public PObject getActiveEquivalent(PlayerCharacter pc)
+	public PCClass getActiveEquivalent(PlayerCharacter pc)
 	{
 		return pc.getClassKeyed(getKeyName());
 	}
