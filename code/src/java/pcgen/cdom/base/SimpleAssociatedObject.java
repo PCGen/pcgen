@@ -57,12 +57,11 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 * Returns a Collection of the AssociationKeys that are in this
 	 * SimpleAssociatedObject.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the
-	 * Collection returned by this method will be transferred to the calling
-	 * object. Modification of the returned Collection should not result in
-	 * modifying the SimpleAssociatedObject, and modifying the
-	 * SimpleAssociatedObject after the Collection is returned should not modify
-	 * the Collection.
+	 * This method is value-semantic, meaning that ownership of the Collection
+	 * returned by this method will be transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the SimpleAssociatedObject, and modifying the SimpleAssociatedObject
+	 * after the Collection is returned should not modify the Collection.
 	 * 
 	 * Note that it may be possible for an association to have a null value.
 	 * This method should include the AssociationKey for that association, if it

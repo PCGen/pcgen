@@ -65,12 +65,11 @@ public interface AssociatedObject
 	 * AssociatedObject.
 	 * 
 	 * It is intended that classes which implement the AssociatedObject
-	 * interface will make this method reference-semantic, meaning that
-	 * ownership of the Collection returned by this method will be transferred
-	 * to the calling object. Modification of the returned Collection should not
-	 * result in modifying the AssociatedObject, and modifying the
-	 * AssocaitedObject after the Collection is returned should not modify the
-	 * Collection.
+	 * interface will make this method value-semantic, meaning that ownership of
+	 * the Collection returned by this method will be transferred to the calling
+	 * object. Modification of the returned Collection should not result in
+	 * modifying the AssociatedObject, and modifying the AssocaitedObject after
+	 * the Collection is returned should not modify the Collection.
 	 * 
 	 * Note that it may be possible for an association to have a null value.
 	 * This method should include the AssociationKey for that association, if it

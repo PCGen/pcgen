@@ -82,11 +82,11 @@ public class AssociationSupport implements AssociatedObject
 	 * Returns a Collection of the AssociationKeys that are in this
 	 * AssociatedObject.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the
-	 * Collection returned by this method will be transferred to the calling
-	 * object. Modification of the returned Collection should not result in
-	 * modifying the AssociatedObject, and modifying the AssocaitedObject after
-	 * the Collection is returned should not modify the Collection.
+	 * This method is value-semantic, meaning that ownership of the Collection
+	 * returned by this method will be transferred to the calling object.
+	 * Modification of the returned Collection should not result in modifying
+	 * the AssociatedObject, and modifying the AssocaitedObject after the
+	 * Collection is returned should not modify the returned Collection.
 	 * 
 	 * Note that it may be possible for an association to have a null value.
 	 * This method should include the AssociationKey for that association, if it

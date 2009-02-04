@@ -40,11 +40,11 @@ public interface PrimitiveChoiceSet<T>
 	 * contains.
 	 * 
 	 * It is intended that classes which implement PrimitiveChoiceSet will make
-	 * this method reference-semantic, meaning that ownership of the Set
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Set should not result in modifying the
-	 * PrimitiveChoiceSet, and modifying the PrimitiveChoiceSet after the Set is
-	 * returned should not modify the Set.
+	 * this method value-semantic, meaning that ownership of the Set returned by
+	 * this method will be transferred to the calling object. Modification of
+	 * the returned Set should not result in modifying the PrimitiveChoiceSet,
+	 * and modifying the PrimitiveChoiceSet after the Set is returned should not
+	 * modify the Set.
 	 * 
 	 * @return A Set containing the Objects which this PrimitiveChoiceSet
 	 *         contains.

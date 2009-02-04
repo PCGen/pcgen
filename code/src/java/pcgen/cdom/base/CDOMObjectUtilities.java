@@ -55,6 +55,9 @@ public final class CDOMObjectUtilities
 	 * The items will be joined in the order determined by the ordering of the
 	 * given Collection.
 	 * 
+	 * This method is value-semantic. CDOMObjetUtilities will not maintain a
+	 * reference to or modify the given Collection.
+	 * 
 	 * @param strings
 	 *            An Collection of CDOMObjects
 	 * @param separator

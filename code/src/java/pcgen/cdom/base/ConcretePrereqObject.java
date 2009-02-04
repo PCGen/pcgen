@@ -71,6 +71,11 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * If the PrereqObject contains no Prerequisites, the return value may be
 	 * null or an empty list, it is implementation-specific.
 	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this ConcretePrereqObject and modification
+	 * of this ConcretePrereqObject will not modify the returned List.
+	 * 
 	 * @return A List of Prerequesite objects contained in the PrereqObject.
 	 */
 	public List<Prerequisite> getPrerequisiteList()
@@ -179,6 +184,11 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 
 	/**
 	 * Adds a Collection of Prerequisite objects to the ConcretePrereqObject.
+	 * 
+	 * This method is both reference-semantic and value-semantic. This
+	 * ConcretePrereqObject will not maintain a reference to or modify the given
+	 * Collection. However, this ConcretePrereqObject will maintain a strong
+	 * reference to the Prerequisite objects in the given Collection.
 	 * 
 	 * @param prereqs
 	 *            A Collection of Prerequisite objects to added to the

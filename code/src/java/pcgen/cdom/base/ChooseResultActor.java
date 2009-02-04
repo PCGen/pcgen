@@ -44,16 +44,16 @@ public interface ChooseResultActor
 	void apply(PlayerCharacter pc, CDOMObject obj, String choice);
 
 	/**
-	 * Applies the given choice to the given PlayerCharacter.
+	 * Removes the given choice from the given PlayerCharacter.
 	 * 
 	 * @param pc
-	 *            The PlayerCharacter to which the given choice should be
-	 *            applied.
+	 *            The PlayerCharacter from which the given choice should be
+	 *            removed.
 	 * @param obj
 	 *            The CDOMObject to which the choice was applied (the CDOMObject
 	 *            on which the CHOOSE token was present)
 	 * @param choice
-	 *            The choice being applied to the given PlayerCharacter
+	 *            The choice being removed from the given PlayerCharacter
 	 */
 	void remove(PlayerCharacter pc, CDOMObject obj, String choice);
 

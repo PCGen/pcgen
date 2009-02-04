@@ -155,11 +155,11 @@ public abstract class CDOMReference<T extends PrereqObject>
 	 * refers.
 	 * 
 	 * It is intended that classes which extend CDOMReference will make this
-	 * method reference-semantic, meaning that ownership of the Collection
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Collection should not result in modifying
-	 * the CDOMReference, and modifying the CDOMReference after the Collection
-	 * is returned should not modify the Collection.
+	 * method value-semantic, meaning that ownership of the Collection returned
+	 * by this method will be transferred to the calling object. Modification of
+	 * the returned Collection should not result in modifying the CDOMReference,
+	 * and modifying the CDOMReference after the Collection is returned should
+	 * not modify the Collection.
 	 * 
 	 * Note that the behavior of this class is undefined if the CDOMReference
 	 * has not yet been resolved. (It may return null, an empty Collection or

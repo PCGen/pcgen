@@ -36,6 +36,8 @@ import pcgen.util.chooser.ChooserInterface;
  * allowed, prior to final implementation of the new choice system
  * 
  * @param <T>
+ *            The type of object that will be chosen when this TransitionChoice
+ *            is used
  */
 public class TransitionChoice<T>
 {
