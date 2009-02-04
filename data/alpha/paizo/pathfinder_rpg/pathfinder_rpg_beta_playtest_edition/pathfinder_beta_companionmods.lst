@@ -3,6 +3,17 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
+###Block: Animal Companion
+# Class of the Master	Type				Hit Dice	Ability								Virtual Feat				Automatically Gained Feat	Combat bonus						Stat bonus
+FOLLOWER:CompLevel=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Devotion													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2											VFEAT:Multiattack|PREHANDSGTEQ:3	AUTO:FEAT|Multiattack		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+
+
 ###Block:Special Mount
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define		Combat bonus						Add to base move																																					Stat bonus		Main Race Type
 FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Share Saving Throws|Empathic Link|Share Spells|Improved Evasion	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
