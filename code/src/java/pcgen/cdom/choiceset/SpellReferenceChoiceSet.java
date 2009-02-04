@@ -42,6 +42,13 @@ import pcgen.core.spell.Spell;
  * SpellReferenceChoiceSet. The contents of a SpellReferenceChoiceSet is fixed,
  * and will not vary by the PlayerCharacter used to resolve the
  * SpellReferenceChoiceSet.
+ * 
+ * This exists as a special case (from a generic PrimitiveChoiceSet) for two
+ * reasons: (1) getChoiceClass() is hardcoded to return CDOMListObject (vs. the
+ * risk of returning an inconsistent answer like ClassSpellList or
+ * DomainSpellList [this may contain either or both]) (2) getLSTformat needs to
+ * correct for DomainSpellList references having a "DOMAIN." prefix in order to
+ * distinguish them from ClassSpellList references/names
  */
 public class SpellReferenceChoiceSet implements
 		PrimitiveChoiceSet<CDOMListObject<Spell>>
@@ -58,11 +65,13 @@ public class SpellReferenceChoiceSet implements
 	 * CDOMReferences do not need to be resolved at the time of construction of
 	 * the SpellReferenceChoiceSet.
 	 * 
-	 * This constructor is reference-semantic, meaning that ownership of the
-	 * Collection provided to this constructor is not transferred. Modification
-	 * of the Collection (after this constructor completes) does not result in
-	 * modifying the ReferenceChoiceSet, and the SpellReferenceChoiceSet will
-	 * not modify the given Collection.
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred.
+	 * Modification of the Collection (after this constructor completes) does
+	 * not result in modifying the ReferenceChoiceSet, and the
+	 * SpellReferenceChoiceSet will not modify the given Collection. However,
+	 * this SpellReferenceChoiceSet will maintain hard references to the
+	 * CDOMReference objects contained within the given Collection.
 	 * 
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of
@@ -147,9 +156,9 @@ public class SpellReferenceChoiceSet implements
 	 * provided during the construction of this SpellReferenceChoiceSet are not
 	 * yet resolved.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the Set
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Set should not result in modifying the
+	 * This method is value-semantic, meaning that ownership of the Set returned
+	 * by this method will be transferred to the calling object. Modification of
+	 * the returned Set should not result in modifying the
 	 * SpellReferenceChoiceSet, and modifying the SpellReferenceChoiceSet after
 	 * the Set is returned should not modify the Set.
 	 * 

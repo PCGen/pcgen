@@ -53,11 +53,13 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements PrimitiveChoice
 	/**
 	 * Constructs a new SimpleChoiceSet which contains the Set of objects.
 	 * 
-	 * This constructor is reference-semantic, meaning that ownership of the
-	 * Collection provided to this constructor is not transferred. Modification
-	 * of the Collection (after this constructor completes) does not result in
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred and
+	 * this constructor will not modify the given Collection. Modification of
+	 * the Collection (after this constructor completes) does not result in
 	 * modifying the SimpleChoiceSet, and the SimpleChoiceSet will not modify
-	 * the given Collection.
+	 * the given Collection. However, this SimpleChoiceSet will maintain hard
+	 * references to the objects contained within the given Collection.
 	 * 
 	 * @param col
 	 *            A Collection of objects contained within the SimpleChoiceSet
@@ -105,11 +107,13 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements PrimitiveChoice
 	 * The contents of a SimpleChoiceSet is fixed, and will not vary by the
 	 * PlayerCharacter used to resolve the SimpleChoiceSet.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the Set
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Set should not result in modifying the
-	 * SimpleChoiceSet, and modifying the SimpleChoiceSet after the Set is
-	 * returned should not modify the Set.
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the SimpleChoiceSet, and modifying the SimpleChoiceSet after
+	 * the Set is returned should not modify the Set. However, the objects
+	 * contained within the set are transferred by reference, so modification of
+	 * the objects contained in the Set will result in modification of the
+	 * objects within this SimpleChoiceSet.
 	 * 
 	 * @return A Set containing the Objects which this SimpleChoiceSet contains.
 	 */

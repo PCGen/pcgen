@@ -22,8 +22,24 @@ import java.util.Comparator;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
 
-public class ChoiceSetUtilities
+/**
+ * ChoiceSetUtilities is a set of utility methods for use with objects that
+ * implement pcgen.cdom.base.PrimitiveChoiceSet
+ * 
+ * @see pcgen.cdom.base.PrimitiveChoiceSet
+ */
+public final class ChoiceSetUtilities
 {
+
+	private ChoiceSetUtilities()
+	{
+		// Cannot construct utility class
+	}
+
+	/**
+	 * A Comparator to consistently sort PrimitiveChoiceSet objects. This is
+	 * done using the ChoiceSetUtilities.compareChoiceSets method.
+	 */
 	public static final Comparator<PrimitiveChoiceSet<?>> WRITEABLE_SORTER = new Comparator<PrimitiveChoiceSet<?>>()
 	{
 
@@ -34,6 +50,22 @@ public class ChoiceSetUtilities
 		}
 	};
 
+	/**
+	 * Compares two PrimitiveChoiceSet objects to establish which should "sort"
+	 * first.
+	 * 
+	 * @param arg0
+	 *            The first PrimitiveChoiceSet object to be used in the
+	 *            comparison
+	 * @param arg1
+	 *            The second PrimitiveChoiceSet object to be used in the
+	 *            comparison
+	 * @return 0 if the PrimitiveChoiceSet objects are equal (at least in name,
+	 *         may not be consistent-with-equals), less than zero if the first
+	 *         given PrimitiveChoiceSet should be sorted before the second, and
+	 *         greater than zero if the first given PrimitiveChoiceSet should be
+	 *         sorted after the second.
+	 */
 	public static int compareChoiceSets(PrimitiveChoiceSet<?> arg0,
 			PrimitiveChoiceSet<?> arg1)
 	{
@@ -71,6 +103,9 @@ public class ChoiceSetUtilities
 	 * 
 	 * The items will be joined in the order determined by the ordering of the
 	 * given Collection.
+	 * 
+	 * Ownership of the Collection provided to this method is not transferred
+	 * and this constructor will not modify the given Collection.
 	 * 
 	 * @param strings
 	 *            An Collection of PrimitiveChoiceSet objects

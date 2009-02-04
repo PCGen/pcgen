@@ -17,20 +17,25 @@
  */
 package pcgen.cdom.choiceset;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Ability;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.pclevelinfo.PCLevelInfo;
 
 public class AbilityFromClassChoiceSet implements
 		PrimitiveChoiceSet<AbilitySelection>
 {
 
-	private final CDOMReference<PCClass> cl;
+	private final CDOMSingleRef<PCClass> cl;
 
 	public AbilityFromClassChoiceSet(CDOMSingleRef<PCClass> pcc)
 	{
@@ -83,53 +88,47 @@ public class AbilityFromClassChoiceSet implements
 
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
-		// PCClass aClass = aPC.getClassKeyed(arg.substring(6));
-		// if (aClass != null)
-		// {
-		// for (PCLevelInfo element : aPC.getLevelInfo())
-		// {
-		// if (element.getClassKeyName().equalsIgnoreCase(
-		// aClass.getKeyName()))
-		// {
-		// for (Ability aFeat : (List<Ability>) element.getObjects())
-		// {
-		// if (!theFeatList.contains(aFeat))
-		// {
-		// theFeatList.add(aFeat);
-		// }
-		// }
-		// }
-		// }
-		// List<Ability> abilityList = aPC.getAssocList(aClass,
-		// AssociationListKey.ADDED_FEAT);
-		// if (abilityList != null)
-		// {
-		// for (Ability aFeat : abilityList)
-		// {
-		// if (!theFeatList.contains(aFeat))
-		// {
-		// theFeatList.add(aFeat);
-		// }
-		// }
-		// }
-		// for (int lvl = 0; lvl < aClass.getLevel(); lvl++)
-		// {
-		// PCClassLevel pcl = aClass.getClassLevel(i);
-		// abilityList = aPC.getAssocList(pcl,
-		// AssociationListKey.ADDED_FEAT);
-		// if (abilityList != null)
-		// {
-		// for (Ability aFeat : abilityList)
-		// {
-		// if (!theFeatList.contains(aFeat))
-		// {
-		//							theFeatList.add(aFeat);
-		//						}
-		//					}
-		//				}
-		//			}
-		//		}
-		// TODO Auto-generated method stub
+		PCClass aClass = cl.resolvesTo().getActiveEquivalent(pc);
+		Set<AbilitySelection> set = new HashSet<AbilitySelection>();
+		if (aClass != null)
+		{
+			for (PCLevelInfo element : pc.getLevelInfo())
+			{
+				if (element.getClassKeyName().equalsIgnoreCase(
+						aClass.getKeyName()))
+				{
+					for (Ability aFeat : (List<Ability>) element.getObjects())
+					{
+						set.add(new AbilitySelection(aFeat, aFeat
+								.getAbilityNature()));
+					}
+				}
+			}
+			List<Ability> abilityList = pc.getAssocList(aClass,
+					AssociationListKey.ADDED_FEAT);
+			if (abilityList != null)
+			{
+				for (Ability aFeat : abilityList)
+				{
+					set.add(new AbilitySelection(aFeat, aFeat
+							.getAbilityNature()));
+				}
+			}
+			for (int lvl = 0; lvl < aClass.getLevel(); lvl++)
+			{
+				PCClassLevel pcl = aClass.getClassLevel(lvl);
+				abilityList = pc.getAssocList(pcl,
+						AssociationListKey.ADDED_FEAT);
+				if (abilityList != null)
+				{
+					for (Ability aFeat : abilityList)
+					{
+						set.add(new AbilitySelection(aFeat, aFeat
+								.getAbilityNature()));
+					}
+				}
+			}
+		}
 		return null;
 	}
 }

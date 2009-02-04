@@ -25,27 +25,86 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
 
+/**
+ * A QualifiedDecorator decorates a PrimitiveChoiceSet in order to restrict the
+ * contents of the underlying PrimitiveChoiceSet to a PlayerCharacter that meets
+ * the Prerequisites defined by the objects in that PrimitiveChoiceSet.
+ * 
+ * Note that this does not mean that there is a separate set of Prerequisites
+ * entered into the QualifiedDecorator, only that this QualifiedDecorator is a
+ * PrimitiveChoiceSet that tests the prerequisites on the underlying objects,
+ * whereas other classes that implement PrimitiveChoiceSet may not perform such
+ * checks. If there are no Prerequisite objects in the underlying objects, then
+ * this QualifiedDecorator will have no effect on the results returned by the
+ * underlying PrimitiveChoiceSet.
+ * 
+ * @param <T>
+ *            The Type of object returned by this QualifiedDecorator.
+ */
 public class QualifiedDecorator<T extends PObject> implements
 		PrimitiveChoiceSet<T>
 {
 
+	/**
+	 * The underlying PrimitiveChoiceSet from which items will be returned, if
+	 * the PlayerCharacter is qualified for the item.
+	 */
 	private final PrimitiveChoiceSet<T> set;
 
-	public <U> QualifiedDecorator(PrimitiveChoiceSet<T> underlyingSet)
+	/**
+	 * Constructs a new QualifiedDecorator which decorates the given
+	 * PrimitiveChoiceSet.
+	 * 
+	 * @param underlyingSet
+	 *            The underlying PrimitiveChoiceSet from which items will be
+	 *            returned, if the PlayerCharacter is qualified for the item.
+	 */
+	public QualifiedDecorator(PrimitiveChoiceSet<T> underlyingSet)
 	{
 		set = underlyingSet;
 	}
 
+	/**
+	 * The class of object this QualifiedDecorator and the underlying
+	 * PrimitiveChoiceSet contains.
+	 * 
+	 * @return The class of object this QualifiedDecorator and the underlying
+	 *         PrimitiveChoiceSet contains.
+	 */
 	public Class<? super T> getChoiceClass()
 	{
 		return set.getChoiceClass();
 	}
 
+	/**
+	 * Returns a representation of this QualifiedDecorator, suitable for storing
+	 * in an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 */
 	public String getLSTformat(boolean useAny)
 	{
 		return set.getLSTformat(useAny);
 	}
 
+	/**
+	 * Returns a Set containing the Objects which this QualifiedDecorator
+	 * contains. Objects will only be included in the returned set if the given
+	 * PlayerCharacter qualifies for the object.
+	 * 
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the PrimitiveChoiceSet, and modifying the PrimitiveChoiceSet
+	 * after the Set is returned should not modify the Set. However, the objects
+	 * contained in the returned set are passed by reference. Modification of
+	 * the objects contained within the returned Set will modify the objects
+	 * within this QualifiedDecorator.
+	 * 
+	 * @return A Set containing the Objects which this QualifiedDecorator
+	 *         contains.
+	 */
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<T>();
@@ -59,6 +118,12 @@ public class QualifiedDecorator<T extends PObject> implements
 		return returnSet;
 	}
 
+	/**
+	 * Returns true if this given object is a QualifiedDecorator with identical
+	 * underlying PrimitiveChoiceSet
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -66,6 +131,11 @@ public class QualifiedDecorator<T extends PObject> implements
 				&& ((QualifiedDecorator<?>) obj).set.equals(set);
 	}
 
+	/**
+	 * Returns a consistent-with-equals hashCode for this QualifiedDecorator
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{

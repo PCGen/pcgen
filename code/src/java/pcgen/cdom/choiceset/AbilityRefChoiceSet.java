@@ -51,7 +51,7 @@ import pcgen.core.chooser.ChooserUtilities;
  * not vary by the PlayerCharacter used to resolve the AbilityRefChoiceSet.
  * 
  * @param <T>
- *            The class of object this ReferenceChoiceSet contains.
+ *            The class of object this AbilityRefChoiceSet contains.
  */
 public class AbilityRefChoiceSet implements
 		PrimitiveChoiceSet<AbilitySelection>
@@ -63,8 +63,14 @@ public class AbilityRefChoiceSet implements
 	 */
 	private final Set<AbilityRef> set;
 
+	/**
+	 * The underlying Ability Category for this AbilityRefChoiceSet.
+	 */
 	private final Category<Ability> category;
 
+	/**
+	 * The underlying Ability Nature for this AbilityRefChoiceSet.
+	 */
 	private final Ability.Nature nature;
 
 	/**
@@ -72,11 +78,13 @@ public class AbilityRefChoiceSet implements
 	 * contained within the given CDOMReferences. The CDOMReferences do not need
 	 * to be resolved at the time of construction of the AbilityRefChoiceSet.
 	 * 
-	 * This constructor is reference-semantic, meaning that ownership of the
-	 * Collection provided to this constructor is not transferred. Modification
-	 * of the Collection (after this constructor completes) does not result in
-	 * modifying the AbilityRefChoiceSet, and the AbilityRefChoiceSet will not
-	 * modify the given Collection.
+	 * This constructor is reference-semantic and value-semantic, meaning that
+	 * ownership of the Collection provided to this constructor is not
+	 * transferred. Modification of the Collection (after this constructor
+	 * completes) does not result in modifying the AbilityRefChoiceSet, and the
+	 * AbilityRefChoiceSet will not modify the given Collection. However, strong
+	 * references are kept to the AbilityRef objects contained within the given
+	 * Collection.
 	 * 
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of objects
@@ -154,11 +162,10 @@ public class AbilityRefChoiceSet implements
 	 * provided during the construction of this AbilityRefChoiceSet are not yet
 	 * resolved.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the Set
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Set should not result in modifying the
-	 * AbilityRefChoiceSet, and modifying the AbilityRefChoiceSet after the Set
-	 * is returned should not modify the Set.
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the AbilityRefChoiceSet, and modifying the AbilityRefChoiceSet
+	 * after the Set is returned should not modify the Set. 
 	 * 
 	 * @return A Set containing the Objects which this AbilityRefChoiceSet
 	 *         contains.
@@ -185,18 +192,20 @@ public class AbilityRefChoiceSet implements
 	}
 
 	private Collection<AbilitySelection> addMultiplySelectableAbility(
-			final PlayerCharacter aPC, Ability a, String subName)
+			final PlayerCharacter aPC, Ability ab, String subName)
 	{
 		// If already have taken the feat, use it so we can remove
 		// any choices already selected
-		final Ability pcFeat = aPC.getFeatNamed(a.getKeyName());
+		final Ability pcFeat = aPC.getFeatNamed(ab.getKeyName());
 
+		Ability a = ab;
 		if (pcFeat != null)
 		{
 			a = pcFeat;
 		}
 
 		boolean isPattern = false;
+		String nameRoot = null;
 		if (subName != null)
 		{
 			final int percIdx = subName.indexOf('%');
@@ -204,7 +213,7 @@ public class AbilityRefChoiceSet implements
 			if (percIdx > -1)
 			{
 				isPattern = true;
-				subName = subName.substring(0, percIdx);
+				nameRoot = subName.substring(0, percIdx);
 			}
 			else if (subName.length() != 0)
 			{
@@ -212,7 +221,7 @@ public class AbilityRefChoiceSet implements
 
 				if (idx > -1)
 				{
-					subName = subName.substring(0, idx);
+					nameRoot = subName.substring(0, idx);
 				}
 			}
 		}
@@ -240,13 +249,13 @@ public class AbilityRefChoiceSet implements
 
 		// Remove any that don't match
 
-		if (subName != null && subName.length() != 0)
+		if (nameRoot != null && nameRoot.length() != 0)
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{
 				final String aString = availableList.get(n);
 
-				if (!aString.startsWith(subName))
+				if (!aString.startsWith(nameRoot))
 				{
 					availableList.remove(n);
 				}
@@ -261,7 +270,7 @@ public class AbilityRefChoiceSet implements
 
 			if (isPattern && !availableList.isEmpty())
 			{
-				availableList.add(subName);
+				availableList.add(nameRoot);
 			}
 		}
 
@@ -307,11 +316,21 @@ public class AbilityRefChoiceSet implements
 		return false;
 	}
 
+	/**
+	 * Returns the underlying Ability Category for this AbilityRefChoiceSet
+	 * 
+	 * @return The underlying Ability Category for this AbilityRefChoiceSet
+	 */
 	public Category<Ability> getCategory()
 	{
 		return category;
 	}
 
+	/**
+	 * Returns the underlying Ability Nature for this AbilityRefChoiceSet
+	 * 
+	 * @return The underlying Ability Nature for this AbilityRefChoiceSet
+	 */
 	public Ability.Nature getNature()
 	{
 		return nature;

@@ -60,11 +60,13 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 	 * contained within the given CDOMReferences. The CDOMReferences do not need
 	 * to be resolved at the time of construction of the ReferenceChoiceSet.
 	 * 
-	 * This constructor is reference-semantic, meaning that ownership of the
-	 * Collection provided to this constructor is not transferred. Modification
-	 * of the Collection (after this constructor completes) does not result in
-	 * modifying the ReferenceChoiceSet, and the ReferenceChoiceSet will not
-	 * modify the given Collection.
+	 * This constructor is reference-semantic and value-semantic. Ownership of
+	 * the Collection provided to this constructor is not transferred.
+	 * Modification of the Collection (after this constructor completes) does
+	 * not result in modifying the ReferenceChoiceSet, and the
+	 * ReferenceChoiceSet will not modify the given Collection. However, this
+	 * ReferenceChoiceSet will maintain strong references to the CDOMReference
+	 * objects contained within the given Collection.
 	 * 
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of objects
@@ -124,11 +126,13 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 	 * provided during the construction of this ReferenceChoiceSet are not yet
 	 * resolved.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the Set
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Set should not result in modifying the
-	 * ReferenceChoiceSet, and modifying the ReferenceChoiceSet after the Set is
-	 * returned should not modify the Set.
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the ReferenceChoiceSet, and modifying the ReferenceChoiceSet
+	 * after the Set is returned should not modify the Set. However,
+	 * modification of the underlying objects contained within the Set will
+	 * result in modification of the object contained in this
+	 * ReferenceChoiceSet.
 	 * 
 	 * @return A Set containing the Objects which this ReferenceChoiceSet
 	 *         contains.

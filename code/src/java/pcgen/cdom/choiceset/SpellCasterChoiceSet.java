@@ -38,12 +38,12 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
 /**
- * A ClassReferenceChoiceSet contains references to PCClass Objects.
+ * A SpellCasterChoiceSet contains references to PCClass Objects.
  * 
- * The contents of a ClassReferenceChoiceSet is defined at construction of the
- * ClassReferenceChoiceSet. The contents of a ClassReferenceChoiceSet is fixed,
- * and will not vary by the PlayerCharacter used to resolve the
- * ClassReferenceChoiceSet.
+ * The contents of a SpellCasterChoiceSet is defined at construction of the
+ * SpellCasterChoiceSet. The contents of a SpellCasterChoiceSet is fixed, and
+ * will not vary by the PlayerCharacter used to resolve the
+ * SpellCasterChoiceSet.
  * 
  * @param <T>
  *            The class of object this ReferenceChoiceSet contains.
@@ -52,6 +52,13 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		PrimitiveChoiceSet<PCClass>
 {
 
+	/**
+	 * Caches the special case of an empty PrimitiveChoiceSet. This is used in
+	 * order to avoid wasteful processing and memory in cases where a
+	 * SpellCasterChoiceSet does not contain any Class-based items. (If it only
+	 * contains spell types and spells [primitives], then this empty
+	 * PrimitiveChoiceSet will be used.)
+	 */
 	private static final PrimitiveChoiceSet<PCClass> EMPTY_CHOICE_SET = new PrimitiveChoiceSet<PCClass>()
 	{
 
@@ -71,45 +78,64 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		}
 	};
 
+	/**
+	 * Storage of all PCClass objects potentially available. This is effectively
+	 * used as a cache to avoid a reference to the ReferenceContext during
+	 * runtime. This is used to establish which Classes are available based on
+	 * the String-based spell types provided at construction.
+	 */
 	private final CDOMGroupRef<PCClass> allClasses;
 
+	/**
+	 * Contains a list of spell types that are contained in this
+	 * SpellCasterChoiceSet
+	 */
 	private final List<String> spelltypes;
 
 	/**
 	 * The underlying Set of CDOMReferences that contain the objects in this
-	 * ClassReferenceChoiceSet
+	 * SpellCasterChoiceSet. This includes Group-based references to PCClasses.
+	 * 
+	 * It is necessary to keep this separate from the individual references due
+	 * to quirks in addition behavior of SpellCaster choices. If provided a
+	 * group reference, then only items that the PlayerCharacter has levels in
+	 * out of that group are available for selection. If items are provided as a
+	 * primitive, then that item is universally added to the potential choices.
+	 * 
+	 * CONSIDER is this separation good behavior or a bug?
 	 */
 	private final PrimitiveChoiceSet<PCClass> pcset;
 
 	/**
 	 * The underlying Set of CDOMReferences that contain the objects in this
-	 * ClassReferenceChoiceSet
+	 * SpellCasterChoiceSet. This includes individual references to (primitive)
+	 * PCClasses.
 	 */
 	private final PrimitiveChoiceSet<PCClass> primitives;
 
 	/**
-	 * Constructs a new ClassReferenceChoiceSet which contains the Set of
-	 * objects contained within the given CDOMReferences. The CDOMReferences do
-	 * not need to be resolved at the time of construction of the
-	 * ClassReferenceChoiceSet.
+	 * Constructs a new SpellCasterChoiceSet which contains the Set of objects
+	 * contained within the given CDOMReferences. The CDOMReferences do not need
+	 * to be resolved at the time of construction of the SpellCasterChoiceSet.
 	 * 
-	 * This constructor is reference-semantic, meaning that ownership of the
-	 * Collection provided to this constructor is not transferred. Modification
-	 * of the Collection (after this constructor completes) does not result in
-	 * modifying the ClassReferenceChoiceSet, and the ClassReferenceChoiceSet
-	 * will not modify the given Collection.
-	 * @param spelltypes 
-	 * @param allRef 
+	 * This constructor is value-semantic, meaning that ownership of the List
+	 * provided to this constructor is not transferred. Modification of the List
+	 * (after this constructor completes) does not result in modifying the
+	 * SpellCasterChoiceSet, and the SpellCasterChoiceSet will not modify the
+	 * given List.
+	 * 
+	 * @param spelltypes
+	 * @param allRef
 	 * 
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of objects
-	 *            contained within the ClassReferenceChoiceSet
+	 *            contained within the SpellCasterChoiceSet
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
 	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef,
-		List<String> spelltype, PrimitiveChoiceSet<PCClass> col,
-		PrimitiveChoiceSet<PCClass> prim)
+			List<String> spelltype, PrimitiveChoiceSet<PCClass> col,
+			PrimitiveChoiceSet<PCClass> prim)
 	{
 		super("SPELLCASTER", col == null ? EMPTY_CHOICE_SET : col);
 		pcset = col;
@@ -119,7 +145,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	}
 
 	/**
-	 * Returns a representation of this ClassReferenceChoiceSet, suitable for
+	 * Returns a representation of this SpellCasterChoiceSet, suitable for
 	 * storing in an LST file.
 	 */
 	@Override
@@ -129,7 +155,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	}
 
 	/**
-	 * Returns a representation of this ClassReferenceChoiceSet, suitable for
+	 * Returns a representation of this SpellCasterChoiceSet, suitable for
 	 * storing in an LST file.
 	 */
 	public String getLSTformat(boolean b)
@@ -151,13 +177,13 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	}
 
 	/**
-	 * The class of object this ClassReferenceChoiceSet contains.
+	 * The class of object this SpellCasterChoiceSet contains.
 	 * 
 	 * The behavior of this method is undefined if the CDOMReference objects
-	 * provided during the construction of this ClassReferenceChoiceSet are not
-	 * yet resolved.
+	 * provided during the construction of this SpellCasterChoiceSet are not yet
+	 * resolved.
 	 * 
-	 * @return The class of object this ClassReferenceChoiceSet contains.
+	 * @return The class of object this SpellCasterChoiceSet contains.
 	 */
 	@Override
 	public Class<PCClass> getChoiceClass()
@@ -166,22 +192,23 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	}
 
 	/**
-	 * Returns a Set containing the Objects which this ClassReferenceChoiceSet
-	 * contains. The contents of a ClassReferenceChoiceSet is fixed, and will
-	 * not vary by the PlayerCharacter used to resolve the
-	 * ClassReferenceChoiceSet.
+	 * Returns a Set containing the Objects which this SpellCasterChoiceSet
+	 * contains. The contents of a SpellCasterChoiceSet is fixed, and will not
+	 * vary by the PlayerCharacter used to resolve the SpellCasterChoiceSet.
 	 * 
 	 * The behavior of this method is undefined if the CDOMReference objects
-	 * provided during the construction of this ClassReferenceChoiceSet are not
-	 * yet resolved.
+	 * provided during the construction of this SpellCasterChoiceSet are not yet
+	 * resolved.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the Set
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Set should not result in modifying the
-	 * ClassReferenceChoiceSet, and modifying the ClassReferenceChoiceSet after
-	 * the Set is returned should not modify the Set.
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the SpellCasterChoiceSet, and modifying the
+	 * SpellCasterChoiceSet after the Set is returned should not modify the Set.
+	 * However, modification of the PCClass objects contained within the
+	 * returned set will result in modification of the PCClass objects contained
+	 * within this SpellCasterChoiceSet.
 	 * 
-	 * @return A Set containing the Objects which this ClassReferenceChoiceSet
+	 * @return A Set containing the Objects which this SpellCasterChoiceSet
 	 *         contains.
 	 */
 	@Override
@@ -223,8 +250,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	}
 
 	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * ClassReferenceChoiceSet
+	 * Returns the consistent-with-equals hashCode for this SpellCasterChoiceSet
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -236,9 +262,9 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	}
 
 	/**
-	 * Returns true if this ClassReferenceChoiceSet is equal to the given
-	 * Object. Equality is defined as being another ClassReferenceChoiceSet
-	 * object with equal underlying contents.
+	 * Returns true if this SpellCasterChoiceSet is equal to the given Object.
+	 * Equality is defined as being another SpellCasterChoiceSet object with
+	 * equal underlying contents.
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */

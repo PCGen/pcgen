@@ -42,6 +42,10 @@ import pcgen.core.PlayerCharacter;
  * and will not vary by the PlayerCharacter used to resolve the
  * ClassReferenceChoiceSet.
  * 
+ * Note: This is a transition class for a feature to be removed after 5.16 is
+ * released. It is used only in the special case of a FAVOREDCLASS:CHOOSE in a
+ * Race LST file.
+ * 
  * @param <T>
  *            The class of object this ReferenceChoiceSet contains.
  */
@@ -60,11 +64,13 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * not need to be resolved at the time of construction of the
 	 * ClassReferenceChoiceSet.
 	 * 
-	 * This constructor is reference-semantic, meaning that ownership of the
-	 * Collection provided to this constructor is not transferred. Modification
-	 * of the Collection (after this constructor completes) does not result in
-	 * modifying the ClassReferenceChoiceSet, and the ClassReferenceChoiceSet
-	 * will not modify the given Collection.
+	 * This constructor is reference-semantic and value-semantic. Ownership of
+	 * the Collection provided to this constructor is not transferred.
+	 * Modification of the Collection (after this constructor completes) does
+	 * not result in modifying the ClassReferenceChoiceSet, and the
+	 * ClassReferenceChoiceSet will not modify the given Collection. However,
+	 * strong references are maintained to the CDOMReference objects contained
+	 * within the given Collection.
 	 * 
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of objects
@@ -126,11 +132,13 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * provided during the construction of this ClassReferenceChoiceSet are not
 	 * yet resolved.
 	 * 
-	 * This method is reference-semantic, meaning that ownership of the Set
-	 * returned by this method will be transferred to the calling object.
-	 * Modification of the returned Set should not result in modifying the
-	 * ClassReferenceChoiceSet, and modifying the ClassReferenceChoiceSet after
-	 * the Set is returned should not modify the Set.
+	 * Ownership of the Set returned by this method will be transferred to the
+	 * calling object. Modification of the returned Set should not result in
+	 * modifying the ClassReferenceChoiceSet, and modifying the
+	 * ClassReferenceChoiceSet after the Set is returned should not modify the
+	 * Set. However, modification of the PCClass objects contained within the
+	 * returned set will result in modification of the PCClass objects contained
+	 * within this ClassReferenceChoiceSet.
 	 * 
 	 * @return A Set containing the Objects which this ClassReferenceChoiceSet
 	 *         contains.
