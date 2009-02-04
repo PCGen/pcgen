@@ -40,6 +40,7 @@ public class DefaultTokenProcessor implements TokenProcessor
 			}
 			else
 			{
+				context.rollback();
 				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();
