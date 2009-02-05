@@ -359,6 +359,17 @@ public class SpellMemToken extends Token
 						{
 							retValue.append(aSpell.getSpellResistance());
 						}
+						else if ("SRSHORT".equals(aLabel))
+						{
+							if ("No".equals(aSpell.getSpellResistance()))
+							{
+								retValue.append("N");
+							}
+							else
+							{
+								retValue.append("Y");
+							}
+						}
 						else if ("CLASS".equals(aLabel))
 						{
 							retValue.append(aObject.getOutputName());
