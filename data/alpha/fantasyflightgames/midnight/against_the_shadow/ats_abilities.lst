@@ -1,12 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 13:20:43 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Feb  5 14:24:26 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
 
 ###Block: Elemental Aspects
-
-# Feat Name			Type				Visible	Prohibited Feat				Multiple Requirements										Required Template				Special ABility							Define				Stackable?	Multiple?	Choose		Clone Movement		Combat bonus				Bonus to skill			Modify VAR
-# Ability Category	Visible		Category of Object		Type of Object		Prohibited Feat				Combat bonus				Bonus to skill			Modify VAR				Choose		Define				Clone Movement		Multiple?	Multiple Requirements										Required Template				Special ABility							Stackable?
 # Ability Name		Category of Ability		Type				Visible		Prohibited Feat				Multiple Requirements										Required Template				Special ABility							Define				Stackable?	Multiple?	Choose		Clone Movement		Combat bonus				Bonus to skill			Modify VAR
 Light Step			CATEGORY:Special Ability	TYPE:ElementalAspect	VISIBLE:DISPLAY	!PREFEAT:5,CHECKMULT,Light Step	PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Air Elemental Taint]							SAB:Light Step (Su)											STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:SKILL|Move Silently|2
 Breathless			CATEGORY:Special Ability	TYPE:ElementalAspect	VISIBLE:DISPLAY							PREMULT:1,[PREVARGTEQ:InitialAspect,1],[PRETEMPLATE:1,Air Elemental Taint]							SAB:Breathless (Ex)
@@ -22,25 +19,7 @@ Earth Elemental Cohort	CATEGORY:Special Ability	TYPE:ElementalCohort	VISIBLE:DIS
 Fire Elemental Cohort	CATEGORY:Special Ability	TYPE:ElementalCohort	VISIBLE:DISPLAY																				PRETEMPLATE:1,Fire Elemental Taint	SAB:Fire Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
 Water Elemental Cohort	CATEGORY:Special Ability	TYPE:ElementalCohort	VISIBLE:DISPLAY																				PRETEMPLATE:1,Water Elemental Taint	SAB:Water Elemental cohort % HD|ElementalCohortHD	DEFINE:ElementalCohortHD|0
 
-###Block: Energy Resistances and Immunities
-
-# Feat Name				Type							Visible	Special ABility															Define					Remove Object				Modify VAR
-# Ability Category		Visible		Category of Object		Type of Object					Modify VAR										Define					Remove Object				Special ABility
-# Ability Name			Category of Ability		Type							Visible		Special ABility															Define					Remove Object				Modify VAR
-Acid Resistance			CATEGORY:Special Ability	TYPE:EnergyResistance.ElementalResistance	VISIBLE:DISPLAY	SAB:Resistance to acid % (Ex)|AcidResistance|!PREFEAT:1,Energy Immunity (acid)				DEFINE:AcidResistance|0
-Cold Resistance			CATEGORY:Special Ability	TYPE:EnergyResistance.ElementalResistance	VISIBLE:DISPLAY	SAB:Resistance to cold % (Ex)|ColdResistance|!PREFEAT:1,Energy Immunity (cold)				DEFINE:ColdResistance|0
-Electricity Resistance		CATEGORY:Special Ability	TYPE:EnergyResistance.ElementalResistance	VISIBLE:DISPLAY	SAB:Resistance to electricity % (Ex)|ElectricityResistance|!PREFEAT:1,Energy Immunity (electricity)	DEFINE:ElectricityResistance|0
-Fire Resistance			CATEGORY:Special Ability	TYPE:EnergyResistance.ElementalResistance	VISIBLE:DISPLAY	SAB:Resistance to fire % (Ex)|FireResistance|!PREFEAT:1,Energy Immunity (fire)				DEFINE:FireResistance|0
-Sonic Resistance			CATEGORY:Special Ability	TYPE:EnergyResistance.ElementalResistance	VISIBLE:DISPLAY	SAB:Resistance to sonic % (Ex)|SonicResistance|!PREFEAT:1,Energy Immunity (fire)				DEFINE:SonicResistance|0
-
-Energy Immunity (acid)		CATEGORY:Special Ability	TYPE:EnergyImmunity				VISIBLE:DISPLAY	SAB:Immune to acid (Ex)																				REMOVE:FEAT|Acid Resistance		BONUS:VAR|AcidResistance|-(min(AcidResistance,100))
-Energy Immunity (cold)		CATEGORY:Special Ability	TYPE:EnergyImmunity				VISIBLE:DISPLAY	SAB:Immune to cold (Ex)																				REMOVE:FEAT|Cold Resistance		BONUS:VAR|ColdResistance|-(min(ColdResistance,100))
-Energy Immunity (electricity)	CATEGORY:Special Ability	TYPE:EnergyImmunity				VISIBLE:DISPLAY	SAB:Immune to electricity (Ex)																		REMOVE:FEAT|Electricity Resistance	BONUS:VAR|ElectricityResistance|-(min(ElectricityResistance,100))
-Energy Immunity (fire)		CATEGORY:Special Ability	TYPE:EnergyImmunity				VISIBLE:DISPLAY	SAB:Immune to fire (Ex)																				REMOVE:FEAT|Fire Resistance		BONUS:VAR|FireResistance|-(min(FireResistance,100))
-Energy Immunity (sonic)		CATEGORY:Special Ability	TYPE:EnergyImmunity				VISIBLE:DISPLAY	SAB:Immune to sonic (Ex)																			REMOVE:FEAT|Sonic Resistance		BONUS:VAR|SonicResistance|-(min(SonicResistance,100))
-
-###Block: Energy Resistances and Immunities
-# Ability Category	Visible	Type of Object				Save checks bonus		Bonus to skill		Stat bonus			Choose							Define				Multiple?	Innate Spells
+###Block: ATS Abilities
 # Ability Name		Unique Key				Category of Ability		Type					Visible		Special ABility				Define				Multiple?	Choose							Save checks bonus		Bonus to skill		Stat bonus
 SpellLike Ability		KEY:ATS SpellLike Ability	CATEGORY:Special Ability	TYPE:ATS_SpellLikeAbility	VISIBLE:DISPLAY	SAB:SpellLike Ability (%CHOICE)	DEFINE:SpellChoiceLvl|0		MULT:YES	CHOOSE:SPELLLEVEL|1|CLASS=Channeler|1|MAXLEVEL
 Spontaneous Spell		KEY:ATS Spontaneous Spell	CATEGORY:Special Ability	TYPE:ATS_SpontaneousSpell	VISIBLE:DISPLAY	SAB:Spontaneous Spell (%CHOICE)	DEFINE:SpontaneousSpellLvl|0	MULT:YES	CHOOSE:SPELLLEVEL|1|CLASS=Channeler|1|MAXLEVEL

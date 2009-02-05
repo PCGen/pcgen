@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 13:45:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Feb  5 14:24:26 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 # Original Entry by: Tir Gwaith
 
@@ -43,7 +43,7 @@ CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Escape Arti
 ###Block: Weapon and Armor Proficiencies
 1	AUTO:FEAT|Improved Unarmed Strike	AUTO:WEAPONPROF|Club|Dagger|Hammer (Light)|Pick (Light)|Quarterstaff|Sickle|Axe (Throwing)|Sling|Sling (Great)
 ###Block: Normal Level Progression
-1								BONUS:COMBAT|AC|(CL+1)/2|TYPE=Defender|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0																																							AUTO:FEAT|Stunning Attack
+1								BONUS:COMBAT|AC|(CL+1)/2|TYPE=Defender|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0																						BONUS:VAR|StunningAttack|CL													ABILITY:Special Ability|AUTOMATIC|Stunning Attack
 2																																																						ADD:FEAT|1|TYPE=DefenderAbility
 4																						BONUS:MOVEADD|TYPE=Walk|floor((CL+2)/6)*10|PREVARLTEQ:ENCUMBERANCE,1,COUNT[EQTYPE.ARMOR.EQUIPPED],0|TYPE=FastMovement.REPLACE
 5																																																						ADD:FEAT|1|TYPE=DefenderAbility

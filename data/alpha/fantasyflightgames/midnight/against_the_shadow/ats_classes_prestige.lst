@@ -204,11 +204,11 @@ CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	ABB:wgr		MAXLEVEL:10	SOURCEPAGE:p. 65	
 CLASS:Wogren Rider	PREFEAT:2,Mounted Archery,Mounted Combat	PRERACE:1,Halfling (Midnight)	PRESKILL:3,Intuit Direction=4,Wilderness Lore=4,Ride=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
-1																																									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT||Simple Weapon Proficiency|Martial Weapon Proficiency
+1																																									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 1																																																									AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1			BONUS:VAR|WogrenRiderLvl|CL																																																		AUTO:FEAT|Wogren Mount
 1																																																									AUTO:FEAT|Coordinated Attack
-2:REPEATLEVEL:2						ADD:FEAT|1|Ride By Attack,Improved Ride By Attack,Mounted Archery,Improved Mounted Archery,Mounted Combat,Improved Mounted Combat,Spirited Charge,Improved Spirited Charge,Trample,Improved Trample
+2:REPEATLEVEL:2						ADD:FEAT|1|Ride-By Attack,Improved Ride By Attack,Mounted Archery,Improved Mounted Archery,Mounted Combat,Improved Mounted Combat,Spirited Charge,Improved Spirited Charge,Trample,Improved Trample
 3																																																									AUTO:FEAT|Speed Mount
 5																																																									AUTO:FEAT|Mounted Hide
 7																																																									AUTO:FEAT|Wogren Dodge
