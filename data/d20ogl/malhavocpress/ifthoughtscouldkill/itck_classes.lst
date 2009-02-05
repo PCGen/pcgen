@@ -159,7 +159,7 @@ CLASS:Soulknife ITCK	OUTPUTNAME:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVE
 # Class Name		Req. Att.	Required Skill							Var. Min. Value
 CLASS:Soulknife ITCK	PREATT:3	PRESKILL:2,Move Silently=3,Knowledge (Psionics)=3	PREVARGTEQ:BasePowerPoints,9
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohynosis|Concentration|Hide|Knowledge (Psionics)|Move Silently|Psicraft|Sense Motive|Stabilize Self|Tumble
+CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|Hide|Knowledge (Psionics)|Move Silently|Psicraft|Sense Motive|Stabilize Self|Tumble
 ###Block: Mind Blade
 1	SAB:Mind-blade sneak attack +%d%|MindBladeSneakAttack|SneakAttackDie	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|6	AUTO:EQUIP|Mind Blade
 2	SAB:Throw Mind-Blade	SAB:Mind-Blade +%|MindBladeEnchantment		BONUS:VAR|MindBladeRange|30									DEFINE:MindBladeRange|0
