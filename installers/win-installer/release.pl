@@ -509,12 +509,14 @@ else {
 
         other_copies_ref => [
             {   destination         => "$DEST_NSIS_BASE_FOLDER/data",
-                files_to_keep_ref   => [ qr{ [/] customsources [/] }xmsi,
-                                         qr{ [/] my_dataset [/]    }xmsi, ],
+                files_to_keep_ref   => [ qr{ [/] customsources [/]   }xmsi,
+                                         qr{ [/] my_dataset [/]      }xmsi,
+                                         qr{ [/] publisher_logos [/] }xmsi, ],
             },
             {   destination         => "$DEST_NSIS_OPTION_FOLDER/data",
-                files_to_skip_ref   => [ qr{ [/] customsources [/] }xmsi,
-                                         qr{ [/] my_dataset [/]    }xmsi, ],
+                files_to_skip_ref   => [ qr{ [/] customsources [/]   }xmsi,
+                                         qr{ [/] my_dataset [/]      }xmsi,
+                                         qr{ [/] publisher_logos [/] }xmsi, ],
             },
         ],
     });

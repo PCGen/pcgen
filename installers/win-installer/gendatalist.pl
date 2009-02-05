@@ -29,9 +29,8 @@ my $currDir;
 my @subdirlist;
 
 # The directories under data that will be included.
-@basedirlist = qw(d20ogl permissioned alpha);
+@basedirlist = qw(d20ogl alpha);
 $basedir{'d20ogl'} = 'd20OGL';
-$basedir{'permissioned'} = 'Permissioned';
 $basedir{'alpha'} = 'Alpha';
 
 # The list of publishers - add an entry here to correct a reported missing publisher
