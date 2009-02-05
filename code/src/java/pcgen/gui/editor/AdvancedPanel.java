@@ -399,6 +399,7 @@ public final class AdvancedPanel extends JPanel
 				if (context.processToken(thisPObject, key, value))
 				{
 					context.commit();
+					result = true;
 				}
 				else
 				{
