@@ -4863,6 +4863,20 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-HASSUBCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/HasSubClassConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-HASSUBSTITUTIONCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/HasSubstitutionClassConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${converterplugins.dir}/ConverterPlugin-KEY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
