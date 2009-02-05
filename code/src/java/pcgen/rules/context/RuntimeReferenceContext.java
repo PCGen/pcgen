@@ -30,8 +30,9 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
+import pcgen.core.Ability;
+import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
-import pcgen.util.StringPClassUtil;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
@@ -104,7 +105,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl, String category)
 	{
-		Category<T> cat = StringPClassUtil.getCategoryFor(cl, category);
+		Category<T> cat = getCategoryFor(cl, category);
 		if (cat == null)
 		{
 			Logging.errorPrint("Cannot find " + cl.getSimpleName()
@@ -114,4 +115,19 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		ReferenceManufacturer manufacturer = getManufacturer(cl, cat);
 		return manufacturer;
 	}
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
+			Class<T> cl, String s)
+	{
+		if (cl.equals(Ability.class))
+		{
+			return (Category) SettingsHandler.getGame()
+					.silentlyGetAbilityCategory(s);
+		}
+		else
+		{
+			return null;
+		}
+	}
+
 }

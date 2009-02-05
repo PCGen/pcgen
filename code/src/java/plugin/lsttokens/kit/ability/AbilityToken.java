@@ -31,11 +31,11 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.SettingsHandler;
 import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -101,10 +101,15 @@ public class AbilityToken extends AbstractToken implements
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
 			return false;
 		}
-		AbilityCategory ac =
-				SettingsHandler.getGame().getAbilityCategory(
-					catString.substring(9));
-		kitAbil.setCategory(ac);
+		Category<Ability> ac = context.ref.getCategoryFor(ABILITY_CLASS,
+				catString.substring(9));
+		/*
+		 * CONSIDER In the future it would be nice to not have to do this cast,
+		 * but that should be reserved for the time when the Pool nature of
+		 * AbilityCategory is separated from the Organizational nature of
+		 * AbilityCategory
+		 */
+		kitAbil.setCategory((AbilityCategory) ac);
 
 		String rest = value.substring(pipeLoc + 1);
 		if (isEmpty(rest) || hasIllegalSeparator('|', rest))

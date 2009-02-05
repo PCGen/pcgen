@@ -111,4 +111,6 @@ public interface ReferenceContext
 
 	public boolean validate(UnconstructedValidator validator);
 
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(Class<T> cl, String string);
+
 }

@@ -501,6 +501,7 @@ public class AbilityCategory implements KeyedObject, Category<Ability>
 
 	public Category<Ability> getParentCategory()
 	{
-		return AbilityUtilities.getAbilityCategory(getAbilityCategory());
+		return SettingsHandler.getGame().silentlyGetAbilityCategory(
+				getAbilityCategory());
 	}
 }

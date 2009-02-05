@@ -31,8 +31,8 @@ import java.util.Map;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
@@ -68,7 +68,7 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Ability.Nature> NATURE = new AssociationKey<Ability.Nature>();
 
-	public static final AssociationKey<AbilityCategory> CATEGORY = new AssociationKey<AbilityCategory>();
+	public static final AssociationKey<Category<Ability>> CATEGORY = new AssociationKey<Category<Ability>>();
 
 	public static final AssociationKey<Integer> OUTPUT_INDEX = new AssociationKey<Integer>();
 

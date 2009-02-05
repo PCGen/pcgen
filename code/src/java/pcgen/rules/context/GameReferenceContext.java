@@ -97,4 +97,11 @@ public class GameReferenceContext extends AbstractReferenceContext
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot construct objects");
 	}
+
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
+			Class<T> cl, String string)
+	{
+		throw new UnsupportedOperationException(
+				"GameReferenceContext cannot reference Categories");
+	}
 }

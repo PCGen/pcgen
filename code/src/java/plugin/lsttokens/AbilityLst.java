@@ -43,9 +43,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
@@ -122,8 +120,7 @@ public class AbilityLst extends AbstractToken implements
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		final AbilityCategory category =
-				SettingsHandler.getGame().getAbilityCategory(cat);
+		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS, cat);
 		if (category == null)
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
@@ -293,7 +290,7 @@ public class AbilityLst extends AbstractToken implements
 					{
 						Ability.Nature nature =
 								assoc.getAssociation(AssociationKey.NATURE);
-						AbilityCategory cat =
+						Category<Ability> cat =
 								assoc.getAssociation(AssociationKey.CATEGORY);
 						m
 							.addToListFor(nature, cat, assoc.getPrerequisiteList(),

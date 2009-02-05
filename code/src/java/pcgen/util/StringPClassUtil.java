@@ -5,8 +5,6 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -21,7 +19,6 @@ import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.SubClass;
@@ -97,19 +94,4 @@ public class StringPClassUtil
 	{
 		return stringMap.get(cl);
 	}
-
-	public static <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
-			Class<T> cl, String s)
-	{
-		if (cl.equals(Ability.class))
-		{
-			return (Category) SettingsHandler.getGame()
-					.silentlyGetAbilityCategory(s);
-		}
-		else
-		{
-			return null;
-		}
-	}
-
 }

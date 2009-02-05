@@ -23,9 +23,9 @@
 package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.AbilityCategory;
-import pcgen.core.SettingsHandler;
+import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -42,6 +42,8 @@ import pcgen.util.Logging;
  */
 public class AbilityToken implements CDOMSecondaryToken<CDOMObject>
 {
+
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	/*
 	 * (non-Javadoc)
@@ -99,8 +101,7 @@ public class AbilityToken implements CDOMSecondaryToken<CDOMObject>
 			return false;
 		}
 		String cat = value.substring(0, barLoc);
-		AbilityCategory category = SettingsHandler.getGame()
-				.silentlyGetAbilityCategory(cat);
+		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS, cat);
 		if (category == null)
 		{
 			Logging

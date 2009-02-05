@@ -63,6 +63,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
@@ -337,16 +338,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * abilities   the character possesses via any of its classes, feats, 
 	 * templates, equipoment etc.
 	 */
-	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<Ability>> theAbilities =
-			new DoubleKeyMap<AbilityCategory, Ability.Nature, List<Ability>>();
+	private DoubleKeyMap<Category<Ability>, Ability.Nature, List<Ability>> theAbilities =
+			new DoubleKeyMap<Category<Ability>, Ability.Nature, List<Ability>>();
 
 	/**
 	 * List of all directly assigned normal nature abilities split by category. 
 	 * These are abilities that are added directly to the character rather than 
 	 * being added to a class, template etc that the character possesses. 
 	 */
-	private Map<AbilityCategory, List<Ability>> realAbilities =
-			new HashMap<AbilityCategory, List<Ability>>();
+	private Map<Category<Ability>, List<Ability>> realAbilities =
+			new HashMap<Category<Ability>, List<Ability>>();
 
 	/**
 	 * List of all directly assigned virtual nature abilities split by category. 
@@ -14380,7 +14381,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.addRealAbility(AbilityCategory.FEAT, (a.clone()));
 		}
-		for (final AbilityCategory cat : theAbilities.getKeySet())
+		for (final Category<Ability> cat : theAbilities.getKeySet())
 		{
 			for (final Ability a : getRealAbilityList(cat))
 			{
@@ -15223,7 +15224,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setAggregateAbilitiesStable(AbilityCategory.FEAT, stable);
 	}
 
-	public void setAggregateAbilitiesStable(final AbilityCategory aCategory,
+	public void setAggregateAbilitiesStable(final Category<Ability> aCategory,
 		final boolean stable)
 	{
 		if (!stable && rebuildingAbilities)
@@ -15250,7 +15251,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (!stable)
 			{
 				// Clear all the categories
-				for (final AbilityCategory cat : theAbilities.getKeySet())
+				for (final Category<Ability> cat : theAbilities.getKeySet())
 				{
 					// Avoid an infinite loop if there is a faulty entry in the key set
 					if (cat == null)
@@ -15307,7 +15308,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if (!stable)
 			{
-				for (final AbilityCategory cat : theAbilities.getKeySet())
+				for (final Category<Ability> cat : theAbilities.getKeySet())
 				{
 					theAbilities.put(cat, Ability.Nature.AUTOMATIC, null);
 				}
@@ -15321,7 +15322,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public boolean addRealAbility(final AbilityCategory aCategory,
+	public boolean addRealAbility(final Category<Ability> aCategory,
 		final Ability anAbility)
 	{
 		if (anAbility == null)
@@ -15343,7 +15344,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (aCategory == null)
 		{
-			for (final AbilityCategory cat : theAbilities.getKeySet())
+			for (final Category<Ability> cat : theAbilities.getKeySet())
 			{
 				theAbilities.put(cat, Ability.Nature.NORMAL, null);
 			}
@@ -15356,7 +15357,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public HashMap<Ability.Nature, Set<Ability>> getAbilitiesSet()
 	{
 
-		final Set<AbilityCategory> abCats = theAbilities.getKeySet();
+		final Set<Category<Ability>> abCats = theAbilities.getKeySet();
 
 		HashMap<Ability.Nature, Set<Ability>> st =
 				new HashMap<Ability.Nature, Set<Ability>>();
@@ -15387,7 +15388,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public List<Ability> getAllAbilities()
 	{
-		Set<AbilityCategory> abCats = theAbilities.getKeySet();
+		Set<Category<Ability>> abCats = theAbilities.getKeySet();
 
 		List<Ability> list = new ArrayList<Ability>();
 
@@ -15396,7 +15397,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return list;
 		}
 
-		for (AbilityCategory ac : abCats)
+		for (Category<Ability> ac : abCats)
 		{
 			list.addAll(getAutomaticAbilityList(ac));
 			list.addAll(getRealAbilitiesList(ac));
@@ -15405,7 +15406,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return list;
 	}
 
-	public List<Ability> getRealAbilitiesList(final AbilityCategory aCategory)
+	public List<Ability> getRealAbilitiesList(final Category<Ability> aCategory)
 	{
 		List<Ability> abilities =
 				theAbilities.get(aCategory, Ability.Nature.NORMAL);
@@ -15461,7 +15462,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return
 	 */
 	@Deprecated
-	public List<Ability> getRealAbilityList(final AbilityCategory aCategory)
+	public List<Ability> getRealAbilityList(final Category<Ability> aCategory)
 	{
 		return getRealAbilitiesList(aCategory);
 	}
@@ -16420,7 +16421,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return abilityList;
 	}
 
-	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
+	public List<Ability> getVirtualAbilityList(final Category<Ability> aCategory)
 	{
 		List<Ability> abilities =
 				theAbilities.get(aCategory, Ability.Nature.VIRTUAL);
@@ -16450,7 +16451,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @author boomer70
 	 * @since 5.11.1
 	 */
-	public List<Ability> getAutomaticAbilityList(final AbilityCategory aCategory)
+	public List<Ability> getAutomaticAbilityList(final Category<Ability> aCategory)
 	{
 		List<Ability> abilities =
 				theAbilities.get(aCategory, Ability.Nature.AUTOMATIC);
@@ -16604,7 +16605,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							}
 							Nature nature = apo
 									.getAssociation(AssociationKey.NATURE);
-							AbilityCategory cat = apo
+							Category<Ability> cat = apo
 									.getAssociation(AssociationKey.CATEGORY);
 							List<String> choices = apo
 									.getAssociation(AssociationKey.ASSOC_CHOICES);

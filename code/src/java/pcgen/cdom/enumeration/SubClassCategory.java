@@ -192,4 +192,9 @@ public final class SubClassCategory implements TypeSafeConstant, Category<SubCla
 		return fieldName;
 	}
 
+	public String getDisplayName()
+	{
+		return fieldName;
+	}
+
 }

@@ -25,9 +25,9 @@ import java.util.regex.Pattern;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -44,6 +44,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		DeferredToken<CDOMObject>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	/**
 	 * Returns token name
@@ -134,8 +135,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 				{
 					for (Object o : bonus.getBonusInfoList())
 					{
-						if (SettingsHandler.getGame().getAbilityCategory(
-								o.toString()) == null)
+						if (context.ref.getCategoryFor(ABILITY_CLASS, o.toString()) == null)
 						{
 							Logging.errorPrint("BONUS: " + bonus + " in "
 									+ obj.getClass().getSimpleName() + " "

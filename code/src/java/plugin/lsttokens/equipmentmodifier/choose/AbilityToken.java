@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.AbilityCategory;
+import pcgen.core.Ability;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -28,6 +28,8 @@ import pcgen.util.Logging;
 
 public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 {
+
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	public String getTokenName()
 	{
@@ -80,8 +82,7 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 			return false;
 		}
 		String cat = value.substring(0, barLoc);
-		AbilityCategory category = SettingsHandler.getGame()
-				.getAbilityCategory(cat);
+		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS, cat);
 		if (category == null)
 		{
 			Logging

@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -49,7 +50,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -144,8 +144,8 @@ public class AbilityToken extends AbstractToken implements
 		}
 
 		String categoryKey = pipeTok.nextToken();
-		AbilityCategory category = SettingsHandler.getGame()
-				.getAbilityCategory(categoryKey);
+		Category<Ability> category = context.ref.getCategoryFor(ABILITY_CLASS,
+				categoryKey);
 		if (category == null)
 		{
 			Logging.log(Logging.LST_ERROR, getFullName() + ": Invalid ability category: "

@@ -47,4 +47,12 @@ public interface Category<T extends CategorizedCDOMObject<T>>
 	 */
 	String getKeyName();
 
+	/**
+	 * Returns the display name of the Category.
+	 * 
+	 * @return The display name of the Category.
+	 * 
+	 */
+	String getDisplayName();
+
 }
