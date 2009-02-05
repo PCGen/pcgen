@@ -233,13 +233,14 @@ public class NaturalattacksLst extends AbstractToken implements
 
 		// sage_sam 02 Dec 2002 for Bug #586332
 		// allow hands to be required to equip natural weapons
+		int handsrequired = 0;
 		if (commaTok.hasMoreTokens())
 		{
 			final String hString = commaTok.nextToken();
 			try
 			{
-				equipHead.put(IntegerKey.SLOTS, Integer.valueOf(Integer
-						.parseInt(hString)));
+				handsrequired = Integer.valueOf(Integer
+						.parseInt(hString));
 			}
 			catch (NumberFormatException exc)
 			{
@@ -248,6 +249,7 @@ public class NaturalattacksLst extends AbstractToken implements
 				return null;
 			}
 		}
+		anEquip.put(IntegerKey.SLOTS, handsrequired);
 
 		anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 
@@ -353,7 +355,7 @@ public class NaturalattacksLst extends AbstractToken implements
 			sb.append(damage);
 
 			Integer hands = head.get(IntegerKey.SLOTS);
-			if (hands != null)
+			if (hands != null && hands != 0)
 			{
 				sb.append(',').append(hands);
 			}
