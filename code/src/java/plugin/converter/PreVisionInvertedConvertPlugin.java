@@ -230,13 +230,22 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 			String... base)
 	{
 		List<String> choice = createZeroChoices(tpe, num, base);
-		List<String> descr = new ArrayList<String>();
-		descr.add(choice.get(0) + " ... " + SET_ZERO_ONE);
-		descr.add(choice.get(1) + " ... " + SET_ZERO_ANY);
-		String decision = tpe.getDecider().getConversionDecision(
-				"Resolve ambiguity for " + getProcessedToken() + ":" + formula,
-				descr, choice);
-		tpe.append(decision);
+		String oneChoice = choice.get(0);
+		String zeroChoice = choice.get(1);
+		if (oneChoice.equals(zeroChoice))
+		{
+			tpe.append(oneChoice);
+		}
+		else
+		{
+			List<String> descr = new ArrayList<String>();
+			descr.add(oneChoice + " ... " + SET_ZERO_ONE);
+			descr.add(zeroChoice + " ... " + SET_ZERO_ANY);
+			String decision = tpe.getDecider().getConversionDecision(
+					"Resolve ambiguity for " + getProcessedToken() + ":" + formula,
+					descr, choice);
+			tpe.append(decision);
+		}
 	}
 
 	private List<String> createZeroChoices(TokenProcessEvent tpe, String num,
