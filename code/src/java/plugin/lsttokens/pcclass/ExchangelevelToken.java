@@ -120,7 +120,7 @@ public class ExchangelevelToken extends AbstractToken implements
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(le.getLSTformat()).append(Constants.PIPE);
+		sb.append(le.getExchangeClass().getLSTformat()).append(Constants.PIPE);
 		sb.append(le.getMinDonatingLevel()).append(Constants.PIPE);
 		sb.append(le.getMaxDonatedLevels()).append(Constants.PIPE);
 		sb.append(le.getDonatingLowerLevelBound());

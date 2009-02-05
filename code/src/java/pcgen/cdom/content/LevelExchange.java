@@ -21,23 +21,61 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 
+/**
+ * A LevelExchange is a storage container identifying the level exchange that
+ * can take place when a given class is taken.
+ */
 public class LevelExchange extends ConcretePrereqObject
 {
 
+	/**
+	 * A CDOMReference to the class which can be exchanged from (the class where
+	 * levels will be reduced, not the class where the token was present)
+	 */
 	private final CDOMSingleRef<PCClass> exchangeClass;
+
+	/**
+	 * Identifies the minimum number of levels that must be donated into the
+	 * class in which the LevelExchange is present.
+	 */
 	private final int minDonatingLevel;
 
+	/**
+	 * Identifies the maximum number of levels that may be donated into the
+	 * class in which the LevelExchange is present.
+	 */
 	private final int maxDonatedLevels;
 
+	/**
+	 * Identifies the minimum level that may be reached in the exchangeClass
+	 * during any level exchange. (In other words, the number of levels in the
+	 * exchangeClass cannot be reduced below this level by the LevelExchange)
+	 */
 	private final int donatingLowerLevelBound;
 
+	/**
+	 * Creates a new LevelExchange for the given Class (identifed by a
+	 * CDOMReference), and given limits on the exchange.
+	 * 
+	 * @param pcc
+	 *            The class which levels can be exchanged from
+	 * @param minDonatingLvl
+	 *            The minimum number of levels that must be donated into the
+	 *            class in which the LevelExchange is present.
+	 * @param maxDonated
+	 *            The maximum number of levels that may be donated into the
+	 *            class in which the LevelExchange is present.
+	 * @param donatingLowerBound
+	 *            The minimum level that may be reached in the exchangeClass
+	 *            during any level exchange.
+	 */
 	public LevelExchange(CDOMSingleRef<PCClass> pcc, int minDonatingLvl,
 			int maxDonated, int donatingLowerBound)
 	{
 		if (minDonatingLvl <= 0)
 		{
 			throw new IllegalArgumentException(
-					"Error: Min Donatign Level <= 0: "
+					"Error: Min Donating Level <= 0: "
 							+ "Cannot Allow Donations to produce negative levels");
 		}
 		if (maxDonated <= 0)
@@ -52,12 +90,6 @@ public class LevelExchange extends ConcretePrereqObject
 					"Error: Max Remaining Levels < 0: "
 							+ "Cannot Allow Donations to produce negative levels");
 		}
-		if (donatingLowerBound < 0)
-		{
-			throw new IllegalArgumentException(
-					"Error: Min Remaining Levels < 0: "
-							+ "Cannot Allow Donations to produce negative levels");
-		}
 		if (minDonatingLvl - maxDonated > donatingLowerBound)
 		{
 			throw new IllegalArgumentException(
@@ -69,26 +101,58 @@ public class LevelExchange extends ConcretePrereqObject
 		donatingLowerLevelBound = donatingLowerBound;
 	}
 
+	/**
+	 * Returns the minimum level that may be reached in the exchange class
+	 * during any level exchange.
+	 * 
+	 * @return The minimum level that may be reached in the exchange class
+	 *         during any level exchange.
+	 */
 	public int getDonatingLowerLevelBound()
 	{
 		return donatingLowerLevelBound;
 	}
 
+	/**
+	 * Returns a Reference to the class which can be exchanged from (the class
+	 * where levels will be reduced, not the class where the token was present)
+	 * 
+	 * @return A Reference to the class which can be exchanged from
+	 */
 	public CDOMSingleRef<PCClass> getExchangeClass()
 	{
 		return exchangeClass;
 	}
 
+	/**
+	 * Returns the maximum number of levels that may be donated into the class
+	 * in which the LevelExchange is present.
+	 * 
+	 * @return The maximum number of levels that may be donated into the class
+	 *         in which the LevelExchange is present.
+	 */
 	public int getMaxDonatedLevels()
 	{
 		return maxDonatedLevels;
 	}
 
+	/**
+	 * Returns the minimum number of levels that must be donated into the class
+	 * in which the LevelExchange is present.
+	 * 
+	 * @return The minimum number of levels that must be donated into the class
+	 *         in which the LevelExchange is present.
+	 */
 	public int getMinDonatingLevel()
 	{
 		return minDonatingLevel;
 	}
 
+	/**
+	 * Returns a consistent-with-equals hashCode for this LevelExchange
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
@@ -96,6 +160,12 @@ public class LevelExchange extends ConcretePrereqObject
 				+ donatingLowerLevelBound;
 	}
 
+	/**
+	 * Returns true if the given object is a LevelExchange with identical
+	 * exchange class and exchange limits
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -112,10 +182,5 @@ public class LevelExchange extends ConcretePrereqObject
 				&& maxDonatedLevels == other.maxDonatedLevels
 				&& donatingLowerLevelBound == other.donatingLowerLevelBound
 				&& exchangeClass.equals(other.exchangeClass);
-	}
-
-	public String getLSTformat()
-	{
-		return getExchangeClass().getLSTformat();
 	}
 }

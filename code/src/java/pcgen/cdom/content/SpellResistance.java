@@ -21,30 +21,65 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.FormulaFactory;
 
+/**
+ * SpellResistance represents the SpellResistance provided to a PlayerCharacter
+ * by a given object.
+ */
 public class SpellResistance extends ConcretePrereqObject
 {
 
-	public static final SpellResistance NONE = new SpellResistance(FormulaFactory.ZERO);
-	
+	/**
+	 * The special case of no spell resistance. This is "cached" in order to
+	 * provide reuse of this case during runtime.
+	 */
+	public static final SpellResistance NONE = new SpellResistance(
+			FormulaFactory.ZERO);
+
+	/**
+	 * The Formula representing the reduction provided by this SpellResistance.
+	 */
 	private final Formula reduction;
 
+	/**
+	 * Constructs a new SpellResistance with the given Formula as the reduction
+	 * provided by this SpellResistance.
+	 * 
+	 * @param aReduction
+	 *            The reduction provided by this SpellResistance.
+	 */
 	public SpellResistance(Formula aReduction)
 	{
 		super();
 		reduction = aReduction;
 	}
 
+	/**
+	 * Returns the reduction provided by this SpellResistance.
+	 * 
+	 * @return The reduction provided by this SpellResistance.
+	 */
 	public Formula getReduction()
 	{
 		return reduction;
 	}
 
+	/**
+	 * Returns a String representation of this SpellResistance.
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{
 		return reduction.toString();
 	}
 
+	/**
+	 * Returns true if the given object is a SpellResistance with equal
+	 * reduction to this Spell Resistance.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object other)
 	{
@@ -56,12 +91,24 @@ public class SpellResistance extends ConcretePrereqObject
 		return false;
 	}
 
+	/**
+	 * Provides a consistent-with-equals hashCode for this SpellResistance.
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return reduction.hashCode();
 	}
 
+	/**
+	 * Returns a format for this SpellResistance that is suitable for storage in
+	 * an LST file.
+	 * 
+	 * @return A format for this SpellResistance that is suitable for storage in
+	 *         an LST file.
+	 */
 	public String getLSTformat()
 	{
 		return reduction.toString();

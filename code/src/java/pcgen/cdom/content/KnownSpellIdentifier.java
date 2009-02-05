@@ -31,8 +31,8 @@ import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 
 /**
- * A KnownSpellIdentifier is an object that identifies Spell objects that are 
- * known at a specific spell level.  The Spell objects are stored by reference.
+ * A KnownSpellIdentifier is an object that identifies Spell objects that are
+ * known at a specific spell level. The Spell objects are stored by reference.
  */
 public class KnownSpellIdentifier extends ConcretePrereqObject
 {
@@ -58,8 +58,8 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * 
 	 * @param sr
 	 *            The CDOMReference containing the spells to be part of this
-	 *            KnownSpellIdentifier.  May be null if
-	 *            this KnownSpellIdentifier is not limited by Spell key.
+	 *            KnownSpellIdentifier. May be null if this KnownSpellIdentifier
+	 *            is not limited by Spell key.
 	 * @param levelLimit
 	 *            The spell level of this KnownSpellIdentifier. May be null if
 	 *            this KnownSpellIdentifier is not limited by level.
@@ -71,7 +71,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		if (sr == null && levelLimit == null)
 		{
 			throw new IllegalArgumentException(
-				"Known Spell Identifier cannot have null spell reference and level limit");
+					"Known Spell Identifier cannot have null spell reference and level limit");
 		}
 		ref = sr;
 		spellLevel = levelLimit;
@@ -96,7 +96,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	public boolean matchesFilter(Spell s, int testSpellLevel)
 	{
 		return (ref == null || ref.contains(s))
-			&& (spellLevel == null || testSpellLevel == spellLevel);
+				&& (spellLevel == null || testSpellLevel == spellLevel);
 	}
 
 	/**
@@ -122,6 +122,16 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		return spellLevel;
 	}
 
+	/**
+	 * Returns a Collection of Spells contained by this KnownSpellIdentifier
+	 * within the given lists.
+	 * 
+	 * @param list
+	 *            The Spell Lists that should be used to resolve what Spells are
+	 *            identified as known by this KnownSpellIdentifier.
+	 * @return A Collection of Spells contained by this KnownSpellIdentifier
+	 *         within the given lists.
+	 */
 	public Collection<Spell> getContainedSpells(List<ClassSpellList> list)
 	{
 		if (ref == null)
@@ -131,14 +141,14 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		List<Spell> spellList = new ArrayList<Spell>();
 		for (Spell sp : ref.getContainedObjects())
 		{
-			HashMapToList<CDOMList<Spell>, Integer> hml =
-					SpellLevel.getMasterLevelInfo(null, sp);
+			HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel
+					.getMasterLevelInfo(null, sp);
 			for (CDOMList<Spell> cdomList : hml.getKeySet())
 			{
 				if (list.contains(cdomList))
 				{
 					if (spellLevel == null
-						|| hml.getListFor(cdomList).contains(spellLevel))
+							|| hml.getListFor(cdomList).contains(spellLevel))
 					{
 						spellList.add(sp);
 					}
