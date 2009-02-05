@@ -4,4 +4,3 @@ SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/
 
 # Skill Name	Key Stat	Untrained?		Type
 Knowledge (War)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
-

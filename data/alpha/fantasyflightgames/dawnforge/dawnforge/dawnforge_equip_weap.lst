@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 12:39:50 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Feb  4 21:41:40 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
@@ -11,7 +11,7 @@ Serrated Horncaps	PROFICIENCY:WEAPON|Gore			TYPE:Weapon.Melee.Exotic.Standard.Me
 Wristblade		PROFICIENCY:WEAPON|Wristblade		TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Metal.Elf.Piercing.Wristblade							COST:20	WT:2				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					WIELD:Light							SIZE:M	SOURCEPAGE:p.92
 
 #-----one handed -------
-Mürblade		PROFICIENCY:WEAPON|Mürblade		TYPE:Weapon.Melee.Exotic.Double.Standard.Metal.Dwarf.Slashing.Mürblade		ALTTYPE:Weapon.Melee.Piercing		COST:50	WT:8				CRITMULT:x3			CRITRANGE:1			ALTCRITMULT:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d6		WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.92
+Murblade		PROFICIENCY:WEAPON|Murblade		TYPE:Weapon.Melee.Exotic.Double.Standard.Metal.Dwarf.Slashing.Murblade		ALTTYPE:Weapon.Melee.Piercing		COST:50	WT:8				CRITMULT:x3			CRITRANGE:1			ALTCRITMULT:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d6		WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.92
 Shineblade		PROFICIENCY:WEAPON|Shineblade		TYPE:Weapon.Melee.Exotic.Double.Standard.Metal.Elf.Slashing.Shineblade		ALTTYPE:Weapon.Melee.Metal.Slashing	COST:50	WT:4				CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x2		ALTCRITRANGE:2			DAMAGE:1d8	ALTDAMAGE:1d8		WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.92
 
 #-----two handed -------
@@ -27,6 +27,5 @@ Horned Club		PROFICIENCY:WEAPON|Horned Club	TYPE:Weapon.Melee.Exotic.Standard.Wo
 Dragnet		PROFICIENCY:WEAPON|Dragnet		TYPE:Weapon.Exotic.Ranged.Standard.Trueborn.Thrown											COST:25	WT:8																														RANGE:5						SOURCEPAGE:p.92
 Fangcaps		PROFICIENCY:WEAPON|Fangcaps		TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Thinblood.Projectile									COST:2	WT:0				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d2								RANGE:5						SOURCEPAGE:p.92
 Returner		PROFICIENCY:WEAPON|Returner		TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Lizardfolk.Thrown									COST:2	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6								RANGE:30						SOURCEPAGE:p.92
-Spiked Ball		PROFICIENCY:WEAPON|Spiked Ball	TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Halfling.Thrown										COST:5	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4								RANGE:20						SOURCEPAGE:p.92
-Wristbolt		PROFICIENCY:WEAPON|Wristbolt		TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Elf.Projectile										COST:1	WT:.5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4								RANGE:30						SOURCEPAGE:p.92
-
+Spiked Ball		PROFICIENCY:WEAPON|Spiked ball	TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Halfling.Thrown										COST:5	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4								RANGE:20						SOURCEPAGE:p.92
+Wristbolt		PROFICIENCY:WEAPON|Wristbolt		TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Elf.Projectile										COST:1	WT:0.5			CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4								RANGE:30						SOURCEPAGE:p.92

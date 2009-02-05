@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 13:10:00 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Feb  4 23:30:21 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
 ###Block: Talent Skills
 # Ability Name									Category of Ability		Type								Visible	Restricted Ability										Stackable?	Multiple?	Choose		Bonus to skill						Source Page
-Talent +1 on Hide									CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Hide		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Hide|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
-Talent +1 on Move Silently							CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Move Silently	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Move Silently|1|TYPE=Talent.STACK	SOURCEPAGE:p.25
-Talent +1 on Tumble								CATEGORY:Dawnforge Ability	TYPE:ForestWightTalentSkill				VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Tumble		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Tumble|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
+Talent +1 on Hide									CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CHECKMULT,CATEGORY=Dawnforge Ability,Talent +1 on Hide		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Hide|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
+Talent +1 on Move Silently							CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill.ForestWightTalentSkill	VISIBLE:YES	!PREABILITY:3,CHECKMULT,CATEGORY=Dawnforge Ability,Talent +1 on Move Silently	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Move Silently|1|TYPE=Talent.STACK	SOURCEPAGE:p.25
+Talent +1 on Tumble								CATEGORY:Dawnforge Ability	TYPE:ForestWightTalentSkill				VISIBLE:YES	!PREABILITY:3,CHECKMULT,CATEGORY=Dawnforge Ability,Talent +1 on Tumble		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Tumble|1|TYPE=Talent.STACK		SOURCEPAGE:p.25
 
 CATEGORY=Dawnforge Ability|Talent +1 on Bluff.MOD								TYPE:ForestWightTalentSkill
 CATEGORY=Dawnforge Ability|Talent +1 on Craft Skills.MOD							TYPE:ForestWightTalentSkill
@@ -17,10 +17,10 @@ CATEGORY=Dawnforge Ability|Talent +1 on Survival.MOD								TYPE:GhostElfTalentS
 
 ###Block: Transformation Skills
 # Ability Name									Category of Ability		Type								Visible	Restricted Ability											Stackable?	Multiple?	Choose		Bonus to skill								Source Page
-Transformation +1 on Listen							CATEGORY:Dawnforge Ability	TYPE:ForestWightTransfSkill.WoodElfTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Transformation +1 on Listen	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Listen|1|TYPE=Transformation.STACK			SOURCEPAGE:p.73
-Transformation +1 on Spot							CATEGORY:Dawnforge Ability	TYPE:ForestWightTransfSkill.WoodElfTalentSkill	VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Transformation +1 on Spot		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Spot|1|TYPE=Transformation.STACK			SOURCEPAGE:p.73
-Transformation +1 on Knowledge (Nature)					CATEGORY:Dawnforge Ability	TYPE:WoodElfTalentSkill					VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Knowledge (Nature)	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Knowledge (Nature)|1|TYPE=Transformation.STACK	SOURCEPAGE:p.33
-Transformation +1 on Survival							CATEGORY:Dawnforge Ability	TYPE:WoodElfTalentSkill					VISIBLE:YES	!PREABILITY:3,CATEGORY=Dawnforge Ability,CHECKMULT,Talent +1 on Survival		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Survival|1|TYPE=Transformation.STACK		SOURCEPAGE:p.33
+Transformation +1 on Listen							CATEGORY:Dawnforge Ability	TYPE:ForestWightTransfSkill.WoodElfTalentSkill	VISIBLE:YES	!PREABILITY:3,CHECKMULT,CATEGORY=Dawnforge Ability,Transformation +1 on Listen	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Listen|1|TYPE=Transformation.STACK			SOURCEPAGE:p.73
+Transformation +1 on Spot							CATEGORY:Dawnforge Ability	TYPE:ForestWightTransfSkill.WoodElfTalentSkill	VISIBLE:YES	!PREABILITY:3,CHECKMULT,CATEGORY=Dawnforge Ability,Transformation +1 on Spot		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Spot|1|TYPE=Transformation.STACK			SOURCEPAGE:p.73
+Transformation +1 on Knowledge (Nature)					CATEGORY:Dawnforge Ability	TYPE:WoodElfTalentSkill					VISIBLE:YES	!PREABILITY:3,CHECKMULT,CATEGORY=Dawnforge Ability,Talent +1 on Knowledge (Nature)	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Knowledge (Nature)|1|TYPE=Transformation.STACK	SOURCEPAGE:p.33
+Transformation +1 on Survival							CATEGORY:Dawnforge Ability	TYPE:WoodElfTalentSkill					VISIBLE:YES	!PREABILITY:3,CHECKMULT,CATEGORY=Dawnforge Ability,Talent +1 on Survival		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Survival|1|TYPE=Transformation.STACK		SOURCEPAGE:p.33
 
 CATEGORY=Dawnforge Ability|Transformation +1 on Balance.MOD							TYPE:ForestWightTransfSkill
 CATEGORY=Dawnforge Ability|Transformation +1 on Climb.MOD							TYPE:ForestWightTransfSkill
@@ -115,7 +115,7 @@ Wood Elf Talent Feats	CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTalent	VISIBL
 Feet of a Cat				CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation	VISIBLE:YES																		SAB:Feet of a Cat (Su)									MULT:NO																																		SOURCEPAGE:p.33
 Ears of a Fox				CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation	VISIBLE:YES																		SAB:Ears of a Fox (Ex)									MULT:NO																						BONUS:SKILL|Listen|3|TYPE=Transformation						SOURCEPAGE:p.33
 Eyes of a Hawk				CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation	VISIBLE:YES																		SAB:Eyes of a Hawk (Ex)									MULT:NO																						BONUS:SKILL|Spot|3|TYPE=Transformation						SOURCEPAGE:p.33
-Heart of a Bear				CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation	VISIBLE:YES	PRELEVEL:MIN=6	PRESTAT:1,CON=13												SAB:Heart of a Bear (Ex)	DEFINE:BarbRageTimesLVL|0			MULT:NO				ABILITY:Special Ability|AUTOMATIC|Rage|Barbarian Rage																	BONUS:VAR|BarbRageTimesLVL|1	SOURCEPAGE:p.33
+Heart of a Bear				CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation	VISIBLE:YES	PRELEVEL:MIN=6	PRESTAT:1,CON=13												SAB:Heart of a Bear (Ex)	DEFINE:BarbRageTimesLVL|0			MULT:NO				ABILITY:Special Ability|AUTOMATIC|Barbarian Rage|Rage																	BONUS:VAR|BarbRageTimesLVL|1	SOURCEPAGE:p.33
 Wood Elf Transformation Skills	CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation	VISIBLE:YES																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:ABILITYPOOL|Wood Elf Transformation Skill|5													SOURCEPAGE:p.22
 Wood Elf Transformation Feats		CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation	VISIBLE:YES							PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:ABILITYPOOL|Wood Elf Transformation Feat|1													SOURCEPAGE:p.22
 
@@ -179,10 +179,10 @@ Voice of Stone and Flame	CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTalent	VISIB
 Stone Brother			CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Subterranean Empathy,Master of the Underbeasts	PRELEVEL:MIN=4	SAB:Stone Brother (Ex)																							MULT:NO										SOURCEPAGE:p.6
 
 ###Block: Dwarf Racial Racial Transformations
-# Ability Name		Category of Ability		Type						Visible	Special ABility					Define			Stackable?	Multiple?	Choose		Automatically Gained Feat	Modify VAR				Vision					Source Page
-Dwarf Fire Resistance	CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransformation	VISIBLE:YES												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	AUTO:FEAT|1|Fire Resistance	BONUS:VAR|FireResistance|2							SOURCEPAGE:p.7
-Dwarf Fast Healing	CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransformation	VISIBLE:YES	SAB:Fast Healing (Ex) (%)|FastHealing	DEFINE:FastHealing|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|FastHealing|1								SOURCEPAGE:p.7
-Dwarf Tremorsense		CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransformation	VISIBLE:YES	SAB:Tremorsense (Ex) (%')|Tremorsense	DEFINE:Tremorsense|10	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|Tremorsense|5		VISION:Tremorsense (Tremorsense')	SOURCEPAGE:p.7
+# Ability Name		Category of Ability		Type						Visible	Special ABility					Define			Stackable?	Multiple?	Choose		Automatically Gained Feat	Modify VAR				Add to vision					Vision			Source Page
+Dwarf Fire Resistance	CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransformation	VISIBLE:YES												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	AUTO:FEAT|Fire Resistance	BONUS:VAR|FireResistance|2												SOURCEPAGE:p.7
+Dwarf Fast Healing	CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransformation	VISIBLE:YES	SAB:Fast Healing (Ex) (%)|FastHealing	DEFINE:FastHealing|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|FastHealing|1													SOURCEPAGE:p.7
+Dwarf Tremorsense		CATEGORY:Dawnforge Ability	TYPE:DwarfRacialTransformation	VISIBLE:YES	SAB:Tremorsense (Ex) (%')|Tremorsense	DEFINE:Tremorsense|10	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|Tremorsense|5		BONUS:VISION|Tremorsense|Tremorsense	VISION:Tremorsense	SOURCEPAGE:p.7
 #TODO (Dwarf): Voice of Stone and Flame(spells per day)
 
 ##################
@@ -361,15 +361,15 @@ Gambler		CATEGORY:Dawnforge Ability	TYPE:SaltbloodRacialTransformation	VISIBLE:Y
 #######################
 
 ###Block:Trueborn Racial Talents
-# Ability Name	Category of Ability		Type					Visible	Required Ability							Special ABility		Multiple?	Add 										Bonus to skill				Source Page
-Hard Worker		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Hard Worker		MULT:NO	ADD:FEAT|1|Athletic,Endurance,Great Fortitude,Toughness							SOURCEPAGE:p.106
-Bowman		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Bowman (Ex)		MULT:NO																	SOURCEPAGE:p.106
-Fleet Footed	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Fleet-Footed (Ex)	MULT:NO											BONUS:SKILL|Tumble|2|TYPE=Talent	SOURCEPAGE:p.106
-Strong Faith	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Strong Faith (Ex)	MULT:NO																	SOURCEPAGE:p.106
-Silver Tongued	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Silver-Tongued (Ex)	MULT:NO											BONUS:SKILL|Bluff|2|TYPE=Talent	SOURCEPAGE:p.106
-Horse Trainer	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Horse Trainer (Ex)	MULT:NO																	SOURCEPAGE:p.107
-Horse Talker	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Horse Trainer	SAB:Horse Talker (Su)	MULT:NO																	SOURCEPAGE:p.107
-Ironclad		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Ironclad (Ex)		MULT:NO																	SOURCEPAGE:p.107
+# Ability Name	Category of Ability		Type					Visible	Required Ability							Special ABility		Multiple?	Add 									Bonus to skill				Source Page
+Hard Worker		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Hard Worker		MULT:NO	ADD:FEAT|Athletic,Endurance,Great Fortitude,Toughness							SOURCEPAGE:p.106
+Bowman		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Bowman (Ex)		MULT:NO																SOURCEPAGE:p.106
+Fleet Footed	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Fleet-Footed (Ex)	MULT:NO										BONUS:SKILL|Tumble|2|TYPE=Talent	SOURCEPAGE:p.106
+Strong Faith	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Strong Faith (Ex)	MULT:NO																SOURCEPAGE:p.106
+Silver Tongued	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Silver-Tongued (Ex)	MULT:NO										BONUS:SKILL|Bluff|2|TYPE=Talent	SOURCEPAGE:p.106
+Horse Trainer	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Horse Trainer (Ex)	MULT:NO																SOURCEPAGE:p.107
+Horse Talker	CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Horse Trainer	SAB:Horse Talker (Su)	MULT:NO																SOURCEPAGE:p.107
+Ironclad		CATEGORY:Dawnforge Ability	TYPE:TruebornRacialTalent	VISIBLE:YES										SAB:Ironclad (Ex)		MULT:NO																SOURCEPAGE:p.107
 
 ###Block:Trueborn Racial Transformations
 # Ability Name		Category of Ability		Type						Visible	Req. Att.	Required Feat	Special ABility			Innate Spells				Multiple?	Ability							Bonus to Ability Pool					Source Page
@@ -426,7 +426,7 @@ Awakening Magic (Sleep)			CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformati
 Body to Mind				CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES																SAB:Body to Mind (Ex)							MULT:NO							SOURCEPAGE:p.66
 Body to Will				CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES																SAB:Body to Will (Ex)							MULT:NO							SOURCEPAGE:p.66
 Body to Spirit				CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES																SAB:Body to Spirit (Ex)							MULT:NO							SOURCEPAGE:p.66
-Flight					CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES	PREABILITY:4,CATEGORY=Dawnforge Ability,CHECKMULT,TYPE=AwakeningMagic				SAB:Flight (Su)								MULT:NO	MOVE:Fly,40					SOURCEPAGE:p.66
+Flight					CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES	PREABILITY:4,CHECKMULT,CATEGORY=Dawnforge Ability,TYPE=AwakeningMagic				SAB:Flight (Su)								MULT:NO	MOVE:Fly,40					SOURCEPAGE:p.66
 Swimmer					CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES																SAB:Swimmer (Ex)								MULT:NO			MOVECLONE:Walk,Swim,0	SOURCEPAGE:p.66
 Unbound Spirit				CATEGORY:Dawnforge Ability	TYPE:OgreRacialTransformation				VISIBLE:YES													PREALIGN:CG,CN,CE	SAB:Unbound Spirit (Ex) (immune to compulsion effects)	MULT:NO							SOURCEPAGE:p.66
 #TODO: Awakening Magic.., Body to ...
@@ -460,7 +460,7 @@ Wait like Rock	CATEGORY:Dawnforge Ability	TYPE:OrcRacialTransformation	VISIBLE:Y
 
 ###Block: Lizardfolk Racial Talents
 # Ability Name		Category of Ability		Type				Visible	Special ABility				Innate Spells									Multiple?	Add to base move							Source Page
-Fire from Stones		CATEGORY:Dawnforge Ability	TYPE:LizardRacialTalent	VISIBLE:YES	SAB:Fire from Stones (Sp)		SPELLS:Innate|TIMES=max(1,TL/2)|CASTERLEVEL=TL/2|Produce Fire	MULT:NO										SOURCEPAGE:p.85
+Fire from Stones		CATEGORY:Dawnforge Ability	TYPE:LizardRacialTalent	VISIBLE:YES	SAB:Fire from Stones (Sp)		SPELLS:Innate|TIMES=max(1,TL/2)|CASTERLEVEL=TL/2|Produce Flame	MULT:NO										SOURCEPAGE:p.85
 #number of spells per day....
 Light in Shadow		CATEGORY:Dawnforge Ability	TYPE:LizardRacialTalent	VISIBLE:YES	SAB:Light in Shadow (Ex)													MULT:NO										SOURCEPAGE:p.85
 Retrieve Spear		CATEGORY:Dawnforge Ability	TYPE:LizardRacialTalent	VISIBLE:YES	SAB:Retrieve Spear (Su)														MULT:NO										SOURCEPAGE:p.85
@@ -491,7 +491,7 @@ Combat Maneuvers		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent	VISIBLE:Y
 Fiendish Frenzy		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent	VISIBLE:YES															PRELEVEL:MIN=6				SAB:Fiendish Frenzy (Ex)																					MULT:NO				ABILITY:Special Ability|AUTOMATIC|Rage									BONUS:VAR|RageTimes|1			SOURCEPAGE:p.93
 Martial Training		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent	VISIBLE:YES																																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Martial Training|1							SOURCEPAGE:p.94
 Trip and Stab		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Whip Fighting									PRESTAT:1,DEX=13	SAB:Trip and Stab (Ex)																						MULT:NO																									SOURCEPAGE:p.94
-Whip Fighting		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent	VISIBLE:YES										PREFEAT:1,Weapon Focus(Whip)				PRESTAT:1,DEX=13	SAB:Whip Fighting (Ex)																						MULT:NO																									SOURCEPAGE:p.94
+Whip Fighting		CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTalent	VISIBLE:YES										PREFEAT:1,Weapon Focus (Whip)				PRESTAT:1,DEX=13	SAB:Whip Fighting (Ex)																						MULT:NO																									SOURCEPAGE:p.94
 
 ###Block: Tiefling Racial Transformations
 # Ability Name	Category of Ability		Type						Visible	Required Ability							Required Template				Special ABility		Multiple?	Move		Combat bonus			Bonus to skill													Bonus to nb of slots	Source Page
@@ -508,14 +508,14 @@ Tiefling Wings	CATEGORY:Dawnforge Ability	TYPE:TieflingRacialTransformation	VISI
 #################
 
 ###Block: Thinblood Racial Talents
-# Ability Name		Category of Ability		Type					Visible	Required Ability								Special ABility			Innate Spells				Stackable?	Multiple?	Choose		Source Page
-Friendly Advice		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Rapport			SAB:Friendly Advice (Ex)	SPELLS:Innate|TIMES=1|Suggestion	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
-Mesmerizing Motions	CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Soothing Words	SAB:Mesmerizing Motions (Ex)	SPELLS:Innate|TIMES=1|Hypnotism	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
-Rapport			CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Mesmerizing Motions	SAB:Rapport (Ex)			SPELLS:Innate|TIMES=1|Charm Person	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
-Soothing Words		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES											SAB:Soothing Words (Ex)										MULT:NO				SOURCEPAGE:p.115
-Silent Slither		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES											SAB:Silent Slither (Ex)										MULT:NO				SOURCEPAGE:p.115
-Unseen Stillness		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Silent Slither	SAB:Unseen Stillness (Ex)									MULT:NO				SOURCEPAGE:p.115
-Wall Walking		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES											SAB:Wall Walking (Sp)		SPELLS:Innate|TIMES=1|Spider Climb	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+# Ability Name		Category of Ability		Type					Visible	Required Ability								Special ABility			Innate Spells			Stackable?	Multiple?	Choose		Source Page
+Friendly Advice		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Rapport			SAB:Friendly Advice (Ex)	SPELLS:Innate|Suggestion	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+Mesmerizing Motions	CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Soothing Words	SAB:Mesmerizing Motions (Ex)	SPELLS:Innate|Hypnotism		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+Rapport			CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Mesmerizing Motions	SAB:Rapport (Ex)			SPELLS:Innate|Charm Person	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+Soothing Words		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES											SAB:Soothing Words (Ex)									MULT:NO				SOURCEPAGE:p.115
+Silent Slither		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES											SAB:Silent Slither (Ex)									MULT:NO				SOURCEPAGE:p.115
+Unseen Stillness		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES	PREABILITY:1,CATEGORY=Dawnforge Ability,Silent Slither	SAB:Unseen Stillness (Ex)								MULT:NO				SOURCEPAGE:p.115
+Wall Walking		CATEGORY:Dawnforge Ability	TYPE:ThinbloodRacialTalent	VISIBLE:YES											SAB:Wall Walking (Sp)		SPELLS:Innate|Spider Climb	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
 
 ###Block: Thinblood Racial Transformations
 # Ability Name		Category of Ability		Type						Visible	Required Ability									Restricted Ability											Special ABility			Multiple?	Save checks bonus					Source Page
