@@ -65,12 +65,6 @@ public class DefaultTokenProcessor implements TokenProcessor
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		catch (Exception ex)
-		{
-			Logging.errorPrint("Parse of " + tpe.getKey() + ":"
-					+ tpe.getValue() + " failed");
-			ex.printStackTrace();
-		}
 		return null;
 	}
 }

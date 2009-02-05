@@ -56,20 +56,29 @@ public class TokenConverter
 		String key = tpe.getKey();
 		List<TokenProcessorPlugin> tokens = getTokens(cl, key);
 		String error = "";
-		if (tokens != null)
+		try
 		{
-			for (TokenProcessorPlugin converter : tokens)
+			if (tokens != null)
 			{
-				error += converter.process(tpe);
-				if (tpe.isConsumed())
+				for (TokenProcessorPlugin converter : tokens)
 				{
-					break;
+					error += converter.process(tpe);
+					if (tpe.isConsumed())
+					{
+						break;
+					}
 				}
 			}
+			if (!tpe.isConsumed())
+			{
+				error += defaultProc.process(tpe);
+			}
 		}
-		if (!tpe.isConsumed())
+		catch (Exception ex)
 		{
-			error += defaultProc.process(tpe);
+			Logging.errorPrint("Parse of " + tpe.getKey() + ":"
+					+ tpe.getValue() + " failed");
+			ex.printStackTrace();
 		}
 		return tpe.isConsumed() ? null : error;
 	}
