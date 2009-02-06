@@ -4856,10 +4856,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${converterplugins.dir}/ConverterPlugin-HASSUBSTITUTIONCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-HASSUBSTITUTIONLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/converter/HasSubstitutionClassConvertPlugin.class" />
+					<include name="plugin/converter/HasSubstitutionLevelConvertPlugin.class" />
 				</patternset>
 			</fileset>
 		</jar>

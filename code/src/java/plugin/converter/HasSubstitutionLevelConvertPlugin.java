@@ -22,7 +22,7 @@ import pcgen.core.PCClass;
 import pcgen.gui.converter.event.TokenProcessEvent;
 import pcgen.gui.converter.event.TokenProcessorPlugin;
 
-public class HasSubstitutionClassConvertPlugin implements TokenProcessorPlugin
+public class HasSubstitutionLevelConvertPlugin implements TokenProcessorPlugin
 {
 	// Just ignore this useless token
 	public String process(TokenProcessEvent tpe)
@@ -38,6 +38,6 @@ public class HasSubstitutionClassConvertPlugin implements TokenProcessorPlugin
 
 	public String getProcessedToken()
 	{
-		return "HASSUBSTITUTIONCLASS";
+		return "HASSUBSTITUTIONLEVEL";
 	}
 }
