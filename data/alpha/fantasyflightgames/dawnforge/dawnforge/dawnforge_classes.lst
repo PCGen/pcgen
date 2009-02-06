@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  4 21:41:40 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Feb  5 15:35:16 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -75,12 +75,13 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:6,5,5,5,5,5,4,4,3,4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Shaper	HD:8		TYPE:Base.PC	ABB:Shp		MAXLEVEL:20	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Unique Key		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Shaper	KEY:Shaper (DF)	HD:8		TYPE:Base.PC	ABB:Shp		MAXLEVEL:20	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Shaper	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|TYPE=Profession|Search|Spellcraft
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
-CLASS:Shaper	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Shaper|CL	SPELLLIST:1|Cleric
+CLASS:Shaper (DF)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|TYPE=Profession|Search|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+CLASS:Shaper (DF)	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Shaper (DF)|CL	SPELLLIST:1|Cleric
 1	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)

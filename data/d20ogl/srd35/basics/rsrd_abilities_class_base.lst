@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov  7 12:51:45 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb  6 17:21:54 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, Eddy Anthony
 
@@ -107,12 +107,12 @@ Rage			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEF
 #IlliteracyLVL: Level of all classes that are illiterate.  Add this (and the hidden feat via VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL) to any classes that are not literate.
 
 ###Block: Barbarian abilities
-# Ability Name		Category of Ability		Type								Visible	Define																					Description											Add to base move																		Modify VAR																																				Damage Reduction	Source Page
-Illiteracy			CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:IlliteracyLVL|0																																																																																											SOURCEPAGE:ClassesI.rtf
-Barbarian Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES																																			BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement																																									SOURCEPAGE:ClassesI.rtf
-Barbarian DR		CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:BarbarianDR|0	DEFINE:BarbarianDRLVL|0																																															BONUS:VAR|BarbarianDR|(BarbarianDRLVL-4)/3																														DR:BarbarianDR/-	SOURCEPAGE:ClassesI.rtf
-Indomitable Will		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES																							DESC:+4 bonus on Will saves to resist enchantment spells while enraged.																																																													SOURCEPAGE:ClassesI.rtf
-Barbarian Rage		CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:GreaterRage|0	DEFINE:TirelessRage|0	DEFINE:MightyRage|0	DEFINE:BarbRageTimesLVL|0	DEFINE:BarbRagePowerLVL|0																																	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,11	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1				SOURCEPAGE:ClassesI.rtf
+# Ability Name		Output Name				Category of Ability		Type								Visible	Define																					Description											Add to base move																		Modify VAR																																				Damage Reduction	Source Page
+Illiteracy								CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:IlliteracyLVL|0																																																																																											SOURCEPAGE:ClassesI.rtf
+Barbarian Fast Movement	OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES																																			BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement																																									SOURCEPAGE:ClassesI.rtf
+Barbarian DR							CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:BarbarianDR|0	DEFINE:BarbarianDRLVL|0																																															BONUS:VAR|BarbarianDR|(BarbarianDRLVL-4)/3																														DR:BarbarianDR/-	SOURCEPAGE:ClassesI.rtf
+Indomitable Will							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES																							DESC:+4 bonus on Will saves to resist enchantment spells while enraged.																																																													SOURCEPAGE:ClassesI.rtf
+Barbarian Rage							CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:GreaterRage|0	DEFINE:TirelessRage|0	DEFINE:MightyRage|0	DEFINE:BarbRageTimesLVL|0	DEFINE:BarbRagePowerLVL|0																																	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,11	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1				SOURCEPAGE:ClassesI.rtf
 
 ###Block: Bard abilities
 # Ability Name			Output Name				Category of Ability		Type						Visible	Define																												Description																																																															Choose										Save checks bonus						Combat bonus							Bonus to HP									Modify VAR																										Temporary effect description

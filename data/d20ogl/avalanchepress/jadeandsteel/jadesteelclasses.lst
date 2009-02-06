@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 23:32:28 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Feb  5 21:02:36 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -35,8 +35,8 @@ CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TY
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8																																								ABILITY:Special Ability|AUTOMATIC|Quivering Palm
 10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Distant Blow
 
-# Class Name	Output Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Diviner ~JS	OUTPUTNAME:Diviner	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Unique Key		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Diviner	KEY:Diviner ~JS	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill					Required Spell School
 CLASS:Diviner ~JS	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana)=8,Scry=8	PRESPELLSCHOOL:7,Divination=3
 # Class Name	Skill Pts/Lvl	Class Skill

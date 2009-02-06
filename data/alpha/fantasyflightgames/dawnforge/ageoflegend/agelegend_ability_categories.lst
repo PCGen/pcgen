@@ -3,32 +3,32 @@
 # Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI			Display Location
-ABILITYCATEGORY:Ghost Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:GhostElfRacialTalent				PLURAL:Ghost Elf Talents			DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Ghost Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:GhostElfTalentSkill				PLURAL:Ghost Elf Talent Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Ghost Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostElfRacialTalent				PLURAL:Ghost Elf Talents			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ghost Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostElfTalentSkill				PLURAL:Ghost Elf Talent Skills		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ghost Elf Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DawnElfTalentFeat.ItemCreation.Metamagic	PLURAL:Ghost Elf Talent Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Ghost Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:GhostElfRacialTransformation			PLURAL:Ghost Elf Transformations		DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Ghost Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfTransfSkill					PLURAL:Ghost Elf Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Ghost Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostElfRacialTransformation			PLURAL:Ghost Elf Transformations		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ghost Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DawnElfTransfSkill					PLURAL:Ghost Elf Transformation Skills	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ghost Elf Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DawnElfTransformationFeat			PLURAL:Ghost Elf Transformation Feats	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Moon Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:MoonElfRacialTalent				PLURAL:Moon Elf Talents				DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Moon Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfTalentSkill					PLURAL:Moon Elf Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Moon Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MoonElfRacialTalent				PLURAL:Moon Elf Talents				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Moon Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DawnElfTalentSkill					PLURAL:Moon Elf Talent Skills			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Moon Elf Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DawnElfTalentFeat.ItemCreation.Metamagic	PLURAL:Moon Elf Talent Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Moon Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:MoonElfRacialTransformation			PLURAL:Moon Elf Transformations		DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Moon Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfTransfSkill					PLURAL:Moon Elf Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Moon Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MoonElfRacialTransformation			PLURAL:Moon Elf Transformations		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Moon Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DawnElfTransfSkill					PLURAL:Moon Elf Transformation Skills	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Moon Elf Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DawnElfTransformationFeat			PLURAL:Moon Elf Transformation Feats	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Wood Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTalent				PLURAL:Wood Elf Talents				DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Wood Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:WoodElfTalentSkill					PLURAL:Wood Elf Talent Skills			DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Wood Elf Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodElfRacialTalent				PLURAL:Wood Elf Talents				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wood Elf Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodElfTalentSkill					PLURAL:Wood Elf Talent Skills			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Wood Elf Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DawnElfTalentFeat.ItemCreation.Metamagic	PLURAL:Wood Elf Talent Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Wood Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:WoodElfRacialTransformation			PLURAL:Wood Elf Transformations		DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Wood Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:DawnElfTransfSkill					PLURAL:Wood Elf Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Wood Elf Transformation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation			PLURAL:Wood Elf Transformations		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wood Elf Transformation Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DawnElfTransfSkill					PLURAL:Wood Elf Transformation Skills	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Wood Elf Transformation Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DawnElfTransformationFeat			PLURAL:Wood Elf Transformation Feats	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Forest Wight Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ForestWightRacialTalent				PLURAL:Forest Wight Talents			DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Forest Wight Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ForestWightTalentSkill				PLURAL:Forest Wight Talent Skills		DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Forest Wight Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForestWightRacialTalent				PLURAL:Forest Wight Talents			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Forest Wight Talent Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForestWightTalentSkill				PLURAL:Forest Wight Talent Skills		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Forest Wight Talent Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ForestWightTalentFeat				PLURAL:Forest Wight Talent Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Forest Wight Transformation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ForestWightRacialTransformation		PLURAL:Forest Wight Transformations		DISPLAYLOCATION:Talents and Transformations
-ABILITYCATEGORY:Forest Wight Transformation Skill	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:ForestWightTransfSkill				PLURAL:Forest Wight Transformation Skills	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Forest Wight Transformation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation		PLURAL:Forest Wight Transformations		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Forest Wight Transformation Skill	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForestWightTransfSkill				PLURAL:Forest Wight Transformation Skills	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Forest Wight Transformation Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ForestWightTransformationFeat			PLURAL:Forest Wight Transformation Feats	DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Orc Trusting Ears				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OrcTrustingEars					PLURAL:Orc Trusting Ears			DISPLAYLOCATION:Feats
@@ -60,7 +60,8 @@ ABILITYCATEGORY:Binder Bind Item Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL
 ABILITYCATEGORY:Binder School Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnySchool						PLURAL:Binder School Choices			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Binder Item Creation Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation						PLURAL:Binder Item Creation Feats		DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Trueborn Staunch Bonus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Dawnforge Ability	TYPE:HTrueStaunchBonus					PLURAL:Trueborn Staunch Bonus Choices	DISPLAYLOCATION:Talents and Transformations
+ABILITYCATEGORY:Trueborn Staunch Bonus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HTrueStaunchBonus					PLURAL:Trueborn Staunch Bonus Choices	DISPLAYLOCATION:Racial Abilities
+
 #
 # End
 #
