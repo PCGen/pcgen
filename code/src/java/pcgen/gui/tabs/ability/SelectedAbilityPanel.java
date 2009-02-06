@@ -230,7 +230,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 				new HashMap<AbilityCategory, List<Ability>>();
 		for (AbilityCategory abilityCategory : catList)
 		{
-			abilityList.put(abilityCategory, getPC().getAggregateAbilityList(
+			abilityList.put(abilityCategory, getPC().getAggregateAbilityListNoDuplicates(
 				abilityCategory));
 		}
 

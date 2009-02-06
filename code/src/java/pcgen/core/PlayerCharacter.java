@@ -16240,6 +16240,41 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return abilities;
 	}
 
+
+	/**
+	 * Retrieve a list of all abilities held by the character in the specified 
+	 * category. <br>
+	 * NB: Abilities are only returned in the category they are taken 
+	 * in, so if parent catgeory is supplied only those taken directly in the 
+	 * parent category will be returned. e.g. If asking for feats, Power Attack 
+	 * taken as a fighter feat will nto be returned. You would need to query 
+	 * fighter feats to get that. <br>
+	 * NB: Duplicate abilities will not be retruned by this method. The order 
+	 * of priorty is normla, virtual then automatic.
+	 * 
+	 * @param aCategory The ability category to be queried.  
+	 * @return The list of abilities of the category regardless of nature.
+	 */
+	public List<Ability> getAggregateAbilityListNoDuplicates(final AbilityCategory aCategory)
+	{
+		List<Ability> aggregate = new ArrayList<Ability>();
+		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
+
+		for (Ability aFeat : getRealAbilitiesList(aCategory))
+		{
+			if (aFeat != null)
+			{
+				aHashMap.put(aFeat.getKeyName(), aFeat);
+			}
+		}
+
+		addUniqueAbilitiesToMap(aHashMap, getVirtualAbilityList(aCategory));
+		addUniqueAbilitiesToMap(aHashMap, getAutomaticAbilityList(aCategory));
+
+		aggregate.addAll(aHashMap.values());
+		return aggregate;
+	}
+	
 	private List<Ability> rebuildFeatAggreagateList()
 	{
 		List<Ability> aggregate = new ArrayList<Ability>();
@@ -16253,7 +16288,26 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Ability vFeat : getVirtualFeatList())
+		addUniqueAbilitiesToMap(aHashMap, getVirtualFeatList());
+
+		aggregate.addAll(aHashMap.values());
+		setStableAggregateFeatList(aggregate);
+
+		addUniqueAbilitiesToMap(aHashMap, featAutoList());
+
+		aggregate = new ArrayList<Ability>();
+		aggregate.addAll(aHashMap.values());
+		setStableAggregateFeatList(aggregate);
+		return aggregate;
+	}
+
+	/**
+	 * @param aHashMap
+	 * @param abilityList TODO
+	 */
+	private void addUniqueAbilitiesToMap(final Map<String, Ability> aHashMap, List<Ability> abilityList)
+	{
+		for (Ability vFeat : abilityList)
 		{
 			if (!aHashMap.containsKey(vFeat.getKeyName()))
 			{
@@ -16276,39 +16330,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				aHashMap.put(vFeat.getKeyName(), aggregateFeat);
 			}
 		}
-
-		aggregate.addAll(aHashMap.values());
-		setStableAggregateFeatList(aggregate);
-
-		for (Ability autoFeat : featAutoList())
-		{
-			if (!aHashMap.containsKey(autoFeat.getKeyName()))
-			{
-				aHashMap.put(autoFeat.getKeyName(), autoFeat);
-			}
-
-			else if (autoFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				Ability aggregateFeat = aHashMap.get(autoFeat.getKeyName());
-				aggregateFeat = aggregateFeat.clone();
-
-				for (String aString : getAssociationList(autoFeat))
-				{
-					if (aggregateFeat.getSafe(ObjectKey.STACKS)
-						|| !containsAssociated(aggregateFeat, aString))
-					{
-						addAssociation(aggregateFeat, aString);
-					}
-				}
-
-				aHashMap.put(autoFeat.getKeyName(), aggregateFeat);
-			}
-		}
-
-		aggregate = new ArrayList<Ability>();
-		aggregate.addAll(aHashMap.values());
-		setStableAggregateFeatList(aggregate);
-		return aggregate;
 	}
 
 	public List<Ability> aggregateVisibleFeatList()
@@ -16415,7 +16436,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (AbilityCategory cat : catSet)
 		{
-			abilityList.addAll(this.getAggregateAbilityList(cat));
+			abilityList.addAll(this.getAggregateAbilityListNoDuplicates(cat));
 		}
 
 		return abilityList;
