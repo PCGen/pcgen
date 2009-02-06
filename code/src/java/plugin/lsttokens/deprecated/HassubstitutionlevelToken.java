@@ -15,9 +15,10 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.pcclass;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCClass;
+import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -42,7 +43,6 @@ public class HassubstitutionlevelToken implements CDOMPrimaryToken<PCClass>
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		// Intentional
-		// TODO Need to deprecate this token
 		return null;
 	}
 
@@ -51,4 +51,9 @@ public class HassubstitutionlevelToken implements CDOMPrimaryToken<PCClass>
 		return PCClass.class;
 	}
 
+	public String getMessage(PObject obj, String value)
+	{
+		return getTokenName()
+				+ " is no longer required in Class LST file: Ignoring";
+	}
 }
