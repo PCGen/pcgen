@@ -83,16 +83,20 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			final int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ token);
+				Logging
+						.errorPrint("Invalid Token - does not contain a colon: '"
+								+ token
+								+ "' in Language "
+								+ lang.getDisplayName() + " of " + source);
 				continue;
 			}
 			else if (colonLoc == 0)
- 			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
+			{
+				Logging.errorPrint("Invalid Token - starts with a colon: '"
+						+ token + "' in Language " + lang.getDisplayName()
+						+ " of " + source);
 				continue;
- 			}
+			}
 
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token

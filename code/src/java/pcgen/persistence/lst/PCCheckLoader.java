@@ -64,14 +64,19 @@ public final class PCCheckLoader extends LstLineFileLoader
 			final int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ token);
+				Logging
+						.errorPrint("Invalid Token - does not contain a colon: '"
+								+ token
+								+ "' in check "
+								+ obj.getDisplayName()
+								+ " of " + sourceURI);
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
+				Logging.errorPrint("Invalid Token - starts with a colon: '"
+						+ token + "' in check " + obj.getDisplayName()
+						+ " of " + sourceURI);
 				continue;
 			}
 

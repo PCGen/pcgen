@@ -127,14 +127,20 @@ public final class GenericLoader<T extends PObject> extends
 			final int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ token);
+				Logging
+						.errorPrint("Invalid Token - does not contain a colon: '"
+								+ token
+								+ "' in "
+								+ po.getClass().getSimpleName()
+								+ " "
+								+ po.getDisplayName() + " of " + source);
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
+				Logging.errorPrint("Invalid Token - starts with a colon: '"
+						+ token + "' in " + po.getClass().getSimpleName() + " "
+						+ po.getDisplayName() + " of " + source);
 				continue;
 			}
 

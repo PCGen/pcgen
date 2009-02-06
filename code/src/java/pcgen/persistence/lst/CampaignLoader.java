@@ -96,14 +96,14 @@ public class CampaignLoader extends LstLineFileLoader
 		final int colonLoc = inputLine.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid line - does not contain a colon: "
-					+ inputLine);
+			Logging.errorPrint("Invalid Line - does not contain a colon: '"
+					+ inputLine + "' in Campaign " + sourceURI);
 			return;
 		}
 		else if (colonLoc == 0)
 		{
-			Logging.errorPrint("Invalid line - starts with a colon: "
-					+ inputLine);
+			Logging.errorPrint("Invalid Line - starts with a colon: '"
+					+ inputLine + "' in Campaign " + sourceURI);
 			return;
 		}
 
