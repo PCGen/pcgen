@@ -87,8 +87,8 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			final int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ token);
+				Logging.errorPrint("Invalid Token - does not contain a colon: '"
+						+ token + "' in spell " + spell.getDisplayName() + " of " + source);
 				continue;
 			}
 			else if (colonLoc == 0)
