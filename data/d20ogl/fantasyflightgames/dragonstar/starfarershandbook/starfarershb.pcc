@@ -26,9 +26,9 @@ COPYRIGHT:PCGen dataset conversion for Dragonstar: Starfarer's Handbook Copyrigh
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:starfarershb_abilities_mod.lst
+#ABILITY:starfarershb_abilities_mod.lst
 
-ABILITYCATEGORY:starfarershb_ability_category.lst
+#ABILITYCATEGORY:starfarershb_ability_category.lst
 BIOSET:starfarershb_biosettings.lst
 
 DEITY:starfarershb_deities.lst
@@ -52,16 +52,8 @@ EQUIPMENT:starfarershb_equip_weap_ammo.lst
 EQUIPMENT:starfarershb_equip_mech.lst
 WEAPONPROF:starfarershb_weapprofs.lst
 ARMORPROF:starfarershb_profs_armor.lst
-# Commenting out - not ready yet
 EQUIPMOD:starfarershb_equipmods.lst
 
 
 # EQUIPMENT:starfarershbequipspellware.lst has been moved to the galaxy guide folder it is not in this book
 #EQUIPMENT:starfarershbequipspellware.lst
-
-# For the Evasion pseudo-feat
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Evasion,Improved Evasion,Sneak Attack,Turn Undead,Rebuke Undead)
-
-
-
-

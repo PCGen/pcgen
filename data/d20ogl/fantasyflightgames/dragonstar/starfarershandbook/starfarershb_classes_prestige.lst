@@ -1,4 +1,4 @@
-# CVS $Revision: 314 $ $Author: tir-gwaith $ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)

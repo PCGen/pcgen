@@ -8,7 +8,7 @@ Artistic Craft	TYPE:Special	VISIBLE:NO	BONUS:SKILL|TYPE.Art|2
 
 ###Block: Proficiencies
 # Feat Name				Type			Visible	Automatically Gained Weapon Prof.
-Animan Atavist Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Spear|Sling|Longbow|Shortbow|Halfspear|Axe (Throwing)|Sap|Greatclub
+Animan Atavist Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Longspear|Shortspear|Sling|Longbow|Shortbow|Halfspear|Axe (Throwing)|Sap|Greatclub
 
 ###Block: Soulless Resistance and Immunity
 # Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose

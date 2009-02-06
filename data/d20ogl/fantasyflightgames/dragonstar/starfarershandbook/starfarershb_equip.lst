@@ -70,7 +70,7 @@ Water purifier			TYPE:HighTechGoods.Survival								COST:15	WT:0		SOURCEPAGE:p.1
 ###Block: Espionage gear
 # Equipment Name				Type							Cost		Weight	Source Page		Bonus to skill							Special Property
 Chameleon suit				TYPE:HighTechGoods.Espionage			COST:1100	WT:1		SOURCEPAGE:p.110	BONUS:SKILL|Hide|4|TYPE=EquipmentCircumstance
-Disguise kit				TYPE:HighTechGoods.Espionage			COST:380	WT:5		SOURCEPAGE:p.110	BONUS:SKILL|Disguise|4|TYPE=EquipmentCircumstance
+Disguise kit (High Tech)		TYPE:HighTechGoods.Espionage			COST:380	WT:5		SOURCEPAGE:p.110	BONUS:SKILL|Disguise|4|TYPE=EquipmentCircumstance
 Electronic lockpicks			TYPE:HighTechGoods.Espionage			COST:250	WT:3		SOURCEPAGE:p.111
 Electronic lockpicks (masterwork)	TYPE:HighTechGoods.Espionage.Masterwork	COST:500	WT:5		SOURCEPAGE:p.111	BONUS:SKILL|Open Lock|2|TYPE=EquipmentCircumstance
 Forgery lab					TYPE:HighTechGoods.Espionage			COST:1000	WT:50		SOURCEPAGE:p.111	BONUS:SKILL|Forgery|10|TYPE=EquipmentCircumstance

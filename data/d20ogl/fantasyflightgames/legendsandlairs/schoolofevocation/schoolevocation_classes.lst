@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Feb  5 21:39:30 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html	SOURCEDATE:2003-08
 # Original Entry by: Ratheof Blithwyn
 
@@ -6,8 +6,8 @@ SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB
 # Core class
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Devoted Evoker	HD:4		TYPE:Base.PC	ABB:Evoc		MAXLEVEL:20	SOURCEPAGE:p.4	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Devoted Evoker	HD:4		TYPE:Base.PC	ABB:Evoc		MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required AL
 CLASS:Devoted Evoker	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -15,7 +15,7 @@ CLASS:Devoted Evoker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYP
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level				Use Spell List
 CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Evoker|CL	SPELLLIST:1|Wizard
 ###Block: Proficiencies
-1	AUTO:FEAT|Devoded Evoker Weapon Proficiencies
+1	AUTO:FEAT|Devoted Evoker Weapon Proficiencies
 ###Block: Evocation DC bonus
 1	BONUS:DC|SCHOOL.Evocation|EvocationFocus	DEFINE:EvocationFocus|0
 ###Block: Normal Level Progression
@@ -103,16 +103,16 @@ CLASS:Maestro of Dissonance	HD:4		TYPE:PC.Prestige	ABB:MaDi		MAXLEVEL:10	SOURCEP
 CLASS:Maestro of Dissonance	PREFEAT:1,Blindfight	PRESKILL:3,Listen=4,Perform=4,Spellcraft=8	PRESPELL:1,Discordant Bolt	PRESPELLTYPE:2,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|Listen|Perform|TYPE.Profession|Scry|Speak Language|Spellcraft
-1	VISION:Blindsight (MaestroBlindsight')	SAB:Blindsight % ft.|MaestroBlindsight	BONUS:VAR|MaestroBlindsight|15	DEFINE:MaestroBlindsight|0	ADD:SPELLCASTER|1|ANY
-2																										ADD:SPELLCASTER|1|ANY
-3								SAB:Amplify Sounds (+%)|AmplifySounds	BONUS:VAR|AmplifySounds|CL/3		DEFINE:AmplifySounds|0		ADD:SPELLCASTER|1|ANY
-4															BONUS:VAR|MaestroBlindsight|15						ADD:SPELLCASTER|1|ANY
-5																										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
-6																										ADD:SPELLCASTER|1|ANY
-7															BONUS:VAR|MaestroBlindsight|15						ADD:SPELLCASTER|1|ANY
-8																										ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
-9																										ADD:SPELLCASTER|1|ANY
-10								SAB:Deafening Cry					BONUS:VAR|MaestroBlindsight|15						ADD:SPELLCASTER|1|ANY
+1	VISION:Blindsight	SAB:Blindsight % ft.|MaestroBlindsight	BONUS:VAR|MaestroBlindsight|15	BONUS:VISION|Blindsight|MaestroBlindsight	DEFINE:MaestroBlindsight|0	ADD:SPELLCASTER|1|ANY
+2																													ADD:SPELLCASTER|1|ANY
+3				SAB:Amplify Sounds (+%)|AmplifySounds	BONUS:VAR|AmplifySounds|CL/3									DEFINE:AmplifySounds|0		ADD:SPELLCASTER|1|ANY
+4											BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|1|ANY
+5																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+6																													ADD:SPELLCASTER|1|ANY
+7											BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|1|ANY
+8																													ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery
+9																													ADD:SPELLCASTER|1|ANY
+10				SAB:Deafening Cry					BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|1|ANY
 
 
 # Hammer (Gnome Hooked) not in the SRD
@@ -176,7 +176,7 @@ CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE.Craft|T
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wintermage	HD:4		TYPE:PC.Prestige	ABB:Wnt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Multiple Requirements													Req. Known Spell					Req. Spell Type
-CLASS:Wintermage	PREFEAT:1,Spell Focus(Evocation)	PREMULT:2,[PRESKILL:1,Knowledge (Nature)=4,Wilderness Lore=4].[PRESKILL:1,Knowledge (Arcana)=8]	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:3,Arcane=3
+CLASS:Wintermage	PREFEAT:1,Spell Focus(Evocation)	PREMULT:2,[PRESKILL:1,Knowledge (Nature)=4,Wilderness Lore=4],[PRESKILL:1,Knowledge (Arcana)=8]	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:3,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wintermage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Hide|Listen|Knowledge (Nature)|Knowledge (Arcana)|Move Silently|TYPE.Profession|Scry|Spellcraft|Spot|Wilderness Lore
 1	SAB:Icewalking																	ADD:SPELLCASTER|1|ANY

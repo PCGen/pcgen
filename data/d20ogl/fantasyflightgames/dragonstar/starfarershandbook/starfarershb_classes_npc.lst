@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Feb  5 22:31:33 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -11,15 +11,15 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 #new NPC classes
 #################
 
-# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus												Combat bonus
-CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		MAXLEVEL:20	SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Cryptography|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Device|Use Rope
-1	AUTO:FEAT|Technical Deficiency[!PREFEAT:1,Technical Proficiency]
-1	AUTO:FEAT|HighTechSimple Weapon Proficiency[PREFEAT:1,Technical Proficiency]
-1	AUTO:FEAT|Armor Proficiency (HighTechLight)[PREFEAT:1,Technical Proficiency]
-1	AUTO:FEAT|Rogue Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|PREFEAT:1,Technical Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies
+1																AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Backstab +%d6|Backstab							BONUS:VAR|Backstab|CL/5+1	DEFINE:Backstab|0
 10						BONUS:ABILITYPOOL|Fighter Feat|1

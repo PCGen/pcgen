@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Feb  5 22:31:33 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 #TINY
@@ -80,4 +80,8 @@ Bayonet						TYPE:HighTechSimple
 Quad Plasma Cannon(battery)			TYPE:ShipWeapon				PREFEAT:1,Ship_Guns
 Ion Cannon(battery)				TYPE:ShipWeapon				PREFEAT:1,Ship_Guns
 Torpedo Bay						TYPE:ShipWeapon				PREFEAT:1,Ship_Guns
+
+Shortbow.MOD					TYPE:HandDrawn
+Longbow.MOD						TYPE:HandDrawn
+
 #EOF
