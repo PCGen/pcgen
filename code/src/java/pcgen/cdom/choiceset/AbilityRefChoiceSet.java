@@ -217,12 +217,7 @@ public class AbilityRefChoiceSet implements
 			}
 			else if (subName.length() != 0)
 			{
-				final int idx = subName.lastIndexOf(')');
-
-				if (idx > -1)
-				{
-					nameRoot = subName.substring(0, idx);
-				}
+				nameRoot = subName;
 			}
 		}
 
