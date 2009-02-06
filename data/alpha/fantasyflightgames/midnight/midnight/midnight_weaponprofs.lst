@@ -1,11 +1,13 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Feb  5 20:51:38 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Tir Gwaith
 
 
-# Weapon Name	Type
-Fighting Knife	TYPE:Exotic
-Sepi			TYPE:Exotic
-Cedeku		TYPE:Exotic
-Urutuk Hatchet	TYPE:Exotic
-Vardatch		TYPE:Martial.Exotic
+# Weapon Name		Type
+Fighting Knife		TYPE:Exotic
+Sepi				TYPE:Exotic
+Cedeku			TYPE:Exotic
+Urutuk Hatchet		TYPE:Exotic.DwarvenExotic
+Vardatch			TYPE:Martial.Exotic
+
+Waraxe (Dwarven).MOD	TYPE:DwarvenExotic
