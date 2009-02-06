@@ -76,7 +76,7 @@
 		<code><a href="#SUBCLASSLEVEL">SUBCLASSLEVEL</a> </code>tags.</p>
 	<p><strong>The Sub-Class Line</strong></p>
 	<ul>
-		<li><code>HASSUBCLASS:YES</code> must be present in the Class Line that this line is associated with.</li>
+		<li><strong>NOTE:</strong> <code>HASSUBCLASS</code> is no longer required to create sub-classes.</li>
 		<li>Begins with the <code>SUBCLASS:&lt;sub-class name&gt;</code> tag.</li>
 		<li>Placed between the Class Lines and the Sub-Class Level Lines that define the levels for the sub-			class.</li>
 		<li>Only tags identified as Sub-Class Line or Class Line tags should be used on this line.</li>
@@ -97,7 +97,7 @@
 	<p><strong>A Sub-Class Example</strong></p>
 	<blockquote>
 		<p><code>CLASS:Wizard . . .</code><br>
-        	<code>CLASS:Wizard . . . HASSUBCLASS:YES . . . ALLOWBASECLASS:NO</code><br>
+        	<code>CLASS:Wizard . . . ALLOWBASECLASS:NO</code><br>
         	<code>CLASS:Wizard . . .</code><br>
         	<code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt; CHOICE:SCHOOL|Abjuration &lt;tab&gt; 			KNOWNSPELLSFROMSPECIALTY:1</code><br>
         	<code>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning Bonus</code><br>
@@ -112,12 +112,12 @@
 	</blockquote>
 
 	<h3>Substitution Class and Substitution Level Lines</h3>
-	<p>Substitution levels can be implemented with the inclusion of the <code><a 		href="#SUBSTITUTIONCLASS">SUBSTITUTIONCLASS</a></code> and <code><a 		href="#SUBSTITUTIONLEVEL">SUBSTITUTIONLEVEL</a></code> tags.</p>
+	<p>Substitution levels can be implemented with the inclusion of the <code><a href="#SUBSTITUTIONCLASS">SUBSTITUTIONCLASS</a></code> and <code><a 		href="#SUBSTITUTIONLEVEL">SUBSTITUTIONLEVEL</a></code> tags.</p>
 	<p><strong>The Substitution Class Line</strong></p>
 	<ul>
-		<li><code>HASSUBSTITUTIONLEVEL:YES</code> must be present in the Class Line that this line is associated 			with.</li>
+		<li><strong>NOTE:</strong> <code>HASSUBSTITUTIONLEVEL</code> is no longer required to create a substitution level.</li>
 		<li>Begins with the <code>SUBSTITUTIONCLASS:&lt;substitution class name&gt;</code> tag.</li>
-		<li>Placed between the Class Lines and the Substitution Level Lines that define	the levels for the 			substitution class.</li>
+		<li>Placed between the Class Lines and the Substitution Level Lines that define	the levels for the substitution class.</li>
 		<li>Only tags identified as Substitution Class Line or Class Line tags should be used on this line.</li>
 	</ul>
 	<p><strong>The Substitution Level Line</strong></p>
@@ -139,7 +139,7 @@
 	<p><strong>A Substitution Level Example: Part of a Base Class Entry</strong></p>
 	<blockquote>
 		<P><code>CLASS:Ranger . . .</code><br>
-        	<code>CLASS:Ranger &lt;tab&gt; HASSUBSTITUTIONLEVEL:YES</code><br>
+        	<code>CLASS:Ranger . . .</code><br>
         	<code>SUBSTITUTIONCLASS:Orc Ranger</code><br>
         	<code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt; SA:Goblin Slave (Ex)</code><br>
         	<code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code><br>
@@ -154,7 +154,7 @@
         <p></p>
 	<p><strong>A Substitution Level Example: A .MODed Class Entry</strong></p>
 	<blockquote>
-		<P><code>CLASS:Ranger.MOD &lt;tab&gt; HASSUBSTITUTIONLEVEL:YES</code><br>
+		<P><code>CLASS:Ranger.MOD</code><br>
         	<code>SUBSTITUTIONCLASS:Orc Ranger</code><br>
         	<code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt; SA:Goblin Slave (Ex)</code><br>
         	<code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code><br>
@@ -871,13 +871,14 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Indicates whether or not this class can choose a specialty or subclass.</p>
+	<p class="indent2"><strong>Note: </strong>This tag is no longer required for sublasses.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HASSUBCLASS:YES</code></p>
 	<p class="indent3">The class has subclasses.</p>
 	<p class="indent2"><code>CLASS:Druid.MOD &lt;tab&gt; HASSUBCLASS:YES</code></p>
 	<p class="indent3">The class has been modified to include subclasses.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class Line (<strong>REQUIRED</strong> if the class has SUBCLASS lines).</p>
+	<p class="indent2">Class Line</p>
 	<p></p>
 
 <hr>
@@ -983,11 +984,12 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Indicates whether or not this class can choose substitution levels.</p>
+	<p class="indent2"><strong>Note: </strong>This tag is no longer required for substitution levels.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HASSUBSTITUTIONLEVEL:YES</code></p>
 	<p class="indent3">The class has substitution levels.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Class Line (<strong>REQUIRED</strong> if the class has SUBSTITUTIONCLASS lines).</p>
+	<p class="indent2">Class Line</p>
 	<p></p>
 
 <hr>
