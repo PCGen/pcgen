@@ -354,7 +354,7 @@ public class NaturalattacksLst extends AbstractToken implements
 			}
 			sb.append(damage);
 
-			Integer hands = head.get(IntegerKey.SLOTS);
+			Integer hands = eq.get(IntegerKey.SLOTS);
 			if (hands != null && hands != 0)
 			{
 				sb.append(',').append(hands);
