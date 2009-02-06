@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 15:42:18 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Tue Feb  3 20:31:55 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -237,9 +237,12 @@ Storm Burst										CATEGORY:Special Ability	TYPE:DomainPower.SpecialAttack.Sup
 Lightning Lord									CATEGORY:Special Ability	TYPE:DomainPower.SpecialQuality.Supernatural	VISIBLE:YES							DESC:See Text																								SOURCEPAGE:p.95
 
 ###Block: Druid Abilities
-# Ability Name							Output Name					Category of Ability		Type					Visible	Description
-Orisons ~ Druid							OUTPUTNAME:Orisons			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:YES	DESC:See text	SOURCEPAGE:p.23
-Spontaneous casting - Summon Nature's Ally spells	OUTPUTNAME:Spontaneous casting	CATEGORY:Special Ability	TYPE:ClassAbility			VISIBLE:YES	DESC:See text	SOURCEPAGE:p.23
+# Ability Name							Output Name					Category of Ability		Type						Visible	Define			Description		Multiple?	Choose											Source Page
+Orisons ~ Druid							OUTPUTNAME:Orisons			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES					DESC:See text															SOURCEPAGE:p.23
+Spontaneous casting - Summon Nature's Ally spells	OUTPUTNAME:Spontaneous casting	CATEGORY:Special Ability	TYPE:ClassAbility				VISIBLE:YES					DESC:See text															SOURCEPAGE:p.23
+Druid Domain													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES	DEFINE:DomainLVL|0	DESC:See text	MULT:YES	CHOOSE:NUMCHOICES=1|DOMAIN|Air,Animal,Earth,Fire,Plant,Water,Weather	SOURCEPAGE:p.24
+Animal Companion													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES					DESC:See text															SOURCEPAGE:p.24
+
 
 ###Block: Fighter Internal Abilities
 # Ability Name					Category of Ability		Type			Visible	Define											Modify VAR
