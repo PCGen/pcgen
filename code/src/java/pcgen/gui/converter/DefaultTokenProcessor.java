@@ -47,12 +47,9 @@ public class DefaultTokenProcessor implements TokenProcessor
 			Collection<String> output = context.unparse(obj);
 			if (output == null || output.isEmpty())
 			{
-				if (output == null || output.isEmpty())
-				{
-					// Uh Oh
-					return ("Unable to unparse: " + tpe.getKey() + ":" + tpe
-							.getValue());
-				}
+				// Uh Oh
+				return ("Unable to unparse: " + tpe.getKey() + ":" + tpe
+						.getValue());
 			}
 			for (String s : output)
 			{
