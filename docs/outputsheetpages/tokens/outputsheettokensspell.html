@@ -134,53 +134,60 @@
 <hr>
 
 		<p class="indent0"><strong><a name="SPELLMEM">Token Name:</a></strong> SPELLMEM.v.w.x.y.z</p>
-		<p class="indent1"><strong> Variables Used (v):</strong> Number (The class number of the spell you wish to display).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Number (The Spellbook Number of the spell you wish to display).</p>
-		<ul class="indent2">
-			<li>The Known Spellbook is any class but 0, spellbook number 0.</li>
-			<li>The Racial Innate Spellbook is class 0, spellbook number 1.</li>
-			<li>Other Innate Spellbooks are class 0, spellbook number 2 or up.</li>
-			<li>The Innate spellbooks will not exist if the character does not have innate spells.</li>
-			<li>The -1 Spellbook should not be used any more.</li>
-		</ul>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The level of the spell you wish to display).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Number (The number of the spell in known spells list).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Text (The property of the spell you wish to display).</p>
-		<ul class="indent2">
-			<li>BONUSSPELL - Display an * is the spell is a domain/specialty spell, display ** if it is ONLY a domain/specialty spell.</li>
-			<li>COMPONENTS - Display the necessary components of the indicated spell.</li>
-			<li>CASTERLEVEL - Display the caster level (including bonuses) of the indicated spell.</li>
-			<li>CASTINGTIME - Display the casting time of the indicated spell.</li>
-			<li>CLASS - Indicates spellcaster classname.</li>
-			<li>CT - Display the Casting Threshold of the indicated spell.</li>
-			<li>DC - Display the DC of the indicated spell.</li>
-			<li>DCSTAT - Display the STAT used to figure out DC of spell</li>
-			<li>DESC - Display the description of the indicated spell.</li>
-			<li>DESCRIPTION - Display the description of the indicated spell.</li>
-			<li>DESCRIPTOR - Display the discriptor of the indicated spell.</li>
-			<li>DURATION - Display the duration of the indicated spell.</li>
-			<li>EFFECT - Display the effect of the indicated spell.</li>
-			<li>EFFECTTYPE - Display the type of effect of the indicated spell.</li>
-			<li>FULLSCHOOL - Display the school, if any, of the indicated spell in long form.</li>
-			<li>NAME - Display the name of the indicated spell.</li>
-			<li>RANGE - Display the range of the indicated spell.</li>
-			<li>SAVEINFO - Display the save info of the indicated spell.</li>
-			<li>SCHOOL - Display the school, if any, of the indicated spell in short form.</li>
-			<li>SOURCE - Display the source of the indicated spell in long form.</li>
-			<li>SOURCELEVEL - Display all the sources and levels of the indicated spell (Wiz3,Sor3).</li>
-			<li>SOURCEPAGE - Display the source page of the indicated spell.</li>
-			<li>SOURCESHORT - Display the source of the indicated spell in short form.</li>
-			<li>SUBSCHOOL - Display the subschool, if any, of the indicated spell.</li>
-			<li>SR - Display the spell resistance properties of the indicated spell.</li>
-			<li>TARGET - Display the target of the indicated spell (contents of the TARGETAREA lst tag).</li>
-			<li>TIMES - Display the number of times the indicated spell is in the spellbook.</li>
-			<li>TIMEUNIT - Display the unit of time (i.e. Encounter, Week, Month, etc.).</li>
-			<li>TYPE - Display the type (i.e. Arcane or Divine) of spell class.</li>
-		</ul>
+		<p class="indent1"><strong> Variables Used (v):</strong> Number (Spell class).</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Number (Spellbook).</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Spell level).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Number (Number of the spell in known spells list).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Spell property).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays information about the spells in the character spellbooks.</p>
+		<ul class="indent2">
+			<li>Displays information about the spells in the character spellbooks.</li>
+			<li>Standard Class/Spellbook combinations are as follows:
+				<ul>
+					<li>The Known Spellbook is any class but 0, spellbook number 0.</li>
+					<li>The Racial Innate Spellbook is class 0, spellbook number 1.</li>
+					<li>Other Innate Spellbooks are class 0, spellbook number 2 or up.</li>
+					<li>The Innate spellbooks will not exist if the character does not have innate spells.</li>
+					<li>A spellbook number of &quot;-1&quot; should no longer be used.</li>
+				</ul>
+			</li>
+			<li>Spell properties are identified as follows:
+				<ul>
+					<li><code>BONUSSPELL</code> - Display an * is the spell is a domain/specialty spell, display ** if it is ONLY a domain/specialty spell.</li>
+					<li><code>COMPONENTS</code> - Display the necessary components of the indicated spell.</li>
+					<li><code>CASTERLEVEL</code> - Display the caster level (including bonuses) of the indicated spell.</li>
+					<li><code>CASTINGTIME</code> - Display the casting time of the indicated spell.</li>
+					<li><code>CLASS</code> - Indicates spellcaster classname.</li>
+					<li><code>CT</code> - Display the Casting Threshold of the indicated spell.</li>
+					<li><code>DC</code> - Display the DC of the indicated spell.</li>
+					<li><code>DCSTAT</code> - Display the STAT used to figure out DC of spell</li>
+					<li><code>DESC</code> - Display the description of the indicated spell.</li>
+					<li><code>DESCRIPTION</code> - Display the description of the indicated spell.</li>
+					<li><code>DESCRIPTOR</code> - Display the discriptor of the indicated spell.</li>
+					<li><code>DURATION</code> - Display the duration of the indicated spell.</li>
+					<li><code>EFFECT</code> - Display the effect of the indicated spell.</li>
+					<li><code>EFFECTTYPE</code> - Display the type of effect of the indicated spell.</li>
+					<li><code>FULLSCHOOL</code> - Display the school, if any, of the indicated spell in long form.</li>
+					<li><code>NAME</code> - Display the name of the indicated spell.</li>
+					<li><code>RANGE</code> - Display the range of the indicated spell.</li>
+					<li><code>SAVEINFO</code> - Display the save info of the indicated spell.</li>
+					<li><code>SCHOOL</code> - Display the school, if any, of the indicated spell in short form.</li>
+					<li><code>SOURCE</code> - Display the source of the indicated spell in long form.</li>
+					<li><code>SOURCELEVEL</code> - Display all the sources and levels of the indicated spell (Wiz3,Sor3).</li>
+					<li><code>SOURCEPAGE</code> - Display the source page of the indicated spell.</li>
+					<li><code>SOURCESHORT</code> - Display the source of the indicated spell in short form.</li>
+					<li><code>SUBSCHOOL</code> - Display the subschool, if any, of the indicated spell.</li>
+					<li><code>SR</code> - Display the spell resistance properties of the indicated spell.</li>
+					<li><code>SRSHORT</code> - Returns an &quot;N&quot; if spell the spell ignores resistance, &quot;Y&quot; if it does not.</li>
+					<li><code>TARGET</code> - Display the target of the indicated spell (contents of the TARGETAREA lst tag).</li>
+					<li><code>TIMES</code> - Display the number of times the indicated spell is in the spellbook.</li>
+					<li><code>TIMEUNIT</code> - Display the unit of time (i.e. Encounter, Week, Month, etc.).</li>
+					<li><code>TYPE</code> - Display the type (i.e. Arcane or Divine) of spell class.</li>
+				</ul>
+			</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPELLMEM.0.0.0.0.NAME0</code></p>
+		<p class="indent2"><code>SPELLMEM.0.0.0.0.NAME</code></p>
 		<p class="indent3">Displays the Name of the 1<sup>st</sup> 0<sup>th</sup> level spell in the 1<sup>st</sup>
 			spellbook for the 1<sup>st</sup> character class.</p>
 		<p></p>
