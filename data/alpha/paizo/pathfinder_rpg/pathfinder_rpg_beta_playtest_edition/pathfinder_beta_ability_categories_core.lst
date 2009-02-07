@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan  3 13:26:51 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Feb  7 08:42:30 2009 -- reformated by prettylst.pl v1.39 (build 9310)
 #SOURCELONG:Pathfinder	SOURCESHORT:PFRPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy8253	SOURCEDATE:2008-05
 # Original Entry by: Stefan Radermacher
 
@@ -7,19 +7,19 @@
 ABILITYCATEGORY:Special Ability	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability
 
 ###Block: Bonus Feats and subgroups
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object					Plural description for UI		Display Location		ABILITYLIST
-ABILITYCATEGORY:Fighter Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Combat						PLURAL:Fighter Bonus Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Wizard Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:WizardBonus.ItemCreation.Metamagic	PLURAL:Wizard Bonus Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Aberrant Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AberrantBloodline				PLURAL:Aberrant Bloodline Feats	DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Dungeoneering))
-ABILITYCATEGORY:Abyssal Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AbyssalBloodline				PLURAL:Abyssal Bloodline Feats	DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Planes))
-ABILITYCATEGORY:Arcane Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ArcaneBloodline				PLURAL:Arcane Bloodline Feats		DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Arcana))
-ABILITYCATEGORY:Celestial Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:CelestialBloodline				PLURAL:Celestial Bloodline Feats	DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Religion))
-ABILITYCATEGORY:Destined Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DestinedBloodline				PLURAL:Destined Bloodline Feats	DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (History))
-ABILITYCATEGORY:Draconic Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DraconicBloodline				PLURAL:Draconic Bloodline Feats	DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Arcana))
-ABILITYCATEGORY:Elemental Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ElementalBloodline				PLURAL:Elemental Bloodline Feats	DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Planes))
-ABILITYCATEGORY:Fey Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:FeyBloodline					PLURAL:Fey Bloodline Feats		DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Nature))
-ABILITYCATEGORY:Infernal Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:InfernalBloodline				PLURAL:Infernal Bloodline Feats	DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Planes))
-ABILITYCATEGORY:Undead Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:UndeadBloodline				PLURAL:Undead Bloodline Feats		DISPLAYLOCATION:Feats	ABILITYLIST:Skill Focus(Knowledge (Religion))
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object					Specific choices list						Plural description for UI		Display Location
+ABILITYCATEGORY:Fighter Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Combat															PLURAL:Fighter Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wizard Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:WizardBonus.ItemCreation.Metamagic										PLURAL:Wizard Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Aberrant Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AberrantBloodline				ABILITYLIST:Skill Focus(Knowledge (Dungeoneering))	PLURAL:Aberrant Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Abyssal Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AbyssalBloodline				ABILITYLIST:Skill Focus(Knowledge (Planes))		PLURAL:Abyssal Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Arcane Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ArcaneBloodline				ABILITYLIST:Skill Focus(Knowledge (Arcana))		PLURAL:Arcane Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Celestial Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:CelestialBloodline				ABILITYLIST:Skill Focus(Knowledge (Religion))		PLURAL:Celestial Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Destined Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DestinedBloodline				ABILITYLIST:Skill Focus(Knowledge (History))		PLURAL:Destined Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Draconic Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DraconicBloodline				ABILITYLIST:Skill Focus(Knowledge (Arcana))		PLURAL:Draconic Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Elemental Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ElementalBloodline				ABILITYLIST:Skill Focus(Knowledge (Planes))		PLURAL:Elemental Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fey Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:FeyBloodline					ABILITYLIST:Skill Focus(Knowledge (Nature))		PLURAL:Fey Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Infernal Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:InfernalBloodline				ABILITYLIST:Skill Focus(Knowledge (Planes))		PLURAL:Infernal Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Undead Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:UndeadBloodline				ABILITYLIST:Skill Focus(Knowledge (Religion))		PLURAL:Undead Bloodline Feats		DISPLAYLOCATION:Feats
 
 ###Block: Special Ability and subgroups
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object			Plural description for UI		Display Location

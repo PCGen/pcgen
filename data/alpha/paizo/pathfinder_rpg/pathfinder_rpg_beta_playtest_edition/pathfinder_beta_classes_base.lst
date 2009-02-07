@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb  3 20:31:55 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Feb  7 08:38:03 2009 -- reformated by prettylst.pl v1.39 (build 9310)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -132,8 +132,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid
 1	ABILITY:Special Ability|AUTOMATIC|Spontaneous casting - Summon Nature's Ally spells
 ###Block: Nature's Bond
-1							BONUS:ABILITYPOOL|Natures Bond|1																					BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Animal Companion
-1	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Air)]		BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Druid Domain	BONUS:VAR|DomainLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Druid Domain
+1														BONUS:ABILITYPOOL|Natures Bond|1														BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Animal Companion
+1	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Air)]								BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Druid Domain	BONUS:VAR|DomainLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Druid Domain
 1	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Animal)]
 1	DOMAIN:Earth[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Earth)]
 1	DOMAIN:Fire[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Fire)]
@@ -141,7 +141,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Water)]
 1	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Weather)]
 ###Block: Level progression
-1	CAST:3,1			
+1	CAST:3,1
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

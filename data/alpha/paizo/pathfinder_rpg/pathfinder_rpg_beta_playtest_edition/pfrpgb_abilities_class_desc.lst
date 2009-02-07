@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 28 22:41:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Feb  7 08:38:03 2009 -- reformated by prettylst.pl v1.39 (build 9310)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -138,8 +138,9 @@ CATEGORY=Special Ability|Storm Burst.MOD					DESC:.CLEAR		DESC:As a standard act
 CATEGORY=Special Ability|Lightning Lord.MOD				DESC:.CLEAR		DESC:You can call down %1 bolts of lightning per day. You can call down as many bolts as you want with a single standard action, but no creature can be the target of more than one bolt and no two targets can be more than 30 feet apart. This ability otherwise functions as Call Lightning.|DomainWeatherLVL
 
 ###Block: Druid abilities
-ABILITY:Special Ability|Orisons ~ Druid.MOD						DESC:.CLEAR	DESC:Druids can prepare a number of orisons, or 0-level spells, each day. They can cast these spells at will as a spell-like ability. Orisons cannot be channeled through spontaneous spellcasting.
-ABILITY:Special Ability|Spontaneous casting - Summon Nature's Ally spells.MOD	DESC:.CLEAR	DESC:Channel stored Druid spell energy into Summon Nature's Ally spell of equal or lower level.
+# Ability Name											Clear Description	Description
+ABILITY:Special Ability|Orisons ~ Druid.MOD						DESC:.CLEAR		DESC:Druids can prepare a number of orisons, or 0-level spells, each day. They can cast these spells at will as a spell-like ability. Orisons cannot be channeled through spontaneous spellcasting.
+ABILITY:Special Ability|Spontaneous casting - Summon Nature's Ally spells.MOD	DESC:.CLEAR		DESC:Channel stored Druid spell energy into Summon Nature's Ally spell of equal or lower level.
 
 ###Block: Fighter Abilities
 # Ability Name						Clear Description	Description
