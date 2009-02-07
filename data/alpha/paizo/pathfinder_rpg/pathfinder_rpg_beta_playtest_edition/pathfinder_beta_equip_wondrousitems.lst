@@ -153,7 +153,7 @@ Goggles of Night										TYPE:Magic.Wondrous.Eyegear													COST:12000	WT:
 
 ###Block: H
 # Equipment Name						Output Name					Type						Contains		Cost		Weight	Slot Needed	Source Page		Innate Spells																														Add to magical move					Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
-Hand of Glory												TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2				SOURCEPAGE:p.376	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility																																											BONUS:SLOTS|Ring|1
+Hand of Glory												TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2				SOURCEPAGE:p.376	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility																																											BONUS:SLOTS|RING|1
 Hand of the Mage												TYPE:Magic.Wondrous.Amulet					COST:900	WT:2				SOURCEPAGE:p.377	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
 Handy Haversack												TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5				SOURCEPAGE:p.377
 Harp of Charming												TYPE:Magic.Wondrous.Instrument				COST:7500	WT:5				SOURCEPAGE:p.377
@@ -226,13 +226,13 @@ Mattock of the Titans		PROFICIENCY:WEAPON|Warhammer	TYPE:Magic.Wondrous.Tool.Wea
 Medallion of Thoughts							TYPE:Magic.Wondrous.Amulet														COST:12000	WT:.02																SOURCEPAGE:p.381																		SPROP:allows the wearer to read the thoughts of others, as with the spell detect thoughts.
 Mirror of Opposition							TYPE:Magic.Wondrous															COST:92000	WT:45																	SOURCEPAGE:p.381																		SPROP:Up to 4/day.
 Necklace of Adaptation							TYPE:Magic.Wondrous.Amulet														COST:40000	WT:1																	SOURCEPAGE:p.381																		SPROP:Wraps the wearer in a shell of fresh air
-Necklace of Fireballs I							TYPE:Magic.Wondrous.Amulet														COST:1650	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|Amulet|1
-Necklace of Fireballs II						TYPE:Magic.Wondrous.Amulet														COST:2700	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|Amulet|1
-Necklace of Fireballs III						TYPE:Magic.Wondrous.Amulet														COST:4350	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|Amulet|1
-Necklace of Fireballs IV						TYPE:Magic.Wondrous.Amulet														COST:5400	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|Amulet|1
-Necklace of Fireballs V							TYPE:Magic.Wondrous.Amulet														COST:5850	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|Amulet|1
-Necklace of Fireballs VI						TYPE:Magic.Wondrous.Amulet														COST:8100	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|Amulet|1
-Necklace of Fireballs VII						TYPE:Magic.Wondrous.Amulet														COST:8700	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|Amulet|1
+Necklace of Fireballs I							TYPE:Magic.Wondrous.Amulet														COST:1650	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|AMULET|1
+Necklace of Fireballs II						TYPE:Magic.Wondrous.Amulet														COST:2700	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|AMULET|1
+Necklace of Fireballs III						TYPE:Magic.Wondrous.Amulet														COST:4350	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|AMULET|1
+Necklace of Fireballs IV						TYPE:Magic.Wondrous.Amulet														COST:5400	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|AMULET|1
+Necklace of Fireballs V							TYPE:Magic.Wondrous.Amulet														COST:5850	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|AMULET|1
+Necklace of Fireballs VI						TYPE:Magic.Wondrous.Amulet														COST:8100	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|AMULET|1
+Necklace of Fireballs VII						TYPE:Magic.Wondrous.Amulet														COST:8700	WT:1																	SOURCEPAGE:p.382						BONUS:SLOTS|AMULET|1
 # Do we want to enumerate the different types of beads on the different necklaces, and thereby the costs of partially spent necklaces?
 
 ###Block: O-R
