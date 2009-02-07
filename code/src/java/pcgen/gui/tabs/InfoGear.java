@@ -3466,6 +3466,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				else
 				{
 					tree.addSelectionPath(selPath);
+					// Workaround for swing bug - initial row wasn't being selected.
+					tree.getSelectionModel().resetRowSelection();
 					menu.show(evt.getComponent(), evt.getX(), evt.getY());
 				}
 			}
