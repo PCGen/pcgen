@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan 28 22:54:32 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Feb  7 09:39:26 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -14,19 +14,19 @@ Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUT
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
 ###Block: Shared Class Abilities
-# Ability Name	Category of Ability		Type									Visible		Required Ability						Special ABility						Define					Description		Modify VAR																						Source Page
-Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	DESC:See Text	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type									Visible		Required Ability						Special ABility						Define					Description				Modify VAR																						Source Page
+Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	DESC:Class Special Ability	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Uncanny Dodge
 # Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
-# Ability Name		Category of Ability		Type						Visible	Define										Description		Ability																											Modify VAR								Source Page
-Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0				ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVAREQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+# Ability Name		Category of Ability		Type						Visible	Define										Description																																								Ability																											Modify VAR								Source Page
+Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																										ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVAREQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 #
-Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:See Text																																						SOURCEPAGE:p.40
-Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:See Text																													BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:p.40
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:You can react to danger before your senses would normally allow you to do so. You retain your Dexterity bonus to AC (If any) even if you are caught flat-footed or struck by an invisible attacker. You still lose your AC bonus if immobilized.																																						SOURCEPAGE:p.40
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:You can no longer be flanked. This defense denies another rogue the ability to sneak attack you, unless the attacker is a rogue of at least level %1.|UncannyDodgeFlankingLevel																																							BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:p.40
 
 
 ###Block: Companion support
@@ -36,12 +36,12 @@ Summon Familiar	CATEGORY:Special Ability	TYPE:Special	VISIBLE:YES	SAB:Summon Fam
 
 
 ###Block: Alignemt Auras
-# Ability Name	Category of Ability		Type							Visible	Define			Description		Modify VAR
-Aura of Chaos	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraChaos|0	DESC:See Text	BONUS:VAR|AuraChaos|AlignmentAuraBase
-Aura of Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraEvil|0		DESC:See Text	BONUS:VAR|AuraEvil|AlignmentAuraBase
-Aura of Good	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraGood|0		DESC:See Text	BONUS:VAR|AuraGood|AlignmentAuraBase
-Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraLaw|0		DESC:See Text	BONUS:VAR|AuraLaw|AlignmentAuraBase
+# Ability Name	Category of Ability		Type							Visible	Define			Description																																																			Modify VAR
+Aura of Chaos	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraChaos|0	DESC:You project a faint chaotic aura.|PREVAREQ:AuraChaos,1	DESC:You project a moderate chaotic aura.|PREVARGTEQ:AuraChaos,2|PREVARLTEQ:AuraChaos,4	DESC:You project a strong chaotic aura.|PREVARGTEQ:AuraChaos,5|PREVARLTEQ:AuraChaos,10	DESC:You project an overwhelming chaotic aura.|PREVARGTEQ:AuraChaos,11	BONUS:VAR|AuraChaos|AlignmentAuraBase
+Aura of Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraEvil|0		DESC:You project a faint evil aura.|PREVAREQ:AuraEvil,1	DESC:You project a moderate evil aura.|PREVARGTEQ:AuraEvil,2|PREVARLTEQ:AuraEvil,4	DESC:You project a strong evil aura.|PREVARGTEQ:AuraEvil,5|PREVARLTEQ:AuraEvil,10	DESC:You project an overwhelming evil aura.|PREVARGTEQ:AuraEvil,11			BONUS:VAR|AuraEvil|AlignmentAuraBase
+Aura of Good	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraGood|0		DESC:You project a faint good aura.|PREVAREQ:AuraGood,1	DESC:You project a moderate good aura.|PREVARGTEQ:AuraGood,2|PREVARLTEQ:AuraGood,4	DESC:You project a strong good aura.|PREVARGTEQ:AuraGood,5|PREVARLTEQ:AuraGood,10	DESC:You project an overwhelming good aura.|PREVARGTEQ:AuraGood,11			BONUS:VAR|AuraGood|AlignmentAuraBase
+Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraLaw|0		DESC:You project a faint lawful aura.|PREVAREQ:AuraLaw,1	DESC:You project a moderate lawful aura.|PREVARGTEQ:AuraLaw,2|PREVARLTEQ:AuraLaw,4	DESC:You project a strong lawful aura.|PREVARGTEQ:AuraLaw,5|PREVARLTEQ:AuraLaw,10	DESC:You project an overwhelming lawful aura.|PREVARGTEQ:AuraLaw,11			BONUS:VAR|AuraLaw|AlignmentAuraBase
 
 ###Block: More abilties
-# Ability Name	Category of Ability		Type						Visible	Define											Description		Modify VAR											Source Page
-Wild Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy	DESC:See Text	BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	SOURCEPAGE:p.36
+# Ability Name	Category of Ability		Type						Visible	Define											Description																																		Modify VAR											Source Page
+Wild Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy	DESC:You can improve the attitude of an animal. This abilty functions just like Diplomacy check to improve the attitude of a person. You roll 1d20+%1 to determine the Wild Empathy check result.|WildEmpathy	BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	SOURCEPAGE:p.36

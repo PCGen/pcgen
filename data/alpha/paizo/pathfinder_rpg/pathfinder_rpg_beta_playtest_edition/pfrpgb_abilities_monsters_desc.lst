@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Jan 28 22:41:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
-SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
-# Original RSRD Entry by: PCGen Data Team
-# Pathfinder RPG Entry by: Stefan Radermacher
-
-###Block: Abilities
-# Ability Name						Clear Description	Description
-CATEGORY=Special Ability|Poison.MOD			DESC:.CLEAR		DESC:Poison attacks deal repeated to the opponent on failed Fortitude saves (DC %1).|PoisonDC
-CATEGORY=Special Ability|Turn Resistance.MOD	DESC:.CLEAR		DESC:You gain a +%1 bonus to Will saves made to halve the damage and resist the effect of channeled energy.|TurnResistance

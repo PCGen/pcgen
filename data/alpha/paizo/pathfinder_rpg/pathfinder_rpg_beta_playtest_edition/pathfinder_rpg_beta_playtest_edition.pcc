@@ -33,11 +33,7 @@ ABILITY:pathfinder_beta_abilities_companions.lst
 ABILITY:pathfinder_beta_abilities_monsters.lst
 ABILITY:pathfinder_beta_abilities_racial.lst
 
-ABILITY:pfrpgb_abilities_class_common_desc.lst
 ABILITY:pfrpgb_abilities_class_desc.lst
-ABILITY:pfrpgb_abilities_general_desc.lst
-ABILITY:pfrpgb_abilities_monsters_desc.lst
-ABILITY:pfrpgb_abilities_racial_desc.lst
 
 ABILITYCATEGORY:pathfinder_beta_ability_categories_core.lst
 ARMORPROF:pathfinder_beta_profs_armor.lst
