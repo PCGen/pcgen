@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb  7 10:22:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Feb  7 13:30:28 2009 -- reformated by prettylst.pl v1.39 (build 9313)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Original Entry by: Stefan Radermacher
@@ -9,7 +9,7 @@ Pounce		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	V
 Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES	DEFINE:ScentRange|30	DESC:You can detect approaching enemies, sniff out hidden foes, and track by sense of smell within a range of %1 feet.|ScentRang
 
 ###Block: Energy Immunities
-# Ability Name		Category of Ability		Type								Visible	Description						ASPECT
+# Ability Name		Category of Ability		Type								Visible	Description						Aspects
 Immunity to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take acid damage.		ASPECT:Immunity|Acid
 Immunity to Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take cold damage.		ASPECT:Immunity|Cold
 Immunity to Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take fire damage.		ASPECT:Immunity|Fire
@@ -17,7 +17,7 @@ Immunity to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 Immunity to Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take sonic damage.		ASPECT:Immunity|Sonic
 
 ###Block: Other Immunities
-# Ability Name				Category of Ability		Type								Visible	Description									ASPECT
+# Ability Name				Category of Ability		Type								Visible	Description									Aspects
 Immunity to Mind-Affecting Effects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You are never affected by mind-affecting effects.	ASPECT:Immunity|Mind-Affecting
 Immunity to Disease			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You are never affected by diseases.				ASPECT:Immunity|Disease
 Immunity to Exhaustion			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You can never be exhausted.					ASPECT:Immunity|Exhaustion
@@ -38,7 +38,7 @@ Resistance to Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Electricity
 Resistance to Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Sonic,Vulnerability to Sonic
 
 ###Block: Energy Resistances Output
-# Ability Name				Output Name						Category of Ability		Type								Visible	Description																			ASPECT
+# Ability Name				Output Name						Category of Ability		Type								Visible	Description																			Aspects
 Resistance to Acid Output		OUTPUTNAME:Resistance to Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Acid damage each time you take acid damage.|AcidResistanceBonus				ASPECT:Resistance|Acid	ASPECT:Ability Benefit|%1|AcidResistanceBonus
 Resistance to Cold Output		OUTPUTNAME:Resistance to Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Cold damage each time you take cold damage.|ColdResistanceBonus				ASPECT:Resistance|Cold	ASPECT:Ability Benefit|%1|ColdResistanceBonus
 Resistance to Fire Output		OUTPUTNAME:Resistance to Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Fire damage each time you take fire damage.|FireResistanceBonus				ASPECT:Resistance|Fire	ASPECT:Ability Benefit|%1|FireResistanceBonus

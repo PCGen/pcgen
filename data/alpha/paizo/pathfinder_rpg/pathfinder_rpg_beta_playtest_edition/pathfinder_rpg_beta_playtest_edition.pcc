@@ -32,9 +32,6 @@ ABILITY:pathfinder_beta_abilities_general.lst
 ABILITY:pathfinder_beta_abilities_companions.lst
 ABILITY:pathfinder_beta_abilities_monsters.lst
 ABILITY:pathfinder_beta_abilities_racial.lst
-
-ABILITY:pfrpgb_abilities_class_desc.lst
-
 ABILITYCATEGORY:pathfinder_beta_ability_categories_core.lst
 ARMORPROF:pathfinder_beta_profs_armor.lst
 CLASS:pathfinder_beta_classes_base.lst
