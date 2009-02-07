@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 22:52:15 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:46:57 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 
 #Block:Battle-Rager ------------------------------------------------------------
@@ -17,9 +17,9 @@ Captivate		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Instill Fear	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 
 ###Block:Rune-Priest ------------------------------------------------------------
-# Ability Name		Category of Ability		Type				Visible	Define					Description					ASPECT
-Runecraft			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:RunecraftBonus|0			DESC:+%1|RunecraftBonus			ASPECT:Ability Benefit|+%1|RunecraftBonus
-Divine Inspiration	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:DivineInspirationBonus|0	DESC:+%1|DivineInspirationBonus	ASPECT:Ability Benefit|+%1|DivineInspirationBonus
+# Ability Name		Unique Key					Category of Ability		Type				Visible	Define					Description					ASPECT
+Runecraft									CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:RunecraftBonus|0			DESC:+%1|RunecraftBonus			ASPECT:Ability Benefit|+%1|RunecraftBonus
+Divine Inspiration	KEY:Rune-Priest Divine Inspiration	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:DivineInspirationBonus|0	DESC:+%1|DivineInspirationBonus	ASPECT:Ability Benefit|+%1|DivineInspirationBonus
 
 ###Block: Rock-Warden ----------------------------------------------------------
 # Ability Name		Output Name			Category of Ability		Type						Visible	Define				Description
@@ -48,7 +48,7 @@ Favored Enemies	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 # Ability Name	Category of Ability		Type				Visible	Define				Description
 Ambush Expert	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Quick and Quiet	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Tunnel Fighting	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:TunnelFightWall|0	DESC:% Walls|TunnelFightWall
+Tunnel Fighting	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:TunnelFightWall|0	DESC:%1 Walls|TunnelFightWall
 
 ###Block:Artificer -------------------------------------------------------------
 # Ability Name		Category of Ability		Type				Visible	Define			Description			ASPECT

@@ -35,7 +35,6 @@ FEAT:relicsrituals_feats_hidden.lst
 SKILL:relicsrituals_skills.lst
 SPELL:relicsrituals_spells.lst
 TEMPLATE:relicsrituals_templates.lst
-TEMPLATE:@/d20ogl/srd/monsters/srd_templates.lst|(INCLUDE:Lich)
 
 # Equipment
 EQUIPMENT:relicsrituals_equip.lst

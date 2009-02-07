@@ -42,6 +42,8 @@ CLASS:heroes_dwarves_classes_35e.lst
 FEAT:heroes_dwarves_feats_35e.lst
 TEMPLATE:heroes_dwarves_templates_35e.lst
 
+FORWARDREF:SPELL|Endurance,Greater Command,Greater Magic Weapon,Healing Circle
+
 #
 # DONE
 #

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 10:41:06 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:59:41 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
@@ -61,7 +61,7 @@ CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concent
 2	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 3	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 4	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform				ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform				ABILITY:Special Ability|AUTOMATIC|Immune to Poisons
 6	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
 7	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
 8	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
@@ -78,12 +78,12 @@ CLASS:Penumbral Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Decipher Scrip
 CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral Lord|CL
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Penumbral Lord=0|Arcane Mark,Dancing Lights,Detect Magic,Distort Shadow,Prestidigitation,Read Magic
-1	SPELLLEVEL:CLASS|Penumbral Lord=1|Gloom,Obscure Shadow,Penumbral Trap,Reshape Shadow,Shade's Light
+1	SPELLLEVEL:CLASS|Penumbral Lord=1|Gloom,Obscure Shadow,Reshape Shadow,Shade's Sight,Trap
 1	SPELLLEVEL:CLASS|Penumbral Lord=2|Animate Shadow,Banish Shadow,Dar'Tan's Shadow Bolt,Minor Shadow Conjuration,Shadow Images
 1	SPELLLEVEL:CLASS|Penumbral Lord=3|Control Light,Minor Shadow Evocation,Shadow Form of Lyrand,Shadow Strike,Shadow Touch
 1	SPELLLEVEL:CLASS|Penumbral Lord=4|Imbue Shadow,Shadow Conjuration,Shadow Shield
 1	SPELLLEVEL:CLASS|Penumbral Lord=5|Curtain of Darkness,Shadow Evocation,Shadow Weapon
-1	SPELLLEVEL:CLASS|Penumbral Lord=6|Shades,Shadow Smash,Tranmute Flesh to Shadow
+1	SPELLLEVEL:CLASS|Penumbral Lord=6|Shades,Shadow Smash,Transmute Flesh to Shadow
 1	SPELLLEVEL:CLASS|Penumbral Lord=7|Shade Evocation,Shadow Storm,Shadow Walk
 1	SPELLLEVEL:CLASS|Penumbral Lord=8|Blackflame,Shadow Twin
 1	SPELLLEVEL:CLASS|Penumbral Lord=9|Eclipse
@@ -161,7 +161,7 @@ CLASS:Vigilant	HD:12		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.22	BONU
 CLASS:Vigilant	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Track	PRESKILL:4,Wilderness Lore=7,Diplomacy=5,Gather Information=5,Handle Animal=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilant	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intuit Direction|Jump|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Vigilant|CL
 ###Block: Spell List
 11	SPELLLEVEL:CLASS|Vigilant=1|Alarm,Calm Animals,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Goodberry,Pass without Trace,Resist Elements,Speak with Animals

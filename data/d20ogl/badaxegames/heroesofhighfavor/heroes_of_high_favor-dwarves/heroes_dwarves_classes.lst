@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 22:52:15 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:46:57 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -64,7 +64,7 @@ CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 4	CAST:0,3,2,0	BONUS:ABILITYPOOL|Rune Priest Feat|1
 5	CAST:0,3,2,1
 6	CAST:0,3,3,2,0	BONUS:ABILITYPOOL|Rune Priest Feat|1
-7	CAST:0,3,3,2,1												BONUS:VAR|DivineInspirationBonus|CL	ABILITY:Special Ability|AUTOMATIC|Divine Inspiration
+7	CAST:0,3,3,2,1												BONUS:VAR|DivineInspirationBonus|CL	ABILITY:Special Ability|AUTOMATIC|Rune-Priest Divine Inspiration
 8	CAST:0,3,3,3,2,0	BONUS:ABILITYPOOL|Rune Priest Feat|1
 9	CAST:0,3,3,3,2,1
 10	CAST:0,3,3,3,3,2	BONUS:ABILITYPOOL|Rune Priest Feat|1
@@ -180,7 +180,7 @@ CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Disab
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:pg.54	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Check Base		Required Feat							Multiple Requirements										Required Skill									Required Casting Type	Req. Spell Type
+# Class Name	Required Check Base		Required Feat							Multiple Requirements											Required Skill									Required Casting Type	Req. Spell Type
 CLASS:Aceldamist	PRECHECKBASE:1,Fortitude=4	PREFEAT:3,Combat Casting,Dodge,Improved Initiative	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Scry|Spellcraft
@@ -200,7 +200,7 @@ CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimid
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Artificer	HD:6		TYPE:PC.Prestige	ABB:ArtF		MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Feat					Multiple Requirements																														Required Skill											Req. Weapond Prof.
+# Class Name	Required Feat					Multiple Requirements																																Required Skill											Req. Weapond Prof.
 CLASS:Artificer	PREFEAT:1,Craft Magic Arms and Armor	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PREMULT:1,[PREFEAT:1,Shield Proficiency],[PREPROFWITHSHIELD:1,TYPE.Shield,TYPE.Buckler,TYPE.Tower,TYPE.Light,TYPE.Heavy]	PRESKILL:3,Craft (Armorsmithing)=9,Craft (Weaponsmithing)=9,Spellcraft=9	PREWEAPONPROF:2,TYPE.Simple,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Use Magic Device

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 22:38:14 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:46:57 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -26,7 +26,7 @@ CLASS:Paragon.MOD PRE:.CLEAR	PREABILITY:1,CATEGORY=Special Ability,Lay on Hands	
 
 # Class Name				Req. Att.	Required Feat							Required Skill							Required Text
 CLASS:Slayer ~ HoHFD.MOD PRE:.CLEAR	PREATT:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Survival=8	PRETEXT:Must have a favored enemy
-# Class Name			Remove Class Skill									Class Skill
+# Class Name			Remove Class Skill								Class Skill
 CLASS:Slayer ~ HoHFD.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
 
 # Class Name				Req. Att.	Required Feat								Required Race				Required Skill
