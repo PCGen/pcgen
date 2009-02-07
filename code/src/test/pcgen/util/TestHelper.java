@@ -49,6 +49,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
@@ -363,7 +364,7 @@ public class TestHelper
 	}
 
 	/**
-	 * Set the important info about a Race
+	 * Set the important info about a Class
 	 * @param name The race name
 	 * @return The race (which has also been added to global storage)
 	 */
@@ -390,6 +391,21 @@ public class TestHelper
 
 		Globals.getContext().ref.importObject(aSpell);
 		return aSpell;
+	}
+
+	/**
+	 * Set the important info about a Template
+	 * @param name The template name
+	 * @return The template (which has also been added to global storage)
+	 */
+	public static PCTemplate makeTemplate(final String name)
+	{
+		final PCTemplate aTemplate = new PCTemplate();
+		aTemplate.setName(name);
+		aTemplate.put(StringKey.KEY_NAME, ("KEY_" + name));
+
+		Globals.getContext().ref.importObject(aTemplate);
+		return aTemplate;
 	}
 	
 	/**
