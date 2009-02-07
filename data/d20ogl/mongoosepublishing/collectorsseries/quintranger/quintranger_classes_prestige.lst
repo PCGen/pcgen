@@ -5,8 +5,8 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:
 
 ###Block:Animal Champion -----------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Ex Class				Source Page		Define			Save checks bonus												Combat bonus
-CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	ABB:AC		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:pg.23	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Ex Class				Source Page		Define			Save checks bonus												Combat bonus
+CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	ABB:AC		MAXLEVEL:10	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:pg.23	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat
 CLASS:Animal Champion	PREALIGN:TN,NG	PREATT:10	PREFEAT:1,Animal Affinity
 # Class Name		Skill Pts/Lvl	Class Skill

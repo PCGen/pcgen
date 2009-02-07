@@ -16,8 +16,8 @@ CLASS:Bard.MOD	CSKILL:Black Market|Research
 # Errata 2006-06-03 applied to cleric
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page			Bonus Languages			Save checks bonus											Combat bonus					Add domain number
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page			Bonus Languages			Save checks bonus											Combat bonus					Add domain number
+CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Required Deity
 CLASS:Cleric	PREDEITY:1,Y
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -236,11 +236,11 @@ SUBCLASSLEVEL:5													ABILITY:Special Ability|NORMAL|Path of the Stoic Sou
 SUBCLASSLEVEL:6																																																																											VFEAT:Improved Disarm|Improved Trip|Divinity's Purpose|PRERACE:1,Val
 
 
-# Class Name	Subclass?		Automatic Languages			Bonus Languages
+# Class Name	Automatic Languages			Bonus Languages
 ####### per errata 2006-06-03 Divine Grace doesn't stack with the ability of any holy champion class to add an ability bonus to all saving throws, - no idea how to code
 
-# Class Name	Subclass?		Base class as subclass?	Automatic Languages			Bonus Languages
-CLASS:Paladin.MOD	HASSUBCLASS:YES	ALLOWBASECLASS:NO		LANGAUTO:Ancient Altharin(Imperial)	LANGBONUS:Celestial,Infernal
+# Class Name	Base class as subclass?	Automatic Languages			Bonus Languages
+CLASS:Paladin.MOD	ALLOWBASECLASS:NO		LANGAUTO:Ancient Altharin(Imperial)	LANGBONUS:Celestial,Infernal
 # Class Name	Required AL		Required Deity
 CLASS:Paladin.MOD	PREALIGN:LG,NG,CG	PREDEITY:1,Y
 # Class Name	Class Skill

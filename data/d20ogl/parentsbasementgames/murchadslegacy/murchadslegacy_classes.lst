@@ -103,8 +103,8 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 10	CAST:6,5,4,3,2	SAB:Ward
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page		Save checks bonus											Combat bonus
-CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Save checks bonus											Combat bonus
+CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Race					Required Skill											Req. Spell Type
 CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:4,Concentration=7,Knowledge (Astronomy)=7,Spellcraft=7,Survival=4	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill

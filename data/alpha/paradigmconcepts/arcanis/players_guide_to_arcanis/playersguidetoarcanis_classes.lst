@@ -28,8 +28,8 @@ CLASS:Patrician	STARTSKILLPTS:6	CSKILL:Appraise|Black Market|Bluff|Concentration
 ###########################################################################################################################################
 # errata 2006-06-03 applied
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source, Long Desc.				Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
-CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:pg.117	LANGAUTO:Literacy		LANGBONUS:Ancient Altharin(Imperial)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Automatic Languages	Bonus Languages					Save checks bonus											Combat bonus					Add domain number
+CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:pg.117	LANGAUTO:Literacy		LANGBONUS:Ancient Altharin(Imperial)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
 # Class Name	Required Deity	Prohibited Subclass
 CLASS:Priest	PREDEITY:1,Y	!PRESUBCLASS:1,Hospitaler
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -162,8 +162,8 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 ###########################################################################################################################################
 # per 2006-06-03 errata, added Examine Martial Technique as class skill. All HC errata applied.
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
-CLASS:Holy Champion	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
+CLASS:Holy Champion	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Deity	Prohibited Subclass
 CLASS:Holy Champion	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine
 # Class Name		Class Skill
@@ -503,8 +503,8 @@ SUBCLASSLEVEL:20																																						CAST:0,3,3,3,3												
 4																			BONUS:VAR|ChannelLevelBase|CL+2|PREDEITY:1,Beltine,Neroth
 
 # Commenting the Ex-class out, I can find nothing in the text that indicates this is needed and Exclasses don't seem to work with subclasses  -Eddy
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Subclass?		Source, Long Desc.				Automatic Languages	Visible	Combat bonus
-#CLASS:Ex-Holy Champion	NAMEISPI:YES	HD:8		TYPE:Base.PC	MAXLEVEL:20	HASSUBCLASS:YES	SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		VISIBLE:NO	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Automatic Languages	Visible	Combat bonus
+#CLASS:Ex-Holy Champion	NAMEISPI:YES	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		VISIBLE:NO	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 #SUBCLASS:Philosophic Warrior	NAMEISPI:YES	COST:0				BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3				STARTSKILLPTS:6	PREALIGN:LG,LN,LE	PREDEITY:1,Althares																										!PRERACE:1,Elorii,Dwarf,Ss'ressen
 #SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency	CHANGEPROF:Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)=Martial
 #SUBCLASS:Bearer			NAMEISPI:YES	COST:0				BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3				STARTSKILLPTS:4	PREALIGN:LG		PREDEITY:1,Anshar																											!PRERACE:1,Elorii,Dwarf,Ss'ressen								CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE.Arcana|TYPE.Religion|TYPE.Geography|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Spot|Swim|Tumble

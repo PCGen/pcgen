@@ -2,8 +2,8 @@
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 # Original Entry by: Tir Gwaith
 
-# Class Name	Hit Dice	Type			Max Level	Subclass?		Base class as subclass?	Save checks bonus											Combat bonus					Modify VAR					Template
-CLASS:Channeler	HD:6		TYPE:PC.Base	MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
+# Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Save checks bonus											Combat bonus					Modify VAR					Template
+CLASS:Channeler	HD:6		TYPE:PC.Base	MAXLEVEL:20	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Channeler	STARTSKILLPTS:6	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
 # Class Name	Spell Type		Spellbook		Caster level

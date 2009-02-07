@@ -210,8 +210,8 @@ CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 
 
-# Class Name		Type			Max Level	Subclass?		Base class as subclass?	Save checks bonus																Combat bonus
-CLASS:Faerie Dragon	TYPE:Monster	MAXLEVEL:12	HASSUBCLASS:YES	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|4	BONUS:CHECKS|BASE.Reflex|((CL+1)/2)+2	BONUS:CHECKS|BASE.Will|((CL+1)/2)+3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Type			Max Level	Base class as subclass?	Save checks bonus																Combat bonus
+CLASS:Faerie Dragon	TYPE:Monster	MAXLEVEL:12	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|4	BONUS:CHECKS|BASE.Reflex|((CL+1)/2)+2	BONUS:CHECKS|BASE.Will|((CL+1)/2)+3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race
 CLASS:Faerie Dragon	PRERACE:3,RACETYPE=Fey,RACESUBTYPE=Dragon,Faerie Dragon
 # Class Name		Skill Pts/Lvl

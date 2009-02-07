@@ -460,8 +460,8 @@ CLASS:Warrior (CS)	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ri
 #20						ADD:FEAT|1|TYPE=Fighter
 
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus														Combat bonus
-CLASS:Wizard (CS)	OUTPUTNAME:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:p.52	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages		Save checks bonus														Combat bonus
+CLASS:Wizard (CS)	OUTPUTNAME:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		SOURCEPAGE:p.52	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard (CS)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Jump|TYPE.Knowledge|Linguistics|TYPE.Profession|Read/Write Language|Ritual Casting|Scent/Taste|Scry|Search|Spellcraft|Spot
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level				Use Spell List

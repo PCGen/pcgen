@@ -393,8 +393,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page				Bonus Languages		Save checks bonus											Combat bonus
-CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Bonus Languages		Save checks bonus											Combat bonus
+CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level

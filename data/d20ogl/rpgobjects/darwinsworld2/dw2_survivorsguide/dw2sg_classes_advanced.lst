@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Jan  6 17:25:28 2009 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
-CLASS:Barbarian	HD:12		TYPE:Base.Advanced	ABB:Bbn		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 75	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Barbarian	HD:12		TYPE:Base.Advanced	ABB:Bbn		MAXLEVEL:10	SOURCEPAGE:p. 75	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Required Ability						Req. Att.	Required Feat					Prohibited Feat					Required Skill
 CLASS:Barbarian	PREABILITY:1,CATEGORY=Background,Feral,Tribal	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency	!PREFEAT:1,Post-Apocalyptic Technology	PRESKILL:1,Survival=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -27,8 +27,8 @@ CLASS:Barbarian	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimida
 10											BONUS:VAR|RageTimes|1
 
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
-CLASS:Demagogue	HD:6		TYPE:Base.Advanced	ABB:Dem		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 77	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|2+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
+CLASS:Demagogue	HD:6		TYPE:Base.Advanced	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p. 77	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|2+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Skill									Required Text
 CLASS:Demagogue	PREATT:3	PRESKILL:2,Diplomacy=6,Knowledge (Theology and Philosophy)=6	PRETEXT:One Allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -42,8 +42,8 @@ CLASS:Demagogue	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplo
 8	SAB:Improved Zealots
 10	SAB:Mass Conversion
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
-CLASS:Guardian	HD:10		TYPE:Base.Advanced	ABB:Gua		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 79	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Guardian	HD:10		TYPE:Base.Advanced	ABB:Gua		MAXLEVEL:10	SOURCEPAGE:p. 79	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat										Required Skill
 CLASS:Guardian	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -57,8 +57,8 @@ CLASS:Guardian	STARTSKILLPTS:3	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledg
 8						BONUS:ABILITYPOOL|Greater Weapon Specialization
 10	SAB:Raider Bane
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
-CLASS:Juju Doctor	HD:8		TYPE:Base.Advanced	ABB:JujuD		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 81	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
+CLASS:Juju Doctor	HD:8		TYPE:Base.Advanced	ABB:JujuD		MAXLEVEL:10	SOURCEPAGE:p. 81	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat		Required Skill
 CLASS:Juju Doctor	PREATT:1	PREFEAT:1,Juju Medicine	PRESKILL:1,Treat Injury=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -72,8 +72,8 @@ CLASS:Juju Doctor	STARTSKILLPTS:7	CSKILL:Bluff|Concentration|Decipher Script|Dip
 8																				BONUS:VAR|jujuSpec|1
 10	SAB:Juju Miracle
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
-CLASS:Psionic	HD:8		TYPE:Base.Advanced	ABB:Psi		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 83	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
+CLASS:Psionic	HD:8		TYPE:Base.Advanced	ABB:Psi		MAXLEVEL:10	SOURCEPAGE:p. 83	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Required Ability																		Req. Att.	Required Skill
 CLASS:Psionic	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition,Neural Mutation - Telepathy,Neural Mutation - Telekinesis	PREATT:1	PRESKILL:1,Knowledge (Mutant Lore)=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -83,8 +83,8 @@ CLASS:Psionic	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Diplomacy|Intimidate|Kn
 3													BONUS:ABILITYPOOL|Psionic Feat|(CL/3)
 4													BONUS:ABILITYPOOL|Mutations|((CL-1)/3)
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
-CLASS:Raider	HD:10		TYPE:Base.Advanced	ABB:Rai		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 84	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Raider	HD:10		TYPE:Base.Advanced	ABB:Rai		MAXLEVEL:10	SOURCEPAGE:p. 84	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat										Required Skill
 CLASS:Raider	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,8 +98,8 @@ CLASS:Raider	STARTSKILLPTS:3	CSKILL:Climb|Drive|Gather Information|Intimidate|Ju
 8														BONUS:VAR|chapchain|1
 10	SAB:Death Cry
 
-# Class Name		Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
-CLASS:Road Warrior	HD:10		TYPE:Base.Advanced	ABB:RdWar		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 86	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Road Warrior	HD:10		TYPE:Base.Advanced	ABB:RdWar		MAXLEVEL:10	SOURCEPAGE:p. 86	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name		Req. Att.	Required Feat			Required Skill
 CLASS:Road Warrior	PREATT:2	PREFEAT:1,Vehicle Expert	PRESKILL:2,Repair=6,Drive=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -113,8 +113,8 @@ CLASS:Road Warrior	STARTSKILLPTS:3	CSKILL:Balance|Climb|Concentration|Drive|Inti
 8	SAB:Improved Hardness
 10	SAB:Improved Ramming
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus			Modify VAR
-CLASS:Scav		HD:10		TYPE:Base.Advanced	ABB:Scav		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 88	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus			Modify VAR
+CLASS:Scav		HD:10		TYPE:Base.Advanced	ABB:Scav		MAXLEVEL:10	SOURCEPAGE:p. 88	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat			Required Skill
 CLASS:Scav		PREATT:2	PREFEAT:1,Radiation Sense	PRESKILL:2,Survival=6,Search=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -128,8 +128,8 @@ CLASS:Scav		STARTSKILLPTS:5	CSKILL:Bluff|Decipher Script|Disable Device|Drive|Es
 8
 10	SAB:Shadow in the Open
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
-CLASS:Scholar	HD:6		TYPE:Base.Advanced	ABB:Sch		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 89	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Scholar	HD:6		TYPE:Base.Advanced	ABB:Sch		MAXLEVEL:10	SOURCEPAGE:p. 89	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Multiple Requirements
 CLASS:Scholar	PREATT:1	PREMULT:2,[PRESKILL:1,TYPE.Knowledge=6],[PRESKILL:1,Research=6]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -140,8 +140,8 @@ CLASS:Scholar	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE.Craft|Decipher Script|Dri
 5	SAB:Confusing Tirade
 8	SAB:Protected By Code
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus			Modify VAR
-CLASS:Skulk		HD:8		TYPE:Base.Advanced	ABB:Sku		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 92	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus															Combat bonus			Modify VAR
+CLASS:Skulk		HD:8		TYPE:Base.Advanced	ABB:Sku		MAXLEVEL:10	SOURCEPAGE:p. 92	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Skill
 CLASS:Skulk		PREATT:2	PRESKILL:3,Hide=6,Move Silently=6,Sleight of Hand=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -153,8 +153,8 @@ CLASS:Skulk		STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Disguise|Disable Device|
 7	SAB:Improved Sweep
 10	SAB:Without a Trace
 
-# Class Name			Product Identity?	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																	Combat bonus		Modify VAR
-CLASS:Sister of the Desert	NAMEISPI:YES	HD:8		TYPE:Base.Advanced	ABB:SotD		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 93	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|2+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name			Product Identity?	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																	Combat bonus		Modify VAR
+CLASS:Sister of the Desert	NAMEISPI:YES	HD:8		TYPE:Base.Advanced	ABB:SotD		MAXLEVEL:10	SOURCEPAGE:p. 93	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|2+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name			Req. Att.	Required Feat		Required Gender	Required Skill
 CLASS:Sister of the Desert	PREATT:2	PREFEAT:1,Concubine	PREGENDER:F		PRESKILL:1,Survival=6	PRESKILL:1,Treat Injury=3
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -168,8 +168,8 @@ CLASS:Sister of the Desert	STARTSKILLPTS:5	CSKILL:Bluff|Climb|Diplomacy|Escape A
 8	SAB:Male Fear (Will Save (DC:%))|(10+(CL/2)+CHA)
 10	SAB:Leave No One Behind
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
-CLASS:Survivalist	HD:10		TYPE:Base.Advanced	ABB:Surv		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 96	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Survivalist	HD:10		TYPE:Base.Advanced	ABB:Surv		MAXLEVEL:10	SOURCEPAGE:p. 96	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat	Required Skill
 CLASS:Survivalist	PREATT:2	PREFEAT:1,Track	PRESKILL:1,Survival=6,Navigate=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -183,8 +183,8 @@ CLASS:Survivalist	STARTSKILLPTS:5	CSKILL:Climb|Handle Animal|Hide|Jump|Knowledge
 10															BONUS:VAR|CSdmg|1
 #TODO: Survivalist can take a Survivalist Region in place of a bonus feat
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus																Combat bonus			Modify VAR
-CLASS:Symbiote	HD:8		TYPE:Base.Advanced	ABB:Symb		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 99	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus			Modify VAR
+CLASS:Symbiote	HD:8		TYPE:Base.Advanced	ABB:Symb		MAXLEVEL:10	SOURCEPAGE:p. 99	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Feat			Required Skill
 CLASS:Symbiote	PREATT:2	PREFEAT:1,Animal Affinity	PRESKILL:2,Handle Animal=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -198,8 +198,8 @@ CLASS:Symbiote	STARTSKILLPTS:3	CSKILL:Handle Animal|Knowledge (Earth and Life Sc
 8	SAB:Ranged Opportunist
 10
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus														Combat bonus		Modify VAR
-CLASS:Tinker	HD:6		TYPE:Base.Advanced	ABB:Tin		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 101	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus														Combat bonus		Modify VAR
+CLASS:Tinker	HD:6		TYPE:Base.Advanced	ABB:Tin		MAXLEVEL:10	SOURCEPAGE:p. 101	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Skill
 CLASS:Tinker	PREATT:1	PRESKILL:3,Disable Device=6,Knowledge (Technology)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -213,8 +213,8 @@ CLASS:Tinker	STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mecha
 8	SAB:Smart Weapon
 10	SAB:Improved Tinkering
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Subclass?		Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
-CLASS:Trader	HD:6		TYPE:Base.Advanced	ABB:Tra		MAXLEVEL:10	HASSUBCLASS:NO	SOURCEPAGE:p. 104	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
+CLASS:Trader	HD:6		TYPE:Base.Advanced	ABB:Tra		MAXLEVEL:10	SOURCEPAGE:p. 104	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Req. Att.	Required Skill
 CLASS:Trader	PREATT:1	PRESKILL:2,Diplomacy=6,Gather Information=3
 # Class Name	Skill Pts/Lvl	Class Skill

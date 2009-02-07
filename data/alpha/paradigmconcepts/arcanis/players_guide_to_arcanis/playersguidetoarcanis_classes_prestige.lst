@@ -191,8 +191,8 @@ CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluf
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
-CLASS:Gladiator	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
+CLASS:Gladiator	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat
 CLASS:Gladiator	PREATT:3	PREFEAT:2,Combat Expertise,Dodge
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -680,8 +680,8 @@ CLASS:Weapon Savant	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Examin
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Subclass?		Source, Long Desc.				Save checks bonus												Combat bonus
-CLASS:Combat Styles of Onara	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	HASSUBCLASS:YES	SOURCELONG:Player's Guide to Arcanis	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Save checks bonus												Combat bonus
+CLASS:Combat Styles of Onara	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat			Required Skill
 CLASS:Combat Styles of Onara	PREATT:5	PREFEAT:1,Combat Expertise	PRESKILL:1,Balance=5
 # Class Name			Skill Pts/Lvl	Class Skill
