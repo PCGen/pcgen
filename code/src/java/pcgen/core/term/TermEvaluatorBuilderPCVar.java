@@ -589,6 +589,20 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
+	COMPLETE_PC_HP
+			("HP",
+			 new String[] { "HP" },
+			 true) {
+
+		public TermEvaluator getTermEvaluator(
+				final String expressionString, 
+				final String src, 
+				final String matchedSection) {
+
+			return new PCHPTermEvaluator(expressionString);
+		}
+	},
+
 	COMPLETE_PC_MAXCASTABLE
 			("MAXCASTABLE",
 			 new String[] { "MAXCASTABLE" },

@@ -6251,6 +6251,44 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		is(field0, strEq(term), "GetTermEvaluator051 stored term is correct " + term);	       
 	}
 
+	/**
+	 * Method: getTermEvaluator(String term, String source)
+	 */
+	public void testGetTermEvaluatorHp() {
+		TestHelper.loadAll();
+
+		String term = "HP";
+
+		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
+
+		is(t instanceof PCHPTermEvaluator, eq(true),
+		   "testGetTermEvaluatorHp evaluator correct for " + term);
+
+		Class<?> uClass = PCHPTermEvaluator.class;
+
+		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
+
+		String field0 = "";
+		boolean ok;
+		try
+		{
+			ok = true;
+			field0 = (String) pF0.get(t);
+		}
+		catch (ClassCastException e)
+		{
+			ok = false;
+		}
+		catch (IllegalAccessException e)
+		{
+			ok = false;
+		}
+
+		is(ok, eq(true), "No illegal access in testGetTermEvaluatorHp");
+
+		is(field0, strEq(term), "testGetTermEvaluatorHp stored term is correct " + term);	       
+	}
+
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
