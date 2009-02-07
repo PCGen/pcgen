@@ -22,6 +22,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
+import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.writer.PreClassWriter;
 
 public class PreClassLevelMaxRobin extends AbstractPreRoundRobin
@@ -44,6 +45,7 @@ public class PreClassLevelMaxRobin extends AbstractPreRoundRobin
 	{
 		super.setUp();
 		TokenRegistration.register(new PreClassLevelMaxParser());
+		TokenRegistration.register(new PreClassParser());
 		TokenRegistration.register(new PreClassWriter());
 	}
 

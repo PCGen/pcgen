@@ -18,16 +18,43 @@
 package plugin.pretokens;
 
 import java.io.StringWriter;
+import java.util.Collection;
 
+import junit.framework.TestCase;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.inst.ObjectCache;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
+import pcgen.persistence.lst.prereq.PreMultParser;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import junit.framework.TestCase;
+import pcgen.rules.context.EditorLoadContext;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.util.Logging;
 
 public abstract class AbstractPreRoundRobin extends TestCase
 {
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		registerPreMult();
+	}
+
+	private static boolean registered = false;
+
+	private static void registerPreMult() throws PersistenceLayerException
+	{
+		if (!registered)
+		{
+			registered = true;
+			TokenLibrary.addToTokenMap(new PreMultParser());
+		}
+	}
+
 	public final void runRoundRobin(String s)
 	{
 		runPositiveRoundRobin(s);
@@ -58,9 +85,37 @@ public abstract class AbstractPreRoundRobin extends TestCase
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			assertEquals(d, w.toString());
+			/*
+			 * Now try new system
+			 */
+			LoadContext context = new EditorLoadContext();
+			CDOMObject obj = new ObjectCache();
+			int colonLoc = s.indexOf(':');
+			String key = s.substring(0, colonLoc);
+			String value = s.substring(colonLoc + 1);
+			if (context.processToken(obj, key, value))
+			{
+				context.commit();
+			}
+			else
+			{
+				context.rollback();
+				Logging.replayParsedMessages();
+				fail();
+			}
+			Logging.clearParseMessages();
+			Collection<String> output = context.unparse(obj);
+			if (output == null || output.isEmpty())
+			{
+				// Uh Oh
+				fail("Unable to unparse: " + key + ":" + value);
+			}
+			assertEquals(1, output.size());
+			assertEquals(d, output.iterator().next());
 		}
 		catch (PersistenceLayerException e)
 		{
+			e.printStackTrace();
 			fail(e.getLocalizedMessage());
 		}
 	}

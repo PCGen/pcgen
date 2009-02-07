@@ -110,26 +110,27 @@ public class PreCompatibilityToken implements
 		for (Prerequisite p : changes.getAdded())
 		{
 			String kind = p.getKind();
-			if (kind == null || kind.regionMatches(true, 0, tokenRoot, 0, Math.min(tokenRoot
-					.length(), kind.length())))
+			final StringWriter capture = new StringWriter();
+			try
 			{
-				final StringWriter capture = new StringWriter();
-				try
-				{
-					PrerequisiteWriterInterface writer = factory
-							.getWriter(kind);
-					writer.write(capture, p);
-				}
-				catch (PersistenceLayerException e)
-				{
-					e.printStackTrace();
-				}
-				String output = capture.toString();
-				int colonLoc = output.indexOf(':');
-				if (tokenName.equalsIgnoreCase(output.substring(0, colonLoc)))
-				{
-					set.add(output.substring(colonLoc + 1));
-				}
+				PrerequisiteWriterInterface writer = factory.getWriter(kind);
+				writer.write(capture, p);
+			}
+			catch (PersistenceLayerException e)
+			{
+				e.printStackTrace();
+			}
+			String output = capture.toString();
+			int colonLoc = output.indexOf(':');
+			boolean outInvert = output.startsWith("!");
+			if (invert ^ outInvert)
+			{
+				continue;
+			}
+			String key = output.substring(0, colonLoc);
+			if (tokenName.equalsIgnoreCase(key))
+			{
+				set.add(output.substring(colonLoc + 1));
 			}
 		}
 		if (set.isEmpty())

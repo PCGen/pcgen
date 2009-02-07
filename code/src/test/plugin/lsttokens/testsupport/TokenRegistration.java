@@ -45,6 +45,7 @@ public class TokenRegistration
 		{
 			PreParserFactory.register(ppi);
 			ppiSet.add(s);
+			TokenLibrary.addToTokenMap(ppi);
 		}
 	}
 
