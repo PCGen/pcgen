@@ -29,6 +29,7 @@
 package pcgen.core;
 
 import java.awt.HeadlessException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -61,6 +62,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.StatToken;
@@ -1038,5 +1040,39 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
 		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.get(0).getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
+	}
+	
+	public void testGetAggregateAbilityList()
+	{
+		Ability resToAcid =
+				TestHelper.makeAbility("Swelter",
+					AbilityCategory.FEAT.getAbilityCategory(), "Foo");
+		PCTemplate template = TestHelper.makeTemplate("TemplateVirt"); 
+		PCTemplate templateNorm = TestHelper.makeTemplate("TemplateNorm"); 
+		LoadContext context = Globals.getContext();
+		context.ref.importObject(resToAcid);
+		context.unconditionallyProcess(human, "ABILITY", "FEAT|AUTOMATIC|KEY_Swelter");
+		context.unconditionallyProcess(template, "ABILITY", "FEAT|VIRTUAL|KEY_Swelter");
+		context.unconditionallyProcess(templateNorm, "ABILITY", "FEAT|NORMAL|KEY_Swelter");
+		context.resolveReferences();
+		PlayerCharacter pc = getCharacter();
+		
+		List<Ability> abList = pc.getAggregateAbilityList(AbilityCategory.FEAT);
+		assertEquals(0, abList.size());
+
+		pc.setRace(human);
+		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
+		assertEquals(1, abList.size());
+		assertEquals(Nature.AUTOMATIC, abList.get(0).getAbilityNature());
+		
+		pc.addTemplate(template);
+		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
+		assertEquals(1, abList.size());
+		assertEquals(Nature.VIRTUAL, abList.get(0).getAbilityNature());
+		
+		pc.addTemplate(templateNorm);
+		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
+		assertEquals(1, abList.size());
+		assertEquals(Nature.NORMAL, abList.get(0).getAbilityNature());
 	}
 }
