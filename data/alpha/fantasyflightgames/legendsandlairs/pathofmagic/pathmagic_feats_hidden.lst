@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Mar  2 21:05:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
 # Original Entry by: Ratheof Blithwyn
 
 
 ###Block: Weapon Proficiencies
-# Feat Name					Automaticaly Gained Weapon Prof.
+# Feat Name					Automatically Gained Weapon Prof.
 Arsenalist Weapon Proficieincies	AUTO:WEAPONPROF|Crossbow (Repeating)
 
 
@@ -147,7 +147,7 @@ Whispers and Lies V		TYPE:LegendaryWhispersLies.InfiltratorLAPL5		VISIBLE:NO	PRE
 
 
 ###Block:Landwalker legendary abilities
-# Feat Name				Type								Visible	Required Class		Prohibited Feat					Special ABility							Define				Innate Spells					Add						Modify VAR				Source Page
+# Feat Name				Type								Visible	Required Class		Prohibited Feat					Special ABility							Define				Innate Spells					Add 						Modify VAR				Source Page
 Dire Familiar I			TYPE:LegendaryDireFamiliar.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (3HD)																													SOURCEPAGE:p50
 Dire Familiar II			TYPE:LegendaryDireFamiliar.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (6HD)																													SOURCEPAGE:p50
 Dire Familiar III			TYPE:LegendaryDireFamiliar.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (9HD)																													SOURCEPAGE:p50
@@ -358,7 +358,7 @@ Planar Wrenching V	TYPE:LegendaryPlanarWrenching.TravelerLAPL5	VISIBLE:NO	PRECLA
 
 
 ###Block:Wizard King legendary abilities
-# Feat Name					Type									Visible	Required Class			Prohibited Feat						Special ABility				Add						Bonus to DC					Bonus to skill								Source Page
+# Feat Name					Type									Visible	Required Class			Prohibited Feat						Special ABility				Add 						Bonus to DC					Bonus to skill								Source Page
 Increased Spell Power I			TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|1|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
 Increased Spell Power II		TYPE:LegendaryIncSpellPower.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|2|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
 Increased Spell Power III		TYPE:LegendaryIncSpellPower.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|3|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62

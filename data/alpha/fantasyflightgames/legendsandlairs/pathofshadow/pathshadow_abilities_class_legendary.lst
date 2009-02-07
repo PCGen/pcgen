@@ -1,4 +1,4 @@
-# CVS $Revision: 5771 $ $Author: eddyanthony $ -- Mon Feb 11 23:16:12 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -10,6 +10,7 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 
 ###Block:Generic legendary abilities
 # Feat Name				Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
+# Ability Name			Category of Ability		Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
 Enhanced Strength I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SAB:Enhanced Strength I		BONUS:STAT|STR|1|TYPE=Legendary	SOURCEPAGE:p.83
 Enhanced Strength II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SAB:Enhanced Strength II	BONUS:STAT|STR|2|TYPE=Legendary	SOURCEPAGE:p.83
 Enhanced Strength III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedSTR	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedSTR	SAB:Enhanced Strength III	BONUS:STAT|STR|3|TYPE=Legendary	SOURCEPAGE:p.83
@@ -44,11 +45,12 @@ Enhanced Charisma V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:
 
 ###Block:Abyssal Infiltrator legendary abilities
 # Feat Name				Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Selections	Choose				Bonus to skill				Source Page
-Abyssal Skill I			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill I															CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill II			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill II													SELECT:2	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill III			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill III													SELECT:3	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill IV			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill IV													SELECT:4	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|12|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill V			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill V													SELECT:5	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|16|TYPE=Legendary	SOURCEPAGE:p.83
+# Ability Name			Category of Ability		Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Choose				Selections	Bonus to skill				Source Page
+Abyssal Skill I			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill I													CHOOSE:SKILLSNAMED|CLASS			BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill II			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill II													CHOOSE:SKILLSNAMED|CLASS	SELECT:2	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill III			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill III													CHOOSE:SKILLSNAMED|CLASS	SELECT:3	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill IV			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill IV													CHOOSE:SKILLSNAMED|CLASS	SELECT:4	BONUS:SKILL|LIST|12|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill V			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill V													CHOOSE:SKILLSNAMED|CLASS	SELECT:5	BONUS:SKILL|LIST|16|TYPE=Legendary	SOURCEPAGE:p.83
 Deadly Precision I		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision I (Ex)																									SOURCEPAGE:p.83
 Deadly Precision II		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision II (Ex)																									SOURCEPAGE:p.83
 Deadly Precision III		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision III (Ex)																									SOURCEPAGE:p.83
@@ -74,6 +76,7 @@ Unseen Assassin V			CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfilt
 
 ###Block:Blood Thief legendary abilities
 # Feat Name			Type						Visible	Required Class			Prohibited Feat			Special ABility			Stat bonus					Damage Reduction	Source Page
+# Ability Name		Category of Ability		Type						Visible	Required Class			Prohibited Feat			Special ABility			Stat bonus					Damage Reduction	Source Page
 Blood of Life I		CATEGORY:Special Ability	TYPE:LABloodLife.BloodThiefLAPL1	VISIBLE:NO	PRECLASS:1,Blood Thief=1	!PREFEAT:1,TYPE.LABloodLife	SAB:Blood of Life I		BONUS:STAT|CON|1|TYPE=Legendary				SOURCEPAGE:p.85
 Blood of Life II		CATEGORY:Special Ability	TYPE:LABloodLife.BloodThiefLAPL2	VISIBLE:NO	PRECLASS:1,Blood Thief=2	!PREFEAT:1,TYPE.LABloodLife	SAB:Blood of Life II		BONUS:STAT|CON|2|TYPE=Legendary				SOURCEPAGE:p.85
 Blood of Life III		CATEGORY:Special Ability	TYPE:LABloodLife.BloodThiefLAPL3	VISIBLE:NO	PRECLASS:1,Blood Thief=3	!PREFEAT:1,TYPE.LABloodLife	SAB:Blood of Life III		BONUS:STAT|CON|3|TYPE=Legendary				SOURCEPAGE:p.85
@@ -118,6 +121,7 @@ Wounding V			CATEGORY:Special Ability	TYPE:LAWounding.BloodThiefLAPL5	VISIBLE:NO
 
 ###Block:Fortune's Fool legendary abilities
 # Feat Name						Type							Visible	Required Class			Prohibited Feat				Special ABility						Innate Spells				Save checks bonus							Stat bonus					Source Page
+# Ability Name					Category of Ability		Type							Visible	Required Class			Prohibited Feat				Special ABility						Innate Spells				Save checks bonus							Stat bonus					Source Page
 Clever I						CATEGORY:Special Ability	TYPE:LAClever.FortuneFoolLAPL1		VISIBLE:NO	PRECLASS:1,Fortune's Fool=1	!PREFEAT:1,TYPE.LAClever		SAB:Clever I																					BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p.87
 Clever II						CATEGORY:Special Ability	TYPE:LAClever.FortuneFoolLAPL2		VISIBLE:NO	PRECLASS:1,Fortune's Fool=2	!PREFEAT:1,TYPE.LAClever		SAB:Clever II																					BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p.87
 Clever III						CATEGORY:Special Ability	TYPE:LAClever.FortuneFoolLAPL3		VISIBLE:NO	PRECLASS:1,Fortune's Fool=3	!PREFEAT:1,TYPE.LAClever		SAB:Clever III																					BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p.87
@@ -169,6 +173,7 @@ Lucky Shot V					CATEGORY:Special Ability	TYPE:LALuckyShot.FortuneFoolLAPL5		VIS
 
 ###Block:Grey Hand legendary abilities
 # Feat Name			Type						Visible	Required Class		Prohibited Feat				Special ABility			Combat bonus			Stat bonus					Modify VAR			Source Page
+# Ability Name		Category of Ability		Type						Visible	Required Class		Prohibited Feat				Special ABility			Combat bonus			Stat bonus					Modify VAR			Source Page
 Cunning I			CATEGORY:Special Ability	TYPE:LACunning.GreyHandLAPL1		VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LACunning		SAB:Cunning I								BONUS:STAT|INT|1|TYPE=Legendary					SOURCEPAGE:p.88
 Cunning II			CATEGORY:Special Ability	TYPE:LACunning.GreyHandLAPL2		VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LACunning		SAB:Cunning II								BONUS:STAT|INT|2|TYPE=Legendary					SOURCEPAGE:p.88
 Cunning III			CATEGORY:Special Ability	TYPE:LACunning.GreyHandLAPL3		VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LACunning		SAB:Cunning III								BONUS:STAT|INT|3|TYPE=Legendary					SOURCEPAGE:p.88
@@ -213,6 +218,7 @@ Unrepentant V		CATEGORY:Special Ability	TYPE:LAUnrepentant.GreyHandLAPL5	VISIBLE
 
 ###Block:Hand of the Reaper legendary abilities
 # Feat Name					Type							Visible	Required Class				Prohibited Feat				Special ABility					Bonus to HP			Bonus to skill							Source Page
+# Ability Name				Category of Ability		Type							Visible	Required Class				Prohibited Feat				Special ABility					Bonus to HP			Bonus to skill							Source Page
 Bastion of Physical Prowess I		CATEGORY:Special Ability	TYPE:LAPhysicalProwess.HandReaperLAPL1	VISIBLE:NO	PRECLASS:1,Hand of the Reaper=1	!PREFEAT:1,TYPE.LAPhysicalProwess	SAB:Bastion of Physical Prowess I (Ex)	BONUS:HP|CURRENTMAX|4										SOURCEPAGE:p.91
 Bastion of Physical Prowess II	CATEGORY:Special Ability	TYPE:LAPhysicalProwess.HandReaperLAPL2	VISIBLE:NO	PRECLASS:1,Hand of the Reaper=2	!PREFEAT:1,TYPE.LAPhysicalProwess	SAB:Bastion of Physical Prowess II (Ex)	BONUS:HP|CURRENTMAX|8										SOURCEPAGE:p.91
 Bastion of Physical Prowess III	CATEGORY:Special Ability	TYPE:LAPhysicalProwess.HandReaperLAPL3	VISIBLE:NO	PRECLASS:1,Hand of the Reaper=3	!PREFEAT:1,TYPE.LAPhysicalProwess	SAB:Bastion of Physical Prowess III (Ex)	BONUS:HP|CURRENTMAX|12										SOURCEPAGE:p.91
@@ -236,6 +242,7 @@ Reaper's Touch V				CATEGORY:Special Ability	TYPE:LAReaperTouch.HandReaperLAPL5	
 
 ###Block:Incantator legendary abilities
 # Feat Name				Type						Visible	Required Class		Prohibited Feat			Special ABility				Bonus to skill									Stat bonus					Spell Res.	Source Page
+# Ability Name			Category of Ability		Type						Visible	Required Class		Prohibited Feat			Special ABility				Bonus to skill									Stat bonus					Spell Res.	Source Page
 Legendary Charm I			CATEGORY:Special Ability	TYPE:LALegCharm.IncantatorLAPL1	VISIBLE:NO	PRECLASS:1,Incantator=1	!PREFEAT:1,TYPE.LALegCharm	SAB:Legendary Charm I (Ex)													BONUS:STAT|CHA|1|TYPE=Legendary			SOURCEPAGE:p.93
 Legendary Charm II		CATEGORY:Special Ability	TYPE:LALegCharm.IncantatorLAPL2	VISIBLE:NO	PRECLASS:1,Incantator=2	!PREFEAT:1,TYPE.LALegCharm	SAB:Legendary Charm II (Ex)													BONUS:STAT|CHA|2|TYPE=Legendary			SOURCEPAGE:p.93
 Legendary Charm III		CATEGORY:Special Ability	TYPE:LALegCharm.IncantatorLAPL3	VISIBLE:NO	PRECLASS:1,Incantator=3	!PREFEAT:1,TYPE.LALegCharm	SAB:Legendary Charm III (Ex)													BONUS:STAT|CHA|3|TYPE=Legendary			SOURCEPAGE:p.93
@@ -280,6 +287,7 @@ Steal Magic V			CATEGORY:Special Ability	TYPE:LAStealMagic.IncantatorLAPL5	VISIB
 
 ###Block:Jack of Knives legendary abilities
 # Feat Name				Type							Visible	Required Class			Prohibited Feat				Special ABility				Stat bonus					Weapon prof. bonus													Source Page
+# Ability Name			Category of Ability		Type							Visible	Required Class			Prohibited Feat				Special ABility				Stat bonus					Weapon prof. bonus													Source Page
 Amazing Grace I			CATEGORY:Special Ability	TYPE:LAAmazingGrace.JackKnivesLAPL1		VISIBLE:NO	PRECLASS:1,Jack of Knives=1	!PREFEAT:1,TYPE.LAAmazingGrace	SAB:Amazing Grace I (Ex)		BONUS:STAT|DEX|1|TYPE=Legendary																	SOURCEPAGE:p.96
 Amazing Grace II			CATEGORY:Special Ability	TYPE:LAAmazingGrace.JackKnivesLAPL2		VISIBLE:NO	PRECLASS:1,Jack of Knives=2	!PREFEAT:1,TYPE.LAAmazingGrace	SAB:Amazing Grace II (Ex)		BONUS:STAT|DEX|2|TYPE=Legendary																	SOURCEPAGE:p.96
 Amazing Grace III			CATEGORY:Special Ability	TYPE:LAAmazingGrace.JackKnivesLAPL3		VISIBLE:NO	PRECLASS:1,Jack of Knives=3	!PREFEAT:1,TYPE.LAAmazingGrace	SAB:Amazing Grace III (Ex)		BONUS:STAT|DEX|3|TYPE=Legendary																	SOURCEPAGE:p.96
@@ -320,6 +328,7 @@ Sneak Attack V (Dagger)		CATEGORY:Special Ability	TYPE:LASneakAttackA.JackKnives
 
 ###Block:Jack o' the Green legendary abilities
 # Feat Name			Type							Visible	Required Class				Prohibited Feat				Special ABility				Bonus to skill							Stat bonus					Source Page
+# Ability Name		Category of Ability		Type							Visible	Required Class				Prohibited Feat				Special ABility				Bonus to skill							Stat bonus					Source Page
 Nimble Jack I		CATEGORY:Special Ability	TYPE:LANimbleJack.JackGreenLAPL1		VISIBLE:NO	PRECLASS:1,Jack o' the Green=1	!PREFEAT:1,TYPE.LANimbleJack		SAB:Nimble Jack I													BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p.99
 Nimble Jack II		CATEGORY:Special Ability	TYPE:LANimbleJack.JackGreenLAPL2		VISIBLE:NO	PRECLASS:1,Jack o' the Green=2	!PREFEAT:1,TYPE.LANimbleJack		SAB:Nimble Jack II												BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p.99
 Nimble Jack III		CATEGORY:Special Ability	TYPE:LANimbleJack.JackGreenLAPL3		VISIBLE:NO	PRECLASS:1,Jack o' the Green=3	!PREFEAT:1,TYPE.LANimbleJack		SAB:Nimble Jack III												BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p.99
@@ -360,6 +369,7 @@ Hidden Jack V		CATEGORY:Special Ability	TYPE:LAHiddenJack.JackGreenLAPL5		VISIBL
 
 ###Block:Master Burglar legendary abilities
 # Feat Name					Type							Visible	Required Class			Prohibited Feat				Special ABility						Combat bonus					Bonus to skill					Source Page
+# Ability Name				Category of Ability		Type							Visible	Required Class			Prohibited Feat				Special ABility						Combat bonus					Bonus to skill					Source Page
 Bane of Locked Doors I			CATEGORY:Special Ability	TYPE:LABaneLockedDoors.MasterBurglarLAPL1	VISIBLE:NO	PRECLASS:1,Master Burglar=1	!PREFEAT:1,TYPE.LABaneLockedDoors	SAB:Bane of Locked Doors I (Ex)																	SOURCEPAGE:p.101
 Bane of Locked Doors II			CATEGORY:Special Ability	TYPE:LABaneLockedDoors.MasterBurglarLAPL2	VISIBLE:NO	PRECLASS:1,Master Burglar=2	!PREFEAT:1,TYPE.LABaneLockedDoors	SAB:Bane of Locked Doors II (Ex)																	SOURCEPAGE:p.101
 Bane of Locked Doors III		CATEGORY:Special Ability	TYPE:LABaneLockedDoors.MasterBurglarLAPL3	VISIBLE:NO	PRECLASS:1,Master Burglar=3	!PREFEAT:1,TYPE.LABaneLockedDoors	SAB:Bane of Locked Doors III (Ex)																	SOURCEPAGE:p.101
@@ -389,6 +399,7 @@ Walker Between the Walls V		CATEGORY:Special Ability	TYPE:LAWalkerWalls.MasterBu
 
 ###Block:Queen of Shadows legendary abilities
 # Feat Name			Type							Visible	Required Class			Prohibited Feat				Special ABility				Combat bonus					Bonus to skill							Source Page
+# Ability Name		Category of Ability		Type							Visible	Required Class			Prohibited Feat				Special ABility				Combat bonus					Bonus to skill							Source Page
 Reaching the Shadow I	CATEGORY:Special Ability	TYPE:ALReachingShadow.QueenShadowsLAPL1	VISIBLE:NO	PRECLASS:1,Queen of Shadows=1	!PREFEAT:1,TYPE.ALReachingShadow	SAB:Reaching the Shadow I (Su)																	SOURCEPAGE:p.103
 Reaching the Shadow II	CATEGORY:Special Ability	TYPE:ALReachingShadow.QueenShadowsLAPL2	VISIBLE:NO	PRECLASS:1,Queen of Shadows=2	!PREFEAT:1,TYPE.ALReachingShadow	SAB:Reaching the Shadow II (Su)																	SOURCEPAGE:p.103
 Reaching the Shadow III	CATEGORY:Special Ability	TYPE:ALReachingShadow.QueenShadowsLAPL3	VISIBLE:NO	PRECLASS:1,Queen of Shadows=3	!PREFEAT:1,TYPE.ALReachingShadow	SAB:Reaching the Shadow III (Su)																	SOURCEPAGE:p.103
@@ -418,6 +429,7 @@ Shadow Sentinels V	CATEGORY:Special Ability	TYPE:ALShadowSentinels.QueenShadowsL
 
 ###Block:Rogue Prince legendary abilities
 # Feat Name			Type							Visible	Required Class			Prohibited Feat				Special ABility				Bonus to skill									Modify VAR			Source Page
+# Ability Name		Category of Ability		Type							Visible	Required Class			Prohibited Feat				Special ABility				Bonus to skill									Modify VAR			Source Page
 Center of Balance I	CATEGORY:Special Ability	TYPE:LACenterBalance.RoguePrinceLAPL1	VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance I (Ex)																	SOURCEPAGE:p.106
 Center of Balance II	CATEGORY:Special Ability	TYPE:LACenterBalance.RoguePrinceLAPL2	VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance II (Ex)																	SOURCEPAGE:p.106
 Center of Balance III	CATEGORY:Special Ability	TYPE:LACenterBalance.RoguePrinceLAPL3	VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance III (Ex)																SOURCEPAGE:p.106
@@ -447,45 +459,47 @@ Sneak Attack V		CATEGORY:Special Ability	TYPE:LASneakAttack.RoguePrinceLAPL5		VI
 
 ###Block:Savant legendary abilities
 # Feat Name			Type						Visible	Required Class		Prohibited Feat				Special ABility				Stat bonus					Modify VAR				Source Page
-Adroit I			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit I				BONUS:STAT|DEX|1|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit II			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit II				BONUS:STAT|DEX|2|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit III			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit III				BONUS:STAT|DEX|3|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit IV			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit IV				BONUS:STAT|DEX|4|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit V			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit V				BONUS:STAT|DEX|5|TYPE=Legendary						SOURCEPAGE:p.107
-Charming I			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LACharming		SAB:Charming I				BONUS:STAT|CHA|1|TYPE=Legendary						SOURCEPAGE:p.108
-Charming II			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LACharming		SAB:Charming II				BONUS:STAT|CHA|2|TYPE=Legendary						SOURCEPAGE:p.108
-Charming III		CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LACharming		SAB:Charming III				BONUS:STAT|CHA|3|TYPE=Legendary						SOURCEPAGE:p.108
-Charming IV			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LACharming		SAB:Charming IV				BONUS:STAT|CHA|4|TYPE=Legendary						SOURCEPAGE:p.108
-Charming V			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LACharming		SAB:Charming V				BONUS:STAT|CHA|5|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning I		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning I				BONUS:STAT|INT|1|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning II		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning II				BONUS:STAT|INT|2|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning III		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning III			BONUS:STAT|INT|3|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning IV		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning IV				BONUS:STAT|INT|4|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning V		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning V				BONUS:STAT|INT|5|TYPE=Legendary						SOURCEPAGE:p.108
-Body Language I		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language I (Ex)													SOURCEPAGE:p.108
-Body Language II		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language II (Ex)													SOURCEPAGE:p.108
-Body Language III		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language III (Ex)													SOURCEPAGE:p.108
-Body Language IV		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language IV (Ex)													SOURCEPAGE:p.108
-Body Language V		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language V (Ex)													SOURCEPAGE:p.108
-Glibness I			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness I (Ex)														SOURCEPAGE:p.108
-Glibness II			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness II (Ex)														SOURCEPAGE:p.108
-Glibness III		CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness III (Ex)														SOURCEPAGE:p.108
-Glibness IV			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness IV (Ex)														SOURCEPAGE:p.108
-Glibness V			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness V (Ex)														SOURCEPAGE:p.108
-Veiled Lore I		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|4+INT	SOURCEPAGE:p.106
-Veiled Lore II		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|8+INT	SOURCEPAGE:p.106
-Veiled Lore III		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|12+INT	SOURCEPAGE:p.106
-Veiled Lore IV		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|16+INT	SOURCEPAGE:p.106
-Veiled Lore V		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|20+INT	SOURCEPAGE:p.106
-Voice of Reason I		CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason I (Ex)													SOURCEPAGE:p.108
-Voice of Reason II	CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason II (Ex)													SOURCEPAGE:p.108
-Voice of Reason III	CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason III (Ex)													SOURCEPAGE:p.108
-Voice of Reason IV	CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason IV (Ex)													SOURCEPAGE:p.108
-Voice of Reason V		CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason V (Ex)													SOURCEPAGE:p.108
+# Ability Name		Category of Ability		Type						Visible	Required Class		Prohibited Feat				Special ABility				Stat bonus					Modify VAR				Source Page
+Adroit I			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit I				BONUS:STAT|DEX|1|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit II			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit II				BONUS:STAT|DEX|2|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit III			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit III				BONUS:STAT|DEX|3|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit IV			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit IV				BONUS:STAT|DEX|4|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit V			CATEGORY:Special Ability	TYPE:LAAdroit.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit V				BONUS:STAT|DEX|5|TYPE=Legendary						SOURCEPAGE:p.107
+Charming I			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LACharming		SAB:Charming I				BONUS:STAT|CHA|1|TYPE=Legendary						SOURCEPAGE:p.108
+Charming II			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LACharming		SAB:Charming II				BONUS:STAT|CHA|2|TYPE=Legendary						SOURCEPAGE:p.108
+Charming III		CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LACharming		SAB:Charming III				BONUS:STAT|CHA|3|TYPE=Legendary						SOURCEPAGE:p.108
+Charming IV			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LACharming		SAB:Charming IV				BONUS:STAT|CHA|4|TYPE=Legendary						SOURCEPAGE:p.108
+Charming V			CATEGORY:Special Ability	TYPE:LACharming.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LACharming		SAB:Charming V				BONUS:STAT|CHA|5|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning I		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning I				BONUS:STAT|INT|1|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning II		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning II				BONUS:STAT|INT|2|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning III		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning III			BONUS:STAT|INT|3|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning IV		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning IV				BONUS:STAT|INT|4|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning V		CATEGORY:Special Ability	TYPE:LADiscerning.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning V				BONUS:STAT|INT|5|TYPE=Legendary						SOURCEPAGE:p.108
+Body Language I		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language I (Ex)													SOURCEPAGE:p.108
+Body Language II		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language II (Ex)													SOURCEPAGE:p.108
+Body Language III		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language III (Ex)													SOURCEPAGE:p.108
+Body Language IV		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language IV (Ex)													SOURCEPAGE:p.108
+Body Language V		CATEGORY:Special Ability	TYPE:LABodyLanguage.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language V (Ex)													SOURCEPAGE:p.108
+Glibness I			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness I (Ex)														SOURCEPAGE:p.108
+Glibness II			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness II (Ex)														SOURCEPAGE:p.108
+Glibness III		CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness III (Ex)														SOURCEPAGE:p.108
+Glibness IV			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness IV (Ex)														SOURCEPAGE:p.108
+Glibness V			CATEGORY:Special Ability	TYPE:LAGlibness.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness V (Ex)														SOURCEPAGE:p.108
+Veiled Lore I		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|4+INT	SOURCEPAGE:p.106
+Veiled Lore II		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|8+INT	SOURCEPAGE:p.106
+Veiled Lore III		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|12+INT	SOURCEPAGE:p.106
+Veiled Lore IV		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|16+INT	SOURCEPAGE:p.106
+Veiled Lore V		CATEGORY:Special Ability	TYPE:LAVeiledLore.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|20+INT	SOURCEPAGE:p.106
+Voice of Reason I		CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason I (Ex)													SOURCEPAGE:p.108
+Voice of Reason II	CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason II (Ex)													SOURCEPAGE:p.108
+Voice of Reason III	CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason III (Ex)													SOURCEPAGE:p.108
+Voice of Reason IV	CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason IV (Ex)													SOURCEPAGE:p.108
+Voice of Reason V		CATEGORY:Special Ability	TYPE:LAVoiceReason.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason V (Ex)													SOURCEPAGE:p.108
 
 
 ###Block:Silver-Tongued Devil abilities
 # Feat Name				Type							Visible	Required Class				Prohibited Feat				Special ABility					Bonus to skill								Stat bonus					Source Page
+# Ability Name			Category of Ability		Type							Visible	Required Class				Prohibited Feat				Special ABility					Bonus to skill								Stat bonus					Source Page
 Keenly Perceptive I		CATEGORY:Special Ability	TYPE:LAKeenlyPerceptive.SilverDevilLAPL1	VISIBLE:NO	PRECLASS:1,Silver-Tongued Devil=1	!PREFEAT:1,TYPE.LAKeenlyPerceptive	SAB:Keenly Perceptive I (Ex)													BONUS:STAT|WIS|1|TYPE=Legendary	SOURCEPAGE:p.110
 Keenly Perceptive II		CATEGORY:Special Ability	TYPE:LAKeenlyPerceptive.SilverDevilLAPL2	VISIBLE:NO	PRECLASS:1,Silver-Tongued Devil=2	!PREFEAT:1,TYPE.LAKeenlyPerceptive	SAB:Keenly Perceptive II (Ex)													BONUS:STAT|WIS|2|TYPE=Legendary	SOURCEPAGE:p.110
 Keenly Perceptive III		CATEGORY:Special Ability	TYPE:LAKeenlyPerceptive.SilverDevilLAPL3	VISIBLE:NO	PRECLASS:1,Silver-Tongued Devil=3	!PREFEAT:1,TYPE.LAKeenlyPerceptive	SAB:Keenly Perceptive III (Ex)												BONUS:STAT|WIS|3|TYPE=Legendary	SOURCEPAGE:p.110

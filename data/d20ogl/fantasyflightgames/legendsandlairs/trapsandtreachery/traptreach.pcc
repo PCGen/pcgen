@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$
-CAMPAIGN:FFG - TrapsandTreachery - Source Book
+CAMPAIGN:FFG - Traps and Treachery - Source Book
 GAMEMODE:3e
 RANK:9
 GENRE:Fantasy
@@ -38,5 +38,3 @@ EQUIPMENT:traptreach_equip_wondrousitems.lst
 EQUIPMENT:traptreach_equip_weap_melee.lst
 EQUIPMENT:traptreach_equip_potionsscrolls.lst
 EQUIPMENT:traptreach_equip_rodsstaffswands.lst
-
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack,All Automatic Proficiencies)

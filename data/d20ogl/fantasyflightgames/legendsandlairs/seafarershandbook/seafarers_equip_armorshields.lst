@@ -4,7 +4,7 @@ SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB
 
 #Light Armor
 # Equipment Name	Required Proficiency			Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Soft Kelp		PROFICIENCY:ARMOR|Soft Kelp		TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:7	WT:7		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.26	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Soft Kelp		PROFICIENCY:ARMOR|Soft Kelp		TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:7	WT:7		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.26					BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
 Stiffened Kelp	PROFICIENCY:ARMOR|Stiffened Kelp	TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:15	WT:10		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.26	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 Light Scale		PROFICIENCY:ARMOR|Light Scale		TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:30	WT:8		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.27	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 Bone Mail		PROFICIENCY:ARMOR|Bone Mail		TYPE:Armor.Light.Suit.Standard.Nonmetal.Aquatic		COST:30	WT:10		ACCHECK:-1		MAXDEX:5		SOURCEPAGE:p.26	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE

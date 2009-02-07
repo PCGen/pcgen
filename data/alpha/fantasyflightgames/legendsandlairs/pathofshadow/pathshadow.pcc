@@ -8,7 +8,7 @@ SETTING:Generic
 # The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:Alpha Datasets
 #TYPE:Fantasy Flight Games.Sourcebook
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:2,BOOKTYPE=Core Rules,FFG - Traps and Treachery - Source Book
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com
@@ -36,29 +36,18 @@ COPYRIGHT:PCGen dataset conversion for the Path of Shadow Copyright 2003-2004, P
 ABILITY:pathshadow_abilities_class.lst
 ABILITY:pathshadow_abilities_class_legendary.lst
 ABILITY:pathshadow_abilities_mod.lst
-
 ABILITYCATEGORY:pathshadow_ability_category.lst
-
-FEAT:pathshadow_feats_mod.lst
-
-
 CLASS:pathshadow_classes_core.lst
 CLASS:pathshadow_classes_prestige.lst
-#FEAT:pathshadow_feats_hidden.lst
-#FEAT:pathshadow_feats_hidden_legendary.lst
-
+CLASS:pathshadow_classes_legendary.lst
+FEAT:pathshadow_feats.lst
+FEAT:pathshadow_feats_mod.lst
+FEAT:pathshadow_feats_hidden.lst
+FEAT:pathshadow_feats_hidden_legendary.lst
 EQUIPMENT:pathshadow_equip.lst
 EQUIPMENT:pathshadow_equip_weap_melee.lst
-WEAPONPROF:pathshadow_weaponprofs.lst
-
-FEAT:pathshadow_feats.lst
+SKILL:pathshadow_skills.lst
 SPELL:pathshadow_spells.lst
 SPELL:pathshadow_powers.lst
-SKILL:pathshadow_skills.lst
 TEMPLATE:pathshadow_templates.lst
-
-CLASS:pathshadow_classes_legendary.lst
-
-# References to SRD
-#TBD
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Basic Turning,Rebuke Undead,Turn Undead,Sneak Attack,Smite)
+WEAPONPROF:pathshadow_weaponprofs.lst

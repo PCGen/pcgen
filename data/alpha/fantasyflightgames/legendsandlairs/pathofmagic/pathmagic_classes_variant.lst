@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:32:40 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -7,11 +7,11 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 # Variant classes
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Arcane Engineer	HD:6		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Arcane Engineer	HD:6		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Engineer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|TYPE.Knowledge|TYPE.Profession|Spellcraft
-# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Arcane Engineer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcane Engineer|CL
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
@@ -38,11 +38,11 @@ CLASS:Arcane Engineer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELL
 20	CAST:4,4,4,4,4,4,4,4,4,4															ADD:FEAT|1|TYPE=Metamagic,TYPE=ItemCreation
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Arsenalist	HD:4		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Arsenalist	HD:4		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Arsenalist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Search|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Arsenalist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arsenalist|CL
 1	AUTO:FEAT|Simple Weapon Proficiency|Arsenalist Weapon Proficieincies
 1	AUTO:FEAT|Armor Proficiency (Light)
@@ -70,8 +70,8 @@ CLASS:Arsenalist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:
 # Add sample firearms as equipment???
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Mind Weaver	HD:6		TYPE:Base.PC	ABB:MiW		MAXLEVEL:20	SOURCEPAGE:p.68	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Mind Weaver	HD:6		TYPE:Base.PC	ABB:MiW		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Gather Information|Intimidate|TYPE.Knowledge|TYPE.Profession|Scry|Search|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -80,9 +80,9 @@ CLASS:Mind Weaver	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|M
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:5,3				KNOWN:4,2				SAB:Spell Powers												ADD:FEAT|1|Spell Focus,TYPE=Metamagic
-2	CAST:6,4				KNOWN:5,2									BONUS:VAR|FMLevel|CL													ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2	CAST:6,4				KNOWN:5,2														BONUS:VAR|FMLevel|CL								ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	CAST:6,5				KNOWN:5,3
-4	CAST:6,6,3				KNOWN:6,3,1				SAB:Armor Adaptation						BONUS:MISC|SPELLFAILURE|-5
+4	CAST:6,6,3				KNOWN:6,3,1				SAB:Armor Adaptation		BONUS:MISC|SPELLFAILURE|-5
 5	CAST:6,6,4				KNOWN:6,4,2
 6	CAST:6,6,5,3			KNOWN:7,4,2,1			SAB:Spell Power Mastery
 7	CAST:6,6,6,4			KNOWN:7,5,3,2
@@ -94,15 +94,15 @@ CLASS:Mind Weaver	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|M
 13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2		SAB:Counterspell Savant
 14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
 15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
-16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1											BONUS:MISC|SPELLFAILURE|-5
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1							BONUS:MISC|SPELLFAILURE|-5
 17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
 18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3															ADD:FEAT|1|Spell Focus,TYPE=Metamagic
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Sun Mage	HD:4		TYPE:Base.PC	ABB:SuM		MAXLEVEL:20	SOURCEPAGE:p.72	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Sun Mage	HD:4		TYPE:Base.PC	ABB:SuM		MAXLEVEL:20	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sun Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -120,7 +120,7 @@ CLASS:Sun Mage	SPELLSTAT:CON	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sun 
 9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2			SAB:Spell Battery
 10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
 11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
-12	CAST:6,6,6,6,6,4,3		KNOWN:9,5,5,4,3,2,1		ABILITY:Special Ability|AUTOMATIC|Timeless Body	TEMPLATE:Timeless Body
+12	CAST:6,6,6,6,6,4,3		KNOWN:9,5,5,4,3,2,1																	ABILITY:Special Ability|AUTOMATIC|Timeless Body		TEMPLATE:Timeless Body
 13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2		SAB:Solar Substitution
 14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
 15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2

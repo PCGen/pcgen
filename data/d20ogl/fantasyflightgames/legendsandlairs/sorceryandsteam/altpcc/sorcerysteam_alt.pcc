@@ -22,8 +22,8 @@ COPYRIGHT:Sorcery and Steam Copyright 2003, Fantasy Flight Publishing, Inc.
 COPYRIGHT:PCGen dataset conversion for Fantasy Flight Games Sorcery and Steam Copyright 2003, PCgen Data team (Including, but not limited to) Eddy Anthony
 INFOTEXT:Load this source if your campaign is the Full Steampunk Campaign where firearms are common. You must also load the main Sorcery and Steam files to use this
 
-LSTEXCLUDE:@/d20ogl/fantasyflightgames/legendsandlairs/sorceryandsteam/sorcerysteam_equip_weap_ranged.lst
-LSTEXCLUDE:@/d20ogl/fantasyflightgames/legendsandlairs/sorceryandsteam/sorcerysteam_weaponprofs.lst
+LSTEXCLUDE:../sorcerysteam_equip_weap_ranged.lst
+LSTEXCLUDE:../sorcerysteam_weaponprofs.lst
 
 CLASS:sorcerysteam_classes_alt.lst
 EQUIPMENT:sorcerysteam_equip_weap_ranged_alt.lst

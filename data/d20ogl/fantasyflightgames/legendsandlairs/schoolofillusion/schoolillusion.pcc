@@ -40,5 +40,3 @@ EQUIPMENT:schoolillusion_equip_weap_melee_specific.lst
 EQUIPMENT:schoolillusion_equip_wondrousitems.lst
 EQUIPMENT:schoolillusion_equip_potionsscrolls.lst
 EQUIPMOD:schoolillusion_equipmods.lst
-
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,All Automatic Proficiencies)

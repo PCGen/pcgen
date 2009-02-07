@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb  6 21:41:36 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
@@ -197,7 +197,7 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 ###Block: Normal Level Progression
 1			SAB:Human Shield (Ex)
 3			SAB:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
-6																									AUTO:FEAT|Uncanny Dodge
+6																									ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 9			SAB:Defensive Reflexes (Ex)				BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
 10	DR:2/-	SAB:Bastion of Protection (Ex)
 
@@ -244,7 +244,7 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Disable Device|Driv
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill								Required Text
-CLASS:Rocket Ace	PREFEAT:2,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
+CLASS:Rocket Ace	PREFEAT:2,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive=8,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE.Craft|Disable Device|Drive|Intuit Direction|Jump|Listen|Munitions|TYPE.Profession|Spot|Swim|Tumble|Use Steamcraft Device
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
@@ -265,8 +265,8 @@ CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE.Craft|Disable
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	ABB:StM		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Feat							Required Skill														Req. Spell Type
-CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks),Knowledge (Steamcraft),Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:1,Arcane=3
+# Class Name		Required Feat							Required Skill															Req. Spell Type
+CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks)=8,Knowledge (Steamcraft)=8,Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft|Use Steamcraft Device
 1	AUTO:FEAT|Simple Weapon Proficiency
@@ -287,7 +287,7 @@ CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|TY
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Street Runner	HD:6		TYPE:PC.Prestige	ABB:SRn		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat	Required Skill
-CLASS:Street Runner	PREATT:4	PREFEAT:1,Run	PRESKILL:5,Balance,Hide,Intuit Direction,Move Silently,Pick Pocket=5	PRESKILL:3,Climb,Jump,Tumble=8
+CLASS:Street Runner	PREATT:4	PREFEAT:1,Run	PRESKILL:5,Balance=5,Hide=5,Intuit Direction=5,Move Silently=5,Pick Pocket=5	PRESKILL:3,Climb=8,Jump=8,Tumble=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Munitions|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1	AUTO:FEAT|Street Runner Weapon Proficiencies	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
@@ -305,7 +305,7 @@ CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Cra
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill																Required Text
-CLASS:Watchman	PREATT:5	PRESKILL:2,Intimidate,Sense Motive=3	PRESKILL:1,Knowledge (Law),Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard
+CLASS:Watchman	PREATT:5	PRESKILL:2,Intimidate=3,Sense Motive=3	PRESKILL:1,Knowledge (Law)=3,Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Intimidate|Intuit Direction|Knowledge (Local)|Knowledge (Law)|Knowledge (Crime and Criminals)|Listen|Munitions|TYPE.Profession|Ride|Sense Motive|Spot
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency

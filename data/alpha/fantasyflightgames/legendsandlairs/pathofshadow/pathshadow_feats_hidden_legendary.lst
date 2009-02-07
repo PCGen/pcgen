@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb 11 23:16:12 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -43,12 +43,12 @@ Enhanced Charisma IV		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.Legen
 Enhanced Charisma V		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma V		BONUS:STAT|CHA|5|TYPE=Legendary	SOURCEPAGE:p.103
 
 ###Block:Abyssal Infiltrator legendary abilities
-# Feat Name				Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Selections	Choose				Bonus to skill				Source Page
-Abyssal Skill I			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill I															CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill II			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill II													SELECT:2	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill III			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill III													SELECT:3	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill IV			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill IV													SELECT:4	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|12|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill V			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill V													SELECT:5	CHOOSE:SKILLSNAMED|CLASS	BONUS:SKILL|LIST|16|TYPE=Legendary	SOURCEPAGE:p.83
+# Feat Name				Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Choose				Selections	Bonus to skill				Source Page
+Abyssal Skill I			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill I													CHOOSE:SKILLSNAMED|CLASS			BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill II			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill II													CHOOSE:SKILLSNAMED|CLASS	SELECT:2	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill III			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill III													CHOOSE:SKILLSNAMED|CLASS	SELECT:3	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill IV			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill IV													CHOOSE:SKILLSNAMED|CLASS	SELECT:4	BONUS:SKILL|LIST|12|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill V			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill V													CHOOSE:SKILLSNAMED|CLASS	SELECT:5	BONUS:SKILL|LIST|16|TYPE=Legendary	SOURCEPAGE:p.83
 Deadly Precision I		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision I (Ex)																									SOURCEPAGE:p.83
 Deadly Precision II		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision II (Ex)																									SOURCEPAGE:p.83
 Deadly Precision III		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision III (Ex)																									SOURCEPAGE:p.83
@@ -447,41 +447,41 @@ Sneak Attack V		TYPE:LASneakAttack.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue
 
 ###Block:Savant legendary abilities
 # Feat Name			Type						Visible	Required Class		Prohibited Feat				Special ABility				Stat bonus					Modify VAR				Source Page
-Adroit I			TYPE:LAAdroit.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit I				BONUS:STAT|DEX|1|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit II			TYPE:LAAdroit.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit II				BONUS:STAT|DEX|2|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit III			TYPE:LAAdroit.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit III				BONUS:STAT|DEX|3|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit IV			TYPE:LAAdroit.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit IV				BONUS:STAT|DEX|4|TYPE=Legendary						SOURCEPAGE:p.107
-Adroit V			TYPE:LAAdroit.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit V				BONUS:STAT|DEX|5|TYPE=Legendary						SOURCEPAGE:p.107
-Charming I			TYPE:LACharming.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LACharming		SAB:Charming I				BONUS:STAT|CHA|1|TYPE=Legendary						SOURCEPAGE:p.108
-Charming II			TYPE:LACharming.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LACharming		SAB:Charming II				BONUS:STAT|CHA|2|TYPE=Legendary						SOURCEPAGE:p.108
-Charming III		TYPE:LACharming.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LACharming		SAB:Charming III				BONUS:STAT|CHA|3|TYPE=Legendary						SOURCEPAGE:p.108
-Charming IV			TYPE:LACharming.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LACharming		SAB:Charming IV				BONUS:STAT|CHA|4|TYPE=Legendary						SOURCEPAGE:p.108
-Charming V			TYPE:LACharming.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LACharming		SAB:Charming V				BONUS:STAT|CHA|5|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning I		TYPE:LADiscerning.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning I				BONUS:STAT|INT|1|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning II		TYPE:LADiscerning.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning II				BONUS:STAT|INT|2|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning III		TYPE:LADiscerning.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning III			BONUS:STAT|INT|3|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning IV		TYPE:LADiscerning.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning IV				BONUS:STAT|INT|4|TYPE=Legendary						SOURCEPAGE:p.108
-Discerning V		TYPE:LADiscerning.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning V				BONUS:STAT|INT|5|TYPE=Legendary						SOURCEPAGE:p.108
-Body Language I		TYPE:LABodyLanguage.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language I (Ex)													SOURCEPAGE:p.108
-Body Language II		TYPE:LABodyLanguage.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language II (Ex)													SOURCEPAGE:p.108
-Body Language III		TYPE:LABodyLanguage.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language III (Ex)													SOURCEPAGE:p.108
-Body Language IV		TYPE:LABodyLanguage.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language IV (Ex)													SOURCEPAGE:p.108
-Body Language V		TYPE:LABodyLanguage.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language V (Ex)													SOURCEPAGE:p.108
-Glibness I			TYPE:LAGlibness.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness I (Ex)														SOURCEPAGE:p.108
-Glibness II			TYPE:LAGlibness.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness II (Ex)														SOURCEPAGE:p.108
-Glibness III		TYPE:LAGlibness.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness III (Ex)														SOURCEPAGE:p.108
-Glibness IV			TYPE:LAGlibness.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness IV (Ex)														SOURCEPAGE:p.108
-Glibness V			TYPE:LAGlibness.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness V (Ex)														SOURCEPAGE:p.108
-Veiled Lore I		TYPE:LAVeiledLore.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|4+INT	SOURCEPAGE:p.106
-Veiled Lore II		TYPE:LAVeiledLore.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|8+INT	SOURCEPAGE:p.106
-Veiled Lore III		TYPE:LAVeiledLore.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|12+INT	SOURCEPAGE:p.106
-Veiled Lore IV		TYPE:LAVeiledLore.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|16+INT	SOURCEPAGE:p.106
-Veiled Lore V		TYPE:LAVeiledLore.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|20+INT	SOURCEPAGE:p.106
-Voice of Reason I		TYPE:LAVoiceReason.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant=1	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason I (Ex)													SOURCEPAGE:p.108
-Voice of Reason II	TYPE:LAVoiceReason.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant=2	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason II (Ex)													SOURCEPAGE:p.108
-Voice of Reason III	TYPE:LAVoiceReason.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant=3	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason III (Ex)													SOURCEPAGE:p.108
-Voice of Reason IV	TYPE:LAVoiceReason.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant=4	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason IV (Ex)													SOURCEPAGE:p.108
-Voice of Reason V		TYPE:LAVoiceReason.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant=5	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason V (Ex)													SOURCEPAGE:p.108
+Adroit I			TYPE:LAAdroit.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit I				BONUS:STAT|DEX|1|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit II			TYPE:LAAdroit.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit II				BONUS:STAT|DEX|2|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit III			TYPE:LAAdroit.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit III				BONUS:STAT|DEX|3|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit IV			TYPE:LAAdroit.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit IV				BONUS:STAT|DEX|4|TYPE=Legendary						SOURCEPAGE:p.107
+Adroit V			TYPE:LAAdroit.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAAdroit		SAB:Adroit V				BONUS:STAT|DEX|5|TYPE=Legendary						SOURCEPAGE:p.107
+Charming I			TYPE:LACharming.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LACharming		SAB:Charming I				BONUS:STAT|CHA|1|TYPE=Legendary						SOURCEPAGE:p.108
+Charming II			TYPE:LACharming.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LACharming		SAB:Charming II				BONUS:STAT|CHA|2|TYPE=Legendary						SOURCEPAGE:p.108
+Charming III		TYPE:LACharming.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LACharming		SAB:Charming III				BONUS:STAT|CHA|3|TYPE=Legendary						SOURCEPAGE:p.108
+Charming IV			TYPE:LACharming.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LACharming		SAB:Charming IV				BONUS:STAT|CHA|4|TYPE=Legendary						SOURCEPAGE:p.108
+Charming V			TYPE:LACharming.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LACharming		SAB:Charming V				BONUS:STAT|CHA|5|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning I		TYPE:LADiscerning.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning I				BONUS:STAT|INT|1|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning II		TYPE:LADiscerning.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning II				BONUS:STAT|INT|2|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning III		TYPE:LADiscerning.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning III			BONUS:STAT|INT|3|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning IV		TYPE:LADiscerning.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning IV				BONUS:STAT|INT|4|TYPE=Legendary						SOURCEPAGE:p.108
+Discerning V		TYPE:LADiscerning.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LADiscerning		SAB:Discerning V				BONUS:STAT|INT|5|TYPE=Legendary						SOURCEPAGE:p.108
+Body Language I		TYPE:LABodyLanguage.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language I (Ex)													SOURCEPAGE:p.108
+Body Language II		TYPE:LABodyLanguage.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language II (Ex)													SOURCEPAGE:p.108
+Body Language III		TYPE:LABodyLanguage.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language III (Ex)													SOURCEPAGE:p.108
+Body Language IV		TYPE:LABodyLanguage.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language IV (Ex)													SOURCEPAGE:p.108
+Body Language V		TYPE:LABodyLanguage.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LABodyLanguage	SAB:Body Language V (Ex)													SOURCEPAGE:p.108
+Glibness I			TYPE:LAGlibness.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness I (Ex)														SOURCEPAGE:p.108
+Glibness II			TYPE:LAGlibness.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness II (Ex)														SOURCEPAGE:p.108
+Glibness III		TYPE:LAGlibness.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness III (Ex)														SOURCEPAGE:p.108
+Glibness IV			TYPE:LAGlibness.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness IV (Ex)														SOURCEPAGE:p.108
+Glibness V			TYPE:LAGlibness.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAGlibness		SAB:Glibness V (Ex)														SOURCEPAGE:p.108
+Veiled Lore I		TYPE:LAVeiledLore.SavantLAPL1		VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|4+INT	SOURCEPAGE:p.106
+Veiled Lore II		TYPE:LAVeiledLore.SavantLAPL2		VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|8+INT	SOURCEPAGE:p.106
+Veiled Lore III		TYPE:LAVeiledLore.SavantLAPL3		VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|12+INT	SOURCEPAGE:p.106
+Veiled Lore IV		TYPE:LAVeiledLore.SavantLAPL4		VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|16+INT	SOURCEPAGE:p.106
+Veiled Lore V		TYPE:LAVeiledLore.SavantLAPL5		VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAVeiledLore		SAB:Veiled Lore (+%)|VeiledLore							BONUS:VAR|VeiledLore|20+INT	SOURCEPAGE:p.106
+Voice of Reason I		TYPE:LAVoiceReason.SavantLAPL1	VISIBLE:NO	PRECLASS:1,Savant_PoS=1	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason I (Ex)													SOURCEPAGE:p.108
+Voice of Reason II	TYPE:LAVoiceReason.SavantLAPL2	VISIBLE:NO	PRECLASS:1,Savant_PoS=2	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason II (Ex)													SOURCEPAGE:p.108
+Voice of Reason III	TYPE:LAVoiceReason.SavantLAPL3	VISIBLE:NO	PRECLASS:1,Savant_PoS=3	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason III (Ex)													SOURCEPAGE:p.108
+Voice of Reason IV	TYPE:LAVoiceReason.SavantLAPL4	VISIBLE:NO	PRECLASS:1,Savant_PoS=4	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason IV (Ex)													SOURCEPAGE:p.108
+Voice of Reason V		TYPE:LAVoiceReason.SavantLAPL5	VISIBLE:NO	PRECLASS:1,Savant_PoS=5	!PREFEAT:1,TYPE.LAVoiceReason		SAB:Voice of Reason V (Ex)													SOURCEPAGE:p.108
 
 
 ###Block:Silver-Tongued Devil abilities

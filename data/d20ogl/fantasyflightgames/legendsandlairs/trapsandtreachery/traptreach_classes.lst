@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb  6 21:41:36 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-07
 
 # Applied errata from http://www.fantasyflightgames.com/lltterrata.html (Roofrunner) - Byngl
@@ -6,7 +6,7 @@ SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOU
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus															Combat bonus
 CLASS:Discreet Companion	HD:4		TYPE:PC.Prestige	ABB:DCO		MAXLEVEL:10	SOURCEPAGE:p.20-23	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/3|TYPE=Base.REPLACE
 # Class Name			Required AL				Required Feat							Required Skill
-CLASS:Discreet Companion	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Alertness,Skill Focus(Gather Information)	PRESKILL:1,Bluff=6	PRESKILL:1,Diplomacy=8	PRESKILL:1,Gather Information=10	PRESKILL:1,Profession (Escort),Profession (Courtesan),Profession (Prostitute)=5	PRESKILL:2,Innuendo,Perform=4
+CLASS:Discreet Companion	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Alertness,Skill Focus(Gather Information)	PRESKILL:1,Bluff=6	PRESKILL:1,Diplomacy=8	PRESKILL:1,Gather Information=10	PRESKILL:1,Profession (Escort)=5,Profession (Courtesan)=5,Profession (Prostitute)=5	PRESKILL:2,Innuendo=4,Perform=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Innuendo|Intimidate|Listen|Mimic Voice|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Urban Lore
 1	SAB:Secret %|Secret	BONUS:VAR|Secret|(CL+2)/3	DEFINE:Secret|0	ADD:FEAT|1|TYPE=DiscreetCompanionAbility
@@ -52,23 +52,23 @@ CLASS:Trapmaster	HD:6		TYPE:PC.Prestige	ABB:TMS		MAXLEVEL:10	SOURCEPAGE:p.29-31	
 CLASS:Trapmaster	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:1,Mechanical Aptitude	PRESKILL:2,Craft (Trapmaking)=6,Disable Device=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapmaster	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-# Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Trapmaster	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Trapmaster|CL
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
+CLASS:Trapmaster	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Trapmaster|CL
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Trapmaster=1|Animate Rope,Detect Secret Doors,Feather Fall,Invisible Object,Jump,Spider Climb
 1	SPELLLEVEL:CLASS|Trapmaster=2|Cat's Grace,Darkvision,Daylight,Invisibility,Knock,Protection from Arrows
 1	SPELLLEVEL:CLASS|Trapmaster=3|Dispel Magic,Fly,Gaseous Form,Haste,Water Breathing,Wind Wall
 ###Block: Proficiencies
-1	AUTO:FEAT|Rogue Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies
+1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1								SAB:Trapsmithing					BONUS:VAR|SneakAttack|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2								SAB:Trap Resistance +%|TrapResistance	BONUS:VAR|TrapResistance|CL/2		DEFINE:TrapResistance|0
-3	CAST:0,0		KNOWNSPELLS:LEVEL=1	SAB:Trap Sense
+1				SAB:Trapsmithing					BONUS:VAR|SneakAttack|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2				SAB:Trap Resistance +%|TrapResistance	BONUS:VAR|TrapResistance|CL/2		DEFINE:TrapResistance|0
+3	CAST:0,0		SAB:Trap Sense
 4	CAST:0,1
-5	CAST:0,1,0		KNOWNSPELLS:LEVEL=2
+5	CAST:0,1,0
 6	CAST:0,1,1
-7	CAST:0,1,1,0	KNOWNSPELLS:LEVEL=3
+7	CAST:0,1,1,0
 8	CAST:0,1,1,1
 9	CAST:0,2,1,1
 10	CAST:0,2,2,1
@@ -91,6 +91,3 @@ CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disgu
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Urban Lore
 1	ADD:FEAT|1|Track,Shadow (TT)	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-
-# Class Name				Class Skill
-CLASS:Ranger (Monte Cook's).MOD	CSKILL:Urban Lore

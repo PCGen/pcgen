@@ -1,23 +1,15 @@
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
-ABILITYCATEGORY:Questioner Feat	CATEGORY:FEAT			TYPE:QuestionerFeat		EDITPOOL:YES	VISIBLE:QUALIFY	DISPLAYLOCATION:Feats
+# Ability Category					Visible		Change Pool?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Chameleon Special Ability		VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ChameleonSpecialAbilities	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Questioner Choice	CATEGORY:Special Ability	TYPE:QuestionerChoice		EDITPOOL:YES	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Con Artist Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ConArtistSpecialAbilities	DISPLAYLOCATION:Class Abilities
 
+ABILITYCATEGORY:Psychic Thief Feat			VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:FEAT			TYPE:PsychicThiefFeat			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Thief Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:PsychicThiefAbility		DISPLAYLOCATION:Class Abilities
 
-#ADD:FEAT|1|Crippling Strike,Defensive Roll,Improved Evasion,Reputation,Skill Mastery,Slippery Mind,Urban Tracking					BONUS:ABILITYPOOL||1
+ABILITYCATEGORY:Questioner Feat			VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:FEAT			TYPE:QuestionerFeat			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Questioner Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:QuestionerChoice			DISPLAYLOCATION:Class Abilities
 
-#CLASS:Chameleon
-#Chamelion Class Choice	TYPE:ChameleonChoice
-#Chameleon Feat Choice	TYPE:General.Metamagic.ItemCreation
-
-#Chameleon? is this a repeat?		TYPE:ChameleonSpecialAbilities.General.Metamagic.ItemCreation
-
-
-
-#
-#Chameleon Bonus Feat		
-
-
-
-
-
+ABILITYCATEGORY:Sailmaster Skill Mastery		VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:SailmasterSkillMastery		DISPLAYLOCATION:Class Abilities
