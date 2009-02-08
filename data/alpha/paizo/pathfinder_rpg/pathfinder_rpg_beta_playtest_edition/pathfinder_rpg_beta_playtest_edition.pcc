@@ -24,7 +24,7 @@ COPYRIGHT:PCGen dataset conversion for the "Pathfinder Roleplaying Game Beta pla
 COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
 
 #Do Not Remove Comment
-#INFOTEXT:OGL.txt
+#EXTRAFILE:OGL.txt
 
 ABILITY:pathfinder_beta_abilities_class.lst
 ABILITY:pathfinder_beta_abilities_class_common.lst
