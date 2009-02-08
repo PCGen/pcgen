@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v5.15.11</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v5.15.11</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v5.15.11</a></li>
+			<li><a href="#Chars">Character Changes</a></li>
+			<li><a href="#GMGenIssue">GMGen known issue</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 5.15.11</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v5.15.11</a></h2>
+
+
+<p>Welcome to the second beta release of the 5.16 cycle. 
+As promised the beta cycle will have weekly releases in order to give a quick 
+turn around on reported bugs. In this release we've fixed the issues with the 
+converter running on Mac and Linux machines as well as continued filling in 
+the gaps in our Pathfinder implementation.  
+</p><p>
+Your reports of bugs have been very useful so far and you'll see most of those 
+reported issues fixed in this release. So please do keep giving the beta releases 
+a try, whether it is loading up your favourite character from PCGen 5.14; trying 
+out the converter on your data; or giving the new data sets a try.
+</p><p>
+Any reports on the Pathfinder RPG set would be best directed to the 
+<a href="http://tech.groups.yahoo.com/group/pcgen_experimental/">PCGen Experimental</a> 
+mailing list with a prefix of [PFRPG] in the subject line please.
+</p>
+<h3>Notable Changes</h3>
+
+<p>Notable changes released in in 5.15.11 are:</p>
+ 
+<ul>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"> [5.15.x] Natures should not stack together. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2444695">2444695</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>)</li>
+<li><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"> Converter Non-functional on Macs. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2556253">2556253</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>)</li>
+<li><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"> [Pathfinder RPG] Implement Paladin Class. Fixes <a href="http://sourceforge.net/support/tracker.php?aid=2549812">2549812</a> (<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#tir-gwaith">tir-gwaith</a>)</li>
+</ul>
+<!--
+		<h3>New Sources</h3>
+
+		<p>The following new sources were added in 5.15.11</p>
+
+		<ul>
+		</ul>
+-->
+<p><i>James Dempsey</i> for the PCGEN Team -- 8 February, 2009.</p>
+
+
+		<h2><a name="Chars">Character Changes</a></h2>
+
+		<p>Most Characters from the 5.14 series of PCGen should load seamlessly in 5.15.11. 
+		  Characters created in the Modern gameMode will be effected by changes made to 
+		  the Occupations feature. Due to refinements to the Ability Object we 
+		  have reconfigured the Occupations feature. Newly created characters will see 
+		  no differences but when existing characters are opened PCGen will report that 
+		  the Occupation Ability and the associated skill abilities cannot be found. The 
+		  fix is simple however, simply note what abilities are missing and go to the 
+		  Background tab and reselect your choices.</p>
+		
+		<h2><a name="GMGenIssue">GMGen Known Issue</a></h2>
+
+		<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative
+			Tab when running a combat when you select any character other than the one whose
+			turn it is and click the Damage or Heal buttons the character whose turn it
+			is becomes selected and the damage is applied to him instead of the character
+			which had been selected.</p>
+		<p>A solution has not yet been found but fortunately there is a simple work-around.
+			The problem will only manifest when using the System Look and Feel, you can
+			change the Look and Feel by going to Preferences/Appearance/Look and Feel and
+			changing it to Java before activating GMGen and then it will work as it should.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 5. PCGEN 5.15.11 is not compatible with Java
+			1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+		<h3>Important Warning</h3>
+
+		<p>If you have custom data created using either the LST Editor, or the my_dataset example files, it is 
+			very important that you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation before 
+			installing your new version of PCGen.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen. 
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/">docs</a> to familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_full.zip?download">pcgen51511_full.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_full.zip.asc?download">PGP Signature</a>): <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_partial.zip?download">pcgen51511_partial.zip</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_partial.zip.asc?download">PGP Signature</a>):<br />
+				everything except GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_win_install.exe?download">pcgen51511_win_install.exe</a>
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_win_install.exe.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_mac_install.dmg?download">pcgen51511_mac_install.dmg</a> 
+				(<a href="http://prdownloads.sourceforge.net/pcgen/pcgen51511_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<P>PCGen provides two simple ways of adding your own data, these are the inbuilt LST 
+			Editors and the starter data set <em>my_dataset</em>. If you have used these, please
+			see the 
+			 <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> documentation  
+			when upgrading PCGen.</P>
+
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to Eric Smith (<a href="mailto:maredudd@blackroot.org">maredudd@blackroot.org</a>)
+			or Eddy Anthony (<a href="mailto:eddyba@mindspring.com">eddyba@mindspring.com</a>), or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists (and may
+			the gods have mercy on your soul :-).</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://pcgen.wiki.sourceforge.net/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The SourceForge <strong>pcgen-dev mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum_name=pcgen-devel</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 5.15.11</a></h2>
+<h3>Code Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1351709">1351709</a> ]	SR in Short form</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1875147">1875147</a> ]	Mac Binaries are NOT UniBin</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2570699">2570699</a> ]	Deprecate HASSUBCLASS and HASSUBSTITUTIONCLASS </li>
+</ul>
+
+<h3>Data Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1377456">1377456</a> ]	[Core datasets] Temp bonus for Spells audit</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2549812">2549812</a> ]	[Pathfinder RPG] Implement Paladin Class</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2570874">2570874</a> ]	Remove HASSUBCLASS tags from data</li>
+</ul>
+
+<h3>Documentation Feature Requests</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2569227">2569227</a> ]	HASSUBCLASS and HASSUBSTITUTIONCLASS are &quot;useless&quot; tokens</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2569845">2569845</a> ]	[OS] New token: SRSHORT</li>
+</ul>
+
+<h3>Code Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2122319">2122319</a> ]	BONUS:VAR| not working	correctly with HP</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2444695">2444695</a> ]	[5.15.x] Natures should not stack together</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2473152">2473152</a> ]	Can&#039;t add Domain spells to Cleric</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2481630">2481630</a> ]	Natural Weapon slots missing</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2512309">2512309</a> ]	Right click on unselected item prevents charge modification</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2530340">2530340</a> ]	Customizer issues with BONUS:ITEMCOST and negative numbers</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2556253">2556253</a> ]	Converter Non-functional on Macs</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2565714">2565714</a> ]	Edit Context (Converter) doesn&#039;t handle Ability Category</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2565838">2565838</a> ]	REGION token in Kits causes error</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2567246">2567246</a> ]	Windows installer does not install alpha data</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2569648">2569648</a> ]	Advanced tab in feat editor always fails</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2575048">2575048</a> ]	Data Converter not handling PREDEITY:1,Y tag...</li>
+</ul>
+ 
+<h3>Data Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1340146">1340146</a> ]	[RSRD] Shuriken with Special Enhancments cost incorrect</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2568186">2568186</a> ]	itck_classes_35e CSKILL incorrect</li>
+</ul>
+
+<h3>Documentation Bugs</h3>
+
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2551058">2551058</a> ]	FEAT Template Token docs wrong</li>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=2565550">2565550</a> ]	no TYPE link to AbilityCategory</li>
+
+</ul>
+
+	</body>
+</html>
