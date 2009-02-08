@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Aug 16 02:58:51 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Feb  8 01:10:18 2009 -- reformated by prettylst.pl v1.39 (build 9321)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 #Exotic Ranged
-# Equipment Name			Output Name					Required Proficiency					Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Requires Modification?	Range		Size		Source Page		Weapon prop. bonus
+# Equipment Name			Output Name					Required Weapon Proficiency				Type															Contains			Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Requires Modification?	Range		Size		Source Page		Weapon prop. bonus
 Bolas											PROFICIENCY:WEAPON|Bolas				TYPE:Weapon.Exotic.Ranged.Bludgeoning.Standard.Thrown											COST:5	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:LEATHER									RANGE:10			SOURCEPAGE:p.101
 Crossbow (Hand)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Hand)			TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container.Projectile.Crossbow			CONTAINS:1|Bolt=1		COST:100	WT:2				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:WOOD			WIELD:Light						RANGE:30	SIZE:M	SOURCEPAGE:p.101
 Crossbow (Repeating Heavy)	OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Repeating Heavy)	TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container.Projectile.Crossbow			CONTAINS:5|Bolt=5		COST:400	WT:12				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:WOOD										RANGE:120			SOURCEPAGE:p.104

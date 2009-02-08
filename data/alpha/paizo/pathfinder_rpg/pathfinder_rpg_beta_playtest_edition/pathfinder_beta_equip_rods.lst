@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Sep 25 16:42:55 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Feb  8 01:10:18 2009 -- reformated by prettylst.pl v1.39 (build 9321)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 ###Block:Rods
-# Equipment Name				Required Proficiency			Type												Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Size		Source Page		Virtual Feat			Weapon prop. bonus					Special Property
+# Equipment Name				Required Weapon Proficiency		Type												Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Size		Source Page		Virtual Feat			Weapon prop. bonus					Special Property
 Rod of Cancellation									TYPE:Magic.Rod																COST:11000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:p.355
 Rod of Enemy Detection									TYPE:Magic.Rod																COST:23500	WT:5		BASEITEM:Rod																									EQMOD:USES_PER_DAY_3|CHARGES[3]						SOURCEPAGE:p.356
 Rod of Flailing				PROFICIENCY:WEAPON|Flail		TYPE:Magic.Rod.Weapon.Exotic.Melee.Bludgeoning.Double.Flail			ALTTYPE:Weapon.Melee.Bludgeoning	COST:50000	WT:20		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8								WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.356	VFEAT:Two Weapon Fighting	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement

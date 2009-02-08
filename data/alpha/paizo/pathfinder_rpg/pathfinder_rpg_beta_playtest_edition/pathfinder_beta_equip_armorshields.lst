@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Feb  1 20:19:46 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sun Feb  8 01:10:18 2009 -- reformated by prettylst.pl v1.39 (build 9321)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 ###Block: Armor
 #Light Weight ----------------------------------------------------------------------------				---------------------------------
-# Equipment Name	Output Name			Required Proficiency			Type							Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+# Equipment Name	Output Name			Required Armor Proficiency		Type							Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Padded						PROFICIENCY:ARMOR|Padded		TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:5	WT:10		ACCHECK:0		EQMOD:CLOTH		MAXDEX:8		SOURCEPAGE:p.108	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
 Leather						PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:10	WT:15		ACCHECK:0		EQMOD:LEATHER	MAXDEX:6		SOURCEPAGE:p.108	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 Studded Leather					PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Standard		COST:25	WT:20		ACCHECK:-1		EQMOD:STEEL		MAXDEX:5		SOURCEPAGE:p.108	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
@@ -27,7 +27,7 @@ Full Plate						PROFICIENCY:ARMOR|Full Plate		TYPE:Armor.Heavy.Suit.Standard		CO
 ###Block: Shields
 # Replaced armor bonus with shield bonus.
 #Shields ---------------------------------------------------------------------------------				---------------------------------
-# Equipment Name		Output Name					Required Proficiency			Type							Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Nb Hands	Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus																					Weapon prop. bonus																			Special Property
+# Equipment Name		Output Name					Required Shield Proficiency		Type							Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Nb Hands	Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus																					Weapon prop. bonus																			Special Property
 Buckler									PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Buckler.Standard			COST:15	WT:5		ACCHECK:-1												EQMOD:STEEL	HANDS:0									SOURCEPAGE:p.109	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
 Shield (Light/Steel)	OUTPUTNAME:Shield, Light Steel	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close		COST:9	WT:6		ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:STEEL			WIELD:Light					SIZE:M	SOURCEPAGE:p.110	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
 Shield (Light/Wood)	OUTPUTNAME:Shield, Light Wooden	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close		COST:3	WT:5		ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:WOOD			WIELD:Light					SIZE:M	SOURCEPAGE:p.110	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
@@ -38,7 +38,7 @@ Shield (Tower)		OUTPUTNAME:Shield, Tower		PROFICIENCY:SHIELD|Tower Shield	TYPE:S
 ###Block: Barding
 #Barding ---------------------------------------------------------------------------------				--------------------------------
 #Light Weight
-# Equipment Name			Required Proficiency			Type									Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+# Equipment Name			Required Armor Proficiency		Type									Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Barding (Padded)			PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.Standard.Nonmetal.Barding.Mount	COST:10	WT:10		ACCHECK:0		EQMOD:CLOTH		MAXDEX:8		SOURCEPAGE:p.118	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
 Barding (Leather)			PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.Standard.Nonmetal.Barding.Mount	COST:20	WT:15		ACCHECK:0		EQMOD:LEATHER	MAXDEX:6		SOURCEPAGE:p.118	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 Barding (Studded Leather)	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.Standard.Barding.Mount			COST:50	WT:20		ACCHECK:-1		EQMOD:STEEL		MAXDEX:5		SOURCEPAGE:p.118	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
