@@ -241,7 +241,7 @@ Lightning Lord									CATEGORY:Special Ability	TYPE:DomainPower.SpecialQuality.
 Orisons ~ Druid							OUTPUTNAME:Orisons			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES					DESC:Druids can prepare a number of orisons, or 0-level spells, each day. They can cast these spells at will as a spell-like ability. Orisons cannot be channeled through spontaneous spellcasting.															SOURCEPAGE:p.23
 Spontaneous casting - Summon Nature's Ally spells	OUTPUTNAME:Spontaneous casting	CATEGORY:Special Ability	TYPE:ClassAbility				VISIBLE:YES					DESC:Channel stored Druid spell energy into Summon Nature's Ally spell of equal or lower level.																																SOURCEPAGE:p.23
 Druid Domain													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES	DEFINE:DomainLVL|0	DESC:See text																															MULT:YES	CHOOSE:NUMCHOICES=1|DOMAIN|Air,Animal,Earth,Fire,Plant,Water,Weather	SOURCEPAGE:p.24
-Animal Companion													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES					DESC:See text																																													SOURCEPAGE:p.24
+Animal Companion													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES	DEFINE:CompLevel|0	DESC:See text																																													SOURCEPAGE:p.24
 
 
 ###Block: Fighter Internal Abilities
