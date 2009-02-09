@@ -264,7 +264,9 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			// it's supposed to be the level #
 			// but could be almost anything else
 			Logging.errorPrint("Expected a level value, but got '"
-				+ lineIdentifier + "' instead in " + source.getURI(), nfe);
+					+ lineIdentifier + "' instead (as a level line in "
+					+ pcClass.getKeyName() + ") in source " + source.getURI());
+			Logging.errorPrint("  Rest of line was: + " + restOfLine);
 		}
 	}
 
