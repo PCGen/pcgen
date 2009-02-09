@@ -238,7 +238,7 @@ Necklace of Fireballs VII						TYPE:Magic.Wondrous.Amulet														COST:8700
 ###Block: O-R
 # Equipment Name				Output Name			Type							Cost		Weight	Modifier					Move			Source Page		Ability											Vision				Spell Res.					Innate Spells																					Save checks bonus									Combat bonus									Bonus to skill					Unarmed Damage Level bonus	Modify VAR															Quality and value															Special Property																		Unarmed Damage
 Orb of Storms								TYPE:Magic.Wondrous				COST:48000	WT:6											SOURCEPAGE:p.382																								SPELLS:Orb of Storms|TIMES=1|CASTERLEVEL=18|Control Weather	SPELLS:Orb of Storms|TIMES=1|CASTERLEVEL=18|TIMEUNIT=Month|Storm of Vengeance																																																																				SPROP:Endure Elements on possessor
-Pearl of Power (1st LEVEL)						TYPE:Magic.Wondrous				COST:1000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]				SOURCEPAGE:p.382
+Pearl of Power (1st Level)						TYPE:Magic.Wondrous				COST:1000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]				SOURCEPAGE:p.382
 Pearl of Power (2nd Level)						TYPE:Magic.Wondrous				COST:4000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]				SOURCEPAGE:p.382
 Pearl of Power (3rd Level)						TYPE:Magic.Wondrous				COST:9000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]				SOURCEPAGE:p.382
 Pearl of Power (4th Level)						TYPE:Magic.Wondrous				COST:16000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]				SOURCEPAGE:p.382
