@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep 19 00:35:15 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Feb 10 17:05:14 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -93,39 +93,39 @@ Thunderstone			TYPE:Goods.Alchemical.Consumable			COST:30	WT:1		SOURCEPAGE:p.116
 Tindertwig				TYPE:Goods.Alchemical.Consumable			COST:1			SOURCEPAGE:p.116
 
 ###Block: Tools and Skill Kits
-# Equipment Name				Type									Number of Pages	Page Usage				Cost		Weight	Modifier					Source Page		Bonus to skill													Special Property
-Alchemist's Lab				TYPE:Goods.Tools.Artisan													COST:500	WT:40								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Alchemy)|2|TYPE=Circumstance
-Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools										COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Blacksmithing)	TYPE:Goods.Tools.Artisan.BlacksmithingTools										COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Blacksmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Carpentry)		TYPE:Goods.Tools.Artisan.CarpentryTools											COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Leatherworking)	TYPE:Goods.Tools.Artisan.LeatherworkingTools										COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Leatherworking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Painting)		TYPE:Goods.Tools.Artisan.PaintingTools											COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Painting)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Pottery)		TYPE:Goods.Tools.Artisan.PotteryTools											COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Sculpting)		TYPE:Goods.Tools.Artisan.SculptingTools											COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Sculpting)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Shipmaking)		TYPE:Goods.Tools.Artisan.ShipmakingTools											COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Stonemasonry)	TYPE:Goods.Tools.Artisan.StonemasonryTools										COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Trapmaking)		TYPE:Goods.Tools.Artisan.TrapmakingTools											COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Trapmaking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.WeaponsmithingTools										COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Artisan's Tools (Woodworking)		TYPE:Goods.Tools.Artisan.WoodworkingTools											COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Woodworking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable											COST:80	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Climb|2|TYPE=Circumstance
-Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable.Consumable									COST:50	WT:8								SOURCEPAGE:p.116	BONUS:SKILL|Disguise|2|TYPE=Circumstance
-Healer's Kit				TYPE:Goods.Tools.Masterwork													COST:50	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.116	BONUS:SKILL|Heal|2|TYPE=Circumstance
-Holly and Mistletoe			TYPE:Goods.Tools.DivineFocus																							SOURCEPAGE:p.113
-Holy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus													COST:1									SOURCEPAGE:p.116
-Holy Symbol (Silver)			TYPE:Goods.Tools.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.116
-Hourglass					TYPE:Goods.Tools															COST:25	WT:1								SOURCEPAGE:p.113
-Magnifying Glass				TYPE:Goods.Tools															COST:100									SOURCEPAGE:p.116																SPROP:+2 circumstance bonus on Appraise checks involving any item that is small or highly detailed.
-Musical Instrument (Keyboard)		TYPE:Goods.Tools.Instrument.Keyboard.Resizable										COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (Keyboard Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Musical Instrument (Percussion)	TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Musical Instrument (String)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Musical Instrument (Wind)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Scale (Merchant's)			TYPE:Goods.Tools															COST:2	WT:1								SOURCEPAGE:p.116																SPROP:+2 circumstance bonus on Appraise checks involving items valued by weight or made of precious metals.
-Spell Component Pouch			TYPE:Goods.Tools															COST:5	WT:2								SOURCEPAGE:p.116
-Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook					NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3								SOURCEPAGE:p.117
-Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools										COST:30	WT:1								SOURCEPAGE:p.117	BONUS:SKILL|Disable Device|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Unholy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus													COST:1									SOURCEPAGE:p.116
-Unholy Symbol (Silver)			TYPE:Goods.Tools.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.116
-Waterclock					TYPE:Goods.Tools.Resizable													COST:1000	WT:200							SOURCEPAGE:p.117
+# Equipment Name				Type									Contains		Number of Pages	Page Usage				Cost		Weight	Modifier					Source Page		Bonus to skill													Special Property
+Alchemist's Lab				TYPE:Goods.Tools.Artisan																COST:500	WT:40								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Alchemy)|2|TYPE=Circumstance
+Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools													COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Blacksmithing)	TYPE:Goods.Tools.Artisan.BlacksmithingTools													COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Blacksmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Carpentry)		TYPE:Goods.Tools.Artisan.CarpentryTools														COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Leatherworking)	TYPE:Goods.Tools.Artisan.LeatherworkingTools													COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Leatherworking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Painting)		TYPE:Goods.Tools.Artisan.PaintingTools														COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Painting)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Pottery)		TYPE:Goods.Tools.Artisan.PotteryTools														COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Sculpting)		TYPE:Goods.Tools.Artisan.SculptingTools														COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Sculpting)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Shipmaking)		TYPE:Goods.Tools.Artisan.ShipmakingTools														COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Stonemasonry)	TYPE:Goods.Tools.Artisan.StonemasonryTools													COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Trapmaking)		TYPE:Goods.Tools.Artisan.TrapmakingTools														COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Trapmaking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.WeaponsmithingTools													COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Artisan's Tools (Woodworking)		TYPE:Goods.Tools.Artisan.WoodworkingTools														COST:5	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Craft (Woodworking)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:80	WT:5								SOURCEPAGE:p.116	BONUS:SKILL|Climb|2|TYPE=Circumstance
+Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable.Consumable												COST:50	WT:8								SOURCEPAGE:p.116	BONUS:SKILL|Disguise|2|TYPE=Circumstance
+Healer's Kit				TYPE:Goods.Tools.Masterwork																COST:50	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.116	BONUS:SKILL|Heal|2|TYPE=Circumstance
+Holly and Mistletoe			TYPE:Goods.Tools.DivineFocus																										SOURCEPAGE:p.113
+Holy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus																COST:1									SOURCEPAGE:p.116
+Holy Symbol (Silver)			TYPE:Goods.Tools.DivineFocus																COST:25	WT:1								SOURCEPAGE:p.116
+Hourglass					TYPE:Goods.Tools																		COST:25	WT:1								SOURCEPAGE:p.113
+Magnifying Glass				TYPE:Goods.Tools																		COST:100									SOURCEPAGE:p.116																SPROP:+2 circumstance bonus on Appraise checks involving any item that is small or highly detailed.
+Musical Instrument (Keyboard)		TYPE:Goods.Tools.Instrument.Keyboard.Resizable													COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (Keyboard Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Percussion)	TYPE:Goods.Tools.Instrument.Percussion.Resizable												COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (String)		TYPE:Goods.Tools.Instrument.String.Resizable													COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Wind)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.116	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Scale (Merchant's)			TYPE:Goods.Tools																		COST:2	WT:1								SOURCEPAGE:p.116																SPROP:+2 circumstance bonus on Appraise checks involving items valued by weight or made of precious metals.
+Spell Component Pouch			TYPE:Goods.Tools.Container					CONTAINS:UNLIM									COST:5	WT:2								SOURCEPAGE:p.116
+Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3								SOURCEPAGE:p.117
+Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools													COST:30	WT:1								SOURCEPAGE:p.117	BONUS:SKILL|Disable Device|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Unholy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus																COST:1									SOURCEPAGE:p.116
+Unholy Symbol (Silver)			TYPE:Goods.Tools.DivineFocus																COST:25	WT:1								SOURCEPAGE:p.116
+Waterclock					TYPE:Goods.Tools.Resizable																COST:1000	WT:200							SOURCEPAGE:p.117
 
 ###Block: Clothing
 # Equipment Name		Output Name				Type							Cost		Weight	Source Page		Special Property
