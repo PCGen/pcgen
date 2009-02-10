@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb  7 09:39:26 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Mon Feb  9 21:33:08 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -14,8 +14,8 @@ Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUT
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
 ###Block: Shared Class Abilities
-# Ability Name	Category of Ability		Type									Visible		Required Ability						Special ABility						Define					Description				Modify VAR																						Source Page
-Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	DESC:Class Special Ability	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
+# Ability Name	Category of Ability		Type									Visible	Required Ability						Define					Description				Modify VAR																						Source Page
+Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Evasion	DEFINE:ImprovedEvasionUsable|0	DESC:Class Special Ability	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Uncanny Dodge
 # Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
@@ -30,8 +30,8 @@ Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinar
 
 
 ###Block: Companion support
-# Ability Name	Category of Ability		Type			Visible	Special ABility		Define
-Summon Familiar	CATEGORY:Special Ability	TYPE:Special	VISIBLE:YES	SAB:Summon Familiar	DEFINE:FMLevel|0
+# Ability Name	Category of Ability		Type			Visible	Define
+Summon Familiar	CATEGORY:Special Ability	TYPE:Special	VISIBLE:YES	DEFINE:FMLevel|0
 #FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel	SOURCEPAGE:ClassesII.rtf
 
 

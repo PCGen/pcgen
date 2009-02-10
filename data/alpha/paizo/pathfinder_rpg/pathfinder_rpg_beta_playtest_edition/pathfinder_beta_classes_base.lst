@@ -78,8 +78,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Channel Energy
 1	BONUS:VAR|ChannelEnergyLVL|CL	BONUS:VAR|ChannelEnergyTimes|3+CHA	ABILITY:Special Ability|AUTOMATIC|Channel Energy
 ###Block: Spontaneous casting
-1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Channel Positiye Energy
-1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous Casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Channel Positiye Energy
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous Casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
@@ -130,7 +130,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Spellcasting abilities
 1	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Druid
-1	ABILITY:Special Ability|AUTOMATIC|Spontaneous casting - Summon Nature's Ally spells
+1	ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting - Summon Nature's Ally spells
 ###Block: Nature's Bond
 1														BONUS:ABILITYPOOL|Natures Bond|1														BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Animal Companion
 1	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Air)]								BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Druid Domain	BONUS:VAR|DomainLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Druid Domain
@@ -372,17 +372,3 @@ CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wiza
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
 20	CAST:4,4,4,4,4,4,4,4,4,4
-
-
-
-
-
-
-
-
-
-
-### Temporary Entries to satisfy parser  - Added VISIBLE:NO	so they can't be used
-
-# Class Name	Hit Dice	Type			Abbreviation	Visible	Save checks bonus											Combat bonus
-CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
