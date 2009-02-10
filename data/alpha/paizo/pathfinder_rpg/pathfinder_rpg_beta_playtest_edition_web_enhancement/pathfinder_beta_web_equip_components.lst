@@ -1,0 +1,39 @@
+# CVS $Revision: 1074 $ $Author: stefan $ -- Tue Feb 10 15:51:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition Web Enhancement)	SOURCESHORT:PFRPGBWE	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+
+## Block: Material Components
+# Equipment Name				Type						Cost		Weight	Special Property
+Crushed Pearls (1500 gp)		TYPE:MaterialComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Sympathy
+Diamond Dust (200 gp)			TYPE:MaterialComponent.Consumable	COST:200	WT:0		SPROP:Material Component for Glyph of Warding
+Gold Dust (50 gp)				TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Wall of Iron
+Herbs, Oils, and Incense (1000 gp)	TYPE:MaterialComponent.Consumable	COST:2000	WT:0		SPROP:Material Component for Hallow or Unhallow
+Incense (1500 gp)				TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Forbiddance
+Jacinth (1000 gp)				TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Astral Projection
+Jade Dust (10 gp)				TYPE:MaterialComponent.Consumable	COST:10	WT:0		SPROP:Material Component for Magic Mouth
+Laboratory Supplies (1000 gp)		TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Clone
+Lead-Based Ink (50 gp)			TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Illusory Script
+Opal (500 gp)				TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Binding
+Onyx (50 gp)				TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Create Undead
+Powdered Amber (500 gp)			TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Sepia Snake Sigil
+Powdered Diamond and Opal (1000 gp)	TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Symbol of Fear, Symbol of Sleep, or Symbol of Pain
+Powdered Diamond and Opal (5000 gp)	TYPE:MaterialComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Symbol of Insanity, Symbol of Persuasion, Symbol of Stunning, or Symbol of Weakness
+Powdered Opal (5000 gp)			TYPE:MaterialComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Symbol of Death
+Powdered Ruby (500 gp)			TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Simulacrum
+Sapphire (1000 gp)			TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Instant Summons
+Special Dust (50 gp)			TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Phantom Trap
+# To Do
+# Permanency - various amounts of diamond dust
+# Planar Ally - offerings worth 1250 gp
+# Planar Ally, Greater - offerings worth 2500 gp
+# Planar Ally, Lesser - offerings worth 500 gp
+# Trap the Soul - gem or crystal worth 1000 gp per HD
+
+## Block: Foci
+# Equipment Name				Type						Cost		Weight	Special Property
+Laboratory Equipment (500 gp)		TYPE:MaterialComponent.Focus		COST:500	WT:0		SPROP:Focus for Clone
+Ivory Plaque (50 gp)			TYPE:MaterialComponent.Focus		COST:50	WT:0		SPROP:Focus for Mnemonic Enhancer
+Miniature Platinum Sword (250 gp)	TYPE:MaterialComponent.Focus		COST:250	WT:0		SPROP:Focus for Mage's Sword
+Set of Minature Items (15 gp)		TYPE:MaterialComponent.Focus		COST:15	WT:0		SPROP:Focus for Mage's Magnificent Mansion
+Set of Prayer Beads (500 gp)		TYPE:MaterialComponent.Focus		COST:500	WT:0		SPROP:Focus for Atonement
+# To Do
+# Magic Jar - a gem or crystal worth at least 100 gp

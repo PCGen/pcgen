@@ -43,6 +43,7 @@ DOMAIN:pathfinder_beta_domains.lst
 EQUIPMENT:pathfinder_beta_equip.lst
 EQUIPMENT:pathfinder_beta_equip_baseitems.lst
 EQUIPMENT:pathfinder_beta_equip_coins.lst
+EQUIPMENT:pathfinder_beta_equip_components.lst
 EQUIPMENT:pathfinder_beta_equip_gems.lst
 EQUIPMENT:pathfinder_beta_equip_armorshields.lst
 EQUIPMENT:pathfinder_beta_equip_armorshields_specific.lst
