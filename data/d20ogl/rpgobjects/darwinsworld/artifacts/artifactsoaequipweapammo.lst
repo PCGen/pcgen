@@ -70,8 +70,6 @@ Projectiles Gauss ATG (10)			TYPE:Ammunition.Mass.GaussA.Metal		COST:350	WT:50		
 Projectiles Gauss Cannon			TYPE:Ammunition.Mass.GaussC.Metal		COST:2000	WT:50					SOURCEPAGE:pp. 34, 41
 Projectiles EST					TYPE:Ammunition.Mass.EST.Metal		COST:5	WT:.3					SOURCEPAGE:pp. 34, 41
 Projectiles EST (10)				TYPE:Ammunition.Mass.EST.Metal		COST:50	WT:3		BASEQTY:10		SOURCEPAGE:pp. 34, 41
-Shotgun Shells					TYPE:Ammunition.Standard.Shell.Metal	COST:12	WT:.15				SOURCEPAGE:pp. 34, 41
-Shotgun Shells (20)				TYPE:Ammunition.Standard.Shell.Metal	COST:240	WT:3		BASEQTY:20		SOURCEPAGE:pp. 34, 41
 Shotgun Shells Rubber				TYPE:Ammunition.Standard.Shell.Rubber	COST:5	WT:.15				SOURCEPAGE:pp. 34, 41
 Shotgun Shells Rubber (20)			TYPE:Ammunition.Standard.Shell.Rubber	COST:90	WT:3		BASEQTY:20		SOURCEPAGE:pp. 34, 41
 Shotgun Shells Slugs				TYPE:Ammunition.Standard.Shell.Metal	COST:8	WT:.15				SOURCEPAGE:pp. 34, 41

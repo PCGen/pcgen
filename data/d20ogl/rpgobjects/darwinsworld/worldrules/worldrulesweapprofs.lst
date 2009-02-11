@@ -13,9 +13,10 @@ Baseball Bat (Metal)		TYPE:Simple
 Baseball Bat (Nail-Studs)	TYPE:Simple
 Battleaxe				TYPE:Simple
 Bayonet				TYPE:Simple
+Blowgun				TYPE:Simple
 Broken Bottle			TYPE:Simple
 Carbine				TYPE:Martial	HANDS:2
-Spiked Chain			TYPE:Simple
+Chain (Spiked)			TYPE:Simple
 Club					TYPE:Simple
 Crossbow (Hand)			TYPE:Simple		HANDS:1
 Crossbow (Heavy)			TYPE:Simple		HANDS:2
@@ -30,6 +31,7 @@ Flail					TYPE:Simple
 Gauntlet				TYPE:Simple
 Gauntlet (Spiked)			TYPE:Simple
 Glaive				TYPE:Simple
+Grapple				TYPE:Simple
 Greataxe				TYPE:Simple
 Greatclub				TYPE:Simple
 Guisarme				TYPE:Simple
@@ -39,7 +41,9 @@ Hammer (Light)			TYPE:Simple
 Handaxe				TYPE:Simple
 Javelin				TYPE:Simple
 Kama					TYPE:Simple
+Katana				TYPE:Simple
 Kukri					TYPE:Simple
+Kusari-gama				TYPE:Simple
 Lance					TYPE:Simple
 Lead Pipe				TYPE:Simple
 Longbow				TYPE:Simple		HANDS:2
@@ -74,6 +78,7 @@ Shuriken				TYPE:Simple
 Siangham				TYPE:Simple
 Sickle				TYPE:Simple
 Sling					TYPE:Simple
+Spells(Ray)				TYPE:Simple
 Sport Rifle				TYPE:Martial	HANDS:2
 Sub Machinegun			TYPE:Martial
 # [ 579004 ] Some feats broken for large characters
@@ -86,6 +91,8 @@ Sword (Two-Bladed)		TYPE:Simple
 Trident				TYPE:Simple
 Trusty-Two-By-Four		TYPE:Simple		HANDS:2
 Unarmed Strike			TYPE:Simple
+Wakizashi				TYPE:Simple
+Waraxe (Dwarven)			TYPE:Simple
 Warhammer				TYPE:Simple
 Whip					TYPE:Simple
 Zip Gun				TYPE:Martial

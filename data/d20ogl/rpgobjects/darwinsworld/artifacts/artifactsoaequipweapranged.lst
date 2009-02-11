@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 21:55:45 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Tue Feb 10 21:44:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:ArtifactsA	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 
 #Martial Weapons Ranged
-# Equipment Name					Required Proficiency				Type											Contains							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page				Special Property
+# Equipment Name					Required Weapon Proficiency			Type											Contains							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page				Special Property
 Shock-Field Glove					PROFICIENCY:WEAPON|Shock-Field Glove	TYPE:Weapon.Martial.Ranged.Energy.Electrical.Container.Metal	CONTAINS:4|Total=50|Backpack=50|Beltpack=25	COST:8050	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:20	SIZE:S	SOURCEPAGE:pp.70,71		SPROP:Power=Backpack|Beltpack, Rate=Normal, Reload=Standard Action
 
 #MEDIUM ----------------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 00:14:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 10 21:44:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 # Hammer (Gnome Hooked) and Urgrosh (Dwarven) commented out.  Those 2 items not in SRD.
@@ -7,7 +7,7 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCE
 
 
 #Armor Extra
-# Equipment Name			Required Proficiency					Clear Types	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page
+# Equipment Name			Required Weapon Proficiency				Clear Types	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page
 Armor Spikes.MOD											TYPE:.CLEAR	TYPE:Weapon.Simple.Melee.Standard.Piercing.Metal
 #Shield Spikes.MOD										TYPE:.CLEAR	TYPE:Weapon.Simple.Melee.Standard.Piercing.Metal
 
@@ -75,10 +75,10 @@ Trusty-Two-By-Four		PROFICIENCY:WEAPON|Trusty-Two-By-Four				TYPE:Weapon.Simple.
 #UNARMED ----------------------------------------------------------------------------------------------------------
 Brass Knuckles													TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Metal		COST:2	WT:2										DAMAGE:1d4		SIZE:T	SOURCEPAGE:p.49
 Spiked Knuckles													TYPE:Weapon.Unarmed.Simple.Melee.Piercing.Standard.Metal		COST:4	WT:3										DAMAGE:1d6		SIZE:T	SOURCEPAGE:p.49
-Shieldbash (Light)										TYPE:.CLEAR	TYPE:Weapon.Melee.Simple.Unarmed.Bludgeoning.Shieldbash
-Shieldbash (Heavy)										TYPE:.CLEAR	TYPE:Weapon.Melee.Simple.Unarmed.Bludgeoning.Shieldbash
+Shieldbash (Light).MOD										TYPE:.CLEAR	TYPE:Weapon.Melee.Simple.Unarmed.Bludgeoning.Shieldbash
+Shieldbash (Heavy).MOD										TYPE:.CLEAR	TYPE:Weapon.Melee.Simple.Unarmed.Bludgeoning.Shieldbash
 
 ###BLock:MODIFICATION FROM OTHER SOURCE----------------------------------------------------------------------------
 # Needed for the new [HANDS] code ref. [ 579004 ] Some feats broken for large characters
-# Equipment Name		Required Proficiency
+# Equipment Name		Required Weapon Proficiency
 Sword (Bastard).MOD	PROFICIENCY:WEAPON|Sword (Bastard)

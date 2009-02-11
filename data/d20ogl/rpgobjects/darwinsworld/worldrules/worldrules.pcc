@@ -27,7 +27,7 @@ INFOTEXT:Automatically loads SRD info, do not load it separately.
 
 # SRD Imports
 ABILITYCATEGORY:@/d20ogl/srd/basics/srd_ability_categories_core.lst
-ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack,All Martial Weapon Proficiencies,All Automatic Proficiencies,Leadership Score,Nature Sense,Rage)
+ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst|(INCLUDE:CATEGORY=Special Ability,Sneak Attack,All Martial Weapon Proficiencies,All Automatic Proficiencies,Leadership Score,Nature Sense,Rage,Turn Undead,Rebuke Undead,Turn Fire,Rebuke Fire,Turn Water,Rebuke Water,Turn Air,Rebuke Air,Turn Earth,Rebuke Earth,Turn Plant,Rebuke Plant)
 EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
 EQUIPMENT:@/d20ogl/srd/basics/srd_equip_armorshields.lst|(EXCLUDE:Padded|Chain Mail|Breastplate|Splint Mail|Banded Mail|Full Plate|Shield (Tower)|Barding (Padded)|Barding (Leather)|Barding (Studded Leather)|Barding (Chain Shirt)|Barding (Hide)|Barding (Scale Mail)|Barding (Breastplate)|Barding (Splint Mail)|Barding (Banded Mail)|Barding (Half-Plate)|Barding (Full Plate)|Barding (Chainmail))
 EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ammo.lst
@@ -35,11 +35,9 @@ EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_melee.lst
 EQUIPMENT:@/d20ogl/srd/basics/srd_equip_weap_ranged.lst
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst
 FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Brew Potion,Combat Casting,Craft Magic Arms and Armor,Craft Rod,Craft Staff,Craft Wand,Craft Wondrous Item,Empower Spell,Enlarge Spell,Extend Spell,Extra Turning,Forge Ring,Great Cleave,Heighten Spell,Maximize Spell,Quicken Spell,Scribe Scroll,Silent Spell,Spell Focus,Spell Mastery,Spell Penetration,Still Spell)
-SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Knowledge (The Planes)|Knowledge (Religion)|Knowledge (Undead)|Knowledge (Underdark)|Scry|Spellcraft|Use Magic Device)
+SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Knowledge (The Planes)|Knowledge (Religion)|Knowledge (Undead)|Knowledge (Underdark)|Scry|Speak Language|Spellcraft|Use Magic Device)
 ARMORPROF:@/d20ogl/srd/basics/srd_profs_armor.lst
 SHIELDPROF:@/d20ogl/srd/basics/srd_profs_shield.lst
-WEAPONPROF:@/d20ogl/srd/basics/srd_weapprofs.lst
-
 
 # Darwin's World data
 BIOSET:worldrulesbiosettings.lst

@@ -210,10 +210,6 @@ Portable Stove (Gas-Powered)				TYPE:Goods.JunkItems.Powered																			C
 Survival Kit						TYPE:Goods.JunkItems.Container				CONTAINS:10|Total=8|Drug=5|SIZE.S.JunkItems=6|SIZE.S.JunkItems=6|FoodStuffs=30	COST:200	WT:10		SIZE:M	SOURCEPAGE:pp.54,56
 Web Belt							TYPE:Goods.JunkItems.Container				CONTAINS:15|Total=8|SIZE.S.Ranged=1|SIZE.T.Ranged=1|SIZE.T=7				COST:100	WT:0		SIZE:M	SOURCEPAGE:pp.54,56
 
-
-#Trade Goods
-Corium (Per Lb.)						TYPE:Goods.Trade																					COST:50	WT:1				SOURCEPAGE:p.47
-
 #Transportation
 Large Car							TYPE:Goods.Transportation.Gaspowered.Container		CONTAINS:UNLIM												COST:5900	WT:0		SIZE:H	SOURCEPAGE:p.89-92
 Medium Car							TYPE:Goods.Transportation.Gaspowered.Container		CONTAINS:UNLIM												COST:5550	WT:0		SIZE:H	SOURCEPAGE:p.89-92

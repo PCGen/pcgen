@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 20 15:26:16 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Feb 10 21:44:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:ArtifactsA	SOURCEWEB:http://www.darwinrpg.com
 # Original entry by wizofice2001
 
@@ -6,7 +6,7 @@ SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:A
 
 #Armor and Shields
 #Medium Weight -------------------------------------------------------------------------------------------------------------
-# Equipment Name		Required Proficiency				Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			Combat bonus
+# Equipment Name		Required Armor Proficiency			Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			Combat bonus
 Ballistic Nylon		PROFICIENCY:ARMOR|Ballistic Nylon		TYPE:Armor.Medium.Suit.Standard.Plastic		COST:16400	WT:20		ACCHECK:-5		MAXDEX:3		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
 Metal Insert		PROFICIENCY:ARMOR|Metal Insert		TYPE:Armor.Medium.Suit.Standard.Metal		COST:9400	WT:30		ACCHECK:-5		MAXDEX:2		SOURCEPAGE:p.85,86	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
 Military Combat Suit	PROFICIENCY:ARMOR|Military Combat Suit	TYPE:Armor.Medium.Suit.Standard.Plastic		COST:20400	WT:20		ACCHECK:-5		MAXDEX:3		SOURCEPAGE:p.85,87	BONUS:COMBAT|AC|5|TYPE=Armor.REPLACE
