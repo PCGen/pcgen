@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 21:23:47 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 10 22:05:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
 # Martial Melee Weapons
-# Equipment Name			Required Proficiency				Type											Alternative Type		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Alternative Damage	Wield Category	Range		Size		Source Page		Special Property
+# Equipment Name			Required Weapon Proficiency			Type											Alternative Type		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Alternative Damage	Wield Category	Range		Size		Source Page		Special Property
 Gladius											TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal.Sword						COST:20	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8						WIELD:Light						SOURCEPAGE:p.177	SPROP:May NOT be used with Weapon Finesse
 
 # Exotic Melee Weapons

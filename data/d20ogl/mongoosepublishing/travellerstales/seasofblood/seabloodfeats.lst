@@ -5,7 +5,7 @@ SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:S
 Amazing Agility			TYPE:General								PRESKILL:1,Balance=12							DESC:May always Take 20 on a Balance check																													SOURCEPAGE:p.17
 Bargain				TYPE:General															PRESTAT:1,CHA=13	DESC:+4 Competence bonus to Profession (Merchant) checks whilst buying/selling														BONUS:SKILL|Profession (Merchant)|4|TYPE=Competence	SOURCEPAGE:p.17
 Duck and Weave			TYPE:General															PRESTAT:1,DEX=15	DESC:+7 cover AC bonus and +3 cover Reflex save bonus against all ranged attacks.																							SOURCEPAGE:p.17
-Eagle Eyes				TYPE:General																		DESC:Add 50% to all visibility ranges at sea.																													SOURCEPAGE:p.18
+Eagle Eyes				TYPE:General																		DESC:Add 50%% to all visibility ranges at sea.																													SOURCEPAGE:p.18
 Improved Underwater Combat	TYPE:General	PREATT:6	PREFEAT:1,Underwater Combat											DESC:No penalty to Initiative and attack rolls in underwater melee combat whilst using piercing weapons. No effect on slashing or bludgeoning weapons.											SOURCEPAGE:p.18
 Inspire Loyalty			TYPE:General			PREFEAT:1,Leadership												DESC:Crew automatically passes all Morale checks during boarding actions. Gain +4 bonus to avoid Mutiny checks.																		SOURCEPAGE:p.18
 Master Helmsman			TYPE:General								PRESKILL:1,Knowledge (Seamanship)=8					DESC:Base and daily movement rates of a ship are increased by 10%																										SOURCEPAGE:p.18

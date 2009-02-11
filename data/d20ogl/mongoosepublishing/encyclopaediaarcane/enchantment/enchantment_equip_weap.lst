@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 15:54:09 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Feb 10 22:40:49 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 
 #Specific
-# Equipment Name				Output Name			Required Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Range		Size		Source Page		Virtual Feat			Weapon prop. bonus		Special Property
+# Equipment Name				Output Name			Required Weapon Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Range		Size		Source Page		Virtual Feat			Weapon prop. bonus		Special Property
 Bolts of Enchantment (Lesser)												TYPE:Magic.Ammunition.Specific.Bolt									COST:2410	WT:0																				SOURCEPAGE:p.51						BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:Carries one 0 or 1st level enchantment
 Bolts of Enchantment (Greater)											TYPE:Magic.Ammunition.Specific.Bolt									COST:4820	WT:0																				SOURCEPAGE:p.51						BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:Carries one 0 or 1st level enchantment (+2 DC)
 Sword (Heartbreaker)			OUTPUTNAME:Heartbreaker	PROFICIENCY:WEAPON|Greatsword		TYPE:Magic.Artifact.Major												WT:15		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6							SIZE:L	SOURCEPAGE:p.52	VFEAT:Cleave|Combat Reflexes	BONUS:WEAPON|DAMAGE,TOHIT|5	SPROP:Unholy Greatsword of Wounding +5 (I 19, W 16, CH 20, Ego 32, AL CE), Detect Good/Evil

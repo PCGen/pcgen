@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 15:58:07 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Feb 10 22:49:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 #Official Errata from Mongoose on Necrophage - The Table is incorrect about Spellcasting levels - The Class Features:Spells per Day section is correct
 
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
@@ -10,15 +10,15 @@ CLASS:Spectral Loremaster	HD:4		TYPE:PC.Prestige	ABB:SpL		MAXLEVEL:10	SOURCEPAGE
 CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana)=7,Knowledge (Necrology)=7	PRESPELLSCHOOL:1,Necromancy=1	!PRESPELLSCHOOLSUB:1,Divination=1	PRESPELLTYPE:1,Arcane=1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Spectral Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Decipher Script|Gather Information|TYPE.Knowledge|Scry|Spellcraft
-1	SAB:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																		ADD:SPELLCASTER|1|Arcane												SPELLS:Class|TIMES=1|Speak with Dead
+1	SAB:Speak with Dead %/Day|SpeakDead	DEFINE:SpeakDead|1																		ADD:SPELLCASTER|1|Arcane									SPELLS:Class|TIMES=1|Speak with Dead
 2	SAB:Spectral Investigation																							ADD:SPELLCASTER|1|Arcane
-3	SAB:Divination																									ADD:SPELLCASTER|1|Arcane												SPELLS:Class|TIMES=1|Divination
-4	SAB:Lost Arcane Lore																								ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural
+3	SAB:Divination																									ADD:SPELLCASTER|1|Arcane									SPELLS:Class|TIMES=1|Divination
+4	SAB:Lost Arcane Lore																								ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic
 5	SAB:Commune																										ADD:SPELLCASTER|1|Arcane
 6	SAB:Contact Other Plane																								ADD:SPELLCASTER|1|Arcane
 7	SAB:Lessons from the Grave						CSKILL:TYPE.Wisdom|TYPE.Intelligence|TYPE.Strength|TYPE.Constitution|TYPE.Dexterity|TYPE.Charisma	ADD:SPELLCASTER|1|Arcane
 8	SAB:Spectral Lore																									ADD:SPELLCASTER|1|Arcane
-9	SAB:Lost Arcane Lore																								ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic,TYPE=Supernatural
+9	SAB:Lost Arcane Lore																								ADD:SPELLCASTER|1|Arcane	ADD:FEAT|1|TYPE=ItemCreation,TYPE=Metamagic
 10	SAB:The Veil Parted																								ADD:SPELLCASTER|1|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus

@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Wed Feb 20 15:22:56 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Feb 10 22:27:48 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
 
-# Equipment Name				Required Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Bonus to skill					Special Property
+# Equipment Name				Required Armor Proficiency		Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Bonus to skill					Special Property
 Footpad's Vest				PROFICIENCY:ARMOR|Footpad's Vest	TYPE:Armor.Light.Shirt.Nonmetal	COST:60	WT:2								SOURCEPAGE:p.55																			SPROP:Thieves' tools hidden inside
 Displacer Beast Leather			PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:12000	WT:15					MAXDEX:6		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	BONUS:SKILL|Hide|1|TYPE=Circumstance	SPROP:10% miss chance
 Displacer Beast Studded Leather	PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Metal		COST:12015	WT:20		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE	BONUS:SKILL|Hide|1|TYPE=Circumstance	SPROP:10% miss chance

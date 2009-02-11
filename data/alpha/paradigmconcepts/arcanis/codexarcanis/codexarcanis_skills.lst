@@ -29,7 +29,6 @@ Knowledge (Race-Elorii-Kelekene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:
 Knowledge (Race-Elorii-Berokene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.161
 Knowledge (Race-Elorii-Ardakene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.161
 Knowledge (Ancient History)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.1
-Knowledge (History-Elorii)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.135
 Knowledge (History-Elorii-Marokene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.135
 Knowledge (History-Elorii-Osalikene)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.136
 Knowledge (History-Elorii-Kelekene)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.136
