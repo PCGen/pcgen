@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Feb 11 12:38:00 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
 
 STARTPACK:Angel of Fire Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel of Fire]
@@ -40,14 +40,14 @@ RACE:Angel of Stone	!PRERACE:1,%
 NAME:Angel of Stone
 ALIGN:LG|LN|LE
 STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
-SKILL:Concentration	RANK:11
-SKILL:Craft (Stone)	RANK:11
-SKILL:Hide			RANK:11
-SKILL:Listen		RANK:11
-SKILL:Move Silently	RANK:11
-SKILL:Search		RANK:11
-SKILL:Spellcraft		RANK:11
-SKILL:Spot			RANK:11
+SKILL:Concentration		RANK:11
+SKILL:Craft (Stoneworking)	RANK:11
+SKILL:Hide				RANK:11
+SKILL:Listen			RANK:11
+SKILL:Move Silently		RANK:11
+SKILL:Search			RANK:11
+SKILL:Spellcraft			RANK:11
+SKILL:Spot				RANK:11
 FEAT:Cleave
 FEAT:Expertise
 FEAT:Power Attack

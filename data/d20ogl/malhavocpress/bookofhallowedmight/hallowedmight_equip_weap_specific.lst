@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:14:15 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Feb 11 12:38:00 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 #Original Author: Beaver
 
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
 
 
 #Specific
-# Equipment Name				Product Identity?	Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Size		Source Page		Innate Spells																													Combat bonus										Weapon prop. bonus																																Special Property
+# Equipment Name				Product Identity?	Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Size		Source Page		Innate Spells																													Combat bonus										Weapon prop. bonus																																Special Property
 Ankh of Justice				NAMEISPI:YES	PROFICIENCY:WEAPON|Greatsword		TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword		COST:40000	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:LAW_M.MWORKW	SIZE:L	SOURCEPAGE:p.41																																												BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement																												SPROP:Once, and only once, it can bring the wielder back to life as with a true resurrection spell. The wielder need only be holding the sword when he dies in order for the resurrection to take place. It happens immediately.
 Holy Avenger of Pilgrimage		NAMEISPI:YES	PROFICIENCY:WEAPON|Longsword		TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword		COST:120315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					SIZE:M	SOURCEPAGE:p.41	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=18|Fly,15|PREVARGTEQ:AllowHolyAvenger,1	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Teleport without Error,20|PREVARGTEQ:AllowHolyAvenger,1													BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	BONUS:WEAPON|DAMAGE,TOHIT|5|PREVARGTEQ:AllowHolyAvenger,1|TYPE=Enhancement
 Mammon's Bane				NAMEISPI:YES	PROFICIENCY:WEAPON|Flail		TYPE:Magic.Weapon.Martial.Melee.Bludgeoning.Specific.Metal.Flail	COST:18315	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					SIZE:L	SOURCEPAGE:p.41																																												BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement																												SPROP:Destroys up to 500gp worth of coins per strike

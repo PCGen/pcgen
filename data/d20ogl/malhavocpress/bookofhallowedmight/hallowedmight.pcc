@@ -38,12 +38,9 @@ RACE:hallowedmight_races.lst
 
 KIT:hallowedmight_kits_races.lst
 
-ABILITY:@/d20ogl/srd/basics/srd_abilities_class.lst
-
 #Not done yet
 EQUIPMENT:hallowedmight_equip_potions.lst
 EQUIPMENT:hallowedmight_equip_rings.lst
 EQUIPMENT:hallowedmight_equip_wondrousitems.lst
 EQUIPMENT:hallowedmight_equip_potionsscrolls.lst
 EQUIPMENT:hallowedmight_equip_rodsstaffswands.lst
-
