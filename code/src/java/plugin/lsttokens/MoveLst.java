@@ -71,10 +71,11 @@ public class MoveLst extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		if (obj instanceof Equipment)
-		{
-			return false;
-		}
+		//TODO Need to confirm with LST monkeys that MOVE works properly in equipment before making this permanent
+//		if (obj instanceof Equipment)
+//		{
+//			return false;
+//		}
 		if (isEmpty(value) || hasIllegalSeparator(',', value))
 		{
 			return false;

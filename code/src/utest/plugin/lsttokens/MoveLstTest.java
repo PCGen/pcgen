@@ -52,12 +52,12 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 		return token;
 	}
 
-	@Test
-	public void testInvalidObject() throws PersistenceLayerException
-	{
-		assertFalse(token.parse(primaryContext, new Equipment(),
-				"Fly,40"));
-	}
+//	@Test
+//	public void testInvalidObject() throws PersistenceLayerException
+//	{
+//		assertFalse(token.parse(primaryContext, new Equipment(),
+//				"Fly,40"));
+//	}
 
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
