@@ -50,21 +50,11 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=29150&it=1?affili
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-
-SPELL:@/d20ogl/srd/basics/srd_spells.lst
-SPELL:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_spells.lst
 SKILL:cityscapeskills.lst
-EQUIPMENT:@/d20ogl/srd/basics/srd_equip.lst
-FEAT:@/d20ogl/srd/basics/srd_feats.lst
-FEAT:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
 FEAT:cityscapefeats.lst
-FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst
 FEAT:cityscapeclassfeats.lst
 RACE:cityscaperaces.lst
 LANGUAGE:cityscapelanguages.lst
-ABILITYCATEGORY:@/d20ogl/srd/basics/srd_ability_categories_core.lst
-ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst
-CLASS:@/d20ogl/srd/basics/srd_classes_base.lst|(INCLUDE:Fighter|Rogue)
 CLASS:cityscapeclasses.lst
 TEMPLATE:cityscapetemplates.lst
 WEAPONPROF:cityscapeweapprofs.lst
@@ -76,3 +66,12 @@ EQUIPMENT:cityscapeequipweapmelee.lst
 EQUIPMENT:cityscapeequipweapranged.lst
 EQUIPMOD:cityscapeequipmods.lst
 BIOSET:cityscapebiosettings.lst
+
+# Imports
+SKILL:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_skills.lst|(INCLUDE:Cryptography|Navigate)
+SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst|(INCLUDE:Sleight of Hand|Survival)
+SPELL:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_spells.lst
+FEAT:@/d20ogl/fantasyflightgames/dragonstar/starfarershandbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
+FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst|(INCLUDE:CATEGORY=FEAT,Acrobatic,Animal Affinity,Athletic,Combat Expertise)
+FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Advanced Two-Weapon Fighting,Attentive,Builder,Confident,Creative,Dead Aim,Exotic Melee Weapon Proficiency,Focused,Frightful Presence,Meticulous,Nimble,Quick Reload,Renown,Skip Shot,Stealthy,Studious,Unbalance Opponent)
+TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst|(INCLUDE:Combat Expertise trade off)

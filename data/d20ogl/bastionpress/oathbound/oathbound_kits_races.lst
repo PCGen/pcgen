@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 12:19:38 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Wed Feb 11 21:22:46 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 
 
-STARTPACK:Derelict Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Derelict]	TYPE:DefaultMonster.MagicalBeast
+STARTPACK:Derelict Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Derelict]
 RACE:Derelict	!PRERACE:1,%
 NAME:Derelict
 ALIGN:TN
@@ -15,7 +15,7 @@ SKILL:Spot			RANK:5
 FEAT:Alertness
 FEAT:Multiattack
 
-STARTPACK:Horngill Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horngill]	TYPE:DefaultMonster.MagicalBeast
+STARTPACK:Horngill Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horngill]
 RACE:Horngill	!PRERACE:1,%
 NAME:Horngill
 ALIGN:TN
@@ -27,7 +27,7 @@ SKILL:Move Silently	RANK:1
 FEAT:Alertness
 FEAT:Multiattack
 
-STARTPACK:Jaggon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jaggon]	TYPE:DefaultMonster.Aberration
+STARTPACK:Jaggon Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jaggon]
 RACE:Jaggon	!PRERACE:1,%
 NAME:Jaggon
 SKILL:Hide			RANK:14
@@ -38,7 +38,7 @@ SKILL:Move Silently	RANK:9
 FEAT:Alertness
 FEAT:Multiattack
 
-STARTPACK:Kith Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kith]	TYPE:DefaultMonster.Animal
+STARTPACK:Kith Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kith]
 RACE:Kith	!PRERACE:1,%
 NAME:Kith
 ALIGN:TN
@@ -50,7 +50,7 @@ SKILL:Intuit Direction	RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 
-STARTPACK:Lector Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lector]	TYPE:DefaultMonster.Undead
+STARTPACK:Lector Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lector]
 RACE:Lector	!PRERACE:1,%
 NAME:Lector
 ALIGN:CN
@@ -69,11 +69,11 @@ FEAT:Dodge
 FEAT:Expertise
 FEAT:Multiattack
 
-STARTPACK:Ort Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ort]	TYPE:DefaultMonster.Aberration
+STARTPACK:Ort Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ort]
 RACE:Ort	!PRERACE:1,%
 NAME:Ort
 
-STARTPACK:Palethian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Palethian]	TYPE:DefaultMonster.MonstrousHumanoid
+STARTPACK:Palethian Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Palethian]
 RACE:Palethian	!PRERACE:1,%
 NAME:Palethian
 SKILL:Alchemy			RANK:5
@@ -117,7 +117,7 @@ FEAT:Track
 FEAT:Weapon Finesse (Claw)
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Quillion Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quillion]	TYPE:DefaultMonster.MagicalBeast
+STARTPACK:Quillion Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quillion]
 RACE:Quillion	!PRERACE:1,%
 NAME:Quillion
 ALIGN:TN
@@ -130,7 +130,7 @@ FEAT:Alertness
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Rozian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rozian]	TYPE:DefaultMonster.Vermin
+STARTPACK:Rozian Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rozian]
 RACE:Rozian	!PRERACE:1,%
 NAME:Rozian
 ALIGN:TN
@@ -140,7 +140,7 @@ SKILL:Listen		RANK:2
 SKILL:Spot			RANK:2
 SKILL:Move Silently	RANK:4
 
-STARTPACK:Stark Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stark]	TYPE:DefaultMonster.MagicalBeast
+STARTPACK:Stark Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stark]
 RACE:Stark	!PRERACE:1,%
 NAME:Stark
 SKILL:Hide			RANK:6
@@ -152,7 +152,7 @@ FEAT:Alertness
 FEAT:Combat Reflexes
 FEAT:Multiattack
 
-STARTPACK:Swarm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm]	TYPE:DefaultMonster.Vermin
+STARTPACK:Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm]
 RACE:Swarm	!PRERACE:1,%
 NAME:Swarm
 ALIGN:TN

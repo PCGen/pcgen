@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 20:10:06 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 11 21:22:46 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -14,5 +14,5 @@ Extended Critical	TYPE:Hone.Hidden	VISIBLE:NO		SAB:Extended Critical (Ex)	DESC:S
 #(adds the Competance bonus type, with stacking qualifications)
 
 ###Block: Proficiencies
-# Feat Name			Type			Visible	Automaticaly Gained Weapon Prof.
-Stalker Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow%|Saber (Fencing)|Rapier|Sap|Sword (Short)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Shortstaff|Backsword (Basket-Hilted)
+# Feat Name			Type			Visible	Automatically Gained Weapon Prof.
+Stalker Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Rapier|Sap|Sword (Short)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Shortstaff

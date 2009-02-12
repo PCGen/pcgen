@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 11 16:09:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 #Simple Weapons Melee			TYPE										Cost		Weight	Weapon Size	Base Damage	Critical Range	Critical Multiplier	Range		Bonuses						Required Proficiency			Alternate Dmg Type	Pre-Required Race	Source Material
-# Equipment Name					Required Proficiency				Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Weapon prop. bonus
+# Equipment Name					Required Weapon Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Weapon prop. bonus
 Battleaxe (Masterwork)				PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:307	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			SIZE:M	BONUS:WEAPON|TOHIT|1
 Dagger (Punching/Masterwork)			PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Simple.Melee.Piercing.Masterwork				COST:302	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4			SIZE:T	BONUS:WEAPON|TOHIT|1
 Falchion (Masterwork)				PROFICIENCY:WEAPON|Falchion			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:380	WT:16		CRITMULT:x2			CRITRANGE:3			DAMAGE:2d4			SIZE:L	BONUS:WEAPON|TOHIT|1
@@ -26,7 +26,7 @@ Pick (Light/Masterwork)				PROFICIENCY:WEAPON|Pick				TYPE:Weapon.Martial.Melee.
 Quarterstaff (Masterwork)			PROFICIENCY:WEAPON|Quarterstaff		TYPE:Weapon.Simple.Melee.Bludgeoning.Masterwork				COST:601	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:L	BONUS:WEAPON|TOHIT|1
 Ranseur (Masterwork)				PROFICIENCY:WEAPON|Ranseur			TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:312	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4			SIZE:L	BONUS:WEAPON|TOHIT|1
 Rapier (Masterwork)				PROFICIENCY:WEAPON|Rapier			TYPE:Weapon.Martial.Melee.Piercing.Masterwork				COST:325	WT:3		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6			SIZE:M	BONUS:WEAPON|TOHIT|1
-Sabre (Cavalry/Masterwork)			PROFICIENCY:WEAPON|Sabre (Cavalry)		TYPE:Weapon.Exotic.Melee.Slashing.Masterwork				COST:330	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4			SIZE:M	BONUS:WEAPON|TOHIT|1
+Sabre (Cavalry/Masterwork)			PROFICIENCY:WEAPON|Sabre			TYPE:Weapon.Exotic.Melee.Slashing.Masterwork				COST:330	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4			SIZE:M	BONUS:WEAPON|TOHIT|1
 Sap (Masterwork)					PROFICIENCY:WEAPON|Sap				TYPE:Weapon.Martial.Melee.Bludgeoning.Masterwork			COST:301	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1
 Scimitar (Masterwork)				PROFICIENCY:WEAPON|Scimitar			TYPE:Weapon.Martial.Melee.Slashing.Masterwork				COST:320	WT:4		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6			SIZE:M	BONUS:WEAPON|TOHIT|1
 Sickle (Masterwork)				PROFICIENCY:WEAPON|Sickle			TYPE:Weapon.Simple.Melee.Slashing.Masterwork				COST:306	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:S	BONUS:WEAPON|TOHIT|1

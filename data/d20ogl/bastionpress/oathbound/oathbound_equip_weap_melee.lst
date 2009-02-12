@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 20:10:06 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 11 21:22:46 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 
 #SIMPLE ---------------------------------------------------------------------------------------------------
-# Equipment Name			Output Name				Required Proficiency					Type													Alternative Type			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Range		Size		Source Page
+# Equipment Name			Output Name				Required Weapon Proficiency				Type													Alternative Type			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Range		Size		Source Page
 Shortstaff				OUTPUTNAME:Shortstaff		PROFICIENCY:WEAPON|Shortstaff				TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Wooden.Staff									COST:0	WT:4		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4								SIZE:M	SOURCEPAGE:p.57
 
 #MARTIAL --------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 15:25:26 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Feb 11 20:18:27 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 # Class Name	Class Skill
@@ -34,9 +34,9 @@ CLASS:Mounted Warrior	HD:8		TYPE:Base.PC	ABB:MtW		MAXLEVEL:20	SOURCEPAGE:p.41	BO
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mounted Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|Handle Animal|Intimidate|Jump|Literacy|Ride|Speak Language|Swim
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:SKILL|Animal Empathy,Handle Animal,Ride|2	AUTO:FEAT|Mounted Attack|Mounted Combat
 2									AUTO:FEAT|Ride-By Attack
@@ -56,22 +56,22 @@ CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:CHECK
 # Class Name	Multiple Requirements
 CLASS:Noble		PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,ANY=1]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Urban Lore|Handle Animal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Literacy|Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
+CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Literacy|Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Deceptive Melee								BONUS:COMBAT|AC|max(CHA,0)					BONUS:SKILL|Bluff,Innuendo,Sense Motive|2
+1	SAB:Deceptive Melee			BONUS:COMBAT|AC|max(CHA,0)					BONUS:SKILL|Bluff,Innuendo,Sense Motive|2
 2	SAB:Monthly Funds %|MonthlyFunds																						DEFINE:MonthlyFunds|25
 6																																	ADD:FEAT|1|Leadership
-8							BONUS:VAR|MonthlyFunds|25	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:2,Armor,Light
+8							BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:2,Armor,Light								BONUS:VAR|MonthlyFunds|25
 10	SAB:Leadership +%|NobleLeadership																						DEFINE:NobleLeadership|1
-11							BONUS:VAR|MonthlyFunds|50
+11																							BONUS:VAR|MonthlyFunds|50
 12	SAB:Silver Tongue
-15							BONUS:VAR|NobleLeadership|1
-17							BONUS:VAR|MonthlyFunds|100	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:2,Armor,Medium
-20							BONUS:VAR|NobleLeadership|1
+15																							BONUS:VAR|NobleLeadership|1
+17							BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:2,Armor,Medium								BONUS:VAR|MonthlyFunds|100
+20																							BONUS:VAR|NobleLeadership|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -82,17 +82,17 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 1	AUTO:FEAT|Simple Weapon Proficiency|Sailor Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1						BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2	ADD:FEAT|1|Sailor Weapon Bonus
-2																										AUTO:FEAT|Improvised Weapon
+1	BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2						ADD:FEAT|1|Sailor Weapon Bonus
+2																															AUTO:FEAT|Improvised Weapon
 3																						ABILITY:Special Ability|VIRTUAL|Evasion
-5																ADD:FEAT|1|Sailor Weapon Bonus					AUTO:FEAT|Extraordinary Tolerance
-7	BONUS:VAR|DirtyBlow|(CL-4)/3																					AUTO:FEAT|Dirty Blow
-9	BONUS:VAR|UncannyDodge|1																					AUTO:FEAT|Uncanny Dodge
+5																ADD:FEAT|1|Sailor Weapon Bonus										AUTO:FEAT|Extraordinary Tolerance
+7											BONUS:VAR|DirtyBlow|(CL-4)/3																AUTO:FEAT|Dirty Blow
+9											BONUS:VAR|UncannyDodge|1							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 10																ADD:FEAT|1|Sailor Weapon Bonus
-11																										AUTO:FEAT|Superior Improvised Weapon
-13	BONUS:VAR|UncannyDodge|1
-15																ADD:FEAT|1|Sailor Weapon Bonus					AUTO:FEAT|Follow Up Strike
-17																										AUTO:FEAT|Extraordinary Balance
+11																															AUTO:FEAT|Superior Improvised Weapon
+13											BONUS:VAR|UncannyDodge|1
+15																ADD:FEAT|1|Sailor Weapon Bonus										AUTO:FEAT|Follow Up Strike
+17																															AUTO:FEAT|Extraordinary Balance
 20																ADD:FEAT|1|Sailor Weapon Bonus	ABILITY:Special Ability|VIRTUAL|Improved Evasion
 
 
@@ -101,13 +101,13 @@ CLASS:Soldier	HD:8		TYPE:Base.PC	ABB:sv5		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:CHEC
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Literacy|Swim
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1					AUTO:FEAT|Close-Order Fighting
 2					AUTO:FEAT|Combat Reflexes|Set Spear
-4	BONUS:VAR|QuickAction|1	AUTO:FEAT|QuickAction
+4	BONUS:VAR|QuickAction|1	AUTO:FEAT|Quick Action
 6					AUTO:FEAT|Superior Bull Rush
 8					AUTO:FEAT|Coordinated Strikes
 9	BONUS:VAR|QuickAction|1
@@ -123,18 +123,18 @@ CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Literacy|Swim
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Stalker	HD:8		TYPE:Base.PC	ABB:sv6		MAXLEVEL:20	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Gather Information|Urban Lore|Hide|Intimidate|Intuit Direction|Jump|Listen|Literacy|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
+CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE.Craft|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Listen|Literacy|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1							BONUS:SKILL|Hide,Move Silently|2	ADD:FEAT|1|Track,Shadow
-2																	AUTO:FEAT|Improved Unarmed Strike
-5																	AUTO:FEAT|Subduing Strike
-8	BONUS:VAR|SkilledDisarm|(CL-2)/3											AUTO:FEAT|Skilled Disarm
-11	BONUS:VAR|SneakAttack|(CL-8)/3											ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-14																	AUTO:FEAT|Blinding Attack
-17																	AUTO:FEAT|Incapacitating Attack
-20																	AUTO:FEAT|Finishing Attack
+1	BONUS:SKILL|Hide,Move Silently|2							ADD:FEAT|1|Track
+2																								AUTO:FEAT|Improved Unarmed Strike
+5																								AUTO:FEAT|Subduing Strike
+8							BONUS:VAR|SkilledDisarm|(CL-2)/3												AUTO:FEAT|Skilled Disarm
+11							BONUS:VAR|SneakAttack|(CL-8)/3				ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+14																								AUTO:FEAT|Blinding Attack
+17																								AUTO:FEAT|Incapacitating Attack
+20																								AUTO:FEAT|Finishing Attack
 

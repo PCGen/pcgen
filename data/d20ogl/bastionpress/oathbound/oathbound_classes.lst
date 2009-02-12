@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 20:10:06 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 11 21:22:46 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -53,14 +53,14 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jum
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Feat						Required Lvl	Required Skill											Required Stat
+# Class Name	Required Feat						Required Lvl	Required Skill												Required Stat
 CLASS:Inquisitor	PREFEAT:1,Skill Focus(Knowledge (Religion))	PRELEVEL:MIN=5	PRESKILL:1,Knowledge (Religion)=6,Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE.Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Read Lips|Ride|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Smite the Heathen (Ex)
 2	SAB:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Will|CHA																	ADD:SPELLCASTER|1|Divine
@@ -80,8 +80,8 @@ CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:4,Appraise=2,Intuit D
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE.Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Research (Ex)
 2	SAB:Escape (Ex)	SAB:Depth Perception (Ex)
@@ -122,12 +122,12 @@ CLASS:Vigilante	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Balance|Bluff|City Lore|Climb|Concentration|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1		SAB:Sense Attack (Ex)	SAB:Reflexive Awarness (Ex)
-2											BONUS:VAR|UncannyDodge|CL/5+1							AUTO:FEAT|Uncanny Dodge
+2											BONUS:VAR|UncannyDodge|CL/5+1							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 3	SR:15
 4		SAB:Heal Self (Su)(% hp)|HealSelfCap									DEFINE:HealSelfCap|CL*CON
 5

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 11 16:09:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 ###Block: Hidden Racial Feats
@@ -6,7 +6,7 @@ SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:
 Unhorsed Dwarf	TYPE:General	VISIBLE:NO	PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Craft|TYPE=Profession	BONUS:SKILL|LIST|2	COST:.5	SOURCEPAGE:p.
 
 ###Block: Proficiencies
-# Feat Name				Type			Visible	Automaticaly Gained Weapon Prof.
+# Feat Name				Type			Visible	Automatically Gained Weapon Prof.
 Archer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Shortbow (Composite)|Longbow|Longbow (Composite)|Sword (Short)|Handaxe
 Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident
 

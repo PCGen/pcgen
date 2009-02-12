@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 14:15:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Feb 11 23:24:02 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -32,7 +32,7 @@ Arrival Gift (Quiet)					VISIBLE:YES				SOURCEPAGE:p.20																									
 Arrival Gift (Resilient)				VISIBLE:YES	DR:1/-		SOURCEPAGE:p.20
 Arrival Gift (Shapechanger)				VISIBLE:YES				SOURCEPAGE:p.21	SAB:Shapechanger (Su) %/day|ShapechangerUsage				DEFINE:ShapechangerUsage|(TL/5)
 Arrival Gift (Sneaky)					VISIBLE:YES				SOURCEPAGE:p.21	SAB:+2 luck bonus vs magical detection																																				BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
-Arrival Gift (Talented)					VISIBLE:YES				SOURCEPAGE:p.21																																																																																												ADD:FEAT|1|Talented
+Arrival Gift (Talented)					VISIBLE:YES				SOURCEPAGE:p.21																																																																																												ADD:FEAT|1|Talented ~ Gift
 Arrival Gift (Telepathic)				VISIBLE:YES				SOURCEPAGE:p.21	SAB:Telepathic (Su)
 Arrival Gift (Thick Skin)				VISIBLE:YES				SOURCEPAGE:p.21																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
 Arrival Gift (Understanding 1/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																	CHOOSE:LANGAUTO:Asherake|Chromithian|Ceptu|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel

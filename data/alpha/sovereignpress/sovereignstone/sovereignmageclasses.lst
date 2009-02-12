@@ -20,22 +20,22 @@ CLASS:Elemental Mage (Earth)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|E
 2	CAST:2
 3	CAST:3
 4	CAST:4
-5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 6	CAST:6
 7	CAST:7
 8	CAST:8
 9	CAST:9
-10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 11	CAST:11
 12	CAST:12
 13	CAST:13
 14	CAST:14
-15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 16	CAST:11
 17	CAST:12
 18	CAST:13
 19	CAST:14
-20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 
 # Class Name			Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Mage (Air)	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -51,22 +51,22 @@ CLASS:Elemental Mage (Air)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Ele
 2	CAST:2
 3	CAST:3
 4	CAST:4
-5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 6	CAST:6
 7	CAST:7
 8	CAST:8
 9	CAST:9
-10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 11	CAST:11
 12	CAST:12
 13	CAST:13
 14	CAST:14
-15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 16	CAST:11
 17	CAST:12
 18	CAST:13
 19	CAST:14
-20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 
 # Class Name			Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Mage (Fire)	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -82,22 +82,22 @@ CLASS:Elemental Mage (Fire)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|El
 2	CAST:2
 3	CAST:3
 4	CAST:4
-5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 6	CAST:6
 7	CAST:7
 8	CAST:8
 9	CAST:9
-10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 11	CAST:11
 12	CAST:12
 13	CAST:13
 14	CAST:14
-15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 16	CAST:11
 17	CAST:12
 18	CAST:13
 19	CAST:14
-20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 
 # Class Name			Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Mage (Water)	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -113,22 +113,22 @@ CLASS:Elemental Mage (Water)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|E
 2	CAST:2
 3	CAST:3
 4	CAST:4
-5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+5	CAST:5																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 6	CAST:6
 7	CAST:7
 8	CAST:8
 9	CAST:9
-10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+10	CAST:10																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 11	CAST:11
 12	CAST:12
 13	CAST:13
 14	CAST:14
-15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+15	CAST:15																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 16	CAST:11
 17	CAST:12
 18	CAST:13
 19	CAST:14
-20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+20	CAST:20																									ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Void Mage	HD:4		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -144,19 +144,19 @@ CLASS:Void Mage	SPELLSTAT:INT	SPELLTYPE:EleVoidMage	BONUS:CASTERLEVEL|Void Mage|
 2	CAST:2
 3	CAST:3
 4	CAST:4
-5	CAST:5																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+5	CAST:5																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 6	CAST:6
 7	CAST:7
 8	CAST:8
 9	CAST:9
-10	CAST:10																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+10	CAST:10																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 11	CAST:11
 12	CAST:12
 13	CAST:13
 14	CAST:14
-15	CAST:15																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+15	CAST:15																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation
 16	CAST:11
 17	CAST:12
 18	CAST:13
 19	CAST:14
-20	CAST:20																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation,Elemental Spell Mastery
+20	CAST:20																													ADD:FEAT|1|TYPE=Metamagic,TYPE=Elemental,TYPE=ItemCreation

@@ -22,11 +22,11 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
 1								BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2|TYPE=FastMovement
-2			BONUS:VAR|UncannyDodge|1													AUTO:FEAT|Uncanny Dodge
+2			BONUS:VAR|UncannyDodge|1													ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 5			BONUS:VAR|UncannyDodge|1
 10			BONUS:VAR|UncannyDodge|1
 11	DR:1/-

@@ -27,15 +27,11 @@ COPYRIGHT:PCGen dataset conversion for Sovereign Stone Campaign Sourcebook Copyr
 
 BIOSET:sovereignbiosettings.lst
 CLASS:sovereign_classes.lst
-CLASS:sovereignphbclasses.lst
 CLASS:sovereignmageclasses.lst
-EQUIPMENT:sovereignequiparmorshields.lst
 EQUIPMENT:sovereignequipcoins.lst
 EQUIPMENT:sovereignequip.lst
-EQUIPMENT:sovereignphbequip.lst
 EQUIPMENT:sovereignequipweapammo.lst
 EQUIPMENT:sovereignequipweapmelee.lst
-EQUIPMENT:sovereignequipweapranged.lst
 FEAT:sovereignfeats.lst
 FEAT:sovereign_feats_hidden.lst
 RACE:sovereignraces.lst
@@ -45,11 +41,17 @@ TEMPLATE:sovereigntemplates.lst
 WEAPONPROF:sovereignweapprofs.lst
 LANGUAGE:sovereignlanguages.lst
 
+# This seems to be SRD duplicates
+#CLASS:sovereignphbclasses.lst
+#EQUIPMENT:sovereignphbequip.lst
+#EQUIPMENT:sovereignequiparmorshields.lst
+#EQUIPMENT:sovereignequipweapranged.lst
+
 #Not yet functional
 #FEAT:sovereignmagicfeats.lst
 
 FEAT:sovereignmagicfeats.lst
 EQUIPMENT:sovereignweapmasterwork.lst
 #EQUIPMOD:sovereignequipmods.lst
-EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst|(EXCLUDE:Armor Spikes|Shield Spikes)
-EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst|(INCLUDE:+1 (Enhancement to Weapon or Ammunition)|+1 (Enhancement to Armor)|+1 (Enhancement to Shield)|+2 (Enhancement to Weapon or Ammunition)|+2 (Enhancement to Armor)|+2 (Enhancement to Shield)|+3 (Enhancement to Weapon or Ammunition)|+3 (Enhancement to Armor)|+3 (Enhancement to Shield)|+4 (Enhancement to Weapon or Ammunition)|+4 (Enhancement to Armor)|+4 (Enhancement to Shield)|+5 (Enhancement to Weapon or Ammunition)|+5 (Enhancement to Armor)|+5 (Enhancement to Shield)|Adamantine|Throwing)
+#EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst|(EXCLUDE:Armor Spikes|Shield Spikes)
+#EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst|(INCLUDE:+1 (Enhancement to Weapon or Ammunition)|+1 (Enhancement to Armor)|+1 (Enhancement to Shield)|+2 (Enhancement to Weapon or Ammunition)|+2 (Enhancement to Armor)|+2 (Enhancement to Shield)|+3 (Enhancement to Weapon or Ammunition)|+3 (Enhancement to Armor)|+3 (Enhancement to Shield)|+4 (Enhancement to Weapon or Ammunition)|+4 (Enhancement to Armor)|+4 (Enhancement to Shield)|+5 (Enhancement to Weapon or Ammunition)|+5 (Enhancement to Armor)|+5 (Enhancement to Shield)|Adamantine|Throwing)

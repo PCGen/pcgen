@@ -17,12 +17,13 @@ Subduing Strike		TYPE:General	PREATT:2														PRESTAT:1,DEX=13	DESC:You le
 # Feat Name				Type			Source Page
 Cabalistic Spellcasting		TYPE:Elemental	SOURCEPAGE:p.
 Cooperative Spellcasting	TYPE:Elemental	SOURCEPAGE:p.
-Empower Spell			TYPE:Elemental	SOURCEPAGE:p.
-Enlarge Spell			TYPE:Elemental	SOURCEPAGE:p.
-Extend Spell			TYPE:Elemental	SOURCEPAGE:p.
-Maximize Spell			TYPE:Elemental	SOURCEPAGE:p.
-Quicken Spell			TYPE:Elemental	SOURCEPAGE:p.
 Shared Spellcasting		TYPE:Elemental	SOURCEPAGE:p.
-Silent Spell			TYPE:Elemental	SOURCEPAGE:p.
-Spell Focus				TYPE:Elemental	SOURCEPAGE:p.
-Still Spell				TYPE:Elemental	SOURCEPAGE:p.
+
+Empower Spell.MOD			TYPE:Elemental
+Enlarge Spell.MOD			TYPE:Elemental
+Extend Spell.MOD			TYPE:Elemental
+Maximize Spell.MOD		TYPE:Elemental
+Quicken Spell.MOD			TYPE:Elemental
+Silent Spell.MOD			TYPE:Elemental
+Spell Focus.MOD			TYPE:Elemental
+Still Spell.MOD			TYPE:Elemental

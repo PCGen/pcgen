@@ -1,10 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 21:04:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 11 23:16:39 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original entry by: Tir Gwaith
 
-# Template Name	Visible	FAVOREDCLASS
+# Template Name	Visible	Favored Class
 Scholar		VISIBLE:NO	FAVOREDCLASS:Scholar
 Soldier		VISIBLE:NO	FAVOREDCLASS:Soldier
 Gadgeteer		VISIBLE:NO	FAVOREDCLASS:Gadgeteer
 Rogue			VISIBLE:NO	FAVOREDCLASS:Rogue
-Scholar		VISIBLE:NO	FAVOREDCLASS:Scholar

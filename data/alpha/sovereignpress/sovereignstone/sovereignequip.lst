@@ -10,7 +10,6 @@ Tinder box				TYPE:Goods.General											COST:3	WT:.25			SOURCEPAGE:p.
 Vial (Glass)			TYPE:Goods.General.Vial.Container	CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1	COST:.2					SOURCEPAGE:p.
 Paper (Book/Blank)		TYPE:Goods.General											COST:8					SOURCEPAGE:p.
 Quills				TYPE:Goods.General											COST:1	WT:0				SOURCEPAGE:p.
-Belt					TYPE:Goods.Clothing											COST:.2					SOURCEPAGE:p.
 Boots (Riding)			TYPE:Goods.Clothing											COST:5	WT:3				SOURCEPAGE:p.
 Boots (Walking)			TYPE:Goods.Clothing											COST:1	WT:2				SOURCEPAGE:p.
 Boots (Work)			TYPE:Goods.Clothing											COST:2	WT:3				SOURCEPAGE:p.
@@ -20,8 +19,6 @@ Vestments (Mage)			TYPE:Goods.Clothing											COST:7	WT:6				SOURCEPAGE:p.
 Clothes (Merchant)		TYPE:Goods.Clothing											COST:5	WT:6				SOURCEPAGE:p.
 Clothes (Upper Class)		TYPE:Goods.Clothing											COST:50	WT:6				SOURCEPAGE:p.
 Clothes (Unmentionables)	TYPE:Goods.Clothing											COST:.1					SOURCEPAGE:p.
-Gloves				TYPE:Goods.Clothing											COST:.4					SOURCEPAGE:p.
-Hat					TYPE:Goods.Clothing											COST:.2					SOURCEPAGE:p.
 Tunic					TYPE:Goods.Clothing											COST:1	WT:6				SOURCEPAGE:p.
 Ink (1 Oz. Vial/Black)		TYPE:Goods.Liquid.Vial											COST:3	WT:0				SOURCEPAGE:p.
 Ink (1 Oz. Vial/Colored)	TYPE:Goods.Liquid.Vial											COST:6	WT:0				SOURCEPAGE:p.
@@ -38,3 +35,8 @@ Carriage (Ornate)			TYPE:Goods.Mount.Vehicle.Container	CONTAINS:8000|Any=UNLIM		
 Horse (Dwarven/War)		TYPE:Goods.Mount.Container		CONTAINS:690|Any=690					COST:600	WT:0		SIZE:M	SOURCEPAGE:p.
 Saddle blankets			TYPE:Goods.Mount												COST:1	WT:1				SOURCEPAGE:p.
 Tack					TYPE:Goods.Mount												COST:5	WT:3				SOURCEPAGE:p.
+
+# SRD duplicates
+#Belt					TYPE:Goods.Clothing											COST:.2					SOURCEPAGE:p.
+#Gloves				TYPE:Goods.Clothing											COST:.4					SOURCEPAGE:p.
+#Hat					TYPE:Goods.Clothing											COST:.2					SOURCEPAGE:p.
