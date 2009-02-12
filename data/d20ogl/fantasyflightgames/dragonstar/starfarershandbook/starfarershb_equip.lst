@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Feb 12 13:16:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 ###Block: Comm Gear
@@ -45,27 +45,27 @@ Diagnostic monitor	TYPE:HighTechGoods.Medical	COST:300	WT:1		SOURCEPAGE:p.108	BO
 Medkit			TYPE:HighTechGoods.Medical	COST:102	WT:5		SOURCEPAGE:p.109	BONUS:SKILL|Heal|4
 
 ###Block: Survival gear
-# Equipment Name			Type								Contains			Cost		Weight	Source Page		Bonus to skill
-Artificial gill			TYPE:HighTechGoods.Survival								COST:200	WT:5		SOURCEPAGE:p.109
-Backpack				TYPE:HighTechGoods.Survival.Container.Resizable	CONTAINS:100|Any=100	COST:40	WT:2		SOURCEPAGE:p.109
-Climbing gear			TYPE:HighTechGoods.Survival								COST:250	WT:15		SOURCEPAGE:p.109	BONUS:SKILL|Climb|4
-Drysuit				TYPE:HighTechGoods.Survival								COST:800	WT:7		SOURCEPAGE:p.109
-Electronic mapbox			TYPE:HighTechGoods.Survival								COST:750	WT:1		SOURCEPAGE:p.109
-Emergency beacon			TYPE:HighTechGoods.Survival								COST:75	WT:0		SOURCEPAGE:p.109
-Emergency pod			TYPE:HighTechGoods.Survival								COST:1000	WT:15		SOURCEPAGE:p.110
-Filter mask				TYPE:HighTechGoods.Survival								COST:65	WT:1		SOURCEPAGE:p.110
-Fire paste				TYPE:HighTechGoods.Survival								COST:5	WT:0		SOURCEPAGE:p.110
-Flare					TYPE:HighTechGoods.Survival								COST:2	WT:1		SOURCEPAGE:p.110
-Flare gun				TYPE:HighTechGoods.Survival								COST:25	WT:2		SOURCEPAGE:p.110
-Hostile environment suit	TYPE:HighTechGoods.Survival								COST:1400	WT:12		SOURCEPAGE:p.110
-Sleeping bag			TYPE:HighTechGoods.Survival								COST:50	WT:1		SOURCEPAGE:p.110
-Survival kit			TYPE:HighTechGoods.Survival								COST:60	WT:8		SOURCEPAGE:p.110
-Survival rations (1 week)	TYPE:HighTechGoods.Survival								COST:5	WT:3		SOURCEPAGE:p.110
-Temporary shelter (1 person)	TYPE:HighTechGoods.Survival								COST:300	WT:5		SOURCEPAGE:p.110
-Temporary shelter (2 person)	TYPE:HighTechGoods.Survival								COST:500	WT:8		SOURCEPAGE:p.110
-Temporary shelter (5 person)	TYPE:HighTechGoods.Survival								COST:800	WT:15		SOURCEPAGE:p.110
-Temporary shelter (10 person)	TYPE:HighTechGoods.Survival								COST:1500	WT:20		SOURCEPAGE:p.110
-Water purifier			TYPE:HighTechGoods.Survival								COST:15	WT:0		SOURCEPAGE:p.110
+# Equipment Name			Output Name			Type								Contains			Cost		Weight	Source Page		Bonus to skill
+Artificial gill							TYPE:HighTechGoods.Survival								COST:200	WT:5		SOURCEPAGE:p.109
+Backpack (High Tech)		OUTPUTNAME:Backpack	TYPE:HighTechGoods.Survival.Container.Resizable	CONTAINS:100|Any=100	COST:40	WT:2		SOURCEPAGE:p.109
+Climbing gear							TYPE:HighTechGoods.Survival								COST:250	WT:15		SOURCEPAGE:p.109	BONUS:SKILL|Climb|4
+Drysuit								TYPE:HighTechGoods.Survival								COST:800	WT:7		SOURCEPAGE:p.109
+Electronic mapbox							TYPE:HighTechGoods.Survival								COST:750	WT:1		SOURCEPAGE:p.109
+Emergency beacon							TYPE:HighTechGoods.Survival								COST:75	WT:0		SOURCEPAGE:p.109
+Emergency pod							TYPE:HighTechGoods.Survival								COST:1000	WT:15		SOURCEPAGE:p.110
+Filter mask								TYPE:HighTechGoods.Survival								COST:65	WT:1		SOURCEPAGE:p.110
+Fire paste								TYPE:HighTechGoods.Survival								COST:5	WT:0		SOURCEPAGE:p.110
+Flare									TYPE:HighTechGoods.Survival								COST:2	WT:1		SOURCEPAGE:p.110
+Flare gun								TYPE:HighTechGoods.Survival								COST:25	WT:2		SOURCEPAGE:p.110
+Hostile environment suit					TYPE:HighTechGoods.Survival								COST:1400	WT:12		SOURCEPAGE:p.110
+Sleeping bag							TYPE:HighTechGoods.Survival								COST:50	WT:1		SOURCEPAGE:p.110
+Survival kit							TYPE:HighTechGoods.Survival								COST:60	WT:8		SOURCEPAGE:p.110
+Survival rations (1 week)					TYPE:HighTechGoods.Survival								COST:5	WT:3		SOURCEPAGE:p.110
+Temporary shelter (1 person)					TYPE:HighTechGoods.Survival								COST:300	WT:5		SOURCEPAGE:p.110
+Temporary shelter (2 person)					TYPE:HighTechGoods.Survival								COST:500	WT:8		SOURCEPAGE:p.110
+Temporary shelter (5 person)					TYPE:HighTechGoods.Survival								COST:800	WT:15		SOURCEPAGE:p.110
+Temporary shelter (10 person)					TYPE:HighTechGoods.Survival								COST:1500	WT:20		SOURCEPAGE:p.110
+Water purifier							TYPE:HighTechGoods.Survival								COST:15	WT:0		SOURCEPAGE:p.110
 
 ###Block: Espionage gear
 # Equipment Name				Type							Cost		Weight	Source Page		Bonus to skill							Special Property

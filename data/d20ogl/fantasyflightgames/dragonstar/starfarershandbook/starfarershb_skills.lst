@@ -3,14 +3,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 
 #note: need to come back and add integrated toolkits from soulmech/robot upgrades to all kits so neg goes away when the have kit
 
-
-
-
-
 # Skill Name	Key Stat	Untrained?		Skill Penalty Apply	Classes																			Type			Required Feat				Source Page		Bonus to skill
-Alchemy		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence							SOURCEPAGE:p.70	BONUS:SKILL|Alchemy|SynergyBonus|PRESKILL:1,Knowledge (Chemistry)=5|TYPE=Synergy.STACK
-Heal			KEYSTAT:WIS																												TYPE:Wisdom								SOURCEPAGE:p.74	BONUS:SKILL|Heal|SynergyBonus|PRESKILL:1,Profession (Herbalist)=5|TYPE=Synergy.STACK	BONUS:SKILL|Heal|SynergyBonus*2|PRESKILL:1,Profession (Pharmacist)=5|TYPE=Synergy.STACK
-
 Cryptography	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Rogue|Loremaster																TYPE:Intelligence							SOURCEPAGE:p.78
 Demolitions		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Fighter|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior							TYPE:Intelligence	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.79	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions kit,Demolitions kit (masterwork)
 Freefall		KEYSTAT:DEX				ACHECK:YES			CLASSES:Barbarian|Druid|Fighter|Monk|Paladin|Ranger|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior	TYPE:Dexterity							SOURCEPAGE:p.79
@@ -45,7 +38,6 @@ Profession (Computer Programmer)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profess
 Profession (Construction Worker)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Engineer)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Manager)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
-Profession (Miner)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Physician)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Pilot)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Psychologist)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep  7 15:03:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Feb 12 13:03:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
 #Original Entry: darkon_turas; clean up by Andrew Maitland
 #
@@ -37,7 +37,7 @@ CLASS:Faerie Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:3,Mite Fighter,P
 CLASS:Faerie Hunter	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Heal|Hide|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Faerie Hunter|CL
-1	CAST:0,0		BONUS:VAR|SneakAttack|1	BONUS:VAR|FeyWary|1		ABILITY:Special Ability|AUTOMATIC|Fey Wary			AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1	CAST:0,0		BONUS:VAR|SneakAttack|1	BONUS:VAR|FeyWary|1		ABILITY:Special Ability|AUTOMATIC|Fey Wary			AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
 2	CAST:0,1		BONUS:VAR|FaerieFighter|1	BONUS:VAR|FeyHunter|1	ABILITY:Special Ability|AUTOMATIC|FaerieFighter|Fey Hunter
 3	CAST:0,1,0											ABILITY:Special Ability|AUTOMATIC|Smite Fey
 4	CAST:0,1,1		BONUS:VAR|FeyHunter|1	BONUS:VAR|FeyWary|1
@@ -52,8 +52,8 @@ CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Faerier	HD:4		TYPE:PC.Prestige	ABB:Frr		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Required Feat		Required Language	Multiple Requirements																												Maximum Size	Required Skill
-CLASS:Faerier	PREFEAT:1,Alertness	PRELANG:1,Fae	PREMULT:2,[PREMULT:1,[PRESKILL:1,Knowledge (Fey)=8,Knowledge (Nature)=8],[PREVARGTEQ:BardicKnowledge,6]],[PREMULT:1,[PRESKILL:1,Use Magic Device=1],[PRESPELLTYPE:1,Arcane|Divine=1]]	PRESIZELTEQ:M	PRESKILL:3,Diplomacy=8,TYPE.Perform=8,Sense Motive=8
+# Class Name	Required Feat		Required Language	Multiple Requirements																										Maximum Size	Required Skill
+CLASS:Faerier	PREFEAT:1,Alertness	PRELANG:1,Fae	PREMULT:1,[PRESKILL:1,Knowledge (Fey)=8,Knowledge (Nature)=8],[PREVARGTEQ:BardicKnowledge,6]	PREMULT:1,[PRESKILL:1,Use Magic Device=1],[PRESPELLTYPE:1,Arcane=1,Divine=1]	PRESIZELTEQ:M	PRESKILL:3,Diplomacy=8,TYPE.Perform=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
 1	BONUS:ABILITYPOOL|Fey Arts|1	ABILITY:Special Ability|AUTOMATIC|Fey Sense
@@ -103,7 +103,7 @@ CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowl
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey Prankster	HD:8		TYPE:PC.Prestige	ABB:FPk		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*2/3|TYPE=Base.REPLACE
-# Class Name		Required AL				Req. Att.	Required Feat					Required Skill											Req. Spell Type
+# Class Name		Required AL				Req. Att.	Required Feat					Required Skill									Req. Spell Type
 CLASS:Fey Prankster	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Combat Casting,Dodge	PRESKILL:3,Concentration=5,Knowledge (Arcana)=4,Knowledge (Fey)=4	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fey Prankster	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|Pick Pocket|TYPE.Profession|Search|Spot|Tumble|Use Rope
@@ -132,7 +132,7 @@ CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BO
 CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	PRESKILL:1,Knowledge (Fey)=5	!PRETYPE:1,Fey
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
-1	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Fey Sense														AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
+1	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Fey Sense														AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2														SPELLS:Class|TIMES=3|Prestidigitation
 3				ABILITY:Special Ability|AUTOMATIC|Luck of the Fey
 4				ABILITY:Special Ability|AUTOMATIC|Fey Friend
@@ -152,9 +152,9 @@ CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (F
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1						ABILITY:Special Ability|AUTOMATIC|Shining Beacon		AUTO:FEAT|Blind Fight
+1						ABILITY:Special Ability|AUTOMATIC|Shining Beacon		AUTO:FEAT|Blind-Fight
 2	BONUS:VAR|LuckyHitDamage|CL	ABILITY:Special Ability|AUTOMATIC|Lucky Hit
 3						ABILITY:Special Ability|AUTOMATIC|Luck of the Fey
 4

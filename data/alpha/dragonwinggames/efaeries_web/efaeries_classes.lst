@@ -12,13 +12,6 @@ CLASS:The Master of the Hunt	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Climb|TYPE
 1	BONUS:CASTERLEVEL|Ranger|19	BONUS:PCLEVEL|Ranger|20	ADD:SPELLCASTER|1|Ranger	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency|Martial Weapon Proficiency
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page		Levels per Feat	Define
-CLASS:Faerie Dragon	HD:6		TYPE:Monster	ABB:FaeDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:p. 13	LEVELSPERFEAT:4	DEFINE:DragonAge|1
-# Class Name		Required Race			Reg. Race Type
-CLASS:Faerie Dragon	PRERACE:1,Dragon (Faerie%	PRERACETYPE:Dragon
-# Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Faerie Dragon	STARTSKILLPTS:6	CSKILL:Bluff|Escape Artist|Hide|Intuit Direction|Listen|Move Silently|Search|Sense Motive|Spot
-
 #
 # End
 #

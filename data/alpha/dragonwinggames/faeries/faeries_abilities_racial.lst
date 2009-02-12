@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep  7 15:20:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Feb 12 13:03:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
 #Original Entry: darkon_turas; clean up by Andrew Maitland
 
@@ -15,7 +15,6 @@ Fey Racial - Scath	CATEGORY:Special Ability	SAB:+((TL+4)/4) bonus to saves again
 Fey Racial - Sprite	CATEGORY:Special Ability	SAB:+((TL+4)/4) bonus to saves against Illusion and Enchantment effects
 #
 Does Not Age		CATEGORY:Special Ability	SAB:Does not age
-Light Sensitivity		CATEGORY:Special Ability	SAB:Light Sensitivity
 Halt Aging			CATEGORY:Special Ability	SAB:Halt aging
 Halt Aging ~ Half-Fey	CATEGORY:Special Ability	SAB:Halt aging after 3d20 years
 
@@ -63,7 +62,7 @@ Wings (Furred Flaps)	CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SAB:Racial 
 Acid Fog									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Acid Fog,16+CHA								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Bad Luck									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Bad Luck,11+CHA								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
 Bad Luck at will								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Bad Luck,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
-Charm Person								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Charm Person,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
+Charm Person			KEY:Faerie Charm Person		CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Charm Person,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
 Cone of Cold								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Cone of Cold,15+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Control Water								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Control Water,16+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Damage Reduction			KEY:Faerie Damage Reduction	CATEGORY:Special Ability	TYPE:FaerieRacialTrait																		STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1		DR:5/+1		COST:1	SOURCEPAGE:p.7
@@ -71,9 +70,9 @@ Dimension Door 1/day							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELL
 Dimension Door 3/day							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Dimension Door,14+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Elemental Swarm								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Elemental Swarm,19+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
 Faerie Fire									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=5|CASTERLEVEL=max(TL,1)|Faerie Fire,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
-Fear										CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Fear,14+CHA								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
+Fear					KEY:Faerie Fear			CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Fear,14+CHA								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
 Fly										CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Fly,13+CHA								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
-Fog Cloud									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Fog Cloud,12+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
+Fog Cloud				KEY:Faerie Fog Cloud		CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Fog Cloud,12+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
 Good Luck									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Good Luck,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
 Good Luck at will								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Good Luck,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Horrid Wilting								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Horrid Wilting,18+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.25				COST:1	SOURCEPAGE:p.7
@@ -84,57 +83,49 @@ Invisibility (Greater)							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPE
 Invisibility (Natural)							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Invisibility,12+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
 Irresistible Dance							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Irresistible Dance,18+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
 Obscuring Mist								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=5|CASTERLEVEL=max(TL,1)|Obscuring Mist,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
-Polymorph Self								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+Polymorph Self			KEY:Faerie Polymorph Self	CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Polymorph Self at will							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|2					COST:1	SOURCEPAGE:p.7
-Shrink									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Shrink								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
+Shrink									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Shrink Creature							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
 Sleep										CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Sleep,11+CHA								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7
-Slumber									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Slumber								STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
+Slumber									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Sleep,11+CHA							STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.75				COST:1	SOURCEPAGE:p.7
 Speak with Animals or Plants						CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Speak with Animals,12+CHA|Speak with Plants,13+CHA	STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
-Water Breathing								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Water Breathing,13+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
+Water Breathing			KEY:Faerie Water Breathing	CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Water Breathing,13+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
 Water Walk									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Water Walk,13+CHA						STACK:NO	MULT:NO	BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
 
 
 ###Block:Monster section -------------------------------------------------------------------
 
 #Guardian
-# Ability Name				Category of Ability		Type									Visible	Special ABility																Define													Innate Spells																																																																																																																							Description																																																																				Stackable?	Multiple?	Choose					Save checks bonus		Misc bonus		Bonus to skill					Stat bonus																	Modify VAR																Spell Res.		Source Page
-Summon Lesser Jabberwock		CATEGORY:Special Ability	TYPE:SpecialAttack								SAB:Summon Lesser Jabberwock (Ex)
-Bad Luck Of The Fey			CATEGORY:Special Ability	TYPE:SpecialQuality.Spelllike.HighFeySA					SAB:Bad Luck of the Fey (Sp)
-Incorporeal					CATEGORY:Special Ability	TYPE:SpecialQuality								SAB:Incorporeal
-Telepathy					CATEGORY:Special Ability	TYPE:SpecialQuality								SAB:Communicate via Telepathy % ft. with any sentient creature|TelepathyRange						DEFINE:TelepathyRange|0
-Guardian Qualities			CATEGORY:Special Ability	TYPE:SpecialQuality								SAB:Guardian Qualities
+# Ability Name				Category of Ability		Type							Special ABility																Define													Innate Spells																																																																																																																							Stackable?	Multiple?	Choose					Save checks bonus		Misc bonus		Bonus to skill					Stat bonus																	Modify VAR																Spell Res.
+Summon Lesser Jabberwock		CATEGORY:Special Ability	TYPE:SpecialAttack				SAB:Summon Lesser Jabberwock (Ex)
+Bad Luck Of The Fey			CATEGORY:Special Ability	TYPE:SpecialQuality.Spelllike.HighFeySA	SAB:Bad Luck of the Fey (Sp)
+Incorporeal					CATEGORY:Special Ability	TYPE:SpecialQuality				SAB:Incorporeal
+Guardian Qualities			CATEGORY:Special Ability	TYPE:SpecialQuality				SAB:Guardian Qualities
 
 #
-Breath Weapon ~ Faerie Dragon		CATEGORY:Special Ability												SAB:Breath Weapon ~ Fortitude DC %|FaerieDragonBreathDC									DEFINE:FaerieDragonBreathDC|0
-Spells ~ Faerie Dragon			CATEGORY:Special Ability																																																																																																																																																																																																																																										STACK:NO	MULT:YES	CHOOSE:STRING|Filler|Wizard|Cleric
-Natural Invisibility			CATEGORY:Special Ability												SAB:Natural Invisibility (Su)
-Spell Resistance ~ Faerie Dragon	CATEGORY:Special Ability																														DEFINE:FaerieDragonSR|0																																																																																																																																																																																																																																																																				SR:FaerieDragonSR
+Breath Weapon ~ Faerie Dragon		CATEGORY:Special Ability								SAB:Breath Weapon ~ Fortitude DC %|FaerieDragonBreathDC									DEFINE:FaerieDragonBreathDC|0
+Spells ~ Faerie Dragon			CATEGORY:Special Ability																																																																																																																																																																	STACK:NO	MULT:YES	CHOOSE:STRING|Filler|Wizard|Cleric
+Spell Resistance ~ Faerie Dragon	CATEGORY:Special Ability																										DEFINE:FaerieDragonSR|0																																																																																																																																																																																															SR:FaerieDragonSR
 
 
 #Fey Steed
-Long-Lived					CATEGORY:Special Ability												SAB:Long-Lived
-Magic Circle Against Evil		CATEGORY:Special Ability												SAB:Magic Circle Against Evil
+Long-Lived					CATEGORY:Special Ability								SAB:Long-Lived
 
 #Jaberwock
-Acidic Bite					CATEGORY:Special Ability												SAB:Acidic Bite ~ %d% acid damage Fortitude DC %|AcidicBiteDamage|AcidicBiteSize|AcidicBiteDC			DEFINE:AcidicBiteDamage|0	DEFINE:AcidicBiteSize|0	DEFINE:AcidicBiteDC|0																																																																																																																																																																																																																																										BONUS:VAR|AcidicBiteSize|8	BONUS:VAR|AcidicBiteDamage|2	BONUS:VAR|AcidicBiteDC|10+(HD/2)+CON
-Breath Weapon ~ Jabberwock		CATEGORY:Special Ability												SAB:Breath Weapon ~ Cone of Fire ~ %d% DC % Fortitude Half|JabberwockBWDie|JabberwockBWSize|JabberwockBWDC	DEFINE:JabberwockBWDie|0	DEFINE:JabberwockBWSize|0	DEFINE:JabberwockBWDC|0
-Acid Spray					CATEGORY:Special Ability												SAB:Acidic Spray ~ %d% acid damage Fortitude DC %|AcidicSprayDamage|AcidicSpraySize|AcidicSprayDC		DEFINE:AcidicSprayDamage|0	DEFINE:AcidicSpraySize|0	DEFINE:AcidicSprayDC|0																																																																																																																																																																																																																																									BONUS:VAR|AcidicSpraySize|8	BONUS:VAR|AcidicSprayDamage|4	BONUS:VAR|AcidicSprayDC|10+(HD/2)+CON
+Acidic Bite					CATEGORY:Special Ability								SAB:Acidic Bite ~ %d% acid damage Fortitude DC %|AcidicBiteDamage|AcidicBiteSize|AcidicBiteDC			DEFINE:AcidicBiteDamage|0	DEFINE:AcidicBiteSize|0	DEFINE:AcidicBiteDC|0																																																																																																																																																																					BONUS:VAR|AcidicBiteSize|8	BONUS:VAR|AcidicBiteDamage|2	BONUS:VAR|AcidicBiteDC|10+(HD/2)+CON
+Breath Weapon ~ Jabberwock		CATEGORY:Special Ability								SAB:Breath Weapon ~ Cone of Fire ~ %d% DC % Fortitude Half|JabberwockBWDie|JabberwockBWSize|JabberwockBWDC	DEFINE:JabberwockBWDie|0	DEFINE:JabberwockBWSize|0	DEFINE:JabberwockBWDC|0
+Acid Spray ~ Jabberwock			CATEGORY:Special Ability								SAB:Acidic Spray ~ %d% acid damage Fortitude DC %|AcidicSprayDamage|AcidicSpraySize|AcidicSprayDC		DEFINE:AcidicSprayDamage|0	DEFINE:AcidicSpraySize|0	DEFINE:AcidicSprayDC|0																																																																																																																																																																				BONUS:VAR|AcidicSpraySize|8	BONUS:VAR|AcidicSprayDamage|4	BONUS:VAR|AcidicSprayDC|10+(HD/2)+CON
 #
-Frightful Presence			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MindAffecting.Fear	VISIBLE:NO	SAB:Frightful Presence (Ex) DC %|FrightfulPresenceDC										DEFINE:FrightfulPresenceDC|10+(HD/2)+CHA																																																																																																																																	DESC:Your very presence unsettling to foes. It takes effect automatically when you perform some sort of dramatic action (such as charging, attacking, or snarling). Opponents within range who witness the action may become frightened or shaken.																																																																																											SOURCEPAGE:TypesSubtypesAbilities.rtf
-Improved Grab				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:NO	SAB:Improved Grab (Ex)																																																																																																																																																						DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.																																																															SOURCEPAGE:TypesSubtypesAbilities.rtf
-Scent						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:NO	SAB:Scent (Ex) %-ft. range|ScentRange	SAB:Scent (Ex)|PREVAREQ:ScentRange,0					DEFINE:ScentRange|0
-Snatch					CATEGORY:Special Ability												SAB:Snatch
 
 ### Satyrs
-Trample					CATEGORY:Special Ability												SAB:Trample
-Jump						CATEGORY:Special Ability												SAB:Jump																																																																																																																																																																																																																																														BONUS:SKILL|Jump|5|!PRESTAT:1,STR=10
-Laugh						CATEGORY:Special Ability	TYPE:Supernatural									SAB:Laugh (Su)
-Spell-like Abilities ~ Korred		CATEGORY:Special Ability																																												SPELLS:Race|TIMES=3|CASTERLEVEL=12|Stone Tell	SPELLS:Race|TIMES=2|CASTERLEVEL=12|Phase Door	SPELLS:Race|TIMES=1|CASTERLEVEL=12|Transmute Mud to Rock	SPELLS:Race|TIMES=1|CASTERLEVEL=12|Transmute Rock to Mud
+Jump						CATEGORY:Special Ability								SAB:Jump																																																																																																																																																																									BONUS:SKILL|Jump|5|!PRESTAT:1,STR=10
+Laugh						CATEGORY:Special Ability	TYPE:Supernatural					SAB:Laugh (Su)
+Spell-like Abilities ~ Korred		CATEGORY:Special Ability																																								SPELLS:Race|TIMES=3|CASTERLEVEL=12|Stone Tell	SPELLS:Race|TIMES=2|CASTERLEVEL=12|Phase Door	SPELLS:Race|TIMES=1|CASTERLEVEL=12|Transmute Mud to Rock	SPELLS:Race|TIMES=1|CASTERLEVEL=12|Transmute Rock to Mud
 
 ### FeyBorn
-FeyBornAbilities				CATEGORY:Special Ability																																												SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Good Luck|PREPCLEVEL:MIN=1	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Second Sight|PREPCLEVEL:MIN=3	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Luck of the Fey|PREPCLEVEL:MIN=5	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Laughing Gas|PREPCLEVEL:MIN=7	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Shrink Creature|PREPCLEVEL:MIN=9	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fork Path|PREPCLEVEL:MIN=11	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Stray from Path|PREPCLEVEL:MIN=13	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Curtain|PREPCLEVEL:MIN=15	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Summon Fey IX|PREPCLEVEL:MIN=17	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Create Doorway and Sideroad|PREPCLEVEL:MIN=19																																																																																				BONUS:CHECKS|ALL|1	BONUS:MISC|CR|3								BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|4	BONUS:STAT|WIS|4	BONUS:STAT|CHA|4
-Half-FeyCreatureAbilities		CATEGORY:Special Ability																																												SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Bad Luck|Good Luck|PREPCLEVEL:MIN=1	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Second Sight|PREPCLEVEL:MIN=3	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fitful Sleep|Luck of the Fey|PREPCLEVEL:MIN=5	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Anti-Life Filter|PREPCLEVEL:MIN=7	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Shrink Creature|PREPCLEVEL:MIN=9	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fork Path|PREPCLEVEL:MIN=11	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Stray from Path|PREPCLEVEL:MIN=13	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Curtain|PREPCLEVEL:MIN=15	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Summon Fey IX|PREPCLEVEL:MIN=17	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Create Doorway and Sideroad|PREPCLEVEL:MIN=19
-ShadowBornAbilities			CATEGORY:Special Ability																																												SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Bad Luck|PREPCLEVEL:MIN=1	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Disrobe|PREPCLEVEL:MIN=3	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fitful Sleep|PREPCLEVEL:MIN=5	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Antilife Filter|PREPCLEVEL:MIN=7	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Sleepless Curse|PREPCLEVEL:MIN=9	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Recurring Nightmare|PREPCLEVEL:MIN=11	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Decree|PREPCLEVEL:MIN=13	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Curtain|PREPCLEVEL:MIN=15	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Summon Fey IX|PREPCLEVEL:MIN=17	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Create Doorway and Sideroad|PREPCLEVEL:MIN=19
+FeyBornAbilities				CATEGORY:Special Ability																																								SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Good Luck|PREPCLEVEL:MIN=1	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Second Sight|PREPCLEVEL:MIN=3	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Luck of the Fey|PREPCLEVEL:MIN=5	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Laughing Gas|PREPCLEVEL:MIN=7	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Shrink Creature|PREPCLEVEL:MIN=9	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fork Path|PREPCLEVEL:MIN=11	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Stray from Path|PREPCLEVEL:MIN=13	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Curtain|PREPCLEVEL:MIN=15	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Summon Fey IX|PREPCLEVEL:MIN=17	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Create Doorway and Sideroad|PREPCLEVEL:MIN=19															BONUS:CHECKS|ALL|1	BONUS:MISC|CR|3								BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|4	BONUS:STAT|WIS|4	BONUS:STAT|CHA|4
+Half-FeyCreatureAbilities		CATEGORY:Special Ability																																								SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Bad Luck|Good Luck|PREPCLEVEL:MIN=1	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Second Sight|PREPCLEVEL:MIN=3	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fitful Sleep|Luck of the Fey|PREPCLEVEL:MIN=5	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Antilife Filter|PREPCLEVEL:MIN=7	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Shrink Creature|PREPCLEVEL:MIN=9	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fork Path|PREPCLEVEL:MIN=11	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Stray from Path|PREPCLEVEL:MIN=13	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Curtain|PREPCLEVEL:MIN=15	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Summon Fey IX|PREPCLEVEL:MIN=17	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Create Doorway and Sideroad|PREPCLEVEL:MIN=19
+ShadowBornAbilities			CATEGORY:Special Ability																																								SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Bad Luck|PREPCLEVEL:MIN=1	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Disrobe|PREPCLEVEL:MIN=3	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fitful Sleep|PREPCLEVEL:MIN=5	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Antilife Filter|PREPCLEVEL:MIN=7	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Sleepless Curse|PREPCLEVEL:MIN=9	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Recurring Nightmare|PREPCLEVEL:MIN=11	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Decree|PREPCLEVEL:MIN=13	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Fey Curtain|PREPCLEVEL:MIN=15	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Summon Fey IX|PREPCLEVEL:MIN=17	SPELLS:Race|TIMES=1|CASTERLEVEL=TL|Create Doorway and Sideroad|PREPCLEVEL:MIN=19
 
 
 ###Block: High Fey SA
@@ -148,13 +139,8 @@ High Fey Spells		CATEGORY:Special Ability	TYPE:HighFeySA.Spelllike	SAB:Spells (S
 ###Block: High Fey SQ
 # Ability Name	Category of Ability		Special ABility						Define				Innate Spells					Template				Modify VAR				Vision			Spell Res.
 # Note: need to change these names, they match abilities which will soon exist in the core data, also I don't see where they are being used.
-# Ability Name	Category of Ability		Special ABility						Define				Innate Spells					Template				Modify VAR				Vision			Spell Res.
-Damage Reduction	CATEGORY:Special Ability	SAB:Damage Reduction (Su)																TEMPLATE:CHOOSE:HasDR|HasNoDR
-Fast Healing	CATEGORY:Special Ability	SAB:Fast Healing (Ex) ~ % hp|FastHealingRate	DEFINE:FastHealingRate|0													BONUS:VAR|FastHealingRate|3
-Haste			CATEGORY:Special Ability	SAB:Haste (Sp)											SPELLS:Race|CASTERLEVEL=(HD/2)|Haste
+# Ability Name	Category of Ability		Special ABility
 Reflective Hide	CATEGORY:Special Ability	SAB:Reflective Hide (Ex)
-See in Darkness	CATEGORY:Special Ability	SAB:See in Darkness (Ex)																										VISION:Darkvision (60')
-Spell Resistance	CATEGORY:Special Ability	SAB:Spell Resistance (Ex)																														SR:12
 
 ###Block: Fey Natural Attacks -----------------------------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Natural Attacks
