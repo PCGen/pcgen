@@ -1950,14 +1950,17 @@ public final class EditorMainForm extends JDialog
 				}
 
 				List<PersistentTransitionChoice<?>> lista = thisPObject.getListFor(ListKey.TEMPLATE_FEAT);
-				for (PersistentTransitionChoice<?> ptc : lista)
+				if (lista != null)
 				{
-					for (String str : ptc.getChoices().getLSTformat().split(","))
+					for (PersistentTransitionChoice<?> ptc : lista)
 					{
-						if (!selectedTemplateFeatsList.contains(str))
+						for (String str : ptc.getChoices().getLSTformat().split(","))
 						{
-							availableTemplateFeatsList.remove(str);
-							selectedTemplateFeatsList.add(str);
+							if (!selectedTemplateFeatsList.contains(str))
+							{
+								availableTemplateFeatsList.remove(str);
+								selectedTemplateFeatsList.add(str);
+							}
 						}
 					}
 				}

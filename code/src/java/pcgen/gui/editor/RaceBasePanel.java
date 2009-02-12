@@ -261,7 +261,11 @@ public class RaceBasePanel extends BasePanel
 	public void setRaceSize(final Formula f)
 	{
 		cmbSize.setSelectedIndex(0);
-
+		if (f == null)
+		{
+			return;
+		}
+		
 		String aString = f.toString();
 		for (int index = 0; index < sizeAbbrev.length; index++)
 		{
@@ -423,7 +427,11 @@ public class RaceBasePanel extends BasePanel
 			raceTypeNames[i] = typeArr[i].toString();
 		}
 		cmbRaceType.setModel(new DefaultComboBoxModel(raceTypeNames));
-		cmbRaceType.setSelectedItem(thisRace.get(ObjectKey.RACETYPE).toString());
+		RaceType rt = thisRace.get(ObjectKey.RACETYPE);
+		if (rt != null)
+		{
+			cmbRaceType.setSelectedItem(rt.toString());
+		}
 		
 		///
 		/// Populate the monster classes
