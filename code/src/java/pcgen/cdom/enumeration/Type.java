@@ -99,8 +99,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	{
 		if (name == null)
 		{
-			throw new IllegalArgumentException(
-					"Name for Type cannot be null");
+			throw new IllegalArgumentException("Name for Type cannot be null");
 		}
 		ordinal = ordinalCount++;
 		fieldName = name;
@@ -127,8 +126,8 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 
 	/**
 	 * Converts this Constant to a String (returns the name of this Constant)
-	 * that is suitable for backwards compatible comparison. The returned 
-	 * value will always be uppercase.
+	 * that is suitable for backwards compatible comparison. The returned value
+	 * will always be uppercase.
 	 * 
 	 * @return The string representation (name) of this Constant
 	 */
@@ -208,11 +207,20 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 		typeMap.clear();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	public int compareTo(Type o)
 	{
+		/*
+		 * Note: Some tools will report a problem here because Type implements
+		 * compareTo, but does not implement custom implementations of hashCode
+		 * or equals(). Because this is intended as a TypeSafeConstant, and Type
+		 * has a private constructor, it is unnecessary to implement a custom
+		 * hashCode or equals.
+		 */
 		return fieldName.compareTo(o.fieldName);
 	}
 }

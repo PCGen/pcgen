@@ -99,6 +99,12 @@ public class FixedSizeFormula implements Formula
 	 * construction of the FixedSizeFormula. This is resolved in context to the
 	 * given PlayerCharacter and Source identifier.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter relative to which the FixedSizeFormula
+	 *            should be resolved (ignored)
+	 * @param source
+	 *            The source object of the FixedSizeFormula, for purposes of
+	 *            resolution (ignored)
 	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
 	 *         represents.
 	 */
@@ -113,11 +119,24 @@ public class FixedSizeFormula implements Formula
 	 * a piece of Equipment, the given PlayerCharacter, and the given Source
 	 * identifier.
 	 * 
+	 * @param equipment
+	 *            The Equipment relative to which the FixedSizeFormula should be
+	 *            resolved (ignored)
+	 * @param primary
+	 *            True if the primary head of the given Equipment should be used
+	 *            for resolution, false if the secondary head should be used for
+	 *            resolution (ignored)
+	 * @param apc
+	 *            The PlayerCharacter relative to which the FixedSizeFormula
+	 *            should be resolved (ignored)
+	 * @param source
+	 *            The source object of the FixedSizeFormula, for purposes of
+	 *            resolution (ignored)
 	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
 	 *         represents.
 	 */
 	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String string)
+			PlayerCharacter apc, String source)
 	{
 		return Globals.sizeInt(size.getAbbreviation());
 	}

@@ -175,6 +175,13 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 
 	public int compareTo(Region r0)
 	{
+		/*
+		 * Note: Some tools will report a problem here because Region implements
+		 * compareTo, but does not implement custom implementations of hashCode
+		 * or equals(). Because this is intended as a TypeSafeConstant, and Type
+		 * has a private constructor, it is unnecessary to implement a custom
+		 * hashCode or equals.
+		 */
 		return fieldName.compareToIgnoreCase(r0.fieldName);
 	}
 
