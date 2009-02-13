@@ -59,6 +59,11 @@ public class ChooseLst extends AbstractToken implements
 			key = "FEAT";
 			val = value.substring(5);
 		}
+		else if (value.startsWith("LANGAUTO:"))
+		{
+			key = "LANGAUTO";
+			val = value.substring(9);
+		}
 		else if (pipeLoc == -1)
 		{
 			key = value;
