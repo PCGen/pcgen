@@ -36,10 +36,12 @@ import pcgen.core.Ability.Nature;
 public class AbilityList extends CDOMListObject<Ability>
 {
 
-	
-	public static final DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>> map =
-			new DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>>();
-	
+	/**
+	 * Stores references to the "master" set of lists that are unique for a
+	 * given Category/Nature combination.
+	 */
+	public static final DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>> MASTER_MAP = new DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>>();
+
 	/**
 	 * Returns the Ability Class object (Ability.class)
 	 * 
@@ -59,26 +61,57 @@ public class AbilityList extends CDOMListObject<Ability>
 		return false;
 	}
 
-	public static CDOMReference<AbilityList> getAbilityListReference(Category<Ability> category,
-		Nature nature)
+	/**
+	 * Retrieves a reference to the "master" list for a given Category/Nature
+	 * combination. The appropriate reference and list are constructed if they
+	 * do not already exist.
+	 * 
+	 * @param category
+	 *            The Ability Category for which the "master" AbilityList should
+	 *            be returned.
+	 * @param nature
+	 *            The Ability Nature for which the "master" AbilityList should
+	 *            be returned.
+	 * @return A reference to the "master" list for a given Category/Nature
+	 *         combination.
+	 */
+	public static CDOMReference<AbilityList> getAbilityListReference(
+			Category<Ability> category, Nature nature)
 	{
-		CDOMReference<AbilityList> list = map.get(category, nature);
+		CDOMReference<AbilityList> list = MASTER_MAP.get(category, nature);
 		if (list == null)
 		{
 			AbilityList al = new AbilityList();
 			al.setName("*" + category.toString() + ":" + nature.toString());
 			list = CDOMDirectSingleRef.getRef(al);
-			map.put(category, nature, list);
+			MASTER_MAP.put(category, nature, list);
 		}
 		return list;
 	}
 
+	/**
+	 * Returns a Collection of references to all of the "master" AbilityList
+	 * objects retrieved through the getAbilityListReference method.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify the "master" AbilityList
+	 * collection and modification of the "master" AbilityList collection
+	 * through subsequent calls of getAbilityListReference will not modify the
+	 * returned Collection.
+	 * 
+	 * This method will not return null, even if getAbilityListReference was
+	 * never called.
+	 * 
+	 * @return A Collection of references to all of the "master" AbilityList
+	 *         objects retrieved through the getAbilityListReference method.
+	 */
 	public static Collection<CDOMReference<AbilityList>> getAbilityLists()
 	{
 		List<CDOMReference<AbilityList>> list = new ArrayList<CDOMReference<AbilityList>>();
-		for (Category<Ability> cat : map.getKeySet())
+		for (Category<Ability> cat : MASTER_MAP.getKeySet())
 		{
-			list.addAll(map.values(cat));
+			list.addAll(MASTER_MAP.values(cat));
 		}
 		return list;
 	}

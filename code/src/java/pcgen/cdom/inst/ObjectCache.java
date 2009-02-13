@@ -36,23 +36,32 @@ import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.enumeration.VisionType;
 
+/**
+ * An ObjectCache is a CDOMObject designed to serve as a cahce of information
+ * for a PlayerCharacter. It is therefore somewhat simple (non-typed) and
+ * contains some specialized caching functions.
+ */
 public class ObjectCache extends CDOMObject
 {
 
+	/**
+	 * Returns false, as ObjectCache never has a type.
+	 */
 	@Override
 	public boolean isType(String str)
 	{
 		return false;
 	}
 
-	public void initializeListFor(ListKey<?> lk)
-	{
-		listChar.initializeListFor(lk);
-	}
-
+	/**
+	 * Initializes the Vision cache for the given PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter to be used to initialize the Vision cache.
+	 */
 	public void initializeVisionCache(PlayerCharacter pc)
 	{
-		initializeListFor(ListKey.VISION_CACHE);
+		listChar.initializeListFor(ListKey.VISION_CACHE);
 		Map<VisionType, Integer> map = new HashMap<VisionType, Integer>();
 		for (CDOMObject cdo : pc.getCDOMObjectList())
 		{
@@ -110,9 +119,27 @@ public class ObjectCache extends CDOMObject
 		}
 		addAllToListFor(ListKey.VISION_CACHE, set);
 	}
-	
+
+	/**
+	 * Stores a cache of the cost of each Skill based on the Skill's key and
+	 * PCClass
+	 */
 	private final DoubleKeyMap<String, PCClass, SkillCost> skillCostMap = new DoubleKeyMap<String, PCClass, SkillCost>();
 
+	/**
+	 * Returns the cost of a given Skill for the given PlayerCharacter and
+	 * PCClass.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the SkillCost is being
+	 *            calculated.
+	 * @param skill
+	 *            The Skill for which the SkillCost is being calculated.
+	 * @param pcc
+	 *            The PCClass for which the SkillCost is being calculated.
+	 * @return The cost of a given Skill for the given PlayerCharacter and
+	 *         PCClass.
+	 */
 	public SkillCost getSkillCost(PlayerCharacter pc, Skill skill, PCClass pcc)
 	{
 		String sk = skill.getKeyName();
