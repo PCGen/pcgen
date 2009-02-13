@@ -44,9 +44,6 @@ import pcgen.core.PlayerCharacter;
  * SpellCasterChoiceSet. The contents of a SpellCasterChoiceSet is fixed, and
  * will not vary by the PlayerCharacter used to resolve the
  * SpellCasterChoiceSet.
- * 
- * @param <T>
- *            The class of object this ReferenceChoiceSet contains.
  */
 public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		PrimitiveChoiceSet<PCClass>
@@ -124,14 +121,19 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * SpellCasterChoiceSet, and the SpellCasterChoiceSet will not modify the
 	 * given List.
 	 * 
-	 * @param spelltypes
 	 * @param allRef
-	 * 
+	 *            The "ALL" Reference for PCClass objects
+	 * @param spelltype
+	 *            A List of spell types that this SpellCasterChoiceSet will
+	 *            allow to be used to select a PCClass
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of objects
-	 *            contained within the SpellCasterChoiceSet
-	 * @throws IllegalArgumentException
-	 *             if the given Collection is null or empty.
+	 *            contained within the SpellCasterChoiceSet which were
+	 *            referenced by group (e.g. TYPE=)
+	 * @param prim
+	 *            A Collection of CDOMReferences which define the Set of
+	 *            primitive objects contained within the SpellCasterChoiceSet
+	 *            which were referenced by key
 	 */
 	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef,
 			List<String> spelltype, PrimitiveChoiceSet<PCClass> col,
@@ -147,6 +149,9 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	/**
 	 * Returns a representation of this SpellCasterChoiceSet, suitable for
 	 * storing in an LST file.
+	 * 
+	 * @return A representation of this SpellCasterChoiceSet, suitable for
+	 *         storing in an LST file.
 	 */
 	@Override
 	public String getLSTformat()
@@ -157,17 +162,23 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	/**
 	 * Returns a representation of this SpellCasterChoiceSet, suitable for
 	 * storing in an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this SpellCasterChoiceSet, suitable for
+	 *         storing in an LST file.
 	 */
-	public String getLSTformat(boolean b)
+	public String getLSTformat(boolean useAny)
 	{
 		List<String> list = new ArrayList<String>();
 		if (primitives != null)
 		{
-			list.add(primitives.getLSTformat(b));
+			list.add(primitives.getLSTformat(useAny));
 		}
 		if (pcset != null)
 		{
-			list.add(pcset.getLSTformat(b));
+			list.add(pcset.getLSTformat(useAny));
 		}
 		if (!spelltypes.isEmpty())
 		{
@@ -208,6 +219,9 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * returned set will result in modification of the PCClass objects contained
 	 * within this SpellCasterChoiceSet.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            SpellCasterChoiceSet should be returned.
 	 * @return A Set containing the Objects which this SpellCasterChoiceSet
 	 *         contains.
 	 */

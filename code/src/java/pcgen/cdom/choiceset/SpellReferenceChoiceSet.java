@@ -98,6 +98,12 @@ public class SpellReferenceChoiceSet implements
 	/**
 	 * Returns a representation of this SpellReferenceChoiceSet, suitable for
 	 * storing in an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this SpellReferenceChoiceSet, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{
@@ -162,6 +168,9 @@ public class SpellReferenceChoiceSet implements
 	 * SpellReferenceChoiceSet, and modifying the SpellReferenceChoiceSet after
 	 * the Set is returned should not modify the Set.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            SpellReferenceChoiceSet should be returned.
 	 * @return A Set containing the CDOMListObjects which this
 	 *         SpellReferenceChoiceSet contains.
 	 */

@@ -31,30 +31,58 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
+/**
+ * An AbilityFromClassChoiceSet is a PrimitiveChoiceSet that draws Abilities
+ * from a specific PCClass. These Ability objects are previously selected
+ * Ability objects; thus AbilityFromClassChoiceSet is intended to be used during
+ * object removal from a PlayerCharacter, not object addition.
+ * 
+ * In particular, AbilityFromClassChoiceSet is designed to handle
+ * REMOVE:FEAT|Class.???
+ */
 public class AbilityFromClassChoiceSet implements
 		PrimitiveChoiceSet<AbilitySelection>
 {
 
+	/**
+	 * The underlying class from which this AbilityFromClassChoiceSet can draw
+	 * Abilities
+	 */
 	private final CDOMSingleRef<PCClass> cl;
 
+	/**
+	 * Constructs a new AbilityFromClassChoiceSet which refers to the PCClass
+	 * provided in the given CDOMSingleRef.
+	 * 
+	 * @param pcc
+	 *            A reference to the PCClass this AbilityFromClassChoiceSet can
+	 *            draw Abilities from
+	 */
 	public AbilityFromClassChoiceSet(CDOMSingleRef<PCClass> pcc)
 	{
 		cl = pcc;
 	}
 
+	/**
+	 * Returns a representation of this AbilityFromClassChoiceSet, suitable for
+	 * storing in an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this AbilityFromClassChoiceSet, suitable for
+	 *         storing in an LST file.
+	 */
 	public String getLSTformat(boolean useAny)
 	{
 		return "CLASS." + cl.getLSTformat();
 	}
 
 	/**
-	 * Returns true if this AbilityFromClassReference is equal to the given
-	 * Object. Equality is defined as being another AbilityFromClassReference
-	 * object with equal Class represented by the reference, an equal staring
-	 * CDOMGroupRef and an equal pattern. This may or may not be a deep .equals,
-	 * depending on the behavior of the underlying CDOMGroupRef. You should
-	 * check the documentation for the .equals(Object) method of that class to
-	 * establish the actual behavior of this method.
+	 * Returns true if this AbilityFromClassChoiceSet is equal to the given
+	 * Object. Equality is defined as being another AbilityFromClassChoiceSet
+	 * object with equal Class represented by the reference provided during
+	 * construction of the AbilityFromClassChoiceSets
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -71,7 +99,7 @@ public class AbilityFromClassChoiceSet implements
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this
-	 * AbilityFromClassReference
+	 * AbilityFromClassChoiceSet
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -81,11 +109,32 @@ public class AbilityFromClassChoiceSet implements
 		return cl.hashCode();
 	}
 
+	/**
+	 * Returns the Class contained within this AbilityFromClassChoiceSet
+	 * 
+	 * @return the Class contained within this AbilityFromClassChoiceSet
+	 */
 	public Class<? super AbilitySelection> getChoiceClass()
 	{
 		return AbilitySelection.class;
 	}
 
+	/**
+	 * Returns a Set containing the Objects which this AbilityFromClassChoiceSet
+	 * contains.
+	 * 
+	 * This method is value-semantic, meaning that ownership of the Set returned
+	 * by this method will be transferred to the calling object. Modification of
+	 * the returned Set will not modify the AbilityFromClassChoiceSet, and
+	 * modifying the AbilityFromClassChoiceSet after the Set is returned will
+	 * not modify the Set.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            AbilityFromClassChoiceSet should be returned.
+	 * @return A Set containing the Objects which this AbilityFromClassChoiceSet
+	 *         contains.
+	 */
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
 		PCClass aClass = cl.resolvesTo().getActiveEquivalent(pc);

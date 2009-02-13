@@ -83,6 +83,8 @@ public class QualifiedDecorator<T extends PObject> implements
 	 * @param useAny
 	 *            use "ANY" for the global "ALL" reference when creating the LST
 	 *            format
+	 * @return A representation of this QualifiedDecorator, suitable for storing
+	 *         in an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{
@@ -102,6 +104,9 @@ public class QualifiedDecorator<T extends PObject> implements
 	 * the objects contained within the returned Set will modify the objects
 	 * within this QualifiedDecorator.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            QualifiedDecorator should be returned.
 	 * @return A Set containing the Objects which this QualifiedDecorator
 	 *         contains.
 	 */

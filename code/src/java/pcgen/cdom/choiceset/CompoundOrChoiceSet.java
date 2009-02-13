@@ -69,13 +69,13 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> coll)
+	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> col)
 	{
-		if (coll == null)
+		if (col == null)
 		{
 			throw new IllegalArgumentException();
 		}
-		set.addAll(coll);
+		set.addAll(col);
 	}
 
 	/**
@@ -90,6 +90,9 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * will result in modification of the PCClass objects contained within this
 	 * ClassReferenceChoiceSet.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            CompoundOrChoiceSet should be returned.
 	 * @return A Set containing the Objects which this CompoundOrChoiceSet
 	 *         contains.
 	 */
@@ -110,6 +113,8 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @param useAny
 	 *            use "ANY" for the global "ALL" reference when creating the LST
 	 *            format
+	 * @return A representation of this CompoundOrChoiceSet, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{

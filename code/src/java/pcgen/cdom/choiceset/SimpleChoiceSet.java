@@ -42,7 +42,8 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this SimpleChoiceSet contains.
  */
-public class SimpleChoiceSet<T extends Comparable<T>> implements PrimitiveChoiceSet<T>
+public class SimpleChoiceSet<T extends Comparable<T>> implements
+		PrimitiveChoiceSet<T>
 {
 
 	/**
@@ -85,6 +86,12 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements PrimitiveChoice
 	/**
 	 * Returns a representation of this SimpleChoiceSet, suitable for storing in
 	 * an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this SimpleChoiceSet, suitable for storing in
+	 *         an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{
@@ -115,6 +122,9 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements PrimitiveChoice
 	 * the objects contained in the Set will result in modification of the
 	 * objects within this SimpleChoiceSet.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            SimpleChoiceSet should be returned.
 	 * @return A Set containing the Objects which this SimpleChoiceSet contains.
 	 */
 	public Set<T> getSet(PlayerCharacter pc)

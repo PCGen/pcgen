@@ -49,9 +49,6 @@ import pcgen.core.chooser.ChooserUtilities;
  * The contents of a AbilityRefChoiceSet is defined at construction of the
  * AbilityRefChoiceSet. The contents of a AbilityRefChoiceSet is fixed, and will
  * not vary by the PlayerCharacter used to resolve the AbilityRefChoiceSet.
- * 
- * @param <T>
- *            The class of object this AbilityRefChoiceSet contains.
  */
 public class AbilityRefChoiceSet implements
 		PrimitiveChoiceSet<AbilitySelection>
@@ -86,12 +83,23 @@ public class AbilityRefChoiceSet implements
 	 * references are kept to the AbilityRef objects contained within the given
 	 * Collection.
 	 * 
+	 * @param cat
+	 *            The Ability Category of Ability objects that this
+	 *            AbilityRefChoiceSet refers to.
+	 * @param n
+	 *            The Ability Nature of the Ability objects as they should be
+	 *            applied to a PlayerCharacter
+	 * @param allowDupe
+	 *            True if this AbilityRefChoiceSet should allow duplicates in
+	 *            the returned Set of AbilitySelection objects; false otherwise
+	 * @param dupCount
+	 *            Sets the limit of duplicate objects (or stacking limit) to
+	 *            identify how many times an Ability may be available to a
+	 *            PlayerCharacter using an AbilityRefChoiceSet. Ignored if
+	 *            allowDupe is false.
 	 * @param col
 	 *            A Collection of CDOMReferences which define the Set of objects
 	 *            contained within the AbilityRefChoiceSet
-	 * @param dupChoices
-	 * @param allowDupes
-	 * @param nature
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
@@ -126,6 +134,12 @@ public class AbilityRefChoiceSet implements
 	/**
 	 * Returns a representation of this AbilityRefChoiceSet, suitable for
 	 * storing in an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this AbilityRefChoiceSet, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{
@@ -165,8 +179,11 @@ public class AbilityRefChoiceSet implements
 	 * Ownership of the Set returned by this method will be transferred to the
 	 * calling object. Modification of the returned Set should not result in
 	 * modifying the AbilityRefChoiceSet, and modifying the AbilityRefChoiceSet
-	 * after the Set is returned should not modify the Set. 
+	 * after the Set is returned should not modify the Set.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            AbilityRefChoiceSet should be returned.
 	 * @return A Set containing the Objects which this AbilityRefChoiceSet
 	 *         contains.
 	 */

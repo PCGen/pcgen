@@ -45,9 +45,6 @@ import pcgen.core.PlayerCharacter;
  * Note: This is a transition class for a feature to be removed after 5.16 is
  * released. It is used only in the special case of a FAVOREDCLASS:CHOOSE in a
  * Race LST file.
- * 
- * @param <T>
- *            The class of object this ReferenceChoiceSet contains.
  */
 public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 {
@@ -98,6 +95,12 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	/**
 	 * Returns a representation of this ClassReferenceChoiceSet, suitable for
 	 * storing in an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this ClassReferenceChoiceSet, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{
@@ -140,6 +143,9 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 	 * returned set will result in modification of the PCClass objects contained
 	 * within this ClassReferenceChoiceSet.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            ClassReferenceChoiceSet should be returned.
 	 * @return A Set containing the Objects which this ClassReferenceChoiceSet
 	 *         contains.
 	 */

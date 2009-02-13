@@ -93,6 +93,12 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 	/**
 	 * Returns a representation of this ReferenceChoiceSet, suitable for storing
 	 * in an LST file.
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this ReferenceChoiceSet, suitable for storing
+	 *         in an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{
@@ -134,6 +140,9 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 	 * result in modification of the object contained in this
 	 * ReferenceChoiceSet.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            ReferenceChoiceSet should be returned.
 	 * @return A Set containing the Objects which this ReferenceChoiceSet
 	 *         contains.
 	 */

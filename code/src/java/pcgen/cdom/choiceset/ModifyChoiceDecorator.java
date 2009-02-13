@@ -71,6 +71,8 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * @param useAny
 	 *            use "ANY" for the global "ALL" reference when creating the LST
 	 *            format
+	 * @return A representation of this ModifyChoiceDecorator, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat(boolean useAny)
 	{
@@ -88,6 +90,9 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * ModifyChoiceDecorator (and vice versa since the ModifyChoiceDecorator is
 	 * near immutable)
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            ModifyChoiceDecorator should be returned.
 	 * @return A Set containing the Objects which this ModifyChoiceDecorator
 	 *         contains and which are also possessed by the PlayerCharacter.
 	 */

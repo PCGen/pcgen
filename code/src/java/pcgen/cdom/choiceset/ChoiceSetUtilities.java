@@ -107,15 +107,19 @@ public final class ChoiceSetUtilities
 	 * Ownership of the Collection provided to this method is not transferred
 	 * and this constructor will not modify the given Collection.
 	 * 
-	 * @param strings
+	 * @param c
 	 *            An Collection of PrimitiveChoiceSet objects
 	 * @param separator
 	 *            The separating string
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
 	 * @return A 'separator' separated String containing the LST format of the
 	 *         given Collection of PrimitiveChoiceSet objects
 	 */
-	public static <T extends PrimitiveChoiceSet<?>> String joinLstFormat(
-			Collection<T> c, String separator, boolean useAny)
+	public static String joinLstFormat(
+			Collection<? extends PrimitiveChoiceSet<?>> c, String separator,
+			boolean useAny)
 	{
 		if (c == null)
 		{
