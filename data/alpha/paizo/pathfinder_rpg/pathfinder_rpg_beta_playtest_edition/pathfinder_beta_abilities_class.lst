@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  9 23:51:40 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Feb 13 10:17:59 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -236,11 +236,13 @@ Storm Burst										CATEGORY:Special Ability	TYPE:DomainPower.SpecialAttack.Sup
 Lightning Lord									CATEGORY:Special Ability	TYPE:DomainPower.SpecialQuality.Supernatural	VISIBLE:YES							DESC:You can call down %1 bolts of lightning per day. You can call down as many bolts as you want with a single standard action, but no creature can be the target of more than one bolt and no two targets can be more than 30 feet apart. This ability otherwise functions as Call Lightning.|DomainWeatherLVL																																																																												SOURCEPAGE:p.95
 
 ###Block: Druid Abilities
-# Ability Name							Output Name					Category of Ability		Type						Visible	Define			Description																																Multiple?	Choose											Source Page
-Orisons ~ Druid							OUTPUTNAME:Orisons			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES					DESC:Druids can prepare a number of orisons, or 0-level spells, each day. They can cast these spells at will as a spell-like ability. Orisons cannot be channeled through spontaneous spellcasting.															SOURCEPAGE:p.23
-Spontaneous Casting - Summon Nature's Ally spells	OUTPUTNAME:Spontaneous Casting	CATEGORY:Special Ability	TYPE:ClassAbility				VISIBLE:YES					DESC:Channel stored Druid spell energy into Summon Nature's Ally spell of equal or lower level.																																SOURCEPAGE:p.23
-Druid Domain													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES	DEFINE:DomainLVL|0	DESC:See text																															MULT:YES	CHOOSE:NUMCHOICES=1|DOMAIN|Air,Animal,Earth,Fire,Plant,Water,Weather	SOURCEPAGE:p.24
-Animal Companion													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES	DEFINE:CompLevel|0	DESC:See text																																													SOURCEPAGE:p.24
+# Ability Name							Output Name					Category of Ability		Type						Visible	Define								Description																																Multiple?	Choose											Modify VAR																								Source Page
+Orisons ~ Druid							OUTPUTNAME:Orisons			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES										DESC:Druids can prepare a number of orisons, or 0-level spells, each day. They can cast these spells at will as a spell-like ability. Orisons cannot be channeled through spontaneous spellcasting.																																								SOURCEPAGE:p.23
+Spontaneous Casting - Summon Nature's Ally spells	OUTPUTNAME:Spontaneous Casting	CATEGORY:Special Ability	TYPE:ClassAbility				VISIBLE:YES										DESC:Channel stored Druid spell energy into Summon Nature's Ally spell of equal or lower level.																																																									SOURCEPAGE:p.23
+Druid Domain													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES	DEFINE:DomainLVL|0						DESC:See text																															MULT:YES	CHOOSE:NUMCHOICES=1|DOMAIN|Air,Animal,Earth,Fire,Plant,Water,Weather																										SOURCEPAGE:p.24
+Animal Companion													CATEGORY:Special Ability	TYPE:NaturesBond.Extraordinary	VISIBLE:YES	DEFINE:CompLevel|0						DESC:See text																																																																						SOURCEPAGE:p.24
+Wild Shape														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:WildShapeTimes|0	DEFINE:WildShapeDuration|0	DESC:You can change shape %1 times / day for %2 hours as a Beast Shape spell.|WildShapeTimes|WildShapeDuration																																																						SOURCEPAGE:p.25
+Druid Wild Shape													CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:DruidWildShape|0																																																					BONUS:VAR|WildShapeTimes|DruidWildShape/2|!PREABILITY:1,CATEGORY=Special Ability|Wild Shape At Will	BONUS:VAR|WildShapeDuration|DruidWildShape	SOURCEPAGE:p.25
 
 ###Block: Fighter Internal Abilities
 # Ability Name					Category of Ability		Type			Visible	Define											Modify VAR
