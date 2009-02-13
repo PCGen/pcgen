@@ -29,3 +29,5 @@ SPELL:diadamon_spell.lst
 WEAPONPROF:diadamon_prof_weapon.lst
 
 DEITY:diadamon_deity_35e.lst
+
+SPELL:@/d20ogl/srd/basics/srd_spells.lst|(INCLUDE:Emotion|Mass Suggestion|Power Word (Stun)|Symbol)

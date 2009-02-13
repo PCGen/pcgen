@@ -24,6 +24,7 @@ COPYRIGHT:PCGen dataset conversion for Planar Magic Copyright 2005, PCGen Data t
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:planarmagic_abilities.lst
 CLASS:planarmagic_classes.lst
 FEAT:planarmagic_feats.lst
 FEAT:planarmagic_feats_hidden.lst

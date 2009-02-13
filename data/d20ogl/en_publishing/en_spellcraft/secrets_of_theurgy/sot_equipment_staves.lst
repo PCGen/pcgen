@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Jan  4 13:15:14 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 12 21:02:44 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
-# Equipment Name			Required Proficiency			Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier							Wield Category	Size		Source Page		Special Property
+# Equipment Name			Required Weapon Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier							Wield Category	Size		Source Page		Special Property
 Theurgic Staff of Air								TYPE:Magic.Staff													COST:61050	WT:5																EQMOD:SPL_CHRG|CHARGES[50]									SOURCEPAGE:14	SPROP:Control Winds (2 charges) ~ Lightning Bolt (1 charge) ~ Gust of Wind (1 charge) ~ Fog Cloud (1 charge)
 Theurgic Staff of Bones								TYPE:Magic.Staff													COST:99925	WT:5																EQMOD:SPL_CHRG|CHARGES[50]									SOURCEPAGE:14	SPROP:Create Undead (2 charges) ~ Animate Dead (1 charge) ~ Command Undead (1 charge) ~ Slay Living (1 charge)
 Theurgic Staff of Earth								TYPE:Magic.Staff													COST:101550	WT:5																EQMOD:SPL_CHRG|CHARGES[50]									SOURCEPAGE:14	SPROP:Transmute Rock to Mud (1 charge) ~ Transmute Mud to Rock (1 charge) ~ Spike Stones (1 charge) ~ Magic Stone (1 charge)

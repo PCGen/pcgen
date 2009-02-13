@@ -158,7 +158,7 @@ FEAT:Quicken Spell
 FEAT:Quicken Spell Like Ability(Wall of Fire)
 FEAT:Silent Spell
 FEAT:Weapon Focus (Slam)
-FEAT:Epic Spellcaster (Divine/WIS Spellstat)
+ABILITY:CATEGORY=Epic Spellcasting Type|Epic Spellcaster (Divine/WIS Spellstat)
 FEAT:Intensify Spell
 FEAT:Spellcasting Harrier
 DEITY:None	DOMAIN:Death (NSA)|Destruction (NSA)|Evil (NSA)

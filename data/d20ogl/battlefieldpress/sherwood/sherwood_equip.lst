@@ -22,8 +22,8 @@ Gripping Resin								TYPE:Invention.Lesser	COST:.6	WT:0		SOURCEPAGE:pg.40
 Ironwood Balm								TYPE:Invention.Lesser	COST:4	WT:0		SOURCEPAGE:pg.40
 Rope Cranker								TYPE:Invention.Lesser	COST:25	WT:15		SOURCEPAGE:pg.40
 Sleeping Draught								TYPE:Invention.Lesser	COST:.6	WT:0		SOURCEPAGE:pg.40
-Smokestick									TYPE:Invention.Lesser	COST:5	WT:.5		SOURCEPAGE:pg.40
-Tanglefoot Bag								TYPE:Invention.Lesser	COST:8	WT:4		SOURCEPAGE:pg.40
+Smokestick.MOD								TYPE:Invention.Lesser	COST:5	WT:.5		SOURCEPAGE:pg.40
+Tanglefoot Bag.MOD							TYPE:Invention.Lesser	COST:8	WT:4		SOURCEPAGE:pg.40
 Thief’s Harness								TYPE:Invention.Greater	COST:75	WT:15		SOURCEPAGE:pg.41
 Wood Chimes									TYPE:Invention.Minor	COST:.3	WT:0		SOURCEPAGE:pg.41
 

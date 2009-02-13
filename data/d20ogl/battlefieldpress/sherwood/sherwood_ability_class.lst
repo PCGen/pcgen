@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jan 20 02:04:15 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Feb 12 21:03:27 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
 #Original Entry: Andrew Maitland
 
@@ -67,11 +67,11 @@ Fear God's Wrath			CATEGORY:Special Ability	TYPE:SpecialQuality.PriestInspire	VI
 Fires Burn and Cauldrons Bubble	CATEGORY:Special Ability	VISIBLE:DISPLAY	SAB:Fires Burn and Cauldrons Bubble
 
 ###Block: Charms and Curses
-# Ability Name				Category of Ability		Type				Visible		Required Ability										Special ABility
-Personal Magic				CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY													SAB:Personal Magic
-Reactive Charm/Retributive Curse	CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Personal Magic				SAB:Reactive Charm/Retributive Curse
-Greater Charm				CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Reactive Charm/Retributive Curse	SAB:Greater Charm
-Evil Eye					CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Greater Charm				SAB:Evil Eye
+# Ability Name				Unique Key			Category of Ability		Type				Visible		Required Ability										Special ABility
+Personal Magic								CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY													SAB:Personal Magic
+Reactive Charm/Retributive Curse					CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Personal Magic				SAB:Reactive Charm/Retributive Curse
+Greater Charm								CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Reactive Charm/Retributive Curse	SAB:Greater Charm
+Evil Eye					KEY:Evil Eye Curse	CATEGORY:Special Ability	TYPE:ConjurerMagic	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Greater Charm				SAB:Evil Eye
 
 ###Block: Divination
 # Ability Name			Category of Ability		Type				Visible		Required Ability									Special ABility
