@@ -33,14 +33,14 @@ public final class FormulaFactory
 	 * minimize memory usage in the many cases where a default Formula of ZERO
 	 * is required.
 	 */
-	public final static Formula ZERO = new IntegerFormula(0);
+	public static final Formula ZERO = new IntegerFormula(0);
 
 	/**
 	 * A Formula for the integer constant ONE. This is done in order to minimize
 	 * memory usage in the many cases where a default Formula of ONE is
 	 * required.
 	 */
-	public final static Formula ONE = new IntegerFormula(1);
+	public static final Formula ONE = new IntegerFormula(1);
 
 	private FormulaFactory()
 	{
@@ -156,7 +156,7 @@ public final class FormulaFactory
 		 * @return the Integer in this IntegerFormula.
 		 */
 		public Integer resolve(Equipment equipment, boolean primary,
-				PlayerCharacter apc, String string)
+				PlayerCharacter apc, String source)
 		{
 			return i;
 		}

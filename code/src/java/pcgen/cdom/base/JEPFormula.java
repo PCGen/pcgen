@@ -36,7 +36,7 @@ public class JEPFormula implements Formula
 	/**
 	 * Creates a new JEPFormula from the given String.
 	 * 
-	 * @param in
+	 * @param s
 	 *            The String value of this JEPFormula.
 	 */
 	public JEPFormula(String s)
@@ -81,6 +81,12 @@ public class JEPFormula implements Formula
 	 * Resolves this JEPFormula, returning the value of this JEPFormula in the
 	 * context of the given PlayerCharacter and source.
 	 * 
+	 * @param character
+	 *            The PlayerCharacter relative to which the JEPFormula should be
+	 *            resolved.
+	 * @param source
+	 *            The source object of the JEPFormula, for purposes of
+	 *            resolution.
 	 * @return The value of this JEPFormula in the context of the given
 	 *         PlayerCharacter and source.
 	 * @throws NullPointerException
@@ -107,6 +113,19 @@ public class JEPFormula implements Formula
 	 * Resolves this JEPFormula, returning the value of this JEPFormula in
 	 * context to the given Equipment, PlayerCharacter, and Source identifier.
 	 * 
+	 * @param equipment
+	 *            The Equipment relative to which the JEPFormula should be
+	 *            resolved.
+	 * @param primary
+	 *            True if the primary head of the given Equipment should be used
+	 *            for resolution, false if the secondary head should be used for
+	 *            resolution.
+	 * @param apc
+	 *            The PlayerCharacter relative to which the JEPFormula should be
+	 *            resolved.
+	 * @param source
+	 *            The source object of the JEPFormula, for purposes of
+	 *            resolution.
 	 * @return The value of this JEPFormula in the context of the given
 	 *         Equipment, PlayerCharacter, and Source identifier.
 	 */

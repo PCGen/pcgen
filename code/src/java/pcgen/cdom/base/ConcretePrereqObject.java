@@ -216,7 +216,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * If the Prerequisite kind is CLEAR all the prerequisites will be cleared
 	 * from the list.
 	 * 
-	 * @param prereq
+	 * @param preReq
 	 *            The Prerequisite to add to the ConcretePrereqObject.
 	 */
 	public void addPrerequisite(Prerequisite preReq)

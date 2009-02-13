@@ -43,7 +43,7 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 * @param <T>
 	 *            The type of the AssociationKey and the Class of the object to
 	 *            be returned
-	 * @param key
+	 * @param name
 	 *            The AssociationKey for which the associated value is to be
 	 *            returned
 	 * @return The value associated with the given AssociationKey.
@@ -98,7 +98,7 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 	 * @param <T>
 	 *            The type of the AssociationKey and the Class of the object to
 	 *            be associated with the given AssociationKey.
-	 * @param key
+	 * @param name
 	 *            The AssociationKey used to form the association with the given
 	 *            value
 	 * @param value

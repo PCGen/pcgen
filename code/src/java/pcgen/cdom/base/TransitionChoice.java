@@ -272,7 +272,7 @@ public class TransitionChoice<T>
 	/**
 	 * Acts upon choices made in this TransitionChoice.
 	 * 
-	 * @param choices
+	 * @param choicesMade
 	 *            The choices on which this TransitionChoice should act.
 	 * @param owner
 	 *            The owning object for this TransitionChoice

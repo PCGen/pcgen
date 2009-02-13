@@ -34,6 +34,8 @@ public interface ChoiceActor<T>
 	/**
 	 * Applies the given choice to the given PlayerCharacter.
 	 * 
+	 * @param owner
+	 *            The owning object for this choice.
 	 * @param choice
 	 *            The choice being applied to the given PlayerCharacter
 	 * @param pc

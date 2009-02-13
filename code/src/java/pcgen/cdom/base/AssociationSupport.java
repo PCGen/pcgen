@@ -51,13 +51,13 @@ public class AssociationSupport implements AssociatedObject
 	 * @param value
 	 *            The value to be associated with the given AssociationKey
 	 */
-	public <T> void setAssociation(AssociationKey<T> name, T value)
+	public <T> void setAssociation(AssociationKey<T> key, T value)
 	{
 		if (associationMap == null)
 		{
 			associationMap = new HashMap<AssociationKey<?>, Object>();
 		}
-		associationMap.put(name, value);
+		associationMap.put(key, value);
 	}
 
 	/**
@@ -73,9 +73,9 @@ public class AssociationSupport implements AssociatedObject
 	 *            returned
 	 * @return The value associated with the given AssociationKey.
 	 */
-	public <T> T getAssociation(AssociationKey<T> name)
+	public <T> T getAssociation(AssociationKey<T> key)
 	{
-		return (T) (associationMap == null ? null : associationMap.get(name));
+		return (T) (associationMap == null ? null : associationMap.get(key));
 	}
 
 	/**

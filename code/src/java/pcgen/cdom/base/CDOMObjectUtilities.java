@@ -58,14 +58,14 @@ public final class CDOMObjectUtilities
 	 * This method is value-semantic. CDOMObjetUtilities will not maintain a
 	 * reference to or modify the given Collection.
 	 * 
-	 * @param strings
+	 * @param c
 	 *            An Collection of CDOMObjects
 	 * @param separator
 	 *            The separating string
 	 * @return A 'separator' separated String containing the Key Name of the
 	 *         given Collection of CDOMObject objects
 	 */
-	public static <T extends CDOMObject> String joinKeyName(Collection<T> c,
+	public static String joinKeyName(Collection<? extends CDOMObject> c,
 			String separator)
 	{
 		if (c == null)

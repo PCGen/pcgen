@@ -108,7 +108,7 @@ public class PersistentTransitionChoice<T> extends TransitionChoice<T>
 	 * identifing such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
-	 * @param s
+	 * @param persistenceFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
 	 * 
@@ -144,7 +144,7 @@ public class PersistentTransitionChoice<T> extends TransitionChoice<T>
 	 * 
 	 * @param owner
 	 *            The owning object of the choice being removed.
-	 * @param pc
+	 * @param apc
 	 *            The PlayerCharacter from which the choice should be removed.
 	 */
 	public void remove(CDOMObject owner, PlayerCharacter apc)

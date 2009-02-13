@@ -46,6 +46,9 @@ public interface PrimitiveChoiceSet<T>
 	 * and modifying the PrimitiveChoiceSet after the Set is returned should not
 	 * modify the Set.
 	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the choices in this
+	 *            PrimitiveChoiceSet should be returned.
 	 * @return A Set containing the Objects which this PrimitiveChoiceSet
 	 *         contains.
 	 */
@@ -61,8 +64,12 @@ public interface PrimitiveChoiceSet<T>
 	/**
 	 * Returns a representation of this PrimitiveChoiceSet, suitable for storing
 	 * in an LST file.
-	 * @param useAny use "ANY" for the global "ALL" reference when creating
-	 *                   the LST format
+	 * 
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
+	 * @return A representation of this PrimitiveChoiceSet, suitable for storing
+	 *         in an LST file.
 	 */
 	public String getLSTformat(boolean useAny);
 }

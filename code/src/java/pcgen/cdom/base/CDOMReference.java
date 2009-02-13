@@ -135,6 +135,9 @@ public abstract class CDOMReference<T extends PrereqObject>
 	 * 
 	 * Note that this will ALWAYS return a comma-delimted list of objects if
 	 * more than one object is present in the CDOMReference.
+	 * 
+	 * @return A representation of this CDOMReference, suitable for storing in
+	 *         an LST file.
 	 */
 	public abstract String getLSTformat();
 
@@ -174,6 +177,8 @@ public abstract class CDOMReference<T extends PrereqObject>
 	 * Returns a String representation of this CDOMReference, primarily for
 	 * purposes of debugging. It is strongly advised that no dependency on this
 	 * method be created, as the return value may be changed without warning.
+	 * 
+	 * @return A String representation of this CDOMReference
 	 */
 	@Override
 	public String toString()
