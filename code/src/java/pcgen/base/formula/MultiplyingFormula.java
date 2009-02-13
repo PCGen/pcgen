@@ -49,12 +49,16 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Executes this MultiplyingFormula, multiplying the number provided in the
-	 * constructor of this SubtractingFormula with the given Number. Only one
+	 * constructor of this MultiplyingFormula with the given Number. Only one
 	 * input Number is permitted.
 	 * 
 	 * This method is value-semantic and will not modify or maintain a reference
 	 * to the given Array of Numbers.
 	 * 
+	 * @param nums
+	 *            The array of Numbers used to resolve the value of this
+	 *            MultiplyingFormula (array length must be 1 and the Number must
+	 *            be non-null)
 	 * @return the result of the multiplication
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument

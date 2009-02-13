@@ -54,6 +54,10 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	 * This method is value-semantic and will not modify or maintain a reference
 	 * to the given Array of Numbers.
 	 * 
+	 * @param nums
+	 *            The array of Numbers used to resolve the value of this
+	 *            SubtractingFormula (array length must be 1 and the Number must
+	 *            be non-null)
 	 * @return the result of the subtraction
 	 * @throws IllegalArgumentException
 	 *             if more than one Number is provided as an argument

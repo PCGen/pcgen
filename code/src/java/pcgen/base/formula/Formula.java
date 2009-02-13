@@ -60,13 +60,13 @@ public interface Formula
 	 * @param apc
 	 *            The PlayerCharacter relative to which the Formula should be
 	 *            resolved.
-	 * @param string
+	 * @param source
 	 *            The source object of the Formula, for purposes of resolution.
 	 * @return The Number indicating the result of the Formula when resolved in
 	 *         the given context.
 	 */
 	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String string);
+			PlayerCharacter apc, String source);
 
 	/**
 	 * Returns true if the underlying Formula is known to be static.
