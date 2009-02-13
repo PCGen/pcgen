@@ -23,15 +23,49 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
 
+/**
+ * An ShieldProfProvider is an object that contains the ability to contain
+ * Shield Proficiencies, either by TYPE of Equipment or direct ShieldProf
+ * references. Explicit Storage of TYPE vs. primitive is necessary due to the
+ * ability of the TYPE being a resolved against Equipment.
+ * 
+ * This is typically used for an AUTO:ShieldProf token to store the granted
+ * proficiencies prior to resolution
+ */
 public class ShieldProfProvider extends AbstractProfProvider<ShieldProf>
 {
 
+	/**
+	 * Constructs a new ShieldProfProvider with the given List of ShieldProf
+	 * references and Equipment TYPE references.
+	 * 
+	 * No reference is maintained to the internal structure of the given Lists,
+	 * so modifications to this ShieldProfProvider are not reflected in the
+	 * given Lists (and vice versa).
+	 * 
+	 * @param profs
+	 *            The List of ShieldProf references indicating the primitive
+	 *            ShieldProf objects this ShieldProfProvider will contain.
+	 * @param equipTypes
+	 *            The List of Equipment references indicating the TYPEs of
+	 *            Equipment objects this ShieldProfProvider will contain.
+	 */
 	public ShieldProfProvider(List<CDOMReference<ShieldProf>> profs,
 			List<CDOMReference<Equipment>> equipTypes)
 	{
 		super(profs, equipTypes);
 	}
 
+	/**
+	 * Returns true if this ShieldProfProvider provides proficiency for the
+	 * given Equipment; false otherwise.
+	 * 
+	 * @param eq
+	 *            The Equipment to be tested to see if this ShieldProfProvider
+	 *            provides proficiency for the Equipment
+	 * @return true if this ShieldProfProvider provides proficiency for the
+	 *         given Equipment; false otherwise.
+	 */
 	@Override
 	public boolean providesProficiencyFor(Equipment eq)
 	{
@@ -44,6 +78,10 @@ public class ShieldProfProvider extends AbstractProfProvider<ShieldProf>
 				|| providesEquipmentType(eq.getType());
 	}
 
+	/**
+	 * Returns the String "SHIELD", indicating the type of proficiency granted
+	 * by this ShieldProfProvider.
+	 */
 	@Override
 	protected String getSubType()
 	{

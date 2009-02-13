@@ -29,23 +29,77 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Equipment;
 
+/**
+ * An AbstractProfProvider is an object that contains the ability to contain
+ * Proficiencies, either by TYPE of Equipment or direct references. Explicit
+ * Storage of TYPE vs. primitive is necessary due to the ability of the TYPE
+ * being a resolved against Equipment.
+ */
 public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		ConcretePrereqObject implements ProfProvider<T>
 {
 
-	private final List<CDOMReference<T>> direct;
+	/**
+	 * Contains the set of primitive proficiencies objects that this
+	 * AbstractProfProvider grants
+	 */
+	private final Set<CDOMReference<T>> direct;
 
-	private final List<CDOMReference<Equipment>> byEquipType;
+	/**
+	 * Contains the set of TYPEs of Equipment objects for which this
+	 * AbstractProfProvider grants proficiency
+	 */
+	private final Set<CDOMReference<Equipment>> byEquipType;
 
+	/**
+	 * Constructs a new AbstractProfProvider with the given List of proficiency
+	 * references and Equipment TYPE references.
+	 * 
+	 * No reference is maintained to the internal structure of the given Lists,
+	 * so modifications to this AbstractProfProvider are not reflected in the
+	 * given Lists (and vice versa).
+	 * 
+	 * @param profs
+	 *            The List of proficiency references indicating the primitive
+	 *            proficiency objects this AbstractProfProvider will contain.
+	 * @param equipTypes
+	 *            The List of Equipment references indicating the TYPEs of
+	 *            Equipment objects this AbstractProfProvider will contain.
+	 */
 	public AbstractProfProvider(List<CDOMReference<T>> profs,
 			List<CDOMReference<Equipment>> equipTypes)
 	{
-		direct = profs;
-		byEquipType = equipTypes;
+		direct = new TreeSet<CDOMReference<T>>(
+				ReferenceUtilities.REFERENCE_SORTER);
+		direct.addAll(profs);
+		byEquipType = new TreeSet<CDOMReference<Equipment>>(
+				ReferenceUtilities.REFERENCE_SORTER);
+		byEquipType.addAll(equipTypes);
 	}
 
+	/**
+	 * Returns true if this AbstractProfProvider provides proficiency for the
+	 * given Equipment; false otherwise.
+	 * 
+	 * @param eq
+	 *            The Equipment to be tested to see if this AbstractProfProvider
+	 *            provides proficiency for the Equipment
+	 * @return true if this AbstractProfProvider provides proficiency for the
+	 *         given Equipment; false otherwise.
+	 */
 	public abstract boolean providesProficiencyFor(Equipment eq);
 
+	/**
+	 * Returns true if this AbstractProfProvider provides the given proficiency.
+	 * This only tests against the direct proficiency list provided during
+	 * construction of the AbstractProfProvider.
+	 * 
+	 * @param sp
+	 *            The proficiency to be tested to see if this
+	 *            AbstractProfProvider provides the given proficiency
+	 * @return true if this AbstractProfProvider provides the given proficiency;
+	 *         false otherwise.
+	 */
 	public boolean providesProficiency(T sp)
 	{
 		for (CDOMReference<T> ref : direct)
@@ -58,6 +112,18 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		return false;
 	}
 
+	/**
+	 * Returns true if this AbstractProfProvider provides proficiency with the
+	 * given Equipment TYPE. This only tests against the Equipment TYPE
+	 * reference list provided during construction of the AbstractProfProvider.
+	 * 
+	 * @param typeString
+	 *            The TYPE of Equipment to be tested to see if this
+	 *            AbstractProfProvider provides proficiency with the given
+	 *            Equipment TYPE
+	 * @return true if this AbstractProfProvider provides proficiency with the
+	 *         given Equipment TYPE.
+	 */
 	public boolean providesEquipmentType(String typeString)
 	{
 		if (typeString == null || typeString.length() == 0)
@@ -85,8 +151,19 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		return false;
 	}
 
+	/**
+	 * Returns the String indicating the type of proficiency granted by this
+	 * AbstractProfProvider.
+	 */
 	protected abstract String getSubType();
 
+	/**
+	 * Returns the LST format for this AbstractProfProvider. Provided primarily
+	 * to allow the Token/Loader system to properly unparse the
+	 * AbstractProfProvider.
+	 * 
+	 * @return The LST format of this AbstractProfProvider
+	 */
 	public String getLstFormat()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -137,6 +214,12 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		return sb.toString();
 	}
 
+	/**
+	 * Returns true if the given object is a AbstractProfProvider with identical
+	 * underlying proficiencies, Equipment TYPEs and Prerequisites.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -175,17 +258,21 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 					return false;
 				}
 			}
-			return true;
+			return this.equalsPrereqObject(other);
 		}
 		return false;
 	}
 
+	/**
+	 * Returns a consistent-with-equals hashCode for this AbstractProfProvider
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return (direct == null ? 0 : direct.hashCode() * 29)
 				+ (byEquipType == null ? 0 : byEquipType.hashCode());
 	}
-	
-	
+
 }

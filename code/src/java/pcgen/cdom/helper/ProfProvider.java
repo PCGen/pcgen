@@ -21,15 +21,71 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
+/**
+ * An ProfProvider is an object that contains the ability to contain
+ * Proficiencies, either by TYPE of Equipment or direct references.
+ */
 public interface ProfProvider<T extends CDOMObject>
 {
+	/**
+	 * Returns true if this ProfProvider provides proficiency for the given
+	 * Equipment; false otherwise.
+	 * 
+	 * @param eq
+	 *            The Equipment to be tested to see if this ProfProvider
+	 *            provides proficiency for the Equipment
+	 * @return true if this ProfProvider provides proficiency for the given
+	 *         Equipment; false otherwise.
+	 */
 	public boolean providesProficiencyFor(Equipment eq);
 
+	/**
+	 * Returns true if this ProfProvider provides the given proficiency.
+	 * 
+	 * This may only test a limited set of granting by the ProfProvider, by
+	 * testing only primitive proficiency objects. For a full query to test
+	 * proficiency, one should use the providesProficiencyFor method.
+	 * 
+	 * @param sp
+	 *            The proficiency to be tested to see if this ProfProvider
+	 *            provides the given proficiency
+	 * @return true if this ProfProvider provides the given proficiency; false
+	 *         otherwise.
+	 */
 	public boolean providesProficiency(T sp);
 
+	/**
+	 * Tests if the specified PlayerCharacter passes all the prerequisites.
+	 * 
+	 * @param playerCharacter
+	 *            The PlayerCharacter to test.
+	 * 
+	 * @return true if the given PlayerCharacter passes all the prerequisites.
+	 */
 	public boolean qualifies(PlayerCharacter playerCharacter);
 
+	/**
+	 * Returns true if this ProfProvider provides proficiency with the given
+	 * Equipment TYPE. This only tests against the Equipment TYPE reference list
+	 * provided during construction of the ProfProvider.
+	 * 
+	 * This may only test a limited set of granting by the ProfProvider, by
+	 * testing only Equipment TYPE based proficiency grants. For a full query to
+	 * test proficiency, one should use the providesProficiencyFor method.
+	 * 
+	 * @param typeString
+	 *            The TYPE of Equipment to be tested to see if this ProfProvider
+	 *            provides proficiency with the given Equipment TYPE
+	 * @return true if this ProfProvider provides proficiency with the given
+	 *         Equipment TYPE.
+	 */
 	public boolean providesEquipmentType(String typeString);
 
+	/**
+	 * Returns the LST format for this ProfProvider. Provided primarily to allow
+	 * the Token/Loader system to properly unparse the ProfProvider.
+	 * 
+	 * @return The LST format of this ProfProvider
+	 */
 	public String getLstFormat();
 }

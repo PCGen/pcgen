@@ -20,12 +20,37 @@ package pcgen.cdom.helper;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.reference.CDOMSingleRef;
 
+/**
+ * A Qualifier is used to identify a specific instance of a certain type of
+ * CDOMObject in order to establish a relationship for that CDOMObject. (This
+ * relationship may be automatic qualification, to bypass prerequisites, or may
+ * be other relationships in other tokens)
+ */
 public class Qualifier
 {
 
+	/**
+	 * The Class of object this Qualifier contains
+	 */
 	private final Class<? extends CDOMObject> qualClass;
+
+	/**
+	 * A reference to the specific instance of the class of object this
+	 * Qualifier contains.
+	 */
 	private final CDOMSingleRef<? extends CDOMObject> qualRef;
 
+	/**
+	 * Constructs a new Qualifier for the given Class of CDOMObject and the
+	 * given reference to the specific instance of CDOMObject this Qualifier
+	 * contains.
+	 * 
+	 * @param cl
+	 *            The given Class of CDOMObject this Qualifier contains
+	 * @param ref
+	 *            The reference to the specific instance of CDOMObject this
+	 *            Qualifier contains.
+	 */
 	public Qualifier(Class<? extends CDOMObject> cl,
 			CDOMSingleRef<? extends CDOMObject> ref)
 	{
@@ -41,31 +66,55 @@ public class Qualifier
 		qualRef = ref;
 	}
 
+	/**
+	 * Returns the given Class of CDOMObject this Qualifier contains.
+	 * 
+	 * @return The given Class of CDOMObject this Qualifier contains.
+	 */
 	public Class<? extends CDOMObject> getQualifiedClass()
 	{
 		return qualClass;
 	}
 
+	/**
+	 * Returns the reference to the specific instance of CDOMObject this
+	 * Qualifier contains.
+	 * 
+	 * @return The reference to the specific instance of CDOMObject this
+	 *         Qualifier contains.
+	 */
 	public CDOMSingleRef<? extends CDOMObject> getQualifiedReference()
 	{
 		return qualRef;
 	}
 
+	/**
+	 * Returns a consistent-with-equals hashCode for this Qualifier
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return qualClass.hashCode() * 29 + qualRef.hashCode();
 	}
-	
+
+	/**
+	 * Returns true if the given object is a Qualifier with identical underlying
+	 * CDOMObject class and reference.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
 		if (o instanceof Qualifier)
 		{
 			Qualifier other = (Qualifier) o;
-			return qualClass.equals(other.qualClass) && qualRef.equals(other.qualRef);
+			return qualClass.equals(other.qualClass)
+					&& qualRef.equals(other.qualRef);
 		}
 		return false;
 	}
-	
+
 }

@@ -20,17 +20,59 @@ package pcgen.cdom.helper;
 import pcgen.base.formula.Formula;
 import pcgen.core.PlayerCharacter;
 
+/**
+ * An OptionBound represents a range of values between two Formulas. This range
+ * for an OptionBound is inclusive.
+ * 
+ * The name is derived from the bounds used in a kit to apply various options
+ * (typically from a random value selection)
+ */
 public class OptionBound
 {
+	/**
+	 * The Formula defining the lower bound (inclusive) for this OptionBound.
+	 * May be null to represent no lower bound.
+	 */
 	private Formula minOption;
+
+	/**
+	 * The Formula defining the upper bound (inclusive) for this OptionBound.
+	 * May be null to represent no upper bound.
+	 */
 	private Formula maxOption;
 
+	/**
+	 * Constructs a new OptionBound which bounds the range of values between the
+	 * two given Formulas.
+	 * 
+	 * @param min
+	 *            The Formula defining the lower bound (inclusive) for this
+	 *            OptionBound. May be null to represent no lower bound.
+	 * @param max
+	 *            The Formula defining the upper bound (inclusive) for this
+	 *            OptionBound. May be null to represent no upper bound.
+	 */
 	public OptionBound(Formula min, Formula max)
 	{
 		minOption = min;
 		maxOption = max;
 	}
 
+	/**
+	 * Returns true if this OptionBound includes the given value when the
+	 * Formulas in this OptionBound are resolved relative to the given
+	 * PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter to be used when resolving the bounding
+	 *            Formulas for this OptionBound.
+	 * @param val
+	 *            The value to be checked to determine if it falls within the
+	 *            range provided by this OptionBound.
+	 * @return true if the given value is within the bounds of this OptionBound
+	 *         (inclusive) when the bounds are resolved within the context of
+	 *         the given PlayerCharacter; false otherwise.
+	 */
 	public boolean isOption(PlayerCharacter pc, int val)
 	{
 		if (minOption == null || minOption.resolve(pc, "").intValue() <= val)
@@ -44,11 +86,25 @@ public class OptionBound
 		return false;
 	}
 
+	/**
+	 * Returns the Formula defining the lower bound (inclusive) for this
+	 * OptionBound. May be null to represent no lower bound.
+	 * 
+	 * @return The Formula defining the lower bound (inclusive) for this
+	 *         OptionBound.
+	 */
 	public Formula getOptionMin()
 	{
 		return minOption;
 	}
 
+	/**
+	 * Returns the Formula defining the upper bound (inclusive) for this
+	 * OptionBound. May be null to represent no upper bound.
+	 * 
+	 * @return The Formula defining the lower bound (inclusive) for this
+	 *         OptionBound.
+	 */
 	public Formula getOptionMax()
 	{
 		return maxOption;

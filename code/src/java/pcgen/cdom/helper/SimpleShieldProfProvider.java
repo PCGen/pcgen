@@ -20,15 +20,37 @@ package pcgen.cdom.helper;
 import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
 
+/**
+ * A SimpleShieldProfProvider is an object that provides proficiency based on a
+ * single ShieldProf
+ */
 public class SimpleShieldProfProvider extends
 		AbstractSimpleProfProvider<ShieldProf>
 {
 
+	/**
+	 * Constructs a new SimpleShieldProfProvider that provides proficiency based
+	 * on a the given ShieldProf
+	 * 
+	 * @param proficiency
+	 *            The ShieldProf that this SimpleShieldProfProvider provides
+	 */
 	public SimpleShieldProfProvider(ShieldProf proficiency)
 	{
 		super(proficiency);
 	}
 
+	/**
+	 * Returns true if this SimpleShieldProfProvider provides proficiency for
+	 * the given Equipment; false otherwise.
+	 * 
+	 * @param eq
+	 *            The Equipment to be tested to see if this
+	 *            SimpleShieldProfProvider provides proficiency for the
+	 *            Equipment
+	 * @return true if this SimpleShieldProfProvider provides proficiency for
+	 *         the given Equipment; false otherwise.
+	 */
 	public boolean providesProficiencyFor(Equipment eq)
 	{
 		return providesProficiency(eq.getShieldProf());

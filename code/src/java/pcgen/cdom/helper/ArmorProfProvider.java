@@ -23,15 +23,49 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.core.Equipment;
 import pcgen.core.ArmorProf;
 
+/**
+ * An ArmorProfProvider is an object that contains the ability to contain Armor
+ * Proficiencies, either by TYPE of Equipment or direct ArmorProf references.
+ * Explicit Storage of TYPE vs. primitive is necessary due to the ability of the
+ * TYPE being a resolved against Equipment.
+ * 
+ * This is typically used for an AUTO:ARMORPROF token to store the granted
+ * proficiencies prior to resolution
+ */
 public class ArmorProfProvider extends AbstractProfProvider<ArmorProf>
 {
 
+	/**
+	 * Constructs a new ArmorProfProvider with the given List of ArmorProf
+	 * references and Equipment TYPE references.
+	 * 
+	 * No reference is maintained to the internal structure of the given Lists,
+	 * so modifications to this ArmorProfProvider are not reflected in the given
+	 * Lists (and vice versa).
+	 * 
+	 * @param profs
+	 *            The List of ArmorProf references indicating the primitive
+	 *            ArmorProf objects this ArmorProfProvider will contain.
+	 * @param equipTypes
+	 *            The List of Equipment references indicating the TYPEs of
+	 *            Equipment objects this ArmorProfProvider will contain.
+	 */
 	public ArmorProfProvider(List<CDOMReference<ArmorProf>> profs,
 			List<CDOMReference<Equipment>> equipTypes)
 	{
 		super(profs, equipTypes);
 	}
 
+	/**
+	 * Returns true if this ArmorProfProvider provides proficiency for the given
+	 * Equipment; false otherwise.
+	 * 
+	 * @param eq
+	 *            The Equipment to be tested to see if this ArmorProfProvider
+	 *            provides proficiency for the Equipment
+	 * @return true if this ArmorProfProvider provides proficiency for the given
+	 *         Equipment; false otherwise.
+	 */
 	@Override
 	public boolean providesProficiencyFor(Equipment eq)
 	{
@@ -44,6 +78,10 @@ public class ArmorProfProvider extends AbstractProfProvider<ArmorProf>
 				|| providesEquipmentType(eq.getType());
 	}
 
+	/**
+	 * Returns the String "ARMOR", indicating the type of proficiency granted by
+	 * this ArmorProfProvider.
+	 */
 	@Override
 	protected String getSubType()
 	{

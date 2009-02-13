@@ -30,13 +30,37 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.WeaponProfType;
 
+/**
+ * A WeaponProfProvider is an object that contains the ability to contain
+ * WeaponProficiencies, either by TYPE or direct WeaponProf references. Explicit
+ * Storage of TYPE vs. primitive is necessary due to the ability of the
+ * CHANGEPROF token to change types for a WeaponProf.
+ * 
+ * This is typically used for an AUTO:WEAPONPROF token to store the granted
+ * proficiencies.
+ */
 public class WeaponProfProvider extends ConcretePrereqObject
 {
 
+	/**
+	 * Contains the list of primitive WeaponProf objects that this
+	 * WeaponProfProvider contains
+	 */
 	private List<CDOMSingleRef<WeaponProf>> direct;
 
+	/**
+	 * Contains the list of TYPEs of WeaponProf objects that this
+	 * WeaponProfProvider contains
+	 */
 	private List<CDOMGroupRef<WeaponProf>> type;
 
+	/**
+	 * Adds a primitive WeaponProf reference to this WeaponProfProvider.
+	 * 
+	 * @param ref
+	 *            The primitive WeaponProf reference that should be added to
+	 *            this WeaponProfProvider
+	 */
 	public void addWeaponProf(CDOMSingleRef<WeaponProf> ref)
 	{
 		if (direct == null)
@@ -46,6 +70,13 @@ public class WeaponProfProvider extends ConcretePrereqObject
 		direct.add(ref);
 	}
 
+	/**
+	 * Adds a WeaponProf TYPE reference to this WeaponProfProvider.
+	 * 
+	 * @param ref
+	 *            The WeaponProf TYPE reference that should be added to this
+	 *            WeaponProfProvider
+	 */
 	public void addWeaponProfType(CDOMGroupRef<WeaponProf> ref)
 	{
 		if (type == null)
@@ -55,6 +86,23 @@ public class WeaponProfProvider extends ConcretePrereqObject
 		type.add(ref);
 	}
 
+	/**
+	 * Returns a collection of the WeaponProf objects that this
+	 * WeaponProfProvider contains relative to a given PlayerCharacter. The
+	 * PlayerCharacter must be known in order to resolve changes that may be
+	 * introduced by any proficiency changes (CHANGEPROF).
+	 * 
+	 * Ownership of the Collection is transferred to the calling Object, no
+	 * association is kept between the Collection and this WeaponProfProvider.
+	 * (Thus, removal of a WeaponProf from the returned Collection will not
+	 * remove that WeaponProf from this WeaponProfProvider)
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter used to resolve the references in order to
+	 *            account for any proficiency changes
+	 * @return A Collection of the WeaponProf objects that this
+	 *         WeaponProfProvider contains relative to the given PlayerCharacter
+	 */
 	public Collection<WeaponProf> getContainedProficiencies(PlayerCharacter pc)
 	{
 		List<WeaponProf> list = new ArrayList<WeaponProf>();
@@ -75,6 +123,12 @@ public class WeaponProfProvider extends ConcretePrereqObject
 		return list;
 	}
 
+	/**
+	 * Returns the LST format for this WeaponProfProvider. Provided primarily to
+	 * allow the Token/Loader system to properly unparse the WeaponProfProvider.
+	 * 
+	 * @return The LST format of this WeaponProfProvider
+	 */
 	public String getLstFormat()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -94,6 +148,12 @@ public class WeaponProfProvider extends ConcretePrereqObject
 		return sb.toString();
 	}
 
+	/**
+	 * Returns true if the given object is a WeaponProfProvider with identical
+	 * underlying WeaponProfs and WeaponProf TYPEs and Prerequisites.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -128,11 +188,16 @@ public class WeaponProfProvider extends ConcretePrereqObject
 					return false;
 				}
 			}
-			return true;
+			return this.equalsPrereqObject(other);
 		}
 		return false;
 	}
 
+	/**
+	 * Returns a consistent-with-equals hashCode for this WeaponProfProvider
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
@@ -140,6 +205,12 @@ public class WeaponProfProvider extends ConcretePrereqObject
 				+ (type == null ? 0 : type.hashCode());
 	}
 
+	/**
+	 * Returns true if this WeaponProfProvider is empty, meaning it contains no
+	 * direct references and no TYPE references.
+	 * 
+	 * @return true if this WeaponProfProvider is empty; false otherwise
+	 */
 	public boolean isEmpty()
 	{
 		return (direct == null || direct.isEmpty())
