@@ -77,9 +77,6 @@ public class WeaponProfType
 			{
 				for (ChangeProf cp : changes)
 				{
-					System.err.println(cp.getResult() + " " + master);
-					System.err.println(cp.getSource().getContainedObjects());
-					System.err.println(aList + " " + weaponProfsOfType);
 					if (cp.getResult().equals(master))
 					{
 						aList.addAll(cp.getSource().getContainedObjects());
