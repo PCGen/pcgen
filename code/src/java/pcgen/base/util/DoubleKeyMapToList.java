@@ -175,11 +175,11 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @param key2
 	 *            The secondary key indicating which List the given objects
 	 *            should be added to.
-	 * @param list
+	 * @param values
 	 *            A Collection containing the items to be added to the List for
 	 *            the given keys.
 	 */
-	public void addAllToListFor(K1 key1, K2 key2, Collection<V> value)
+	public void addAllToListFor(K1 key1, K2 key2, Collection<V> values)
 	{
 		MapToList<K2, V> localMap = mtmtl.get(key1);
 		if (localMap == null)
@@ -187,7 +187,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 			localMap = GenericMapToList.getMapToList(secondClass);
 			mtmtl.put(key1, localMap);
 		}
-		localMap.addAllToListFor(key2, value);
+		localMap.addAllToListFor(key2, values);
 	}
 
 	/**

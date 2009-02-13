@@ -282,6 +282,9 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 * TripleKeyMapToList, and modification of this TripleKeyMapToList will not
 	 * alter the returned Set.
 	 * 
+	 * @param aPrimaryKey
+	 *            The primary key to retrieve keys for.
+	 * 
 	 * @return A Set containing the secondary keys for the given primary key
 	 *         within this TripleKeyMapToList.
 	 */

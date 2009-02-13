@@ -422,7 +422,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * possible to actually sort before doing the comparison. - thpr 2/5/07
 		 */
 		return o instanceof WeightedCollection
-			&& theData.equals(((WeightedCollection) o).theData);
+			&& theData.equals(((WeightedCollection<?>) o).theData);
 	}
 
 	/**

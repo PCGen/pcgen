@@ -65,7 +65,7 @@ public final class StringUtil
 	 * @return A 'separator' separated String
 	 */
 	public static String join(final Collection<?> strings,
-		final String separator)
+			final String separator)
 	{
 		return joinToStringBuffer(strings, separator).toString();
 	}
@@ -86,7 +86,7 @@ public final class StringUtil
 	 * @return A 'separator' separated String
 	 */
 	public static StringBuilder joinToStringBuffer(final Collection<?> strings,
-		final String separator)
+			final String separator)
 	{
 		if (strings == null)
 		{
@@ -150,13 +150,26 @@ public final class StringUtil
 	/**
 	 * Replaces all of the instances of the find String with newStr in the
 	 * (first) given String.
+	 * 
+	 * @param in
+	 *            The input String in which the String replacement should take
+	 *            place
+	 * @param find
+	 *            The String to find within the input String, and which will be
+	 *            replaced by the newStr
+	 * @param newStr
+	 *            The new String that replaces the String to find within the
+	 *            input String
+	 * @return A new String created as a result of modifying the input String to
+	 *         replace all instances of the String to find with the newStr
+	 *         replacement String
 	 */
 	public static String replaceAll(final String in, final String find,
-		final String newStr)
+			final String newStr)
 	{
 		final char[] working = in.toCharArray();
-		final StringBuilder sb =
-				new StringBuilder(in.length() + newStr.length());
+		final StringBuilder sb = new StringBuilder(in.length()
+				+ newStr.length());
 		int startindex = in.indexOf(find);
 
 		if (startindex < 0)

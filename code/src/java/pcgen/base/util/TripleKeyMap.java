@@ -356,9 +356,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 			for (K2 key2 : map.getSecondaryKeySet(key1))
 			{
 				Map<K3, V> local = map.get(key1, key2);
-				for (K3 key3 : local.keySet())
+				for (Map.Entry<K3, V> me : local.entrySet())
 				{
-					tkm.put(key1, key2, key3, local.get(key3));
+					tkm.put(key1, key2, me.getKey(), me.getValue());
 				}
 			}
 		}

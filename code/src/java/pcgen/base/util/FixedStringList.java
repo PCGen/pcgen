@@ -69,7 +69,7 @@ public class FixedStringList extends AbstractList<String> implements
 	/**
 	 * The String array underlying the FixedStringList
 	 */
-	String[] array;
+	private final String[] array;
 
 	/**
 	 * Creates a new FixedStringList of the given size. All values in the
