@@ -41,6 +41,8 @@ public class PCCountContainersTermEvaluator
 	{
 		this.originalText = originalText;
 	}
+
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		final int merge = Constants.MERGE_ALL;

@@ -53,6 +53,7 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 		this.newCount     = newCount;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter apc)
 	{
 		final List<Follower> followers = apc.getFollowerList();

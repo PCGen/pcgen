@@ -42,11 +42,13 @@ public class PCSkillRankTermEvaluator
 		this.rank         = rank;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return convertToFloat(originalText, evaluate(pc));
 	}
 	
+	@Override
 	public String evaluate(PlayerCharacter pc)
 	{
 		final Skill aSkill = pc.getSkillKeyed(rank);
@@ -56,6 +58,7 @@ public class PCSkillRankTermEvaluator
 			   SkillRankControl.getRank(pc, aSkill).toString();		
 	}
 
+	@Override
 	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
 		return evaluate(pc);
 	}

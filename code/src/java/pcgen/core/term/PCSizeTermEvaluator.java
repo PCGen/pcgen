@@ -38,6 +38,7 @@ public class PCSizeTermEvaluator
 	}
 
 	// This makes no sense as part of a numeric evaluator
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return convertToFloat(originalText, evaluate(pc));

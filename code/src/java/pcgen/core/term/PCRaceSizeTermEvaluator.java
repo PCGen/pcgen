@@ -37,6 +37,7 @@ public class PCRaceSizeTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return pc.getRace().getSafe(FormulaKey.SIZE).resolve(pc, "").floatValue();

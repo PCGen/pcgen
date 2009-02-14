@@ -36,6 +36,7 @@ public class PCHeightTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getHeight();

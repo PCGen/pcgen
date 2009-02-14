@@ -38,6 +38,7 @@ public class PCCountSpellRaceTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		final PObject aSpellRace = pc.getSpellClassAtIndex(0);

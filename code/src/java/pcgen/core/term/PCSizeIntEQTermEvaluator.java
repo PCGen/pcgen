@@ -43,6 +43,7 @@ public class PCSizeIntEQTermEvaluator
 		this.source       = source;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		int modSize = 0;

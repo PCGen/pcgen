@@ -41,6 +41,7 @@ public class PCProfACCheckTermEvaluator
 		this.eqKey        = eqKey;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		if ("".equals(eqKey))

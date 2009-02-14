@@ -38,14 +38,17 @@ public class PCVerbatimTextTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public String evaluate(PlayerCharacter pc) {
 		return originalText;
 	}
 	
+	@Override
 	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
 		return originalText;
 	}
 	
+	@Override
 	public Float resolve(PlayerCharacter pc) {
 		return 0f;
 	}

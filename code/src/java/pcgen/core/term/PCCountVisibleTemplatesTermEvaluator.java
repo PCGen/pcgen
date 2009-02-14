@@ -39,6 +39,7 @@ public class PCCountVisibleTemplatesTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float count = 0f;

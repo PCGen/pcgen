@@ -41,6 +41,7 @@ public class PCMaxCastableDomainTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		CharacterDomain domain = pc.getCharacterDomainForDomain(domainKey);

@@ -41,6 +41,7 @@ public class PCBaseSpellStatTermEvaluator
 		this.source       = source;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		PCClass pcClass = pc.getClassKeyed(source);

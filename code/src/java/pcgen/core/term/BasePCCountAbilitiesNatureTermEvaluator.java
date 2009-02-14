@@ -41,6 +41,7 @@ public abstract class BasePCCountAbilitiesNatureTermEvaluator
 	{
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		List<Ability> lAb = getAbilities(pc);

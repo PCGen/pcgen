@@ -36,6 +36,7 @@ public class PCCarriedWeightTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return pc.totalWeight();

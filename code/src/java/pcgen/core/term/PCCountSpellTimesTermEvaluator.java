@@ -55,6 +55,7 @@ public class PCCountSpellTimesTermEvaluator
 		spellNumber = fields[3];
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		String bookName = (classNum == -1) ? Globals.getDefaultSpellBook() :

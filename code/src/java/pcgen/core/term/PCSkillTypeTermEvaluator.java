@@ -45,6 +45,7 @@ public class PCSkillTypeTermEvaluator
 		this.type         = type;
 	}
 	
+	@Override
 	public Float resolve(PlayerCharacter pc) {
 
 		//noinspection CollectionDeclaredAsConcreteClass

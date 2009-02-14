@@ -36,6 +36,7 @@ public class PCSizeIntTermEvaluator
 		this.originalText = expressionString;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.sizeInt();

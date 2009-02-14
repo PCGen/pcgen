@@ -37,7 +37,9 @@ public class PCBABTermEvaluator
 		this.originalText = originalText;
 	}
 
-	public Float resolve(PlayerCharacter pc) {
+	@Override
+	public Float resolve(PlayerCharacter pc)
+	{
 		return (float) pc.baseAttackBonus();
 	}
 

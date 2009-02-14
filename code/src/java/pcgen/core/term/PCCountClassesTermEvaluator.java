@@ -38,6 +38,7 @@ public class PCCountClassesTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		pc.getClassList().trimToSize();

@@ -40,6 +40,7 @@ public class PCMovementTermEvaluator
 		this.movement     = movement;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return convertToFloat(originalText, evaluate(pc));

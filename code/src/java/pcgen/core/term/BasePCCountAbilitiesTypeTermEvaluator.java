@@ -35,6 +35,7 @@ public abstract class BasePCCountAbilitiesTypeTermEvaluator extends BasePCCountA
 {
 	protected String[] types;
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float count = 0f;

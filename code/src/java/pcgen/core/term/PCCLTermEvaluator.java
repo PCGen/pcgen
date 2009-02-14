@@ -42,6 +42,7 @@ public class PCCLTermEvaluator
 		this.classKey        = aClass;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return convertToFloat(originalText, evaluate(pc));

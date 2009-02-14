@@ -39,6 +39,7 @@ public class PCShieldACcheckTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc) {
 
 		Float maxCheck = 0f;

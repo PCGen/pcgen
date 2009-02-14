@@ -41,6 +41,7 @@ public class PCCountFollowerTypeTermEvaluator
 		this.type = type;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float countFollower = 0f;

@@ -52,6 +52,7 @@ public class PCHPTermEvaluator
 	/* (non-Javadoc)
 	 * @see pcgen.core.term.BasePCTermEvaluator#resolve(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.hitPoints();

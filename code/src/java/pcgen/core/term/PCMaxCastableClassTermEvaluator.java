@@ -50,6 +50,7 @@ public class PCMaxCastableClassTermEvaluator
 		// TODO Warning if null? or is null gate in resolve not necessary?
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float max = -1f;

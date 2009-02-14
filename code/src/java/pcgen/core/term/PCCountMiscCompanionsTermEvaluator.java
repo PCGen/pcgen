@@ -39,6 +39,7 @@ public class PCCountMiscCompanionsTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		String CompString = pc.getMiscList().get(1);

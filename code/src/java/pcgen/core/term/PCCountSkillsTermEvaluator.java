@@ -36,6 +36,7 @@ public class PCCountSkillsTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		// We use the list in output order to ensure the size

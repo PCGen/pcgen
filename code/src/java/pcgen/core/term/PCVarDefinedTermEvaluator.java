@@ -39,6 +39,7 @@ public class PCVarDefinedTermEvaluator
 		this.var          = var;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return pc.hasVariable(var) ? 1f : 0f;

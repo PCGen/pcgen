@@ -39,6 +39,7 @@ public class PCStatBaseTermEvaluator
 		this.statAbbrev   = statAbbrev;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getStatList().getBaseStatFor(statAbbrev);

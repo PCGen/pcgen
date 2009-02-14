@@ -50,6 +50,7 @@ public class PCCountEqTypeTermEvaluator
 		this.merge        = merge;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc) {
 
 		List<Equipment> aList = new ArrayList<Equipment>();

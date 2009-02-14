@@ -39,6 +39,7 @@ public class PCHasFeatTermEvaluator
 		this.feat         = feat;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return pc.hasRealFeatNamed(feat) ? 1f : 0f;

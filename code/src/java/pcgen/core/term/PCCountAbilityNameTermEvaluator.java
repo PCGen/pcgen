@@ -54,6 +54,7 @@ public class PCCountAbilityNameTermEvaluator
 		this.hidden = hidden;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float count = 0f;
@@ -79,6 +80,7 @@ public class PCCountAbilityNameTermEvaluator
 		return false;
 	}
 
+	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
 		return pc.getAggregateAbilityList(abCat);

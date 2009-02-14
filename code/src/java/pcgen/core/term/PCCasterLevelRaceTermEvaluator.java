@@ -42,10 +42,13 @@ public class PCCasterLevelRaceTermEvaluator
 	}
 
 	// Makes no sense without a spell
-	public Float resolve(PlayerCharacter pc) {
+	@Override
+	public Float resolve(PlayerCharacter pc)
+	{
 		return 0f;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc, final Spell aSpell) {
 
 		final float lev =

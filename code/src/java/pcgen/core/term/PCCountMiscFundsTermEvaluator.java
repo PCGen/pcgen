@@ -39,6 +39,7 @@ public class PCCountMiscFundsTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		String fundString = pc.getMiscList().get(0);

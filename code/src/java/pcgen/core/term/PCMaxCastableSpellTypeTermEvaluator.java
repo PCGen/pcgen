@@ -40,6 +40,7 @@ public class PCMaxCastableSpellTypeTermEvaluator
 		this.typeKey = typeKey;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float max = 0f;

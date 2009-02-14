@@ -36,6 +36,7 @@ public class PCTotalWeightTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getWeight() + pc.totalWeight().intValue();

@@ -36,6 +36,7 @@ public class PCCountSABTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getSpecialAbilityTimesList().size();

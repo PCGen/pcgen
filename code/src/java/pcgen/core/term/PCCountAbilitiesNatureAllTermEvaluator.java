@@ -48,6 +48,7 @@ public class PCCountAbilitiesNatureAllTermEvaluator
 		this.hidden = hidden;
 	}
 
+	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
 		return AbilityUtilities.getAggregateAbilitiesListForKey(

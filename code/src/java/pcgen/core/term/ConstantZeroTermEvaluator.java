@@ -36,11 +36,14 @@ public class ConstantZeroTermEvaluator
 		this.originalText = originalText;
 	}
 
-	public Float resolve(PlayerCharacter pc) {
+	@Override
+	public Float resolve(PlayerCharacter pc)
+	{
 		return 0f;
 	}
 
-	public boolean isSourceDependant() {
+	public boolean isSourceDependant()
+	{
 		return false;
 	}	
 

@@ -47,6 +47,7 @@ public class PCCountAbilitiesNatureAutoTermEvaluator
 		this.hidden = hidden;
 	}
 
+	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
 		return pc.getAutomaticAbilityList(abCat);

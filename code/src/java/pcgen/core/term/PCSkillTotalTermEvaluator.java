@@ -42,6 +42,7 @@ public class PCSkillTotalTermEvaluator
 		this.total        = total;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		final Skill aSkill = pc.getSkillKeyed(total);

@@ -37,6 +37,7 @@ public class PCCountStatsTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) SettingsHandler.getGame().s_ATTRIBLONG.length;

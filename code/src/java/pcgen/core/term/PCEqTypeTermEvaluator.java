@@ -81,6 +81,7 @@ public class PCEqTypeTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		final String sTok = evaluate(pc);

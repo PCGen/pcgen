@@ -39,6 +39,7 @@ public class PCModEquipTermEvaluator
 		this.modEq        = modEq;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.modToFromEquipment(modEq);

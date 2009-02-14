@@ -40,6 +40,7 @@ public class PCCountSpellsInbookTermEvaluator
 		this.book = book;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return SettingsHandler.getPrintSpellsWithPC() ?

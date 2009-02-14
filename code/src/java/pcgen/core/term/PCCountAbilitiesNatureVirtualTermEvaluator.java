@@ -47,6 +47,7 @@ public class PCCountAbilitiesNatureVirtualTermEvaluator
 		this.hidden       = hidden;
 	}
 
+	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
 		return pc.getVirtualAbilityList(abCat);

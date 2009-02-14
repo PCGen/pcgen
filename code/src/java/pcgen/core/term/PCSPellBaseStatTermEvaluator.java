@@ -42,6 +42,7 @@ public class PCSPellBaseStatTermEvaluator
 		this.classKey     = classKey;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		final PCClass aClass = pc.getClassKeyed(classKey);

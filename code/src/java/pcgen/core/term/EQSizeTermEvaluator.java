@@ -45,10 +45,12 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	public String evaluate(PlayerCharacter pc) {
 		return String.valueOf("0");
 	}
 
+	@Override
 	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
 		return String.valueOf("0");
 	}

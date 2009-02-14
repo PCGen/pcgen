@@ -36,6 +36,7 @@ public class PCCountVisionTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getVisionList().size();

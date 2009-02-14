@@ -39,6 +39,7 @@ public class PCCountMiscMagicTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		String magicString = pc.getMiscList().get(2);

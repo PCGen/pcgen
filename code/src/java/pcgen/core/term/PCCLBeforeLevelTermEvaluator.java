@@ -44,6 +44,7 @@ public class PCCLBeforeLevelTermEvaluator
 		this.level        = level;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc) {
 
 		final PCClass aClass = pc.getClassKeyed(source);

@@ -41,6 +41,7 @@ public class PCHasDeityTermEvaluator
 		this.deity        = deity;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return pc.hasDeity(deity) ? 1f : 0f;

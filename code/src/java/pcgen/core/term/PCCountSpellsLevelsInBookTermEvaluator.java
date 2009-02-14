@@ -47,6 +47,7 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 		sbookNum = nums[1];
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		String bookName = Globals.getDefaultSpellBook();

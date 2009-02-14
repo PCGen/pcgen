@@ -41,6 +41,7 @@ public class PCHasClassTermEvaluator
 		this.source       = source;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc) {
 		return pc.getClassKeyed(source) != null ? 1f : 0f;
 	}

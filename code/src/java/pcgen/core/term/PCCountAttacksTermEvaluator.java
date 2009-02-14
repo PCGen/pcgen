@@ -36,6 +36,7 @@ public class PCCountAttacksTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getNumAttacks();

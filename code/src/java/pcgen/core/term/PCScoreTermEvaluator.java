@@ -39,6 +39,7 @@ public class PCScoreTermEvaluator
 		this.stat         = stat;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		if ("".equals(stat))

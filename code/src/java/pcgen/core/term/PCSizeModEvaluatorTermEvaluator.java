@@ -36,6 +36,7 @@ public class PCSizeModEvaluatorTermEvaluator
 		this.originalText = originalText;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");

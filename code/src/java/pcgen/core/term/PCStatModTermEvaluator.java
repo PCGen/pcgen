@@ -42,6 +42,7 @@ public class PCStatModTermEvaluator
 		this.statAbbrev   = statAbbrev;
 	}
 
+	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		final StatList sl   = pc.getStatList();
