@@ -16,7 +16,7 @@ AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	TYPE:Zarakku									VI
 Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	TYPE:Shalraeku									VISIBLE:DISPLAY																																																							SR:TL+WIS
 Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	TYPE:Zarakku									VISIBLE:DISPLAY																																																							SR:TL+CON
 Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	TYPE:Shalraeku									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
-Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	TYPE:Zarakku									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cause Light Wounds,11+WIS
+Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	TYPE:Zarakku									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
 
 ###CLARIFY: Although in the Sourcebook Listed as Damage Reduction, I believe the intent is actually a RESISTANCE
 #DR 5 Fire									CATEGORY:Special Ability	TYPE:ShalraekuZarakku.SpecialQuality	VISIBLE:NO																																								DR:5/Fire

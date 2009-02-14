@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 10:56:22 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Feb 14 09:19:43 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
@@ -99,7 +99,7 @@ CLASS:Arcane Rogue	HD:6		TYPE:PC.Prestige	ABB:AR		MAXLEVEL:8	SOURCEPAGE:p.49	BON
 # Class Name		Restricted AL		Req. Att.	Required Feat				Required Skill		Req. Spell Type		Required Stat	Required Text
 CLASS:Arcane Rogue	!PREALIGN:LG,LN,LE	PREATT:4	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,INT=14	PRETEXT:+8 ranks in any three rogue class skills
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE.Craft|Decipher Script|Escape Artist|Forgery|Gather Information|Hide|TYPE.Knowledge|Listen|Move Silently|Open Locks|Sleight of Hand|Search|Sense Motive|Spellcraft|Spot
+CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE.Craft|Decipher Script|Escape Artist|Forgery|Gather Information|Hide|TYPE.Knowledge|Listen|Move Silently|Open Lock|Sleight of Hand|Search|Sense Motive|Spellcraft|Spot
 ###3e - Alchemy, Read Lips
 ###Max Level 8?
 ###Block: Caster Level
@@ -155,8 +155,8 @@ CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|K
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Chosen of Roarth	HD:8		TYPE:PC.Prestige	ABB:CR		MAXLEVEL:7	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude|(CL+3)/2-CL==1	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:CHECKS|BASE.Will|(CL+2)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required AL		Req. Att.	Required Deity	Required Feat								Required Skill				Required Stat
-CLASS:Chosen of Roarth	PREALIGN:LG,NG,CG	PREATT:5	PREDEITY:1,Roarth	PREFEAT:1,Weapon Focus(TYPE=Bow),Weapon Focus(TYPE=Spear)	PRESKILL:2,Handle Animal,Survival=8	PRESTAT:1,WIS=13
+# Class Name		Required AL		Req. Att.	Required Deity	Required Feat								Required Skill					Required Stat
+CLASS:Chosen of Roarth	PREALIGN:LG,NG,CG	PREATT:5	PREDEITY:1,Roarth	PREFEAT:1,Weapon Focus(TYPE=Bow),Weapon Focus(TYPE=Spear)	PRESKILL:2,Handle Animal=8,Survival=8	PRESTAT:1,WIS=13
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|Knowledge (Nature)|Ride|Use Rope|Survival
 ###Block: Caster Level
@@ -226,7 +226,7 @@ CLASS:Soulreaper	HD:6		TYPE:PC.Prestige	ABB:SHBL		MAXLEVEL:7	SOURCEPAGE:p.59	BON
 # Class Name	Restricted AL		Req. Att.	Required Feat				Required Skill						Required Stat				Required Text
 CLASS:Soulreaper	!PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:3,Power Attack,Cleave,Track	PRESKILL:3,Intimidate=8,Survival=8,Listen=4	PRESTAT:3,STR=14,DEX=12,CON=14	PRETEXT:By appointment of the Devi of Sophia Kalla only
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Disable Device|Hide|Intimidate|Knowlege (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
+CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Disable Device|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
 ###Block: Special Abilities:
 1	SAB:AC Bonus +%|SoulreaperAC			BONUS:COMBAT|AC|SoulreaperAC	BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0
 2	SAB:DR %/+%|SoulreaperDR|SoulreaperDRPlus						BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0

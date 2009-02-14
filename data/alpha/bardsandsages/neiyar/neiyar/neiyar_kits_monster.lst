@@ -15,7 +15,6 @@ SKILL:Listen			RANK:12
 SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:12
-FEAT:Improved Grab
 FEAT:Iron Will
 FEAT:Power Attack
 
@@ -38,7 +37,7 @@ NAME:Chardara Bird
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 ALIGN:TN
 SKILL:Spot	RANK:9	FREE:YES
-ABILITY:CATEGORY=Special Abilty|Evasion
+ABILITY:CATEGORY=Special Ability|Evasion
 FEAT:Weapon Finesse
 FEAT:Improved Initiative	FREE:YES
 
