@@ -113,12 +113,14 @@ public class TokenSupport
 		if (tokenList != null)
 		{
 			for (CDOMToken<T> token : tokenList)
-			if (token.parse(context, cdo, value))
 			{
-				return true;
+				if (token.parse(context, cdo, value))
+				{
+					return true;
+				}
+				Logging.addParseMessage(Logging.LST_ERROR,
+						"Failed in parsing subtoken: " + key + " of " + value);
 			}
-			Logging.addParseMessage(Logging.LST_ERROR,
-				"Failed in parsing subtoken: " + key + " of " + value);
 		}
 		/*
 		 * CONSIDER Better option than toString, given that T != CDOMObject

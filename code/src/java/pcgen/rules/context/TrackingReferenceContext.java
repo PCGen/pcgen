@@ -41,7 +41,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		UnconstructedListener
 {
 
-	private DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<CDOMReference<?>, URI, String>(WeakHashMap.class, HashMap.class);
+	private final DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<CDOMReference<?>, URI, String>(WeakHashMap.class, HashMap.class);
 
 	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
@@ -96,7 +96,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		return ref;
 	}
 
-	private Set<ReferenceManufacturer<?, ?>> listening = new HashSet<ReferenceManufacturer<?, ?>>();
+	private final Set<ReferenceManufacturer<?, ?>> listening = new HashSet<ReferenceManufacturer<?, ?>>();
 
 	@Override
 	protected <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(

@@ -76,8 +76,7 @@ public class CDOMSubLineLoader<T>
 	{
 		try
 		{
-			T obj = targetClass.newInstance();
-			return obj;
+			return targetClass.newInstance();
 		}
 		catch (InstantiationException e)
 		{

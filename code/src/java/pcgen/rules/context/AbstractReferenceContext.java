@@ -41,7 +41,6 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;

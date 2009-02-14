@@ -55,7 +55,7 @@ public abstract class LoadContext
 
 	public final ReferenceContext ref;
 	
-	private List<Campaign> campaignList = new ArrayList<Campaign>();
+	private final List<Campaign> campaignList = new ArrayList<Campaign>();
 
 	public LoadContext(ReferenceContext rc, ListContext lc, ObjectContext oc)
 	{
@@ -321,7 +321,7 @@ public abstract class LoadContext
 		return CampaignSourceEntry.getNewCSE(source, sourceURI, value);
 	}
 
-	CDOMObject stateful;
+	private CDOMObject stateful;
 
 	public void clearStatefulInformation()
 	{
@@ -352,10 +352,10 @@ public abstract class LoadContext
 		}
 	}
 
-	public void setLoaded(List<Campaign> selectedCampaignsList)
+	public void setLoaded(List<Campaign> campaigns)
 	{
 		campaignList.clear();
-		campaignList.addAll(selectedCampaignsList);
+		campaignList.addAll(campaigns);
 	}
 
 	public boolean isTypeHidden(Class<?> cl, String type)
@@ -397,7 +397,7 @@ public abstract class LoadContext
 					+ StringPClassUtil.getValidStrings());
 			return null;
 		}
-		else if (firstToken.equals("FEAT"))
+		else if ("FEAT".equals(firstToken))
 		{
 			className = "ABILITY";
 			categoryName = "FEAT";
