@@ -124,7 +124,7 @@ public class FeatToken extends AbstractToken implements
 										+ getTokenName() + ": " + token);
 						return false;
 					}
-					ar.addChoice(choices.get(0));
+					ar.setChoice(choices.get(0));
 				}
 			}
 			first = false;

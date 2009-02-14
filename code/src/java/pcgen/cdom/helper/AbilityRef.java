@@ -20,32 +20,79 @@ package pcgen.cdom.helper;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.core.Ability;
 
+/**
+ * An AbilityRef represents a reference to a Specific Ability with a set choice.
+ * 
+ * This is typically used for tokens where an Ability is directly granted, or a
+ * selection of only a specific choice for an Ability is allowed.
+ */
 public class AbilityRef
 {
 
+	/**
+	 * A reference to the Ability which this AbilityRef contains
+	 */
 	private final CDOMReference<Ability> abilities;
+
+	/**
+	 * The specific choice (association) for the Ability this AbilityRef
+	 * contains. May remain null if the given Ability does not have a specific
+	 * choice (or does not require a specific choice)
+	 */
 	private String choice = null;
 
+	/**
+	 * Constructs a new AbilityRef for the Ability in the given reference.
+	 * 
+	 * @param ab
+	 *            A reference to the Ability which this AbilityRef contains
+	 */
 	public AbilityRef(CDOMReference<Ability> ab)
 	{
 		abilities = ab;
 	}
 
-	public void addChoice(String s)
+	/**
+	 * Sets the specific choice (association) for the Ability this AbilityRef
+	 * contains.
+	 * 
+	 * @param s
+	 *            The specific choice (association) for the Ability this
+	 *            AbilityRef contains.
+	 */
+	public void setChoice(String s)
 	{
 		choice = s;
 	}
 
+	/**
+	 * Returns the reference to the Ability that this AbilityRef contains
+	 * 
+	 * @return The reference to the Ability that this AbilityRef contains
+	 */
 	public CDOMReference<Ability> getRef()
 	{
 		return abilities;
 	}
-	
+
+	/**
+	 * Returns the specific choice (association) for the Ability this AbilityRef
+	 * contains.
+	 * 
+	 * @return The specific choice (association) for the Ability this AbilityRef
+	 *         contains.
+	 */
 	public String getChoice()
 	{
 		return choice;
 	}
 
+	/**
+	 * Returns true if the given object is a AbilityRef with identical
+	 * underlying Ability reference and choice String.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -67,6 +114,11 @@ public class AbilityRef
 		return false;
 	}
 
+	/**
+	 * Returns a consistent-with-equals hashCode for this AbilityRef
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
