@@ -34,19 +34,19 @@ public class PointCost
 	/**
 	 * The point cost of the characterisic
 	 */
-	private final int pointCost;
+	private final int cost;
 
 	/**
 	 * Constructs a new PointCost for the given characteristic and cost
 	 * 
 	 * @param key
 	 *            The characteristic for which this PointCost defines a cost
-	 * @param cost
+	 * @param pointcost
 	 *            The point cost of the characterisic
 	 * @throws IllegalArgumentException
 	 *             if the given characteristic is null
 	 */
-	public PointCost(String key, int cost)
+	public PointCost(String key, int pointcost)
 	{
 		if (key == null)
 		{
@@ -54,7 +54,7 @@ public class PointCost
 					"Key for PointCost cannot be null");
 		}
 		type = key;
-		pointCost = cost;
+		cost = pointcost;
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class PointCost
 	 */
 	public int getCost()
 	{
-		return pointCost;
+		return cost;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class PointCost
 	@Override
 	public int hashCode()
 	{
-		return type.hashCode() ^ pointCost;
+		return type.hashCode() ^ cost;
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class PointCost
 		if (o instanceof PointCost)
 		{
 			PointCost other = (PointCost) o;
-			return type.equals(other.type) && pointCost == other.pointCost;
+			return type.equals(other.type) && cost == other.cost;
 		}
 		return false;
 	}

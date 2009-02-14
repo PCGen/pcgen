@@ -178,16 +178,16 @@ public class ChangeArmorType implements Modifier<String>
 	 * always be in upper case. This may be an unexpected side-effect to this
 	 * method.
 	 * 
-	 * @param calculatedTypeList
+	 * @param armorTypes
 	 *            The list of input armor types this Modifier will act upon
 	 * @return The modified List of armor types.
 	 * @throws NullPointerException
 	 *             if the given List is null
 	 */
-	public List<String> applyModifier(Collection<String> calculatedTypeList)
+	public List<String> applyModifier(Collection<String> armorTypes)
 	{
 		List<String> returnList = new ArrayList<String>();
-		for (String type : calculatedTypeList)
+		for (String type : armorTypes)
 		{
 			String mod = applyModifier(type, null);
 			if (mod != null)

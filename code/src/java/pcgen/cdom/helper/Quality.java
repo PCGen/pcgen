@@ -26,7 +26,7 @@ public class Quality
 	/**
 	 * The name of the quality stored in this Quality.
 	 */
-	private final String quality;
+	private final String qualityName;
 
 	/**
 	 * The value of the quality stored in this Quality.
@@ -55,7 +55,7 @@ public class Quality
 			throw new IllegalArgumentException(
 					"Value for Quality cannot be null");
 		}
-		quality = name;
+		qualityName = name;
 		value = val;
 	}
 
@@ -66,7 +66,7 @@ public class Quality
 	 */
 	public String getName()
 	{
-		return quality;
+		return qualityName;
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class Quality
 	@Override
 	public int hashCode()
 	{
-		return quality.hashCode() ^ value.hashCode();
+		return qualityName.hashCode() ^ value.hashCode();
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class Quality
 		if (o instanceof Quality)
 		{
 			Quality other = (Quality) o;
-			return quality.equals(other.quality) && value.equals(other.value);
+			return qualityName.equals(other.qualityName) && value.equals(other.value);
 		}
 		return false;
 	}
@@ -117,6 +117,6 @@ public class Quality
 	@Override
 	public String toString()
 	{
-		return quality + ": " + value;
+		return qualityName + ": " + value;
 	}
 }

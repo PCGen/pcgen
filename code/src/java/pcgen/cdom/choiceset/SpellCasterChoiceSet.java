@@ -249,13 +249,11 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 			{
 				TYPE: for (String type : spelltypes)
 				{
-					if (type.equalsIgnoreCase(pcc.get(StringKey.SPELLTYPE)))
+					if (type.equalsIgnoreCase(pcc.get(StringKey.SPELLTYPE))
+							&& pc.getClassKeyed(pcc.getKeyName()) != null)
 					{
-						if (pc.getClassKeyed(pcc.getKeyName()) != null)
-						{
-							returnSet.add(pcc);
-							break TYPE;
-						}
+						returnSet.add(pcc);
+						break TYPE;
 					}
 				}
 			}

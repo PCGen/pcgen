@@ -317,6 +317,23 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 */
 	public void resolveReferences()
 	{
+		resolvePrimitiveReferences();
+		resolveAllReference();
+		for (WeakReference<TRT> ref : typeReferences.values())
+		{
+			TRT trt = ref.get();
+			if (trt != null && trt.getObjectCount() == 0)
+			{
+				Logging.errorPrint("Error: No " + getReferenceDescription()
+						+ " objects of " + trt.getLSTformat()
+						+ " were loaded but were referred to in the data");
+				fireUnconstuctedEvent(trt);
+			}
+		}
+	}
+
+	private void resolvePrimitiveReferences()
+	{
 		List<String> throwaway = new ArrayList<String>();
 		for (Entry<String, WeakReference<SRT>> me1 : referenced.entrySet())
 		{
@@ -329,13 +346,11 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 					String reduced = AbilityUtilities.getUndecoratedName(me1
 							.getKey(), throwaway);
 					activeObj = active.get(reduced);
-					if (activeObj == null)
+					if (activeObj == null
+							&& (unconstructed.contains(me1.getKey()) || unconstructed
+									.contains(reduced)))
 					{
-						if (unconstructed.contains(me1.getKey())
-								|| unconstructed.contains(reduced))
-						{
-							activeObj = buildObject(me1.getKey());
-						}
+						activeObj = buildObject(me1.getKey());
 					}
 					if (activeObj == null)
 					{
@@ -353,6 +368,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				}
 			}
 		}
+	}
+
+	private void resolveAllReference()
+	{
 		for (T obj : getAllObjects())
 		{
 			if (allRef != null)
@@ -386,17 +405,6 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			Logging.errorPrint("Error: No " + getReferenceDescription()
 					+ " objects were loaded but were referred to in the data");
 			fireUnconstuctedEvent(allRef);
-		}
-		for (WeakReference<TRT> ref : typeReferences.values())
-		{
-			TRT trt = ref.get();
-			if (trt != null && trt.getObjectCount() == 0)
-			{
-				Logging.errorPrint("Error: No " + getReferenceDescription()
-						+ " objects of " + trt.getLSTformat()
-						+ " were loaded but were referred to in the data");
-				fireUnconstuctedEvent(trt);
-			}
 		}
 	}
 
@@ -601,7 +609,17 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 					"Object to be forgotten does not match Class of this AbstractReferenceManufacturer");
 		}
 		String key = active.getKeyFor(obj);
-		if (key != null)
+		if (key == null)
+		{
+			/*
+			 * TODO This is a bug - the key name is not necessarily loaded into
+			 * the object, it may have been consumed by the object context... :P
+			 */
+			CaseInsensitiveString ocik = new CaseInsensitiveString(obj
+					.getKeyName());
+			duplicates.removeFromListFor(ocik, obj);
+		}
+		else
 		{
 			CaseInsensitiveString ocik = new CaseInsensitiveString(key);
 			List<T> list = duplicates.getListFor(ocik);
@@ -616,16 +634,6 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				duplicates.removeFromListFor(ocik, newActive);
 				active.put(key, newActive);
 			}
-		}
-		else
-		{
-			/*
-			 * TODO This is a bug - the key name is not necessarily loaded into
-			 * the object, it may have been consumed by the object context... :P
-			 */
-			CaseInsensitiveString ocik = new CaseInsensitiveString(obj
-					.getKeyName());
-			duplicates.removeFromListFor(ocik, obj);
 		}
 		return true;
 	}
@@ -834,59 +842,16 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		if (validator == null
 				|| !validator.allowDuplicates(getReferenceClass()))
 		{
-			for (CaseInsensitiveString second : duplicates.getKeySet())
-			{
-				List<T> list = duplicates.getListFor(second);
-				T good = active.get(second.toString());
-				for (int i = 0; i < list.size(); i++)
-				{
-					T dupe = list.get(i);
-					if (dupe.isCDOMEqual(good))
-					{
-						for (Iterator<WeakReference<T>> it = manufactured
-								.iterator(); it.hasNext();)
-						{
-							WeakReference<T> wr = it.next();
-							T mfg = wr.get();
-							if (mfg == null)
-							{
-								it.remove();
-							}
-							else if (mfg == good)
-							{
-								forgetObject(good);
-								break;
-							}
-						}
-					}
-				}
-				if (duplicates.containsListFor(second))
-				{
-					Logging.errorPrint("More than one "
-							+ refClass.getSimpleName() + " with key/name "
-							+ second + " was built");
-					returnGood = false;
-				}
-			}
+			returnGood = validateDuplicates();
 		}
-		for (Object second : active.keySet())
-		{
-			T activeObj = active.get(second);
-			String keyName = activeObj.getKeyName();
-			if (keyName == null)
-			{
-				Logging
-						.errorPrint(activeObj.getClass() + " "
-								+ activeObj.get(StringKey.NAME)
-								+ " has a null KeyName");
-			}
-			else if (!keyName.equalsIgnoreCase(second.toString()))
-			{
-				Logging.errorPrint("Magical Key Change: " + second + " to "
-						+ keyName);
-				returnGood = false;
-			}
-		}
+		returnGood &= validateActive();
+		returnGood &= validateUnconstructed(validator);
+		return returnGood;
+	}
+
+	private boolean validateUnconstructed(UnconstructedValidator validator)
+	{
+		boolean returnGood = true;
 		List<String> throwaway = new ArrayList<String>();
 		for (Iterator<Entry<String, WeakReference<SRT>>> it = referenced
 				.entrySet().iterator(); it.hasNext();)
@@ -906,19 +871,81 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 							throwaway);
 					if (!active.containsKey(undec) && !deferred.contains(undec))
 					{
-						if (s.charAt(0) != '*')
+						if (s.charAt(0) != '*' && !validate(validator, s))
 						{
-							if (!validate(validator, s))
-							{
-								Logging.errorPrint("Unconstructed Reference: "
-										+ getReferenceDescription() + " " + s);
-								fireUnconstuctedEvent(value);
-								returnGood = false;
-							}
+							Logging.errorPrint("Unconstructed Reference: "
+									+ getReferenceDescription() + " " + s);
+							fireUnconstuctedEvent(value);
+							returnGood = false;
 						}
 						unconstructed.add(s);
 					}
 				}
+			}
+		}
+		return returnGood;
+	}
+
+	private boolean validateActive()
+	{
+		boolean returnGood = true;
+		for (Object second : active.keySet())
+		{
+			T activeObj = active.get(second);
+			String keyName = activeObj.getKeyName();
+			if (keyName == null)
+			{
+				Logging
+						.errorPrint(activeObj.getClass() + " "
+								+ activeObj.get(StringKey.NAME)
+								+ " has a null KeyName");
+			}
+			else if (!keyName.equalsIgnoreCase(second.toString()))
+			{
+				Logging.errorPrint("Magical Key Change: " + second + " to "
+						+ keyName);
+				returnGood = false;
+			}
+		}
+		return returnGood;
+	}
+
+	private boolean validateDuplicates() throws InternalError
+	{
+		boolean returnGood = true;
+		for (CaseInsensitiveString second : duplicates.getKeySet())
+		{
+			List<T> list = duplicates.getListFor(second);
+			T good = active.get(second.toString());
+			for (int i = 0; i < list.size(); i++)
+			{
+				T dupe = list.get(i);
+				if (dupe.isCDOMEqual(good))
+				{
+					for (Iterator<WeakReference<T>> it = manufactured
+							.iterator(); it.hasNext();)
+					{
+						WeakReference<T> wr = it.next();
+						T mfg = wr.get();
+						if (mfg == null)
+						{
+							it.remove();
+						}
+						//Yes this is instance equality, not .equals
+						else if (mfg == good)
+						{
+							forgetObject(good);
+							break;
+						}
+					}
+				}
+			}
+			if (duplicates.containsListFor(second))
+			{
+				Logging.errorPrint("More than one "
+						+ refClass.getSimpleName() + " with key/name "
+						+ second + " was built");
+				returnGood = false;
 			}
 		}
 		return returnGood;

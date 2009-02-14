@@ -33,13 +33,13 @@ public class OptionBound
 	 * The Formula defining the lower bound (inclusive) for this OptionBound.
 	 * May be null to represent no lower bound.
 	 */
-	private Formula minOption;
+	private final Formula minOption;
 
 	/**
 	 * The Formula defining the upper bound (inclusive) for this OptionBound.
 	 * May be null to represent no upper bound.
 	 */
-	private Formula maxOption;
+	private final Formula maxOption;
 
 	/**
 	 * Constructs a new OptionBound which bounds the range of values between the
@@ -75,15 +75,8 @@ public class OptionBound
 	 */
 	public boolean isOption(PlayerCharacter pc, int val)
 	{
-		if (minOption == null || minOption.resolve(pc, "").intValue() <= val)
-		{
-			if (maxOption == null
-					|| maxOption.resolve(pc, "").intValue() >= val)
-			{
-				return true;
-			}
-		}
-		return false;
+		return (minOption == null || minOption.resolve(pc, "").intValue() <= val)
+				&& (maxOption == null || maxOption.resolve(pc, "").intValue() >= val);
 	}
 
 	/**

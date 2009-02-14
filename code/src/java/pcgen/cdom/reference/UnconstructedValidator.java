@@ -37,9 +37,9 @@ public class UnconstructedValidator
 	private HashMapToList<Class<?>, String> simpleMap;
 	private DoubleKeyMapToList<Class<?>, String, String> categoryMap;
 
-	public UnconstructedValidator(List<Campaign> selectedCampaignsList)
+	public UnconstructedValidator(List<Campaign> campaigns)
 	{
-		campaignList = new ArrayList<Campaign>(selectedCampaignsList);
+		campaignList = new ArrayList<Campaign>(campaigns);
 	}
 
 	public <T extends CDOMObject> boolean allow(Class<T> cl, String s)

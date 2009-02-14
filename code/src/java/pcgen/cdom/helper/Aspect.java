@@ -60,7 +60,7 @@ public class Aspect
 	 */
 	private final AspectName key;
 
-	private List<String> theComponents = new ArrayList<String>();
+	private final List<String> theComponents = new ArrayList<String>();
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
@@ -308,7 +308,7 @@ public class Aspect
 							{
 								if (!first)
 								{
-									buf.append(Constants.COMMA + ' ');
+									buf.append(Constants.COMMA).append(' ');
 								}
 								buf.append(aPC.getDescription(feat));
 								first = false;
@@ -354,7 +354,7 @@ public class Aspect
 			if ( str.startsWith(VAR_MARKER) )
 			{
 				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));
-				buf.append('%' + String.valueOf(ind));
+				buf.append('%').append(ind);
 			}
 			else
 			{
@@ -399,12 +399,9 @@ public class Aspect
 			return false;
 		}
 		Aspect other = (Aspect) o;
-		if (theVariables == null)
+		if (theVariables == null && other.theVariables != null)
 		{
-			if (other.theVariables != null)
-			{
-				return false;
-			}
+			return false;
 		}
 		return theComponents.equals(other.theComponents)
 			&& (theVariables == null || theVariables.equals(other.theVariables));

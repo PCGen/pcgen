@@ -218,15 +218,12 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 		if (!category.equals(obj.getCDOMCategory()))
 		{
 			Category<T> parent = category.getParentCategory();
-			if (parent != null)
+			if (parent != null && !parent.equals(obj.getCDOMCategory()))
 			{
-				if (!parent.equals(obj.getCDOMCategory()))
-				{
-					throw new IllegalArgumentException("Cannot resolve "
-							+ getReferenceClass().getSimpleName() + " "
-							+ getName() + obj.getCDOMCategory()
-							+ " Reference to category " + category);
-				}
+				throw new IllegalArgumentException("Cannot resolve "
+						+ getReferenceClass().getSimpleName() + " " + getName()
+						+ obj.getCDOMCategory() + " Reference to category "
+						+ category);
 			}
 		}
 		referencedObject = obj;
