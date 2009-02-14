@@ -231,7 +231,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 					}
 					else
 					{
-						performForget(context, pObj);
+						/*
+						 * This does not use performForget since this is only
+						 * forgetting something that is local to the context
+						 * (was never "added" to the 5.x system)
+						 */
+						context.ref.forget(pObj);
 					}
 				}
 				else
