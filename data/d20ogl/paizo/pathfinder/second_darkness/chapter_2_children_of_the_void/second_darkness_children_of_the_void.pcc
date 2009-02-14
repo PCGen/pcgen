@@ -30,7 +30,6 @@ ABILITY:pf14_ability.lst
 CLASS:pf14_classes.lst
 EQUIPMOD:pf14_equip_modifier.lst
 EQUIPMENT:pf14_equipment.lst
-FEAT:pf14_feats.lst
 KIT:pf14_kits_monsters.lst
 LANGUAGE:pf14_languages.lst
 RACE:pf14_races.lst

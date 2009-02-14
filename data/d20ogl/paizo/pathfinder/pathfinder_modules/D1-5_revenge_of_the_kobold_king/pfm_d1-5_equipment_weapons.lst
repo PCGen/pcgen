@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Dec 28 00:34:02 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb 13 22:23:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:D1.5: Revenge of the Kobold King	SOURCESHORT:PFMD1-5	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy83w1	SOURCEDATE:2008-06
 
 ##
@@ -10,7 +10,7 @@ SOURCELONG:D1.5: Revenge of the Kobold King	SOURCESHORT:PFMD1-5	SOURCEWEB:http:/
 ##
 ## Ranged Weapons
 ##
-# Equipment Name	Required Proficiency			Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Range		Reach		Size		Source Page		Special Property
+# Equipment Name	Required Weapon Proficiency		Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Range		Reach		Size		Source Page		Special Property
 Flying Talon	PROFICIENCY:WEAPON|Flying Talon	TYPE:Weapon.Melee.Exotic.Standard.Piercing	COST:15	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL	WIELD:Light		RANGE:10	REACH:10	SIZE:M	SOURCEPAGE:pg.10	SPROP:Bonus on disarm or trip attempts
 
 

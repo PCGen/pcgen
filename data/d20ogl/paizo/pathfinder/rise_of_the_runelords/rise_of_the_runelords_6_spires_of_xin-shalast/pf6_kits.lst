@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jul 13 19:51:28 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Fri Feb 13 22:23:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Rise of the Runelords - Chapter 6: Spires of Xin-Shalast	SOURCESHORT:PF6	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
 
 #Original Entry: Andrew Maitland
@@ -38,8 +38,8 @@ FEAT:Improved Critical(Dagger)
 FEAT:Multiattack
 FEAT:Quick Draw
 FEAT:Weapon Finesse
-GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped
-GEAR:Dagger +1				SIZE:PC	LOCATION:Primary Hand
+#GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped (what's this?)
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
 
 
 
@@ -57,8 +57,8 @@ FEAT:Alertness
 FEAT:Altitude Affinity
 FEAT:Endurance
 FEAT:Point Blank Shot
-GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped
-GEAR:Dagger +1				SIZE:PC	LOCATION:Primary Hand
+#GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped (what's this?)
+GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 #Combat Gear
 #Large masterwork composite longbow (+2 Str bonus)
@@ -92,8 +92,8 @@ FEAT:Iron Will
 FEAT:Mobility
 FEAT:Multiattack
 FEAT:Spring Attack
-GEAR:Masterwork Breastplate	SIZE:PC	LOCATION:Equipped
-GEAR:Masterwork Greatsword	SIZE:PC	LOCATION:Primary Hand
+GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
 
 ###:Hungerer
 STARTPACK:Hungerer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hungerer]

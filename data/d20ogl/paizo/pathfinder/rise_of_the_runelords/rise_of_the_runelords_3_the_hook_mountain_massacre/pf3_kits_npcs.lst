@@ -21,7 +21,7 @@ ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Improved Bull Rush
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Ogre Hook)
 GEAR:Potion (Cure Moderate Wounds)					LOCATION:Carried
-GEAR:Hide Shirt +1					SIZE:L	LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Hide							SIZE:L	LOCATION:Equipped	EQMOD:PLUS1A
 GEAR:Ogre Hook						SIZE:L	LOCATION:Both	EQMOD:PLUS1W
 GEAR:Longbow (Composite)				SIZE:L	LOCATION:Carried	EQMOD:BOWSTR|+7.MWORKW
 GEAR:Arrow					QTY:20	SIZE:L	LOCATION:Carried

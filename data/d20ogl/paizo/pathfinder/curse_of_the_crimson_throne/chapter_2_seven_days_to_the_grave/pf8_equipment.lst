@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 24 15:11:02 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+# CVS $Revision$ $Author$ -- Fri Feb 13 22:23:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
 
 # Weapons
-# Equipment Name	Required Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Requires Modification?	Range		Size		Special Property
+# Equipment Name	Required Weapon Proficiency	Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Requires Modification?	Range		Size		Special Property
 Gavel of Abadar	PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.Martial.Bludgeoning.Hammer				COST:0	WT:40		CRITMULT:x3			CRITRANGE:1			DAMAGE:4d6			WIELD:OneHanded	MODS:NO					SIZE:G	SPROP:law-aligned,+2d6 lawful damage vs. chaos. touch can cure serious wounds, neutralize poison, remove blindness/deafness, remove curse, remove disease, and remove paralysis, as if cast by an 18thlevel cleric 3/day.
 Wand of Misery	PROFICIENCY:WEAPON|Club		TYPE:Weapon.Melee.Ranged.Thrown.Simple.Standard.Bludgeoning.Club	COST:5	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	WIELD:OneHanded					RANGE:10	SIZE:M
 

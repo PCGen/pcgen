@@ -15,7 +15,7 @@ Fluid Form																							CATEGORY:Special Ability	TYPE:SpecialQuality.Ex
 Invasive Grapple																						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Any creature an omox successfully grapples begins to suffocate as the demon smothers it.								SOURCEPAGE:p. 84
 Liquid Leap																							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:An omox can instantly travel between bodies of water similarly to the spell dimension door.							SOURCEPAGE:p. 84
 Omox Slime			OUTPUTNAME:Slime																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Omoxes can throw compacted balls of ooze. These blasts of slime have a range increment of 20 feet and deal 1d6+6 points of damage.	SOURCEPAGE:p. 84
-Omox Summon Demon		OUTPUTNAME:Summon Demon																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		DESC:Once per day an omox can attempt to summon 1d4 babaus with a 60% chance of success or another omox with a 40% chance of success.	SOURCEPAGE:p. 84
+Omox Summon Demon		OUTPUTNAME:Summon Demon																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		DESC:Once per day an omox can attempt to summon 1d4 babaus with a 60%% chance of success or another omox with a 40%% chance of success.	SOURCEPAGE:p. 84
 
 ###Block: Ghonhatine Abilities
 # Ability Name			Output Name											Category of Ability		Type						Define					Description																																																Source Page

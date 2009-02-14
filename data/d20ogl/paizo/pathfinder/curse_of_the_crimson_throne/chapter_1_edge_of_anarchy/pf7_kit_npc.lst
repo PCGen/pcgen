@@ -8,7 +8,7 @@ NAME:Yargin Balko
 ALIGN:LE
 TEMPLATE:Yargin Balko's Skills
 CLASS:Expert	LEVEL:2
-LEVELABILITY:Expert=1	ABILITY:PROMPT:CLASSSKILLS(ANY)|CHOICE:Appraise|CHOICE:Craft (Alchemy)|CHOICE:Disable Device|CHOICE:Forgery|CHOICE:Knowledge (Arcana)|CHOICE:Search|CHOICE:Spellcraft|CHOICE:Use Magic Device|CHOICE:Bluff|CHOICE:Craft (Trapmaking)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise,Craft (Alchemy),Disable Device,Forgery,Knowledge (Arcana),Search,Spellcraft,Use Magic Device,Bluff,Craft (Trapmaking))
 STAT:STR=10|DEX=12|CON=13|INT=11|WIS=9|CHA=8
 SKILL:Appraise		RANK:5
 SKILL:Craft (Alchemy)	RANK:5
@@ -37,7 +37,7 @@ ALIGN:TN
 STAT:STR=7|DEX=15|CON=10|INT=9|WIS=8|CHA=10
 TEMPLATE:Lamm's Lambs Skills
 CLASS:Expert	LEVEL:1
-LEVELABILITY:Expert=1	ABILITY:PROMPT:CLASSSKILLS(ANY)|CHOICE:Balance|CHOICE:Bluff|CHOICE:Climb|CHOICE:Escape Artist|CHOICE:Sleight of Hand|CHOICE:Tumble|CHOICE:Spot|CHOICE:Search|CHOICE:Hide|CHOICE:Listen]|ABILITY:[PROMPT:CLASSSKILLS(ANY)|CHOICE:Appraise|CHOICE:Craft (Alchemy)|CHOICE:Disable Device|CHOICE:Forgery|CHOICE:Knowledge (Arcana)|CHOICE:Search|CHOICE:Spellcraft|CHOICE:Use Magic Device|CHOICE:Bluff|CHOICE:Craft (Trapmaking)]|ABILITY:[PROMPT:CLASSSKILLS(ANY)|CHOICE:Appraise|CHOICE:Craft (Alchemy)|CHOICE:Disable Device|CHOICE:Forgery|CHOICE:Knowledge (Arcana)|CHOICE:Search|CHOICE:Spellcraft|CHOICE:Use Magic Device|CHOICE:Bluff|CHOICE:Craft (Trapmaking)]|PRESTAT:STR=-3|PRESTAT:DEX=5|PRESTAT:INT=-1|PRESTAT:WIS=-2|SKILLSGAINED:28|SKILLSREMAINING:4
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Balance,Bluff,Climb,Escape Artist,Sleight of Hand,Tumble,Spot,Search,Hide,Listen)
 SKILL:Balance		RANK:4
 SKILL:Bluff			RANK:4
 SKILL:Climb			RANK:4
@@ -90,7 +90,7 @@ ALIGN:NE
 STAT:STR=5|DEX=13|CON=7|INT=16|WIS=14|CHA=15
 TEMPLATE:Gaedren Lamm's Skills
 CLASS:Expert	LEVEL:4
-LEVELABILITY:Expert=1	ABILITY:PROMPT:CLASSSKILLS(ANY)|CHOICE:Appraise|CHOICE:Bluff|CHOICE:Forgery|CHOICE:Handle Animal|CHOICE:Intimidate|CHOICE:Knowledge (Local)|CHOICE:Open Lock|CHOICE:Sleight of Hand|CHOICE:Spot|CHOICE:Listen]|SKILLSGAINED:40
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise,Bluff,Forgery,Handle Animal,Intimidate,Knowledge (Local),Open Lock,Sleight of Hand,Spot,Listen)
 CLASS:Rogue		LEVEL:2
 SKILL:Appraise		RANK:9
 SKILL:Bluff			RANK:9

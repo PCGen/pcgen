@@ -3,7 +3,7 @@ SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotC
 
 ###Block: Daemon (Leukodaemon) Abilities
 # Ability Name		Output Name									Category of Ability		Type								Description																	Source Page
-Breath of Flies												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:20-foot cone of biting black flies, 8d6 slashing, Reflex DC % half, 1/minute|10+(TL/2)+CON			SOURCEPAGE:p. 80
+Breath of Flies												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:20-foot cone of biting black flies, 8d6 slashing, Reflex DC %1 half, 1/minute|10+(TL/2)+CON		SOURCEPAGE:p. 80
 Contagion Shot												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption	DESC:Any arrow a leukodaemon fires--either from its own bow or any other--is tainted with disease.		SOURCEPAGE:p. 80
 Infectious Aura												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		DESC:Diseases are more virulent in the presence of a leukodaemon.								SOURCEPAGE:p. 80
 Summon Daemon												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:Once per day, a leukodaemon can attempt to summon another leukodaemon with a 35%% chance of success.	SOURCEPAGE:p. 80

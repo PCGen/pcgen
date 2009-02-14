@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Oct  8 22:05:37 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Fri Feb 13 22:23:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 
 # Weapons
-# Equipment Name	Required Proficiency			Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Requires Modification?	Size		Source Page		Special Property
+# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Requires Modification?	Size		Source Page		Special Property
 Tyranny's Foil	PROFICIENCY:WEAPON|Halberd		TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d8	EQMOD:STEEL.PLUS2W.KEEN.CHAOS_M	WIELD:TwoHanded	MODS:NO			SIZE:L	SOURCEPAGE:p. 86	SPROP:Opens all nonmagical locked doors and bindings, breaks all non-magical chains and shackles within 30 ft.
 Pickaxe		PROFICIENCY:WEAPON|Pick (Heavy)	TYPE:Weapon.Melee.Martial.Standard.Piercing.Pick			COST:14	WT:12		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL					WIELD:TwoHanded					SIZE:M	SOURCEPAGE:p. 29
 

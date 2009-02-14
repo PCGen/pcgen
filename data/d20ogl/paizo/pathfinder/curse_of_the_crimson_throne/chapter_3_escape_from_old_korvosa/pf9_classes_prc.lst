@@ -10,15 +10,15 @@ CLASS:Red Mantis Assassin	STARTSKILLPTS:6
 # Class Name			Spell Type		Caster level
 CLASS:Red Mantis Assassin	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Red Mantis Assassin|CL
 ###Block: Level Progression
-1	BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery		AUTO:FEAT|Weapon Focus(Sawtooth Sabre)|Sneak Attack
+1	BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery|Sneak Attack	AUTO:FEAT|Weapon Focus(Sawtooth Sabre)
 2					ABILITY:Special Ability|AUTOMATIC|Prayer Attack
 3					ABILITY:Special Ability|AUTOMATIC|Red Shroud
 4	BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Call Mantis
-5					ABILITY:Special Ability|AUTOMATIC|Resurrection Sense		AUTO:FEAT|Weapon Specialization(Sawtooth Sabre)
+5					ABILITY:Special Ability|AUTOMATIC|Resurrection Sense			AUTO:FEAT|Weapon Specialization(Sawtooth Sabre)
 6					ABILITY:Special Ability|AUTOMATIC|Mantis Form
-7	BONUS:VAR|SneakAttack|1											AUTO:FEAT|Greater Weapon Focus(Sawtooth Sabre)
+7	BONUS:VAR|SneakAttack|1												AUTO:FEAT|Greater Weapon Focus(Sawtooth Sabre)
 8					ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|Fading
-9					ABILITY:Special Ability|AUTOMATIC|Mantis Doom			AUTO:FEAT|Greater Weapon Specialization(Sawtooth Sabre)
+9					ABILITY:Special Ability|AUTOMATIC|Mantis Doom				AUTO:FEAT|Greater Weapon Specialization(Sawtooth Sabre)
 10	BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Death Mantis Form
 ###Block: Spells
 1	CAST:0,0		KNOWN:0,2

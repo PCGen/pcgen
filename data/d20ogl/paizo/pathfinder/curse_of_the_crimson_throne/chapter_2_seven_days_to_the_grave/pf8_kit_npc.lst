@@ -8,7 +8,7 @@ NAME:Vendra Loaggri
 ALIGN:CN
 TEMPLATE:Vendra Loaggri Expert Skills
 CLASS:Expert	LEVEL:2
-LEVELABILITY:Expert=1	ABILITY:PROMPT:CLASSSKILLS(ANY)|CHOICE:Bluff|CHOICE:Craft (Alchemy)|CHOICE:Diplomacy|CHOICE:Escape Artist|CHOICE:Forgery|CHOICE:Knowledge (Local)|CHOICE:Listen|CHOICE:Move Silently|CHOICE:Spot|CHOICE:Use Magic Device
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Bluff,Craft (Alchemy),Diplomacy,Escape Artist,Forgery,Knowledge (Local),Listen,Move Silently,Spot,Use Magic Device)
 CLASS:Rogue		LEVEL:4
 STAT:STR=10|DEX=14|CON=8|INT=13|WIS=12|CHA=16
 SKILL:Bluff				RANK:9
@@ -198,7 +198,7 @@ ALIGN:NE
 TEMPLATE:Dr. Davaulus Expert Skills
 CLASS:Rogue		LEVEL:3
 CLASS:Expert	LEVEL:3
-LEVELABILITY:Expert=1	ABILITY:PROMPT:CLASSSKILLS(ANY)|CHOICE:Heal|CHOICE:Move Silently|CHOICE:Knowledge (Nature)|CHOICE:Knowledge (Religion)|CHOICE:Open Lock|CHOICE:Profession (Doctor)|CHOICE:Search|CHOICE:Sense Motive|CHOICE:Sleight of Hand|CHOICE:Spot
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Heal,Move Silently,Knowledge (Nature),Knowledge (Religion),Open Lock,Profession (Doctor),Search,Sense Motive,Sleight of Hand,Spot)
 CLASS:Bard		LEVEL:4
 STAT:STR=8|DEX=14|CON=10|INT=16|WIS=12|CHA=14
 SKILL:Appraise			RANK:4

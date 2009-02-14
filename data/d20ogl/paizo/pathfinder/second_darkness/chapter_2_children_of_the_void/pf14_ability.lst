@@ -28,7 +28,7 @@ Armor of Valor							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.M
 Aura of Bravery							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DESC:Thais is surrounded by an aura of courage that inspires her allies																											SOURCEPAGE:p. 86
 Thais Change Shape	OUTPUTNAME:Change Shape		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Thais can assume the form of a female elf, half-elf, or human from Medium to Huge size at will																						SOURCEPAGE:p. 86
 Charmed Life							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:As the personification of luck, up to three times per day, Thais can choose to reroll any die roll that she makes before it results in success or failure	BONUS:CHECKS|ALL|1|TYPE=Luck							SOURCEPAGE:p. 86
-Fortune's Kiss		OUTPUTNAME:				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Three times per day, as a standard action, Thais can blow a kiss that grants good luck to any one creature within 30 feet																	SOURCEPAGE:p. 86
+Fortune's Kiss							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Three times per day, as a standard action, Thais can blow a kiss that grants good luck to any one creature within 30 feet																	SOURCEPAGE:p. 86
 Thais Piercing Gaze	OUTPUTNAME:Piercing Gaze	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Thais's penetrating gaze burns deep into the hearts and souls of enemies within 30 feet																							SOURCEPAGE:p. 86
 Thais Tongues		OUTPUTNAME:Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			DESC:Thais can speak with any creature that has a language, as if using a tongues spell																								SOURCEPAGE:p. 86
 
