@@ -81,6 +81,9 @@ public class ShieldProfProvider extends AbstractProfProvider<ShieldProf>
 	/**
 	 * Returns the String "SHIELD", indicating the type of proficiency granted
 	 * by this ShieldProfProvider.
+	 * 
+	 * @return The String "SHIELD", indicating the type of proficiency granted
+	 *         by this ShieldProfProvider.
 	 */
 	@Override
 	protected String getSubType()

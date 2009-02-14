@@ -24,6 +24,10 @@ import pcgen.core.PlayerCharacter;
 /**
  * An ProfProvider is an object that contains the ability to contain
  * Proficiencies, either by TYPE of Equipment or direct references.
+ * 
+ * @param <T>
+ *            The type of Proficiency (CDOMObject) that this ProfProvider
+ *            provides
  */
 public interface ProfProvider<T extends CDOMObject>
 {

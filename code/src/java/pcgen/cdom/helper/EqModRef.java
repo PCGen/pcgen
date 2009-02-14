@@ -25,17 +25,50 @@ import java.util.List;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.EquipmentModifier;
 
+/**
+ * An EqModRef represents a reference to a Specific EquipmentModifier with set
+ * choices.
+ * 
+ * This is typically used for tokens where an EquipmentModifier is directly
+ * granted, or a selection of only a specific choice for an EquipmentModifier is
+ * allowed.
+ */
 public class EqModRef
 {
 
+	/**
+	 * A reference to the EquipmentModifier which this EqModRef contains
+	 */
 	private final CDOMSingleRef<EquipmentModifier> eqMod;
+
+	/**
+	 * The specific choices (associations) for the EquipmentModifier this
+	 * EqModRef contains. May remain null if the given EquipmentModifier does
+	 * not have a specific choice (or does not require a specific choice)
+	 */
 	private List<String> choices = null;
 
+	/**
+	 * Constructs a new EqModRef for the EquipmentModifier in the given
+	 * reference.
+	 * 
+	 * @param ab
+	 *            A reference to the EquipmentModifier which this EqModRef
+	 *            contains
+	 */
 	public EqModRef(CDOMSingleRef<EquipmentModifier> ab)
 	{
 		eqMod = ab;
 	}
 
+	/**
+	 * Adds the specific choice (association) for the EquipmentModifier this
+	 * EqModRef contains.
+	 * 
+	 * @param s
+	 *            The specific choice (association) that should be added for the
+	 *            EquipmentModifier this EqModRef contains.
+	 */
 	public void addChoice(String s)
 	{
 		if (choices == null)
@@ -45,17 +78,45 @@ public class EqModRef
 		choices.add(s);
 	}
 
+	/**
+	 * Returns the reference to the EquipmentModifier that this EqModRef
+	 * contains
+	 * 
+	 * @return The reference to the EquipmentModifier that this EqModRef
+	 *         contains
+	 */
 	public CDOMSingleRef<EquipmentModifier> getRef()
 	{
 		return eqMod;
 	}
 
+	/**
+	 * Returns the specific choices (associations) for the EquipmentModifier
+	 * this EqModRef contains.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this EqModRef and modification of this
+	 * EqModRef will not modify the returned List.
+	 * 
+	 * This method will not return null, even if addChoice was never called on
+	 * this EqModRef.
+	 * 
+	 * @return The specific choices (associations) for the EquipmentModifier
+	 *         this EqModRef contains.
+	 */
 	public List<String> getChoices()
 	{
 		return (choices == null ? Collections.<String> emptyList()
-			: new ArrayList<String>(choices));
+				: new ArrayList<String>(choices));
 	}
 
+	/**
+	 * Returns true if the given object is a EqModRef with identical underlying
+	 * EquipmentModifier reference and choices.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -77,6 +138,11 @@ public class EqModRef
 		return false;
 	}
 
+	/**
+	 * Returns a consistent-with-equals hashCode for this EqModRef
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{

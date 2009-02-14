@@ -43,8 +43,8 @@ public class PointCost
 	 *            The characteristic for which this PointCost defines a cost
 	 * @param cost
 	 *            The point cost of the characterisic
-	 * @throws new
-	 *             IllegalArgumentException if the given characteristic is null
+	 * @throws IllegalArgumentException
+	 *             if the given characteristic is null
 	 */
 	public PointCost(String key, int cost)
 	{
@@ -110,6 +110,8 @@ public class PointCost
 	 * Returns a String representation of this PointCost, primarily for purposes
 	 * of debugging. It is strongly advised that no dependency on this method be
 	 * created, as the return value may be changed without warning.
+	 * 
+	 * @return A String representation of this PointCost
 	 */
 	@Override
 	public String toString()

@@ -27,6 +27,11 @@ import pcgen.core.PlayerCharacter;
  * Classes that extend this class are primary used at runtime to grant
  * individual proficiencies based on application of a CHOOSE to an AUTO: token
  * using %LIST.
+ * 
+ * @param <T>
+ *            The type of Proficiency (CDOMObject) that this
+ *            AbstractSimpleProfProvider provides
+ * 
  */
 public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 		implements ProfProvider<T>
@@ -68,6 +73,8 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * Returns true, as AbstractSimpleProfProvider is not a conditional object
 	 * (never contains Prerequisites)
 	 * 
+	 * @param playerCharacter
+	 *            The <tt>PlayerCharacter</tt> to test (ignored)
 	 * @return true, as AbstractSimpleProfProvider is not a conditional object
 	 */
 	public boolean qualifies(PlayerCharacter playerCharacter)
@@ -80,6 +87,11 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * based on Equipment TYPE (AbstractSimpleProfProvider only contains a
 	 * single proficiency object)
 	 * 
+	 * 
+	 * @param typeString
+	 *            The TYPE of Equipment to be tested to see if this
+	 *            AbstractSimpleProfProvider provides proficiency with the given
+	 *            Equipment TYPE (ignored)
 	 * @return false, as AbstractSimpleProfProvider never grants proficiency
 	 *         based on Equipment TYPE
 	 */

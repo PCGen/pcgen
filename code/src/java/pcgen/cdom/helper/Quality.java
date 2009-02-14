@@ -111,6 +111,8 @@ public class Quality
 	 * Returns a String representation of this Quality, primarily for purposes
 	 * of debugging. It is strongly advised that no dependency on this method be
 	 * created, as the return value may be changed without warning.
+	 * 
+	 * @return A String representation of this Quality
 	 */
 	@Override
 	public String toString()

@@ -81,6 +81,9 @@ public class ArmorProfProvider extends AbstractProfProvider<ArmorProf>
 	/**
 	 * Returns the String "ARMOR", indicating the type of proficiency granted by
 	 * this ArmorProfProvider.
+	 * 
+	 * @return The String "ARMOR", indicating the type of proficiency granted by
+	 *         this ArmorProfProvider.
 	 */
 	@Override
 	protected String getSubType()

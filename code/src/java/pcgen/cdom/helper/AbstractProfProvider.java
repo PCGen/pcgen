@@ -34,6 +34,10 @@ import pcgen.core.Equipment;
  * Proficiencies, either by TYPE of Equipment or direct references. Explicit
  * Storage of TYPE vs. primitive is necessary due to the ability of the TYPE
  * being a resolved against Equipment.
+ * 
+ * @param <T>
+ *            The type of Proficiency (CDOMObject) that this
+ *            AbstractProfProvider provides
  */
 public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		ConcretePrereqObject implements ProfProvider<T>
@@ -152,8 +156,11 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	}
 
 	/**
-	 * Returns the String indicating the type of proficiency granted by this
+	 * Returns a String indicating the type of proficiency granted by this
 	 * AbstractProfProvider.
+	 * 
+	 * @return A String indicating the type of proficiency granted by this
+	 *         AbstractProfProvider
 	 */
 	protected abstract String getSubType();
 
