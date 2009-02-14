@@ -23,8 +23,8 @@
 
 package plugin.lsttokens.campaign;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -106,19 +106,19 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 			urlType = CampaignURL.URLKind.PURCHASE;
 		}
 
-		URL url;
+		URI uri;
 		try
 		{
-			url = new URL(urlText);
+			uri = new URI(urlText);
 		}
-		catch (MalformedURLException e)
+		catch (URISyntaxException e)
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid URL (" + e.getMessage()
 					+ ") : " + value);
 			return false;
 		}
 		// Create URL object
-		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, url,
+		CampaignURL campUrl = new CampaignURL(urlType, urlTypeName, uri,
 				urlDesc);
 
 		// Add URL Object to campaign
@@ -144,7 +144,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 				StringBuilder sb = new StringBuilder();
 				sb.append(curl.getUrlKind());
 				sb.append(Constants.PIPE);
-				sb.append(curl.getUrl().toString());
+				sb.append(curl.getUri().toString());
 				sb.append(Constants.PIPE);
 				sb.append(curl.getUrlDesc());
 			}

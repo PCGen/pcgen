@@ -626,7 +626,7 @@ public class MainSource extends FilterAdapterPanel
 			{
 				sb.append(" | ");
 			}
-			sb.append("<a href=\"").append(campaignURL.getUrl().toString());
+			sb.append("<a href=\"").append(campaignURL.getUri().toString());
 			sb.append("\">").append(campaignURL.getUrlDesc());
 			sb.append("</a>");
 		}

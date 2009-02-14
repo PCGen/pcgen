@@ -75,7 +75,7 @@ public class CampaignTest extends PCGenTestCase
 		assertEquals("Checking kind", CampaignURL.URLKind.WEBSITE, theURL
 				.getUrlKind());
 		assertEquals("Checking name", "", theURL.getUrlName());
-		assertEquals("Checking URL", "http://pcgen.sf.net", theURL.getUrl()
+		assertEquals("Checking URL", "http://pcgen.sf.net", theURL.getUri()
 				.toString());
 		assertEquals("Checking description", "PCGen Main Site", theURL
 				.getUrlDesc());
@@ -88,7 +88,7 @@ public class CampaignTest extends PCGenTestCase
 				.getUrlKind());
 		assertEquals("Checking name", "", theURL.getUrlName());
 		assertEquals("Checking URL", "http://pcgen.sf.net/survey", theURL
-				.getUrl().toString());
+				.getUri().toString());
 		assertEquals("Checking description", "PCGen Survey", theURL
 				.getUrlDesc());
 
@@ -100,7 +100,7 @@ public class CampaignTest extends PCGenTestCase
 		assertEquals("Checking kind", CampaignURL.URLKind.PURCHASE, theURL
 				.getUrlKind());
 		assertEquals("Checking name", eCommerceName, theURL.getUrlName());
-		assertEquals("Checking URL", eCommerceURL, theURL.getUrl().toString());
+		assertEquals("Checking URL", eCommerceURL, theURL.getUri().toString());
 		assertEquals("Checking description", eCommerceDesc, theURL.getUrlDesc());
 	}
 }
