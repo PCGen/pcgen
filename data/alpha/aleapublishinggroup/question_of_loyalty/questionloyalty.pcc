@@ -25,6 +25,8 @@ COPYRIGHT:PCGen dataset conversion for Alea Publishing Group A Question of Loyal
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+ABILITYCATEGORY:questionloyalty_categories_core.lst
+ABILITY:questionloyalty_abilities.lst
 CLASS:questionloyalty_class_prestige_epic.lst
 CLASS:questionloyalty_class_prestige.lst
 FEAT:questionloyalty_feats.lst
