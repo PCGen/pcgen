@@ -136,8 +136,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 			localMap = createLocalMap();
 			map.put(key1, key2, localMap);
 		}
-		V put = localMap.put(key3, value);
-		return put;
+		return localMap.put(key3, value);
 	}
 
 	/**

@@ -180,7 +180,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * @throws IllegalArgumentException
 	 *             if the given weight is less than zero
 	 */
-	public boolean add(final E element, final int weight)
+	public final boolean add(final E element, final int weight)
 	{
 		if (weight < 0)
 		{
