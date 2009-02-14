@@ -55,6 +55,9 @@ public interface Modifier<T>
 	/**
 	 * Returns a representation of this Modifier, suitable for storing in an LST
 	 * file.
+	 * 
+	 * @return A representation of this Modifier, suitable for storing in an LST
+	 *         file.
 	 */
 	public String getLSTformat();
 

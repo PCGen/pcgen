@@ -104,6 +104,9 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	/**
 	 * Returns a representation of this LevelCommandFactory, suitable for
 	 * storing in an LST file.
+	 * 
+	 * @return A representation of this LevelCommandFactory, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat()
 	{
@@ -159,7 +162,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 */
 	public int compareTo(LevelCommandFactory other)
 	{
-		int i = ReferenceUtilities.REFERENCE_SORTER.compare(pcClass, other.pcClass);
+		int i = ReferenceUtilities.REFERENCE_SORTER.compare(pcClass,
+				other.pcClass);
 		if (i == 0)
 		{
 			if (levels.equals(other.levels))

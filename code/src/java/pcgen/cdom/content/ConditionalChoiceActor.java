@@ -73,11 +73,11 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * @param choice
 	 *            The choice being applied to the given PlayerCharacter
 	 */
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
 		if (qualifies(pc))
 		{
-			actor.apply(pc, obj, o);
+			actor.apply(pc, obj, choice);
 		}
 	}
 
@@ -97,9 +97,9 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 * @param choice
 	 *            The choice being removed from the given PlayerCharacter
 	 */
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
-		actor.remove(pc, obj, o);
+		actor.remove(pc, obj, choice);
 	}
 
 	/**

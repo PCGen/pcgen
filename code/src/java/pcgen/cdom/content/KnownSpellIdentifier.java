@@ -203,6 +203,9 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	/**
 	 * Returns a representation of this KnownSpellIdentifier, suitable for
 	 * storing in an LST file.
+	 * 
+	 * @return A representation of this KnownSpellIdentifier, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat()
 	{

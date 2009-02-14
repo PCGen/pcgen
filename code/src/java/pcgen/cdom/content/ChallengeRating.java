@@ -84,6 +84,9 @@ public class ChallengeRating extends ConcretePrereqObject
 	/**
 	 * Returns a representation of this ChallengeRating, suitable for storing in
 	 * an LST file.
+	 * 
+	 * @return A representation of this ChallengeRating, suitable for storing in
+	 *         an LST file.
 	 */
 	public String getLSTformat()
 	{
