@@ -757,6 +757,22 @@
 
 <hr>
 
+	<p class="new">*** New 5.15.10</p>
+	<p class="indent0"><strong><a name="ALLOWDUPES">Tag Name:</a></strong> ALLOWDUPES:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> LANGUAGE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Suppresses the &quot;Duplicate Object&quot; error messages for the listed LST object</li>
+		<li>This tag will only work if the PCC file it is contained in is the exact PCC file selected by the user.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>ALLOWDUPES:SPELL</code></p>
+	<p class="indent3">Duplicate spells loaded by the user selected PCC files will be allowed.</p>
+	<p></p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="INCLUDE">Tag Name:</a></strong> (INCLUDE:y|y)</p>
 	<p class="indent0"><strong>Tag Name:</strong> (INCLUDE:CATEGORY=x,y,y|x,y,y) - Special syntax for feats and abilities</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category)</p>
@@ -826,9 +842,12 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> DOMAINSPELLLIST</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Object name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tag will suppress the &quot;Unconstructed Object&quot; error reports for the listed objects from 
-		appearing within the user interface.</p>
-	<p class="indent1">Note: This is useful during source loading when objects are referenced that have not yet been loaded.</p>
+	<ul class="indent2">
+		<li>This tag will suppress the &quot;Unconstructed Object&quot; error reports for the listed LST objects from 
+			appearing within the user interface.</li>
+		<li>This is useful during source loading when objects are referenced that have not yet been loaded.</li>
+		<li>This tag will only work if the PCC file it is contained in is the exact PCC file selected by the user.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FORWARDREF:CLASSSPELLLIST|Assassin,Black Guard</code></p>
 	<p class="indent3">&quot;Unconstructed Object&quot; errors for the &quot'Assassin&quot; and &quot;Black Guard&quot; 
@@ -879,12 +898,14 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REQSKILL:Alchemy|Bluff|Diplomacy|etc</code></p>
 
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
+<hr>
 
-</body>
+		<p>
+			<a href="http://validator.w3.org/check?uri=referer"><img
+       		src="../../images/system/valid-html401.png"
+       		alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+		</p>
+
+	</body>
 
 </html>
