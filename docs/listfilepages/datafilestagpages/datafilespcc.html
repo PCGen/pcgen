@@ -763,7 +763,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Suppresses the &quot;Duplicate Object&quot; error messages for the listed LST object</li>
+		<li>Suppresses the &quot;Duplicate Object&quot; error messages for the listed LST object type.</li>
 		<li>This tag will only work if the PCC file it is contained in is the exact PCC file selected by the user.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
@@ -821,7 +821,7 @@
 <hr>
 
 	<p class="new">*** New 5.15.10</p>
-	<p class="indent0"><strong><a name="FORWARDREF">Tag Name:</a></strong> FORWARDREF:x|y|y</p>
+	<p class="indent0"><strong><a name="FORWARDREF">Tag Name:</a></strong> FORWARDREF:x|y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ABILITY=Text (Ability category)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ARMORPROF</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> CLASS</p>
@@ -845,8 +845,7 @@
 	<ul class="indent2">
 		<li>This tag will suppress the &quot;Unconstructed Object&quot; error reports for the listed LST objects from 
 			appearing within the user interface.</li>
-		<li>This is useful during source loading when objects are referenced that have not yet been loaded.</li>
-		<li>This tag will only work if the PCC file it is contained in is the exact PCC file selected by the user.</li>
+		<li>This is useful during source loading when objects are referenced that will not be loaded with the given source</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FORWARDREF:CLASSSPELLLIST|Assassin,Black Guard</code></p>
