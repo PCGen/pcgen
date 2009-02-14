@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Feb 13 23:07:52 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -18,7 +18,7 @@ Jousting Armor	TYPE:Armor.Heavy.Suit.Standard	COST:2000	WT:70		ACCHECK:-9		EQMOD
 
 ###Block: Special Weapons
 
-# Equipment Name			Output Name				Required Proficiency			Type												Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach Multiplier	Size		Source Page
+# Equipment Name			Output Name				Required Weapon Proficiency		Type												Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach Multiplier	Size		Source Page
 Chain (Spiked/Elongated)	OUTPUTNAME:Chain, Spiked	PROFICIENCY:WEAPON|Chain (Spiked)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Piercing.Chain	COST:25	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:STEEL	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.24
 
 ###Block: Tools
