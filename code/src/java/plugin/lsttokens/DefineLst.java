@@ -40,7 +40,7 @@ import pcgen.util.Logging;
 public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 {
 
-	public static Class<PCStat> PCSTAT_CLASS = PCStat.class;
+	public static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
 	public String getTokenName()
 	{

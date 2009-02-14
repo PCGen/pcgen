@@ -127,7 +127,7 @@ public class ForwardRefToken extends AbstractToken implements
 				}
 				else
 				{
-					key += '=' + cat.toString();
+					key += '=' + cat;
 				}
 			}
 			map.addToListFor(key, ref);

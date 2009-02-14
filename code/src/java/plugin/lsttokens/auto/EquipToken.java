@@ -100,8 +100,9 @@ public class EquipToken extends AbstractToken implements
 					.length() - 1));
 			if (prereq == null)
 			{
-				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite " + prereq
-						+ " in " + getFullName());
+				Logging.log(Logging.LST_ERROR, "Error generating Prerequisite "
+						+ value.substring(openBracketLoc + 1,
+								value.length() - 1) + " in " + getFullName());
 				return false;
 			}
 		}

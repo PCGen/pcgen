@@ -74,6 +74,6 @@ public class LocationToken extends AbstractToken implements
 		{
 			return null;
 		}
-		return new String[]{bd.toString()};
+		return new String[] { bd };
 	}
 }

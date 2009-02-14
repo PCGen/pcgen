@@ -54,10 +54,10 @@ public class AttackcycleToken extends AbstractToken implements
 		}
 
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
-		if (aTok.countTokens() % 2 == 1)
+		if (aTok.countTokens() % 2 != 0)
 		{
 			Logging.errorPrint(getTokenName()
-					+ " must have an even number of argumetns.");
+					+ " must have an even number of arguments.");
 			return false;
 		}
 

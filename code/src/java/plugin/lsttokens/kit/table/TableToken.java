@@ -79,7 +79,7 @@ public class TableToken extends AbstractToken implements
 		{
 			return null;
 		}
-		return new String[]{bd.toString()};
+		return new String[] { bd };
 	}
 
 	public boolean process(LoadContext context, Kit obj)
