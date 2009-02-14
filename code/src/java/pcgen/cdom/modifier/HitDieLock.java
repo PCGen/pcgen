@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.modifier;
 
-import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 
@@ -27,8 +26,7 @@ import pcgen.cdom.content.Modifier;
  * unconditional return of the HitDie object provided at construction of the
  * HitDieLock object.
  */
-public class HitDieLock extends ConcretePrereqObject implements
-		Modifier<HitDie>
+public class HitDieLock implements Modifier<HitDie>
 {
 
 	/**
@@ -62,7 +60,7 @@ public class HitDieLock extends ConcretePrereqObject implements
 	 * 
 	 * Since HitDieLock is universal, the given context is ignored.
 	 * 
-	 * @param obj
+	 * @param hd
 	 *            The input HitDie this Modifier will act upon
 	 * @param context
 	 *            The context of this Modifier, ignored by HitDieLock.
@@ -76,6 +74,9 @@ public class HitDieLock extends ConcretePrereqObject implements
 	/**
 	 * Returns a representation of this HitDieLock, suitable for storing in an
 	 * LST file.
+	 * 
+	 * @return A representation of this HitDieLock, suitable for storing in an
+	 *         LST file.
 	 */
 	public String getLSTformat()
 	{

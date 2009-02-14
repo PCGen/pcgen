@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.modifier;
 
-import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 
@@ -30,8 +29,7 @@ import pcgen.cdom.content.Modifier;
  * during construction, the object constructing this HitDieStep is expected to
  * understand if it is setting an upper or lower bound.
  */
-public class HitDieStep extends ConcretePrereqObject implements
-		Modifier<HitDie>
+public class HitDieStep implements Modifier<HitDie>
 {
 
 	/**
@@ -91,12 +89,13 @@ public class HitDieStep extends ConcretePrereqObject implements
 	 * 
 	 * Since HitDieStep is universal, the given context is ignored.
 	 * 
-	 * @param obj
+	 * @param hd
 	 *            The input HitDie this HitDieStep will act upon.
 	 * @param context
 	 *            The context, ignored by HitDieStep.
 	 * @return The modified HitDie, as limited by the bound of this HitDieStep.
-	 * @throws NullPointerException if the given HitDie is null
+	 * @throws NullPointerException
+	 *             if the given HitDie is null
 	 */
 	public HitDie applyModifier(HitDie hd, Object context)
 	{
@@ -141,6 +140,9 @@ public class HitDieStep extends ConcretePrereqObject implements
 	/**
 	 * Returns a representation of this HitDieStep, suitable for storing in an
 	 * LST file.
+	 * 
+	 * @return A representation of this HitDieStep, suitable for storing in an
+	 *         LST file.
 	 */
 	public String getLSTformat()
 	{

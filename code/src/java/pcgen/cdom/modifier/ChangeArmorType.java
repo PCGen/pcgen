@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.Modifier;
 
 /**
@@ -35,8 +34,7 @@ import pcgen.cdom.content.Modifier;
  * "RemoveArmorType", in that the result type can be null. Therefore, users
  * should expect that applyModifier(String, Object) may return null.
  */
-public class ChangeArmorType extends ConcretePrereqObject implements
-		Modifier<String>
+public class ChangeArmorType implements Modifier<String>
 {
 
 	/**
@@ -176,9 +174,9 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 	 * and that type is removed, this method will return an empty list. This
 	 * method will not return null.
 	 * 
-	 * WARNING: This method is "strange" in that it causes the returned types
-	 * to always be in upper case.  This may be an unexpected side-effect
-	 * to this method.
+	 * WARNING: This method is "strange" in that it causes the returned types to
+	 * always be in upper case. This may be an unexpected side-effect to this
+	 * method.
 	 * 
 	 * @param calculatedTypeList
 	 *            The list of input armor types this Modifier will act upon
@@ -203,6 +201,9 @@ public class ChangeArmorType extends ConcretePrereqObject implements
 	/**
 	 * Returns a representation of this ChangeArmorType, suitable for storing in
 	 * an LST file.
+	 * 
+	 * @return A representation of this ChangeArmorType, suitable for storing in
+	 *         an LST file.
 	 */
 	public String getLSTformat()
 	{

@@ -18,7 +18,6 @@
 package pcgen.cdom.modifier;
 
 import pcgen.base.formula.ReferenceFormula;
-import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Modifier;
 
@@ -26,8 +25,7 @@ import pcgen.cdom.content.Modifier;
  * A HitDieFormula represents a modified HitDie that changes relative to a
  * ReferenceFormula
  */
-public class HitDieFormula extends ConcretePrereqObject implements
-		Modifier<HitDie>
+public class HitDieFormula implements Modifier<HitDie>
 {
 
 	/**
@@ -57,12 +55,13 @@ public class HitDieFormula extends ConcretePrereqObject implements
 	 * 
 	 * Since HitDieFormula is universal, the given context is ignored.
 	 * 
-	 * @param obj
+	 * @param hd
 	 *            The input HitDie this HitDieFormula will act upon.
 	 * @param context
 	 *            The context, ignored by HitDieFormula.
 	 * @return The modified HitDie
-	 * @throws NullPointerException if the given HitDie is null
+	 * @throws NullPointerException
+	 *             if the given HitDie is null
 	 */
 	public HitDie applyModifier(HitDie hd, Object context)
 	{
@@ -72,6 +71,9 @@ public class HitDieFormula extends ConcretePrereqObject implements
 	/**
 	 * Returns a representation of this HitDieFormula, suitable for storing in
 	 * an LST file.
+	 * 
+	 * @return A representation of this HitDieFormula, suitable for storing in
+	 *         an LST file.
 	 */
 	public String getLSTformat()
 	{

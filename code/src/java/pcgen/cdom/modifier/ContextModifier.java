@@ -26,6 +26,12 @@ import pcgen.util.StringPClassUtil;
  * A ContextModifier is a Modifier that has the ability to wrap another Modifier
  * in order to conditionally apply the underlying Modifier only in a given
  * context.
+ * 
+ * @param <T>
+ *            The class of object this ContextModifier acts upon.
+ * @param <R>
+ *            The class of objects which provide the context in which this
+ *            ContextModifier acts
  */
 public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 {
@@ -100,6 +106,9 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	/**
 	 * Returns a representation of this ContextModifier, suitable for storing in
 	 * an LST file.
+	 * 
+	 * @return A representation of this ContextModifier, suitable for storing in
+	 *         an LST file.
 	 */
 	public String getLSTformat()
 	{
