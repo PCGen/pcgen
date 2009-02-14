@@ -48,6 +48,9 @@ public interface CategorizedCDOMReference<T extends CategorizedCDOMObject<T>>
 	 * 
 	 * Note that this will return the identifier of the underlying reference (of
 	 * the types given at construction), often the "key" in LST terminology.
+	 * 
+	 * @return A representation of this CategorizedCDOMReference, suitable for
+	 *         storing in an LST file.
 	 */
 	public String getLSTformat();
 

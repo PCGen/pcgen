@@ -50,7 +50,8 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	private final Category<T> category;
 
 	/**
-	 * Stores the reference manager that is dealing with this category's parent category.
+	 * Stores the reference manager that is dealing with this category's parent
+	 * category.
 	 */
 	private CategorizedReferenceManufacturer<T> parentCrm = null;
 
@@ -61,6 +62,9 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * @param cl
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
+	 * @param cat
+	 *            The Category of objects that this
+	 *            AbstractReferenceManufacturer will construct and reference.
 	 */
 	public CategorizedReferenceManufacturer(Class<T> cl, Category<T> cat)
 	{
@@ -72,24 +76,32 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		 */
 		category = cat;
 	}
-	
+
 	/**
-	 * Sets the reference manager that is dealing with this category's parent category.
+	 * Sets the reference manager that is dealing with this category's parent
+	 * category.
 	 * 
-	 * @param parentCrm the reference manager for the parent category
+	 * @param crm
+	 *            the reference manager for the parent category
 	 */
-	public void setParentCRM(CategorizedReferenceManufacturer<T> parentCrm)
+	public void setParentCRM(CategorizedReferenceManufacturer<T> crm)
 	{
-		this.parentCrm = parentCrm;
+		this.parentCrm = crm;
 	}
 
 	/**
-	 * This is a specialisation of the validate function to cope with 
-	 * categories that have parents (i.e Fighter feats being a child of feats). 
-	 * It checks for active matches in the parent before doing the normal 
-	 * validation. Any matches in the parent for unconstructed references in 
-	 * this class are registered as if they had been made in the child class.
-	 *   
+	 * This is a specialisation of the validate function to cope with categories
+	 * that have parents (i.e Fighter feats being a child of feats). It checks
+	 * for active matches in the parent before doing the normal validation. Any
+	 * matches in the parent for unconstructed references in this class are
+	 * registered as if they had been made in the child class.
+	 * 
+	 * @param validator
+	 *            UnconstructedValidator which can suppress unconstructed
+	 *            reference warnings
+	 * 
+	 * @return true if the CategorizedReferenceManufacturer is "valid"; false
+	 *         otherwise.
 	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#validate(List<Campaign>)
 	 */
 	@Override
@@ -103,16 +115,21 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 				String name = ref.getName();
 				if (parentCrm.containsObject(name) && !containsObject(name))
 				{
-					Logging.debugPrint("Found match in parent for " + category + " - " + name);
+					Logging.debugPrint("Found match in parent for " + category
+							+ " - " + name);
 					addObject(parentCrm.getObject(name), name);
 				}
 				else
 				{
 					Collection<String> specifics = new ArrayList<String>();
-					String undecName = AbilityUtilities.getUndecoratedName(name, specifics);
-					if (parentCrm.containsObject(undecName) && !containsObject(undecName))
+					String undecName = AbilityUtilities.getUndecoratedName(
+							name, specifics);
+					if (parentCrm.containsObject(undecName)
+							&& !containsObject(undecName))
 					{
-						Logging.debugPrint("Found match in parent for " + category + " - " + undecName + " - " + specifics);
+						Logging.debugPrint("Found match in parent for "
+								+ category + " - " + undecName + " - "
+								+ specifics);
 						addObject(parentCrm.getObject(undecName), undecName);
 					}
 				}
@@ -120,7 +137,7 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		}
 		return super.validate(validator);
 	}
-	
+
 	/**
 	 * Returns a CDOMCategorizedSingleRef for the given identifier as defined by
 	 * the Class and Category provided when this
@@ -128,15 +145,18 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * used ONLY by the AbstractReferenceManufacturer template Class and should
 	 * not be called by other objects.
 	 * 
+	 * @param ident
+	 *            The identifier for which a CDOMTransparentSingleRef should be
+	 *            returned.
 	 * @return a CDOMCategorizedSingleRef for the given identifier as defined by
 	 *         the Class and Category provided when this
 	 *         CategorizedReferenceManufacturer was constructed.
 	 */
 	@Override
-	protected CDOMCategorizedSingleRef<T> getLocalReference(String val)
+	protected CDOMCategorizedSingleRef<T> getLocalReference(String ident)
 	{
 		return new CDOMCategorizedSingleRef<T>(getReferenceClass(), category,
-				val);
+				ident);
 	}
 
 	/**
@@ -146,14 +166,17 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * AbstractReferenceManufacturer template Class and should not be called by
 	 * other objects.
 	 * 
+	 * @param types
+	 *            An array of the types of objects to which the returned
+	 *            CDOMReference will refer.
 	 * @return A CDOMTypeRef for the given types as defined by the Class and
 	 *         Category provided when this CategorizedReferenceManufacturer was
 	 *         constructed.
 	 */
 	@Override
-	protected CDOMTypeRef<T> getLocalTypeReference(String[] val)
+	protected CDOMTypeRef<T> getLocalTypeReference(String[] types)
 	{
-		return new CDOMTypeRef<T>(getReferenceClass(), val);
+		return new CDOMTypeRef<T>(getReferenceClass(), types);
 	}
 
 	/**
@@ -190,6 +213,10 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 	 * Builds a new CDOMObject of the Class and Category this
 	 * CategorizedReferenceManufacturer constructs.
 	 * 
+	 * @param val
+	 *            The identifier of the CDOMObject to be constructed
+	 * @return The new CDOMObject of the Class or Class/Category represented by
+	 *         this AbstractReferenceManufacturer
 	 * @see pcgen.cdom.reference.AbstractReferenceManufacturer#constructObject(java.lang.String)
 	 */
 	@Override
@@ -199,10 +226,11 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		obj.setCDOMCategory(category);
 		return obj;
 	}
-	
+
 	/**
 	 * Returns a String representation of this CategorizedReferenceManufacturer
 	 * 
+	 * @return A String representation of this CategorizedReferenceManufacturer
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -211,7 +239,23 @@ public class CategorizedReferenceManufacturer<T extends CDOMObject & Categorized
 		return this.getClass().getName() + " [" + getReferenceClass() + " "
 				+ category + "]";
 	}
-	
+
+	/**
+	 * Returns true if the given String (a reference name) is permitted by the
+	 * given UnconstructedValidator. Will always return false if the
+	 * UnconstructedValidator is null.
+	 * 
+	 * @param validator
+	 *            The UnconstructedValidator to use to determine if the given
+	 *            String (a reference name) should be permitted as an
+	 *            unconstructed reference.
+	 * @param s
+	 *            The reference name to be checked to see if the
+	 *            UnconstructedValidator will permit it as an unconstructed
+	 *            reference.
+	 * @return true if the given String (a reference name) is permitted by the
+	 *         given UnconstructedValidator; false otherwise.
+	 */
 	@Override
 	protected boolean validate(UnconstructedValidator validator, String s)
 	{

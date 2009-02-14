@@ -49,9 +49,12 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 	 *            The Class of object this
 	 *            TransparentCategorizedReferenceManufacturer will construct and
 	 *            reference.
+	 * @param cat
+	 *            The Category of objects that this
+	 *            TransparentCategorizedReferenceManufacturer will construct and
+	 *            reference.
 	 */
-	public TransparentCategorizedReferenceManufacturer(Class<T> cl,
-			String cat)
+	public TransparentCategorizedReferenceManufacturer(Class<T> cl, String cat)
 	{
 		super(cl);
 		if (cat == null)
@@ -136,6 +139,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 	 * @throws IllegalArgumentException
 	 *             if the given ReferenceManufacturer is null
 	 */
+	@Override
 	public void resolveUsing(ReferenceManufacturer<T, ?> rm)
 	{
 		if (rm == null)
@@ -175,12 +179,35 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 		return getReferenceClass().getSimpleName() + " " + category;
 	}
 
+	/**
+	 * Returns true if the given String (a reference name) is permitted by the
+	 * given UnconstructedValidator. Will always return false if the
+	 * UnconstructedValidator is null.
+	 * 
+	 * @param validator
+	 *            The UnconstructedValidator to use to determine if the given
+	 *            String (a reference name) should be permitted as an
+	 *            unconstructed reference.
+	 * @param s
+	 *            The reference name to be checked to see if the
+	 *            UnconstructedValidator will permit it as an unconstructed
+	 *            reference.
+	 * @return true if the given String (a reference name) is permitted by the
+	 *         given UnconstructedValidator; false otherwise.
+	 */
 	@Override
 	protected boolean validate(UnconstructedValidator validator, String s)
 	{
 		return validator != null && validator.allow(getReferenceClass(), s);
 	}
 
+	/**
+	 * Returns the Category of the object this
+	 * TransparentCategorizedReferenceManufacturer manufactures
+	 * 
+	 * @return the Category of the object this
+	 *         TransparentCategorizedReferenceManufacturer manufactures
+	 */
 	public String getCDOMCategory()
 	{
 		return category;

@@ -53,6 +53,9 @@ public class SimpleReferenceManufacturer<T extends CDOMObject>
 	 * This is designed to be used ONLY by the AbstractReferenceManufacturer
 	 * template Class and should not be called by other objects.
 	 * 
+	 * @param val
+	 *            The identifier for which a SimpleReferenceManufacturer should
+	 *            be returned.
 	 * @return a CDOMSimpleSingleRef for the given identifier as defined by the
 	 *         Class provided when this SimpleReferenceManufacturer was
 	 *         constructed.
@@ -69,13 +72,16 @@ public class SimpleReferenceManufacturer<T extends CDOMObject>
 	 * designed to be used ONLY by the AbstractReferenceManufacturer template
 	 * Class and should not be called by other objects.
 	 * 
+	 * @param types
+	 *            An array of the types of objects to which the returned
+	 *            CDOMReference will refer.
 	 * @return A CDOMTypeRef for the given types as defined by the Class
 	 *         provided when this SimpleReferenceManufacturer was constructed.
 	 */
 	@Override
-	protected CDOMTypeRef<T> getLocalTypeReference(String[] val)
+	protected CDOMTypeRef<T> getLocalTypeReference(String[] types)
 	{
-		return new CDOMTypeRef<T>(getReferenceClass(), val);
+		return new CDOMTypeRef<T>(getReferenceClass(), types);
 	}
 
 	/**
@@ -108,6 +114,22 @@ public class SimpleReferenceManufacturer<T extends CDOMObject>
 		return getReferenceClass().getSimpleName();
 	}
 
+	/**
+	 * Returns true if the given String (a reference name) is permitted by the
+	 * given UnconstructedValidator. Will always return false if the
+	 * UnconstructedValidator is null.
+	 * 
+	 * @param validator
+	 *            The UnconstructedValidator to use to determine if the given
+	 *            String (a reference name) should be permitted as an
+	 *            unconstructed reference.
+	 * @param s
+	 *            The reference name to be checked to see if the
+	 *            UnconstructedValidator will permit it as an unconstructed
+	 *            reference.
+	 * @return true if the given String (a reference name) is permitted by the
+	 *         given UnconstructedValidator; false otherwise.
+	 */
 	@Override
 	protected boolean validate(UnconstructedValidator validator, String s)
 	{

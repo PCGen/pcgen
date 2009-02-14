@@ -37,7 +37,7 @@ public final class ReferenceUtilities
 	/**
 	 * A COLLATOR used to sort Strings in a locale-aware method.
 	 */
-	private final static Collator COLLATOR = Collator.getInstance();
+	private static final Collator COLLATOR = Collator.getInstance();
 
 	/**
 	 * A Comparator to consistently sort CDOMReference objects. This is done
@@ -67,15 +67,15 @@ public final class ReferenceUtilities
 	 * The items will be joined in the order determined by the ordering of the
 	 * given Collection.
 	 * 
-	 * @param strings
+	 * @param c
 	 *            An Collection of CDOMReference objects
 	 * @param separator
 	 *            The separating string
 	 * @return A 'separator' separated String containing the LST format of the
 	 *         given Collection of CDOMReference objects
 	 */
-	public static <T extends CDOMReference<?>> String joinLstFormat(
-			Collection<T> c, String separator)
+	public static String joinLstFormat(
+			Collection<? extends CDOMReference<?>> c, String separator)
 	{
 		if (c == null)
 		{
@@ -114,7 +114,7 @@ public final class ReferenceUtilities
 	 * given Collection and the getContainedObjects() method of the
 	 * CDOMReferences contained in the given Collection.
 	 * 
-	 * @param strings
+	 * @param c
 	 *            An Collection of CDOMReference objects
 	 * @param separator
 	 *            The separating string
@@ -122,8 +122,9 @@ public final class ReferenceUtilities
 	 *         given CDOMObjects contained within the given Collection of
 	 *         CDOMReference objects
 	 */
-	public static <T extends CDOMObject> String joinDisplayFormat(
-			Collection<CDOMReference<T>> c, String separator)
+	public static String joinDisplayFormat(
+			Collection<? extends CDOMReference<? extends CDOMObject>> c,
+			String separator)
 	{
 		if (c == null)
 		{
@@ -131,9 +132,9 @@ public final class ReferenceUtilities
 		}
 
 		Set<String> resultSet = new TreeSet<String>();
-		for (CDOMReference<T> ref : c)
+		for (CDOMReference<? extends CDOMObject> ref : c)
 		{
-			for (T obj : ref.getContainedObjects())
+			for (CDOMObject obj : ref.getContainedObjects())
 			{
 				resultSet.add(obj.getDisplayName());
 			}
@@ -194,15 +195,19 @@ public final class ReferenceUtilities
 	 * The items will be joined in the order determined by the ordering of the
 	 * given Collection.
 	 * 
-	 * @param strings
+	 * @param c
 	 *            An Collection of CDOMReference objects
 	 * @param separator
 	 *            The separating string
+	 * @param useAny
+	 *            use "ANY" for the global "ALL" reference when creating the LST
+	 *            format
 	 * @return A 'separator' separated String containing the LST format of the
 	 *         given Collection of CDOMReference objects
 	 */
-	public static <T extends CDOMReference<?>> String joinLstFormat(
-			Collection<T> c, String separator, boolean useAny)
+	public static String joinLstFormat(
+			Collection<? extends CDOMReference<?>> c, String separator,
+			boolean useAny)
 	{
 		if (c == null)
 		{
@@ -213,7 +218,7 @@ public final class ReferenceUtilities
 
 		boolean needjoin = false;
 
-		for (T obj : c)
+		for (CDOMReference<?> obj : c)
 		{
 			if (needjoin)
 			{

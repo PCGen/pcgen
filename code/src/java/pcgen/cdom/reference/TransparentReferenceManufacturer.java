@@ -155,6 +155,22 @@ public class TransparentReferenceManufacturer<T extends CDOMObject>
 		return getReferenceClass().getSimpleName();
 	}
 
+	/**
+	 * Returns true if the given String (a reference name) is permitted by the
+	 * given UnconstructedValidator. Will always return false if the
+	 * UnconstructedValidator is null.
+	 * 
+	 * @param validator
+	 *            The UnconstructedValidator to use to determine if the given
+	 *            String (a reference name) should be permitted as an
+	 *            unconstructed reference.
+	 * @param s
+	 *            The reference name to be checked to see if the
+	 *            UnconstructedValidator will permit it as an unconstructed
+	 *            reference.
+	 * @return true if the given String (a reference name) is permitted by the
+	 *         given UnconstructedValidator; false otherwise.
+	 */
 	@Override
 	protected boolean validate(UnconstructedValidator validator, String s)
 	{

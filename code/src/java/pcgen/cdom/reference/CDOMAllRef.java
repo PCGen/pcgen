@@ -60,6 +60,8 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	 * Note that this will return the identifier of the "All" reference, not an
 	 * expanded list of the contents of this CDOMAllRef.
 	 * 
+	 * @return A representation of this CDOMAllRef, suitable for storing in an
+	 *         LST file.
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override

@@ -359,7 +359,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			{
 				allRef.addResolution(obj);
 			}
-			for (Map.Entry<FixedStringList, WeakReference<TRT>> me : typeReferences.entrySet())
+			for (Map.Entry<FixedStringList, WeakReference<TRT>> me : typeReferences
+					.entrySet())
 			{
 				boolean typeOkay = true;
 				for (String type : me.getKey())
@@ -440,7 +441,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	/**
 	 * Gets the object represented by the given identifier. Will return null if
 	 * an object with the given identifier is not present in this
-	 * AbstractReferenceManufacturer.  Does not make any test to check if the
+	 * AbstractReferenceManufacturer. Does not make any test to check if the
 	 * given identifier has multiple matching objects.
 	 * 
 	 * Note that this is testing *object* presence. This will not return an
@@ -521,9 +522,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
 	 * this AbstractReferenceManufacturer
 	 * 
-	 * This should remain protected (vs. public) as it is for "internal use only";
-	 * it serves as a convenience method to wrap the .newInstance call and the
-	 * possible Exceptions.  Other classes should use constructObject(String)
+	 * This should remain protected (vs. public) as it is for "internal use
+	 * only"; it serves as a convenience method to wrap the .newInstance call
+	 * and the possible Exceptions. Other classes should use
+	 * constructObject(String)
 	 * 
 	 * @param key
 	 *            The identifier of the CDOMObject to be constructed
@@ -618,8 +620,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		else
 		{
 			/*
-			 * TODO This is a bug - the key name is not necessarily loaded into the
-			 * object, it may have been consumed by the object context... :P
+			 * TODO This is a bug - the key name is not necessarily loaded into
+			 * the object, it may have been consumed by the object context... :P
 			 */
 			CaseInsensitiveString ocik = new CaseInsensitiveString(obj
 					.getKeyName());
@@ -819,6 +821,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * (3) No two objects in the AbstractReferenceManufacturer have a matching
 	 * identifier.
 	 * 
+	 * @param validator
+	 *            UnconstructedValidator which can suppress unconstructed
+	 *            reference warnings
+	 * 
 	 * @return true if the AbstractReferenceManufacturer is "valid"; false
 	 *         otherwise.
 	 */
@@ -856,8 +862,9 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				}
 				if (duplicates.containsListFor(second))
 				{
-					Logging.errorPrint("More than one " + refClass.getSimpleName()
-							+ " with key/name " + second + " was built");
+					Logging.errorPrint("More than one "
+							+ refClass.getSimpleName() + " with key/name "
+							+ second + " was built");
 					returnGood = false;
 				}
 			}
@@ -881,7 +888,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			}
 		}
 		List<String> throwaway = new ArrayList<String>();
-		for (Iterator<Entry<String, WeakReference<SRT>>> it = referenced.entrySet().iterator(); it.hasNext();)
+		for (Iterator<Entry<String, WeakReference<SRT>>> it = referenced
+				.entrySet().iterator(); it.hasNext();)
 		{
 			Entry<String, WeakReference<SRT>> me = it.next();
 			SRT value = me.getValue().get();
@@ -894,8 +902,8 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				String s = me.getKey();
 				if (!active.containsKey(s) && !deferred.contains(s))
 				{
-					String undec = AbilityUtilities
-							.getUndecoratedName(s, throwaway);
+					String undec = AbilityUtilities.getUndecoratedName(s,
+							throwaway);
 					if (!active.containsKey(undec) && !deferred.contains(undec))
 					{
 						if (s.charAt(0) != '*')
@@ -916,7 +924,24 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return returnGood;
 	}
 
-	protected abstract boolean validate(UnconstructedValidator validator, String s);
+	/**
+	 * Returns true if the given String (a reference name) is permitted by the
+	 * given UnconstructedValidator. Will always return false if the
+	 * UnconstructedValidator is null.
+	 * 
+	 * @param validator
+	 *            The UnconstructedValidator to use to determine if the given
+	 *            String (a reference name) should be permitted as an
+	 *            unconstructed reference.
+	 * @param s
+	 *            The reference name to be checked to see if the
+	 *            UnconstructedValidator will permit it as an unconstructed
+	 *            reference.
+	 * @return true if the given String (a reference name) is permitted by the
+	 *         given UnconstructedValidator; false otherwise.
+	 */
+	protected abstract boolean validate(UnconstructedValidator validator,
+			String s);
 
 	/**
 	 * Returns a description of the type of Class or Class/Category that this
@@ -997,11 +1022,35 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		}
 	}
 
+	/**
+	 * Returns the "ALL" reference for this AbstractReferenceManufacturer. May
+	 * be null if the "ALL" reference was never retrieved through the
+	 * getAllReference() method.
+	 * 
+	 * @return The "ALL" reference for this AbstractReferenceManufacturer.
+	 */
 	protected ART getAllRef()
 	{
 		return allRef;
 	}
 
+	/**
+	 * Returns a Collection of the "TYPE" references for this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify the "TYPE" references for this
+	 * AbstractReferenceManufacturer and modification of the "TYPE" references
+	 * for this AbstractReferenceManufacturer through subsequent calls of
+	 * getTypeReference(String...) will not modify the returned Collection.
+	 * 
+	 * This method will not return null, even if getTypeReference(String...)
+	 * method was never called.
+	 * 
+	 * @return A Collection of the "TYPE" references for this
+	 *         AbstractReferenceManufacturer.
+	 */
 	protected Collection<TRT> getTypeReferences()
 	{
 		List<TRT> list = new ArrayList<TRT>(typeReferences.size());
@@ -1022,6 +1071,23 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return list;
 	}
 
+	/**
+	 * Returns a Collection of the primitive references for this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify the primitive references for
+	 * this AbstractReferenceManufacturer and modification of the primitive
+	 * references for this AbstractReferenceManufacturer through subsequent
+	 * calls of getReference(String) will not modify the returned Collection.
+	 * 
+	 * This method will not return null, even if getReference(String) method was
+	 * never called.
+	 * 
+	 * @return A Collection of the primitive references for this
+	 *         AbstractReferenceManufacturer.
+	 */
 	protected Collection<SRT> getReferenced()
 	{
 		List<SRT> list = new ArrayList<SRT>();
@@ -1109,21 +1175,57 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 		return obj;
 	}
 
+	/**
+	 * Adds an UnconstructedListener to this AbstractReferenceManufacturer, that
+	 * will receive UnconstructedEvents if the validate method of this
+	 * AbstractReferenceManufacturer is called and the UnconstructedValidator
+	 * given to the validate method does not report that the unconstructed
+	 * reference is permitted.
+	 * 
+	 * @param listener
+	 *            The UnconstructedListener to be registered with this
+	 *            AbstractReferenceManufacturer
+	 */
 	public void addUnconstructedListener(UnconstructedListener listener)
 	{
 		listenerList.add(UnconstructedListener.class, listener);
 	}
 
+	/**
+	 * Returns an array of UnconstructedListeners that are registered with this
+	 * AbstractReferenceManufacturer.
+	 * 
+	 * @return An array of UnconstructedListeners that are registered with this
+	 *         AbstractReferenceManufacturer.
+	 */
 	public synchronized UnconstructedListener[] getUnconstructedListeners()
 	{
 		return listenerList.getListeners(UnconstructedListener.class);
 	}
 
+	/**
+	 * Removes an UnconstructedListener from this AbstractReferenceManufacturer,
+	 * so that it will no longer receive UnconstructedEvents from this
+	 * AbstractReferenceManufacturer
+	 * 
+	 * @param listener
+	 *            The UnconstructedListener to be removed from registration with
+	 *            this AbstractReferenceManufacturer
+	 */
 	public void removeUnconstructedListener(UnconstructedListener listener)
 	{
 		listenerList.remove(UnconstructedListener.class, listener);
 	}
 
+	/**
+	 * Fires a new UnconstructedEvent for the given CDOMReference to any
+	 * UnconstructedListener objects registered with this
+	 * AbstractReferenceManufacturer
+	 * 
+	 * @param ref
+	 *            The CDOMReference to which the UnconstructedEvent should
+	 *            refer.
+	 */
 	private void fireUnconstuctedEvent(CDOMReference<?> ref)
 	{
 		Object[] listeners = listenerList.getListenerList();

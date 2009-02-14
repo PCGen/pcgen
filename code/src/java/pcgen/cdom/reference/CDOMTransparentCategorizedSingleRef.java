@@ -51,6 +51,9 @@ public class CDOMTransparentCategorizedSingleRef<T extends CategorizedCDOMObject
 	 * @param cl
 	 *            The Class of the underlying object contained by this
 	 *            CDOMTransparentCategorizedSingleRef.
+	 * @param cat
+	 *            The Category of objects that this
+	 *            CDOMTransparentCategorizedSingleRef will reference.
 	 * @param nm
 	 *            An identifier of the object this
 	 *            CDOMTransparentCategorizedSingleRef contains.
@@ -65,6 +68,12 @@ public class CDOMTransparentCategorizedSingleRef<T extends CategorizedCDOMObject
 					"Cannot built CDOMTransparentCategorizedSingleRef with null category");
 		}
 		category = cat;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getReferenceClass().hashCode() ^ getName().hashCode();
 	}
 
 	/**

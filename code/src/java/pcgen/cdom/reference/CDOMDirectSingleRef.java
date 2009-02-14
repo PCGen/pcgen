@@ -87,6 +87,8 @@ public class CDOMDirectSingleRef<T extends CDOMObject> extends CDOMSingleRef<T>
 	 * Note that this will return the identifier of the underlying reference (of
 	 * the types given at construction), often the "key" in LST terminology.
 	 * 
+	 * @return A representation of this CDOMDirectSingleRef, suitable for
+	 *         storing in an LST file.
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override

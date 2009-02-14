@@ -75,8 +75,8 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public ObjectMatchingReference(String unparse, Class<T> cl, CDOMGroupRef<T> start,
-			ObjectKey<V> targetKey, V expectedValue)
+	public ObjectMatchingReference(String unparse, Class<T> cl,
+			CDOMGroupRef<T> start, ObjectKey<V> targetKey, V expectedValue)
 	{
 		super(cl, unparse);
 		if (start == null)
@@ -179,6 +179,8 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 * Note that this will return the pattern String provided during
 	 * construction of the ObjectMatchingReference.
 	 * 
+	 * @return A representation of this ObjectMatchingReference, suitable for
+	 *         storing in an LST file.
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override

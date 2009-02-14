@@ -136,6 +136,9 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * 
 	 * Note that this will ALWAYS return a comma-delimted list of objects if
 	 * more than one reference is present in the CDOMCompoundOrReference.
+	 * 
+	 * @return A representation of this CDOMCompoundOrReference, suitable for
+	 *         storing in an LST file.
 	 */
 	@Override
 	public String getLSTformat()

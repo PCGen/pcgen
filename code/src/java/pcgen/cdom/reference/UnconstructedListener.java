@@ -19,7 +19,19 @@ package pcgen.cdom.reference;
 
 import java.util.EventListener;
 
+/**
+ * An UnconstructedListener is an object designed to receive UnconstructedEvent
+ * objects when Unconstructed objects are found during data load.
+ */
 public interface UnconstructedListener extends EventListener
 {
+	/**
+	 * Receives an UnconstructedEvent for processing by the
+	 * UnconstructedListener.
+	 * 
+	 * @param e
+	 *            The UnconstructedEvent to be processed by the
+	 *            UnconstructedListener
+	 */
 	public void unconstructedReferenceFound(UnconstructedEvent e);
 }

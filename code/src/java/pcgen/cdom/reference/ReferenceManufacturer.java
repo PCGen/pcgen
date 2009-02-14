@@ -110,7 +110,7 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	/**
 	 * Gets the object represented by the given identifier. Will return null if
 	 * an object with the given identifier is not present in this
-	 * ReferenceManufacturer.  Does not make a test to establish if the given
+	 * ReferenceManufacturer. Does not make a test to establish if the given
 	 * identifier is unique - must act silently.
 	 * 
 	 * Note that this is testing *object* presence. This will not return an
@@ -288,7 +288,7 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 * identifier.
 	 * 
 	 * @param validator
-	 *            UnconstructedValidator which is can suppress unconstructed
+	 *            UnconstructedValidator which can suppress unconstructed
 	 *            reference warnings
 	 * 
 	 * @return true if the ReferenceManufacturer is "valid"; false otherwise.
@@ -325,10 +325,37 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 */
 	public T constructNowIfNecessary(String name);
 
+	/**
+	 * Adds an UnconstructedListener to this ReferenceManufacturer, that will
+	 * receive UnconstructedEvents if the validate method of this
+	 * ReferenceManufacturer is called and the UnconstructedValidator given to
+	 * the validate method does not report that the unconstructed reference is
+	 * permitted.
+	 * 
+	 * @param listener
+	 *            The UnconstructedListener to be registered with this
+	 *            ReferenceManufacturer
+	 */
 	public void addUnconstructedListener(UnconstructedListener listener);
 
+	/**
+	 * Returns an array of UnconstructedListeners that are registered with this
+	 * ReferenceManufacturer.
+	 * 
+	 * @return An array of UnconstructedListeners that are registered with this
+	 *         ReferenceManufacturer.
+	 */
 	public UnconstructedListener[] getUnconstructedListeners();
 
+	/**
+	 * Removes an UnconstructedListener from this ReferenceManufacturer, so that
+	 * it will no longer receive UnconstructedEvents from this
+	 * ReferenceManufacturer
+	 * 
+	 * @param listener
+	 *            The UnconstructedListener to be removed from registration with
+	 *            this ReferenceManufacturer
+	 */
 	public void removeUnconstructedListener(UnconstructedListener listener);
 
 }

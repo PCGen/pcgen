@@ -172,6 +172,8 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 	 * Note that this will return the pattern String provided during
 	 * construction of the PatternMatchingReference.
 	 * 
+	 * @return A representation of this PatternMatchingReference, suitable for
+	 *         storing in an LST file.
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override

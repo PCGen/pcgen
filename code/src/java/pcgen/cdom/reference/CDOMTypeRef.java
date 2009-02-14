@@ -71,6 +71,8 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	 * types given at construction), not an expanded list of the contents of
 	 * this CDOMTypeRef.
 	 * 
+	 * @return A representation of this CDOMTypeRef, suitable for storing in an
+	 *         LST file.
 	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
 	 */
 	@Override
