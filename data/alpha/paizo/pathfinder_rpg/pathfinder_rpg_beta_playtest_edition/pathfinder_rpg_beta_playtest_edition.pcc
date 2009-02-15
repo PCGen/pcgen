@@ -65,7 +65,7 @@ EQUIPMOD:pathfinder_beta_equipmods_material.lst
 EQUIPMOD:pathfinder_beta_equipmods_weapons.lst
 FEAT:pathfinder_beta_feats.lst
 FEAT:pathfinder_beta_feats_monsters.lst
-KIT:pathfinder_beta_kits_companions.lst
+#KIT:pathfinder_beta_kits_companions.lst
 LANGUAGE:pathfinder_beta_languages.lst
 #RACE:pathfinder_beta_races__animals.lst
 RACE:pathfinder_beta_races__base.lst
