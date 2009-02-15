@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 13 08:27:56 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sun Feb 15 15:21:09 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -207,21 +207,23 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Monk Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Monk AC, Monk Movement, Flurry of Blows
-1	BONUS:VAR|MonkACLVL|CL														ABILITY:Special Ability|AUTOMATIC|Monk AC
-1	BONUS:VAR|MonkMoveLVL|CL													ABILITY:Special Ability|AUTOMATIC|Monk Movement
-1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	ABILITY:Special Ability|VIRTUAL|Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1
-1	BONUS:VAR|MonkBonusFeatLVL|CL								DEFINE:MonkBonusFeatLVL|0
+1	BONUS:VAR|MonkACLVL|CL												ABILITY:Special Ability|AUTOMATIC|Monk AC
+1	BONUS:VAR|MonkMoveLVL|CL											ABILITY:Special Ability|AUTOMATIC|Monk Movement
+1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	ABILITY:Special Ability|VIRTUAL|Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
-# Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites, The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
+# Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites,
+#	The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
 # MonkBonusFeatLVL is used as a prerequisite for when a specific bonus feat can be taken
+###Block: Monk Feats.
+1	BONUS:ABILITYPOOL|Monk Bonus Feat|1+max(0,(MonkBonusFeatLVL+2)/4)	BONUS:VAR|MonkBonusFeatLVL|CL	DEFINE:MonkBonusFeatLVL|0
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	BONUS:ABILITYPOOL|Monk Bonus Feat|1																		AUTO:FEAT|Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:ABILITYPOOL|Monk Bonus Feat|1							ABILITY:Special Ability|AUTOMATIC|Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6										BONUS:VAR|ManeuverTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Maneuver Training|Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										BONUS:VAR|KiPoolLVL,SlowFallLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ki Pool|Slow Fall
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										BONUS:VAR|HighJumpLVL|CL		ABILITY:Special Ability|AUTOMATIC|High Jump|Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:ABILITYPOOL|Monk Bonus Feat|1
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										BONUS:VAR|WholenessBodyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2																		AUTO:FEAT|Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6										ABILITY:Special Ability|AUTOMATIC|Evasion
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:VAR|ManeuverTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Maneuver Training|Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|KiPoolLVL,SlowFallLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ki Pool|Slow Fall
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|HighJumpLVL|CL		ABILITY:Special Ability|AUTOMATIC|High Jump|Purity of Body
+6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessBodyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
 9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
