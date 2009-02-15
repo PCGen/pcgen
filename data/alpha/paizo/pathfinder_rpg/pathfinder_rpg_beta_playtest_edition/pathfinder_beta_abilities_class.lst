@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 13 10:17:59 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sat Feb 14 23:32:00 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -312,13 +312,13 @@ Aura of Faith		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VI
 Aura of Righteousness	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES	DESC:See text	DR:5/Evil		SOURCEPAGE:p.34
 
 ###Block: Paladin Lay on Hands abilities
-# Ability Name	Category of Ability		Type								Visible	Define												Description		Modify VAR															Source Page
-Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.LayOnHands	VISIBLE:YES	DEFINE:LayOnHands|0	DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsLVL|0	DESC:See text	BONUS:VAR|LayOnHands|LayOnHandsLVL	BONUS:VAR|LayOnHandsTimes|(LayOnHandsLVL/2)+max(CHA,0)	SOURCEPAGE:p.31
-Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.33
-Remove Curse	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.33
-Neutralize Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.33
-Break Enchantment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.34
-Heal			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																	SOURCEPAGE:p.34
+# Ability Name	Category of Ability		Type								Visible	Define												Description														Modify VAR															Source Page
+Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.LayOnHands	VISIBLE:YES	DEFINE:LayOnHands|0	DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsLVL|0	DESC:See text													BONUS:VAR|LayOnHands|LayOnHandsLVL	BONUS:VAR|LayOnHandsTimes|(LayOnHandsLVL/2)+max(CHA,0)	SOURCEPAGE:p.31
+Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES	DEFINE:RemoveDiseaseLVL|0									DESC:Expend two uses of Lay on Hands to Remove Disease (Casterlevel %1)|RemoveDiseaseLVL																	SOURCEPAGE:p.33
+Remove Curse	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																													SOURCEPAGE:p.33
+Neutralize Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																													SOURCEPAGE:p.33
+Break Enchantment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																													SOURCEPAGE:p.34
+Heal			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.LayOnHands		VISIBLE:YES														DESC:See text																													SOURCEPAGE:p.34
 
 ###Block: Paladin Divine Bond
 # Ability Name	Category of Ability		Type							Visible	Define															Description		Bonus to Ability Pool			Modify VAR																											Allow Follower			Allowed Companions			Source Page
