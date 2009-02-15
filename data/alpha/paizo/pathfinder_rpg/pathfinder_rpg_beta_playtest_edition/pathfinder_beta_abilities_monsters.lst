@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb  7 13:30:28 2009 -- reformated by prettylst.pl v1.39 (build 9313)
+# CVS $Revision$ $Author$ -- Sun Feb 15 12:12:23 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -7,3 +7,38 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 # Ability Name	Category of Ability		Type								Visible	Define				Description																				Modify VAR								Source Page		Aspects
 Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Poison attacks deal repeated to the opponent on failed Fortitude saves (DC %1).|PoisonDC						BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus(Poison)
 Turn Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DEFINE:TurnResistance|0		DESC:You gain a +%1 bonus to Will saves made to halve the damage and resist the effect of channeled energy.|TurnResistance										SOURCEPAGE:p.398	ASPECT:Ability Bonus|+%1|TurnResistance
+
+###Block: Animal Companion Abilities - These have been copied over from the RSRD for Animal Companions, They should be double checked or deleted once Paizo finalizes it's version. -Eddy
+# Ability Name	Category of Ability		Type								Visible	Define			Description																																																																				Modify VAR															Source Page
+Amphibious		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Attach		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Blood Drain		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Constrict		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																					SOURCEPAGE:TypesSubtypesAbilities.rtf
+Disease		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Ferocity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Hold Breath		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Improved Grab	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.																	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Ink Cloud		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
+Jet			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Powerful Charge	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:When you make a charge, you deal extra damage in addition to the normal benefits and hazards of a charge.																																																																			SOURCEPAGE:TypesSubtypesAbilities.rtf
+Rake			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:You gain extra natural attacks when you grapple or pounce your foe.																																																																									SOURCEPAGE:TypesSubtypesAbilities.rtf
+Rend			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES																																																																																										SOURCEPAGE:TypesSubtypesAbilities.rtf
+Sprint		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Stampede		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Swallow Whole	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:If you begin your turn with an opponent held in your mouth, you can attempt a new grapple check (as though attempting to pin the opponent). If successful, you swallow your prey, and the opponent takes bite damage.																																																	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trample		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|10	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus(Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trip			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
+
+
+###Block: Flight Maneuverability
+# Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Modify VAR							Temporary effect description
+Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	BONUS:VAR|Maneuverability|%CHOICE|PREAPPLY:PC	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number
+
+###Block: Maneuverability
+# Ability Name			Category of Ability		Type				Visible	Aspects
+Maneuverability(Perfect)	CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Perfect
+Maneuverability(Good)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Good
+Maneuverability(Average)	CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Average
+Maneuverability(Poor)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Poor
+Maneuverability(Clumsy)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Clumsy
+

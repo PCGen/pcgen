@@ -27,3 +27,9 @@ Double Starting Hit Points 6HD	VISIBLE:NO																													PRECLASS:1
 Double Starting Hit Points 8HD	VISIBLE:NO																													PRECLASS:1,Cleric,Druid,Monk,Rogue																			BONUS:HP|CURRENTMAX|8
 Double Starting Hit Points 10HD	VISIBLE:NO																													PRECLASS:1,Fighter,Paladin,Ranger																			BONUS:HP|CURRENTMAX|10
 Double Starting Hit Points 12HD	VISIBLE:NO																													PRECLASS:1,Barbarian																					BONUS:HP|CURRENTMAX|12
+
+###Block: Fractional Hit Die Adjustments for Monster classes
+# Template Name	Hit Dice Size			Visible
+Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
+Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
+Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO

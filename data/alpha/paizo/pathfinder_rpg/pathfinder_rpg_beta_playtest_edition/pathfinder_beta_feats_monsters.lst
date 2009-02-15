@@ -1,11 +1,12 @@
-# CVS $Revision$ $Author$ -- Sun Jan 25 11:31:46 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Feb 15 12:12:23 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
-# Feat Name				Output Name						Type			Req. Att.	Required Item		Description																													Stackable?	Multiple?	Choose					Combat bonus				Weapon prof. bonus
+# Feat Name				Output Name						Type			Req. Att.	Required Item		Description																													Stackable?	Multiple?	Choose					Combat bonus				Weapon prof. bonus			Source Page
 Ability Focus										TYPE:General							DESC:Add +2 to the DC for all saving throws against the special attack on which the creature focuses.
 Empower Spell Like Ability	OUTPUTNAME:Empower Spell-Like Ability	TYPE:General							DESC:The creature can use the selected ability as an empowered spell-like ability three times per day (or less, if the ability is normally usable only once or twice per day).	STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate
 Improved Natural Attack									TYPE:General	PREATT:4	PREITEM:1,TYPE=Natural	DESC:The damage for the selected natural weapon increases by one step, as if the creature's size had increased by one category.											MULT:YES	CHOOSE:WEAPONPROFS|TYPE.Natural							BONUS:WEAPONPROF=%LIST|DAMAGESIZE|1
 Multiattack											TYPE:General							DESC:The creature's secondary attacks with natural weapons take only a -2 penalty.																											BONUS:COMBAT|TOHIT-SECONDARY|3
 Quicken Spell Like Ability	OUTPUTNAME:Quicken Spell-Like Ability	TYPE:General							DESC:The creature can use the selected ability as a quickened spell-like ability three times per day (or less, if the ability is normally usable only once or twice per day).		STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate
+Track												TYPE:General							DESC:To find tracks or to follow them for 1 mile requires a successful Survival check. You must make another Survival check every time the tracks become difficult to follow.																								SOURCEPAGE:Feats.rtf
