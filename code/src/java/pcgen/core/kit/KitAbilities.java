@@ -294,7 +294,7 @@ public final class KitAbilities extends BaseKit
 		return wc;
 	}
 
-	private class AbilitySelection
+	private class AbilitySelection implements Comparable<AbilitySelection>
 	{
 		public final Ability ability;
 		public final String selection;
@@ -315,6 +315,21 @@ public final class KitAbilities extends BaseKit
 				sb.append(" (").append(selection).append(')');
 			}
 			return sb.toString();
+		}
+
+		public int compareTo(AbilitySelection o)
+		{
+			int base = ability.compareTo(o.ability);
+			if (base != 0)
+			{
+				return base;
+			}
+			if (selection == null)
+			{
+				return o.selection == null ? 0 : -1;
+			}
+			return o.selection == null ? 1 : selection
+					.compareToIgnoreCase(o.selection);
 		}
 	}
 

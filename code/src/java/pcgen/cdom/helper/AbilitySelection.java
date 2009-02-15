@@ -35,7 +35,7 @@ import pcgen.core.Ability.Nature;
  * This is generally used as the storage container when a selection has been
  * made from a token like ADD:FEAT
  */
-public class AbilitySelection
+public class AbilitySelection implements Comparable<AbilitySelection>
 {
 
 	/**
@@ -323,5 +323,20 @@ public class AbilitySelection
 	public Ability getAbility()
 	{
 		return ability;
+	}
+
+	public int compareTo(AbilitySelection o)
+	{
+		int base = ability.compareTo(o.ability);
+		if (base != 0)
+		{
+			return base;
+		}
+		if (selection == null)
+		{
+			return o.selection == null ? 0 : -1;
+		}
+		return o.selection == null ? 1 : selection
+				.compareToIgnoreCase(o.selection);
 	}
 }

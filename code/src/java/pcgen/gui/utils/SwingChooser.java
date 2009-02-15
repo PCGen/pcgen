@@ -34,6 +34,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -1054,6 +1055,10 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 			setAvailableColumnNames(AVAILABLE_COLUMN_NAMES);
 		}
 
+		if (mAvailableList.get(0) instanceof Comparable)
+		{
+			Collections.sort(mAvailableList);
+		}
 		updateTable(mAvailableTable, mAvailableModel, mAvailableList, "");
 		//		mAvailableData = updateTable(mAvailableTable, mAvailableModel, mAvailableData,
 		//				mAvailableList, "");
