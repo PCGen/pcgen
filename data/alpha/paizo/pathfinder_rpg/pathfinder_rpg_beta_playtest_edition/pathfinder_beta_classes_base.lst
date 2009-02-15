@@ -141,7 +141,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Water)]
 1	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Druid Domain(Weather)]
 ###Block: Wild Shape
-1	BONUS:VAR|DruidWildShape|CL	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape|Wild Shape
+1	BONUS:VAR|DruidWildShape|CL	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape
 20						ABILITY:Special Ability|AUTOMATIC|Wild Shape At Will
 ###Block: Level progression
 1	CAST:3,1
