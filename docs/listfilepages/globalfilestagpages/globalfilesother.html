@@ -74,6 +74,14 @@
 		<p class="indent3">Clears all automatic feats from the character.</p>
 		<p class="indent2"><code>ABILITY:FEAT|VIRTUAL|.CLEAR.Empower Spell</code></p>
 		<p class="indent3">Clears the empower spell feat as an virtual feat.</p>
+		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|Toughness|Track</code></p>
+		<p class="indent3">Example of granting more than one feat. This grants 'Track' and 'Toughness' as automatic feats</p>
+		<p class="indent2"><code>ABILITY:Special Ability|AUTOMATIC|Wild Shape(Small Animal)|Wild Shape(Medium Animal)|PREVARGTEQ:DruidWildShape,4</code></p>
+		<p class="indent3">Grants the Special Ability 'Wild Shape (Small Animal)' and 'Wild Shape (Medium Animal' as an automatic ability once the variable 'DruidWildShape' equals or is greater than '4'</p>
+		<p class="indent2"><code>ABILITY:Special Ability|AUTOMATIC|Wild Shape(Small Animal,Medium Animal)|PREVARGTEQ:DruidWildShape,4</code></p>
+		<p class="indent3">This shows an example of Abilities with sub-choices being granted in a shorthand manner. Same as the above and grants the Special Ability 'Wild Shape (Small Animal)' and 'Wild Shape (Medium Animal)' as an automatic ability. Note: The Comma delimiter.</p>
+
+
 		<p></p>
 
 <hr>
