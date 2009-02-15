@@ -29,7 +29,6 @@
 package pcgen.core;
 
 import java.awt.HeadlessException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -62,8 +61,8 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
+import pcgen.core.system.LoadInfo;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.rules.context.LoadContext;
@@ -1074,5 +1073,49 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
 		assertEquals(Nature.NORMAL, abList.get(0).getAbilityNature());
+	}
+
+	/**
+	 * Test the processing and order of operations of the adjustMoveRates method.
+	 */
+	public void testAdjustMoveRates()
+	{
+		Ability quickFlySlowSwim =
+				TestHelper.makeAbility("quickFlySlowSwim", AbilityCategory.FEAT
+					.getAbilityCategory(), "Foo");
+		PCTemplate template = TestHelper.makeTemplate("slowFlyQuickSwim");
+		//template.addm
+		LoadContext context = Globals.getContext();
+		context.ref.importObject(quickFlySlowSwim);
+		context.unconditionallyProcess(human, "MOVE", "Walk,30");
+		context.unconditionallyProcess(quickFlySlowSwim, "MOVE",
+			"Swim,10,Fly,30");
+		context.unconditionallyProcess(template, "MOVE", "Swim,30,Fly,10");
+		context.resolveReferences();
+		LoadInfo li =
+				SystemCollections.getLoadInfo(SettingsHandler.getGame()
+					.getName());
+		li.addLoadScoreValue(0, new Float(100.0));
+		li.addLoadScoreValue(10, new Float(100.0));
+		li.addLoadMultiplier("LIGHT", new Float(100), "100", 0);
+
+		PlayerCharacter pc = getCharacter();
+		setPCStat(pc, "STR", 10);
+		pc.setRace(human);
+		pc.calcActiveBonuses();
+		pc.adjustMoveRates();
+		assertEquals(0.0, pc.movementOfType("Swim"), 0.1);
+		assertEquals(0.0, pc.movementOfType("Fly"), 0.1);
+
+		pc.addAbility(AbilityCategory.FEAT, quickFlySlowSwim, null);
+		pc.calcActiveBonuses();
+		pc.adjustMoveRates();
+		assertEquals(10.0, pc.movementOfType("Swim"), 0.1);
+		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
+
+		pc.addTemplate(template);
+		pc.adjustMoveRates();
+		assertEquals(30.0, pc.movementOfType("Swim"), 0.1);
+		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
 	}
 }

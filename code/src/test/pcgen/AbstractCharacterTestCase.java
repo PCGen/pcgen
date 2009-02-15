@@ -190,6 +190,13 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			stat.setStatMod("floor(SCORE/2)-5");
 			stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + statName),
 					FormulaFactory.getFormulaFor(statName + "SCORE-10"));
+			if (statName.equals("STR"))
+			{
+				Globals.getContext().getObjectContext().put(stat,
+					VariableKey.getConstant("LOADSCORE"),
+					FormulaFactory.getFormulaFor("STRSCORE"));
+			}
+			
 		}
 	}
 }

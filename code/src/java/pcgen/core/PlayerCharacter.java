@@ -11808,9 +11808,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					if (moveType.equals(movementTypes[i]))
 					{
-						movements[i] = moveRate;
-						movementMult[i] = moveMult;
-						movementMultOp[i] = multOp;
+						if (moveRate > movements[i])
+						{
+							movements[i] = moveRate;
+						}
+						if (multOp != null
+							&& (movementMultOp[i] == null || multOp.length() > 0))
+						{
+							movementMult[i] = moveMult;
+							movementMultOp[i] = multOp;
+						}
 
 						return;
 					}
