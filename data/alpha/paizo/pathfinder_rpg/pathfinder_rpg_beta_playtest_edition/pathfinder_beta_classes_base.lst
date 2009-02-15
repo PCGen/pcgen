@@ -145,20 +145,20 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20						ABILITY:Special Ability|AUTOMATIC|Wild Shape At Will
 ###Block: Level progression
 1	CAST:3,1
-2	CAST:4,2
-3	CAST:4,2,1
-4	CAST:4,3,2
+2	CAST:4,2				ABILITY:Special Ability|AUTOMATIC|Woodland Stride
+3	CAST:4,2,1				ABILITY:Special Ability|AUTOMATIC|Trackless Step
+4	CAST:4,3,2				ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
 5	CAST:4,3,2,1
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
-9	CAST:4,4,4,3,2,1
+9	CAST:4,4,4,3,2,1			ABILITY:Special Ability|AUTOMATIC|Venom Immunity
 10	CAST:4,4,4,3,3,2
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
-13	CAST:4,4,4,4,4,3,2,1
+13	CAST:4,4,4,4,4,3,2,1		ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1
+15	CAST:4,4,4,4,4,4,3,2,1		ABILITY:Special Ability|AUTOMATIC|Timeless Body
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
