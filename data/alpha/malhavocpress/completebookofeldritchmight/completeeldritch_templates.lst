@@ -9,7 +9,6 @@ SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEM
 # Template Name			Product Identity?	Hit Dice Size	Challenge Rating	Visible	Damage Reduction	Level Adjustment	Template															Source Page		Special ABility																																																Define																						Required AL			Combat bonus									Bonus to HP													Misc bonus												Multiply base move													Bonus to skill						Stat bonus												Add 							Move		Removable?		Type			Vision
 Arcane Angel												VISIBLE:NO																							SOURCEPAGE:p.189	SAB:Summon Celestial Monsters (Sp)																																																																																																																																																												REMOVABLE:NO
 Celestial Qualities											VISIBLE:NO																							SOURCEPAGE:p.190	SAB:Aura of Menace (Su)	SAB:Protective Aura (Su)	SAB:Teleport (Su)	SAB:Tongues (Su)	SAB:Immunities (Ex)	SAB:Resistances (Ex)	SAB:Keen Vision (Ex)																																																																																																																																							REMOVABLE:NO				VISION:Low-light|Darkvision (60')
-Extraplanar													VISIBLE:YES																							SOURCEPAGE:p.189	SAB:Not native to the material plane																																																																																																																																																											REMOVABLE:NO
 Energy Resistance												VISIBLE:NO																							SOURCEPAGE:p.189	SAB:Resistances (Acid %, Cold %, Electricity %, Fire %, Sonic %)|AcidResistance|ColdResistance|ElectricityResistance|FireResistance|SonicResistance																										DEFINE:AcidResistance|0	DEFINE:ColdResistance|0	DEFINE:ElectricityResistance|0	DEFINE:FireResistance|0	DEFINE:SonicResistance|0																																																																																									REMOVABLE:NO
 D'Stradi Demon												VISIBLE:NO							TEMPLATE:Energy Resistance												SOURCEPAGE:p.194	SAB:Summon Demons (Sp)	SAB:Immunity to Poison (Ex)	SAB:Immunity to Electricity (Ex)	SAB:Telepathy 100' (Su)																																DEFINE:AcidResistance|10	DEFINE:ColdResistance|10	DEFINE:FireResistance|10																																																																																																	REMOVABLE:NO
 
@@ -23,12 +22,13 @@ Magical Construct (Metal)										VISIBLE:NO							TEMPLATE:Magical Construct (
 Magical Construct (<12)					HITDIE:10					VISIBLE:NO
 #!PREHITDICESIZE:12
 
-Good														VISIBLE:YES																							SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if good, wielded and natural weapons act as if good aligned																																																																																																																																																REMOVABLE:NO
-Lawful													VISIBLE:YES																							SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if lawful, wielded and natural weapons act as if lawful aligned																																																																																																																																															REMOVABLE:NO
-Chaotic													VISIBLE:YES																							SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if chaotic, wielded and natural weapons act as if chaotic aligned																																																																																																																																															REMOVABLE:NO
-Evil														VISIBLE:YES																							SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if evil, wielded and natural weapons act as if evil aligned																																																																																																																																																REMOVABLE:NO
-
-#Fire												VISIBLE:YES	REMOVABLE:NO							TEMPLATE:Vulnerability (Cold)																		SOURCEPAGE:p.189	SAB:Immunity to Fire
-#Cold												VISIBLE:YES	REMOVABLE:NO							TEMPLATE:Vulnerability (Fire)																		SOURCEPAGE:p.189	SAB:Immunity to Cold
-Air														VISIBLE:YES																							SOURCEPAGE:p.189																																																																																																																																																																		REMOVABLE:NO
-#Earth											VISIBLE:YES	REMOVABLE:NO																													SOURCEPAGE:p.189
+# These are duplicates of RSRD templates, commenting out
+#Extraplanar	VISIBLE:YES	SOURCEPAGE:p.189	SAB:Not native to the material plane	REMOVABLE:NO
+#Good		VISIBLE:YES	SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if good, wielded and natural weapons act as if good aligned		REMOVABLE:NO
+#Lawful	VISIBLE:YES	SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if lawful, wielded and natural weapons act as if lawful aligned	REMOVABLE:NO
+#Chaotic	VISIBLE:YES	SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if chaotic, wielded and natural weapons act as if chaotic aligned	REMOVABLE:NO
+#Evil		VISIBLE:YES	SOURCEPAGE:p.189	SAB:Always affected by spells and abilities as if evil, wielded and natural weapons act as if evil aligned		REMOVABLE:NO
+#Fire		VISIBLE:YES	REMOVABLE:NO	TEMPLATE:Vulnerability (Cold)	SOURCEPAGE:p.189	SAB:Immunity to Fire
+#Cold		VISIBLE:YES	REMOVABLE:NO	TEMPLATE:Vulnerability (Fire)	SOURCEPAGE:p.189	SAB:Immunity to Cold
+#Air		VISIBLE:YES	REMOVABLE:NO						SOURCEPAGE:p.189
+#Earth	VISIBLE:YES	REMOVABLE:NO						SOURCEPAGE:p.189

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:48:57 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Mon Feb 16 12:56:39 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
 ###Block: Melee
-# Equipment Name		Required Proficiency			Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Innate Spells					Weapon prop. bonus					Special Property
+# Equipment Name		Required Weapon Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Innate Spells					Weapon prop. bonus					Special Property
 The Bleeding Sword	PROFICIENCY:WEAPON|Longsword		TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword			COST:30315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL			WIELD:OneHanded	RANGE:30	SIZE:M	SOURCEPAGE:p.167								BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:Spreads disease on successful hit
 Dragonfist			PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace			COST:90512	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.167								BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement	SPROP:Once per week, conjure a young green dragon
 Flameblade			PROFICIENCY:WEAPON|Sword (Bastard)	TYPE:Enhancement.Weapon.Melee.Martial.Exotic.Specific.Slashing.Sword		COST:33335	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:STEEL.FLM_BR_M	WIELD:Light				SIZE:M	SOURCEPAGE:p.167								BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:Command flames once/day (consume spells)
