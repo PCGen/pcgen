@@ -5,7 +5,7 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.15.12" date="In SVN" description="Beta Release"> 
+    <release version="5.15.12" date="2009-02-16" description="Beta Release"> 
       <action dev="tir-gwaith" type="add" issue="2536563">[Pathfinder RPG] Implement Druid Class</action> 
     </release>  
     <release version="5.15.11" date="2009-02-08" description="Beta Release"> 
