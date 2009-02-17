@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 12:37:19 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Feb 17 12:20:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
@@ -13,15 +13,15 @@ HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures	VISIBLE:NO	SAB:Favor
 
 ###Block: Bonus Known Spells (Complete)
 # Ability Name		Category of Ability		Type				Visible		Req. Spell Type		Required Text														Stackable?	Multiple?	Choose		Bonus to spell known/L
-Bonus Known Spell 1	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=1	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1
-Bonus Known Spell 2	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=2	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=2|1
-Bonus Known Spell 3	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=3	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=3|1
-Bonus Known Spell 4	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=4	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=4|1
-Bonus Known Spell 5	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=5	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=5|1
-Bonus Known Spell 6	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=6	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=6|1
-Bonus Known Spell 7	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=7	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=7|1
-Bonus Known Spell 8	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=8	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=8|1
-Bonus Known Spell 9	CATEGORY:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=9	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=9|1
+Bonus Known Spell 1	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=1	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1
+Bonus Known Spell 2	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=2	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=2|1
+Bonus Known Spell 3	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=3	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=3|1
+Bonus Known Spell 4	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=4	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=4|1
+Bonus Known Spell 5	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=5	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=5|1
+Bonus Known Spell 6	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=6	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=6|1
+Bonus Known Spell 7	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=7	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=7|1
+Bonus Known Spell 8	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=8	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=8|1
+Bonus Known Spell 9	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=9	PRETEXT:May not take more than one bonus known spell in the highest spell level avaialable.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=9|1
 
 ###
 
@@ -77,10 +77,10 @@ Shape of the Beast	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Sha
 
 ###Block: Hunter Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility																										Define
-# Ability Name	Category of Ability		Type			Visible	Special ABility																										Define
-Crack Shot		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Crack Shot - The critical multiplier for Ranged Weapons for which you have taken a Weapon Focus feat is increased by % (max total multiplier is x5)|CrackShotMult	DEFINE:CrackShotMult|0
-Vital Shot		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Vital Shot - The critical range for up to % Ranged Weapon(s) for which you have taken a Weaon Focus feat on is increased by 1|VitalShotCritRangeBonusedWeapons	DEFINE:VitalShotCritRangeBonusedWeapons|0
-Arrow of Death	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Arrow of Death
+# Ability Name		Category of Ability		Type			Visible	Special ABility																										Define
+Crack Shot			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Crack Shot - The critical multiplier for Ranged Weapons for which you have taken a Weapon Focus feat is increased by % (max total multiplier is x5)|CrackShotMult	DEFINE:CrackShotMult|0
+Vital Shot			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Vital Shot - The critical range for up to % Ranged Weapon(s) for which you have taken a Weaon Focus feat on is increased by 1|VitalShotCritRangeBonusedWeapons	DEFINE:VitalShotCritRangeBonusedWeapons|0
+Arrow of Death ~ Hunter	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Arrow of Death
 
 ###Block: Slaver Class Abilities (Complete)
 # Feat Name			Type			Visible	Special ABility														Define				Innate Spells													Modify VAR
@@ -94,7 +94,6 @@ Touch of the Lash		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Tou
 Aura of Weakness		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Aura of Weakness - Enemies within % ft. radius suffer a morale penalty to all Will saves.	DEFINE:AuraofWeaknessRange|0																BONUS:VAR|AuraofWeaknessRange|30
 Slave Trader		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Slave Trader
 Master of Wills		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Master of Wills
-Frightful Presence	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Frightful Presence
 ##
 ## Dark Elf Abilities (QC'd)
 ##
@@ -103,9 +102,7 @@ Frightful Presence	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Fri
 # Feat Name			Type			Visible	Special ABility
 # Ability Name		Category of Ability		Type			Visible	Special ABility
 Brew Poison			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Brew Poison
-Poison Use			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Poison Use
 Delay Poison		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Delay Poison
-Immunity to Poison	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Immunity to Poison
 Poisoned Flesh		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Poisoned Flesh - You secrete a form of contact poison from your skin.
 Identify Potion		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Identify Potion
 Acid Flesh			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Acid Flesh - You secrete acid from your skin.
@@ -116,12 +113,12 @@ Breath of Poison		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Brea
 
 ###Block: Spider Warrior Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility																				Define				Innate Spells
-# Ability Name	Category of Ability		Type			Visible	Special ABility																				Define				Innate Spells
-Spider Mount	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Mount
-Immunity to Webs	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Immunity to Webs
-Summon Spiders	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Summon Spiders - You can summon any number and size of spiders up to % CR % times per day|CL=Spider Warrior|SummonSpidersTimes	DEFINE:SummonSpidersTimes|0
-Spider Climb	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Climb																									SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=classlevel("Spider Warrior")|Spider Climb,11+CHA
-Spider Shape	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Shape
+# Ability Name	Unique Key					Category of Ability		Type			Visible	Special ABility																				Define				Innate Spells
+Spider Mount							CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Mount
+Immunity to Webs							CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Immunity to Webs
+Summon Spiders							CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Summon Spiders - You can summon any number and size of spiders up to % CR % times per day|CL=Spider Warrior|SummonSpidersTimes	DEFINE:SummonSpidersTimes|0
+Spider Climb	KEY:Spider Climb ~ Spider Warrior	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Climb																									SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=classlevel("Spider Warrior")|Spider Climb,11+CHA
+Spider Shape							CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Spider Shape
 
 ##
 ## Giant Abilities (QC'd)
@@ -220,7 +217,6 @@ Beyond Pain		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Beyond Pa
 # Ability Name		Category of Ability		Type			Visible	Special ABility																	Define					Stackable?	Multiple?	Bonus to skill							Stat bonus
 Lizardfolk Ally		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lizardfolk Ally - +% circumstance bonus to attack when in combat with lizardfolk allies.|LizardFolkAllyBonus	DEFINE:LizardfolkAllyBonus|0		STACK:NO	MULT:NO
 Increased Agility		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Increased Agility																DEFINE:IncreasedAgilityBonus|0	STACK:NO	MULT:NO	BONUS:SKILL|Balance,Jump,Swim|IncreasedAgilityBonus
-Water Breathing		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Water Breathing																						STACK:NO	MULT:NO
 Power of the Swamp	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Power of the Swamp																						STACK:NO	MULT:NO										BONUS:STAT|CON|4|TYPE=Divine
 Power of Istos		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Power of Istos																						STACK:NO	MULT:NO
 
@@ -230,12 +226,12 @@ Power of Istos		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Power 
 
 ###Block: Black Nail Class Abilities
 # Feat Name			Type			Visible	Special ABility				Automaticaly Gained Weapon Prof.
-# Ability Name		Category of Ability		Type			Visible	Special ABility				Define			Automatically Gained Weapon Prof.		Combat bonus
-Oversize Greataxe		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)					AUTO:WEAPONPROF|Weapon Focus(Greataxe)
-Thick Hide			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide				DEFINE:BlackNailAC|0								BONUS:COMBAT|AC|BlackNailAC|TYPE=NaturalArmor
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Define			Automatically Gained Feat		Combat bonus
+Oversize Greataxe		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Greataxe)					AUTO:FEAT|Weapon Focus(Greataxe)
+Thick Hide			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Thick Hide				DEFINE:BlackNailAC|0							BONUS:COMBAT|AC|BlackNailAC|TYPE=NaturalArmor
 Battle Cry			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Battle Cry
 Formation Fighting	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Fighting Formation
-Oversize Longspear	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Longspear)					AUTO:WEAPONPROF|Weapon Focus(Longspear)
+Oversize Longspear	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Weapon Focus (Huge Longspear)					AUTO:FEAT|Weapon Focus(Longspear)
 Great Leadership		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Great Leadership
 
 ###Block: Black Nail Class Abilities
@@ -253,9 +249,9 @@ Dispel Good									CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Di
 
 ###Block: Keeper of Secrets Class Abilities (Complete)
 # Feat Name		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Add
-# Ability Name	Category of Ability		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Add
+# Ability Name	Category of Ability		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Bonus to Ability Pool
 Shadow Walker	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow Walker - Gains luck bonus to Bluff checks when creating a diversion.
-Lore of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lore of Sathus - Gains knowledge of extra arcane spells.																						STACK:YES	MULT:YES	ADD:ABILITY|3|KSKnownSpellBonus|AUTOMATIC|TYPE=KSBonusKnownSpell
+Lore of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lore of Sathus - Gains knowledge of extra arcane spells.																						STACK:YES	MULT:YES	BONUS:ABILITYPOOL|KofS Bonus Known Spell|2
 Envoy of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Envoy of Sathus - Gains an insight bonus to Diplomacy and Intimidation when dealing with Orcs.
 Arcane Seeker	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Arcane Seeker - May cast Detect Magic at will									SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=classlevel("Keeper of Secrets")|Detect Magic,10+CHA
 Mind Delver		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Mind Delver - May extract spells from a captured spellcasters mind.

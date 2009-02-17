@@ -34,19 +34,23 @@ ABILITY:../aeg_gods_abilities.lst
 ABILITYCATEGORY:../aeg_gods_abilitycategory.lst
 CLASS:../aeg_gods_classes_prestige.lst
 DEITY:../aeg_gods_deities.lst
-DOMAIN:../aeg_gods_domains.lst
+DOMAIN:../aeg_gods_domains.lst|(EXCLUDE:Weather)
 EQUIPMENT:../aeg_gods_equip_magic.lst
-FEAT:../aeg_gods_feats_hidden.lst
 SKILL:../aeg_gods_skills.lst
 SPELL:../aeg_gods_spells.lst
 TEMPLATE:../aeg_gods_templates.lst
 
 # Import Domains from other AEG Sources
-DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst|(INCLUDE:Blood|Darkness|Lust)
+DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst|(INCLUDE:Blood|Lust)
 
+ABILITY:aeg_gods_abilities_35e.lst
 CLASS:aeg_gods_classes_prestige_35e.lst
 DOMAIN:aeg_gods_domains_35e.lst
 EQUIPMENT:aeg_gods_equip_magic_35e.lst
-ABILITY:aeg_gods_feats_hidden_35e.lst
+FEAT:aeg_gods_feats_35e.lst
 
 EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst|(INCLUDE:RING|ADAMANT_WONDROUS)
+
+FORWARDREF:SPELL|Change Self,Circle of Doom,Emotion,Greater Command,Greater Planar Ally,Greater Restoration,Greater Scrying,Healing Circle,Invisibility to Animals,Lesser Geas,Magnificent Mansion,Mass Charm,Mass Heal,Mass Suggestion,Polymorph Other,Power Word (Blind),Power Word (Kill),Power Word (Stun),Resist Elements,Symbol
+FORWARDREF:SKILL|Perform,Scry,Wilderness Lore
+FORWARDREF:FEAT|Sunder,Improved Two-Weapon Fighting

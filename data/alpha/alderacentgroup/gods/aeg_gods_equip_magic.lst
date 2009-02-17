@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 12:37:19 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Feb 17 12:20:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Armor and Shields
-# Equipment Name	Required Proficiency		Type						Cost		Weight	Slot Needed	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																					Stat bonus
+# Equipment Name	Required Shield Proficiency	Type						Cost		Weight	Slot Needed	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																					Stat bonus
 Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		SLOTS:0	ACCHECK:-1		EQMOD:WOOD.PLUS3S				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
 Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25				ACCHECK:0		EQMOD:PLUS1A	MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor.REPLACE
 
 ###Block: Weapons
-# Equipment Name			Output Name				Required Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
+# Equipment Name			Output Name				Required Weapon Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
 Javelin (Bonetip)			OUTPUTNAME:[NAME] Javelin	PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:2001	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD.BONE.PLUS1W		RANGE:30	SIZE:M	SOURCEPAGE:pg.88	SPROP:-2 cursed weapon when used agains lizardfolk.
 Dagger (Everpoison)		OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger			COST:25316	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL.PLUS2W		RANGE:10	SIZE:T	SOURCEPAGE:pg.28
 Flail of Tyrok								PROFICIENCY:WEAPON|Flail		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Flail					COST:8315	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BONE.PLUS1W					SIZE:L	SOURCEPAGE:pg.123
@@ -38,7 +38,7 @@ Ring (the Land)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:12000	WT:0		EQMO
 Ring (Weathercraft)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:pg.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
 
 ###Block:Rods, Staves and Wands
-# Equipment Name		Output Name				Required Proficiency			Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier							Alternative Modifier		Size		Source Page		Innate Spells									Combat bonus					Special Property
+# Equipment Name		Output Name				Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier							Alternative Modifier		Size		Source Page		Innate Spells									Combat bonus					Special Property
 Spiderstaff														TYPE:Magic.Staff																	COST:35000	WT:0																									EQMOD:WOOD														SOURCEPAGE:pg.28	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Spider Climb,11|Web,13								SPROP:Summon Spiders
 Staff (Dominion)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:52400	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:pg.106
 Staff (Night)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:25000	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:pg.106
