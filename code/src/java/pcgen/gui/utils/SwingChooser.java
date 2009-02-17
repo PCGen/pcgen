@@ -1055,7 +1055,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 			setAvailableColumnNames(AVAILABLE_COLUMN_NAMES);
 		}
 
-		if (mAvailableList.get(0) instanceof Comparable)
+		if (mAvailableList.size() > 0 && mAvailableList.get(0) instanceof Comparable)
 		{
 			Collections.sort(mAvailableList);
 		}
