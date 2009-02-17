@@ -3785,7 +3785,11 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		// Scale everything to medium before conversion
 		//
-		final SizeAdjustment saBase = get(ObjectKey.BASESIZE);
+		SizeAdjustment saBase = get(ObjectKey.BASESIZE);
+		if (saBase == null)
+		{
+			saBase = SettingsHandler.getGame().getDefaultSizeAdjustment();
+		}
 
 		if ((saSize == null) || (saBase == null)) {
 			return c;
