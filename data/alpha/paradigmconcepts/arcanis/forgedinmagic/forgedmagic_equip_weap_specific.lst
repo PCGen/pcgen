@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec  4 12:37:22 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Mon Feb 16 22:50:33 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
 
@@ -6,7 +6,7 @@ SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts
 #Unknown EQMODS: Psychic, Psychokinetic Burst, obsidian
 #Missing Weapons:charger heavy lance, heavy pilium, one-handed sword
 
-# Equipment Name						Required Proficiency					Type															Alternative Type					Contains			Cost		Weight	Slot Needed	Base Quantity	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Modifier										Alternative Modifier			Wield Category	Requires Modification?	Range		Reach		Reach Multiplier	Size		Source Page		Ability								Innate Spells																																								Combat bonus			Bonus to skill						Bonus Equipment Modifiers																Weapon prop. bonus																Special Property
+# Equipment Name						Required Weapon Proficiency				Type															Alternative Type					Contains			Cost		Weight	Slot Needed	Base Quantity	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Modifier										Alternative Modifier			Wield Category	Requires Modification?	Range		Reach		Reach Multiplier	Size		Source Page		Ability								Innate Spells																																								Combat bonus			Bonus to skill						Bonus Equipment Modifiers																Weapon prop. bonus																Special Property
 Addertongue							PROFICIENCY:WEAPON|Blowgun				TYPE:Weapon.Ranged.Blowgun.Piercing																					COST:44150																																EQMOD:MWORKW																															SOURCEPAGE:p.22										SPELLS:Addertongue|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=10|Whispering Wind																																				BONUS:SKILL|TYPE.Perform|2|TYPE=Competence																																								SPROP:Wind Instrument
 #Blowgun ~missing
 Adobay's Blades						PROFICIENCY:WEAPON|Scimitar				TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword																		COST:34830	WT:4							CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6						EQMOD:PLUS1W.STEEL														WIELD:OneHanded												SIZE:M	SOURCEPAGE:p.22

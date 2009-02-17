@@ -20,11 +20,11 @@ COPYRIGHT:System Reference Document Copyright 2000-2004, Wizards of the Coast, I
 COPYRIGHT:Advanced Character Guide - Arcane Archer, Copyright 2005, Secular Games; Author Giltônio Santos.
 COPYRIGHT:PCGen dataset conversion for Advanced Character Guide - Arcane Archer Copyright 2006, PCGen Data team (including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith))
 
+ABILITY:arcanearcher_abilities.lst
 CLASS:arcanearcher_classes_base.lst
 CLASS:arcanearcher_classes_prestige.lst
 EQUIPMENT:arcanearcher_equip.lst
 FEAT:arcanearcher_feats.lst
 FEAT:arcanearcher_feats_schools.lst
-FEAT:arcanearcher_feats_hidden.lst
 SKILL:arcanearcher_skills.lst
 SPELL:arcanearcher_spells.lst

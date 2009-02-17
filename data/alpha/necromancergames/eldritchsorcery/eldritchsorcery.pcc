@@ -27,8 +27,9 @@ COPYRIGHT:PCGen dataset conversion for Eldritch Sorcery Copyright 2005, PCgen Da
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:eldritchsorcery_abilities.lst
+
 FEAT:eldritchsorcery_feats.lst
-FEAT:eldritchsorcery_feats_hidden.lst
 
 DOMAIN:eldritchsorcery_domains.lst
 SPELL:eldritchsorcery_spells.lst

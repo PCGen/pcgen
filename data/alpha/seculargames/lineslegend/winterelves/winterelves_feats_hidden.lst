@@ -1,12 +1,13 @@
-# CVS $Revision$ $Author$ -- Sun Mar  2 21:08:35 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Mon Feb 16 23:40:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
 # Original Entry by: Paul W. King, Tir Gwaith
 
 ###BLOCK: Heir of Balyk abilities
-# Feat Name					Type						Visible	Special ABility			Define			Bonus to skill							Modify VAR					Source Page
-Power of Deception			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Power of Deception (Ex)	DEFINE:HeirBalyk|0	BONUS:SKILL|Bluff,Disguise|HeirBalyk|TYPE=Competence							SOURCEPAGE:p.18
-Heir of Balyk Leadership		TYPE:ClassAbility				VISIBLE:NO																			BONUS:VAR|LeadershipScore|HeirBalyk	SOURCEPAGE:p.18
-Extra Domain SPELL			TYPE:ClassAbility				VISIBLE:NO	SAB:Extra Domain Spell																					SOURCEPAGE:p.18
+# Feat Name					Type						Visible	Special ABility			Define			Save checks bonus			Bonus to skill							Modify VAR					Source Page
+Power of Deception			TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Power of Deception (Ex)	DEFINE:HeirBalyk|0						BONUS:SKILL|Bluff,Disguise|HeirBalyk|TYPE=Competence							SOURCEPAGE:p.18
+Dark Blessing				TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Dark Blessing (Su)						BONUS:CHECKS|ALL|max(CHA,0)
+Heir of Balyk Leadership		TYPE:ClassAbility				VISIBLE:NO																								BONUS:VAR|LeadershipScore|HeirBalyk	SOURCEPAGE:p.18
+Extra Domain SPELL			TYPE:ClassAbility				VISIBLE:NO	SAB:Extra Domain Spell																										SOURCEPAGE:p.18
 
 # This part isn't working right.
 Heir of Balyk Treachery Domain	TYPE:Internal.BalykDomain		VISIBLE:YES

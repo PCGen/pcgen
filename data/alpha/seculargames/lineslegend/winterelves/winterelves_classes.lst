@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Mon Feb 16 23:40:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
 # Original Entry by: Paul W. King, Jan 2007
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Heir of Balyk	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
-# Class Name		Required AL	Required Feat		Required Race		Required Skill								Req. Spell Type
+# Class Name		Required AL	Required Feat		Required Race		Required Skill									Req. Spell Type
 CLASS:Heir of Balyk	PREALIGN:LE	PREFEAT:1,Endurance	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Religion)=11,Knowledge (The Planes)=11	PRESPELLTYPE:1,Divine=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Diplomacy|Intimidate|TYPE.Knowledge|TYPE.Profession|Ride|Sense Motive|Spellcraft
@@ -14,19 +14,19 @@ CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Scr
 9																										BONUS:DOMAIN|NUMBER|1	ADD:FEAT|1|TYPE=BalykDomain
 ###Block: Normal Level Progression
 1									ADD:SPELLCASTER|1|Divine
-1	BONUS:VAR|HeirBalyk|CL													AUTO:FEAT|Power of Deception
+1					BONUS:VAR|HeirBalyk|CL									AUTO:FEAT|Power of Deception
 2									ADD:SPELLCASTER|1|Divine				AUTO:FEAT|Dark Blessing
 3									ADD:SPELLCASTER|1|Divine
 4									ADD:FEAT|1|Leadership,Heir of Balyk Leadership
 5									ADD:SPELLCASTER|1|Divine
-6					BONUS:DOMAIN|NUMBER|1	ADD:SPELLCASTER|1|Divine
+6	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|1|Divine
 8									ADD:SPELLCASTER|1|Divine
-9					BONUS:DOMAIN|NUMBER|1	ADD:SPELLCASTER|1|Divine
+9	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|1|Divine
 10																	AUTO:FEAT|Extra Domain Spell
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
-# Class Name		Required Class				Required Feat											Required Race		Required Skill								Req. Known Spell
+# Class Name		Required Class				Multiple Requirements											Required Race		Required Skill						Req. Known Spell
 CLASS:Keeper of the Ice	PRECLASS:1,SPELLCASTER.Arcane=1	PREMULT:2,[PREFEAT:2,Spell Focus(Evocation),Endurance],[PREFEAT:2,TYPE.Metamagic]	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Survival=4	PRESPELL:1,Ice Storm
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
@@ -42,14 +42,14 @@ CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Frostfang	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
-# Class Name			Req. Att.	Required Feat							Required Race		Required Skill
-CLASS:Knight of the Frostfang	PREATT:9	PREFEAT:2,Mounted Combat,Ride By Attack	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PRERACE:1,Elf (Winter)	PRESKILL:2,Ride=9,Survival=9
+# Class Name			Required Ability							Req. Att.	Required Feat					Required Race		Required Skill
+CLASS:Knight of the Frostfang	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:9	PREFEAT:2,Mounted Combat,Ride By Attack	PRERACE:1,Elf (Winter)	PRESKILL:2,Ride=9,Survival=9
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block:general
 1	BONUS:VAR|FrostfangKnight|CL	AUTO:FEAT|Winter Wolf Mount
 2	BONUS:VAR|SolidAsIce|CL/2	AUTO:FEAT|Solid as Ice
@@ -75,12 +75,12 @@ CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BON
 CLASS:Wayjik Demon Hunter	PREATT:7	PREFEAT:3,Strength of Margalthas,Weapon Focus,Track	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (The Planes)=4,Survival=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Wayjik Demon Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Decipher Script|Gather Information|Hide|Intimidate|Jump|Knowledge (The Planes)|Knowledge (Arcana)|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spellcraft|Spot|Survival
-# Class Name			Spell Stat		Spell Type		Automaticaly Known Spell Levels				Caster level
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Wayjik Demon Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Wayjik Demon Hunter|CL
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Wayjik Demon Hunter=1|Alarm,Detect Magic,Disguise Self,Divine Favor,Endure Elements,Longstrider,Magic Weapon,Pass without Trace,Protection from Chaos,Read Magic,Resistance,True Strike
 1	SPELLLEVEL:CLASS|Wayjik Demon Hunter=2|Bear's Endurance,Bull's Strength,Comprehend Languages,Detect Chaos,Owl's Wisdom,Zone of Truth
