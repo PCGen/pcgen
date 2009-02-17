@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 01:04:16 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 13:05:28 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
 # Original Entry by: Terrence FitzSimons * 8 May 2006
 
@@ -6,7 +6,7 @@ SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com
 # Light Machine Guns
 # Equipment Name					Output Name						Required Proficiency		Type															Cost	Weight	Crit Hit Range	Crit Hit Mult	Contains		Weapon prop. bonus	Damage		Range		Size	Rate of Fire		Source Page		Special Property																									Advanced Firearms Proficiency Sensor
 
-# Equipment Name									Output Name											Required Proficiency					Type																					Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Weapon prop. bonus											Special Property									Rate of Fire
+# Equipment Name									Output Name											Required Weapon Proficiency				Type																					Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Weapon prop. bonus											Special Property									Rate of Fire
 Ameli (5.56mm Light Machine Gun)																		PROFICIENCY:WEAPON|Ameli				TYPE:Weapon.Ranged.Standard.Firearm.LMG.Container.Ballistic.Personal.Military.Automatic.Projectile.Longarm				CONTAINS:1|Bullet=100	COST:22	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8						RANGE:80	SIZE:L	SOURCEPAGE:p.160	BONUS:WEAPON|TOHIT|4|!PREFEAT:1,Advanced Firearms Proficiency|TYPE=Weapon.STACK	SPROP:Linked Belt 100,Mil(+3)							RATEOFFIRE:A
 Ameli-L (5.56mm Light Machine Gun)																		PROFICIENCY:WEAPON|Ameli				TYPE:Weapon.Ranged.Standard.Firearm.LMG.Container.Ballistic.Personal.Military.Automatic.Projectile.Longarm				CONTAINS:1|Bullet=100	COST:22	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8						RANGE:80	SIZE:L	SOURCEPAGE:p.160	BONUS:WEAPON|TOHIT|4|!PREFEAT:1,Advanced Firearms Proficiency|TYPE=Weapon.STACK	SPROP:Linked Belt 100,Mil(+3)							RATEOFFIRE:A
 Beretta AS70/90 LMG (5.56mm Light Machine Gun)																PROFICIENCY:WEAPON|Beretta AS70/90			TYPE:Weapon.Ranged.Standard.Firearm.LMG.Container.Ballistic.Personal.Military.Automatic.Semiauto.Projectile.Longarm		CONTAINS:1|Bullet=100	COST:20	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8						RANGE:80	SIZE:L	SOURCEPAGE:p.161															SPROP:Linked Belt 100,Mil(+3)							RATEOFFIRE:S,A

@@ -25,7 +25,8 @@ INFOTEXT:Modern Magic Vol. 1 requires at least the complete MSRD - Basics and MS
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-
+ABILITY:modernmagicvol1_abilities.lst
+ABILITYCATEGORY:modernmagicvol1_abilitycategories.lst
 CLASS:modernmagicvol1_class.lst
 EQUIPMENT:modernmagicvol1_equipment.lst
 FEAT:modernmagicvol1_feats.lst
@@ -37,6 +38,9 @@ SPELL:modernmagicvol1_spells.lst
 
 ###referenced spell from MSRD Arcana used in equiment
 #SPELL:@/d20ogl/msrd/arcana/basics/arcanabasics_spells.lst|(INCLUDE:Machine Invisibility|Daylight)
+
+FEAT:@/d20ogl/srd/basics/srd_feats.lst|(INCLUDE:CATEGORY=FEAT,Brew Potion,Scribe Scroll)
+FEAT:@/alpha/thegamemechanics/modern_players_companion/mpc_feats.lst|(INCLUDE:CATEGORY=FEAT,Magic Defense,Improved Magic Defense,Greater Magic Defense)
 
 #
 # End

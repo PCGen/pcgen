@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Tue Feb 17 13:50:55 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
+
+# Ability Name					Category of Ability		Type				Visible		Bonus to Ability Pool
+Arcane Spec Op Spell Focus			CATEGORY:Special Ability	TYPE:ArcaneSpecOpChoice	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Arcane Spec Op Spell Focus|1
+Arcane Spec Op Weapon Specialization	CATEGORY:Special Ability	TYPE:ArcaneSpecOpChoice	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Weapon Specialization|1

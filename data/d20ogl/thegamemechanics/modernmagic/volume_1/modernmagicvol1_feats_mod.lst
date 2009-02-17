@@ -22,11 +22,11 @@ Enlarge Spell.MOD				TYPE:ArcaneSpecOp
 Eschew Materials.MOD			TYPE:ArcaneSpecOp
 Extend Spell.MOD				TYPE:ArcaneSpecOp
 Frightful Presence.MOD			TYPE:MagicGrunt
-#Greater Magic Defense.MOD		TYPE:Thaumaturgical
+Greater Magic Defense.MOD		TYPE:Thaumaturgical
 Greater Spell Focus.MOD			TYPE:ArcaneSpecOp.Thaumaturgical
 Heighten Spell.MOD			TYPE:ArcaneSpecOp
 #Improved Autofire.MOD			TYPE:MagicGrunt
-#Improved Magic Defense.MOD		TYPE:Thaumaturgical
+Improved Magic Defense.MOD		TYPE:Thaumaturgical
 Low Profile.MOD				TYPE:Thaumaturgical
 Magical Affinity.MOD			TYPE:Thaumaturgical
 Nonlethal Spell.MOD			TYPE:ArcaneSpecOp
@@ -36,7 +36,7 @@ Reach Spell.MOD				TYPE:ArcaneSpecOp
 Shadowbane Spell.MOD			TYPE:ArcaneSpecOp
 Signature Spell.MOD			TYPE:ArcaneSpecOp.Thaumaturgical
 Silent Spell.MOD				TYPE:ArcaneSpecOp
-Spell Focus.MOD				TYPE:ArcaneSpecOp.Thaumaturgical
+Spell Focus.MOD				TYPE:ArcaneSpecOp.Thaumaturgical.ArcaneSpecOpSpellFocus
 Spellslinger.MOD				TYPE:ArcaneSpecOp
 Still Spell.MOD				TYPE:ArcaneSpecOp
 Strafe.MOD					TYPE:MagicGrunt

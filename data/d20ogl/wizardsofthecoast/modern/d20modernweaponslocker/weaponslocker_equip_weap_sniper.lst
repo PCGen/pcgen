@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct 23 20:27:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Feb 17 13:05:28 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 # Author Terry FitzSimons	Date 26 May 2006
 
 SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
@@ -6,7 +6,7 @@ SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com
 # Bolt-Action Sniper Rifles
 # Equipment Name								Output Name								Required Proficiency					Type																				Cost	Weight	Crit Hit Range	Crit Hit Mult	Contains		Damage		Weapon prop. bonus						Range		Size	Rate of Fire		Source Page		Special Property
 
-# Equipment Name											Output Name											Required Proficiency						Type																													Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Range		Size		Source Page		Weapon prop. bonus																	Special Property												Rate of Fire	Automatically Added to Inventory
+# Equipment Name											Output Name											Required Weapon Proficiency					Type																													Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Range		Size		Source Page		Weapon prop. bonus																	Special Property												Rate of Fire	Automatically Added to Inventory
 Armalon Model BGR 7.62mm (7.62mm Sniper Bolt-Action)					OUTPUTNAME:Armalon Model BGR (7.62mm Sniper Bolt-Action)			PROFICIENCY:WEAPON|Armalon Model BGR			TYPE:Weapon.Ranged.Standard.Firearm.Sniper.Container.Ballistic.Military.BoltAction.Projectile.Personal.Longarm											CONTAINS:1|Bullet=20	COST:22	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10									RANGE:100	SIZE:L	SOURCEPAGE:p.86																					SPROP:Magazine 20,Lic(+1)										RATEOFFIRE:Single
 Armalon Model BGR .300W (.300W Sniper Bolt-Action)					OUTPUTNAME:Armalon Model BGR (.300W Sniper Bolt-Action)			PROFICIENCY:WEAPON|Armalon Model BGR			TYPE:Weapon.Ranged.Standard.Firearm.Sniper.Container.Ballistic.Military.BoltAction.Projectile.Personal.Longarm											CONTAINS:1|Bullet=20	COST:22	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10									RANGE:100	SIZE:L	SOURCEPAGE:p.86																					SPROP:Magazine 20,Lic(+1)										RATEOFFIRE:Single
 Armalon Model PR 7.62mm (7.62mm Sniper Bolt-Action)					OUTPUTNAME:Armalon Model PR (7.62mm Sniper Bolt-Action)			PROFICIENCY:WEAPON|Armalon Model PR				TYPE:Weapon.Ranged.Standard.Firearm.Sniper.Container.Ballistic.Military.BoltAction.Projectile.Personal.Longarm											CONTAINS:1|Bullet=20	COST:22	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10									RANGE:100	SIZE:L	SOURCEPAGE:p.86																					SPROP:Magazine 30,Lic(+1)										RATEOFFIRE:Single

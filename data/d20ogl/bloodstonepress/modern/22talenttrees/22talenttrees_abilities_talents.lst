@@ -1,4 +1,4 @@
-# CVS $Revision: 3922 $ $Author: amaitland $ -- Sat Nov 15 17:05:23 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision: 3922 $ $Author: amaitland $ -- Tue Feb 17 13:23:13 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-press.com/22tt.html	SOURCEDATE:2003-11
 # Original Entry by: Paul W. King
 #
@@ -31,12 +31,12 @@ Hardened Body	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:YES	PRE
 Solid as a Rock	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Strengthened Body,Hardened Body												BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
 
 ###Block: Mighty Tree
-# Ability Name	Category of Ability	Type						Visible	Required Ability												Description								Save checks bonus					Source Page
-Might			CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES															DESC:Add Str bonus (+%) to one saving throw 1/day|STR								SOURCEPAGE:p.4
-Mighty Fortitude	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																		BONUS:CHECKS|Fortitude|STR|TYPE=Morale	SOURCEPAGE:p.5
-Mighty Reflexes	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																		BONUS:CHECKS|Reflex|STR|TYPE=Morale		SOURCEPAGE:p.5
-Mighty Will		CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																		BONUS:CHECKS|Will|STR|TYPE=Morale		SOURCEPAGE:p.5
-Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:4,CATEGORY=Talent,Might,Mighty Fortitude,Mighty Reflexes,Mighty Will																	SOURCEPAGE:p.5
+# Ability Name	Category of Ability	Type						Visible	Required Ability												Description									Save checks bonus					Source Page
+Might			CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES															DESC:Add Str bonus (+%1) to one saving throw 1/day|STR								SOURCEPAGE:p.4
+Mighty Fortitude	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			BONUS:CHECKS|Fortitude|STR|TYPE=Morale	SOURCEPAGE:p.5
+Mighty Reflexes	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			BONUS:CHECKS|Reflex|STR|TYPE=Morale		SOURCEPAGE:p.5
+Mighty Will		CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			BONUS:CHECKS|Will|STR|TYPE=Morale		SOURCEPAGE:p.5
+Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:4,CATEGORY=Talent,Might,Mighty Fortitude,Mighty Reflexes,Mighty Will																		SOURCEPAGE:p.5
 
 #
 #Fast talents

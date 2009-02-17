@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 01:04:16 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 13:05:28 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
 # Original Entry by: Terrence FitzSimons * 8 May 2006
 
 # Pump-Action ShotGuns
-# Equipment Name											Output Name												Required Proficiency						Type																									Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Source Page		Weapon prop. bonus	Special Property																				Rate of Fire
+# Equipment Name											Output Name												Required Weapon Proficiency					Type																									Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Source Page		Weapon prop. bonus	Special Property																				Rate of Fire
 Armscor M30R (12-Gauge Pump-Action Shotgun)																			PROFICIENCY:WEAPON|Armscor M30				TYPE:Weapon.Ranged.Standard.Firearm.Shotgun.Container.Ballistic.Police.PumpAction.Projectile.Personal.Longarm							CONTAINS:1|Bullet=7	COST:16	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8				RANGE:40	SIZE:L	SOURCEPAGE:p.142					SPROP:Tube 7,Lic(+1)																			RATEOFFIRE:Single
 Armscor M30P (12-Gauge Pump-Action Shotgun)																			PROFICIENCY:WEAPON|Armscor M30				TYPE:Weapon.Ranged.Standard.Firearm.Shotgun.Container.Ballistic.Police.PumpAction.Projectile.Personal.Longarm							CONTAINS:1|Bullet=4	COST:16	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8				RANGE:30	SIZE:M	SOURCEPAGE:p.142					SPROP:Tube 4,can be concealed under coat,Lic(+1)														RATEOFFIRE:Single
 Armscor M30RP (12-Gauge Pump-Action Shotgun)																			PROFICIENCY:WEAPON|Armscor M30				TYPE:Weapon.Ranged.Standard.Firearm.Shotgun.Container.Ballistic.Police.PumpAction.Projectile.Personal.Longarm							CONTAINS:1|Bullet=5	COST:16	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8				RANGE:30	SIZE:L	SOURCEPAGE:p.142					SPROP:Tube 5, +2 to Sleight of Hand to conceal,Lic(+1)													RATEOFFIRE:Single
