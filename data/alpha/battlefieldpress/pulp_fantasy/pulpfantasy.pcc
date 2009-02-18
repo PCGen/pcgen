@@ -3,12 +3,11 @@ CAMPAIGN:Pulp Fantasy Roleplaying Game
 RANK:5
 GAMEMODE:Modern
 GENRE:Pulp
-BOOKTYPE:Campaign Setting
+BOOKTYPE:Core Rules
 SETTING:Pulp Fantasy
 TYPE:Alpha Datasets
 #TYPE:Battlefield Press.Pulp Fantasy
-PRECAMPAIGN:1,MSRD - Basics
-!PRECAMPAIGN:1,BOOKTYPE=MSRD.Partial,MSRD - Future, MSRD - Menaces, MSRD - Arcana
+!PRECAMPAIGN:1,BOOKTYPE=MSRD.Partial,MSRD - Future,MSRD - Menaces,MSRD - Arcana,MSRD - Basics
 PUBNAMELONG:Battlefield Press
 PUBNAMESHORT:Battlefield
 PUBNAMEWEB:http://battlefieldpress.com
@@ -64,6 +63,28 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=24701&it=1?affili
 #Excluded from MSRD - Basics
 LSTEXCLUDE:@/d20ogl/msrd/basics/modern_basics/modernbasics_kits_defaultmonsters_animals.lst
 
+# Stuff imported from the MSRD
+PCC:@/d20ogl/msrd/basics/modern_basics/modernbasics.pcc
+PCC:@/d20ogl/msrd/basics/modern_creatures/moderncreatures.pcc
+PCC:@/d20ogl/msrd/basics/modern_fx/modernfx.pcc
+
+# Suppress Duplicate Language Warnings
+ALLOWDUPES:LANGUAGE
+
+# Suppress Duplicate Spell Warnings
+ALLOWDUPES:SPELL
+
+EQUIPMENT:@/d20ogl/msrd/arcana/basics/arcanabasics_equip_armorshields.lst
+ARMORPROF:@/d20ogl/msrd/arcana/basics/arcanabasics_profs_armor.lst
+ABILITYCATEGORY:@/d20ogl/msrd/future/future_basics/futurebasics_ability_categories_future.lst|(INCLUDE:Charismatic Plus Talent,Dedicated Plus Talent,Fast Plus Talent,Smart Plus Talent,Strong Plus Talent,Tough Plus Talent)
+FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
+FEAT:@/d20ogl/msrd/arcana/basics/arcanabasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
+RACE:@/d20ogl/msrd/arcana/creatures/arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
+RACE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
+RACE:@/d20ogl/msrd/menaces/menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)
+RACE:@/d20ogl/msrd/menaces/menaces_races_j-z.lst|(INCLUDE:Monitor Lizard|Scorpion|Shark (Huge)|Snake (Cobra)|Snake (Black Mamba)|Snake (Hoop)|Snake (Advanced Hoop))
+TEMPLATE:@/d20ogl/msrd/arcana/basics/arcanabasics_templates_hidden.lst
+
 ABILITY:pulpfantasy_abilities_occupations.lst
 ABILITY:pulpfantasy_abilities.lst
 ABILITYCATEGORY:pulpfantasy_ability_categories.lst
@@ -90,14 +111,6 @@ TEMPLATE:pulpfantasy_templates.lst
 WEAPONPROF:pulpfantasy_weaponprofs.lst
 ARMORPROF:pulpfantasy_profs_armor.lst
 
-# Stuff imported from the MSRD
-EQUIPMENT:@\d20ogl\msrd\arcana\basics\arcanabasics_equip_armorshields.lst
-ABILITYCATEGORY:@/d20ogl/msrd/future/future_basics/futurebasics_ability_categories_future.lst|(INCLUDE:Charismatic Plus Talent,Dedicated Plus Talent,Fast Plus Talent,Smart Plus Talent,Strong Plus Talent,Tough Plus Talent)
-FEAT:@\d20ogl\msrd\future\future_basics\futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
-FEAT:@\d20ogl\msrd\arcana\basics\arcanabasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
-RACE:@\d20ogl\msrd\arcana\creatures\arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
-RACE:@\d20ogl\msrd\basics\modern_creatures\moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
-RACE:@\d20ogl\msrd\menaces\menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)
-RACE:@\d20ogl\msrd\menaces\menaces_races_j-z.lst|(INCLUDE:Monitor Lizard|Scorpion|Shark (Huge)|Snake (Cobra)|Snake (Black Mamba)|Snake (Hoop)|Snake (Advanced Hoop))
-
 HIDETYPE:SKILL|Science
+
+FORWARDREF:SKILL|Computer Use,Knowledge (Arcane Lore),Knowledge (Tactics)

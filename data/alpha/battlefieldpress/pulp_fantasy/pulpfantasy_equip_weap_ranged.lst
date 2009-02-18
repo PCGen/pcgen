@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 00:25:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 00:27:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
 ###Block:Handguns
-# Equipment Name				Required Proficiency				Type																Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+# Equipment Name				Required Weapon Proficiency			Type																Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
 Tranter (.57 revolver)			PROFICIENCY:WEAPON|Tranter			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile	CONTAINS:1|Bullet=5	COST:18	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:15	SIZE:M	SOURCEPAGE:p.62	SPROP:5 cyl			RATEOFFIRE:S
 Double Derringer (.32)			PROFICIENCY:WEAPON|Double Derringer		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile	CONTAINS:1|Bullet=2	COST:14	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	RANGE:10	SIZE:S	SOURCEPAGE:p.62	SPROP:2 int			RATEOFFIRE:S
 Pocket Revolver (.32)			PROFICIENCY:WEAPON|Pocket Revolver		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile	CONTAINS:1|Bullet=6	COST:14	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	RANGE:15	SIZE:S	SOURCEPAGE:p.62	SPROP:6 cyl			RATEOFFIRE:S
@@ -19,7 +19,7 @@ Smith and Wesson 38 (.357)		PROFICIENCY:WEAPON|Smith and Wesson 38	TYPE:Weapon.R
 Tokarev Model TT33			PROFICIENCY:WEAPON|Tokarev Model TT33	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile	CONTAINS:1|Bullet=7	COST:15	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.62	SPROP:7 box,Lic(+1)	RATEOFFIRE:S
 
 ###Block:Longarms
-# Equipment Name						Output Name				Required Proficiency					Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+# Equipment Name						Output Name				Required Weapon Proficiency				Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
 12-Gauge Repeating Shotgun									PROFICIENCY:WEAPON|12-Gauge Repeating Shotgun	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile			CONTAINS:1|Bullet=7	COST:15	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:p.62	SPROP:7 box			RATEOFFIRE:S
 Mannlicher-Parravicino-Carcano Carbine M1891						PROFICIENCY:WEAPON|MPC Carbine M1891		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile			CONTAINS:1|Bullet=6	COST:16	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:70	SIZE:L	SOURCEPAGE:p.62	SPROP:6 box			RATEOFFIRE:S
 Springfield M1903											PROFICIENCY:WEAPON|Springfield M1903		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile			CONTAINS:1|Bullet=5	COST:16	WT:9		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:80	SIZE:L	SOURCEPAGE:p.62	SPROP:5 box,Lic(+1)	RATEOFFIRE:S
@@ -35,7 +35,7 @@ Winchester 94 (.444 hunting rifle).MOD		OUTPUTNAME:Winchester 94
 #Browning Model 1918
 
 ###Block:Heavy Weapons
-# Equipment Name			Required Proficiency				Type															Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+# Equipment Name			Required Weapon Proficiency			Type															Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
 Maxim Gun Mk 1 (.303 cal)	PROFICIENCY:WEAPON|Maxim Gun Mk 1		TYPE:Weapon.Ranged.Standard.Firearm.Heavy.Ballistic.Exotic.Automatic.Container.Projectile	CONTAINS:1|Bullet=200	COST:23	WT:60		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:100	SIZE:H	SOURCEPAGE:p.62	SPROP:Linked,Mil(+3)	RATEOFFIRE:A
 Colt-Browning M1895		PROFICIENCY:WEAPON|Colt-Browning M1895	TYPE:Weapon.Ranged.Standard.Firearm.Heavy.Ballistic.Exotic.Automatic.Container.Projectile	CONTAINS:1|Bullet=200	COST:21	WT:23		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:100	SIZE:H	SOURCEPAGE:p.62	SPROP:Linked,Mil(+3)	RATEOFFIRE:A
 Breda Model 1030			PROFICIENCY:WEAPON|Breda Model 1030		TYPE:Weapon.Ranged.Standard.Firearm.Heavy.Ballistic.Exotic.Automatic.Container.Projectile	CONTAINS:1|Bullet=200	COST:19	WT:23		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:90	SIZE:H	SOURCEPAGE:p.62	SPROP:Linked,Mil(+3)	RATEOFFIRE:A
@@ -45,7 +45,7 @@ MG 34					PROFICIENCY:WEAPON|MG 34			TYPE:Weapon.Ranged.Standard.Firearm.Heavy.B
 Panzerfaust				PROFICIENCY:WEAPON|Panzerfaust		TYPE:Weapon.Ranged.Standard.Firearm.Heavy.Ballistic.Exotic										COST:15	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6	RANGE:150	SIZE:S	SOURCEPAGE:p.62	SPROP:Mil(+3)		RATEOFFIRE:1
 
 ###Block:Other ranged Weapons
-# Equipment Name	Required Proficiency		Type											Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Weapon prop. bonus	Special Property	Rate of Fire
+# Equipment Name	Required Weapon Proficiency	Type											Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Weapon prop. bonus	Special Property	Rate of Fire
 Longbow		PROFICIENCY:WEAPON|Longbow	TYPE:Weapons.Ranged.Standard.Archaic.Piercing.Wooden.Container	CONTAINS:UNLIM|Arrow=1	COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:L	SOURCEPAGE:p.63	BONUS:WEAPON|DAMAGE|STR	SPROP:1 Arrow	RATEOFFIRE:1
 Compound Bow.MOD																																							SOURCEPAGE:p.63
 Crossbow.MOD																																							SOURCEPAGE:p.63
@@ -55,7 +55,7 @@ Shuriken.MOD																																							SOURCEPAGE:p.63
 Whip.MOD																																								SOURCEPAGE:p.63
 
 ###Block:Vehicle Weapons
-# Equipment Name	Required Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name	Required Weapon Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property	Rate of Fire
 20mm Cannon		PROFICIENCY:WEAPON|Cannon	TYPE:Weapon.Ranged.Standard.Cannon.Vehicle.Ballistic.Exotic.Automatic	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d12		RANGE:150	SIZE:H	SOURCEPAGE:p.84	SPROP:Linked	RATEOFFIRE:A
 37mm Cannon		PROFICIENCY:WEAPON|Cannon	TYPE:Weapon.Ranged.Standard.Cannon.Vehicle.Ballistic.Exotic.Semiauto	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:5d12		RANGE:150	SIZE:H	SOURCEPAGE:p.84	SPROP:Magazine 1	RATEOFFIRE:S
 75mm Cannon		PROFICIENCY:WEAPON|Cannon	TYPE:Weapon.Ranged.Standard.Cannon.Vehicle.Ballistic.Exotic.Semiauto	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:150	SIZE:H	SOURCEPAGE:p.84	SPROP:Magazine 1	RATEOFFIRE:S

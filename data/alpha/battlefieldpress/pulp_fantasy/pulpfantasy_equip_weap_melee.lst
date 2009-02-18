@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 00:25:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 00:27:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
-# Equipment Name		Required Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Requires Modification?	Source Page		Weapon prop. bonus
+# Equipment Name		Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Requires Modification?	Source Page		Weapon prop. bonus
 Flurry of Blows		PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Natural.Melee.Simple.Unarmed.Mystic.Bludgeoning.Finesseable	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	MODS:NO			SOURCEPAGE:p.108	BONUS:WEAPON|ATTACKS|1	BONUS:WEAPON|TOHIT|-2
 Brass Knuckles.MOD																																					SOURCEPAGE:p.70
 Cleaver.MOD																																							SOURCEPAGE:p.70
@@ -16,7 +16,7 @@ Tonfa.MOD																																							SOURCEPAGE:p.70
 
 
 #	Archaic Melee Weapons
-# Equipment Name		Required Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Requires Modification?	Source Page		Weapon prop. bonus
+# Equipment Name		Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Requires Modification?	Source Page		Weapon prop. bonus
 Bayonet (Fixed).MOD																																					SOURCEPAGE:p.70
 Hatchet.MOD																																							SOURCEPAGE:p.70
 Longsword.MOD																																						SOURCEPAGE:p.70
@@ -28,7 +28,7 @@ Sword Cane.MOD																																						SOURCEPAGE:p.70
 
 
 #	Exotic Melee Weapons
-# Equipment Name		Required Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Requires Modification?	Source Page		Weapon prop. bonus
+# Equipment Name		Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Requires Modification?	Source Page		Weapon prop. bonus
 Chain.MOD																																							SOURCEPAGE:p.70
 Chain Saw.MOD																																						SOURCEPAGE:p.70
 Kama.MOD																																							SOURCEPAGE:p.70

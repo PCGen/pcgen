@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr  4 22:40:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Feb 18 00:27:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
@@ -73,9 +73,9 @@ Fast Learner (Smart Lvl 10)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS
 Cross Training Selection	TYPE:CrossTraining	VISIBLE:NO	SAB:Cross Training (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS	CSKILL:LIST	COST:0	SOURCEPAGE:p.23
 
 ###Block:Cross Training Sub-Entries
-# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Selections	Choose	BONUS:FEAT		Stat bonus			Source Page
-Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	SELECT:2	CHOOSE:STAT				BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
-Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES			CHOOSE:STAT	BONUS:FEAT|POOL|1	BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
+# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Choose	Selections	Bonus Number of Feats	Stat bonus			Source Page
+Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:STAT	SELECT:2					BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
+Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:STAT			BONUS:FEAT|POOL|1		BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
 
 ###Block:Eclectic Selections
 # Feat Name					Type				Visible	Prohibited Class
@@ -238,7 +238,7 @@ Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Extra Step|PREVAREQ:var("COUN
 Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion																																								SOURCEPAGE:p.106
 
 ###Block:G-man Class Abilities
-# Feat Name				Type				Visible	Special ABility						Multiple?	Choose								Add																										Source Page
+# Feat Name				Type				Visible	Special ABility						Multiple?	Choose								Add 																										Source Page
 Jurisdiction			TYPE:GManAbility		VISIBLE:NO	SAB:Jurisdiction																																											SOURCEPAGE:p.103
 Big Brother				TYPE:GManAbility		VISIBLE:NO	SAB:Big Brother																																											SOURCEPAGE:p.103
 Signature Kit			TYPE:GManAbility		VISIBLE:NO																				ADD:FEAT|1|Signature Kit - Firearm	ADD:FEAT|1|Signature Kit - Melee weapon	ADD:FEAT|1|Signature Kit - Equipment	ADD:FEAT|1|Signature Kit - Vehicle	SOURCEPAGE:p.104
@@ -271,11 +271,11 @@ Secret Headquarters		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Secret Headquarters		
 Debonair				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Debonair																																																																																																																																						SOURCEPAGE:p.107
 
 ###Block:Mystic Class Abilities
-# Feat Name		Type				Visible	Special ABility																							Define				Stackable?	Multiple?	Choose				Template				Automaticaly Added to Inventory	Source Page
-Living Weapon	TYPE:MysticAbility	VISIBLE:NO	SAB:Living Weapon 1d%|LivingWeaponDice																			DEFINE:LivingWeaponDice|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE	TEMPLATE:Living Weapon Dice							SOURCEPAGE:p.109
-Flying Kick		TYPE:MysticAbility	VISIBLE:NO	SAB:Flying Kick																																																SOURCEPAGE:p.109
+# Feat Name		Type				Visible	Special ABility																						Define				Stackable?	Multiple?	Choose				Template				Automatically Added to Inventory	Source Page
+Living Weapon	TYPE:MysticAbility	VISIBLE:NO	SAB:Living Weapon 1d%|LivingWeaponDice																		DEFINE:LivingWeaponDice|0	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE	TEMPLATE:Living Weapon Dice							SOURCEPAGE:p.109
+Flying Kick		TYPE:MysticAbility	VISIBLE:NO	SAB:Flying Kick																																															SOURCEPAGE:p.109
 Iron Fist		TYPE:MysticAbility	VISIBLE:NO	SAB:Iron Fist (one attack)|PREVAREQ:var("COUNT[FEATNAME=Iron Fist]"),1	SAB:Iron Fist (all attacks)|PREVARGT:var("COUNT[FEATNAME=Iron Fist]"),1								MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE												SOURCEPAGE:p.109
-Flurry of Blows	TYPE:MysticAbility	VISIBLE:NO	SAB:Flurry of Blows																																									AUTO:EQUIP|Flurry of Blows		SOURCEPAGE:p.109
+Flurry of Blows	TYPE:MysticAbility	VISIBLE:NO	SAB:Flurry of Blows																																								AUTO:EQUIP|Flurry of Blows		SOURCEPAGE:p.109
 
 ###Block:News Hound Class Abilities
 # Feat Name				Type				Visible	Special ABility																																		Define				Stackable?	Multiple?	Choose				Bonus to skill						Bonus to skill rank						Modify VAR					Source Page
@@ -300,22 +300,14 @@ Operator Intuition		TYPE:OperatorAbility	VISIBLE:NO	SAB:Intuition (Operator Clas
 Above Top Secret			TYPE:OperatorAbility	VISIBLE:NO	SAB:Above Top Secret																																																																																																																																																																									SOURCEPAGE:p.113
 Connected - Operator Ability	TYPE:OperatorAbility	VISIBLE:NO	SAB:Connected (Operator Ability)																																																																																																																																																																							SOURCEPAGE:p.113
 
-###Block:Relic Hunter Class Abilities
-# Feat Name			Type				Visible	Required Feat			Special ABility		Stackable?	Multiple?	Choose		Add					Source Page
-Improvised Tools		TYPE:RelicHunterAbility	VISIBLE:NO						SAB:Improvised Tools													SOURCEPAGE:p.116
-Uncanny Dodge III		TYPE:RelicHunterAbility	VISIBLE:NO	PREFEAT:1,Uncanny Dodge II	SAB:Uncanny Dodge III													SOURCEPAGE:p.116
-Uncanny Dodge IV		TYPE:RelicHunterAbility	VISIBLE:NO	PREFEAT:1,Uncanny Dodge III	SAB:Uncanny Dodge IV													SOURCEPAGE:p.116
-Relic Hunter Bonus Feat	TYPE:RelicHunterAbility	VISIBLE:NO	PREFEAT:1,Uncanny Dodge IV					STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|TYPE=Relic_Hunter	SOURCEPAGE:p.116
-Miraculous Escape		TYPE:RelicHunterAbility	VISIBLE:NO						SAB:Miraculous Escape													SOURCEPAGE:p.116
-
 ###Block:Scientist Class Abilities
-# Feat Name				Type				Visible	Special ABility				Stackable?	Multiple?	Selections		Choose																								Combat bonus						Modify VAR			Source Page
+# Feat Name				Type				Visible	Special ABility				Stackable?	Multiple?	Choose																								Selections		Combat bonus						Modify VAR			Source Page
 Smart Defense			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Defense																																				BONUS:COMBAT|AC|max(0,INT)|TYPE=Ability.STACK					SOURCEPAGE:p.117
 Scientific Improvisation	TYPE:ScientistAbility	VISIBLE:NO	SAB:Scientific Improvisation																																														SOURCEPAGE:p.117
-Scientist Skill Mastery		TYPE:ScientistAbility	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)		STACK:NO	MULT:YES	SELECT:INT+3	CHOOSE:CSKILLS																																			SOURCEPAGE:p.118
-Minor Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Minor Breakthrough (%CHOICE)	STACK:NO	MULT:YES				CHOOSE:NUMCHOICES=1|STRING|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)									BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
+Scientist Skill Mastery		TYPE:ScientistAbility	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:CSKILLS																							SELECT:INT+3													SOURCEPAGE:p.118
+Minor Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Minor Breakthrough (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)												BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
 Smart Survival			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Survival																																															SOURCEPAGE:p.118
-Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES				CHOOSE:NUMCHOICES=1|WEAPONPROFS|LIST|TYPE.Not.2 handed																												SOURCEPAGE:p.118
+Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFS|LIST|TYPE.Not.2 handed																															SOURCEPAGE:p.118
 Major Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Major Breakthrough																																											BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
 
 ###Block:Shadowy Avenger Class Abilities
@@ -335,7 +327,7 @@ Bald Faced Liar	TYPE:SpyAbility	VISIBLE:NO	SAB:Bald Faced Liar (%/day)|BaldFaced
 Self Deception	TYPE:SpyAbility	VISIBLE:NO	SAB:Self Deception																																								SOURCEPAGE:p.122
 
 ###Block:Weird Inventor Class Abilities
-# Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add				Bonus to skill			Modify VAR											Source Page
+# Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add 				Bonus to skill			Modify VAR											Source Page
 Jury Rig						TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Jury Rig +%|JuryRigValue								DEFINE:JuryRigValue|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|JuryRigValue|2								SOURCEPAGE:p.123
 Weird Scientist Gadget Creation		TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Weird Science Gadget Creation (% Invention Levels)|InventionLevels	DEFINE:InventionLevels|0																	BONUS:VAR|InventionLevels|var("CL=Weird Inventor")+2+max(0,INTSCORE-12)	SOURCEPAGE:p.123
 Academic Mastery					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Academic Mastery x%|var("COUNT[FEATNAME=Academic Mastery]")							STACK:NO	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Skill Focus																		SOURCEPAGE:p.123

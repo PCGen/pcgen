@@ -5,6 +5,7 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 #Handguns
 # Weapon Name			Type				Nb Hands
 Beretta M1934			TYPE:PersonalFirearm
+Browning High Power		TYPE:PersonalFirearm
 Colt M1911A1			TYPE:PersonalFirearm
 Colt Peacemaker			TYPE:PersonalFirearm
 Double Derringer			TYPE:PersonalFirearm
@@ -12,6 +13,7 @@ Luger P08 Pistol			TYPE:PersonalFirearm
 Mauser 'Broomhandle'		TYPE:PersonalFirearm
 Nagant Model 1895			TYPE:PersonalFirearm
 Pocket Revolver			TYPE:PersonalFirearm
+Smith and Wesson 38		TYPE:PersonalFirearm
 Tokarev Model TT33		TYPE:PersonalFirearm
 Tranter				TYPE:PersonalFirearm
 Walther Model PP			TYPE:PersonalFirearm
@@ -36,3 +38,5 @@ Panzerfaust				TYPE:ExoticFirearms
 
 #other ranged Weapons
 Longbow				TYPE:Archaic		HANDS:2
+
+

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 14:40:40 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Feb 18 00:27:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 #SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Eddy Anthony
 
@@ -34,7 +34,7 @@ ABILITYCATEGORY:Stage Magician Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 ABILITYCATEGORY:World Traveller Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:World_Traveller		PLURAL:World Traveller Feats			DISPLAYLOCATION:Feats
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Heir's Wealth					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Wealth		TYPE:Heirs_Wealth			PLURAL:Heir's Wealth				DISPLAYLOCATION:Background
+ABILITYCATEGORY:Heir's Wealth					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Wealth			TYPE:Heirs_Wealth			PLURAL:Heir's Wealth				DISPLAYLOCATION:Background
 
 #
 # End
