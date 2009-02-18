@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 15:25:26 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Feb 18 11:05:41 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern Dispatch #1 - Alternate Armors	SOURCESHORT:MD01-AA	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3260
 #Original Entry by: Frank Kliewe
 
@@ -16,33 +16,33 @@ Armor Penetration (+1)		KEY:ARMR_PENETRATION_AMMO_1		OUTPUTNAME:[NAME] Armor Pen
 Armor Penetration (+2)		KEY:ARMR_PENETRATION_AMMO_2		OUTPUTNAME:[NAME] Armor Penetration	TYPE:Ammunition	COST:10	VISIBLE:QUALIFY					REPLACES:ARMR_PENETRATION_AMMO_1	SOURCEPAGE:p.3																																																																																																																								SPROP:+2 to Weapon's Armor Penetration
 
 ###Block:Inserts
-# Modifier Name		Unique Key			Type		Cost		Visible		Source Page		Required Type				Damage reduction	BONUS:EQM			BONUS:EQMARMOR								Special Property															Automaticaly Added to Inventory
-Flexible Trauma Insert	KEY:INSERT_FLEX_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|2	BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|ACCHECK|1	SPROP:Flexible Trauma Insert: add DR:+1 vs. Blunt, Lic(+1)
+# Modifier Name		Unique Key			Type		Cost		Visible		Source Page		Required Type				Damage reduction	Bonus Equipment Modifiers	Bonus Armor Modifiers							Special Property															Automatically Added to Inventory
+Flexible Trauma Insert	KEY:INSERT_FLEX_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|2		BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|ACCHECK|1	SPROP:Flexible Trauma Insert: add DR:+1 vs. Blunt, Lic(+1)
 #COST:add. Purchase DC 13
 
-Steel Trauma Insert	KEY:INSERT_STEEL_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|4	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Steel Trauma Insert: add DR:+2 vs. Blunt, Lic(+1)
+Steel Trauma Insert	KEY:INSERT_STEEL_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|4		BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Steel Trauma Insert: add DR:+2 vs. Blunt, Lic(+1)
 #COST:add. Purchase DC 14
 
-Titanium Trauma Insert	KEY:INSERT_TITAN_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|3	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Titanium Trauma Insert: add DR:+3 vs. Blunt, Lic(+1)
+Titanium Trauma Insert	KEY:INSERT_TITAN_TRAUMA	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|3		BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Titanium Trauma Insert: add DR:+3 vs. Blunt, Lic(+1)
 #COST:add. Purchase DC 15
 
-Anti Stab Insert		KEY:INSERT_ANTI_STAB	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|5	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Anti Stab Insert: add DR:+2 vs. Piercing, Lic(+1)
+Anti Stab Insert		KEY:INSERT_ANTI_STAB	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|5		BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Anti Stab Insert: add DR:+2 vs. Piercing, Lic(+1)
 #COST:add. Purchase DC 15
 
-Outershell			KEY:OUTERSHELL		TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable																				SPROP:equip Vest (Concealable, w.Outershell) to represent the donned Outershell				AUTO:EQUIP|Vest (Concealable/w.Outershell)
+Outershell			KEY:OUTERSHELL		TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable																					SPROP:equip Vest (Concealable, w.Outershell) to represent the donned Outershell				AUTO:EQUIP|Vest (Concealable/w.Outershell)
 #COST:add. Purchase DC 17
 
-Tactical Outershell	KEY:TACTICAL_OUTERSHELL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable																				SPROP:equip Vest (Concealable, w.Tactical Outershell) to represent the donned Tactical Outershell	AUTO:EQUIP|Vest (Concealable/w.Tactical Outershell)
+Tactical Outershell	KEY:TACTICAL_OUTERSHELL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable																					SPROP:equip Vest (Concealable, w.Tactical Outershell) to represent the donned Tactical Outershell	AUTO:EQUIP|Vest (Concealable/w.Tactical Outershell)
 #COST:add. Purchase DC 18
 
-Light Ceramic Insert	KEY:INSERT_LT_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|3	BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|ACCHECK|1	SPROP:Light Ceramic Insert: add DR:+1 vs. Ballistic, Lic(+1)
+Light Ceramic Insert	KEY:INSERT_LT_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|3		BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|ACCHECK|1	SPROP:Light Ceramic Insert: add DR:+1 vs. Ballistic, Lic(+1)
 #COST:add. Purchase DC 15
 
-Medium Ceramic Insert	KEY:INSERT_MED_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|6	BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Medium Ceramic Insert: add DR:+2 vs. Ballistic, Lic(+1)
+Medium Ceramic Insert	KEY:INSERT_MED_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|6		BONUS:EQMARMOR|MAXDEX|-2	BONUS:EQMARMOR|ACCHECK|2	SPROP:Medium Ceramic Insert: add DR:+2 vs. Ballistic, Lic(+1)
 #COST:add. Purchase DC 16
 
-Heavy Ceramic Insert	KEY:INSERT_HVY_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|8	BONUS:EQMARMOR|MAXDEX|-3	BONUS:EQMARMOR|ACCHECK|3	SPROP:Heavy Ceramic Insert: add DR:+3 vs. Ballistic, Lic(+1)
+Heavy Ceramic Insert	KEY:INSERT_HVY_CERAMIC	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical	BONUS:DR|-|1	BONUS:EQM|WEIGHTADD|8		BONUS:EQMARMOR|MAXDEX|-3	BONUS:EQMARMOR|ACCHECK|3	SPROP:Heavy Ceramic Insert: add DR:+3 vs. Ballistic, Lic(+1)
 #COST:add. Purchase DC 18
 
-Buoyancy Insert		KEY:INSERT_BUOYANCY	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical																		SPROP:allows to stay afloat indefinitely, disregard Armor Check penalty to Swim checks
+Buoyancy Insert		KEY:INSERT_BUOYANCY	TYPE:Armor	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.2	PRETYPE:1,Concealable,Tactical																			SPROP:allows to stay afloat indefinitely, disregard Armor Check penalty to Swim checks
 #COST:add. Purchase DC 12

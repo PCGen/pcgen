@@ -40,10 +40,6 @@ Renown.MOD					TYPE:Gadgeteer.Inventor
 Surface Vehicle Operation.MOD		TYPE:GreaseMonkey
 Surface Vehicle Operation.MOD		TYPE:CombatEngineer
 Surface Vehicle Operation.MOD		TYPE:CombatEngineer
-
-### This is a Blood and Guts: Modern Military feat
-Tank/APC Weapons.MOD			TYPE:GreaseMonkey
-
 Toughness.MOD				TYPE:Armorer
 Vehicle Dodge.MOD				TYPE:GreaseMonkey
 Weapon Finesse.MOD			TYPE:Arsenal

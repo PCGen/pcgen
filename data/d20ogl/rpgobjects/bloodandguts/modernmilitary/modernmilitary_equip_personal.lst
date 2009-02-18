@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Feb 18 10:52:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
-# Equipment Name			Required Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Special Property
+# Equipment Name			Required Weapon Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Special Property
 Hazmat Suit									TYPE:Goods.Personal.Robe						COST:20	WT:50												SIZE:L	SOURCEPAGE:p.63	SPROP:Res (+1)
 JSL Suit									TYPE:Goods.Personal.Robe						COST:15	WT:9.6											SIZE:M	SOURCEPAGE:p.63	SPROP:Res (+1)
 M-9 Bayonet				PROFICIENCY:WEAPON|Dagger	TYPE:Goods.Personal.Weapon.Melee.Slashing.Standard.Steel	COST:15	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	SIZE:T	SOURCEPAGE:p.63

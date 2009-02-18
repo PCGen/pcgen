@@ -29,3 +29,6 @@ INFOTEXT:Requires the use of Blood and Guts: Modern Military and Blood and Guts:
 CLASS:bng_ivs_classes.lst
 FEAT:bng_ivs_feats.lst
 FEAT:bng_ivs_feats_mod.lst
+
+#Included from BloodandSecrets
+FEAT:@/d20ogl/rpgobjects/modernsystem/bloodandsecrets/blood_and_secrets_feat.lst|(INCLUDE:CATEGORY=FEAT,Tactician)

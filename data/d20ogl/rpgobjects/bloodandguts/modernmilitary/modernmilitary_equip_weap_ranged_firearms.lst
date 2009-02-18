@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 22:25:30 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 10:52:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
-# Equipment Name			Required Proficiency			Type																			Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property				Rate of Fire
+# Equipment Name			Required Weapon Proficiency		Type																			Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property				Rate of Fire
 M4/203				PROFICIENCY:WEAPON|M4/203		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile.Double	CONTAINS:1|Bullet=30	COST:20	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 30 box, Mil (+3)	RATEOFFIRE:S,A
 M16/203				PROFICIENCY:WEAPON|M16/203		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile.Double	CONTAINS:1|Bullet=30	COST:20	WT:13		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:80	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 30 box, Mil (+3)	RATEOFFIRE:S,A
 M24 Sniper (7.62mm)		PROFICIENCY:WEAPON|M24 Sniper		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile				CONTAINS:1|Bullet=5	COST:22	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:140	SIZE:L	SOURCEPAGE:p.64	SPROP:Magazine 5 box, Mil (+3)	RATEOFFIRE:S

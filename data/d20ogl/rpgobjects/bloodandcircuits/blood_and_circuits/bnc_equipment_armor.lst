@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Wed Feb 20 13:12:06 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Feb 18 11:04:43 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
 
-# Equipment Name		Required Proficiency				Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																	Stat bonus												Special Property
+# Equipment Name		Required Armor Proficiency			Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																	Stat bonus												Special Property
 Atlas Mk I			PROFICIENCY:ARMOR|Atlas				TYPE:Armor.Powered.PL6	COST:18	WT:6		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.33	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|1	BONUS:STAT|STR|1|PREFEAT:1,Armor Proficiency (Powered)
 Atlas Mk II			PROFICIENCY:ARMOR|Atlas				TYPE:Armor.Powered.PL7	COST:23	WT:14		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.33	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|2	BONUS:STAT|STR|3|PREFEAT:1,Armor Proficiency (Powered)
 Atlas Mk III		PROFICIENCY:ARMOR|Atlas				TYPE:Armor.Powered.PL9	COST:39	WT:34		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.33	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|3	BONUS:STAT|STR|7|PREFEAT:1,Armor Proficiency (Powered)

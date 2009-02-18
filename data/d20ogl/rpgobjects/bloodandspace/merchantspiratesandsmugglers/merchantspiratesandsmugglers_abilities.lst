@@ -1,1 +1,3 @@
-Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:+%1d%2|SneakAttack|SneakAttackDie									SOURCEPAGE:ClassesII.rtf	ASPECT:Ability Benefit|+%1d%2|SneakAttack|SneakAttackDie
+# CVS $Revision: $ $Author: $ -- Wed Feb 18 10:07:46 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# Ability Name	Category of Ability		Type				Visible	Special ABility							Define							Description						Source Page				Aspects
+Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:+%1d%2|SneakAttack|SneakAttackDie	SOURCEPAGE:ClassesII.rtf	ASPECT:Ability Benefit|+%1d%2|SneakAttack|SneakAttackDie

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 22:05:33 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 11:05:41 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern Dispatch #10 - Near-Future Firearms	SOURCESHORT:MD10-NFF	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3994
 #Original Entry by: Frank Kliewe
 
-# Equipment Name			Required Proficiency				Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property			Rate of Fire
+# Equipment Name			Required Weapon Proficiency			Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property			Rate of Fire
 H&K-Calico Model 1007		PROFICIENCY:WEAPON|H&K-Calico Model 1007	TYPE:Weapon.Ranged.Standard.Firearm.Personal.Pistol.Ballistic.Container.Projectile					CONTAINS:1|Bullets=8	COST:22	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4		RANGE:20	SIZE:M	SOURCEPAGE:p.1	SPROP:Magazine 8 cyl.,Res(+2)	RATEOFFIRE:S
 H&K-Ares FMP1			PROFICIENCY:WEAPON|H&K-Ares FMP1		TYPE:Weapon.Ranged.Standard.Firearm.Personal.Pistol.Ballistic.Semiauto.Automatic.Container.Projectile		CONTAINS:1|Bullets=25	COST:23	WT:4.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4		RANGE:30	SIZE:M	SOURCEPAGE:p.1	SPROP:Magazine 25,Res(+2)	RATEOFFIRE:S,A
 H&K MP5A7C				PROFICIENCY:WEAPON|H&K MP5A7C			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=30	COST:23	WT:5.8	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:50	SIZE:M	SOURCEPAGE:p.1	SPROP:Magazine 30,Mil(+3)	RATEOFFIRE:S,A

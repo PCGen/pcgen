@@ -1,4 +1,4 @@
-# CVS $Revision: 4610 $ $Author: amaitland $ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24
 
 # Feat Name				Type				Visible	Required Feat		Special ABility						Define				Stackable?	Multiple?	Choose		Modify VAR

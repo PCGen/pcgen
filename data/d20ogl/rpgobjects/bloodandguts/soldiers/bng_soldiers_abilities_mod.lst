@@ -1,4 +1,4 @@
-# CVS $Revision: 315 $ $Author: tir-gwaith $ -- Tue Oct 21 19:45:30 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Tue Oct 21 19:45:30 2008 -- reformated by prettylst.pl v1.38 (build 7302)
 SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
 
 # Ability Name												Category of Ability		Type																Visible		Class Skill
@@ -17,7 +17,6 @@ CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - class skill).MOD		
 CATEGORY=Starting Occupation|Knowledge (Business - class skill).MOD								TYPE:AdministrativeSkills.LegalServicesSkills
 CATEGORY=Starting Occupation|Knowledge (Civics - class skill).MOD									TYPE:LegalServicesSkills
 Knowledge (Current Events - class skill)								CATEGORY:Starting Occupation	TYPE:Occupation_Skill.AdministrativeSkills.RecruitingSkills							VISIBLE:DISPLAY	CSKILL:Knowledge (Current Events)
-TYPE:AdministrativeSkills.RecruitingSkills
 CATEGORY=Starting Occupation|Knowledge (History - class skill).MOD								TYPE:ReligiousSkills
 Knowledge (Popular Culture - class skill)								CATEGORY:Starting Occupation	TYPE:Occupation_Skill.AdministrativeSkills.RecruitingSkills							VISIBLE:DISPLAY	CSKILL:Knowledge (Popular Culture)
 CATEGORY=Starting Occupation|Knowledge (Tactics - class skill).MOD								TYPE:AirDefenseSkills

@@ -25,9 +25,10 @@ INFOTEXT:Requires the use of Blood and Guts: Modern Military
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-CLASS:bng_soldiers_classes.lst
-FEAT:bng_soldiers_feats.lst
-FEAT:bng_soldiers_feats_hidden.lst
 ABILITY:bng_soldiers_abilities_mod.lst
+ABILITYCATEGORY:bng_soldiers_ability_categories.lst
+CLASS:bng_soldiers_classes.lst
+FEAT:bng_soldiers_feats_hidden.lst
 FEAT:bng_soldiers_feats_mod.lst
+FEAT:bng_soldiers_feats.lst
 SKILL:bng_soldiers_skills_mod.lst

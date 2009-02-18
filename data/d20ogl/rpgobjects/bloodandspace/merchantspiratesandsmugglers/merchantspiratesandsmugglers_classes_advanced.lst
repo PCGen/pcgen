@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 10:07:46 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Mercenary	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
-# Class Name	Req. Att.	Required Feat											Required Skill
+# Class Name	Req. Att.	Multiple Requirements												Required Skill
 CLASS:Mercenary	PREATT:3	PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,Brawl,Combat Martial Arts]	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|Read/Write Language|Speak Language|Spot|Survival|Swim
@@ -11,7 +11,7 @@ CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowled
 1	BONUS:VAR|BarbRageTimesLVL|CL					DEFINE:BarbRageTimesLVL|0
 1	BONUS:VAR|BarbRagePowerLVL|CL					DEFINE:BarbRagePowerLVL|0
 1	BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,8	DEFINE:GreaterRage|0
-1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1		DEFINE:RageTimes|0		AUTO:FEAT|Rage
+1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1		DEFINE:RageTimes|0		ABILITY:Special Ability|AUTOMATIC|Rage
 ###Block: Level Progression
 2	SAB:Tough Image
 3						ADD:FEAT|1|TYPE.Mercenary

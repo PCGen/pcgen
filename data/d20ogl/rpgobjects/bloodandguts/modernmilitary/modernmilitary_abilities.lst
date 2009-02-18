@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 21 20:54:48 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Feb 18 10:52:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
@@ -9,7 +9,7 @@ Communication Operations(class skill)	CATEGORY:Starting Occupation	TYPE:ArmorSki
 Profession(class skill)				CATEGORY:Starting Occupation	TYPE:DiverSkills												VISIBLE:DISPLAY	CSKILL:Profession
 
 ###Block: Skill .MODs
-# Ability Name												Category of Ability		Type																											Visible	Special ABility						Define							Description																						Source Page						ASPECT
+# Ability Name												Category of Ability		Type																											Visible	Special ABility						Define							Description																						Source Page						Aspects
 CATEGORY=Starting Occupation|Climb(class skill).MOD											TYPE:InfantrySkills
 CATEGORY=Starting Occupation|Computer Use(class skill).MOD										TYPE:IntelligenceSkills
 CATEGORY=Starting Occupation|Craft (Chemical - class skill).MOD									TYPE:CombatEngineeringSkills.DiverSkills.NBCSkills.MedicalSkills

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 10:52:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Guts - Inside Vossberg Supermax	SOURCESHORT:BnG-IVS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=45
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -23,9 +23,9 @@ CLASS:US Marshals Special Operations Group	PREATT:5	PREFEAT:3,Alertness,Personal
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:US Marshals Special Operations Group	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Diplomacy|Disguise|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Research|Search|Sense Motive|Spot
 1	SAB:Federal Jurisdiction
-2																				AUTO:FEAT|Police Combat Training
+2																													AUTO:FEAT|Police Combat Training
 3	SAB:Hard Target Search +%|HardTargetSearch	BONUS:VAR|HardTargetSearch|(CL-2)/3	DEFINE:HardTargetSearch|0
 4	SAB:Harm's Way
-5									BONUS:VAR|DefensivePosition|CL/4						AUTO:FEAT|Defensive Position
+5									BONUS:VAR|DefensivePosition|CL/4						ABILITY:Special Ability|AUTOMATIC|Defensive Position
 7	SAB:Sentinel
 10	SAB:Counter Attack

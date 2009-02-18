@@ -26,11 +26,11 @@ CLASS:Guerilla	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electr
 2					ADD:FEAT|1|TYPE=Guerilla
 3	SAB:Suicidal Attack
 4					ADD:FEAT|1|TYPE=Guerilla
-5					ADD:ABILITY|1|Special Ability|AUTOMATIC|TYPE=GuerillaWarfare
+5					ADD:ABILITY|1|Special Ability|NORMAL|TYPE=GuerillaWarfare
 6					ADD:FEAT|1|TYPE=Guerilla
-7					ADD:ABILITY|1|Special Ability|AUTOMATIC|TYPE=GuerillaWarfare
+7					ADD:ABILITY|1|Special Ability|NORMAL|TYPE=GuerillaWarfare
 8					ADD:FEAT|1|TYPE=Guerilla
-9					ADD:ABILITY|1|Special Ability|AUTOMATIC|TYPE=GuerillaWarfare
+9					ADD:ABILITY|1|Special Ability|NORMAL|TYPE=GuerillaWarfare
 10					ADD:FEAT|1|TYPE=Guerilla
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -109,7 +109,7 @@ CLASS:US Secret Service Protective Detail	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy
 1	SAB:Harms Way
 2	SAB:Human Shield +%|HumanShield	BONUS:VAR|HumanShield|CL/5+1	DEFINE:HumanShield|0
 3	SAB:Sentinel
-4							BONUS:VAR|DefensivePosition|1					AUTO:FEAT|Defensive Position
+4							BONUS:VAR|DefensivePosition|1					ABILITY:Special Ability|AUTOMATIC|Defensive Position
 6							BONUS:VAR|DefensivePosition|1
 7	SAB:Counter Attack
 8							BONUS:VAR|DefensivePosition|1
@@ -125,7 +125,7 @@ CLASS:Y12 SRT	STARTSKILLPTS:6	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|
 2																									ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining
 3	SAB:Grace Under Pressure (Y12 SRT) +%|GraceUnderPressureY12SRT	BONUS:VAR|GraceUnderPressureY12SRT|CL/3	DEFINE:GraceUnderPressureY12SRT|0
 4																									ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining
-5												BONUS:VAR|DefensivePosition|1																	AUTO:FEAT|Defensive Position
+5												BONUS:VAR|DefensivePosition|1																	ABILITY:Special Ability|AUTOMATIC|Defensive Position
 6																									ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining
 7												BONUS:VAR|DefensivePosition|1
 8																									ADD:FEAT|1|TYPE=Y12SRT,TYPE=PoliceTraining
