@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:32:44 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
 
-# Skill Name		Key Stat	Untrained?		Type					Bonus to skill							Source Page
-Knowledge (Ritual)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge										SOURCEPAGE:p.76
-Prophecy			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				BONUS:SKILL|Prophecy|2|PRESKILL:1,Concentration=5	SOURCEPAGE:p.16
+# Skill Name		Key Stat	Untrained?		Type					Source Page		Bonus to skill
+Knowledge (Ritual)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.76
+Prophecy			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				SOURCEPAGE:p.16	BONUS:SKILL|Prophecy|2|PRESKILL:1,Concentration=5

@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Feb  8 00:34:08 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:52:10 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
-# Template Name	Visible	Apply Kit			GENDERLOCK
+# Template Name	Visible	Apply Kit			Lock Gender Selection
 Male Clone		VISIBLE:NO					GENDERLOCK:Male
 Female Clone	VISIBLE:NO					GENDERLOCK:Female
 

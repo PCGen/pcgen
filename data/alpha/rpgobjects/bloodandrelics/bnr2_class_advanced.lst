@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 00:28:37 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:32:44 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Modify VAR
@@ -8,7 +8,7 @@ CLASS:Believer	PREFEAT:2,Conviction (Higher Power),Faith's Protection	PRESKILL:1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Treat Injury
 ###Block: Turning
-1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
@@ -29,7 +29,7 @@ CLASS:Cultist	PREFEAT:2,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (A
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Speak Language|Research
 ###Block: Turning
-1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	AUTO:FEAT|Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
@@ -51,15 +51,15 @@ CLASS:Dark Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHEC
 CLASS:Dark Warrior	PREATT:2	PREFEAT:2,Conviction (Dark Power),Toughness	PRESKILL:1,Intimidate=3	PRETEXT:Avarice and Dark Power Allegiances
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Streetwise)|Knowledge (Tactics)|Survival|Swim|Treat Injury
-1	SAB:Hatred %/day|Hatred									BONUS:VAR|Hatred|CL/6+1						DEFINE:Hatred|0
+1	SAB:Hatred %/day|Hatred												BONUS:VAR|Hatred|CL/6+1			DEFINE:Hatred|0
 2																															ADD:FEAT|1|TYPE=DarkWarrior
 3	SAB:Willing Manifestation (Contortions)
 4																															ADD:FEAT|1|TYPE=DarkWarrior
-5	SAB:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration	BONUS:VAR|BloodBondDuration|CL*10				DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|1
+5	SAB:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration				BONUS:VAR|BloodBondDuration|CL*10	DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|1
 7																															ADD:FEAT|1|TYPE=DarkWarrior
-8	SAB:Blood Oath										BONUS:VAR|BloodBondTime|1		BONUS:STAT|STR|2
+8	SAB:Blood Oath										BONUS:STAT|STR|2	BONUS:VAR|BloodBondTime|1
 9	SAB:Willing Manifestation (Poltergeist)
-10	SAB:Legion																	BONUS:STAT|CON|2
+10	SAB:Legion											BONUS:STAT|CON|2
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
 CLASS:Grave Robber	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -111,10 +111,10 @@ CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BAS
 CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical)=6,Knowledge (Arcane Lore)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Sense Motive|Spot|Survival|Treat Injury
-1													BONUS:VAR|FMLevel|CL						AUTO:FEAT|Summon Familiar
+1													BONUS:VAR|FMLevel|CL						ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2				SAB:Herbal Lore
 3				SAB:Darkshape %/day|Darkshape					BONUS:VAR|Darkshape|CL/3	DEFINE:Darkshape|0
-4																						AUTO:FEAT|Brew Potion
+4																						ABILITY:Special Ability|AUTOMATIC|Brew Potion
 5	VISION:Low-light	SAB:Creature of the Night - heals 1 hp/hour at night
 7				SAB:Witch's Brew
 8				SAB:Witch's Delight

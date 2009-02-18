@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:55:15 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:23:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -40,7 +40,7 @@ CLASS:Mundane	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Mundane=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mundane	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Drive|TYPE.Knowledge|Profession
 1:REPEATLEVEL:1																		ADD:FEAT|1|TYPE=Mundane
-1	SAB:You MUST continue to advance in the Mundane class until you have reached 5th level|PREVARLT:CL,5	TEMPLATE:Starting Sanity
+1			SAB:You MUST continue to advance in the Mundane class until you have reached 5th level|PREVARLT:CL,5					TEMPLATE:Starting Sanity
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Nerd		HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
@@ -58,8 +58,8 @@ CLASS:Outcast	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|B
 CLASS:Outcast	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Outcast=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Hide|Spot|Move Silently|TYPE.Perform|Sleight of Hand|Survival
-1	SAB:You MUST continue to advance in the Outcast class until you have reached 5th level|PREVARLT:CL,5	SAB:Forgettable(Ex)	SAB:Quick	BONUS:VAR|SneakAttack|CL/2+1														BONUS:STAT|DEX|4	ADD:FEAT|1|Combat Expertise,Dodge	TEMPLATE:Starting Sanity	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	SAB:Deceptive(Ex)																										BONUS:SKILL|Bluff|INT-CHA|!PRESKILL:1,Bluff=1	BONUS:SKILL|Move Silently|DEX
+1	SAB:You MUST continue to advance in the Outcast class until you have reached 5th level|PREVARLT:CL,5	SAB:Forgettable(Ex)	SAB:Quick														BONUS:STAT|DEX|4	BONUS:VAR|SneakAttack|CL/2+1	ADD:FEAT|1|Combat Expertise,Dodge	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	TEMPLATE:Starting Sanity
+2	SAB:Deceptive(Ex)																					BONUS:SKILL|Bluff|INT-CHA|!PRESKILL:1,Bluff=1	BONUS:SKILL|Move Silently|DEX
 4	SAB:Improved Uncanny Dodge(Ex)
 5	SAB:Hide in Plain Sight(Ex)
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 22:50:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:23:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
@@ -16,7 +16,7 @@ Indecisive	TYPE:Flaws	!PREFEAT:1,TYPE=Flaws	DESC:You hesitate when faced with di
 Lecherous	TYPE:Flaws	!PREFEAT:1,TYPE=Flaws	DESC:You revel in the pleasures of the flesh and find the lure of lust almost impossible to ignore. Yeah baby, YEAH!																			COST:-1	SOURCEPAGE:p.19
 
 ###Block:Mental Disorders
-# Feat Name						Type				Visible	Description																																Stackable?	Multiple?	Choose															Add						Cost		Source Page
+# Feat Name						Type				Visible	Description																																Stackable?	Multiple?	Choose															Add 						Cost		Source Page
 Mental Disorder (Anxiety)			TYPE:MentalDisorder	VISIBLE:YES	DESC:When fear and anxiety overwhelm a character for a prolonged period of time, the character suffers from an anxiety disorder.												STACK:NO	MULT:YES	CHOOSE:NOCHOICE														ADD:FEAT|1|TYPE.Anxiety			COST:0	SOURCEPAGE:p.27
 Mental Disorder (Dissociative)		TYPE:MentalDisorder	VISIBLE:YES	DESC:Individuals suffering from dissociative disorders cannot maintain a complete awareness of themselves, their surroundings, or the passage of time.								STACK:NO	MULT:YES	CHOOSE:NOCHOICE														ADD:FEAT|1|TYPE.Dissociative		COST:0	SOURCEPAGE:p.27
 Mental Disorder (Impulse control)		TYPE:MentalDisorder	VISIBLE:YES	DESC:These disorders include compulsive gambling, and stealing (kleptomania), pathological lying, and the impulse to start fires (pyromania).										STACK:NO	MULT:YES	CHOOSE:NOCHOICE														ADD:FEAT|1|TYPE.ImpulseControl	COST:0	SOURCEPAGE:p.27

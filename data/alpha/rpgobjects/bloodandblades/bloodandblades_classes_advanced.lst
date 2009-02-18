@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 22:50:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:23:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -48,15 +48,15 @@ CLASS:Alter Ego	PREFEAT:2,Mental Disorder (Dissociative),Slasher Occupation (Org
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alter Ego	STARTSKILLPTS:3	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimidate|Hide|Listen|Move Silently|Perform (Act)|Profession|Read/Write Language|Repair|Search|Sense Motive|Sleight of Hand|Speak Language|Spot
 1	SAB:Other Personality(Ex)
-2	SAB:Signature(Ex)							BONUS:SKILL|Forgery|CL|TYPE=Insight
-3	SAB:Ladykiller +%|Ladykiller	BONUS:VAR|Ladykiller|2								DEFINE:Ladykiller|0
-4	SAB:Peep(Ex)							BONUS:SKILL|Spot|4
+2	SAB:Signature(Ex)			BONUS:SKILL|Forgery|CL|TYPE=Insight
+3	SAB:Ladykiller +%|Ladykiller								BONUS:VAR|Ladykiller|2	DEFINE:Ladykiller|0
+4	SAB:Peep(Ex)			BONUS:SKILL|Spot|4
 5	SAB:Hear Voices(Ex)
-6						BONUS:VAR|Ladykiller|2
-7	SAB:Master of Disguise(Ex)					BONUS:SKILL|Disguise|CL*2|TYPE=Competence
-8	SAB:Truthful(Ex)							BONUS:SKILL|Bluff|CL|TYPE=Insight
+6													BONUS:VAR|Ladykiller|2
+7	SAB:Master of Disguise(Ex)	BONUS:SKILL|Disguise|CL*2|TYPE=Competence
+8	SAB:Truthful(Ex)			BONUS:SKILL|Bluff|CL|TYPE=Insight
 9	SAB:Mental Retreat(Ex)
-10						BONUS:VAR|Ladykiller|2
+10													BONUS:VAR|Ladykiller|2
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Arawnite Guardian	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/5+1	BONUS:VAR|Reputation|CL/2+1	BONUS:VAR|Action|6
@@ -64,7 +64,7 @@ CLASS:Arawnite Guardian	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Arawnite Guardian	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Allegiance to Arawn
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arawnite Guardian	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Treat Injury|Knowledge (Earth and Life Sciences)|Listen|Profession|Ride|Spellcraft|Spot|Survival|Swim
-# Class Name		Spell Stat		Spell Type		Memorize	Automaticaly Known Spell Levels					Caster level
+# Class Name		Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels					Caster level
 CLASS:Arawnite Guardian	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Arawnite Guardian|CL
 ###Block:Spells
 1	SPELLLEVEL:CLASS|Arawnite Guardian=0|Create Water,Detect Magical Aura,Light,Mending,Read Magic,Resistance,Virtue
@@ -75,7 +75,7 @@ CLASS:Arawnite Guardian	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:L
 1	SPELLLEVEL:CLASS|Arawnite Guardian=4|Bestow Curse,Confusion,Cure Critical Wounds,Divination,Fear,Scrying,Wire Walk
 1	SPELLLEVEL:CLASS|Arawnite Guardian=5|Flaming Wrath,Greater Command,Hold Monster,Passwall,Secret Vault,Synchronicity
 ###Block:Standard Block
-1	CAST:3,2		VISION:Darkvision (60')																			LANGAUTO:Ogham
+1	CAST:3,2		VISION:Darkvision (60')																					LANGAUTO:Ogham
 2	CAST:4,3						SAB:Dark Blessing(Su)		BONUS:CHECKS|ALL|max(0,CHA)
 3	CAST:4,3,2						SAB:Trackless Step(Ex)
 4	CAST:5,4,3						SAB:Aura of Despair(Su)
@@ -105,7 +105,7 @@ CLASS:Mad Genius	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimid
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Psychogene	HD:4		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/2+1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|6
-# Class Name	Required Feat																																	Required Skill						Var. Max. Value
+# Class Name	Required Feat																																	Required Skill							Var. Max. Value
 CLASS:Psychogene	PREFEAT:1,Wild Talent,Wild Talent (Burst),Wild Talent (Daze),Wild Talent (Detect Psionics),Wild Talent (Far Hand),Wild Talent (Far Punch),Wild Talent (Finger of Fire),Wild Talent (Missive),Wild Talent (Verve)	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Psychogene	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|Read/Write Language|Sense Motive|Speak Language
@@ -124,7 +124,7 @@ CLASS:Psychogene	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	SPELLLEVEL:CLASS|Psychogene=1|Combat Precognition,Control Object,Create Sound,Lesser Concussion,Lesser Mindlink,White Noise
 1	SPELLLEVEL:CLASS|Psychogene=2|Combat Prescience,Concussion,Control Object (Mass),Sensitivity to Psychic Impressions
 1	SPELLLEVEL:CLASS|Psychogene=3|False Sensory Input,Mindlink
-1	SPELLLEVEL:CLASS|Psychogene=4|Force Mindlink,Inertial Barrier,Psychofeedback,Short Sharp Shock,Telekinesis
+1	SPELLLEVEL:CLASS|Psychogene=4|Forced Mindlink,Inertial Barrier,Psychofeedback,Short Sharp Shock,Telekinesis
 ###Block: standard
 1	KNOWN:2		SAB:Psionic Skills
 2	KNOWN:3
@@ -143,7 +143,7 @@ CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:C
 CLASS:Stalker	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus				ABILITY:Special Ability|NORMAL|Sneak Attack
+1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus								ABILITY:Special Ability|NORMAL|Sneak Attack
 2																	ADD:ABILITY|Special Ability|NORMAL|Weapon Specialization
 3	VISION:Darkvision (60')									BONUS:VAR|SneakAttack|1
 4					SAB:Right Behind You (Su)								ADD:FEAT|1|TYPE.Stalker

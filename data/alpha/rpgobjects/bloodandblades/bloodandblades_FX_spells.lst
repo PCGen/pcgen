@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:23:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe
 
@@ -19,5 +19,6 @@ Pumpkin Pact	CLASSES:Acolyte=5	SCHOOL:Conjuration	SUBSCHOOL:Calling	TYPE:Divine	
 Polymorph (Self only)	SCHOOL:Transmutation	TYPE:Incantation	COMPS:V, S, M, F	CASTTIME:60 minutes (minimum)	RANGE:Personal	TARGETAREA:You		DURATION:12 minutes	SAVEINFO:Fortitude negates	SPELLRES:Yes	DESC:Gives you another form that you designate	SOURCEPAGE:ArcanaIncantations.rtf
 
 ###Block: Etherealness and Nightmare from RSRD
-Etherealness																				SCHOOL:Transmutation																					TYPE:Arcane.Divine	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch; see text	ITEM:Potion	TARGETAREA:You and (CASTERLEVEL/3) other touched creatures															DURATION:(CASTERLEVEL) minutes [D]								SAVEINFO:None							SPELLRES:Yes						DESC:Travel to Ethereal Plane with companions.																																																																																														SOURCEPAGE:SpellsD-E.rtf
-Nightmare																			SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting|Evil							TYPE:Arcane			COMPS:V, S			CASTTIME:10 minutes		RANGE:Unlimited			TARGETAREA:One living creature																				DURATION:Instantaneous												SAVEINFO:Will negates; see text									SPELLRES:Yes								DESC:Sends vision dealing 1d10 damage, fatigue.																	SOURCEPAGE:SpellsM-O.rtf
+# Spell Name	School			Sub-School			Spell Descriptors				Type				Components	Casting Time			Range				Item		Target Area or Effect							Duration					Save Info					Spell Resistance	Description							Source Page
+Etherealness	SCHOOL:Transmutation											TYPE:Arcane.Divine	COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch; see text	ITEM:Potion	TARGETAREA:You and (CASTERLEVEL/3) other touched creatures	DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:Yes	DESC:Travel to Ethereal Plane with companions.	SOURCEPAGE:SpellsD-E.rtf
+Nightmare		SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting|Evil	TYPE:Arcane			COMPS:V, S	CASTTIME:10 minutes		RANGE:Unlimited				TARGETAREA:One living creature					DURATION:Instantaneous			SAVEINFO:Will negates; see text	SPELLRES:Yes	DESC:Sends vision dealing 1d10 damage, fatigue.	SOURCEPAGE:SpellsM-O.rtf

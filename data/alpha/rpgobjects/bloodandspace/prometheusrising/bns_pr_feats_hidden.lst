@@ -1,15 +1,18 @@
-# CVS $Revision$ $Author$ -- Fri Feb  8 00:34:08 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:52:10 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
 
-# Feat Name				Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add						Save checks bonus			Modify VAR
-Psyche				TYPE:Special		VISIBLE:NO											SAB:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
+# Feat Name					Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add 						Save checks bonus			Modify VAR
+Psyche					TYPE:Special		VISIBLE:NO											SAB:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
 
-Human Computer Fortitude	TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Fortitude|INT
-Human Computer Reflex		TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Reflex|INT
-Human Computer Will		TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Will|INT
+Human Computer Fortitude		TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Fortitude|INT
+Human Computer Reflex			TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Reflex|INT
+Human Computer Will			TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Will|INT
 
-Sensitive Base Psioninc		TYPE:SensitiveAwakening	VISIBLE:NO						!PREFEAT:3,TYPE=BasePsionic								ADD:FEAT|1|TYPE=BasePsionic
-Sensitive Psionic			TYPE:SensitiveAwakening	VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic													ADD:FEAT|1|TYPE=PsionicPowerFeat
+Sensitive Base Psioninc			TYPE:SensitiveAwakening	VISIBLE:NO						!PREFEAT:3,TYPE=BasePsionic								ADD:FEAT|1|TYPE=BasePsionic
+Sensitive Psionic				TYPE:SensitiveAwakening	VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic													ADD:FEAT|1|TYPE=PsionicPowerFeat
+
+Xeno Archaelogist Wealth Bonus	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|WealthBonus|3
+Xeno Archaelogist Reputation Bonus	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|Reputation|3
 
 #
 # End

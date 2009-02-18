@@ -36,6 +36,8 @@ RACE:bns_pr_race.lst
 TEMPLATE:bns_pr_templates.lst
 KIT:bns_pr_race_kits.lst
 
+FEAT:@/alpha/rpgobjects/bloodandrelics/bnr2_feat.lst|(INCLUDE:CATEGORY=FEAT,Teamwork)
+
 #
 # End
 #
