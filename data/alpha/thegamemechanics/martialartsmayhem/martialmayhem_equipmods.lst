@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 23:37:32 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Feb 17 23:24:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com
 #Original Entry by: Frank Kliewe
 
-# Modifier Name	Unique Key			Type		Cost		Visible		Type granted		Source Page		Required Type	BONUS:EQM			BONUS:EQMWEAPON											Special Property
-Clothyard Shaft	KEY:CLOTHYRD_SHAFT	TYPE:Weapon			VISIBLE:NO						SOURCEPAGE:p.11	PRETYPE:1,Ranged					BONUS:EQMWEAPON|RANGEADD|20|PREFEAT:1,3rd Degree Mastery - Clothyard Shaft
-Shield Spikes	KEY:SPIKE_S			TYPE:Shield	COST:1	VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:p.38	PRETYPE:1,Shield	BONUS:EQM|WEIGHTADD|2	BONUS:EQMWEAPON|DAMAGESIZE|1									SPROP:Spiked
+# Modifier Name	Unique Key			Type		Cost		Visible		Type granted		Source Page		Required Type	Bonus Equipment Modifiers	Bonus Weapon Modifiers										Special Property
+Clothyard Shaft	KEY:CLOTHYRD_SHAFT	TYPE:Weapon			VISIBLE:NO						SOURCEPAGE:p.11	PRETYPE:1,Ranged						BONUS:EQMWEAPON|RANGEADD|20|PREFEAT:1,3rd Degree Mastery - Clothyard Shaft
+Shield Spikes	KEY:SPIKE_S			TYPE:Shield	COST:1	VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:p.38	PRETYPE:1,Shield	BONUS:EQM|WEIGHTADD|2		BONUS:EQMWEAPON|DAMAGESIZE|1									SPROP:Spiked
 
 ###Block:Arrows
 # Modifier Name	Unique Key			Type			Cost		Visible		Source Page		Required Type	Special Property

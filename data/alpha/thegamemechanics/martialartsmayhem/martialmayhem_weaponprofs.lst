@@ -11,7 +11,6 @@ Chinese Axe			TYPE:Archaic
 Ba				TYPE:Archaic
 Ba tou			TYPE:Archaic
 Bagh nakh			TYPE:Exotic
-Battleaxe			TYPE:Archaic
 Bian				TYPE:Exotic
 Bian tzu chiang		TYPE:Exotic
 Bisento			TYPE:Archaic
@@ -30,7 +29,6 @@ Chun Jung Whule-Do	TYPE:Archaic
 Chuu				TYPE:Simple
 Comet Star Hammer		TYPE:Exotic
 Copper Hammer		TYPE:Simple
-Cutlass			TYPE:Archaic
 Da Dao			TYPE:Archaic
 Dai Dao			TYPE:Archaic
 Dan Bong			TYPE:Simple
@@ -47,19 +45,15 @@ Giau Tzu Jen		TYPE:Archaic
 Gladius			TYPE:Archaic
 Weighted Glove		TYPE:Simple
 Golok				TYPE:Archaic
-Greatclub			TYPE:Archaic		HANDS:2
 Grou Jen			TYPE:Archaic
-Halberd			TYPE:Archaic
 Hamidash			TYPE:Simple
 Hanbo				TYPE:Simple
 Hankyu			TYPE:Archaic		HANDS:2
-Hatchet			TYPE:Archaic
 Hook Sword			TYPE:Exotic
 Jien				TYPE:Archaic
 Jitte				TYPE:Exotic
 Joong Bong			TYPE:Simple
 Kabit				TYPE:Exotic
-Kama				TYPE:Exotic
 Kapak				TYPE:Archaic
 Katar				TYPE:Simple
 Kelewang			TYPE:Archaic
@@ -70,7 +64,6 @@ Kris				TYPE:Archaic
 Kris Knife			TYPE:Archaic
 Kris Sword			TYPE:Archaic
 Kue				TYPE:Archaic
-Kukri				TYPE:Exotic
 Kuntham			TYPE:Archaic
 Kusari			TYPE:Exotic
 Kusarigama			TYPE:Exotic
@@ -86,13 +79,9 @@ Main-Gauche			TYPE:Archaic
 Manriki-Gusari		TYPE:Exotic
 Mourn Staff			TYPE:Archaic
 Muchan			TYPE:Simple
-Naginata			TYPE:Archaic
-Nekode			TYPE:Exotic
 Ngow				TYPE:Archaic
 Nine-Ring Sword		TYPE:Archaic
-Ninja-To			TYPE:Exotic
 No-Dachi			TYPE:Archaic
-Nunchaku			TYPE:Exotic
 Nunte				TYPE:Exotic
 Otta				TYPE:Simple
 Panu				TYPE:Exotic
@@ -102,33 +91,26 @@ Pendjepit			TYPE:Exotic
 Pentjong			TYPE:Simple
 Petjat			TYPE:Simple
 Pisau				TYPE:Simple
-Punching Dagger		TYPE:Simple
-Quarterstaff		TYPE:Simple			HANDS:2
 Rante				TYPE:Simple
-Saber				TYPE:Archaic
 Sai				TYPE:Exotic
 San Men Barn		TYPE:Archaic
 Sang Kauw			TYPE:Exotic
 Sarong			TYPE:Exotic
 Shaou Dau			TYPE:Simple
 Sher Ter Jien		TYPE:Archaic
-Shikomi-Zue			TYPE:Exotic
-Short Sword			TYPE:Archaic
 Shou Li Jen			TYPE:Simple
-Sickle			TYPE:Simple
 Sjang Sutai			TYPE:Simple
 Sodegarami			TYPE:Archaic
 Song Dao			TYPE:Archaic
-Spear				TYPE:Archaic
 Suruchin			TYPE:Exotic
 Tabiumi			TYPE:Archaic
 Tai Dao			TYPE:Archaic
 Tanto				TYPE:Simple
 Tekken			TYPE:Simple
 Tekko				TYPE:Simple
-Three-Section Staff	TYPE:Exotic
 Thuan				TYPE:Archaic
 Tieh Zuu			TYPE:Simple
+Tien Bong			TYPE:Simple
 Timbe				TYPE:Simple
 Titjio			TYPE:Exotic
 Tjabang			TYPE:Exotic
@@ -138,14 +120,10 @@ Tjio				TYPE:Archaic
 To				TYPE:Archaic
 Tomahawk			TYPE:Archaic
 Tombak			TYPE:Archaic
-Tonfa				TYPE:Simple
 Tongkat			TYPE:Simple
 Ton Zen			TYPE:Simple
 Trench Knife		TYPE:Simple
 Urumi				TYPE:Exotic
-Wakizashi			TYPE:Archaic
-War Fan			TYPE:Exotic
-Whip				TYPE:Simple
 Willow Leaf Knife		TYPE:Archaic
 Wind and Fire Wheels	TYPE:Exotic
 Wolf's Teeth Staff	TYPE:Archaic
