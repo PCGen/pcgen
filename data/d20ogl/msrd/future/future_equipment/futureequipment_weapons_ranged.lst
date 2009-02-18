@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 17:20:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
 
 #Progress Level 5 Ranged Weapons
-# Equipment Name				Required Proficiency					Type																	Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage			Modifier			Range		Size		Source Page					Special Property																	Rate of Fire
+# Equipment Name				Required Weapon Proficiency				Type																	Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage			Modifier			Range		Size		Source Page					Special Property																	Rate of Fire
 Falcon .45					PROFICIENCY:WEAPON|Falcon .45				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=20		COST:18	WT:2.5	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6							RANGE:40	SIZE:M	SOURCEPAGE:FutureEquipment.rtf	SPROP:20 box, Lic(+1)																RATEOFFIRE:S,A
 OICW Assault Rifle			PROFICIENCY:WEAPON|OICW Assault Rifle		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile		CONTAINS:1|Bullet=30		COST:26	WT:18		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8			EQMOD:RGFD_LSR_SCP_GDGT	RANGE:70	SIZE:L	SOURCEPAGE:FutureEquipment.rtf	SPROP:30 box, mini-grenade launcher with multiple detonation modes, two-round burst setting, Mil(+3)			RATEOFFIRE:S
 Tactical Military Sniper Rifle	PROFICIENCY:WEAPON|TACMIL Sniper Rifle		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile		CONTAINS:1|Bullet=15		COST:21	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10			EQMOD:RGFD_LSR_SCP_GDGT	RANGE:120	SIZE:L	SOURCEPAGE:FutureEquipment.rtf	SPROP:15 box, flash suppressor, sound suppressor, Res(+2)										RATEOFFIRE:S

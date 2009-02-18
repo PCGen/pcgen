@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Frank Kliewe
 
@@ -9,7 +9,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #Most entries here also get AUTO:EQUIPed by Eqmods, so name changes here must be applied there as well
 
 ###Block: Ranged Mecha Weapons
-# Equipment Name			Unique Key					Required Proficiency						Type												Contains		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page				Special Property																																Rate of Fire
+# Equipment Name			Unique Key					Required Weapon Proficiency					Type												Contains		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page				Special Property																																Rate of Fire
 A3X Dragon Flame-Thrower							PROFICIENCY:WEAPON|A3X Dragon Flame-Thrower		TYPE:Weapon.Ranged.Standard.Mecha.Fire									COST:21	WT:75		CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	RANGE:0	SIZE:L	SOURCEPAGE:FutureMecha.rtf	SPROP:Magazine 20int, Mil(+3)																														RATEOFFIRE:Single
 M-9 Barrage Chaingun								PROFICIENCY:WEAPON|M-9 Barrage Chaingun			TYPE:Weapon.Ranged.Standard.Ballistic.Mecha.Container.Projectile		CONTAINS:UNLIM	COST:21	WT:100	CRITMULT:x2			CRITRANGE:1			DAMAGE:5d6	RANGE:60	SIZE:H	SOURCEPAGE:FutureMecha.rtf	SPROP:Linked Ammo ,Res(+2)																														RATEOFFIRE:S,A
 M-53 Firestar Rocket Launcher							PROFICIENCY:WEAPON|M-53 Firestar Rocket Launcher	TYPE:Weapon.Ranged.Standard.Mecha.RocketLauncher.Fire							COST:24	WT:35		CRITMULT:-			CRITRANGE:0			DAMAGE:10d6	RANGE:0	SIZE:H	SOURCEPAGE:FutureMecha.rtf	SPROP:6 int ,Mil(+3)																															RATEOFFIRE:Single
@@ -29,7 +29,7 @@ Tsunami 480 Plasma Cannon							PROFICIENCY:WEAPON|Tsunami 480 Plasma Cannon		TY
 LT-5 Longshot Mass Driver							PROFICIENCY:WEAPON|LT-5 Longshot Mass Driver		TYPE:Weapon.Ranged.Standard.Mecha.Ballistic.PL8								COST:24	WT:90		CRITMULT:x2			CRITRANGE:1			DAMAGE:15d6	RANGE:120	SIZE:H	SOURCEPAGE:FutureMecha.rtf	SPROP:10 box, Mil(+3)																															RATEOFFIRE:Single
 
 ###Block: Melee Mecha Weapons
-# Equipment Name						Required Proficiency					Type										Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Modifier		Size		Source Page				Special Property
+# Equipment Name						Required Weapon Proficiency				Type										Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Modifier		Size		Source Page				Special Property
 Large Mecha Slam Attack					PROFICIENCY:WEAPON|Mecha Slam Attack		TYPE:Weapon.Unarmed.Melee.Mecha.Bludgeoning			COST:0	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					SIZE:L	SOURCEPAGE:FutureMecha.rtf
 Huge Mecha Slam Attack					PROFICIENCY:WEAPON|Mecha Slam Attack		TYPE:Weapon.Unarmed.Melee.Mecha.Bludgeoning			COST:0	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6					SIZE:H	SOURCEPAGE:FutureMecha.rtf
 Gargantuan Mecha Slam Attack				PROFICIENCY:WEAPON|Mecha Slam Attack		TYPE:Weapon.Unarmed.Melee.Mecha.Bludgeoning			COST:0	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8					SIZE:G	SOURCEPAGE:FutureMecha.rtf

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 17:20:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Other Ranged Weapons
-# Equipment Name			Output Name				Required Proficiency					Type											Contains						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page					Special Property												Rate of Fire
+# Equipment Name			Output Name				Required Weapon Proficiency				Type											Contains						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page					Special Property												Rate of Fire
 Air Pistol									PROFICIENCY:WEAPON|Air Pistol				TYPE:Weapon.Ranged.Simple.Standard.Pistol.Piercing.Container	CONTAINS:UNLIM|Total=1|Pellet=1|Dart=1	COST:7	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:30	SIZE:S	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:1 Pellet or Dart											RATEOFFIRE:1
 Air Rifle									PROFICIENCY:WEAPON|Air Rifle				TYPE:Weapon.Ranged.Simple.Standard.Piercing.Container			CONTAINS:UNLIM|Total=1|Pellet=1|Dart=1	COST:8	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:50	SIZE:L	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:1 Pellet or Dart											RATEOFFIRE:1
 Blowgun									PROFICIENCY:WEAPON|Blowgun				TYPE:Weapon.Ranged.Simple.Standard.Piercing.Wooden.Container	CONTAINS:UNLIM|Dart=1				COST:4	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	RANGE:10	SIZE:S	SOURCEPAGE:ArcanaEquipment.rtf	SPROP:1 Dart												RATEOFFIRE:1

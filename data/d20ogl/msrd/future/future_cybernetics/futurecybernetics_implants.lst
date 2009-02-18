@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 15 12:40:45 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block:REPLACEMENTS
@@ -54,7 +54,7 @@ Psi Implant						TYPE:Cybernetics.PL8	COST:0	WT:0		SOURCEPAGE:FutureCybernetics.
 
 ###Block:Weapons
 
-# Equipment Name		Required Proficiency			Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Ability											Modify VAR
+# Equipment Name		Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Ability											Modify VAR
 Laser Optics (Single)	PROFICIENCY:WEAPON|Laser Optics	TYPE:Cybernetics.PL7.Weapon.Simple.Ranged.Unarmed	COST:25	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:20	SOURCEPAGE:FutureCybernetics.rtf	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1
 Laser Optics (Pair)	PROFICIENCY:WEAPON|Laser Optics	TYPE:Cybernetics.PL7.Weapon.Simple.Ranged.Unarmed	COST:28	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6+2	RANGE:20	SOURCEPAGE:FutureCybernetics.rtf	ABILITY:Special Ability|AUTOMATIC|CyborgRestrictions|Negative Levels	BONUS:VAR|ImplantTotal|1
 

@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Nov 25 12:07:19 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
 
 #added at request: 4 fire-linked Rail Cannons, 3 fire-linked Heavy Plasma Cannons,2 fire-linked Heavy Plasma Cannons
 
 ###BLOCK:PL6 Starship Weapons
-# Equipment Name		Required Proficiency				Type									Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page					Special Property	Rate of Fire
+# Equipment Name		Required Weapon Proficiency			Type									Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page					Special Property	Rate of Fire
 CHE Missile			PROFICIENCY:WEAPON|CHE Missile		TYPE:Weapon.Ranged.Starship.Missile.Ballistic.PL6	COST:23	CRITMULT:x2			CRITRANGE:2			DAMAGE:6d12			SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
 Fusion Beam			PROFICIENCY:WEAPON|Fusion Beam		TYPE:Weapon.Ranged.Starship.Energy.PL6			COST:33	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d8	RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 Gauss Gun			PROFICIENCY:WEAPON|Gauss Gun			TYPE:Weapon.Ranged.Starship.Ballistic.PL6			COST:35	CRITMULT:x2			CRITRANGE:1			DAMAGE:8d12	RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
@@ -19,7 +19,7 @@ Nuclear Missile		PROFICIENCY:WEAPON|Nuclear Missile		TYPE:Weapon.Ranged.Starship
 Rail Cannon			PROFICIENCY:WEAPON|Rail Cannon		TYPE:Weapon.Ranged.Starship.Ballistic.PL6			COST:30	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12	RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
 
 ###BLOCK:PL7 Starship Weapons
-# Equipment Name		Required Proficiency				Type								Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property	Rate of Fire
+# Equipment Name		Required Weapon Proficiency			Type								Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property	Rate of Fire
 Antimatter Gun		PROFICIENCY:WEAPON|Antimatter Gun		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:38	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d8		RANGE:5000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
 Heavy Mass Cannon		PROFICIENCY:WEAPON|Heavy Mass Cannon	TYPE:Weapon.Ranged.Starship.Ballistic.PL7		COST:40	CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 Heavy Particle Beam	PROFICIENCY:WEAPON|Heavy Particle Beam	TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:39	CRITMULT:x2			CRITRANGE:1			DAMAGE:16d8		RANGE:5000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
@@ -32,7 +32,7 @@ Plasma Missile		PROFICIENCY:WEAPON|Plasma Missile		TYPE:Weapon.Ranged.Starship.M
 Quantum Cannon		PROFICIENCY:WEAPON|Quantum Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:41	CRITMULT:x2			CRITRANGE:1			DAMAGE:16d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 
 ###BLOCK:PL8 Starship Weapons
-# Equipment Name		Required Proficiency				Type										Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property						Rate of Fire
+# Equipment Name		Required Weapon Proficiency			Type										Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property						Rate of Fire
 Automaser			PROFICIENCY:WEAPON|Automaser			TYPE:Weapon.Ranged.Starship.Energy.PL8				COST:40	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)						RATEOFFIRE:A
 EMP Cannon			PROFICIENCY:WEAPON|EMP Cannon			TYPE:Weapon.Ranged.Starship.Electricity.PL8			COST:41	CRITMULT:x2			CRITRANGE:1			DAMAGE:8d8		RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Target is dazed for 1 round, Res(+2)	RATEOFFIRE:Single
 Heavy Maser Cannon	PROFICIENCY:WEAPON|Heavy Maser Cannon	TYPE:Weapon.Ranged.Starship.Energy.PL8				COST:44	CRITMULT:x2			CRITRANGE:1			DAMAGE:16d8		RANGE:8000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)						RATEOFFIRE:Single
@@ -45,7 +45,7 @@ Starload Missile		PROFICIENCY:WEAPON|Starload Missile		TYPE:Weapon.Ranged.Starsh
 Zero Bore			PROFICIENCY:WEAPON|Zero Bore			TYPE:Weapon.Ranged.Starship.Energy.PL8				COST:52	CRITMULT:x2			CRITRANGE:1			DAMAGE:16d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)						RATEOFFIRE:Single
 
 ###BLOCK:PL9 Starship Weapons
-# Equipment Name		Required Proficiency				Type							Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property	Rate of Fire
+# Equipment Name		Required Weapon Proficiency			Type							Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property	Rate of Fire
 Blacklaser			PROFICIENCY:WEAPON|Blacklaser			TYPE:Weapon.Ranged.Starship.Energy.PL9	COST:50	CRITMULT:x2			CRITRANGE:1			DAMAGE:16d8		RANGE:8000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:S,A
 Singularity Cannon	PROFICIENCY:WEAPON|Singularity Cannon	TYPE:Weapon.Ranged.Starship.Energy.PL9	COST:53	CRITMULT:x2			CRITRANGE:1			DAMAGE:20d8		RANGE:5000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
 String Projector		PROFICIENCY:WEAPON|String Projector		TYPE:Weapon.Ranged.Starship.Energy.PL9	COST:54	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d12	RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
@@ -59,7 +59,7 @@ Mine (Starship/Zero point)	OUTPUTNAME:Mine, Zero point	TYPE:Explosive.Spacemine.
 Mine (Starship/Null)		OUTPUTNAME:Mine, Null		TYPE:Explosive.Spacemine.Energy.PL9	COST:53	SPROP:10d100 Energy damage, ignores a ship's hardness, Mil(+3)
 
 ###BLOCK:fire-linked Weapons used in default ships
-# Equipment Name					Required Proficiency				Type								Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property	Rate of Fire
+# Equipment Name					Required Weapon Proficiency			Type								Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property	Rate of Fire
 2 fire-linked Fusion Beams			PROFICIENCY:WEAPON|Fusion Beam		TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:34	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8		RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 2 fire-linked Heavy Laser			PROFICIENCY:WEAPON|Heavy Laser		TYPE:Weapon.Ranged.Starship.Fire.PL6.Laser	COST:32	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d8		RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 2 fire-linked Heavy Neutron Guns		PROFICIENCY:WEAPON|Heavy Neutron Gun	TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:36	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
@@ -78,7 +78,7 @@ Mine (Starship/Null)		OUTPUTNAME:Mine, Null		TYPE:Explosive.Spacemine.Energy.PL9
 4 fire-linked Rail Cannons			PROFICIENCY:WEAPON|Rail Cannon		TYPE:Weapon.Ranged.Starship.Ballistic.PL6		COST:31	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d12	RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
 
 ###BLOCK:Weapon Batteries used in default ships
-# Equipment Name				Required Proficiency				Type									Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Modifier			Range		Source Page					Special Property	Rate of Fire
+# Equipment Name				Required Weapon Proficiency			Type									Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Modifier			Range		Source Page					Special Property	Rate of Fire
 Battery of 2 Plasma Missiles		PROFICIENCY:WEAPON|Plasma Missile		TYPE:Weapon.Ranged.Starship.Missile.Fire.PL7.Plasma	COST:45	CRITMULT:x2			CRITRANGE:2			DAMAGE:18d8		EQMOD:BATTERY_OF_2			SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 Battery of 2 CHE Missiles		PROFICIENCY:WEAPON|CHE Missile		TYPE:Weapon.Ranged.Starship.Missile.Ballistic.PL6	COST:24	CRITMULT:x2			CRITRANGE:2			DAMAGE:6d12		EQMOD:BATTERY_OF_2			SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
 Battery of 3 CHE Missiles		PROFICIENCY:WEAPON|CHE Missile		TYPE:Weapon.Ranged.Starship.Missile.Ballistic.PL6	COST:24	CRITMULT:x2			CRITRANGE:2			DAMAGE:6d12		EQMOD:BATTERY_OF_3			SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single

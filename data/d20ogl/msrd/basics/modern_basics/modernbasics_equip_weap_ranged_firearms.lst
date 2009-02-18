@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Jan 15 17:20:01 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Handguns (Personal Firearms Proficiency feat)
 
-# Equipment Name				Required Proficiency				Type																	Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page							Special Property			Rate of Fire
+# Equipment Name				Required Weapon Proficiency			Type																	Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page							Special Property			Rate of Fire
 Beretta 92F (9mm autoloader)		PROFICIENCY:WEAPON|Beretta 92F		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile		CONTAINS:1|Bullet=15	COST:16	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:40	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 15,Lic(+1)	RATEOFFIRE:S
 Beretta 93R (9mm machine pistol)	PROFICIENCY:WEAPON|Beretta 93R		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=20	COST:18	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:30	SIZE:M	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 20,Res(+2)	RATEOFFIRE:S,A
 Colt Double Eagle (10mm autoloader)	PROFICIENCY:WEAPON|Colt Double Eagle	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile		CONTAINS:1|Bullet=9	COST:16	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:30	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 9 ,Lic(+1)	RATEOFFIRE:S
@@ -24,7 +24,7 @@ Walther PPK (.32 autoloader)		PROFICIENCY:WEAPON|Walther PPK		TYPE:Weapon.Ranged
 
 ###Block: Longarms (Personal Firearms Proficiency feat)
 
-# Equipment Name					Required Proficiency				Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page							Special Property			Rate of Fire
+# Equipment Name					Required Weapon Proficiency			Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page							Special Property			Rate of Fire
 AKM/AK-47 (7.62 assault rifle)		PROFICIENCY:WEAPON|AKM/AK-47			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=30	COST:15	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8						RANGE:70	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 30,Res(+2)	RATEOFFIRE:S,A
 Barrett Light Fifty (.50 sniper rifle)	PROFICIENCY:WEAPON|Barrett Light Fifty	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile			CONTAINS:1|Bullet=11	COST:22	WT:35		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12						RANGE:120	SIZE:H	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 11,Lic(+1)	RATEOFFIRE:S
 Benelli 121 M1 (12-gague shotgun)		PROFICIENCY:WEAPON|Benelli 121 M1		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile			CONTAINS:1|Bullet=7	COST:17	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8						RANGE:40	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 7,Lic(+1)	RATEOFFIRE:S
@@ -46,7 +46,7 @@ Winchester 94 (.444 hunting rifle)		PROFICIENCY:WEAPON|Winchester 94		TYPE:Weapo
 
 ###Block: Heavy Weapons (Exotic Firearms Proficiency feat)
 
-# Equipment Name			Required Proficiency				Type												Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page							Special Property			Rate of Fire
+# Equipment Name			Required Weapon Proficiency			Type												Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page							Special Property			Rate of Fire
 M2HB (Heavy machine gun)	PROFICIENCY:WEAPON|Heavy Machine Gun	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic.HMG.Container.Projectile	CONTAINS:1|Bullet=100	COST:22	WT:75		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:110	SIZE:H	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Linked Ammo ,Mil(+3)	RATEOFFIRE:A
 M72A3 LAW (rocket launcher)	PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher								COST:15	WT:5		CRITMULT:-			CRITRANGE:0			DAMAGE:10d6	RANGE:150	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:1 int ,Mil(+3)		RATEOFFIRE:1
 M79 (grenade launcher)		PROFICIENCY:WEAPON|Grenade Launcher		TYPE:Weapon.Ranged.Standard.Firearm.GrenadeLauncher.Container		CONTAINS:UNLIM|40mm=1	COST:14	WT:7		CRITMULT:-			CRITRANGE:0			DAMAGE:0	RANGE:70	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:1 int ,Mil(+3)		RATEOFFIRE:1

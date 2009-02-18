@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Oct 10 16:27:20 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block:Shadow Slayer -------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type					Visible	Special ABility							Define
-Detect Shadow	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Detect Shadow (%/day)|ShadowSlayerLevel		DEFINE:ShadowSlayerLevel|0
-Shadow Immunity	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Immunity (DR %)|ShadowSlayerHalfLevel	DEFINE:ShadowSlayerHalfLevel|0
-Slayer Weapon	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Slayer Weapon (+%)|ShadowSlayerHalfLevel
+# Ability Name	Category of Ability		Type					Visible	Special ABility											Define					Temporary effect description																									Weapon prop. bonus
+Detect Shadow	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Detect Shadow (%/day)|ShadowSlayerLevel						DEFINE:ShadowSlayerLevel|0
+Shadow Immunity	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Immunity (DR %)|ShadowSlayerHalfLevel					DEFINE:ShadowSlayerHalfLevel|0
+Slayer Weapon	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Slayer Weapon (+%) for % rounds|ShadowSlayerHalfLevel|ShadowSlayerLevel							TEMPDESC:Shadow Slayer gains the ability to empower any melee weapon he wields providing an enhancement bonus lasting a number of rounds equal to the Shadow Slayer's level	BONUS:WEAPON|TOHIT|ShadowSlayerHalfLevel|PREAPPLY:Melee|TYPE=Temporary
 Word of Slaying	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Word of Slaying
 
 ###Block:Shadow Slayer Favored Enemies
