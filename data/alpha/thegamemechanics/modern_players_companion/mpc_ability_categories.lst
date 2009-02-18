@@ -18,7 +18,8 @@ ABILITYCATEGORY:Politico Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 ABILITYCATEGORY:Tribal Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Tribal				PLURAL:Tribal Feats				DISPLAYLOCATION:Feats
 
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Second Occupation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Second Occupation	TYPE:SecondOccupation		PLURAL:Second Occupations			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Second Occupation			VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Second Occupation
+ABILITYCATEGORY:Second Starting Occupation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Second Occupation	TYPE:SecondOccupation		PLURAL:Second Occupations			DISPLAYLOCATION:Background
 
 #
 # End
