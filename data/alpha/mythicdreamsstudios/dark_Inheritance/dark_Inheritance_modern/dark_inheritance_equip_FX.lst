@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 23:59:43 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Feb 17 22:02:41 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 # Original Entry by: Frank Kliewe
 
 ###Block: Weapons
-# Equipment Name	Required Proficiency			Type											Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Size		Source Page		Special Property
+# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Size		Source Page		Special Property
 Deadly Stick	PROFICIENCY:WEAPON|Metal Baton	TYPE:FX.Specific.Weapon.Simple.Melee.Bludgeoning.Standard.Wooden	COST:28	WT:2		BASEITEM:Metal Baton	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PLUS1W	SIZE:M	SOURCEPAGE:p.49	SPROP:activate a blade to work as +1 Knife of Wounding (1d4, Victim bleeds and loses 1 HP/hit each round until treated)
 
 ###Block: Wondrous Items

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov  3 04:32:10 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:58:53 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 ###BLOCK: Armor
@@ -11,7 +11,7 @@ Durasteel		KEY:DURASTEEL_ARM	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	P
 Durasteel		KEY:DURASTEEL_SHIELD	TYPE:Shield	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Shield	BONUS:COMBAT|AC|2|TYPE=Shield.REPLACE
 
 ###BLOCK: Weapon
-# Modifier Name			Unique Key			Type		Cost		Visible		Type granted	Source Page		Required Type							BONUS:EQMWEAPON			Weapon prop. bonus			Special Property
+# Modifier Name			Unique Key			Type		Cost		Visible		Type granted	Source Page		Required Type							Bonus Weapon Modifiers		Weapon prop. bonus			Special Property
 Ceramics				KEY:CERAMIC_WEAP		TYPE:Weapon	COST:4	VISIBLE:QUALIFY				SOURCEPAGE:p.77	PRETYPE:1,Weapon																		SPROP:Immune to fire damage
 Durasteel				KEY:DURASTEEL_WEAP	TYPE:Weapon	COST:2	VISIBLE:QUALIFY	ITYPE:Durasteel	SOURCEPAGE:p.77	PRETYPE:1,Weapon
 Honed Durasteel			KEY:HONED_DURA_WEAP	TYPE:Weapon	COST:6	VISIBLE:QUALIFY				SOURCEPAGE:p.77	PRETYPE:1,Durasteel	PRETYPE:1,Slashing,Piercing	BONUS:EQMWEAPON|DAMAGESIZE|1
