@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 19:58:17 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Wed Feb 18 20:48:03 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -367,11 +367,11 @@ CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wiza
 ###Block: Wizard School
 1	BONUS:ABILITYPOOL|Arcane School|1	BONUS:VAR|ArcaneSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Arcane School
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Arcane Bond|1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Wizard	AUTO:FEAT|Scribe Scroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Arcane Bond|1		BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Wizard	AUTO:FEAT|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1
+5	CAST:4,3,2,1			BONUS:ABILITYPOOL|Wizard Bonus Feat|CL/5
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
