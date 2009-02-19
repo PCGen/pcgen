@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 21:51:09 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Thu Feb 19 10:49:07 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 #SOURCELONG:Pathfinder	SOURCESHORT:PFRPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy8253	SOURCEDATE:2008-05
 # Original Entry by: Stefan Radermacher
 
@@ -52,3 +52,12 @@ ABILITYCATEGORY:Racial Weapon Training	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 ###Block: Wizard Arcane School Abilities
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Abjuration Elemental Immunity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbjurationElementalImmunity	PLURAL:Abjuration Elemental Immunity	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 2nd Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell2			PLURAL:Wizard 2nd Level Bonus Spell		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 4th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell4			PLURAL:Wizard 4th Level Bonus Spell		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 6th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell6			PLURAL:Wizard 6th Level Bonus Spell		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 8th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell8			PLURAL:Wizard 8th Level Bonus Spell		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 10th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell10			PLURAL:Wizard 10th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 12th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell12			PLURAL:Wizard 12th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 14th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell14			PLURAL:Wizard 14th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 16th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell16			PLURAL:Wizard 16th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard 18th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell18			PLURAL:Wizard 18th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
