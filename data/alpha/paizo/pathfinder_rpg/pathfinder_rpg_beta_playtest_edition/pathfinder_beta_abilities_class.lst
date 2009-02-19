@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Feb 15 12:26:47 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Wed Feb 18 17:37:30 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -619,10 +619,11 @@ Elemental Body (Fire)		OUTPUTNAME:Elemental Body		CATEGORY:Special Ability	TYPE:
 Elemental Body (Water)		OUTPUTNAME:Elemental Body		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES																DESC:Elemental power surges through your body. You gain immunity to sneak attacks, critical hits, and cold damage.																																																																																																																																																																																																			SOURCEPAGE:p.46
 
 ###Block: Wizard Abilities
-# Ability Name	Output Name			Category of Ability		Type						Visible	Define				Description																						Source Page
-Arcane Bond						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES						DESC:You forge a powerful band with an object or creature.														SOURCEPAGE:p.49
-Arcane School					CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:ArcaneSchoolLVL|0																								SOURCEPAGE:p.49
-Cantrips ~ Wizard	OUTPUTNAME:Cantrips	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES						DESC:Wizards can prepare a number of cantrips, or 0-level spells, each day. They can cast these spells at will as a spell-like ability.	SOURCEPAGE:p.49
+# Ability Name		Output Name			Category of Ability		Type								Visible	Define				Description																						Stackable?	Multiple?	Choose							Allow Follower		Allowed Companions													Source Page
+Arcane Bond ~ Familiar	OUTPUTNAME:Arcane Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ArcaneBond	VISIBLE:YES	DEFINE:FMLevel|0			DESC:You forge a powerful band with a magical creature.																										FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Monkey,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel	SOURCEPAGE:p.49
+Arcane Bond ~ Object	OUTPUTNAME:Arcane Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ArcaneBond	VISIBLE:YES						DESC:You forge a powerful band with an object.																STACK:NO	MULT:YES	CHOOSE:STRING|Amulet|Ring|Staff|Wand|Weapon																					SOURCEPAGE:p.49
+Arcane School						CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:ArcaneSchoolLVL|0																																																								SOURCEPAGE:p.49
+Cantrips ~ Wizard		OUTPUTNAME:Cantrips	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES						DESC:Wizards can prepare a number of cantrips, or 0-level spells, each day. They can cast these spells at will as a spell-like ability.																																	SOURCEPAGE:p.49
 
 ###Block: Wizard Arcane Schools
 # Ability Name		Category of Ability		Type									Visible	Description																										Ability															Bonus to Ability Pool					Source Page

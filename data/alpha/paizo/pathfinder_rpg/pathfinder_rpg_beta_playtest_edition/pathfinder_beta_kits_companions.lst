@@ -1,6 +1,86 @@
-# CVS $Revision$ $Author$ -- Sun Feb 15 12:43:25 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Wed Feb 18 17:37:30 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
+
+
+###Block: Familiar Kits
+
+STARTPACK:Bat Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Bat	!PRERACE:1,%
+ALIGN:TN
+SKILL:Stealth	RANK:1
+FEAT:Alertness
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Cat Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Cat	!PRERACE:1,%
+ALIGN:TN
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+
+STARTPACK:Hawk Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Hawk	!PRERACE:1,%
+ALIGN:TN
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Lizard Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Lizard	!PRERACE:1,%
+ALIGN:TN
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Monkey Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Monkey	!PRERACE:1,%
+ALIGN:TN
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+
+STARTPACK:Owl Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Owl	!PRERACE:1,%
+ALIGN:TN
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Rat Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Rat	!PRERACE:1,%
+ALIGN:TN
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Raven Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Raven	!PRERACE:1,%
+ALIGN:TN
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Snake Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Snake (Viper/Tiny)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Toad Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Toad	!PRERACE:1,%
+ALIGN:TN
+SKILL:Stealth	RANK:1
+FEAT:Alertness
+STAT:CON=11|STR=10|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Weasel Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Weasel	!PRERACE:1,%
+ALIGN:TN
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 
 
 ###Block: Animal Companion Kits
@@ -17,7 +97,7 @@ STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 STARTPACK:Badger Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Badger]
 RACE:Badger	!PRERACE:1,%
 ALIGN:TN
-SKILL:Perception	RANK:2
+SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
@@ -42,7 +122,7 @@ STARTPACK:Bear (Polar) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],
 RACE:Bear (Polar)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Perception	RANK:6
-SKILL:Stealth	RANK:1
+SKILL:Stealth	RANK:2
 FEAT:Endurance
 FEAT:Run
 FEAT:Track
@@ -59,7 +139,7 @@ STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
 STARTPACK:Boar Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar]
 RACE:Boar	!PRERACE:1,%
 ALIGN:TN
-SKILL:Perception	RANK:4
+SKILL:Perception	RANK:3
 FEAT:Alertness
 FEAT:Toughness
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
@@ -84,7 +164,7 @@ STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 STARTPACK:Crocodile Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crocodile]
 RACE:Crocodile	!PRERACE:1,%
 ALIGN:TN
-SKILL:Stealth	RANK:3
+SKILL:Stealth	RANK:2
 SKILL:Perception	RANK:1
 FEAT:Alertness
 FEAT:Skill Focus(Stealth)
@@ -105,8 +185,8 @@ RACE:Dinosaur (Deinonychus)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Perception	RANK:1
 SKILL:Survival	RANK:1
-SKILL:Stealth	RANK:2
-SKILL:Acrobatics	RANK:2
+SKILL:Stealth	RANK:1
+SKILL:Acrobatics	RANK:1
 FEAT:Run
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -125,7 +205,7 @@ STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 STARTPACK:Dinosaur (Megaraptor) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Megaraptor)]
 RACE:Dinosaur (Megaraptor)	!PRERACE:1,%
 ALIGN:TN
-SKILL:Stealth	RANK:3
+SKILL:Stealth	RANK:2
 SKILL:Perception	RANK:2
 SKILL:Survival	RANK:2
 SKILL:Acrobatics	RANK:2

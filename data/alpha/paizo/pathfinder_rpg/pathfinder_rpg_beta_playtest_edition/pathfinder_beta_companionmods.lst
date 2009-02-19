@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Feb  1 20:19:46 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Wed Feb 18 20:03:42 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -102,13 +102,64 @@ FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Din
 
 
 ###Block:Special Mount
-# Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define		Combat bonus						Add to base move																																					Stat bonus		Main Race Type
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Share Saving Throws|Empathic Link|Share Spells|Improved Evasion	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
-FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Speed															DEFINE:LOCK.INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Own Kind															DEFINE:LOCK.INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
-FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																									DEFINE:LOCK.INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+# Class of the Master	Type				Hit Dice	Spell Res.	Ability																		Automatically Gained Armor Prof.	Define		Combat bonus						Add to base move																																					Stat bonus		Main Race Type
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Share Saving Throws|Empathic Link ~ Special Mount|Share Spells|Improved Evasion	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
+FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Speed																	DEFINE:LOCK.INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
+FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Own Kind																	DEFINE:LOCK.INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																											DEFINE:LOCK.INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
 FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
 FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
 FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
 FOLLOWER:SMLevel=19	TYPE:Special Mount			SR:24
 FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
+
+
+############# Familiars ##################
+
+###Block:Familiar
+# Class of the Master	Type			Spell Res.	Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Combat bonus						Main Race Type
+FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link ~ Familiar|Share Spells|Improved Evasion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	DEFINE:LOCK.INT|6		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
+FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																							DEFINE:LOCK.INT|7		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																								DEFINE:LOCK.INT|8		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Own Kind																								DEFINE:LOCK.INT|9		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=9	TYPE:Familiar																																			DEFINE:LOCK.INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																																		DEFINE:LOCK.INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
+FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																								DEFINE:LOCK.INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
+FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																																		DEFINE:LOCK.INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
+FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																																		DEFINE:LOCK.INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
+FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																																		DEFINE:LOCK.INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
+
+###Block: Specific Familiars
+# Class of the Master	Type			Ability								Required Race			Apply Kit			Add
+FOLLOWER:FMLevel=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak One Language	PRERACE:1,Raven							ADD:LANGUAGE|1|TYPE=Spoken
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Bat			KIT:1|Bat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Cat			KIT:1|Cat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Hawk			KIT:1|Hawk Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Lizard			KIT:1|Lizard Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Monkey			KIT:1|Monkey Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Owl			KIT:1|Owl Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Rat			KIT:1|Rat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Raven			KIT:1|Raven Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Snake (Viper/Tiny)	KIT:1|Snake Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Toad			KIT:1|Toad Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Weasel			KIT:1|Weasel Familiar
+#
+
+###Block:Familiar Bonuses to Master
+# Race of familiar			Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat	Ability
+MASTERBONUSRACE:Bat			TYPE:Familiar															VFEAT:Alertness	ABILITY:Special Ability|AUTOMATIC|Bat Familiar Benefit
+MASTERBONUSRACE:Cat			TYPE:Familiar										BONUS:SKILL|Stealth|3		VFEAT:Alertness
+MASTERBONUSRACE:Hawk			TYPE:Familiar															VFEAT:Alertness	ABILITY:Special Ability|AUTOMATIC|Hawk Familiar Benefit
+MASTERBONUSRACE:Lizard			TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Monkey			TYPE:Familiar										BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
+MASTERBONUSRACE:Owl			TYPE:Familiar															VFEAT:Alertness	ABILITY:Special Ability|AUTOMATIC|Owl Familiar Benefit
+MASTERBONUSRACE:Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
+MASTERBONUSRACE:Raven			TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Snake (Viper/Tiny)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
+MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
