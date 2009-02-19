@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb  7 08:42:30 2009 -- reformated by prettylst.pl v1.39 (build 9310)
+# CVS $Revision$ $Author$ -- Wed Feb 18 21:51:09 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 #SOURCELONG:Pathfinder	SOURCESHORT:PFRPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy8253	SOURCEDATE:2008-05
 # Original Entry by: Stefan Radermacher
 
@@ -48,3 +48,7 @@ ABILITYCATEGORY:Ranger Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FR
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object			Plural description for UI	Display Location
 ABILITYCATEGORY:Favored Class Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FAVCLASSLEVEL	CATEGORY:Special Ability	TYPE:FavoredClassBonus		PLURAL:Favored Class Bonuses	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Racial Weapon Training	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:RacialWeaponTraining	PLURAL:Racial Weapon Training	DISPLAYLOCATION:Racial Abilities
+
+###Block: Wizard Arcane School Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Abjuration Elemental Immunity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbjurationElementalImmunity	PLURAL:Abjuration Elemental Immunity	DISPLAYLOCATION:Class Abilities
