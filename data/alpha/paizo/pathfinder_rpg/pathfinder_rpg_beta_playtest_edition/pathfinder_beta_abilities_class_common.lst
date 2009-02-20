@@ -13,10 +13,6 @@ Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO
 Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
-###Block: Shared Class Abilities
-# Ability Name	Category of Ability		Type									Visible	Required Ability						Define					Description				Modify VAR																						Source Page
-Improved Evasion	CATEGORY:Special Ability	TYPE:RogueAbilities.Extraordinary.SpecialQuality	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Evasion	DEFINE:ImprovedEvasionUsable|0	DESC:Class Special Ability	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	SOURCEPAGE:ClassesII.rtf
-
 ###Block: Uncanny Dodge
 # Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
