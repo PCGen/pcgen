@@ -535,4 +535,16 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 	}
+	
+	/**
+	 * Test the nameItemFromModifiers method, specifically for the
+	 * use of a null character.
+	 */
+	public void testNameItemFromModifiers()
+	{
+		String name = eq.nameItemFromModifiers(null);
+		assertEquals("Dummy", name);
+		name = eq.nameItemFromModifiers(getCharacter());
+		assertEquals("Dummy", name);
+	}
 }

@@ -3626,7 +3626,7 @@ public final class Equipment extends PObject implements Serializable,
 	private void setDefaultCrit(final PlayerCharacter aPC) {
 
 		if (isWeapon()) {
-			if (aPC.getCritRange(this, true) == 0) {
+			if (aPC != null && aPC.getCritRange(this, true) == 0) {
 				getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 			}
 
