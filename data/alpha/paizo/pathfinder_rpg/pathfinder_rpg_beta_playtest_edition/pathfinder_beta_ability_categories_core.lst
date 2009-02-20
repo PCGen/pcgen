@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 19 10:49:07 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Thu Feb 19 22:01:12 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 #SOURCELONG:Pathfinder	SOURCESHORT:PFRPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy8253	SOURCEDATE:2008-05
 # Original Entry by: Stefan Radermacher
 
@@ -61,3 +61,8 @@ ABILITYCATEGORY:Wizard 12th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDIT
 ABILITYCATEGORY:Wizard 14th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell14			PLURAL:Wizard 14th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Wizard 16th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell16			PLURAL:Wizard 16th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Wizard 18th Level Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WizardBonusSpell18			PLURAL:Wizard 18th Level Bonus Spell	DISPLAYLOCATION:Class Abilities
+
+###Block: Sorcerer Bloodline Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Knowledge Class Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KnowledgeClassSkill		PLURAL:Knowledge Class Skills		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Arcane Bloodline School Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcaneBloodlineSchoolPower	PLURAL:ArcaneBloodlineSchoolPower	DISPLAYLOCATION:Class Abilities
