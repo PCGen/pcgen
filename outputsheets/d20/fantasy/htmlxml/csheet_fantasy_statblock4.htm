@@ -63,7 +63,11 @@ $Date$
 |VISION|, 
 |ENDIF|
 |ENDFOR|
+|IIF(GAMEMODE:Pathfinder)|
+Perception |SKILL.Perception.TOTAL.SIGN|,
+|ELSE|
 Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
+|ENDIF|
 
 <!-- Sense TYPE Abilities -->
 |MANUALWHITESPACE|
