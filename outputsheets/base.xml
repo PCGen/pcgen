@@ -423,7 +423,7 @@
 				<base_attack_bonus>|ATTACK.MELEE|</base_attack_bonus>
 				<stat_mod>|VAR.CMB_STAT.INTVAL.SIGN|</stat_mod>
 				<size_mod>|VAR.CMB_SizeMod.INTVAL.SIGN|</size_mod>
-				<misc_mod>|VAR.CMB-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|</misc_mod>
+				<misc_mod>|VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|</misc_mod>
 				<epic_mod/>
 				<temp_mod/>
 				<!-- Base values (not yet used) -->
