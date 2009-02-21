@@ -27,6 +27,7 @@ ABILITYCATEGORY:Undead Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Bardic Knowledge		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:BardicKnowledges		CATEGORY:Special Ability	TYPE:BardicKnowledge		PLURAL:Bardic Knowledges		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Channel Energy		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ChannelEnergy		PLURAL:Channel Energy			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hunter's Bond			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:HuntersBond			PLURAL:Hunter's Bond			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies		CATEGORY:Special Ability	TYPE:FavoredEnemy			PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses		CATEGORY:Special Ability	TYPE:FavoredEnemyBonus		PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Terrain		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredTerrains		CATEGORY:Special Ability	TYPE:FavoredTerrain		PLURAL:Favored Terrains			DISPLAYLOCATION:Class Abilities

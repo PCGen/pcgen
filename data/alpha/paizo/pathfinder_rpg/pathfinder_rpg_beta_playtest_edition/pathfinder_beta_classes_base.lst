@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 19 21:31:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Feb 20 21:58:48 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -289,7 +289,7 @@ CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.35	BONUS:CHEC
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger	STARTSKILLPTS:6	CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE.Profession|Ride|Spellcraft|Stealth|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
-#CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger|CL/2|PRECLASS:1,Ranger=4
+CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger|CL/2|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
@@ -299,11 +299,26 @@ CLASS:Ranger	STARTSKILLPTS:6	CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|Intimida
 ###Block: Favored Terrain
 1	BONUS:VAR|RangerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain
 ###Block: Level progression
-1	BONUS:VAR|WildEmpathy|CL	BONUS:VAR|TrackLVL|CL	ABILITY:Special Ability|AUTOMATIC|Track|Wild Empathy
-2	BONUS:VAR|RangerCombatStyleLVL|CL				ABILITY:Special Ability|AUTOMATIC|Track|Ranger Combat Style
-3																				AUTO:FEAT|Endurance
-
-
+1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|TrackLVL|CL								ABILITY:Special Ability|AUTOMATIC|Track|Wild Empathy
+2				BONUS:VAR|RangerCombatStyleLVL|CL											ABILITY:Special Ability|AUTOMATIC|Track|Ranger Combat Style
+3																														AUTO:FEAT|Endurance
+4	CAST:0,0		BONUS:VAR|CompLevel|CL/2|PREABILITY:1,CATEGORY=Special Ability,Hunter's Bond ~ Animal Companion	ABILITY:Special Ability|AUTOMATIC|Hunter's Bond
+5	CAST:0,1
+6	CAST:0,1
+7	CAST:0,1,0																		ABILITY:Special Ability|AUTOMATIC|Woodland Stride ~ Ranger
+8	CAST:0,1,1																		ABILITY:Special Ability|AUTOMATIC|Swift Tracker
+9	CAST:0,2,1																		ABILITY:Special Ability|AUTOMATIC|Evasion
+10	CAST:0,2,1,0
+11	CAST:0,2,1,1																	ABILITY:Special Ability|AUTOMATIC|Quarry
+12	CAST:0,2,2,1																	ABILITY:Special Ability|AUTOMATIC|Camouflage
+13	CAST:0,3,2,1,0
+14	CAST:0,3,2,1,1
+15	CAST:0,3,2,2,1
+16	CAST:0,3,3,2,1																	ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+17	CAST:0,4,3,2,1																	ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight
+18	CAST:0,4,3,2,2
+19	CAST:0,4,3,3,2																	ABILITY:Special Ability|AUTOMATIC|Improved Quarry
+20	CAST:0,4,4,3,3																	ABILITY:Special Ability|AUTOMATIC|Master Hunter
 
 
 
