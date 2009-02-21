@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug 16 02:58:51 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sat Feb 21 16:38:01 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -63,5 +63,6 @@ Survival					KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:p.73					BONUS:SKIL
 Swim						KEYSTAT:STR				ACHECK:YES			TYPE:Strength						SOURCEPAGE:p.74					BONUS:SKILL|Swim|3|TYPE=ClassSkill|PRECSKILL:1,Swim|PRESKILL:1,Swim=1	BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial
 Use Magic Device				KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma						SOURCEPAGE:p.74					BONUS:SKILL|Use Magic Device|3|TYPE=ClassSkill|PRECSKILL:1,Use Magic Device|PRESKILL:1,Use Magic Device=1
 
-#Block: Auto adding an ability for CMB.
-Hack Skill for adding stuff		KEYSTAT:None	USEUNTRAINED:YES	TYPE:Hack	VISIBLE:GUI|READONLY		SOURCEPAGE:p.3	ABILITY:FEAT|AUTOMATIC|CMB Output
+###Block: Auto adding an ability for CMB.
+# Skill Name			Untrained?		Type		Visible			Source Page		Ability
+Hack Skill for adding stuff	USEUNTRAINED:YES	TYPE:Hack	VISIBLE:GUI|READONLY	SOURCEPAGE:p.3	ABILITY:FEAT|AUTOMATIC|CMB Output
