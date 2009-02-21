@@ -969,7 +969,7 @@
 		<damage>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnDamage|</damage>
 		<uses_per_day>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL|</uses_per_day>
 		<notes>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnNotes|</notes>
-	</turning>
+		</turning>
 |ENDIF|
 |ENDFOR|
 
