@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 20 22:19:05 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sat Feb 21 08:56:07 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -691,12 +691,15 @@ Incorporeal Form	KEY:Incorporeal Form ~ Undead Bloodline	CATEGORY:Special Abilit
 One of Us		KEY:One of Us ~ Undead Bloodline		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES						DESC:Your form begins to rot (although the appearance is up to you) and undead begin to see you as one of them. You gain immunity to cold, nonlethal damage, paralysis, and sleep. You also gain DR 5/--. Unintelligent undead do not notice you unless you attack them. You receive a +4 morale bonus on saving throws made against spells and spell-like abilities cast by undead.																																																																																							DR:5/-			SOURCEPAGE:p.48
 
 ###Block: Wizard Abilities
-# Ability Name		Output Name			Category of Ability		Type								Visible	Define				Description																						Stackable?	Multiple?	Choose							Bonus to Ability Pool			Allow Follower		Allowed Companions													Source Page
-Arcane Bond							CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																																									BONUS:ABILITYPOOL|Arcane Bond|1
-Arcane Bond ~ Familiar	OUTPUTNAME:Arcane Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ArcaneBond	VISIBLE:YES	DEFINE:FMLevel|0			DESC:You forge a powerful band with a magical creature.																																FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Monkey,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel	SOURCEPAGE:p.49
-Arcane Bond ~ Object	OUTPUTNAME:Arcane Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ArcaneBond	VISIBLE:YES						DESC:You forge a powerful band with an object.																STACK:NO	MULT:YES	CHOOSE:STRING|Amulet|Ring|Staff|Wand|Weapon																											SOURCEPAGE:p.49
-Arcane School						CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:ArcaneSchoolLVL|0																																																														SOURCEPAGE:p.49
-Cantrips ~ Wizard		OUTPUTNAME:Cantrips	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES						DESC:Wizards can prepare a number of cantrips, or 0-level spells, each day. They can cast these spells at will as a spell-like ability.																																							SOURCEPAGE:p.49
+# Ability Name		Output Name			Category of Ability		Type								Visible	Define		Description																						Stackable?	Multiple?	Choose							Bonus to Ability Pool			Allow Follower		Allowed Companions													Source Page
+Arcane Bond							CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																																							BONUS:ABILITYPOOL|Arcane Bond|1
+Arcane Bond ~ Familiar	OUTPUTNAME:Arcane Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ArcaneBond	VISIBLE:YES	DEFINE:FMLevel|0	DESC:You forge a powerful band with a magical creature.																																FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Monkey,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel	SOURCEPAGE:p.49
+Arcane Bond ~ Object	OUTPUTNAME:Arcane Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ArcaneBond	VISIBLE:YES				DESC:You forge a powerful band with an object.																STACK:NO	MULT:YES	CHOOSE:STRING|Amulet|Ring|Staff|Wand|Weapon																											SOURCEPAGE:p.49
+Cantrips ~ Wizard		OUTPUTNAME:Cantrips	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES				DESC:Wizards can prepare a number of cantrips, or 0-level spells, each day. They can cast these spells at will as a spell-like ability.																																							SOURCEPAGE:p.49
+
+###Block: Wizard Base Arcane School Ability
+# Ability Name	Category of Ability		Type			Visible	Define				Bonus to Ability Pool																																																																																																																													Source Page
+Arcane School	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:ArcaneSchoolLVL|0	BONUS:ABILITYPOOL|Arcane School|1	BONUS:ABILITYPOOL|Wizard 2nd Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,2	BONUS:ABILITYPOOL|Wizard 4th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,4	BONUS:ABILITYPOOL|Wizard 6th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,6	BONUS:ABILITYPOOL|Wizard 8th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,8	BONUS:ABILITYPOOL|Wizard 10th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,10	BONUS:ABILITYPOOL|Wizard 12th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,12	BONUS:ABILITYPOOL|Wizard 14th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,14	BONUS:ABILITYPOOL|Wizard 16th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,16	BONUS:ABILITYPOOL|Wizard 18th Level Bonus Spell|1|PREVARGTEQ:ArcaneSchoolLVL,18	SOURCEPAGE:p.49
 
 ###Block: Wizard Arcane Schools
 # Ability Name		Category of Ability		Type									Visible	Description																										Ability																																																			Bonus to Ability Pool																			Source Page

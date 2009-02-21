@@ -380,17 +380,7 @@ CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wiza
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Wizard School
-1	BONUS:ABILITYPOOL|Arcane School|1	BONUS:VAR|ArcaneSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Arcane School
-###Block: Bonus Spells
-2	BONUS:ABILITYPOOL|Wizard 2nd Level Bonus Spell|1
-4	BONUS:ABILITYPOOL|Wizard 4th Level Bonus Spell|1
-6	BONUS:ABILITYPOOL|Wizard 6th Level Bonus Spell|1
-8	BONUS:ABILITYPOOL|Wizard 8th Level Bonus Spell|1
-10	BONUS:ABILITYPOOL|Wizard 10th Level Bonus Spell|1
-12	BONUS:ABILITYPOOL|Wizard 12th Level Bonus Spell|1
-14	BONUS:ABILITYPOOL|Wizard 14th Level Bonus Spell|1
-16	BONUS:ABILITYPOOL|Wizard 16th Level Bonus Spell|1
-18	BONUS:ABILITYPOOL|Wizard 18th Level Bonus Spell|1
+1	BONUS:VAR|ArcaneSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Arcane School
 ###Block: Level progression
 1	CAST:3,1											BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Wizard|Arcane Bond	AUTO:FEAT|Scribe Scroll
 2	CAST:4,2
