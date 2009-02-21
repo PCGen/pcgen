@@ -62,3 +62,6 @@ Stealth					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:p.73					
 Survival					KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:p.73					BONUS:SKILL|Survival|3|TYPE=ClassSkill|PRECSKILL:1,Survival|PRESKILL:1,Survival=1
 Swim						KEYSTAT:STR				ACHECK:YES			TYPE:Strength						SOURCEPAGE:p.74					BONUS:SKILL|Swim|3|TYPE=ClassSkill|PRECSKILL:1,Swim|PRESKILL:1,Swim=1	BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial
 Use Magic Device				KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma						SOURCEPAGE:p.74					BONUS:SKILL|Use Magic Device|3|TYPE=ClassSkill|PRECSKILL:1,Use Magic Device|PRESKILL:1,Use Magic Device=1
+
+#Block: Auto adding an ability for CMB.
+Hack Skill for adding stuff		KEYSTAT:None	USEUNTRAINED:YES	TYPE:Hack	VISIBLE:GUI|READONLY		SOURCEPAGE:p.3	ABILITY:FEAT|AUTOMATIC|CMB Output
