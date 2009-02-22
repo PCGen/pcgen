@@ -56,7 +56,12 @@ vp |HP|; wp |ALTHP|;
 |ENDIF|
 Init |INITIATIVEMOD|;
 Spd |MOVEMENT|; AC |AC.Total|, touch |AC.Touch|, flat-footed |AC.Flatfooted|,
-Base Atk |ATTACK.MELEE|; Grp|ATTACK.GRAPPLE.TOTAL|;
+Base Atk |ATTACK.MELEE|; 
+|IIF(GAMEMODE:Pathfinder)|
+CMB |VAR.CMB.INTVAL.SIGN|; 
+|ELSE|
+Grp |ATTACK.GRAPPLE.TOTAL|; 
+|ENDIF|
 
 Atk:
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|
