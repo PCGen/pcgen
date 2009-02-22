@@ -517,6 +517,56 @@ Wisdom
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="tempborder"><br /></td>
     </tr>
+|IIF(GAMEMODE:Pathfinder)|
+    <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+     <td align="center" class="border10"><b>|VAR.CMB.INTVAL.SIGN|</b></td>
+     <td align="center" class="font7"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.BASE|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_STAT.INTVAL.SIGN|</b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_SizeMod.INTVAL.SIGN|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border10"><b><br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="tempborder"><br /></td>
+    </tr>
+    <tr><td></td></tr>
+   </table>
+   <table width="100%" summary="CMB block">
+    <tr>
+     <td align="center"></td>
+     <td align="center" valign="bottom" class="font4">GRAPPLE</td>
+     <td align="center" valign="bottom" class="font4">TRIP</td>
+     <td align="center" valign="bottom" class="font4">DISARM</td>
+     <td align="center" valign="bottom" class="font4">SUNDER</td>
+     <td align="center" valign="bottom" class="font4">BULL RUSH</td>
+     <td align="center" valign="bottom" class="font4">OVERRUN</td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB OFFENSE</b></font></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Grapple.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Trip.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Disarm.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Sunder.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Bull.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Overrun.INTVAL.SIGN|</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB DEFENSE</b></font></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Grapple_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Trip_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Disarm_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Sunder_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Bull_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Overrun_DEF.INTVAL|</b></td>
+    </tr>
+   </table>
+   <br />
+|ELSE|
     <tr>
      <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
      <td align="center" class="border10"><b>|ATTACK.GRAPPLE.TOTAL|</b></td>
@@ -535,6 +585,7 @@ Wisdom
     </tr>
     <tr><td></td></tr>
    </table>
+|ENDIF|
 <!-- STOP Melee and Range Attack Table -->
 <!-- START Unarmed Attack Table -->
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
