@@ -408,6 +408,56 @@ $Date$
 
 <!-- Start Attack Tables -->
 <!-- Start Main Attack Table -->
+|IIF(GAMEMODE:Pathfinder)|
+  <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_main_alt.png">
+    <tr> 
+      <td height="64" colspan="10"></td>
+    </tr>
+    <tr> 
+      <td width="40" height="29"><div align="center">
+	  	<a href="#" onClick="roll(1,20,|ATTACK.MELEE.TOTAL.SHORT|,'Melee Attack Roll\n')">
+			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td width="48"></td>
+      <td width="92" class="attackIterations"><div align="center">|ATTACK.MELEE.TOTAL|</div></td>
+      <td width="10"></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.BASE.SHORT|</div></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.STAT|</div></td>
+      <td width="36" class="attackTables"><div align="center">|ATTACK.MELEE.SIZE|</div></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.MISC|</div></td>
+      <td width="35" class="attackTables"><div align="center">|ATTACK.MELEE.EPIC|</div></td>
+      <td width="34"></td>
+    </tr>
+    <tr> 
+      <td height="29"><div align="center">
+	  	<a href="#" onClick="roll(1,20,|ATTACK.RANGED.TOTAL.SHORT|,'Ranged Attack Roll\n')">
+			<img src="preview/d20/fantasy/images/gold/die.png" width="24" height="26"></a></div></td>
+      <td></td>
+      <td class="attackIterations"><div align="center">|ATTACK.RANGED.TOTAL|</div></td>
+      <td></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.BASE.SHORT|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.STAT|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.SIZE|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.MISC|</div></td>
+      <td class="attackTables"><div align="center">|ATTACK.RANGED.EPIC|</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="28"></td>
+      <td></td>
+      <td class="attackTables"><div align="center">|VAR.CMB.INTVAL.SIGN|</div></td>
+      <td></td>
+      <td class="attackTables"><div align="center">|ATTACK.MELEE.BASE.SHORT|</div></td>
+      <td class="attackTables"><div align="center">|VAR.CMB_STAT.INTVAL.SIGN|</div></td>
+      <td class="attackTables"><div align="center">|VAR.CMB_SizeMod.INTVAL.SIGN|</div></td>
+      <td class="attackTables"><div align="center">|VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|</div></td>
+      <td class="attackTables"><div align="center">+0</div></td>
+      <td></td>
+    </tr>
+    <tr> 
+      <td height="10" colspan="10"></td>
+    </tr>
+  </table>
+|ELSE|
   <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_main.png">
     <tr> 
       <td height="64" colspan="10"></td>
@@ -458,7 +508,8 @@ $Date$
       <td height="10" colspan="10"></td>
     </tr>
   </table>
-<!-- Stap Main Attack Table -->
+|ENDIF|
+<!-- Stop Main Attack Table -->
 
 <!-- Start Unarmed Attack Table -->
   <table width="400" border="0" cellpadding="0" cellspacing="0" background="preview/d20/fantasy/images/gold/attacks_unarmed.png">

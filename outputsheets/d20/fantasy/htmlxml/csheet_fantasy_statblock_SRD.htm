@@ -151,6 +151,14 @@ Tower Shield,
 |ENDIF|
 ) touch |AC.Touch|, flatfooted |AC.Flatfooted|</td>
   </tr>
+
+|IIF(GAMEMODE:Pathfinder)|
+  <tr valign="top">
+    <td width="25%"><b>Base Attack/CMB: </b></td>
+    <td width="75%">|VAR.BAB.INTVAL.SIGN|/|VAR.CMB.INTVAL.SIGN|
+    </td>
+  </tr>
+|ELSE|
   <tr valign="top">
     <td width="25%"><b>Base Attack/Grapple: </b></td>
     <td width="75%">|VAR.BAB.INTVAL.SIGN|/
@@ -161,6 +169,7 @@ Tower Shield,
 |ENDIF|   
     </td>
   </tr>
+|ENDIF|
 
   <tr valign="top">
     <td width="25%"><b>Full Attack: </b></td>

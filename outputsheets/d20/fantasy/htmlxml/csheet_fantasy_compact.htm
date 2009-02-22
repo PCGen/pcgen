@@ -249,9 +249,9 @@ $Date$
 					<!-- Thomas Behr 13-02-02: replaced old tokens with new ones -->
 					<td align="center" class="border9"><b>|AC.Total|</b></td>
 					<td align="center" class="font7"><b>:</b></td>
-					<td align="center" class="border9"><b>|AC.Flatfooted|</b></td>
-					<td align="center" class="font7"><b>:</b></td>
 					<td align="center" class="border9"><b>|AC.Touch|</b></td>
+					<td align="center" class="font7"><b>:</b></td>
+					<td align="center" class="border9"><b>|AC.Flatfooted|</b></td>
 					<td align="center" class="font7"><b>=</b></td>
 					<td align="center" class="border9"><b>|AC.Base|</b></td>
 					<td align="center" class="font7"><b>+</b></td>
@@ -283,9 +283,9 @@ $Date$
 					<td align="center" width="50"></td>
 					<td align="center" width="25" valign="top" class="font6"><b>TOTAL</b></td>
 					<td align="center"></td>
-					<td align="center" width="25" valign="top" class="font6"><b>FLAT</b></td>
-					<td align="center"></td>
 					<td align="center" width="25" valign="top" class="font6"><b>TOUCH</b></td>
+					<td align="center"></td>
+					<td align="center" width="25" valign="top" class="font6"><b>FLAT</b></td>
 					<td align="center"></td>
 					<td align="center" width="25" class="font4">BASE</td>
 					<td align="center"></td>
@@ -680,24 +680,45 @@ Wisdom
 					<td align="center" class="font7"><b>+</b></td>
 					<td align="center" class="tempborder"><br /></td>
 				</tr>
-				<tr>
-					<td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
-					<td align="center" class="border9"><b>|ATTACK.GRAPPLE.TOTAL|</b></td>
-					<td align="center" class="font7"><b>=</b></td>
-					<td align="center" class="border9"><b>|ATTACK.GRAPPLE|<br /></b></td>
-					<td align="center" class="font7"><b>+</b></td>
-					<td align="center" class="border9"><b>|ATTACK.GRAPPLE.STAT|</b></td>
-					<td align="center" class="font7"><b>+</b></td>
-					<td align="center" class="border9"><b>|ATTACK.GRAPPLE.SIZE|<br /></b></td>
-					<td align="center" class="font7"><b>+</b></td>
-					<td align="center" class="border9"><b>|ATTACK.GRAPPLE.EPIC|<br /></b></td>
-					<td align="center" class="font7"><b>+</b></td>
-					<td align="center" class="border9"><b>|ATTACK.GRAPPLE.MISC|<br /></b></td>
-					<td align="center" class="font7"><b>+</b></td>
-					<td align="center" class="tempborder"><br /></td>
-				</tr>
-				<tr><td></td></tr>
-			</table>
+|IIF(GAMEMODE:Pathfinder)|
+    <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+     <td align="center" class="border9"><b>|VAR.CMB.INTVAL.SIGN|</b></td>
+     <td align="center" class="font7"><b>=</b></td>
+     <td align="center" class="border9"><b>|ATTACK.MELEE.BASE|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>|VAR.CMB_STAT.INTVAL.SIGN|</b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>|VAR.CMB_SizeMod.INTVAL.SIGN|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>+0<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>|VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="tempborder"><br /></td>
+    </tr>
+   </table>
+   <br />
+|ELSE|
+    <tr>
+     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
+     <td align="center" class="border9"><b>|ATTACK.GRAPPLE.TOTAL|</b></td>
+     <td align="center" class="font7"><b>=</b></td>
+     <td align="center" class="border9"><b>|ATTACK.GRAPPLE|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>|ATTACK.GRAPPLE.STAT|</b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>|ATTACK.GRAPPLE.SIZE|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>|ATTACK.GRAPPLE.EPIC|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="border9"><b>|ATTACK.GRAPPLE.MISC|<br /></b></td>
+     <td align="center" class="font7"><b>+</b></td>
+     <td align="center" class="tempborder"><br /></td>
+    </tr>
+    <tr><td></td></tr>
+   </table>
+|ENDIF|
 <!-- STOP Melee and Range Attack Table -->
 <!-- START Unarmed Attack Table -->
 			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack Table">
