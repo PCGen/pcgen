@@ -151,7 +151,15 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				String key = token.substring(0, cLoc);
 				String value = (cLoc == token.length() - 1) ? null : token
 						.substring(cLoc + 1);
-				context.processToken(target, key, value);
+				if (context.processToken(target, key, value))
+				{
+					context.commit();
+				}
+				else
+				{
+					context.rollback();
+					Logging.replayParsedMessages();
+	 			}
 			}
 		}
 		else if (inputLine.startsWith("REGION:"))
