@@ -131,8 +131,7 @@ public class RaceBasePanel extends BasePanel
 	{
 		if (argCR != null)
 		{
-			cmbCR.setSelectedItem(argCR.getRating().resolve(null, "")
-					.toString());
+			cmbCR.setSelectedItem(argCR.getRating().toString());
 		}
 	}
 
