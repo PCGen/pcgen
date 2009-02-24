@@ -353,7 +353,10 @@ public class RaceBasePanel extends BasePanel
 
 		thisRace.put(IntegerKey.SKILL_POINTS_PER_LEVEL, getBonusSkillPoints());
 		thisRace.put(ObjectKey.CHALLENGE_RATING, getCR());
-		thisRace.setDisplayName(getDisplayName());
+		if (getDisplayName() != null && getDisplayName().trim().length() > 0)
+		{
+			thisRace.setDisplayName(getDisplayName());
+		}
 		thisRace.put(IntegerKey.CREATURE_HANDS, getHands());
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
