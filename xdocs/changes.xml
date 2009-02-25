@@ -5,9 +5,9 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.15.13" date="In SVN" description="Beta Release"> 
-      <action dev="eddyanthony" type="add" issue="2536572">[Pathfinder RPG] Implement Ranger, Rogue classess</action> 
-      <action dev="eddyanthony" type="add" issue="2536574">[Pathfinder RPG] Implement Sorcerer bloodline powers</action> 
+    <release version="5.15.13" date="2009-02-26" description="Beta Release"> 
+      <action dev="eddyanthony" type="add" issue="2536572">[Pathfinder RPG] Implement Ranger, Rogue classess</action>  
+      <action dev="eddyanthony" type="add" issue="2536574">[Pathfinder RPG] Implement Sorcerer bloodline powers</action>  
       <action dev="eddyanthony" type="add" issue="2536576">[Pathfinder RPG] Implement Wizard class</action> 
     </release>  
     <release version="5.15.12" date="2009-02-16" description="Beta Release"> 
