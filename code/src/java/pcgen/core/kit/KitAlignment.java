@@ -86,6 +86,7 @@ public class KitAlignment extends BaseKit
 		alignInd =
 				SettingsHandler.getGame().getIndexOfAlignment(
 					align.getKeyName());
+		apply(aPC);
 		return RaceAlignment.canBeAlignment(aPC.getRace(), Integer
 			.toString(alignInd));
 	}
