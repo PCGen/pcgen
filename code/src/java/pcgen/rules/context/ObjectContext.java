@@ -623,6 +623,8 @@ public class ObjectContext
 			positiveMap.clear();
 			negativeMap.clear();
 			globalClearSet.clear();
+			preClearSet.clear();
+			patternClearSet.clear();
 		}
 
 		public <T extends CDOMObject> T cloneConstructedCDOMObject(T obj,
