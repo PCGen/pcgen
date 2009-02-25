@@ -26,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
@@ -149,13 +150,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 */
 	public void addToListFor(K1 key1, K2 key2, V value)
 	{
-		MapToList<K2, V> localMap = mtmtl.get(key1);
-		if (localMap == null)
-		{
-			localMap = GenericMapToList.getMapToList(secondClass);
-			mtmtl.put(key1, localMap);
-		}
-		localMap.addToListFor(key2, value);
+		getMapToListFor(key1).addToListFor(key2, value);
 	}
 
 	/**
@@ -181,13 +176,33 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 */
 	public void addAllToListFor(K1 key1, K2 key2, Collection<V> values)
 	{
-		MapToList<K2, V> localMap = mtmtl.get(key1);
-		if (localMap == null)
+		getMapToListFor(key1).addAllToListFor(key2, values);
+	}
+
+	/**
+	 * Adds all of the contents of the given DoubleKeyMapToList to this
+	 * DoubleKeyMapToList.
+	 * 
+	 * No reference is maintained to the internal structure of the given
+	 * DoubleKeyMapToList, so modifications to this DoubleKeyMapToList are not
+	 * reflected in the given DoubleKeyMapToList (and vice versa). However, the
+	 * Keys and Value objects from the given DoubleKeyMapToList are maintained
+	 * by reference, so modification to the Keys or Values of either this
+	 * DoubleKeyMapToList or the given DoubleKeyMapToList will be reflected in
+	 * the other DoubleKeyMapToList (this is consistent behavior with the
+	 * analogous classes in the java.util.Map implementations)
+	 * 
+	 * @param dkmtl
+	 *            The DoubleKeyMapToList from which the contents should be
+	 *            copied into this DoubleKeyMapToList.
+	 */
+	public void addAll(DoubleKeyMapToList<K1, K2, V> dkmtl)
+	{
+		for (Entry<K1, MapToList<K2, V>> me : dkmtl.mtmtl.entrySet())
 		{
-			localMap = GenericMapToList.getMapToList(secondClass);
-			mtmtl.put(key1, localMap);
+			MapToList<K2, V> localMap = getMapToListFor(me.getKey());
+			localMap.addAllLists(me.getValue());
 		}
-		localMap.addAllToListFor(key2, values);
 	}
 
 	/**
@@ -560,4 +575,25 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 					e);
 		}
 	}
+
+	/**
+	 * This should remain PRIVATE as it exposes the internal structure of the
+	 * DoubleKeyMapToList. It is used as an internal convenience method.
+	 * 
+	 * @param key1
+	 *            The Key for which an internal MapToList should be fetched, or
+	 *            created if it does not exist
+	 * @return The (internal use only) MapToList for the given key
+	 */
+	private MapToList<K2, V> getMapToListFor(K1 key1)
+	{
+		MapToList<K2, V> localMap = mtmtl.get(key1);
+		if (localMap == null)
+		{
+			localMap = GenericMapToList.getMapToList(secondClass);
+			mtmtl.put(key1, localMap);
+		}
+		return localMap;
+	}
+
 }

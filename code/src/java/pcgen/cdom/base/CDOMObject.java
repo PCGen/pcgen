@@ -474,6 +474,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 //			 + cdo.listChar.getKeySet());
 			return false;
 		}
+		if (!mapChar.equals(cdo.mapChar))
+		{
+			return false;
+		}
 		if (!cdomListMods.equals(cdo.cdomListMods))
 		{
 			// System.err.println("CDOM Inequality ListMods");
@@ -569,9 +573,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		objectChar.putAll(cdo.objectChar);
 		variableChar.putAll(cdo.variableChar);
 		listChar.addAllLists(cdo.listChar);
-		/*
-		 * TODO Need to do CDOMListMods
-		 */
+		mapChar.putAll(cdo.mapChar);
+		cdomListMods.addAll(cdo.cdomListMods);
 	}
 
 	@Override
@@ -585,6 +588,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		clone.objectChar = new HashMap<ObjectKey<?>, Object>(objectChar);
 		clone.listChar = new ListKeyMapToList();
 		clone.listChar.addAllLists(listChar);
+		clone.mapChar = new MapKeyMap();
+		clone.mapChar.putAll(mapChar);
 		clone.cdomListMods = cdomListMods.clone();
 		clone.ownBonuses();
 		return clone;
