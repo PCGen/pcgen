@@ -53,13 +53,13 @@ public class AddSpellLevelIntegrationTest extends
 	@Override
 	public boolean isNegativeAllowed()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isZeroAllowed()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

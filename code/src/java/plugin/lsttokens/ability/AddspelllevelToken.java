@@ -46,14 +46,8 @@ public class AddspelllevelToken extends AbstractToken implements
 		}
 		try
 		{
-			Integer i = Delta.parseInt(value);
-			if (i.intValue() < 0)
-			{
-				Logging.log(Logging.LST_ERROR, getTokenName() + " must be an integer >= 0");
-				return false;
-			}
 			context.getObjectContext().put(ability, IntegerKey.ADD_SPELL_LEVEL,
-					i);
+					Delta.parseInt(value));
 			return true;
 		}
 		catch (NumberFormatException nfe)
@@ -71,13 +65,6 @@ public class AddspelllevelToken extends AbstractToken implements
 				IntegerKey.ADD_SPELL_LEVEL);
 		if (lvl == null)
 		{
-			return null;
-		}
-		if (lvl.intValue() < 0)
-		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " must be an integer >= 0");
 			return null;
 		}
 		return new String[] { lvl.toString() };

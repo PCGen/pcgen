@@ -60,7 +60,7 @@ public class AddspelllevelTokenTest extends AbstractIntegerTokenTestCase<Ability
 	@Override
 	public boolean isNegativeAllowed()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
