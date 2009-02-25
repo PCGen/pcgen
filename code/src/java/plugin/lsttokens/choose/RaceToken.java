@@ -49,18 +49,6 @@ public class RaceToken implements CDOMSecondaryToken<CDOMObject>
 					+ " requires additional arguments");
 			return false;
 		}
-		if (value.indexOf(',') != -1)
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
-			return false;
-		}
-		if (value.indexOf('[') != -1)
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
-			return false;
-		}
 		if (value.charAt(0) == '|')
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
