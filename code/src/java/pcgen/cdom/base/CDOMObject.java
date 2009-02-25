@@ -419,7 +419,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public String getDisplayName()
 	{
 		return this.get(StringKey.NAME);
-		// TODO Auto-generated method stub
 	}
 
 	public void setName(String name)
@@ -437,11 +436,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return false;
 		}
-		/*
-		 * FIXME Test source here
-		 * 
-		 * private final SourceEntry source = new SourceEntry();
-		 */
 		if (!integerChar.equals(cdo.integerChar))
 		{
 			// System.err.println("CDOM Inequality Integer");

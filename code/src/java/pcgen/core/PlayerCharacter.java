@@ -16791,7 +16791,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					for (String aString : getAssociationList(aDomain))
 					{
-System.err.println("DA: " + aString);
 						if (aString.startsWith("FEAT"))
 						{
 							final int idx = aString.indexOf('?');
@@ -16804,7 +16803,6 @@ System.err.println("DA: " + aString);
 												this, abilities,
 												Constants.FEAT_CATEGORY,
 												aString.substring(idx + 1));
-System.err.println(added);
 								if (added != null)
 								{
 									added
