@@ -142,17 +142,61 @@
 		</ol>
 
 
-		<h3>Names of things</h3>
-
-		<ol>
-			<li><p>If the name of the object must be different from the source (due to
-				commas or math symbols in the name or other reasons), an OUTPUTNAME: tag
-				with the EXACT name must be included.</p></li>
-
-			<li><p>Potions should be listed as Potion (&lt;name&gt;) with OUTPUTNAME:Potion of
-				[NAME] unless the source lists it as otherwise (see part 1 for rules to follow in that case)</p></li>
-			<li><p>Poisons, Rods, Staffs, Wands and same way as Potions.</p></li>
-		</ol>
+		<h3>General Object Naming Standards</h3>
+		
+		<p>These are general rules for the naming of classes, feats, races and other objects. </p>
+		
+		<p>Characters approved for use in object names are: upper and lower case letters, 
+		  numbers, single spaces in between multiple words (never before or after) and 
+		  the following glyphs: underscore (_), dash (-), apostrophe ('), parentheses 
+		  (), slash (/), and a tilde (~).</p>
+		  
+		<p>Characters which should never be used in object names are Commas (,), Pipes 
+		  (|), Backslashes (\), Colons (:), Semicolons (;), Periods (.), Brackets ([]), 
+		  Percent (%), Asterisk (*) and Equals (=). </p>
+		  
+		<p>Two words separated by a dash should both be capitalized. </p>
+		<p>If the name of the object must be different from the source (due to commas 
+		  or math symbols in the name or other reasons), an OUTPUTNAME: tag with the EXACT 
+		  name must be included. </p>
+		  
+		<p>Potions should be listed as Potion (&lt;name&gt;) with OUTPUTNAME:Potion of 
+		  [NAME] unless the source lists it as otherwise (see part 1 for rules to follow 
+		  in that case). Poisons, Rods, Staffs, Wands and same way as Potions. </p>
+		<p>Within these limits the name should be as close as possible to the published 
+		  source. </p>
+		  
+		<h3>Additional Restrictions</h3>
+		
+		<p>No object may be named a valid number (even 0x45 or 1e20 could be a problem) 
+		  as items with optional count can fail. </p>
+		  
+		<p>No object may be called &quot;ANY&quot; or &quot;ALL&quot; or &quot;LIST&quot;. </p>
+		
+		<p>No Class may be called &quot;HIGHESTLEVELCLASS&quot;. </p>
+		
+		<p>No Equipment may be called &quot;Total&quot;. </p>
+		
+		<p>No Weaponprof may be called &quot;DEITYWEAPON&quot;. </p>
+		
+		<p>No equipment (or eqmod ITYPE) may use the types &quot;ADD&quot; or &quot;REMOVE&quot;.</p>
+  
+		<h3>General EQMOD Naming Standards</h3>
+		
+		<p>EQMOD keys are to be in all capital letters and may only contain letters, numbers 
+		  and underscores ("_"). </p>
+		  
+		<p>Each word should be separated by an underscore character for ease in reading.</p>
+		
+		<p>For purposes of abbreviation the letter limit on the first and second sections 
+		  of the Key name is 8 and 7. </p>
+		  
+		<p>EQMODs for different item types (Weapon vs. Armor for example) will be done 
+		  as separate EQMODs. </p>
+		  
+		<p>Materials which list different pricing for different item types or sub types 
+		  (Light Armor vs. Medium Armor for example) will be done as separate EQMODs for 
+		  each price type. </p>
 
 		<h3>File names</h3>
 
@@ -212,58 +256,34 @@
 				Format should be SOURCEPAGE:p.#</p></li>
 		</ul>
 
-
 		<h3><a name="STDSPELLNAME">Standard Spellbook Names</a></h3>
-
-
-		<p>Spellbook names for the <code>SPELLS</code> tags are used to identify the source of a Spell Like
-		Ability (SLA).</p>
-
-		<p>Using the &quot;Class&quot; or &quot;Race&quot; name alone as a spellbook name creates a problem 
-		within PCGen.</p>
-		<p>Therefore, spellbook names need to be be more descriptive. As an example, spellbooks that are for 
-		Undead smiting or for slaying Rogues, should be named "Undead Smiting" or "Slaying Rogues".</p>
-
-		<p>The Names fall into three areas.</p>
-
+		
+		<p>Spellbook names for the <code>SPELLS</code> tags are used to identify the source 
+		  of a Spell Like Ability (SLA). The Spellbook is the first variable in the SPELLS 
+		  tag, in the following example &quot;innate&quot; is the name of the spellbook.</p>
+		  
+		<p><code>SPELLS:Innate|TIMES=5|TIMEUNIT=Week|Wall of Stone</code></p>
+		
+		<p>Using the word &quot;Class&quot; or &quot;Race&quot; alone as a spellbook name 
+		  creates a problem within PCGen. The standard convention is to use one of three 
+		  spellbook names to indicate the origin of the spell-like ability.</p>
+		  
 		<ol class="indent1">
-			<li><strong>Innate</strong> - For racial and template acquired SLA's <br>
-				If it comes from a race, the race name (Gnome, etc)<br>
-	            <br>
-			    Formats should be as follows:<br>
-			    <br>
-	            <ul>
-				    <li>Undead Attraction</li>
-				    <li>Waking Nightmares</li>
-				</ul>
-            <br></li>
-
-			<li><strong>Class Ability</strong> - For SLA's derived from classes. <br>
-				If it comes from a class, the class name (Sentinel, Paladin, etc)<br>
-				<br>
-	            Formats should be as follows:<br>
-	            <br>
-	            <ul>
-					<li>Rogue's Dice</li>
-					<li>Golem Armor</li>
-				</ul>
-			<br></li>
-
-			<li><strong>Magic Items</strong> - For SLA's provided by equipment. <br>
-				If it comes from an magic item, the item name (Belt of Magic Spells, etc)<br>
-				<br>
-	            Formats should be as follows:<br>
-	            <br>
-	            <ul>
-					<li>Hammer of Thunderbolts</li>
-					<li>Ring of Counterspells</li>
-				</ul>
-			</li>
-
+		  <li><strong>Innate</strong> - For racial and template acquired SLA's <br>
+			If it comes from a race, the race name (Gnome, etc)<br>
+			<br>
+		  </li>
+		  <li><strong>Class Ability</strong> - For SLA's derived from classes. <br>
+			If it comes from a class, the class name (Sentinel, Paladin, etc)<br>
+			<br>
+		  </li>
+		  <li><strong>Magic Item</strong> - For SLA's provided by equipment. <br>
+			If it comes from an magic item, the item name (Belt of Magic Spells, etc)<br>
+			<br>
+		  </li>
 		</ol>
 
-
-		<h3>SA</h3>
+		<h3>SAB (formerly SA)</h3>
 
 		<ol>
 			<li><p>Name ONLY</p></li>
@@ -305,29 +325,43 @@
 		</ol>
 
 
-		<h3>DEFINE/BONUS:VAR|</h3>
+		<h3>DEFINE/BONUS:VAR and Variable Naming Standards</h3>
 
 		<p>These two tags are used to track variables across different objects.</p>
-
 		<ol>
-			<li><p>No spaces in the Variable names.</p></li>
-
-			<li><p>Full words where possible (no over compressing to the point where it
-				isn't readily understandable to what you are referring to).</p></li>
-
-			<li><p>Capitalization: Please use Capitals for the beginnings of words, and
-				lower case for every other letter. For Example:
-				DEFINE:FooClassSpecialAbility|0</p></li>
-
-			<li><p>Please use formulas where possible. Such as CL=Name in for class abilities.<br>
-				1 Bonus statement with a formula is processed faster than a BONUS statement on ever class line.</p></li>
-
-			<li><p>For Variables that will have a BONUS:VAR| in another object than where
-				it is DEFINEd, or if it will be DEFINEd in more than one object, the
-				standard is DEFINE:&lt;name&gt;|0 and leaving all numbers to BONUS:VAR|&lt;name&gt;|
-				statements.</p></li>
+		  <li> 
+			<p>Variables syntax should start with a letter and should be composed of only 
+			  letters, _ and numbers (no spaces). The standard Convention is to use only 
+			  letters, capitalizing individual words for readability. </p>
+		  </li>
+		  <li> 
+			<p>Full words where possible (no over compressing to the point where it isn't 
+			  readily understandable to what you are referring to).</p>
+		  </li>
+		  <li> 
+			<p>Please use formulas where possible. Such as CL=Name in for class abilities.
+			  1 Bonus statement with a formula is processed faster than a BONUS statement 
+			  on ever class line.</p>
+		  </li>
+		  <li> 
+			<p>Where it is possible to do so there should be only one DEFINE statement 
+			  per variable and the DEFINE should be set at 0 with a BONUS:VAR used to 
+			  adjust the value. </p>
+		  </li>
+		  <li>
+		  	<p>Variable names in all capitals are reserved for hard coded variables or 
+			variables defined within the system files. </p>
+		  </li>
+		  <li>
+		  	<p>Where it is possible to do so variables should be DEFINEd within the parent 
+			object where it is first used or encountered. </p>
+		  </li>
 		</ol>
-
+				
+		<p>It is good practice to leave comments within the data sets LST code explaining 
+		  what variables have been used in the set, what their purpose is and how they 
+		  are to be used. </p>
+		
 		<h3>DR / Damage Reduction</h3>
 
 		<p>This tag is used to track Damage Reduction.  Recent Code enchantments compare different DRs, and list only the highest per type.  This requires some standardization in how DR is coded up, to ensure items are being compared properly.</p>
