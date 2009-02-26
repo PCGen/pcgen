@@ -25,12 +25,12 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.gui.converter.ConversionDecider;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.EditorLoadContext;
 
 public class TokenProcessEvent extends EventObject
 {
 
-	private final LoadContext context;
+	private final EditorLoadContext context;
 	private final String key;
 	private final String value;
 	private final CDOMObject obj;
@@ -39,7 +39,7 @@ public class TokenProcessEvent extends EventObject
 	private List<CDOMObject> injected;
 	private final ConversionDecider decider;
 
-	public TokenProcessEvent(LoadContext lc, ConversionDecider cd,
+	public TokenProcessEvent(EditorLoadContext lc, ConversionDecider cd,
 			String tokenName, String tokenValue, CDOMObject object)
 	{
 		super(object);
@@ -90,7 +90,7 @@ public class TokenProcessEvent extends EventObject
 		return result.toString();
 	}
 
-	public LoadContext getContext()
+	public EditorLoadContext getContext()
 	{
 		return context;
 	}

@@ -39,29 +39,13 @@ import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 
-public class ListContext
+public abstract class AbstractListContext
 {
 
 //	private static final CDOMReference<? extends CDOMList<CDOMObject>> GRANTED = new CDOMDirectSingleRef<CDOMList<CDOMObject>>(
 //			new GrantedList());
 
 	private final TrackingListCommitStrategy edits = new TrackingListCommitStrategy();
-
-	private final ListCommitStrategy commit;
-
-	public ListContext()
-	{
-		commit = new TrackingListCommitStrategy();
-	}
-
-	public ListContext(ListCommitStrategy commitStrategy)
-	{
-		if (commitStrategy == null)
-		{
-			throw new IllegalArgumentException("Commit Strategy cannot be null");
-		}
-		commit = commitStrategy;
-	}
 
 	public URI getSourceURI()
 	{
@@ -71,7 +55,7 @@ public class ListContext
 	public void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
-		commit.setSourceURI(sourceURI);
+		getCommitStrategy().setSourceURI(sourceURI);
 	}
 
 	public URI getExtractURI()
@@ -82,7 +66,7 @@ public class ListContext
 	public void setExtractURI(URI extractURI)
 	{
 		edits.setExtractURI(extractURI);
-		commit.setExtractURI(extractURI);
+		getCommitStrategy().setExtractURI(extractURI);
 	}
 
 	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
@@ -190,6 +174,7 @@ public class ListContext
 
 	public void commit()
 	{
+		ListCommitStrategy commit = getCommitStrategy();
 		for (CDOMReference list : edits.positiveMasterMap.getKeySet())
 		{
 			commitDirect(list);
@@ -249,6 +234,7 @@ public class ListContext
 	private <T extends CDOMObject> void commitDirect(
 			CDOMReference<? extends CDOMList<T>> list)
 	{
+		ListCommitStrategy commit = getCommitStrategy();
 		for (OwnerURI ou : edits.positiveMasterMap.getSecondaryKeySet(list))
 		{
 			for (CDOMObject child : edits.positiveMasterMap.getTertiaryKeySet(
@@ -273,6 +259,7 @@ public class ListContext
 	private <T extends CDOMObject> void removeDirect(
 			CDOMReference<? extends CDOMList<T>> list)
 	{
+		ListCommitStrategy commit = getCommitStrategy();
 		for (OwnerURI ou : edits.negativeMasterMap.getSecondaryKeySet(list))
 		{
 			for (CDOMObject child : edits.negativeMasterMap.getTertiaryKeySet(
@@ -295,37 +282,38 @@ public class ListContext
 	public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
 			CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
-		return commit.getChangedLists(owner, cl);
+		return getCommitStrategy().getChangedLists(owner, cl);
 	}
 
 	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> swl)
 	{
-		return commit.getChangesInList(tokenName, owner, swl);
+		return getCommitStrategy().getChangesInList(tokenName, owner, swl);
 	}
 
 	public <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> swl)
 	{
-		return commit.getChangesInMasterList(tokenName, owner, swl);
+		return getCommitStrategy().getChangesInMasterList(tokenName, owner, swl);
 	}
 
 	public Changes<CDOMReference> getMasterListChanges(String tokenName,
 			CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
-		return commit.getMasterListChanges(tokenName, owner, cl);
+		return getCommitStrategy().getMasterListChanges(tokenName, owner, cl);
 	}
 
 	public boolean hasMasterLists()
 	{
-		return commit.hasMasterLists();
+		return getCommitStrategy().hasMasterLists();
 	}
 
 	private <BT extends CDOMObject> void remove(CDOMObject owner,
 			CDOMObject neg, CDOMReference<CDOMList<BT>> list)
 	{
+		ListCommitStrategy commit = getCommitStrategy();
 		Collection<CDOMReference<BT>> mods = neg.getListMods(list);
 		for (CDOMReference<BT> ref : mods)
 		{
@@ -343,6 +331,7 @@ public class ListContext
 	private <BT extends CDOMObject> void add(CDOMObject owner, CDOMObject neg,
 			CDOMReference<CDOMList<BT>> list)
 	{
+		ListCommitStrategy commit = getCommitStrategy();
 		Collection<CDOMReference<BT>> mods = neg.getListMods(list);
 		for (CDOMReference<BT> ref : mods)
 		{
@@ -661,6 +650,13 @@ public class ListContext
 			}
 			return false;
 		}
+
+		public void purge(CDOMObject cdo)
+		{
+			positiveMap.remove(sourceURI, cdo);
+			negativeMap.remove(sourceURI, cdo);
+			globalClearSet.removeListFor(sourceURI, cdo);
+		}
 	}
 
 	private static class OwnerURI
@@ -706,8 +702,10 @@ public class ListContext
 		}
 	}
 	
-	public boolean masterListsEqual(ListContext lc)
+	public boolean masterListsEqual(AbstractListContext lc)
 	{
-		return commit.equalsTracking(lc.commit);
+		return getCommitStrategy().equalsTracking(lc.getCommitStrategy());
 	}
+	
+	protected abstract ListCommitStrategy getCommitStrategy();
 }

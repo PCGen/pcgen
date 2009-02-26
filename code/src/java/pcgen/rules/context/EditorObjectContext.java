@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,29 +17,20 @@
  */
 package pcgen.rules.context;
 
-public class RuntimeLoadContext extends LoadContext
+import pcgen.cdom.base.CDOMObject;
+
+public class EditorObjectContext extends AbstractObjectContext
 {
-	private final String contextType;
+	TrackingObjectCommitStrategy commit = new TrackingObjectCommitStrategy();
 
-	public RuntimeLoadContext(ReferenceContext rc,
-			ListCommitStrategy lcs)
+	public void purge(CDOMObject cdo)
 	{
-		super(rc, new RuntimeListContext(lcs), new RuntimeObjectContext());
-		contextType = "Runtime";
-	}
-
-	/*
-	 * Get the type of context we're running in (either Editor or Runtime)
-	 */
-	@Override
-	public String getContextType()
-	{
-		return contextType;
+		commit.purge(cdo);
 	}
 
 	@Override
-	public boolean consolidate()
+	protected ObjectCommitStrategy getCommitStrategy()
 	{
-		return true;
+		return commit;
 	}
 }

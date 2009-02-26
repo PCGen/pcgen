@@ -60,7 +60,7 @@ import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.StatsAndChecksLoader;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -68,7 +68,7 @@ public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
 	private final StatsAndChecksLoader statCheckLoader = new StatsAndChecksLoader();
-	private final LoadContext context;
+	private final EditorLoadContext context;
 	private List<Loader> loaders;
 	private Set<URI> written = new HashSet<URI>();
 	private final String outDir;
@@ -76,7 +76,7 @@ public class LSTConverter extends Observable
 	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<Loader, URI, CDOMObject>();
 	private final ConversionDecider decider;
 
-	public LSTConverter(LoadContext lc, File root, String outputDir,
+	public LSTConverter(EditorLoadContext lc, File root, String outputDir,
 			ConversionDecider cd)
 	{
 		context = lc;
@@ -176,7 +176,7 @@ public class LSTConverter extends Observable
 		}
 	}
 
-	private List<Loader> setupLoaders(LoadContext context)
+	private List<Loader> setupLoaders(EditorLoadContext context)
 	{
 		List<Loader> loaders = new ArrayList<Loader>();
 		loaders.add(new BasicLoader<WeaponProf>(context, WeaponProf.class,

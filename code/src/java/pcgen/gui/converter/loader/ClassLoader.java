@@ -35,15 +35,15 @@ import pcgen.gui.converter.TokenConverter;
 import pcgen.gui.converter.event.TokenProcessEvent;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
 
 public class ClassLoader implements Loader
 {
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
-	private final LoadContext context;
+	private final EditorLoadContext context;
 
-	public ClassLoader(LoadContext lc)
+	public ClassLoader(EditorLoadContext lc)
 	{
 		context = lc;
 	}

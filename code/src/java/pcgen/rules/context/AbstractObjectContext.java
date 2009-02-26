@@ -39,25 +39,9 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.prereq.Prerequisite;
 
-public class ObjectContext
+public abstract class AbstractObjectContext
 {
 	private final TrackingObjectCommitStrategy edits = new TrackingObjectCommitStrategy();
-
-	private final ObjectCommitStrategy commit;
-
-	public ObjectContext()
-	{
-		commit = new TrackingObjectCommitStrategy();
-	}
-
-	public ObjectContext(ObjectCommitStrategy commitStrategy)
-	{
-		if (commitStrategy == null)
-		{
-			throw new IllegalArgumentException("Commit Strategy cannot be null");
-		}
-		commit = commitStrategy;
-	}
 
 	public URI getSourceURI()
 	{
@@ -67,7 +51,7 @@ public class ObjectContext
 	public void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
-		commit.setSourceURI(sourceURI);
+		getCommitStrategy().setSourceURI(sourceURI);
 	}
 
 	public URI getExtractURI()
@@ -78,7 +62,7 @@ public class ObjectContext
 	public void setExtractURI(URI extractURI)
 	{
 		edits.setExtractURI(extractURI);
-		commit.setExtractURI(extractURI);
+		getCommitStrategy().setExtractURI(extractURI);
 	}
 
 	public <T> void addToList(CDOMObject cdo, ListKey<T> key, T value)
@@ -130,25 +114,27 @@ public class ObjectContext
 	{
 		edits.put(cdo, vk, f);
 	}
-	
-//	public void give(String sourceToken, CDOMObject cdo, PrereqObject target)
-//	{
-//		addToList(cdo, ListKey.GIVEN, new SourceWrapper(target, sourceToken));
-//	}
-//	
-//	public void revoke(String sourceToken, CDOMObject cdo, PrereqObject target)
-//	{
-//		removeFromList(cdo, ListKey.GIVEN, new SourceWrapper(target, sourceToken));
-//	}
-//
-//	public void revokeAll(final String tokenName, CDOMObject cdo)
-//	{
-//		/*
-//		 * TODO This is broken for the ConsolidatedObjectCommitStrategy, as it 
-//		 * doesn't properly filter by tokenName...
-//		 */
-//		removeList(cdo, ListKey.GIVEN);
-//	}
+
+	// public void give(String sourceToken, CDOMObject cdo, PrereqObject target)
+	// {
+	// addToList(cdo, ListKey.GIVEN, new SourceWrapper(target, sourceToken));
+	// }
+	//	
+	// public void revoke(String sourceToken, CDOMObject cdo, PrereqObject
+	// target)
+	// {
+	// removeFromList(cdo, ListKey.GIVEN, new SourceWrapper(target,
+	// sourceToken));
+	// }
+	//
+	// public void revokeAll(final String tokenName, CDOMObject cdo)
+	// {
+	// /*
+	// * TODO This is broken for the ConsolidatedObjectCommitStrategy, as it
+	// * doesn't properly filter by tokenName...
+	// */
+	// removeList(cdo, ListKey.GIVEN);
+	// }
 
 	public <T> void removeFromList(CDOMObject cdo, ListKey<T> lk, T val)
 	{
@@ -167,10 +153,10 @@ public class ObjectContext
 
 	public void commit()
 	{
+		ObjectCommitStrategy commit = getCommitStrategy();
 		for (URI uri : edits.preClearSet.getKeySet())
 		{
-			for (ConcretePrereqObject cpo : edits.preClearSet
-					.getListFor(uri))
+			for (ConcretePrereqObject cpo : edits.preClearSet.getListFor(uri))
 			{
 				commit.clearPrerequisiteList(cpo);
 			}
@@ -263,9 +249,11 @@ public class ObjectContext
 		{
 			for (CDOMObject cdo : edits.patternClearSet.getSecondaryKeySet(uri))
 			{
-				for (ListKey<?> lk : edits.patternClearSet.getTertiaryKeySet(uri, cdo))
+				for (ListKey<?> lk : edits.patternClearSet.getTertiaryKeySet(
+						uri, cdo))
 				{
-					for (String s : edits.patternClearSet.getListFor(uri, cdo, lk))
+					for (String s : edits.patternClearSet.getListFor(uri, cdo,
+							lk))
 					{
 						commit.removePatternFromList(cdo, lk, s);
 					}
@@ -278,6 +266,7 @@ public class ObjectContext
 	private <T> void removeListKey(CDOMObject cdo, ListKey<T> key,
 			CDOMObject neg)
 	{
+		ObjectCommitStrategy commit = getCommitStrategy();
 		for (T obj : neg.getListFor(key))
 		{
 			commit.removeFromList(cdo, key, obj);
@@ -286,6 +275,7 @@ public class ObjectContext
 
 	private <T> void putListKey(CDOMObject cdo, ListKey<T> key, CDOMObject neg)
 	{
+		ObjectCommitStrategy commit = getCommitStrategy();
 		for (T obj : neg.getListFor(key))
 		{
 			commit.addToList(cdo, key, obj);
@@ -295,22 +285,25 @@ public class ObjectContext
 	private <T> void putObjectKey(CDOMObject cdo, ObjectKey<T> key,
 			CDOMObject neg)
 	{
-		commit.put(cdo, key, neg.get(key));
+		getCommitStrategy().put(cdo, key, neg.get(key));
 	}
 
 	private <K, V> void removeMapKey(CDOMObject cdo, MapKey<K, V> key1,
 			CDOMObject neg)
 	{
-		Set<K> secKeys = neg.getKeysFor(key1); 
+		ObjectCommitStrategy commit = getCommitStrategy();
+		Set<K> secKeys = neg.getKeysFor(key1);
 		for (K key2 : secKeys)
 		{
 			commit.remove(cdo, key1, key2);
 		}
 	}
 
-	private <K, V>void putMapKey(CDOMObject cdo, MapKey<K, V> key1, CDOMObject pos)
+	private <K, V> void putMapKey(CDOMObject cdo, MapKey<K, V> key1,
+			CDOMObject pos)
 	{
-		Set<K> secKeys = pos.getKeysFor(key1); 
+		ObjectCommitStrategy commit = getCommitStrategy();
+		Set<K> secKeys = pos.getKeysFor(key1);
 		for (K key2 : secKeys)
 		{
 			commit.put(cdo, key1, key2, pos.get(key1, key2));
@@ -324,47 +317,49 @@ public class ObjectContext
 
 	public Formula getFormula(CDOMObject cdo, FormulaKey fk)
 	{
-		return commit.getFormula(cdo, fk);
+		return getCommitStrategy().getFormula(cdo, fk);
 	}
 
 	public Integer getInteger(CDOMObject cdo, IntegerKey ik)
 	{
-		return commit.getInteger(cdo, ik);
+		return getCommitStrategy().getInteger(cdo, ik);
 	}
 
 	public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk)
 	{
-		return commit.getListChanges(cdo, lk);
+		return getCommitStrategy().getListChanges(cdo, lk);
 	}
 
 	public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
 	{
-		return commit.getMapChanges(cdo, mk);
+		return getCommitStrategy().getMapChanges(cdo, mk);
 	}
 
-//	public <T> Changes<T> getGivenChanges(String sourceToken, CDOMObject cdo, Class<T> cl)
-//	{
-//		return new GivenChanges<T>(cl, sourceToken, commit.getListChanges(cdo, ListKey.GIVEN));
-//	}
-//
+	// public <T> Changes<T> getGivenChanges(String sourceToken, CDOMObject cdo,
+	// Class<T> cl)
+	// {
+	// return new GivenChanges<T>(cl, sourceToken, commit.getListChanges(cdo,
+	// ListKey.GIVEN));
+	// }
+	//
 	public <T> T getObject(CDOMObject cdo, ObjectKey<T> ik)
 	{
-		return commit.getObject(cdo, ik);
+		return getCommitStrategy().getObject(cdo, ik);
 	}
 
 	public String getString(CDOMObject cdo, StringKey sk)
 	{
-		return commit.getString(cdo, sk);
+		return getCommitStrategy().getString(cdo, sk);
 	}
 
 	public Formula getVariable(CDOMObject obj, VariableKey key)
 	{
-		return commit.getVariable(obj, key);
+		return getCommitStrategy().getVariable(obj, key);
 	}
 
 	public Set<VariableKey> getVariableKeys(CDOMObject obj)
 	{
-		return commit.getVariableKeys(obj);
+		return getCommitStrategy().getVariableKeys(obj);
 	}
 
 	<T extends CDOMObject> T cloneConstructedCDOMObject(T obj, String newName)
@@ -406,7 +401,8 @@ public class ObjectContext
 		{
 			if (cdo == null)
 			{
-				throw new IllegalArgumentException("Cannot remove contents from null object");
+				throw new IllegalArgumentException(
+						"Cannot remove contents from null object");
 			}
 			CDOMObject negative = negativeMap.get(source, cdo);
 			if (negative == null)
@@ -431,7 +427,8 @@ public class ObjectContext
 		{
 			if (cdo == null)
 			{
-				throw new IllegalArgumentException("Cannot assign contents to null object");
+				throw new IllegalArgumentException(
+						"Cannot assign contents to null object");
 			}
 			CDOMObject positive = positiveMap.get(source, cdo);
 			if (positive == null)
@@ -517,14 +514,15 @@ public class ObjectContext
 			getNegative(sourceURI, cdo).addToMapFor(mk, key, null);
 		}
 
-		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
+		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo,
+				MapKey<K, V> mk)
 		{
 			return new MapChanges<K, V>(getPositive(extractURI, cdo).getMapFor(
-				mk), getNegative(extractURI, cdo).getMapFor(mk), false);
+					mk), getNegative(extractURI, cdo).getMapFor(mk), false);
 		}
-		
+
 		// ==== end of MapKey manipulation functions ====
-		
+
 		public String getString(CDOMObject cdo, StringKey sk)
 		{
 			String added = getPositive(extractURI, cdo).get(sk);
@@ -590,7 +588,8 @@ public class ObjectContext
 					cdo, lk));
 		}
 
-		public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo, ListKey<T> lk)
+		public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
+				ListKey<T> lk)
 		{
 			return new PatternChanges<T>(getPositive(extractURI, cdo)
 					.getListFor(lk), patternClearSet.getListFor(extractURI,
@@ -672,100 +671,109 @@ public class ObjectContext
 			return getNegative(extractURI, cdo).containsInList(
 					ListKey.REMOVED_OBJECTKEY, ok);
 		}
+
+		public void purge(CDOMObject cdo)
+		{
+			positiveMap.remove(sourceURI, cdo);
+			negativeMap.remove(sourceURI, cdo);
+			globalClearSet.removeListFor(sourceURI, cdo);
+			preClearSet.removeFromListFor(sourceURI, cdo);
+			patternClearSet.removeListsFor(sourceURI, cdo);
+		}
 	}
 
 	public Changes<Prerequisite> getPrerequisiteChanges(ConcretePrereqObject obj)
 	{
-		return commit.getPrerequisiteChanges(obj);
+		return getCommitStrategy().getPrerequisiteChanges(obj);
 	}
 
 	public boolean containsListFor(CDOMObject obj, ListKey<?> lk)
 	{
-		return commit.containsListFor(obj, lk);
+		return getCommitStrategy().containsListFor(obj, lk);
 	}
 
-//	private class GivenChanges<T> implements Changes<T>
-//	{
-//
-//		private final ArrayList<T> added = new ArrayList<T>();
-//		private final ArrayList<T> removed = new ArrayList<T>();
-//		private final String token;
-//		private final Class<T> targetClass;
-//		private final boolean clear;
-//		
-//		public GivenChanges(Class<T> cl, String sourceToken,
-//				Changes<SourceWrapper> listChanges)
-//		{
-//			targetClass = cl;
-//			token = sourceToken;
-//			clear = listChanges.includesGlobalClear();
-//			Collection<SourceWrapper> allAdded = listChanges.getAdded();
-//			if (allAdded != null)
-//			{
-//				for (SourceWrapper add : allAdded)
-//				{
-//					PrereqObject target = add.getTarget();
-//					if (targetClass.isAssignableFrom(target.getClass())
-//							&& token.equals(add.getSourceToken()))
-//					{
-//						added.add((T) target);
-//					}
-//				}
-//			}
-//			Collection<SourceWrapper> allRemoved = listChanges.getRemoved();
-//			if (allRemoved != null)
-//			{
-//				for (SourceWrapper rem : allRemoved)
-//				{
-//					PrereqObject target = rem.getTarget();
-//					if (targetClass.equals(target.getClass())
-//							&& token.equals(rem.getSourceToken()))
-//					{
-//						removed.add((T) target);
-//					}
-//				}
-//			}
-//		}
-//
-//		public Collection<T> getAdded()
-//		{
-//			return Collections.unmodifiableList(added);
-//		}
-//
-//		public Collection<T> getRemoved()
-//		{
-//			return Collections.unmodifiableList(removed);
-//		}
-//
-//		public boolean hasAddedItems()
-//		{
-//			return !added.isEmpty();
-//		}
-//
-//		public boolean hasRemovedItems()
-//		{
-//			return !removed.isEmpty();
-//		}
-//
-//		public boolean includesGlobalClear()
-//		{
-//			return clear;
-//		}
-//
-//		public boolean isEmpty()
-//		{
-//			return added.isEmpty() && removed.isEmpty();
-//		}
-//		
-//	}
-	
+	// private class GivenChanges<T> implements Changes<T>
+	// {
+	//
+	// private final ArrayList<T> added = new ArrayList<T>();
+	// private final ArrayList<T> removed = new ArrayList<T>();
+	// private final String token;
+	// private final Class<T> targetClass;
+	// private final boolean clear;
+	//		
+	// public GivenChanges(Class<T> cl, String sourceToken,
+	// Changes<SourceWrapper> listChanges)
+	// {
+	// targetClass = cl;
+	// token = sourceToken;
+	// clear = listChanges.includesGlobalClear();
+	// Collection<SourceWrapper> allAdded = listChanges.getAdded();
+	// if (allAdded != null)
+	// {
+	// for (SourceWrapper add : allAdded)
+	// {
+	// PrereqObject target = add.getTarget();
+	// if (targetClass.isAssignableFrom(target.getClass())
+	// && token.equals(add.getSourceToken()))
+	// {
+	// added.add((T) target);
+	// }
+	// }
+	// }
+	// Collection<SourceWrapper> allRemoved = listChanges.getRemoved();
+	// if (allRemoved != null)
+	// {
+	// for (SourceWrapper rem : allRemoved)
+	// {
+	// PrereqObject target = rem.getTarget();
+	// if (targetClass.equals(target.getClass())
+	// && token.equals(rem.getSourceToken()))
+	// {
+	// removed.add((T) target);
+	// }
+	// }
+	// }
+	// }
+	//
+	// public Collection<T> getAdded()
+	// {
+	// return Collections.unmodifiableList(added);
+	// }
+	//
+	// public Collection<T> getRemoved()
+	// {
+	// return Collections.unmodifiableList(removed);
+	// }
+	//
+	// public boolean hasAddedItems()
+	// {
+	// return !added.isEmpty();
+	// }
+	//
+	// public boolean hasRemovedItems()
+	// {
+	// return !removed.isEmpty();
+	// }
+	//
+	// public boolean includesGlobalClear()
+	// {
+	// return clear;
+	// }
+	//
+	// public boolean isEmpty()
+	// {
+	// return added.isEmpty() && removed.isEmpty();
+	// }
+	//		
+	// }
+
 	public interface Remover<T>
 	{
 		public boolean matches(T obj);
 	}
 
-	public void removePatternFromList(CDOMObject cdo,
-			ListKey<?> lk, String pattern)
+	public void removePatternFromList(CDOMObject cdo, ListKey<?> lk,
+			String pattern)
 	{
 		edits.removePatternFromList(cdo, lk, pattern);
 	}
@@ -773,11 +781,14 @@ public class ObjectContext
 	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
 			ListKey<T> lk)
 	{
-		return commit.getListPatternChanges(cdo, lk);
+		return getCommitStrategy().getListPatternChanges(cdo, lk);
 	}
 
 	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
 	{
-		return commit.wasRemoved(cdo, ok);
+		return getCommitStrategy().wasRemoved(cdo, ok);
 	}
+
+	protected abstract ObjectCommitStrategy getCommitStrategy();
+
 }

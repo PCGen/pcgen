@@ -243,6 +243,27 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	}
 
 	/**
+	 * Removes the Lists for the given primary and secondary keys. Note there is
+	 * no requirement that the lists for the given primary and secondary key be
+	 * empty before this method is called.
+	 * 
+	 * Obviously, ownership of the returned MapToList is transferred to the
+	 * object calling this method.
+	 * 
+	 * @param key1
+	 *            The primary key indicating the Lists to remove
+	 * @param key2
+	 *            The secondary key indicating the Lists to remove
+	 * @return The MapToList representing the tertiary keys and lists previously
+	 *         stored in this TripleKeyMapToList for the given primary and
+	 *         secondary key
+	 */
+	public MapToList<K3, V> removeListsFor(K1 key1, K2 key2)
+	{
+		return map.remove(key1, key2);
+	}
+
+	/**
 	 * Returns a Set which contains the primary keys for this
 	 * TripleKeyMapToList. Returns an empty Set if this TripleKeyMapToList is
 	 * empty (has no primary keys)

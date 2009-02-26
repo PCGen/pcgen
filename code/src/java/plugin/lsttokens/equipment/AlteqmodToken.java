@@ -36,7 +36,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ObjectContext;
+import pcgen.rules.context.AbstractObjectContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -122,7 +122,7 @@ public class AlteqmodToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		ObjectContext obj = context.getObjectContext();
+		AbstractObjectContext obj = context.getObjectContext();
 		String damage = obj.getString(eq, StringKey.DAMAGE_OVERRIDE);
 		Set<String> set = new TreeSet<String>();
 		if (damage != null)

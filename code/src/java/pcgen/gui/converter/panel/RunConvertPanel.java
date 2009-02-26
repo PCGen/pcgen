@@ -63,7 +63,6 @@ import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
-import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -83,7 +82,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 	private JProgressBar progressBar;
 	private ArrayList<Campaign> totalCampaigns;
-	private final LoadContext context;
+	private final EditorLoadContext context;
 	private JTextArea messageArea;
 	private JScrollPane messageAreaContainer;
 	private boolean errorState = false;

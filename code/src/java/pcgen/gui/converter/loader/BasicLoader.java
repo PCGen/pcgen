@@ -30,7 +30,7 @@ import pcgen.gui.converter.TokenConverter;
 import pcgen.gui.converter.event.TokenProcessEvent;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
 
 public class BasicLoader<T extends CDOMObject> implements Loader
@@ -39,9 +39,9 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
 	private final Class<T> cdomClass;
 	private final ListKey<CampaignSourceEntry> listkey;
-	private final LoadContext context;
+	private final EditorLoadContext context;
 
-	public BasicLoader(LoadContext lc, Class<T> cl,
+	public BasicLoader(EditorLoadContext lc, Class<T> cl,
 			ListKey<CampaignSourceEntry> lk)
 	{
 		context = lc;
@@ -77,6 +77,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 			{
 				list.addAll(injected);
 			}
+			context.purge(obj);
 		}
 		return list;
 	}

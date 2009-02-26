@@ -1,5 +1,7 @@
 package pcgen.rules.context;
 
+import pcgen.cdom.base.CDOMObject;
+
 
 public class EditorLoadContext extends LoadContext
 {
@@ -7,7 +9,8 @@ public class EditorLoadContext extends LoadContext
 
 	public EditorLoadContext()
 	{
-		super(new EditorReferenceContext(), new ListContext(), new ObjectContext());
+		super(new EditorReferenceContext(), new EditorListContext(),
+				new EditorObjectContext());
 		contextType = "Editor";
 	}
 
@@ -26,4 +29,10 @@ public class EditorLoadContext extends LoadContext
 		return false;
 	}
 
+	public void purge(CDOMObject cdo)
+	{
+		((EditorObjectContext) obj).purge(cdo);
+		((EditorListContext) list).purge(cdo);
+		ref.forget(cdo);
+	}
 }

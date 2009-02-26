@@ -49,15 +49,15 @@ public abstract class LoadContext
 
 	private static final Class<String> STRING_CLASS = String.class;
 
-	public final ListContext list;
+	public final AbstractListContext list;
 
-	public final ObjectContext obj;
+	public final AbstractObjectContext obj;
 
 	public final ReferenceContext ref;
 	
 	private final List<Campaign> campaignList = new ArrayList<Campaign>();
 
-	public LoadContext(ReferenceContext rc, ListContext lc, ObjectContext oc)
+	public LoadContext(ReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
 	{
 		if (rc == null)
 		{
@@ -136,17 +136,12 @@ public abstract class LoadContext
 	 */
 	public abstract String getContextType();
 
-	public ListContext getGraphContext()
-	{
-		return list;
-	}
-
-	public ObjectContext getObjectContext()
+	public AbstractObjectContext getObjectContext()
 	{
 		return obj;
 	}
 
-	public ListContext getListContext()
+	public AbstractListContext getListContext()
 	{
 		return list;
 	}
