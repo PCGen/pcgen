@@ -49,12 +49,6 @@ public class EqBuilderSpellToken implements
 			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
 			return true;
 		}
-		if (value.indexOf(',') != -1)
-		{
-			Logging.errorPrint("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
-			return false;
-		}
 		if (value.indexOf('[') != -1)
 		{
 			Logging.errorPrint("CHOOSE:" + getTokenName()
