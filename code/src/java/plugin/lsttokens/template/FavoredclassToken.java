@@ -68,6 +68,9 @@ public class FavoredclassToken extends AbstractToken implements
 			return false;
 		}
 
+		context.getObjectContext().remove(pct, ObjectKey.ANY_FAVORED_CLASS);
+		context.getObjectContext().removeList(pct, ListKey.FAVORED_CLASS);
+		context.getObjectContext().removeFromList(pct, ListKey.CHOOSE_ACTOR, this);
 		return parseFavoredClass(context, pct, value);
 	}
 
