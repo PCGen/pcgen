@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class CRTokenTest extends AbstractTokenTestCase<Race>
 {
@@ -118,10 +119,27 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 		runRoundRobin("5");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "5";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "1/3";
+	}
+
 	// @Test
 	// public void testEmpty()
 	// {
 	// //Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	// }
 
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

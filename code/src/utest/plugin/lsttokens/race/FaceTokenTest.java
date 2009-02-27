@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class FaceTokenTest extends AbstractTokenTestCase<Race>
 {
@@ -229,5 +230,23 @@ public class FaceTokenTest extends AbstractTokenTestCase<Race>
 	public void testRoundRobinDecimal() throws PersistenceLayerException
 	{
 		runRoundRobin("5.1,6.3");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "5.1";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "4,5";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

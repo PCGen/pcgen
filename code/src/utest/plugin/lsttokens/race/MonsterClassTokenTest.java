@@ -26,6 +26,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 {
@@ -100,5 +101,23 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
 		runRoundRobin("Fighter:4");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Cleric:2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Fighter:4";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

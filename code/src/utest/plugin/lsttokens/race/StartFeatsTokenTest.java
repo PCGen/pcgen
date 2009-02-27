@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreHDParser;
 import plugin.pretokens.parser.PreLevelParser;
@@ -129,5 +130,23 @@ public class StartFeatsTokenTest extends AbstractTokenTestCase<Race>
 	public void testRoundRobinFive() throws PersistenceLayerException
 	{
 		runRoundRobin("5");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "4";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "3";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

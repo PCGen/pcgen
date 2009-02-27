@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 {
@@ -143,5 +144,23 @@ public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		this.runRoundRobin("5,7,9,*");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "1,2,3";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "5,7,9,*";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class FavoredClassTokenTest extends
 		AbstractListTokenTestCase<Race, PCClass>
@@ -573,14 +574,40 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Override
+	protected String getAllString()
+	{
+		return "HIGHESTLEVELCLASS";
+	}
+
+	@Override
 	public boolean allowDups()
 	{
 		return false;
 	}
 
 	@Override
-	public void testRoundRobinTestAll() throws PersistenceLayerException
+	protected ConsolidationRule getConsolidationRule()
 	{
-		runRoundRobin("HIGHESTLEVELCLASS");
+		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testOverwriteHighest() throws PersistenceLayerException
+	{
+		parse("HIGHESTLEVELCLASS");
+		validateUnparsed(primaryContext, primaryProf, "HIGHESTLEVELCLASS");
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("TestWP1"));
+	}
+
+	@Test
+	public void testOverwriteWithHighest() throws PersistenceLayerException
+	{
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, "TestWP1");
+		parse("HIGHESTLEVELCLASS");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("HIGHESTLEVELCLASS"));
 	}
 }
