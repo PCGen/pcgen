@@ -24,6 +24,7 @@ import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -72,8 +73,11 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(
+				new RuntimeReferenceContext(),
+				new ConsolidatedListCommitStrategy());
 		URI testURI = testCampaign.getURI();
 		primaryContext.getObjectContext().setSourceURI(testURI);
 		primaryContext.getObjectContext().setExtractURI(testURI);
@@ -122,38 +126,17 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		// Default is not to write out anything
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 
-		// Set value
-		for (String s : str)
-		{
-			assertTrue(parse(s));
-		}
+		parse(str);
 		primaryProf.put(ObjectKey.SOURCE_URI, testCampaign.getURI());
-		secondaryProf.put(ObjectKey.SOURCE_URI, testCampaign.getURI());
-		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-
-		assertNotNull(str);
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-					unparsed[i]);
-		}
-
-		// Do round Robin
-		StringBuilder unparsedBuilt = new StringBuilder();
-		for (String s : unparsed)
-		{
-			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
-					s).append('\t');
-		}
-		getLoader().parseLine(secondaryContext, secondaryProf,
-				unparsedBuilt.toString(), testCampaign.getURI());
-
+		String[] unparsed = validateUnparsed(primaryContext, primaryProf, str);
+		parseSecondary(unparsed);
 		// Ensure the objects are the same
 		isCDOMEqual(primaryProf, secondaryProf);
+		validateUnparse(unparsed);
+	}
 
+	protected void validateUnparse(String... unparsed)
+	{
 		// And that it comes back out the same again
 		String[] sUnparsed = getToken()
 				.unparse(secondaryContext, secondaryProf);
@@ -169,6 +152,46 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		assertEquals(expectedPrimaryMessageCount, primaryContext
 				.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
+	}
+
+	private void parseSecondary(String[] unparsed)
+			throws PersistenceLayerException
+	{
+		// Do round Robin
+		secondaryProf.put(ObjectKey.SOURCE_URI, testCampaign.getURI());
+		StringBuilder unparsedBuilt = new StringBuilder();
+		for (String s : unparsed)
+		{
+			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
+					s).append('\t');
+		}
+		getLoader().parseLine(secondaryContext, secondaryProf,
+				unparsedBuilt.toString(), testCampaign.getURI());
+	}
+
+	private void parse(String... str) throws PersistenceLayerException
+	{
+		// Set value
+		for (String s : str)
+		{
+			assertTrue(parse(s));
+		}
+	}
+
+	protected String[] validateUnparsed(LoadContext pc, T pp, String... str)
+	{
+		String[] unparsed = getToken().unparse(pc, pp);
+
+		assertNotNull(str);
+		assertNotNull(unparsed);
+		assertEquals(str.length, unparsed.length);
+
+		for (int i = 0; i < str.length; i++)
+		{
+			assertEquals("Expected " + i + " item to be equal", str[i],
+					unparsed[i]);
+		}
+		return unparsed;
 	}
 
 	public void isCDOMEqual(T cdo1, T cdo2)
@@ -229,4 +252,21 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 			fail("Token should not throw an exception with null input");
 		}
 	}
+
+	@Test
+	public void testOverwrite() throws PersistenceLayerException
+	{
+		parse(getLegalValue());
+		validateUnparsed(primaryContext, primaryProf, getLegalValue());
+		parse(getAlternateLegalValue());
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer(getLegalValue(), getAlternateLegalValue()));
+	}
+
+	protected abstract String getLegalValue();
+
+	protected abstract String getAlternateLegalValue();
+
+	protected abstract ConsolidationRule getConsolidationRule();
+
 }

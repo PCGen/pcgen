@@ -190,4 +190,21 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		runRoundRobin("Rheinhessen|VarOne|VarTwo|PRECLASS:1,Fighter=1|PRELEVEL:MIN=5");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Yarra Valley";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Rheinhessen|VarOne|VarTwo|PRELEVEL:MIN=5";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

@@ -166,4 +166,33 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject> extend
 		}
 		runRoundRobin("Yarra Valley");
 	}
+
+	@Override
+	public void testOverwrite() throws PersistenceLayerException
+	{
+		if (requiresPreconstruction())
+		{
+			getConstant(getLegalValue());
+			getConstant(getAlternateLegalValue());
+		}
+		super.testOverwrite();
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Languedoc-Roussillon";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

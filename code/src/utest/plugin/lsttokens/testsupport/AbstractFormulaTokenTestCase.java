@@ -77,4 +77,22 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	{
 		runRoundRobin("3+CL(\"Fighter\"");
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "3+CL(\"Fighter\"";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "3";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

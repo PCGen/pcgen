@@ -95,4 +95,22 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 	{
 		runRoundRobin("NO");
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "YES";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "NO";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
+import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractGlobalTypeSafeListTestCase extends
 		AbstractGlobalTokenTestCase
@@ -365,4 +366,21 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 			+ getJoinCharacter() + "Languedoc-Roussillon");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "TestWP2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "TestWP1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new AppendingConsolidation(getJoinCharacter());
+	}
 }

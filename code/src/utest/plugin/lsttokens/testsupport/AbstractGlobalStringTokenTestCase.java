@@ -80,4 +80,22 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	{
 		runRoundRobin("Yarra Valley");
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Languedoc-Roussillon";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

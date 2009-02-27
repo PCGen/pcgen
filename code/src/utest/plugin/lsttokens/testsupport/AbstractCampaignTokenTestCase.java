@@ -263,4 +263,22 @@ public abstract class AbstractCampaignTokenTestCase extends
 	{
 		return loader;
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Direct";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "@TestWP1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

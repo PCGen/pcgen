@@ -22,6 +22,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		extends AbstractGlobalTokenTestCase
@@ -525,4 +526,21 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		}
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "TestWP2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "TestWP1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new AppendingConsolidation(getJoinCharacter());
+	}
 }

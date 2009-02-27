@@ -121,4 +121,22 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	{
 		runRoundRobin("Yarra Valley");
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Languedoc-Roussillon";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

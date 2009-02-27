@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
+import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		AbstractTokenTestCase<T>
@@ -422,4 +423,22 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	// secondaryGraph);
 	// }
 	// }
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "TestWP2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "TestWP1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new AppendingConsolidation(getJoinCharacter());
+	}
 }

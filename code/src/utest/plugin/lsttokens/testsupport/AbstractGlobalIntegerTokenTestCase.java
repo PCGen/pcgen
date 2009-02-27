@@ -233,4 +233,42 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 			runRoundRobin("5");
 		}
 	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		if (isPositiveAllowed())
+		{
+			return "1";
+		}
+		else
+		{
+			return "-1";
+		}
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		if (isPositiveAllowed())
+		{
+			return "2";
+		}
+		else
+		{
+			return "-2";
+		}
+	}
+
+	@Test
+	public void testArchitecturePositiveNegative()
+	{
+		assert(isPositiveAllowed() || isNegativeAllowed());
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

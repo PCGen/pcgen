@@ -625,4 +625,23 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		}
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return getSubTokenName() + '|' + "TestWP1" + getJoinCharacter()
+				+ "TestWP2" + getJoinCharacter() + "TestWP3";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return getSubTokenName() + '|' + "TestWP1" + getJoinCharacter()
+				+ "TestWP2";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

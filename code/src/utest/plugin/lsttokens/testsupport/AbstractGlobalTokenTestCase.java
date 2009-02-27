@@ -24,6 +24,7 @@ import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
@@ -136,19 +137,32 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		assertEquals(primaryProf, secondaryProf);
 
 		// And that it comes back out the same again
-		String[] sUnparsed = getToken()
-				.unparse(secondaryContext, secondaryProf);
-		assertEquals(unparsed.length, sUnparsed.length);
-
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]);
-		}
+		validateUnparsed(secondaryContext, secondaryProf, unparsed);
 		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(secondaryContext.ref.validate(null));
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
+	}
+
+	private String[] validateUnparsed(LoadContext sc, CDOMObject sp,
+			String... unparsed)
+	{
+		String[] sUnparsed = getToken().unparse(sc, sp);
+		if (unparsed == null)
+		{
+			assertNull(sUnparsed);
+		}
+		else
+		{
+			assertEquals(unparsed.length, sUnparsed.length);
+			for (int i = 0; i < unparsed.length; i++)
+			{
+				assertEquals("Expected " + i + " item to be equal", unparsed[i],
+						sUnparsed[i]);
+			}
+		}
+
+		return sUnparsed;
 	}
 
 	public boolean parse(String str) throws PersistenceLayerException
@@ -202,4 +216,20 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	public abstract CDOMPrimaryToken<CDOMObject> getToken();
 
 	public abstract <T extends CDOMObject> CDOMLoader<T> getLoader();
+
+	@Test
+	public void testOverwrite() throws PersistenceLayerException
+	{
+		parse(getLegalValue());
+		validateUnparsed(primaryContext, primaryProf, getLegalValue());
+		parse(getAlternateLegalValue());
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer(getLegalValue(), getAlternateLegalValue()));
+	}
+
+	protected abstract String getLegalValue();
+
+	protected abstract String getAlternateLegalValue();
+
+	protected abstract ConsolidationRule getConsolidationRule();
 }

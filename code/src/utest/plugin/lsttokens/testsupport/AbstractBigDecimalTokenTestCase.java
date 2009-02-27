@@ -164,4 +164,42 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 			runRoundRobin("3.5");
 		}
 	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		if (isPositiveAllowed())
+		{
+			return "1";
+		}
+		else
+		{
+			return "-1";
+		}
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		if (isPositiveAllowed())
+		{
+			return "2.2";
+		}
+		else
+		{
+			return "-2.2";
+		}
+	}
+	
+	@Test
+	public void testArchitecturePositiveNegative()
+	{
+		assert(isPositiveAllowed() || isNegativeAllowed());
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

@@ -176,4 +176,22 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	{
 		loadContext.ref.constructCDOMObject(getTargetClass(), one);
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "TestWP2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "TestWP1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }
