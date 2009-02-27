@@ -134,13 +134,14 @@ public class VisibleToken extends AbstractToken implements
 				ObjectKey.READ_ONLY);
 		if (readOnly != null)
 		{
-			if (vis.equals(Visibility.OUTPUT_ONLY))
+			if (!vis.equals(Visibility.OUTPUT_ONLY))
 			{
-				context.addWriteMessage("ReadOnly is not allowed on a "
-						+ "Skill with Visibility " + vis);
-				return null;
+				/*
+				 * Don't barf if OUTPUT and READONLY as .MOD will cause that to
+				 * happen
+				 */
+				sb.append('|').append("READONLY");
 			}
-			sb.append('|').append("READONLY");
 		}
 		return new String[] { sb.toString() };
 	}
