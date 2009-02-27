@@ -50,6 +50,7 @@ public class KnownToken extends AbstractToken implements
 		{
 			return false;
 		}
+		context.obj.removeList(level, ListKey.KNOWN);
 
 		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
 

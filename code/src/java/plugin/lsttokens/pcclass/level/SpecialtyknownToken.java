@@ -50,6 +50,7 @@ public class SpecialtyknownToken extends AbstractToken implements
 		{
 			return false;
 		}
+		context.obj.removeList(level, ListKey.SPECIALTYKNOWN);
 
 		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
 		while (st.hasMoreTokens())

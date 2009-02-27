@@ -50,6 +50,7 @@ public class CastToken extends AbstractToken implements
 		{
 			return false;
 		}
+		context.obj.removeList(level, ListKey.CAST);
 
 		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
 		while (st.hasMoreTokens())
