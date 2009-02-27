@@ -234,7 +234,7 @@ public class FavclassToken extends AbstractToken implements
 		{
 			set.add("HIGHESTLEVELCLASS");
 		}
-		if (changes != null && !changes.isEmpty())
+		if (changes != null && !changes.isEmpty() && changes.hasAddedItems())
 		{
 			for (CDOMReference<? extends PCClass> ref : changes.getAdded())
 			{
