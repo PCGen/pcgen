@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
@@ -183,6 +184,11 @@ public abstract class AbstractObjectContext
 					for (StringKey key : neg.getStringKeys())
 					{
 						commit.put(cdo, key, null);
+					}
+					List<ObjectKey<?>> ro = neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY);
+					for (ObjectKey<?> ok : ro)
+					{
+						commit.remove(cdo, ok);
 					}
 					for (ListKey<?> key : neg.getListKeys())
 					{
