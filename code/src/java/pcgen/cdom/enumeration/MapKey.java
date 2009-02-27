@@ -28,6 +28,7 @@ import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
+import pcgen.util.enumeration.AttackType;
 
 /**
  * This is a Typesafe enumeration of legal Map Characteristics of an object. It
@@ -58,6 +59,8 @@ public final class MapKey<K, V>
 
 	public static final MapKey<CDOMSingleRef<? extends PCClass>, Integer> APPLIED_CLASS = new MapKey<CDOMSingleRef<? extends PCClass>, Integer>();
 	public static final MapKey<String, Integer> APPLIED_VARIABLE = new MapKey<String, Integer>();
+	public static final MapKey<String, String> QUALITY = new MapKey<String, String>();
+	public static final MapKey<AttackType, Integer> ATTACK_CYCLE = new MapKey<AttackType, Integer>();
 
 	/**
 	 * Private constructor to prevent instantiation of this class.

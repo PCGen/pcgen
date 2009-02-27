@@ -56,13 +56,13 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.ArmorProfProvider;
-import pcgen.cdom.helper.AttackCycle;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
@@ -1810,11 +1810,12 @@ public class PCClass extends PObject
 	 */
 	public int attackCycle(final AttackType at)
 	{
-		for (AttackCycle ac : getSafeListFor(ListKey.ATTACK_CYCLE))
+		for (Map.Entry<AttackType, Integer> me : getMapFor(MapKey.ATTACK_CYCLE)
+				.entrySet())
 		{
-			if (at.equals(ac.getAttackType()))
+			if (at.equals(me.getKey()))
 			{
-				return ac.getValue();
+				return me.getValue();
 			}
 		}
 		return SettingsHandler.getGame().getBabAttCyc();
@@ -1958,13 +1959,14 @@ public class PCClass extends PObject
 					aClass.addToListFor(ListKey.KNOWN_SPELLS, ksi);
 				}
 			}
-			List<AttackCycle> acList = getListFor(ListKey.ATTACK_CYCLE);
-			if (acList != null)
+			Map<AttackType, Integer> acmap = getMapFor(MapKey.ATTACK_CYCLE);
+			if (acmap != null && !acmap.isEmpty())
 			{
-				aClass.removeListFor(ListKey.ATTACK_CYCLE);
-				for (AttackCycle ac : acList)
+				aClass.removeMapFor(MapKey.ATTACK_CYCLE);
+				for (Map.Entry<AttackType, Integer> me : acmap.entrySet())
 				{
-					aClass.addToListFor(ListKey.ATTACK_CYCLE, ac);
+					aClass.addToMapFor(MapKey.ATTACK_CYCLE, me.getKey(), me
+							.getValue());
 				}
 			}
 

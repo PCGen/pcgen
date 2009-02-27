@@ -17,17 +17,17 @@
  */
 package plugin.lsttokens.pcclass;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.helper.AttackCycle;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.PCClass;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.MapChanges;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -74,8 +74,7 @@ public class AttackcycleToken extends AbstractToken implements
 			try
 			{
 				Integer i = Integer.parseInt(cycle);
-				context.getObjectContext().addToList(pcc, ListKey.ATTACK_CYCLE,
-						new AttackCycle(at, i));
+				context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE, at, i);
 				/*
 				 * This is a bit of a hack - it is designed to account for the
 				 * fact that the BAB tag in ATTACKCYCLE actually impacts both
@@ -90,9 +89,8 @@ public class AttackcycleToken extends AbstractToken implements
 				 */
 				if (at.equals(AttackType.MELEE))
 				{
-					context.getObjectContext().addToList(pcc,
-							ListKey.ATTACK_CYCLE,
-							new AttackCycle(AttackType.GRAPPLE, i));
+					context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE,
+							AttackType.GRAPPLE, i);
 				}
 			}
 			catch (NumberFormatException e)
@@ -107,8 +105,8 @@ public class AttackcycleToken extends AbstractToken implements
 
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Changes<AttackCycle> changes = context.getObjectContext()
-				.getListChanges(pcc, ListKey.ATTACK_CYCLE);
+		MapChanges<AttackType, Integer> changes = context.getObjectContext()
+				.getMapChanges(pcc, MapKey.ATTACK_CYCLE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -116,21 +114,22 @@ public class AttackcycleToken extends AbstractToken implements
 		Set<String> set = new TreeSet<String>();
 		Integer grappleValue = null;
 		Integer meleeValue = null;
-		for (AttackCycle ac : changes.getAdded())
+		Map<AttackType, Integer> added = changes.getAdded();
+		for (Map.Entry<AttackType, Integer> me : added.entrySet())
 		{
-			AttackType attackType = ac.getAttackType();
+			AttackType attackType = me.getKey();
 			if (attackType.equals(AttackType.GRAPPLE))
 			{
-				grappleValue = ac.getValue();
+				grappleValue = me.getValue();
 			}
 			else
 			{
 				if (attackType.equals(AttackType.MELEE))
 				{
-					meleeValue = ac.getValue();
+					meleeValue = me.getValue();
 				}
 				set.add(new StringBuilder().append(attackType.getIdentifier())
-						.append(Constants.PIPE).append(ac.getValue())
+						.append(Constants.PIPE).append(me.getValue())
 						.toString());
 			}
 		}

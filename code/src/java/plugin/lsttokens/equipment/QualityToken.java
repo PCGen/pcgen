@@ -17,15 +17,15 @@
  */
 package plugin.lsttokens.equipment;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.helper.Quality;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.MapChanges;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
@@ -76,24 +76,24 @@ public class QualityToken extends AbstractToken implements
 					+ "format is: QualityType|Quality value was: " + value);
 			return false;
 		}
-		context.getObjectContext().addToList(eq, ListKey.QUALITY,
-				new Quality(key, val));
+		context.getObjectContext().put(eq, MapKey.QUALITY, key, val);
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Changes<Quality> changes = context.getObjectContext().getListChanges(
-				eq, ListKey.QUALITY);
+		MapChanges<String, String> changes = context.getObjectContext()
+				.getMapChanges(eq, MapKey.QUALITY);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		Set<String> set = new TreeSet<String>();
-		for (Quality q : changes.getAdded())
+		Map<String, String> added = changes.getAdded();
+		for (Map.Entry<String, String> me : added.entrySet())
 		{
-			set.add(new StringBuilder().append(q.getName()).append(
-					Constants.PIPE).append(q.getValue()).toString());
+			set.add(new StringBuilder().append(me.getKey()).append(
+					Constants.PIPE).append(me.getValue()).toString());
 		}
 		return set.toArray(new String[set.size()]);
 	}

@@ -53,6 +53,8 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -90,12 +92,11 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.helper.Quality;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
@@ -814,11 +815,18 @@ public final class InfoGear extends FilterAdapterPanel implements
 				b.appendI18nElement("in_igInfoLabelTextCharges" , Integer.valueOf(charges).toString() ); //$NON-NLS-1$
 			}
 
-			List<Quality> qualityList = aEq.getListFor(ListKey.QUALITY);
-			if (qualityList != null)
+			Map<String, String> qualityMap = aEq.getMapFor(MapKey.QUALITY);
+			if (qualityMap != null)
 			{
 				b.appendSpacer();
-				b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join(qualityList, ", ")); //$NON-NLS-1$
+				Set<String> qualities = new TreeSet<String>();
+				for (Map.Entry<String, String> me : qualityMap.entrySet())
+				{
+					qualities.add(new StringBuilder().append(me.getKey())
+							.append(": ").append(me.getValue()).toString());
+				}
+				
+				b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join(qualities, ", ")); //$NON-NLS-1$
 			}
 
 			bString = aEq.getDefaultSourceString();

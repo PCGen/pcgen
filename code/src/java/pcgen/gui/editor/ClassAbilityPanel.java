@@ -39,12 +39,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.MapCollection;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
@@ -197,8 +199,8 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 
 		PCClass obj = (PCClass) po;
-		attackCycle.setText(StringUtil.join(obj
-				.getSafeListFor(ListKey.ATTACK_CYCLE), Constants.PIPE));
+		attackCycle.setText(StringUtil.join(new MapCollection(po
+				.getMapFor(MapKey.ATTACK_CYCLE)), Constants.PIPE));
 		hitDice.setText(String.valueOf(obj.getSafe(ObjectKey.LEVEL_HITDIE).getDie()));
 		deity.setText(StringUtil.join(obj.getSafeListFor(ListKey.DEITY), Constants.PIPE));
 		itemCreate.setText(obj.get(StringKey.ITEMCREATE));
