@@ -58,11 +58,21 @@ public class TypeToken extends AbstractToken implements
 			context.getObjectContext().put(campaign, StringKey.DATA_FORMAT,
 				dataFormat);
 		}
+		else
+		{
+			context.getObjectContext().put(campaign, StringKey.DATA_FORMAT,
+					null);
+		}
 		if (aTok.hasMoreTokens())
 		{
 			String campaignSetting = aTok.nextToken();
 			context.getObjectContext().put(campaign,
 				StringKey.CAMPAIGN_SETTING, campaignSetting);
+		}
+		else
+		{
+			context.getObjectContext().put(campaign,
+					StringKey.CAMPAIGN_SETTING, null);
 		}
 		if (aTok.hasMoreTokens())
 		{
