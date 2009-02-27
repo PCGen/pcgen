@@ -20,13 +20,13 @@ package plugin.lsttokens;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Equipment;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class MoveLstTest extends AbstractGlobalTokenTestCase
 {
@@ -146,4 +146,21 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("Darkvision,0,Walk,30");
 	}
 
+	@Override
+	protected String getLegalValue()
+	{
+		return "Darkvision,0";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Low-Light,0,Walk,30";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

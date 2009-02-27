@@ -33,6 +33,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 {
@@ -209,5 +210,30 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 		secondaryContext.ref.constructCDOMObject(Skill.class,
 				"Lightning Bolt");
 		runRoundRobin("SKILL|Fireball|Lightning Bolt");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "SKILL|Jump";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SKILL|Fireball|Lightning Bolt";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new ConsolidationRule()
+		{
+
+			public String[] getAnswer(String... strings)
+			{
+				return new String[] { "SKILL|Fireball|Jump|Lightning Bolt" };
+			}
+		};
 	}
 }

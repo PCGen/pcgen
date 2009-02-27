@@ -26,6 +26,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 {
@@ -220,5 +221,23 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinSubtract() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,-20");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Walk,Fly,-20";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Walk,Fly,/4";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

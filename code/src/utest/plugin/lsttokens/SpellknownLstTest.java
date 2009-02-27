@@ -37,6 +37,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -281,5 +282,22 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 		assertFalse(parse("DOMAIN|Fire=2|Fireball,Lightning Bolt|PRECLASS:1,Fighter=2"));
 		assertNoSideEffects();
 	}
-	
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "CLASS|Cleric=2|Lightning Bolt";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "CLASS|SPELLCASTER.Arcane=2|Fireball|PRECLASS:1,Fighter=2";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

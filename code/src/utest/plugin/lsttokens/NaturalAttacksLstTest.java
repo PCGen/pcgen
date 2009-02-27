@@ -30,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.Weapon;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -221,5 +222,23 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	{
 		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4,1|"
 				+ "Bite,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4,1";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Bite,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new ConsolidationRule.AppendingConsolidation('|');
 	}
 }

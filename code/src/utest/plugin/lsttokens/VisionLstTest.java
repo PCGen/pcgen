@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -304,7 +305,24 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinTwoPre() throws PersistenceLayerException
 	{
-		runRoundRobin("arkvision (20')|TestWP1|PRECLASS:1,Fighter=3|PRERACE:1,Dwarf");
+		runRoundRobin("Darkvision (20')|TestWP1|PRECLASS:1,Fighter=3|PRERACE:1,Dwarf");
 	}
 
+	@Override
+	protected String getLegalValue()
+	{
+		return "Darkvision (20')|TestWP1|PRECLASS:1,Fighter=3|PRERACE:1,Dwarf";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Darkvision (CL*10)|Normal (Form)";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

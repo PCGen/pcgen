@@ -30,6 +30,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -377,7 +378,24 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Psicrystal (Coward)");
 		construct(Race.class, "Psicrystal (Nimble)");
 		construct(Race.class, "Psicrystal (Observant)");
-		runRoundRobin("COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)");
+		runRoundRobin("Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)");
 	}
 
+	@Override
+	protected String getLegalValue()
+	{
+		return "Familiar|Tiger|FOLLOWERADJUSTMENT:-3|PRECLASS:1,Cleric=1";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRERACE:1,Human";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class KitLstTest extends AbstractGlobalTokenTestCase
 {
@@ -267,4 +268,21 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 		assertNoSideEffects();
 	}
 
+	@Override
+	protected String getLegalValue()
+	{
+		return "1|TestWP1|TestWP2";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "2|TestWP1|TestWP3";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -161,4 +162,21 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 			"SA Number One|PRECLASS:1,Fighter=1");
 	}
 
+	@Override
+	protected String getLegalValue()
+	{
+		return "SA Number %1 before %2|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SA Number One|PRECLASS:1,Fighter=1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

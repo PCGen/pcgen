@@ -30,6 +30,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -377,5 +378,23 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	{
 		runRoundRobin("SpellBook|CASTERLEVEL=12|Fireball",
 				"SpellBook|CASTERLEVEL=15|Lightning Bolt");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "SpellBook|CASTERLEVEL=12|Fireball";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SpellBook|CASTERLEVEL=15|Lightning Bolt";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

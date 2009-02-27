@@ -26,6 +26,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class UdamLstTest extends AbstractGlobalTokenTestCase
 {
@@ -138,5 +139,23 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		this.runRoundRobin("1,2,3,4*form,5*form,6,7*form,8,9");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "1,2,3,4,5,6,7,8,9";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "1,2,3,4*form,5*form,6,7*form,8,9";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

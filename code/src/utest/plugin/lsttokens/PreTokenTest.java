@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class PreTokenTest extends AbstractGlobalTokenTestCase
 {
@@ -81,4 +82,32 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	{
 		assertTrue(parse(".CLEAR"));
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		//Not worth it, nothing ever unparses
+		return null;
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		//Not worth it, nothing ever unparses
+		return null;
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		//Not worth it, nothing ever unparses
+		return null;
+	}
+
+	@Override
+	public void testOverwrite() throws PersistenceLayerException
+	{
+		//Can't be done, nothing ever unparses
+	}
+
 }

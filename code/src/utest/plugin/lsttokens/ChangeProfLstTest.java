@@ -27,6 +27,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 {
@@ -196,5 +197,31 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Nail");
 		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Nail");
 		runRoundRobin("Hammer,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		// TODO What happens in consolidation of ChangeProf if Wand is reused?
+		// What "wins"?
+		return "Pipe=Martial";// |Wand=Exotic";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Hammer,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new ConsolidationRule()
+		{
+			public String[] getAnswer(String... strings)
+			{
+				return new String[] { "Hammer,Pipe,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic" };
+			}
+		};
 	}
 }

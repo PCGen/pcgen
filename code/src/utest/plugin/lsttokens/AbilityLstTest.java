@@ -32,6 +32,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -428,5 +429,23 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE=.One"));
 		assertNoSideEffects();
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Feat|VIRTUAL|Abil1|PRERACE:1,Human";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Feat|VIRTUAL|TYPE=TestType";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

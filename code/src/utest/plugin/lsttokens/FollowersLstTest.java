@@ -27,6 +27,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class FollowersLstTest extends AbstractGlobalTokenTestCase
 {
@@ -146,4 +147,21 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("Follower|4+1", "Pet|PetForm");
 	}
 
+	@Override
+	protected String getLegalValue()
+	{
+		return "Follower|4+1";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Pet|PetForm";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

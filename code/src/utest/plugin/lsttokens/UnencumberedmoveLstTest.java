@@ -26,6 +26,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
 {
@@ -176,6 +177,24 @@ public class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinLoadArmor() throws PersistenceLayerException
 	{
 		runRoundRobin("HeavyLoad|MediumArmor");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "HeavyLoad|MediumArmor";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "MediumLoad";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 
 }

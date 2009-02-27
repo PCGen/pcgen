@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -177,5 +178,23 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinPre() throws PersistenceLayerException
 	{
 		runRoundRobin("5/+3|PRERACE:1,Human");
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "5/+2 or Hard";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "5/+3|PRERACE:1,Human";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

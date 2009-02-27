@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class DefineLstTest extends AbstractGlobalTokenTestCase
 {
@@ -145,5 +146,22 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("UNLOCK.STR");
 	}
 
+	@Override
+	protected String getLegalValue()
+	{
+		return "LOCK.STR|10";
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "VariableName|CL(\"Fighter\")";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 
 }
