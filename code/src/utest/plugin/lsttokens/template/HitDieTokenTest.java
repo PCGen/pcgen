@@ -26,6 +26,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class HitDieTokenTest extends AbstractTokenTestCase<PCTemplate>
 {
@@ -505,5 +506,23 @@ public class HitDieTokenTest extends AbstractTokenTestCase<PCTemplate>
 	public void testRoundRobinHdownType() throws PersistenceLayerException
 	{
 		runRoundRobin("%Hdown2|CLASS.TYPE=Base");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "%Hdown2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "%*2|CLASS.TYPE=Base";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

@@ -117,5 +117,24 @@ public class SubraceTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate>
 		}
 	}
 
+	@Test
+	public void testOverwriteYes() throws PersistenceLayerException
+	{
+		parse("YES");
+		validateUnparsed(primaryContext, primaryProf, "YES");
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("TestWP1"));
+	}
+
+	@Test
+	public void testOverwriteWithYes() throws PersistenceLayerException
+	{
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, "TestWP1");
+		parse("YES");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("YES"));
+	}
 
 }

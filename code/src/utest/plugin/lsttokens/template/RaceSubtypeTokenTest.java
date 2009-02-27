@@ -242,4 +242,25 @@ public class RaceSubtypeTokenTest extends
 	{
 		return false;
 	}
+
+
+	@Test
+	public void testOverwriteRemove() throws PersistenceLayerException
+	{
+		parse(".REMOVE.TestWP2");
+		validateUnparsed(primaryContext, primaryProf, ".REMOVE.TestWP2");
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer(".REMOVE.TestWP2|TestWP1"));
+	}
+
+	@Test
+	public void testOverwriteWithRemove() throws PersistenceLayerException
+	{
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, "TestWP1");
+		parse(".REMOVE.TestWP2");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer(".REMOVE.TestWP2|TestWP1"));
+	}
 }

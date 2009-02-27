@@ -32,6 +32,7 @@ import plugin.lsttokens.SabLst;
 import plugin.lsttokens.SrLst;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreLevelWriter;
@@ -312,4 +313,21 @@ public class RepeatLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 			"1|2|20:5:SAB:Special Ability, Man!");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "2|4|20:5:SAB:Sample Spec Abil";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "1|2|20:5:CR:-1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

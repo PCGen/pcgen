@@ -30,6 +30,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class SizeTokenTest extends AbstractTokenTestCase<PCTemplate>
 {
@@ -96,4 +97,21 @@ public class SizeTokenTest extends AbstractTokenTestCase<PCTemplate>
 		runRoundRobin("max(4,String)");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "max(4,String)";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "M";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

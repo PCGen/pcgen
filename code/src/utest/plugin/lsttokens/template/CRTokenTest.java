@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class CRTokenTest extends AbstractTokenTestCase<PCTemplate>
 {
@@ -83,4 +84,21 @@ public class CRTokenTest extends AbstractTokenTestCase<PCTemplate>
 		runRoundRobin("-3.5");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "5";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "-3";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

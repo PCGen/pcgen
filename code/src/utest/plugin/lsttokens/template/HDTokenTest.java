@@ -32,6 +32,7 @@ import plugin.lsttokens.SabLst;
 import plugin.lsttokens.SrLst;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreHDParser;
 import plugin.pretokens.writer.PreHDWriter;
@@ -366,4 +367,21 @@ public class HDTokenTest extends AbstractTokenTestCase<PCTemplate>
 		runRoundRobin("4+:CR:-1", "4+:SAB:Special Ability, Man!");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "5+:SAB:Special Ability, Man!";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "4+:CR:-3";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

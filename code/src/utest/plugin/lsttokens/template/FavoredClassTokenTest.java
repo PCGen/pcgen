@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class FavoredClassTokenTest extends
 		AbstractListTokenTestCase<PCTemplate, PCClass>
@@ -204,5 +205,51 @@ public class FavoredClassTokenTest extends
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testOverwriteList() throws PersistenceLayerException
+	{
+		parse("%LIST");
+		validateUnparsed(primaryContext, primaryProf, "%LIST");
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("TestWP1"));
+	}
+
+	@Test
+	public void testOverwriteWithList() throws PersistenceLayerException
+	{
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, "TestWP1");
+		parse("%LIST");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("%LIST"));
+	}
+
+	@Test
+	public void testOverwriteHighest() throws PersistenceLayerException
+	{
+		parse("HIGHESTLEVELCLASS");
+		validateUnparsed(primaryContext, primaryProf, "HIGHESTLEVELCLASS");
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("TestWP1"));
+	}
+
+	@Test
+	public void testOverwriteWithHighest() throws PersistenceLayerException
+	{
+		parse("TestWP1");
+		validateUnparsed(primaryContext, primaryProf, "TestWP1");
+		parse("HIGHESTLEVELCLASS");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("HIGHESTLEVELCLASS"));
 	}
 }

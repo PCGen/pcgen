@@ -28,6 +28,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ChooseLangautoTokenTest extends
 		AbstractAddTokenTestCase<CDOMObject, Language>
@@ -102,5 +103,11 @@ public class ChooseLangautoTokenTest extends
 	public boolean allowsFormula()
 	{
 		return false;
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }
