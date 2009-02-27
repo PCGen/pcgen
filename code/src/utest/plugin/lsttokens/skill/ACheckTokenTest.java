@@ -27,6 +27,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ACheckTokenTest extends AbstractTokenTestCase<Skill>
 {
@@ -140,5 +141,23 @@ public class ACheckTokenTest extends AbstractTokenTestCase<Skill>
 	public void testRoundRobinWeight() throws PersistenceLayerException
 	{
 		runRoundRobin("WEIGHT");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "DOUBLE";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "WEIGHT";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

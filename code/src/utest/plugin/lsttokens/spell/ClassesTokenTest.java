@@ -29,7 +29,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
@@ -356,5 +358,23 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 		assertTrue(parse("Wizard=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertNull("Expected item to be null", unparsed);
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Sorcerer=6";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Abjurer=3|Bard=4";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new AppendingConsolidation('|');
 	}
 }

@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class KeystatTokenTest extends AbstractTokenTestCase<Skill>
 {
@@ -104,4 +105,21 @@ public class KeystatTokenTest extends AbstractTokenTestCase<Skill>
 		runRoundRobin("STR");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "STR";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "INT";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

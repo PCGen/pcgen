@@ -30,7 +30,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 import plugin.pretokens.parser.PreClassParser;
 
 public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
@@ -253,5 +255,23 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
 		runRoundRobin("ALL|!Sorcerer|!Wizard");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Sorcerer";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Wizard|Bard";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new AppendingConsolidation('|');
 	}
 }

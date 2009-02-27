@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ProhibitspellTokenTest extends AbstractTokenTestCase<SubClass>
 {
@@ -125,5 +126,23 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<SubClass>
 			throws PersistenceLayerException
 	{
 		runRoundRobin("SUBSCHOOL|Subsch");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SUBSCHOOL|Subsch";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "SCHOOL|Evocation";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

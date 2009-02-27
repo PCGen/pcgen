@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class SpellPointCostTokenTest extends AbstractTokenTestCase<Spell>
 {
@@ -315,5 +316,23 @@ public class SpellPointCostTokenTest extends AbstractTokenTestCase<Spell>
 			throws PersistenceLayerException
 	{
 		this.runRoundRobin("Potions=100|Scrolls=500");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Potions=100|Scrolls=500";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "500|Potions=10";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new ConsolidationRule.AppendingConsolidation('|');
 	}
 }
