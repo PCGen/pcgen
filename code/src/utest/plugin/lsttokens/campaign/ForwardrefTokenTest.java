@@ -33,6 +33,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 {
@@ -200,5 +201,23 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 			throws PersistenceLayerException
 	{
 		runRoundRobin("FEAT|My Feat", "SPELL|Lightning Bolt");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SPELL|Lightning Bolt";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "FEAT|My Feat";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

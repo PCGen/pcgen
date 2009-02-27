@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 {
@@ -234,5 +235,23 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon", "Rheinhessen", "Rheinhessen");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Languedoc-Roussillon";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

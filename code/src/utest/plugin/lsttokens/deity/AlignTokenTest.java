@@ -30,6 +30,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 {
@@ -120,4 +121,21 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 		runRoundRobin("LN");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "LG";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "LN";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

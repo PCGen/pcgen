@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class TypeTokenTest extends AbstractTokenTestCase<Campaign>
 {
@@ -115,5 +116,23 @@ public class TypeTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon.Two.Yarra Valley");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Finger Lakes.Niederösterreich";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Languedoc-Roussillon.Two.Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

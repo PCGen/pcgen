@@ -30,6 +30,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 {
@@ -314,5 +315,23 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 	{
 		runRoundRobin("FILE=@data/Languedoc-Roussillon",
 				"FILE=@data/Rheinhessen", "FILE=@data/Rheinhessen");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "FILE=@data/Languedoc-Roussillon";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "FILE=@data/Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

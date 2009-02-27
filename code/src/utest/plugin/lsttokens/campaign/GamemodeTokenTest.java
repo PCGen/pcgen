@@ -26,6 +26,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign>
 {
@@ -110,6 +111,13 @@ public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign>
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
 		//Override because GameMode performs a .CLEAR
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		//Override because GameMode performs a .CLEAR
+		return ConsolidationRule.OVERWRITE;
 	}
 	
 	

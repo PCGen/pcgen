@@ -35,6 +35,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -204,4 +205,16 @@ public class FeatTokenTest extends
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1|TestWP1");
 	}
 
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new ConsolidationRule()
+		{
+
+			public String[] getAnswer(String... strings)
+			{
+				return new String[] { "FEAT|TestWP1|TestWP1|TestWP2|TestWP2|TestWP3" };
+			}
+		};
+	}
 }

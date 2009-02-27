@@ -33,6 +33,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
@@ -252,8 +253,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputStacksNaN()
-			throws PersistenceLayerException
+	public void testInvalidInputStacksNaN() throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|STACKS=x,TestWP1" + getJoinCharacter()
@@ -262,8 +262,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputOnlyStacks()
-			throws PersistenceLayerException
+	public void testInvalidInputOnlyStacks() throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|STACKS=4"));
 		assertNoSideEffects();
@@ -779,4 +778,21 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 				getSubTokenName() + "|FEAT|NORMAL|TestWP1");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return getSubTokenName() + '|' + "FEAT|NORMAL|STACKS=2,TestWP1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

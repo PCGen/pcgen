@@ -27,6 +27,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class CategoryTokenTest extends AbstractTokenTestCase<Ability>
 {
@@ -72,5 +73,23 @@ public class CategoryTokenTest extends AbstractTokenTestCase<Ability>
 		AbilityCategory ac = new AbilityCategory("Mutation");
 		SettingsHandler.getGame().addAbilityCategory(ac);
 		runRoundRobin("Mutation");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Mutation";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "FEAT";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

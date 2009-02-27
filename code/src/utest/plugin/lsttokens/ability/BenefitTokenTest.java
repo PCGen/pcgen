@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -168,4 +169,21 @@ public class BenefitTokenTest extends AbstractTokenTestCase<Ability>
 			"SA Number One|PRECLASS:1,Fighter=1");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SA Number %1|Variab";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "SA Number One|PRECLASS:1,Fighter=1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

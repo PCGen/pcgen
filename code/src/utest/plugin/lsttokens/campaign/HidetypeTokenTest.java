@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class HidetypeTokenTest extends AbstractTokenTestCase<Campaign>
 {
@@ -117,4 +118,21 @@ public class HidetypeTokenTest extends AbstractTokenTestCase<Campaign>
 		runRoundRobin("FEAT|Niederösterreich|Finger Lakes");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SKILL|QualityValue";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "EQUIP|Quality Value";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

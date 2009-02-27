@@ -30,6 +30,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 /**
  * The Class <code>AspectTokenTest</code> is responsible for verifying that
@@ -139,5 +140,23 @@ public class AspectTokenTest extends AbstractTokenTestCase<Ability>
 	public void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon Quality|Languedoc-Roussillon");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "First Quality|Niederösterreich";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "First Quality|Languedoc-Roussillon";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

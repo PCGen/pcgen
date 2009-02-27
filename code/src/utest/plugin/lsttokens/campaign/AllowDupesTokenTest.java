@@ -32,6 +32,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class AllowDupesTokenTest extends AbstractTokenTestCase<Campaign>
 {
@@ -107,5 +108,23 @@ public class AllowDupesTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinBoth() throws PersistenceLayerException
 	{
 		runRoundRobin("LANGUAGE", "SPELL");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SPELL";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "LANGUAGE";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

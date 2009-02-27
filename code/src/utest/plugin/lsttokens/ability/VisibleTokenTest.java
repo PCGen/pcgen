@@ -27,6 +27,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class VisibleTokenTest extends AbstractTokenTestCase<Ability>
 {
@@ -134,4 +135,21 @@ public class VisibleTokenTest extends AbstractTokenTestCase<Ability>
 		runRoundRobin("NO");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "EXPORT";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "DISPLAY";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }
