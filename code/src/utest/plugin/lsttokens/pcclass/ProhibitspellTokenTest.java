@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -308,4 +309,21 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<PCClass>
 				"SUBSCHOOL.Subsch");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SUBSCHOOL.Subsch";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "SPELL.Fireball,Lightning Bolt|PRECLASS:1,Fighter=1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
+	}
 }

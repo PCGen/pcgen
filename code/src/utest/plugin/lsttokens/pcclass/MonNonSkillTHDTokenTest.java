@@ -28,6 +28,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.MonNonSkillHD;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
@@ -130,5 +131,23 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testRoundRobinDiffSamePre() throws PersistenceLayerException
 	{
 		runRoundRobin("VARIABLE1|PRERACE:1,HUMAN", "VARIABLE2|PRERACE:1,HUMAN");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "VARIABLE2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "VARIABLE1|PRERACE:1,HUMAN";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.SEPARATE;
 	}
 }

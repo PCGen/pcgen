@@ -20,6 +20,7 @@ package plugin.lsttokens.pcclass.level;
 import org.junit.Test;
 
 import pcgen.persistence.PersistenceLayerException;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public abstract class AbstractSpellCastingTokenTestCase extends
 		AbstractPCClassLevelTokenTestCase
@@ -137,4 +138,21 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		runRoundRobin("Form,Form2+Form3,1");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Form,Form2+Form3,1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "3,2,1";
+	}
 }

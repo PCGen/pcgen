@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ModsTokenTest extends AbstractTokenTestCase<Equipment>
 {
@@ -87,5 +88,23 @@ public class ModsTokenTest extends AbstractTokenTestCase<Equipment>
 	public void testRoundRobinRequired() throws PersistenceLayerException
 	{
 		runRoundRobin("REQUIRED");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "REQUIRED";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "YES";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

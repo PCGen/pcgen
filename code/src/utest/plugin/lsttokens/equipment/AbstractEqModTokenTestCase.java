@@ -234,4 +234,14 @@ public abstract class AbstractEqModTokenTestCase extends
 	{
 		return false;
 	}
+
+	@Test
+	public void testOverwriteDamageWeightAdd() throws PersistenceLayerException
+	{
+		parse("_DAMAGE|4d6");
+		validateUnparsed(primaryContext, primaryProf, "_DAMAGE|4d6");
+		parse("_WEIGHTADD|9500");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("_DAMAGE|4d6", "_WEIGHTADD|9500"));
+	}
 }

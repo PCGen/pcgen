@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 {
@@ -115,4 +116,31 @@ public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 		runRoundRobin("NONE");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "NONE";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "STR";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testOverwriteNoneStr() throws PersistenceLayerException
+	{
+		parse("NONE");
+		validateUnparsed(primaryContext, primaryProf, "NONE");
+		parse("STR");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("STR"));
+	}
 }

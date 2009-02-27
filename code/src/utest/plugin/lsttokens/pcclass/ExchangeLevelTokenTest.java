@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 {
@@ -248,5 +249,23 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 		primaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
 		secondaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
 		runRoundRobin("Paladin|5|10|1");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Paladin|5|10|1";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Paladin|10|10|0";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

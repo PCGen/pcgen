@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class NameoptTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 {
@@ -121,4 +122,21 @@ public class NameoptTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 		runRoundRobin("TEXT=This is the text");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "SPELL";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "TEXT=This is the text";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

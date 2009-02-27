@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class WtTokenTest extends AbstractTokenTestCase<Equipment>
 {
@@ -130,4 +131,21 @@ public class WtTokenTest extends AbstractTokenTestCase<Equipment>
 		runRoundRobin("3.5");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "1";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "3.5";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class RaceTypeTokenTest extends AbstractTokenTestCase<PCClass>
 {
@@ -86,5 +87,23 @@ public class RaceTypeTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testRoundRobinY() throws PersistenceLayerException
 	{
 		runRoundRobin("Yarra Valley");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Languedoc-Roussillon";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Yarra Valley";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

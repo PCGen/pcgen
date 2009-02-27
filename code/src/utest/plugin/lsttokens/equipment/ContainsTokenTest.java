@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ContainsTokenTest extends AbstractTokenTestCase<Equipment>
 {
@@ -488,8 +489,26 @@ public class ContainsTokenTest extends AbstractTokenTestCase<Equipment>
 	{
 		this.runRoundRobin("UNLIM|Total=10|Paper=10|Scroll=10");
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "UNLIM|Any=100";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "500|Potions=50";
+	}
 	
 	// CONSIDER Optional Input methods
 	// this.runRoundRobin("UNLIM|Total=10|Paper=10|Scroll=UNLIM");
 	// this.runRoundRobin("UNLIM|Paper=10|Scroll=UNLIM");
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

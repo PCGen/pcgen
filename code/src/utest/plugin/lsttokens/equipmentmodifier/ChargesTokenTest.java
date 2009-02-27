@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ChargesTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 {
@@ -117,5 +118,23 @@ public class ChargesTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 	public void testRoundRobinMatching() throws PersistenceLayerException
 	{
 		runRoundRobin("10|10");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "6|15";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "4|7";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

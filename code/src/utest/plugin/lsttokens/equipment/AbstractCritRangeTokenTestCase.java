@@ -24,6 +24,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public abstract class AbstractCritRangeTokenTestCase extends
 		AbstractTokenTestCase<Equipment>
@@ -110,5 +111,23 @@ public abstract class AbstractCritRangeTokenTestCase extends
 	public void testRoundRobinFive() throws PersistenceLayerException
 	{
 		runRoundRobin("5");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "5";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "2";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

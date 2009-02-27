@@ -27,6 +27,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class VisibleTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 {
@@ -125,5 +126,23 @@ public class VisibleTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 	public void testRoundRobinNo() throws PersistenceLayerException
 	{
 		runRoundRobin("NO");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "QUALIFY";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "NO";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

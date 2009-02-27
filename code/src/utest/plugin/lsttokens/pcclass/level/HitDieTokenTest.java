@@ -22,6 +22,7 @@ import org.junit.Test;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 {
@@ -337,5 +338,23 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testRoundRobinHdown() throws PersistenceLayerException
 	{
 		runRoundRobin("%Hdown2");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "%down2";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "%Hup2";
 	}
 }

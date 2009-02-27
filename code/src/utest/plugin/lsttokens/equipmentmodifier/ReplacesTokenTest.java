@@ -24,6 +24,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ReplacesTokenTest extends
 		AbstractTypeSafeListTestCase<EquipmentModifier>
@@ -102,5 +103,11 @@ public class ReplacesTokenTest extends
 	protected boolean requiresPreconstruction()
 	{
 		return true;
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

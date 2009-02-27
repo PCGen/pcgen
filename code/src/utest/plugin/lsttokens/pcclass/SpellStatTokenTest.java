@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 {
@@ -119,4 +120,63 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		runRoundRobin("OTHER");
 	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "OTHER";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "STR";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testOverwriteStrSpell() throws PersistenceLayerException
+	{
+		parse("STR");
+		validateUnparsed(primaryContext, primaryProf, "STR");
+		parse("SPELL");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("STR", "SPELL"));
+	}
+
+	@Test
+	public void testOverwriteSpellOther() throws PersistenceLayerException
+	{
+		parse("SPELL");
+		validateUnparsed(primaryContext, primaryProf, "SPELL");
+		parse("OTHER");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("SPELL", "OTHER"));
+	}
+
+	@Test
+	public void testOverwriteSpellStr() throws PersistenceLayerException
+	{
+		parse("SPELL");
+		validateUnparsed(primaryContext, primaryProf, "SPELL");
+		parse("STR");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("SPELL", "STR"));
+	}
+
+	@Test
+	public void testOverwriteOtherStr() throws PersistenceLayerException
+	{
+		parse("OTHER");
+		validateUnparsed(primaryContext, primaryProf, "OTHER");
+		parse("STR");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("OTHER", "STR"));
+	}
+
 }

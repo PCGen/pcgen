@@ -24,6 +24,7 @@ import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.PCClassLevel;
@@ -40,6 +41,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
@@ -145,8 +147,18 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		// Doesn't pollute other levels
 		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
 		assertNull(getToken().unparse(secondaryContext, secondaryProf3));
-		String[] sUnparsed = getToken().unparse(secondaryContext,
-				secondaryProf2);
+		validateUnparsed(secondaryContext, secondaryProf2, unparsed);
+		assertTrue(primaryContext.ref.validate(null));
+		assertTrue(secondaryContext.ref.validate(null));
+		assertEquals(0, primaryContext.getWriteMessageCount());
+		assertEquals(0, secondaryContext.getWriteMessageCount());
+	}
+
+	private void validateUnparsed(LoadContext sc, PCClassLevel sp,
+			String... unparsed)
+	{
+		String[] sUnparsed = getToken().unparse(sc,
+				sp);
 		assertEquals(unparsed.length, sUnparsed.length);
 
 		for (int i = 0; i < unparsed.length; i++)
@@ -154,10 +166,6 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 			assertEquals("Expected " + i + " item to be equal", unparsed[i],
 					sUnparsed[i]);
 		}
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(secondaryContext.ref.validate(null));
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	public abstract CDOMPrimaryToken<PCClassLevel> getToken();
@@ -208,4 +216,22 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		}
 		return b;
 	}
+
+	@Test
+	public void testOverwrite() throws PersistenceLayerException
+	{
+		parse(getLegalValue(), 1);
+		validateUnparsed(primaryContext, primaryProf.getClassLevel(1),
+				getLegalValue());
+		parse(getAlternateLegalValue(), 1);
+		validateUnparsed(primaryContext, primaryProf.getClassLevel(1),
+				getConsolidationRule().getAnswer(getLegalValue(),
+						getAlternateLegalValue()));
+	}
+
+	protected abstract String getLegalValue();
+
+	protected abstract String getAlternateLegalValue();
+
+	protected abstract ConsolidationRule getConsolidationRule();
 }

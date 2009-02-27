@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
@@ -118,4 +119,21 @@ public class ProhibitedTokenTest extends AbstractTokenTestCase<PCClass>
 		runRoundRobin("Fear,Fire");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Fire";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Fear";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return new ConsolidationRule.AppendingConsolidation(',');
+	}
 }

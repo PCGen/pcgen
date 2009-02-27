@@ -28,6 +28,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 {
@@ -327,4 +328,21 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		loadContext.ref.constructCDOMObject(DomainSpellList.class, one);
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "2|TestWP1|TestWP3";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "1|TestWP1|TestWP2";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

@@ -24,6 +24,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public abstract class AbstractDamageTokenTestCase extends
 		AbstractTokenTestCase<Equipment>
@@ -128,5 +129,23 @@ public abstract class AbstractDamageTokenTestCase extends
 	public void testRoundRobinDash() throws PersistenceLayerException
 	{
 		runRoundRobin("-");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "-";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "1d2";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

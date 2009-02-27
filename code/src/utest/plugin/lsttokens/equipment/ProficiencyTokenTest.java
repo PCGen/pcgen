@@ -30,6 +30,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 {
@@ -525,4 +526,21 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		return false;
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "ARMOR|TestWP2";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "ARMOR|TestWP1";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

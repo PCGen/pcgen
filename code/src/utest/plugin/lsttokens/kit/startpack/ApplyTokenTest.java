@@ -27,6 +27,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ApplyTokenTest extends AbstractTokenTestCase<Kit>
 {
@@ -108,4 +109,21 @@ public class ApplyTokenTest extends AbstractTokenTestCase<Kit>
 		runRoundRobin("INSTANT");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "PERMANENT";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "INSTANT";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

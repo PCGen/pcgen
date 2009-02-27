@@ -25,6 +25,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 {
@@ -87,5 +88,23 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 	public void testRoundRobinTwoHanded() throws PersistenceLayerException
 	{
 		runRoundRobin("TwoHanded");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "TwoHanded";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Light";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
 	}
 }

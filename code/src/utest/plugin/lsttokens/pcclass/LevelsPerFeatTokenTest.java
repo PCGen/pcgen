@@ -29,6 +29,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class LevelsPerFeatTokenTest extends AbstractTokenTestCase<PCClass>
 {
@@ -176,4 +177,21 @@ public class LevelsPerFeatTokenTest extends AbstractTokenTestCase<PCClass>
 		runRoundRobin("3|LEVELTYPE=Foo");
 	}
 
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "4";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "3|LEVELTYPE=Foo";
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }
