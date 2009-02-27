@@ -455,6 +455,61 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	}
 	
 	/**
+	 * Validate naming items using the NOTHING name option 
+	 * @throws Exception 
+	 */
+	public void testGetItemNameFromModifiersNothing() throws Exception
+	{
+		GenericLoader<EquipmentModifier> loader =
+				new GenericLoader<EquipmentModifier>(EquipmentModifier.class);
+		loader
+			.parseLine(
+				Globals.getContext(),
+				null,
+				"Hidden Mod	KEY:HIDDENMOD	FORMATCAT:PARENS	NAMEOPT:TEXT=Foo	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+				source);
+		EquipmentModifier eqMod =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					EquipmentModifier.class, "HIDDENMOD");
+		assertNotNull("Eqmod should be present", eqMod);
+		loader
+		.parseLine(
+			Globals.getContext(),
+			null,
+			"Hidden Mod 2	KEY:HIDDENMOD2	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+			source);
+	EquipmentModifier eqMod2 =
+			Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				EquipmentModifier.class, "HIDDENMOD2");
+	assertNotNull("Eqmod should be present", eqMod);
+	assertNotNull("Eqmod should be present", eqMod);
+	loader
+	.parseLine(
+		Globals.getContext(),
+		null,
+		"Hidden Mod 2	KEY:HIDDENMOD3	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
+		source);
+EquipmentModifier eqMod3 =
+		Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "HIDDENMOD3");
+assertNotNull("Eqmod should be present", eqMod);
+
+		Equipment aEquip = eq.clone();
+		assertEquals("Name before modifier added", "Dummy", aEquip
+			.getItemNameFromModifiers());
+		aEquip.addEqModifier(eqMod, true, getCharacter());
+		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+			.getItemNameFromModifiers());
+		aEquip.addEqModifier(eqMod2, true, getCharacter());
+		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+			.getItemNameFromModifiers());
+		aEquip.addEqModifier(eqMod3, true, getCharacter());
+		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+			.getItemNameFromModifiers());
+
+	}
+	
+	/**
 	 * Validate the processing of the getCost function. 
 	 */
 	public void testGetCost()

@@ -3919,11 +3919,12 @@ public final class Equipment extends PObject implements Serializable,
 		final StringBuffer sMod = new StringBuffer(70);
 
 		for (EquipmentModifier eqMod : eqList) {
-			if (sMod.length() != 0) {
+			final String modDesc = eqMod.getSafe(ObjectKey.NAME_OPT).returnName(this, eqMod);
+			if (sMod.length() > 0 && modDesc.length()>0) {
 				sMod.append('/');
 			}
 
-			sMod.append(eqMod.getSafe(ObjectKey.NAME_OPT).returnName(this, eqMod));
+			sMod.append(modDesc);
 		}
 
 		return sMod.toString();
