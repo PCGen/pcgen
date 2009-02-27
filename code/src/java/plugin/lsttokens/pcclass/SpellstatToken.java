@@ -92,20 +92,9 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 		if (useStat.booleanValue())
 		{
-			if (pcs != null)
-			{
-				context
-						.addWriteMessage(getTokenName()
-								+ " did not expect SPELL_STAT to exist since USE_SPELL_SPELL_STAT was true");
-				return null;
-			}
-			if (otherCaster != null)
-			{
-				context
-						.addWriteMessage(getTokenName()
-								+ " did not expect CASTER_WITHOUT_SPELL_STAT to exist since USE_SPELL_SPELL_STAT was true");
-				return null;
-			}
+			/*
+			 * Don't test pcs != null or otherCaster != null due to .MOD behavior
+			 */
 			return new String[] { "SPELL" };
 		}
 		if (otherCaster == null)
@@ -117,13 +106,9 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 		else if (otherCaster.booleanValue())
 		{
-			if (pcs != null)
-			{
-				context
-						.addWriteMessage(getTokenName()
-								+ " did not expect SPELL_STAT to exist since CASTER_WITHOUT_SPELL_STAT was true");
-				return null;
-			}
+			/*
+			 * Don't test pcs != null due to .MOD behavior
+			 */
 			return new String[] { "OTHER" };
 		}
 		else if (pcs == null)

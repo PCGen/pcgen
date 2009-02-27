@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
@@ -49,6 +50,17 @@ public class LevelsperfeatToken extends AbstractToken implements
 		if (pipeLoc == -1)
 		{
 			numLevels = value;
+			/*
+			 * CONSIDER This could stand to see some improvement. The challenge
+			 * here is that some tokens use this syntax (setting to null) to
+			 * identify .CLEAR (vs. a remove like ObjectKey possesses). This
+			 * needs similar behavior, but needs to not unparse .CLEAR - the
+			 * result being that the unparse method of this token needs to
+			 * explicitly check LEVEL_TYPE against .CLEAR to ensure that
+			 * (invalid) string is not unparsed.
+			 */
+			context.getObjectContext()
+					.put(pcc, StringKey.LEVEL_TYPE, null);
 		}
 		else
 		{
@@ -132,7 +144,8 @@ public class LevelsperfeatToken extends AbstractToken implements
 		result.append(lpf);
 		String levelType = context.getObjectContext().getString(pcc,
 				StringKey.LEVEL_TYPE);
-		if (levelType != null && levelType.length() > 0)
+		if (levelType != null && levelType.length() > 0
+				&& !levelType.equals(Constants.LST_DOT_CLEAR))
 		{
 			result.append("|LEVELTYPE=");
 			result.append(levelType);
