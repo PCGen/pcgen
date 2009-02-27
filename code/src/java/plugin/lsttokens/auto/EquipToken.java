@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
@@ -199,8 +200,11 @@ public class EquipToken extends AbstractToken implements
 		}
 		for (List<Prerequisite> prereqs : m.getKeySet())
 		{
-			String ab = ReferenceUtilities.joinLstFormat(m.getListFor(prereqs),
-					Constants.PIPE);
+			List<CDOMReference<Equipment>> eq = m.getListFor(prereqs);
+			WeightedCollection<CDOMReference<Equipment>> refs = new WeightedCollection<CDOMReference<Equipment>>(
+					ReferenceUtilities.REFERENCE_SORTER);
+			refs.addAll(eq);
+			String ab = ReferenceUtilities.joinLstFormat(refs, Constants.PIPE);
 			if (prereqs != null && !prereqs.isEmpty())
 			{
 				if (prereqs.size() > 1)
