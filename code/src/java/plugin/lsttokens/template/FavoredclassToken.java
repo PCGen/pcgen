@@ -135,7 +135,8 @@ public class FavoredclassToken extends AbstractToken implements
 		if (foundAny && foundOther)
 		{
 			Logging.errorPrint("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains HIGHESTLEVELCLASS and a specific reference: "
+					+ value);
 			return false;
 		}
 		return true;

@@ -73,6 +73,10 @@ public class FavclassToken extends AbstractToken implements
 		{
 			return false;
 		}
+		context.getObjectContext().remove(race, ObjectKey.ANY_FAVORED_CLASS);
+		context.getObjectContext().removeList(race, ListKey.FAVORED_CLASS);
+		context.getObjectContext().removeFromList(race, ListKey.CHOOSE_ACTOR, this);
+		context.getObjectContext().remove(race, ObjectKey.FAVCLASS_CHOICE);
 
 		if (value.startsWith(Constants.LST_CHOOSE))
 		{
@@ -210,7 +214,8 @@ public class FavclassToken extends AbstractToken implements
 		if (foundAny && foundOther)
 		{
 			Logging.errorPrint("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains HIGHESTLEVELCLASS and a specific reference: "
+					+ value);
 			return false;
 		}
 		return true;
