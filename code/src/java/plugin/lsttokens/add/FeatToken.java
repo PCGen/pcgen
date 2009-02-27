@@ -210,8 +210,7 @@ public class FeatToken extends AbstractToken implements
 			return false;
 		}
 
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs, nature,
-				allowStack, dupChoices);
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs, nature);
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(

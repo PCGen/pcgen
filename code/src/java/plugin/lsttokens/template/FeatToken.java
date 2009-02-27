@@ -77,8 +77,6 @@ public class FeatToken extends AbstractToken implements
 
 		List<AbilityRef> refs = new ArrayList<AbilityRef>();
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		boolean allowStack = false;
-		int dupChoices = 0;
 
 		boolean first = true;
 
@@ -137,18 +135,13 @@ public class FeatToken extends AbstractToken implements
 		}
 
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
-				nature, allowStack, dupChoices);
+				nature);
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		context.getObjectContext().addToList(pct, ListKey.TEMPLATE_FEAT, tc);
 		tc.setTitle("Feat Choice");
-		tc.allowStack(allowStack);
-		if (dupChoices != 0)
-		{
-			tc.setStackLimit(dupChoices);
-		}
 		tc.setChoiceActor(this);
 		return true;
 	}

@@ -192,7 +192,7 @@ public class FeatToken extends AbstractToken implements
 		if (!refs.isEmpty())
 		{
 			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
-					nature, true, 0);
+					nature);
 			pcs.add(rcs);
 		}
 		if (pcs.isEmpty())
@@ -216,6 +216,7 @@ public class FeatToken extends AbstractToken implements
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.REMOVE, tc);
 		tc.setTitle("Select for removal");
+		tc.allowStack(true);
 		tc.setChoiceActor(this);
 		return true;
 	}

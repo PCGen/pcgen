@@ -211,7 +211,7 @@ public class VFeatToken extends AbstractToken implements
 		}
 
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
-				nature, allowStack, dupChoices);
+				nature);
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(

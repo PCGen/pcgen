@@ -69,7 +69,7 @@ public class AbilityRefChoiceSet implements
 	 * The underlying Ability Nature for this AbilityRefChoiceSet.
 	 */
 	private final Ability.Nature nature;
-
+	
 	/**
 	 * Constructs a new AbilityRefChoiceSet which contains the Set of objects
 	 * contained within the given CDOMReferences. The CDOMReferences do not need
@@ -86,26 +86,17 @@ public class AbilityRefChoiceSet implements
 	 * @param cat
 	 *            The Ability Category of Ability objects that this
 	 *            AbilityRefChoiceSet refers to.
+	 * @param col
+	 *            A Collection of AbilityRefs which define the Set of objects
+	 *            contained within the AbilityRefChoiceSet
 	 * @param n
 	 *            The Ability Nature of the Ability objects as they should be
 	 *            applied to a PlayerCharacter
-	 * @param allowDupe
-	 *            True if this AbilityRefChoiceSet should allow duplicates in
-	 *            the returned Set of AbilitySelection objects; false otherwise
-	 * @param dupCount
-	 *            Sets the limit of duplicate objects (or stacking limit) to
-	 *            identify how many times an Ability may be available to a
-	 *            PlayerCharacter using an AbilityRefChoiceSet. Ignored if
-	 *            allowDupe is false.
-	 * @param col
-	 *            A Collection of CDOMReferences which define the Set of objects
-	 *            contained within the AbilityRefChoiceSet
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
 	public AbilityRefChoiceSet(Category<Ability> cat,
-			Collection<? extends AbilityRef> col, Nature n, boolean allowDupe,
-			int dupCount)
+			Collection<? extends AbilityRef> col, Nature n)
 	{
 		super();
 		if (col == null)
