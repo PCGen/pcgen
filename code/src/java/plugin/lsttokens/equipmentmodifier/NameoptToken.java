@@ -108,16 +108,11 @@ public class NameoptToken extends AbstractToken implements
 		}
 		else
 		{
-			if (text == null)
-			{
-				retString = opt.toString();
-			}
-			else
-			{
-				context.addWriteMessage("Cannot have NAME_TEXT without "
-						+ "NAME_OPT TEXT in EquipmentModifier");
-				return null;
-			}
+			/*
+			 * Don't test text == null here because .MODS will leave TEXT around -
+			 * that's "okay"
+			 */
+			retString = opt.toString();
 		}
 		return new String[] { retString };
 	}

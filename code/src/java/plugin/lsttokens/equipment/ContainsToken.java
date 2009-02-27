@@ -56,10 +56,7 @@ public class ContainsToken extends AbstractToken implements
 
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
-		/*
-		 * TODO I believe this needs to clear the List and if it already
-		 * contains something, then should it provide an informational message?
-		 */
+		context.obj.removeList(eq, ListKey.CAPACITY);
 		String weightCapacity = pipeTok.nextToken();
 
 		boolean hadAsterisk = false;
