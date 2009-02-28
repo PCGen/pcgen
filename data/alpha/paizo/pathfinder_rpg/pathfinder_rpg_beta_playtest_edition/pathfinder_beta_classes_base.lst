@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 20 21:58:48 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sat Feb 28 11:53:53 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -217,13 +217,13 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 ###Block: Monk Feats.
 1	BONUS:ABILITYPOOL|Monk Bonus Feat|1+max(0,(MonkBonusFeatLVL+2)/4)	BONUS:VAR|MonkBonusFeatLVL|CL	DEFINE:MonkBonusFeatLVL|0
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2							ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6										ABILITY:Special Ability|AUTOMATIC|Evasion
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2														ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																	ABILITY:Special Ability|AUTOMATIC|Evasion
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:VAR|ManeuverTrainingLVL|CL	BONUS:VAR|ManeuverTrainingBAB|CL*3/4	ABILITY:Special Ability|AUTOMATIC|Maneuver Training|Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|KiPoolLVL,SlowFallLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ki Pool|Slow Fall
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|HighJumpLVL|CL		ABILITY:Special Ability|AUTOMATIC|High Jump|Purity of Body
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|KiPoolLVL,SlowFallLVL|CL								ABILITY:Special Ability|AUTOMATIC|Ki Pool|Slow Fall
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|HighJumpLVL|CL									ABILITY:Special Ability|AUTOMATIC|High Jump|Purity of Body
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessBodyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessBodyLVL|CL									ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
 9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
