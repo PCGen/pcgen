@@ -2,7 +2,8 @@
 CAMPAIGN:Paizo - Second Darkness - Chapter 5: A Memory of Darkness
 GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
-PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Second Darkness - Player's Guide
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Pathfinder Companion: Second Darkness Player's Guide
 RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Aug 29 23:09:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
+# CVS $Revision$ $Author$ -- Tue Feb 24 20:45:55 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Liberator	HD:10		TYPE:PC.Prestige	ABB:Liber		MAXLEVEL:10	SOURCEPAGE:p. 22	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
