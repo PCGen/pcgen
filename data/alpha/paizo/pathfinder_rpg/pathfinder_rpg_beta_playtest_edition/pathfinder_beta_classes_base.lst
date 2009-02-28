@@ -217,7 +217,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 ###Block: Monk Feats.
 1	BONUS:ABILITYPOOL|Monk Bonus Feat|1+max(0,(MonkBonusFeatLVL+2)/4)	BONUS:VAR|MonkBonusFeatLVL|CL	DEFINE:MonkBonusFeatLVL|0
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2																		AUTO:FEAT|Improved Unarmed Strike
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2							ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6										ABILITY:Special Ability|AUTOMATIC|Evasion
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:VAR|ManeuverTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Maneuver Training|Still Mind
 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|KiPoolLVL,SlowFallLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ki Pool|Slow Fall
