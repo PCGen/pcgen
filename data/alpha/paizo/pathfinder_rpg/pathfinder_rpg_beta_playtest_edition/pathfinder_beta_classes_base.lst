@@ -219,7 +219,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 ###Block: Level progression
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2							ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6										ABILITY:Special Ability|AUTOMATIC|Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:VAR|ManeuverTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Maneuver Training|Still Mind
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				BONUS:VAR|ManeuverTrainingLVL|CL	BONUS:VAR|ManeuverTrainingBAB|CL*3/4	ABILITY:Special Ability|AUTOMATIC|Maneuver Training|Still Mind
 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|KiPoolLVL,SlowFallLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ki Pool|Slow Fall
 5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|HighJumpLVL|CL		ABILITY:Special Ability|AUTOMATIC|High Jump|Purity of Body
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
