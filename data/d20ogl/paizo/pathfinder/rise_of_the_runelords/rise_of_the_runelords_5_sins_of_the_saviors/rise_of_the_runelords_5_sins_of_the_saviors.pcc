@@ -2,7 +2,8 @@
 CAMPAIGN:Paizo - Rise of the Runelords - Chapter 5: Sins of the Saviors
 GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
-PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Rise of the Runelords - Player's Guide
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Rise of the Runelords - Player's Guide
 RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement

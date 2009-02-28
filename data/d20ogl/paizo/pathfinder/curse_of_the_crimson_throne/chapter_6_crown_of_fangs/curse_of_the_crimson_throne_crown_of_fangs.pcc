@@ -6,7 +6,8 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
-PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Curse of the Crimson Throne - Player's Guide
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne - Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
