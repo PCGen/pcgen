@@ -35,18 +35,146 @@
 
 <hr>
 
+	<h2><a name="MODIFYINGTEMPLATE">Modifying a Template</a></h2>
+
+	<p class="indent0">When modifying a LST Template with the <code>.MOD</code> tag, there are 
+		three ways in which tags are consolidated internally by PCGen: Consolidation by Overwriting Data, 
+		Consolidation by Appending Data and Consolidation by Separate Tags. Each Template File tag fits into one of 
+		these three categories.</p>
+	
+	<h3>Consolidating by Overwriting Data</h3>
+	
+	<p class="indent0">A general example of this method of consolidation is shown below.</p>
+	
+	<p class="indent1"><strong>Given Initial Template:</strong></p>
+	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
+	<p class="indent1"><strong>Modified By:</strong></p>
+	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
+	<p class="indent1"><strong>Results In:</strong></p>
+	<p class="indent2"><code>TEMPLATEFILETAG:B</code> being applied as part of Template One.</p>
+	
+	<p class="indent0">The following tags are consolidated by overwriting data.</p>
+	
+	<table class="indent1">
+		<tr>
+			<td><a href="#BONUSSKILLPOINTS">BONUSSKILLPOINTS</a></td>
+			<td><a href="#GENDERLOCK">GENDERLOCK</a></td>
+			<td><a href="#LEVELADJUSTMENT">LEVELADJUSTMENT</a></td>
+			<td><a href="#REGION">REGION</a></td>
+		</tr>
+		<tr>
+			<td><a href="#CR">CR</a></td>
+			<td><a href="#HANDS">HANDS</a></td>
+			<td><a href="#NONPP">NONPP</a></td>
+			<td><a href="#REMOVABLE">REMOVABLE</a></td>
+		</tr>
+		<tr>
+			<td><a href="#FACE">FACE</a></td>
+			<td><a href="#HITDIE">HITDIE</a></td>
+			<td><a href="#RACETYPE">RACETYPE</a></td>
+			<td><a href="#SIZE">SIZE</a></td>
+		</tr>
+		<tr>
+			<td><a href="#FAVOREDCLASS">FAVOREDCLASS</a></td>
+			<td><a href="#LEGS">LEGS</a></td>
+			<td><a href="#REACH">REACH</a></td>
+			<td><a href="#VISIBLE">VISIBLE</a></td>
+		</tr>
+	</table>
+	
+	<h3>Consolidating by Appending Data</h3>
+	
+	<p class="indent0">A general example of this method of consolidation is shown below.</p>
+	
+	<p class="indent1"><strong>Given Initial Template:</strong></p>
+	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
+	<p class="indent1"><strong>Modified By:</strong></p>
+	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
+	<p class="indent1"><strong>Is Equivalent To:</strong></p>
+	<p class="indent2"><code>TEMPLATEFILETAG:A,B</code> being applied as part of Template One.</p>
+	
+	<p class="sidebar1">NOTE:The separator used in this example is the comma (,). The actual separator 
+		used in the equivalent syntax for each tag will vary. Make sure you check the tag specific 
+		documentation to see an example of that tags consolidated syntax.</p>
+	
+	<p class="indent1">The following tags are consolidated by appending data.</p>
+	
+	<table class="indent1">
+		<tr>
+			<td><a href="#LANGBONUS">LANGBONUS</a></td>
+			<td><a href="#SUBREGION">SUBREGION</a></td>
+		</tr>
+		<tr>
+			<td><a href="#RACESUBTYPE">RACESUBTYPE</a></td>
+			<td><a href="#WEAPONBONUS">WEAPONBONUS</a></td>
+		</tr>
+		<tr>
+			<td><a href="#SUBRACE">SUBRACE</a></td>
+			<td></td>
+		</tr>
+
+	</table>
+	
+	<h3>Consolidating by Separate Tags</h3>
+	
+	<p class="indent0">A general example of this method of consolidation is shown below.</p>
+	
+	<p class="indent1"><strong>Given Initial Template:</strong></p>
+	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
+	<p class="indent1"><strong>Modified By:</strong></p>
+	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
+	<p class="indent1"><strong>Is Equivalent To:</strong></p>
+	<p class="indent2"><code>TEMPLATEFILETAG:A &lt;tab&gt; TEMPLATEFILETAG:B</code> being applied 
+		as part of Template One.</p>
+	<p class="indent1"><strong>But is Not Equivalent To:</strong></p>
+	<p class="indent2"><code>TEMPLATEFILETAG:A,B</code></p>
+	
+	<p class="indent1">The following tags are consolidated by separate tags.</p>
+	
+	<table class="indent1">
+		<tr>
+			<td><a href="#ADDLEVEL">ADDLEVEL</a></td>
+			<td><a href="#LEVEL">LEVEL</a></td>
+		</tr>
+		<tr>
+			<td><a href="#HD">HD</a></td>
+			<td><a href="#REPEATLEVEL">REPEATLEVEL</a></td>
+		</tr>
+	</table>
+	
+<hr>
+
+	<h2>Template File Tag Dictionary</h2>
+
+<hr>
+
 	<p class="new">*** New 5.9.7</p>
 	<p class="indent0"><strong><a name="ADDLEVEL">Tag Name:</a></strong> ADDLEVEL:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number or Formula (Number of levels to add)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This tag will add the specified number of levels of the given class
-		to the character the template is applied to.  The levels function as normal class levels in all way
-		except that they will be removed when the template is removed.  These levels will be added regardless
-		of whether or not the character qualifies for the class in question.</p>
+	<ul class="indent2">
+		<li>This tag will add the specified number of levels of the given class to the character 
+			the template is applied to.</li>
+		<li>The levels function as normal class levels in all ways except that they will be removed 
+			when the template is removed.</li>
+		<li>These levels will be added regardless of whether or not the character qualifies for the 
+			class in question.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			included as if it were a separate tag by the new <code>ADDLEVEL</code> tag if one is included 
+			in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADDLEVEL:Animal|6</code></p>
 	<p class="indent3">Adds six levels of the Animal class to the character.</p>
+	<p class="indent1"><strong>Consolidated Modification Example:</strong></p>
+	<p class="indent2">Given Initial Template:</p>
+	<p class="indent3"><code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2</code>
+	<p class="indent2">Modified By:</p>
+	<p class="indent3"><code>Werewolf.MOD &lt;tab&gt; ADDLEVEL:Animal|1</code></p>
+	<p class="indent2">Is Equivalent To:</p>
+	<p class="indent3"><code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2 &lt;tab&gt; ADDLEVEL:Animal|1</code>.</p>
+	<p class="indent4">The werewolf gains three levels in the class &quot;Animal&quot;.</p>
 	<p></p>
 
 <hr>
@@ -54,11 +182,26 @@
 	<p class="indent0"><strong><a name="BONUSSKILLPOINTS">Tag Name:</a></strong> BONUSSKILLPOINTS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus skill point &gt;0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This numeric value provided will be * (multiplied) by 4 at 1st level and
-		granted each level after that.</p>
+	<ul class="indent2">
+		<li>The numeric value provided will be multiplied by 4 at first level and granted to the character 
+			as the beginning skill points while subsequent levels will be granted only the numeric value 
+			as additional skill points.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>BONUSSKILLPOINTS</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUSSKILLPOINTS:2</code></p>
 	<p class="indent3">Two bonus skill points are given.</p>
+	
+	<p class="indent1"><strong>.MOD Consolidation Example:</strong></p>
+	<p class="indent2">Given Initial Template:</p>
+	<p class="indent3"><code>Template A &lt;tab&gt; BONUSSKILLPOINTS:2</code>
+	<p class="indent2">Modified By:</p>
+	<p class="indent3"><code>Template A.MOD &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
+	<p class="indent2">Results In:</p>
+	<p class="indent3"><code>BONUSSKILLPOINTS:3</code></p>
+	<p class="indent4">Twelve skill points are granted at first level with three being granted at 
+		all subsequent levels.</p>
 	<p></p>
 
 <hr>
@@ -91,10 +234,16 @@
 	<p class="indent0"><strong><a name="CR">Tag Name:</a></strong> CR:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating adjustment &gt;0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is the amount the characters CR is increased by this template.</p>
+	<ul class="indent2">
+		<li>This is the amount the characters challenge rating is increased by this template.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>CR</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CR:2</code></p>
 	<p class="indent3">The character's challenge rating is increased by two.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; CR:3</code></p>
+	<p class="indent3">The character's challenge rating is increased by three.</p>
 	<p></p>
 
 <hr>
@@ -103,37 +252,49 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Space the creature occupies &gt;= 0)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Optional, side space &gt;= 0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Describes how much space the creature takes up. For 3.0 rules this tag is used for
-		the Face statistic. For 3.5 rules this tag is used for the Space statistic. If only one number is used
-		it is assumed to represent all sides.</p>
+	<ul class="indent2">
+		<li>Describes how much space the creature takes up.</li>
+		<li>If only one number is used it is assumed to represent all sides.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>FACE</code> tag if one is included in the modification.</li>
+	</ul>
+	<p class="indent1">NOTE: For 3.0 rules this tag is used for the Face statistic. For 3.5 rules this tag is used 
+		for the Space statistic.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FACE:5,10</code></p>
-	<p class="indent3">The template has a face of 5 by 10.</p>
+	<p class="indent3">The creature has a face/space of 5 by 10.</p>
 	<p class="indent2"><code>FACE:10</code></p>
-	<p class="indent3">The template has a face of 10.</p>
+	<p class="indent3">The creature has a face/space of 10.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; FACE:20</code></p>
+	<p class="indent3">The creature has a face/space of 20.</p>
 	<p></p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="FAVOREDCLASS">Tag Name:</a></strong> FAVOREDCLASS:x|x.y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Base class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Base class or sub-class name)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Class or sub-class name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Determines the Race's favored class.</li>
-		<li>Classes with sub-classes must use the (x.y) syntax and must include the base-class name or the sub-class name.</li>
+		<li>Classes with sub-classes must use the (x.y) syntax and must include the base-class name or 
+			the sub-class name.</li>
 		<li>More than one class may be included as a pipe-delimited (|) list with all listed classes identified as &quot;Favored&quot;.</li>
 		<li>Special type 'ANY' will grant the character's highest level class as Favored.</li>
 		<li>When 'ANY' is used no other class is allowed.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>FAVOREDCLASS</code> tag if one is included in the modification.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FAVOREDCLASS:Wizard|Fighter</code></p>
 	<p class="indent3">The character's favored classes are &quot;Wizard&quot;, including any of its sub-classes, and &quot;Fighter&quot;.</p>
 	<p class="indent2"><code>FAVOREDCLASS:Wizard.Wizard</code></p>
-	<p class="indent3">Race's favored class is &quot;Wizard&quot;, excluding any of its sub-classes.</p>
+	<p class="indent3">The character's favored class is &quot;Wizard&quot;, excluding any of its sub-classes.</p>
 	<p class="indent2"><code>FAVOREDCLASS:Wizard.Illusionist</code></p>
-	<p class="indent3">Race's favored class is the &quot;Wizard&quot; sub-class, the &quot;Illusionist&quot;.</p>
+	<p class="indent3">The character's favored class is the &quot;Wizard&quot; sub-class, the &quot;Illusionist&quot;.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; FAVOREDCLASS:Wizard.Necromancer</code></p>
+	<p class="indent3">The character's favored class is the &quot;Wizard&quot; sub-class, the &quot;Necromancer&quot;.</p>
 	<p></p>
 
 <hr>
@@ -159,11 +320,18 @@
 	<p class="indent0"><strong><a name="GENDERLOCK">Tag Name:</a></strong> GENDERLOCK:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Male, Female, Neuter)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets the character's Gender and disables the ability to change it.</p>
-	<p class="indent2">Available settings (Male, Female, Neuter) are in Game Mode File &gt; Bio Settings &gt; SEX TAG.</p>
+	<ul class="indent2">
+		<li>Sets the character's gender and disables the ability to change it.</li>
+		<li>Gender values are defined in Game Mode File &gt; Bio Settings &gt; 
+			<a href="../../listfilepages/systemfilestagpages/systemfilesbiosettingslist.html#SEX">SEX</a> tag.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>GENDERLOCK</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>GENDERLOCK:Female</code></p>
 	<p class="indent3">The characters gender is set to and locked as &quot;Female&quot;.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; GENDERLOCK:Neuter</code></p>
+	<p class="indent3">The character's gender is set to and locked as &quot;Neuter&quot;.</p>
 	<p></p>
 
 <hr>
@@ -171,11 +339,16 @@
 	<p class="indent0"><strong><a name="HANDS">Tag Name:</a></strong> HANDS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Hands &gt;= 0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Determines the Number of Hands the creature has for purposes of
-		Multiattack and Multidexterity.</p>
+	<ul class="indent2">
+		<li>Determines the number of hands the creature has for purposes of multiattacks and multidexterity.</p>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>HANDS</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HANDS:4</code></p>
-	<p class="indent3">Template has four hands.</p>
+	<p class="indent3">The creature has four hands.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; HANDS:8</code></p>
+	<p class="indent3">The creature has eight hands.</p>
 	<p></p>
 
 <hr>
@@ -236,19 +409,23 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> CLASS.TYPE=&lt;class type name&gt; (Optional, Specific class type the HITDIE will be applied to)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent1">
-        <li>Specifies the new Hit Die size the template grants to the creature 
-			and retroactively recalculates hit points based on the new Hit Die size.</li>
-		<li>HITDIE may also be used in <a href="datafilesclasses.html#HITDIE">Class</a> 
-    		and <a href="datafilesraces.html#HITDIE">Race</a> files.</li>
+        <li>Specifies the new Hit Die size granted to the creature by the template and retroactively 
+        	recalculates hit points based on the new Hit Die size.</li>
 		<li>The scale used by the functions which raise or lower Hit Die in steps is defined by the 
+			Game Mode &gt; Misc Info File &gt; 
 			<a href="../systemfilestagpages/gamemodemiscinfolist.html#DIESIZES">DIESIZES</a> gameMode tag.</li>
 		<li>The scale used in most gameModes is: 1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000</li>
-		<li>When using the step up function (%upNumber) or step down function (%downNumber) 
-			the minimum and maximum steps are set by the MIN and MAX tags in the DIESIZES tag.</li>
-		<li>The step up function (%Hup) and step down functions (%Hdown) 
-			will ignore the MIN and MAX settings and use the full range of die sizes specified by the DIESIZES tag.</li>
-		<li>Regardless of the number it will never allow a hit die below 1.</li>
-		<li>Optionally HITDIE can be qualified with a Class or Class type in which case it will only be applied to matching classes.</li>
+		<li>When using the step up function (%upNumber) or step down function (%downNumber), the minimum 
+			and maximum steps are set by the <code>MIN</code> and <code>MAX</code> parameters in the 
+			<code>DIESIZES</code> tag.</li>
+		<li>The step up function (%Hup) and step down functions (%Hdown) will ignore the <code>MIN</code> 
+			and <code>MAX</code> settings and use the full range of die sizes specified by the 
+			<code>DIESIZES</code> tag.</li>
+		<li>Regardless of the number specified (x), the new hit die sizw will never drop below &quot;1&quot;.</li>
+		<li><code>HITDIE</code> can be qualified with a Class or Class type in which case it will only be applied 
+			to the matching classes.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>HITDIE</code> tag if one is included in the modification.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HITDIE:12</code></p>
@@ -272,6 +449,8 @@
 	<p class="indent3">Steps up the Hit Dice size by four steps. If the class has a Hit Die of d6 it will be stepped up to d20.</p>
 	<p class="indent2"><code>HITDIE:%Hdown3</code></p>
 	<p class="indent3">Steps down the Hit Dice size by three steps. If the class has a Hit Die of d6 it will be stepped down to d2.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; HITDIE:8</code></p>
+	<p class="indent3">The character now has a Hit Die of 8.</p>
 	<p></p>
 
 <hr>
@@ -308,13 +487,19 @@
 	<p class="indent0"><strong><a name="LEGS">Tag Name:</a></strong> LEGS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Legs &gt;=0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Used to determine encumbrance and carrying capacity for creatures/characters
-		with a nonstandard amount of legs. (i.e. more than/less than 2).</p>
+	<ul class="indent2">
+		<li>Used to determine encumbrance and carrying capacity for creatures/characters with a 
+			nonstandard number of legs. (i.e. more than/less than 2).</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>LEGS</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>LEGS:4</code></p>
-	<p class="indent3">A horse has 4 legs.</p>
+	<p class="indent3">A horse has four legs.</p>
 	<p class="indent2"><code>LEGS:0</code></p>
 	<p class="indent3">Slime and ooze creatures/characters would have no legs!</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; LEGS:8</code></p>
+	<p class="indent3">The creature has eight legs.</p>
 	<p></p>
 
 <hr>
@@ -366,15 +551,21 @@
 	<p class="indent0"><strong><a name="LEVELADJUSTMENT">Tag Name:</a></strong> LEVELADJUSTMENT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Level Adjustment)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Raises the Effective Character Level (ECL) of the creature by the number supplied.</p>
-	<p class="indent2">This is factored in when determining how much experience is needed to raise a characters level.
-		For example, a 1st level character with a Level adjustment of 3 would need the same amount of experience to reach 2nd level
-		as a 4th level character with no level adjustments would need to reach 5th level.</p>
-	<p class="indent2">The Level Adjustment is added to Monster Hit Dice and/or Character Levels
-		to determine the Effective Character Level (ECL) of the creature.</p>
+	<ul class="indent2">
+		<li>Raises the Effective Character Level (ECL) of the creature by the number specified by adding 
+			the Level Adjustment to the Monster Hit Dice and/or Character Levels.</li>
+		<li>The ECL is factored in when determining how much experience is needed to raise a characters 
+			level. For example, a 1st level character with a Level adjustment of 3 would need the same 
+			amount of experience to reach 2nd level as a 4th level character with no level adjustments 
+			would need to reach 5th level.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>LEVELADJUSTMENT</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>
 	<p class="indent3">Effective Character Level is raised by one.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; LEVELADJUSTMENT:3</code></p>
+	<p class="indent3">The character's ECL is raised by three.</p>
 	<p></p>
 
 <hr>
@@ -382,11 +573,17 @@
 	<p class="indent0"><strong><a name="NONPP">Tag Name:</a></strong> NONPP:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Non proficiency penalty &lt;= 0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets he character's penalty for non proficiency in a weapon to the specified numeric
-		value (This can only be a negative number or zero).</p>
+	<ul class="indent2">
+		<li>Sets he character's penalty for non proficiency in a weapon to the number specified.</li>
+		<li>The number specified must be less-than or equal to zero (0).</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>NONPP</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>NONPP:-2</code></p>
 	<p class="indent3">The non proficiency penalty is minus two.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; NONPP:-1</code></p>
+	<p class="indent3">The non-proficiency penalty is minus one.</p>
 	<p></p>
 
 <hr>
@@ -427,10 +624,14 @@
 			Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid,
 			Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and
 			Vermin</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>RACETYPE</code> tag if one is included in the modification.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACETYPE:Undead</code></p>
 	<p class="indent3">The Creature is now of the &quot;Undead&quot; type.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; RACETYPE:Outsider</code></p>
+	<p class="indent3">The creature is now of the &quot;Outsider&quot; type.</p>
 	<p></p>
 
 <hr>
@@ -438,26 +639,36 @@
 	<p class="indent0"><strong><a name="REACH">Tag Name:</a></strong> REACH:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Reach in Feet &gt;= 0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Determines the reach of the template.</p>
+	<ul class="indent2">
+		<li>Changes the creature reach.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>REACH</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REACH:10</code></p>
-	<p class="indent3">The template has a reach of ten feet.</p>
+	<p class="indent3">The creature has a reach of ten (10) feet.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; REACH:20</code></p>
+	<p class="indent3">The creature has a reach of twenty feet.</p>
 	<p></p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="REGION">Tag Name:</a></strong> REGION:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Region name or
-		&quot;Yes&quot;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Region name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> YES (Not case sensitive)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This sets the name of the region the character is from, the default is none.</li>
-		<li>If Yes is specified then it will place the name of the template in parenthesis after
+		<li>If &quot;YES&quot; is specified it will place the name of the template in parenthesis after
 			the race on character sheet output.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>REGION</code> tag if one is included in the modification.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REGION:Timbuktu</code></p>
 	<p class="indent3">Character is from &quot;Timbuktu&quot;.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; REGION:Saskatewan</code></p>
+	<p class="indent3">The character is from &quot;Saskatewan&quot;.</p>
 	<p></p>
 
 <hr>
@@ -465,10 +676,16 @@
 	<p class="indent0"><strong><a name="REMOVABLE">Tag Name:</a></strong> REMOVABLE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This denotes whether a character can remove a template once it is chosen.</p>
+	<ul class="indent2">
+		<li>This denotes whether a character can remove a template once it is chosen.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>REMOVABLE</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REMOVABLE:NO</code></p>
 	<p class="indent3">The template may not be removed if taken.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; REMOVABLE:YES</code></p>
+	<p class="indent3">The template may be removed after being taken.</p>
 	<p></p>
 
 <hr>
@@ -514,18 +731,23 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Numeric value of the size value)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Size is used in determining TO-HIT, AC, and affects some skills
-		(F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).<br/>
-		The following are the numeric values that are legal to set:
-		(0=Fine, 1=Diminutive, 2=Tiny, 3=Small, 4=Medium, 5=Large, 6=Huge, 7=Gargantuan, 8=Colossal).
-		Note that if a value outside this range is used the result is undefined.</p>
-	<p class="indent2">Available settings are in Game Mode File &gt; Size Adjustment &gt; SIZENAME TAG.</p>
+	<ul class="indent2">
+		<li>Sets the characters size, which is used in determining TO-HIT, AC, and affects some skills.</li>
+		<li>Sizes are defined by the numeric values 0 thru 8 and may have textual values defined in the appropriate 
+			GameMode file. (See Game Mode File &gt; Size Adjustment &gt; 
+			<a href="../../listfilepages/systemfilestagpages/systemfilessizeadjustment.html#SIZENAME">SIZENAME TAG</a>)</li>
+		<li>Note that if a value outside this range is used the result is undefined.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>SIZE</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SIZE:M</code></p>
 	<p class="indent3">Character is &quot;Medium&quot; size.</p>
 	<p class="indent2"><code>SIZE:max(AnimalSize,SIZE)</code></p>
 	<p class="indent3">Sets the character's size to the maximum of the variable &quot;AnimalSize&quot; and
 		current size.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; SIZE:L</code></p>
+	<p class="indent3">The creature is &quot;Large&quot;.</p>
 	<p></p>
 
 <hr>
@@ -618,10 +840,14 @@
 		<li><code>NO</code> - Hides the Template name in PCGen and on export to a character sheet.</li>
 		<li><code>DISPLAY</code> - Displays the Template name in PCGen but not on the character sheet.</li>
 		<li><code>EXPORT</code> - Hides the Template name from PCGen but displays it on the character sheet.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>VISIBLE</code> tag if one is included in the modification.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>VISIBLE:YES</code></p>
 	<p class="indent3">Shows the Template name in PCGen and on export to a character sheet.</p>
+	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; VISIBLE:NOL</code></p>
+	<p class="indent3">The template will not be visible either in the GUI or on the character sheet..</p>
 	<p></p>
 
 <hr>

@@ -532,21 +532,25 @@
         <p class="indent1"><strong>Variables Used (x):</strong> MAX=Number (Maximum die size)</p>
         <p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-        	<li>Used to define the scale used by the HITDIE tag to bump a characters hit die up or down.</li>
-			<li>MIN=x sets the lowest hit die size the %downNumber HITDIE function will go down to.</li>
-			<li>MAX=x sets the highest hi tdie size the %upNumber HITDIE function will go up to.</li>
-			<li>The %Hup and %Hdown HITDIE functions will ignore MIN and MAX 
-				and move the hit die the full range of die sizes specified by the DIESIZES tag</li>
+        	<li>Used to define the scale used by the <code>HITDIE</code> tag to bump a character's 
+        		hit die up or down.</li>
+			<li>The <code>HITDIE</code> tag is used in the 
+				<a href="../datafilestagpages/datafilesclasses.html#HITDIE">Class</a>, 
+  				<a href="../datafilestagpages/datafilesraces.html#HITDIE">Race</a> and 
+				<a href="../datafilestagpages/datafilestemplates.html#HITDIE">Template</a> files.</li>
+			<li><code>MIN=x</code> sets the lowest hit die size the &quot;%downNumber&quot; 
+				<code>HITDIE</code> function allow.</li>
+			<li><code>MAX=x</code> sets the highest hit die size the &quot;%upNumber&quot; 
+				<code>HITDIE</code> function will allow.</li>
+			<li>The &quot;%Hup&quot; and &quot;%Hdown&quot; <code>HITDIE</code> functions will ignore 
+				<code>MIN</code> and <code>MAX</code> and move the hit die the full range of die sizes 
+				specified by the <code>DIESIZES</code> tag.</li>
 		</ul>
  		<p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000</code></p>
-        <p class="indent3">Sets the range of hit die sizes used in the gameMode. 
-			%down will not go below 4. %up will not go above 12 </p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">The HITDIE tag is usable in 
-			<a href="../datafilestagpages/datafilesclasses.html#HITDIE">Class</a>, 
-  			<a href="../datafilestagpages/datafilesraces.html#HITDIE">Race</a> and 
-			<a href="../datafilestagpages/datafilestemplates.html#HITDIE">Template</a> files.</p>
+        <p class="indent3">Sets the range of hit die sizes used in the gameMode and limits the 
+        	<code>HITDIE</code> tags &quot;%down&quot; and &quot;%up&quot; functions to &quot;4&quot; 
+        	and &quot;12&quot; respectively.</p>
 		
 		<p></p><hr>
 		<p class="new">*** New 5.13.2</p>
