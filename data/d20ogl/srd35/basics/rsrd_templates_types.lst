@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: Monk Outsider change at level 20.
 # Template Name	Output Name			Visible		Damage Reduction	Source Page			Main Race Type	Race Subtype
-Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:10/Magic		SOURCEPAGE:Chap.3, Monk	RACETYPE:Outsider	RACESUBTYPE:Native
+Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:10/Magic		SOURCEPAGE:ClassesI.rtf	RACETYPE:Outsider	RACESUBTYPE:Native
 
 
 ###Block: Creature Types
