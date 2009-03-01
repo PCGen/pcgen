@@ -490,15 +490,27 @@
 		<p class="indent2">After a WIELDCATEGORY tag.</p>
 
 		<p></p><hr>
-		<p class="new">*** New 5.15.1</p>
-		<p class="indent0"><strong><a name="DEFAULTDATASET">Tag Name:</a></strong> DEFAULTDATASET:x,x</p>
+		<p class="new">*** New 5.15.1 *** Updated 5.15.13</p>
+		<p class="indent0"><strong><a name="DEFAULTDATASET">Tag Name:</a></strong> DEFAULTDATASET:x,x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Default Data Set Name)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Displayed Data Set Name, Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the Default data Set used by the game mode.</p>
+		<ul class="indent2">
+			<li>Sets the Default data Set used by the game mode.</li>
+			<li>If the display name is set then the game mode will be displayed in the Load Sources 
+				dialog with that name.</li>
+			<li>If no display name is provided then the default sources will not appear on the Load 
+				Sources dialog.</li>
+			<li>The display name has no effect on the Advanced sources page.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFAULTDATASET:3.5 RSRD</code></p>
 		<p class="indent3">The &quot;3.5 RSRD&quot; data set will appear in the right panel on the sources 
 			tab when this gamemode is loaded.</p>
+		<p class="indent2"><code>DEFAULTDATASET:MSRD - Basics,MSRD - Arcana,MSRD - Future,MSRD - Menaces|MSRD</code></p>
+		<p class="indent3">The default data sets for the game mode are the four sources named and they will have a 
+			button on the &quot;Load Sources&quot; dialog titled &quot;MSRD&quot;". When the button is selected 
+			all four sources are loaded.</p>
 
 		<p></p><hr>
 		<p class="new">*** New 5.9.1</p>
