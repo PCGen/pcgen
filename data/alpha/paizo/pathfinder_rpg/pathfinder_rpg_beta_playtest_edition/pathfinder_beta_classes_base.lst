@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 28 11:53:53 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sat Feb 28 19:34:58 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -225,18 +225,18 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
 7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				BONUS:VAR|WholenessBodyLVL|CL									ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																	ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																	ABILITY:Special Ability|AUTOMATIC|Diamond Body
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|AbundantStepLVL|CL									ABILITY:Special Ability|AUTOMATIC|Abundant Step
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				BONUS:VAR|DiamondSoulLVL|CL									ABILITY:Special Ability|AUTOMATIC|Diamond Soul
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																	ABILITY:Special Ability|AUTOMATIC|Quivering Palm
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Timeless Body|Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Empty Body
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																ABILITY:Special Ability|AUTOMATIC|Perfect Self
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Visible	Save checks bonus											Combat bonus

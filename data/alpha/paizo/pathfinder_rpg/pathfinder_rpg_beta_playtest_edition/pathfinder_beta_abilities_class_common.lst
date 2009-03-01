@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb  9 21:33:08 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sat Feb 28 20:06:33 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -13,7 +13,7 @@ Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO
 Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
-###Block: Uncanny Dodge
+###Block: Uncanny Dodge and Improved Uncanny Dodge --------------------------------------------------------------------------------------
 # Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
 # put this on class line one of any class that gets Uncanny Dodge
@@ -24,6 +24,13 @@ Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE
 Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:You can react to danger before your senses would normally allow you to do so. You retain your Dexterity bonus to AC (If any) even if you are caught flat-footed or struck by an invisible attacker. You still lose your AC bonus if immobilized.																																						SOURCEPAGE:p.40
 Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:You can no longer be flanked. This defense denies another rogue the ability to sneak attack you, unless the attacker is a rogue of at least level %1.|UncannyDodgeFlankingLevel																																							BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:p.40
 
+###Block: Evasion and Improved Evasion --------------------------------------------------------------------------------------------------
+# Ability Name		Output Name				Category of Ability		Type											Visible		Required Ability						Define					Description																																																								Ability																					Source Page
+Evasion								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC				VISIBLE:DISPLAY									DEFINE:EvasionUsable|0			DESC:You can avoid even magical and unusual attacks with great agility. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage. If you are helpless, you do not gain the benefit of evasion.													ABILITY:Special Ability|AUTOMATIC|Evasion Output|PREVAREQ:EvasionUsable,0|!PREABILITY:1,CATEGORY=Special Ability,Improved Evasion	SOURCEPAGE:p.30
+Improved Evasion							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC.AdvancedRogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Evasion	DEFINE:ImprovedEvasionUsable|0	DESC:You can avoid even magical and unusual attacks with great agility. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage, and even on a failed saving throw you take only half damage. If you are helpless, you do not gain the benefit of improved evasion.	ABILITY:Special Ability|AUTOMATIC|Improved Evasion Output|PREVAREQ:ImprovedEvasionUsable,0							SOURCEPAGE:p.30
+# Output abilities exist so that the abilities can be disabled on the OS (if the character is wearing heavy armor for example) but the ability still exists for the purposes of checking PREABILITY against.
+Evasion Output		OUTPUTNAME:Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC				VISIBLE:EXPORT															DESC:You can avoid even magical and unusual attacks with great agility. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage. If you are helpless, you do not gain the benefit of evasion.																																			SOURCEPAGE:p.30
+Improved Evasion Output	OUTPUTNAME:Improved Evasion	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC				VISIBLE:EXPORT															DESC:You can avoid even magical and unusual attacks with great agility. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage, and even on a failed saving throw you take only half damage. If you are helpless, you do not gain the benefit of improved evasion.																							SOURCEPAGE:p.30
 
 ###Block: Companion support
 # Ability Name	Category of Ability		Type			Visible	Define
