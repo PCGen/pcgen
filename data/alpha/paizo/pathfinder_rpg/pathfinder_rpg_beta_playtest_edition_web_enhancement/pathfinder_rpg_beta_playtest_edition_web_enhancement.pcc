@@ -27,6 +27,9 @@ COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publis
 #INFOTEXT:OGL.txt
 
 EQUIPMENT:pathfinder_beta_web_equip_components.lst
+EQUIPMENT:pathfinder_beta_web_equip_rings.lst
+EQUIPMENT:pathfinder_beta_web_equip_rods.lst
+EQUIPMENT:pathfinder_beta_web_equip_staffs.lst
 EQUIPMENT:pathfinder_beta_web_equip_weapons_specific.lst
 EQUIPMENT:pathfinder_beta_web_equip_wondrousitems.lst
 SPELL:pathfinder_beta_web_spells.lst

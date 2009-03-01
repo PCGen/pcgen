@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Sat Feb 28 21:19:54 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Pathfinder RPG (Beta Playtest Edition Web Enhancement)	SOURCESHORT:PFRPGBWE	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
+# Pathfinder RPG Entry by: Eddy Anthony
+
+# Rods
+# Equipment Name			Required Weapon Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Requires Modification?	Size		Source Page		Combat bonus					Stat bonus					Special Property
+Rod of Absorption									TYPE:Magic.Rod													COST:50000	WT:5																									SOURCEPAGE:p.51
+Rod of Alertness			PROFICIENCY:WEAPON|Mace (Light)	TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Mace.Hammer.Magic.Rod	COST:85000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL.PLUS1W	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.51	BONUS:COMBAT|INITIATIVE|1|TYPE=Insight							SPROP:Enables the holder to use detect evil, detect good, detect chaos, detect law, detect magic, discern lies, light, or see invisibility as a standard action
+Rod of Flame Extinguishing							TYPE:Magic.Rod													COST:15000	WT:5																									SOURCEPAGE:p.52
+Rod of Lordly Might								TYPE:Magic.Rod													COST:70000	WT:5																									SOURCEPAGE:p.52
+Rod of Security									TYPE:Magic.Rod													COST:61000	WT:5																									SOURCEPAGE:p.52
+Rod of Splendor									TYPE:Magic.Rod													COST:25000	WT:5																									SOURCEPAGE:p.53								BONUS:STAT|CHA|4|TYPE=Enhancement
+Rod of Thunder and Lightning							TYPE:Magic.Rod													COST:33000	WT:5																									SOURCEPAGE:p.53
