@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Feb 28 20:06:33 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sun Mar  1 19:44:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
 ###Block: Weapon proficiencies
-# Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
-All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells (Ray)|Grapple
+# Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.																							Ability
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells (Ray)|Grapple																		ABILITY:FEAT|AUTOMATIC|CMB Output
 All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
 Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
 Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|DEITYWEAPONS
@@ -48,3 +48,17 @@ Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VIS
 ###Block: More abilties
 # Ability Name	Category of Ability		Type						Visible	Define											Description																																		Modify VAR											Source Page
 Wild Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyMagicalBeast|WildEmpathy	DESC:You can improve the attitude of an animal. This abilty functions just like Diplomacy check to improve the attitude of a person. You roll 1d20+%1 to determine the Wild Empathy check result.|WildEmpathy	BONUS:VAR|WildEmpathyMagicalBeast|-4	BONUS:VAR|WildEmpathy|CHA	SOURCEPAGE:p.36
+
+###Block: CMB output and basic setup
+# Ability Name	Category of Ability	Type			Visible		Description										Source Page
+CMB Output		CATEGORY:FEAT		TYPE:Internal	VISIBLE:DISPLAY	DESC:This object changes Grapple to Combat Manuever Bonus (CMB).	SOURCEPAGE:p.x
+###Block: CMB Definitions
+# Ability Name			Define													Modify VAR
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB|0	DEFINE:CMB_STAT|STR	DEFINE:CMB_SizeMod|0				BONUS:VAR|CMB_SizeMod|-8|PRESIZEEQ:F	BONUS:VAR|CMB|BAB+CMB_STAT+CMB_SizeMod
+CATEGORY=FEAT|CMB Output.MOD															BONUS:VAR|CMB_SizeMod|-4|PRESIZEEQ:D
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Trip|0	DEFINE:CMB_Trip_OFF|0	DEFINE:CMB_Trip_DEF|15				BONUS:VAR|CMB_SizeMod|-2|PRESIZEEQ:T	BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMB_Trip_OFF,CMB_Trip_DEF|CMB_Trip
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Grapple|0	DEFINE:CMB_Grapple_OFF|0	DEFINE:CMB_Grapple_DEF|15	BONUS:VAR|CMB_SizeMod|-1|PRESIZEEQ:S	BONUS:VAR|CMB_Grapple|CMB	BONUS:VAR|CMB_Grapple_OFF,CMB_Grapple_DEF|CMB_Grapple
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Sunder|0	DEFINE:CMB_Sunder_OFF|0	DEFINE:CMB_Sunder_DEF|15		BONUS:VAR|CMB_SizeMod|1|PRESIZEEQ:L	BONUS:VAR|CMB_Sunder|CMB	BONUS:VAR|CMB_Sunder_OFF,CMB_Sunder_DEF|CMB_Sunder
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Bull|0	DEFINE:CMB_Bull_OFF|0	DEFINE:CMB_Bull_DEF|15				BONUS:VAR|CMB_SizeMod|2|PRESIZEEQ:H	BONUS:VAR|CMB_Bull|CMB	BONUS:VAR|CMB_Bull_OFF,CMB_Bull_DEF|CMB_Bull
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Disarm|0	DEFINE:CMB_Disarm_OFF|0	DEFINE:CMB_Disarm_DEF|15		BONUS:VAR|CMB_SizeMod|4|PRESIZEEQ:G	BONUS:VAR|CMB_Disarm|CMB	BONUS:VAR|CMB_Disarm_OFF,CMB_Disarm_DEF|CMB_Disarm
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Overrun|0	DEFINE:CMB_Overrun_OFF|0	DEFINE:CMB_Overrun_DEF|15	BONUS:VAR|CMB_SizeMod|8|PRESIZEEQ:C	BONUS:VAR|CMB_Overrun|CMB	BONUS:VAR|CMB_Overrun_OFF,CMB_Overrun_DEF|CMB_Overrun
