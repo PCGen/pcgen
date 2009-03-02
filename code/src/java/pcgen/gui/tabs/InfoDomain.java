@@ -1410,9 +1410,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// space remains for another domain, so add it
 		if (existingDomain == null)
 		{
-			aCD.setDomain(addedDomain, pc);
+			Domain newDomain = aCD.setDomain(addedDomain, pc);
 			pc.addCharacterDomain(aCD);
-			DomainApplication.applyDomain(pc, addedDomain);
+			DomainApplication.applyDomain(pc, newDomain);
 
 			if (!selectedDomainList.contains(addedDomain))
 			{

@@ -2169,7 +2169,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// PC doesn't have the domain, so create a new
 				// one and add it to the PC domain list
 				CharacterDomain aCharacterDomain = new CharacterDomain();
-				aCharacterDomain.setDomain(aDomain, thePC);
+				Domain newDomain = aCharacterDomain.setDomain(aDomain, thePC);
 
 				while (it.hasNext())
 				{
@@ -2185,13 +2185,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else if (TAG_ASSOCIATEDDATA.equals(tag))
 					{
-						thePC.addAssociation(aCharacterDomain.getDomain(),
+						thePC.addAssociation(newDomain,
 							EntityEncoder.decode(element.getText()));
 					}
 				}
 
 				thePC.addCharacterDomain(aCharacterDomain);
-				DomainApplication.applyDomain(thePC, aDomain);
+				DomainApplication.applyDomain(thePC, newDomain);
 
 				// TODO
 				// set associated list

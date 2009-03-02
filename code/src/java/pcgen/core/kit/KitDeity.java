@@ -223,8 +223,8 @@ public class KitDeity extends BaseKit
 			}
 			domainsToAdd.add(domain);
 
-			DomainApplication.applyDomain(aPC, domain);
-			aCD.setDomain(domain, aPC);
+			Domain newDomain = aCD.setDomain(domain, aPC);
+			DomainApplication.applyDomain(aPC, newDomain);
 			aPC.addCharacterDomain(aCD);
 		}
 		aPC.calcActiveBonuses();
@@ -259,8 +259,8 @@ public class KitDeity extends BaseKit
 				// Shouldn't happen
 				continue;
 			}
-			DomainApplication.applyDomain(aPC, domain);
-			aCD.setDomain(domain, aPC);
+			Domain newDomain = aCD.setDomain(domain, aPC);
+			DomainApplication.applyDomain(aPC, newDomain);
 			aPC.addCharacterDomain(aCD);
 		}
 		aPC.calcActiveBonuses();

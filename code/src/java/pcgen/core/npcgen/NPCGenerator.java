@@ -446,8 +446,8 @@ public class NPCGenerator
 			// space remains for another domain, so add it
 			if (existingDomain == null)
 			{
-				DomainApplication.applyDomain(aPC, domain);
-				aCD.setDomain(domain, aPC);
+				Domain newDomain = aCD.setDomain(domain, aPC);
+				DomainApplication.applyDomain(aPC, newDomain);
 				aPC.addCharacterDomain(aCD);
 
 				aPC.calcActiveBonuses();

@@ -4119,10 +4119,9 @@ public class PCClass extends PObject
 
 					final CharacterDomain aCD =
 							aPC.getNewCharacterDomain(getKeyName());
-					aCD.setDomain(aDomain, aPC);
+					Domain newDomain = aCD.setDomain(aDomain, aPC);
 					aPC.addCharacterDomain(aCD);
-					aDomain = aCD.getDomain();
-					DomainApplication.applyDomain(aPC, aDomain);
+					DomainApplication.applyDomain(aPC, newDomain);
 				}
 			}
 			else
