@@ -55,7 +55,7 @@ vp |HP|; wp |ALTHP|;
 Init |INITIATIVEMOD|;
 Spd |MOVEMENT|; AC |AC.Total|, touch |AC.Touch|, flat-footed |AC.Flatfooted|,
 Base Atk |ATTACK.MELEE|; 
-|IIF(GAMEMODE:Pathfinder)|
+|IIF(VAR.UseCombatManueverBonus:1)|
 CMB |VAR.CMB.INTVAL.SIGN|; 
 |ELSE|
 Grp |ATTACK.GRAPPLE.TOTAL|; 

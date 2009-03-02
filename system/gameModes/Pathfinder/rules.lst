@@ -29,7 +29,7 @@ NAME:DisplayTypeTraits			VAR:DISPLAYTYPETRAITS	DEFAULT:No					DESC:Display full 
 NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE	DEFAULT:Yes					DESC:Display conditional skill uses on output
 
 NAME:HitPointDamage			VAR:DAMAGE_HP		DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
-#NAME:VitalityDamage			VAR:DAMAGE_VW		DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
+NAME:VitalityDamage			VAR:DAMAGE_VW		DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
 
 #
 # The following are all hardcoded in the java code
@@ -51,6 +51,9 @@ NAME:WeaponSizebyObject			PARM:SIZEOBJ		DEFAULT:No	EXCLUDE:SIZECAT		DESC:Use 3.0
 NAME:SpellAlignmentRestriction	PARM:PROHIBITSPELLS	DEFAULT:Yes					DESC:Restict Cleric/Druid spells based on alignment
 
 NAME:AmmoStacksWithWeapon		PARM:AMMOSTACKSWITHWEAPON	DEFAULT:No				DESC:Do ammunition enhancement bonus stack with those of the weapon
+
+NAME:CombatManueverBonus		PARM:USE_CMB		DEFAULT:Yes	EXCLUDE:USE_GRAPPLE	DESC:Use Pathfinder Combat Manuever Bonus
+NAME:Grapple				PARM:USE_GRAPPLE		DEFAULT:No	EXCLUDE:USE_CMB		DESC:Use 3.5 Grapple
 
 #
 # Done
