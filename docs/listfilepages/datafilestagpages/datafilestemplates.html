@@ -35,7 +35,13 @@
 
 <hr>
 
-	<h2><a name="MODIFYINGTEMPLATE">Modifying a Template</a></h2>
+	<h2><a name="BUILDINGTEMPLATES">Building a Template</a></h2>
+
+	<p class="indent0">This space is reserved for a basic introduction to building templates.</p>
+
+<hr>
+
+	<h2><a name="MODIFYINGTEMPLATES">Modifying a Template</a></h2>
 
 	<p class="indent0">When modifying a LST Template with the <code>.MOD</code> tag, there are 
 		three ways in which tags are consolidated internally by PCGen: Consolidation by Overwriting Data, 
@@ -46,7 +52,7 @@
 	
 	<p class="indent0">A general example of this method of consolidation is shown below.</p>
 	
-	<p class="indent1"><strong>Given Initial Template:</strong></p>
+	<p class="indent1"><strong>Initial Template:</strong></p>
 	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
 	<p class="indent1"><strong>Modified By:</strong></p>
 	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
@@ -58,27 +64,33 @@
 	<table class="indent1">
 		<tr>
 			<td><a href="#BONUSSKILLPOINTS">BONUSSKILLPOINTS</a></td>
+			<td><a href="#FAVOREDCLASS">FAVOREDCLASS</a></td>
+			<td><a href="#LEGS">LEGS</a></td>
+			<td><a href="#REACH">REACH</a></td>
+			<td><a href="#VISIBLE">VISIBLE</a></td>
+		</tr>
+		<tr>
+			<td><a href="#CHOOSELANGAUTO">CHOOSE:LANGAUTO</a></td>
 			<td><a href="#GENDERLOCK">GENDERLOCK</a></td>
 			<td><a href="#LEVELADJUSTMENT">LEVELADJUSTMENT</a></td>
 			<td><a href="#REGION">REGION</a></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><a href="#CR">CR</a></td>
 			<td><a href="#HANDS">HANDS</a></td>
 			<td><a href="#NONPP">NONPP</a></td>
 			<td><a href="#REMOVABLE">REMOVABLE</a></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><a href="#FACE">FACE</a></td>
 			<td><a href="#HITDIE">HITDIE</a></td>
 			<td><a href="#RACETYPE">RACETYPE</a></td>
 			<td><a href="#SIZE">SIZE</a></td>
+			<td></td>
 		</tr>
 		<tr>
-			<td><a href="#FAVOREDCLASS">FAVOREDCLASS</a></td>
-			<td><a href="#LEGS">LEGS</a></td>
-			<td><a href="#REACH">REACH</a></td>
-			<td><a href="#VISIBLE">VISIBLE</a></td>
 		</tr>
 	</table>
 	
@@ -86,7 +98,7 @@
 	
 	<p class="indent0">A general example of this method of consolidation is shown below.</p>
 	
-	<p class="indent1"><strong>Given Initial Template:</strong></p>
+	<p class="indent1"><strong>Initial Template:</strong></p>
 	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
 	<p class="indent1"><strong>Modified By:</strong></p>
 	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
@@ -119,7 +131,7 @@
 	
 	<p class="indent0">A general example of this method of consolidation is shown below.</p>
 	
-	<p class="indent1"><strong>Given Initial Template:</strong></p>
+	<p class="indent1"><strong>Initial Template:</strong></p>
 	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
 	<p class="indent1"><strong>Modified By:</strong></p>
 	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
@@ -167,8 +179,9 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADDLEVEL:Animal|6</code></p>
 	<p class="indent3">Adds six levels of the Animal class to the character.</p>
+	
 	<p class="indent1"><strong>Consolidated Modification Example:</strong></p>
-	<p class="indent2">Given Initial Template:</p>
+	<p class="indent2">Initial Template:</p>
 	<p class="indent3"><code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2</code>
 	<p class="indent2">Modified By:</p>
 	<p class="indent3"><code>Werewolf.MOD &lt;tab&gt; ADDLEVEL:Animal|1</code></p>
@@ -194,10 +207,10 @@
 	<p class="indent3">Two bonus skill points are given.</p>
 	
 	<p class="indent1"><strong>.MOD Consolidation Example:</strong></p>
-	<p class="indent2">Given Initial Template:</p>
-	<p class="indent3"><code>Template A &lt;tab&gt; BONUSSKILLPOINTS:2</code>
+	<p class="indent2">Initial Template:</p>
+	<p class="indent3"><code>Sentient Construct &lt;tab&gt; BONUSSKILLPOINTS:2</code>
 	<p class="indent2">Modified By:</p>
-	<p class="indent3"><code>Template A.MOD &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
+	<p class="indent3"><code>Sentience Construct.MOD &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
 	<p class="indent2">Results In:</p>
 	<p class="indent3"><code>BONUSSKILLPOINTS:3</code></p>
 	<p class="indent4">Twelve skill points are granted at first level with three being granted at 
@@ -222,8 +235,12 @@
 	<p class="indent0"><strong><a name="CHOOSELANGAUTO">Tag Name:</a></strong> CHOOSE:LANGAUTO:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a | (pipe) delimited choice of Automatic Languages that do not count
-		against the limit determined by a Stat.</p>
+	<ul class="indent2">
+		<li>This is a pipe-delimited (|) list of languages for the character to choose from that are automatically 
+			granted and do not count against the language limit determined by an ability score/stat.</li>
+		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
+			overwritten by the new <code>CHOOSE:LANGAUTO</code> tag if one is included in the modification.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:LANGAUTO:Abyssal|Infernal</code></p>
 	<p class="indent3">&quot;Abyssal&quot; &amp; &quot;Infernal&quot; are granted as bonus languages.</p>
