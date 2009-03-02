@@ -129,8 +129,8 @@ public class KitStat extends BaseKit
 			for (PCClass pcClass : classes)
 			{
 				pcClass.setSkillPool(0);
-				if (aPC.getLevelInfoSize() > 0
-					&& pcClass.getSafe(ObjectKey.MOD_TO_SKILLS))
+				// We don't limit this to MOD_TO_SKILLS classes as they may manually include the INT bonus in the skills.
+				if (aPC.getLevelInfoSize() > 0)
 				{
 					final List<PCLevelInfo> pclList = aPC.getLevelInfo();
 					for (int j = 0; j < pclList.size(); j++)
