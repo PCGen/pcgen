@@ -1,9 +1,11 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 17:24:11 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Mon Mar  2 13:40:34 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 # SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-###Block: Mutations
-# Ability Category		Visible	Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Mutation	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:Mutation		PLURAL:Mutations			DISPLAYLOCATION:Racial Abilities
+###Block: Mutations (Mutation parent category moved to miscinfo.lst gameMode file)
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Drawbacks		VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:1		CATEGORY:Mutation		TYPE:Drawback				PLURAL:Drawbacks			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Cosmetic Mutations	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:Mutation		TYPE:CosmeticMutation			PLURAL:Cosmetic Mutations	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mutations		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:Mutation		TYPE:MinorMutation.MajorMutation	PLURAL:Mutations			DISPLAYLOCATION:Racial Abilities
 
 #
 # End
