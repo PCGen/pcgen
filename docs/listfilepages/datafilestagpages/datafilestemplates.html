@@ -44,13 +44,14 @@
 	<h2><a name="MODIFYINGTEMPLATES">Modifying a Template</a></h2>
 
 	<p class="indent0">When modifying a LST Template with the <code>.MOD</code> tag, there are 
-		three ways in which tags are consolidated internally by PCGen: Consolidation by Overwriting Data, 
-		Consolidation by Appending Data and Consolidation by Separate Tags. Each Template File tag fits into one of 
-		these three categories.</p>
+		three ways in which tags are modified internally by PCGen: Modification by Overwriting Data, 
+		Modification by Appending Data and Modification by Separate Tags. Each Template File tag fits 
+		into one of these categories. There is a forth category of modification, Modification by Selective 
+		Overwriting of Data, which is not used by the Template File tags.</p>
 	
 	<h3>Consolidating by Overwriting Data</h3>
 	
-	<p class="indent0">A general example of this method of consolidation is shown below.</p>
+	<p class="indent0">A general example of this method of Modification is shown below.</p>
 	
 	<p class="indent1"><strong>Initial Template:</strong></p>
 	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
@@ -96,7 +97,7 @@
 	
 	<h3>Consolidating by Appending Data</h3>
 	
-	<p class="indent0">A general example of this method of consolidation is shown below.</p>
+	<p class="indent0">A general example of this method of Modification is shown below.</p>
 	
 	<p class="indent1"><strong>Initial Template:</strong></p>
 	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
@@ -129,7 +130,7 @@
 	
 	<h3>Consolidating by Separate Tags</h3>
 	
-	<p class="indent0">A general example of this method of consolidation is shown below.</p>
+	<p class="indent0">A general example of this method of Modification is shown below.</p>
 	
 	<p class="indent1"><strong>Initial Template:</strong></p>
 	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
@@ -180,7 +181,7 @@
 	<p class="indent2"><code>ADDLEVEL:Animal|6</code></p>
 	<p class="indent3">Adds six levels of the Animal class to the character.</p>
 	
-	<p class="indent1"><strong>Consolidated Modification Example:</strong></p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template:</p>
 	<p class="indent3"><code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2</code>
 	<p class="indent2">Modified By:</p>
@@ -206,7 +207,7 @@
 	<p class="indent2"><code>BONUSSKILLPOINTS:2</code></p>
 	<p class="indent3">Two bonus skill points are given.</p>
 	
-	<p class="indent1"><strong>.MOD Consolidation Example:</strong></p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template:</p>
 	<p class="indent3"><code>Sentient Construct &lt;tab&gt; BONUSSKILLPOINTS:2</code>
 	<p class="indent2">Modified By:</p>
