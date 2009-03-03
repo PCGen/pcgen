@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 21 16:30:53 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Mon Mar  2 22:28:30 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -35,11 +35,11 @@ Obsessive									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VIS
 Weapon Familiarity ~ Gnome	OUTPUTNAME:Weapon Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																									DESC:Gnomes treat any weapon with the word "gnome" in its name as a martial weapon.																												CHANGEPROF:TYPE.Gnome=Martial	SOURCEPAGE:p.9
 
 ###Block: Half-Elf Abilities
-# Ability Name			Output Name				Category of Ability		Type						Visible	Description																																						Bonus to skill							Source Page
-Adaptability								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves select one skill at 1st level and always treat this skill as a class skill, although this ability does not make them trained in that skill.																							SOURCEPAGE:p.10
-Keen Senses ~ Half-Elf		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves receive a +2 bonus on sight- and sound-based Perception checks. They can make a Perception check to spot a secret or concealed door if they pass within 10 feet, regardless of whether or not they are actively looking.	BONUS:SKILL|Perception (Sight),Perception (Sound)|2	SOURCEPAGE:p.10
-Elf Blood									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves count as elves for any effect related to race.																																						SOURCEPAGE:p.10
-Elven Immunities ~ Half-Elf	OUTPUTNAME:Elven Immunities	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells or effects.																											SOURCEPAGE:p.10
+# Ability Name			Output Name				Category of Ability		Type						Visible	Description																																						Bonus to Ability Pool			Bonus to skill							Source Page
+Adaptability								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves receive Skill Focus, as a bonus feat, at 1st level.																												BONUS:ABILITYPOOL|Skill Focus|1										SOURCEPAGE:p.10
+Keen Senses ~ Half-Elf		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves receive a +2 bonus on sight- and sound-based Perception checks. They can make a Perception check to spot a secret or concealed door if they pass within 10 feet, regardless of whether or not they are actively looking.							BONUS:SKILL|Perception (Sight),Perception (Sound)|2	SOURCEPAGE:p.10
+Elf Blood									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves count as elves for any effect related to race.																																												SOURCEPAGE:p.10
+Elven Immunities ~ Half-Elf	OUTPUTNAME:Elven Immunities	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Half-elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells or effects.																																	SOURCEPAGE:p.10
 
 ###Block: Half-Orc Abilities
 # Ability Name			Output Name				Category of Ability		Type						Visible	Description																																									Automatically Gained Weapon Prof.	Change Weapon Prof. Category	Source Page
