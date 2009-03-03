@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Sun Feb 22 23:31:41 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LoFPG	SOURCEWEB:http://paizo.com/paizo/messageboards/paizo/products/v5748btpy84bh	SOURCEDATE:2009-02
+
+###Block: Specific Familiars
+# Class of the Master	Type			Ability								Required Race			Apply Kit					Add
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Brushtail Fennec	KIT:1|Brushtail Fennec Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak One Language	PRERACE:1,Bustard			KIT:1|Bustard Familiar			ADD:LANGUAGE|1|TYPE=Spoken
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Jerboa			KIT:1|Jerboa Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Lashtail Scorpion	KIT:1|Lashtail Scorpion Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Solifugid		KIT:1|Solifugid Familiar
+
+###Block:Familiar Bonuses to Master
+# Race of familiar			Type			Bonus to skill		Virtual Feat
+MASTERBONUSRACE:Brushtail Fennec	TYPE:Familiar	BONUS:SKILL|Search|3	VFEAT:Alertness
+MASTERBONUSRACE:Bustard			TYPE:Familiar	BONUS:SKILL|Listen|3	VFEAT:Alertness
+MASTERBONUSRACE:Jerboa			TYPE:Familiar	BONUS:SKILL|Jump|3	VFEAT:Alertness
+MASTERBONUSRACE:Lashtail Scorpion	TYPE:Familiar	BONUS:SKILL|Survival|3	VFEAT:Alertness
+MASTERBONUSRACE:Solifugid		TYPE:Familiar	BONUS:SKILL|Bluff|3	VFEAT:Alertness
+
+#
+# End
+#
