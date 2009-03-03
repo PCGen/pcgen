@@ -5,13 +5,13 @@
     <title>PCGen Change Log</title> 
   </properties>  
   <body> 
-    <release version="5.15.14" date="In SVN" description="Beta Release"> 
+    <release version="5.15.14" date="2009-03-04" description="Beta Release"> 
       <action dev="eddyanthony" type="add" issue="2634914">[Paizo] Legacy of Fire Player's Guide</action>  
       <action dev="eddyanthony" type="add" issue="2634922">[Paizo] Pathfinder Character Traits Web Enhancement</action>  
-      <action dev="eddyanthony" type="add" issue="2536558">[Pathfinder RPG] Barbarian rage abilities</action>
-      <action dev="eddyanthony" type="add" issue="2536570">[Pathfinder RPG] Implement Monk Class</action>
-      <action dev="eddyanthony" type="add" issue="2536599">[Pathfinder RPG] Web Enhancement</action>
-      <action dev="eddyanthony" type="add" issue="2634941">[Paizo] Second Darkness Player's Guide: Traits</action>
+      <action dev="eddyanthony" type="add" issue="2536558">[Pathfinder RPG] Barbarian rage abilities</action>  
+      <action dev="eddyanthony" type="add" issue="2536570">[Pathfinder RPG] Implement Monk Class</action>  
+      <action dev="eddyanthony" type="add" issue="2536599">[Pathfinder RPG] Web Enhancement</action>  
+      <action dev="eddyanthony" type="add" issue="2634941">[Paizo] Second Darkness Player's Guide: Traits</action> 
     </release>  
     <release version="5.15.13" date="2009-02-26" description="Beta Release"> 
       <action dev="eddyanthony" type="add" issue="2536572">[Pathfinder RPG] Implement Ranger, Rogue classess</action>  
