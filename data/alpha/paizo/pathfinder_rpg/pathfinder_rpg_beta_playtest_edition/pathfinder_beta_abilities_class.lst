@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 28 19:35:29 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Mon Mar  2 22:28:30 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -238,15 +238,15 @@ Lightning Lord									CATEGORY:Special Ability	TYPE:DomainPower.SpecialQuality.
 
 
 ###Block: Druid Abilities
-# Ability Name							Output Name					Category of Ability		Type								Visible	Description																																Source Page
-Orisons ~ Druid							OUTPUTNAME:Orisons			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DESC:Druids can prepare a number of orisons, or 0-level spells, each day. They can cast these spells at will as a spell-like ability. Orisons cannot be channeled through spontaneous spellcasting.	SOURCEPAGE:p.23
-Spontaneous Casting - Summon Nature's Ally spells	OUTPUTNAME:Spontaneous Casting	CATEGORY:Special Ability	TYPE:ClassAbility						VISIBLE:YES	DESC:Channel stored Druid spell energy into Summon Nature's Ally spell of equal or lower level.																		SOURCEPAGE:p.23
-Woodland Stride													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Move through any sort of non-magical undergrowth at normal speed and without taking damage or suffering any other impairment.												SOURCEPAGE:p.25
-Trackless Step													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Leave no trail in natural surroundings and cannot be tracked, unless desired.																				SOURCEPAGE:p.25
-Resist Nature's Lure												CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:+4 bonus on saving throws against the spell-like and supernatural abilities of fey.																			SOURCEPAGE:p.25
-Venom Immunity													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Immunity to all poisons																													SOURCEPAGE:p.26
-A Thousand Faces													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES	DESC:Change appearance at will, as if using the Alter Self spell, but only while in normal form.																	SOURCEPAGE:p.26
-Timeless Body													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:No longer take ability score penalties for aging and cannot be magically aged.																				SOURCEPAGE:p.26
+# Ability Name							Output Name					Category of Ability		Type								Visible	Description																																Template			Source Page
+Orisons ~ Druid							OUTPUTNAME:Orisons			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DESC:Druids can prepare a number of orisons, or 0-level spells, each day. They can cast these spells at will as a spell-like ability. Orisons cannot be channeled through spontaneous spellcasting.					SOURCEPAGE:p.23
+Spontaneous Casting - Summon Nature's Ally spells	OUTPUTNAME:Spontaneous Casting	CATEGORY:Special Ability	TYPE:ClassAbility						VISIBLE:YES	DESC:Channel stored Druid spell energy into Summon Nature's Ally spell of equal or lower level.																						SOURCEPAGE:p.23
+Woodland Stride													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Move through any sort of non-magical undergrowth at normal speed and without taking damage or suffering any other impairment.																SOURCEPAGE:p.25
+Trackless Step													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Leave no trail in natural surroundings and cannot be tracked, unless desired.																								SOURCEPAGE:p.25
+Resist Nature's Lure												CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:+4 bonus on saving throws against the spell-like and supernatural abilities of fey.																							SOURCEPAGE:p.25
+Venom Immunity													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Immunity to all poisons																																	SOURCEPAGE:p.26
+A Thousand Faces													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES	DESC:Change appearance at will, as if using the Alter Self spell, but only while in normal form.																					SOURCEPAGE:p.26
+Timeless Body ~ Druid						OUTPUTNAME:Timeless Body		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:No longer take ability score penalties for aging and cannot be magically aged.																				TEMPLATE:Timeless Body	SOURCEPAGE:p.26
 
 ###Block: Nature's Bond
 # Ability Name	Category of Ability		Type								Visible		Define			Description										Multiple?	Choose											Allow Follower			Allowed Companions																																																																																																																																																																																																				Source Page
