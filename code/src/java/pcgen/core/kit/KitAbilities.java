@@ -233,15 +233,12 @@ public final class KitAbilities extends BaseKit
 		for (AbilitySelection as : abilitiesToAdd)
 		{
 			Ability ability = as.ability;
-			final AbilityCategory abilityCategory =
-					SettingsHandler.getGame().getAbilityCategory(
-						ability.getCategory());
 			AbilityUtilities.modAbility(aPC, null, ability, as.selection, true,
-				abilityCategory);
-
+				category);
+			
 			if (isFree())
 			{
-				aPC.adjustAbilities(abilityCategory, new BigDecimal(1));
+				aPC.adjustAbilities(category, new BigDecimal(1));
 			}
 		}
 	}
