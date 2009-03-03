@@ -142,6 +142,10 @@ a img {
 	font-weight: bold;
 	margin-bottom: -10px;
 }
+.status {
+	color: #000000;
+	margin-bottom: -10px;
+}
 .underline {
 	text-decoration: underline;
 }
