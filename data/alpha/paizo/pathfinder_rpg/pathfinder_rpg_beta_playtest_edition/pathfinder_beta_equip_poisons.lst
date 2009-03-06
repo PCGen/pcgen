@@ -1,11 +1,11 @@
-# CVS $Revision: 480 $ $Author: tir-gwaith $ -- Sun Mar 26 07:59:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Mar  6 06:35:28 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
 # Costs are missing from the Beta, keeping SRD prices.
 
 ###Block: Poisons
-# Equipment Name				Output Name		Type					Cost		Weight	Source Page						Special Property
+# Equipment Name				Output Name		Type					Cost		Weight	Source Page		Special Property
 Poison (Arsenic)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.391	SPROP:Ingested; Fort DC 13; Freq. 1 round (5); Effect 1 Con damage; Cure 1 save
 Poison (Black Adder Venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.391	SPROP:Injury; Fort DC 11; Freq. 1 round (6); Effect 1 Con damage; Cure 1 save
 Poison (Black Lotus Extract)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:4500	WT:0		SOURCEPAGE:p.391	SPROP:Contact; Fort DC 20; Freq. 1 round (7); Effect 3 Con damage; Cure 1 save
