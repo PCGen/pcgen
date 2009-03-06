@@ -7,6 +7,7 @@ BOOKTYPE:Magazine
 SETTING:Blood and Secrets
 TYPE:RPGObjects.Modern Dispatch
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,RPGObjects - Blood and Secrets
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

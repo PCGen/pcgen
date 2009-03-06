@@ -37,3 +37,6 @@ FEAT:bnc_feats.lst
 FEAT:bnc_feats_mod.lst
 WEAPONPROF:bnc_weapon_proficiency.lst
 ARMORPROF:bnc_proficiency_armor.lst
+
+#Referencing Armor Proficiency (Powered) from MSRD Future
+FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Armor Proficiency (Powered))
