@@ -29,7 +29,7 @@ CLASS:Aberration (Basic)	PRERACETYPE:Aberration
 CLASS:Aberration (Basic)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
 
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Animal	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL
+CLASS:Animal	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL	BONUS:VAR|NativeLanguage|-1
 # Class Name	Reg. Race Type
 CLASS:Animal	PRERACETYPE:Animal
 # Class Name	Add INT to Skill Points?	Monster Initial Skill Points
