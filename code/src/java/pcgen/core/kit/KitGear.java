@@ -72,7 +72,6 @@ public final class KitGear extends BaseKit
 	private transient Equipment theEquipment = null;
 	private transient int theQty = 0;
 	private transient String theLocation = "";
-	private transient Equipment theTarget = null;
 	private transient BigDecimal theCost = BigDecimal.ZERO;
 
 	/**
@@ -183,7 +182,6 @@ public final class KitGear extends BaseKit
 		theEquipment = null;
 		theQty = 0;
 		theLocation = "";
-		theTarget = null;
 		theCost = BigDecimal.ZERO;
 
 		processLookups(aKit, aPC);
@@ -352,14 +350,16 @@ public final class KitGear extends BaseKit
 			return false;
 		}
 
+		Equipment testApplyEquipment = theEquipment.clone();
 		// Temporarily add the equipment so we can see if we can equip it.
-		theEquipment.setQty(new Float(theQty));
-		aPC.addEquipment(theEquipment);
+		testApplyEquipment.setQty(new Float(theQty));
+		aPC.addEquipment(testApplyEquipment);
+		Equipment theTarget = null;
 		if (actingLocation != null)
 		{
 			theLocation = actingLocation;
-			if (!(theLocation.equalsIgnoreCase("DEFAULT") || theLocation
-				.equalsIgnoreCase("Equipped")))
+			if (!theLocation.equalsIgnoreCase("DEFAULT")
+					&& !theLocation.equalsIgnoreCase("Equipped"))
 			{
 				theTarget = aPC.getEquipmentNamed(theLocation);
 			}
@@ -368,12 +368,21 @@ public final class KitGear extends BaseKit
 				theLocation = "";
 			}
 
-			EquipSet eqSet =
-					aPC.addEquipToTarget(aPC.getEquipSetByIdPath("0.1"),
-						theTarget, theLocation, theEquipment, new Float(-1.0f));
+			EquipSet eSet = null;
+			if (theTarget != null)
+			{
+				eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"),
+						theTarget);
+			}
+			if (eSet == null)
+			{
+				eSet = aPC.getEquipSetByIdPath("0.1");
+			}
+			EquipSet eqSet = aPC.addEquipToTarget(eSet, theTarget, theLocation,
+					testApplyEquipment, new Float(-1.0f));
 			if (eqSet == null)
 			{
-				warnings.add("GEAR: Could not equip " + theEquipment.getName()
+				warnings.add("GEAR: Could not equip " + testApplyEquipment.getName()
 					+ " to " + theLocation);
 			}
 		}
@@ -399,22 +408,20 @@ public final class KitGear extends BaseKit
 		}
 
 		// If the target is null, try and grab it incase it is there now
-		if (theTarget == null
-			&& !(theLocation.equalsIgnoreCase("DEFAULT") || theLocation
-				.equalsIgnoreCase("Equipped")))
+		Equipment theTarget;
+		EquipSet eSet;
+		if (theLocation.length() != 0
+				&& !theLocation.equalsIgnoreCase("Equipped"))
 		{
 			theTarget = aPC.getEquipmentNamed(theLocation);
+			eSet =
+				aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"),
+					theTarget);
 			//TODO (JD 7Nov07) Resized items get missed by the above call as their name has changed 
 		}
-		EquipSet eSet = null;
-		if (theTarget != null)
+		else
 		{
-			eSet =
-					aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"),
-						theTarget);
-		}
-		if (eSet == null)
-		{
+			theTarget = null;
 			eSet = aPC.getEquipSetByIdPath("0.1");
 		}
 
