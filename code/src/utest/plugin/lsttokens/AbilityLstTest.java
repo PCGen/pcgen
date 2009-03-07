@@ -152,6 +152,20 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidClearDotPre() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL|.CLEAR.Abil1|PRELEVEL:MIN=4"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidClearPre() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|NORMAL|.CLEAR|PRELEVEL:MIN=4"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInsertedPre() throws PersistenceLayerException
 	{
 		assertFalse(parse("FEAT|NORMAL|Abil1|PRELEVEL:MIN=4|Abil2"));

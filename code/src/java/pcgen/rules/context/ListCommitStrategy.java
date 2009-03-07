@@ -56,7 +56,7 @@ public interface ListCommitStrategy
 	public void removeAllFromList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<?>> swl);
 
-	public <T extends PrereqObject> void removeFromList(String tokenName,
+	public <T extends PrereqObject> AssociatedPrereqObject removeFromList(String tokenName,
 		CDOMObject owner, CDOMReference<? extends CDOMList<? super T>> swl,
 		CDOMReference<T> ref);
 

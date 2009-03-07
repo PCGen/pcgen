@@ -22,11 +22,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Set;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.ListSet;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
 import pcgen.base.util.TripleKeyMap;
@@ -102,12 +104,12 @@ public abstract class AbstractListContext
 		return edits.addToList(tokenName, owner, list, allowed);
 	}
 
-	public <T extends CDOMObject> void removeFromList(String tokenName,
-			CDOMObject owner,
+	public <T extends CDOMObject> AssociatedPrereqObject removeFromList(
+			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<? super T>> list,
 			CDOMReference<T> ref)
 	{
-		edits.removeFromList(tokenName, owner, list, ref);
+		return edits.removeFromList(tokenName, owner, list, ref);
 	}
 
 	public void removeAllFromList(String tokenName, CDOMObject owner,
@@ -320,10 +322,16 @@ public abstract class AbstractListContext
 			for (AssociatedPrereqObject assoc : neg.getListAssociations(list,
 					ref))
 			{
-				commit
-						.removeFromList(assoc
-								.getAssociation(AssociationKey.TOKEN), owner,
-								list, ref);
+				String token = assoc.getAssociation(AssociationKey.TOKEN);
+				AssociatedPrereqObject edge = commit.removeFromList(token, owner,
+						list, ref);
+				Collection<AssociationKey<?>> associationKeys = assoc
+						.getAssociationKeys();
+				for (AssociationKey<?> ak : associationKeys)
+				{
+					setAssoc(assoc, edge, ak);
+				}
+				edge.addAllPrerequisites(assoc.getPrerequisiteList());
 			}
 		}
 	}
@@ -580,7 +588,7 @@ public abstract class AbstractListContext
 			return a;
 		}
 
-		public <T extends PrereqObject> void removeFromList(String tokenName,
+		public <T extends PrereqObject> AssociatedPrereqObject removeFromList(String tokenName,
 				CDOMObject owner,
 				CDOMReference<? extends CDOMList<? super T>> list,
 				CDOMReference<T> ref)
@@ -588,18 +596,39 @@ public abstract class AbstractListContext
 			SimpleAssociatedObject a = new SimpleAssociatedObject();
 			a.setAssociation(AssociationKey.TOKEN, tokenName);
 			getNegative(sourceURI, owner).putToList(list, ref, a);
+			return a;
 		}
 
 		public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
 				CDOMObject owner, Class<? extends CDOMList<?>> cl)
 		{
-			ArrayList<CDOMReference<? extends CDOMList<? extends PrereqObject>>> list = new ArrayList<CDOMReference<? extends CDOMList<? extends PrereqObject>>>();
+			Set<CDOMReference<? extends CDOMList<? extends PrereqObject>>> list = new ListSet<CDOMReference<? extends CDOMList<? extends PrereqObject>>>();
 			for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : getPositive(
 					extractURI, owner).getModifiedLists())
 			{
 				if (cl.equals(ref.getReferenceClass()))
 				{
 					list.add(ref);
+				}
+			}
+			for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : getNegative(
+					extractURI, owner).getModifiedLists())
+			{
+				if (cl.equals(ref.getReferenceClass()))
+				{
+					list.add(ref);
+				}
+			}
+			List<CDOMReference<? extends CDOMList<?>>> globalClearList = globalClearSet
+					.getListFor(extractURI, owner);
+			if (globalClearList != null)
+			{
+				for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : globalClearList)
+				{
+					if (cl.equals(ref.getReferenceClass()))
+					{
+						list.add(ref);
+					}
 				}
 			}
 			return list;

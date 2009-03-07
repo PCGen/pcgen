@@ -40,7 +40,9 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
@@ -177,6 +179,7 @@ public class AbilityLst extends AbstractToken implements
 				AbilityList.getAbilityListReference(category, nature);
 
 		boolean first = true;
+		boolean removed = false;
 
 		while (true)
 		{
@@ -190,6 +193,7 @@ public class AbilityLst extends AbstractToken implements
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 					abilList);
+				removed = true;
 			}
 			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -201,8 +205,11 @@ public class AbilityLst extends AbstractToken implements
 				{
 					return false;
 				}
-				context.getListContext().removeFromList(getTokenName(), obj,
-					abilList, ref);
+				AssociatedPrereqObject assoc = context.getListContext()
+						.removeFromList(getTokenName(), obj, abilList, ref);
+				assoc.setAssociation(AssociationKey.NATURE, nature);
+				assoc.setAssociation(AssociationKey.CATEGORY, category);
+				removed = true;
 			}
 			else
 			{
@@ -239,6 +246,14 @@ public class AbilityLst extends AbstractToken implements
 			}
 		}
 
+		if (removed)
+		{
+			Logging.log(Logging.LST_ERROR,
+					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
+							+ getTokenName());
+			return false;
+		}
+
 		while (true)
 		{
 			Prerequisite prereq = getPrerequisite(token);
@@ -273,13 +288,23 @@ public class AbilityLst extends AbstractToken implements
 			return null;
 		}
 		Set<String> returnSet = new TreeSet<String>();
-		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m =
-				new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear = new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
 		for (CDOMReference ref : changedLists)
 		{
 			AssociatedChanges<CDOMReference<Ability>> changes =
 					context.getListContext().getChangesInList(getTokenName(),
 						obj, ref);
+			if (changes.includesGlobalClear())
+			{
+				CDOMDirectSingleRef<AbilityList> dr = (CDOMDirectSingleRef<AbilityList>) ref;
+				AbilityList al = dr.resolvesTo();
+				StringBuilder sb = new StringBuilder();
+				sb.append(al.get(ObjectKey.ABILITY_CAT)).append(Constants.PIPE);
+				sb.append(al.get(ObjectKey.ABILITY_NATURE)).append(Constants.PIPE);
+				sb.append(Constants.LST_DOT_CLEAR);
+				returnSet.add(sb.toString());
+			}
 			MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl =
 					changes.getAddedAssociations();
 			if (mtl != null)
@@ -298,6 +323,22 @@ public class AbilityLst extends AbstractToken implements
 					}
 				}
 			}
+			mtl = changes.getRemovedAssociations();
+			if (mtl != null)
+			{
+				for (CDOMReference<Ability> ab : mtl.getKeySet())
+				{
+					for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
+					{
+						Ability.Nature nature = assoc
+								.getAssociation(AssociationKey.NATURE);
+						Category<Ability> cat = assoc
+								.getAssociation(AssociationKey.CATEGORY);
+						clear.addToListFor(nature, cat, assoc
+								.getPrerequisiteList(), ab);
+					}
+				}
+			}
 		}
 
 		for (Ability.Nature nature : m.getKeySet())
@@ -309,9 +350,42 @@ public class AbilityLst extends AbstractToken implements
 				{
 					StringBuilder sb = new StringBuilder();
 					sb.append(category).append(Constants.PIPE);
-					sb.append(nature).append(Constants.PIPE);
+					sb.append(nature);
+					List<CDOMReference<Ability>> clearList = clear
+							.removeListFor(nature, category, prereqs);
+					if (clearList != null && !clearList.isEmpty())
+					{
+						sb.append(Constants.PIPE);
+						sb.append(Constants.LST_DOT_CLEAR_DOT);
+						sb.append(ReferenceUtilities.joinLstFormat(clearList,
+								Constants.PIPE + Constants.LST_DOT_CLEAR_DOT));
+					}
+					sb.append(Constants.PIPE);
 					sb.append(ReferenceUtilities.joinLstFormat(m.getListFor(
-						nature, category, prereqs), Constants.PIPE));
+							nature, category, prereqs), Constants.PIPE));
+					if (prereqs != null && !prereqs.isEmpty())
+					{
+						sb.append(Constants.PIPE);
+						sb.append(getPrerequisiteString(context, prereqs));
+					}
+					returnSet.add(sb.toString());
+				}
+			}
+		}
+		for (Ability.Nature nature : clear.getKeySet())
+		{
+			for (Category<Ability> category : clear.getSecondaryKeySet(nature))
+			{
+				for (List<Prerequisite> prereqs : clear.getTertiaryKeySet(
+						nature, category))
+				{
+					StringBuilder sb = new StringBuilder();
+					sb.append(category).append(Constants.PIPE);
+					sb.append(nature).append(Constants.PIPE).append(
+							Constants.LST_DOT_CLEAR_DOT);
+					sb.append(ReferenceUtilities.joinLstFormat(clear
+							.getListFor(nature, category, prereqs),
+							Constants.PIPE + Constants.LST_DOT_CLEAR_DOT));
 					if (prereqs != null && !prereqs.isEmpty())
 					{
 						sb.append(Constants.PIPE);

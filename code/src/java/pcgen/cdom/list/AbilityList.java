@@ -25,6 +25,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Ability.Nature;
@@ -83,6 +84,8 @@ public class AbilityList extends CDOMListObject<Ability>
 		{
 			AbilityList al = new AbilityList();
 			al.setName("*" + category.toString() + ":" + nature.toString());
+			al.put(ObjectKey.ABILITY_CAT, category);
+			al.put(ObjectKey.ABILITY_NATURE, nature);
 			list = CDOMDirectSingleRef.getRef(al);
 			MASTER_MAP.put(category, nature, list);
 		}

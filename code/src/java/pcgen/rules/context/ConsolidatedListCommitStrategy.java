@@ -173,11 +173,12 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return a;
 	}
 
-	public <T extends PrereqObject> void removeFromList(String tokenName,
+	public <T extends PrereqObject> AssociatedPrereqObject removeFromList(String tokenName,
 		CDOMObject owner, CDOMReference<? extends CDOMList<? super T>> swl,
 		CDOMReference<T> ref)
 	{
 		owner.removeFromList(swl, ref);
+		return null;
 	}
 
 	public void removeAllFromList(String tokenName, CDOMObject owner,
@@ -206,7 +207,6 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl)
 	{
-		// TODO Deal with matching the token... :/
 		return new ListChanges<T>(tokenName, owner, null, swl, false);
 	}
 	
