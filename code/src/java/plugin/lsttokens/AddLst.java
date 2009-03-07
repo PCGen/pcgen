@@ -111,6 +111,12 @@ public class AddLst extends AbstractToken implements
 					return false;
 				}
 			}
+			else
+			{
+				Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+						+ " requires a SubToken and argument, found: " + value);
+				return false;
+			}
 			context.getObjectContext().removeList(obj, ListKey.ADD);
 			return true;
 		}
