@@ -200,10 +200,9 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
 		return true;
 	}
 
-	//TODO Need to enable this to get 5.14 behavior
-//	@Override
-//	protected ConsolidationRule getConsolidationRule()
-//	{
-//		return ConsolidationRule.OVERWRITE;
-//	}
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
 }

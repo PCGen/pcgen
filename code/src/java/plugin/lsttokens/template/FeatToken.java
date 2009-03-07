@@ -22,7 +22,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
@@ -36,17 +35,18 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Ability.Nature;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
@@ -54,7 +54,8 @@ import pcgen.util.enumeration.Visibility;
  * Class deals with FEAT Token
  */
 public class FeatToken extends AbstractToken implements
-		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<AbilitySelection>
+		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<AbilitySelection>,
+		DeferredToken<PCTemplate>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -70,19 +71,14 @@ public class FeatToken extends AbstractToken implements
 		{
 			return false;
 		}
+		context.getObjectContext().removeList(pct, ListKey.FEAT_TOKEN_LIST);
 
-		AbilityCategory category = AbilityCategory.FEAT;
-		Nature nature = Ability.Nature.AUTOMATIC;
-		Formula count = FormulaFactory.ONE;
-
-		List<AbilityRef> refs = new ArrayList<AbilityRef>();
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		boolean first = true;
 
 		while (tok.hasMoreTokens())
 		{
-			CDOMReference<Ability> ab;
 			String token = tok.nextToken();
 			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
@@ -92,89 +88,57 @@ public class FeatToken extends AbstractToken implements
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
-				context.getObjectContext().removeList(pct, ListKey.TEMPLATE_FEAT);
 			}
 			else
 			{
-				ab = TokenUtilities.getTypeOrPrimitive(context, ABILITY_CLASS,
-						category, token);
-				if (ab == null)
+				CDOMReference<Ability> ability = TokenUtilities
+						.getTypeOrPrimitive(context, ABILITY_CLASS,
+								AbilityCategory.FEAT, token);
+				if (ability == null)
 				{
-					Logging.log(Logging.LST_ERROR,
-							"  Error was encountered while parsing "
-									+ getTokenName() + ": " + value
-									+ " had an invalid reference: " + token);
 					return false;
 				}
-				AbilityRef ar = new AbilityRef(ab);
-				refs.add(ar);
-
-				if (token.indexOf('(') != -1)
-				{
-					List<String> choices = new ArrayList<String>();
-					AbilityUtilities.getUndecoratedName(token, choices);
-					if (choices.size() != 1)
-					{
-						Logging.log(Logging.LST_ERROR,
-								"Invalid use of multiple items "
-										+ "in parenthesis"
-										+ " (comma prohibited) in "
-										+ getTokenName() + ": " + token);
-						return false;
-					}
-					ar.setChoice(choices.get(0));
-				}
+				context.getObjectContext().addToList(pct,
+						ListKey.FEAT_TOKEN_LIST, ability);
 			}
 			first = false;
 		}
-
-		if (refs.isEmpty())
-		{
-			//Must have just been .CLEAR
-			return true;
-		}
-
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
-				nature);
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
-				getTokenName(), rcs);
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
-				cs, count);
-		context.getObjectContext().addToList(pct, ListKey.TEMPLATE_FEAT, tc);
-		tc.setTitle("Feat Choice");
-		tc.setChoiceActor(this);
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<PersistentTransitionChoice<?>> changes = context
-				.getObjectContext().getListChanges(pct, ListKey.TEMPLATE_FEAT);
-		if (changes == null || changes.isEmpty())
-		{
-			// Zero indicates no Token
-			return null;
-		}
-		Collection<PersistentTransitionChoice<?>> added = changes.getAdded();
-		List<String> addStrings = new ArrayList<String>();
+		Changes<CDOMReference<Ability>> changes = context.getObjectContext()
+				.getListChanges(pct, ListKey.FEAT_TOKEN_LIST);
+		Collection<CDOMReference<Ability>> added = changes.getAdded();
+		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
+		String returnVal = null;
 		if (changes.includesGlobalClear())
 		{
-			addStrings.add(Constants.LST_DOT_CLEAR);
-		}
-		if (added != null && !added.isEmpty())
-		{
-			for (PersistentTransitionChoice<?> container : added)
+			if (removedItems != null && !removedItems.isEmpty())
 			{
-				addStrings.add(container.getChoices().getLSTformat().replace(',', '|'));
+				context.addWriteMessage("Non-sensical relationship in "
+						+ getTokenName()
+						+ ": global .CLEAR and local .CLEAR. performed");
+				return null;
 			}
+			returnVal = Constants.LST_DOT_CLEAR;
 		}
-		if (addStrings.size() == 0)
+		else if (removedItems != null && !removedItems.isEmpty())
 		{
 			context.addWriteMessage(getTokenName() + " does not support "
 					+ Constants.LST_DOT_CLEAR_DOT);
 			return null;
 		}
-		return addStrings.toArray(new String[addStrings.size()]);
+		if (added != null && !added.isEmpty())
+		{
+			returnVal = ReferenceUtilities.joinLstFormat(added, Constants.PIPE);
+		}
+		if (returnVal == null)
+		{
+			return null;
+		}
+		return new String[] { returnVal };
 	}
 
 	public Class<PCTemplate> getTokenClass()
@@ -256,7 +220,7 @@ public class FeatToken extends AbstractToken implements
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
-		//No action required
+		// No action required
 	}
 
 	public Class<PCTemplate> getDeferredTokenClass()
@@ -269,5 +233,50 @@ public class FeatToken extends AbstractToken implements
 	{
 		AbilityUtilities.modFeat(pc, null, choice.getFullAbilityKey(), false,
 				true);
+	}
+
+	public boolean process(LoadContext context, PCTemplate pct)
+	{
+		List<CDOMReference<Ability>> list = pct
+				.getListFor(ListKey.FEAT_TOKEN_LIST);
+		if (list != null)
+		{
+			List<AbilityRef> refs = new ArrayList<AbilityRef>();
+			for (CDOMReference<Ability> ability : list)
+			{
+				AbilityRef ar = new AbilityRef(ability);
+				refs.add(ar);
+				String token = ability.getLSTformat();
+				if (token.indexOf('(') != -1)
+				{
+					List<String> choices = new ArrayList<String>();
+					AbilityUtilities.getUndecoratedName(token, choices);
+					if (choices.size() != 1)
+					{
+						Logging.log(Logging.LST_ERROR,
+								"Invalid use of multiple items "
+										+ "in parenthesis"
+										+ " (comma prohibited) in "
+										+ getTokenName() + ": " + token);
+						return false;
+					}
+					ar.setChoice(choices.get(0));
+				}
+			}
+			if (!refs.isEmpty())
+			{
+				AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
+						AbilityCategory.FEAT, refs, Ability.Nature.AUTOMATIC);
+				ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+						getTokenName(), rcs);
+				PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+						cs, FormulaFactory.ONE);
+				context.getObjectContext()
+						.put(pct, ObjectKey.TEMPLATE_FEAT, tc);
+				tc.setTitle("Feat Choice");
+				tc.setChoiceActor(this);
+			}
+		}
+		return true;
 	}
 }

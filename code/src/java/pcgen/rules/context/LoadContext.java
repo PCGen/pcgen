@@ -457,4 +457,22 @@ public abstract class LoadContext
 		}
 		return rm;
 	}
+
+	public void performDeferredProcessing(CDOMObject cdo)
+	{
+		for (DeferredToken<? extends CDOMObject> token : TokenLibrary
+				.getDeferredTokens())
+		{
+			if (token.getDeferredTokenClass().isAssignableFrom(cdo.getClass()))
+			{
+				processDeferred(cdo, token);
+			}
+		}
+	}
+
+	private <T extends CDOMObject> void processDeferred(CDOMObject cdo,
+			DeferredToken<T> token)
+	{
+		token.process(this, ((T) cdo));
+	}
 }

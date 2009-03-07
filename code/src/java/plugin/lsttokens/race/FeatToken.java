@@ -22,27 +22,29 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Race;
-import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with FEAT Token
  */
-public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
+public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>,
+		DeferredToken<Race>
 {
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -54,15 +56,11 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 
 	public boolean parse(LoadContext context, Race race, String value)
 	{
-		return parseFeat(context, race, value);
-	}
-
-	public boolean parseFeat(LoadContext context, CDOMObject obj, String value)
-	{
 		if (isEmpty(value) || hasIllegalSeparator('|', value))
 		{
 			return false;
 		}
+		context.getObjectContext().removeList(race, ListKey.FEAT_TOKEN_LIST);
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
@@ -79,8 +77,6 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 							+ ": .CLEAR was not the first list item: " + value);
 					return false;
 				}
-				context.getListContext().removeAllFromList(getTokenName(), obj,
-						Ability.FEATLIST);
 			}
 			else
 			{
@@ -91,17 +87,8 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 				{
 					return false;
 				}
-				AssociatedPrereqObject assoc = context.getListContext()
-						.addToList(getTokenName(), obj, Ability.FEATLIST,
-								ability);
-				assoc.setAssociation(AssociationKey.NATURE,
-						Ability.Nature.AUTOMATIC);
-				if (token.indexOf('(') != -1)
-				{
-					List<String> choices = new ArrayList<String>();
-					AbilityUtilities.getUndecoratedName(token, choices);
-					assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
-				}
+				context.getObjectContext().addToList(race,
+						ListKey.FEAT_TOKEN_LIST, ability);
 			}
 			first = false;
 		}
@@ -110,13 +97,11 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 
 	public String[] unparse(LoadContext context, Race race)
 	{
-		AssociatedChanges<CDOMReference<Ability>> changes = context
-				.getListContext().getChangesInList(getTokenName(), race,
-						Ability.FEATLIST);
-		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> added = changes
-				.getAddedAssociations();
+		Changes<CDOMReference<Ability>> changes = context.getObjectContext()
+				.getListChanges(race, ListKey.FEAT_TOKEN_LIST);
+		Collection<CDOMReference<Ability>> added = changes.getAdded();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
-		StringBuilder sb = new StringBuilder();
+		String returnVal = null;
 		if (changes.includesGlobalClear())
 		{
 			if (removedItems != null && !removedItems.isEmpty())
@@ -126,7 +111,7 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 						+ ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			sb.append(Constants.LST_DOT_CLEAR);
+			returnVal = Constants.LST_DOT_CLEAR;
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
@@ -136,31 +121,43 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>
 		}
 		if (added != null && !added.isEmpty())
 		{
-			boolean needsPipe = sb.length() != 0;
-			for (CDOMReference<Ability> ref : added.getKeySet())
-			{
-				String lstFormat = ref.getLSTformat();
-				for (int i = 0; i < added.sizeOfListFor(ref); i++)
-				{
-					if (needsPipe)
-					{
-						sb.append(Constants.PIPE);
-					}
-					needsPipe = true;
-					sb.append(lstFormat);
-				}
-			}
+			returnVal = ReferenceUtilities.joinLstFormat(added, Constants.PIPE);
 		}
-		if (sb.length() == 0)
+		if (returnVal == null)
 		{
 			return null;
 		}
-		return new String[] { sb.toString() };
+		return new String[] { returnVal };
 	}
 
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
+	}
+
+	public Class<Race> getDeferredTokenClass()
+	{
+		return Race.class;
+	}
+
+	public boolean process(LoadContext context, Race obj)
+	{
+		for (CDOMReference<Ability> ability : obj
+				.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
+		{
+			AssociatedPrereqObject assoc = context.getListContext().addToList(
+					getTokenName(), obj, Ability.FEATLIST, ability);
+			assoc.setAssociation(AssociationKey.NATURE,
+					Ability.Nature.AUTOMATIC);
+			String token = ability.getLSTformat();
+			if (token.indexOf('(') != -1)
+			{
+				List<String> choices = new ArrayList<String>();
+				AbilityUtilities.getUndecoratedName(token, choices);
+				assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
+			}
+		}
+		return true;
 	}
 
 }

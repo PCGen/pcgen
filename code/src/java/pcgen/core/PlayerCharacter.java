@@ -17138,17 +17138,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private List<String> getLevelFeat(PCTemplate pct)
 	{
 		List<String> list = new ArrayList<String>();
-		List<PersistentTransitionChoice<?>> templateFeatChoices = pct
-				.getListFor(ListKey.TEMPLATE_FEAT);
-		if (templateFeatChoices != null)
+		PersistentTransitionChoice<?> choice = pct.get(ObjectKey.TEMPLATE_FEAT);
+		if (choice != null)
 		{
-			for (PersistentTransitionChoice<?> choice : templateFeatChoices)
+			Collection<?> result = actOn(pct, choice);
+			for (Object o : result)
 			{
-				Collection<?> result = actOn(pct, choice);
-				for (Object o : result)
-				{
-					list.add(o.toString());
-				}
+				list.add(o.toString());
 			}
 		}
 		return list;

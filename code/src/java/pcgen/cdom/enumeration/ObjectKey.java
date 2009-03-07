@@ -44,6 +44,7 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
@@ -287,6 +288,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<File> WRITE_DIRECTORY = new ObjectKey<File>(null);
 
 	public static final ObjectKey<GameMode> GAME_MODE = new ObjectKey<GameMode>(null);
+
+	public static final ObjectKey<PersistentTransitionChoice<AbilitySelection>> TEMPLATE_FEAT = new ObjectKey<PersistentTransitionChoice<AbilitySelection>>(null);
 
 	/*
 	 * TODO Okay, this is a hack.

@@ -252,13 +252,14 @@ public final class ListKey<T> {
 	public static final ListKey<Qualifier> FORWARDREF = new ListKey<Qualifier>();
 	public static final ListKey<Campaign> CAMPAIGN = new ListKey<Campaign>();
 	
+	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<Class<?>>();
+	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<ObjectKey<?>>();
+	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<CDOMReference<Ability>>();
+
 	//These are case sensitive, please do not change them to upper case
 	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();
 	public static final ListKey<String> HIDDEN_Ability = new ListKey<String>();
 	public static final ListKey<String> HIDDEN_Skill = new ListKey<String>();
-	public static final ListKey<PersistentTransitionChoice<?>> TEMPLATE_FEAT = new ListKey<PersistentTransitionChoice<?>>();
-	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<Class<?>>();
-	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<ObjectKey<?>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 	

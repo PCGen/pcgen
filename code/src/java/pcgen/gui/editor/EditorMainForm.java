@@ -930,7 +930,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save feats
 				//
-				thisPCTemplate.removeListFor(ListKey.TEMPLATE_FEAT);
+				thisPCTemplate.removeListFor(ListKey.FEAT_TOKEN_LIST);
 				sel = pnlFeats.getSelectedList();
 				aString = EditUtil.delimitArray(sel, '|');
 				context.unconditionallyProcess(thisPCTemplate, "FEAT", aString);
@@ -966,6 +966,7 @@ public final class EditorMainForm extends JDialog
 					}
 				}
 
+				context.performDeferredProcessing(thisPCTemplate);
 				break;
 
 			case EditorConstants.EDIT_CAMPAIGN:
@@ -1538,7 +1539,8 @@ public final class EditorMainForm extends JDialog
 					availableRaceFeatList.add(anAbility.getKeyName());
 				}
 
-				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
+				for (CDOMReference<Ability> ref : thisPObject
+					.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
 				{
 					String lst = ref.getLSTformat();
 					if (!selectedRaceFeatList.contains(lst))
@@ -1949,18 +1951,15 @@ public final class EditorMainForm extends JDialog
 					availableTemplateFeatsList.add(anAbility.getKeyName());
 				}
 
-				List<PersistentTransitionChoice<?>> lista = thisPObject.getListFor(ListKey.TEMPLATE_FEAT);
-				if (lista != null)
+				PersistentTransitionChoice<?> ptc = thisPObject.get(ObjectKey.TEMPLATE_FEAT);
+				if (ptc != null)
 				{
-					for (PersistentTransitionChoice<?> ptc : lista)
+					for (String str : ptc.getChoices().getLSTformat().split(","))
 					{
-						for (String str : ptc.getChoices().getLSTformat().split(","))
+						if (!selectedTemplateFeatsList.contains(str))
 						{
-							if (!selectedTemplateFeatsList.contains(str))
-							{
-								availableTemplateFeatsList.remove(str);
-								selectedTemplateFeatsList.add(str);
-							}
+							availableTemplateFeatsList.remove(str);
+							selectedTemplateFeatsList.add(str);
 						}
 					}
 				}

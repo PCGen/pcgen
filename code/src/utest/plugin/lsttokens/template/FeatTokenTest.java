@@ -271,15 +271,9 @@ public class FeatTokenTest extends
 		return false;
 	}
 
-	//TODO Need to enable this to get 5.14 behavior
-//	@Override
-//	protected ConsolidationRule getConsolidationRule()
-//	{
-//		return ConsolidationRule.OVERWRITE;
-//	}
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return ConsolidationRule.SEPARATE;
+		return ConsolidationRule.OVERWRITE;
 	}
 }
