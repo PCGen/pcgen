@@ -76,25 +76,14 @@ public abstract class LoadContext
 		obj = oc;
 	}
 
-//	public <T extends PrereqObject> CDOMGroupRef<T> groupChildNodesOfClass(
-//			PrereqObject parent, Class<T> child)
-//	{
-//		/*
-//		 * Create a new Group in the graph and then (defer to end of build)
-//		 * create edges between the new Group and all of the children of the
-//		 * given parent.
-//		 */
-//		// TODO FIXME
-//		return null;
-//	}
-
 	private int writeMessageCount = 0;
 
 	public void addWriteMessage(String string)
 	{
 		Logging.errorPrint("!!" + string);
-		// TODO FIXME Silently consume for now - these are message generated
-		// during LST write...
+		/*
+		 * TODO Need to find a better solution for what happens during write...
+		 */
 		writeMessageCount++;
 	}
 
