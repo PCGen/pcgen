@@ -660,6 +660,7 @@ public class CharacterPanel extends FlippingSplitPane
 			{
 				Globals.setCurrentPC(pc);
 				updateProperties();
+				pc.preparePCForOutput();
 				if (mainTabs.getTabCount() > 0
 					&& mainTabs.getSelectedIndex() > -1)
 				{
