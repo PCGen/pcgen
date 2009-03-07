@@ -205,6 +205,14 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	}
 
 	@Test
+	public void testInvalidInputNegativePrerequisite()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("Fire=-1[PRERACE:1,Human]"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputNegativePre() throws PersistenceLayerException
 	{
 		assertFalse(parse("Fire=-1[PRERACE:1,Human]"));

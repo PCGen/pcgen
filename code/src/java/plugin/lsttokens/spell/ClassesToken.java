@@ -148,6 +148,12 @@ public class ClassesToken extends AbstractToken implements
 				}
 				else if (level.intValue() == -1)
 				{
+					if (prereq != null)
+					{
+						Logging.errorPrint(getTokenName()
+								+ " may not use -1 with a PREREQ: " + value);
+						return false;
+					}
 					// Logging.deprecationPrint(getTokenName()
 					// + " should not use a negative level: " + value);
 				}

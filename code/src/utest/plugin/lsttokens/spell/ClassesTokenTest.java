@@ -205,6 +205,14 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	}
 
 	@Test
+	public void testInvalidInputNegativePrerequisite()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testInvalidInputNegativePre() throws PersistenceLayerException
 	{
 		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
