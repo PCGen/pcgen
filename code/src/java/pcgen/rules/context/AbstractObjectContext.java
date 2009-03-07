@@ -116,27 +116,6 @@ public abstract class AbstractObjectContext
 		edits.put(cdo, vk, f);
 	}
 
-	// public void give(String sourceToken, CDOMObject cdo, PrereqObject target)
-	// {
-	// addToList(cdo, ListKey.GIVEN, new SourceWrapper(target, sourceToken));
-	// }
-	//	
-	// public void revoke(String sourceToken, CDOMObject cdo, PrereqObject
-	// target)
-	// {
-	// removeFromList(cdo, ListKey.GIVEN, new SourceWrapper(target,
-	// sourceToken));
-	// }
-	//
-	// public void revokeAll(final String tokenName, CDOMObject cdo)
-	// {
-	// /*
-	// * TODO This is broken for the ConsolidatedObjectCommitStrategy, as it
-	// * doesn't properly filter by tokenName...
-	// */
-	// removeList(cdo, ListKey.GIVEN);
-	// }
-
 	public <T> void removeFromList(CDOMObject cdo, ListKey<T> lk, T val)
 	{
 		edits.removeFromList(cdo, lk, val);
@@ -243,7 +222,8 @@ public abstract class AbstractObjectContext
 						putMapKey(cdo, key1, pos);
 					}
 					/*
-					 * TODO CDOM List Mods
+					 * No need to deal with ListMods because that's done in
+					 * listContext
 					 */
 					/*
 					 * TODO Deal with cloned objects
