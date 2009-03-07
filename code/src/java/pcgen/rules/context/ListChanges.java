@@ -58,7 +58,7 @@ public class ListChanges<T extends PrereqObject> implements
 	public boolean isEmpty()
 	{
 		/*
-		 * TODO This lies :P
+		 * TODO This lies because it doesn't analyze tokenName
 		 */
 		return !clear && !hasAddedItems() && !hasRemovedItems();
 	}
@@ -89,7 +89,7 @@ public class ListChanges<T extends PrereqObject> implements
 	public boolean hasAddedItems()
 	{
 		/*
-		 * TODO This lies :P
+		 * TODO This lies because it doesn't analyze tokenName
 		 */
 		return positive != null && positive.getListMods(list) != null
 				&& !positive.getListMods(list).isEmpty();
@@ -125,7 +125,7 @@ public class ListChanges<T extends PrereqObject> implements
 	public boolean hasRemovedItems()
 	{
 		/*
-		 * TODO This lies :P
+		 * TODO This lies because it doesn't analyze tokenName
 		 */
 		return negative != null && negative.getListMods(list) != null
 				&& !negative.getListMods(list).isEmpty();
