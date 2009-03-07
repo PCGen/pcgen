@@ -26,6 +26,9 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.PCClass;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -48,9 +51,33 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			/*
-			 * TODO Need a hack for PCClass to clear all levels :(
+			 * TODO This cross-polluting and certainly not "editor friendly",
+			 * thus will need to be changed after 5.16
 			 */
-			context.getObjectContext().removeList(obj, ListKey.UNARMED_DAMAGE);
+			if (obj instanceof PCClassLevel || obj instanceof PCClass)
+			{
+				PCClass pcc;
+				if (obj instanceof PCClassLevel)
+				{
+					pcc = (PCClass) obj.get(ObjectKey.PARENT);
+				}
+				else
+				{
+					pcc = (PCClass) obj;
+				}
+				context.getObjectContext().removeList(pcc,
+						ListKey.UNARMED_DAMAGE);
+				for (PCClassLevel level : pcc.getClassLevelCollection())
+				{
+					context.getObjectContext().removeList(level,
+							ListKey.UNARMED_DAMAGE);
+				}
+			}
+			else
+			{
+				context.getObjectContext().removeList(obj,
+						ListKey.UNARMED_DAMAGE);
+			}
 		}
 		else
 		{
@@ -65,8 +92,8 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 			if (context.getObjectContext().containsListFor(obj,
 					ListKey.UNARMED_DAMAGE))
 			{
-				Logging.log(Logging.LST_ERROR, obj.getDisplayName() + " already has "
-						+ getTokenName() + " set.");
+				Logging.log(Logging.LST_ERROR, obj.getDisplayName()
+						+ " already has " + getTokenName() + " set.");
 				Logging.log(Logging.LST_ERROR, " It will be redefined, "
 						+ "but you should be using " + getTokenName()
 						+ ":.CLEAR");
