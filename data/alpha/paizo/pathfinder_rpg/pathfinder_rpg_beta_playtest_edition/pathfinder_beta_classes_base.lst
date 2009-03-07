@@ -193,7 +193,7 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|K
 1	BONUS:ABILITYPOOL|Fighter Bonus Feat|CL/2+1
 2									BONUS:VAR|BraveryLVL|CL				ABILITY:Special Ability|AUTOMATIC|Bravery
 3									BONUS:VAR|ArmorTrainingLVL|CL			ABILITY:Special Ability|AUTOMATIC|Armor Training
-5									BONUS:VAR|FighterWeaponTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Weapon Training
+5									BONUS:VAR|FighterWeaponTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Weapon Training|Weapon Training
 19																ABILITY:Special Ability|AUTOMATIC|Armor Mastery
 20																ABILITY:Special Ability|AUTOMATIC|Weapon Mastery
 
