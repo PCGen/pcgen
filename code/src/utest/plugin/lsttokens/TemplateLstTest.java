@@ -132,6 +132,22 @@ public class TemplateLstTest extends
 	}
 
 	@Test
+	public void testChooseInvalidChooseRemove() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertTrue(parse("CHOOSE:" + "TestWP1.REMOVE"));
+		assertFalse(primaryContext.ref.validate(null));
+	}
+
+	@Test
+	public void testChooseInvalidAddChoiceRemove() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		assertTrue(parse("ADDCHOICE:" + "TestWP1.REMOVE"));
+		assertFalse(primaryContext.ref.validate(null));
+	}
+
+	@Test
 	public void testChooseInvalidListStart() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
