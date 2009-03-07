@@ -41,122 +41,6 @@
 
 <hr>
 
-	<h2><a name="MODIFYINGTEMPLATES">Modifying a Template</a></h2>
-
-	<p class="indent0">When modifying a LST Template with the <code>.MOD</code> tag, there are 
-		three ways in which tags are modified internally by PCGen: Modification by Overwriting Data, 
-		Modification by Appending Data and Modification by Separate Tags. Each Template File tag fits 
-		into one of these categories. There is a forth category of modification, Modification by Selective 
-		Overwriting of Data, which is not used by the Template File tags.</p>
-	
-	<h3>Consolidating by Overwriting Data</h3>
-	
-	<p class="indent0">A general example of this method of Modification is shown below.</p>
-	
-	<p class="indent1"><strong>Initial Template:</strong></p>
-	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
-	<p class="indent1"><strong>Modified By:</strong></p>
-	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
-	<p class="indent1"><strong>Results In:</strong></p>
-	<p class="indent2"><code>TEMPLATEFILETAG:B</code> being applied as part of Template One.</p>
-	
-	<p class="indent0">The following tags are consolidated by overwriting data.</p>
-	
-	<table class="indent1">
-		<tr>
-			<td><a href="#BONUSSKILLPOINTS">BONUSSKILLPOINTS</a></td>
-			<td><a href="#FAVOREDCLASS">FAVOREDCLASS</a></td>
-			<td><a href="#LEGS">LEGS</a></td>
-			<td><a href="#REACH">REACH</a></td>
-			<td><a href="#VISIBLE">VISIBLE</a></td>
-		</tr>
-		<tr>
-			<td><a href="#CHOOSELANGAUTO">CHOOSE:LANGAUTO</a></td>
-			<td><a href="#GENDERLOCK">GENDERLOCK</a></td>
-			<td><a href="#LEVELADJUSTMENT">LEVELADJUSTMENT</a></td>
-			<td><a href="#REGION">REGION</a></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="#CR">CR</a></td>
-			<td><a href="#HANDS">HANDS</a></td>
-			<td><a href="#NONPP">NONPP</a></td>
-			<td><a href="#REMOVABLE">REMOVABLE</a></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="#FACE">FACE</a></td>
-			<td><a href="#HITDIE">HITDIE</a></td>
-			<td><a href="#RACETYPE">RACETYPE</a></td>
-			<td><a href="#SIZE">SIZE</a></td>
-			<td></td>
-		</tr>
-		<tr>
-		</tr>
-	</table>
-	
-	<h3>Consolidating by Appending Data</h3>
-	
-	<p class="indent0">A general example of this method of Modification is shown below.</p>
-	
-	<p class="indent1"><strong>Initial Template:</strong></p>
-	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
-	<p class="indent1"><strong>Modified By:</strong></p>
-	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
-	<p class="indent1"><strong>Is Equivalent To:</strong></p>
-	<p class="indent2"><code>TEMPLATEFILETAG:A,B</code> being applied as part of Template One.</p>
-	
-	<p class="sidebar1">NOTE:The separator used in this example is the comma (,). The actual separator 
-		used in the equivalent syntax for each tag will vary. Make sure you check the tag specific 
-		documentation to see an example of that tags consolidated syntax.</p>
-	
-	<p class="indent1">The following tags are consolidated by appending data.</p>
-	
-	<table class="indent1">
-		<tr>
-			<td><a href="#LANGBONUS">LANGBONUS</a></td>
-			<td><a href="#SUBREGION">SUBREGION</a></td>
-		</tr>
-		<tr>
-			<td><a href="#RACESUBTYPE">RACESUBTYPE</a></td>
-			<td><a href="#WEAPONBONUS">WEAPONBONUS</a></td>
-		</tr>
-		<tr>
-			<td><a href="#SUBRACE">SUBRACE</a></td>
-			<td></td>
-		</tr>
-
-	</table>
-	
-	<h3>Consolidating by Separate Tags</h3>
-	
-	<p class="indent0">A general example of this method of Modification is shown below.</p>
-	
-	<p class="indent1"><strong>Initial Template:</strong></p>
-	<p class="indent2"><code>Template One &lt;tab&gt; TEMPLATEFILETAG:A</code>
-	<p class="indent1"><strong>Modified By:</strong></p>
-	<p class="indent2"><code>Template One.MOD &lt;tab&gt; TEMPLATEFILETAG:B</code></p>
-	<p class="indent1"><strong>Is Equivalent To:</strong></p>
-	<p class="indent2"><code>TEMPLATEFILETAG:A &lt;tab&gt; TEMPLATEFILETAG:B</code> being applied 
-		as part of Template One.</p>
-	<p class="indent1"><strong>But is Not Equivalent To:</strong></p>
-	<p class="indent2"><code>TEMPLATEFILETAG:A,B</code></p>
-	
-	<p class="indent1">The following tags are consolidated by separate tags.</p>
-	
-	<table class="indent1">
-		<tr>
-			<td><a href="#ADDLEVEL">ADDLEVEL</a></td>
-			<td><a href="#LEVEL">LEVEL</a></td>
-		</tr>
-		<tr>
-			<td><a href="#HD">HD</a></td>
-			<td><a href="#REPEATLEVEL">REPEATLEVEL</a></td>
-		</tr>
-	</table>
-	
-<hr>
-
 	<h2>Template File Tag Dictionary</h2>
 
 <hr>
@@ -182,12 +66,9 @@
 	<p class="indent3">Adds six levels of the Animal class to the character.</p>
 	
 	<p class="indent1"><strong>.MOD Example:</strong></p>
-	<p class="indent2">Initial Template:</p>
-	<p class="indent3"><code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2</code>
-	<p class="indent2">Modified By:</p>
-	<p class="indent3"><code>Werewolf.MOD &lt;tab&gt; ADDLEVEL:Animal|1</code></p>
-	<p class="indent2">Is Equivalent To:</p>
-	<p class="indent3"><code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2 &lt;tab&gt; ADDLEVEL:Animal|1</code>.</p>
+	<p class="indent2">Initial Template: <code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2</code>
+	<p class="indent2">Modified By: <code>Werewolf.MOD &lt;tab&gt; ADDLEVEL:Animal|1</code></p>
+	<p class="indent2">Is Equivalent To: <code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2 &lt;tab&gt; ADDLEVEL:Animal|1</code>.</p>
 	<p class="indent4">The werewolf gains three levels in the class &quot;Animal&quot;.</p>
 	<p></p>
 
@@ -206,14 +87,10 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUSSKILLPOINTS:2</code></p>
 	<p class="indent3">Two bonus skill points are given.</p>
-	
 	<p class="indent1"><strong>.MOD Example:</strong></p>
-	<p class="indent2">Initial Template:</p>
-	<p class="indent3"><code>Sentient Construct &lt;tab&gt; BONUSSKILLPOINTS:2</code>
-	<p class="indent2">Modified By:</p>
-	<p class="indent3"><code>Sentience Construct.MOD &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
-	<p class="indent2">Results In:</p>
-	<p class="indent3"><code>BONUSSKILLPOINTS:3</code></p>
+	<p class="indent2">Initial Template: <code>Sentient Construct &lt;tab&gt; BONUSSKILLPOINTS:2</code>
+	<p class="indent2">Modified By: <code>Sentience Construct.MOD &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
+	<p class="indent2">Results In: <code>Sentient Construct &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
 	<p class="indent4">Twelve skill points are granted at first level with three being granted at 
 		all subsequent levels.</p>
 	<p></p>
@@ -245,6 +122,12 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:LANGAUTO:Abyssal|Infernal</code></p>
 	<p class="indent3">&quot;Abyssal&quot; &amp; &quot;Infernal&quot; are granted as bonus languages.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; CHOOSE:LANGAUTO:Abyssal|Infernal</code>
+	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; CHOOSE:LANGAUTO:Ignan|Undercommon</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; CHOOSE:LANGAUTO:Undercommon</code></p>
+	<p class="indent4">Darklings are allowed to choose either &quot;Ignan&quot; or &quot;Undercommon&quot; as an
+		automatic language.</p>
 	<p></p>
 
 <hr>
@@ -262,6 +145,11 @@
 	<p class="indent3">The character's challenge rating is increased by two.</p>
 	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; CR:3</code></p>
 	<p class="indent3">The character's challenge rating is increased by three.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; CR:2</code>
+	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; CR:3</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; CR:3</code></p>
+	<p class="indent4">Darklings have a &quot;challenge rating&quot; of &quot;3&quot;.</p>
 	<p></p>
 
 <hr>
@@ -285,6 +173,11 @@
 	<p class="indent3">The creature has a face/space of 10.</p>
 	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; FACE:20</code></p>
 	<p class="indent3">The creature has a face/space of 20.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; FACE:10,5</code>
+	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; FACE:10</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; FACE:10</code></p>
+	<p class="indent4">Darklings have a &quot;face/space&quot; of &quot;10&quot;.</p>
 	<p></p>
 
 <hr>
@@ -313,6 +206,11 @@
 	<p class="indent3">The character's favored class is the &quot;Wizard&quot; sub-class, the &quot;Illusionist&quot;.</p>
 	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; FAVOREDCLASS:Wizard.Necromancer</code></p>
 	<p class="indent3">The character's favored class is the &quot;Wizard&quot; sub-class, the &quot;Necromancer&quot;.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; FAVOREDCLASS:Sorcerer</code>
+	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; FAVOREDCLASS:Wizard.Necromancer</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; FAVOREDCLASS:Wizard.Necromancer</code></p>
+	<p class="indent4">Darkling's &quot;favored class&quot; is the &quot;Wizard&quot; sub-class, the &quot;Necromancer&quot;.</p>
 	<p></p>
 
 <hr>
@@ -336,7 +234,7 @@
 
 	<p class="new">*** Updated 5.11.13
 	<p class="indent0"><strong><a name="GENDERLOCK">Tag Name:</a></strong> GENDERLOCK:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Male, Female, Neuter)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Gender)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets the character's gender and disables the ability to change it.</li>
@@ -348,8 +246,12 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>GENDERLOCK:Female</code></p>
 	<p class="indent3">The characters gender is set to and locked as &quot;Female&quot;.</p>
-	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; GENDERLOCK:Neuter</code></p>
-	<p class="indent3">The character's gender is set to and locked as &quot;Neuter&quot;.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling Sorcerer&lt;tab&gt; GENDERLOCK:Female</code>
+	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; GENDERLOCK:Male</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling Sorcerer &lt;tab&gt; GENDERLOCK:Male</code></p>
+	<p class="indent4">The Darkling Sorcerer's gender is set to &quot;Male&quot; and the ability to change 
+		it is disabled.</p>
 	<p></p>
 
 <hr>
@@ -365,8 +267,12 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HANDS:4</code></p>
 	<p class="indent3">The creature has four hands.</p>
-	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; HANDS:8</code></p>
-	<p class="indent3">The creature has eight hands.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling Sorcerer&lt;tab&gt; GENDERLOCK:Female</code>
+	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; GENDERLOCK:Male</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling Sorcerer &lt;tab&gt; GENDERLOCK:Male</code></p>
+	<p class="indent4">The Darkling Sorcerer's gender is set to &quot;Male&quot; and the ability to change 
+		it is disabled.</p>
 	<p></p>
 
 <hr>

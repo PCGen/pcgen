@@ -1243,6 +1243,42 @@
 			</ul>
 		</li>
 	</ul>
+
+	<p class="indent1"><a name="MODIFICATIONBEHAVIOR"><strong>Modification Behavior:</strong></a></p>
+
+	<p class="indent2">When modifying a LST Object with the <code>.MOD</code> tag, there are 
+		four ways in which tags are modified internally by PCGen: Modification by Overwriting Data, 
+		Modification by Selective Overwriting, Modification by Appending Data and Modification by Separate 
+		Tags. The behaviors are explained below.</p>
+	<p></p>
+	<p class="indent2">Modification by Overwriting Data</p>
+	<p class="indent3">Initial LST Object: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A</code></p>
+	<p class="indent3">Modified By: <code>&lt;lst object&gt;.MOD &lt;tab&gt; LSTFILETAG:B</code></p>
+	<p class="indent3">Results In: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:B</code></p>
+	<p></p>
+	<p class="indent2">Modification by Selective Overwriting Data</p>
+		<p class="indent3">Initial LST Object: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A|A1</code></p>
+		<p class="indent3">Modified By: <code>&lt;lst object&gt;.MOD &lt;tab&gt; LSTFILETAG:A|A2</code></p>
+		<p class="indent3">Results In: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A|A2</code></p>
+	<p class="indent2">While</p>
+		<p class="indent3">Initial LST Object: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A|A1</code></p>
+		<p class="indent3">Modified By: <code>&lt;lst object&gt;.MOD &lt;tab&gt; LSTFILETAG:B|B1</code></p>
+		<p class="indent3">Results In: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:B|B1</code></p>
+	<p></p>
+	<p class="indent2">Modification by Appending Data</p>
+		<p class="indent3">Initial LST Object: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A</code></p>
+		<p class="indent3">Modified By: <code>&lt;lst object&gt;.MOD &lt;tab&gt; LSTFILETAG:B</code></p>
+		<p class="indent3">Is Equivalent To: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A,B</code></p>
+	<p></p>
+	<p class="indent2">Modification by Separate LST Tags</p>
+		<p class="indent3">Initial LST Object: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A</code></p>
+		<p class="indent3">Modified By: <code>&lt;lst object&gt;.MOD &lt;tab&gt; LSTFILETAG:B</code></p>
+		<p class="indent3">Is Equivalent To: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A &lt;tab&gt; LSTFILETAG:B</code></p>
+		<p class="indent3">But is Not Equivalent To: <code>&lt;lst object&gt; &lt;tab&gt; LSTFILETAG:A,B</code></p>
+	<p class="sidebar1">NOTE:The actual separator used in the equivalent syntax for each tag will vary. Make 
+		sure you check the tag specific documentation to see an example of that tags modification syntax.</p>
+	
+	
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Human.MOD</code></p>
 	<p class="indent3">Modifies the Human race (in a race.lst file)</p>
