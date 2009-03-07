@@ -2,8 +2,6 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: arbernet
 
-# TODO: Buckler (-1 to offhand attacks, lose shield bonus when making offhand attack)
-
 ###Block: Armor
 #Light Weight ----------------------------------------------------------------------------				---------------------------------
 # Equipment Name	Required Proficiency			Type							Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page				% of Spell Failure	Combat bonus

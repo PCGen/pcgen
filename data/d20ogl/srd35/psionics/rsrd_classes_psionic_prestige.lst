@@ -75,7 +75,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 8	KNOWN:0,2,2,2,2
 9	KNOWN:0,2,2,2,2,1
 10	KNOWN:0,2,2,2,2,2	BONUS:ABILITYPOOL|Psionic Fist Feat|1
-###TODO: Set up Abilitypool for Psionic Fist - Psionic
+
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity

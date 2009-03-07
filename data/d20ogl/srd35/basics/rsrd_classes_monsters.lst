@@ -24,8 +24,6 @@
 #Undead			d12	1/2	Will		4
 #Vermin			d8	3/4	Fort		2
 
-#TODO: creatures with an int of -- get no skill points or feats
-
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 # Class Name	Hit Dice	Type			Max Level		Source Page					Ability												Save checks bonus											Combat bonus
