@@ -178,7 +178,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		CDOMReference<T> ref)
 	{
 		owner.removeFromList(swl, ref);
-		return null;
+		return new SimpleAssociatedObject();
 	}
 
 	public void removeAllFromList(String tokenName, CDOMObject owner,
