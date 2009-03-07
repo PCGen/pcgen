@@ -31,11 +31,6 @@ import plugin.bonustokens.Weapon;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.pretokens.parser.PreClassParser;
-import plugin.pretokens.parser.PreRaceParser;
-import plugin.pretokens.writer.PreClassWriter;
-import plugin.pretokens.writer.PreRaceWriter;
 
 public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 {
@@ -44,21 +39,12 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
 			PCTemplate.class);
 
-	PreClassParser preclass = new PreClassParser();
-	PreClassWriter preclasswriter = new PreClassWriter();
-	PreRaceParser prerace = new PreRaceParser();
-	PreRaceWriter preracewriter = new PreRaceWriter();
-
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
 		addBonus("WEAPON", Weapon.class);
-		TokenRegistration.register(preclass);
-		TokenRegistration.register(preclasswriter);
-		TokenRegistration.register(prerace);
-		TokenRegistration.register(preracewriter);
 	}
 
 	@Override
