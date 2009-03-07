@@ -3413,7 +3413,7 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public String getXpTableName()
 	{
-		if (currXpTableName == null || currXpTableName.equals(""))
+		if (currXpTableName == null || currXpTableName.equals("") || !xpTableNames.contains(currXpTableName))
 		{
 			if (xpTableNames.isEmpty())
 			{
