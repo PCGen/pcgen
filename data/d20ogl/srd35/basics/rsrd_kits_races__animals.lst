@@ -692,6 +692,7 @@ ALIGN:TN
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:3
 FEAT:Weapon Finesse
+TEMPLATE:Raven Familiar Language
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Snake Familiar	TYPE:Companion	VISIBLE:NO

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 21 12:08:40 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Mar  8 10:38:47 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -77,6 +77,23 @@ Disease Damage (Mummy rot)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BO
 Disease Damage (Red ache)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Stength Damage		TEMPDESC:Infection DC 15 (Injury), Incubation 1d3 days, Damage 1d6 Str, Apply this temporary bonus each day the victim takes damage.
 Disease Damage (Shakes)				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Dexterity Damage	TEMPDESC:Infection DC 13 (Contact), Incubation 1 day, Damage 1d8 Dex, Apply this temporary bonus each day the victim takes damage.
 Disease Damage (Slimy doom)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 14 (Contact), Incubation 1 day, Damage 1d4 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.
+
+###Block: Planar effects on characters
+# Template Name			Visible	Source Page			Combat bonus								% bonus to range													Bonus to skill																					Modify VAR												Temporary effect description
+High Gravity			VISIBLE:NO	SOURCEPAGE:Planes.rtf	BONUS:COMBAT|TOHIT|-2|TYPE=Circumstance|PREAPPLY:ANYPC	BONUS:RANGEMULT|PROJECTILE|-50|PREAPPLY:ANYPC	BONUS:RANGEMULT|THROWN|-50|PREAPPLY:ANYPC	BONUS:SKILL|Balance,Climb,Jump,Ride,Swim,Tumble|-2|TYPE=Circumstance|PREAPPLY:ANYPC																							TEMPDESC:Effects of High Gravity.  Does not take into account the fact that all equipment weights are doubled (which affects movement, etc.)
+Low Gravity				VISIBLE:NO	SOURCEPAGE:Planes.rtf	BONUS:COMBAT|TOHIT|-2|TYPE=Circumstance|PREAPPLY:ANYPC	BONUS:RANGEMULT|PROJECTILE|50|PREAPPLY:ANYPC	BONUS:RANGEMULT|THROWN|50|PREAPPLY:ANYPC	BONUS:SKILL|Balance,Ride,Swim,Tumble|-2|TYPE=Circumstance|PREAPPLY:ANYPC	BONUS:SKILL|Climb,Jump|2|TYPE=Circumstance|PREAPPLY:ANYPC														TEMPDESC:Effects of Low Gravity.  Does not take into account the fact that all equipment weights are halved (which affects movement, etc.)
+Mildly Aligned (Chaotic)	VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE|PREAPPLY:ANYPC											BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Chaotic Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+Mildly Aligned (Evil)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG|PREAPPLY:ANYPC											BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Evil Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+Mildly Aligned (Good)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE|PREAPPLY:ANYPC											BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Good Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+Mildly Aligned (Lawful)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE|PREAPPLY:ANYPC											BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Lawful Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+Strongly Aligned (Chaotic)	VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE|PREAPPLY:ANYPC								BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Chaotic Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+Strongly Aligned (Evil)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG|PREAPPLY:ANYPC								BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Evil Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+Strongly Aligned (Good)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE|PREAPPLY:ANYPC								BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Good Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+Strongly Aligned (Lawful)	VISIBLE:NO	SOURCEPAGE:Planes.rft																										BONUS:SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE|PREAPPLY:ANYPC								BONUS:VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE|PREAPPLY:ANYPC	TEMPDESC:Effects of Mildly Lawful Aligned Plane.  Penalty applied to Skills and Turn Checks only.
+
+###Block: Raven Familiar Support
+# Template Name		Visible	Source Page				Add 					Ability
+Raven Familiar Language	VISIBLE:NO	SOURCEPAGE:ClassesII.rtf	ADD:LANGUAGE|1|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
 
 #
 # End

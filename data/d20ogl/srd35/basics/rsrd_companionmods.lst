@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 15 00:03:52 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Mar  8 10:33:41 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
@@ -52,18 +52,18 @@ FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														DEFINE:LOCK
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block: Specific Familiars
-# Class of the Master	Type			Ability								Required Race			Apply Kit			Add
-FOLLOWER:FMLevel=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak One Language	PRERACE:1,Raven							ADD:LANGUAGE|1|TYPE=Spoken
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Bat			KIT:1|Bat Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Cat			KIT:1|Cat Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Hawk			KIT:1|Hawk Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Lizard			KIT:1|Lizard Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Owl			KIT:1|Owl Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Rat			KIT:1|Rat Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Raven			KIT:1|Raven Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Snake (Viper/Tiny)	KIT:1|Snake Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Toad			KIT:1|Toad Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Weasel			KIT:1|Weasel Familiar
+# Class of the Master	Type			Required Race			Apply Kit
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven			KIT:1|Raven Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Bat			KIT:1|Bat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Cat			KIT:1|Cat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Hawk			KIT:1|Hawk Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Lizard			KIT:1|Lizard Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Owl			KIT:1|Owl Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Rat			KIT:1|Rat Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Raven			KIT:1|Raven Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Snake (Viper/Tiny)	KIT:1|Snake Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Toad			KIT:1|Toad Familiar
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Weasel			KIT:1|Weasel Familiar
 #
 
 ###Block:Familiar Bonuses to Master
