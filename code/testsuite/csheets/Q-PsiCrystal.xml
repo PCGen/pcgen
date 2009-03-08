@@ -118,8 +118,8 @@ BIO
 		<speechtendency></speechtendency>
 		<type>Construct</type>
 		<vision>
-			<vision>Sighted (40&#39;)</vision>
-			<all>Sighted (40&#39;)</all>
+			<vision>Sighted (40 ft.)</vision>
+			<all>Sighted (40 ft.)</all>
 		</vision>
 		<wealth>0</wealth>
 		<weight>

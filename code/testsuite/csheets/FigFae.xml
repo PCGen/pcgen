@@ -122,8 +122,8 @@ BIO
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
 		<vision>
-			<vision>Darkvision (60&#39;)</vision>
-			<all>Darkvision (60&#39;)</all>
+			<vision>Darkvision (60 ft.)</vision>
+			<all>Darkvision (60 ft.)</all>
 		</vision>
 		<wealth>0</wealth>
 		<weight>

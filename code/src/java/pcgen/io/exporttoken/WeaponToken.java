@@ -502,6 +502,10 @@ public class WeaponToken extends Token
 		{
 			return getReachToken(pc, eq) + "";
 		}
+		else if (token.equals("REACHUNIT"))
+		{
+			return Globals.getGameModeUnitSet().getDistanceUnit();
+		}
 		else if (token.equals("WT"))
 		{
 			return getWTToken(pc, eq);
@@ -1181,11 +1185,13 @@ public class WeaponToken extends Token
 	 * @param eq	the equipment
 	 * @return reach token
 	 */
-	public static int getReachToken(PlayerCharacter pc, Equipment eq)
+	public static String getReachToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getVariableValue(
+		int dist = eq.getVariableValue(
 			SettingsHandler.getGame().getWeaponReachFormula(), "", pc)
 			.intValue();
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist);
+		
 	}
 
 	/**

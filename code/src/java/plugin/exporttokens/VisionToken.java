@@ -26,6 +26,7 @@
 package plugin.exporttokens;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 import pcgen.io.ExportHandler;
@@ -89,7 +90,7 @@ public class VisionToken extends Token
 			visionIndex = visionList.size();
 		}
 
-		if (visionList.isEmpty())
+		if (visionList.isEmpty() || startIndex >= visionList.size())
 		{
 			return "";
 		}
@@ -98,6 +99,29 @@ public class VisionToken extends Token
 				visionList.subList(Math.max(startIndex, 0), Math.min(
 					visionIndex, visionList.size()));
 
-		return StringUtil.join(subList, ", ");
+		StringBuilder result = new StringBuilder();
+		for (Vision vision : subList)
+		{
+			if (result.length() > 0)
+			{
+				result.append(", ");
+			}
+			result.append(vision.getType());
+			String distStr = vision.getDistance();
+			int dist = 0;
+			if (distStr != null&& distStr.trim().length() > 0)
+			{
+				dist = Integer.parseInt(distStr);
+			}
+			if (dist > 0)
+			{
+				result.append(" (");
+				result.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist));
+				result.append(Globals.getGameModeUnitSet().getDistanceUnit());
+				result.append(")");
+			}
+		}
+		
+		return result.toString();
 	}
 }

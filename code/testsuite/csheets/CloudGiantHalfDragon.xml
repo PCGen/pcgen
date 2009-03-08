@@ -126,9 +126,9 @@ BIO
 		<speechtendency></speechtendency>
 		<type>Dragon</type>
 		<vision>
-			<vision>Darkvision (60&#39;)</vision>
+			<vision>Darkvision (60 ft.)</vision>
 			<vision>Low-light</vision>
-			<all>Darkvision (60&#39;), Low-light</all>
+			<all>Darkvision (60 ft.), Low-light</all>
 		</vision>
 		<wealth>0</wealth>
 		<weight>
