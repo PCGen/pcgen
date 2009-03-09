@@ -9712,6 +9712,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return initmod;
 	}
 
+	/**
+	 * Calculates the number of languages that the character is qualified 
+	 * for.
+	 *  
+	 * @param includeSpeakLanguage Should languages granted by the speak language skill be include
+	 * @return The number of languages allowed
+	 */
 	public int languageNum(final boolean includeSpeakLanguage)
 	{
 
@@ -9754,7 +9761,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					ChoiceSet<?> ch = ptc.getChoices();
 					if (LANGUAGE_CLASS.equals(ch.getChoiceClass()))
 					{
-						i += this.getAssocCount(ptc, AssociationListKey.ADD);
+						i += ptc.getCount().resolve(this, null).intValue();
+						//i += this.getAssocCount(ptc, AssociationListKey.ADD);
 					}
 				}
 			}
@@ -10576,7 +10584,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				return;
 		}
 
-		final List<Skill> localSkillList = getSkillList();
+		final List<Skill> localSkillList = new ArrayList<Skill>(getSkillList());
 		final SkillComparator comparator =
 				new SkillComparator(this, sort, sortOrder);
 		int nextOutputIndex = 1;
