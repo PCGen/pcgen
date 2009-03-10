@@ -20,8 +20,14 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; 
 COPYRIGHT:Pathfinder Roleplaying Game, Beta Playtest Edition, Web Enhancement. Copyright 2008, Paizo Publishing, LLC; Author: Jason Bulmahn.
 COPYRIGHT:The Book of Experimental Might. Copyright 2008, Malhavoc Press; Author: Monte J. Cook.
 COPYRIGHT:PCGen dataset conversion for the "Pathfinder Roleplaying Game, Beta Playtest Edition, Web Enhancement" Copyright 2008-2009, PCGen Data team (Including, but not limited to Stefan Radermacher)
+COPYRIGHT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
-COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
+COVER:@/publisher_logos/pathfinder_rpg_logo.png
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/free/v5748btpy84o0|Buy this publication from Paizo Publishing!
+DESC:This Web Enhancement is included in the Pathfinder Roleplaying Game Beta Playtest Edition download and details additional spells and magic items.
 
 #Do Not Remove Comment
 #INFOTEXT:OGL.txt

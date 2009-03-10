@@ -22,8 +22,14 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; 
 COPYRIGHT:Pathfinder 4: Fortress of the Stone Giants, Copyright 2007, Paizo Publishing, LLC; Author Wolfgang Baur.
 COPYRIGHT:Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
 COPYRIGHT:Tome of Horrors II, Copyright 2004, Necromancer Games, Inc.; Author Scott Greene; Additional Authors: Erica Balsley, Kevin Baase, Casey Christofferson, Jim Collura, Meghan Greene, Lance Hawvermale, Travis Hawvermale, Bill Kenower, Patrick Lawinger, Nathan Paul, Clark Peterson, Bill Webb, and Monte Cook.
-COPYRIGHT:These data sets use trademarks and/or copyrights owned by Paizo Publishing, LLC, used with permission. These datasets are not published, endorsed, or specifically approved by Paizo Publishing. For more information about Pathfinder, Paizo Publishing and Paizo products, please visit paizo.com
 COPYRIGHT:PCGen dataset conversion for "Pathfinder 4: Fortress of the Stone Giants" Copyright 2008, PCGen Data Team (including, but not limited to Eric C. Smith)
+COPYRIGHT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:rise_of_the_runelords_4_fortress_of_the_stone_giants.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/v5748btpy80hm|Buy this publication from Paizo Publishing!
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:pf4_OGL.txt
