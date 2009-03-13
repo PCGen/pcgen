@@ -20,6 +20,7 @@
 package pcgen.core;
 
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
@@ -158,6 +159,10 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
 		txt.append("\tCATEGORY:").append(getCategory());
+		txt.append("\t");
+		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+				this), "\t"));
+		txt.append("\t");
 		txt.append(super.getPCCText(false));
 		return txt.toString();
 	}
