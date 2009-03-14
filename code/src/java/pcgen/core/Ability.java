@@ -61,11 +61,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		ANY
 	}
 
-	private boolean needsSaving = false;
-
-	// /////////////////////////////////////
-	// Fields - Associations
-
 	// /////////////////////////////////////
 	// Constructor
 	/* default constructor only */
@@ -105,29 +100,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	{
 		return getSafe(ObjectKey.ABILITY_NATURE);
 	}
-
-	/**
-	 * If this is a "virtual Ability", this property controls whether it will be
-	 * saved with the character
-	 *
-	 * @param  save  whether to save the feat
-	 */
-	public void setNeedsSaving(final boolean save)
-	{
-		needsSaving = save;
-	}
-
-	/**
-	 * If this is a "virtual Ability", this property controls whether it will be
-	 * saved with the character
-	 *
-	 * @return  whether to save the feat
-	 */
-	public boolean needsSaving()
-	{
-		return needsSaving;
-	}
-
 	/**
 	 * Bog standard clone method
 	 *

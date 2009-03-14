@@ -32,6 +32,7 @@ import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -292,7 +293,7 @@ public class VFeatToken extends AbstractToken implements
 
 		if (aFeat != null)
 		{
-			aFeat.setNeedsSaving(true);
+			pc.setAssoc(aFeat, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
 		}
 		else
 		{

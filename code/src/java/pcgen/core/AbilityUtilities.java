@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -1324,7 +1325,7 @@ public class AbilityUtilities
 					aPC.setFeats(x); // reset to original count
 				}
 	
-				pcAbility.setNeedsSaving(true);
+				aPC.setAssoc(pcAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
 			}
 			else
 			{

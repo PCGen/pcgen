@@ -1290,7 +1290,8 @@ final class PCGVer2Creator implements IOConstants
 					thePC.getRealAbilitiesList(cat);
 			for (final Ability vability : thePC.getVirtualAbilityList(cat))
 			{
-				if (vability.needsSaving())
+				Boolean needsSaving = thePC.getAssoc(vability, AssociationKey.NEEDS_SAVING);
+				if (needsSaving != null && needsSaving)
 				{
 					abilitiesToSave.add(vability);
 				}
