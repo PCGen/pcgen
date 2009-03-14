@@ -44,7 +44,7 @@ import pcgen.util.PropertyFactory;
  * 
  * @since 5.11.1
  */
-public class AbilityCategory implements KeyedObject, Category<Ability>
+public class AbilityCategory implements Category<Ability>
 {
 	private String theDisplayName;
 	private String theKeyName;
