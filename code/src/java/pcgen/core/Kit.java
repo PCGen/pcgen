@@ -54,7 +54,6 @@ public final class Kit extends PObject implements Comparable<Object>
 {
 	private List<KitStat> statList = new ArrayList<KitStat>();
 	private Map<String, KitTable> tableMap = new HashMap<String, KitTable>();
-	private String region = Constants.s_NONE;
 
 	private int selectValue = -1;
 
@@ -74,16 +73,6 @@ public final class Kit extends PObject implements Comparable<Object>
 	public List<KitStat> getStats()
 	{
 		return statList;
-	}
-
-	/**
-	 * Returns the region of the kit.
-	 *
-	 * @return  String
-	 */
-	public String getRegion()
-	{
-		return region;
 	}
 
 	/**
