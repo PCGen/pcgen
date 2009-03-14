@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.base.formula.Formula;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -73,16 +72,6 @@ public final class Kit extends PObject implements Comparable<Object>
 	public List<KitStat> getStats()
 	{
 		return statList;
-	}
-
-	/**
-	 * Sets the sell rate of the kit.
-	 *
-	 * @param  argRate  String
-	 */
-	public void setSellRate(final String argRate)
-	{
-		// Do Nothing at this stage
 	}
 
 	/**
