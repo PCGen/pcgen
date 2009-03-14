@@ -55,7 +55,7 @@ public class PreDamageReductionTester extends AbstractPrerequisiteTest
 			if (dr.getBypass().equalsIgnoreCase(prereq.getKey()))
 			{
 				runningTotal =
-						prereq.getOperator().compare(dr.getReductionValue(),
+						prereq.getOperator().compare(dr.getReductionValue(character),
 							target);
 				break;
 			}

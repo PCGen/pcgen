@@ -27,6 +27,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -45,11 +46,10 @@ import pcgen.cdom.base.ConcretePrereqObject;
  * @author boomer70
  *
  */
-public class DamageReduction extends ConcretePrereqObject implements Comparable<DamageReduction>
+public class DamageReduction extends ConcretePrereqObject
 {
 	private String theReduction = "0";
 	private String theBypass = "-";
-	private PlayerCharacter thePC = null;
 	private static final int NO_JOIN = -1;
 	private static final int AND_JOIN = 0;
 	private static final int OR_JOIN = 1;
@@ -78,21 +78,6 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		else
 		{
 			join = NO_JOIN;
-		}
-	}
-
-	/**
-	 * Sets what PlayerCharacter this DR is associated with.  Used to evaluate
-	 * and variables or formulas that may be present.  A null PC can be used
-	 * if no formulas are needed by the DR.
-	 *
-	 * @param aPC The PlayerCharacter to associate with this DR.
-	 */
-	public void setPC(final PlayerCharacter aPC)
-	{
-		if (thePC == null)
-		{
-			thePC = aPC;
 		}
 	}
 
@@ -133,18 +118,30 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 	 *
 	 * @return Amount of damage this DR reduces
 	 */
-	public int getReductionValue()
+	public int getReductionValue(PlayerCharacter pc)
 	{
-		if (thePC != null)
+		if (pc != null)
 		{
-			int protectionValue = thePC.getVariableValue(theReduction, "getDR").
+			int protectionValue = pc.getVariableValue(theReduction, "getDR").
 				intValue();
-			protectionValue += (int) thePC.getTotalBonusTo("DR", theBypass);
+			protectionValue += (int) pc.getTotalBonusTo("DR", theBypass);
 			return protectionValue;
 		}
 		// If we don't have a PC we will see if we can parse the
 		// reduction value as an int, if we can't we will return
 		// the value "variable" for it instead.
+		return getRawReductionValue();
+	}
+
+	/**
+	 * Gets the actual reduction this DR will apply.  If a PC has been set on
+	 * the DR object it will evaluate any formulas in the DR and apply any
+	 * bonuses to this DR type that are appropriate.
+	 *
+	 * @return Amount of damage this DR reduces
+	 */
+	public int getRawReductionValue()
+	{
 		try
 		{
 			return Integer.parseInt(theReduction);
@@ -196,21 +193,25 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 	@Override
 	public String toString()
 	{
-		if (thePC == null)
+		String reductionString = theReduction;
+		int val = getRawReductionValue();
+		if (val < 0)
 		{
-			String reductionString = theReduction;
-			int val = getReductionValue();
-			if (val < 0)
-			{
-				reductionString = "variable";
-			}
-			return reductionString + "/" + theBypass;
+			reductionString = "variable";
 		}
-		if (qualifies(thePC))
+		return reductionString + "/" + theBypass;
+	}
+	
+	public String toString(PlayerCharacter pc)
+	{
+		if (pc == null)
 		{
-			return getReductionValue() + "/" + theBypass;
+			return toString();
 		}
-
+		else if (qualifies(pc))
+		{
+			return getReductionValue(pc) + "/" + theBypass;
+		}
 		return "";
 	}
 
@@ -230,24 +231,35 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		Collection<String> l2 = ( (DamageReduction) other).getBypassList();
 		if (l1.containsAll(l2) && l2.containsAll(l1))
 		{
-			return getReductionValue()
-				== ( (DamageReduction) other).getReductionValue();
+			return theReduction.equals(((DamageReduction) other).theReduction);
 		}
 		return false;
 	}
 
-	/**
-	 * Compares two DR objects and returns an integer based on their relative
-	 * sorting order.  DRs are sorted from highest reduction to lowest.
-	 * @param dr The DR to test against
-	 * @return -1 if the passed in object is less that this one, 0 if they are
-	 * equal and 1 if the passed in object is greater.
-	 */
-	public int compareTo(DamageReduction dr)
+	public static class DamageReductionComparator implements
+			Comparator<DamageReduction>
 	{
-		int v1 = getReductionValue();
-		int v2 = dr.getReductionValue();
-		return v1 < v2 ? 1 : v1 > v2 ? -1 : 0;
+
+		private final PlayerCharacter character;
+
+		public DamageReductionComparator(PlayerCharacter pc)
+		{
+			character = pc;
+		}
+
+		/**
+		 * Compares two DR objects and returns an integer based on their relative
+		 * sorting order.  DRs are sorted from highest reduction to lowest.
+		 * @return -1 if dr2 in object is less than dr1, 0 if they are
+		 * equal and 1 if dr2 is greater then dr1.
+		 */
+		public int compare(DamageReduction dr1, DamageReduction dr2)
+		{
+			int v1 = dr1.getReductionValue(character);
+			int v2 = dr2.getReductionValue(character);
+			return v1 < v2 ? 1 : v1 > v2 ? -1 : 0;
+		}
+
 	}
 
 	/**
@@ -270,156 +282,6 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 	}
 
 	/**
-	 * Add to DRs together and return the result.  If the combined value can
-	 * be represented as a single value, it is returned otherwise null is
-	 * returned.
-	 * @param dr1 DamageReduction
-	 * @param dr2 DamageReduction
-	 * @return The new DamageReduction object or null
-	 */
-	public static DamageReduction addDRs(final DamageReduction dr1,
-										 final DamageReduction dr2)
-	{
-		DamageReduction DR1 = dr1.qualifies(dr1.thePC) ? dr1 : null;
-		DamageReduction DR2 = dr2.qualifies(dr2.thePC) ? dr2 : null;
-		if (DR1 == null && DR2 != null)
-		{
-			return DR2;
-		}
-		else if (DR1 != null && DR2 == null)
-		{
-			return DR1;
-		}
-		else if (DR1 == null && DR2 == null)
-		{
-			return null;
-		}
-		// Intersect the two DRs to see if we have anything in common.
-		HashSet<String> hs1 = new HashSet<String>(dr1.getBypassList());
-		HashSet<String> hs2 = new HashSet<String>(dr2.getBypassList());
-
-		if (dr1.getBypass().equalsIgnoreCase(dr2.getBypass()))
-		{
-			// These are the same DRs.  Return the highest one.
-			return new DamageReduction(Math.max(dr1.getReductionValue(),
-												dr2.getReductionValue()) + "",
-									   dr1.getBypass());
-		}
-		hs1.retainAll(hs2);
-		if (hs1.size() > 0)
-		{
-			// OK, there are at least some items in common.
-			// Figure out what to do about it.
-			// The consensus seems to be that we should only combine DRs if
-			// we can represent the result as a single DR.
-			// The only way we can do that is if either bypass string contains
-			// an "or".
-
-			if ( (dr1.join == OR_JOIN && dr2.join != OR_JOIN))
-			{
-				// If the item is equal to or greater than the or item
-				// drop the or item.
-				if (dr2.getReductionValue() >= dr1.getReductionValue())
-				{
-					return dr2;
-				}
-			}
-			else if ( (dr2.join == OR_JOIN && dr1.join != OR_JOIN))
-			{
-				if (dr1.getReductionValue() >= dr2.getReductionValue())
-				{
-					return dr1;
-				}
-			}
-			else if (dr1.join == NO_JOIN && dr2.join != OR_JOIN)
-			{
-				// 5/good + 10/magic and good = 10/magic and good
-				if (dr2.getReductionValue() >= dr1.getReductionValue())
-				{
-					return dr2;
-				}
-			}
-			else if (dr2.join == NO_JOIN && dr1.join != OR_JOIN)
-			{
-				// 5/good + 10/magic and good = 10/magic and good
-				if (dr1.getReductionValue() >= dr2.getReductionValue())
-				{
-					return dr1;
-				}
-			}
-			else if (dr1.getReductionValue() == dr2.getReductionValue())
-			{
-				// If the value is the same we can combine items
-				if (dr1.join != OR_JOIN && dr2.join != OR_JOIN)
-				{
-					HashSet<String> unique = new HashSet<String>(dr1.getBypassList());
-					unique.addAll(hs2);
-					boolean doneFirst = false;
-					StringBuffer buffer = new StringBuffer();
-					for (Iterator<String> i = unique.iterator(); i.hasNext(); )
-					{
-						if (doneFirst)
-						{
-							buffer.append(" and ");
-						}
-						buffer.append(i.next());
-						doneFirst = true;
-					}
-					return new DamageReduction(dr1.getReduction(),
-											   buffer.toString());
-				}
-			}
-		}
-		else
-		{
-			if ( (dr1.join != OR_JOIN && dr2.join != OR_JOIN)
-				&& dr1.getReductionValue() == dr2.getReductionValue())
-			{
-				return new DamageReduction(dr1.getReduction(),
-										   dr1.getBypass() + " and "
-										   + dr2.getBypass());
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Adds two DRs together and return a String based representation of the
-	 * result.
-	 * @param dr1 DamageReduction
-	 * @param dr2 DamageReduction
-	 * @return String-base representation of the result.
-	 */
-	public static String combineDRs(final DamageReduction dr1,
-									final DamageReduction dr2)
-	{
-		DamageReduction DR1 = dr1.qualifies(dr1.thePC) ? dr1 : null;
-		DamageReduction DR2 = dr2.qualifies(dr2.thePC) ? dr2 : null;
-		if (DR1 == null && DR2 != null)
-		{
-			return DR2.toString();
-		}
-		else if (DR1 != null && DR2 == null)
-		{
-			return DR1.toString();
-		}
-		else if (DR1 == null && DR2 == null)
-		{
-			return "";
-		}
-		DamageReduction drResult = addDRs(dr1, dr2);
-		if (drResult == null)
-		{
-			if (dr1.compareTo(dr2) <= 0)
-			{
-				return dr1.toString() + "; " + dr2.toString();
-			}
-			return dr2.toString() + "; " + dr1.toString();
-		}
-		return drResult.toString();
-	}
-
-	/**
 	 * Builds a list of DRs that have OR logic in them.  Also sets the PC for
 	 * each DR to the passed in PC and checks prerequisites.
 	 *
@@ -434,7 +296,6 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext(); )
 		{
 			DamageReduction dr = i.next();
-			dr.setPC(aPC);
 			if (!dr.qualifies(aPC))
 			{
 				continue;
@@ -461,7 +322,6 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		for (Iterator<DamageReduction> i = inList.iterator(); i.hasNext(); )
 		{
 			DamageReduction dr = i.next();
-			dr.setPC(aPC);
 			if (!dr.qualifies(aPC))
 			{
 				continue;
@@ -491,7 +351,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 	 * @param orList List of OR type DRs
 	 * @return Resulting List generated by combining both passed in lists.
 	 */
-	private static List<DamageReduction> processList(List<DamageReduction> andList, List<DamageReduction> orList)
+	private static List<DamageReduction> processList(PlayerCharacter pc, List<DamageReduction> andList, List<DamageReduction> orList)
 	{
 		List<DamageReduction> ret = new ArrayList<DamageReduction>();
 		HashMap<String, DamageReduction> lookup = new HashMap<String, DamageReduction>();
@@ -499,7 +359,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		{
 			DamageReduction dr = i.next();
 			final String bypass = dr.getBypass().toLowerCase();
-			if (dr.getReductionValue() == -1)
+			if (dr.getReductionValue(pc) == -1)
 			{
 				ret.add(dr);
 				continue;
@@ -509,7 +369,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 			{
 				lookup.put(bypass, dr);
 			}
-			else if (dr.getReductionValue() > match.getReductionValue())
+			else if (dr.getReductionValue(pc) > match.getReductionValue(pc))
 			{
 				lookup.remove(match.getBypass().toLowerCase());
 				lookup.put(bypass, dr);
@@ -536,7 +396,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 				DamageReduction andDR = lookup.get(orValues[j].toLowerCase());
 				if (andDR != null)
 				{
-					if (andDR.getReductionValue() >= dr.getReductionValue())
+					if (andDR.getReductionValue(pc) >= dr.getReductionValue(pc))
 					{
 						shouldAdd = false;
 						break;
@@ -549,7 +409,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 			}
 		}
 
-		Collections.sort(ret);
+		Collections.sort(ret, new DamageReductionComparator(pc));
 		return ret;
 	}
 
@@ -568,8 +428,8 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 			DamageReduction dr = i.next();
 			if (dr.join != OR_JOIN)
 			{
-				if (currentDR != null
-					&& dr.getReductionValue() == currentDR.getReductionValue())
+				if (currentDR != null && dr.getRawReductionValue() > 0
+					&& dr.getRawReductionValue() == currentDR.getRawReductionValue())
 				{
 					// We can merge these two DRs into one.
 					currentDR.setBypass(currentDR.getBypass() + " and "
@@ -611,7 +471,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 			else if (dr.join != OR_JOIN)
 			{
 				if (currentDR != null
-					&& dr.getReductionValue() == currentDR.getReductionValue())
+					&& dr.getReductionValue(pc) == currentDR.getReductionValue(pc))
 				{
 					// We can merge these two DRs into one.
 					currentDR.setBypass(currentDR.getBypass() + " and "
@@ -639,7 +499,7 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 		List<DamageReduction> orList = parseOrList(aPC, inList);
 		List<DamageReduction> andList = parseAndList(aPC, inList);
 
-		List<DamageReduction> resultList = processList(andList, orList);
+		List<DamageReduction> resultList = processList(aPC, andList, orList);
 
 		return Collections.unmodifiableList(resultList);
 	}
@@ -665,10 +525,10 @@ public class DamageReduction extends ConcretePrereqObject implements Comparable<
 				buffer.append("; ");
 			}
 
-			String value = dr.toString();
+			String value = dr.toString(aPC);
 			if (value != null && value.trim().length() > 0)
 			{
-				buffer.append(dr.toString());
+				buffer.append(value);
 				doneFirst = true;
 			}
 		}

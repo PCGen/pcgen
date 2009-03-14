@@ -204,9 +204,8 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 			for (DamageReduction dr : pcl.getSafeListFor(ListKey.DAMAGE_REDUCTION))
 			{
-				String src = dr.getReduction() + "/" + dr.getBypass();
 				LevelTag lt = new LevelTag(pcl.getSafe(IntegerKey.LEVEL),
-					LevelTag.TAG_DR, src);
+					LevelTag.TAG_DR, dr.getLSTformat());
 				levelTagList.add(lt);
 			}
 			for (VariableKey vk : pcl.getVariableKeys())
