@@ -43,30 +43,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Domain extends PObject
 {
-	/*
-	 * Honestly, as Editor information, this doesn't belong here, but it works
-	 * for now. TODO Should be removed in 5.17 editor rebuild
-	 */
-	private boolean isNewItem = true;
-
-	/**
-	 * Set the item as new flag
-	 * @param newItem
-	 */
-	public final void setNewItem(final boolean newItem)
-	{
-		this.isNewItem = newItem;
-	}
-
-	/**
-	 * Returns true if the item is new
-	 * @return true if the item is new
-	 */
-	public final boolean isNewItem()
-	{
-		return isNewItem;
-	}
-
 	@Override
 	public Domain clone()
 	{

@@ -315,6 +315,7 @@ public final class EditorMainForm extends JDialog
 	private VisionPanel pnlVision;
 	private boolean wasCancelled = true;
 	private int editType = EditorConstants.EDIT_NONE;
+	private Set<PObject> oldItems = new HashSet<PObject>();
 
 	/** Creates new form EditorMainForm
 	 * @param parent
@@ -683,9 +684,7 @@ public final class EditorMainForm extends JDialog
 				context.unconditionallyProcess(thisPObject, "FEAT", aString);
 
 				sel = pnlQSpells.getSelectedList();
-				Domain thisDomain = (Domain) thisPObject;
-				if (thisDomain.isNewItem())
-					thisDomain.setNewItem(false);
+				oldItems.add(thisPObject);
 				thisPObject.clearSpellListInfo();
 
 				for (int i = 0; i < sel.length; ++i)
@@ -1389,8 +1388,7 @@ public final class EditorMainForm extends JDialog
 				List<Spell> availableSpellList = new ArrayList<Spell>();
 				List<String> selectedSpellList = new ArrayList<String>();
 
-				Domain thisDomain = (Domain) thisPObject;
-				if (thisDomain.isNewItem())
+				if (!oldItems.contains(thisPObject))
 				{
 					thisPObject.clearSpellListInfo();
 					for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
