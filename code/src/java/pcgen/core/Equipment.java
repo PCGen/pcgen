@@ -209,8 +209,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	private String appliedBonusName = "";
 
-	private String bonusType;
-
 	private String indexedUnderType = "";
 
 	private String wholeItemName = "";
@@ -2789,7 +2787,6 @@ public final class Equipment extends PObject implements Serializable,
 			eq.carried = carried;
 			eq.equipped = equipped;
 			eq.location = location;
-			eq.bonusType = bonusType;
 			eq.numberEquipped = numberEquipped;
 			eq.qty = qty;
 			eq.outputIndex = outputIndex;
