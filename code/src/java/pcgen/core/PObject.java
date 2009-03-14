@@ -452,7 +452,36 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
-		return SpecialAbilityResolution.addSABToList(aList, aPC, this);
+		for ( SpecialAbility sa : getSafeListFor(ListKey.SPECIAL_ABILITY) )
+		{
+			if (sa.pcQualifiesFor(aPC))
+			{
+				final String key = sa.getKeyName();
+				final int idx = key.indexOf("%CHOICE");
+
+				if (idx >= 0)
+				{
+					StringBuilder sb = new StringBuilder();
+					sb.append(key.substring(0, idx));
+
+					if (aPC.hasAssociations(this))
+					{
+						sb.append(StringUtil.joinToStringBuffer(aPC.getAssociationList(this), ", "));
+					}
+					else
+					{
+						sb.append("<undefined>");
+					}
+
+					sb.append(key.substring(idx + 7));
+					sa = new SpecialAbility(sb.toString(), sa.getSADesc());
+				}
+
+				aList.add(sa);
+			}
+		}
+
+		return aList;
 	}
 
 	public void globalChecks(final PlayerCharacter aPC)
