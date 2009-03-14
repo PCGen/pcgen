@@ -57,7 +57,6 @@ public class AllJUnitTests extends TestCase
 	public static Test suite()
 	{
 		final TestSuite suite = new TestSuite("PCGEN Core Tests");
-		suite.addTest(new TestSuite(AbilityStoreTest.class));
 		suite.addTest(new TestSuite(AbilityTest.class));
 		suite.addTest(new TestSuite(BioSetTest.class));
 		suite.addTest(new TestSuite(ClassTypeTest.class));
