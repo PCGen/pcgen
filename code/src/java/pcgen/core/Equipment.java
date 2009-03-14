@@ -6198,4 +6198,39 @@ public final class Equipment extends PObject implements Serializable,
 		BigDecimal nonDoubleCost = BigDecimal.ZERO;
 		int headPlus = 0;
 	}
+
+	/**
+	 * Get the list of temporary bonuses for this list
+	 * @return the list of temporary bonuses for this list
+	 */
+	public List<BonusObj> getTempBonusList()
+	{
+		return getSafeListFor(ListKey.TEMP_BONUS);
+	}
+
+	/**
+	 * Add to the list of temporary bonuses
+	 * @param aBonus
+	 */
+	public void addTempBonus(final BonusObj aBonus)
+	{
+		addToListFor(ListKey.TEMP_BONUS, aBonus);
+	}
+
+	/**
+	 * Remove from the list of temporary bonuses
+	 * @param aBonus
+	 */
+	public void removeTempBonus(final BonusObj aBonus)
+	{
+		removeFromListFor(ListKey.TEMP_BONUS, aBonus);
+	}
+
+	/**
+	 * Reset (Clear) the temporary bonus list
+	 */
+	public void resetTempBonusList()
+	{
+		removeListFor(ListKey.TEMP_BONUS);
+	}
 }

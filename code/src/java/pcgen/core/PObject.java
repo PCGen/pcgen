@@ -94,15 +94,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * ************/
 
 	/**
-	 * Get the list of temporary bonuses for this list
-	 * @return the list of temporary bonuses for this list
-	 */
-	public List<BonusObj> getTempBonusList()
-	{
-		return getSafeListFor(ListKey.TEMP_BONUS);
-	}
-
-	/**
 	 * Add to the 'save' for the character list
 	 * @param aString
 	 */
@@ -118,24 +109,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public final void addSelectedWeaponProfBonus(final String entry)
 	{
 		addToListFor(ListKey.SELECTED_WEAPON_PROF_BONUS, entry);
-	}
-
-	/**
-	 * Add to the list of temporary bonuses
-	 * @param aBonus
-	 */
-	public void addTempBonus(final BonusObj aBonus)
-	{
-		addToListFor(ListKey.TEMP_BONUS, aBonus);
-	}
-
-	/**
-	 * Remove from the list of temporary bonuses
-	 * @param aBonus
-	 */
-	public void removeTempBonus(final BonusObj aBonus)
-	{
-		removeFromListFor(ListKey.TEMP_BONUS, aBonus);
 	}
 
 	/**
@@ -393,14 +366,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (!b) {
 			Logging.errorPrint("removeSave: Could not find: " + bonusString + " in saveList.");
 		}
-	}
-
-	/**
-	 * Reset (Clear) the temporary bonus list
-	 */
-	public void resetTempBonusList()
-	{
-		removeListFor(ListKey.TEMP_BONUS);
 	}
 
 	/**
