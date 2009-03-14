@@ -90,6 +90,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -664,7 +665,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		for (Iterator<PCStat> i = newPC.getStatList().iterator(); i.hasNext();)
 		{
 			final PCStat aStat = i.next();
-			aStat.setBaseScore(10);
+			newPC.setAssoc(aStat, AssociationKey.STAT_SCORE, 10);
 		}
 
 		newPC.setAlignment(pc.getAlignment(), true, true);

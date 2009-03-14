@@ -30,6 +30,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -174,7 +175,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		StatList stats = character.getStatList();
 		int i = stats.getIndexOfStatFor("CHA");
-		stats.getStatAt(i).setBaseScore(12);
+		character.setAssoc(stats.getStatAt(i), AssociationKey.STAT_SCORE, 12);
 		character.calcActiveBonuses();
 		character.incrementClassLevel(1, arcaneClass, true);
 

@@ -76,6 +76,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -1329,7 +1330,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	{
 		for (PCStat stat : pc.getStatList())
 		{
-			if (stat.getBaseScore() != 0)
+			if (pc.getAssoc(stat, AssociationKey.STAT_SCORE) != 0)
 			{
 				return false;
 			}
@@ -2574,7 +2575,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			final int preIncHpMod = (int) pc.getStatBonusTo("HP", "BONUS"); //$NON-NLS-1$ //$NON-NLS-2$
 
-			aStat.setBaseScore(stat + increment);
+			pc.setAssoc(aStat, AssociationKey.STAT_SCORE, stat + increment);
 			pc.saveStatIncrease(aStat.getAbb(), increment, false);
 
 			updatePool(increment > 0);
@@ -3364,7 +3365,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					}
 				}
 
-				final int baseScore = aStat.getBaseScore();
+				final int baseScore = pc.getAssoc(aStat, AssociationKey.STAT_SCORE);
 				if (poolPointText != null)
 				{
 					if (pcPlayerLevels > 0)
@@ -3405,7 +3406,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					}
 				}
 
-				aStat.setBaseScore(statVal);
+				pc.setAssoc(aStat, AssociationKey.STAT_SCORE, statVal);
 				pc.saveStatIncrease(aStat.getAbb(), statVal - baseScore, false);
 				setStatLabelText();
 

@@ -33,6 +33,7 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
@@ -78,7 +79,7 @@ public class KitStat extends BaseKit
 				if (!aPC.isNonAbility(i)
 					&& currentStat.getAbb().equals(me.getKey().getAbb()))
 				{
-					currentStat.setBaseScore(sVal);
+					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, sVal);
 					theStat.add(currentStat.clone());
 					if ("INT".equals(currentStat.getAbb()))
 					{
@@ -102,7 +103,7 @@ public class KitStat extends BaseKit
 			{
 				if (currentStat.getAbb().equals(setStat.getAbb()))
 				{
-					currentStat.setBaseScore(setStat.getBaseScore());
+					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, aPC.getAssoc(setStat, AssociationKey.STAT_SCORE));
 					if ("INT".equals(currentStat.getAbb()))
 					{
 						recalculateSkillPoints(aPC);

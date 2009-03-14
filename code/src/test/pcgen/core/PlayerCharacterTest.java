@@ -42,6 +42,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -390,7 +391,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		final StatList statList = character.getStatList();
 		final PCStat stat = statList.getStatAt(0);
-		stat.setBaseScore(16);
+		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
 		final Float result =
@@ -411,7 +412,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		final StatList statList = character.getStatList();
 		final PCStat stat = statList.getStatAt(0);
-		stat.setBaseScore(16);
+		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
 		final Float result =
@@ -430,7 +431,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		final StatList statList = character.getStatList();
 		final PCStat stat = statList.getStatAt(0);
-		stat.setBaseScore(16);
+		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
 		int iVal = character.getVariableValue("roll(\"3d6\")+5", "").intValue();

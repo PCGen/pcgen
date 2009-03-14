@@ -31,6 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -79,7 +80,8 @@ public final class StatList implements Iterable<PCStat>
 			return z;
 		}
 
-		return stat.getBaseScore();
+		Integer score = aPC.getAssoc(stat, AssociationKey.STAT_SCORE);
+		return score == null ? 0 : score;
 	}
 
 	public List<BonusObj> getBonusListOfType(final String aType, final String aName)

@@ -29,6 +29,7 @@ import java.util.List;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -339,8 +340,8 @@ public class NPCGenerator
 		{
 			final PCStat newStat = statOrder.get(i);
 			final PCStat pcStat = pcStats.get(aPC.getStatList().getIndexOfStatFor(newStat.getAbb()));
-			Logging.debugPrint( "NPCGenerator: Setting stat " + pcStat.getAbb() + " to " + newStat.getBaseScore() );  //$NON-NLS-1$//$NON-NLS-2$
-			pcStat.setBaseScore(newStat.getBaseScore());
+			Logging.debugPrint( "NPCGenerator: Setting stat " + pcStat.getAbb() + " to " + aPC.getAssoc(newStat, AssociationKey.STAT_SCORE) );  //$NON-NLS-1$//$NON-NLS-2$
+			aPC.setAssoc(pcStat, AssociationKey.STAT_SCORE, aPC.getAssoc(newStat, AssociationKey.STAT_SCORE));
 		}
 	}
 

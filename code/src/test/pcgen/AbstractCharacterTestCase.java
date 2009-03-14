@@ -9,6 +9,7 @@ package pcgen;
 import gmgen.pluginmgr.PluginLoader;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.GameMode;
@@ -186,7 +187,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		if ((index > -1))
 		{
 			final PCStat stat = pc.getStatList().getStatAt(index);
-			stat.setBaseScore(value);
+			pc.setAssoc(stat, AssociationKey.STAT_SCORE, value);
 			stat.setStatMod("floor(SCORE/2)-5");
 			stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + statName),
 					FormulaFactory.getFormulaFor(statName + "SCORE-10"));

@@ -20,12 +20,12 @@
  */
 package pcgen.core;
 
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * <code>PCStat</code>.
@@ -40,7 +40,6 @@ public final class PCStat extends PObject
 	private String statMod = "0"; // a formula defining this stat's modifier
 	private int maxValue = 1000;
 	private int minValue = 0;
-	private int score = 0;
 	private boolean rolled = true;
 
 	public void setAbb(final String aString)
@@ -56,16 +55,6 @@ public final class PCStat extends PObject
 	public String getAbb()
 	{
 		return abbreviation;
-	}
-
-	public void setBaseScore(final int x)
-	{
-		score = x;
-	}
-
-	public int getBaseScore()
-	{
-		return score;
 	}
 
 	public int getMaxValue()
@@ -145,7 +134,6 @@ public final class PCStat extends PObject
 		final StringBuffer sb = new StringBuffer(30);
 		sb.append("stat:").append(abbreviation).append(' ');
 		sb.append("formula:").append(statMod).append(' ');
-		sb.append("score:").append(score);
 		if (!rolled)
 		{
 			sb.append(' ').append("rolled:").append(rolled);

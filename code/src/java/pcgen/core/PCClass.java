@@ -3240,8 +3240,8 @@ public class PCClass extends PObject
 							if (aStat.getAbb().equalsIgnoreCase(
 								statToRollback.getStatAbb()))
 							{
-								aStat.setBaseScore(aStat.getBaseScore()
-									- statToRollback.getStatMod());
+								aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE)
+								- statToRollback.getStatMod());
 								break;
 							}
 						}
@@ -3512,7 +3512,7 @@ public class PCClass extends PObject
 						selectedValue.toString()))
 					{
 						aPC.saveStatIncrease(aStat.getAbb(), 1, isPre);
-						aStat.setBaseScore(aStat.getBaseScore() + 1);
+						aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE) + 1);
 						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
 						statsAlreadyBonused.add(aStat.getAbb());
 						++iCount;
