@@ -304,12 +304,4 @@ public final class Skill extends PObject
 		PCStat keyStat = get(ObjectKey.KEY_STAT);
 		return keyStat == null ? "" : keyStat.getAbb();
 	}
-
-	@Override
-	public PObject getActiveEquivalent(PlayerCharacter pc)
-	{
-		return pc.getSkillKeyed(getKeyName());
-	}
-	
-
 }

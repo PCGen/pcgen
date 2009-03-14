@@ -307,16 +307,4 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		}
 		return ListKey.DESCRIPTION;
 	}
-
-	@Override
-	public PObject getActiveEquivalent(PlayerCharacter pc)
-	{
-		AbilityCategory cat = SettingsHandler.getGame()
-				.silentlyGetAbilityCategory(getCategory());
-		PObject ability = pc.getAbilityKeyed(cat, getAbilityNature(),
-				getKeyName());
-		return ability == null ? this : ability;
-	}
-	
-
 }

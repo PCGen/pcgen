@@ -267,11 +267,4 @@ public final class PCTemplate extends PObject
 		// end potential TO-DO change
 		return list;
 	}
-
-	@Override
-	public PObject getActiveEquivalent(PlayerCharacter pc)
-	{
-		return pc.getTemplateKeyed(getKeyName());
-	}
-
 }

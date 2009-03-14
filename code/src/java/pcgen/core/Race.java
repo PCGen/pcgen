@@ -141,15 +141,4 @@ public final class Race extends PObject
 			return steps;
 		}
 	}
-	
-	@Override
-	public PObject getActiveEquivalent(PlayerCharacter pc)
-	{
-		if (pc.getRace().getKeyName().equals(getKeyName()))
-		{
-			return pc.getRace();
-		}
-		return this;
-	}
-
 }

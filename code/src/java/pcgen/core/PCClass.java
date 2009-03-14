@@ -4377,12 +4377,6 @@ public class PCClass extends PObject
 	}
 
 	@Override
-	public PCClass getActiveEquivalent(PlayerCharacter pc)
-	{
-		return pc.getClassKeyed(getKeyName());
-	}
-
-	@Override
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
 		List<BonusObj> list = super.getRawBonusList(pc);

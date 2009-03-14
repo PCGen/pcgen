@@ -973,14 +973,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return bonus * iTimes;
 	}
 
-	/*
-	 * Any PObject which is cloned before it is added to a PC must override this
-	 */
-	public PObject getActiveEquivalent(PlayerCharacter as)
-	{
-		return this;
-	}
-
 	public List<BonusObj> getBonusList(AssociationStore as)
 	{
 		if (as instanceof PlayerCharacter)

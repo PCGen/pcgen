@@ -137,7 +137,7 @@ public class AbilityFromClassChoiceSet implements
 	 */
 	public Set<AbilitySelection> getSet(PlayerCharacter pc)
 	{
-		PCClass aClass = cl.resolvesTo().getActiveEquivalent(pc);
+		PCClass aClass = pc.getClassKeyed(cl.resolvesTo().getKeyName());
 		Set<AbilitySelection> set = new HashSet<AbilitySelection>();
 		if (aClass != null)
 		{
