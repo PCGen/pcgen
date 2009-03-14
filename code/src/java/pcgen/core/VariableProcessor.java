@@ -21,6 +21,7 @@
 package pcgen.core;
 
 import pcgen.core.character.CachedVariable;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
@@ -129,7 +130,7 @@ public abstract class VariableProcessor
 	 * @return The value of the variable
 	 */
 	public Float getVariableValue(
-			final Spell aSpell,
+			final CharacterSpell aSpell,
 			String varString,
 			String src,
 			int spellLevelTemp)
@@ -149,7 +150,7 @@ public abstract class VariableProcessor
 					spellLevelTemp);
 			
 			String cacheString =
-					makeCacheString(aSpell, varString, src, spellLevelTemp);
+					makeCacheString(aSpell == null ? null : aSpell.getSpell(), varString, src, spellLevelTemp);
 
 			addCachedVariable(cacheString, result);
 		}
@@ -168,7 +169,7 @@ public abstract class VariableProcessor
 	 * @return The value of the variable, or null if the formula is not JEP
 	 */
 	public Float getJepOnlyVariableValue(
-			final Spell aSpell,
+			final CharacterSpell aSpell,
 			String varString,
 			String src,
 			int spellLevelTemp)
@@ -185,7 +186,7 @@ public abstract class VariableProcessor
 		}
 
 		String cacheString =
-				makeCacheString(aSpell, varString, src, spellLevelTemp);
+				makeCacheString(aSpell == null ? null : aSpell.getSpell(), varString, src, spellLevelTemp);
 
 		Float total = getCachedVariable(cacheString);
 		if (total != null)
@@ -235,7 +236,7 @@ public abstract class VariableProcessor
 	 * @return The value of the variable
 	 */
 	private Float processBrokenParser(
-			final Spell aSpell,
+			final CharacterSpell aSpell,
 			String aString,
 			String src,
 			int spellLevelTemp)
@@ -574,7 +575,7 @@ public abstract class VariableProcessor
 	 * @param src     The source within which the variable is evaluated
 	 * @return The value of the variable encapsulated in a CachableResult
 	 */
-	private CachableResult processJepFormula(final Spell spell, final String formula, final String src)
+	private CachableResult processJepFormula(final CharacterSpell spell, final String formula, final String src)
 	{
 		Logging.debugPrint(jepIndent + "getJepVariable: " + formula);
 		jepIndent += "    ";
@@ -644,7 +645,7 @@ public abstract class VariableProcessor
 	}
 
 	abstract Float getInternalVariable(
-			final Spell aSpell,
+			final CharacterSpell aSpell,
 			String valString,
 			final String src);
 
@@ -663,7 +664,7 @@ public abstract class VariableProcessor
 	 * 
 	 * @return a Float value for this term
 	 */
-	public Float lookupVariable(String term, String src, Spell spell)
+	public Float lookupVariable(String term, String src, CharacterSpell spell)
 	{
 		Float retVal = null;
 		if (pc.hasVariable(term))

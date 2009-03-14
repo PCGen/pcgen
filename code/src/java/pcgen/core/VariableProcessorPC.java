@@ -20,9 +20,9 @@
  */
 package pcgen.core;
 
-import pcgen.core.spell.Spell;
-import pcgen.core.term.TermEvaluator;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.term.EvaluatorFactory;
+import pcgen.core.term.TermEvaluator;
 
 /**
  * <code>VariableProcessorPC</code> is a processor for variables
@@ -63,8 +63,9 @@ public class VariableProcessorPC extends VariableProcessor
 	 * @return The value of the variable
 	 */
 
+	@Override
 	Float getInternalVariable(
-			final Spell aSpell,
+			final CharacterSpell aSpell,
 			String valString,
 			final String src)
 	{

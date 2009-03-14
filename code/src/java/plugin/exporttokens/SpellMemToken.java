@@ -246,7 +246,7 @@ public class SpellMemToken extends Token
 					{
 						if ("RANGE".equals(aLabel))
 						{
-							retValue.append(aPC.getSpellRange(aSpell,
+							retValue.append(aPC.getSpellRange(selectedCSpell,
 								selectedCSpell.getOwner(), si));
 						}
 						else if ("BASEPPCOST".equals(aLabel))
@@ -255,7 +255,7 @@ public class SpellMemToken extends Token
 						}
 						else if ("CASTERLEVEL".equals(aLabel))
 						{
-							retValue.append(aPC.getCasterLevelForSpell(aSpell,
+							retValue.append(aPC.getCasterLevelForSpell(selectedCSpell,
 								selectedCSpell.getOwner().getKeyName()));
 						}
 						else if ("CASTINGTIME".equals(aLabel))
@@ -275,14 +275,14 @@ public class SpellMemToken extends Token
 							String SaveInfo = aSpell.getSaveInfo();
 							if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
 							{
-								int dc = aSpell.getDCForPlayerCharacter(aPC, si);
+								int dc = aPC.getDC(aSpell, si);
 								retValue.append(String.valueOf(dc));
 							}
 						}
 						else if ("DURATION".equals(aLabel))
 						{
 							String mString =
-									aPC.parseSpellString(aSpell, aSpell
+									aPC.parseSpellString(selectedCSpell, aSpell
 										.getDuration(), selectedCSpell
 										.getOwner());
 							retValue.append(mString);
@@ -291,7 +291,7 @@ public class SpellMemToken extends Token
 							|| "EFFECT".equals(aLabel))
 						{
 							String mString =
-									aPC.parseSpellString(aSpell, aPC
+									aPC.parseSpellString(selectedCSpell, aPC
 										.getDescription(aSpell), selectedCSpell
 										.getOwner());
 							retValue.append(mString);
@@ -301,7 +301,7 @@ public class SpellMemToken extends Token
 						{
 							String mString =
 									aPC
-										.parseSpellString(aSpell, aSpell.getSafe(StringKey.TARGET_AREA), selectedCSpell
+										.parseSpellString(selectedCSpell, aSpell.getSafe(StringKey.TARGET_AREA), selectedCSpell
 											.getOwner());
 							retValue.append(mString);
 						}

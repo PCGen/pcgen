@@ -26,12 +26,12 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.PCClass;
+import pcgen.cdom.base.Constants;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Globals;
-import pcgen.core.spell.Spell;
-import pcgen.cdom.base.Constants;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.CharacterSpell;
 
 public class PCCasterLevelClassTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
@@ -53,7 +53,7 @@ public class PCCasterLevelClassTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final Spell aSpell) {
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
 
 		// check if this is a domain spell
 		final CharacterDomain aCD = pc.getCharacterDomainForDomain(source);
@@ -84,7 +84,7 @@ public class PCCasterLevelClassTermEvaluator
 				(spClass != null && castBonus == 0) ? spClass.getLevel() : 0;
 
 		return (float) pc.getTotalCasterLevelWithSpellBonus(
-				aSpell, spellType, varSource, iClass + pcBonus);
+				aSpell, aSpell.getSpell(), spellType, varSource, iClass + pcBonus);
 	}
 
 	public boolean isSourceDependant()

@@ -27,6 +27,7 @@
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
@@ -47,8 +48,8 @@ public abstract class BaseEQTermEvaluator
 		return convertToFloat(originalText, evaluate(pc));
 	}
 
-	public Float resolve(PlayerCharacter pc, final Spell aSpell) {
-		return convertToFloat(originalText, evaluate(pc, aSpell));
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
 	protected Float convertToFloat(String element, String foo)

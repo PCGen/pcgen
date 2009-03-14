@@ -6769,10 +6769,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            The info about conditions applied to the spell
 	 * @return spell range
 	 */
-	public String getSpellRange(final Spell aSpell, final PObject owner,
+	public String getSpellRange(final CharacterSpell aSpell, final PObject owner,
 		final SpellInfo si)
 	{
-		String aRange = aSpell.getRange();
+		String aRange = aSpell.getSpell().getRange();
 		final String aSpellClass =
 				"CLASS:" + (owner != null ? owner.getKeyName() : "");
 		int rangeInFeet = 0;
@@ -6841,7 +6841,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aName
 	 * @return caster level for spell
 	 */
-	public int getCasterLevelForSpell(final Spell aSpell, final String aName)
+	public int getCasterLevelForSpell(final CharacterSpell aSpell, final String aName)
 	{
 		final String aSpellClass = "CLASS:" + aName;
 		int casterLevel =
@@ -7132,7 +7132,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            The source within which the variable is evaluated
 	 * @return The value of the variable
 	 */
-	private Float getVariableValue(final Spell aSpell, String aString,
+	private Float getVariableValue(final CharacterSpell aSpell, String aString,
 		String src)
 	{
 		VariableProcessor vp = getVariableProcessor();
@@ -7147,12 +7147,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return variableProcessor;
 	}
 
-	public int getTotalCasterLevelWithSpellBonus(final Spell aSpell,
+	public int getTotalCasterLevelWithSpellBonus(CharacterSpell acs, final Spell aSpell,
 		final String spellType, final String classOrRace, final int casterLev)
 	{
-		if (aSpell != null && aSpell.getFixedCasterLevel() != null)
+		if (aSpell != null && acs.getFixedCasterLevel() != null)
 		{
-			return getVariableValue(aSpell.getFixedCasterLevel(),
+			return getVariableValue(acs.getFixedCasterLevel(),
 				Constants.EMPTY_STRING).intValue();
 		}
 
@@ -7888,7 +7888,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			 * to put this method into the Formula interface
 			 */
 			numPages =
-					getVariableValue(acs.getSpell(),
+					getVariableValue(acs,
 						spellBook.getPageFormula().toString(), "").intValue();
 			// Check number of pages remaining in the book
 			if (numPages + spellBook.getNumPagesUsed() > spellBook
@@ -10433,7 +10433,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param anObj
 	 * @return String
 	 */
-	public String parseSpellString(final Spell aSpell, String aString,
+	public String parseSpellString(final CharacterSpell aSpell, String aString,
 		final PObject anObj)
 	{
 		String aSpellClass = null;
@@ -12035,11 +12035,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
 
 					final Spell newSpell = sp.clone();
-					sp.setFixedCasterLevel(apo
-						.getAssociation(AssociationKey.CASTER_LEVEL));
-					sp
-						.setFixedDC(apo
-							.getAssociation(AssociationKey.DC_FORMULA));
 					final List<CharacterSpell> sList =
 							getCharacterSpells(race, newSpell, book, -1);
 
@@ -12049,6 +12044,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					}
 
 					final CharacterSpell cs = new CharacterSpell(race, sp);
+					cs.setFixedCasterLevel(apo
+							.getAssociation(AssociationKey.CASTER_LEVEL));
+					cs.setFixedDC(apo
+							.getAssociation(AssociationKey.DC_FORMULA));
 					SpellInfo si = cs.addInfo(0, resolvedTimes, book);
 					si.setTimeUnit(timeunit);
 
@@ -17818,4 +17817,173 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return aList;
 	}
 
+
+	/**
+	 * Returns DC for a spell and SpellInfo.
+	 * @param sp the spell
+	 * @param si the spell info
+	 * @return DC for a spell and SpellInfo
+	 */
+	public int getDC(final Spell sp, final SpellInfo si)
+	{
+		return getDC(sp, si, null, 0);
+	}
+
+	/**
+	 * returns DC for a spell and either SpellInfo or PCClass
+	 * SPELLLEVEL variable is set to inLevel
+	 * @param sp
+	 * @param si
+	 * @param aClass
+	 * @param inLevel
+	 * @return DC
+	 */
+	public int getDC(final Spell sp, final SpellInfo si, PCClass aClass, final int inLevel)
+	{
+		CharacterSpell cs;
+		PObject ow = null;
+		int spellLevel = inLevel;
+		String bonDomain = "";
+		String bonClass = "";
+		String spellType = "";
+		String classKey = "";
+		int metaDC = 0;
+		int spellIndex = 0;
+
+		if (si != null)
+		{
+			cs = si.getOwner();
+
+			if (cs != null)
+			{
+				spellLevel = si.getActualLevel();
+				ow = cs.getOwner();
+
+				String fixedDC = cs.getFixedDC();
+				// TODO Temp fix for 1223858, better fix would be to move fixedDC to spellInfo
+				/*
+				 * TODO Need to evaluate how duplicative this logic is and what
+				 * is really necessary
+				 */
+				if(fixedDC != null && "INNATE".equalsIgnoreCase(si.getBook())) {
+					return getVariableValue(fixedDC, "").intValue();
+				}
+
+				// Check for a non class based fixed DC
+				if (fixedDC != null && ow != null && !(ow instanceof PCClass))
+				{
+					return getVariableValue(fixedDC, "").intValue();
+				}
+
+			}
+
+			if (si.getFeatList() != null)
+			{
+				for ( Ability metaFeat : si.getFeatList() )
+				{
+					spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
+					metaDC += metaFeat.bonusTo("DC", "FEATBONUS", this, this);
+				}
+			}
+		}
+		else
+		{
+			ow = aClass;
+		}
+
+		if (ow instanceof Domain)
+		{
+			bonDomain = "DOMAIN." + ow.getKeyName();
+
+			final CharacterDomain aCD = getCharacterDomainForDomain(ow.getKeyName());
+
+			if ((aCD != null) && aCD.isFromPCClass())
+			{
+				final String a = aCD.getObjectName();
+				aClass = getClassKeyed(a);
+			}
+		}
+
+		if ((aClass != null) || (ow instanceof PCClass))
+		{
+			if ((aClass == null) || (ow instanceof PCClass))
+			{
+				aClass = (PCClass) ow;
+			}
+
+			bonClass = "CLASS." + aClass.getKeyName();
+			classKey = "CLASS:" + aClass.getKeyName();
+			spellType = aClass.getSpellType();
+			spellIndex = aClass.baseSpellIndex();
+		}
+
+		if (!(ow instanceof PCClass) && !(ow instanceof Domain))
+		{
+			// get BASESPELLSTAT from spell itself
+			spellIndex = -2;
+		}
+
+		// set the spell Level used in aPC.getVariableValue()
+		setSpellLevelTemp(spellLevel);
+
+		// must be done after spellLevel is set above
+		int dc = getVariableValue(Globals.getGameModeBaseSpellDC(), classKey).intValue() + metaDC;
+		dc += (int) getTotalBonusTo("DC", "ALLSPELLS");
+
+		if (spellIndex == -2)
+		{
+			// get the BASESPELLSTAT from the spell itself
+			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
+			if (stat != null)
+			{
+				dc += getStatList().getStatModFor(stat.getAbb());
+			}
+		}
+
+		if (sp.getKeyName().length() > 0)
+		{
+			dc += (int) getTotalBonusTo("DC", "SPELL." + sp.getKeyName());
+		}
+
+		// DOMAIN.name
+		if (bonDomain.length() > 0)
+		{
+			dc += (int) getTotalBonusTo("DC", bonDomain);
+		}
+
+		// CLASS.name
+		if (bonClass.length() > 0)
+		{
+			dc += (int) getTotalBonusTo("DC", bonClass);
+		}
+
+		dc += (int) getTotalBonusTo("DC", "TYPE." + spellType);
+
+		if (spellType.equals("ALL"))
+		{
+			for (Type aType : sp.getTrueTypeList(false))
+			{
+				dc += (int) getTotalBonusTo("DC", "TYPE." + aType);
+			}
+		}
+
+		for (String aType : sp.getSafeListFor(ListKey.SPELL_SCHOOL))
+		{
+			dc += (int) getTotalBonusTo("DC", "SCHOOL." + aType);
+		}
+
+		for (String aType : sp.getSafeListFor(ListKey.SPELL_SUBSCHOOL))
+		{
+			dc += (int) getTotalBonusTo("DC", "SUBSCHOOL." + aType);
+		}
+
+		for (String aType : sp.getSafeListFor(ListKey.SPELL_DESCRIPTOR))
+		{
+			dc += (int) getTotalBonusTo("DC", "DESCRIPTOR." + aType);
+		}
+
+		setSpellLevelTemp(0); // reset
+
+		return dc;
+	}
 }

@@ -79,7 +79,7 @@ public class SpellListDcToken extends SpellListToken
 
 			Spell aSpell = new Spell();
 			int DC =
-				aSpell.getDCForPlayerCharacter(pc, null, aClass, params
+				pc.getDC(aSpell, null, aClass, params
 					.getLevel());
 			retValue.append(Integer.toString(DC));
 		}

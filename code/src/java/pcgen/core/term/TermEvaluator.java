@@ -1,7 +1,8 @@
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
 /**
@@ -36,7 +37,7 @@ public interface TermEvaluator
 
 	Float resolve(PlayerCharacter pc);
 
-	Float resolve(PlayerCharacter pc, final Spell aSpell);
+	Float resolve(PlayerCharacter pc, final CharacterSpell aSpell);
 
 	Float resolve(Equipment eq, boolean primary, PlayerCharacter pc);
 

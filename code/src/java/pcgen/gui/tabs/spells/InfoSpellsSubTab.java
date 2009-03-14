@@ -882,10 +882,10 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
                     aSpell.descriptor(),
                     aSpell.getComponentList(),
                     aSpell.getCastingTime(),
-                    pc.parseSpellString(aSpell, aSpell.getDuration(), cs
+                    pc.parseSpellString(cs, aSpell.getDuration(), cs
                         .getOwner()),
-                    pc.getSpellRange(aSpell, cs.getOwner(), si),
-                    pc.parseSpellString(aSpell, aSpell.getSafe(StringKey.TARGET_AREA), cs
+                    pc.getSpellRange(cs, cs.getOwner(), si),
+                    pc.parseSpellString(cs, aSpell.getSafe(StringKey.TARGET_AREA), cs
                         .getOwner()),
                     aSpell.getSaveInfo(),
                     aSpell.getSpellResistance()));
@@ -903,7 +903,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					.valueOf(SpellPoint.getSPCostStrings(pc, aSpell)));
 			}
 			b.appendLineBreak();
-			b.appendI18nElement("in_descrip", pc.parseSpellString(aSpell, 
+			b.appendI18nElement("in_descrip", pc.parseSpellString(cs, 
 				pc.getDescription(aSpell), cs.getOwner()));
 
 			final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
@@ -1086,7 +1086,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	private static int getDC(PCClass aClass, int level, PlayerCharacter pc)
 	{
 		Spell aSpell = new Spell();
-		int DC = aSpell.getDCForPlayerCharacter(pc, null, aClass, level);
+		int DC = pc.getDC(aSpell, null, aClass, level);
 
 		return DC;
 	}

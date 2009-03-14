@@ -44,6 +44,8 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	private final List<SpellInfo> infoList = new ArrayList<SpellInfo>();
 	private final PObject owner; // PCClass/Race/etc. in whose list this object resides
 	private final Spell spell;
+	private String fixedCasterLevel = null;
+	private String fixedDC = null;
 
 	/**
 	 * Constructor
@@ -330,4 +332,37 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		}
 		return buf.toString();
 	}
+
+	/**
+	 * @return Returns the fixedCasterLevel.
+	 */
+	public String getFixedCasterLevel()
+	{
+		return fixedCasterLevel;
+	}
+
+	/**
+	 * @param fixedCasterLevel The fixedCasterLevel to set.
+	 */
+	public void setFixedCasterLevel(final String fixedCasterLevel)
+	{
+		this.fixedCasterLevel = fixedCasterLevel;
+	}
+
+	/**
+	 * @return Returns the fixedDC.
+	 */
+	public String getFixedDC()
+	{
+		return fixedDC;
+	}
+
+	/**
+	 * @param fixedDC The fixedDC to set.
+	 */
+	public void setFixedDC(final String fixedDC)
+	{
+		this.fixedDC = fixedDC;
+	}
+
 }

@@ -26,9 +26,9 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.spell.Spell;
 import pcgen.cdom.base.Constants;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.CharacterSpell;
 
 public class PCCasterLevelRaceTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -49,10 +49,10 @@ public class PCCasterLevelRaceTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final Spell aSpell) {
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
 
 		final float lev =
-				pc.getTotalCasterLevelWithSpellBonus(aSpell,
+				pc.getTotalCasterLevelWithSpellBonus(aSpell, aSpell.getSpell(),
 													 Constants.s_NONE,
 													 source,
 													 0);
