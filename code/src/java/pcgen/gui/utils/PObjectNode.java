@@ -711,7 +711,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		else if (item instanceof SpellInfo)
 		{
 			final CharacterSpell spellA = ((SpellInfo) item).getOwner();
-			final boolean isSpecial = spellA.isSpecialtySpell();
+			final boolean isSpecial = spellA.isSpecialtySpell(aPC);
 			final int times = ((SpellInfo) item).getTimes();
 
 			final StringBuffer val = new StringBuffer(80);

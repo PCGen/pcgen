@@ -741,7 +741,7 @@ final class PCGVer2Creator implements IOConstants
 
 			buffer.append(LINE_SEP);
 
-			String spec = pcClass.getSpecialty();
+			String spec = thePC.getAssoc(pcClass, AssociationKey.SPECIALTY);
 			if (spec != null)
 			{
 				specials.put(pcClass.getKeyName() + TAG_SPECIALTY + '0', spec);

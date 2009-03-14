@@ -441,7 +441,8 @@ final class PCGVer0Parser implements PCGParser
 
 					if (token.startsWith("SPECIAL"))
 					{
-						aClass.addSpecialty(token.substring(7));
+						aPC.setAssoc(aClass, AssociationKey.SPECIALTY,
+								token.substring(7));
 					}
 					else
 					{
@@ -2126,7 +2127,7 @@ final class PCGVer0Parser implements PCGParser
 			if (objKey.equals(classKey)
 				|| !book.equals(Globals.getDefaultSpellBook()))
 			{
-				si = cs.getSpellInfoFor(book, sLevel, -1);
+				si = cs.getSpellInfoFor(aPC, book, sLevel, -1);
 
 				if ((si == null) || !featList.isEmpty())
 				{

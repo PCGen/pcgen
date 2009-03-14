@@ -120,19 +120,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FUTURETYPESAFETY This is an interesting case of Type Safety, that may not be
-	 * possible, as this is a big magical in what it could be - School,
-	 * Subschool, and other things. Need lots of investigation as to what the
-	 * appropriate Type for this is or whether it's stuck as a String.
-	 */
-	/*
-	 * FINALALLCLASSLEVELS This is the list of specialties that were taken as part of
-	 * leveling up at a certain point. Therefore this gets moved to PCClassLevel =
-	 * byproduct of addLevel
-	 */
-	private String specialty = null;
-
-	/*
 	 * ALLCLASSLEVELS castForLevelMap is part of PCClassLevel - or nothing at
 	 * all since this seems to be a form of cache? - DELETEVARIABLE
 	 */
@@ -493,7 +480,7 @@ public class PCClass extends PObject
 		int adj = 0;
 
 		if (includeAdj && !bookName.equals(Globals.getDefaultSpellBook())
-			&& (hasSpecialty() || aPC.hasCharacterDomainList()))
+			&& (aPC.hasAssocs(this, AssociationKey.SPECIALTY) || aPC.hasCharacterDomainList()))
 		{
 			// We need to do this for EVERY spell level up to the
 			// one really under consideration, because if there
@@ -538,7 +525,7 @@ public class PCClass extends PObject
 						else
 						{
 							x =
-									cs.getInfoIndexFor(Constants.EMPTY_STRING,
+									cs.getInfoIndexFor(aPC, Constants.EMPTY_STRING,
 										ix, 1);
 						}
 
@@ -683,30 +670,6 @@ public class PCClass extends PObject
 		// //////////////////////////////////
 
 		return returnValue;
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY created during PCClassLevel creation (in the factory)
-	 */
-	public final String getSpecialty()
-	{
-		return specialty;
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY For boolean testing of possession
-	 */
-	public final boolean hasSpecialty()
-	{
-		return specialty != null;
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY Input during construction of a PCClassLevel
-	 */
-	public final void addSpecialty(final String aSpecialty)
-	{
-		specialty = aSpecialty;
 	}
 
 	/*
@@ -1038,7 +1001,7 @@ public class PCClass extends PObject
 		if (getCastForLevel(spellLevel, bookName, true, true, aPC) > 0)
 		{
 			// if this class has a specialty, return +1
-			if (hasSpecialty())
+			if (aPC.hasAssocs(this, AssociationKey.SPECIALTY))
 			{
 				PCClass target = this;
 				if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
@@ -1559,7 +1522,7 @@ public class PCClass extends PObject
 							}
 							else
 							{
-								if (cs.getSpellInfoFor(Globals
+								if (cs.getSpellInfoFor(aPC, Globals
 									.getDefaultSpellBook(), spellLevel, -1) == null)
 								{
 									cs.addInfo(spellLevel, 1, Globals
@@ -2003,9 +1966,10 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY since the specialty list is created during PCClassLevel
 	 * creation (in the factory)
 	 */
-	public boolean isSpecialtySpell(final Spell aSpell)
+	public boolean isSpecialtySpell(PlayerCharacter pc, final Spell aSpell)
 	{
-		if (hasSpecialty())
+		String specialty = pc.getAssoc(this, AssociationKey.SPECIALTY);
+		if (specialty != null)
 		{
 			return aSpell.containsInList(ListKey.SPELL_SCHOOL, specialty)
 					|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, specialty)
@@ -3104,9 +3068,9 @@ public class PCClass extends PObject
 
 		for (CharacterSpell cs : aList)
 		{
-			if (cs.isSpecialtySpell())
+			if (cs.isSpecialtySpell(pc))
 			{
-				m += cs.getSpellInfoFor(bookName, aLevel, -1).getTimes();
+				m += cs.getSpellInfoFor(pc, bookName, aLevel, -1).getTimes();
 			}
 		}
 
@@ -3126,7 +3090,7 @@ public class PCClass extends PObject
 
 		for (CharacterSpell cs : aList)
 		{
-			m += cs.getSpellInfoFor(bookName, aLevel, -1).getTimes();
+			m += cs.getSpellInfoFor(pc, bookName, aLevel, -1).getTimes();
 		}
 
 		return m;
@@ -3300,7 +3264,7 @@ public class PCClass extends PObject
 			return false;
 		}
 
-		if (isProhibited(aSpell, aPC) && !isSpecialtySpell(aSpell))
+		if (isProhibited(aSpell, aPC) && !isSpecialtySpell(aPC, aSpell))
 		{
 			return false;
 		}
@@ -3675,7 +3639,7 @@ public class PCClass extends PObject
 			/*
 			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
 			 */
-			specialty = null;
+			aPC.removeAssoc(this, AssociationKey.SPECIALTY);
 
 			SubClass sc = (SubClass) subselected;
 
@@ -3718,7 +3682,7 @@ public class PCClass extends PObject
 
 			if (sc.get(ObjectKey.CHOICE) != null)
 			{
-				addSpecialty(sc.getChoice());
+				aPC.setAssoc(this, AssociationKey.SPECIALTY, sc.getChoice());
 			}
 
 			columnNames.add("Specialty");

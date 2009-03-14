@@ -207,7 +207,7 @@ public class SpellMemToken extends Token
 				// Get the SpellInfo for the selected spell
 				final SpellInfo si =
 						selectedCSpell
-							.getSpellInfoFor(bookName, spellLevel, -1);
+							.getSpellInfoFor(aPC, bookName, spellLevel, -1);
 
 				if (found && (aSpell != null) && (si != null))
 				{
@@ -514,7 +514,7 @@ public class SpellMemToken extends Token
 		final List<String> dList = new ArrayList<String>();
 		StringBuffer retValue = new StringBuffer();
 
-		if ((aObject != null) && (cs != null) && cs.isSpecialtySpell()
+		if ((aObject != null) && (cs != null) && cs.isSpecialtySpell(aPC)
 			&& (aObject instanceof PCClass))
 		{
 			for (CharacterDomain cd : aPC.getCharacterDomainList())
@@ -532,7 +532,7 @@ public class SpellMemToken extends Token
 
 			for (CharacterSpell cSpell : charSpells)
 			{
-				if (!cSpell.isSpecialtySpell())
+				if (!cSpell.isSpecialtySpell(aPC))
 				{
 					isDomainOnly = false;
 

@@ -24,14 +24,15 @@
  */
 package pcgen.core.character;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <code>PCClass</code>.
@@ -70,7 +71,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param specialty
 	 * @return info index
 	 */
-	public int getInfoIndexFor(final String bookName, final int level, final int specialty)
+	public int getInfoIndexFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)
 	{
 		if (infoList.isEmpty())
 		{
@@ -81,7 +82,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 
 		if (sp)
 		{
-			sp = isSpecialtySpell();
+			sp = isSpecialtySpell(pc);
 		}
 
 		int i = 0;
@@ -123,7 +124,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * is speciality spell
 	 * @return TRUE if speciality spell
 	 */
-	public boolean isSpecialtySpell()
+	public boolean isSpecialtySpell(PlayerCharacter pc)
 	{
 		final boolean result;
 
@@ -138,7 +139,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		else if (owner instanceof PCClass)
 		{
 			final PCClass a = (PCClass) owner;
-			result = a.isSpecialtySpell(spell);
+			result = a.isSpecialtySpell(pc, spell);
 		}
 		else
 		{
@@ -164,9 +165,9 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param specialty
 	 * @return SpellInfo
 	 */
-	public SpellInfo getSpellInfoFor(final String bookName, final int level, final int specialty)
+	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)
 	{
-		return getSpellInfoFor(bookName, level, specialty, null);
+		return getSpellInfoFor(pc, bookName, level, specialty, null);
 	}
 
 	/**
@@ -177,7 +178,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param featList
 	 * @return Spell Info
 	 */
-	public SpellInfo getSpellInfoFor(final String bookName, final int level, final int specialty, final List<Ability> featList)
+	public SpellInfo getSpellInfoFor(PlayerCharacter pc, final String bookName, final int level, final int specialty, final List<Ability> featList)
 	{
 		if (infoList.isEmpty())
 		{
@@ -188,7 +189,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 
 		if (sp)
 		{
-			sp = isSpecialtySpell();
+			sp = isSpecialtySpell(pc);
 		}
 
 		for (SpellInfo s : infoList)

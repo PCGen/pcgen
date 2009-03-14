@@ -753,11 +753,11 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			b.appendLineBreak();
 			b.appendI18nElement("InfoSpells.stat.bonus", aClass.getSpellBaseStat()); //$NON-NLS-1$ 
 
-			if (aClass.hasSpecialty() || pc.hasCharacterDomainList())
+			if (pc.hasAssocs(aClass, AssociationKey.SPECIALTY) || pc.hasCharacterDomainList())
 			{
 				boolean needComma = false;
 				StringBuffer schoolInfo = new StringBuffer(); 
-				String spec = aClass.getSpecialty();
+				String spec = pc.getAssoc(aClass, AssociationKey.SPECIALTY);
 				if (spec != null)
 				{
 					schoolInfo.append(spec);

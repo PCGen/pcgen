@@ -1691,8 +1691,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				for (final PCGElement child : element.getChildren())
 				{
-					aPCClass
-						.addSpecialty(EntityEncoder.decode(child.getText()));
+					thePC.setAssoc(aPCClass, AssociationKey.SPECIALTY,
+							EntityEncoder.decode(child.getText()));
 				}
 			}
 			else if (TAG_SPECIALABILITIES.equals(tag))
@@ -4107,7 +4107,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				|| !spellBook.equals(Globals.getDefaultSpellBook()))
 			{
 				aSpellInfo =
-						aCharacterSpell.getSpellInfoFor(spellBook, spellLevel,
+						aCharacterSpell.getSpellInfoFor(thePC, spellBook, spellLevel,
 							-1);
 
 				// This doesn't make sense. What does the

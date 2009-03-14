@@ -91,6 +91,8 @@ public final class AssociationKey<T>
 	 */
 	public static final AssociationKey<Boolean> NEEDS_SAVING = new AssociationKey<Boolean>();
 
+	public static final AssociationKey<String> SPECIALTY = new AssociationKey<String>();
+
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
 	private AssociationKey()

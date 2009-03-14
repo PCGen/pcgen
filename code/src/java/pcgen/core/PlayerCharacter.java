@@ -3154,7 +3154,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// aList will contain a list of SpecialAbility objects
 		List<SpecialAbility> aList =
 				new ArrayList<SpecialAbility>(specialAbilityList);
-
 		// Try all possible POBjects
 		for (PObject aPObj : getPObjectList())
 		{
@@ -7844,7 +7843,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// But if a spell is both prohibited and in a speciality
 		// which can be the case for some spells, then allow it.
 		if (spellBook.getType() != SpellBook.TYPE_SPELL_BOOK
-			&& !acs.isSpecialtySpell() && aClass.isProhibited(aSpell, this))
+			&& !acs.isSpecialtySpell(this) && aClass.isProhibited(aSpell, this))
 		{
 			return acs.getSpell().getDisplayName() + " is prohibited.";
 		}
@@ -7901,12 +7900,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
 			&& !availableSpells(adjSpellLevel, aClass, bookName, true, acs
-				.isSpecialtySpell()))
+				.isSpecialtySpell(this)))
 		{
 			String ret;
 			int maxAllowed;
 			// If this were a specialty spell, would there be room?
-			if (!acs.isSpecialtySpell()
+			if (!acs.isSpecialtySpell(this)
 				&& availableSpells(adjSpellLevel, aClass, bookName, true, true))
 			{
 				ret =
@@ -7939,11 +7938,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		else if (aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
 			&& !isDefault
 			&& !availableSpells(adjSpellLevel, aClass, bookName, false, acs
-				.isSpecialtySpell()))
+				.isSpecialtySpell(this)))
 		{
 			String ret;
 			int maxAllowed;
-			if (!acs.isSpecialtySpell()
+			if (!acs.isSpecialtySpell(this)
 				&& availableSpells(adjSpellLevel, aClass, bookName, false, true))
 			{
 				ret =
@@ -8004,13 +8003,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				final CharacterSpell tcs = acsList.get(0);
 				si =
-						tcs.getSpellInfoFor(bookName, adjSpellLevel, -1,
+						tcs.getSpellInfoFor(this, bookName, adjSpellLevel, -1,
 							aFeatList);
 			}
 			else
 			{
 				si =
-						acs.getSpellInfoFor(bookName, adjSpellLevel, -1,
+						acs.getSpellInfoFor(this, bookName, adjSpellLevel, -1,
 							aFeatList);
 			}
 		}
@@ -9281,7 +9280,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					for (int j = aList.size() - 1; j >= 0; --j)
 					{
 						final CharacterSpell cs = aList.get(j);
-						cs.removeSpellInfo(cs.getSpellInfoFor(aName, -1, -1));
+						cs.removeSpellInfo(cs.getSpellInfoFor(this, aName, -1, -1));
 					}
 				}
 
@@ -17764,7 +17763,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if ((aSpell == null) || cs.getSpell().equals(aSpell))
 			{
-				final SpellInfo si = cs.getSpellInfoFor(book, level, -1, null);
+				final SpellInfo si = cs.getSpellInfoFor(this, book, level, -1, null);
 
 				if (si != null)
 				{
@@ -17805,7 +17804,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if ((aSpell == null) || cs.getSpell().equals(aSpell))
 			{
-				final SpellInfo si = cs.getSpellInfoFor(book, level, -1, null);
+				final SpellInfo si = cs.getSpellInfoFor(this, book, level, -1, null);
 
 				if (si != null)
 				{
