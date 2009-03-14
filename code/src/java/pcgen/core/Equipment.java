@@ -201,8 +201,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	private int numberEquipped;
 
-	private boolean isOnlyNaturalWeapon;
-
 	private Map<String, Float> d_childTypes = new HashMap<String, Float>();
 
 	private String containerCapacityString = null;
@@ -1636,25 +1634,6 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int getNumberEquipped() {
 		return numberEquipped;
-	}
-
-	/**
-	 * Set to true if this is the only natural weapon.
-	 * 
-	 * @param onlyNaturalWeapon
-	 *            set to true if this is the only natural weapon.
-	 */
-	public void setOnlyNaturalWeapon(final boolean onlyNaturalWeapon) {
-		isOnlyNaturalWeapon = onlyNaturalWeapon;
-	}
-
-	/**
-	 * Returns true if this is the only natural weapon.
-	 * 
-	 * @return true if this is the only natural weapon.
-	 */
-	public boolean isOnlyNaturalWeapon() {
-		return isOnlyNaturalWeapon;
 	}
 
 	/**

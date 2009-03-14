@@ -306,7 +306,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			aBonus.setCreatorObject(bite);
 			bite.addToListFor(ListKey.BONUS, aBonus);
 		}
-		bite.setOnlyNaturalWeapon(false);
 		bite.put(IntegerKey.SLOTS, 0);
 		bite.setQty(Float.valueOf(1));
 		bite.setNumberCarried(Float.valueOf(1));
