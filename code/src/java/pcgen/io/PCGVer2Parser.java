@@ -1699,10 +1699,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				for (PCGElement child : element.getChildren())
 				{
-					// TODO - This looks like a bug.  Looks like it should
-					// be child.getText().  I am not sure how to test this
-					// though.
-					//					specialAbilityName = EntityEncoder.decode(element.getText());
 					specialAbilityName = EntityEncoder.decode(child.getText());
 					if (pcgenVersion[0] <= 5 && pcgenVersion[1] <= 5
 						&& pcgenVersion[2] < 6)
@@ -1719,28 +1715,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 					}
 					specialAbility = new SpecialAbility(specialAbilityName);
-
-					// TODO This looks bogus.  PCClass should probably be the 
-					// same case in both instances below.  
-					if (specialAbilityName.endsWith(":-1")) //$NON-NLS-1$
+					CDOMObject target = aPCClass;
+					if (level > 0)
 					{
-						specialAbilityName =
-								specialAbilityName.substring(0,
-									specialAbilityName.length() - 3);
-						specialAbility = new SpecialAbility(specialAbilityName);
-						specialAbility
-							.setSASource("PCClass|" + aPCClass.getKeyName() + '|' + 0); //$NON-NLS-1$
-					}
-					else
-					{
-						specialAbility = new SpecialAbility(specialAbilityName);
-						specialAbility
-							.setSASource("PCCLASS|" + aPCClass.getKeyName() + '|' + level); //$NON-NLS-1$
+						target = aPCClass.getClassLevel(level);
 					}
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{
-						aPCClass.addToListFor(ListKey.SPECIAL_ABILITY,
+						target.addToListFor(ListKey.SPECIAL_ABILITY,
 							specialAbility);
 					}
 

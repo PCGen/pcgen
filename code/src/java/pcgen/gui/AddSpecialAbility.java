@@ -302,7 +302,7 @@ public final class AddSpecialAbility extends JFrame
 					return sa.getDisplayName();
 
 				case 1: // Source
-					return sa.getSASource();
+					return "";
 
 				default:
 					break;

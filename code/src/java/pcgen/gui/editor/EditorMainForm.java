@@ -3175,17 +3175,7 @@ public final class EditorMainForm extends JDialog
 		{
 			for (Iterator<SpecialAbility> e = saList.iterator(); e.hasNext();)
 			{
-				SpecialAbility specialAbility = e.next();
-				String saSource = specialAbility.getSASource();
-				String saLevel = saSource.substring(saSource.indexOf("|") + 1);
-				String saTxt = specialAbility.toString();
-
-				if (saLevel.length() > 0)
-				{
-					saLevel += "|";
-				}
-
-				selectedList.add("SAB:" + saLevel + saTxt);
+				selectedList.add("SAB:" + e.next().toString());
 			}
 		}
 

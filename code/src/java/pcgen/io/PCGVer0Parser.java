@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -480,15 +481,27 @@ final class PCGVer0Parser implements PCGParser
 												"Bonus Caster Level for "
 													+ cTok.nextToken());
 
+									CDOMObject target = aClass;
 									if ((pcgVersion > 270)
 										&& cTok.hasMoreTokens())
 									{
-										sa.setSASource("PCCLASS|"
-											+ aClass.getKeyName() + "|"
-											+ cTok.nextToken());
+										String tok = cTok.nextToken();
+										try
+										{
+											int level = Integer.parseInt(tok);
+											if (level > 0)
+											{
+												target = aClass.getClassLevel(level);
+											}
+										}
+										catch (NumberFormatException e)
+										{
+											Logging.errorPrint("Expected a level number for SA Source, found: "
+															+ tok);
+										}
 									}
 
-									aClass.addToListFor(ListKey.SPECIAL_ABILITY, sa);
+									target.addToListFor(ListKey.SPECIAL_ABILITY, sa);
 								}
 							}
 						}

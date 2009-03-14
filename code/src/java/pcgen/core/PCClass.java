@@ -3020,33 +3020,6 @@ public class PCClass extends PObject
 		}
 
 		//
-		// Go through the specialty list (SA) and adjust the class to the new
-		// name
-		//
-		for (SpecialAbility sa : getSafeListFor(ListKey.SAB))
-		{
-			removeFromListFor(ListKey.SAB, sa);
-			sa = new SpecialAbility(sa.getKeyName(), sa.getSASource(), sa
-					.getSADesc());
-			sa.setQualificationClass(oldClass, newClass);
-			addToListFor(ListKey.SAB, sa);
-		}
-		for (PCClassLevel pcl : getClassLevelCollection())
-		{
-			for (SpecialAbility sa : pcl.getSafeListFor(ListKey.SAB))
-			{
-				if (sa.getSASource().length() != 0)
-				{
-					pcl.removeFromListFor(ListKey.SAB, sa);
-					sa = new SpecialAbility(sa.getKeyName(), sa.getSASource(),
-							sa.getSADesc());
-					sa.setQualificationClass(oldClass, newClass);
-					pcl.addToListFor(ListKey.SAB, sa);
-				}
-			}
-		}
-
-		//
 		// Go through the variable list (DEFINE) and adjust the class to the new
 		// name
 		//

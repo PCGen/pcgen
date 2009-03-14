@@ -51,6 +51,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
@@ -451,38 +452,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
-		for ( SpecialAbility sa : getSafeListFor(ListKey.SPECIAL_ABILITY) )
-		{
-			if (sa.pcQualifiesFor(aPC))
-			{
-				final String key = sa.getKeyName();
-				final int idx = key.indexOf("%CHOICE");
-
-				if (idx >= 0)
-				{
-					StringBuilder sb = new StringBuilder();
-					sb.append(key.substring(0, idx));
-
-					if (aPC.hasAssociations(this))
-					{
-						sb.append(StringUtil.joinToStringBuffer(aPC.getAssociationList(this), ", "));
-					}
-					else
-					{
-						sb.append("<undefined>");
-					}
-
-					sb.append(key.substring(idx + 7));
-					sa =
-							new SpecialAbility(sb.toString(), sa.getSASource(),
-								sa.getSADesc());
-				}
-
-				aList.add(sa);
-			}
-		}
-
-		return aList;
+		return SpecialAbilityResolution.addSABToList(aList, aPC, this);
 	}
 
 	public void globalChecks(final PlayerCharacter aPC)

@@ -519,11 +519,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 			for (SpecialAbility sa : aClass
 				.getSafeListFor(ListKey.SPECIAL_ABILITY))
 			{
-				if (sa.getSASource().endsWith("|0"))
-				{
-					aList.add(sa.getKeyName());
-					cList.add(sa);
-				}
+				aList.add(sa.getKeyName());
+				cList.add(sa);
 			}
 		}
 
@@ -547,10 +544,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			}
 
 			SpecialAbility sa = cList.get(ix);
-			final String bString = sa.getSASource();
-			PCClass aClass =
-					pc.getClassKeyed(bString.substring(
-						bString.indexOf("|") + 1, bString.lastIndexOf("|")));
+			PCClass aClass = pc.getClassList().get(0);
 
 			if (aClass == null)
 			{

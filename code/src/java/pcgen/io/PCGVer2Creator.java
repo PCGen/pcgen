@@ -48,9 +48,11 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -87,7 +89,6 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
-import pcgen.util.Logging;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -757,32 +758,23 @@ final class PCGVer2Creator implements IOConstants
 				{
 					if (sa.getKeyName().equalsIgnoreCase(save))
 					{
-						found = true;
-						int relevantLevel = 1;
-						final String source = sa.getSASource();
-
-						try
-						{
-							relevantLevel =
-									Integer.parseInt(source.substring(source
-										.lastIndexOf('|') + 1));
-
-							if (relevantLevel < 0)
-							{
-								relevantLevel = 1;
-							}
-						}
-						catch (NumberFormatException nfe)
-						{
-							Logging
-								.errorPrint("Error parsing SA relevant level: " //$NON-NLS-1$
-									+ source
-										.substring(source.lastIndexOf('|') + 1));
-						}
-
-						specials.put(pcClass.getKeyName() + TAG_SA
-							+ (relevantLevel - 1), sa.getKeyName());
+						specials.put(pcClass.getKeyName() + TAG_SA + 0, sa
+								.getKeyName());
 						break;
+					}
+				}
+				for (PCClassLevel pcl : pcClass.getClassLevelCollection())
+				{
+					Integer level = pcl.get(IntegerKey.LEVEL);
+					for (SpecialAbility sa : pcl
+							.getListFor(ListKey.SPECIAL_ABILITY))
+					{
+						if (sa.getKeyName().equalsIgnoreCase(save))
+						{
+							specials.put(pcClass.getKeyName() + TAG_SA + level,
+									sa.getKeyName());
+							break;
+						}
 					}
 				}
 

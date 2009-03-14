@@ -29,7 +29,7 @@ import pcgen.core.SpecialAbility;
 
 public class SpecialAbilityResolution
 {
-	public static void addSABToList(List<SpecialAbility> saList, PlayerCharacter pc, CDOMObject cdo)
+	public static List<SpecialAbility> addSABToList(List<SpecialAbility> saList, PlayerCharacter pc, CDOMObject cdo)
 	{
 		for (SpecialAbility sa : cdo.getSafeListFor(ListKey.SAB))
 		{
@@ -54,8 +54,7 @@ public class SpecialAbilityResolution
 					}
 
 					sb.append(key.substring(idx + 7));
-					sa = new SpecialAbility(sb.toString(), sa.getSASource(), sa
-							.getSADesc());
+					sa = new SpecialAbility(sb.toString(), sa.getSADesc());
 					saList.add(sa);
 				}
 				else
@@ -64,6 +63,7 @@ public class SpecialAbilityResolution
 				}
 			}
 		}
+		return saList;
 	}
 
 }
