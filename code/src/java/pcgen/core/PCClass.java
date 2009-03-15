@@ -133,13 +133,6 @@ public class PCClass extends PObject
 	// PCLevelInfo
 
 	/*
-	 * ALLCLASSLEVELS skillPool is part each PCClassLevel and what that level
-	 * grants to each PlayerCharacter (added by the PCClassLevel Factory, not
-	 * by a tag)
-	 */
-	private int skillPool = 0;
-
-	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
 	 * but it gets VERY complicated to do that, since the keys are widely used
 	 * in the variable processor.
@@ -2114,24 +2107,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSLEVELONLY This is only part of the level, as the skill pool is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public final int skillPool()
-	{
-		return skillPool;
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This is only part of the level, as the skill pool is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public void setSkillPool(final int i)
-	{
-		skillPool = i;
-	}
-
-	/*
 	 * REFACTOR TO DELETEMETHOD I would really like to get rid of this, since it
 	 * it used as a "funky spells" test - which should be more explicit than
 	 * implicit in zero cast spells.
@@ -2704,7 +2679,9 @@ public class PCClass extends PObject
 			}
 		}
 
-		skillPool = skillPool() + spMod;
+		Integer currentPool = aPC.getAssoc(this, AssociationKey.SKILL_POOL);
+		int newSkillPool = spMod + (currentPool == null ? 0 : currentPool);
+		aPC.setAssoc(this, AssociationKey.SKILL_POOL, newSkillPool);
 
 		aPC.setSkillPoints(spMod + aPC.getSkillPoints());
 
@@ -3093,7 +3070,8 @@ public class PCClass extends PObject
 					SkillRankControl.setZeroRanks(this, aPC, skill);
 				}
 
-				spMod = skillPool();
+				Integer currentPool = aPC.getAssoc(this, AssociationKey.SKILL_POOL);
+				spMod = currentPool == null ? 0 : currentPool;
 			}
 
 			if (!isMonster() && (total > aPC.getTotalLevels()))
@@ -3147,7 +3125,9 @@ public class PCClass extends PObject
 			else
 			{
 				aPC.setSkillPoints(aPC.getSkillPoints() - spMod);
-				skillPool = skillPool() - spMod;
+				Integer currentPool = aPC.getAssoc(this, AssociationKey.SKILL_POOL);
+				int newSkillPool = (currentPool == null ? 0 : currentPool) - spMod;
+				aPC.setAssoc(this, AssociationKey.SKILL_POOL, newSkillPool);
 			}
 
 			if (getLevel() == 0)

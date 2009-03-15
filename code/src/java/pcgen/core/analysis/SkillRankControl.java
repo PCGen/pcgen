@@ -23,6 +23,7 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
@@ -233,7 +234,8 @@ public class SkillRankControl
 		{
 			if (aClass != null)
 			{
-				aClass.setSkillPool(aClass.getSkillPool(aPC)
+				aPC.setAssoc(aClass, AssociationKey.SKILL_POOL, aClass
+						.getSkillPool(aPC)
 						- (int) (i * rankMod));
 			}
 

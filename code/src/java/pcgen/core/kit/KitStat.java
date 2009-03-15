@@ -34,7 +34,6 @@ import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -129,7 +128,7 @@ public class KitStat extends BaseKit
 			aPC.setSkillPoints(0);
 			for (PCClass pcClass : classes)
 			{
-				pcClass.setSkillPool(0);
+				aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, 0);
 				// We don't limit this to MOD_TO_SKILLS classes as they may manually include the INT bonus in the skills.
 				if (aPC.getLevelInfoSize() > 0)
 				{
@@ -145,7 +144,9 @@ public class KitStat extends BaseKit
 							pcl.setSkillPointsGained(spMod);
 							pcl.setSkillPointsRemaining(pcl
 								.getSkillPointsGained());
-							pcClass.setSkillPool(pcClass.skillPool() + spMod);
+							Integer currentPool = aPC.getAssoc(pcClass, AssociationKey.SKILL_POOL);
+							int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
+							aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, newSkillPool);
 
 							aPC.setSkillPoints(spMod + aPC.getSkillPoints());
 						}

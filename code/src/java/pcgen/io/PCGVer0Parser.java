@@ -639,7 +639,7 @@ final class PCGVer0Parser implements PCGParser
 
 			if (aClass != null)
 			{
-				aClass.setSkillPool(skillPool);
+				aPC.setAssoc(aClass, AssociationKey.SKILL_POOL, skillPool);
 			}
 
 			if (aTok.hasMoreTokens())

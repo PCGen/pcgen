@@ -6466,8 +6466,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 						final int cLevels = pcClass.getLevel();
 
-						// aClass.setLevel(0);
-						pcClass.setSkillPool(0);
+						setAssoc(pcClass, AssociationKey.SKILL_POOL, 0);
 
 						int cMod = 0;
 
@@ -6478,7 +6477,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 										++totalLevels);
 						}
 
-						pcClass.setSkillPool(cMod);
+						setAssoc(pcClass, AssociationKey.SKILL_POOL, cMod);
 					}
 				}
 			}
@@ -8259,7 +8258,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							pi.setSkillPointsRemaining(pi
 								.getSkillPointsRemaining()
 								+ newSkillPointsGained - formerGained);
-							pcClass.setSkillPool(pcClass.getSkillPool(this)
+							setAssoc(pcClass, AssociationKey.SKILL_POOL, pcClass.getSkillPool(this)
 								+ newSkillPointsGained - formerGained);
 							setSkillPoints(getSkillPoints()
 								+ newSkillPointsGained - formerGained);
@@ -10009,7 +10008,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					.getKeyName(), cl.getKeyName());
 			}
 
-			bClass.setSkillPool(aClass.getSkillPool(this));
+			setAssoc(bClass, AssociationKey.SKILL_POOL, aClass.getSkillPool(this));
 		}
 		catch (NumberFormatException nfe)
 		{
