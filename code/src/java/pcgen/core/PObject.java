@@ -51,7 +51,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
-import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
@@ -101,15 +100,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public final void addSave(final String aString)
 	{
 		addToListFor(ListKey.SAVE, aString);
-	}
-
-	/**
-	 * Add the selected wepaon prof bonus to the character list
-	 * @param entry
-	 */
-	public final void addSelectedWeaponProfBonus(final String entry)
-	{
-		addToListFor(ListKey.SELECTED_WEAPON_PROF_BONUS, entry);
 	}
 
 	/**
@@ -565,15 +555,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		return newNameBuff.toString();
-	}
-
-	/**
-	 * Clear the selected weapon proficiency bonuses
-	 *
-	 */
-	public void clearSelectedWeaponProfBonus()
-	{
-		removeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
 	}
 
 	/**

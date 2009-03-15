@@ -4034,18 +4034,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Try all possible CDOMObjects
 		for (CDOMObject pobj : getCDOMObjectList())
 		{
-			Set<String> profKeyList =
-					new TreeSet<String>(pobj
-						.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS));
-			for (String profKey : profKeyList)
+			List<String> profKeys = getAssocList(pobj,
+					AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+			if (profKeys != null)
 			{
-				WeaponProf prof =
-						Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(WeaponProf.class,
-								profKey);
-				if (prof != null)
+				Set<String> profKeyList = new TreeSet<String>();
+				profKeyList.addAll(profKeys);
+				for (String profKey : profKeyList)
 				{
-					ret.put(prof.getKeyName(), prof);
+					WeaponProf prof =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(WeaponProf.class,
+									profKey);
+					if (prof != null)
+					{
+						ret.put(prof.getKeyName(), prof);
+					}
 				}
 			}
 			//Natural Weapon Proficiencies
@@ -12158,7 +12162,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				if (anAbility != null)
 				{
 					// TheForken 20050124 adds bonus to feat
-					anAbility.addSelectedWeaponProfBonus(aString);
+					addAssoc(anAbility,
+							AssociationListKey.SELECTED_WEAPON_PROF_BONUS, aString);
 				}
 
 				featKey = "";
@@ -16744,14 +16749,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		if (getRace() != null)
 		{
-			addAutoProfsToList(getRace().getSafeListFor(
-				ListKey.SELECTED_WEAPON_PROF_BONUS), abilities);
+			List<String> profKeys = getAssocList(getRace(),
+					AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+			if (profKeys != null)
+			{
+				addAutoProfsToList(profKeys, abilities);
+			}
 		}
 
 		for (final PCClass aClass : getClassList())
 		{
-			addAutoProfsToList(aClass
-				.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS), abilities);
+			List<String> profKeys = getAssocList(aClass,
+					AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+			if (profKeys != null)
+			{
+				addAutoProfsToList(profKeys, abilities);
+			}
 		}
 
 		if (!getTemplateList().isEmpty())
@@ -16787,10 +16800,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						}
 					}
 				}
-				addAutoProfsToList(aTemplate
-					.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS),
-					abilities);
-
+				List<String> profKeys = getAssocList(aTemplate,
+						AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+				if (profKeys != null)
+				{
+					addAutoProfsToList(profKeys, abilities);
+				}
 			}
 		}
 
@@ -16861,10 +16876,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						}
 					}
 
-					addAutoProfsToList(aDomain
-						.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS),
-						abilities);
-
+					List<String> profKeys = getAssocList(aDomain,
+							AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+					if (profKeys != null)
+					{
+						addAutoProfsToList(profKeys, abilities);
+					}
 				}
 			}
 		}

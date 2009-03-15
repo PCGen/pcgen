@@ -4664,8 +4664,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			for (PCGElement child : element.getChildren())
 			{
-				source.addSelectedWeaponProfBonus(updateProficiencyName(child
-					.getText(), true));
+				thePC.addAssoc(source,
+						AssociationListKey.SELECTED_WEAPON_PROF_BONUS,
+						updateProficiencyName(child.getText(), true));
 			}
 		}
 	}

@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -130,7 +131,11 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 	{
 		weaponToProfMap.clear();
 
-		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS));
+		List<String> list = aPc.getAssocList(pobject, AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+		if (list != null)
+		{
+			selectedList.addAll(list);
+		}
 
 		for ( String raw : getChoiceList())
 		{
@@ -406,7 +411,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 		final PlayerCharacter  aPC,
 		final List<String>             selected)
 	{
-		pobject.clearSelectedWeaponProfBonus();
+		aPC.removeAllAssocs(pobject, AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
 		aPC.setAutomaticAbilitiesStable(null, false);
 //		aPC.setAutomaticFeatsStable(false);
 
@@ -426,7 +431,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 				if (featOrProf.startsWith("WEAPONPROF"))
 				{
-					pobject.addSelectedWeaponProfBonus(aChoice);
+					aPC.addAssoc(pobject,
+							AssociationListKey.SELECTED_WEAPON_PROF_BONUS,
+							aChoice);
 				}
 
 				//

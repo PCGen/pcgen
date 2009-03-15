@@ -29,7 +29,7 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
@@ -99,8 +99,6 @@ public final class KitProf extends BaseKit
 		thePObject = null;
 		weaponProfs = null;
 
-		ListKey<String> weaponProfKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
-
 		Collection<CDOMReference<WeaponProf>> wpBonus = null;
 		if (isRacial())
 		{
@@ -112,7 +110,8 @@ public final class KitProf extends BaseKit
 
 				return false;
 			}
-			if (pcRace.getSafeSizeOfListFor(weaponProfKey) != 0)
+			if (aPC.getAssocCount(pcRace,
+					AssociationListKey.SELECTED_WEAPON_PROF_BONUS) != 0)
 			{
 				warnings
 					.add("PROF: Race has already selected bonus weapon proficiency");
@@ -144,7 +143,8 @@ public final class KitProf extends BaseKit
 				}
 			}
 			thePObject = pcClass;
-			if (pcClass.getSafeSizeOfListFor(weaponProfKey) != 0)
+			if (aPC.getAssocCount(pcClass,
+					AssociationListKey.SELECTED_WEAPON_PROF_BONUS) != 0)
 			{
 				warnings
 					.add("PROF: Class has already selected bonus weapon proficiency");
@@ -249,7 +249,8 @@ public final class KitProf extends BaseKit
 	{
 		for (WeaponProf prof : weaponProfs)
 		{
-			thePObject.addSelectedWeaponProfBonus(prof.getKeyName());
+			aPC.addAssoc(thePObject,
+					AssociationListKey.SELECTED_WEAPON_PROF_BONUS, prof.getKeyName());
 		}
 	}
 

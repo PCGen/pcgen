@@ -2293,92 +2293,50 @@ final class PCGVer0Parser implements PCGParser
 		//		{
 		//			aPC.addWeaponProf(aTok.nextToken());
 		//		}
-		int iState = 0;
 		final StringTokenizer aTok = new StringTokenizer(line, ":", false);
-		Race aRace = null;
-		PCClass aClass = null;
-		Domain aDomain = null;
-		Ability aFeat = null;
 		final List<String> myProfs = new ArrayList<String>();
 
 		while (aTok.hasMoreTokens())
 		{
 			String aString = aTok.nextToken();
+			PObject target = null;
 
 			if (aString.startsWith("RACE="))
 			{
-				iState = 1;
-				aRace = aPC.getRace();
+				target = aPC.getRace();
 
 				continue;
 			}
 			else if (aString.startsWith("CLASS="))
 			{
-				iState = 2;
 				aString = aString.substring(6);
-				aClass = aPC.getClassKeyed(aString);
+				target = aPC.getClassKeyed(aString);
 
 				continue;
 			}
 			else if (aString.startsWith("DOMAIN="))
 			{
-				iState = 3;
 				aString = aString.substring(7);
-				aDomain = aPC.getCharacterDomainKeyed(aString);
+				target = aPC.getCharacterDomainKeyed(aString);
 
 				continue;
 			}
 			else if (aString.startsWith("FEAT="))
 			{
-				iState = 4;
 				aString = aString.substring(5);
-				aFeat = aPC.getFeatNamed(aString);
+				target = aPC.getFeatNamed(aString);
 
 				continue;
 			}
-
-			switch (iState)
+			else
 			{
-				case 1:
+				myProfs.add(aString);
+			}
 
-					if (aRace != null)
-					{
-						aRace.addSelectedWeaponProfBonus(aString);
-					}
-
-					break;
-
-				case 2:
-
-					if (aClass != null)
-					{
-						aClass.addSelectedWeaponProfBonus(aString);
-					}
-
-					break;
-
-				case 3:
-
-					if (aDomain != null)
-					{
-						aDomain.addSelectedWeaponProfBonus(aString);
-					}
-
-					break;
-
-				case 4:
-
-					if (aFeat != null)
-					{
-						aFeat.addSelectedWeaponProfBonus(aString);
-					}
-
-					break;
-
-				default:
-					myProfs.add(aString);
-
-					break;
+			if (target != null)
+			{
+				aPC.addAssoc(target,
+						AssociationListKey.SELECTED_WEAPON_PROF_BONUS, aString);
 			}
 		}
 

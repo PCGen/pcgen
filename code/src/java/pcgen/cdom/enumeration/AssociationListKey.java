@@ -107,6 +107,8 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<String> TEMPLATE_FEAT = new AssociationListKey<String>();
 
+	public static final AssociationListKey<String> SELECTED_WEAPON_PROF_BONUS = new AssociationListKey<String>();
+
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
 	private AssociationListKey()

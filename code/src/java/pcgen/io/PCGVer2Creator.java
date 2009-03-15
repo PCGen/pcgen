@@ -2353,15 +2353,15 @@ final class PCGVer2Creator implements IOConstants
 		}
 	}
 
-	private static void appendWeaponProficiencyLines(StringBuffer buffer,
+	private void appendWeaponProficiencyLines(StringBuffer buffer,
 		PObject source)
 	{
 		if (source == null)
 		{
 			return;
 		}
-		final List<String> profs =
-				source.getListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
+		final List<String> profs = thePC.getAssocList(source,
+				AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
 		if (profs == null || profs.isEmpty())
 		{
 			return;
