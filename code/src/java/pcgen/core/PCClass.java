@@ -149,7 +149,7 @@ public class PCClass extends PObject
 	 * ALLCLASSLEVELS This is a fundamental part of the PCClassLevel creation
 	 * and stored information
 	 */
-	protected int level = 0; // TODO - This should be moved.
+	private int level = 0; // TODO - This should be moved.
 
 	private SpellProgressionCache spellCache = null;
 	private boolean spellCacheValid = false;
@@ -714,7 +714,7 @@ public class PCClass extends PObject
 
 		buf.append(getDisplayClassName(pc));
 
-		return buf.append(" ").append(level).toString();
+		return buf.append(" ").append(getLevel()).toString();
 	}
 
 	/*
@@ -1195,16 +1195,16 @@ public class PCClass extends PObject
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
 	{
-		final int curLevel = level;
+		final int curLevel = getLevel();
 
 		if (newLevel >= 0)
 		{
 			level = newLevel;
 		}
 
-		if (level == 1)
+		if (newLevel == 1)
 		{
-			if (level > curLevel || aPC.isImporting())
+			if (newLevel > curLevel || aPC.isImporting())
 			{
 				addFeatPoolBonus(aPC);
 			}
@@ -1219,15 +1219,15 @@ public class PCClass extends PObject
 			//aPC.getSpellTracker().buildSpellLevelMap(newLevel);
 		}
 
-		if ((level == 1) && !aPC.isImporting() && (curLevel == 0))
+		if ((newLevel == 1) && !aPC.isImporting() && (curLevel == 0))
 		{
 			checkForSubClass(aPC);
 			getSpellLists(aPC);
 		}
 
-		if (!aPC.isImporting() && (curLevel < level))
+		if (!aPC.isImporting() && (curLevel < newLevel))
 		{
-			checkForSubstitutionClass(level, aPC);
+			checkForSubstitutionClass(newLevel, aPC);
 		}
 
 		for (PCClass pcClass : aPC.getClassList())
@@ -1543,7 +1543,7 @@ public class PCClass extends PObject
 	{
 		for (BonusObj bonus : getRawBonusList(aPC))
 		{
-			if ((bonus.getPCLevel() <= level))
+			if ((bonus.getPCLevel() <= getLevel()))
 			{
 				if (bonus.hasPrerequisites())
 				{
@@ -1663,14 +1663,14 @@ public class PCClass extends PObject
 
 	public int baseAttackBonus(final PlayerCharacter aPC)
 	{
-		if (level == 0)
+		if (getLevel() == 0)
 		{
 			return 0;
 		}
 
 		// final int i = (int) this.getBonusTo("TOHIT", "TOHIT", level) + (int)
 		// getBonusTo("COMBAT", "BAB");
-		final int i = (int) getBonusTo("COMBAT", "BAB", level, aPC);
+		final int i = (int) getBonusTo("COMBAT", "BAB", getLevel(), aPC);
 
 		return i;
 	}
@@ -2407,7 +2407,7 @@ public class PCClass extends PObject
 
 		// Check to see if we can add a level of this class to the
 		// current character
-		final int newLevel = level + 1;
+		final int newLevel = getLevel() + 1;
 		boolean levelMax = argLevelMax;
 
 		level += 1;
@@ -2422,7 +2422,7 @@ public class PCClass extends PObject
 				if (!bSilent)
 				{
 					ShowMessageDelegate.showMessageDialog(
-						"This character does not qualify for level " + level,
+						"This character does not qualify for level " + newLevel,
 						Constants.s_APPNAME, MessageType.ERROR);
 				}
 			}
@@ -2492,7 +2492,7 @@ public class PCClass extends PObject
 		// out
 		if (Globals.getUseGUI())
 		{
-			rollHP(aPC, level, (SettingsHandler.isHPMaxAtFirstClassLevel()
+			rollHP(aPC, getLevel(), (SettingsHandler.isHPMaxAtFirstClassLevel()
 				? aPC.totalNonMonsterLevels() : aPC.getTotalLevels()) == 1);
 		}
 
@@ -2577,7 +2577,7 @@ public class PCClass extends PObject
 
 			if (pcl != null)
 			{
-				pcl.setLevel(level);
+				pcl.setLevel(getLevel());
 				pcl.setSkillPointsGained(spMod);
 				pcl.setSkillPointsRemaining(pcl.getSkillPointsGained());
 			}
@@ -2932,8 +2932,9 @@ public class PCClass extends PObject
 		{
 			int total = aPC.getTotalLevels();
 
+			int oldLevel = getLevel();
 			int spMod = 0;
-			final PCLevelInfo pcl = aPC.getLevelInfoFor(getKeyName(), level);
+			final PCLevelInfo pcl = aPC.getLevelInfoFor(getKeyName(), oldLevel);
 
 			if (pcl != null)
 			{
@@ -2943,16 +2944,15 @@ public class PCClass extends PObject
 			{
 				Logging
 					.errorPrint("ERROR: could not find class/level info for "
-						+ getDisplayName() + "/" + level);
+						+ getDisplayName() + "/" + oldLevel);
 			}
 
-			final Integer zeroInt = Integer.valueOf(0);
-			final int newLevel = level - 1;
-			PCClassLevel classLevel = getClassLevel(level);
+			final int newLevel = oldLevel - 1;
+			PCClassLevel classLevel = getClassLevel(oldLevel);
 
-			if (level > 0)
+			if (oldLevel > 0)
 			{
-				aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, zeroInt);
+				aPC.removeAssoc(classLevel, AssociationKey.HIT_POINTS);
 			}
 
 			//			aPC.adjustFeats(-aPC.getBonusFeatsForNewLevel(this));
@@ -3577,7 +3577,7 @@ public class PCClass extends PObject
 		columnNames.add("Name");
 
 		List<PCClass> choiceList = new ArrayList<PCClass>();
-		buildSubstitutionClassChoiceList(choiceList, level, aPC);
+		buildSubstitutionClassChoiceList(choiceList, getLevel(), aPC);
 		if (choiceList.size() <= 1)
 		{
 			return; // This means the there are no classes for which
@@ -3636,7 +3636,7 @@ public class PCClass extends PObject
 	{
 		TransitionChoice<ClassSkillList> csc = get(ObjectKey.SKILLLIST_CHOICE);
 		// if no entry or no choices, just return
-		if (csc == null || (level < 1))
+		if (csc == null || (getLevel() < 1))
 		{
 			return;
 		}
@@ -3656,7 +3656,7 @@ public class PCClass extends PObject
 	{
 		TransitionChoice<CDOMListObject<Spell>> csc = get(ObjectKey.SPELLLIST_CHOICE);
 		// if no entry or no choices, just return
-		if (csc == null || (level < 1))
+		if (csc == null || (getLevel() < 1))
 		{
 			return;
 		}
@@ -4156,7 +4156,8 @@ public class PCClass extends PObject
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
 		List<BonusObj> list = super.getRawBonusList(pc);
-		for (int i = 1; i <= level; i++)
+		int lvl = getLevel();
+		for (int i = 1; i <= lvl; i++)
 		{
 			PCClassLevel pcl = levelMap.get(i);
 			if (pcl != null)

@@ -485,7 +485,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (this instanceof PCClass)
 		{
 			final PCClass aClass = (PCClass) this;
-			PCClassLevel classLevel = aClass.getClassLevel(aClass.level);
+			PCClassLevel classLevel = aClass.getClassLevel(aClass.getLevel());
 			classLevel.addAdds(aPC);
 			classLevel.checkRemovals(aPC);
 		}
