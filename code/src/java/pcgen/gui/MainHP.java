@@ -25,7 +25,32 @@
  **/
 package pcgen.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
+
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -36,18 +61,6 @@ import pcgen.gui.utils.JTableEx;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import pcgen.core.Globals;
 
 /**
  * Title:        MainHP.java
@@ -180,7 +193,9 @@ final class MainHP extends JPanel
 					if (aClass != null)
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(iRow) - 1;
-						aClass.setHitPoint(lvl, Integer.valueOf(iRoll));
+						PCClassLevel classLevel = aClass.getClassLevel(lvl);
+						aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
+								Integer.valueOf(iRoll));
 					}
 				}
 
@@ -441,7 +456,9 @@ final class MainHP extends JPanel
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(rowIndex);
 						final int baseSides = aClass.getLevelHitDie(aPC, lvl).getDie();
-						iHp = aClass.getHitPoint(lvl - 1);
+						PCClassLevel pcl = aClass.getClassLevel(lvl - 1);
+						Integer hp = aPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
+						iHp = hp == null ? 0 : hp;
 						iSides = baseSides + (int) aClass.getBonusTo("HD", "MAX", lvl, aPC);
 
 						//
@@ -449,7 +466,10 @@ final class MainHP extends JPanel
 						//
 						if (iHp > iSides)
 						{
-							aClass.setHitPoint(lvl - 1, Integer.valueOf(iSides));
+							PCClassLevel classLevel = aClass
+									.getClassLevel(lvl - 1);
+							aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
+									Integer.valueOf(iSides));
 							iHp = iSides;
 						}
 					}

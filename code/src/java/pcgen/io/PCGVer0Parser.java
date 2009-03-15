@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
@@ -626,7 +627,9 @@ final class PCGVer0Parser implements PCGParser
 					PCLevelInfo levelInfo =
 							aPC.saveLevelInfo(aClass.getKeyName());
 					aClass.addLevel(levelInfo, false, aPC);
-					aClass.setHitPoint(i, Integer.valueOf(iHp));
+					PCClassLevel classLevel = aClass.getClassLevel(i);
+					aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer
+							.valueOf(iHp));
 					aPC.saveLevelInfo(aClass.getKeyName());
 				}
 			}

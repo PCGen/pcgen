@@ -9550,7 +9550,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			for (PCClass pcClass : classList)
 			{
-				total += pcClass.hitPoints((int) iConMod);
+				total += getClassHitPoints(pcClass, (int) iConMod);
 			}
 
 		}
@@ -9584,6 +9584,30 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		masterHP = getVariableValue(copyMasterHP, "").intValue();
 
 		return masterHP;
+	}
+
+	private int getClassHitPoints(PCClass pcClass, int iConMod)
+	{
+		int total = 0;
+
+		for (int i = 0; i <= pcClass.getLevel(); ++i)
+		{
+			PCClassLevel pcl = pcClass.getClassLevel(i);
+			Integer hp = getAssoc(pcl, AssociationKey.HIT_POINTS);
+			if (hp != null && hp > 0)
+			{
+				int iHp = hp + iConMod;
+
+				if (iHp < 1)
+				{
+					iHp = 1;
+				}
+
+				total += iHp;
+			}
+		}
+
+		return total;
 	}
 
 	/**
@@ -9967,7 +9991,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				rebuildLists(bClass, aClass, aClass.getLevel(), this);
 
 				bClass.setLevel(aClass.getLevel(), this);
-				bClass.setHitPointMap(aClass.getHitPointMap());
+				for (int i = 0; i < aClass.getLevel(); ++i)
+				{
+					PCClassLevel frompcl = aClass.getClassLevel(i + 1);
+					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
+					PCClassLevel topcl = bClass.getClassLevel(i + 1);
+					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
+				}
 
 				final int idx = classList.indexOf(aClass);
 				classList.set(idx, bClass);
@@ -9981,8 +10011,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				for (int i = 0; i < aClass.getLevel(); ++i)
 				{
-					bClass.setHitPoint(bClass.getLevel() + i + 1, aClass
-						.getHitPoint(i + 1));
+					PCClassLevel frompcl = aClass.getClassLevel(i + 1);
+					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
+					PCClassLevel topcl = bClass.getClassLevel(bClass.getLevel() + i + 1);
+					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 				}
 
 				classList.remove(aClass);
@@ -11190,9 +11222,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (int i = 0; i < iCount; ++i)
 		{
-			toClass.setHitPoint(iToLevel + i, fromClass.getHitPoint(iFromLevel
-				+ i));
-			fromClass.setHitPoint(iFromLevel + i, Integer.valueOf(0));
+			PCClassLevel frompcl = fromClass.getClassLevel(iFromLevel + i);
+			Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
+			PCClassLevel topcl = toClass.getClassLevel(iToLevel + i);
+			setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
+			setAssoc(frompcl, AssociationKey.HIT_POINTS, Integer.valueOf(0));
 		}
 
 		rebuildLists(toClass, fromClass, iCount, this);

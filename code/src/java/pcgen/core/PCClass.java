@@ -126,13 +126,6 @@ public class PCClass extends PObject
 	private HashMap<Integer, Integer> castForLevelMap = null;
 
 	/*
-	 * ALLCLASSLEVELS hitPointMap is part of PCClassLevel
-	 */
-	private HashMap<Integer, Integer> hitPointMap = null; // TODO - This
-	// should be in
-	// PCLevelInfo
-
-	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
 	 * but it gets VERY complicated to do that, since the keys are widely used
 	 * in the variable processor.
@@ -1191,60 +1184,6 @@ public class PCClass extends PObject
 	//	}
 
 	/*
-	 * PCCLASSLEVELONLY This is dependent upon the class level
-	 * and is therefore appropriate only for PCClassLevel
-	 */
-	public void setHitPoint(final int aLevel, final Integer iRoll)
-	{
-		if (hitPointMap == null)
-		{
-			hitPointMap = new HashMap<Integer, Integer>();
-		}
-		hitPointMap.put(aLevel, iRoll);
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This is required for PlayerCharacter.makeEXclass()
-	 */
-	public Map<Integer, Integer> getHitPointMap()
-	{
-		return new HashMap<Integer, Integer>(hitPointMap);
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This is dependent upon the class level
-	 * and is therefore appropriate only for PCClassLevel
-	 */
-	public int getHitPoint(final int aLevel)
-	{
-		if (hitPointMap == null)
-		{
-			return 0;
-		}
-		final Integer aHP = hitPointMap.get(aLevel);
-
-		if (aHP == null)
-		{
-			return 0;
-		}
-
-		return aHP;
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This is dependent upon the class level
-	 * and is therefore appropriate only for PCClassLevel
-	 */
-	public final void setHitPointMap(Map<Integer, Integer> hpMap)
-	{
-		hitPointMap = null;
-		if (hpMap != null)
-		{
-			hitPointMap = new HashMap<Integer, Integer>(hpMap);
-		}
-	}
-
-	/*
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
 	 */
@@ -1656,7 +1595,6 @@ public class PCClass extends PObject
 	 */
 	public final void addSubClass(final SubClass sClass)
 	{
-		sClass.setHitPointMap(hitPointMap);
 		sClass.put(ObjectKey.LEVEL_HITDIE, get(ObjectKey.LEVEL_HITDIE));
 		addToListFor(ListKey.SUB_CLASS, sClass);
 	}
@@ -1668,7 +1606,6 @@ public class PCClass extends PObject
 	 */
 	public final void addSubstitutionClass(final SubstitutionClass sClass)
 	{
-		sClass.setHitPointMap(hitPointMap);
 		sClass.put(ObjectKey.LEVEL_HITDIE, get(ObjectKey.LEVEL_HITDIE));
 		addToListFor(ListKey.SUBSTITUTION_CLASS, sClass);
 	}
@@ -1873,11 +1810,6 @@ public class PCClass extends PObject
 				}
 			}
 
-			if (hitPointMap != null)
-			{
-				aClass.hitPointMap = new HashMap<Integer, Integer>(hitPointMap);
-			}
-
 			levelMap = new TreeMap<Integer, PCClassLevel>();
 			for (Map.Entry<Integer, PCClassLevel> me : aClass.levelMap.entrySet())
 			{
@@ -2011,34 +1943,6 @@ public class PCClass extends PObject
 			}
 		}
 		return true;
-	}
-
-	/*
-	 * REFACTOR to DELETEMETHOD this really can't be anywhere in PCClass or
-	 * PCClassLevel since this is acting across a group of PCClassLevels.
-	 * Perhaps a Utility method is required to calculate this across a group of
-	 * PCClassLevels?
-	 */
-	public int hitPoints(final int iConMod)
-	{
-		int total = 0;
-
-		for (int i = 0; i <= getLevel(); ++i)
-		{
-			if (getHitPoint(i) > 0)
-			{
-				int iHp = getHitPoint(i) + iConMod;
-
-				if (iHp < 1)
-				{
-					iHp = 1;
-				}
-
-				total += iHp;
-			}
-		}
-
-		return total;
 	}
 
 	public int recalcSkillPointMod(final PlayerCharacter aPC, final int total)
@@ -3044,10 +2948,11 @@ public class PCClass extends PObject
 
 			final Integer zeroInt = Integer.valueOf(0);
 			final int newLevel = level - 1;
+			PCClassLevel classLevel = getClassLevel(level);
 
 			if (level > 0)
 			{
-				setHitPoint(level - 1, zeroInt);
+				aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, zeroInt);
 			}
 
 			//			aPC.adjustFeats(-aPC.getBonusFeatsForNewLevel(this));
@@ -3137,7 +3042,6 @@ public class PCClass extends PObject
 
 			aPC.validateCharacterDomains();
 
-			PCClassLevel classLevel = getClassLevel(newLevel + 1);
 			// be sure to remove any natural weapons
 			for (Equipment eq : classLevel.getSafeListFor(ListKey.NATURAL_WEAPON))
 			{
@@ -4046,7 +3950,8 @@ public class PCClass extends PObject
 		}
 
 		roll += ((int) aPC.getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
-		setHitPoint(aLevel - 1, Integer.valueOf(roll));
+		PCClassLevel classLevel = getClassLevel(aLevel - 1);
+		aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer.valueOf(roll));
 		aPC.setCurrentHP(aPC.hitPoints());
 	}
 

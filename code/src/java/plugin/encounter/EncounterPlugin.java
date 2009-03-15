@@ -40,7 +40,9 @@ import javax.swing.filechooser.FileFilter;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -1333,8 +1335,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 							+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS."
 								+ pcClass.getKeyName());
 				int size = pcClass.getLevelHitDie(aPC, j + 1).getDie();
-				pcClass.setHitPoint(j, Integer.valueOf(new Dice(1, size, bonus)
-					.roll()));
+				PCClassLevel classLevel = pcClass.getClassLevel(j);
+				aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer
+						.valueOf(new Dice(1, size, bonus).roll()));
 			}
 		}
 

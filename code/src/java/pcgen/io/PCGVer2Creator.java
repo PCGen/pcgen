@@ -51,6 +51,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -840,7 +841,9 @@ final class PCGVer2Creator implements IOConstants
 
 				buffer.append('|');
 				buffer.append(TAG_HITPOINTS).append(':');
-				buffer.append(String.valueOf(pcClass.getHitPoint(lvl)));
+				PCClassLevel classLevel = pcClass.getClassLevel(lvl);
+				Integer hp = thePC.getAssoc(classLevel, AssociationKey.HIT_POINTS);
+				buffer.append(hp == null ? 0 : hp);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
 					+ TAG_SAVE + lvl), TAG_SAVES, TAG_SAVE, lvl);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()

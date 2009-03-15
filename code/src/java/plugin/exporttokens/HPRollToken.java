@@ -25,6 +25,8 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -123,7 +125,9 @@ public class HPRollToken extends Token
 
 		if (pcClass != null)
 		{
-			hpRoll = pcClass.getHitPoint(classLevel);
+			PCClassLevel pcl = pcClass.getClassLevel(classLevel);
+			Integer hp = pc.getAssoc(pcl, AssociationKey.HIT_POINTS);
+			hpRoll = hp == null ? 0 : hp;
 		}
 
 		return hpRoll;

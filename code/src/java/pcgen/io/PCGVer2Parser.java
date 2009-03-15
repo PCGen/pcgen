@@ -50,6 +50,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
@@ -1649,8 +1650,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				try
 				{
-					aPCClass.setHitPoint(level - 1, Integer.valueOf(element
-						.getText()));
+					PCClassLevel classLevel = aPCClass.getClassLevel(level - 1);
+					thePC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
+							Integer.valueOf(element.getText()));
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -3321,8 +3323,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							PCLevelInfo info = thePC.getLevelInfo().get(lvl);
 							PCClass pcClass =
 									thePC.getClassKeyed(info.getClassKeyName());
-							pcClass.setHitPoint(lvl, hitPointMap.get(lvlStr));
-
+							PCClassLevel classLevel = pcClass.getClassLevel(lvl);
+							thePC.setAssoc(classLevel,
+									AssociationKey.HIT_POINTS, hitPointMap
+											.get(lvlStr));
 						}
 						msgKey = "Warnings.PCGenParser.RaceNoHDDefMon"; //$NON-NLS-1$
 					}
