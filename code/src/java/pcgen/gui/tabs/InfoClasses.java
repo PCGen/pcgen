@@ -75,6 +75,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -559,10 +560,11 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		
 
 		// Check if the subclass (if any) is qualified for
-		if (levels > 0 && aClass != null && aClass.getSubClassKey() != null)
+		String subClassKey = pc.getAssoc(aClass, AssociationKey.SUBCLASS_KEY);
+		if (levels > 0 && aClass != null && subClassKey != null)
 		{
 			final PCClass subClass =
-					aClass.getSubClassKeyed(aClass.getSubClassKey());
+					aClass.getSubClassKeyed(subClassKey);
 			if (subClass != null && !subClass.isQualified(pc))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory

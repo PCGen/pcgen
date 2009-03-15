@@ -1183,10 +1183,11 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final PCClass aClass = pc.getClassKeyed(theClass.getKeyName());
 
 		// Check if the subclass (if any) is qualified for
-		if (aClass != null && aClass.getSubClassKey() != null)
+		String subClassKey = pc.getAssoc(aClass, AssociationKey.SUBCLASS_KEY);
+		if (aClass != null && subClassKey != null)
 		{
 			final PCClass subClass =
-					aClass.getSubClassKeyed(aClass.getSubClassKey());
+					aClass.getSubClassKeyed(subClassKey);
 			if (subClass != null && !subClass.isQualified(pc))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
@@ -3010,7 +3011,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 								lvl = pc.getLevelInfoClassLevel(idx);
 								final String subClass =
-										aClass.getDisplayClassName(lvl);
+										aClass.getDisplayClassName(pc, lvl);
 
 								if (!retStr.equals(subClass))
 								{

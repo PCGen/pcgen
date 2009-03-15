@@ -140,13 +140,6 @@ public class PCClass extends PObject
 	private int skillPool = 0;
 
 	/*
-	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
-	 * store what the sublevel actually is. This is NOT set by a tag, so it is
-	 * PCCLASSLEVELONLY
-	 */
-	private String subClassKey = Constants.s_NONE;
-
-	/*
 	 * FINALALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
 	 * store what the substitution level actually is. This is NOT set by a tag, so it is
 	 * PCCLASSLEVELONLY
@@ -532,7 +525,8 @@ public class PCClass extends PObject
 						if (x > -1)
 						{
 							PCClass target = this;
-							if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
+							String subClassKey = aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY);
+							if (subClassKey != null && (subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
 							{
 								target = getSubClassKeyed(subClassKey);
 							}
@@ -687,8 +681,9 @@ public class PCClass extends PObject
 	 * getDisplayName()?  What additional value does this provide by being
 	 * a separate method?? - thpr 11/6/06
 	 */
-	public String getDisplayClassName()
+	public String getDisplayClassName(PlayerCharacter pc)
 	{
+		String subClassKey = pc.getAssoc(this, AssociationKey.SUBCLASS_KEY);
 		if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
 		{
 			SubClass sc = getSubClassKeyed(subClassKey);
@@ -713,17 +708,17 @@ public class PCClass extends PObject
 	 * should be an @Override of getDisplayName()? What additional value does
 	 * this provide by being a separate method?? - thpr 11/6/06
 	 */
-	public String getDisplayClassName(final int aLevel)
+	public String getDisplayClassName(PlayerCharacter pc, final int aLevel)
 	{
 		String aKey = getSubstitutionClassKey(aLevel);
 		if (aKey == null)
 		{
-			return getDisplayClassName();
+			return getDisplayClassName(pc);
 		}
 		String name = getSubstitutionClassKeyed(aKey).getDisplayName();
 		if (name == null)
 		{
-			return getDisplayClassName();
+			return getDisplayClassName(pc);
 		}
 
 		return name;
@@ -733,11 +728,11 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY Must only be the PCClassLevel since this refers to the 
 	 * level in the String that is returned.
 	 */
-	public String getFullDisplayClassName()
+	public String getFullDisplayClassName(PlayerCharacter pc)
 	{
 		final StringBuffer buf = new StringBuffer();
 
-		buf.append(getDisplayClassName());
+		buf.append(getDisplayClassName(pc));
 
 		return buf.append(" ").append(level).toString();
 	}
@@ -1004,7 +999,8 @@ public class PCClass extends PObject
 			if (aPC.hasAssocs(this, AssociationKey.SPECIALTY))
 			{
 				PCClass target = this;
-				if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
+				String subClassKey = aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY);
+				if (subClassKey != null && (subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
 				{
 					target = getSubClassKeyed(subClassKey);
 				}
@@ -1152,7 +1148,7 @@ public class PCClass extends PObject
 	 */
 	public void setSubClassKey(PlayerCharacter pc, final String aKey)
 	{
-		subClassKey = aKey;
+		pc.setAssoc(this, AssociationKey.SUBCLASS_KEY, aKey);
 
 		if (!aKey.equals(getKeyName()))
 		{
@@ -1166,21 +1162,6 @@ public class PCClass extends PObject
 
 		pc.removeAllAssocs(this, AssociationListKey.SPELL_LIST_CACHE);
 		getSpellLists(pc);
-	}
-
-	/*
-	 * PCCLASSLEVELONLY Since this is setting the key that will appear in
-	 * the PCClassLevel (was set during construction) this is only required
-	 * in the level objects, not PCClass
-	 */
-	public String getSubClassKey()
-	{
-		if (subClassKey == null)
-		{
-			subClassKey = "";
-		}
-
-		return subClassKey;
 	}
 
 	/*
@@ -2246,6 +2227,7 @@ public class PCClass extends PObject
 			{
 				returnList.add(l);
 			}
+			String subClassKey = pc.getAssoc(this, AssociationKey.SUBCLASS_KEY);
 			if (subClassKey != null)
 			{
 				l = ref.silentlyGetConstructedCDOMObject(cl, subClassKey);
@@ -3522,8 +3504,10 @@ public class PCClass extends PObject
 		columnNames.add("Other");
 
 		List<List> choiceList = new ArrayList<List>();
-		boolean subClassSelected = (!getSubClassKey().equals(Constants.s_NONE) && !getSubClassKey()
-				.equals(""));
+		String subClassKey = aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY);
+		boolean subClassSelected = subClassKey != null
+				&& !subClassKey.equals(Constants.s_NONE)
+				&& !subClassKey.equals("");
 
 		for (SubClass sc : subClassList)
 		{
@@ -3544,7 +3528,9 @@ public class PCClass extends PObject
 			columnList.add(sc.getSupplementalDisplayInfo());
 
 			// If a subclass has already been selected, only add that one 
-			if (!subClassSelected || getSubClassKey().equals(sc.getKeyName()))
+			if (!subClassSelected
+					|| sc.getKeyName().equals(
+							aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY)))
 			{
 				choiceList.add(columnList);
 			}
@@ -3569,7 +3555,8 @@ public class PCClass extends PObject
 
 		// add base class to the chooser at the TOP
 		if (getSafe(ObjectKey.ALLOWBASECLASS)
-				&& (!subClassSelected || getKeyName().equals(getSubClassKey())))
+				&& (!subClassSelected || getKeyName().equals(
+						aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY))))
 		{
 			final List<Object> columnList2 = new ArrayList<Object>(3);
 			columnList2.add(this);

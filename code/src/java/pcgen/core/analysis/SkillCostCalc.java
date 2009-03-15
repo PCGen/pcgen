@@ -169,7 +169,7 @@ public final class SkillCostCalc
 				 */
 				String aString = ref.getLSTformat();
 				if (aString.equalsIgnoreCase(aClass.getKeyName())
-						|| aString.equalsIgnoreCase(aClass.getSubClassKey()))
+						|| aString.equalsIgnoreCase(aPC.getAssoc(aClass, AssociationKey.SUBCLASS_KEY)))
 				{
 					return false; // this is an excluded-from-class-skill list
 				}

@@ -26,6 +26,7 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -79,15 +80,16 @@ public class ClassListToken extends Token
 
 			firstLine = false;
 
-			if (Constants.s_NONE.equals(pcClass.getSubClassKey())
-				|| "".equals(pcClass.getSubClassKey())) //$NON-NLS-1$
+			String subClassKey = pc.getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
+			if (subClassKey == null || Constants.s_NONE.equals(subClassKey)
+					|| "".equals(subClassKey))
 			{
 				returnString.append(pcClass.getOutputName());
 			}
 			else
 			{
 				returnString.append(pcClass.getSubClassKeyed(
-					pcClass.getSubClassKey()).getDisplayName());
+						subClassKey).getDisplayName());
 			}
 
 			returnString.append(pcClass.getLevel());

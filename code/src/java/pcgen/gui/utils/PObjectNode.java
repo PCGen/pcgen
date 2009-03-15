@@ -683,7 +683,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			if (item instanceof PCClass)
 			{
-				final String subClass = ((PCClass) item).getDisplayClassName();
+				final String subClass = ((PCClass) item).getDisplayClassName(aPC);
 
 				if (!((PCClass) item).getDisplayName().equals(subClass))
 				{

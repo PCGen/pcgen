@@ -680,9 +680,9 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(TAG_CLASS).append(':');
 			buffer.append(EntityEncoder.encode(pcClass.getKeyName()));
 
-			final String subClassKey = pcClass.getSubClassKey();
+			final String subClassKey = thePC.getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
 
-			if (!Constants.EMPTY_STRING.equals(subClassKey))
+			if (subClassKey != null && !Constants.EMPTY_STRING.equals(subClassKey))
 			{
 				buffer.append('|');
 				buffer.append(TAG_SUBCLASS).append(':');

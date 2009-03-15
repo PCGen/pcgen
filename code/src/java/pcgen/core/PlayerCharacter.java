@@ -10342,7 +10342,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				continue;
 			}
-			String subClassKey = pcClass.getSubClassKey();
+			String subClassKey = getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
 			PCClass evalClass = pcClass;
 			if (!subClassKey.equals("None"))
 			{
@@ -11435,7 +11435,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private String getDisplayClassName()
 	{
 		return (classList.isEmpty() ? "Nobody" : classList.get(
-			classList.size() - 1).getDisplayClassName());
+			classList.size() - 1).getDisplayClassName(this));
 	}
 
 	private String getDisplayRaceName()
@@ -11679,7 +11679,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				buf.append('/');
 				first = false;
 			}
-			buf.append(c.getFullDisplayClassName());
+			buf.append(c.getFullDisplayClassName(this));
 		}
 
 		return buf.toString();
