@@ -40,6 +40,7 @@ import pcgen.core.Equipment;
 import pcgen.core.PCClass;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
+import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
@@ -108,6 +109,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<String> TEMPLATE_FEAT = new AssociationListKey<String>();
 
 	public static final AssociationListKey<String> SELECTED_WEAPON_PROF_BONUS = new AssociationListKey<String>();
+
+	public static final AssociationListKey<SpecialAbility> SPECIAL_ABILITY = new AssociationListKey<SpecialAbility>();
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

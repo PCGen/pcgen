@@ -414,8 +414,6 @@ final class PCGVer0Parser implements PCGParser
 			String token;
 			StringTokenizer aTok;
 
-			ListKey<String> saveKey = ListKey.SAVE;
-
 			for (int i = 0; i < aPC.getClassList().size(); i++)
 			{
 				line = lines[current++];
@@ -502,7 +500,9 @@ final class PCGVer0Parser implements PCGParser
 										}
 									}
 
-									target.addToListFor(ListKey.SPECIAL_ABILITY, sa);
+									aPC.addAssoc(target,
+											AssociationListKey.SPECIAL_ABILITY,
+											sa);
 								}
 							}
 						}
@@ -521,13 +521,9 @@ final class PCGVer0Parser implements PCGParser
 								src = "";
 							}
 
-							//sa.setSource(src);
-							aClass.addToListFor(ListKey.SPECIAL_ABILITY, sa);
-						}
-
-						if (!aClass.containsInList(saveKey, token))
-						{
-							aClass.addSave(token);
+							aPC.addAssoc(aClass,
+									AssociationListKey.SPECIAL_ABILITY,
+									sa);
 						}
 					}
 				}
@@ -1249,7 +1245,7 @@ final class PCGVer0Parser implements PCGParser
 						}
 						else
 						{
-							anAbility.addSave(aString);
+							Logging.debugPrint("Ignoring SAVE:" + aString);
 						}
 					}
 				}

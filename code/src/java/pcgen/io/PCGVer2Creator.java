@@ -48,11 +48,9 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -751,37 +749,15 @@ final class PCGVer2Creator implements IOConstants
 			String key;
 			key = pcClass.getKeyName() + TAG_SAVE + '0';
 
-			for (String save : pcClass.getSafeListFor(ListKey.SAVE))
+			List<SpecialAbility> salist = thePC.getAssocList(pcClass,
+					AssociationListKey.SPECIAL_ABILITY);
+			if (salist != null)
 			{
-				boolean found = false;
-				for (SpecialAbility sa : pcClass
-					.getListFor(ListKey.SPECIAL_ABILITY))
+				for (SpecialAbility sa : salist)
 				{
-					if (sa.getKeyName().equalsIgnoreCase(save))
-					{
-						specials.put(pcClass.getKeyName() + TAG_SA + 0, sa
-								.getKeyName());
-						break;
-					}
-				}
-				for (PCClassLevel pcl : pcClass.getClassLevelCollection())
-				{
-					Integer level = pcl.get(IntegerKey.LEVEL);
-					for (SpecialAbility sa : pcl
-							.getListFor(ListKey.SPECIAL_ABILITY))
-					{
-						if (sa.getKeyName().equalsIgnoreCase(save))
-						{
-							specials.put(pcClass.getKeyName() + TAG_SA + level,
-									sa.getKeyName());
-							break;
-						}
-					}
-				}
-
-				if (!found)
-				{
-					specials.put(key, save);
+					specials.put(pcClass.getKeyName() + TAG_SA + 0, sa
+							.getKeyName());
+					break;
 				}
 			}
 
@@ -1333,13 +1309,6 @@ final class PCGVer2Creator implements IOConstants
 				}
 				buffer.append(TAG_TYPE).append(TAG_END);
 				buffer.append(EntityEncoder.encode(ability.getType()));
-
-				for (final String save : ability.getSafeListFor(ListKey.SAVE))
-				{
-					buffer.append('|');
-					buffer.append(TAG_SAVE).append(':');
-					buffer.append(EntityEncoder.encode(save));
-				}
 
 				List<BonusObj> list =
 						thePC.getAssocList(ability, AssociationListKey.BONUS);

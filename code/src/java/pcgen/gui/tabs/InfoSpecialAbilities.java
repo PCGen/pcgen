@@ -52,7 +52,7 @@ import javax.swing.JTextArea;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.CharacterDomain;
@@ -515,12 +515,15 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 		for (PCClass aClass : pc.getClassList())
 		{
-
-			for (SpecialAbility sa : aClass
-				.getSafeListFor(ListKey.SPECIAL_ABILITY))
+			List<SpecialAbility> salist = pc.getAssocList(aClass,
+					AssociationListKey.SPECIAL_ABILITY);
+			if (salist != null)
 			{
-				aList.add(sa.getKeyName());
-				cList.add(sa);
+				for (SpecialAbility sa : salist)
+				{
+					aList.add(sa.getKeyName());
+					cList.add(sa);
+				}
 			}
 		}
 
@@ -551,8 +554,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 				continue;
 			}
 
-			aClass.removeSave(sa.getKeyName());
-			aClass.removeFromListFor(ListKey.SPECIAL_ABILITY, sa);
+			pc.removeAssoc(aClass, AssociationListKey.SPECIAL_ABILITY, sa);
 		}
 
 		//		pc = null; // forces everything to re-display it's broken

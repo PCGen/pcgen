@@ -151,12 +151,8 @@ public final class ListKey<T> {
 	public static final ListKey<Pantheon> PANTHEON = new ListKey<Pantheon>();
 	/** RACE_PANTHEON - a ListKey */
 	public static final ListKey<String> RACEPANTHEON = new ListKey<String>();
-	/** SAVE - a ListKey */
-	public static final ListKey<String> SAVE = new ListKey<String>();
 	/** SECTION 15 - a ListKey */
 	public static final ListKey<String> SECTION_15 = new ListKey<String>();
-	/** SPECIAL_ABILITY - a ListKey */
-	public static final ListKey<SpecialAbility> SPECIAL_ABILITY = new ListKey<SpecialAbility>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
 //	/** Key for a list of weapon proficiencies */

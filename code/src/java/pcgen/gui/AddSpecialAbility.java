@@ -25,7 +25,30 @@
  **/
 package pcgen.gui;
 
-import pcgen.cdom.enumeration.ListKey;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.HeadlessException;
+import java.awt.Insets;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.WindowConstants;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -37,14 +60,6 @@ import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 /**
  * Title:        AddSpecialAbility.java
@@ -155,8 +170,7 @@ public final class AddSpecialAbility extends JFrame
 			PCClass aClass = aPC.getClassList().get(0);
 			String aString = (selectedValue).trim();
 			SpecialAbility sa = new SpecialAbility(aString);
-			aClass.addToListFor(ListKey.SPECIAL_ABILITY, sa);
-			aClass.addSave(aString);
+			aPC.addAssoc(aClass, AssociationListKey.SPECIAL_ABILITY, sa);
 
 			if (owner != null)
 			{

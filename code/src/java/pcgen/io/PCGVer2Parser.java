@@ -1724,14 +1724,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{
-						target.addToListFor(ListKey.SPECIAL_ABILITY,
-							specialAbility);
-					}
-
-					if (!aPCClass.containsInList(ListKey.SAVE,
-						specialAbilityName))
-					{
-						aPCClass.addSave(specialAbilityName);
+						thePC.addAssoc(target,
+								AssociationListKey.SPECIAL_ABILITY,
+								specialAbility);
 					}
 				}
 			}
@@ -2478,7 +2473,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					ability.addSave(saveKey);
+					Logging.debugPrint("Ignoring SAVE:" + saveKey);
 				}
 			}
 		}
@@ -2755,7 +2750,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					aFeat.addSave(saveKey);
+					Logging.debugPrint("Ignoring SAVE:" + saveKey);
 				}
 			}
 			else if (tag.equals(TAG_LEVELABILITY))

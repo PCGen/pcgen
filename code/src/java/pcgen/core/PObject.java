@@ -94,15 +94,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * ************/
 
 	/**
-	 * Add to the 'save' for the character list
-	 * @param aString
-	 */
-	public final void addSave(final String aString)
-	{
-		addToListFor(ListKey.SAVE, aString);
-	}
-
-	/**
 	 * if a class implements the Cloneable interface then it should have a
 	 * public" 'clone ()' method It should be declared to throw
 	 * CloneNotSupportedException', but subclasses do not need the "throws"
@@ -348,18 +339,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Remove the save
-	 * @param bonusString
-	 */
-	public final void removeSave(final String bonusString)
-	{
-		boolean b = removeFromListFor(ListKey.SAVE, bonusString);
-		if (!b) {
-			Logging.errorPrint("removeSave: Could not find: " + bonusString + " in saveList.");
-		}
-	}
-
-	/**
 	 * Set the campaign source
 	 * @param arg
 	 */
@@ -442,7 +421,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
-		for ( SpecialAbility sa : getSafeListFor(ListKey.SPECIAL_ABILITY) )
+		List<SpecialAbility> salist = aPC.getAssocList(this,
+				AssociationListKey.SPECIAL_ABILITY);
+		if (salist == null)
+		{
+			return aList;
+		}
+		for ( SpecialAbility sa : salist )
 		{
 			if (sa.pcQualifiesFor(aPC))
 			{
