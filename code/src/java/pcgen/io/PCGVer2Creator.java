@@ -852,7 +852,8 @@ final class PCGVer2Creator implements IOConstants
 
 			if (pcClass != null)
 			{
-				String aKey = pcClass.getSubstitutionClassKey(lvl + 1);
+				String aKey = thePC.getAssoc(pcClass.getClassLevel(lvl + 1),
+						AssociationKey.SUBSTITUTIONCLASS_KEY);
 				if (aKey != null)
 				{
 					buffer.append('|');

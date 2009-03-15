@@ -95,6 +95,8 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<String> SUBCLASS_KEY = new AssociationKey<String>();
 
+	public static final AssociationKey<String> SUBSTITUTIONCLASS_KEY = new AssociationKey<String>();
+
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
 	private AssociationKey()

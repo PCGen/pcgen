@@ -140,13 +140,6 @@ public class PCClass extends PObject
 	private int skillPool = 0;
 
 	/*
-	 * FINALALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
-	 * store what the substitution level actually is. This is NOT set by a tag, so it is
-	 * PCCLASSLEVELONLY
-	 */
-	private Map<Integer, String> substitutionClassKey = null;
-
-	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
 	 * but it gets VERY complicated to do that, since the keys are widely used
 	 * in the variable processor.
@@ -710,7 +703,8 @@ public class PCClass extends PObject
 	 */
 	public String getDisplayClassName(PlayerCharacter pc, final int aLevel)
 	{
-		String aKey = getSubstitutionClassKey(aLevel);
+		PCClassLevel lvl = getClassLevel(aLevel);
+		String aKey = pc.getAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY);
 		if (aKey == null)
 		{
 			return getDisplayClassName(pc);
@@ -1111,34 +1105,6 @@ public class PCClass extends PObject
 		}
 
 		return total;
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY Since this is setting the key that will appear in
-	 * the PCClassLevel (called during construction) this is only required
-	 * in the level objects, not PCClass
-	 */
-	public void setSubstitutionClassKey(final String aKey, final Integer aLevel)
-	{
-		if (substitutionClassKey == null)
-		{
-			substitutionClassKey = new HashMap<Integer, String>();
-		}
-		substitutionClassKey.put(aLevel, aKey);
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY Since this is getting the key that will appear in
-	 * the PCClassLevel (was set during construction) this is only required
-	 * in the level objects, not PCClass
-	 */
-	public String getSubstitutionClassKey(final Integer aLevel)
-	{
-		if (substitutionClassKey == null)
-		{
-			return null;
-		}
-		return substitutionClassKey.get(aLevel);
 	}
 
 	/*
@@ -3755,10 +3721,11 @@ public class PCClass extends PObject
 			selected = selectedList.get(0);
 		}
 
+		PCClassLevel lvl = this.getClassLevel(aLevel);
 		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass)
 		{
 			SubstitutionClass sc = (SubstitutionClass) selected;
-			setSubstitutionClassKey(sc.getKeyName(), aLevel);
+			aPC.setAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY, sc.getKeyName());
 			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, this, aLevel, aPC);
 			return;
 		}
@@ -3771,7 +3738,7 @@ public class PCClass extends PObject
 			 *	method returned an empty list, it returned right away without
 			 *	calling this method.
 			*/
-			setSubstitutionClassKey(null, aLevel);
+			aPC.removeAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY);
 			return;
 		}
 
