@@ -77,6 +77,8 @@ public class SabLst extends AbstractToken implements
 					+ getTokenName());
 			return false;
 		}
+		
+		boolean foundClear = false;
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
@@ -86,6 +88,7 @@ public class SabLst extends AbstractToken implements
 				return true;
 			}
 			firstToken = tok.nextToken();
+			foundClear = true;
 		}
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
@@ -138,6 +141,14 @@ public class SabLst extends AbstractToken implements
 		}
 		// CONSIDER This is a HACK and not the long term strategy of SA:
 		sa.setName(saName.toString());
+
+		if (foundClear)
+		{
+			Logging.log(Logging.LST_ERROR,
+					"Cannot use PREREQs when using .CLEAR in "
+							+ getTokenName());
+			return false;
+		}
 
 		while (true)
 		{

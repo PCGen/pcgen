@@ -77,6 +77,7 @@ public class VFeatLst extends AbstractToken implements
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
 		boolean first = true;
+		boolean foundClear = false;
 		
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Ability.Nature.VIRTUAL;
@@ -93,6 +94,7 @@ public class VFeatLst extends AbstractToken implements
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						list);
+				foundClear = true;
 			}
 			else
 			{
@@ -127,6 +129,14 @@ public class VFeatLst extends AbstractToken implements
 			{
 				break;
 			}
+		}
+
+		if (foundClear)
+		{
+			Logging.log(Logging.LST_ERROR,
+					"Cannot use PREREQs when using .CLEAR in "
+							+ getTokenName());
+			return false;
 		}
 
 		while (true)

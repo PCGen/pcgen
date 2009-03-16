@@ -220,6 +220,20 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidClearDotPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR.Darkvision|PRERACE:1,Dwarf"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidClearPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR|PRERACE:1,Dwarf"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testValidDistanceFormula() throws PersistenceLayerException
 	{
 		assertTrue(parse("Darkvision (zzzb32)"));

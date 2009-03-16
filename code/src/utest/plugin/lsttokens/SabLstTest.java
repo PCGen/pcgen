@@ -119,6 +119,20 @@ public class SabLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidClearDotPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR.Darkvision|PRERACE:1,Dwarf"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidClearPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR|PRERACE:1,Dwarf"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number One");

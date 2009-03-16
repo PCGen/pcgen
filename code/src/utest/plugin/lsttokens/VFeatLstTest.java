@@ -199,6 +199,20 @@ public class VFeatLstTest extends AbstractGlobalListTokenTestCase<Ability>
 	}
 
 	@Test
+	public void testInvalidClearDotPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR.TestWP1|PRELEVEL:4"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidClearPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR|PRELEVEL:4"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testRoundRobinPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

@@ -76,6 +76,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 		boolean first = true;
 		boolean foundAll = false;
 		boolean foundOther = false;
+		boolean foundClear = false;
 
 		while (commaTok.hasMoreTokens())
 		{
@@ -96,6 +97,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 				}
 				context.getListContext().removeAllFromList(getTokenName(),
 						deity, dl);
+				foundClear = true;
 			}
 			else if (tokString.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -112,6 +114,7 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 				}
 				context.getListContext().removeFromList(getTokenName(), deity,
 						dl, ref);
+				foundClear = true;
 			}
 			else if (Constants.LST_ALL.equals(tokString)
 					|| Constants.LST_ANY.equals(tokString))
@@ -142,6 +145,13 @@ public class DomainsToken extends AbstractToken implements CDOMPrimaryToken<Deit
 
 		while (pipeTok.hasMoreTokens())
 		{
+			if (foundClear)
+			{
+				Logging.log(Logging.LST_ERROR,
+						"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
+								+ getTokenName());
+				return false;
+			}
 			String tokString = pipeTok.nextToken();
 			Prerequisite prereq = getPrerequisite(tokString);
 			if (prereq == null)

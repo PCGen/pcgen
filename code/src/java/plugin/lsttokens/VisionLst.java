@@ -83,12 +83,15 @@ public class VisionLst extends AbstractToken implements
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
 
+		boolean foundClear = false;
+		
 		while (true)
 		{
 			if (".CLEAR".equals(visionString))
 			{
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						Vision.VISIONLIST);
+				foundClear = true;
 			}
 			else if (visionString.startsWith(".CLEAR."))
 			{
@@ -107,6 +110,7 @@ public class VisionLst extends AbstractToken implements
 					Logging.addParseMessage(Logging.LST_ERROR, e.getMessage());
 					return false;
 				}
+				foundClear = true;
 			}
 			else if (visionString.startsWith("PRE")
 					|| visionString.startsWith("!PRE"))
@@ -145,6 +149,15 @@ public class VisionLst extends AbstractToken implements
 			}
 			visionString = aTok.nextToken();
 		}
+
+		if (foundClear)
+		{
+			Logging.log(Logging.LST_ERROR,
+					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
+							+ getTokenName());
+			return false;
+		}
+
 		while (true)
 		{
 			Prerequisite prereq = getPrerequisite(visionString);

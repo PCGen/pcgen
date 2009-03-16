@@ -117,6 +117,20 @@ public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
 		loadContext.ref.constructCDOMObject(Domain.class, one);
 	}
 
+	@Test
+	public void testInvalidClearDotPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR.TestWP1|PRELEVEL:MIN=4"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidClearPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR|PRELEVEL:MIN=4"));
+		assertNoSideEffects();
+	}
+
 	@Override
 	public void testRoundRobinTestAll() throws PersistenceLayerException
 	{
