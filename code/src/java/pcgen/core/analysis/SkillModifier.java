@@ -166,7 +166,7 @@ public final class SkillModifier
 		for (BonusObj bonus : aPC.getActiveBonusList())
 		{
 			// calculate bonus and add to activeBonusMap
-			if (bonus.isApplied() && "SKILL".equals(bonus.getBonusName()))
+			if (bonus.isApplied(aPC) && "SKILL".equals(bonus.getBonusName()))
 			{
 				boolean include =
 						bonus.getBonusInfoList()

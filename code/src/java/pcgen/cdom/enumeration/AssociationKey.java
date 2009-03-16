@@ -103,6 +103,8 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Integer> CLASS_LEVEL = new AssociationKey<Integer>();
 
+	public static final AssociationKey<Boolean> IS_APPLIED = new AssociationKey<Boolean>();
+
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
 	private AssociationKey()

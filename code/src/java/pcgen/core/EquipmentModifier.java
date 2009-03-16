@@ -72,7 +72,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
 					aPC))
 			{
-				bonus.setApplied(true);
+				bonus.setApplied(aPC, true);
 				aList.add(bonus);
 			}
 		}

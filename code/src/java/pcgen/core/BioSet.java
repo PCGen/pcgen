@@ -948,7 +948,7 @@ public final class BioSet extends PObject
 				if (aBonus != null)
 				{
 					aBonus.setCreatorObject(Globals.getBioSet());
-					aBonus.setApplied(true);
+					aBonus.setApplied(aPC, true);
 					ret.add(aBonus);
 				}
 			}

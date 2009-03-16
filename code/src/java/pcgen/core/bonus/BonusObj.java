@@ -39,6 +39,7 @@ import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -66,7 +67,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	/** The type of the bonus e.g. Enhancement or Dodge */
 	private String  bonusType            = Constants.EMPTY_STRING;
 	private String  varPart              = Constants.EMPTY_STRING;
-	private boolean isApplied;
 	private int     pcLevel              = -1;
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation = null;
@@ -100,24 +100,26 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * what being applied means is up to the setter and getter of the flag.
 	 * 
 	 * <p>TODO - This method does not belong here.
-	 * 
+	 * @param pc TODO
 	 * @param aBool <tt>true</tt> to mark this bonus as &quot;applied&quot;
 	 */
-	public void setApplied(final boolean aBool)
+	public void setApplied(PlayerCharacter pc, final boolean aBool)
 	{
-		isApplied = aBool;
+		pc.setAssoc(this, AssociationKey.IS_APPLIED, aBool);
 	}
 
 	/**
 	 * Returns the state of the Applied flag.
+	 * @param pc TODO
 	 * 
 	 * @return <tt>true</tt> if the applied flag is set.
 	 * 
-	 * @see #setApplied(boolean)
+	 * @see #setApplied(PlayerCharacter, boolean)
 	 */
-	public boolean isApplied()
+	public boolean isApplied(PlayerCharacter pc)
 	{
-		return isApplied;
+		Boolean applied = pc.getAssoc(this, AssociationKey.IS_APPLIED);
+		return applied == null ? false : applied;
 	}
 
 	/**

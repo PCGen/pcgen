@@ -2615,7 +2615,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			if (!aBonus.isApplied())
+			if (!aBonus.isApplied(this))
 			{
 				continue;
 			}
@@ -2655,7 +2655,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				continue;
 			}
 
-			if (!aBonus.isApplied())
+			if (!aBonus.isApplied(this))
 			{
 				continue;
 			}
@@ -13047,7 +13047,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			// final List<BonusObj> tempList = pbm.getActiveBonuses();
 			// addListToActiveBonuses(tempList);
-			return pbm.getActiveBonuses();
+			return pbm.getActiveBonuses(this);
 		}
 		return Collections.emptyList();
 	}
@@ -13065,14 +13065,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			.hasNext();)
 		{
 			final BonusObj bonus = tempIter.next();
-			bonus.setApplied(false);
+			bonus.setApplied(this, false);
 
 			if (bonus.qualifies(this))
 			{
-				bonus.setApplied(true);
+				bonus.setApplied(this, true);
 			}
 
-			if (!bonus.isApplied())
+			if (!bonus.isApplied(this))
 			{
 				tempIter.remove();
 			}
@@ -14307,7 +14307,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (BonusObj bonus : abl)
 		{
-			if (bonus.isApplied() && bonus.getBonusName().equals("STAT"))
+			if (bonus.isApplied(this) && bonus.getBonusName().equals("STAT"))
 			{
 				boolean found = false;
 				for (Object element : bonus.getBonusInfoList())

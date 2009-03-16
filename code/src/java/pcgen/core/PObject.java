@@ -699,7 +699,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		for ( BonusObj bonus : getRawBonusList(aPC) )
 		{
-			if (bonus.isApplied())
+			if (bonus.isApplied(aPC))
 			{
 				aList.add(bonus);
 			}
@@ -736,12 +736,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		for (Iterator<BonusObj> ab = getRawBonusList(aPC).iterator(); ab.hasNext();)
 		{
 			final BonusObj aBonus = ab.next();
-			aBonus.setApplied(false);
+			aBonus.setApplied(aPC, false);
 
 			if (aBonus.qualifies(aPC)
 				&& aBonus.getPCLevel() <= aPC.getTotalLevels())
 			{
-				aBonus.setApplied(true);
+				aBonus.setApplied(aPC, true);
 			}
 		}
 	}
@@ -753,7 +753,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		for (BonusObj bonus : getRawBonusList(aPC))
 		{
-			bonus.setApplied(false);
+			bonus.setApplied(aPC, false);
 		}
 	}
 

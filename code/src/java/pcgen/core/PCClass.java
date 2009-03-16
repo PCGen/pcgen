@@ -1548,16 +1548,16 @@ public class PCClass extends PObject
 					// be referenced in Qualifies statements?
 					if (bonus.qualifies(aPC))
 					{
-						bonus.setApplied(true);
+						bonus.setApplied(aPC, true);
 					}
 					else
 					{
-						bonus.setApplied(false);
+						bonus.setApplied(aPC, false);
 					}
 				}
 				else
 				{
-					bonus.setApplied(true);
+					bonus.setApplied(aPC, true);
 				}
 			}
 		}

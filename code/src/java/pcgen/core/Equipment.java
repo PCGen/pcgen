@@ -597,7 +597,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
 		for (BonusObj bonus : getRawBonusList(aPC)) {
-			if (bonus.isApplied()) {
+			if (bonus.isApplied(aPC)) {
 				aList.add(bonus);
 			}
 		}
@@ -4746,12 +4746,12 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public void activateBonuses(final PlayerCharacter aPC) {
 		for (final BonusObj bonus : getRawBonusList(aPC)) {
-			bonus.setApplied(false);
+			bonus.setApplied(aPC, false);
 
 			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), this, aPC)) {
-				bonus.setApplied(true);
+				bonus.setApplied(aPC, true);
 			} else {
-				bonus.setApplied(false);
+				bonus.setApplied(aPC, false);
 			}
 		}
 	}

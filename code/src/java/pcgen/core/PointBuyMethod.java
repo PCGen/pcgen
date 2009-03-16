@@ -99,9 +99,10 @@ public final class PointBuyMethod
 
 	/**
 	 * returns all BonusObj's that are "active"
+	 * @param pc TODO
 	 * @return active bonuses
 	 */
-	public List<BonusObj> getActiveBonuses()
+	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
@@ -112,7 +113,7 @@ public final class PointBuyMethod
 			{
 				final BonusObj aBonus = ab.next();
 
-				if (aBonus.isApplied())
+				if (aBonus.isApplied(pc))
 				{
 					aList.add(aBonus);
 				}
@@ -135,11 +136,11 @@ public final class PointBuyMethod
 		}
 		for ( final BonusObj bonus : aBonusList )
 		{
-			bonus.setApplied(false);
+			bonus.setApplied(aPC, false);
 
 			if ( bonus.qualifies(aPC) )
 			{
-				bonus.setApplied(true);
+				bonus.setApplied(aPC, true);
 			}
 		}
 	}
