@@ -91,6 +91,14 @@ public class SabLst extends AbstractToken implements
 			foundClear = true;
 		}
 
+		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
+		{
+			Logging.log(Logging.LST_ERROR,
+					"Cannot use PREREQs when using .CLEAR in "
+							+ getTokenName());
+			return false;
+		}
+
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
 			Logging.log(Logging.LST_ERROR, "SA tag confused by redundant '.CLEAR'"
@@ -145,7 +153,7 @@ public class SabLst extends AbstractToken implements
 		if (foundClear)
 		{
 			Logging.log(Logging.LST_ERROR,
-					"Cannot use PREREQs when using .CLEAR in "
+					"Cannot use PREREQs when using .CLEAR and a Special Ability in "
 							+ getTokenName());
 			return false;
 		}
