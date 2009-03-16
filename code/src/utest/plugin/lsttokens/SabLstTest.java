@@ -126,6 +126,13 @@ public class SabLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidClearSabPre() throws PersistenceLayerException
+	{
+		assertFalse(parse(".CLEAR|SabText|PRERACE:1,Dwarf"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number One");
