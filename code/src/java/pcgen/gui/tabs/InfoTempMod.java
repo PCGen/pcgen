@@ -2578,7 +2578,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (BonusObj aBonus : aClass.getRawBonusList(pc))
 					{
-						final int myLevel = aClass.getLevel();
+						final int myLevel = aClass.getLevel(pc);
 						final int level = aBonus.getPCLevel();
 
 						if (aBonus.isTempBonus() && (myLevel >= level))

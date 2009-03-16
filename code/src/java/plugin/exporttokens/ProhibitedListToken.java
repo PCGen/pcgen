@@ -78,7 +78,7 @@ public class ProhibitedListToken extends Token
 		Set<String> set = new TreeSet<String>();
 		for (PCClass pcClass : pc.getClassList())
 		{
-			if (pcClass.getLevel() > 0)
+			if (pcClass.getLevel(pc) > 0)
 			{
 				for (SpellProhibitor sp : pcClass
 					.getSafeListFor(ListKey.PROHIBITED_SPELLS))

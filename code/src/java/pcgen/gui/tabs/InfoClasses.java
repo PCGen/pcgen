@@ -582,7 +582,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			|| (aClass == null)
 			|| Globals.checkRule(RuleConstants.LEVELCAP)
 			|| (!Globals.checkRule(RuleConstants.LEVELCAP) && (!aClass
-				.hasMaxLevel() || aClass.getLevel() < aClass.getSafe(IntegerKey.LEVEL_LIMIT))))
+				.hasMaxLevel() || aClass.getLevel(pc) < aClass.getSafe(IntegerKey.LEVEL_LIMIT))))
 		{
 			pc.incrementClassLevel(levels, theClass);
 		}
@@ -1836,7 +1836,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				case COL_LEVEL:
 					if (pcclass != null)
 					{
-						return Integer.valueOf(pcclass.getLevel());
+						return Integer.valueOf(pcclass.getLevel(pc));
 					}
 
 					return c;

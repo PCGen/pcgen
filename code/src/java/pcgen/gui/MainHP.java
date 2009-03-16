@@ -416,7 +416,7 @@ final class MainHP extends JPanel
 				{
 					for (PCClass aClass : aPC.getClassList())
 					{
-						iRows += aClass.getLevel();
+						iRows += aClass.getLevel(aPC);
 					}
 				}
 			}

@@ -90,14 +90,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 			{
 				if (prereq.isCountMultiples())
 				{
-					if (cl.getLevel() >= preClass)
+					if (cl.getLevel(character) >= preClass)
 					{
 						countedTotal++;
 					}
 				}
 				else
 				{
-					runningTotal = Math.max(runningTotal, cl.getLevel());
+					runningTotal = Math.max(runningTotal, cl.getLevel(character));
 				}
 			}
 		}
@@ -110,14 +110,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 				{
 					if (prereq.isCountMultiples())
 					{
-						if (cl.getLevel() >= preClass)
+						if (cl.getLevel(character) >= preClass)
 						{
 							countedTotal++;
 						}
 					}
 					else
 					{
-						runningTotal = Math.max(runningTotal, cl.getLevel());
+						runningTotal = Math.max(runningTotal, cl.getLevel(character));
 					}
 				}
 				else
@@ -130,14 +130,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 							{
 								if (prereq.isCountMultiples())
 								{
-									if (cl.getLevel() >= preClass)
+									if (cl.getLevel(character) >= preClass)
 									{
 										countedTotal++;
 									}
 								}
 								else
 								{
-									runningTotal += cl.getLevel();
+									runningTotal += cl.getLevel(character);
 								}
 								break;
 							}
@@ -153,14 +153,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 			{
 				if (prereq.isCountMultiples())
 				{
-					if (aClass.getLevel() >= preClass)
+					if (aClass.getLevel(character) >= preClass)
 					{
 						countedTotal++;
 					}
 				}
 				else
 				{
-					runningTotal += aClass.getLevel();
+					runningTotal += aClass.getLevel(character);
 				}
 			}
 			else
@@ -176,14 +176,14 @@ CLASSLIST:		for(PCClass theClass: character.getClassList())
 							{
 								if (prereq.isCountMultiples())
 								{
-									if (theClass.getLevel() >= preClass)
+									if (theClass.getLevel(character) >= preClass)
 									{
 										countedTotal++;
 									}
 								}
 								else
 								{
-									runningTotal += theClass.getLevel();
+									runningTotal += theClass.getLevel(character);
 								}
 								break CLASSLIST;
 							}

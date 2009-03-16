@@ -125,7 +125,7 @@ public class ChooserUtilities
 				if (mString.indexOf("MAXLEVEL") >= 0)
 				{
 					int maxLevelVal = (aClass == null) ? 0 :
-						aClass.getMaxSpellLevelForClassLevel(aClass.getLevel());
+						aClass.getMaxSpellLevelForClassLevel(aClass.getLevel(aPC));
 
 					mString = mString.replaceAll("MAXLEVEL", String
 						.valueOf(maxLevelVal));
@@ -214,7 +214,7 @@ public class ChooserUtilities
 			return 0;
 		}
 
-		int aLevel = aClass.getLevel();
+		int aLevel = aClass.getLevel(aPC);
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getKeyName());
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + aType);
 		return aClass.getMaxSpellLevelForClassLevel(aLevel);

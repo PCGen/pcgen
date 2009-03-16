@@ -895,7 +895,7 @@ public class DetailsPane extends javax.swing.JPanel
 		ArrayList<PCClass> classList = aPC.getClassList();
 		for (PCClass mClass : classList)
 		{
-			sb.append(mClass.getAbbrev()).append(mClass.getLevel()).append(' ');
+			sb.append(mClass.getAbbrev()).append(mClass.getLevel(aPC)).append(' ');
 		}
 
 		return sb.toString();

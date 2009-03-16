@@ -628,7 +628,7 @@ public class NPCGenerator
 				if ( !doneRacialClasses && aPC.getClassList().size() > 0 )
 				{
 					aClass = aPC.getClassList().get(0);
-					numLevels = aClass.getLevel();
+					numLevels = aClass.getLevel(aPC);
 					doneRacialClasses = true;
 					i--;
 				}

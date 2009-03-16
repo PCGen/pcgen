@@ -674,7 +674,7 @@ final class PCGVer2Creator implements IOConstants
 
 		for (PCClass pcClass : thePC.getClassList())
 		{
-			int classLevel = pcClass.getLevel();
+			int classLevel = pcClass.getLevel(thePC);
 
 			buffer.append(TAG_CLASS).append(':');
 			buffer.append(EntityEncoder.encode(pcClass.getKeyName()));
@@ -774,7 +774,7 @@ final class PCGVer2Creator implements IOConstants
 					}
 				}
 			}
-			for (int i = 1; i <= pcClass.getLevel(); i++)
+			for (int i = 1; i <= pcClass.getLevel(thePC); i++)
 			{
 				list =
 						thePC.getAssocList(pcClass.getClassLevel(i),

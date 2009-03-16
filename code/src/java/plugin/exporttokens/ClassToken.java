@@ -129,7 +129,7 @@ public class ClassToken extends Token {
 		if (pc.getClassList().size() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
-			return pcClass.getLevel();
+			return pcClass.getLevel(pc);
 		}
 
 		return 0;

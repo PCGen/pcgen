@@ -235,7 +235,7 @@ public final class CharacterDomain
 		if (fromPCClass)
 		{
 			final PCClass aClass = aPC.getClassKeyed(domainName);
-			valid = ((aClass != null) && (aClass.getLevel() >= level));
+			valid = ((aClass != null) && (aClass.getLevel(aPC) >= level));
 		}
 
 		// Just preparing for the eventuality

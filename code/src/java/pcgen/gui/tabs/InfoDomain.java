@@ -547,7 +547,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			 */
 			processDomainList(aClass, availDomainList);
 			processAddDomains(aClass, availDomainList);
-			for (int lvl = 0; lvl <= aClass.getLevel(); lvl++)
+			for (int lvl = 0; lvl <= aClass.getLevel(pc); lvl++)
 			{
 				PCClassLevel cl = aClass.getClassLevel(lvl);
 				processAddDomains(cl, availDomainList);

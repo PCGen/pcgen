@@ -92,7 +92,7 @@ public class ClassListToken extends Token
 						subClassKey).getDisplayName());
 			}
 
-			returnString.append(pcClass.getLevel());
+			returnString.append(pcClass.getLevel(pc));
 		}
 
 		return returnString.toString();
