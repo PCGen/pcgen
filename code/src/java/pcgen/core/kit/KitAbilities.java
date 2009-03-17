@@ -40,7 +40,6 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 
 /**
  * <code>KitAbiltiies</code>.

@@ -25,7 +25,6 @@ import java.util.TreeSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Equipment;
 import pcgen.core.Movement;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;

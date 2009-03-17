@@ -32,7 +32,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 		if (cl.equals(Ability.class))
 		{
 			Category ac = new AbilityCategory(s);
-			return (Category<T>) ac;
+			return ac;
 		}
 		else
 		{

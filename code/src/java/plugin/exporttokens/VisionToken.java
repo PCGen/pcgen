@@ -25,16 +25,15 @@
  */
 package plugin.exporttokens;
 
-import pcgen.base.lang.StringUtil;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * <code>VisionToken</code> produces the output for the output token 
