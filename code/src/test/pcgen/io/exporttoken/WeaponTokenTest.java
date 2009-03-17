@@ -382,6 +382,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	protected void tearDown() throws Exception
 	{
 		dblWpn = null;
+		PlayerCharacter character = getCharacter();
+		PCStat stat = character.getStatList().getStatAt(0);
+		stat.removeListFor(ListKey.BONUS);
 
 		super.tearDown();
 	}
