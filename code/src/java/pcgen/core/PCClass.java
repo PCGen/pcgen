@@ -656,13 +656,17 @@ public class PCClass extends PObject
 	 */
 	public String getDisplayClassName(PlayerCharacter pc)
 	{
-		String subClassKey = pc.getAssoc(this, AssociationKey.SUBCLASS_KEY);
-		if ((subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
+		if (pc != null)
 		{
-			SubClass sc = getSubClassKeyed(subClassKey);
-			if (sc != null)
+			String subClassKey = pc.getAssoc(this, AssociationKey.SUBCLASS_KEY);
+			if (subClassKey != null && (subClassKey.length() > 0)
+					&& !subClassKey.equals(Constants.s_NONE))
 			{
-				return sc.getDisplayName();
+				SubClass sc = getSubClassKeyed(subClassKey);
+				if (sc != null)
+				{
+					return sc.getDisplayName();
+				}
 			}
 		}
 
