@@ -79,7 +79,7 @@ public class KitStat extends BaseKit
 					&& currentStat.getAbb().equals(me.getKey().getAbb()))
 				{
 					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, sVal);
-					theStat.add(currentStat.clone());
+					theStat.add(currentStat);
 					if ("INT".equals(currentStat.getAbb()))
 					{
 						recalculateSkillPoints(aPC);

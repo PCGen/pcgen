@@ -22,9 +22,6 @@ package pcgen.core;
 
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
 
 /**
@@ -112,20 +109,6 @@ public final class PCStat extends PObject
 	public boolean isRolled()
 	{
 		return rolled;
-	}
-
-	@Override
-	public PCStat clone()
-	{
-		try
-		{
-			return (PCStat) super.clone();
-		}
-		catch (CloneNotSupportedException exc)
-		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
-			return null;
-		}
 	}
 
 	@Override

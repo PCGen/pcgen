@@ -396,7 +396,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final PCStat stat =
 					SettingsHandler.getGame().getUnmodifiableStatList().get(i);
-			statList.addStat(stat.clone());
+			statList.addStat(stat);
 		}
 
 		setRace(Globals.s_EMPTYRACE);
@@ -14506,12 +14506,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tempBonusFilters.addAll(tempBonusFilters);
 		aClone.race = race;
 		aClone.selectedFavoredClass = selectedFavoredClass;
-
-		aClone.statList.clear();
-		for (PCStat stat : statList)
-		{
-			aClone.statList.addStat(stat.clone());
-		}
 		if (kitList != null)
 		{
 			aClone.kitList = new ArrayList<Kit>();
