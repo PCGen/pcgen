@@ -76,7 +76,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(parse("Rheinhessen"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
-			assertTrue(coll.contains((Object) "Rheinhessen"));
+			assertTrue(coll.contains("Rheinhessen"));
 			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
@@ -91,7 +91,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(parse("Niederösterreich"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
-			assertTrue(coll.contains((Object) "Niederösterreich"));
+			assertTrue(coll.contains("Niederösterreich"));
 			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
@@ -106,7 +106,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(parse("Finger Lakes"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
-			assertTrue(coll.contains((Object) "Finger Lakes"));
+			assertTrue(coll.contains("Finger Lakes"));
 			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
@@ -121,7 +121,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(parse("Languedoc-Roussillon"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
-			assertTrue(coll.contains((Object) "Languedoc-Roussillon"));
+			assertTrue(coll.contains("Languedoc-Roussillon"));
 			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
@@ -136,7 +136,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(parse("Yarra Valley"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
-			assertTrue(coll.contains((Object) "Yarra Valley"));
+			assertTrue(coll.contains("Yarra Valley"));
 			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
@@ -152,8 +152,8 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(parse("Finger Lakes"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(2, coll.size());
-			assertTrue(coll.contains((Object) "Niederösterreich"));
-			assertTrue(coll.contains((Object) "Finger Lakes"));
+			assertTrue(coll.contains("Niederösterreich"));
+			assertTrue(coll.contains("Finger Lakes"));
 			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
@@ -171,10 +171,10 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 			assertTrue(parse("Rheinhessen"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(4, coll.size());
-			assertTrue(coll.contains((Object) "Niederösterreich"));
-			assertTrue(coll.contains((Object) "Finger Lakes"));
-			assertTrue(coll.contains((Object) "Languedoc-Roussillon"));
-			assertTrue(coll.contains((Object) "Rheinhessen"));
+			assertTrue(coll.contains("Niederösterreich"));
+			assertTrue(coll.contains("Finger Lakes"));
+			assertTrue(coll.contains("Languedoc-Roussillon"));
+			assertTrue(coll.contains("Rheinhessen"));
 			assertTrue(primaryContext.ref.validate(null));
 		}
 	}
