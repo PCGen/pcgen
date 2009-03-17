@@ -10379,7 +10379,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			String subClassKey = getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
 			PCClass evalClass = pcClass;
-			if (!subClassKey.equals("None"))
+			if (subClassKey != null && !subClassKey.equals("None"))
 			{
 				evalClass = pcClass.getSubClassKeyed(subClassKey);
 			}
