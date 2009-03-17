@@ -50,6 +50,16 @@ public class FollowerOption extends ConcretePrereqObject implements
 	public FollowerOption(CDOMReference<Race> race,
 			CDOMSingleRef<CompanionList> listref)
 	{
+		if (race == null)
+		{
+			throw new IllegalArgumentException(
+					"Cannot have FollowerOption with null race");
+		}
+		if (listref == null)
+		{
+			throw new IllegalArgumentException(
+					"Cannot have FollowerOption with null list reference");
+		}
 		ref = race;
 		list = listref;
 	}
