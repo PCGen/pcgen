@@ -43,7 +43,6 @@ import pcgen.core.Vision;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.TestHelper;
 
 /**
  * <code>VisionTokenTest</code> tests the function of the VISION token.  

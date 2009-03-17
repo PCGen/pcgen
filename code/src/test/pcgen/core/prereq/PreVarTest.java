@@ -13,7 +13,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreVariableParser;
 
