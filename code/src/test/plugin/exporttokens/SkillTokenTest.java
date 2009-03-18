@@ -192,6 +192,9 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge = null;
 		balance = null;
 		tumble = null;
+		PlayerCharacter character = getCharacter();
+		PCStat stat = character.getStatList().getStatAt(3);
+		stat.removeListFor(ListKey.BONUS);
 
 		super.tearDown();
 	}
