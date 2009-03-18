@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -91,15 +90,7 @@ public class KitTemplate extends BaseKit
 
 		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
 		{
-			PCTemplate templateToAdd;
-			try
-			{
-				templateToAdd = ref.resolvesTo().clone();
-			}
-			catch (CloneNotSupportedException e)
-			{
-				throw new UnreachableError("PCTemplate must support clone");
-			}
+			PCTemplate templateToAdd = ref.resolvesTo();
 			List<CDOMSingleRef<PCTemplate>> subList =
 					templateList.getListFor(ref);
 			List<PCTemplate> subAdded = new ArrayList<PCTemplate>();
@@ -107,16 +98,7 @@ public class KitTemplate extends BaseKit
 			{
 				for (CDOMSingleRef<PCTemplate> subRef : subList)
 				{
-					PCTemplate ownedTemplate;
-					try
-					{
-						ownedTemplate = subRef.resolvesTo().clone();
-					}
-					catch (CloneNotSupportedException e)
-					{
-						throw new UnreachableError(
-							"PCTemplate must support clone");
-					}
+					PCTemplate ownedTemplate = subRef.resolvesTo();
 					subAdded.add(ownedTemplate);
 					aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
 				}

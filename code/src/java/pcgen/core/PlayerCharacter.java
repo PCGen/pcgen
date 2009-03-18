@@ -8169,16 +8169,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		final PCTemplate inTmpl;
-		try
-		{
-			inTmpl = inTemplate.clone();
-			templateList.add(inTmpl);
-		}
-		catch (CloneNotSupportedException e)
-		{
-			return null;
-		}
+		final PCTemplate inTmpl = inTemplate;
+		templateList.add(inTemplate);
 
 		// If we are importing these levels will have been saved with the
 		// character so don't apply them again.

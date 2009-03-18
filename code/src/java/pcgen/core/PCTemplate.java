@@ -146,19 +146,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Make a copy of this Template
-	 * 
-	 * @return a clone of this Template
-	 * 
-	 * @throws CloneNotSupportedException
-	 */
-	@Override
-	public PCTemplate clone() throws CloneNotSupportedException
-	{
-		return (PCTemplate) super.clone();
-	}
-
-	/**
 	 * Modify the list passed in to include any special abilities granted by
 	 * this Template
 	 * 
