@@ -282,11 +282,4 @@ public final class Spell extends PObject
 		}
 		return true;
 	}
-
-	// TODO Not sure how to do this (and if it's necessary?)
-	// Overall, grants is still an interesting behavior in Spells, so no need in 5.x
-	// @Override
-	// public PObject getActiveEquivalent(PlayerCharacter pc)
-	// {
-	// }
 }
