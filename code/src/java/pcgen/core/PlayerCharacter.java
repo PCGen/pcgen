@@ -6394,7 +6394,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (aRace != null)
 		{
-			race = aRace.clone();
+			race = aRace;//.clone();
 		}
 
 		if (race != null)
