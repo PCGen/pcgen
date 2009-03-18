@@ -24,15 +24,12 @@ package pcgen.core.spell;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.list.SpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.analysis.SpellPoint;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>Spell</code> creates a new tabbed panel.
@@ -190,22 +187,6 @@ public final class Spell extends PObject
 	////////////////////////////////////////////////////////////
 	// Public method(s)
 	////////////////////////////////////////////////////////////
-	@Override
-	public Spell clone()
-	{
-		Spell aSpell = null;
-
-		try
-		{
-			aSpell = (Spell) super.clone();
-		}
-		catch (CloneNotSupportedException exc)
-		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
-		}
-
-		return aSpell;
-	}
 
 	public String descriptor()
 	{

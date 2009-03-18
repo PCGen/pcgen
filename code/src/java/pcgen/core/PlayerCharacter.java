@@ -12061,7 +12061,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							apo.getAssociation(AssociationKey.TIME_UNIT);
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
 
-					final Spell newSpell = sp.clone();
+					final Spell newSpell = sp;
 					final List<CharacterSpell> sList =
 							getCharacterSpells(race, newSpell, book, -1);
 
