@@ -527,7 +527,6 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (Domain d : domains.getContainedObjects())
 					{
-						d = d.clone();
 						if (!isDomainInList(availDomainList, d))
 						{
 							availDomainList.add(new QualifiedObject<Domain>(d,
@@ -578,8 +577,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 						 */
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new QualifiedObject<Domain>(d
-									.clone(), apo.getPrerequisiteList()));
+							availDomainList.add(new QualifiedObject<Domain>(d,
+									apo.getPrerequisiteList()));
 						}
 					}
 				}
@@ -596,8 +595,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			Domain domain = ref.resolvesTo();
 			if (!isDomainInList(availDomainList, domain))
 			{
-				availDomainList.add(new QualifiedObject<Domain>(domain
-						.clone(), qo.getPrerequisiteList()));
+				availDomainList.add(new QualifiedObject<Domain>(domain, qo
+						.getPrerequisiteList()));
 			}
 		}
 	}

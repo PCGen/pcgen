@@ -29,11 +29,8 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>Domain</code>.
@@ -43,26 +40,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Domain extends PObject
 {
-	@Override
-	public Domain clone()
-	{
-		Domain aObj = null;
-
-		try
-		{
-			aObj                = (Domain) super.clone();
-		}
-		catch (CloneNotSupportedException exc)
-		{
-			ShowMessageDelegate.showMessageDialog(
-				exc.getMessage(),
-				Constants.s_APPNAME,
-				MessageType.ERROR);
-		}
-
-		return aObj;
-	}
-
 	/**
 	 * (non-Javadoc)
 	 * Only compares the name.

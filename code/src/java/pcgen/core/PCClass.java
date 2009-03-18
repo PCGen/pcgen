@@ -3888,7 +3888,7 @@ public class PCClass extends PObject
 			{
 				if (!aPC.containsCharacterDomain(this.getKeyName(), domKey))
 				{
-					Domain aDomain = d.clone();
+					Domain aDomain = d;
 
 					final CharacterDomain aCD =
 							aPC.getNewCharacterDomain(getKeyName());
