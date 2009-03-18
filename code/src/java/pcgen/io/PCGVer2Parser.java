@@ -3557,9 +3557,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (aSkill != null)
 				{
-					// Icky: Need to redesign the way skills work!
-					// Icky: Having to clone the skill here is UGLY!
-					aSkill = aSkill.clone();
 					thePC.getSkillList().add(aSkill);
 				}
 				else

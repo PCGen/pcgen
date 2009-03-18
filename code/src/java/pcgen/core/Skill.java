@@ -27,7 +27,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -40,8 +39,6 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>Skill</code>.
@@ -81,24 +78,6 @@ public final class Skill extends PObject
 			 */
 		}
 		return ret.iterator();
-	}
-
-	@Override
-	public Skill clone()
-	{
-		Skill newSkill = null;
-
-		try
-		{
-			newSkill = (Skill) super.clone();
-		}
-		catch (CloneNotSupportedException exc)
-		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(),
-					Constants.s_APPNAME, MessageType.ERROR);
-		}
-
-		return newSkill;
 	}
 
 	/**

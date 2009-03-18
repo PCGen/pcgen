@@ -1921,7 +1921,7 @@ final class PCGVer0Parser implements PCGParser
 					{
 						if (skillName.equals(s.toString()))
 						{
-							aSkill = s.clone();
+							aSkill = s;
 							aPC.getSkillList().add(aSkill);
 
 							break;

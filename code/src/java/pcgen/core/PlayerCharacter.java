@@ -2363,7 +2363,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final Skill newSkill =
 						Globals.getContext().ref
 							.silentlyGetConstructedCDOMObject(Skill.class,
-								skillKey).clone();
+								skillKey);
 				final double sr =
 						SkillRankControl.getRank(mPC,
 							mPC.getSkillKeyed(skillKey)).doubleValue();
@@ -7711,8 +7711,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		// First, check to see if skill is already in list
 		//
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill skill : skillList)
+		for (Skill skill : new ArrayList<Skill>(getSkillList()))
 		{
 			if (skill.getKeyName().equals(addSkill.getKeyName()))
 			{
@@ -7723,7 +7722,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		// Skill not found, add to list
 		//
-		retSkill = addSkill.clone();
+		retSkill = addSkill;
 		getSkillList().add(retSkill);
 		setDirty(true);
 
@@ -12556,7 +12555,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 				if (!found)
 				{
-					addItems.add((aSkill.clone()));
+					addItems.add(aSkill);
 				}
 			}
 		}
@@ -14458,7 +14457,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 		for (Skill skill : skillList)
 		{
-			aClone.skillList.add((skill.clone()));
+			aClone.skillList.add(skill);
 		}
 		aClone.specialAbilityList.addAll(getSpecialAbilityList());
 		aClone.templateList.addAll(getTemplateList());
