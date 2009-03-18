@@ -26,12 +26,9 @@ import java.awt.geom.Point2D;
 import java.math.BigDecimal;
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>Race</code>.
@@ -84,24 +81,6 @@ public final class Race extends PObject
 				.getAbbreviation());
 		}
 		return "1d3";
-	}
-
-	@Override
-	public Race clone()
-	{
-		Race aRace = null;
-
-		try
-		{
-			aRace = (Race) super.clone();
-		}
-		catch (CloneNotSupportedException exc)
-		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(),
-				Constants.s_APPNAME, MessageType.ERROR);
-		}
-
-		return aRace;
 	}
 
 	/**
