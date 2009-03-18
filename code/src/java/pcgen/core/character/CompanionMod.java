@@ -31,7 +31,6 @@ package pcgen.core.character;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -40,8 +39,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.Race;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>CompanionMod</code>.
@@ -51,31 +48,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class CompanionMod extends PObject
 {
-	/**
-	 * Bog standard clone method
-	 *
-	 * @return  a copy of this Ability
-	 */
-	@Override
-	public CompanionMod clone()
-	{
-		CompanionMod cmpMod = null;
-
-		try
-		{
-			cmpMod = (CompanionMod) super.clone();
-		}
-		catch (CloneNotSupportedException e)
-		{
-			ShowMessageDelegate.showMessageDialog(
-				e.getMessage(),
-				Constants.s_APPNAME,
-				MessageType.ERROR);
-		}
-
-		return cmpMod;
-	}
-
 	/**
 	 * Compares classMap, type and level
 	 * @param obj
