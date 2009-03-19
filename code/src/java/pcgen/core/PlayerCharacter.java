@@ -16291,10 +16291,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * NB: Abilities are only returned in the category they are taken 
 	 * in, so if parent catgeory is supplied only those taken directly in the 
 	 * parent category will be returned. e.g. If asking for feats, Power Attack 
-	 * taken as a fighter feat will nto be returned. You would need to query 
+	 * taken as a fighter feat will not be returned. You would need to query 
 	 * fighter feats to get that. <br>
 	 * NB: Duplicate abilities will not be retruned by this method. The order 
-	 * of priorty is normla, virtual then automatic.
+	 * of priorty is normal, virtual then automatic.
 	 * 
 	 * @param aCategory The ability category to be queried.  
 	 * @return The list of abilities of the category regardless of nature.
@@ -16359,8 +16359,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			else if (vFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				Ability aggregateFeat = aHashMap.get(vFeat.getKeyName());
-				aggregateFeat = aggregateFeat.clone();
+				Ability aggregateFeatOrig = aHashMap.get(vFeat.getKeyName());
+				Ability aggregateFeat = aggregateFeatOrig.clone();
+				for (String aString : getAssociationList(aggregateFeatOrig))
+				{
+					addAssociation(aggregateFeat, aString);
+				}
 
 				for (String aString : getAssociationList(vFeat))
 				{
