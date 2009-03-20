@@ -439,7 +439,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	{
 		abilityScoreCombo.addActionListener(scoreListener);
 		abilityPurchaseModeCombo.addActionListener(purchaseModeListener);
-		abilityRolledModeCombo.addActionListener(rolledModeListener);
+		if (abilityRolledModeCombo != null)
+		{
+			abilityRolledModeCombo.addActionListener(rolledModeListener);
+		}
 	}
 
 	/**
@@ -451,7 +454,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	{
 		abilityScoreCombo.removeActionListener(scoreListener);
 		abilityPurchaseModeCombo.removeActionListener(purchaseModeListener);
-		abilityRolledModeCombo.removeActionListener(rolledModeListener);
+		if (abilityRolledModeCombo != null)
+		{
+			abilityRolledModeCombo.removeActionListener(rolledModeListener);
+		}
 	}
 
 	/* (non-Javadoc)
