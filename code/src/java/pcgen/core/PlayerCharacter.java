@@ -3846,6 +3846,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							.parseFloat(aString));
 				found = true;
 			}
+			for (PCTemplate pct : obj.getConditionalTemplates(getTotalLevels(),
+					totalHitDice()))
+			{
+				final String vString = checkForVariableInList(pct,
+						variableString, isMax, found, value);
+
+				if (vString.length() > 0)
+				{
+					value = getMinMaxFirstValue(found, isMax, value, Float
+							.parseFloat(vString));
+					found = true;
+				}
+			}
 		}
 
 		for (CompanionMod obj : companionModList)
