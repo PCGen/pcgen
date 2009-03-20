@@ -137,7 +137,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 			selectedList.addAll(list);
 		}
 
-		for ( String raw : getChoiceList())
+		List<String> choiceList = getChoiceList();
+		List<String> choices = choiceList.subList(1, choiceList.size());
+		for ( String raw : choices)
 		{
 			String       parsed   = raw;
 			final String unparsed = raw;
