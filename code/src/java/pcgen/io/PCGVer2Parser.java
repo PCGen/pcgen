@@ -75,6 +75,7 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
@@ -100,6 +101,7 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * <code>PCGVer2Parser</code>
@@ -2027,8 +2029,22 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_PROHIBITED.equals(tag))
 			{
-				Globals.getContext().unconditionallyProcess(aPCClass,
-					"PROHIBITED", EntityEncoder.decode(element.getText()));
+				String prohib = EntityEncoder.decode(element.getText());
+				StringTokenizer st = new StringTokenizer(prohib, Constants.COMMA);
+				while (st.hasMoreTokens())
+				{
+					String choice = st.nextToken();
+					SpellProhibitor prohibSchool = new SpellProhibitor();
+					prohibSchool.setType(ProhibitedSpellType.SCHOOL);
+					prohibSchool.addValue(choice);
+					SpellProhibitor prohibSubSchool = new SpellProhibitor();
+					prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
+					prohibSubSchool.addValue(choice);
+					thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
+							prohibSchool);
+					thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
+							prohibSubSchool);
+				}
 			}
 		}
 

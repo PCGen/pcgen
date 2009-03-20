@@ -725,18 +725,22 @@ final class PCGVer2Creator implements IOConstants
 					.getCastListForLevel(classLevel), ","));
 			}
 
-			Set<String> set = new TreeSet<String>();
-			for (SpellProhibitor sp : pcClass
-				.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+			List<SpellProhibitor> prohib = thePC.getAssocList(pcClass,
+					AssociationListKey.PROHIBITED_SCHOOLS);
+			if (prohib != null)
 			{
-				set.addAll(sp.getValueList());
-			}
-
-			if (!set.isEmpty())
-			{
-				buffer.append('|');
-				buffer.append(TAG_PROHIBITED).append(':');
-				buffer.append(EntityEncoder.encode(StringUtil.join(set, ",")));
+				Set<String> set = new TreeSet<String>();
+				for (SpellProhibitor sp : prohib)
+				{
+					set.addAll(sp.getValueList());
+				}
+				if (!set.isEmpty())
+				{
+					buffer.append('|');
+					buffer.append(TAG_PROHIBITED).append(':');
+					buffer.append(EntityEncoder.encode(StringUtil
+							.join(set, ",")));
+				}
 			}
 
 			buffer.append(LINE_SEP);
