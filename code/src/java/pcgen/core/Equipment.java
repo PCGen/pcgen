@@ -577,8 +577,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * TODO Why is this in Equipment when Class, Race, WeaponProf are all in
 	 * Globals? - thpr 10/20/06
 	 */
-	public static SortedSet<String> getEquipmentTypes() {
-		return S_EQUIPMENT_TYPES;
+	public static Collection<String> getEquipmentTypes() {
+		return Globals.getContext().getTypes(Equipment.class);
 	}
 
 	//

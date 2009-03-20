@@ -33,6 +33,8 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Campaign;
+import pcgen.core.Equipment;
+import pcgen.core.PObject;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -279,6 +281,15 @@ public abstract class LoadContext
 				typeSet.add(t.toString());
 			}
 		}
+		typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		typeMap.put(Equipment.class, typeSet);
+		for (Equipment e : ref.getConstructedCDOMObjects(Equipment.class))
+		{
+			for (Type t : e.getTrueTypeList(false))
+			{
+				typeSet.add(t.toString());
+			}
+		}
 	}
 	
 	public Collection<String> getTypes(Class<?> cl)
@@ -463,5 +474,14 @@ public abstract class LoadContext
 			DeferredToken<T> token)
 	{
 		token.process(this, ((T) cdo));
+	}
+
+	public <T extends PObject> void addTypesToList(T cdo)
+	{
+		Set<String> typeSet = typeMap.get(cdo.getClass());
+		for (Type t : cdo.getTrueTypeList(false))
+		{
+			typeSet.add(t.toString());
+		}
 	}
 }
