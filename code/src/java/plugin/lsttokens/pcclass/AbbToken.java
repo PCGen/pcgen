@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -46,13 +47,13 @@ public class AbbToken extends AbstractToken implements
 		{
 			return false;
 		}
-		context.ref.registerAbbreviation(pcc, value);
+		context.obj.put(pcc, StringKey.ABB, value);
 		return true;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		String abb = context.ref.getAbbreviation(pcc);
+		String abb = context.obj.getString(pcc, StringKey.ABB);
 		if (abb == null)
 		{
 			return null;

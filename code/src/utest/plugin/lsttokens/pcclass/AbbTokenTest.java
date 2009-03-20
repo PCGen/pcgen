@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -64,20 +65,15 @@ public class AbbTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testValidInputs() throws PersistenceLayerException
 	{
 		assertTrue(parse("Niederösterreich"));
-		assertEquals("Niederösterreich", primaryContext.ref
-				.getAbbreviation(primaryProf));
+		assertEquals("Niederösterreich", primaryProf.get(StringKey.ABB));
 		assertTrue(parse("Finger Lakes"));
-		assertEquals("Finger Lakes", primaryContext.ref
-				.getAbbreviation(primaryProf));
+		assertEquals("Finger Lakes", primaryProf.get(StringKey.ABB));
 		assertTrue(parse("Rheinhessen"));
-		assertEquals("Rheinhessen", primaryContext.ref
-				.getAbbreviation(primaryProf));
+		assertEquals("Rheinhessen", primaryProf.get(StringKey.ABB));
 		assertTrue(parse("Languedoc-Roussillon"));
-		assertEquals("Languedoc-Roussillon", primaryContext.ref
-				.getAbbreviation(primaryProf));
+		assertEquals("Languedoc-Roussillon", primaryProf.get(StringKey.ABB));
 		assertTrue(parse("Yarra Valley"));
-		assertEquals("Yarra Valley", primaryContext.ref
-				.getAbbreviation(primaryProf));
+		assertEquals("Yarra Valley", primaryProf.get(StringKey.ABB));
 	}
 
 	@Test
