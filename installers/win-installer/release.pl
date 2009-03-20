@@ -298,10 +298,14 @@ else {
 
         partial_destination         => "$DEST_PARTIAL_FOLDER/lib",
         partial_files_to_keep_ref   => [
+            # directory
+            qr{ [/] cobra [/] }xmsi, 			# Needed for the character sheet
+
             # files
             qr{ [/]
                 (?: jep |                           # Needed for the formulas
-                    wraplf )                        # New dependency with 5.9.4
+                    wraplf | 						# New dependency with 5.9.4
+                    commons-lang ) 					# New dependency with 5.13.x
                 [^/]* \z                            # It's a file since there is no /
             }xmsi,
         ],
