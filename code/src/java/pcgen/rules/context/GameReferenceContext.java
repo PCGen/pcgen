@@ -104,4 +104,10 @@ public class GameReferenceContext extends AbstractReferenceContext
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot reference Categories");
 	}
+
+	public <T extends CDOMObject> T performCopy(T obj, String copyName)
+	{
+		throw new UnsupportedOperationException(
+				"GameReferenceContext cannot copy objects");
+	}
 }

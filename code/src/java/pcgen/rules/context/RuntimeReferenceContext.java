@@ -26,13 +26,16 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
@@ -128,6 +131,35 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		{
 			return null;
 		}
+	}
+
+
+	/**
+	 * This method will perform a single .COPY operation.
+	 * @param context TODO
+	 * @param copyName String name of the target object
+	 * @param baseName String name of the object to copy
+	 *
+	 * @throws PersistenceLayerException 
+	 */
+	public <T extends CDOMObject> T performCopy(T object, String copyName)
+	{
+		try
+		{
+			T clone = (T) object.clone();
+			clone.setName(copyName);
+			clone.put(StringKey.KEY_NAME, copyName);
+			importObject(clone);
+			return clone;
+		}
+		catch (CloneNotSupportedException e)
+		{
+			String message = PropertyFactory.getFormattedString(
+				"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
+				object.getClass().getName(), object.getKeyName(), copyName);
+			Logging.errorPrint(message);
+		}
+		return null;
 	}
 
 }

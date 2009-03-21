@@ -34,7 +34,6 @@ import java.util.Observable;
 import java.util.Set;
 
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
@@ -511,48 +510,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	}
 
 	/**
-	 * This method will perform a single .COPY operation.
-	 * @param context TODO
-	 * @param copyName String name of the target object
-	 * @param baseName String name of the object to copy
-	 *
-	 * @throws PersistenceLayerException 
-	 */
-	private T performCopy(LoadContext context, String baseKey, String copyName)
-		throws PersistenceLayerException
-	{
-		T object = getObjectKeyed(context, baseKey);
-
-		try
-		{
-			if (object == null)
-			{
-				String message = PropertyFactory.getFormattedString(
-					"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
-					baseKey);
-				Logging.errorPrint(message);
-				setChanged();
-
-				return null;
-			}
-
-			T clone = (T) object.clone();
-			clone.setName(copyName);
-			clone.put(StringKey.KEY_NAME, copyName);
-			return clone;
-		}
-		catch (CloneNotSupportedException e)
-		{
-			String message = PropertyFactory.getFormattedString(
-				"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
-				object.getClass().getName(), baseKey, copyName);
-			Logging.errorPrint(message);
-			setChanged();
-		}
-		return null;
-	}
-
-	/**
 	 * This method will perform a single .COPY operation based on the LST
 	 * file content.
 	 * @param lstLine String containing the LST source for the
@@ -575,8 +532,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		final int nameEnd = name.indexOf(COPY_SUFFIX);
 		final String baseName = name.substring(0, nameEnd);
 		final String copyName = name.substring(nameEnd + 6);
-		T copy = performCopy(context, baseName, copyName);
-		context.ref.importObject(copy);
+		T copy = getCopy(context, baseName, copyName);
 		if (copy != null)
 		{
 			if (sepLoc != -1)
@@ -586,6 +542,30 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 			}
 			completeObject(context, me.getSource(), copy);
 		}
+	}
+
+	private T getCopy(LoadContext context, final String baseName,
+			final String copyName) throws PersistenceLayerException
+	{
+		T object = getObjectKeyed(context, baseName);
+
+		if (object == null)
+		{
+			String message = PropertyFactory.getFormattedString(
+				"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
+				baseName);
+			Logging.errorPrint(message);
+			setChanged();
+
+			return null;
+		}
+
+		T obj = context.ref.performCopy(object, copyName);
+		if (obj == null)
+		{
+			setChanged();
+		}
+		return obj;
 	}
 
 	/**

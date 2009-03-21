@@ -17,6 +17,7 @@
  */
 package pcgen.rules.context;
 
+import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
@@ -25,6 +26,8 @@ import pcgen.core.AbilityCategory;
 
 public class EditorReferenceContext extends RuntimeReferenceContext
 {
+
+	HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<CDOMObject, CDOMObject>();
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String s)
@@ -38,6 +41,29 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 		{
 			return null;
 		}
+	}
+
+	@Override
+	public <T extends CDOMObject> T performCopy(T object, String copyName)
+	{
+		try
+		{
+			CDOMObject copy = object.getClass().newInstance();
+			copyMap.addToListFor(object, copy);
+		}
+		catch (InstantiationException e)
+		{
+			throw new IllegalArgumentException("Class "
+					+ object.getClass().getName()
+					+ " must possess a zero-argument constructor", e);
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new IllegalArgumentException("Class "
+					+ object.getClass().getName()
+					+ " must possess a public zero-argument constructor", e);
+		}
+		return null;
 	}
 
 }
