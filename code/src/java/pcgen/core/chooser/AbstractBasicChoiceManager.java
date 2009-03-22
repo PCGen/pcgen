@@ -29,9 +29,6 @@ import java.util.StringTokenizer;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -44,7 +41,7 @@ import pcgen.util.chooser.ChooserInterface;
  * choices and potentially applying the choices to a PC
  */
 public abstract class AbstractBasicChoiceManager<T> implements
-		ChoiceManagerList<T>
+		ChoiceManagerList<T>, ControllableChoiceManager<T>
 {
 	private int numberOfChoices;
 	private final int choicesPerUnitCost;
@@ -256,109 +253,6 @@ public abstract class AbstractBasicChoiceManager<T> implements
 		controller = cc;
 	}
 
-	protected static class ChooseController<T>
-	{
-		public ChooseController()
-		{
-			// Nothing to build here
-		}
-
-		public int getPool()
-		{
-			return 1;
-		}
-
-		public boolean isMultYes()
-		{
-			return false;
-		}
-
-		public boolean isStackYes()
-		{
-			return false;
-		}
-
-		public double getCost()
-		{
-			return 1.0;
-		}
-
-		public int getTotalChoices()
-		{
-			return 1;
-		}
-
-		public void adjustPool(List<T> selected)
-		{
-			// Ignore
-		}
-	}
-
-	protected class AbilityChooseController extends ChooseController<Ability>
-	{
-		private final Ability ability;
-		private final AbilityCategory ac;
-		private final PlayerCharacter pc;
-
-		public AbilityChooseController(Ability a, AbilityCategory cat,
-				PlayerCharacter aPC)
-		{
-			if (a == null)
-			{
-				throw new IllegalArgumentException(
-						"Ability cannot be null for AbilityChooseController");
-			}
-			ability = a;
-			ac = cat;
-			pc = aPC;
-		}
-
-		@Override
-		public int getPool()
-		{
-			return isMultYes() ? pc.getAvailableAbilityPool(ac).intValue() : 1;
-		}
-
-		@Override
-		public boolean isMultYes()
-		{
-			return ability.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-		}
-
-		@Override
-		public boolean isStackYes()
-		{
-			return ability.getSafe(ObjectKey.STACKS);
-		}
-
-		@Override
-		public double getCost()
-		{
-			return ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-		}
-
-		@Override
-		public int getTotalChoices()
-		{
-			return isMultYes() ? Integer.MAX_VALUE : 1;
-		}
-
-		@Override
-		public void adjustPool(List<Ability> selected)
-		{
-			if (AbilityCategory.FEAT.equals(ac))
-			{
-				double cost = getCost();
-				if (cost > 0)
-				{
-					int basePriorCost = ((preChooserChoices + (choicesPerUnitCost - 1)) / choicesPerUnitCost);
-					int baseTotalCost = ((selected.size() + (choicesPerUnitCost - 1)) / choicesPerUnitCost);
-					pc.adjustFeats(cost * (basePriorCost - baseTotalCost));
-				}
-			}
-		}
-	}
-
 	/*
 	 * WARNING: This should only be used in VERY RARE circumstances...
 	 */
@@ -370,5 +264,15 @@ public abstract class AbstractBasicChoiceManager<T> implements
 	public int getNumberOfChoices()
 	{
 		return numberOfChoices;
+	}
+
+	public int getChoicesPerUnitCost()
+	{
+		return choicesPerUnitCost;
+	}
+
+	public int getPreChooserChoices()
+	{
+		return preChooserChoices;
 	}
 }

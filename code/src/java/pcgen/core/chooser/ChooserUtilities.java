@@ -254,7 +254,7 @@ public class ChooserUtilities
 
 		if (aMan == null) {return false;}
 
-		if (aMan instanceof AbstractBasicChoiceManager && aPObject instanceof Ability)
+		if (aMan instanceof ControllableChoiceManager && aPObject instanceof Ability)
 		{
 			Ability a = (Ability) aPObject;
 			AbilityCategory cat;
@@ -267,8 +267,8 @@ public class ChooserUtilities
 			{
 				cat = category;
 			}
-			AbstractBasicChoiceManager abcm = (AbstractBasicChoiceManager) aMan;
-			abcm.setController(abcm.new AbilityChooseController(a, category, aPC));
+			ControllableChoiceManager abcm = (ControllableChoiceManager) aMan;
+			abcm.setController(new AbilityChooseController(a, category, aPC, abcm));
 			for (Ability ab : aPC.getAllAbilities())
 			{
 				if (ab.getKeyName().equals(a.getKeyName()))
