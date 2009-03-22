@@ -159,4 +159,10 @@ public class PersistentTransitionChoice<T> extends TransitionChoice<T>
 		}
 	}
 
+	@Override
+	public PersistentChoiceActor<T> getChoiceActor()
+	{
+		return choiceActor;
+	}
+
 }
