@@ -22,7 +22,7 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Set;
+import java.util.Collection;
 
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.helper.AbilitySelection;
@@ -141,7 +141,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	 * @return a Set of objects contained within this ChoiceSet for the given
 	 *         PlayerCharacter.
 	 */
-	public Set<T> getSet(PlayerCharacter pc)
+	public Collection<T> getSet(PlayerCharacter pc)
 	{
 		return pcs.getSet(pc);
 	}

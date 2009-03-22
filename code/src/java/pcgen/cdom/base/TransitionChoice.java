@@ -191,7 +191,7 @@ public class TransitionChoice<T>
 					+ StringPClassUtil.getStringFor(choices.getChoiceClass());
 		}
 		c.setTitle(title);
-		Set<? extends T> set = choices.getSet(pc);
+		Collection<? extends T> set = choices.getSet(pc);
 		Set<T> allowed = new HashSet<T>();
 		List<Object> assocList = pc.getAssocList(this, AssociationListKey.ADD);
 		for (T o : set)

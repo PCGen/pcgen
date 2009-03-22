@@ -27,6 +27,7 @@ package pcgen.core.levelability;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -115,7 +116,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
-		Set<?> choiceSet = choice.getChoices().getSet(pc);
+		Collection<?> choiceSet = choice.getChoices().getSet(pc);
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(pc, ""));
 		
@@ -143,7 +144,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
-		Set<?> choiceSet = choice.getChoices().getSet(getCharacter());
+		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
@@ -198,7 +199,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
-		Set<?> choiceSet = choice.getChoices().getSet(getCharacter());
+		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
 		assertEquals(3, choiceSet.size());
 		Set<Object> limitedSet = new HashSet<Object>();
 		ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
