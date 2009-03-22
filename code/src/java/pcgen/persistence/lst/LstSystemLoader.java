@@ -532,6 +532,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		for (PCStat st : gamemode
 				.getUnmodifiableStatList())
 		{
+			context.ref.importObject(st);
 			context.ref.registerAbbreviation(st, st.getAbb());
 		}
 		for (SizeAdjustment sz : gamemode
