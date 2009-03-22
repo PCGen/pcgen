@@ -26,36 +26,73 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.core.PlayerCharacter;
 
+/**
+ * A CompoundAndFilter is a PrimitiveChoiceFilter which is intended to contain
+ * one or more PrimitiveChoiceFilters that this object "joins" in an "and"
+ * format. In other words, only if all of the underlying PrimitiveChoiceFilter
+ * objects allow an object will this CompoundAndFilter allow the object.
+ * 
+ * @param <T>
+ *            The Class of the underlying objects contained by this
+ *            CompoundAndFilter
+ */
 public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 {
 
 	private final Class<T> refClass;
+	/**
+	 * The list of underlying PrimitiveChoiceFilters that this CompoundAndFilter
+	 * contains
+	 */
 	private final Set<PrimitiveChoiceFilter<T>> set = new HashSet<PrimitiveChoiceFilter<T>>();
 
+	/**
+	 * Constructs a new CompoundAndFilter which will contain objects contained
+	 * by all of the PrimitiveChoiceFilters in the given Collection.
+	 * 
+	 * This constructor is reference-semantic and value-semantic. Ownership of
+	 * the Collection provided to this constructor is not transferred.
+	 * Modification of the Collection (after this constructor completes) does
+	 * not result in modifying the CompoundAndFilter, and the CompoundAndFilter
+	 * will not modify the given Collection. However, strong references are
+	 * maintained to the PrimitiveChoiceFilter objects contained within the
+	 * given Collection.
+	 * 
+	 * @param col
+	 *            A Collection of PrimitiveChoiceFilters which define the Set of
+	 *            objects contained within the CompoundAndFilter
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
 	public CompoundAndFilter(Collection<PrimitiveChoiceFilter<T>> coll)
 	{
 		if (coll == null)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(
+					"Collection for CompoundAndFilter cannot be null");
 		}
 		if (coll.isEmpty())
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(
+					"Collection for CompoundAndFilter cannot be empty");
 		}
 		refClass = coll.iterator().next().getReferenceClass();
 		set.addAll(coll);
 	}
 
-	public String getLSTformat()
-	{
-		return ChoiceFilterUtilities.joinLstFormat(set, Constants.PIPE);
-	}
-
-	public Class<T> getReferenceClass()
-	{
-		return refClass;
-	}
-
+	/**
+	 * Return true if the given PlayerCharacter is allowed to select the given
+	 * object
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter to be tested to determine if the given
+	 *            object is allowed to be selected by this PlayerCharacter
+	 * @param obj
+	 *            The object to be tested to determine if the given
+	 *            PlayerCharacter is allowed to select this object
+	 * @return true if the given PlayerCharacter is allowed to select the given
+	 *         object; false otherwise
+	 */
 	public boolean allow(PlayerCharacter pc, T obj)
 	{
 		for (PrimitiveChoiceFilter<T> cs : set)
@@ -67,4 +104,29 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 		}
 		return true;
 	}
+
+	/**
+	 * Returns the Class object representing the Class that this
+	 * CompoundAndFilter evaluates.
+	 * 
+	 * @return Class object representing the Class that this CompoundAndFilter
+	 *         evaluates
+	 */
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	/**
+	 * Returns a representation of this CompoundAndFilter, suitable for storing
+	 * in an LST file.
+	 * 
+	 * @return A representation of this CompoundAndFilter, suitable for storing
+	 *         in an LST file.
+	 */
+	public String getLSTformat()
+	{
+		return ChoiceFilterUtilities.joinLstFormat(set, Constants.PIPE);
+	}
+
 }

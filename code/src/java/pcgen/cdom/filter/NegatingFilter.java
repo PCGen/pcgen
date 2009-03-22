@@ -20,30 +20,79 @@ package pcgen.cdom.filter;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.core.PlayerCharacter;
 
+/**
+ * A NegatingFilter is a PrimitiveChoiceFilter that negates the result of
+ * another PrimitiveChoiceFilter.
+ * 
+ * @param <T>
+ *            The type of object filtered by this NegatingFilter
+ */
 public class NegatingFilter<T> implements PrimitiveChoiceFilter<T>
 {
 
+	/**
+	 * The underlying PrimitiveChoiceFilter that this NegatingFilter will use to
+	 * determine if objects are allowed (results from this underlying
+	 * PrimitiveChoiceFilter are negated)
+	 */
 	private final PrimitiveChoiceFilter<T> filter;
 
+	/**
+	 * Constructs a new NegatingFilter with the given underlying
+	 * PrimitiveChoiceFilter. This NegatingFilter will negate the results (from
+	 * the allow method) of the given PrimitiveChoiceFilter.
+	 * 
+	 * @param f
+	 *            The underlying PrimitiveChoiceFilter that this NegatingFilter
+	 *            uses
+	 */
 	public NegatingFilter(PrimitiveChoiceFilter<T> f)
 	{
 		if (f == null)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(
+					"PrimitiveChoiceFilter for NegatingFilter cannot be null");
 		}
 		filter = f;
 	}
 
+	/**
+	 * Return true if the given PlayerCharacter is allowed to select the given
+	 * object
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter to be tested to determine if the given
+	 *            object is allowed to be selected by this PlayerCharacter
+	 * @param obj
+	 *            The object to be tested to determine if the given
+	 *            PlayerCharacter is allowed to select this object
+	 * @return true if the given PlayerCharacter is allowed to select the given
+	 *         object; false otherwise
+	 */
 	public boolean allow(PlayerCharacter pc, T obj)
 	{
 		return !filter.allow(pc, obj);
 	}
 
+	/**
+	 * Returns the Class object representing the Class that this NegatingFilter
+	 * evaluates.
+	 * 
+	 * @return Class object representing the Class that this NegatingFilter
+	 *         evaluates
+	 */
 	public Class<T> getReferenceClass()
 	{
 		return filter.getReferenceClass();
 	}
 
+	/**
+	 * Returns a representation of this NegatingFilter, suitable for storing in
+	 * an LST file.
+	 * 
+	 * @return A representation of this NegatingFilter, suitable for storing in
+	 *         an LST file.
+	 */
 	public String getLSTformat()
 	{
 		return "!" + filter.getLSTformat();
