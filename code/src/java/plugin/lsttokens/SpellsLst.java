@@ -62,10 +62,7 @@ public class SpellsLst extends AbstractToken implements
 
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 	{
-		// if (!(obj instanceof Campaign)) {
 		return createSpellsList(context, obj, value);
-		// }
-		// return false;
 	}
 
 	/**
