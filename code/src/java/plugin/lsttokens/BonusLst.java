@@ -26,7 +26,6 @@ import java.util.regex.Pattern;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Ability;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -150,7 +149,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 					for (Object o : bonus.getBonusInfoList())
 					{
 						String classKey = o.toString();
-						final PCClass aClass = Globals.getContext().ref
+						final PCClass aClass = context.ref
 								.silentlyGetConstructedCDOMObject(
 										PCCLASS_CLASS, classKey);
 						if (aClass == null)
