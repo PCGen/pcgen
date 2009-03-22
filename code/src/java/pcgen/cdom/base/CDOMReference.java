@@ -19,6 +19,8 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
+import pcgen.core.PlayerCharacter;
+
 /**
  * A CDOMReference stores references to Objects. Often these are CDOMObjects,
  * but that is not strictly required.
@@ -33,8 +35,8 @@ import java.util.Collection;
  * @param <T>
  *            The class of object this CDOMReference refers to.
  */
-public abstract class CDOMReference<T extends PrereqObject>
-// implements PrimitiveChoiceFilter<T>
+public abstract class CDOMReference<T extends PrereqObject> implements
+		PrimitiveChoiceFilter<T>
 {
 
 	/**
@@ -187,4 +189,19 @@ public abstract class CDOMReference<T extends PrereqObject>
 				+ name;
 	}
 
+	/**
+	 * Return true if this CDOMReference contains the given object. The given
+	 * PlayerCharacter is ignored
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter to be tested (ignored)
+	 * @param obj
+	 *            The object to be tested to determine if this CDOMReference
+	 *            contains the given object.
+	 * @return if this CDOMReference contains the given object; false otherwise
+	 */
+	public boolean allow(PlayerCharacter pc, T obj)
+	{
+		return contains(obj);
+	}
 }
