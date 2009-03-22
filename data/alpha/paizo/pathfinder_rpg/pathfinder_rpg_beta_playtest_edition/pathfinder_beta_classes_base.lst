@@ -23,7 +23,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Handle Animal
 20																			ABILITY:Special Ability|AUTOMATIC|Mighty Rage
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Bard		HD:8		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bard		STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE.Craft|Diplomacy|Disguise|Escape Artist|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
