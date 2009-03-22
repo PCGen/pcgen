@@ -88,7 +88,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * after the Set is returned should not modify the Set. However,
 	 * modification of the PCClass objects contained within the returned set
 	 * will result in modification of the PCClass objects contained within this
-	 * ClassReferenceChoiceSet.
+	 * CompoundOrChoiceSet.
 	 * 
 	 * @param pc
 	 *            The PlayerCharacter for which the choices in this
