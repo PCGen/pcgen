@@ -116,7 +116,7 @@ public class ParsingSeparator implements Iterator<String>
 		throw new UnsupportedOperationException();
 	}
 
-	public class GroupingMismatchException extends IllegalStateException
+	public static class GroupingMismatchException extends IllegalStateException
 	{
 
 		public GroupingMismatchException(String base)
