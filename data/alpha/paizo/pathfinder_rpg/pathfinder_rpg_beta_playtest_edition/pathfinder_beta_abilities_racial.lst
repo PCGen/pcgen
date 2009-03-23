@@ -49,7 +49,7 @@ Weapon Familiarity ~ Orc	OUTPUTNAME:Weapon Familiarity	CATEGORY:Special Ability	
 
 ###Block: Halfling Abilities
 # Ability Name			Output Name				Category of Ability		Type						Visible	Description																					Automatically Gained Weapon Prof.	Save checks bonus				Bonus to skill							Change Weapon Prof. Category		Source Page
-Keen Senses ~ Halfling		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Halflings receive a +2 racial bonus on sound- and taste-based Perception checks.																				BONUS:SKILL|Perception (Sound),Perception (Taste)|2							SOURCEPAGE:p.11
+Keen Senses ~ Halfling		OUTPUTNAME:Keen Senses		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Halflings receive a +2 racial bonus on sound-based Perception checks.																						BONUS:SKILL|Perception (Sound)|2|TYPE=Racial								SOURCEPAGE:p.11
 Sure Footed									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Halflings receive a +2 racial bonus on Acrobatics and Climb skill checks.																					BONUS:SKILL|Acrobatics,Climb|2|TYPE=Racial								SOURCEPAGE:p.11
 Halfling Luck								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Halflings receive a +1 racial bonus on all sving throws.																		BONUS:CHECKS|ALL|1|TYPE=Racial																SOURCEPAGE:p.11
 Fearless									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Halflings receive a +2 racial bonus on saving throws against fear. This bonus stacks with the bonus granted by Halfling Luck.																												SOURCEPAGE:p.11
