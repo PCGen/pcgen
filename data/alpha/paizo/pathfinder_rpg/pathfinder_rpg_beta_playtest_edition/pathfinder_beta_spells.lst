@@ -306,7 +306,7 @@ Irresistible Dance										CLASSES:Bard=6|Sorcerer,Wizard=8		SCHOOL:Enchantment
 
 ###Block: J
 # Spell Name	Classes of caster					School			Type				Components		Casting Time			Range		Item		Target Area or Effect		Duration					Save Info					Spell Resistance	Description							Bonus to skill													Choose									Source Page
-Jump			CLASSES:Druid,Ranger,Sorcerer,Wizard=1	SCHOOL:Transmutation	TYPE:Arcane.Divine	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch	ITEM:Potion	TARGETAREA:Creature touched	DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:Will negates (harmless)	SPELLRES:Yes	DESC:Subject gets bonus on Acrobatics checks.	BONUS:SKILL|Acrobatics|10+min((floor(%CHOICE/5)*10),20)|TYPE=Enhancement|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level	SOURCEPAGE:p.244
+Jump			CLASSES:Druid,Ranger,Sorcerer,Wizard=1	SCHOOL:Transmutation	TYPE:Arcane.Divine	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch	ITEM:Potion	TARGETAREA:Creature touched	DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:Will negates (harmless)	SPELLRES:Yes	DESC:Subject gets bonus on Acrobatics checks.	BONUS:SKILL|Acrobatics (Jump)|10+min((floor(%CHOICE/5)*10),20)|TYPE=Enhancement|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level	SOURCEPAGE:p.244
 
 ###Block: K
 # Spell Name	Classes of caster			School			Type				Components	Casting Time			Range			Item		Target Area or Effect																	Duration					Save Info						Spell Resistance				Description							Source Page
