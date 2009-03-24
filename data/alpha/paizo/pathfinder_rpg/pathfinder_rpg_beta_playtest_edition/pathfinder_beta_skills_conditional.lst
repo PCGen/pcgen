@@ -3,18 +3,18 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 # Original Entry by: Stefan Radermacher
 
 ###Block: Conditional Skills for output only
-# Skill Name						Key Stat	Untrained?		Classes	Type			Visible		Source Page		Bonus to skill
-Acrobatics (Jump)						KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.54	BONUS:SKILL|Acrobatics (Jump)|skillinfo("MODIFIER","Acrobatics")-DEX
-Appraise (Identify Magic Item)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.55	BONUS:SKILL|Appraise (Identify Magic Item)|skillinfo("MODIFIER","Appraise")-INT
-Perception (Notice unusual stonework)		KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Notice unusual stonework)|skillinfo("MODIFIER","Perception")-WIS
-Perception (Sight)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Sight)|skillinfo("MODIFIER","Perception")-WIS
-Perception (Smell)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Smell)|skillinfo("MODIFIER","Perception")-WIS
-Perception (Sound)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Sound)|skillinfo("MODIFIER","Perception")-WIS
-Perception (Taste)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Taste)|skillinfo("MODIFIER","Perception")-WIS
-Perception (Touch)					KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Touch)|skillinfo("MODIFIER","Perception")-WIS
-Spellcraft (Cast defensively)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.72	BONUS:SKILL|Spellcraft (Cast defensively)|skillinfo("MODIFIER","Spellcraft")-INT
-Survival (Follow or identify tracks)		KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.73	BONUS:SKILL|Survival (Follow or identify tracks)|skillinfo("MODIFIER","Survival")-WIS
-Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.74	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|skillinfo("MODIFIER","Swim")-STR
+# Skill Name						Key Stat	Untrained?		Skill Penalty Apply	Classes	Type			Visible		Source Page		Bonus to skill
+Acrobatics (Jump)						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.54	BONUS:SKILL|Acrobatics (Jump)|skillinfo("MODIFIER","Acrobatics")-DEX
+Appraise (Identify Magic Item)			KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.55	BONUS:SKILL|Appraise (Identify Magic Item)|skillinfo("MODIFIER","Appraise")-INT
+Perception (Notice unusual stonework)		KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Notice unusual stonework)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Sight)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Sight)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Smell)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Smell)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Sound)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Sound)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Taste)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Taste)|skillinfo("MODIFIER","Perception")-WIS
+Perception (Touch)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Touch)|skillinfo("MODIFIER","Perception")-WIS
+Spellcraft (Cast defensively)				KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.72	BONUS:SKILL|Spellcraft (Cast defensively)|skillinfo("MODIFIER","Spellcraft")-INT
+Survival (Follow or identify tracks)		KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.73	BONUS:SKILL|Survival (Follow or identify tracks)|skillinfo("MODIFIER","Survival")-WIS
+Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	ACHECK:DOUBLE		CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.74	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|skillinfo("MODIFIER","Swim")-STR
 
 
 ###Block: Skill .MODs
