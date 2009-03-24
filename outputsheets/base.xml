@@ -182,6 +182,7 @@
 		<notes>
 |FOR,%note,0,COUNT[NOTES]-1,1,0|
 |IIF(NOTE.%note.NAME:DM Notes)|
+|ELSE|
 			<note>
 				<name>|NOTE.%note.NAME|</name>
 				<value>|NOTE.%note.VALUE.|</value>
