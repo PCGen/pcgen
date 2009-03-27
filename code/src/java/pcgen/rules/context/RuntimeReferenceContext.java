@@ -162,4 +162,9 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return null;
 	}
 
+	public <T extends CDOMObject> T performMod(T obj)
+	{
+		return obj;
+	}
+
 }

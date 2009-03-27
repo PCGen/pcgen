@@ -114,4 +114,6 @@ public interface ReferenceContext
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(Class<T> cl, String string);
 
 	public <T extends CDOMObject> T performCopy(T obj, String copyName);
+
+	public <T extends CDOMObject> T performMod(T obj);
 }

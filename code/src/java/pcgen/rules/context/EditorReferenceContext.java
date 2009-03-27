@@ -28,6 +28,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 {
 
 	HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<CDOMObject, CDOMObject>();
+	HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<CDOMObject, CDOMObject>();
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String s)
@@ -50,6 +51,29 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 		{
 			CDOMObject copy = object.getClass().newInstance();
 			copyMap.addToListFor(object, copy);
+		}
+		catch (InstantiationException e)
+		{
+			throw new IllegalArgumentException("Class "
+					+ object.getClass().getName()
+					+ " must possess a zero-argument constructor", e);
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new IllegalArgumentException("Class "
+					+ object.getClass().getName()
+					+ " must possess a public zero-argument constructor", e);
+		}
+		return null;
+	}
+
+	@Override
+	public <T extends CDOMObject> T performMod(T object)
+	{
+		try
+		{
+			CDOMObject copy = object.getClass().newInstance();
+			modMap.addToListFor(object, copy);
 		}
 		catch (InstantiationException e)
 		{

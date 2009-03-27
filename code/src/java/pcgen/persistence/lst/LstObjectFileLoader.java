@@ -592,8 +592,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		}
 
 		// get the actual object to modify
-		T object = getObjectKeyed(context, key);
-
+		T object = context.ref.performMod(getObjectKeyed(context, key));
+		
 		if (object == null)
 		{
 			if (excludedObjects.contains(key))

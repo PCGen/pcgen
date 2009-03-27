@@ -110,4 +110,10 @@ public class GameReferenceContext extends AbstractReferenceContext
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot copy objects");
 	}
+
+	public <T extends CDOMObject> T performMod(T obj)
+	{
+		throw new UnsupportedOperationException(
+				"GameReferenceContext cannot mod objects");
+	}
 }
