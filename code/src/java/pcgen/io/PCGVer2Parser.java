@@ -2034,16 +2034,19 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				while (st.hasMoreTokens())
 				{
 					String choice = st.nextToken();
-					SpellProhibitor prohibSchool = new SpellProhibitor();
-					prohibSchool.setType(ProhibitedSpellType.SCHOOL);
-					prohibSchool.addValue(choice);
-					SpellProhibitor prohibSubSchool = new SpellProhibitor();
-					prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
-					prohibSubSchool.addValue(choice);
-					thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
-							prohibSchool);
-					thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
-							prohibSubSchool);
+					if (!"None".equalsIgnoreCase(choice))
+					{
+						SpellProhibitor prohibSchool = new SpellProhibitor();
+						prohibSchool.setType(ProhibitedSpellType.SCHOOL);
+						prohibSchool.addValue(choice);
+						SpellProhibitor prohibSubSchool = new SpellProhibitor();
+						prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
+						prohibSubSchool.addValue(choice);
+						thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
+								prohibSchool);
+						thePC.addAssoc(aPCClass, AssociationListKey.PROHIBITED_SCHOOLS,
+								prohibSubSchool);
+					}
 				}
 			}
 		}
