@@ -17,6 +17,8 @@
  */
 package pcgen.rules.context;
 
+import java.net.URI;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
@@ -29,6 +31,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 
 	HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<CDOMObject, CDOMObject>();
 	HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<CDOMObject, CDOMObject>();
+	HashMapToList<URI, CDOMObject> forgetMap = new HashMapToList<URI, CDOMObject>();
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String s)
@@ -88,6 +91,18 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 					+ " must possess a public zero-argument constructor", e);
 		}
 		return null;
+	}
+
+	@Override
+	public <T extends CDOMObject> boolean forget(T obj)
+	{
+		/*
+		 * Don't want to call super. here as that only deals with abbreviations
+		 * and would actually delete the object out of the reference context
+		 * (bad!)
+		 */
+		forgetMap.addToListFor(getSourceURI(), obj);
+		return true;
 	}
 
 }
