@@ -23,7 +23,6 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.SizeAdjustment;
@@ -102,8 +101,6 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 			}
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				SizeAdjustmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String token = colToken.nextToken().trim();
@@ -131,23 +128,9 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 			else
 			{
 				context.rollback();
-				if (tokenMap.containsKey(key))
-				{
-					SizeAdjustmentLstToken tok = (SizeAdjustmentLstToken) tokenMap
-							.get(key);
-					LstUtils.deprecationCheck(tok, sa, value);
-					if (!tok.parse(sa, value))
-					{
-						Logging.errorPrint("Error parsing SizeAdjustment "
-								+ sa.getDisplayName() + ':'
-								+ sourceURI.toString() + ':' + token + "\"");
-					}
-				}
-				else
-				{
-					Logging.replayParsedMessages();
-				}
-			}			Logging.clearParseMessages();
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
 		}
 	}
 }

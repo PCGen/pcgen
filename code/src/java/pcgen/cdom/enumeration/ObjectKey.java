@@ -294,6 +294,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<Boolean> VALID_FOR_DEITY = new ObjectKey<Boolean>(Boolean.TRUE);
 
 	public static final ObjectKey<Boolean> VALID_FOR_FOLLOWER = new ObjectKey<Boolean>(Boolean.TRUE);
+
+	public static final ObjectKey<Boolean> IS_DEFAULT_SIZE = new ObjectKey<Boolean>(Boolean.FALSE);
 	
 	/*
 	 * TODO Okay, this is a hack.

@@ -850,8 +850,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Create the large size mod
 		sizeL = new SizeAdjustment();
 		sizeL.setName("Large");
-		sizeL.setAbbreviation("L");
-		sizeL.setIsDefaultSize(false);
+		sizeL.put(StringKey.ABB, "L");
+		sizeL.put(ObjectKey.IS_DEFAULT_SIZE, false);
 		gamemode.addToSizeAdjustmentList(sizeL);
 
 		// Create the BugBear race

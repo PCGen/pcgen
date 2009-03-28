@@ -547,7 +547,7 @@ public class EquipmentList {
 					if (x == -1) {
 						final SizeAdjustment s = SettingsHandler.getGame().getSizeAdjustmentAtIndex(j);
 
-						if (s.isDefaultSize()) {
+						if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE)) {
 							x = j;
 						}
 					}

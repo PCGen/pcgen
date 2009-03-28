@@ -55,9 +55,6 @@ public class TokenStore
 		tokenTypeList.add(PCCheckLstToken.class);
 		tokenTypeList.add(PCStatLstToken.class);
 
-		//sizeAdjustment.ts
-		tokenTypeList.add(SizeAdjustmentLstToken.class);
-
 		//rules.js
 		tokenTypeList.add(RuleCheckLstToken.class);
 

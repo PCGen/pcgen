@@ -41,6 +41,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -2618,7 +2619,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		for ( SizeAdjustment s : sizeAdjustmentList )
 		{
-			if (s.isDefaultSize())
+			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
 			{
 				return s;
 			}

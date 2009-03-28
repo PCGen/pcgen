@@ -20,10 +20,11 @@
  */
 package pcgen.core;
 
-import pcgen.core.utils.CoreUtility;
-
 import java.util.List;
+
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.utils.CoreUtility;
 
 /**
  * <code>SizeAdjustment</code>.
@@ -33,25 +34,13 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class SizeAdjustment extends PObject
 {
-	private String abbreviation = ""; // should be 1-character long
-	private boolean isDefaultSize = false;
-
-	/**
-	 * Set abbreviation
-	 * @param ab
-	 */
-	public void setAbbreviation(final String ab)
-	{
-		abbreviation = ab;
-	}
-
 	/**
 	 * Get abbreviation
 	 * @return abbreviation
 	 */
 	public String getAbbreviation()
 	{
-		return abbreviation;
+		return get(StringKey.ABB);
 	}
 
 	/**
@@ -67,19 +56,10 @@ public final class SizeAdjustment extends PObject
 		return super.getActiveBonuses(aPC);
 	}
 
-	/**
-	 * Set is default size to true or false
-	 * @param arg
-	 */
-	public void setIsDefaultSize(final boolean arg)
-	{
-		isDefaultSize = arg;
-	}
-
 	@Override
 	public String toString()
 	{
-		return "pcgen.core.SizeAdjustment{" + "abbreviation='" + abbreviation + "'" + "}";
+		return "pcgen.core.SizeAdjustment{" + "abbreviation='" + get(StringKey.ABB) + "'" + "}";
 	}
 
 	double getBonusTo(final PlayerCharacter aPC, final String bonusType, final List<String> typeList, double defaultValue)
@@ -102,10 +82,5 @@ public final class SizeAdjustment extends PObject
 		}
 
 		return defaultValue;
-	}
-
-	boolean isDefaultSize()
-	{
-		return isDefaultSize;
 	}
 }

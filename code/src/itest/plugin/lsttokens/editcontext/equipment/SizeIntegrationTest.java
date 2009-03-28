@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
@@ -64,19 +65,19 @@ public class SizeIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 		super.setUp();
 		SizeAdjustment ps = primaryContext.ref.constructCDOMObject(
 				SizeAdjustment.class, "Small");
-		ps.setAbbreviation("S");
+		ps.put(StringKey.ABB, "S");
 		primaryContext.ref.registerAbbreviation(ps, "S");
 		SizeAdjustment pm = primaryContext.ref.constructCDOMObject(
 				SizeAdjustment.class, "Medium");
-		pm.setAbbreviation("M");
+		pm.put(StringKey.ABB, "M");
 		primaryContext.ref.registerAbbreviation(pm, "M");
 		SizeAdjustment ss = secondaryContext.ref.constructCDOMObject(
 				SizeAdjustment.class, "Small");
-		ss.setAbbreviation("S");
+		ss.put(StringKey.ABB, "S");
 		secondaryContext.ref.registerAbbreviation(ss, "S");
 		SizeAdjustment sm = secondaryContext.ref.constructCDOMObject(
 				SizeAdjustment.class, "Medium");
-		sm.setAbbreviation("M");
+		sm.put(StringKey.ABB, "M");
 		secondaryContext.ref.registerAbbreviation(sm, "M");
 	}
 

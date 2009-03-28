@@ -101,13 +101,13 @@ public class TestHelper
 			final SizeAdjustment sa = new SizeAdjustment();
 
 			sa.setName(name);
-			sa.setAbbreviation(abb);
+			sa.put(StringKey.ABB, abb);
 
 			gamemode.addToSizeAdjustmentList(sa);
 			Globals.getContext().ref.importObject(sa);
 			Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
 		}
-		gamemode.getSizeAdjustmentNamed("Medium").setIsDefaultSize(true);
+		gamemode.getSizeAdjustmentNamed("Medium").put(ObjectKey.IS_DEFAULT_SIZE, true);
 	}
 	
 	/**
