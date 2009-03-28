@@ -23,6 +23,7 @@
 package pcgen.core.npcgen;
 
 import pcgen.base.util.WeightedCollection;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
@@ -52,7 +53,7 @@ public class AlignGeneratorOption extends GeneratorOption
 		{
 			for ( final PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList() )
 			{
-				if ( align.isValidForFollower() && ! theChoices.contains(align) )
+				if ( align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && ! theChoices.contains(align) )
 				{
 					theChoices.add(align, aWeight);
 				}

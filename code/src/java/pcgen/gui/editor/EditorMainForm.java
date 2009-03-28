@@ -1288,7 +1288,7 @@ public final class EditorMainForm extends JDialog
 				{
 					final PCAlignment anAlignment = e.next();
 
-					if (anAlignment.isValidForFollower())
+					if (anAlignment.getSafe(ObjectKey.VALID_FOR_FOLLOWER))
 					{
 						availableFollowerAlignmentList.add(anAlignment.getDisplayName());
 					}

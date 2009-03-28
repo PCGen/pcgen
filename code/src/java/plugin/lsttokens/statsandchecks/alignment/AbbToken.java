@@ -2,32 +2,56 @@ package plugin.lsttokens.statsandchecks.alignment;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCAlignment;
-import pcgen.persistence.lst.PCAlignmentLstToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with ABB Token for pc alignment
  */
-public class AbbToken implements PCAlignmentLstToken
+public class AbbToken extends AbstractToken implements
+		CDOMPrimaryToken<PCAlignment>
 {
 
 	/**
-	 * Return the token name
+	 * Return token name
+	 * 
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "ABB";
 	}
 
-	/**
-	 * Parse the abbreviation token
-	 * @param align 
-	 * @param value 
-	 * @return true
-	 */
-	public boolean parse(PCAlignment align, String value)
+	public boolean parse(LoadContext context, PCAlignment al, String value)
 	{
-		align.put(StringKey.KEY_NAME, value);
+		if (isEmpty(value))
+		{
+			return false;
+		}
+		/*
+		 * Warning: RegisterAbbreviation is not editor friendly, and this is a
+		 * gate to additional alignments being added in Campaigns (vs. Game
+		 * Modes)
+		 */
+		context.ref.registerAbbreviation(al, value);
+		context.obj.put(al, StringKey.KEY_NAME, value);
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCAlignment al)
+	{
+		String abb = context.ref.getAbbreviation(al);
+		if (abb == null)
+		{
+			return null;
+		}
+		return new String[] { abb };
+	}
+
+	public Class<PCAlignment> getTokenClass()
+	{
+		return PCAlignment.class;
 	}
 }

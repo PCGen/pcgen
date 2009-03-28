@@ -51,7 +51,6 @@ public class TokenStore
 
 		//statsandchecks.lst
 		tokenTypeList.add(StatsAndChecksLstToken.class);
-		tokenTypeList.add(PCAlignmentLstToken.class);
 		tokenTypeList.add(BonusSpellLstToken.class);
 		tokenTypeList.add(PCCheckLstToken.class);
 		tokenTypeList.add(PCStatLstToken.class);

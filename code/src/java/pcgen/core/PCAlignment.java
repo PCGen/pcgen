@@ -20,35 +20,12 @@
  */
 package pcgen.core;
 
-
 /**
  * <code>PCAlignment</code>.
- *
+ * 
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
 public final class PCAlignment extends PObject
 {
-	private boolean validForDeity = true;
-	private boolean validForFollower = true;
-
-	public void setValidForDeity(final boolean argValid)
-	{
-		validForDeity = argValid;
-	}
-
-	public boolean isValidForDeity()
-	{
-		return validForDeity;
-	}
-
-	public void setValidForFollower(final boolean argValid)
-	{
-		validForFollower = argValid;
-	}
-
-	public boolean isValidForFollower()
-	{
-		return validForFollower;
-	}
 }

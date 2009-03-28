@@ -81,7 +81,7 @@ final class DeityBasePanel extends BasePanel
 	 */
 	public void setDeityAlignment(PCAlignment al)
 	{
-		if (al != null && al.isValidForDeity())
+		if (al != null && al.getSafe(ObjectKey.VALID_FOR_DEITY))
 		{
 			cmbDeityAlignment.setSelectedItem(al.getKeyName());
 		}
@@ -291,7 +291,7 @@ final class DeityBasePanel extends BasePanel
 		{
 			final PCAlignment anAlignment = (PCAlignment) e.next();
 
-			if (anAlignment.isValidForDeity())
+			if (anAlignment.getSafe(ObjectKey.VALID_FOR_DEITY))
 			{
 				availableList.add(anAlignment.getKeyName());
 			}

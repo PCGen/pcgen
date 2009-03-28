@@ -291,6 +291,10 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<PersistentTransitionChoice<AbilitySelection>> TEMPLATE_FEAT = new ObjectKey<PersistentTransitionChoice<AbilitySelection>>(null);
 
+	public static final ObjectKey<Boolean> VALID_FOR_DEITY = new ObjectKey<Boolean>(Boolean.TRUE);
+
+	public static final ObjectKey<Boolean> VALID_FOR_FOLLOWER = new ObjectKey<Boolean>(Boolean.TRUE);
+	
 	/*
 	 * TODO Okay, this is a hack.
 	 */

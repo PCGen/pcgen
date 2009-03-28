@@ -22,16 +22,15 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+import java.util.StringTokenizer;
+
 import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-
-import java.net.URI;
-import java.util.Map;
-import java.util.StringTokenizer;
 
 /**
  *
@@ -58,8 +57,6 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(PCAlignmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String token = colToken.nextToken().trim();
@@ -93,22 +90,7 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 			else
 			{
 				context.rollback();
-				if (tokenMap.containsKey(key))
-				{
-					PCAlignmentLstToken tok = (PCAlignmentLstToken) tokenMap
-							.get(key);
-					LstUtils.deprecationCheck(tok, alignment, value);
-					if (!tok.parse(alignment, value))
-					{
-						Logging.errorPrint("Error parsing Alignment "
-								+ alignment.getDisplayName() + ':'
-								+ sourceURI.toString() + ':' + token + "\"");
-					}
-				}
-				else
-				{
-					Logging.replayParsedMessages();
-				}
+				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();
 		}
