@@ -136,7 +136,7 @@ public final class GameMode implements Comparable<Object>
 	public String[] s_ATTRIBLONG;
 	/** String array of Attributes in short format */
 	public String[] s_ATTRIBSHORT;
-	private final List<PObject> checkList = new ArrayList<PObject>();
+	private final List<PCCheck> checkList = new ArrayList<PCCheck>();
 	private final List<PCAlignment> alignmentList = new ArrayList<PCAlignment>(15);
 	private final List<String> schoolsList = new ArrayList<String>(20);
 
@@ -1678,7 +1678,7 @@ public final class GameMode implements Comparable<Object>
 	 *
 	 * @param obj to add to the check list
 	 */
-	public void addToCheckList(final PObject obj)
+	public void addToCheckList(final PCCheck obj)
 	{
 		checkList.add(obj);
 	}
@@ -1736,7 +1736,7 @@ public final class GameMode implements Comparable<Object>
 	 * Return an <b>unmodifiable</b> version of the check list.
 	 * @return an <b>unmodifiable</b> version of the check list.
 	 */
-	public List<PObject> getUnmodifiableCheckList()
+	public List<PCCheck> getUnmodifiableCheckList()
 	{
 		return Collections.unmodifiableList(checkList);
 	}

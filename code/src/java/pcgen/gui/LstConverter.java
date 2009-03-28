@@ -25,18 +25,6 @@
  */
 package pcgen.gui;
 
-import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.utils.JComboBoxEditor;
-import pcgen.gui.utils.JComboBoxRenderer;
-import pcgen.gui.utils.TableSorter;
-import pcgen.util.Logging;
-import pcgen.io.PCGFile;
-
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -44,10 +32,37 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FilenameFilter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.WindowConstants;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.core.PCCheck;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.utils.JComboBoxEditor;
+import pcgen.gui.utils.JComboBoxRenderer;
+import pcgen.gui.utils.TableSorter;
+import pcgen.io.PCGFile;
+import pcgen.util.Logging;
 
 /**
  * Main screen of the application. Some of the custom JPanels created
@@ -292,7 +307,7 @@ final class LstConverter extends JFrame
 							continue;
 						}
 
-						List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+						List<PCCheck> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
 						if (bString.startsWith("PREFORT:"))
 						{
 							conversionWriter.write("PRECHECK:1,"

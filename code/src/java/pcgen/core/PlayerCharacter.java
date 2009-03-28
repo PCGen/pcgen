@@ -11447,7 +11447,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aType = aType.toUpperCase();
 		aName = aName.toUpperCase();
 
-		final List<PObject> aList =
+		final List<PCCheck> aList =
 				SettingsHandler.getGame().getUnmodifiableCheckList();
 
 		for (PObject obj : aList)

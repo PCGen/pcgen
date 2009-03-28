@@ -23,10 +23,9 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.core.PObject;
+import pcgen.core.PCCheck;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -52,12 +51,10 @@ public final class PCCheckLoader extends LstLineFileLoader
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
-		PObject obj = new PObject();
+		PCCheck obj = new PCCheck();
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(PCCheckLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String token = colToken.nextToken().trim();
@@ -90,21 +87,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 			else
 			{
 				context.rollback();
-				if (tokenMap.containsKey(key))
-				{
-					PCCheckLstToken tok = (PCCheckLstToken) tokenMap.get(key);
-					LstUtils.deprecationCheck(tok, obj, value);
-					if (!tok.parse(obj, value))
-					{
-						Logging.errorPrint("Error parsing PCCheck "
-								+ obj.getDisplayName() + ':'
-								+ sourceURI.toString() + ':' + token + "\"");
-					}
-				}
-				else
-				{
-					Logging.replayParsedMessages();
-				}
+				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();
 		}

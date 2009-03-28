@@ -24,19 +24,25 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.plugin.*;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import plugin.initiative.SaveModel;
-import plugin.initiative.XMLCombatant;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.Dice;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.PlayerCharacterOutput;
+import gmgen.plugin.SystemAttribute;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.List;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.List;
+
+import pcgen.core.PCCheck;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import plugin.initiative.SaveModel;
+import plugin.initiative.XMLCombatant;
 
 /**
  * <p>
@@ -309,7 +315,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 			new PlayerCharacterOutput(pc);
-			List<PObject> checkList =
+			List<PCCheck> checkList =
 					SettingsHandler.getGame().getUnmodifiableCheckList();
 
 			if (saveType == FORT_SAVE)

@@ -1,33 +1,58 @@
 package plugin.lsttokens.statsandchecks.check;
 
-import pcgen.core.PObject;
+import pcgen.core.PCCheck;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.lst.PCCheckLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with CHECKNAME Token
  */
-public class ChecknameToken implements PCCheckLstToken
+public class ChecknameToken extends AbstractToken implements
+		CDOMPrimaryToken<PCCheck>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CHECKNAME";
 	}
 
-	public boolean parse(PObject obj, String value)
+	public boolean parse(LoadContext context, PCCheck check, String value)
+			throws PersistenceLayerException
 	{
-		obj.setName(value);
-		for (PObject testObj : SettingsHandler.getGame()
-			.getUnmodifiableCheckList())
+		if (isEmpty(value))
 		{
-			if (testObj.getKeyName().equals(obj.getKeyName()))
-			{
-				return true; //we already have this object in our list, so just return
-			}
+			return false;
 		}
-
-		SettingsHandler.getGame().addToCheckList(obj);
+		/*
+		 * Warning: setName is not editor friendly, and this is a gate to
+		 * additional checks being added in Campaigns (vs. Game Modes)
+		 */
+		check.setName(value);
+		/*
+		 * Warning: This is also not editor friendly, and this is a gate to
+		 * additional checks being added in Campaigns (vs. Game Modes)
+		 */
+		SettingsHandler.getGame().addToCheckList(check);
 		return true;
 	}
+
+	public String[] unparse(LoadContext context, PCCheck check)
+	{
+		String name = check.getDisplayName();
+		if (name == null)
+		{
+			return null;
+		}
+		return new String[] { name };
+	}
+
+	public Class<PCCheck> getTokenClass()
+	{
+		return PCCheck.class;
+	}
+
 }

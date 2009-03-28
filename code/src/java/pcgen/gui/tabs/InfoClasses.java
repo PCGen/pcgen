@@ -84,6 +84,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -628,7 +629,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		pnlEast.setLayout(new GridBagLayout());
 
-		final List<PObject> checkList =
+		final List<PCCheck> checkList =
 				SettingsHandler.getGame().getUnmodifiableCheckList();
 		final int countChecks = checkList.size();
 
@@ -1523,7 +1524,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 	private void updateChecks()
 	{
-		final List<PObject> checkList =
+		final List<PCCheck> checkList =
 				SettingsHandler.getGame().getUnmodifiableCheckList();
 		final int countChecks = checkList.size();
 

@@ -29,8 +29,8 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
@@ -132,15 +132,15 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
-		PObject obj = new PObject();
+		PCCheck obj = new PCCheck();
 		obj.setName("Fortitude");
 		SettingsHandler.getGame().addToCheckList(obj);
 
-		obj = new PObject();
+		obj = new PCCheck();
 		obj.setName("Reflex");
 		SettingsHandler.getGame().addToCheckList(obj);
 
-		obj = new PObject();
+		obj = new PCCheck();
 		obj.setName("Will");
 		SettingsHandler.getGame().addToCheckList(obj);
 
