@@ -20,9 +20,8 @@
  */
 package pcgen.core;
 
-import java.util.StringTokenizer;
-
-import pcgen.util.Logging;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 
 /**
  * <code>PCStat</code>.
@@ -32,91 +31,18 @@ import pcgen.util.Logging;
  */
 public final class PCStat extends PObject
 {
-	private String abbreviation = ""; // should be 3 characters all caps
-	private String penaltyVar = "";
-	private String statMod = "0"; // a formula defining this stat's modifier
-	private int maxValue = 1000;
-	private int minValue = 0;
-	private boolean rolled = true;
-
-	public void setAbb(final String aString)
-	{
-		abbreviation = aString.toUpperCase();
-
-		if (abbreviation.length() != 3)
-		{
-			Logging.errorPrint("Stat with ABB:" + abbreviation + " should be 3 characters long!");
-		}
-	}
-
 	public String getAbb()
 	{
-		return abbreviation;
-	}
-
-	public int getMaxValue()
-	{
-		return maxValue;
-	}
-
-	public int getMinValue()
-	{
-		return minValue;
-	}
-
-	public void setPenaltyVar(final String aString)
-	{
-		penaltyVar = aString;
-	}
-
-	public String getPenaltyVar()
-	{
-		return penaltyVar;
-	}
-
-	public void setStatMod(final String aString)
-	{
-		statMod = aString;
-	}
-
-	public void setStatRange(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
-
-		if (aTok.countTokens() == 2)
-		{
-			try
-			{
-				minValue = Integer.parseInt(aTok.nextToken());
-				maxValue = Integer.parseInt(aTok.nextToken());
-			}
-			catch (NumberFormatException ignore)
-			{
-				//TODO: Should this really be ignored?
-			}
-		}
-		else
-		{
-			Logging.errorPrint("Error in specified Stat range: " + aString);
-		}
-	}
-
-	public void setRolled(final boolean b)
-	{
-		rolled = b;
-	}
-
-	public boolean isRolled()
-	{
-		return rolled;
+		return get(StringKey.ABB);
 	}
 
 	@Override
 	public String toString()
 	{
 		final StringBuffer sb = new StringBuffer(30);
-		sb.append("stat:").append(abbreviation).append(' ');
-		sb.append("formula:").append(statMod).append(' ');
+		sb.append("stat:").append(getAbb()).append(' ');
+		sb.append("formula:").append(getStatMod()).append(' ');
+		boolean rolled = getSafe(ObjectKey.ROLLED);
 		if (!rolled)
 		{
 			sb.append(' ').append("rolled:").append(rolled);
@@ -127,6 +53,7 @@ public final class PCStat extends PObject
 
 	String getStatMod()
 	{
-		return statMod;
+		String s = get(StringKey.STAT_MOD);
+		return s == null ? "0" : s;
 	}
 }

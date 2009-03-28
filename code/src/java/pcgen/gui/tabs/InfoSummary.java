@@ -834,7 +834,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			final PCStat aStat = pc.getStatList().getStatAt(stat);
 
-			if (!aStat.isRolled())
+			if (!aStat.getSafe(ObjectKey.ROLLED))
 			{
 				continue;
 			}
@@ -2397,13 +2397,13 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
-				else if (stat >= aStat.getMaxValue())
+				else if (stat >= aStat.getSafe(IntegerKey.MAX_VALUE))
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory
 							.getFormattedString("in_sumCannotRaiseStatAbove",
-							Integer.toString(aStat.getMaxValue())),
+							Integer.toString(aStat.getSafe(IntegerKey.MAX_VALUE))),
 							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
@@ -2463,13 +2463,13 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				final boolean isPurchaseMode =
 						SettingsHandler.getGame().isPurchaseStatMode();
 
-				if (stat <= aStat.getMinValue())
+				if (stat <= aStat.getSafe(IntegerKey.MIN_VALUE))
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
 						ShowMessageDelegate.showMessageDialog(PropertyFactory
 							.getFormattedString("in_sumCannotLowerStatBelow",
-							Integer.toString(aStat.getMinValue())),
+							Integer.toString(aStat.getSafe(IntegerKey.MIN_VALUE))),
 							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
@@ -2836,7 +2836,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				final PCStat aStat = pc.getStatList().getStatAt(i);
 
-				if (pc.isNonAbility(i) || !aStat.isRolled())
+				if (pc.isNonAbility(i) || !aStat.getSafe(ObjectKey.ROLLED))
 				{
 					continue;
 				}
@@ -3313,22 +3313,22 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 					return;
 				}
-				else if (statVal < aStat.getMinValue())
+				else if (statVal < aStat.getSafe(IntegerKey.MIN_VALUE))
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getFormattedString("in_sumCannotLowerStatBelow",
 						SettingsHandler.getGame().getStatDisplayText(
-							aStat.getMinValue())), Constants.s_APPNAME,
+							aStat.getSafe(IntegerKey.MIN_VALUE))), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
 				}
-				else if (statVal > aStat.getMaxValue())
+				else if (statVal > aStat.getSafe(IntegerKey.MAX_VALUE))
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
 						.getFormattedString("in_sumCannotRaiseStatAbove",
 						SettingsHandler.getGame().getStatDisplayText(
-							aStat.getMaxValue())), Constants.s_APPNAME,
+							aStat.getSafe(IntegerKey.MAX_VALUE))), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;

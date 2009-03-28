@@ -52,32 +52,32 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 
 		final PCStat str = new PCStat();
 		str.setName("Strength");
-		str.setAbb("STR");
+		str.put(StringKey.ABB, "STR");
 		gamemode.addToStatList(str);
 
 		final PCStat dex = new PCStat();
 		dex.setName("Dexterity");
-		dex.setAbb("DEX");
+		dex.put(StringKey.ABB, "DEX");
 		gamemode.addToStatList(dex);
 
 		final PCStat con = new PCStat();
 		con.setName("Constitution");
-		con.setAbb("CON");
+		con.put(StringKey.ABB, "CON");
 		gamemode.addToStatList(con);
 
 		final PCStat intel = new PCStat();
 		intel.setName("Intelligence");
-		intel.setAbb("INT");
+		intel.put(StringKey.ABB, "INT");
 		gamemode.addToStatList(intel);
 
 		final PCStat wis = new PCStat();
 		wis.setName("Wisdom");
-		wis.setAbb("WIS");
+		wis.put(StringKey.ABB, "WIS");
 		gamemode.addToStatList(wis);
 
 		final PCStat cha = new PCStat();
 		cha.setName("Charisma");
-		cha.setAbb("CHA");
+		cha.put(StringKey.ABB, "CHA");
 		gamemode.addToStatList(cha);
 
 		TestHelper.makeSizeAdjustments();
@@ -188,7 +188,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		{
 			final PCStat stat = pc.getStatList().getStatAt(index);
 			pc.setAssoc(stat, AssociationKey.STAT_SCORE, value);
-			stat.setStatMod("floor(SCORE/2)-5");
+			stat.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
 			stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + statName),
 					FormulaFactory.getFormulaFor(statName + "SCORE-10"));
 			if (statName.equals("STR"))

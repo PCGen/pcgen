@@ -13908,7 +13908,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			this.setAssoc(currentStat, AssociationKey.STAT_SCORE, 0);
 
-			if (!currentStat.isRolled())
+			if (!currentStat.getSafe(ObjectKey.ROLLED))
 			{
 				continue;
 			}
@@ -13917,14 +13917,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					rolls[i]
 						+ this.getAssoc(currentStat, AssociationKey.STAT_SCORE);
 
-			if (roll < currentStat.getMinValue())
+			if (roll < currentStat.getSafe(IntegerKey.MIN_VALUE))
 			{
-				roll = currentStat.getMinValue();
+				roll = currentStat.getSafe(IntegerKey.MIN_VALUE);
 			}
 
-			if (roll > currentStat.getMaxValue())
+			if (roll > currentStat.getSafe(IntegerKey.MAX_VALUE))
 			{
-				roll = currentStat.getMaxValue();
+				roll = currentStat.getSafe(IntegerKey.MAX_VALUE);
 			}
 
 			this.setAssoc(currentStat, AssociationKey.STAT_SCORE, roll);

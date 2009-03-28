@@ -53,7 +53,6 @@ public class TokenStore
 		tokenTypeList.add(StatsAndChecksLstToken.class);
 		tokenTypeList.add(BonusSpellLstToken.class);
 		tokenTypeList.add(PCCheckLstToken.class);
-		tokenTypeList.add(PCStatLstToken.class);
 
 		//rules.js
 		tokenTypeList.add(RuleCheckLstToken.class);

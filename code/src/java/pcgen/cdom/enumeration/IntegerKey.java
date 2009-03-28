@@ -138,6 +138,10 @@ public class IntegerKey
 
 	public static final IntegerKey CONTAINER_REDUCE_WEIGHT = getConstant("CONTAINER_REDUCE_WEIGHT");
 
+	public static final IntegerKey MIN_VALUE = getConstant("MIN_VALUE", 0);
+
+	public static final IntegerKey MAX_VALUE = getConstant("MAX_VALUE", 1000);
+
 	/*
 	 * TODO Okay, this is a hack. This should probably be a FormulaKey rather
 	 * than an IntegerKey in order to properly handle this strange delegation.

@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
@@ -45,16 +46,16 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 		super.setUp();
 		PCStat ps = primaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
 		primaryContext.ref.registerAbbreviation(ps, "STR");
-		ps.setAbb("STR");
+		ps.put(StringKey.ABB, "STR");
 		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
 		secondaryContext.ref.registerAbbreviation(ss, "STR");
-		ss.setAbb("STR");
+		ss.put(StringKey.ABB, "STR");
 		PCStat pi = primaryContext.ref.constructCDOMObject(PCStat.class, "Intelligence");
 		primaryContext.ref.registerAbbreviation(pi, "INT");
-		pi.setAbb("INT");
+		pi.put(StringKey.ABB, "INT");
 		PCStat si = secondaryContext.ref.constructCDOMObject(PCStat.class, "Intelligence");
 		secondaryContext.ref.registerAbbreviation(si, "INT");
-		si.setAbb("INT");
+		si.put(StringKey.ABB, "INT");
 	}
 
 	@Override

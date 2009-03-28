@@ -37,6 +37,7 @@ import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
@@ -102,12 +103,12 @@ public class PObjectLoaderTest extends PCGenTestCase
 		
 		PCStat con = new PCStat();
 		con.setName("Constitution");
-		con.setAbb("CON");
+		con.put(StringKey.ABB, "CON");
 		context.ref.registerAbbreviation(con, con.getAbb());
 
 		PCStat intel = new PCStat();
 		intel.setName("Intelligence");
-		intel.setAbb("INT");
+		intel.put(StringKey.ABB, "INT");
 		context.ref.registerAbbreviation(intel, intel.getAbb());
 		
 		PluginLoader ploader = PluginLoader.inst();

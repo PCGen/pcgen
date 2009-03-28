@@ -1,12 +1,18 @@
 package plugin.lsttokens.statsandchecks.stat;
 
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCStat;
-import pcgen.persistence.lst.PCStatLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with STATRANGE Token
  */
-public class StatrangeToken implements PCStatLstToken
+public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 {
 
 	public String getTokenName()
@@ -14,9 +20,60 @@ public class StatrangeToken implements PCStatLstToken
 		return "STATRANGE";
 	}
 
-	public boolean parse(PCStat stat, String value)
+	public boolean parse(LoadContext context, PCStat stat, String value)
+			throws PersistenceLayerException
 	{
-		stat.setStatRange(value);
-		return true;
+		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
+
+		if (aTok.countTokens() == 2)
+		{
+			try
+			{
+				context.obj.put(stat, IntegerKey.MIN_VALUE, Integer
+						.valueOf(aTok.nextToken()));
+				context.obj.put(stat, IntegerKey.MAX_VALUE, Integer
+						.valueOf(aTok.nextToken()));
+				return true;
+			}
+			catch (NumberFormatException ignore)
+			{
+				Logging.errorPrint("Error in specified Stat range, "
+						+ "expected two comma separated integers, found: "
+						+ value);
+			}
+		}
+		else
+		{
+			Logging.errorPrint("Error in specified Stat range, "
+					+ "expected two comma separated integers, found "
+					+ aTok.countTokens() + " values in: " + value);
+		}
+		return false;
+	}
+
+	public String[] unparse(LoadContext context, PCStat stat)
+	{
+		Integer min = context.getObjectContext().getInteger(stat,
+				IntegerKey.MIN_VALUE);
+		Integer max = context.getObjectContext().getInteger(stat,
+				IntegerKey.MAX_VALUE);
+		if (min == null && max == null)
+		{
+			return null;
+		}
+		if (min == null || max == null)
+		{
+			context.addWriteMessage("Must have both min and max in "
+					+ getTokenName() + ": " + min + " " + max);
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(min).append(',').append(max);
+		return new String[] { sb.toString() };
+	}
+
+	public Class<PCStat> getTokenClass()
+	{
+		return PCStat.class;
 	}
 }

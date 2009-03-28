@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.spell;
 
 import java.net.URISyntaxException;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -54,18 +55,18 @@ public class StatIntegrationTest extends
 	{
 		super.setUp();
 		PCStat ps = primaryContext.ref.constructCDOMObject(PCStat.class, "STR");
-		ps.setAbb("STR");
+		ps.put(StringKey.ABB, "STR");
 		primaryContext.ref.registerAbbreviation(ps, "STR");
 		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class,
 				"STR");
-		ss.setAbb("STR");
+		ss.put(StringKey.ABB, "STR");
 		secondaryContext.ref.registerAbbreviation(ss, "STR");
 		PCStat pi = primaryContext.ref.constructCDOMObject(PCStat.class, "INT");
-		pi.setAbb("INT");
+		pi.put(StringKey.ABB, "INT");
 		primaryContext.ref.registerAbbreviation(pi, "INT");
 		PCStat si = secondaryContext.ref.constructCDOMObject(PCStat.class,
 				"INT");
-		si.setAbb("INT");
+		si.put(StringKey.ABB, "INT");
 		secondaryContext.ref.registerAbbreviation(si, "INT");
 	}
 

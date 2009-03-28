@@ -1,12 +1,14 @@
 package plugin.lsttokens.statsandchecks.stat;
 
 import pcgen.core.PCStat;
-import pcgen.persistence.lst.PCStatLstToken;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Class deals with PENALTYVAR Token
  */
-public class PenaltyvarToken implements PCStatLstToken
+public class PenaltyvarToken implements CDOMPrimaryToken<PCStat>
 {
 
 	public String getTokenName()
@@ -14,9 +16,21 @@ public class PenaltyvarToken implements PCStatLstToken
 		return "PENALTYVAR";
 	}
 
-	public boolean parse(PCStat stat, String value)
+	public boolean parse(LoadContext context, PCStat obj, String value)
+			throws PersistenceLayerException
 	{
-		stat.setPenaltyVar(value);
+		// TODO Need to figure out what to do here...
 		return true;
+	}
+
+	public String[] unparse(LoadContext context, PCStat obj)
+	{
+		// TODO Need to figure out what to do here...
+		return null;
+	}
+
+	public Class<PCStat> getTokenClass()
+	{
+		return PCStat.class;
 	}
 }
