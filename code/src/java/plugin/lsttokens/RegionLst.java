@@ -5,6 +5,7 @@
 package plugin.lsttokens;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -123,5 +124,11 @@ public class RegionLst extends AbstractToken implements
 	public boolean allow(Region choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
+	}
+
+	public List<Region> getCurrentlySelected(CDOMObject owner,
+			PlayerCharacter pc)
+	{
+		return Collections.emptyList();
 	}
 }

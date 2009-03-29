@@ -19,6 +19,7 @@ package plugin.lsttokens.add;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -191,5 +192,11 @@ public class TemplateToken extends AbstractToken implements
 			PCTemplate choice)
 	{
 		pc.removeTemplate(choice);
+	}
+
+	public List<PCTemplate> getCurrentlySelected(CDOMObject owner,
+			PlayerCharacter pc)
+	{
+		return Collections.emptyList();
 	}
 }

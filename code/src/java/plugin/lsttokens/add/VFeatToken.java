@@ -19,6 +19,7 @@ package plugin.lsttokens.add;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -374,5 +375,11 @@ public class VFeatToken extends AbstractToken implements
 		// final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT",
 		// featName, pc.getDirectVirtualAbilities(AbilityCategory.FEAT),
 		// pc, null);
+	}
+
+	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
+			PlayerCharacter pc)
+	{
+		return Collections.emptyList();
 	}
 }

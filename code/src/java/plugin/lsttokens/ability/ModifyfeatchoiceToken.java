@@ -18,6 +18,7 @@
 package plugin.lsttokens.ability;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -173,5 +174,11 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 	public boolean allow(Ability choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
+	}
+
+	public List<Ability> getCurrentlySelected(CDOMObject owner,
+			PlayerCharacter pc)
+	{
+		return Collections.emptyList();
 	}
 }
