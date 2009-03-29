@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Set;
+import java.util.Collection;
 
 import pcgen.core.PlayerCharacter;
 
@@ -52,7 +52,7 @@ public interface PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this PrimitiveChoiceSet
 	 *         contains.
 	 */
-	public Set<T> getSet(PlayerCharacter pc);
+	public Collection<T> getSet(PlayerCharacter pc);
 
 	/**
 	 * The class of object this PrimitiveChoiceSet contains.

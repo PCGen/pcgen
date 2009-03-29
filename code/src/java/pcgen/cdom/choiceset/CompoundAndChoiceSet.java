@@ -95,9 +95,9 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this CompoundAndChoiceSet
 	 *         contains.
 	 */
-	public Set<T> getSet(PlayerCharacter pc)
+	public Collection<T> getSet(PlayerCharacter pc)
 	{
-		Set<T> returnSet = null;
+		Collection<T> returnSet = null;
 		for (PrimitiveChoiceSet<T> cs : set)
 		{
 			if (returnSet == null)

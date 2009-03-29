@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.choiceset;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -98,7 +99,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 */
 	public Set<Ability> getSet(PlayerCharacter pc)
 	{
-		Set<Ability> ab = set.getSet(pc);
+		Collection<Ability> ab = set.getSet(pc);
 		List<Ability> pcfeats = pc.aggregateFeatList();
 		Set<Ability> returnSet = new HashSet<Ability>();
 		for (Ability a : pcfeats)
