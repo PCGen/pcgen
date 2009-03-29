@@ -138,10 +138,10 @@ public class FavclassToken extends AbstractToken implements
 		PrimitiveChoiceSet<PCClass> rcs = new ClassReferenceChoiceSet(refList);
 		ChoiceSet<? extends PCClass> cs = new ChoiceSet<PCClass>(
 				getTokenName(), rcs);
+		cs.setTitle("Select favored class");
 		TransitionChoice<PCClass> tc = new TransitionChoice<PCClass>(cs,
 				FormulaFactory.ONE);
 		context.getObjectContext().put(race, ObjectKey.FAVCLASS_CHOICE, tc);
-		tc.setTitle("Select favored class");
 		tc.setRequired(true);
 
 		Logging

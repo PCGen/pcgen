@@ -112,10 +112,10 @@ public class ChooseLangautoToken extends AbstractToken implements
 		ReferenceChoiceSet<Language> rcs =
 				new ReferenceChoiceSet<Language>(refs);
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
+		cs.setTitle("Pick a Language");
 		PersistentTransitionChoice<Language> tc =
 				new PersistentTransitionChoice<Language>(cs, FormulaFactory.ONE);
 		context.getObjectContext().put(race, ObjectKey.CHOOSE_LANGAUTO, tc);
-		tc.setTitle("Pick a Language");
 		tc.setChoiceActor(this);
 		return true;
 	}

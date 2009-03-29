@@ -120,10 +120,10 @@ public class EquipToken extends AbstractToken implements
 				refs);
 		ChoiceSet<Equipment> cs = new ChoiceSet<Equipment>(getTokenName(),
 				new QualifiedDecorator<Equipment>(rcs));
+		cs.setTitle("Equipment Choice");
 		PersistentTransitionChoice<Equipment> tc = new PersistentTransitionChoice<Equipment>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-		tc.setTitle("Equipment Choice");
 		tc.setChoiceActor(this);
 		return true;
 	}

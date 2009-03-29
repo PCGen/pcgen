@@ -89,11 +89,11 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(refs);
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
 		ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getTokenName(), gfd);
-		TransitionChoice<Ability> tc = new TransitionChoice<Ability>(cs,
-				FormulaFactory.ONE);
-		tc.setTitle("Select a "
+		cs.setTitle("Select a "
 				+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
 				+ " to modify");
+		TransitionChoice<Ability> tc = new TransitionChoice<Ability>(cs,
+				FormulaFactory.ONE);
 		tc.setRequired(false);
 		context.getObjectContext().put(ability, ObjectKey.MODIFY_CHOICE, tc);
 		tc.setChoiceActor(this);

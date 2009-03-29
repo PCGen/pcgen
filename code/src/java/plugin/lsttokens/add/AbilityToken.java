@@ -289,9 +289,6 @@ public class AbilityToken extends AbstractToken implements
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
 				nature);
 		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
-		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
-				cs, count);
-		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		StringBuilder title = new StringBuilder();
 		if (!Ability.Nature.NORMAL.equals(nature))
 		{
@@ -300,7 +297,10 @@ public class AbilityToken extends AbstractToken implements
 		}
 		title.append(category.getDisplayName());
 		title.append(" Choice");
-		tc.setTitle(title.toString());
+		cs.setTitle(title.toString());
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, count);
+		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)
 		{

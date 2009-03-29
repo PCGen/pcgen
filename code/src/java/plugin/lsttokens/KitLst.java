@@ -118,9 +118,9 @@ public class KitLst extends AbstractToken implements
 		ReferenceChoiceSet<Kit> rcs = new ReferenceChoiceSet<Kit>(refs);
 		ChoiceSet<Kit> cs = new ChoiceSet<Kit>(getTokenName(),
 				new QualifiedDecorator<Kit>(rcs));
+		cs.setTitle("Kit Selection");
 		TransitionChoice<Kit> tc = new TransitionChoice<Kit>(cs, count);
 		context.obj.addToList(pcc, ListKey.KIT_CHOICE, tc);
-		tc.setTitle("Kit Selection");
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
 		return true;

@@ -269,11 +269,11 @@ public class FeatToken extends AbstractToken implements
 						AbilityCategory.FEAT, refs, Ability.Nature.AUTOMATIC);
 				ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 						getTokenName(), rcs);
+				cs.setTitle("Feat Choice");
 				PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
 						cs, FormulaFactory.ONE);
 				context.getObjectContext()
 						.put(pct, ObjectKey.TEMPLATE_FEAT, tc);
-				tc.setTitle("Feat Choice");
 				tc.setChoiceActor(this);
 			}
 		}

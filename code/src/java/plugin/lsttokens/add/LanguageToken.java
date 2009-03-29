@@ -136,10 +136,10 @@ public class LanguageToken extends AbstractToken implements
 		ReferenceChoiceSet<Language> rcs =
 				new ReferenceChoiceSet<Language>(refs);
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
+		cs.setTitle("Language Choice");
 		PersistentTransitionChoice<Language> tc =
 				new PersistentTransitionChoice<Language>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-		tc.setTitle("Language Choice");
 		tc.setChoiceActor(this);
 		return true;
 	}

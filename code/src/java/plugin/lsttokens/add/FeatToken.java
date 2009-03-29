@@ -213,10 +213,10 @@ public class FeatToken extends AbstractToken implements
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs, nature);
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
+		cs.setTitle("Feat Choice");
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-		tc.setTitle("Feat Choice");
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)
 		{

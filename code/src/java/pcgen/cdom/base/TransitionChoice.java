@@ -55,12 +55,6 @@ public class TransitionChoice<T>
 	private final Formula choiceCount;
 
 	/**
-	 * The title of this choice - presented to the user as the title of the
-	 * dialog box from which selections are made.
-	 */
-	private String title;
-
-	/**
 	 * IDentifies if this TransitionChoice selection is required - if it is
 	 * required, then the user cannot dismiss the dialog box without making a
 	 * choice (or the dialog box reappears, etc.)
@@ -185,6 +179,7 @@ public class TransitionChoice<T>
 		{
 			c.setTotalChoicesAvail(intValue);
 		}
+		String title = choices.getTitle();
 		if (title == null)
 		{
 			title = "Choose a "
@@ -227,18 +222,6 @@ public class TransitionChoice<T>
 			c.setVisible(true);
 			return c.getSelectedList();
 		}
-	}
-
-	/**
-	 * Sets the title of this TransitionChoice (displayed to the user as the
-	 * title of the dialog box used to make the selections).
-	 * 
-	 * @param string
-	 *            The title of this TransitionChoice.
-	 */
-	public void setTitle(String string)
-	{
-		title = string;
 	}
 
 	/**

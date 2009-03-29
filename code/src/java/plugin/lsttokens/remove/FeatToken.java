@@ -212,10 +212,10 @@ public class FeatToken extends AbstractToken implements
 		}
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), ascs, true);
+		cs.setTitle("Select for removal");
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.REMOVE, tc);
-		tc.setTitle("Select for removal");
 		tc.allowStack(true);
 		tc.setChoiceActor(this);
 		return true;

@@ -215,10 +215,10 @@ public class VFeatToken extends AbstractToken implements
 				nature);
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
+		cs.setTitle("Virtual Feat Selection");
 		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
-		tc.setTitle("Virtual Feat Selection");
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)
 		{

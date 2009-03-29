@@ -115,10 +115,10 @@ public class SpelllistToken extends AbstractToken implements
 				refs);
 		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<CDOMListObject<Spell>>(
 				getTokenName(), rcs);
+		cs.setTitle("Select class whose list of spells this class will use");
 		TransitionChoice<CDOMListObject<Spell>> tc = new TransitionChoice<CDOMListObject<Spell>>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SPELLLIST_CHOICE, tc);
-		tc.setTitle("Select class whose list of spells this class will use");
 		tc.setRequired(false);
 		return true;
 	}

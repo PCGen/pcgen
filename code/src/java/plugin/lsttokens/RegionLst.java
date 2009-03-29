@@ -78,9 +78,9 @@ public class RegionLst extends AbstractToken implements
 		}
 		SimpleChoiceSet<Region> rcs = new SimpleChoiceSet<Region>(regions);
 		ChoiceSet<Region> cs = new ChoiceSet<Region>(getTokenName(), rcs);
+		cs.setTitle("Region Selection");
 		TransitionChoice<Region> tc = new TransitionChoice<Region>(cs, count);
 		context.obj.put(pcc, ObjectKey.REGION_CHOICE, tc);
-		tc.setTitle("Region Selection");
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
 		return true;

@@ -103,10 +103,10 @@ public class SkilllistToken extends AbstractToken implements
 				refs);
 		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(
 				getTokenName(), rcs);
+		cs.setTitle("Select class whose class-skills this class will inherit");
 		TransitionChoice<ClassSkillList> tc = new TransitionChoice<ClassSkillList>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SKILLLIST_CHOICE, tc);
-		tc.setTitle("Select class whose class-skills this class will inherit");
 		tc.setRequired(false);
 		return true;
 	}

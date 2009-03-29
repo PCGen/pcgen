@@ -157,9 +157,9 @@ public class SpellCasterToken extends AbstractToken implements
 		ReferenceChoiceSet<PCClass> prcs = prims.isEmpty() ? null
 				: new ReferenceChoiceSet<PCClass>(prims);
 		ChoiceSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
+		cs.setTitle("Spell Caster Class Choice");
 		PersistentTransitionChoice<PCClass> tc = new PersistentTransitionChoice<PCClass>(
 				cs, count);
-		tc.setTitle("Spell Caster Class Choice");
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return true;

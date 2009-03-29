@@ -59,6 +59,11 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	private final String setName;
 
 	/**
+	 * The title (presented to the user) of this ChoiceSet
+	 */
+	private String title = null;
+	
+	/**
 	 * An identifier to check if the ChoiceSet (and the underlying
 	 * PrimitiveChoiceSet) should use the "ANY" identifier (vs. "ALL") when
 	 * referring to the global collection of objects of a certain type.
@@ -152,11 +157,39 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	 * persistent state (it is not sufficient information to reconstruct this
 	 * ChoiceSet)
 	 * 
-	 * @return
+	 * @return The name of this ChoiceSet
 	 */
 	public String getName()
 	{
 		return setName;
+	}
+
+ 	/**
+	 * Sets the title of this ChoiceSet. Note that this should be the name that
+	 * is displayed to the user when a selection from this ChoiceSet is made,
+	 * but it does not represent information that should be stored in a
+	 * persistent state (it is not sufficient information to reconstruct this
+	 * ChoiceSet)
+	 * 
+	 * @return The title of this ChoiceSet
+	 */
+	public void setTitle(String choiceTitle)
+	{
+		title = choiceTitle;
+	}
+
+	/**
+	 * Returns the title of this ChoiceSet. Note that this should be the name
+	 * that is displayed to the user when a selection from this ChoiceSet is
+	 * made, but it does not represent information that should be stored in a
+	 * persistent state (it is not sufficient information to reconstruct this
+	 * ChoiceSet)
+	 * 
+	 * @return The title of this ChoiceSet
+	 */
+	public String getTitle()
+	{
+		return title;
 	}
 
 	/**
