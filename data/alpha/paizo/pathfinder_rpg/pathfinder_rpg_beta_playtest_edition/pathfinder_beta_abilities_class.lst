@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Mar  9 02:24:44 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+# CVS $Revision$ $Author$ -- Sun Mar 29 14:23:06 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -268,11 +268,11 @@ Greater Weapon Specialization Qualify	CATEGORY:Special Ability	TYPE:Internal	VIS
 Fighter Level Advanced Feat Tracker		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:FighterLVL|0									BONUS:VAR|WeaponSpecQualifyLVL,GreatWeapFocusQualifyLVL,GreatWeapSpecQualifyLVL|FighterLVL
 
 ###Block: Fighter Abilities
-# Ability Name	Category of Ability		Type						Visible	Define								Description																																											Combat bonus										Misc bonus																		Modify VAR								Damage Reduction			Source Page
-Bravery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:Bravery|0	DEFINE:BraveryLVL|0			DESC:You gain a +%1 bonus to Will saves against fear effects.|Bravery																																																																BONUS:VAR|Bravery|min((BraveryLVL+2)/4,5)								SOURCEPAGE:p.27
-Armor Training	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:ArmorTraining|0	DEFINE:ArmorTrainingLVL|0	DESC:You gain added protection form the armor you are wearing. When wearing armor, you gain an additional +%1 armor bonus to your armor class, and you reduce the armor check penalty by %1 and increase the maximum dexterity bonus of your armor by +%1|ArmorTraining	BONUS:COMBAT|AC|ArmorTraining|TYPE=Armor.STACK|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCHECK|ArmorTraining|PREEQUIP:1,TYPE=Armor	BONUS:MISC|MAXDEX|ArmorTraining|PREEQUIP:1,TYPE=Armor	BONUS:VAR|ArmorTraining|min((ArmorTrainingLVL+1)/4,4)						SOURCEPAGE:p.27
-Armor Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																																																																																														DR:5/-|PREEQUIP:1,TYPE=Armor	SOURCEPAGE:p.28
-Weapon Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																																																																																																			SOURCEPAGE:p.28
+# Ability Name	Category of Ability		Type						Visible	Define								Description																																											Template					Combat bonus										Misc bonus									Modify VAR								Damage Reduction			Source Page
+Bravery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:Bravery|0	DEFINE:BraveryLVL|0			DESC:You gain a +%1 bonus to Will saves against fear effects.|Bravery																																																													BONUS:VAR|Bravery|min((BraveryLVL+2)/4,5)								SOURCEPAGE:p.27
+Armor Training	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:ArmorTraining|0	DEFINE:ArmorTrainingLVL|0	DESC:You gain added protection form the armor you are wearing. When wearing armor, you gain an additional +%1 armor bonus to your armor class, and you reduce the armor check penalty by %1 and increase the maximum dexterity bonus of your armor by +%1|ArmorTraining	TEMPLATE:Armor Training workaround	BONUS:COMBAT|AC|ArmorTraining|TYPE=Armor.STACK|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCHECK|ArmorTraining|PREEQUIP:1,TYPE=Armor	BONUS:VAR|ArmorTraining|min((ArmorTrainingLVL+1)/4,4)						SOURCEPAGE:p.27
+Armor Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																																																																																											DR:5/-|PREEQUIP:1,TYPE=Armor	SOURCEPAGE:p.28
+Weapon Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																																																																																																SOURCEPAGE:p.28
 
 ###Block: Fighter Weapon Training Abilities
 # Ability Name		Category of Ability		Type						Visible		Define					Description																																																																																																																																																																																								Bonus to Ability Pool																																																		Modify VAR																Source Page
