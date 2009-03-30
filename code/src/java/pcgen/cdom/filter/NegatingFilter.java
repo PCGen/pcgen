@@ -98,4 +98,32 @@ public class NegatingFilter<T> implements PrimitiveChoiceFilter<T>
 		return "!" + filter.getLSTformat();
 	}
 
+	/**
+	 * Returns the consistent-with-equals hashCode for this NegatingFilter
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		return -filter.hashCode();
+	}
+
+	/**
+	 * Returns true if this NegatingFilter is equal to the given Object.
+	 * Equality is defined as being another NegatingFilter object with equal
+	 * underlying contents.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof NegatingFilter)
+		{
+			NegatingFilter<?> other = (NegatingFilter<?>) obj;
+			return filter.equals(other.filter);
+		}
+		return false;
+	}
 }

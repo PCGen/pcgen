@@ -27,60 +27,60 @@ import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.core.PlayerCharacter;
 
 /**
- * A CompoundAndFilter is a PrimitiveChoiceFilter which is intended to contain
- * one or more PrimitiveChoiceFilters that this object "joins" in an "and"
- * format. In other words, only if all of the underlying PrimitiveChoiceFilter
- * objects allow an object will this CompoundAndFilter allow the object.
+ * A CompoundOrFilter is a PrimitiveChoiceFilter which is intended to contain
+ * one or more PrimitiveChoiceFilters that this object "joins" in an "or"
+ * format. In other words, if any of the underlying PrimitiveChoiceFilter
+ * objects allow an object will this CompoundOrFilter allow the object.
  * 
  * @param <T>
  *            The Class of the underlying objects contained by this
- *            CompoundAndFilter
+ *            CompoundOrFilter
  */
-public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
+public class CompoundOrFilter<T> implements PrimitiveChoiceFilter<T>
 {
 
-	private final Class<T> refClass;
+private final Class<T> refClass;
 
 	/**
-	 * The list of underlying PrimitiveChoiceFilters that this CompoundAndFilter
+	 * The list of underlying PrimitiveChoiceFilters that this CompoundOrFilter
 	 * contains
 	 */
 	private final Set<PrimitiveChoiceFilter<T>> set = new TreeSet<PrimitiveChoiceFilter<T>>(
 			ChoiceFilterUtilities.FILTER_SORTER);
 
 	/**
-	 * Constructs a new CompoundAndFilter which will contain objects contained
-	 * by all of the PrimitiveChoiceFilters in the given Collection.
+	 * Constructs a new CompoundOrFilter which will contain objects contained by
+	 * all of the PrimitiveChoiceFilters in the given Collection.
 	 * 
 	 * This constructor is reference-semantic and value-semantic. Ownership of
 	 * the Collection provided to this constructor is not transferred.
 	 * Modification of the Collection (after this constructor completes) does
-	 * not result in modifying the CompoundAndFilter, and the CompoundAndFilter
+	 * not result in modifying the CompoundOrFilter, and the CompoundOrFilter
 	 * will not modify the given Collection. However, strong references are
 	 * maintained to the PrimitiveChoiceFilter objects contained within the
 	 * given Collection.
 	 * 
 	 * @param col
 	 *            A Collection of PrimitiveChoiceFilters which define the Set of
-	 *            objects contained within the CompoundAndFilter
+	 *            objects contained within the CompoundOrFilter
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public CompoundAndFilter(Collection<PrimitiveChoiceFilter<T>> coll)
+	public CompoundOrFilter(Collection<PrimitiveChoiceFilter<T>> coll)
 	{
 		if (coll == null)
 		{
 			throw new IllegalArgumentException(
-					"Collection for CompoundAndFilter cannot be null");
+					"Collection for CompoundOrFilter cannot be null");
 		}
 		if (coll.isEmpty())
 		{
 			throw new IllegalArgumentException(
-					"Collection for CompoundAndFilter cannot be empty");
+					"Collection for CompoundOrFilter cannot be empty");
 		}
 		refClass = coll.iterator().next().getReferenceClass();
 		set.addAll(coll);
-	}
+}
 
 	/**
 	 * Return true if the given PlayerCharacter is allowed to select the given
@@ -99,19 +99,19 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	{
 		for (PrimitiveChoiceFilter<T> cs : set)
 		{
-			if (!cs.allow(pc, obj))
+			if (cs.allow(pc, obj))
 			{
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	/**
 	 * Returns the Class object representing the Class that this
-	 * CompoundAndFilter evaluates.
+	 * CompoundOrFilter evaluates.
 	 * 
-	 * @return Class object representing the Class that this CompoundAndFilter
+	 * @return Class object representing the Class that this CompoundOrFilter
 	 *         evaluates
 	 */
 	public Class<T> getReferenceClass()
@@ -120,19 +120,19 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	}
 
 	/**
-	 * Returns a representation of this CompoundAndFilter, suitable for storing
+	 * Returns a representation of this CompoundOrFilter, suitable for storing
 	 * in an LST file.
 	 * 
-	 * @return A representation of this CompoundAndFilter, suitable for storing
+	 * @return A representation of this CompoundOrFilter, suitable for storing
 	 *         in an LST file.
 	 */
 	public String getLSTformat()
 	{
-		return ChoiceFilterUtilities.joinLstFormat(set, Constants.COMMA);
+		return ChoiceFilterUtilities.joinLstFormat(set, Constants.PIPE);
 	}
 
 	/**
-	 * Returns the consistent-with-equals hashCode for this CompoundAndFilter
+	 * Returns the consistent-with-equals hashCode for this CompoundOrFilter
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -143,8 +143,8 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	}
 
 	/**
-	 * Returns true if this CompoundAndFilter is equal to the given Object.
-	 * Equality is defined as being another CompoundAndFilter object with equal
+	 * Returns true if this CompoundOrFilter is equal to the given Object.
+	 * Equality is defined as being another CompoundOrFilter object with equal
 	 * underlying contents.
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -152,9 +152,9 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof CompoundAndFilter)
+		if (obj instanceof CompoundOrFilter)
 		{
-			CompoundAndFilter<?> other = (CompoundAndFilter<?>) obj;
+			CompoundOrFilter<?> other = (CompoundOrFilter<?>) obj;
 			return refClass.equals(other.refClass) && set.equals(other.set);
 		}
 		return false;
