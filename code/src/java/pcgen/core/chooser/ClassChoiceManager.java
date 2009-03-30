@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -88,13 +89,14 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                             {
                                 availableList.add(aSubClass);
                             }
-                        } else
+                        }
+                        if (aClass.getSafe(ObjectKey.ALLOWBASECLASS))
                         {
                             availableList.add(aClass);
                         }
                     }
-                } else
-                if(choice.startsWith("TYPE="))
+                }
+				else if (choice.startsWith("TYPE="))
                 {
                     StringTokenizer tok2 = new StringTokenizer(choice.substring(5), ".");
                     List<Type> typeList = new ArrayList<Type>();
@@ -113,14 +115,16 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                                 {
                                     availableList.add(aSubClass);
                                 }
-                            } else
+                            }
+                            if (aClass.getSafe(ObjectKey.ALLOWBASECLASS))
                             {
                                 availableList.add(aClass);
                             }
                         }
                     }
-                } else
-                {
+                }
+				else
+				{
                     int dotLoc = choice.indexOf(".");
                     if(dotLoc == -1)
                     {
@@ -136,8 +140,9 @@ public class ClassChoiceManager extends AbstractBasicPObjectChoiceManager<PCClas
                                 }
                             }
                         }
-                    } else
-                    {
+                    }
+					else
+					{
                         String substring = choice.substring(0, dotLoc);
                         PCClass aClass = refContext.silentlyGetConstructedCDOMObject(PCClass.class, substring);
                         if(aClass != null)
