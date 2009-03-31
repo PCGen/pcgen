@@ -148,7 +148,7 @@
 <hr>
 
 	<p class="new">*** New 5.9.4</p>
-	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> CHOOSE:DOMAIN|x,x</p>
+	<p class="indent0"><strong><a name="DOMAIN">Tag Name:</a></strong> CHOOSE:DOMAIN|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> DIETY=Text (Deity name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
@@ -157,15 +157,15 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of Domains.</li>
-		<li>ANY returns a list of all loaded Domains.</li>
-		<li>DIETY=&lt;text&gt; returns a list of Domains granted by specified Deity.</li>
-		<li>QUALIFY returns a list of loaded Domains the PC qualifies for but does not have.</li>
-		<li>PC returns a list of all domains a character actually has.</li>
+		<li><code>ANY</code> returns a list of all loaded Domains.</li>
+		<li><code>DIETY=&lt;text&gt;</code> returns a list of Domains granted by specified Deity.</li>
+		<li><code>QUALIFY</code> returns a list of loaded Domains the PC qualifies for but does not have.</li>
+		<li><code>PC</code> returns a list of all domains a character actually has.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:DOMAIN|Air,Fire,Sun</code></p>
+	<p class="indent2"><code>CHOOSE:DOMAIN|Air|Fire|Sun</code></p>
 	<p class="indent3">Will allow selection Air, Fire or Sun Domains.</p>
 	<p class="indent2"><code>CHOOSE:DOMAIN|DIETY=Kong</code></p>
 	<p class="indent3">Will allow selection any Domain granted by the deity &quot;Kong&quot;.</p>
