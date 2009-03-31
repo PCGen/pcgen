@@ -24,39 +24,39 @@
 	
 	<body>
 		<h1>PCC and LST Files Explained</h1>
-		<p class="indent0">by James McP</p>
-		<p class="indent0"><em>Updated by E. C. Smith</em></p>
 		
-		<p class="indent0">This document follows the System Reference Document (SRD) for 3E, which 
-			varies in some ways from the 3E books. It was also written based on the early PCGen v5.x 
-			data files and has been updated to the 5.16 data standard. The 5.16 data files are located 
-			in the \data\d20ogl\srd\ directory of PCGen.</p>
+		<p class="indent0">In this section we will be discussing the format of LST and PCC files, and 
+			more importantly, what PCGen expects when parsing LST tags. We will not be discussing the 
+			detailed syntax for each tag. To get more detailed information about each LST tag, you will 
+			need to refer to PCGen's documentation.</p>
 		
-		<p class="indent0">We will be discussing the format of LST and PCC files and how they expect 
-			to encounter tags. Refer to PCGen's documentation for details on implementing specific 
-			tags as they can, and do, change.</p>
+		<p class="indent0">This document follows the System Reference Document (SRD) for 3E. It was 
+			also written based on the early PCGen v5.x data files but has been updated to the 5.16 
+			data standard. The 5.16 data files are located in the \data\d20ogl\srd\ directory of PCGen.</p>
 		
 		<p class="indent0">PCGen interprets data files using tabs and line returns. Note that a return 
 			(i.e. hitting the &quot;enter&quot; or &quot;return&quot; key) is different from word-wrap. 
 			You are advised to use a true text editor like the basic windows Notepad or one of the free 
 			editing programs like UltraEdit. Regardless, turn word-wrap off.</p>
 		
-		<p class="indent0">In these examples I will be using extra lines that are indented rather than 
-			tabs and blank lines to indicate separate lines.</p>
+		<p class="indent0">The examples found in this section will use indented lines rather than the tabs, 
+			as are found in actual LST code.</p>
 		
-		<p class="indent0">So this:</p>
+		<p class="indent0">So a line of LST code that looks like this:</p>
 		
 		<p class="indent1">Bob &lt;tab&gt; 1 &lt;tab&gt; 2</p>
 		<p class="indent1">Alice &lt;tab&gt; 3 &lt;tab&gt; 4</p>
 
-		<p class="indent0">Will be portrayed as:</p>
+		<p class="indent0">Will be displayed as:</p>
 		<p class="indent1">Bob</p>
 		<p class="indent2">1</p>
 		<p class="indent2">2</p>
-		<p class="indent1">Aliceb</p>
+		<p class="indent1">Alice</p>
 		<p class="indent2">3</p>
 		<p class="indent2">4</p>
-		
+
+<hr>
+
 		<h2>What is a PCC file and why are we discussing it first?</h2>
 		
 		<p class="indent0">A PCC file is the only way PCGen can see a LST file. Perhaps the 
@@ -76,7 +76,9 @@
 			way for PCGen to identify a LST file and that the structure established for the PCC files 
 			is primarily to fulfill that purpose. The copyright information is for legal compliance, 
 			not program functionality.</p>
-		
+
+<hr>
+
 		<h2>Building your own PCC</h2>
 		
 		<p class="indent0">The PCC file consists of the header block, used to fulfill the legal
@@ -118,15 +120,15 @@
 		<p class="indent2"><code>ISOGL:YES</code> - If the source uses the open gaming license (OGL) See OGL FAQ.</p>
 		<p class="indent2"><code>COPYRIGHT:Open Game License v 1.0a  Copyright 2000, WotC etc.</code> - Copyright Terms.</p>
 		<p class="indent2"><code>COPYRIGHT:Full Name of the Source Copyright 2003, Company Name, Authors Names</code> - Copyright Owner.</p>
-		<p class="indent2"><code>[LST Type]:[LST Name]</code> - Call a LST file.</p>
+		<p class="indent2"><code>[LST Type]:[LST File Name]</code> - Call a LST file.</p>
 					
-		<h2>LST Types</h2>
+		<h3>LST Types</h3>
 		
-		<p class="indent0">LST files are specialized, containing only a single type of data. PCC
-		files must specify the type of LST file but each PCC can contain multiple LSTs
-		of the same type.</p>
+		<p class="indent0">PCC files specify the type of LST files used in the loaded campaign and therefore 
+			will contain references to multiple LST file object types. In contrast, LST files are specialized, 
+			containing only information on a single type of LST object.</p>
 		
-		<p class="indent0">Types of LST:</p>
+		<p class="indent0">Types of LST Objects:</p>
 			<ul class="indent1">
 				 <li>ABILITY</li>
 				 <li>ABILITYCATEGORY</li>
@@ -147,56 +149,61 @@
 				 <li>TEMPLATE</li>
 				 <li>WEAPONPROF</li>
 			</ul>   
-		<p class="indent0">You can also call other PCC files from within a PCC file, for example:</p>
+		<p class="indent0">You can also call other PCC files from within a PCC file with the following:</p>
 		<p class="indent1"><code>PCC:myPCC.pcc</code>.</p>
 		
-		<p class="indent0">For a complete listing see: <a href="datafilestagpages/datafilespcc.html#MAINBODYTAGS">Main Body Tags</a> which are used to load the specific LST files which make up the dataset.</p>
-		<p class="indent0">So to call a class LST named &quot;myfirstclass.lst&quot; you would have the
-			following in the PCC:</p>
+		<p class="indent0">For a complete listing of LST file types, see 
+			<a href="datafilestagpages/datafilespcc.html#MAINBODYTAGS">Main Body Tags</a>. 
+			The tags listed are used to load the specific LST files which make up the dataset.</p>
+		<p class="indent0">If you wanted to call a LST file of &quot;Class&quot; objects named 
+			<span class="lstfile">myfirstclass.lst</span>, you would have the following line in 
+			your PCC file.</p>
 		
 		<p class="indent1"><code>CLASS:myfirstclass.lst</code></p>
 		
 		<p class="indent0">This assumes the file myfirstclass.lst is in the same directory as the PCC. So
-		if you wanted this PCC to load the file srdspells stored in pcgen\data\d20ogl\srd
-		you would use the following line:</p>
+			if you wanted this PCC to load the file srdspells stored in pcgen\data\d20ogl\srd
+			you would use the following line:</p>
 		
 		<p class="indent1"><code>SPELL:@/d20ogl/srd/srdspells.lst</code></p>
 		
 		<p class="indent0">The &quot;@&quot; symbol tells PCGen to start at the top of the data directory
-			and then follow the path down.
-		See the documentation for more information.</p>
+			and then follow the path down. See the documentation for more information.</p>
 		
 		<p class="indent1"><code>CLASS:&amp;/complete_monkey/complete_monkey_classes.lst</code></p>
 		
 		<p class="indent0">The &quot;&amp;&quot; symbol tells PCGen to start at the top of the vendor data directory
-			and then follow the path down.
-		See the documentation for more information.</p>
+			and then follow the path down. See the documentation for more information.</p>
 		
 		<h4>Excluding and Including from LST files</h4>
 		
-		<p class="indent0">You can include/exclude specific information from any LST file by using the INCLUDE/EXCLUDE Tags.</p>
+		<p class="indent0">You can include or exclude specific information from any LST file by using the <code>INCLUDE</code>
+			or <code>EXCLUDE</code> tags.</p>
 		<p class="indent0">Examples:</p>
 		<p class="indent1"><code>CLASS:myfirstclass.lst|@/d20ogl/srd/srdclassesbase.lst|(INCLUDE:Fighter)</code></p>
-		<p class="indent0">Would load the classes in myclass.lst and only include the Fighter class from the SRD classes.</p>
+		<p class="indent2">Loads the classes in <span class="lstfile">myclass.lst</span> and the &quot;Fighter&quot; 
+			class from the SRD classes.</p>
 		
-		<p class="indent1"><code>CLASS:myfirstclass.lst|(EXCLUDE:Monk|SorcererFoowarf)|@/d20ogl/srd/srdclassesbase.lst</code></p>
-		<p class="indent0">Would load all classes in myclass.lst and all the SRD classes, except the Monk and the Sorcerer.</p>
-		<p class="indent0">See further information on <a href="datafilestagpages/datafilespcc.html#OTHERPCCTAGS">"Other .pcc file tags"</a> which are used to provide additional functionality.</p>
+		<p class="indent1"><code>CLASS:myfirstclass.lst|(EXCLUDE:Monk|Sorcerer)|@/d20ogl/srd/srdclassesbase.lst</code></p>
+		<p class="indent2">Load all classes in <span class="lstfile">myclass.lst</span> and all the SRD classes except 
+			for the &quot;Monk&quot; and &quot;Sorcerer&quot; classes.</p>
+		<p class="indent0">See further information on <a href="datafilestagpages/datafilespcc.html#OTHERPCCTAGS">"Other 
+			.pcc file tags"</a> which are used to provide additional functionality.</p>
 
-		
+<hr>
+
 		<h2>Building your own LST</h2>
 		
-		<p class="indent0">Because LST files are called from PCC files they have little in the way of a header, just a <code>SOURCExxx</code> 
-		 	tag, which provides information used on character sheets and displays.</p>
+		<p class="indent0">Because LST files are called from PCC files they have little in the way of a header, 
+			just a <code>SOURCExxx</code> tag, which provides information used on character sheets and displays.</p>
 		
-		<p class="indent0">LSTs can be complicated in the whole, but are typically quite simple. Here,
-		in the author's opinion, are the LSTs sorted by complexity.
-		I will be detailing the assembly of key LSTs at various levels of
-		complexity.</p>
+		<p class="indent0">LSTs can be complicated in the whole, but are typically quite simple. Here, in the 
+			author's opinion, are the LSTs sorted by complexity. I will be detailing the assembly of key LSTs 
+			at various levels of complexity.</p>
 		
 		<ul>
 			<li>language</li>
-			<li>proficiency</li>
+			<li>proficiency, be it weapon, armor or shield</li>
 			<li>skill</li>
 			<li>companion modifier</li>
 			<li>deity</li>
@@ -211,59 +218,40 @@
 			<li>class</li>
 		</ul>
 		
-		<p class="indent0">The basic construction of a LST is a
-		simple header block followed by a list of entries and their respective tags.
-		With the exception of the name the order of tags is flexible but it is
-		best to follow conventions. Tags are
-		separated by tabs (hit the tab key on your keyboard) or whitespace.
-		Most entries are on separate lines.</p>
+		<p class="indent0">The basic construction of a LST is a simple header block followed by a list of 
+			entries and their respective tags. With the exception of the name the order of tags is flexible 
+			but it is best to follow conventions. Tags are separated by tabs (hit the tab key on your keyboard) 
+			or whitespace. Most entries are on separate lines.</p>
 		
-		<p class="indent0">Remember, in these examples I will be
-		using extra lines with indention's to reflect the tags rather than tabs for
-		readability. Blank lines will
-		separate entries.</p>
+		<p class="indent0">Remember, in these examples I will be using extra lines with indention's to reflect 
+			the tags rather than tabs for readability. Blank lines will separate entries.</p>
 		
 		<h2>Language LST</h2>
 		
-		<p class="indent0">This is as basic as it gets. Entries in a language LST are displayed in the language selection box.
-		It consists of the header and a list of languages and their type.
-		Let's consider two hypothetical languages, the spoken language Simian and
-		the written only language Peel.</p>
+		<p class="indent0">This is as basic as it gets. Entries in a language LST are displayed in the language 
+			selection box. It consists of the header and a list of languages and their type. Let's consider two 
+			hypothetical languages, the spoken language Simian and the written only language Peel.</p>
 		
 		<p class="indent0">Here is the header block:</p>
 		
-		<p class="indent0"><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</code></p>
+		<p class="indent1"><code>SOURCELONG:PCGen Documentation</code></p>
+		<p class="indent2"><code>SOURCESHORT:P-Doc</code></p>
+		<p class="indent2"><code>SOURCEWEB:http://www.pcgen.org</code></p>
 		
-		<p class="indent0">Here the header tells us in detail where the information came from, a short name for use in cramped locations, and the
-		website of the source.</p>
+		<p class="indent0">Here the header tells us in detail where the information came from, a short name for use 
+			in cramped locations, and the website of the source.</p>
 		
-		<p class="indent0">Then comes the actual code. In order we list the language name and type.
-		Most LSTs have more options so with the exception of the name the order
-		of tags is flexible but it is best to follow conventions.
-		Tags are separated by tabs (hit the tab key on your keyboard) or
-		whitespace. Entries are on separate lines.</p>
+		<p class="indent0">Then comes the actual code. In order we list the language name and type. Most LSTs have 
+			more options so with the exception of the name the order of tags is flexible but it is best to follow 
+			conventions. Tags are separated by tabs (hit the tab key on your keyboard) or whitespace. Entries are 
+			on separate lines.</p>
 		
 		<p class="indent0">And here are the two working tags:</p>
 		
-		<table class=w67>
-			<tr>
-				<td colspan="2"><code>Simian</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>TYPE:Spoken</code></td>
-			</tr>
-		</table>
-		
-		<table class=w67>
-			<tr>
-				<td colspan="2"><code>Peel</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>TYPE:Written</code></td>
-			</tr>
-		</table>
+		<p class="indent1"><code>Simian</code></p>
+		<p class="indent2"><code>TYPE:Spoken</code></p>
+		<p class="indent1"><code>Peel</code></p>
+		<p class="indent2"><code>TYPE:Written</code></p>
 		
 		<p class="indent0">You can refer to the srdlanguages.lst for a working example.</p>
 		
@@ -274,129 +262,58 @@
 		
 		<p class="indent0">First, the header block:</p>
 		
-		<p class="indent0"><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</code></p>
+		<p class="indent1"><code>SOURCELONG:PCGen Documentation</code></p>
+		<p class="indent2"><code>SOURCESHORT:P-Doc</code></p>
+		<p class="indent2"><code>SOURCEWEB:http://www.pcgen.org</code></p>
 		
-		<p class="indent0">Then comes the actual code. In order we list the item's name, type, cost, weight, sourcepage,
-		proficiency used, crit multiplier, critical range (i.e. 1 for a 20, 2 for 19-20,
-		etc), damage, range (if ranged weapon), size, and any bonuses and special
-		abilities. Other than the name the order is flexible but it is best to follow conventions.</p>
+		<p class="indent0">Then comes the actual code. In order we list the item's name, type, cost, weight, 
+			sourcepage, proficiency used, crit multiplier, critical range (i.e. 1 for a 20, 2 for 19-20, etc), 
+			damage, range (if ranged weapon), size, and any bonuses and special abilities. Other than the name 
+			the order is flexible but it is best to follow conventions.</p>
 		
-		<p class="indent0">If you create a wholly new weapon with a
-		new proficiency, you will need to create a proficiency LST that references your
-		new weapon and then have your PCC load
-		it.</p>
+		<p class="indent0">If you create a wholly new weapon with a new proficiency, you will need to create 
+			a proficiency LST that references your new weapon and then have your PCC load it.</p>
 		
 		<p class="indent0">Here is what we end up with, separating each tag into a separate line</p>
 		
-		<table class=w67>
-			<tr>
-				<td colspan="2"><code>Sling (+1 Mighty)</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>COST:0</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>WT:0</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>PROFICIENCY:Sling</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>CRITMULT:x2</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>CRITRANGE:1</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>DAMAGE:1d4</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>RANGE:50</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>SIZE:S</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>BONUS:WEAPON|DAMAGE|STRMIN1</code></td>
-			</tr>
-		</table>
+		<p class="indent1"><code>Sling (+1 Mighty)</code></p>
+		<p class="indent2"><code>TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning</code></p>
+		<p class="indent2"><code>COST:0</code></p>
+		<p class="indent2"><code>WT:0</code></p>
+		<p class="indent2"><code>PROFICIENCY:Sling</code></p>
+		<p class="indent2"><code>CRITMULT:x2</code></p>
+		<p class="indent2"><code>CRITRANGE:1</code></p>
+		<p class="indent2"><code>DAMAGE:1d4</code></p>
+		<p class="indent2"><code>RANGE:50</code></p>
+		<p class="indent2"><code>SIZE:S</code></p>
+		<p class="indent2"><code>BONUS:WEAPON|DAMAGE|STRMIN1</code></p>
 		
-		<p class="indent0">Looking at this you might notice the source page tag is missing. Yup,
-		it's optional and since this is a &quot;home made&quot; item without a sourcebook,
-		I left it off.</p>
+		<p class="indent0">Looking at this you might notice the source page tag is missing. Yup, it's 
+			optional and since this is a &quot;home made&quot; item without a sourcebook, I left it off.</p>
 		
-		<p class="indent0">The TYPE tag is fairly easy to read, but
-		you will likely need to refer to the documentation and srdequip(something).lst
-		for examples.</p>
+		<p class="indent0">The TYPE tag is fairly easy to read, but you will likely need to refer to the 
+			documentation and srdequip(something).lst for examples.</p>
 		
-		<p class="indent0">The BONUS tag is a very, very, very feature rich tag. You will need to
-		read the docs very carefully. This particular implementation indicates that it
-		applies only to a weapon, modifies the damage dealt, and adds +1 strength damage
-		to the weapon as long as the user has a strength bonus of at least +1.
-		A mighty +2 sling would be identical except for
-		the tag</p>
+		<p class="indent0">The BONUS tag is a very, very, very feature rich tag. You will need to read the docs 
+			very carefully. This particular implementation indicates that it applies only to a weapon, modifies 
+			the damage dealt, and adds +1 strength damage to the weapon as long as the user has a strength bonus 
+			of at least +1. A mighty +2 sling would be identical except for the tag</p>
 		
-		<table class=w67>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>BONUS:WEAPON|DAMAGE|STRMIN2</code></td>
-			</tr>
-		</table>
+		<p class="indent1"><code>BONUS:WEAPON|DAMAGE|STRMIN2</code></p>
 		
 		<p class="indent0">Now lets do something a bit more and create some magical armor. Red
 		Dragon Armor will be plate +2 that provides fire resistance +5 and makes the
 		wearer immune to Red Dragon fear. We'll start by copying the plate armor from the srdequiparmorshields.lst file.</p>
 		
-		<table class=w67>
-			<tr>
-				<td colspan="2"><code>Full Plate</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>TYPE:Armor.Heavy.Suit.Standard.Metal</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>COST:1500</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>WT:50</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>ACCHECK:-6</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>MAXDEX:1</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>SOURCEPAGE:Chap.7, Armor</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>SPELLFAILURE:35</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE</code></td>
-			</tr>
-		</table>
+		<p class="indent1"><code>Full Plate</code></p>
+		<p class="indent2"><code>TYPE:Armor.Heavy.Suit.Standard.Metal</code></p>
+		<p class="indent2"><code>COST:1500</code></p>
+		<p class="indent2"><code>WT:50</code></p>
+		<p class="indent2"><code>ACCHECK:-6</code></p>
+		<p class="indent2"><code>MAXDEX:1</code></p>
+		<p class="indent2"><code>SOURCEPAGE:Chap.7, Armor</code></p>
+		<p class="indent2"><code>SPELLFAILURE:35</code></p>
+		<p class="indent2"><code>BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE</code></p>
 		
 		<p class="indent0">Looking at it you can see how its tags work and how similar it is to the weapons. Name,
 		type, cost, weight, armor check penalty, maximum dex bonus, source page, percent chance of spell failure, and the
@@ -443,11 +360,11 @@
 			</tr>
 			<tr>
 				<td class=w10></td>
-				<td class=w90><code>SAB: Fire Resistance +5</code></td>
+				<td class=w90><code>SAB:Fire Resistance +5</code></td>
 			</tr>
 			<tr>
 				<td class=w10></td>
-				<td class=w90><code>SAB: Immune to Red Dragon Fear</code></td>
+				<td class=w90><code>SAB:Immune to Red Dragon Fear</code></td>
 			</tr>
 		</table>
 		
@@ -472,57 +389,38 @@
 		set	the cost so you can use the &quot;owned wealth&quot; calculation to make sure
 		your	PCs	have as much, or as little, as you think they should.</p>
 		
-		<p class="indent0">Last come the SAB tags. SAB stands for Special Ability and reflects a text string that is
-		displayed on the character sheet. SABs have no affect on PCGen's operation. SABs
-		can be used as requirements and can perform calculations (like displaying uses
-		per level). SABs are almost, but not quite, as feature rich as BONUS. Remember
-		citizen, the docs are your friends.</p>
+		<p class="indent0">Last come the SAB tags. SAB stands for Special Ability and reflects a text string 
+			that is displayed on the character sheet. SABs have no affect on PCGen's operation. SABs can be 
+			used as requirements and can perform calculations (like displaying uses per level). SABs are almost, 
+			but not quite, as feature rich as BONUS. Remember citizen, the docs are your friends.</p>
 		
 		<h2>Proficiency LST</h2>
 		
 		<p class="indent0">For completeness I have included a proficiency.lst below with the most complicated 
-		proficiency in the basic game; the bastard sword.</p>
+			proficiency in the basic game; the bastard sword.</p>
 		
 		<p class="indent0">From your reading you should be aware that by the Martial Weapon proficiency, a 
-		person can use the sword two handed if medium sized, or 1 handed if they are a 
-		Large (or bigger) creature. Only someone who has the Exotic Weapon Proficiency: 
-		Bastard Sword can use it one handed.</p>
+			person can use the sword two handed if medium sized, or 1 handed if they are a Large (or bigger) 
+			creature. Only someone who has the Exotic Weapon Proficiency: Bastard Sword can use it one handed.</p>
 		
 		<p class="indent0">Cannibalizing the srdweaponprof.lst file we get:</p>
 		
-		<p class="indent0"><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</code></p>
+		<p class="indent1"><code>SOURCELONG:PCGen Documentation</code></p>
+		<p class="indent2"><code>SOURCESHORT:P-Doc</code></p>
+		<p class="indent2"><code>SOURCEWEB:http://www.pcgen.org</code></p>
 		
-		<table class=w67>
-			<tr>
-				<td colspan="2"><code>Sword (Bastard/Martial)</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>TYPE:Martial</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>HANDS:1IFLARGERTHANWEAPON</code></td>
-			</tr>
-		</table>
-		
-		<table class=w67>
-			<tr>
-				<td colspan="2"><code>Sword (Bastard/Exotic)</code></td>
-			</tr>
-			<tr>
-				<td class=w10></td>
-				<td class=w90><code>TYPE:Exotic</code></td>
-			</tr>
-		</table>
+		<p class="indent1"><code>Sword (Bastard/Martial)</code></p>
+		<p class="indent2"><code>TYPE:Martial</code></p>
+		<p class="indent2"><code>HANDS:1IFLARGERTHANWEAPON</code></p>
+		<p class="indent1"><code>Sword (Bastard/Exotic)</code></p>
+		<p class="indent2"><code>TYPE:Exotic</code></p>
 		
 		<p class="indent0">So you see the weapon's name, the type, and the number of hands required to use the weapon.
-		If you don't specify the number of hands, PCGen's sizing system
-		automatically fires up, assigning weapons of same or smaller size to 1 hand use,
-		and weapons sized larger than the character to 2 hand use.</p>
+			If you don't specify the number of hands, PCGen's sizing system automatically fires up, assigning weapons of 
+			same or smaller size to 1 hand use, and weapons sized larger than the character to 2 hand use.</p>
 		
-		<p class="indent0">In this case, the Martial version of the proficiency does NOT allow a medium creature to use the medium sized Bastard
-		Sword one-handed and overrides the default.</p>
+		<p class="indent0">In this case, the Martial version of the proficiency does NOT allow a medium creature to 
+			use the medium sized Bastard Sword one-handed and overrides the default.</p>
 		
 		<p class="indent0">The Exotic version follows the standard PCGen sizing system which works as the rules require.</p>
 		
@@ -555,10 +453,9 @@
 			</tr>
 		</table>
 		
-		<p class="indent0">So we have the name, type, description, a bonus of +2 to listen and spot, and sourcepage.
-		Really the name, type and description are the only things you need.
-		Some feats provide features that are not handled in PCGen because they
-		are conditional or just not addressed.</p>
+		<p class="indent0">So we have the name, type, description, a bonus of +2 to listen and spot, and sourcepage. 
+			Really the name, type and description are the only things you need. Some feats provide features that are 
+			not handled in PCGen because they are conditional or just not addressed.</p>
 		
 		<p class="indent0">We'll move on to something meatier.</p>
 		
@@ -604,19 +501,18 @@
 			</tr>
 		</table>
 		
-		<p class="indent0">A bit different, but not much. Besides the normal stuff, we see that Weapon Specialization requires the
-		character to already have the feat Weapon Focus and have a variable called
-		WeaponSpecQualify with a value of 1. We'll 
-		see WeaponSpecQualify later in the CLASS section where it will be covered in
-		more detail. It can be chosen
-		MULTiple times but only once per weapon, a feature inherent in PCGen. You CHOOSE
-		a weapon that you already have Weapon Focus and it receives a +2 to damage.</p>
+		<p class="indent0">A bit different, but not much. Besides the normal stuff, we see that Weapon 
+			Specialization requires the character to already have the feat Weapon Focus and have a variable 
+			called WeaponSpecQualify with a value of 1. We'll see WeaponSpecQualify later in the CLASS section 
+			where it will be covered in more detail. It can be chosen MULTiple times but only once per weapon, 
+			a feature inherent in PCGen. You CHOOSE a weapon that you already have Weapon Focus and it receives 
+			a +2 to damage.</p>
 		
 		<h2>Race LST</h2>
 		
-		<p class="indent0">Races are a step up the complexity list from feats. We'll first examine one
-		of the most complex standard races, at least by PCGen standards, the Elf.
-		This, and other examples, can be found in the srdracesphb.lst file.</p>
+		<p class="indent0">Races are a step up the complexity list from feats. We'll first examine one of the most 
+			complex standard races, at least by PCGen standards, the Elf. This, and other examples, can be found 
+			in the srdracesphb.lst file.</p>
 		
 		<table class=w67>
 			<tr>
@@ -697,12 +593,12 @@
 			</tr>
 		</table>
 		
-		<p class="indent0">What we find is the race name, favored class, number of starting feats, size, movement types and speeds, reach, special
-		vision types, automatic languages, the list of available bonus languages,
-		automatic weapon proficiencies, a bonus proficiency that is chosen in the race
-		window, racial adjustments to skills and stats (note the Con penalty applied as
-		a negative bonus), followed by special abilities, the creature type and source
-		page. Notice the SABs with nice, descriptive tags.</p>
+		<p class="indent0">What we find is the race name, favored class, number of starting feats, size, 
+			movement types and speeds, reach, special vision types, automatic languages, the list of available 
+			bonus languages, automatic weapon proficiencies, a bonus proficiency that is chosen in the race 
+			window, racial adjustments to skills and stats (note the Con penalty applied as a negative bonus), 
+			followed by special abilities, the creature type and source page. Notice the SABs with nice, 
+			descriptive tags.</p>
 		
 		<p class="indent0">Since SABs have no affect on PCGen, you should make sure the relevant data
 			is in the SABs. (Unless the copyright owner says not to. You'll find lots of 
@@ -714,23 +610,20 @@
 		<p class="indent0">The required entries are name, size, movement, reach, and creature type. Everything
 		else is optional and there are many, many more racial tags available for use.</p>
 		
-		<p class="indent0">Our example race will be a Silverback, a
-		strong and intelligent creature (+2 strength, +1 intelligence) but somewhat
-		inflexible (dexterity -1), they are Large creatures with a 10' reach, 60'
-		darkvision, bonuses to handle animal, diplomacy and sense motive (+2 each),
-		immune to charm spells, with a preferred class of ranger.
-		They automatically speak Simian and Common and have an elf-like list of
-		bonus languages. Like most races,
-		they only receive 1 feat at first level. Silverbacks
-		have no automatic weapon proficiencies but they do get two claw attacks doing
-		1d6 damage. Silverbacks do not
-		receive any bonus hit dice or have monster classes.</p>
+		<p class="indent0">Our example race will be a Silverback, a strong and intelligent creature (+2 strength, 
+			+1 intelligence) but somewhat inflexible (dexterity -1), they are Large creatures with a 10' reach, 
+			60' darkvision, bonuses to handle animal, diplomacy and sense motive (+2 each), immune to charm spells, 
+			with a preferred class of ranger. They automatically speak Simian and Common and have an elf-like list 
+			of bonus languages. Like most races, they only receive 1 feat at first level. Silverbacks have no automatic 
+			weapon proficiencies but they do get two claw attacks doing 1d6 damage. Silverbacks do not receive any bonus 
+			hit dice or have monster classes.</p>
 		
 		<p class="indent0">Building our race.lst file from scratch we put our standard header.</p>
 		
 		
-		<p class="indent0"><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; 
-			SOURCEWEB:http://www.pcgen.org/</code></p>
+		<p class="indent1"><code>SOURCELONG:PCGen Documentation</code></p>
+		<p class="indent2"><code>SOURCESHORT:P-Doc</code></p>
+		<p class="indent2"><code>SOURCEWEB:http://www.pcgen.org/</code></p>
 		
 		<table class=w67>
 			<tr>
@@ -1278,9 +1171,6 @@
 			</tr>
 		</table>
 		
-		
-		<p class="indent0">SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</p>
-
 <hr>
 
 		<p class="indent0">
