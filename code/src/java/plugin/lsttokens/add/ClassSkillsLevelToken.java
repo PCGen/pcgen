@@ -212,7 +212,7 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
 				cs, count);
 		// TODO This is a hack, to get this to work pre-CDOM
-		PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
+		PCClass parent = (PCClass) obj.get(ObjectKey.PARENT);
 		ClassSkillChoiceActor actor = new ClassSkillChoiceActor(parent,
 				autoRank);
 		tc.setChoiceActor(actor);
