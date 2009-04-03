@@ -59,7 +59,7 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 				PCClass pcc;
 				if (obj instanceof PCClassLevel)
 				{
-					pcc = (PCClass) obj.get(ObjectKey.PARENT);
+					pcc = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
 				}
 				else
 				{

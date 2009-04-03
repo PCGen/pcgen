@@ -51,7 +51,7 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 	{
 		if (ONE.equals(obj.get(IntegerKey.LEVEL)))
 		{
-			PCClass parent = (PCClass) obj.get(ObjectKey.PARENT);
+			PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
 			return wrappedToken.parse(context, parent, value);
 		}
 		Logging.log(Logging.LST_ERROR, "Data used token: " + value

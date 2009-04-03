@@ -172,6 +172,8 @@ public class ObjectKey<T>
 	 */
 	public static final ObjectKey<Object> PARENT = new ObjectKey<Object>(null);
 
+	public static final ObjectKey<Object> TOKEN_PARENT = new ObjectKey<Object>(null);
+
 	public static final ObjectKey<Modifier<HitDie>> HITDIE = new ObjectKey<Modifier<HitDie>>(null);
 
 	public static final ObjectKey<ChallengeRating> CHALLENGE_RATING = new ObjectKey<ChallengeRating>(ChallengeRating.ZERO);
