@@ -408,21 +408,23 @@ public final class KitGear extends BaseKit
 		}
 
 		// If the target is null, try and grab it incase it is there now
-		Equipment theTarget;
+		Equipment theTarget = null;
 		EquipSet eSet;
 		if (theLocation.length() != 0
 				&& !theLocation.equalsIgnoreCase("Equipped"))
 		{
 			theTarget = aPC.getEquipmentNamed(theLocation);
-			eSet =
-				aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"),
-					theTarget);
 			//TODO (JD 7Nov07) Resized items get missed by the above call as their name has changed 
+		}
+		if (theTarget == null)
+		{
+			eSet = aPC.getEquipSetByIdPath("0.1");
 		}
 		else
 		{
-			theTarget = null;
-			eSet = aPC.getEquipSetByIdPath("0.1");
+			eSet =
+				aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"),
+					theTarget);
 		}
 
 		//
