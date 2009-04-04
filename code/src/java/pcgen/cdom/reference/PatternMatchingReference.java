@@ -24,6 +24,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A PatternMatchingReference is a CDOMReference that matches objects based on a
@@ -239,5 +240,17 @@ public class PatternMatchingReference<T extends CDOMObject> extends
 	public int hashCode()
 	{
 		return getReferenceClass().hashCode() ^ pattern.hashCode();
+	}
+
+	/**
+	 * Returns the GroupingState for this PatternMatchingReference. The
+	 * GroupingState indicates how this PatternMatchingReference can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this PatternMatchingReference.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ANY;
 	}
 }

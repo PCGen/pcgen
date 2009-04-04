@@ -23,6 +23,7 @@ import java.util.Set;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -179,5 +180,17 @@ public class AbilityFromClassChoiceSet implements
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * Returns the GroupingState for this AbilityFromClassChoiceSet. The
+	 * GroupingState indicates how this AbilityFromClassChoiceSet can be
+	 * combined with other PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this AbilityFromClassChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ANY;
 	}
 }

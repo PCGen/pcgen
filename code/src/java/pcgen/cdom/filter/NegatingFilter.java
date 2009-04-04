@@ -18,6 +18,7 @@
 package pcgen.cdom.filter;
 
 import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -125,5 +126,17 @@ public class NegatingFilter<T> implements PrimitiveChoiceFilter<T>
 			return filter.equals(other.filter);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the GroupingState for this NegatingFilter. The GroupingState
+	 * indicates how this NegatingFilter can be combined with other
+	 * PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this NegatingFilter.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return filter.getGroupingState().negate();
 	}
 }

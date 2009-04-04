@@ -24,6 +24,7 @@ import java.util.TreeSet;
 import pcgen.cdom.base.ChoiceFilterUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -160,4 +161,20 @@ public class CompoundAndFilter<T> implements PrimitiveChoiceFilter<T>
 		return false;
 	}
 
+	/**
+	 * Returns the GroupingState for this CompoundAndFilter. The GroupingState
+	 * indicates how this CompoundAndFilter can be combined with other
+	 * PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CompoundAndFilter.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (PrimitiveChoiceFilter<T> cs : set)
+		{
+			gs = cs.getGroupingState().add(gs);
+		}
+		return gs.compound(GroupingState.ALLOWS_INTERSECTION);
+	}
 }

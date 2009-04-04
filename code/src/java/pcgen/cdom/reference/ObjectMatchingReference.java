@@ -23,6 +23,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 
 /**
@@ -261,5 +262,17 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	{
 		return getReferenceClass().hashCode() ^ key.hashCode()
 				+ (value == null ? -1 : value.hashCode());
+	}
+
+	/**
+	 * Returns the GroupingState for this ObjectMatchingReference. The
+	 * GroupingState indicates how this ObjectMatchingReference can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this ObjectMatchingReference.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ANY;
 	}
 }

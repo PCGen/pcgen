@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMTransparentTypeRef is a CDOMReference which is intended to contain a
@@ -235,5 +236,17 @@ public class CDOMTransparentTypeRef<T extends PrereqObject> extends
 	public int getObjectCount()
 	{
 		return subReference == null ? 0 : subReference.getObjectCount();
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMTransparentTypeRef. The
+	 * GroupingState indicates how this CDOMTransparentTypeRef can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMTransparentTypeRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ANY;
 	}
 }

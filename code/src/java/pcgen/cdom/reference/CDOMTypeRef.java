@@ -25,6 +25,7 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMTypeRef is a CDOMReference which is intended to contain objects of a
@@ -213,5 +214,17 @@ public final class CDOMTypeRef<T extends PrereqObject> extends CDOMGroupRef<T>
 					"Cannot ask for contained objects: Reference has not been resolved");
 		}
 		return Collections.unmodifiableList(referencedList);
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMTypeRef. The GroupingState
+	 * indicates how this CDOMTypeRef can be combined with other
+	 * PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMTypeRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ANY;
 	}
 }

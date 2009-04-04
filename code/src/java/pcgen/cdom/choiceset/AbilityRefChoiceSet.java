@@ -33,6 +33,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
@@ -337,5 +338,22 @@ public class AbilityRefChoiceSet implements
 	public Ability.Nature getNature()
 	{
 		return nature;
+	}
+
+	/**
+	 * Returns the GroupingState for this AbilityRefChoiceSet. The GroupingState
+	 * indicates how this AbilityRefChoiceSet can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this AbilityRefChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (AbilityRef ref : set)
+		{
+			gs = gs.add(ref.getGroupingState());
+		}
+		return gs;
 	}
 }

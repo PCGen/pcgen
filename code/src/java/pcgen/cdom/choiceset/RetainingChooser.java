@@ -29,10 +29,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceFilterUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceFilter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.ChoiceFilterUtilities;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PlayerCharacter;
 
@@ -230,5 +231,22 @@ public class RetainingChooser<T extends CDOMObject> implements
 					&& retainingSet.equals(other.retainingSet);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the GroupingState for this RetainingChooser. The GroupingState
+	 * indicates how this RetainingChooser can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this RetainingChooser.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (PrimitiveChoiceFilter<? super T> cs : retainingSet)
+		{
+			gs = cs.getGroupingState().add(gs);
+		}
+		return gs.compound(GroupingState.ALLOWS_UNION);
 	}
 }

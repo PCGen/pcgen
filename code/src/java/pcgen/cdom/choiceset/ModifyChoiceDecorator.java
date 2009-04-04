@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
@@ -138,4 +139,15 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 		return set.hashCode();
 	}
 
+	/**
+	 * Returns the GroupingState for this ModifyChoiceDecorator. The
+	 * GroupingState indicates how this ModifyChoiceDecorator can be combined
+	 * with other PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this ModifyChoiceDecorator.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return set.getGroupingState();
+	}
 }

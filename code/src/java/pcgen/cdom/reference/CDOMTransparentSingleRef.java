@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMTransparentSingleRef is a CDOMReference which is intended to contain a
@@ -232,5 +233,17 @@ public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 	public Collection<T> getContainedObjects()
 	{
 		return subReference.getContainedObjects();
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMTransparentSingleRef. The
+	 * GroupingState indicates how this CDOMTransparentSingleRef can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMTransparentSingleRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ALLOWS_UNION;
 	}
 }

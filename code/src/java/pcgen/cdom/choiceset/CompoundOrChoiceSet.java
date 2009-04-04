@@ -29,6 +29,7 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -154,5 +155,22 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	{
 		return (o instanceof CompoundOrChoiceSet)
 				&& ((CompoundOrChoiceSet<?>) o).set.equals(set);
+	}
+
+	/**
+	 * Returns the GroupingState for this CompoundOrChoiceSet. The GroupingState
+	 * indicates how this CompoundOrChoiceSet can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this CompoundOrChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (PrimitiveChoiceSet<T> cs : set)
+		{
+			gs = cs.getGroupingState().add(gs);
+		}
+		return gs.compound(GroupingState.ALLOWS_UNION);
 	}
 }

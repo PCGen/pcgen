@@ -19,6 +19,7 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -72,4 +73,13 @@ public interface PrimitiveChoiceSet<T>
 	 *         in an LST file.
 	 */
 	public String getLSTformat(boolean useAny);
+
+	/**
+	 * Returns the GroupingState for this PrimitiveChoiceSet. The GroupingState
+	 * indicates how this PrimitiveChoiceSet can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this PrimitiveChoiceSet.
+	 */
+	public GroupingState getGroupingState();
 }

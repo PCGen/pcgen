@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMTransparentAllRef is a CDOMReference which is intended to contain a
@@ -221,5 +222,17 @@ public class CDOMTransparentAllRef<T extends PrereqObject> extends
 	public int getObjectCount()
 	{
 		return subReference == null ? 0 : subReference.getObjectCount();
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMTransparentAllRef. The
+	 * GroupingState indicates how this CDOMTransparentAllRef can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMTransparentAllRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ALLOWS_NONE;
 	}
 }

@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
@@ -147,4 +148,15 @@ public class QualifiedDecorator<T extends PObject> implements
 		return 1 - set.hashCode();
 	}
 
+	/**
+	 * Returns the GroupingState for this QualifiedDecorator. The GroupingState
+	 * indicates how this QualifiedDecorator can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this QualifiedDecorator.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return set.getGroupingState();
+	}
 }

@@ -24,6 +24,7 @@ import java.util.List;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMAllRef is a CDOMReference which is intended to contain all objects of
@@ -192,5 +193,17 @@ public final class CDOMAllRef<T extends PrereqObject> extends CDOMGroupRef<T>
 	public Collection<T> getContainedObjects()
 	{
 		return Collections.unmodifiableList(referencedList);
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMAllRef. The GroupingState
+	 * indicates how this CDOMAllRef can be combined with other
+	 * PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMAllRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ALLOWS_NONE;
 	}
 }

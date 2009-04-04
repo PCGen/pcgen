@@ -30,6 +30,7 @@ import java.util.TreeSet;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -191,5 +192,22 @@ public class ClassReferenceChoiceSet implements PrimitiveChoiceSet<PCClass>
 			return set.equals(other.set);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the GroupingState for this ClassReferenceChoiceSet. The
+	 * GroupingState indicates how this ClassReferenceChoiceSet can be combined
+	 * with other PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this ClassReferenceChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (CDOMReference<? extends PCClass> ref : set)
+		{
+			gs = gs.add(ref.getGroupingState());
+		}
+		return gs.compound(GroupingState.ALLOWS_UNION);
 	}
 }

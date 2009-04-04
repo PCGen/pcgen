@@ -18,6 +18,7 @@
 package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.Ability;
 
 /**
@@ -125,4 +126,14 @@ public class AbilityRef
 		return 3 - abilities.hashCode();
 	}
 
+	/**
+	 * Returns the GroupingState for this AbilityRef. The GroupingState
+	 * indicates how this AbilityRef can be combined with other AbilityRefs.
+	 * 
+	 * @return The GroupingState for this AbilityRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return abilities.getGroupingState();
+	}
 }

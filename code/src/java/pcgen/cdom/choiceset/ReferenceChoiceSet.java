@@ -31,6 +31,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PlayerCharacter;
 
@@ -187,5 +188,22 @@ public class ReferenceChoiceSet<T extends PrereqObject> implements
 			return set.equals(other.set);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the GroupingState for this ReferenceChoiceSet. The GroupingState
+	 * indicates how this ReferenceChoiceSet can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this ReferenceChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (CDOMReference<T> ref : set)
+		{
+			gs = ref.getGroupingState().add(gs);
+		}
+		return gs.compound(GroupingState.ALLOWS_UNION);
 	}
 }

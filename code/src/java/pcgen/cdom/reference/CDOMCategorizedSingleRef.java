@@ -22,6 +22,7 @@ import java.util.Collections;
 
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMCategorizedSingleRef is a CDOMReference which is intended to contain a
@@ -254,5 +255,17 @@ public class CDOMCategorizedSingleRef<T extends CategorizedCDOMObject<T>>
 	public Collection<T> getContainedObjects()
 	{
 		return Collections.singleton(referencedObject);
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMCategorizedSingleRef. The
+	 * GroupingState indicates how this CDOMCategorizedSingleRef can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMCategorizedSingleRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ALLOWS_UNION;
 	}
 }

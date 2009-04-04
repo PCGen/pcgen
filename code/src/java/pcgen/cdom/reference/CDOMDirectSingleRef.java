@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMDirectSingleRef is a CDOMReference to an object known at construction
@@ -175,5 +176,17 @@ public class CDOMDirectSingleRef<T extends CDOMObject> extends CDOMSingleRef<T>
 	public static <R extends CDOMObject> CDOMDirectSingleRef<R> getRef(R obj)
 	{
 		return new CDOMDirectSingleRef<R>(obj);
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMDirectSingleRef. The GroupingState
+	 * indicates how this CDOMDirectSingleRef can be combined with other
+	 * PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMDirectSingleRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ALLOWS_UNION;
 	}
 }

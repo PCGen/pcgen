@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.base;
 
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -70,4 +71,12 @@ public interface PrimitiveChoiceFilter<T>
 	 */
 	public String getLSTformat();
 
+	/**
+	 * Returns the GroupingState for this PrimitiveChoiceFilter. The
+	 * GroupingState indicates how this PrimitiveChoiceFilter can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this PrimitiveChoiceFilter.
+	 */
+	public GroupingState getGroupingState();
 }

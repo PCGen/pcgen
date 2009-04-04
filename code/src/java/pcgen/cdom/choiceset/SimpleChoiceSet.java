@@ -30,6 +30,7 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -163,5 +164,17 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements
 			return set.equals(other.set);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the GroupingState for this SimpleChoiceSet. The GroupingState
+	 * indicates how this SimpleChoiceSet can be combined with other
+	 * PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this SimpleChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ANY;
 	}
 }

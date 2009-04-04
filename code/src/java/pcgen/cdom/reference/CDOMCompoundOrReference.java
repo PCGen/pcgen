@@ -25,6 +25,7 @@ import java.util.Set;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMCompoundOrReference is a CDOMReference which is intended to contain one
@@ -214,5 +215,22 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 			set.addAll(ref.getContainedObjects());
 		}
 		return set;
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMCompoundOrReference. The
+	 * GroupingState indicates how this CDOMCompoundOrReference can be combined
+	 * with other PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMCompoundOrReference.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (CDOMReference<T> ref : references)
+		{
+			gs = gs.add(ref.getGroupingState());
+		}
+		return gs.compound(GroupingState.ALLOWS_UNION);
 	}
 }

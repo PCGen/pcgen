@@ -32,6 +32,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
@@ -72,6 +73,12 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		public Set<PCClass> getSet(PlayerCharacter pc)
 		{
 			return Collections.emptySet();
+		}
+
+		public GroupingState getGroupingState()
+		{
+			// CONSIDER throwing something here, never should be called?
+			return GroupingState.ANY;
 		}
 	};
 
@@ -312,5 +319,30 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 			return primitives.equals(other.primitives);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the GroupingState for this SpellCasterChoiceSet. The
+	 * GroupingState indicates how this SpellCasterChoiceSet can be combined
+	 * with other PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this SpellCasterChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		if (primitives != null)
+		{
+			gs = primitives.getGroupingState().add(gs);
+		}
+		if (pcset != null)
+		{
+			gs = pcset.getGroupingState().add(gs);
+		}
+		if (!spelltypes.isEmpty())
+		{
+			gs = GroupingState.ANY.add(gs);
+		}
+		return gs;
 	}
 }

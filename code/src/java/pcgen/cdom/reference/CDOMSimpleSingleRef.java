@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMSimpleSingleRef is a CDOMReference which is intended to contain a
@@ -211,5 +212,17 @@ public class CDOMSimpleSingleRef<T extends PrereqObject> extends
 	public Collection<T> getContainedObjects()
 	{
 		return Collections.singleton(referencedObject);
+	}
+
+	/**
+	 * Returns the GroupingState for this CDOMSimpleSingleRef. The GroupingState
+	 * indicates how this CDOMSimpleSingleRef can be combined with other
+	 * PrimitiveChoiceFilters.
+	 * 
+	 * @return The GroupingState for this CDOMSimpleSingleRef.
+	 */
+	public GroupingState getGroupingState()
+	{
+		return GroupingState.ALLOWS_UNION;
 	}
 }

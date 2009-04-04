@@ -28,6 +28,7 @@ import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PlayerCharacter;
@@ -216,6 +217,23 @@ public class SpellReferenceChoiceSet implements
 			return set.equals(other.set);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the GroupingState for this SpellReferenceChoiceSet. The
+	 * GroupingState indicates how this SpellReferenceChoiceSet can be combined
+	 * with other PrimitiveChoiceSets.
+	 * 
+	 * @return The GroupingState for this SpellReferenceChoiceSet.
+	 */
+	public GroupingState getGroupingState()
+	{
+		GroupingState gs = GroupingState.EMPTY;
+		for (CDOMReference<? extends CDOMListObject<Spell>> ref : set)
+		{
+			gs = gs.add(ref.getGroupingState());
+		}
+		return gs;
 	}
 
 }
