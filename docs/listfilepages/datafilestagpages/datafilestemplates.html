@@ -58,9 +58,9 @@
 			when the template is removed.</li>
 		<li>These levels will be added regardless of whether or not the character qualifies for the 
 			class in question.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			included as if it were a separate tag by the new <code>ADDLEVEL</code> tag if one is included 
-			in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>ADDLEVEL</code> 
+			tag, the data included in a new <code>ADDLEVEL</code> tag will be included as if it were a separate 
+			tag.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADDLEVEL:Animal|6</code></p>
@@ -70,7 +70,7 @@
 	<p class="indent2">Initial Template: <code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2</code>
 	<p class="indent2">Modified By: <code>Werewolf.MOD &lt;tab&gt; ADDLEVEL:Animal|1</code></p>
 	<p class="indent2">Is Equivalent To: <code>Werewolf &lt;tab&gt; ADDLEVEL:Animal|2 &lt;tab&gt; ADDLEVEL:Animal|1</code>.</p>
-	<p class="indent4">The werewolf gains three levels in the class &quot;Animal&quot;.</p>
+	<p class="indent3">The werewolf gains three levels in the class &quot;Animal&quot;.</p>
 	<p></p>
 
 <hr>
@@ -82,8 +82,8 @@
 		<li>The numeric value provided will be multiplied by 4 at first level and granted to the character 
 			as the beginning skill points while subsequent levels will be granted only the numeric value 
 			as additional skill points.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>BONUSSKILLPOINTS</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>BONUSSKILLPOINTS</code> 
+			tag, the data included in a new <code>BONUSSKILLPOINTS</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUSSKILLPOINTS:2</code></p>
@@ -92,7 +92,7 @@
 	<p class="indent2">Initial Template: <code>Sentient Construct &lt;tab&gt; BONUSSKILLPOINTS:2</code>
 	<p class="indent2">Modified By: <code>Sentience Construct.MOD &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
 	<p class="indent2">Results In: <code>Sentient Construct &lt;tab&gt; BONUSSKILLPOINTS:3</code></p>
-	<p class="indent4">Twelve skill points are granted at first level with three being granted at 
+	<p class="indent3">Twelve skill points are granted at first level with three being granted at 
 		all subsequent levels.</p>
 	<p></p>
 
@@ -127,7 +127,7 @@
 	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; CHOOSE:LANGAUTO:Abyssal|Infernal</code>
 	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; CHOOSE:LANGAUTO:Ignan|Undercommon</code></p>
 	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; CHOOSE:LANGAUTO:Undercommon</code></p>
-	<p class="indent4">Darklings are allowed to choose either &quot;Ignan&quot; or &quot;Undercommon&quot; as an
+	<p class="indent3">Darklings are allowed to choose either &quot;Ignan&quot; or &quot;Undercommon&quot; as an
 		automatic language.</p>
 	<p></p>
 
@@ -138,8 +138,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This is the amount the characters challenge rating is increased by this template.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>CR</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>CR</code> 
+			tag, the data included in a new <code>CR</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CR:2</code></p>
@@ -150,7 +150,7 @@
 	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; CR:2</code>
 	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; CR:3</code></p>
 	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; CR:3</code></p>
-	<p class="indent4">Darklings have a &quot;challenge rating&quot; of &quot;3&quot;.</p>
+	<p class="indent3">Darklings have a &quot;challenge rating&quot; of &quot;3&quot;.</p>
 	<p></p>
 
 <hr>
@@ -162,8 +162,8 @@
 	<ul class="indent2">
 		<li>Describes how much space the creature takes up.</li>
 		<li>If only one number is used it is assumed to represent all sides.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>FACE</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>FACE</code> 
+			tag, the data included in a new <code>FACE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1">NOTE: For 3.0 rules this tag is used for the Face statistic. For 3.5 rules this tag is used 
 		for the Space statistic.</p>
@@ -178,7 +178,7 @@
 	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; FACE:10,5</code>
 	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; FACE:10</code></p>
 	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; FACE:10</code></p>
-	<p class="indent4">Darklings have a &quot;face/space&quot; of &quot;10&quot;.</p>
+	<p class="indent3">Darklings have a &quot;face/space&quot; of &quot;10&quot;.</p>
 	<p></p>
 
 <hr>
@@ -195,8 +195,8 @@
 		<li>More than one class may be included as a pipe-delimited (|) list with all listed classes identified as &quot;Favored&quot;.</li>
 		<li>Special type 'ANY' will grant the character's highest level class as Favored.</li>
 		<li>When 'ANY' is used no other class is allowed.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>FAVOREDCLASS</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>FAVOREDCLASS</code> 
+			tag, the data included in a new <code>FAVOREDCLASS</code> tag will be appended to the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FAVOREDCLASS:Wizard|Fighter</code></p>
@@ -210,8 +210,9 @@
 	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; FAVOREDCLASS:Sorcerer</code>
 	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; FAVOREDCLASS:Wizard.Necromancer</code></p>
-	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; FAVOREDCLASS:Wizard.Necromancer</code></p>
-	<p class="indent4">Darkling's &quot;favored class&quot; is the &quot;Wizard&quot; sub-class, the &quot;Necromancer&quot;.</p>
+	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; FAVOREDCLASS:Sorcerer|Wizard.Necromancer</code></p>
+	<p class="indent3">Darkling's &quot;favored class&quot; is the &qquot;Sorcerer&quot; and the &quot;Wizard&quot; sub-class, 
+		the &quot;Necromancer&quot;.</p>
 	<p></p>
 
 <hr>
@@ -241,17 +242,17 @@
 		<li>Sets the character's gender and disables the ability to change it.</li>
 		<li>Gender values are defined in Game Mode File &gt; Bio Settings &gt; 
 			<a href="../../listfilepages/systemfilestagpages/systemfilesbiosettingslist.html#SEX">SEX</a> tag.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>GENDERLOCK</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>GENDERLOCK</code> 
+			tag, the data included in a new <code>GENDERLOCK</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>GENDERLOCK:Female</code></p>
 	<p class="indent3">The characters gender is set to and locked as &quot;Female&quot;.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
-	<p class="indent2">Initial Template: <code>Darkling Sorcerer&lt;tab&gt; GENDERLOCK:Female</code>
+	<p class="indent2">Initial Template: <code>Darkling Sorcerer &lt;tab&gt; GENDERLOCK:Female</code>
 	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; GENDERLOCK:Male</code></p>
 	<p class="indent2">Is Equivalent To: <code>Darkling Sorcerer &lt;tab&gt; GENDERLOCK:Male</code></p>
-	<p class="indent4">The Darkling Sorcerer's gender is set to &quot;Male&quot; and the ability to change 
+	<p class="indent3">The Darkling Sorcerer's gender is set to &quot;Male&quot; and the ability to change 
 		it is disabled.</p>
 	<p></p>
 
@@ -262,18 +263,17 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Determines the number of hands the creature has for purposes of multiattacks and multidexterity.</p>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>HANDS</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>HANDS</code> 
+			tag, the data included in a new <code>HANDS</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HANDS:4</code></p>
 	<p class="indent3">The creature has four hands.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
-	<p class="indent2">Initial Template: <code>Darkling Sorcerer&lt;tab&gt; GENDERLOCK:Female</code>
-	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; GENDERLOCK:Male</code></p>
-	<p class="indent2">Is Equivalent To: <code>Darkling Sorcerer &lt;tab&gt; GENDERLOCK:Male</code></p>
-	<p class="indent4">The Darkling Sorcerer's gender is set to &quot;Male&quot; and the ability to change 
-		it is disabled.</p>
+	<p class="indent2">Initial Template: <code>Darkling Sorcerer &lt;tab&gt; HANDS:2</code>
+	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; HANDS:4</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling Sorcerer &lt;tab&gt; HANDS:4</code></p>
+	<p class="indent3">The Darkling Sorcerer's number of hands is set to &quot;4&quot;.</p>
 	<p></p>
 
 <hr>
@@ -288,8 +288,8 @@
 		<li>The numeric values supplied are a range (1-3) or minimum (4+) hit dice the character must have
 			before an ability is granted to the character.</li>
 		<li>This is Natural Hit Dice, not character level.</li>
-		<li>The ability of these tags have been enhanced so that they can call any global tag.<br />
-		<li>The text may contain the following tags:<br />
+		<li>The ability of these tags have been enhanced so that they can call any global tag.</li>
+		<li>The text may contain the following tags:
 		<ul>
 			<li>CR - <a href="#CR">Challenge Rating</a></li>
 			<li>DR - <a href="../globalfilestagpages/globalfilesother.html#DR">Damage Reduction</a></li>
@@ -299,7 +299,9 @@
 			<li>Any valid Template or Global Token which can accept trailing PRE tags can also be used</li>
 		</ul>
 		</li>
-		<li>This may appear more than once in a template.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>HD</code> 
+			tag, the data included in a new <code>HD</code> tag will be included as if it were a separate 
+			tag.</li>
 	</ul>
  	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>HD:1-3:DR:5/1</code></p>
@@ -315,6 +317,14 @@
 	<p class="indent2"><code>HD:10+:FEAT:Alertness</code></p>
 	<p class="indent3">Grants the &quot;Alertness&quot; feat if natural hit dice is greater
 		than ten.</p>
+	
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Werewolf &lt;tab&gt; HD:1-3:DR:5/1</code>
+	<p class="indent2">Modified By: <code>Werewolf.MOD &lt;tab&gt; HD:2-7:CR:2</code></p>
+	<p class="indent2">Is Equivalent To: <code>Werewolf &lt;tab&gt; HD:1-3:DR:5/1 &lt;tab&gt; HD:2-7:CR:2</code>.</p>
+	<p class="indent3">The werewolf gains Damage Reduction of &quot;5/1&quot; if natural hit dice is between 
+		one and three, and is granted and increase in Challenge Rating of two if natural hit dice is between 
+		two and seven.</p>
 	<p></p>
 
 <hr>
@@ -349,8 +359,8 @@
 		<li>Regardless of the number specified (x), the new hit die sizw will never drop below &quot;1&quot;.</li>
 		<li><code>HITDIE</code> can be qualified with a Class or Class type in which case it will only be applied 
 			to the matching classes.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>HITDIE</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>HITDIE</code> 
+			tag, the data included in a new <code>HITDIE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HITDIE:12</code></p>
@@ -376,6 +386,11 @@
 	<p class="indent3">Steps down the Hit Dice size by three steps. If the class has a Hit Die of d6 it will be stepped down to d2.</p>
 	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; HITDIE:8</code></p>
 	<p class="indent3">The character now has a Hit Die of 8.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling Sorcerer &lt;tab&gt; HITDIE:6</code>
+	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; HITDIE:8</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling Sorcerer &lt;tab&gt; HITDIE:8</code></p>
+	<p class="indent3">The Darkling Sorcerer's Hit Die is now &quot;8&quot;.</p>
 	<p></p>
 
 <hr>
@@ -395,16 +410,24 @@
 	<p class="indent0"><strong><a name="LANGBONUS">Tag Name:</a></strong> LANGBONUS:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Language Type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text ('ALL')</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a comma (,) delimited list of the languages a character can
-		choose from based upon their Intelligence stat</p>
-	<p class="indent2">When using 'ALL', no other language designation is necessary.</p>
+	<ul class="indent2">
+		<li>This is a comma-delimited (,) list of the languages a character can choose from based upon their Intelligence stat</li>
+		<li>When using 'ALL', no other language designation is necessary.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>LANGBONUS</code> 
+			tag, the data included in a new <code>LANFBONUS</code> tag will be appended to the existing tag data.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LANGBONUS:TYPE=Spoken,Draconic</code></p>
 	<p class="indent3">Add all &quot;Spoken&quot; type languages &amp; &quot;Draconic&quot;
 		to the list of languages that can be taken when creating a character.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Space Monkey &lt;tab&gt; LANGBONUS:Simian</code>
+	<p class="indent2">Modified By: <code>Space Monkey.MOD &lt;tab&gt; LANGBONUS:Gooey</code></p>
+	<p class="indent2">Is Equivalent To: <code>Space Monkey &lt;tab&gt; LANGBONUS:Simian,Gooey</code>.</p>
+	<p class="indent3">The character is granted the race types &quot;Simian&quot; and &quot;Gooey&quot;.</p>
 	<p></p>
 
 <hr>
@@ -415,8 +438,8 @@
 	<ul class="indent2">
 		<li>Used to determine encumbrance and carrying capacity for creatures/characters with a 
 			nonstandard number of legs. (i.e. more than/less than 2).</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>LEGS</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>LEGS</code> 
+			tag, the data included in a new <code>LEGS</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>LEGS:4</code></p>
@@ -425,6 +448,11 @@
 	<p class="indent3">Slime and ooze creatures/characters would have no legs!</p>
 	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; LEGS:8</code></p>
 	<p class="indent3">The creature has eight legs.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Odin's Blessing &lt;tab&gt; LEGS:8</code>
+	<p class="indent2">Modified By: <code>Odin's Blessing.MOD &lt;tab&gt; LEGS:6</code></p>
+	<p class="indent2">Is Equivalent To: <code>Odin's Blessing &lt;tab&gt; LEGS:6</code></p>
+	<p class="indent3">The recipient of this template now has &quot;6&quot; legs.</p>
 	<p></p>
 
 <hr>
@@ -453,6 +481,9 @@
 		</li>
 		<li>This may appear more than once in a template.</li>
 		<li>Feats added by this tag are considered automatic feats and do not count against a PC's feat pool.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>LEVEL</code> 
+			tag, the data included in a new <code>LEVEL</code> tag will be included as if it were a separate 
+			tag.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>LEVEL:1:DR:5/+1</code></p>
@@ -471,6 +502,13 @@
 	<p class="indent3">Produces a popup menu at Level 6 from which a PC can choose a fighter feat.</p>
 	<p class="indent2"><code>LEVEL:6:ABILITY:FEAT|AUTOMATIC|Empower Spell</code></p>
 	<p class="indent3">Grants the &quot;Empower Spell&quot; feat as an automatic feat at Level 6.</p>
+	
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Werewolf &lt;tab&gt; LEVEL:1:DR:5/1</code>
+	<p class="indent2">Modified By: <code>Werewolf.MOD &lt;tab&gt; LEVEL:2-7:CR:2</code></p>
+	<p class="indent2">Is Equivalent To: <code>Werewolf &lt;tab&gt; HD:1:DR:5/1 &lt;tab&gt; HD:2:CR:2</code>.</p>
+	<p class="indent3">The werewolf gains Damage Reduction of &quot;5/1&quot; at Level 1 and is granted an 
+		increase in Challenge Rating of two at Level 2.</p>
 	<p></p>
 
 <hr>
@@ -486,14 +524,19 @@
 			level. For example, a 1st level character with a Level adjustment of 3 would need the same 
 			amount of experience to reach 2nd level as a 4th level character with no level adjustments 
 			would need to reach 5th level.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>LEVELADJUSTMENT</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>LEVELADJUSTMENT</code> 
+			tag, the data included in a new <code>LEVELADJUSTMENT</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>
 	<p class="indent3">Effective Character Level is raised by one.</p>
 	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; LEVELADJUSTMENT:3</code></p>
 	<p class="indent3">The character's ECL is raised by three.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; LEVELADJUSTMENT:2</code>
+	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; LEVELADJUSTMENT:4</code></p>
+	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; LEVELADJUSTMENT:4</code></p>
+	<p class="indent3">The Darkling's Effective Character Level (ECL) is raised by &quot;4&quot;.</p>
 	<p></p>
 
 <hr>
@@ -504,8 +547,8 @@
 	<ul class="indent2">
 		<li>Sets he character's penalty for non proficiency in a weapon to the number specified.</li>
 		<li>The number specified must be less-than or equal to zero (0).</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>NONPP</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>NONPP</code> 
+			tag, the data included in a new <code>NONPP</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>NONPP:-2</code></p>
@@ -524,10 +567,11 @@
 	<ul class="indent2">
 		<li>Adds or removes additional Subtypes to the creature.</li>
 		<li>Initial Subtypes are defined by the <a href="datafilesraces.html#RACESUBTYPE">RACESUBTYPE</a> race tag.</li>
-		<li>Examples include:<br />
-			Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar,
+		<li>Examples include: Air, Angel, Aquatic, Archon, Augmented, Chaotic, Cold, Earth, Evil, Extraplanar,
 			Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water
 			as well as Humaniod subraces such as Elf, Orc, Dwarf, etc..</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>RACESUBTYPE</code> 
+			tag, the data included in a new <code>RACESUBTYPE</code> tag will be appended to the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACESUBTYPE:Lawful|Air</code></p>
@@ -536,6 +580,11 @@
 	<p class="indent3">Removes the &quot;Evil&quot; subtype.</p>
 	<p class="indent2"><code>RACESUBTYPE:.REMOVE.Extraplanar|Native</code></p>
 	<p class="indent3">Removes the &quot;Extraplanar&quot; subtype and adds &quot;Native&quot; subtype.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Ooze Monkey &lt;tab&gt; RACESUBTYPE:Simian</code>
+	<p class="indent2">Modified By: <code>Ooze Monkey.MOD &lt;tab&gt; RACESUBTYPE:Gooey</code></p>
+	<p class="indent2">Is Equivalent To: <code>Ooze Monkey &lt;tab&gt; RACESUBTYPE:Simian|Gooey</code>.</p>
+	<p class="indent3">The character is granted the race types &quot;Simian&quot; and &quot;Gooey&quot;.</p>
 	<p></p>
 
 <hr>
@@ -552,8 +601,8 @@
 			Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid,
 			Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and
 			Vermin</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>RACETYPE</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>RACETYPE</code> 
+			tag, the data included in a new <code>RACETYPE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACETYPE:Undead</code></p>
@@ -569,8 +618,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Changes the creature reach.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>REACH</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>REACH</code> 
+			tag, the data included in a new <code>REACH</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REACH:10</code></p>
@@ -589,8 +638,8 @@
 		<li>This sets the name of the region the character is from, the default is none.</li>
 		<li>If &quot;YES&quot; is specified it will place the name of the template in parenthesis after
 			the race on character sheet output.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>REGION</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>REGION</code> 
+			tag, the data included in a new <code>REGION</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REGION:Timbuktu</code></p>
@@ -606,8 +655,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This denotes whether a character can remove a template once it is chosen.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>REMOVABLE</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>REMOVABLE</code> 
+			tag, the data included in a new <code>REMOVABLE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REMOVABLE:NO</code></p>
@@ -642,6 +691,9 @@
 		<li>&quot;z&quot; specifies the tag which provides the benefit granted by the REPEATELEVEL tag.</li>
 		<li>Valid tags to be used as part o the REPEATELEVEL tag are: <code>SR</code>, <code>SAB</code>, <code>DR</code>, 
 			<code>CR</code>, and <code>FEAT</code>, each with its own suntax and parameter requirements.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>REPEATLEVEL</code> 
+			tag, the data included in a new <code>REPEATLEVEL</code> tag will be included as if it were a separate 
+			tag.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code> &lt;Template Name&gt; &lt;tab&gt; REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat)</code></p>
@@ -652,8 +704,14 @@
 	<p class="indent3">Would add &quot;ABonusFeat&quot; at levels 2, 4, 6, 8,... up to level 20.</p>
 	<p class="indent2"><code>Drow Male &lt;tab&gt; REPEATLEVEL:1|0|10:1:FEAT(AWizardFeat) &lt;tab&gt; PRERACE:Elf (Drow) &lt;tab&gt; SUBRACE:Male &lt;tab&gt; GENDERLOCK:Male</code></p>
 	<p class="indent3">Would add &quot;AWizardFeat&quot; at levels 1, 2, 3, 5, 6, 7, 9, and 10.</p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">On Template Lines.</p>
+	
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Advanced Werewolf &lt;tab&gt; REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat)</code>
+	<p class="indent2">Modified By: <code>Advanced Werewolf.MOD &lt;tab&gt; REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)</code></p>
+	<p class="indent2">Is Equivalent To: <code>Advanced Werewolf &lt;tab&gt; REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat) <br />
+		&lt;tab&gt; REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)</code>.</p>
+	<p class="indent3">The Advanced Werewolf gains a bonus feat at levels 2, 4, 5, 6, 8, 12, 14, 15, 16, and 18, 
+		and gains two bonus feats at levels 10 and 20.</p>
 	<p></p>
 
 <hr>
@@ -669,8 +727,8 @@
 			GameMode file. (See Game Mode File &gt; Size Adjustment &gt; 
 			<a href="../../listfilepages/systemfilestagpages/systemfilessizeadjustment.html#SIZENAME">SIZENAME TAG</a>)</li>
 		<li>Note that if a value outside this range is used the result is undefined.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>SIZE</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>SIZE</code> 
+			tag, the data included in a new <code>SIZE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SIZE:M</code></p>
@@ -685,34 +743,48 @@
 <hr>
 
 	<p class="indent0"><strong><a name="SUBRACE">Tag Name:</a></strong> SUBRACE:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Subrace name
-		or &quot;Yes&quot;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Subrace Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This sets the name of the sub race the character is, the default is none.</li>
-		<li>If Yes is specified then it will place the name of the template in parenthesis
+		<li>If &quot;YES&quot; is specified then it will place the name of the template in parenthesis
 			after the race on character sheet output.</li>
-		<li>SUBRACE should only be used once in a template line.</li>
+		<li><code>SUBRACE</code> should only be used once in a template line.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>SUBRACE</code> 
+			tag, the data included in a new <code>SUBRACE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SUBRACE:Monkey Ooze</code></p>
 	<p class="indent3">The character is part of the &quot;Monkey Ooze&quot; sub race.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Ooze Monkey &lt;tab&gt; SUBRACE:Monkey Ooze</code>
+	<p class="indent2">Modified By: <code>Ooze Monkey.MOD &lt;tab&gt; SUBRACE:Tropical</code></p>
+	<p class="indent2">Is Equivalent To: <code>Ooze Monkey &lt;tab&gt; SUBRACE:Monkey Ooze|Tropical</code>.</p>
+	<p class="indent3">The Ooze Monkey is granted both the &quot;Monkey Ooze&quot; and &quot;Tropical&quot; sub-races.</p>
 	<p></p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="SUBREGION">Tag Name:</a></strong> SUBREGION:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Sub region name
-		or &quot;Yes&quot;)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Sub-Region Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> YES</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This sets the name of the sub region the character is from, the default is none.</li>
-		<li>If Yes is specified then it will place the name of the template in parenthesis
+		<li>This sets the name of the sub-region the character is from. The default sub-region is none.</li>
+		<li>If &quot;YES&quot; is specified then it will place the name of the template in parenthesis
 			after the region on character sheet output.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>SUBREGION</code> 
+			tag, the data included in a new <code>SUBREGION</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SUBREGION:South Side</code></p>
 	<p class="indent3">The character is from the &quot;South Side&quot; subregion.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>South Philly &lt;tab&gt; SUBREGION:South Side</code>
+	<p class="indent2">Modified By: <code>South Philly.MOD &lt;tab&gt; SUBREGION:Philadelphia</code></p>
+	<p class="indent2">Is Equivalent To: <code>South Philly &lt;tab&gt; SUBREGION:South Side|Philadelphia</code>.</p>
+	<p class="indent3">The character is designated as being from the &quot;South Side&quot; of &quot;Philadelphia&quot;.</p>
 	<p></p>
 
 <hr>
@@ -772,8 +844,8 @@
 		<li><code>NO</code> - Hides the Template name in PCGen and on export to a character sheet.</li>
 		<li><code>DISPLAY</code> - Displays the Template name in PCGen but not on the character sheet.</li>
 		<li><code>EXPORT</code> - Hides the Template name from PCGen but displays it on the character sheet.</li>
-		<li>When modifying a template with the <code>.MOD</code> tag, the data included in this tag will be 
-			overwritten by the new <code>VISIBLE</code> tag if one is included in the modification.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>VISIBLE</code> 
+			tag, the data included in a new <code>VISIBLE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>VISIBLE:YES</code></p>
@@ -789,13 +861,25 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon Type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a | (pipe) delimited list of weapons or weapon types that are granted to the race as
-		a choice of ONE of the listed weapons.</p>
+	<ul class="indent2">
+		<li>This is a pipe-delimited (|) list of weapons or weapon types that are granted to the race as
+		a choice of ONE of the listed weapons.</li>
+		<li>When modifying a template, with the <code>.MOD</code> tag, given an existing <code>WEAPONBONUS</code> 
+			tag, the data included in a new <code>WEAPONBONUS</code> tag will be appended to the existing tag data.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>WEAPONBONUS:Rapier|Longbow</code></p>
 	<p class="indent3">The race receives bonus proficiency in &quot;Rapier&quot; or &quot;Longbow&quot;.</p>
 	<p class="indent2"><code>WEAPONBONUS:TYPE.Simple</code></p>
 	<p class="indent3">The race receives bonus proficiency in any one Simple weapon.</p>
+	
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Template: <code>Grunt &lt;tab&gt; WEAPONBONUS:TYPE.Simple</code>
+	<p class="indent2">Modified By: <code>Grunt.MOD &lt;tab&gt; WEAPONBONUS:TYPE.Martial</code></p>
+	<p class="indent2">Is Equivalent To: <code>Grunt &lt;tab&gt; WEAPONBONUS:TYPE.Simple|TYPE.Martial</code>.</p>
+	<p class="indent3">The Grunt may choose between Simple and Martial weapons for a singls bonus 
+		weapon proficiency.</p>
+	<p></p>
 
 <hr>
 
