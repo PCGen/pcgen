@@ -25,6 +25,7 @@ ABILITYCATEGORY:@/d20ogl/srd/basics/srd_ability_categories_core.lst
 
 ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst
 ABILITY:@/d20ogl/srd/basics/srd_ability_monster.lst
+ABILITY:@/d20ogl/srd/basics/srd_ability_misc.lst
 
 CLASS:@/d20ogl/srd/basics/srd_classes_base.lst
 CLASS:@/d20ogl/srd/basics/srd_classes_creature_types.lst
