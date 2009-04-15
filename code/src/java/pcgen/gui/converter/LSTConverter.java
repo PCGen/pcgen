@@ -138,6 +138,11 @@ public class LSTConverter extends Observable
 				written.add(uri);
 				File in = new File(uri);
 				File base = findSubRoot(rootDir, in);
+				if (base == null)
+				{
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " as it is not in the selected source directory.");
+					continue;
+				}
 				String relative = in.toString().substring(
 						base.toString().length() + 1);
 				File outFile = new File(outDir, File.separator + relative);
