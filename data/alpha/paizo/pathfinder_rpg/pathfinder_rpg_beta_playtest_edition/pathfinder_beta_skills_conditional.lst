@@ -19,9 +19,14 @@ Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	ACHECK:
 
 ###Block: Skill .MODs
 # Skill Name	Bonus to skill rank
-Acrobatics.MOD	BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("RANK","Acrobatics")|PREVARNEQ:skillinfo("MODIFIER","Acrobatics (Jump)"),skillinfo("MODIFIER","Acrobatics")
-Appraise.MOD	BONUS:SKILLRANK|Appraise (Identify Magic Item)|skillinfo("RANK","Appraise")|PREVARNEQ:skillinfo("MODIFIER","Appraise (Identify Magic Item)"),skillinfo("MODIFIER","Appraise")
-Spellcraft.MOD	BONUS:SKILLRANK|Spellcraft (Cast defensively)|skillinfo("RANK","Spellcraft")|PREVARNEQ:skillinfo("MODIFIER","Spellcraft (Cast defensively)"),skillinfo("MODIFIER","Spellcraft")
-Perception.MOD	BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Notice unusual stonework)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Sight)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Sight)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Smell)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Smell)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Sound)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Sound)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Taste)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Taste)"),skillinfo("MODIFIER","Perception")	BONUS:SKILLRANK|Perception (Touch)|skillinfo("RANK","Perception")|PREVARNEQ:skillinfo("MODIFIER","Perception (Touch)"),skillinfo("MODIFIER","Perception")
-Survival.MOD	BONUS:SKILLRANK|Survival (Follow or identify tracks)|skillinfo("RANK","Survival")|PREVARNEQ:skillinfo("MODIFIER","Survival (Follow or identify tracks)"),skillinfo("MODIFIER","Survival")
-Swim.MOD		BONUS:SKILLRANK|Swim (Avoid taking nonlethal fatigue damage)|skillinfo("RANK","Swim")|PREVARNEQ:skillinfo("MODIFIER","Swim (Avoid taking nonlethal fatigue damage)"),skillinfo("MODIFIER","Swim")
+Acrobatics.MOD	BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("RANK","Acrobatics")|PREVARGTEQ:UseConditionalJump,1
+Appraise.MOD	BONUS:SKILLRANK|Appraise (Identify Magic Item)|skillinfo("RANK","Appraise")|PREVARGTEQ:UseConditionalIdentifyItems,1
+Spellcraft.MOD	BONUS:SKILLRANK|Spellcraft (Cast defensively)|skillinfo("RANK","Spellcraft")|PREVARGTEQ:UseConditionalCastDefensively,1
+Perception.MOD	BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalStonework,1
+Perception.MOD	BONUS:SKILLRANK|Perception (Sight)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalSight,1
+Perception.MOD	BONUS:SKILLRANK|Perception (Smell)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalSmell,1
+Perception.MOD	BONUS:SKILLRANK|Perception (Sound)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalSound,1
+Perception.MOD	BONUS:SKILLRANK|Perception (Taste)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalTaste,1
+Perception.MOD	BONUS:SKILLRANK|Perception (Touch)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalTouch,1
+Survival.MOD	BONUS:SKILLRANK|Survival (Follow or identify tracks)|skillinfo("RANK","Survival")|PREVARGTEQ:UseConditionalTracks,1
+Swim.MOD		BONUS:SKILLRANK|Swim (Avoid taking nonlethal fatigue damage)|skillinfo("RANK","Swim")|PREVARGTEQ:UseConditionalFatigue,1

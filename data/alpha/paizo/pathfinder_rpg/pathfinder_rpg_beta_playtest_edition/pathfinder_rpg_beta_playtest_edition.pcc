@@ -82,6 +82,7 @@ SKILL:pathfinder_beta_skills_conditional.lst
 SPELL:pathfinder_beta_spells.lst
 SPELL:pathfinder_beta_spells_domain.lst
 TEMPLATE:pathfinder_beta_templates_types.lst
+TEMPLATE:pathfinder_beta_templates_conditional.lst
 WEAPONPROF:pathfinder_beta_weaponprofs.lst
 
 #Hide internal feat types
