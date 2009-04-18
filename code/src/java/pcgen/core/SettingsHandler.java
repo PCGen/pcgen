@@ -1239,9 +1239,9 @@ public final class SettingsHandler
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenCustomDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenCustomDir", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "data" + File.separator + "customsources")))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			Globals.getUserFilesPath() + File.separator + "customsources")))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		setPcgenVendorDataDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenVendorDataDir", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "vendordata")))); //$NON-NLS-1$ //$NON-NLS-2$
+			Globals.getUserFilesPath() + File.separator + "vendordata")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenDocsDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenDocsDir", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "docs")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenSystemDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenSystemDir", //$NON-NLS-1$
@@ -1258,7 +1258,7 @@ public final class SettingsHandler
 						Globals.getDefaultPcgPath()))));
 		setBackupPcgPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters.backup", "")))); //$NON-NLS-1$
 		setPortraitsPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.portraits", //$NON-NLS-1$
-						Globals.getDefaultPath()))));
+						Globals.getDefaultPcgPath()))));
 		setPostExportCommandStandard(getPCGenOption("postExportCommandStandard", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPostExportCommandPDF(getPCGenOption("postExportCommandPDF", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
@@ -1775,6 +1775,10 @@ public final class SettingsHandler
 	 */
 	public static void setPcgPath(final File path)
 	{
+		if (path != null && !path.exists())
+		{
+			path.mkdirs();
+		}
 		pcgPath = path;
 	}
 
@@ -1790,6 +1794,10 @@ public final class SettingsHandler
 
 	public static void setPcgenCustomDir(final File aFile)
 	{
+		if (aFile != null && !aFile.exists())
+		{
+			aFile.mkdirs();
+		}
 		pcgenCustomDir = aFile;
 	}
 
@@ -1800,6 +1808,10 @@ public final class SettingsHandler
 
 	public static void setPcgenVendorDataDir(final File aFile)
 	{
+		if (aFile != null && !aFile.exists())
+		{
+			aFile.mkdirs();
+		}
 		pcgenVendorDataDir = aFile;
 	}
 

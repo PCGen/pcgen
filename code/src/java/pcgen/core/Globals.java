@@ -108,7 +108,7 @@ public final class Globals
 
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
 	private static final String defaultPath    = System.getProperty("user.dir"); //$NON-NLS-1$
-	private static final String defaultPcgPath = getDefaultPath() + File.separator + "characters"; //$NON-NLS-1$
+	private static final String defaultPcgPath = Globals.getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
 	private static final String backupPcgPath = Constants.EMPTY_STRING;
 	
 	/** These are for the Internationalization project. */
@@ -644,6 +644,15 @@ public final class Globals
 	public static String getDefaultPath()
 	{
 		return expandRelativePath(defaultPath);
+	}
+
+	/**
+	 * Get the default path
+	 * @return default path
+	 */
+	public static String getUserFilesPath()
+	{
+		return expandRelativePath(System.getProperty("user.home") + File.separator + ".pcgen");
 	}
 
 	/**
