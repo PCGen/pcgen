@@ -9,11 +9,11 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 
 ###Block:A
 # Equipment Name						Type					Cost		Weight	Source Page		Combat bonus						Weapon prof. bonus															Special Property
-Amulet of Mighty Fists +1				TYPE:Magic.Wondrous.Amulet	COST:5000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|1|TYPE=Enhancement
-Amulet of Mighty Fists +2				TYPE:Magic.Wondrous.Amulet	COST:20000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|2|TYPE=Enhancement
-Amulet of Mighty Fists +3				TYPE:Magic.Wondrous.Amulet	COST:45000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|3|TYPE=Enhancement
-Amulet of Mighty Fists +4				TYPE:Magic.Wondrous.Amulet	COST:80000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|4|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|4|TYPE=Enhancement
-Amulet of Mighty Fists +5				TYPE:Magic.Wondrous.Amulet	COST:125000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|5|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|5|TYPE=Enhancement
+Amulet of Mighty Fists +1				TYPE:Magic.Wondrous.Amulet	COST:5000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1|TYPE=Enhancement
+Amulet of Mighty Fists +2				TYPE:Magic.Wondrous.Amulet	COST:20000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|2|TYPE=Enhancement
+Amulet of Mighty Fists +3				TYPE:Magic.Wondrous.Amulet	COST:45000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|3|TYPE=Enhancement
+Amulet of Mighty Fists +4				TYPE:Magic.Wondrous.Amulet	COST:80000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|4|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|4|TYPE=Enhancement
+Amulet of Mighty Fists +5				TYPE:Magic.Wondrous.Amulet	COST:125000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|5|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|5|TYPE=Enhancement
 #Amulet of Mighty Fists: Need to make modifier for this. COST=PLUS*PLUS*5000, max PLUS w/o Epic is +5, must have +1 minimum.
 Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet	COST:2000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet	COST:8000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
