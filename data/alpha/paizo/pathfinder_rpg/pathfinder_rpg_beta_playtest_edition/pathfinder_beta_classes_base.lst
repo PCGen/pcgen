@@ -78,7 +78,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Channel Energy
 1	BONUS:VAR|ChannelEnergyLVL|CL	BONUS:VAR|ChannelEnergyTimes|3+CHA	ABILITY:Special Ability|AUTOMATIC|Channel Energy
 ###Block: Spontaneous casting
-1	ABILITY:Special Ability|VIRTUAL|Spontaneous Casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Channel Positiye Energy
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous Casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous Casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
