@@ -6,7 +6,7 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 ###Block: Creature Abilities
 # Ability Name	Category of Ability		Type								Visible	Define			Description
 Pounce		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:When you make a charge, you can follow with a full attack
-Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES	DEFINE:ScentRange|30	DESC:You can detect approaching enemies, sniff out hidden foes, and track by sense of smell within a range of %1 feet.|ScentRang
+Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES	DEFINE:ScentRange|30	DESC:You can detect approaching enemies, sniff out hidden foes, and track by sense of smell within a range of %1 feet.|ScentRange
 Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
 
 ###Block: Energy Immunities
