@@ -85,7 +85,7 @@ public class PcgCombatant extends Combatant
 
 		StatList sl = pc.getStatList();
 		PCStat stat = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
+				.getAbbreviatedObject(PCStat.class, "CON");
 		this.hitPoints =
 				new SystemHP(new SystemAttribute("Constitution", sl
 					.getTotalStatFor(stat)), pc.hitPoints(), pc.hitPoints());
