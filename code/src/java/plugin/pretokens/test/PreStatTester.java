@@ -26,6 +26,8 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -47,8 +49,10 @@ public class PreStatTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		final int targetNumber = Integer.parseInt(prereq.getOperand());
+		PCStat stat = Globals.getContext().ref
+				.getAbbreviatedObject(PCStat.class, prereq.getKey());
 		final int statValue =
-				character.getStatList().getTotalStatFor(prereq.getKey());
+				character.getStatList().getTotalStatFor(stat);
 
 		final int runningTotal =
 				prereq.getOperator().compare(statValue, targetNumber);

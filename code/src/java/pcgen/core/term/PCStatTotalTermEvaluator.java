@@ -26,6 +26,8 @@
 
 package pcgen.core.term;
 
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.StatList;
 
@@ -44,7 +46,9 @@ public class PCStatTotalTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		final StatList sl = pc.getStatList();
-		return (float) sl.getTotalStatFor(statAbbrev);
+		PCStat stat = Globals.getContext().ref
+				.getAbbreviatedObject(PCStat.class, statAbbrev);
+		return (float) sl.getTotalStatFor(stat);
 	}
 
 	public boolean isSourceDependant()

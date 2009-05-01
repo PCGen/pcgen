@@ -403,7 +403,7 @@ public class PCClass extends PObject
 		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
 			aStat = aPC.getStatList().getStatAt(index);
-			stat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
+			stat = aPC.getStatList().getTotalStatFor(aStat);
 		}
 
 		String statString = Constants.s_NONE;
@@ -2147,7 +2147,7 @@ public class PCClass extends PObject
 		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
 			final PCStat aStat = aPC.getStatList().getStatAt(index);
-			stat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
+			stat = aPC.getStatList().getTotalStatFor(aStat);
 		}
 
 		String statString = Constants.s_NONE;
@@ -3228,7 +3228,7 @@ public class PCClass extends PObject
 			{
 				final PCStat aStat = i.next();
 				final int iAdjStat =
-						aPC.getStatList().getTotalStatFor(aStat.getAbb());
+						aPC.getStatList().getTotalStatFor(aStat);
 				final int iCurStat =
 						aPC.getStatList().getBaseStatFor(aStat.getAbb());
 				sStats.append(aStat.getAbb()).append(": ").append(iCurStat);

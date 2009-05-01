@@ -3424,19 +3424,23 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
-			if (columnIndex == 0)
+			List<PCStat> statList = pc.getStatList().getStatList();
+			PCStat activeStat;
+			if ((rowIndex >= 0) && (rowIndex < statList.size()))
 			{
-				if ((rowIndex >= 0)
-					&& (rowIndex < SettingsHandler.getGame().s_ATTRIBLONG.length))
-				{
-					return SettingsHandler.getGame().s_ATTRIBLONG[rowIndex];
-				}
+				activeStat = statList.get(rowIndex);
+			}
+			else
+			{
 				return PropertyFactory.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
 			}
 
-			final String aStat =
-					SettingsHandler.getGame().s_ATTRIBSHORT[rowIndex];
-
+			if (columnIndex == 0)
+			{
+				return activeStat.getDisplayName();
+			}
+			String aStat = activeStat.getAbb();
+			
 			switch (columnIndex)
 			{
 				case BASE_COLUMN:
@@ -3471,7 +3475,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					int iRace = (int) pc.getRaceBonusTo("STAT", aStat); //$NON-NLS-1$
 
 					return Integer.valueOf(pc.getStatList().getTotalStatFor(
-						aStat)
+							activeStat)
 						- pc.getStatList().getBaseStatFor(aStat) - iRace);
 
 				case TOTAL_COLUMN:
@@ -3483,7 +3487,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 					//					return Integer.valueOf(pc.getStatList().getTotalStatFor(aStat));
 					return SettingsHandler.getGame().getStatDisplayText(
-						pc.getStatList().getTotalStatFor(aStat));
+						pc.getStatList().getTotalStatFor(activeStat));
 
 				case MOD_COLUMN:
 

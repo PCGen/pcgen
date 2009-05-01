@@ -57,9 +57,6 @@ public class StatListTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		PlayerCharacter pc = getCharacter();
-		StatList statList = pc.getStatList();
-		int index = statList.getIndexOfStatFor("STR");
-		PCStat str = statList.getStatAt(index);
 		locker = new PCTemplate();
 		locker.setName("locker");
 		locker.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
@@ -106,18 +103,18 @@ public class StatListTest extends AbstractCharacterTestCase
 	public void testGetTotalStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Starting STR should be 6", 6, pc.getStatList().getTotalStatFor("STR"));
+		assertEquals("Starting STR should be 6", 6, pc.getStatList().getTotalStatFor(str));
 
 		// Bonus should affect total stat
 		pc.addAbility(AbilityCategory.FEAT, bonus, null);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should have bonus", 13, pc.getStatList().getTotalStatFor("STR"));
+		assertEquals("Stat should have bonus", 13, pc.getStatList().getTotalStatFor(str));
 		
 		pc.addTemplate(locker);
-		assertEquals("Stat should now be locked", 12, pc.getStatList().getTotalStatFor("STR"));
+		assertEquals("Stat should now be locked", 12, pc.getStatList().getTotalStatFor(str));
 
 		pc.addTemplate(unlocker);
-		assertEquals("Stat should now be unlocked", 13, pc.getStatList().getTotalStatFor("STR"));
+		assertEquals("Stat should now be unlocked", 13, pc.getStatList().getTotalStatFor(str));
 	}
 
 }

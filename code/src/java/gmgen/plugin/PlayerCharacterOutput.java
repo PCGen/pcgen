@@ -16,6 +16,7 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
@@ -328,11 +329,11 @@ public class PlayerCharacterOutput
 		return sb.toString();
 	}
 
-	public String getStat(String statAbbrev)
+	public String getStat(PCStat stat)
 	{
 		StatList sl = pc.getStatList();
 
-		return Integer.toString(sl.getTotalStatFor(statAbbrev));
+		return Integer.toString(sl.getTotalStatFor(stat));
 	}
 
 	public StatList getStatList()

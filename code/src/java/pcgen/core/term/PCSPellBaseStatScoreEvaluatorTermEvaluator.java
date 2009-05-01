@@ -66,7 +66,7 @@ public class PCSPellBaseStatScoreEvaluatorTermEvaluator
 		final StatList sl   = pc.getStatList();
 
 		final int statIndex = gm.getStatFromAbbrev(ss.getAbb());
-		final int statNum   = sl.getTotalStatFor(ss.getAbb());
+		final int statNum   = sl.getTotalStatFor(ss);
 
 		return (float) sl.getModForNumber(statNum, statIndex);
 	}

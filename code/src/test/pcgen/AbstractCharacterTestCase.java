@@ -30,6 +30,7 @@ import pcgen.util.TestHelper;
 abstract public class AbstractCharacterTestCase extends PCGenTestCase
 {
 	private PlayerCharacter character = null;
+	protected PCStat str;
 
 	/**
 	 * Sets up the absolute minimum amount of data to create a PlayerCharacter
@@ -50,7 +51,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		gamemode.setAttribShort(new String[]{"STR", "DEX", "CON", "INT", "WIS",
 			"CHA"});
 
-		final PCStat str = new PCStat();
+		str = new PCStat();
 		str.setName("Strength");
 		str.put(StringKey.ABB, "STR");
 		gamemode.addToStatList(str);

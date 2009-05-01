@@ -4,6 +4,7 @@
 package gmgen.plugin;
 
 import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
@@ -122,7 +123,9 @@ public class SystemHP
 
 			StatList sl = pc.getStatList();
 
-			if (damage > sl.getTotalStatFor("CON"))
+			PCStat stat = Globals.getContext().ref
+					.getAbbreviatedObject(PCStat.class, "CON");
+			if (damage > sl.getTotalStatFor(stat))
 			{
 				return true;
 			}

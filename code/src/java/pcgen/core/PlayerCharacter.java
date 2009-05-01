@@ -551,7 +551,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final int statIndex = getStatList().getIndexOfStatFor(statString);
 			if (statIndex >= 0)
 			{
-				baseSpellStat = getStatList().getTotalStatFor(statString);
+				baseSpellStat = getStatList().getTotalStatFor(ss);
 				// final List<TypedBonus> bonuses = getBonusesTo("STAT",
 				// "BASESPELLSTAT");
 				// bonuses.addAll( getBonusesTo("STAT",
@@ -6976,10 +6976,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            Should stat mods that occurred after levelling be included?
 	 * @return The stat as it was at the level
 	 */
-	public int getTotalStatAtLevel(final String statAbb, final int level,
+	public int getTotalStatAtLevel(final PCStat stat, final int level,
 		final boolean includePost)
 	{
-		int curStat = getStatList().getTotalStatFor(statAbb);
+		String statAbb = stat.getAbb();
+		int curStat = getStatList().getTotalStatFor(stat);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =

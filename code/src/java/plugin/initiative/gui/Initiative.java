@@ -76,6 +76,7 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 
 import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
@@ -952,7 +953,9 @@ public class Initiative extends javax.swing.JPanel
 
 				StatList sl = pc.getStatList();
 
-				if (damage > sl.getTotalStatFor("CON"))
+				PCStat stat = Globals.getContext().ref
+						.getAbbreviatedObject(PCStat.class, "CON");
+				if (damage > sl.getTotalStatFor(stat))
 				{
 					isEnough = true;
 				}

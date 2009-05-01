@@ -84,9 +84,11 @@ public class PcgCombatant extends Combatant
 		this.init = new PcgSystemInitiative(pc);
 
 		StatList sl = pc.getStatList();
+		PCStat stat = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
 		this.hitPoints =
 				new SystemHP(new SystemAttribute("Constitution", sl
-					.getTotalStatFor("CON")), pc.hitPoints(), pc.hitPoints());
+					.getTotalStatFor(stat)), pc.hitPoints(), pc.hitPoints());
 		setCombatantType("PC");
 	}
 
@@ -117,9 +119,11 @@ public class PcgCombatant extends Combatant
 			this.init = new PcgSystemInitiative(pc);
 
 			StatList sl = pc.getStatList();
+			PCStat stat = Globals.getContext().ref
+					.getAbbreviatedObject(PCStat.class, "CON");
 			this.hitPoints =
 					new SystemHP(new SystemAttribute("Constitution", sl
-						.getTotalStatFor("CON")), pc.hitPoints(), pc
+						.getTotalStatFor(stat)), pc.hitPoints(), pc
 						.hitPoints());
 
 			setStatus(combatant.getAttribute("status").getValue());
@@ -728,7 +732,7 @@ public class PcgCombatant extends Combatant
 					statBuf.append(stat.getAbb()); //|STAT.%stat.NAME|
 					statBuf.append("</font> ");
 
-					statBuf.append(pcOut.getStat(stat.getAbb())); //|STAT.%stat|
+					statBuf.append(pcOut.getStat(stat)); //|STAT.%stat|
 					statBuf.append("&nbsp;(");
 					statBuf.append("<a href='check:");
 					statBuf.append(stat.getAbb()); //|STAT.%stat.NAME|

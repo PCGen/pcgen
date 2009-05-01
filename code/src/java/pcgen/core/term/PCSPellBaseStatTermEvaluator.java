@@ -59,7 +59,7 @@ public class PCSPellBaseStatTermEvaluator
 			return 10f;
 		}
 
-		return (float) pc.getStatList().getTotalStatFor(ss.getAbb());
+		return (float) pc.getStatList().getTotalStatFor(ss);
 	}
 
 	public boolean isSourceDependant()

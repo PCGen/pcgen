@@ -4,6 +4,7 @@
 package gmgen.plugin;
 
 import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.StatList;
 
@@ -17,7 +18,9 @@ public class PcgSystemInitiative extends SystemInitiative
 		Globals.setCurrentPC(pc);
 
 		StatList sl = pc.getStatList();
-		this.attribute = new SystemAttribute("Dexterity", sl.getTotalStatFor("DEX"));
+		PCStat stat = Globals.getContext().ref
+				.getAbbreviatedObject(PCStat.class, "DEX");
+		this.attribute = new SystemAttribute("Dexterity", sl.getTotalStatFor(stat));
 		bonus = 0;
 		die = new Dice(1, 20);
 	}
@@ -28,7 +31,9 @@ public class PcgSystemInitiative extends SystemInitiative
 
 		StatList sl = pc.getStatList();
 
-		return new SystemAttribute("Dexterity", sl.getTotalStatFor("DEX"));
+		PCStat stat = Globals.getContext().ref
+				.getAbbreviatedObject(PCStat.class, "DEX");
+		return new SystemAttribute("Dexterity", sl.getTotalStatFor(stat));
 	}
 
 	public void setBonus(int bonus)

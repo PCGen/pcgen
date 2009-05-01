@@ -186,17 +186,10 @@ public final class StatList implements Iterable<PCStat>
 	 * @param aStat The abbreviation of the stat to be calculated
 	 * @return The value of the stat
 	 */
-	public int getTotalStatFor(final String aStat)
+	public int getTotalStatFor(final PCStat stat)
 	{
-		int y = getBaseStatFor(aStat);
-		int x = getIndexOfStatFor(aStat);
+		int y = getBaseStatFor(stat.getAbb());
 
-		if (x == -1)
-		{
-			return y;
-		}
-
-		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!aPC.hasUnlockedStat(stat))

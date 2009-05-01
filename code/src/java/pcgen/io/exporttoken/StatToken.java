@@ -211,7 +211,7 @@ public class StatToken extends Token
 		{
 			if (useEquip && useTemp)
 			{
-				aTotal = pc.getTotalStatAtLevel(stat.getAbb(), aLevel, usePost);
+				aTotal = pc.getTotalStatAtLevel(stat, aLevel, usePost);
 			}
 			else
 			{
@@ -222,7 +222,7 @@ public class StatToken extends Token
 		}
 		else if (useEquip && useTemp)
 		{
-			aTotal = pc.getStatList().getTotalStatFor(stat.getAbb());
+			aTotal = pc.getStatList().getTotalStatFor(stat);
 		}
 		else
 		{
