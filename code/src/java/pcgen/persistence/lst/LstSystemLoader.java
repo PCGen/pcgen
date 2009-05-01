@@ -500,8 +500,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
 		File specificGameModeDir = new File(gameModeDir, gamemode.getFolderName());
-		File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
-		statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
 
 		// Sort the campaigns
 		sortCampaignsByRank(aSelectedCampaignsList);
