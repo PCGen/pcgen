@@ -234,17 +234,11 @@ public final class StatList implements Iterable<PCStat>
 	 * @param useEquip Should equipment bonuses be included?
 	 * @return The value of the stat
 	 */
-	public int getPartialStatFor(String aStat, boolean useTemp, boolean useEquip)
+	public int getPartialStatFor(PCStat stat, boolean useTemp, boolean useEquip)
 	{
+		String aStat = stat.getAbb();
 		int y = getBaseStatFor(aStat);
-		int x = getIndexOfStatFor(aStat);
 
-		if (x == -1)
-		{
-			return y;
-		}
-
-		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		Number val = aPC.getLockedStat(stat);
 		if (val != null)

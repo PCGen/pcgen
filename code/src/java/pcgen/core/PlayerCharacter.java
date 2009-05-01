@@ -14424,15 +14424,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            Should equipment bonuses be included?
 	 * @return The stat as it was at the level
 	 */
-	public int getPartialStatAtLevel(String statAbb, int level,
+	public int getPartialStatAtLevel(PCStat stat, int level,
 		boolean usePost, boolean useTemp, boolean useEquip)
 	{
 		int curStat =
-				getStatList().getPartialStatFor(statAbb, useTemp, useEquip);
+				getStatList().getPartialStatFor(stat, useTemp, useEquip);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =
-					pcLevelInfo.get(idx).getTotalStatMod(statAbb, usePost);
+					pcLevelInfo.get(idx).getTotalStatMod(stat.getAbb(), usePost);
 			curStat -= statLvlAdjust;
 		}
 

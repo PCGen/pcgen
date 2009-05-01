@@ -216,7 +216,7 @@ public class StatToken extends Token
 			else
 			{
 				aTotal =
-						pc.getPartialStatAtLevel(stat.getAbb(), aLevel,
+						pc.getPartialStatAtLevel(stat, aLevel,
 							usePost, useTemp, useEquip);
 			}
 		}
@@ -227,7 +227,7 @@ public class StatToken extends Token
 		else
 		{
 			aTotal =
-					pc.getStatList().getPartialStatFor(stat.getAbb(), useTemp,
+					pc.getStatList().getPartialStatFor(stat, useTemp,
 						useEquip);
 		}
 
