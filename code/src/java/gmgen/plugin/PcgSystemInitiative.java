@@ -47,8 +47,9 @@ public class PcgSystemInitiative extends SystemInitiative
 		Globals.setCurrentPC(pc);
 
 		StatList sl = pc.getStatList();
-
-		return pc.initiativeMod() - sl.getStatModFor("DEX") + bonus;
+		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+				PCStat.class, "DEX");
+		return pc.initiativeMod() - sl.getStatModFor(dex) + bonus;
 	}
 
 	public int getModifier()

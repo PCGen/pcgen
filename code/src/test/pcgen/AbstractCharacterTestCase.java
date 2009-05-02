@@ -31,6 +31,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
+	protected PCStat cha;
 
 	/**
 	 * Sets up the absolute minimum amount of data to create a PlayerCharacter
@@ -77,7 +78,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		wis.put(StringKey.ABB, "WIS");
 		gamemode.addToStatList(wis);
 
-		final PCStat cha = new PCStat();
+		cha = new PCStat();
 		cha.setName("Charisma");
 		cha.put(StringKey.ABB, "CHA");
 		gamemode.addToStatList(cha);

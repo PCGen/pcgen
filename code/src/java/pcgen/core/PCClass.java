@@ -3239,7 +3239,7 @@ public class PCClass extends PObject
 				}
 
 				sStats.append(" (").append(
-					aPC.getStatList().getStatModFor(aStat.getAbb())).append(
+					aPC.getStatList().getStatModFor(aStat)).append(
 					")");
 
 				if (allowStacks || !statsAlreadyBonused.contains(aStat.getAbb()))

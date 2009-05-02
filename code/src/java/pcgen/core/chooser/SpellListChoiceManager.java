@@ -343,7 +343,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 				PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
 				if (ss != null)
 				{
-					int statMod = aPC.getStatList().getStatModFor(ss.getAbb());
+					int statMod = aPC.getStatList().getStatModFor(ss);
 
 					if (statMod > 0)
 					{

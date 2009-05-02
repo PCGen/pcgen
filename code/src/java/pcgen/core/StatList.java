@@ -88,20 +88,8 @@ public final class StatList implements Iterable<PCStat>
 		return aList;
 	}
 
-	/**
-	 * @param aNum
-	 * @return the MOD for any given number
-	 */
-	public int getModForNumber(final int aNum)
+	public int getModForNumber(final int aNum, PCStat stat)
 	{
-		// Use the formula from stat #1
-		// (they all use the same formula)
-		return getModForNumber(aNum, 1);
-	}
-
-	public int getModForNumber(final int aNum, final int statIndex)
-	{
-		final PCStat stat = stats.get(statIndex);
 		String aString = stat.getStatMod();
 
 		/////////////////////////////////////////////////////////////////////////
@@ -122,17 +110,8 @@ public final class StatList implements Iterable<PCStat>
 		return ownerPC.getVariableValue(aString, "").intValue();
 	}
 
-	public int getStatModFor(final String aStat)
+	public int getStatModFor(PCStat stat)
 	{
-		final int x = getIndexOfStatFor(aStat);
-
-		if (x == -1)
-		{
-			return 0;
-		}
-
-		final PCStat stat = stats.get(x);
-
 		return ownerPC.getVariableValue(stat.getStatMod(), "STAT:" + stat.getAbb()).intValue();
 	}
 
@@ -195,25 +174,6 @@ public final class StatList implements Iterable<PCStat>
 		y += aPC.getTotalBonusTo("STAT", stat.getAbb());
 
 		return y;
-	}
-
-	public int getIndexOfStatFor(final String aStat)
-	{
-		// see if it starts with STATx where x is a number
-		if (aStat.startsWith("STAT"))
-		{
-			final int x = Integer.parseInt(aStat.substring(4));
-
-			if ((x < 0) || (x >= stats.size()))
-			{
-				return -1;
-			}
-
-			return x;
-		}
-
-		// otherwise it must be an abbreviation
-		return SettingsHandler.getGame().getStatFromAbbrev(aStat);
 	}
 
 	/**

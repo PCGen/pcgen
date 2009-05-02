@@ -335,13 +335,10 @@ public class NPCGenerator
 		final List<PCStat> statOrder = getStatWeights(aClass);
 		Logging.debugPrint( "NPCGenerator: Stat order is " + statOrder ); //$NON-NLS-1$
 		aPC.rollStats(Constants.CHARACTERSTATMETHOD_ROLLED, statOrder, aRollMethod, true);
-		final List<PCStat> pcStats = aPC.getStatList().getStatList();
-		for (int i = 0; i < statOrder.size(); i++)
+		for (PCStat stat : aPC.getStatList())
 		{
-			final PCStat newStat = statOrder.get(i);
-			final PCStat pcStat = pcStats.get(aPC.getStatList().getIndexOfStatFor(newStat.getAbb()));
-			Logging.debugPrint( "NPCGenerator: Setting stat " + pcStat.getAbb() + " to " + aPC.getAssoc(newStat, AssociationKey.STAT_SCORE) );  //$NON-NLS-1$//$NON-NLS-2$
-			aPC.setAssoc(pcStat, AssociationKey.STAT_SCORE, aPC.getAssoc(newStat, AssociationKey.STAT_SCORE));
+			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getAbb() + " to " + aPC.getAssoc(stat, AssociationKey.STAT_SCORE) );  //$NON-NLS-1$//$NON-NLS-2$
+			aPC.setAssoc(stat, AssociationKey.STAT_SCORE, aPC.getAssoc(stat, AssociationKey.STAT_SCORE));
 		}
 	}
 

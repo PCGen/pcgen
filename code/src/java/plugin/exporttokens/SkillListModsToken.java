@@ -44,7 +44,7 @@ public class SkillListModsToken extends Token
 				modSkill =
 						SkillModifier.modifier(aSkill, pc).intValue()
 							- pc.getStatList().getStatModFor(
-								aSkill.getKeyStatAbb());
+									aSkill.get(ObjectKey.KEY_STAT));
 			}
 
 			if ((SkillRankControl.getTotalRank(pc, aSkill).intValue() > 0) || (modSkill > 0))

@@ -547,10 +547,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (ss != null)
 		{
-			String statString = ss.getAbb();
-			final int statIndex = getStatList().getIndexOfStatFor(statString);
-			if (statIndex >= 0)
-			{
 				baseSpellStat = getStatList().getTotalStatFor(ss);
 				// final List<TypedBonus> bonuses = getBonusesTo("STAT",
 				// "BASESPELLSTAT");
@@ -563,11 +559,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						(int) getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS."
 							+ aClass.getKeyName());
 				baseSpellStat +=
-						(int) getTotalBonusTo("STAT", "CAST." + statString);
+						(int) getTotalBonusTo("STAT", "CAST." + ss.getAbb());
 				baseSpellStat =
-						getStatList().getModForNumber(baseSpellStat, statIndex);
-			}
-
+						getStatList().getModForNumber(baseSpellStat, ss);
 		}
 
 		return baseSpellStat;
@@ -18009,7 +18003,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				dc += getStatList().getStatModFor(stat.getAbb());
+				dc += getStatList().getStatModFor(stat);
 			}
 		}
 

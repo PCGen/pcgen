@@ -26,11 +26,9 @@
 
 package pcgen.core.term;
 
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
 
 public class PCStatModTermEvaluator
@@ -48,13 +46,11 @@ public class PCStatModTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		final StatList sl   = pc.getStatList();
-		final GameMode gm   = SettingsHandler.getGame();
-		final int statIndex = gm.getStatFromAbbrev(statAbbrev);
 		final PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, statAbbrev);
 		final int statNum = sl.getTotalStatFor(stat);
 
-		return (float) sl.getModForNumber(statNum, statIndex);
+		return (float) sl.getModForNumber(statNum, stat);
 	}
 
 	public boolean isSourceDependant()

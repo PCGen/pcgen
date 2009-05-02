@@ -232,7 +232,9 @@ public class PlayerCharacterOutput
 	public String getInitMiscMod()
 	{
 		StatList sl = pc.getStatList();
-		int statMod = sl.getStatModFor("DEX");
+		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+				PCStat.class, "DEX");
+		int statMod = sl.getStatModFor(dex);
 		int miscMod = pc.initiativeMod() - statMod;
 
 		return "+" + miscMod;
@@ -241,7 +243,9 @@ public class PlayerCharacterOutput
 	public String getInitStatMod()
 	{
 		StatList sl = pc.getStatList();
-		int statMod = sl.getStatModFor("DEX");
+		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+				PCStat.class, "DEX");
+		int statMod = sl.getStatModFor(dex);
 
 		return "+" + statMod;
 	}
@@ -341,12 +345,12 @@ public class PlayerCharacterOutput
 		return pc.getStatList();
 	}
 
-	public String getStatMod(String statAbbrev)
+	public String getStatMod(PCStat stat)
 	{
 		int returnValue;
 
 		StatList sl = pc.getStatList();
-		returnValue = sl.getStatModFor(statAbbrev);
+		returnValue = sl.getStatModFor(stat);
 
 		return (returnValue < 0) ? Integer.toString(returnValue) : "+"
 			+ returnValue;

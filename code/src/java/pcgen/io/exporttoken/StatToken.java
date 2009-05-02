@@ -250,7 +250,7 @@ public class StatToken extends Token
 				Integer.parseInt(getStatToken(pc, stat, useTemp, useEquip,
 					usePost, useLevel, aLevel, false));
 
-		int temp = pc.getStatList().getModForNumber(aTotal);
+		int temp = pc.getStatList().getModForNumber(aTotal, stat);
 		return Delta.toString(temp);
 	}
 
@@ -270,7 +270,7 @@ public class StatToken extends Token
 			return "+0";
 		}
 		int aTotal = Integer.parseInt(getBaseToken(pc, stat));
-		int temp = pc.getStatList().getModForNumber(aTotal);
+		int temp = pc.getStatList().getModForNumber(aTotal, stat);
 
 		return Delta.toString(temp);
 	}

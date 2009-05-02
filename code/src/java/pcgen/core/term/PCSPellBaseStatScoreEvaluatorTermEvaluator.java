@@ -26,13 +26,11 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.StatList;
-import pcgen.cdom.enumeration.ObjectKey;
 
 public class PCSPellBaseStatScoreEvaluatorTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -62,13 +60,10 @@ public class PCSPellBaseStatScoreEvaluatorTermEvaluator
 			return 10f;
 		}
 
-		final GameMode gm   = SettingsHandler.getGame();
 		final StatList sl   = pc.getStatList();
-
-		final int statIndex = gm.getStatFromAbbrev(ss.getAbb());
 		final int statNum   = sl.getTotalStatFor(ss);
 
-		return (float) sl.getModForNumber(statNum, statIndex);
+		return (float) sl.getModForNumber(statNum, ss);
 	}
 
 	public boolean isSourceDependant()

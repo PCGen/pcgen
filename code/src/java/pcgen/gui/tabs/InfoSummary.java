@@ -2835,7 +2835,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 
 				final int currentStat = statList.getBaseStatFor(aStat);
-				final int currentMod = statList.getStatModFor(aStat.getAbb());
+				final int currentMod = statList.getStatModFor(aStat);
 
 				statTotal += currentStat;
 				modTotal += currentMod;
@@ -3486,7 +3486,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					}
 
 					return Integer.valueOf(pc.getStatList()
-						.getStatModFor(aStat));
+						.getStatModFor(activeStat));
 
 				case INC_COLUMN:
 

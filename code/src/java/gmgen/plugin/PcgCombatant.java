@@ -736,9 +736,9 @@ public class PcgCombatant extends Combatant
 					statBuf.append("<a href='check:");
 					statBuf.append(statAbb); //|STAT.%stat.NAME|
 					statBuf.append("\\1d20");
-					statBuf.append(pcOut.getStatMod(statAbb)); //|STAT.%stat.MOD|
+					statBuf.append(pcOut.getStatMod(stat)); //|STAT.%stat.MOD|
 					statBuf.append("' class='dialog'>");
-					statBuf.append(pcOut.getStatMod(statAbb)); //|STAT.%stat.MOD|
+					statBuf.append(pcOut.getStatMod(stat)); //|STAT.%stat.MOD|
 					statBuf.append("</a>) ");
 				}
 			}
@@ -828,7 +828,7 @@ public class PcgCombatant extends Combatant
 					modSkill =
 							SkillModifier.modifier(skill, pc).intValue()
 								- pc.getStatList().getStatModFor(
-									skill.getKeyStatAbb());
+										skill.get(ObjectKey.KEY_STAT));
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 

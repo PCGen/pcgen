@@ -39,7 +39,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
-import pcgen.core.StatList;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.BonusSpellLoader;
@@ -173,9 +172,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
-		StatList stats = character.getStatList();
-		int i = stats.getIndexOfStatFor("CHA");
-		character.setAssoc(stats.getStatAt(i), AssociationKey.STAT_SCORE, 12);
+		character.setAssoc(cha, AssociationKey.STAT_SCORE, 12);
 		character.calcActiveBonuses();
 		character.incrementClassLevel(1, arcaneClass, true);
 
