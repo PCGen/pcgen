@@ -873,30 +873,29 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			final StringBuffer aString = new StringBuffer();
 
-			for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; ++i)
+			for (PCStat aStat : pc.getStatList().getStatList())
 			{
-				if (RaceStat.isNonAbility(i, aRace))
+				if (RaceStat.isNonAbility(aStat, aRace))
 				{
 					if (aString.length() > 0)
 					{
 						aString.append(' ');
 					}
 
-					aString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i])
+					aString.append(aStat.getAbb())
 						.append(PropertyFactory.getString("in_SumNonability")); //$NON-NLS-1$
 				}
 				else
 				{
-					if (BonusCalc.getStatMod(aRace, i, pc) != 0)
+					if (BonusCalc.getStatMod(aRace, aStat, pc) != 0)
 					{
 						if (aString.length() > 0)
 						{
 							aString.append(' ');
 						}
 
-						aString.append(
-							SettingsHandler.getGame().s_ATTRIBSHORT[i]).append(
-							':').append(BonusCalc.getStatMod(aRace, i, pc));
+						aString.append(aStat.getAbb()).append(
+							':').append(BonusCalc.getStatMod(aRace, aStat, pc));
 					}
 				}
 			}
@@ -2385,7 +2384,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				final boolean isPurchaseMode =
 						SettingsHandler.getGame().isPurchaseStatMode();
 
-				if (pc.isNonAbility(selectedStat))
+				if (pc.isNonAbility(aStat))
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
@@ -2469,7 +2468,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
-				else if (pc.isNonAbility(selectedStat))
+				else if (pc.isNonAbility(aStat))
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
@@ -2828,19 +2827,15 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			int modTotal = 0;
 			final StatList statList = pc.getStatList();
 
-			for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBLONG.length; ++i)
+			for (PCStat aStat : pc.getStatList().getStatList())
 			{
-				final PCStat aStat = pc.getStatList().getStatAt(i);
-
-				if (pc.isNonAbility(i) || !aStat.getSafe(ObjectKey.ROLLED))
+				if (pc.isNonAbility(aStat) || !aStat.getSafe(ObjectKey.ROLLED))
 				{
 					continue;
 				}
 
 				final int currentStat = statList.getBaseStatFor(aStat);
-				final int currentMod =
-						statList
-							.getStatModFor(SettingsHandler.getGame().s_ATTRIBSHORT[i]);
+				final int currentMod = statList.getStatModFor(aStat.getAbb());
 
 				statTotal += currentStat;
 				modTotal += currentMod;
@@ -3300,7 +3295,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				final PCStat aStat = pc.getStatList().getStatAt(rowIndex);
 
-				if (pc.isNonAbility(rowIndex))
+				if (pc.isNonAbility(aStat))
 				{
 					ShowMessageDelegate.showMessageDialog(NONABILITY,
 						Constants.s_APPNAME, MessageType.ERROR);
@@ -3439,7 +3434,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				case BASE_COLUMN:
 
-					if (pc.isNonAbility(rowIndex))
+					if (pc.isNonAbility(activeStat))
 					{
 						return "*"; //$NON-NLS-1$
 					}
@@ -3449,7 +3444,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				case RACE_COLUMN:
 
-					if (pc.isNonAbility(rowIndex))
+					if (pc.isNonAbility(activeStat))
 					{
 						return "*"; //$NON-NLS-1$
 					}
@@ -3461,7 +3456,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				case OTHER_COLUMN:
 
-					if (pc.isNonAbility(rowIndex))
+					if (pc.isNonAbility(activeStat))
 					{
 						return "*"; //$NON-NLS-1$
 					}
@@ -3474,7 +3469,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				case TOTAL_COLUMN:
 
-					if (pc.isNonAbility(rowIndex))
+					if (pc.isNonAbility(activeStat))
 					{
 						return "*"; //$NON-NLS-1$
 					}
@@ -3485,7 +3480,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				case MOD_COLUMN:
 
-					if (pc.isNonAbility(rowIndex))
+					if (pc.isNonAbility(activeStat))
 					{
 						return Integer.valueOf(0);
 					}

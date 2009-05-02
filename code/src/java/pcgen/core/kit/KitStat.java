@@ -72,10 +72,9 @@ public class KitStat extends BaseKit
 		{
 			int sVal = me.getValue().resolve(aPC, "").intValue();
 			final StatList statList = aPC.getStatList();
-			for (int i = 0; i < statList.size(); i++)
+			for (PCStat currentStat : statList.getStatList())
 			{
-				final PCStat currentStat = statList.getStatAt(i);
-				if (!aPC.isNonAbility(i)
+				if (!aPC.isNonAbility(currentStat)
 					&& currentStat.getAbb().equals(me.getKey().getAbb()))
 				{
 					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, sVal);

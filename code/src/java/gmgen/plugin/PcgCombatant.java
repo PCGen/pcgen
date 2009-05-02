@@ -711,14 +711,13 @@ public class PcgCombatant extends Combatant
 
 			StatList sl = pcOut.getStatList();
 
-			for (int i = 0; i < sl.size(); i++)
+			for (PCStat stat : sl.getStatList())
 			{
-				PCStat stat = sl.getStatAt(i);
-
-				if (pc.isNonAbility(i))
+				String statAbb = stat.getAbb();
+				if (pc.isNonAbility(stat))
 				{
 					statBuf.append("<font class='type'>");
-					statBuf.append(stat.getAbb()); //|STAT.%stat.NAME|
+					statBuf.append(statAbb); //|STAT.%stat.NAME|
 					statBuf.append("</font>");
 
 					statBuf.append("*"); //|STAT.%stat|
@@ -729,17 +728,17 @@ public class PcgCombatant extends Combatant
 				else
 				{
 					statBuf.append("<font class='type'>");
-					statBuf.append(stat.getAbb()); //|STAT.%stat.NAME|
+					statBuf.append(statAbb); //|STAT.%stat.NAME|
 					statBuf.append("</font> ");
 
 					statBuf.append(pcOut.getStat(stat)); //|STAT.%stat|
 					statBuf.append("&nbsp;(");
 					statBuf.append("<a href='check:");
-					statBuf.append(stat.getAbb()); //|STAT.%stat.NAME|
+					statBuf.append(statAbb); //|STAT.%stat.NAME|
 					statBuf.append("\\1d20");
-					statBuf.append(pcOut.getStatMod(stat.getAbb())); //|STAT.%stat.MOD|
+					statBuf.append(pcOut.getStatMod(statAbb)); //|STAT.%stat.MOD|
 					statBuf.append("' class='dialog'>");
-					statBuf.append(pcOut.getStatMod(stat.getAbb())); //|STAT.%stat.MOD|
+					statBuf.append(pcOut.getStatMod(statAbb)); //|STAT.%stat.MOD|
 					statBuf.append("</a>) ");
 				}
 			}

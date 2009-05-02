@@ -24,9 +24,9 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.DamageReduction;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 
 public class TemplateModifier
 {
@@ -45,20 +45,19 @@ public class TemplateModifier
 		// true than 16
 		// (the default)
 
-		for (int x = 0; x < SettingsHandler.getGame().getUnmodifiableStatList()
-				.size(); ++x)
+		for (PCStat stat : aPC.getStatList().getStatList())
 		{
-			if (TemplateStat.isNonAbility(pct, x))
+			if (TemplateStat.isNonAbility(pct, stat))
 			{
-				mods.append(SettingsHandler.getGame().s_ATTRIBSHORT[x]).append(":nonability ");
+				mods.append(stat.getAbb()).append(":nonability ");
 			}
 			else
 			{
-				int statMod = BonusCalc.getStatMod(pct, x, aPC);
+				int statMod = BonusCalc.getStatMod(pct, stat, aPC);
 
 				if (statMod != 0)
 				{
-					mods.append(SettingsHandler.getGame().s_ATTRIBSHORT[x]).append(':').append(
+					mods.append(stat.getAbb()).append(':').append(
 							statMod).append(' ');
 				}
 			}

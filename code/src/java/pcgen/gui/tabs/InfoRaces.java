@@ -79,6 +79,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -1119,22 +1120,20 @@ public class InfoRaces extends BaseCharacterInfoTab
 				Race race = (Race) fn.getItem();
 				final StringBuffer retString = new StringBuffer();
 
-				for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; i++)
+				for (PCStat stat : getPc().getStatList().getStatList())
 				{
-					if (RaceStat.isNonAbility(i, race))
+					if (RaceStat.isNonAbility(stat, race))
 					{
 						if (retString.length() > 0)
 						{
 							retString.append(' ');
 						}
 
-						retString
-							.append(SettingsHandler.getGame().s_ATTRIBSHORT[i]
-								+ ":Nonability");
+						retString.append(stat.getAbb() + ":Nonability");
 					}
 					else
 					{
-						if (BonusCalc.getStatMod(race, i, getPc()) != 0)
+						if (BonusCalc.getStatMod(race, stat, getPc()) != 0)
 						{
 							if (retString.length() > 0)
 							{
@@ -1142,8 +1141,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 							}
 
 							retString
-								.append(SettingsHandler.getGame().s_ATTRIBSHORT[i]
-									+ ":" + BonusCalc.getStatMod(race, i, getPc()));
+								.append(stat.getAbb()
+									+ ":" + BonusCalc.getStatMod(race, stat, getPc()));
 						}
 					}
 				}

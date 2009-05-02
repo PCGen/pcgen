@@ -6,20 +6,22 @@
 
 package plugin.charactersheet.gui;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.StatToken;
-import pcgen.io.exporttoken.VarToken;
-import pcgen.util.Delta;
+import java.awt.GridBagConstraints;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import java.awt.GridBagConstraints;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.exporttoken.StatToken;
+import pcgen.io.exporttoken.VarToken;
+import pcgen.util.Delta;
 
 /**
  *
@@ -637,10 +639,13 @@ public class TurnPane extends javax.swing.JPanel
 				}
 				else
 				{
+					PCStat cha = Globals.getContext().ref.getAbbreviatedObject(
+							PCStat.class, "CHA");
+
 					damage =
 							level
 								+ Integer
-									.parseInt(StatToken.getModToken(pc, 5));
+									.parseInt(StatToken.getModToken(pc, cha));
 				}
 				StringBuffer checkSb = new StringBuffer();
 				checkSb.append("1d20+").append(check);

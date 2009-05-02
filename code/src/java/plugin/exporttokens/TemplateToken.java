@@ -30,9 +30,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.SpecialAbilityResolution;
@@ -175,20 +175,19 @@ public class TemplateToken extends Token
 	{
 		StringBuffer retString = new StringBuffer();
 
-		for (int iMod = 0; iMod < SettingsHandler.getGame().s_ATTRIBSHORT.length; ++iMod)
+		for (PCStat stat : pc.getStatList().getStatList())
 		{
-			String modName =
-					SettingsHandler.getGame().s_ATTRIBSHORT[iMod] + "MOD";
+			String modName = stat.getAbb() + "MOD";
 
 			if (aLabel.equals(modName))
 			{
-				if (TemplateStat.isNonAbility(template, iMod))
+				if (TemplateStat.isNonAbility(template, stat))
 				{
 					retString.append("*");
 				}
 				else
 				{
-					retString.append(BonusCalc.getStatMod(template, iMod, pc));
+					retString.append(BonusCalc.getStatMod(template, stat, pc));
 				}
 
 				break;

@@ -7,17 +7,19 @@
 package plugin.charactersheet.gui;
 
 import gmgen.gui.GridBoxLayout;
-import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.StatList;
-import pcgen.io.exporttoken.StatToken;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.exporttoken.StatToken;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -134,13 +136,11 @@ public class AttributePane extends JPanel
 	{
 		this.pc = pc;
 		setVisible(true);
-		StatList sl = pc.getStatList();
-
 		destruct();
 
-		for (int i = 0; i < sl.size(); i++)
-		{
-			Attribute attr = new Attribute(i);
+		for (PCStat stat : pc.getStatList().getStatList())
+ 		{
+			Attribute attr = new Attribute(stat);
 			attrList.add(attr);
 		}
 	}
@@ -171,7 +171,7 @@ public class AttributePane extends JPanel
 
 	protected class Attribute
 	{
-		int index;
+		PCStat stat;
 
 		private JLabel attrAbbrev;
 		private JPanel attrPanel;
@@ -195,9 +195,9 @@ public class AttributePane extends JPanel
 		 * Constrctor
 		 * @param index
 		 */
-		public Attribute(int index)
+		public Attribute(PCStat pcstat)
 		{
-			this.index = index;
+			stat = pcstat;
 			initComponents();
 			setColor();
 		}
@@ -266,20 +266,19 @@ public class AttributePane extends JPanel
 		 */
 		public void refresh()
 		{
-			attrAbbrev.setText(StatToken.getNameToken(pc, index));
-			baseAttr.setText(StatToken.getStatToken(pc, index, false, false,
-				true, false, 0));
-			baseBonus.setText(StatToken.getModToken(pc, index, false, false,
-				true, false, 0));
-			modifiedAttr.setText(StatToken.getStatToken(pc, index, false, true,
-				true, false, 0));
-			modifiedBonus.setText(StatToken.getModToken(pc, index, false, true,
-				true, false, 0));
-			tempAttr.setText(StatToken.getStatToken(pc, index, true, true,
-				true, false, 0));
-			tempBonus.setText(StatToken.getModToken(pc, index, true, true,
-				true, false, 0));
-
+			attrAbbrev.setText(StatToken.getNameToken(pc, stat));
+			baseAttr.setText(StatToken.getStatToken(pc, stat, false, false,
+					true, false, 0));
+			baseBonus.setText(StatToken.getModToken(pc, stat, false, false,
+					true, false, 0));
+			modifiedAttr.setText(StatToken.getStatToken(pc, stat, false, true,
+					true, false, 0));
+			modifiedBonus.setText(StatToken.getModToken(pc, stat, false, true,
+					true, false, 0));
+			tempAttr.setText(StatToken.getStatToken(pc, stat, true, true, true,
+					false, 0));
+			tempBonus.setText(StatToken.getModToken(pc, stat, true, true, true,
+					false, 0));
 		}
 
 		/**

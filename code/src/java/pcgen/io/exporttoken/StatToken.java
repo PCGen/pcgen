@@ -85,6 +85,7 @@ public class StatToken extends Token
 		{
 			return "";
 		}
+		PCStat stat = pc.getStatList().getStatAt(indexOfStat);
 
 		String findType = "STAT";
 
@@ -102,11 +103,11 @@ public class StatToken extends Token
 
 			if ("NAME".equals(token))
 			{
-				return getNameToken(pc, indexOfStat);
+				return getNameToken(pc, stat);
 			}
 			if ("LONGNAME".equals(token))
 			{
-				return getLongNameToken(pc, indexOfStat);
+				return getLongNameToken(pc, stat);
 			}
 
 			if ("STAT".equals(token))
@@ -161,12 +162,12 @@ public class StatToken extends Token
 		{
 			if (useBase)
 			{
-				retString = getBaseModToken(pc, indexOfStat);
+				retString = getBaseModToken(pc, stat);
 			}
 			else
 			{
 				retString =
-						getModToken(pc, indexOfStat, useTemp, useEquip,
+						getModToken(pc, stat, useTemp, useEquip,
 							usePost, useLevel, aLevel);
 			}
 		}
@@ -174,12 +175,12 @@ public class StatToken extends Token
 		{
 			if (useBase)
 			{
-				retString = getBaseToken(pc, indexOfStat);
+				retString = getBaseToken(pc, stat);
 			}
 			else
 			{
 				retString =
-						getStatToken(pc, indexOfStat, useTemp, useEquip,
+						getStatToken(pc, stat, useTemp, useEquip,
 							usePost, useLevel, aLevel);
 			}
 		}
@@ -187,20 +188,19 @@ public class StatToken extends Token
 		return retString;
 	}
 
-	public static String getStatToken(PlayerCharacter pc, int index,
+	public static String getStatToken(PlayerCharacter pc, PCStat stat,
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel)
 	{
-		return getStatToken(pc, index, useTemp, useEquip, usePost, useLevel,
+		return getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel,
 			aLevel, true);
 	}
 
-	public static String getStatToken(PlayerCharacter pc, int index,
+	public static String getStatToken(PlayerCharacter pc, PCStat stat,
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel, final boolean checkGameMode)
 	{
-		PCStat stat = pc.getStatList().getStatAt(index);
-		if (pc.isNonAbility(index))
+		if (pc.isNonAbility(stat))
 		{
 			return "*";
 		}
@@ -238,62 +238,60 @@ public class StatToken extends Token
 		return Integer.toString(aTotal);
 	}
 
-	public static String getModToken(PlayerCharacter pc, int index,
+	public static String getModToken(PlayerCharacter pc, PCStat stat,
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel)
 	{
-		if (pc.isNonAbility(index))
+		if (pc.isNonAbility(stat))
 		{
 			return "+0";
 		}
 		int aTotal =
-				Integer.parseInt(getStatToken(pc, index, useTemp, useEquip,
+				Integer.parseInt(getStatToken(pc, stat, useTemp, useEquip,
 					usePost, useLevel, aLevel, false));
 
 		int temp = pc.getStatList().getModForNumber(aTotal);
 		return Delta.toString(temp);
 	}
 
-	public static String getBaseToken(PlayerCharacter pc, int index)
+	public static String getBaseToken(PlayerCharacter pc, PCStat stat)
 	{
-		PCStat stat = pc.getStatList().getStatAt(index);
-		if (pc.isNonAbility(index))
+		if (pc.isNonAbility(stat))
 		{
 			return "*";
 		}
 		return Integer.toString(pc.getStatList().getBaseStatFor(stat));
 	}
 
-	public static String getBaseModToken(PlayerCharacter pc, int index)
+	public static String getBaseModToken(PlayerCharacter pc, PCStat stat)
 	{
-		pc.getStatList().getStatAt(index);
-		if (pc.isNonAbility(index))
+		if (pc.isNonAbility(stat))
 		{
 			return "+0";
 		}
-		int aTotal = Integer.parseInt(getBaseToken(pc, index));
+		int aTotal = Integer.parseInt(getBaseToken(pc, stat));
 		int temp = pc.getStatList().getModForNumber(aTotal);
 
 		return Delta.toString(temp);
 	}
 
-	public static String getNameToken(PlayerCharacter pc, int index)
+	public static String getNameToken(PlayerCharacter pc, PCStat stat)
 	{
-		return SettingsHandler.getGame().s_ATTRIBSHORT[index];
+		return stat.getAbb();
 	}
 
-	public static String getLongNameToken(PlayerCharacter pc, int index)
+	public static String getLongNameToken(PlayerCharacter pc, PCStat stat)
 	{
-		return SettingsHandler.getGame().s_ATTRIBLONG[index];
+		return stat.getDisplayName();
 	}
 
 	/*
 	 * Wrapper functions for calls with old arguments
 	 */
 
-	public static String getModToken(PlayerCharacter pc, int index)
+	public static String getModToken(PlayerCharacter pc, PCStat stat)
 	{
-		return getModToken(pc, index, true, true, true, false, 0);
+		return getModToken(pc, stat, true, true, true, false, 0);
 	}
 
 }

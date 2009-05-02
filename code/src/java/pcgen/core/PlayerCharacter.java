@@ -6273,29 +6273,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return true, if is non ability
 	 */
-	public boolean isNonAbility(final int i)
+	public boolean isNonAbility(PCStat stat)
 	{
 		//Unlocked overrides any lock to a non ability so check for it first
-		if (RaceStat.isUnlocked(i, race))
+		if (RaceStat.isUnlocked(stat, race))
 		{
 			return false;
 		}
 		for (PCTemplate template : templateList)
 		{
-			if (TemplateStat.isUnlocked(template, i))
+			if (TemplateStat.isUnlocked(template, stat))
 			{
 				return false;
 			}
 		}
 
-		if (RaceStat.isNonAbility(i, race))
+		if (RaceStat.isNonAbility(stat, race))
 		{
 			return true;
 		}
 
 		for (PCTemplate template : templateList)
 		{
-			if (TemplateStat.isNonAbility(template, i))
+			if (TemplateStat.isNonAbility(template, stat))
 			{
 				return true;
 			}

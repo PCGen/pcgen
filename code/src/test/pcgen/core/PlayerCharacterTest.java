@@ -849,40 +849,37 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testIsNonAbility()
 	{
 		PlayerCharacter pc = getCharacter();
-		StatList statList = pc.getStatList();
-		int index = statList.getIndexOfStatFor("STR");
-		PCStat str = statList.getStatAt(index);
 
 		//Base
-		assertEquals("Initially character should not have a locked ability", false, pc.isNonAbility(index));
+		assertEquals("Initially character should not have a locked ability", false, pc.isNonAbility(str));
 
 		// With template lock
 		PCTemplate nonAbilityLocker = new PCTemplate();
 		nonAbilityLocker.setName("locker");
 		nonAbilityLocker.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(10)));
 		pc.addTemplate(nonAbilityLocker);
-		assertEquals("STR now locked to non ability", true, pc.isNonAbility(index));
+		assertEquals("STR now locked to non ability", true, pc.isNonAbility(str));
 		pc.removeTemplate(nonAbilityLocker);
-		assertEquals("STR no longer locked to non ability", false, pc.isNonAbility(index));
+		assertEquals("STR no longer locked to non ability", false, pc.isNonAbility(str));
 		
 		// With race lock
 		Race nonAbilityLockerRace = new Race();
 		nonAbilityLockerRace.setName("locker");
 		nonAbilityLockerRace.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(10)));
 		pc.setRace(nonAbilityLockerRace);
-		assertEquals("STR now locked to non ability", true, pc.isNonAbility(index));
+		assertEquals("STR now locked to non ability", true, pc.isNonAbility(str));
 		
 		// With template unlock
 		nonAbilityLocker.addToListFor(ListKey.UNLOCKED_STATS, str);
 		pc.addTemplate(nonAbilityLocker);
-		assertEquals("STR now unlocked from a non ability by template", false, pc.isNonAbility(index));
+		assertEquals("STR now unlocked from a non ability by template", false, pc.isNonAbility(str));
 		pc.removeTemplate(nonAbilityLocker);
-		assertEquals("STR no longer locked to non ability", true, pc.isNonAbility(index));
+		assertEquals("STR no longer locked to non ability", true, pc.isNonAbility(str));
 		
 		// With race unlock
 		nonAbilityLockerRace.addToListFor(ListKey.UNLOCKED_STATS, str);
 		pc.setRace(nonAbilityLockerRace);
-		assertEquals("STR now unlocked from a non ability by race", false, pc.isNonAbility(index));
+		assertEquals("STR now unlocked from a non ability by race", false, pc.isNonAbility(str));
 	}
 	
 	/**

@@ -6,13 +6,15 @@
 
 package plugin.charactersheet.gui;
 
+import java.awt.Font;
+
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.InitiativeMiscToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.util.Delta;
-
-import java.awt.Font;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -290,7 +292,9 @@ public class CombatPane2 extends javax.swing.JPanel
 		baseAttack.setText(AttackToken.getParsedToken(pc, MELEE, BLANK));
 
 		initTotal.setText(Delta.toString(pc.initiativeMod()));
-		dexMod.setText(StatToken.getModToken(pc, 1));
+		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+				PCStat.class, "DEX");
+		dexMod.setText(StatToken.getModToken(pc, dex));
 		miscMod.setText(Delta.toString(InitiativeMiscToken
 			.getInitiativeMiscToken(pc)));
 	}

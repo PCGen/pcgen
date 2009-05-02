@@ -7,18 +7,22 @@
 package plugin.charactersheet.gui;
 
 import gmgen.gui.GridBoxLayout;
-import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.CheckToken;
-import pcgen.io.exporttoken.StatToken;
-import pcgen.util.Delta;
+
+import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-import java.awt.FlowLayout;
-import java.awt.Font;
+
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.exporttoken.CheckToken;
+import pcgen.io.exporttoken.StatToken;
+import pcgen.util.Delta;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -461,7 +465,9 @@ public class SavingThrowPane extends JPanel
 			TOTAL_TOKEN)));
 		fortBase.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
 			BASE_TOKEN)));
-		fortAbility.setText(StatToken.getModToken(pc, 2));
+		PCStat con = Globals.getContext().ref.getAbbreviatedObject(
+				PCStat.class, "CON");
+		fortAbility.setText(StatToken.getModToken(pc, con));
 		fortMagic.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
 			MAGIC_TOKEN)));
 		fortMisc.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
@@ -474,7 +480,9 @@ public class SavingThrowPane extends JPanel
 			TOTAL_TOKEN)));
 		refBase.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
 			BASE_TOKEN)));
-		refAbility.setText(StatToken.getModToken(pc, 1));
+		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+				PCStat.class, "DEX");
+		refAbility.setText(StatToken.getModToken(pc, dex));
 		refMagic.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
 			MAGIC_TOKEN)));
 		refMisc.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
@@ -487,7 +495,9 @@ public class SavingThrowPane extends JPanel
 			TOTAL_TOKEN)));
 		willBase.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
 			BASE_TOKEN)));
-		willAbility.setText(StatToken.getModToken(pc, 4));
+		PCStat wis = Globals.getContext().ref.getAbbreviatedObject(
+				PCStat.class, "WIS");
+		willAbility.setText(StatToken.getModToken(pc, wis));
 		willMagic.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
 			MAGIC_TOKEN)));
 		willMisc.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
