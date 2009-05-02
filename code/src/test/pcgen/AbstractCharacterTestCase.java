@@ -45,7 +45,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		final GameMode gamemode = SettingsHandler.getGame();
-
+		gamemode.clearStatList();
+		
 		gamemode.setAttribLong(new String[]{"Strength", "Dexterity",
 			"Constitution", "Intelligence", "Wisdom", "Charisma"});
 		gamemode.setAttribShort(new String[]{"STR", "DEX", "CON", "INT", "WIS",

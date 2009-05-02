@@ -52,16 +52,8 @@ public final class StatList implements Iterable<PCStat>
 		ownerPC = pc;
 	}
 
-	public int getBaseStatFor(final String aStat)
+	public int getBaseStatFor(final PCStat stat)
 	{
-		final int x = getIndexOfStatFor(aStat);
-
-		if (x == -1)
-		{
-			return 0;
-		}
-
-		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!aPC.hasUnlockedStat(stat))
@@ -79,7 +71,6 @@ public final class StatList implements Iterable<PCStat>
 		{
 			return z;
 		}
-
 		Integer score = aPC.getAssoc(stat, AssociationKey.STAT_SCORE);
 		return score == null ? 0 : score;
 	}
@@ -188,7 +179,7 @@ public final class StatList implements Iterable<PCStat>
 	 */
 	public int getTotalStatFor(final PCStat stat)
 	{
-		int y = getBaseStatFor(stat.getAbb());
+		int y = getBaseStatFor(stat);
 
 		final PlayerCharacter aPC = ownerPC;
 		// Only check for a lock if the stat hasn't been unlocked
@@ -236,8 +227,7 @@ public final class StatList implements Iterable<PCStat>
 	 */
 	public int getPartialStatFor(PCStat stat, boolean useTemp, boolean useEquip)
 	{
-		String aStat = stat.getAbb();
-		int y = getBaseStatFor(aStat);
+		int y = getBaseStatFor(stat);
 
 		final PlayerCharacter aPC = ownerPC;
 		Number val = aPC.getLockedStat(stat);

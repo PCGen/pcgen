@@ -82,18 +82,18 @@ public class StatListTest extends AbstractCharacterTestCase
 	public void testGetBaseStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Starting STR should be 6", 6, pc.getStatList().getBaseStatFor("STR"));
+		assertEquals("Starting STR should be 6", 6, pc.getStatList().getBaseStatFor(str));
 
 		// Bonus should not affect base stat
 		pc.addAbility(AbilityCategory.FEAT, bonus, null);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should still be locked", 6, pc.getStatList().getBaseStatFor("STR"));
+		assertEquals("Stat should still be locked", 6, pc.getStatList().getBaseStatFor(str));
 		
 		pc.addTemplate(locker);
-		assertEquals("Stat should now be locked", 12, pc.getStatList().getBaseStatFor("STR"));
+		assertEquals("Stat should now be locked", 12, pc.getStatList().getBaseStatFor(str));
 
 		pc.addTemplate(unlocker);
-		assertEquals("Stat should now be unlocked", 6, pc.getStatList().getBaseStatFor("STR"));
+		assertEquals("Stat should now be unlocked", 6, pc.getStatList().getBaseStatFor(str));
 	}
 
 	/**

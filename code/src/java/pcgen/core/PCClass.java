@@ -3230,7 +3230,7 @@ public class PCClass extends PObject
 				final int iAdjStat =
 						aPC.getStatList().getTotalStatFor(aStat);
 				final int iCurStat =
-						aPC.getStatList().getBaseStatFor(aStat.getAbb());
+						aPC.getStatList().getBaseStatFor(aStat);
 				sStats.append(aStat.getAbb()).append(": ").append(iCurStat);
 
 				if (iCurStat != iAdjStat)

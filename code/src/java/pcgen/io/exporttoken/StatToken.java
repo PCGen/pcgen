@@ -261,7 +261,7 @@ public class StatToken extends Token
 		{
 			return "*";
 		}
-		return pc.getStatList().getBaseStatFor(stat.getAbb()) + "";
+		return Integer.toString(pc.getStatList().getBaseStatFor(stat));
 	}
 
 	public static String getBaseModToken(PlayerCharacter pc, int index)

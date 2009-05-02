@@ -839,9 +839,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				continue;
 			}
 
-			final int statValue =
-					pc.getStatList().getBaseStatFor(
-						SettingsHandler.getGame().s_ATTRIBSHORT[stat]);
+			final int statValue = pc.getStatList().getBaseStatFor(aStat);
 			i += getPurchaseCostForStat(pc, statValue);
 		}
 		i += (int) pc.getTotalBonusTo("POINTBUY", "SPENT"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -2359,15 +2357,13 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			return;
 		}
 
-		int stat =
-				pc.getStatList().getBaseStatFor(
-					SettingsHandler.getGame().s_ATTRIBSHORT[selectedStat]);
+		final PCStat aStat = pc.getStatList().getStatAt(selectedStat);
+		int stat = pc.getStatList().getBaseStatFor(aStat);
+
 		boolean makeChange = false;
 		//		boolean checkPurchase = false;
 		int increment = 0;
 		int poolMod = 0;
-
-		final PCStat aStat = pc.getStatList().getStatAt(selectedStat);
 
 		final int column = statTable.columnAtPoint(evt.getPoint());
 
@@ -2841,9 +2837,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					continue;
 				}
 
-				final int currentStat =
-						statList
-							.getBaseStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[i]);
+				final int currentStat = statList.getBaseStatFor(aStat);
 				final int currentMod =
 						statList
 							.getStatModFor(SettingsHandler.getGame().s_ATTRIBSHORT[i]);
@@ -3451,7 +3445,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					}
 
 					return Integer.valueOf(pc.getStatList().getBaseStatFor(
-						aStat));
+							activeStat));
 
 				case RACE_COLUMN:
 
@@ -3476,7 +3470,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 					return Integer.valueOf(pc.getStatList().getTotalStatFor(
 							activeStat)
-						- pc.getStatList().getBaseStatFor(aStat) - iRace);
+						- pc.getStatList().getBaseStatFor(activeStat) - iRace);
 
 				case TOTAL_COLUMN:
 
