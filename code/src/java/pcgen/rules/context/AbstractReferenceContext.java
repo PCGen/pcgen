@@ -480,4 +480,9 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	// return addr;
 	// }
 
+	public <T extends CDOMObject> int getConstructedObjectCount(Class<T> c)
+	{
+		return getManufacturer(c).getConstructedObjectCount();
+	}
+
 }

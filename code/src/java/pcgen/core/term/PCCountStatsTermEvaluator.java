@@ -27,7 +27,6 @@
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 
 public class PCCountStatsTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -40,7 +39,7 @@ public class PCCountStatsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) SettingsHandler.getGame().s_ATTRIBLONG.length;
+		return (float) pc.getStatList().size();
 	}
 
 	public boolean isSourceDependant()

@@ -132,8 +132,6 @@ public final class GameMode implements Comparable<Object>
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
 	private List<PCStat> statList = new ArrayList<PCStat>();
-	/** String array of Attributes in long format */
-	public String[] s_ATTRIBLONG;
 	/** String array of Attributes in short format */
 	public String[] s_ATTRIBSHORT;
 	private final List<PCCheck> checkList = new ArrayList<PCCheck>();
@@ -1606,26 +1604,6 @@ public final class GameMode implements Comparable<Object>
 	public void clearStatList()
 	{
 		statList.clear();
-	}
-
-
-	/**
-	 * Set the long description of attributes
-	 * @param s
-	 */
-	public void setAttribLong(final String[] s)
-	{
-		s_ATTRIBLONG = s;
-	}
-
-	/**
-	 * Set the long description of a particular attribute
-	 * @param index
-	 * @param s
-	 */
-	public void setAttribLong(final int index, final String s)
-	{
-		s_ATTRIBLONG[index] = s;
 	}
 
 	/**

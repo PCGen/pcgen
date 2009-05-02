@@ -63,7 +63,6 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	{
 		// Clear relevant Globals
 		GameMode game = SettingsHandler.getGame();
-		game.setAttribLong(null);
 		game.setAttribShort(null);
 		game.clearCheckList();
 		game.clearAlignmentList();
@@ -75,13 +74,11 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		List<PCStat> statList =
 				game.getUnmodifiableStatList();
 		int statCount = statList.size();
-		game.setAttribLong(new String[statCount]);
 		game.setAttribShort(new String[statCount]);
 
 		for (int i = 0; i < statCount; i++)
 		{
 			PCStat stat = statList.get(i);
-			game.setAttribLong(i, stat.getDisplayName());
 			game.setAttribShort(i, stat.getAbb());
 		}
 	}

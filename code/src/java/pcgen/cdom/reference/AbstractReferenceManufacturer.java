@@ -1277,4 +1277,17 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 			}
 		}
 	}
+
+	/**
+	 * Returns the number of objects that are constructed in this
+	 * AbstractReferenceManufacturer (These could be natively constructed or
+	 * imported objects and does not count duplicates)
+	 * 
+	 * @return The number of objects that are constructed in this
+	 *         AbstractReferenceManufacturer
+	 */
+	public int getConstructedObjectCount()
+	{
+		return active.size();
+	}
 }

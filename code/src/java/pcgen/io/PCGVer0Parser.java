@@ -26,6 +26,7 @@
 package pcgen.io;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -52,6 +53,7 @@ import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -2171,20 +2173,21 @@ final class PCGVer0Parser implements PCGParser
 			statCount = Integer.parseInt(aTok.nextToken());
 		}
 
-		if (statCount != SettingsHandler.getGame().s_ATTRIBLONG.length)
+		Collection<PCStat> allStats = Globals.getContext().ref
+				.getConstructedCDOMObjects(PCStat.class);
+		if (statCount != allStats.size())
 		{
 			final String message =
 					"Number of Stats for character is " + statCount + ". "
 						+ "PCGen is currently using "
-						+ SettingsHandler.getGame().s_ATTRIBLONG.length + ". "
+						+ allStats.size() + ". "
 						+ "Cannot load character.";
 			throw new PCGParseException("parseStatsLine", line, message);
 		}
 
 		try
 		{
-			for (int i = 0; aTok.hasMoreTokens()
-				&& (i < SettingsHandler.getGame().s_ATTRIBLONG.length); i++)
+			for (int i = 0; aTok.hasMoreTokens() && (i < allStats.size()); i++)
 			{
 				aPC.setAssoc(aPC.getStatList().getStatAt(i), AssociationKey.STAT_SCORE, Integer.parseInt(aTok.nextToken()));
 			}

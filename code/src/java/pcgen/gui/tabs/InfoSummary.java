@@ -830,10 +830,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	{
 		int i = 0;
 
-		for (int stat = 0; stat < SettingsHandler.getGame().s_ATTRIBLONG.length; ++stat)
+		for (PCStat aStat : pc.getStatList())
 		{
-			final PCStat aStat = pc.getStatList().getStatAt(stat);
-
 			if (!aStat.getSafe(ObjectKey.ROLLED))
 			{
 				continue;
@@ -1547,7 +1545,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				final String aString =
 						pc.getLevelInfoClassKeyName(pcClassTable
 							.getSelectedRow());
-				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aString);
+				final PCClass aClass = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(PCClass.class,
+								aString);
 
 				if (aClass != null)
 				{
@@ -2800,8 +2800,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					pc.rollStats(Constants.CHARACTERSTATMETHOD_ROLLED);
 
-					statTableModel.fireTableRowsUpdated(0, SettingsHandler
-						.getGame().s_ATTRIBLONG.length);
+					statTableModel.fireTableRowsUpdated(0,
+							Globals.getContext().ref
+									.getConstructedObjectCount(PCStat.class));
 					pc.calcActiveBonuses();
 
 					updatePool(false);
@@ -3260,14 +3261,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		/**
 		 * <code>getRowCount()</code>
 		 * returns the number of rows
-		 * Gets the number of stats from Globals.s_ATTRIBLONG
+		 * Gets the number of stats
 		 * @return row count
 		 **/
 		public int getRowCount()
 		{
 			if (pc != null)
 			{
-				return SettingsHandler.getGame().s_ATTRIBLONG.length;
+				return pc.getStatList().size();
 			}
 			return 0;
 		}

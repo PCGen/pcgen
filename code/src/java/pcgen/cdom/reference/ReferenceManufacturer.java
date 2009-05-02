@@ -358,4 +358,14 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 */
 	public void removeUnconstructedListener(UnconstructedListener listener);
 
+	/**
+	 * Returns the number of objects that are constructed in this
+	 * ReferenceManufacturer (These could be natively constructed or imported
+	 * objects and does not count duplicates)
+	 * 
+	 * @return The number of objects that are constructed in this
+	 *         ReferenceManufacturer
+	 */
+	public int getConstructedObjectCount();
+
 }

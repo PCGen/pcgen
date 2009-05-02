@@ -393,10 +393,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		Globals.setCurrentPC(this);
 
-		for (int i = 0, x = SettingsHandler.getGame().s_ATTRIBLONG.length; i < x; ++i)
+		for (PCStat stat : SettingsHandler.getGame().getUnmodifiableStatList())
 		{
-			final PCStat stat =
-					SettingsHandler.getGame().getUnmodifiableStatList().get(i);
 			statList.addStat(stat);
 		}
 
