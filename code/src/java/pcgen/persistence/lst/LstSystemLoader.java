@@ -1212,7 +1212,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			SettingsHandler.setGame(gmName);
 			if (gm != null)
 			{
-				LoadContext context = gm.getContext();
+				LoadContext context = gm.getModeContext();
 				loadGameModeInfoFile(gm, new File(specGameModeDir, "level.lst")
 						.toURI(), "level");
 				loadGameModeInfoFile(gm, new File(specGameModeDir, "rules.lst")
