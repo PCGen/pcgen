@@ -4255,18 +4255,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			PCGElement element = it.next();
 			final String statName = element.getText();
+			PCStat stat = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCStat.class, statName);
 
-			final int index =
-					SettingsHandler.getGame().getStatFromAbbrev(statName);
-
-			if ((index > -1) && seenStats.add(statName.toUpperCase())
+			if ((stat != null) && seenStats.add(statName.toUpperCase())
 				&& (it.hasNext()))
 			{
 				element = it.next();
 
 				try
 				{
-					thePC.setAssoc(thePC.getStatList().getStatAt(index), AssociationKey.STAT_SCORE, Integer.parseInt(element.getText()));
+					thePC.setAssoc(stat, AssociationKey.STAT_SCORE, Integer.parseInt(element.getText()));
 				}
 				catch (NumberFormatException nfe)
 				{

@@ -3004,7 +3004,7 @@ public class PCClass extends PObject
 							final PCStat aStat = i.next();
 
 							if (aStat.getAbb().equalsIgnoreCase(
-								statToRollback.getStatAbb()))
+								statToRollback.getStat().getAbb()))
 							{
 								aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE)
 								- statToRollback.getStatMod());

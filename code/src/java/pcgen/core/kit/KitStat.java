@@ -72,7 +72,7 @@ public class KitStat extends BaseKit
 		{
 			int sVal = me.getValue().resolve(aPC, "").intValue();
 			final StatList statList = aPC.getStatList();
-			for (PCStat currentStat : statList.getStatList())
+			for (PCStat currentStat : statList)
 			{
 				if (!aPC.isNonAbility(currentStat)
 					&& currentStat.getAbb().equals(me.getKey().getAbb()))

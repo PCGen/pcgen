@@ -50,11 +50,6 @@ public final class PCLevelInfoStat implements Serializable
 		return stat.getAbb() + "=" + Integer.toString(mod);
 	}
 
-	public String getStatAbb()
-	{
-		return stat.getAbb();
-	}
-
 	public PCStat getStat()
 	{
 		return stat;

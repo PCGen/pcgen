@@ -175,7 +175,7 @@ public class TemplateToken extends Token
 	{
 		StringBuffer retString = new StringBuffer();
 
-		for (PCStat stat : pc.getStatList().getStatList())
+		for (PCStat stat : pc.getStatList())
 		{
 			String modName = stat.getAbb() + "MOD";
 

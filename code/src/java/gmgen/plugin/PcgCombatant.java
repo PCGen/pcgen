@@ -711,7 +711,7 @@ public class PcgCombatant extends Combatant
 
 			StatList sl = pcOut.getStatList();
 
-			for (PCStat stat : sl.getStatList())
+			for (PCStat stat : sl)
 			{
 				String statAbb = stat.getAbb();
 				if (pc.isNonAbility(stat))

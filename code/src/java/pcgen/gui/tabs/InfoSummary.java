@@ -871,7 +871,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			final StringBuffer aString = new StringBuffer();
 
-			for (PCStat aStat : pc.getStatList().getStatList())
+			for (PCStat aStat : pc.getStatList())
 			{
 				if (RaceStat.isNonAbility(aStat, aRace))
 				{
@@ -2825,7 +2825,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			int modTotal = 0;
 			final StatList statList = pc.getStatList();
 
-			for (PCStat aStat : pc.getStatList().getStatList())
+			for (PCStat aStat : pc.getStatList())
 			{
 				if (pc.isNonAbility(aStat) || !aStat.getSafe(ObjectKey.ROLLED))
 				{
