@@ -114,10 +114,8 @@ final class SkillBasePanel extends BasePanel
 		}
 		else
 		{
-			for (int i = SettingsHandler.getGame().getUnmodifiableStatList().size() - 1; i >= 0; --i)
+			for (PCStat aStat : Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class))
 			{
-				PCStat aStat = SettingsHandler.getGame().getUnmodifiableStatList().get(i);
-
 				if (aStat.getAbb().equals(aString))
 				{
 					cmbKeyStat.setSelectedItem(aStat.getKeyName());
@@ -224,10 +222,11 @@ final class SkillBasePanel extends BasePanel
 		//
 		// Initialize the contents of the skill's key stat combo
 		//
-		List<String> availableList = new ArrayList<String>(SettingsHandler.getGame().getUnmodifiableStatList().size() + 1);
+		List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		List<String> availableList = new ArrayList<String>(statList.size() + 1);
 		availableList.add(Constants.s_NONE);
 
-		for (PCStat stat : SettingsHandler.getGame().getUnmodifiableStatList())
+		for (PCStat stat : statList)
 		{
 			availableList.add(stat.getKeyName());
 		}

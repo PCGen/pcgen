@@ -343,7 +343,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_ABILITY:
-					retValue.append(aSkill.getKeyStatFromStats());
+					retValue.append(aSkill.getKeyStatFromStats(pc));
 					break;
 
 				case SKILL_ABMOD:

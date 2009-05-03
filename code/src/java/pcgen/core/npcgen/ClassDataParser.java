@@ -44,6 +44,7 @@ import pcgen.core.Categorisable;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
@@ -283,7 +284,9 @@ class ClassDataHandler extends DefaultHandler
 					final String statAbbr = anAttrs.getValue("value"); //$NON-NLS-1$
 					if ( statAbbr != null )
 					{
-						theCurrentData.addStat(statAbbr, weight);
+						PCStat stat = Globals.getContext().ref
+								.getAbbreviatedObject(PCStat.class, statAbbr);
+						theCurrentData.addStat(stat, weight);
 					}
 				}
 			}

@@ -311,19 +311,17 @@ public class NPCGenerator
 		return option.getList().getRandomValue();
 	}
 
-	private List<PCStat> getStatWeights(final PCClass aClass)
+	private List<PCStat> getStatWeights(PlayerCharacter pc, final PCClass aClass)
 	{
-		final WeightedCollection<String> stats = new WeightedCollection<String>(theConfiguration.getStatWeights(aClass.getKeyName()));
+		final WeightedCollection<PCStat> stats = new WeightedCollection<PCStat>(
+				theConfiguration.getStatWeights(aClass.getKeyName()));
 
-		// Now determine that actual order
-		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
-		final List<PCStat> ret = new ArrayList<PCStat>(statList.size());
-		for (int i = 0; i < statList.size(); i++)
+		final List<PCStat> ret = new ArrayList<PCStat>();
+		for (int i = 0; i < pc.getStatList().size(); i++)
 		{
-			final String statAbbrev = stats.getRandomValue();
-			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(PCStat.class, statAbbrev);
+			final PCStat stat = stats.getRandomValue();
 			ret.add(stat);
-			stats.remove(statAbbrev);
+			stats.remove(stat);
 		}
 
 		return ret;
@@ -331,7 +329,7 @@ public class NPCGenerator
 
 	private void generateStats(final PlayerCharacter aPC, final PCClass aClass, final GameModeRollMethod aRollMethod)
 	{
-		final List<PCStat> statOrder = getStatWeights(aClass);
+		final List<PCStat> statOrder = getStatWeights(aPC, aClass);
 		Logging.debugPrint( "NPCGenerator: Stat order is " + statOrder ); //$NON-NLS-1$
 		aPC.rollStats(Constants.CHARACTERSTATMETHOD_ROLLED, statOrder, aRollMethod, true);
 		for (PCStat stat : aPC.getStatList())

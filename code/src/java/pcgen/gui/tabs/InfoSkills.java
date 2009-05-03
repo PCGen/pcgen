@@ -2330,7 +2330,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			b.append(PropertyFactory.getString("in_iskHtml_TYPE"))
 				.append(StringUtil.join(aSkill.getTrueTypeList(true), ". ")); //$NON-NLS-1$
 
-			String aString = aSkill.getKeyStatFromStats();
+			String aString = aSkill.getKeyStatFromStats(pc);
 			if (aString.length() != 0)
 			{
 				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$

@@ -17,14 +17,13 @@
  */
 package plugin.lsttokens.choose;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -76,7 +75,7 @@ public class StatToken implements CDOMSecondaryToken<CDOMObject>
 					+ " arguments uses double separator || : " + value);
 			return false;
 		}
-		List<PCStat> list = SettingsHandler.getGame().getUnmodifiableStatList();
+		Collection<PCStat> list = context.ref.getConstructedCDOMObjects(PCStat.class);
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		TOKENS: while (tok.hasMoreTokens())
 		{

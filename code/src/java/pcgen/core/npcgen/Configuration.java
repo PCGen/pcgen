@@ -39,6 +39,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
@@ -260,7 +261,7 @@ public class Configuration
 		return ret;
 	}
 	
-	public WeightedCollection<String> getStatWeights(final String aKey)
+	public WeightedCollection<PCStat> getStatWeights(final String aKey)
 	{
 		ClassData data = theClassData.get(aKey);
 		if ( data == null )

@@ -24,7 +24,6 @@ package pcgen.core.npcgen;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.WeightedCollection;
@@ -38,7 +37,6 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
 
@@ -54,7 +52,7 @@ public class ClassData
 	private PCClass theClass = null;
 	
 	// TODO Can this be a PCStat?
-	private WeightedCollection<String> theStatWeights = null;
+	private WeightedCollection<PCStat> theStatWeights = null;
 	private WeightedCollection<SkillChoice> theSkillWeights = null;
 	private Map<AbilityCategory, WeightedCollection<Ability>> theAbilityWeights = null;
 	private WeightedCollection<Deity> theDeityWeights = null;
@@ -79,31 +77,30 @@ public class ClassData
 	}
 	
 	/**
-	 * @param aStatAbbr The stat abbreviation to add
+	 * @param stat The stat to add
 	 * @param aWeight The weight to associate with it.
 	 */
-	public void addStat( final String aStatAbbr, final int aWeight )
+	public void addStat( final PCStat stat, final int aWeight )
 	{
 		if ( theStatWeights == null )
 		{
-			theStatWeights = new WeightedCollection<String>();
+			theStatWeights = new WeightedCollection<PCStat>();
 		}
-		theStatWeights.add(aStatAbbr, aWeight);
+		theStatWeights.add(stat, aWeight);
 	}
 	
 	/**
 	 * @return <tt>WeightedCollection</tt> of stat abbreviations.
 	 */
-	public WeightedCollection<String> getStatWeights()
+	public WeightedCollection<PCStat> getStatWeights()
 	{
 		// Make sure that we have all the stats
-		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
-		for ( final PCStat stat : statList )
+		for (final PCStat stat : Globals.getContext().ref
+				.getConstructedCDOMObjects(PCStat.class))
 		{
-			if ( theStatWeights == null || !theStatWeights
-					.contains(stat.getAbb()) )
+			if (theStatWeights == null || !theStatWeights.contains(stat))
 			{
-				addStat(stat.getAbb(), 1);
+				addStat(stat, 1);
 			}
 		}
 		return theStatWeights;

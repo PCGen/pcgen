@@ -41,7 +41,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
-import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -332,14 +331,12 @@ public class LSTConverter extends Observable
 
 		for (PCAlignment al : gamemode.getUnmodifiableAlignmentList())
 		{
+			context.ref.importObject(al);
 			context.ref.registerAbbreviation(al, al.getKeyName());
-		}
-		for (PCStat st : gamemode.getUnmodifiableStatList())
-		{
-			context.ref.registerAbbreviation(st, st.getAbb());
 		}
 		for (SizeAdjustment sz : gamemode.getUnmodifiableSizeAdjustmentList())
 		{
+			context.ref.importObject(sz);
 			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
 		}
 	}

@@ -165,14 +165,14 @@ public final class Skill extends PObject
 	 * 
 	 * @return description
 	 */
-	public String getKeyStatFromStats()
+	public String getKeyStatFromStats(PlayerCharacter pc)
 	{
 		PCStat stat = get(ObjectKey.KEY_STAT);
 		if (stat == null)
 		{
 			if (Globals.getGameModeHasPointPool())
 			{
-				List<PCStat> statList = getKeyStatList(null);
+				List<PCStat> statList = getKeyStatList(pc, null);
 				StringBuilder sb = new StringBuilder();
 				boolean needSlash = false;
 				for (PCStat s : statList)
@@ -203,18 +203,15 @@ public final class Skill extends PObject
 	 * @param typeList
 	 * @return List of stats that apply
 	 */
-	public List<PCStat> getKeyStatList(List<Type> typeList)
+	public List<PCStat> getKeyStatList(PlayerCharacter pc, List<Type> typeList)
 	{
 		List<PCStat> aList = new ArrayList<PCStat>();
 		if (Globals.getGameModeHasPointPool())
 		{
 			for (Type aType : getTrueTypeList(false))
 			{
-				List<PCStat> statList = SettingsHandler.getGame()
-						.getUnmodifiableStatList();
-				for (int idx = statList.size() - 1; idx >= 0; --idx)
+				for (PCStat stat : pc.getStatList())
 				{
-					final PCStat stat = statList.get(idx);
 					//
 					// Get a list of all BONUS:SKILL|TYPE.<type>|x for this
 					// skill that would come from current stat
