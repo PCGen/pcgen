@@ -31,9 +31,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
@@ -69,17 +67,14 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
-		setPCStat(character, "STR", 14);
-		PCStat stat =
-				character.getStatList().getStatAt(
-					SettingsHandler.getGame().getStatFromAbbrev("STR"));
-		stat.removeListFor(ListKey.BONUS);
+		setPCStat(character, str, 14);
+		str.removeListFor(ListKey.BONUS);
 		final BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			aBonus.setCreatorObject(str);
+			str.addToListFor(ListKey.BONUS, aBonus);
 		}
 //		// Ignoring max dex
 //		stat.addBonusList("COMBAT|AC|DEX|TYPE=Ability");

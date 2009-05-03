@@ -23,14 +23,17 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
-
-import java.util.*;
 
 /**
  * {<code>EquipmentChoice</code>} holds the details of a choice or
@@ -481,10 +484,9 @@ public final class EquipmentChoice
 	 * Add the current character stats as defined in the game mode to the chooser
 	 */
 	public void addStats() {
-		for (int x = 0; x < SettingsHandler.getGame().s_ATTRIBSHORT.length; x++)
+		for (PCStat stat : Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class))
 		{
-			this.getAvailableList().add(
-				SettingsHandler.getGame().s_ATTRIBSHORT[x]);
+			this.getAvailableList().add(stat.getAbb());
 		}
 	}
 

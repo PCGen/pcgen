@@ -203,7 +203,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 			"You can only prepare 0 spells for level 1"
 				+ "\nand there are no higher-level slots available.", result);
 
-		setPCStat(character, "WIS", 12);
+		setPCStat(character, wis, 12);
 		character.calcActiveBonuses();
 		result =
 				character.addSpell(charSpell, null, divineClass.getKeyName(),

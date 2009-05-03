@@ -23,8 +23,6 @@
  */
 package plugin.exporttokens;
 
-import java.util.List;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -104,8 +102,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		gamemode.addLevelInfo("Default", levelInfo);
 
 		//Stats
-		setPCStat(character, "DEX", 16);
-		setPCStat(character, "INT", 17);
+		setPCStat(character, dex, 16);
+		setPCStat(character, intel, 17);
 		PCStat stat = character.getStatList().getStatAt(3);
 		BonusObj aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
 		
@@ -129,19 +127,13 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		ClassSkillList csl = new ClassSkillList();
 		csl.put(StringKey.NAME, "MyClass");
 
-		List<PCStat> statList = gamemode.getUnmodifiableStatList();
-		int intLoc = gamemode.getStatFromAbbrev("INT");
-		PCStat intStat = statList.get(intLoc);
-		int dexLoc = gamemode.getStatFromAbbrev("DEX");
-		PCStat dexStat = statList.get(dexLoc);
-
 		//Skills
 		knowledge = new Skill[2];
 		knowledge[0] = new Skill();
 		knowledge[0].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
-		knowledge[0].put(ObjectKey.KEY_STAT, intStat);
+		knowledge[0].put(ObjectKey.KEY_STAT, intel);
 		Globals.getContext().ref.importObject(knowledge[0]);
 		Skill ks0 = character.addSkill(knowledge[0]);
 		SkillRankControl.modRanks(8.0, myClass, true, character, ks0);
@@ -150,7 +142,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge[1].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
-		knowledge[1].put(ObjectKey.KEY_STAT, intStat);
+		knowledge[1].put(ObjectKey.KEY_STAT, intel);
 		Globals.getContext().ref.importObject(knowledge[1]);
 		Skill ks1 = character.addSkill(knowledge[1]);
 		SkillRankControl.modRanks(5.0, myClass, true, character, ks1);
@@ -159,7 +151,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		tumble.put(ObjectKey.KEY_STAT, dexStat);
+		tumble.put(ObjectKey.KEY_STAT, dex);
 		Globals.getContext().ref.importObject(tumble);
 		Skill ts = character.addSkill(tumble);
 		SkillRankControl.modRanks(7.0, myClass, true, character, ts);
@@ -168,7 +160,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		balance.put(ObjectKey.KEY_STAT, dexStat);
+		balance.put(ObjectKey.KEY_STAT, dex);
 		aBonus = Bonus.newBonus("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		
 		if (aBonus != null)

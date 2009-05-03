@@ -1048,12 +1048,9 @@ public class InfoResources extends FilterAdapterPanel implements
 		b.append(END_BOLD).append(" ").append(newPC.getRace()); //$NON-NLS-1$
 		b.append(BR);
 
-		for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; i++)
+		for (PCStat stat : SettingsHandler.getGame().getUnmodifiableStatList())
 		{
-			String statabb = SettingsHandler.getGame().s_ATTRIBSHORT[i];
-			PCStat stat = Globals.getContext().ref
-					.getAbbreviatedObject(PCStat.class, statabb);
-			b.append(BOLD).append(SettingsHandler.getGame().s_ATTRIBSHORT[i])
+			b.append(BOLD).append(stat.getAbb())
 					.append(END_BOLD).append(": ") //$NON-NLS-1$
 					.append(newPC.getStatList().getTotalStatFor(stat)).append(
 							" "); //$NON-NLS-1$

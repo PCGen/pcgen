@@ -93,6 +93,8 @@ public final class PCStatLoader extends LstLineFileLoader
 			Logging.clearParseMessages();
 		}
 
+		context.ref.importObject(stat);
+		context.ref.registerAbbreviation(stat, stat.getAbb());
 		SettingsHandler.getGame().addToStatList(stat);
 	}
 }

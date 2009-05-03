@@ -17907,7 +17907,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		String spellType = "";
 		String classKey = "";
 		int metaDC = 0;
-		int spellIndex = 0;
+		PCStat spellStat = null;
 
 		if (si != null)
 		{
@@ -17965,6 +17965,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		boolean useStatFromSpell = false;
+
 		if ((aClass != null) || (ow instanceof PCClass))
 		{
 			if ((aClass == null) || (ow instanceof PCClass))
@@ -17975,13 +17977,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			bonClass = "CLASS." + aClass.getKeyName();
 			classKey = "CLASS:" + aClass.getKeyName();
 			spellType = aClass.getSpellType();
-			spellIndex = aClass.baseSpellIndex();
+			spellStat = aClass.baseSpellStat();
+			useStatFromSpell = aClass.getSafe(ObjectKey.USE_SPELL_SPELL_STAT);
 		}
 
 		if (!(ow instanceof PCClass) && !(ow instanceof Domain))
 		{
 			// get BASESPELLSTAT from spell itself
-			spellIndex = -2;
+			useStatFromSpell = true;
 		}
 
 		// set the spell Level used in aPC.getVariableValue()
@@ -17994,7 +17997,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					+ metaDC;
 		dc += (int) getTotalBonusTo("DC", "ALLSPELLS");
 
-		if (spellIndex == -2)
+		if (useStatFromSpell)
 		{
 			// get the BASESPELLSTAT from the spell itself
 			PCStat stat = sp.get(ObjectKey.SPELL_STAT);

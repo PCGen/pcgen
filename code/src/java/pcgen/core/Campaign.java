@@ -28,10 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.reference.ReferenceManufacturer;
-import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -155,26 +152,7 @@ public class Campaign extends PObject
 		for (TransparentReferenceManufacturer<? extends CDOMObject> rm : gameRefContext
 				.getAllManufacturers())
 		{
-			resolveReferenceManufacturer(rc, rm);
+			GameMode.resolveReferenceManufacturer(rc, rm);
 		}
 	}
-
-	private <T extends CDOMObject> void resolveReferenceManufacturer(
-			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
-	{
-		Class<T> c = rm.getReferenceClass();
-		ReferenceManufacturer<T, ?> mfg;
-		if (CategorizedCDOMObject.class.isAssignableFrom(c))
-		{
-			String category = ((TransparentCategorizedReferenceManufacturer) rm)
-					.getCDOMCategory();
-			mfg = rc.getManufacturer((Class) c, category);
-		}
-		else
-		{
-			mfg = rc.getManufacturer(c);
-		}
-		rm.resolveUsing(mfg);
-	}
-
 }

@@ -68,8 +68,8 @@ public class PreVarTest extends AbstractCharacterTestCase
 	public void testMutiplePositive() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		setPCStat(character, "STR", 10);
-		setPCStat(character, "DEX", 14);
+		setPCStat(character, str, 10);
+		setPCStat(character, dex, 14);
 		character.calcActiveBonuses();
 
 		PreVariableParser parser = new PreVariableParser();
@@ -78,12 +78,12 @@ public class PreVarTest extends AbstractCharacterTestCase
 		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
 			prereq, character, null));
 
-		setPCStat(character, "STR", 12);
+		setPCStat(character, str, 12);
 		character.calcActiveBonuses();
 		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
 			prereq, character, null));
 
-		setPCStat(character, "DEX", 16);
+		setPCStat(character, dex, 16);
 		character.calcActiveBonuses();
 		assertTrue("Test should match now both stats pass", PrereqHandler.passes(
 			prereq, character, null));
@@ -93,8 +93,8 @@ public class PreVarTest extends AbstractCharacterTestCase
 	public void testMutipleNegative() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		setPCStat(character, "STR", 10);
-		setPCStat(character, "DEX", 14);
+		setPCStat(character, str, 10);
+		setPCStat(character, dex, 14);
 		character.calcActiveBonuses();
 
 		PreVariableParser parser = new PreVariableParser();
@@ -103,12 +103,12 @@ public class PreVarTest extends AbstractCharacterTestCase
 		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
 			prereq, character, null));
 
-		setPCStat(character, "STR", 12);
+		setPCStat(character, str, 12);
 		character.calcActiveBonuses();
 		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
 			prereq, character, null));
 
-		setPCStat(character, "DEX", 16);
+		setPCStat(character, dex, 16);
 		character.calcActiveBonuses();
 		assertFalse("Test should match now both stats pass", PrereqHandler.passes(
 			prereq, character, null));

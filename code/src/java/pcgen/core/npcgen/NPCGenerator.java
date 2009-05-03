@@ -321,8 +321,7 @@ public class NPCGenerator
 		for (int i = 0; i < statList.size(); i++)
 		{
 			final String statAbbrev = stats.getRandomValue();
-			final int sInd = SettingsHandler.getGame().getStatFromAbbrev(statAbbrev);
-			final PCStat stat = statList.get(sInd);
+			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(PCStat.class, statAbbrev);
 			ret.add(stat);
 			stats.remove(statAbbrev);
 		}

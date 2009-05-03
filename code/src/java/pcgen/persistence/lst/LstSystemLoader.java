@@ -70,7 +70,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCCheck;
-import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -528,12 +527,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			context.ref.importObject(al);
 			context.ref.registerAbbreviation(al, al.getKeyName());
-		}
-		for (PCStat st : gamemode
-				.getUnmodifiableStatList())
-		{
-			context.ref.importObject(st);
-			context.ref.registerAbbreviation(st, st.getAbb());
 		}
 		for (SizeAdjustment sz : gamemode
 				.getUnmodifiableSizeAdjustmentList())

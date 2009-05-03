@@ -228,7 +228,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		Globals.setCurrentPC(character);
-		setPCStat(character, "INT", 18);
+		setPCStat(character, intel, 18);
 		final BonusObj bonus =
 				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
@@ -250,8 +250,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		Globals.setCurrentPC(character);
-		setPCStat(character, "INT", 18);
-		setPCStat(character, "STR", 16);
+		setPCStat(character, intel, 18);
+		setPCStat(character, str, 16);
 		final BonusObj bonus =
 				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
@@ -280,8 +280,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		Globals.setCurrentPC(character);
-		setPCStat(character, "INT", 18);
-		setPCStat(character, "STR", 16);
+		setPCStat(character, intel, 18);
+		setPCStat(character, str, 16);
 		final BonusObj bonus = Bonus.newBonus("STAT|%LIST|%LIST+1");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);

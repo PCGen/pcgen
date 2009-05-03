@@ -396,21 +396,13 @@ public class PCClass extends PObject
 				(int) aPC.getTotalBonusTo("SPELLCAST", "CLASS.Any"
 					+ allSpellLevel);
 
-		final int index = bonusSpellIndex();
-
-		final PCStat aStat;
-
-		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
-		{
-			aStat = aPC.getStatList().getStatAt(index);
-			stat = aPC.getStatList().getTotalStatFor(aStat);
-		}
-
+		PCStat aStat = bonusSpellStat();
 		String statString = Constants.s_NONE;
 
-		if (index >= 0)
+		if (aStat != null)
 		{
-			statString = SettingsHandler.getGame().s_ATTRIBSHORT[index];
+			stat = aPC.getStatList().getTotalStatFor(aStat);
+			statString = aStat.getAbb();
 		}
 
 		final int bonusStat =
@@ -419,7 +411,7 @@ public class PCClass extends PObject
 					+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS."
 						+ getKeyName());
 
-		if ((index > -2) && limitByStat)
+		if ((!getSafe(ObjectKey.USE_SPELL_SPELL_STAT)) && limitByStat)
 		{
 			PCStat ss = get(ObjectKey.SPELL_STAT);
 			if (ss != null)
@@ -1054,11 +1046,10 @@ public class PCClass extends PObject
 		pcLevel +=
 				(int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
 
-		final int index = baseSpellIndex();
+		PCStat aStat = baseSpellStat();
 
-		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
+		if (aStat != null)
 		{
-			final PCStat aStat = aPC.getStatList().getStatAt(index);
 			final int maxSpellLevel =
 					aPC.getVariableValue("MAXLEVELSTAT=" + aStat.getAbb(), "")
 						.intValue();
@@ -1685,59 +1676,50 @@ public class PCClass extends PObject
 	 * that? or why is the user not just using getSpellBaseStat and processing
 	 * the response by itself??
 	 */
-	public int baseSpellIndex()
+	public PCStat baseSpellStat()
 	{
 		if (getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
 		{
-			return -2;
+			return null;
 		}
 		if (getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT))
 		{
-			return -1;
+			return null;
 		}
 		PCStat ss = get(ObjectKey.SPELL_STAT);
 		if (ss != null)
 		{
-			return SettingsHandler.getGame().getStatFromAbbrev(ss.getAbb());
+			return ss;
 		}
 		Logging.debugPrint("Found Class: " + getDisplayName()
 				+ " that did not have any SPELLSTAT defined");
-		return -1;
+		return null;
 	}
 
 	/**
-	 * Returns the index of the stat to use for bonus spells.
+	 * Returns the stat to use for bonus spells.
 	 * 
 	 * <p>
 	 * The method checks to see if a BONUSSPELLSTAT: has been set for the class.
-	 * If it is set to a stat that stat is returned. If it is set to None -1 is
+	 * If it is set to a stat that stat is returned. If it is set to None null is
 	 * returned. If it is set to Default then the BASESPELLSTAT is returned.
 	 * 
-	 * @return An index into the stat array or -1 if no bonus spells should be
-	 *         granted for this class.
-	 * 
-	 * TODO - Why doesn't this return a PCStat?
+	 * @return the stat to use for bonus spells.
 	 */
-	/*
-	 * REFACTOR Why is this returning an INT and not a PCStat or something like
-	 * that? or why is the user not just using getBonusSpellBaseStat and
-	 * processing the response by itself??
-	 */
-	public int bonusSpellIndex()
+	public PCStat bonusSpellStat()
 	{
 		Boolean hbss = get(ObjectKey.HAS_BONUS_SPELL_STAT);
 		if (hbss == null)
 		{
-			return baseSpellIndex();
+			return baseSpellStat();
 		}
 		else if (hbss)
 		{
-			PCStat bss = get(ObjectKey.BONUS_SPELL_STAT);
-			return SettingsHandler.getGame().getStatFromAbbrev(bss.getAbb());
+			return get(ObjectKey.BONUS_SPELL_STAT);
 		}
 		else
 		{
-			return -1;
+			return null;
 		}
 	}
 
@@ -2142,19 +2124,13 @@ public class PCClass extends PObject
 				(int) aPC.getTotalBonusTo("SPELLKNOWN", "CLASS.Any"
 					+ allSpellLevel);
 
-		final int index = baseSpellIndex();
-
-		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
-		{
-			final PCStat aStat = aPC.getStatList().getStatAt(index);
-			stat = aPC.getStatList().getTotalStatFor(aStat);
-		}
-
+		PCStat aStat = baseSpellStat();
 		String statString = Constants.s_NONE;
 
-		if (index >= 0)
+		if (aStat != null)
 		{
-			statString = SettingsHandler.getGame().s_ATTRIBSHORT[index];
+			stat = aPC.getStatList().getTotalStatFor(aStat);
+			statString = aStat.getAbb();
 		}
 
 		final int bonusStat =
@@ -2163,7 +2139,7 @@ public class PCClass extends PObject
 					+ (int) aPC.getTotalBonusTo("STAT",
 						"BASESPELLKNOWNSTAT;CLASS." + getKeyName());
 
-		if (index > -2)
+		if (!getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
 		{
 			final int maxSpellLevel =
 					aPC.getVariableValue("MAXLEVELSTAT=" + statString, "")

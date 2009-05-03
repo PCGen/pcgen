@@ -548,8 +548,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testMaxValue()
 	{
 		PlayerCharacter pc = getCharacter();
-		setPCStat(pc, "STR", 8);
-		setPCStat(pc, "DEX", 14);
+		setPCStat(pc, str, 8);
+		setPCStat(pc, dex, 14);
 		pc.setUseTempMods(true);
 
 		assertEquals("STR", -1.0, pc.getVariableValue("STR", "").floatValue(),
@@ -973,7 +973,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetPartialStatBonusFor()
 	{
 		PlayerCharacter pc = getCharacter();
-		setPCStat(pc, "STR", 14);
+		setPCStat(pc, str, 14);
 
 		Ability strBonusAbility =
 				TestHelper.makeAbility("Strength power up", AbilityCategory.FEAT,
@@ -1102,7 +1102,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		li.addLoadMultiplier("LIGHT", new Float(100), "100", 0);
 
 		PlayerCharacter pc = getCharacter();
-		setPCStat(pc, "STR", 10);
+		setPCStat(pc, str, 10);
 		pc.setRace(human);
 		pc.calcActiveBonuses();
 		pc.adjustMoveRates();

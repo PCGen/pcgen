@@ -132,8 +132,6 @@ public final class GameMode implements Comparable<Object>
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
 	private List<PCStat> statList = new ArrayList<PCStat>();
-	/** String array of Attributes in short format */
-	public String[] s_ATTRIBSHORT;
 	private final List<PCCheck> checkList = new ArrayList<PCCheck>();
 	private final List<PCAlignment> alignmentList = new ArrayList<PCAlignment>(15);
 	private final List<String> schoolsList = new ArrayList<String>(20);
@@ -1604,49 +1602,6 @@ public final class GameMode implements Comparable<Object>
 	public void clearStatList()
 	{
 		statList.clear();
-	}
-
-	/**
-	 * Set the short description of attributes
-	 * @param s
-	 */
-	public void setAttribShort(final String[] s)
-	{
-		s_ATTRIBSHORT = s;
-	}
-
-	/**
-	 * Set the short description of a particular attribute
-	 * @param s
-	 * @param index
-	 */
-	public void setAttribShort(final int index, final String s)
-	{
-		s_ATTRIBSHORT[index] = s;
-	}
-
-	/**
-	 * Returns the index of the requested attribute abbreviation,
-	 * The attributes used are loaded from a lst file
-	 *
-	 * @param attributeAbbreviation to find the index of
-	 * @return the index of the attribute
-	 *         returns -1 if the attribute is not matched (or null)
-	 */
-	public int getStatFromAbbrev(final String attributeAbbreviation)
-	{
-		if (s_ATTRIBSHORT != null)
-		{
-			for (int stat = 0; stat < s_ATTRIBSHORT.length; ++stat)
-			{
-				if (attributeAbbreviation.equalsIgnoreCase(s_ATTRIBSHORT[stat]))
-				{
-					return stat;
-				}
-			}
-		}
-
-		return -1;
 	}
 
 	//CHECKLIST
@@ -3310,6 +3265,7 @@ public final class GameMode implements Comparable<Object>
 		{
 			resolveReferenceManufacturer(referenceContext, rm);
 		}
+		referenceContext.copyAbbreviationsFrom(gameRefContext);
 		context = new RuntimeLoadContext(referenceContext, masterLCS);
 	}
 
@@ -3325,7 +3281,7 @@ public final class GameMode implements Comparable<Object>
 		}
 	}
 
-	private <T extends CDOMObject> void resolveReferenceManufacturer(
+	public static <T extends CDOMObject> void resolveReferenceManufacturer(
 			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();

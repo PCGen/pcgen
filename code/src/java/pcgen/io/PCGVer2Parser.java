@@ -332,13 +332,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void checkStats() throws PCGParseException
 	{
-		if (seenStats.size() != SettingsHandler.getGame().s_ATTRIBSHORT.length)
+		if (seenStats.size() != Globals.getContext().ref.getConstructedObjectCount(PCStat.class))
 		{
 			final String message =
 					PropertyFactory.getFormattedString(
 						"Exceptions.PCGenParser.WrongNumAttributes", //$NON-NLS-1$
 						seenStats.size(),
-						SettingsHandler.getGame().s_ATTRIBSHORT.length);
+						Globals.getContext().ref.getConstructedObjectCount(PCStat.class));
 			throw new PCGParseException("parseStatLines", "N/A", message); //$NON-NLS-1$//$NON-NLS-2$
 		}
 	}
@@ -4255,7 +4255,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			PCGElement element = it.next();
 			final String statName = element.getText();
-			PCStat stat = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCStat.class, statName);
+			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(PCStat.class, statName);
 
 			if ((stat != null) && seenStats.add(statName.toUpperCase())
 				&& (it.hasNext()))

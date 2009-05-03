@@ -25,9 +25,12 @@ package pcgen.core.chooser;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
+import pcgen.rules.context.ReferenceContext;
 
 /**
  * This is the chooser that deals with choosing a stat.
@@ -63,23 +66,26 @@ public class StatChoiceManager extends AbstractBasicStringChoiceManager {
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		final List<String>     excludeList = new ArrayList<String>();
+		final List<PCStat>     excludeList = new ArrayList<PCStat>();
 
+		ReferenceContext ref = Globals.getContext().ref;
 		for ( String sExclude : getChoiceList() )
 		{
-			final int iStat = SettingsHandler.getGame().getStatFromAbbrev(sExclude);
+			PCStat stat = ref.getAbbreviatedObject(PCStat.class,
+					sExclude);
 
-			if (iStat >= 0)
+			if (stat != null)
 			{
-				excludeList.add(SettingsHandler.getGame().s_ATTRIBSHORT[iStat]);
+				excludeList.add(stat);
 			}
 		}
 
-		for (int x = 0; x < SettingsHandler.getGame().s_ATTRIBSHORT.length; ++x)
+		for (PCStat stat : Globals.getContext().ref
+				.getConstructedCDOMObjects(PCStat.class))
 		{
-			if (!excludeList.contains(SettingsHandler.getGame().s_ATTRIBSHORT[x]))
+			if (!excludeList.contains(stat))
 			{
-				availableList.add(SettingsHandler.getGame().s_ATTRIBSHORT[x]);
+				availableList.add(stat.getAbb());
 			}
 		}
 

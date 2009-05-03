@@ -74,9 +74,9 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 
 			pcClass = new PCClass();
 
-			TestHelper.makeSkill("Bluff", "Charisma", "CHA", true,
+			TestHelper.makeSkill("Bluff", "Charisma", cha, true,
 				SkillArmorCheck.NONE);
-			TestHelper.makeSkill("Listen", "Wisdom", "WIS", true,
+			TestHelper.makeSkill("Listen", "Wisdom", wis, true,
 				SkillArmorCheck.NONE);
 
 			skillFocus =

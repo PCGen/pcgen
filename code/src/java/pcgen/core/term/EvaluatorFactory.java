@@ -26,14 +26,17 @@
 
 package pcgen.core.term;
 
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.util.Logging;
 
 public class EvaluatorFactory {
@@ -100,27 +103,25 @@ public class EvaluatorFactory {
 
 	private static TermEvaluatorBuilder makeStatBuilder()
 	{
-		GameMode game = SettingsHandler.getGame();
-		int num = game.s_ATTRIBSHORT.length;
-		String[] s = new String[num];
-
-		StringBuffer pSt = new StringBuffer(num * 4 + 6);
+		Collection<PCStat> stats = Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class);
+		List<String> s = new LinkedList<String>();
+		StringBuilder pSt = new StringBuilder(stats.size() * 4 + 6);
 
 		pSt.append("(?:");
 		boolean add1 = false;
-		for (int x = 0; x < num; ++x)
+		for (PCStat stat : stats)
 		{
 			if (add1) {
 				pSt.append("|");
 			} else {
 				add1 = true;
 			}
-			pSt.append(game.s_ATTRIBSHORT[x]);
-			s[x] = game.s_ATTRIBSHORT[x];
+			pSt.append(stat.getAbb());
+			s.add(stat.getAbb());
 		}
 		pSt.append(")");
 
-		return new TermEvaluatorBuilderPCStat(pSt.toString(), s, false);
+		return new TermEvaluatorBuilderPCStat(pSt.toString(), s.toArray(new String[s.size()]), false);
 	}
 
 	private TermEvaluator makeTermEvaluator(

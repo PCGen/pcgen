@@ -171,7 +171,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Create a medium bugbear first level
 		PlayerCharacter bugbear = new PlayerCharacter();
 		bugbear.setRace(bugbearRace);
-		setPCStat(bugbear, "INT", 12);
+		setPCStat(bugbear, intel, 12);
 
 		// Test skills granted for each level
 		bugbear.incrementClassLevel(1, humanoidClass);
@@ -193,7 +193,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bugbear = new PlayerCharacter();
 		bugbear.setRace(bigBugbearRace);
 		assertEquals("big bugbear", "L", bugbear.getSize());
-		setPCStat(bugbear, "INT", 10);
+		setPCStat(bugbear, intel, 10);
 		bugbear.incrementClassLevel(1, humanoidClass);
 		// Test skills granted for each level
 		levelInfo = bugbear.getLevelInfo().get(0);
@@ -214,7 +214,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter nymph = new PlayerCharacter();
 		nymph.setRace(nymphRace);
 		assertEquals("nymph", "M", nymph.getSize());
-		setPCStat(nymph, "INT", 10);
+		setPCStat(nymph, intel, 10);
 		nymph.incrementClassLevel(1, nymphClass);
 		// Test skills granted for each level
 		levelInfo = nymph.getLevelInfo().get(0);
@@ -586,11 +586,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 			.getKnownForLevel(0, character));
 		assertEquals("Known 1st level where stat is too low", 0, charClass
 			.getKnownForLevel(1, character));
-		setPCStat(character, "CHA", 11);
+		setPCStat(character, cha, 11);
 		character.calcActiveBonuses();
 		assertEquals("Known 1st level where stat is high enough, but no bonus",
 			2, charClass.getKnownForLevel(1, character));
-		setPCStat(character, "CHA", 18);
+		setPCStat(character, cha, 18);
 		character.calcActiveBonuses();
 		assertEquals("Known 1st level where stat gives bonus but not active",
 			2, charClass.getKnownForLevel(1, character));

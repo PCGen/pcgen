@@ -72,7 +72,7 @@ public class StatListTest extends AbstractCharacterTestCase
 			bonus.addToListFor(ListKey.BONUS, aBonus);
 		}
 
-		setPCStat(pc, "STR", 6);
+		setPCStat(pc, str, 6);
 	}
 
 	/**

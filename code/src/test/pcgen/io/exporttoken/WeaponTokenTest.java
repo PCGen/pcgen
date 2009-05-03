@@ -108,9 +108,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		//Stats
-		setPCStat(character, "STR", 15);
-		setPCStat(character, "DEX", 16);
-		setPCStat(character, "INT", 17);
+		setPCStat(character, str, 15);
+		setPCStat(character, dex, 16);
+		setPCStat(character, intel, 17);
 		PCStat stat = character.getStatList().getStatAt(0);
 		stat.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
 		BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");

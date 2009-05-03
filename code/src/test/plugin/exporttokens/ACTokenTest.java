@@ -33,7 +33,6 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
@@ -74,25 +73,22 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
-		setPCStat(character, "DEX", 14);
-		PCStat stat =
-				character.getStatList().getStatAt(
-					SettingsHandler.getGame().getStatFromAbbrev("DEX"));
-		stat.removeListFor(ListKey.BONUS);
+		setPCStat(character, dex, 14);
+		dex.removeListFor(ListKey.BONUS);
 		BonusObj aBonus = Bonus.newBonus("COMBAT|AC|10|TYPE=Base");
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			aBonus.setCreatorObject(dex);
+			dex.addToListFor(ListKey.BONUS, aBonus);
 		}
 		// Ignoring max dex
 		aBonus = Bonus.newBonus("COMBAT|AC|DEX|TYPE=Ability");
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			aBonus.setCreatorObject(dex);
+			dex.addToListFor(ListKey.BONUS, aBonus);
 		}
 
 		EquipSet def = new EquipSet("0.1", "Default");

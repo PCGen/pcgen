@@ -162,7 +162,8 @@ public class TestHelper
 		SettingsHandler.getOptionsFromProperties(null);
 
 		loadPlugins();
-		SettingsHandler.initGameModes();		
+		SettingsHandler.initGameModes();
+		SettingsHandler.getGame().clearLoadContext();
 	}
 
 	/**
@@ -215,19 +216,15 @@ public class TestHelper
 	public static void makeSkill(
             final String name,
             final String type,
-            final String stat,
+            final PCStat stat,
 		    final boolean untrained,
             final SkillArmorCheck armorCheck)
 	{
-		GameMode gamemode = SettingsHandler.getGame();
-		List<PCStat> statList = gamemode.getUnmodifiableStatList();
-		int intLoc = gamemode.getStatFromAbbrev(stat);
-		PCStat intStat = statList.get(intLoc);
 		final Skill aSkill = new Skill();
 		aSkill.setName(name);
 		aSkill.put(StringKey.KEY_NAME, ("KEY_" + name));
 		addType(aSkill, type);
-		aSkill.put(ObjectKey.KEY_STAT, intStat);
+		aSkill.put(ObjectKey.KEY_STAT, stat);
 		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
 		aSkill.put(ObjectKey.ARMOR_CHECK, armorCheck);
 		Globals.getContext().ref.importObject(aSkill);

@@ -124,7 +124,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		StatToken statTok = new StatToken();
 
-		setPCStat(pc, "DEX", 10);
+		setPCStat(pc, dex, 10);
 		assertEquals("Stat Name.", "DEX", statTok.getToken("STAT.1.NAME", pc,
 			null));
 		assertEquals("Total stat.", "10", statTok.getToken("STAT.1", pc, null));
@@ -203,7 +203,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		StatToken statTok = new StatToken();
 
-		setPCStat(pc, "DEX", 10);
+		setPCStat(pc, dex, 10);
 		assertEquals("Stat Name.", "DEX", statTok.getToken("STAT.1.NAME", pc,
 			null));
 		assertEquals("Total stat.", "+0", statTok.getToken("STAT.1.MOD", pc,
@@ -287,7 +287,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	{
 		StatToken statTok = new StatToken();
 		PlayerCharacter pc = getCharacter();
-		setPCStat(pc, "DEX", 10);
+		setPCStat(pc, dex, 10);
 
 		PCClass myClass = new PCClass();
 		myClass.setName("My Class");
@@ -297,12 +297,12 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, myClass, true);
 		pc.saveStatIncrease(dex, 1, true);
 		pc.saveStatIncrease(dex, 1, false);
-		setPCStat(pc, "DEX", 12);
+		setPCStat(pc, dex, 12);
 
 		pc.incrementClassLevel(1, myClass, true);
 		pc.saveStatIncrease(dex, 1, true);
 		pc.saveStatIncrease(dex, 1, false);
-		setPCStat(pc, "DEX", 14);
+		setPCStat(pc, dex, 14);
 
 		assertEquals("Total stat.", "14", statTok.getToken("STAT.1", pc, null));
 		assertEquals("Level 1 stat.", "10", statTok.getToken("STAT.1.LEVEL.1",

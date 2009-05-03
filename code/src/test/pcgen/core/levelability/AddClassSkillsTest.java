@@ -78,14 +78,14 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 
 			pcClass = new PCClass();
 
-			TestHelper.makeSkill("Bluff", "Charisma", "CHA", true, SkillArmorCheck.NONE);
-			TestHelper.makeSkill("Listen", "Wisdom", "WIS", true, SkillArmorCheck.NONE);
-			TestHelper.makeSkill("Move Silently", "Dexterity", "DEX", true,
+			TestHelper.makeSkill("Bluff", "Charisma", cha, true, SkillArmorCheck.NONE);
+			TestHelper.makeSkill("Listen", "Wisdom", wis, true, SkillArmorCheck.NONE);
+			TestHelper.makeSkill("Move Silently", "Dexterity", dex, true,
 					SkillArmorCheck.YES);
 			TestHelper.makeSkill("Knowledge (Arcana)",
-				"Intelligence.Knowledge", "INT", false, SkillArmorCheck.NONE);
+				"Intelligence.Knowledge", intel, false, SkillArmorCheck.NONE);
 			TestHelper.makeSkill("Knowledge (Dungeoneering)",
-				"Intelligence.Knowledge", "INT", false, SkillArmorCheck.NONE);
+				"Intelligence.Knowledge", intel, false, SkillArmorCheck.NONE);
 		}
 
 		final PlayerCharacter character = getCharacter();

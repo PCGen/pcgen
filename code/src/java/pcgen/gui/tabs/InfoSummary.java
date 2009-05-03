@@ -2350,7 +2350,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final int selectedStat = statTable.getSelectedRow();
 
 		if ((selectedStat < 0)
-			|| (selectedStat >= SettingsHandler.getGame().s_ATTRIBSHORT.length))
+			|| (selectedStat >= Globals.getContext().ref.getConstructedObjectCount(PCStat.class)))
 		{
 			// Ignore invalid row selection
 			return;

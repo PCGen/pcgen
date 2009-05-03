@@ -33,6 +33,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	protected PCStat str;
 	protected PCStat cha;
 	protected PCStat dex;
+	protected PCStat wis;
+	protected PCStat intel;
 
 	/**
 	 * Sets up the absolute minimum amount of data to create a PlayerCharacter
@@ -49,9 +51,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		final GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearStatList();
 		
-		gamemode.setAttribShort(new String[]{"STR", "DEX", "CON", "INT", "WIS",
-			"CHA"});
-
 		str = new PCStat();
 		str.setName("Strength");
 		str.put(StringKey.ABB, "STR");
@@ -67,12 +66,12 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		con.put(StringKey.ABB, "CON");
 		gamemode.addToStatList(con);
 
-		final PCStat intel = new PCStat();
+		intel = new PCStat();
 		intel.setName("Intelligence");
 		intel.put(StringKey.ABB, "INT");
 		gamemode.addToStatList(intel);
 
-		final PCStat wis = new PCStat();
+		wis = new PCStat();
 		wis.setName("Wisdom");
 		wis.put(StringKey.ABB, "WIS");
 		gamemode.addToStatList(wis);
@@ -181,25 +180,19 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	 * @param statName The name of the stat to be set (eg DEX)
 	 * @param value The value to be set (eg 18)
 	 */
-	public void setPCStat(final PlayerCharacter pc, final String statName,
-		final int value)
+	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
+			final int value)
 	{
-		final int index = SettingsHandler.getGame().getStatFromAbbrev(statName);
-
-		if ((index > -1))
+		String statName = stat.getAbb();
+		pc.setAssoc(stat, AssociationKey.STAT_SCORE, value);
+		stat.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + statName),
+				FormulaFactory.getFormulaFor(statName + "SCORE-10"));
+		if (statName.equals("STR"))
 		{
-			final PCStat stat = pc.getStatList().getStatAt(index);
-			pc.setAssoc(stat, AssociationKey.STAT_SCORE, value);
-			stat.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
-			stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + statName),
-					FormulaFactory.getFormulaFor(statName + "SCORE-10"));
-			if (statName.equals("STR"))
-			{
-				Globals.getContext().getObjectContext().put(stat,
+			Globals.getContext().getObjectContext().put(stat,
 					VariableKey.getConstant("LOADSCORE"),
 					FormulaFactory.getFormulaFor("STRSCORE"));
-			}
-			
 		}
 	}
 }

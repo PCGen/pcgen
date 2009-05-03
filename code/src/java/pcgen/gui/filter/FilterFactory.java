@@ -48,6 +48,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -383,9 +384,9 @@ public final class FilterFactory implements FilterConstants
 			skillFilters.add(FilterFactory.createRankFilter(0.0d));
 			skillFilters.add(FilterFactory.createRankModifierFilter(0.0d));
 
-			for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; i++)
+			for (PCStat stat : Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class))
 			{
-				skillFilters.add(FilterFactory.createStatFilter(SettingsHandler.getGame().s_ATTRIBSHORT[i]));
+				skillFilters.add(FilterFactory.createStatFilter(stat.getAbb()));
 			}
 		}
 

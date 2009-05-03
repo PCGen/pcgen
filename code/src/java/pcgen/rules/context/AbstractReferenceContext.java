@@ -485,4 +485,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return getManufacturer(c).getConstructedObjectCount();
 	}
 
+	public void copyAbbreviationsFrom(AbstractReferenceContext rc)
+	{
+		abbMap.putAll(rc.abbMap);
+	}
 }

@@ -24,16 +24,14 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+import java.util.Map;
+
 import pcgen.core.GameMode;
-import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-
-import java.net.URI;
-import java.util.List;
-import java.util.Map;
 
 /**
  * This class is a LstFileLoader that processes the statsandchecks.lst file,
@@ -63,24 +61,10 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	{
 		// Clear relevant Globals
 		GameMode game = SettingsHandler.getGame();
-		game.setAttribShort(null);
 		game.clearCheckList();
 		game.clearAlignmentList();
 		game.clearStatList();
-
 		super.loadLstFile(context, fileName);
-
-		// Reinit relevant globals from SystemCollections
-		List<PCStat> statList =
-				game.getUnmodifiableStatList();
-		int statCount = statList.size();
-		game.setAttribShort(new String[statCount]);
-
-		for (int i = 0; i < statCount; i++)
-		{
-			PCStat stat = statList.get(i);
-			game.setAttribShort(i, stat.getAbb());
-		}
 	}
 
 	/**

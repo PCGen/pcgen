@@ -1362,6 +1362,7 @@ public final class SettingsHandler
 		}
 
 		setGame(getPCGenOption("game", Constants.e35_MODE)); //$NON-NLS-1$
+		game.clearLoadContext();
 
 		Globals.createEmptyRace();
 

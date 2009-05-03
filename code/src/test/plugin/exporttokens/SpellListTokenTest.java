@@ -225,7 +225,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(human);
-		setPCStat(character, "CHA", 14);
+		setPCStat(character, cha, 14);
 		character.calcActiveBonuses();
 		character.incrementClassLevel(1, arcaneClass, true);
 		character.calcActiveBonuses();

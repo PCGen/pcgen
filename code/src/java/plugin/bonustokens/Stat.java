@@ -28,7 +28,6 @@ package plugin.bonustokens;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.MissingObject;
 
@@ -55,30 +54,26 @@ public final class Stat extends BonusObj
 			}
 		}
 
-		final int iStat;
-
 		if (token.startsWith("CAST=") || token.startsWith("CAST."))
 		{
-			iStat =
-					SettingsHandler.getGame().getStatFromAbbrev(
-						token.substring(5));
+			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(
+					PCStat.class, token.substring(5));
 
-			if (iStat >= 0)
+			if (stat != null)
 			{
-				addBonusInfo(new CastStat(SettingsHandler.getGame()
-					.getUnmodifiableStatList().get(iStat)));
+				addBonusInfo(new CastStat(stat));
 
 				return true;
 			}
 		}
 		else
 		{
-			iStat = SettingsHandler.getGame().getStatFromAbbrev(token);
+			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(
+					PCStat.class, token);
 
-			if (iStat >= 0)
+			if (stat != null)
 			{
-				addBonusInfo(SettingsHandler.getGame()
-					.getUnmodifiableStatList().get(iStat));
+				addBonusInfo(stat);
 			}
 			else
 			{
