@@ -257,47 +257,44 @@ public final class PCGIOHandler extends IOHandler
 
 		final String[] pcgLines = lines.toArray(new String[lines.size()]);
 
-		final PCGParser parser;
-
 		if (isPCGVersion2)
 		{
-			parser = new PCGVer2Parser(pcToBeRead);
+			final PCGParser parser = new PCGVer2Parser(pcToBeRead);
+			try
+			{
+				// parse it all
+				parser.parsePCG(pcgLines);
+			}
+			catch (PCGParseException pcgex)
+			{
+				errors.add(pcgex.getMessage() + Constants.s_LINE_SEP + "Method: "
+					+ pcgex.getMethod() + '\n' + "Line: " + pcgex.getLine());
+			}
+
+			warnings.addAll(parser.getWarnings());
+
+			// we are now all done with the import parsing, so turn off
+			// the Importing flag and then do some sanity checks
+			pcToBeRead.setImporting(false);
+			// Restore the original user preference
+			SettingsHandler.setLoadCampaignsWithPC(loadCampaignsWithPC);
+
+			try
+			{
+				sanityChecks(pcToBeRead, parser);
+			}
+			catch (NumberFormatException ex)
+			{
+				errors.add(ex.getMessage() + Constants.s_LINE_SEP
+					+ "Method: sanityChecks");
+			}
+
+			pcToBeRead.setDirty(false);
 		}
 		else
 		{
-			parser = new PCGVer0Parser(pcToBeRead);
+			errors.add("Cannot open PCG file");
 		}
-
-		try
-		{
-			// parse it all
-			parser.parsePCG(pcgLines);
-		}
-		catch (PCGParseException pcgex)
-		{
-			errors.add(pcgex.getMessage() + Constants.s_LINE_SEP + "Method: "
-				+ pcgex.getMethod() + '\n' + "Line: " + pcgex.getLine());
-		}
-
-		warnings.addAll(parser.getWarnings());
-
-		// we are now all done with the import parsing, so turn off
-		// the Importing flag and then do some sanity checks
-		pcToBeRead.setImporting(false);
-		// Restore the original user preference
-		SettingsHandler.setLoadCampaignsWithPC(loadCampaignsWithPC);
-
-		try
-		{
-			sanityChecks(pcToBeRead, parser);
-		}
-		catch (NumberFormatException ex)
-		{
-			errors.add(ex.getMessage() + Constants.s_LINE_SEP
-				+ "Method: sanityChecks");
-		}
-
-		pcToBeRead.setDirty(false);
 	}
 
 	/**
