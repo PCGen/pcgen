@@ -24,6 +24,8 @@ package pcgen.core.pclevelinfo;
 
 import java.io.Serializable;
 
+import pcgen.core.PCStat;
+
 /**
  * ???
  *
@@ -32,25 +34,30 @@ import java.io.Serializable;
  */
 public final class PCLevelInfoStat implements Serializable
 {
-	private String statAbb = "";
+	private final PCStat stat;
 	private int mod = 0;
 
-	PCLevelInfoStat(final String argStatAbb, final int argMod)
+	PCLevelInfoStat(final PCStat pcstat, final int argMod)
 	{
 		super();
-		statAbb = argStatAbb;
+		stat = pcstat;
 		mod = argMod;
 	}
 
 	@Override
 	public String toString()
 	{
-		return statAbb + "=" + Integer.toString(mod);
+		return stat.getAbb() + "=" + Integer.toString(mod);
 	}
 
 	public String getStatAbb()
 	{
-		return statAbb;
+		return stat.getAbb();
+	}
+
+	public PCStat getStat()
+	{
+		return stat;
 	}
 
 	public int getStatMod()

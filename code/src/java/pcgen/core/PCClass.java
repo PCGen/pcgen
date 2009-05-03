@@ -3278,7 +3278,7 @@ public class PCClass extends PObject
 					if (aStat.getDisplayName().equalsIgnoreCase(
 						selectedValue.toString()))
 					{
-						aPC.saveStatIncrease(aStat.getAbb(), 1, isPre);
+						aPC.saveStatIncrease(aStat, 1, isPre);
 						aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE) + 1);
 						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
 						statsAlreadyBonused.add(aStat.getAbb());

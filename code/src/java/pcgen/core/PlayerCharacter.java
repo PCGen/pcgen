@@ -6971,12 +6971,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getTotalStatAtLevel(final PCStat stat, final int level,
 		final boolean includePost)
 	{
-		String statAbb = stat.getAbb();
 		int curStat = getStatList().getTotalStatFor(stat);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =
-					pcLevelInfo.get(idx).getTotalStatMod(statAbb, true);
+					pcLevelInfo.get(idx).getTotalStatMod(stat, true);
 			curStat -= statLvlAdjust;
 		}
 		// If the user doesn't want POST changes, we remove any made in the
@@ -6984,9 +6983,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!includePost && level > 0)
 		{
 			int statLvlAdjust =
-					pcLevelInfo.get(level - 1).getTotalStatMod(statAbb, true);
+					pcLevelInfo.get(level - 1).getTotalStatMod(stat, true);
 			statLvlAdjust -=
-					pcLevelInfo.get(level - 1).getTotalStatMod(statAbb, false);
+					pcLevelInfo.get(level - 1).getTotalStatMod(stat, false);
 			curStat -= statLvlAdjust;
 
 		}
@@ -10787,26 +10786,26 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return li;
 	}
 
-	public void saveStatIncrease(final String statAbb, final int mod,
+	public void saveStatIncrease(final PCStat stat, final int mod,
 		final boolean isPreMod)
 	{
 		final int idx = getLevelInfoSize() - 1;
 
 		if (idx >= 0)
 		{
-			pcLevelInfo.get(idx).addModifiedStat(statAbb, mod, isPreMod);
+			pcLevelInfo.get(idx).addModifiedStat(stat, mod, isPreMod);
 		}
 
 		setDirty(true);
 	}
 
-	public int getStatIncrease(final String statAbb, final boolean includePost)
+	public int getStatIncrease(final PCStat stat, final boolean includePost)
 	{
 		final int idx = getLevelInfoSize() - 1;
 
 		if (idx >= 0)
 		{
-			return pcLevelInfo.get(idx).getTotalStatMod(statAbb, includePost);
+			return pcLevelInfo.get(idx).getTotalStatMod(stat, includePost);
 		}
 		return 0;
 	}
@@ -14424,7 +14423,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =
-					pcLevelInfo.get(idx).getTotalStatMod(stat.getAbb(), usePost);
+					pcLevelInfo.get(idx).getTotalStatMod(stat, usePost);
 			curStat -= statLvlAdjust;
 		}
 

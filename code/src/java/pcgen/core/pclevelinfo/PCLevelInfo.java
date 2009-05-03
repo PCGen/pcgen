@@ -176,7 +176,7 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @return  the value of the stat at this level.
 	 */
-	public int getTotalStatMod(final String statAbb, final boolean includePost)
+	public int getTotalStatMod(final PCStat aStat, final boolean includePost)
 	{
 		int mod = 0;
 
@@ -184,7 +184,7 @@ public final class PCLevelInfo implements Cloneable
 		{
 			for ( PCLevelInfoStat stat : statsPreModified )
 			{
-				if (stat.getStatAbb().equals(statAbb))
+				if (stat.getStat().equals(aStat))
 				{
 					mod += stat.getStatMod();
 				}
@@ -195,7 +195,7 @@ public final class PCLevelInfo implements Cloneable
 		{
 			for ( PCLevelInfoStat stat : statsPostModified )
 			{
-				if (stat.getStatAbb().equals(statAbb))
+				if (stat.getStat().equals(aStat))
 				{
 					mod += stat.getStatMod();
 				}
@@ -220,7 +220,7 @@ public final class PCLevelInfo implements Cloneable
 	 *                   calculation of other benefits gained at this level.
 	 */
 	public void addModifiedStat(
-		final String  statAbb,
+		final PCStat  stat,
 		final int     mod,
 		final boolean isPreMod)
 	{
@@ -251,7 +251,7 @@ public final class PCLevelInfo implements Cloneable
 		{
 			aStat = statList.get(i);
 
-			if (statAbb.equals(aStat.getStatAbb()))
+			if (stat.equals(aStat.getStat()))
 			{
 				aStat.modifyStat(mod);
 
@@ -264,7 +264,7 @@ public final class PCLevelInfo implements Cloneable
 			}
 		}
 
-		statList.add(new PCLevelInfoStat(statAbb, mod));
+		statList.add(new PCLevelInfoStat(stat, mod));
 	}
 
 	/**

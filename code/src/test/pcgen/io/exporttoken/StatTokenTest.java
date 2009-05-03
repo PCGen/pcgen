@@ -295,13 +295,13 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, myClass, true);
 
 		pc.incrementClassLevel(1, myClass, true);
-		pc.saveStatIncrease("DEX", 1, true);
-		pc.saveStatIncrease("DEX", 1, false);
+		pc.saveStatIncrease(dex, 1, true);
+		pc.saveStatIncrease(dex, 1, false);
 		setPCStat(pc, "DEX", 12);
 
 		pc.incrementClassLevel(1, myClass, true);
-		pc.saveStatIncrease("DEX", 1, true);
-		pc.saveStatIncrease("DEX", 1, false);
+		pc.saveStatIncrease(dex, 1, true);
+		pc.saveStatIncrease(dex, 1, false);
 		setPCStat(pc, "DEX", 14);
 
 		assertEquals("Total stat.", "14", statTok.getToken("STAT.1", pc, null));

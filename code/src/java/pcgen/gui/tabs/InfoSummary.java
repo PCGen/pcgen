@@ -2543,10 +2543,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 			else
 			{
-				if (pc
-					.getStatIncrease(
-						SettingsHandler.getGame().s_ATTRIBSHORT[selectedStat],
-						true) <= 0)
+				if (pc.getStatIncrease(aStat, true) <= 0)
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
@@ -2572,7 +2569,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			final int preIncHpMod = (int) pc.getStatBonusTo("HP", "BONUS"); //$NON-NLS-1$ //$NON-NLS-2$
 
 			pc.setAssoc(aStat, AssociationKey.STAT_SCORE, stat + increment);
-			pc.saveStatIncrease(aStat.getAbb(), increment, false);
+			pc.saveStatIncrease(aStat, increment, false);
 
 			updatePool(increment > 0);
 			statTableModel.fireTableRowsUpdated(selectedStat, selectedStat);
@@ -3381,7 +3378,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						}
 						else if (poolMod < 0)
 						{
-							if (pc.getStatIncrease(aStat.getAbb(), true) < Math
+							if (pc.getStatIncrease(aStat, true) < Math
 								.abs(statVal - baseScore))
 							{
 								ShowMessageDelegate
@@ -3398,7 +3395,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 
 				pc.setAssoc(aStat, AssociationKey.STAT_SCORE, statVal);
-				pc.saveStatIncrease(aStat.getAbb(), statVal - baseScore, false);
+				pc.saveStatIncrease(aStat, statVal - baseScore, false);
 				setStatLabelText();
 
 				statTableModel.fireTableRowsUpdated(rowIndex, rowIndex);

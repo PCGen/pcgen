@@ -68,6 +68,7 @@ import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -1759,17 +1760,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (idx > 0)
 				{
-					final int idxStat =
-							SettingsHandler.getGame().getStatFromAbbrev(
-								element.getText().substring(0, idx));
+					String statAbb = element.getText().substring(0, idx);
+					final PCStat pcstat = Globals.getContext().ref
+							.getAbbreviatedObject(PCStat.class, statAbb);
 
-					if (idxStat >= 0)
+					if (pcstat != null)
 					{
 						try
 						{
-							thePC.saveStatIncrease(element.getText().substring(
-								0, idx), Integer.parseInt(element.getText()
-								.substring(idx + 1)), isPre);
+							thePC.saveStatIncrease(pcstat, Integer
+									.parseInt(element.getText().substring(
+											idx + 1)), isPre);
 						}
 						catch (NumberFormatException nfe)
 						{
