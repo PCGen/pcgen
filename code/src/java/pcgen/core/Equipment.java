@@ -6001,7 +6001,11 @@ public final class Equipment extends PObject implements Serializable,
 
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
-		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
+		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
+		if (list == null) {
+			list = Collections.emptyList();
+		}
+		return list;
 	}
 
 	public List<String> getExpandedAssociations(CDOMObject obj)
