@@ -6,6 +6,7 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 # Skill Name						Key Stat	Untrained?		Skill Penalty Apply	Classes	Type			Visible		Source Page		Bonus to skill
 Acrobatics (Jump)						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.54	BONUS:SKILL|Acrobatics (Jump)|skillinfo("MODIFIER","Acrobatics")-DEX
 Appraise (Identify Magic Item)			KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.55	BONUS:SKILL|Appraise (Identify Magic Item)|skillinfo("MODIFIER","Appraise")-INT
+Appraise (Nonmagical Precious Metals and Gems)	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.55	
 Perception (Notice unusual stonework)		KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Notice unusual stonework)|skillinfo("MODIFIER","Perception")-WIS
 Perception (Sight)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Sight)|skillinfo("MODIFIER","Perception")-WIS
 Perception (Smell)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.61	BONUS:SKILL|Perception (Smell)|skillinfo("MODIFIER","Perception")-WIS
