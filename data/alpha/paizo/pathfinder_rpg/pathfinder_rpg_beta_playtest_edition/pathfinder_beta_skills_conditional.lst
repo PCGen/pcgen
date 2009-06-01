@@ -22,6 +22,7 @@ Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	ACHECK:
 # Skill Name	Bonus to skill rank
 Acrobatics.MOD	BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("RANK","Acrobatics")|PREVARGTEQ:UseConditionalJump,1
 Appraise.MOD	BONUS:SKILLRANK|Appraise (Identify Magic Item)|skillinfo("RANK","Appraise")|PREVARGTEQ:UseConditionalIdentifyItems,1
+Appraise.MOD	BONUS:SKILLRANK|Appraise (Nonmagical Precious Metals and Gems)|skillinfo("RANK","Appraise")|PREABILITY:1,CATEGORY=Special Ability,Greed
 Spellcraft.MOD	BONUS:SKILLRANK|Spellcraft (Cast defensively)|skillinfo("RANK","Spellcraft")|PREVARGTEQ:UseConditionalCastDefensively,1
 Perception.MOD	BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalStonework,1
 Perception.MOD	BONUS:SKILLRANK|Perception (Sight)|skillinfo("RANK","Perception")|PREVARGTEQ:UseConditionalSight,1
