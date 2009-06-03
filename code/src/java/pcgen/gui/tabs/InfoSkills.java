@@ -426,7 +426,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	public final void refreshFiltering()
 	{
-		updateAvailableModel();
+		if (availableTable != null) {
+			updateAvailableModel();
+		}
 	}
 
 	private PCLevelInfo getSelectedLevelInfo(PlayerCharacter aPC)
