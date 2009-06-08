@@ -53,6 +53,14 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 public class PrerequisiteWriterTest extends TestCase
 {
 	/**
+	 * Constructs a test case with the given name.
+	 * @param name
+	 */
+	public PrerequisiteWriterTest(String name) {
+		super(name);
+	}
+	
+	/**
 	 * Main
 	 * @param args
 	 */
