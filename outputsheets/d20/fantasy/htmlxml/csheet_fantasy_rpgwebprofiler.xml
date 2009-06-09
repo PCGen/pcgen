@@ -239,7 +239,7 @@ Innate Spells: |FOR.0,COUNT[SPELLSINBOOK.0.1.0],1,\SPELLMEM.0.1.0.%.NAME\ (\SPEL
 |SPELLBOOKNAME.%sbook|
 |FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
 |%||%SPELLLISTBOOK.%class.%level.%sbook|
-|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| Level: |FOR.0,COUNT[SPELLSINBOOK.%class.%sbook.%level]-1,1,\SPELLMEM.%class.%sbook.%level.%.NAME\; ,,,|
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| Level: |FOR.0,COUNT[SPELLSINBOOK.%class.%sbook.%level],1,\SPELLMEM.%class.%sbook.%level.%.NAME\; ,,,|
 |ENDFOR|
 |ENDFOR|
 |ENDFOR|
