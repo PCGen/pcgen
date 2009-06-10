@@ -355,6 +355,11 @@
 						<xsl:apply-templates select="special_abilities"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
+						<xsl:apply-templates select="talents"/>
+						<xsl:apply-templates select="powers_atwills"/>
+						<xsl:apply-templates select="powers_encounters"/>
+						<xsl:apply-templates select="powers_dailies"/>
+						<xsl:apply-templates select="powers_utilities"/>
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
@@ -4461,6 +4466,91 @@
 	<!--
 ====================================
 ====================================
+	TEMPLATE - TALENTS
+====================================
+====================================-->
+	<xsl:template match="talents">
+		<xsl:if test="count(talent) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'talents'" />
+				<xsl:with-param name="title" select="'TALENTS'" />
+				<xsl:with-param name="list" select="talent"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - AT-WILL POWERS
+====================================
+====================================-->
+	<xsl:template match="powers_atwills">
+		<xsl:if test="count(powers_atwill) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'powers_atwills'" />
+				<xsl:with-param name="title" select="'AT-WILL POWERS'" />
+				<xsl:with-param name="list" select="powers_atwill"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - ENCOUNTER POWERS
+====================================
+====================================-->
+	<xsl:template match="powers_encounters">
+		<xsl:if test="count(powers_encounter) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'powers_encounters'" />
+				<xsl:with-param name="title" select="'ENCOUNTER POWERS'" />
+				<xsl:with-param name="list" select="powers_encounter"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - DAILY POWERS
+====================================
+====================================-->
+	<xsl:template match="powers_dailies">
+		<xsl:if test="count(powers_daily) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'powers_dailies'" />
+				<xsl:with-param name="title" select="'DAILY POWERS'" />
+				<xsl:with-param name="list" select="powers_daily"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - UTILITY POWERS
+====================================
+====================================-->
+	<xsl:template match="powers_utilities">
+		<xsl:if test="count(powers_utility) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'powers_utilities'" />
+				<xsl:with-param name="title" select="'UTILITY POWERS'" />
+				<xsl:with-param name="list" select="powers_utility"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
 	TEMPLATE - SALIENT DIVINE ABILITIES
 ====================================
 ====================================-->
@@ -5465,16 +5555,14 @@
 						Notes:
 					</fo:block>
 					<xsl:for-each select="note">
-					    <xsl:if test="not(name = 'DM Notes')">
-							<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
-								<xsl:value-of select="name"/>:
-							</fo:block>
-							<fo:block font-size="9pt" text-indent="5mm">
-								<xsl:call-template name="paragraghlist">
-									<xsl:with-param name="tag" select="'value'"/>
-								</xsl:call-template>
-							</fo:block>
-						</xsl:if>
+						<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
+							<xsl:value-of select="name"/>:
+						</fo:block>
+						<fo:block font-size="9pt" text-indent="5mm">
+							<xsl:call-template name="paragraghlist">
+								<xsl:with-param name="tag" select="'value'"/>
+							</xsl:call-template>
+						</fo:block>
 					</xsl:for-each>
 				</fo:flow>
 			</fo:page-sequence>
