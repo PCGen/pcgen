@@ -1496,7 +1496,7 @@
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
 						<fo:block text-align="center" font-size="10pt">
-							<xsl:value-of select="misc + class_bonus + dodge_bonus"/>
+							<xsl:value-of select="misc"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
