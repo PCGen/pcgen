@@ -3331,7 +3331,7 @@ public final class GameMode implements Comparable<Object>
 		if (type != null && set != null)
 		{
 			//Can do this because it's TreeSet/Case Insensitive
-			return set.contains(type);
+			return set.contains(type) || context.isTypeHidden(cl, type);
 		}
 		return context.isTypeHidden(cl, type);
 	}
