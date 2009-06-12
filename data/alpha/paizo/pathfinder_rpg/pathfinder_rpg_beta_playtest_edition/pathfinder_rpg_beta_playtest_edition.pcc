@@ -2,6 +2,8 @@
 CAMPAIGN:Paizo - Pathfinder RPG (Beta Playtest Edition)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
+BOOKTYPE:Core Rules
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Paizo - Pathfinder RPG (Beta Playtest Edition)]
 RANK:1
 GENRE:Fantasy
 BOOKTYPE:Core Rules
