@@ -175,7 +175,11 @@ public class SpellBasePanel extends BasePanel
 		}
 		s.put(ObjectKey.COST, new BigDecimal(txtCost.getValue()));
 		s.put(IntegerKey.XP_COST, txtXpCost.getValue());
-		s.put(ObjectKey.SPELL_STAT, (PCStat) cmbStat.getSelectedItem());
+		Object stat = cmbStat.getSelectedItem();
+		if (stat instanceof PCStat)
+		{
+			s.put(ObjectKey.SPELL_STAT, (PCStat) stat);
+		}
 
 		//
 		// potion defaults to not-creatable if not in list; scroll and wand to creatable
