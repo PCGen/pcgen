@@ -22,7 +22,7 @@ ACABBREV:AC
 ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
-BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
+BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted.Racial
 
 #
 #misc. currency specific items
