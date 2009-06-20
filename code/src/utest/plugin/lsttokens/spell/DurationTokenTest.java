@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
@@ -81,15 +82,22 @@ public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell>
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected boolean requiresPreconstruction()
 	{
 		return false;
+	}
+
+	@Test
+	public void testGoodParentheses() throws PersistenceLayerException {
+		assertTrue(parse("(first)"));
+	}
+	
+	@Test
+	public void testBadParentheses() throws PersistenceLayerException {
+		assertFalse("Missing end paren should have been flagged.", parse("(first"));
+		assertFalse("Missing start paren should have been flagged.", parse("first)"));
+		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
+		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
 	}
 }

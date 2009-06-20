@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.spell;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
@@ -91,5 +94,33 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	protected boolean requiresPreconstruction()
 	{
 		return false;
+	}
+	
+	public void testGoodParentheses() throws PersistenceLayerException {
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Rheinhessen");
+			List<?> coll;
+			assertTrue(parse("(first)"));
+			coll = primaryProf.getListFor(listKey);
+			assertEquals(1, coll.size());
+			assertTrue(coll.contains(getConstant("(first)")));
+			assertTrue(primaryContext.ref.validate(null));
+		}
+	}
+	
+	public void testBadParentheses() throws PersistenceLayerException {
+		ListKey<?> listKey = getListKey();
+		if (listKey != null)
+		{
+			primaryContext.ref.constructCDOMObject(getCDOMClass(),
+					"Rheinhessen");
+			assertFalse("Missing end paren should have been flagged.", parse("(first"));
+			assertFalse("Missing start paren should have been flagged.", parse("first)"));
+			assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
+			assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
+		}
 	}
 }

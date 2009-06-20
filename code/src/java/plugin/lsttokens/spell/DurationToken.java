@@ -69,6 +69,12 @@ public class DurationToken extends AbstractToken implements
 			}
 			else
 			{
+				if (!StringUtil.hasBalancedParens(value)) {
+					Logging.addParseMessage(Logging.LST_ERROR,
+						"Unbalanced parentheses in " + getTokenName() + " '" + value
+							+ "' used in spell " + spell);
+					return false;
+				}
 				context.getObjectContext().addToList(spell, ListKey.DURATION,
 						tok);
 				Globals.addDurationSet(tok);

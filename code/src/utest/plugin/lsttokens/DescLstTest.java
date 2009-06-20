@@ -119,6 +119,20 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testGoodParentheses() throws PersistenceLayerException {
+		assertTrue(parse("(first)"));
+	}
+	
+	@Test
+	public void testBadParentheses() throws PersistenceLayerException {
+		assertFalse("Missing end paren should have been flagged.", parse("(first"));
+		assertFalse("Missing start paren should have been flagged.", parse("first)"));
+		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
+		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number One");

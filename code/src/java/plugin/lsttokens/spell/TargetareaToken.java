@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.spell;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
@@ -40,6 +41,12 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 		if (value == null || value.length() == 0)
 		{
 			Logging.errorPrint(getTokenName() + " arguments may not be empty");
+			return false;
+		}
+		if (!StringUtil.hasBalancedParens(value)) {
+			Logging.addParseMessage(Logging.LST_ERROR,
+				"Unbalanced parentheses in " + getTokenName() + " '" + value
+					+ "' used in spell " + spell);
 			return false;
 		}
 		Globals.addSpellTargetSet(value);
