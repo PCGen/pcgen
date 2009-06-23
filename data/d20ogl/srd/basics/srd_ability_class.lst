@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Dec  6 00:09:13 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Mon Jun 22 22:43:30 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by Tir Gwaith
 
@@ -8,11 +8,11 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 ###									###
 #########################################################
 
-# Ability Name	Category of Ability		Type								Visible	Define																										Description																																																		Save checks bonus							Combat bonus								Stat bonus																	Modify VAR																																																								Source Page						ASPECT
-Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6																				DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttack|SneakAttackDie																																																																																																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttack|SneakAttackDie
-Rage			CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption.ModifyAC		VISIBLE:YES	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DESC:%1 times/day (%2 rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	DESC:%1 times/day (%2 rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	DESC:%1 times/day and no longer winded after (%2 rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1	BONUS:CHECKS|Will|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
-Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)								DESC:Dex bonus to AC|PREVARGT:UncannyDodge,0	DESC:Can't be flanked|PREVARGT:ImprovedUncannyDodge,0	DESC:+%1 against traps|UncannyTraps|PREVARGT:UncannyTraps,0
-Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES																												DESC:If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage.																																																																																																																									SOURCEPAGE:srdbasiccharacterclassesii.rtf
+# Ability Name	Category of Ability		Type								Visible	Define																														Description																																																		Save checks bonus							Combat bonus								Stat bonus																	Modify VAR																																																								Source Page						Aspects
+Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6																								DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttack|SneakAttackDie																																																																																																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttack|SneakAttackDie
+Rage			CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption.ModifyAC		VISIBLE:YES	DEFINE:RageTimes|0	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DESC:%1 times/day (%2 rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	DESC:%1 times/day (%2 rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	DESC:%1 times/day and no longer winded after (%2 rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1	BONUS:CHECKS|Will|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
+Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)												DESC:Dex bonus to AC|PREVARGT:UncannyDodge,0	DESC:Can't be flanked|PREVARGT:ImprovedUncannyDodge,0	DESC:+%1 against traps|UncannyTraps|PREVARGT:UncannyTraps,0
+Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES																																DESC:If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage.																																																																																																																									SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 ###Block: Timeless Body For Druid and Monk (the actual benefits of this class feature are implemented with a template by the same name)
 # Ability Name	Category of Ability		Type						Visible	Template			Source Page
@@ -35,7 +35,7 @@ Smite Good		CATEGORY:Special Ability	TYPE:SpecialAttack.Smite.Supernatural	VISIB
 Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
 ###Block:Hidden Feat for Negative Levels
-# Ability Name	Category of Ability		Type				Visible	Define			Description																					Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill																		ASPECT
+# Ability Name	Category of Ability		Type				Visible	Define			Description																					Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill																		Aspects
 Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:NegLevels|0	DESC:%1 negative level(s) (-%1 effective level(s) and loses access to %1 spell(s) from the highest spell level castable)|NegLevels	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	ASPECT:Ability Bonus|%1|NegLevels
 
 ###Block: Class Proficiencies
@@ -62,7 +62,7 @@ Illiteracy								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEF
 Barbarian Fast Movement	OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES									BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Bard abilities
-# Ability Name			Output Name				Category of Ability		Type						Visible	Define																						Description																							Modify VAR																										ASPECT
+# Ability Name			Output Name				Category of Ability		Type						Visible	Define																						Description																							Modify VAR																										Aspects
 Bardic Knowledge								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:BardicKnowledge|0	DEFINE:BardicKnowledgeLvl|0														DESC:+%1 to see whether you know some relevant information about local notable people, legendary items, or noteworthy places.|BardicKnowledge	BONUS:VAR|BardicKnowledge|INT																							ASPECT:Ability Benefit|+%1|BardicKnowledge
 Bardic Music								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:BardicMusicTimes|0	DEFINE:BardicMusicLvl|0															DESC:%1 times per day you can use your song or poetics to produce magical effects on those around you.|BardicMusicTimes																																ASPECT:Ability Benefit|%1/day|BardicMusicTimes
 Bardic Countersong		OUTPUTNAME:Countersong		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:CountersongDuration|0																			DESC:for %1 rounds you can use your music or poetics to counter magical effects that depend on sound|CountersongDuration				BONUS:VAR|CountersongDuration|10
@@ -98,7 +98,7 @@ Turn Plant		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Turning.Tur
 Rebuke Plant	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Turning.TurnPlant	VISIBLE:YES																					DEFINE:TurnTimesPlant|TurnTimesBase	DEFINE:TurnLevelPlant|TurnLevelBase	DEFINE:TurnDicePlant|TurnDiceBase	DEFINE:TurnDieSizePlant|TurnDieSizeBase	DEFINE:TurnDamagePlusPlant|TurnDamagePlusBase	DEFINE:TurnCheckPlant|TurnCheckBase				DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesPlant|TurnLevelPlant|TurnDicePlant|TurnDieSizePlant|TurnDamagePlusPlant		SOURCEPAGE:srdspellsi.rtf
 
 ###Block: Turn/Rebuke ASPECTS for improved output
-# Ability Name						ASPECT
+# Ability Name						Aspects
 CATEGORY=Special Ability|Turn Undead.MOD		ASPECT:TurnType|Turn	ASPECT:TurnKind|Undead	ASPECT:TurnTimes|%1|TurnTimesUndead	ASPECT:TurnLevel|%1|TurnLevelUndead	ASPECT:TurnDamage|%1d%2+%3|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	ASPECT:TurnCheck|%1|TurnCheckUndead	ASPECT:TurnNotes|You destroy Undead creatures with total hit dice up to %1.|TurnLevelUndead/2
 CATEGORY=Special Ability|Rebuke Undead.MOD	ASPECT:TurnType|Rebuke	ASPECT:TurnKind|Undead	ASPECT:TurnTimes|%1|TurnTimesUndead	ASPECT:TurnLevel|%1|TurnLevelUndead	ASPECT:TurnDamage|%1d%2+%3|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	ASPECT:TurnCheck|%1|TurnCheckUndead	ASPECT:TurnNotes|You command Undead creatures with total hit dice up to %1.|TurnLevelUndead/2
 CATEGORY=Special Ability|Turn Fire.MOD		ASPECT:TurnType|Turn	ASPECT:TurnKind|Fire	ASPECT:TurnTimes|%1|TurnTimesFire	ASPECT:TurnLevel|%1|TurnLevelFire	ASPECT:TurnDamage|%1d%2+%3|TurnDiceFire|TurnDieSizeFire|TurnDamagePlusFire	ASPECT:TurnCheck|%1|TurnCheckFire	ASPECT:TurnNotes|You destroy Fire creatures with total hit dice up to %1.|TurnLevelFire/2
@@ -121,14 +121,14 @@ Resist Nature's Lure	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
 Immune to Poisons		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
 A Thousand Faces		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
 ###Block: Druid Wild Shape ability
-# Ability Name		Category of Ability		Type						Visible	Define														Description																																																																																																																					Modify VAR					Vision				ASPECT
+# Ability Name		Category of Ability		Type						Visible	Define														Description																																																																																																																					Modify VAR					Vision				Aspects
 Wild Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:WildShapeTimes|0	DEFINE:WildShapeElementalTimes|0	DEFINE:WildShapeProgression|0	DESC:%1 times per day|WildShapeTimes|PREVAREQ:WildShapeProgression,1	DESC:%1 times per day (Large)|WildShapeTimes|PREVAREQ:WildShapeProgression,2	DESC:%1 times per day (Large, Tiny)|WildShapeTimes|PREVAREQ:WildShapeProgression,3	DESC:%1 times per day (Large, Tiny, Dire)|WildShapeTimes|PREVAREQ:WildShapeProgression,4	DESC:%1 times per day (Large, Tiny, Dire, Huge)|WildShapeTimes|PREVAREQ:WildShapeProgression,5	DESC:%1 times per day (Large, Tiny, Dire, Huge) %2/day (Elemental)|WildShapeTimes|WildShapeElementalTimes|PREVAREQ:WildShapeProgression,6	DESC:%1 times per day (Large, Tiny, Dire, Huge) %2/day (Huge Elemental)|WildShapeTimes|WildShapeElementalTimes|PREVARGTEQ:WildShapeProgression,7	BONUS:VAR|WildShapeProgression|1						ASPECT:Ability Benefit|%1/day|WildShapeTimes
 # Wildshape Tempmod Support
 Wildshape Blindsight	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																																																																																																																																												VISION:Blindsight (120')
 
 
 ###Block:Monk abilities
-# Ability Name			Output Name				Category of Ability		Type						Visible	Define												Description																			Combat bonus											Add to base move																																																Add to magical move																																																										Modify VAR																				Source Page						ASPECT
+# Ability Name			Output Name				Category of Ability		Type						Visible	Define												Description																			Combat bonus											Add to base move																																																Add to magical move																																																										Modify VAR																				Source Page						Aspects
 Stunning Attack								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:StunningAttack|0	DEFINE:StunDC|10+WIS	DEFINE:MonkStunningLVL|0	DESC:%1 times per day (DC %2)|StunningAttack|StunDC																																																																																																																																								BONUS:VAR|StunningAttack|MonkStunningLVL|TYPE=NoStack.REPLACE	BONUS:VAR|StunDC|MonkStunningLVL/2|TYPE=NoStack.REPLACE	SOURCEPAGE:srdbasiccharacterclassesi.rtf	ASPECT:Ability Benefit|%1/day|StunningAttack
 Monk AC									CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MonkACCheck|MonkAC+WIS	DEFINE:MonkACLVL|0	DEFINE:MonkAC|0																						BONUS:COMBAT|AC|MonkAC|PREVARGTEQ:MonkACCheck,0	BONUS:COMBAT|AC|max(WIS,0)																																																																																																																BONUS:VAR|MonkAC|MonkACLVL/5																	SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Monk Fast Movement		OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:MonkSpeedLVL|0																																											BONUS:MOVEADD|TYPE.Walk|5|TYPE=Normal.REPLACE|PREVARGTEQ:MonkSpeedLVL,3|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:MOVEADD|TYPE.Walk|min(floor(MonkSpeedLVL/3)*10,20)|TYPE=Normal.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*5,20)+floor(max(MonkSpeedLVL/15,0))*5|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*10,40)|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0																						SOURCEPAGE:srdbasiccharacterclassesi.rtf
@@ -148,7 +148,7 @@ Perfect Self								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Flurry of Blows								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:FlurryOfBlows|1
 
 ###Block: Paladin special abilities
-# Ability Name	Category of Ability		Type						Visible	Define			Description					Save checks bonus						ASPECT
+# Ability Name	Category of Ability		Type						Visible	Define			Description					Save checks bonus						Aspects
 Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.Sense		VISIBLE:YES
 Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES											BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
 Divine Health	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
@@ -184,7 +184,7 @@ Expert Exclusive Skills	CATEGORY:Special Ability	TYPE:Internal.ExpertClassSkills
 
 
 ###Block: Arcane Archer Abilities
-# Ability Name	Category of Ability		Type						Visible	Define			Description			ASPECT
+# Ability Name	Category of Ability		Type						Visible	Define			Description			Aspects
 Enchant Arrow	CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:YES	DEFINE:EnchantArrow|0	DESC:+%1|EnchantArrow	ASPECT:Ability Benefit|+%1|EnchantArrow
 Imbue Arrow		CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:YES
 Seeker Arrow	CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:YES
@@ -194,7 +194,7 @@ Arrow of Death	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:
 
 
 ###Block: Assassin Abilities
-# Ability Name	Category of Ability		Type						Visible	Define			Description					ASPECT
+# Ability Name	Category of Ability		Type						Visible	Define			Description					Aspects
 Death Attack	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:DeathAttackDC|0	DESC:DC %|DeathAttackDC
 Poison Use		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
 Save vs Poison	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:PoisonSave|0	DESC:+%1 vs. Poison|PoisonSave	ASPECT:Ability Bonus|+%1|PoisonSave
@@ -211,13 +211,13 @@ Aura of Despair		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	
 
 
 ###Block: Dwarven Defender Abilities
-# Ability Name		Category of Ability		Type					Visible	Define																			Description																										Save checks bonus						Combat bonus					Stat bonus									Source Page					ASPECT
+# Ability Name		Category of Ability		Type					Visible	Define																			Description																										Save checks bonus						Combat bonus					Stat bonus									Source Page					Aspects
 Defensive Stance		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:DefensiveStanceTimes|0																DESC:%1 times per day|DefensiveStanceTimes																				BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC	BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|%1/day|DefensiveStanceTimes
 Defensive Awareness	CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)	DESC:Dex bonus to AC|PREVARGT:UncannyDodge,0	DESC:Can't be flanked|PREVARGT:ImprovedUncannyDodge,0	DESC:+%1 against traps|UncannyTraps|PREVARGT:UncannyTraps,0
 
 
 ###Block: Loremaster Abilities
-# Ability Name			Category of Ability		Type							Visible	Var. Min. Value			Define			Description			Stackable?	Multiple?	Choose														Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page						ASPECT
+# Ability Name			Category of Ability		Type							Visible	Var. Min. Value			Define			Description			Stackable?	Multiple?	Choose														Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Source Page						Aspects
 Lore					CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES						DEFINE:SecretLore|0	DESC:+%1|SecretLore																																																		ASPECT:Ability Benefit|+%1|SecretLore
 Greater Lore			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES
 True Lore				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES
@@ -234,7 +234,7 @@ Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	
 More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,10									STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 ###Block: Shadowdancer Abilities
-# Ability Name		Category of Ability		Type						Visible	Define				Description			ASPECT
+# Ability Name		Category of Ability		Type						Visible	Define				Description			Aspects
 Hide in Plain Sight	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Shadow Illusion		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Summon Shadow		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:ShadowCompanion|0
