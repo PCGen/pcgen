@@ -4,7 +4,8 @@ GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:1
 GENRE:Fantasy
-BOOKTYPE:Core Rules
+BOOKTYPE:Core Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
