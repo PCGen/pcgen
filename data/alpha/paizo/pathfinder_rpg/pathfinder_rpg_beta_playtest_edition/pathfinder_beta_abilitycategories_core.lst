@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar  6 12:23:20 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+# CVS $Revision$ $Author$ -- Thu Jun 25 09:12:55 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 #SOURCELONG:Pathfinder	SOURCESHORT:PFRPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy8253	SOURCEDATE:2008-05
 # Original Entry by: Stefan Radermacher
 
@@ -74,6 +74,7 @@ ABILITYCATEGORY:Knowledge Class Skill		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 ABILITYCATEGORY:Arcane Bloodline School Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcaneBloodlineSchoolPower	PLURAL:ArcaneBloodlineSchoolPower	DISPLAYLOCATION:Class Abilities
 
 ###Block: Racial
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI			Display Location
 ABILITYCATEGORY:Gnome Obsessive Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeSkill	PLURAL:Gnome Obsessive Skill Choices	DISPLAYLOCATION:Racial Abilities
 
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Sep 25 15:20:06 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Thu Jun 25 09:12:55 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original Entry by: Stefan Radermacher
 
@@ -24,5 +24,5 @@ Norgorber		NAMEISPI:YES	DOMAINS:Charm,Death,Evil,Knowledge,Trickery|PREALIGN:TN,
 Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,CN,CE			DESC:Goddess of madness, monsters, nightmares				DEITYWEAP:Falchion			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
 Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE			DESC:God of wrath, disaster, destruction					DEITYWEAP:Greataxe			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
 
-# Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Holy Item	Deity Weapon						Alignment	Pantheon					Source Page
+# Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Holy Item	Deity Weapon				Alignment	Pantheon					Source Page
 None						DOMAINS:ALL|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE						DESC:None								SYMBOL:None	DEITYWEAP:ANY

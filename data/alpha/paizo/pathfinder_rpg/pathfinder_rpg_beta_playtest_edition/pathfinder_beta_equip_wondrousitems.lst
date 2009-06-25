@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 14 21:46:14 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Thu Jun 25 09:12:55 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith)
@@ -8,7 +8,7 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 
 
 ###Block:A
-# Equipment Name						Type					Cost		Weight	Source Page		Combat bonus						Weapon prof. bonus															Special Property
+# Equipment Name						Type					Cost		Weight	Source Page		Combat bonus						Weapon prof. bonus																			Special Property
 Amulet of Mighty Fists +1				TYPE:Magic.Wondrous.Amulet	COST:5000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1|TYPE=Enhancement
 Amulet of Mighty Fists +2				TYPE:Magic.Wondrous.Amulet	COST:20000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|2|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|2|TYPE=Enhancement
 Amulet of Mighty Fists +3				TYPE:Magic.Wondrous.Amulet	COST:45000	WT:.02	SOURCEPAGE:p.366									BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|3|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|3|TYPE=Enhancement
@@ -20,8 +20,8 @@ Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet	COST:8000	WT:.02	SOURCE
 Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet	COST:18000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE
 Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet	COST:32000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE
 Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet	COST:50000	WT:.02	SOURCEPAGE:p.366	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE
-Amulet of The Planes					TYPE:Magic.Wondrous.Amulet	COST:120000	WT:.02	SOURCEPAGE:p.366																											SPROP:This amulet allows its wearer to utilize Plane Shift.
-Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet	COST:35000	WT:.02	SOURCEPAGE:p.366																											SPROP:Protects the wearer from scrying and magical location as Nondetection.
+Amulet of The Planes					TYPE:Magic.Wondrous.Amulet	COST:120000	WT:.02	SOURCEPAGE:p.366																															SPROP:This amulet allows its wearer to utilize Plane Shift.
+Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet	COST:35000	WT:.02	SOURCEPAGE:p.366																															SPROP:Protects the wearer from scrying and magical location as Nondetection.
 
 ###Block: B
 # Equipment Name				Output Name						Type						Contains		Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier					Source Page		Ability								Vision			Innate Spells									Combat bonus			Add to magical move					Bonus to skill					Stat bonus								Weapon prof. bonus																																																																											Automatic Languages	Special Property
