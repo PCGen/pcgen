@@ -681,7 +681,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		final Follower newFollower =
 				new Follower(file.getAbsolutePath(), nName, cList);
-		newFollower.setRace(newPC.getRace().getKeyName());
+		newFollower.setRace(newPC.getRace());
 		pc.addFollower(newFollower);
 		pc.setDirty(true);
 		pc.setCalcFollowerBonus(pc);
@@ -803,7 +803,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		Follower newFollower =
 				new Follower(file.getAbsolutePath(), newPC.getName(), cList);
-		newFollower.setRace(newPC.getRace().getKeyName());
+		newFollower.setRace(newPC.getRace());
 		oldPC.addFollower(newFollower);
 		oldPC.setDirty(true);
 		newPC.setDirty(true);

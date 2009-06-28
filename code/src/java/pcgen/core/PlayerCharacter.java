@@ -937,14 +937,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final CompanionList cList = aF.getType();
 			final String rType = cList.getKeyName();
-			final String rName = aF.getRace().toUpperCase();
+			final Race fRace = aF.getRace();
 
 			for (CompanionMod cm : Globals.getCompanionMods(cList))
 			{
 				final String aType = cm.getType();
-				final int iRace = cm.getLevel(rName);
-
-				if (aType.equalsIgnoreCase(rType) && (iRace == 1))
+				if (aType.equalsIgnoreCase(rType) && cm.appliesToRace(fRace))
 				{
 					// Found race and type of follower
 					// so add bonus to the master
@@ -2222,7 +2220,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			for (CompanionMod cMod : Globals.getCompanionMods(aM.getType()))
 			{
-				if ((cMod.getLevel(mClass.getKeyName()) > 0) && !found)
+				if ((cMod.getLevelApplied(mClass) > 0) && !found)
 				{
 					mTotalLevel += mClass.getLevel(this);
 					found = true;
@@ -2243,7 +2241,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (PCClass mClass : mPC.getClassList())
 			{
 				final int mLev = mClass.getLevel(this) + aM.getAdjustment();
-				final int compLev = cMod.getLevel(mClass.getKeyName());
+				final int compLev = cMod.getLevelApplied(mClass);
 
 				if (compLev < 0)
 				{
@@ -2275,7 +2273,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							.intValue()
 							+ aM.getAdjustment();
 
-				if (mLev >= cMod.getLevel(varName))
+				if (mLev >= cMod.getVariableApplied(varName))
 				{
 					if (PrereqHandler.passesAll(cMod.getPrerequisiteList(),
 						this, cMod))
@@ -14516,7 +14514,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.tempBonusList.addAll(tempBonusList);
 		aClone.tempBonusFilters.addAll(tempBonusFilters);
-		aClone.race = race;
 		aClone.selectedFavoredClass = selectedFavoredClass;
 		if (kitList != null)
 		{

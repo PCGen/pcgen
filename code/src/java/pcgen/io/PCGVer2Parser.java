@@ -2842,7 +2842,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_RACE.equals(tag))
 			{
-				aFollower.setRace(EntityEncoder.decode(element.getText()));
+				String raceText = EntityEncoder.decode(element.getText());
+				Race r = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Race.class, raceText);
+				if (r == null)
+				{
+					Logging.errorPrint("Cannot find Race: " + raceText);
+				}
+				else
+				{
+					aFollower.setRace(r);
+				}
 			}
 			else if (TAG_HITDICE.equals(tag))
 			{

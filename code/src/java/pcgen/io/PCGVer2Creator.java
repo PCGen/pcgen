@@ -1395,7 +1395,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append('|');
 				buffer.append(TAG_RACE).append(':');
 				buffer.append(EntityEncoder.encode(follower.getRace()
-					.toUpperCase()));
+						.getKeyName().toUpperCase()));
 				buffer.append('|');
 				buffer.append(TAG_HITDICE).append(':');
 				buffer.append(follower.getUsedHD());
