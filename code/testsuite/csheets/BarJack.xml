@@ -1310,7 +1310,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Rage</name>
-			<description>0 times/day (5 rounds)</description>
+			<description>2 times/day (5 rounds)</description>
 			<type>SPECIALQUALITY.ATTACKOPTION.MODIFYAC</type>
 			<associated></associated>
 			<count>0</count>
