@@ -8116,34 +8116,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return false;
 	}
 
-	public PCTemplate addTemplate(final PCTemplate inTemplate)
+	public void addTemplate(final PCTemplate inTemplate)
 	{
-		return addTemplate(inTemplate, true);
+		addTemplate(inTemplate, true);
 	}
 
-	public PCTemplate addTemplate(final PCTemplate inTemplate, boolean doChoose)
+	public void addTemplate(final PCTemplate inTemplate, boolean doChoose)
 	{
 		if (inTemplate == null)
 		{
-			return null;
+			return;
 		}
 
 		// Don't allow multiple copies of template.
-		// Given that we clone everything will this ever
-		// evaluate to true ?
 		if (templateList.contains(inTemplate))
 		{
-			return null;
-		}
-
-		// Search for a template with this name already
-		// assigned to this character
-		for (PCTemplate template : templateList)
-		{
-			if (template.getKeyName().equals(inTemplate.getKeyName()))
-			{
-				return null; // template with duplicate name
-			}
+			return;
 		}
 
 		// Add a clone of the template passed in
@@ -8159,7 +8147,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		final PCTemplate inTmpl = inTemplate;
 		templateList.add(inTemplate);
 
 		// If we are importing these levels will have been saved with the
@@ -8176,24 +8163,24 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		calcActiveBonuses();
 
-		for (CDOMReference<Language> ref : inTmpl
+		for (CDOMReference<Language> ref : inTemplate
 			.getSafeListFor(ListKey.AUTO_LANGUAGES))
 		{
 			templateAutoLanguages.addAll(ref.getContainedObjects());
 		}
-		addStartingLanguages(inTmpl, templateLanguages);
+		addStartingLanguages(inTemplate, templateLanguages);
 		getAutoLanguages();
-		addNaturalWeapons(inTmpl.getListFor(ListKey.NATURAL_WEAPON));
+		addNaturalWeapons(inTemplate.getListFor(ListKey.NATURAL_WEAPON));
 
 		setAutomaticAbilitiesStable(null, false);
 
 		if (doChoose)
 		{
-			selectTemplates(inTmpl, isImporting());
+			selectTemplates(inTemplate, isImporting());
 		}
 		else
 		{
-			Collection<PCTemplate> list = getTemplatesAdded(inTmpl);
+			Collection<PCTemplate> list = getTemplatesAdded(inTemplate);
 			for (PCTemplate pct : list)
 			{
 				addTemplate(pct);
@@ -8203,12 +8190,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			// Do chooser (if any)
-			ChooserUtilities.modChoices(inTmpl, new ArrayList(),
+			ChooserUtilities.modChoices(inTemplate, new ArrayList(),
 				new ArrayList(), true, this, true, null);
 
 			getSpellList();
-			feats(inTmpl, getTotalLevels(), totalHitDice(), true);
-			inTmpl.globalChecks(this);
+			feats(inTemplate, getTotalLevels(), totalHitDice(), true);
+			inTemplate.globalChecks(this);
 		}
 
 		setAggregateAbilitiesStable(null, false);
@@ -8278,8 +8265,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		adjustMoveRates();
 
 		setDirty(true);
-
-		return inTmpl;
 	}
 
 	public void addWeaponProf(final String aProfKey)
@@ -10706,8 +10691,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		removeNaturalWeapons(inTmpl);
 
-		PCTemplate t = this.getTemplateKeyed(inTmpl.getKeyName());
-		List<LevelCommandFactory> lcfList = t.getSafeListFor(ListKey.ADD_LEVEL);
+		List<LevelCommandFactory> lcfList = inTmpl.getSafeListFor(ListKey.ADD_LEVEL);
 		for (ListIterator<LevelCommandFactory> it =
 				lcfList.listIterator(lcfList.size()); it.hasPrevious();)
 		{
@@ -10716,15 +10700,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		removeTemplatesFrom(inTmpl);
 
-		for (PCTemplate template : templateList)
-		{
-			if (template.getKeyName().equals(inTmpl.getKeyName()))
-			{
-				templateList.remove(template);
-
-				break;
-			}
-		}
+		templateList.remove(inTmpl);
 
 		// TODO - ABILITYOBJECT
 		setAutomaticFeatsStable(false);
@@ -17228,7 +17204,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (PCTemplate pct : list)
 			{
-				removeTemplate(getTemplateKeyed(pct.getKeyName()));
+				removeTemplate(pct);
 			}
 		}
 
@@ -17240,7 +17216,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				for (PCTemplate pct : pctr.getContainedObjects())
 				{
-					removeTemplate(getTemplateKeyed(pct.getKeyName()));
+					removeTemplate(pct);
 				}
 			}
 		}
@@ -18010,5 +17986,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean hasSkill(Skill skill)
 	{
 		return getAllSkillList(false).contains(skill);
+	}
+
+	public boolean hasTemplate(PCTemplate template)
+	{
+		return templateList.contains(template);
 	}
 }

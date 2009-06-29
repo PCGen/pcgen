@@ -856,9 +856,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		getPc().setDirty(true);
 
-		PCTemplate pcTemplate = getPc().getTemplateKeyed(template.getKeyName());
-
-		if (pcTemplate == null)
+		if (!getPc().hasTemplate(template))
 		{
 			getPc().addTemplate(template);
 			pushUpdate();
@@ -892,9 +890,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		getPc().setDirty(true);
 
-		PCTemplate pcTemplate = getPc().getTemplateKeyed(template.getKeyName());
-
-		if (pcTemplate != null)
+		if (getPc().hasTemplate(template))
 		{
 			getPc().removeTemplate(template);
 			pushUpdate();
@@ -1153,17 +1149,10 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		{
 			final PObjectNode fn = (PObjectNode) node;
 			PCTemplate template = null;
-			PCTemplate pcTemplate = null;
 
 			if ((fn != null) && (fn.getItem() instanceof PCTemplate))
 			{
 				template = (PCTemplate) fn.getItem();
-				pcTemplate = getPc().getTemplateKeyed(template.getKeyName());
-			}
-
-			if (pcTemplate != null)
-			{
-				template = pcTemplate;
 			}
 
 			if (template != null)

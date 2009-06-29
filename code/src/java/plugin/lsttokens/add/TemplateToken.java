@@ -168,7 +168,7 @@ public class TemplateToken extends AbstractToken implements
 	public boolean allow(PCTemplate choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
-		return pc.getTemplateKeyed(choice.getKeyName()) == null;
+		return !pc.hasTemplate(choice);
 	}
 
 	public PCTemplate decodeChoice(String s)

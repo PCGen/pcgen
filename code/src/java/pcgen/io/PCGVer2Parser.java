@@ -298,7 +298,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (aPCTemplate != null)
 		{
 			final int preXP = thePC.getXP();
-			aPCTemplate = thePC.addTemplate(aPCTemplate);
+			thePC.addTemplate(aPCTemplate);
 
 			//
 			// XP written to file contains leveladjustment XP. If template modifies XP, then
