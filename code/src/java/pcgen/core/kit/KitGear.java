@@ -41,7 +41,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.EquipSet;
 
@@ -228,9 +227,7 @@ public final class KitGear extends BaseKit
 		// natural (weapon)
 		boolean tryResize = false;
 
-		SizeAdjustment sizeToSet =
-				SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-					aPC.sizeInt());
+		SizeAdjustment sizeToSet = aPC.getSizeAdjustment();
 
 		if (actingSize == null)
 		{

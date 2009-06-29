@@ -77,8 +77,7 @@ public final class Race extends PObject
 				SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize);
 		if ((defAdj != null) && (sizAdj != null))
 		{
-			return Globals.adjustDamage("1d3", defAdj.getAbbreviation(), sizAdj
-				.getAbbreviation());
+			return Globals.adjustDamage("1d3", defAdj, sizAdj);
 		}
 		return "1d3";
 	}

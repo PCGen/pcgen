@@ -1655,7 +1655,7 @@ final class PCSizeFilter extends AbstractPObjectFilter
 		if (aPC != null)
 		{
 			pcName += " ("; //$NON-NLS-1$
-			final SizeAdjustment sizeAdj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(aPC.sizeInt());
+			final SizeAdjustment sizeAdj = aPC.getSizeAdjustment();
 			if (sizeAdj != null)
 			{
 				pcName += sizeAdj.getDisplayName();

@@ -2291,8 +2291,8 @@ public class PCClass extends PObject
 	String getUDamForEffLevel(int aLevel, final PlayerCharacter aPC,
 			boolean adjustForPCSize)
 	{
-		int iSize = Globals.sizeInt(aPC.getSize());
-
+		SizeAdjustment pcSize = aPC.getSizeAdjustment();
+		
 		//
 		// Check "Unarmed Strike", then default to "1d3"
 		//
@@ -2315,11 +2315,8 @@ public class PCClass extends PObject
 		// resize the damage as if it were a weapon
 		if (adjustForPCSize)
 		{
-			aDamage =
-					Globals.adjustDamage(aDamage, SettingsHandler.getGame()
-						.getDefaultSizeAdjustment().getAbbreviation(),
-						SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-							iSize).getAbbreviation());
+			aDamage = Globals.adjustDamage(aDamage, SettingsHandler.getGame()
+					.getDefaultSizeAdjustment(), pcSize);
 		}
 
 		//
@@ -2332,6 +2329,7 @@ public class PCClass extends PObject
 			classObjects.add(getClassLevel(i));
 		}
 		classObjects.add(this);
+		int iSize = SettingsHandler.getGame().sizeIndex(pcSize);
 		for (CDOMObject cdo : classObjects)
 		{
 			List<String> udam = cdo.getListFor(ListKey.UNARMED_DAMAGE);

@@ -402,24 +402,17 @@ final class EqBuilder extends JPanel
 		}
 	}
 
-	private int getItemSize()
+	private SizeAdjustment getItemSize()
 	{
 		final int idx = jComboBoxSize.getSelectedIndex();
 
 		if (idx >= 0)
 		{
 			String aSize = (String) jComboBoxSize.getItemAt(idx);
-
-			for (int i = 0; i <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1); i++)
-			{
-				if (SettingsHandler.getGame().getSizeAdjustmentAtIndex(i).getDisplayName().equalsIgnoreCase(aSize))
-				{
-					return i;
-				}
-			}
+			return SettingsHandler.getGame().getSizeAdjustmentNamed(aSize);
 		}
 
-		return -1;
+		return null;
 	}
 
 	/**
@@ -1141,8 +1134,7 @@ final class EqBuilder extends JPanel
 					aNewEq.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(oldName.toString()));
 				}
 
-				final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());
-				aNewEq.resizeItem(aPC, aSize);
+				aNewEq.resizeItem(aPC, getItemSize());
 				showItemInfo(aPC);
 			}
 		}
@@ -1249,8 +1241,7 @@ final class EqBuilder extends JPanel
 				aNewEq.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(aString));
 			}
 
-			final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());
-			aNewEq.resizeItem(aPC, aSize);
+			aNewEq.resizeItem(aPC, getItemSize());
 			showItemInfo(aPC);
 		}
 	}
@@ -1464,8 +1455,7 @@ final class EqBuilder extends JPanel
 		{
 			if (aNewEq != null)
 			{
-				final SizeAdjustment aSize = SettingsHandler.getGame().getSizeAdjustmentAtIndex(getItemSize());
-				aNewEq.resizeItem(aPC, aSize);
+				aNewEq.resizeItem(aPC, getItemSize());
 				showItemInfo(aPC);
 			}
 		}

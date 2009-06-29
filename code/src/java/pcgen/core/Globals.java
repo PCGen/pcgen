@@ -2222,11 +2222,6 @@ public final class Globals
 		return defaultValue;
 	}
 
-	public static int sizeInt(SizeAdjustment sz)
-	{
-		return SettingsHandler.getGame().sizeIndex(sz);
-	}
-
 	/**
 	 * Sorts chooser lists using the appropriate method, based on the type of the first item in either list.
 	 * Not pretty, but it works.
@@ -2501,13 +2496,15 @@ public final class Globals
 	 * @param sNewSize
 	 * @return String
 	 */
-	static String adjustDamage(final String aDamage, final String sBaseSize, final String sNewSize)
+	static String adjustDamage(String aDamage, SizeAdjustment baseSize, SizeAdjustment newSize)
 	{
 		if (aDamage.length() == 0)
 		{
 			return aDamage;
 		}
-		return adjustDamage(aDamage, sizeInt(sBaseSize), sizeInt(sNewSize));
+		int baseIndex = SettingsHandler.getGame().sizeIndex(baseSize);
+		int newIndex =  SettingsHandler.getGame().sizeIndex(newSize);
+		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
 	static double calcEncumberedMove(final Load load, final double moveInt, final boolean checkLoad)
@@ -2695,7 +2692,7 @@ public final class Globals
 			mult = value.doubleValue();
 		}
 
-		SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(sizeInt(size));
+		SizeAdjustment sadj = aPC.getSizeAdjustment();
 		if (sadj == null)
 		{
 			sadj = SettingsHandler.getGame().getDefaultSizeAdjustment();

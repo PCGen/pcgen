@@ -3350,7 +3350,7 @@ public final class Equipment extends PObject implements Serializable,
 		setBase(pc);
 
 		final int iOldSize = sizeInt();
-		int iNewSize = Globals.sizeInt(newSize);
+		int iNewSize = SettingsHandler.getGame().sizeIndex(newSize);
 
 		if (iNewSize != iOldSize)
 		{
@@ -3458,7 +3458,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return size as int
 	 */
 	public int sizeInt() {
-		return Globals.sizeInt(getSafe(ObjectKey.SIZE));
+		return SettingsHandler.getGame().sizeIndex(getSafe(ObjectKey.SIZE));
 	}
 
 	/**
@@ -4816,19 +4816,13 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The generated key
 	 */
 
-	public String createKeyForAutoResize(String newSize) {
-		// Make sure newSize has at least one letter
-		if (newSize.length() < 1) {
+	public String createKeyForAutoResize(SizeAdjustment newSize) {
+		// Make sure newSize is not null
+		if (newSize == null) {
 			return getKeyName();
 		}
 
-		// Make sure the new size is a configured sizeAdjustment
-		SizeAdjustment sa =
-				SettingsHandler.getGame().getSizeAdjustmentNamed(newSize);
-		if (sa == null) {
-			return getKeyName();
-		}
-		String displayName = sa.getDisplayName();
+		String displayName = newSize.getDisplayName();
 
 		// Make sure finalSize is a single upper case letter
 		String finalSize = displayName.toUpperCase().substring(0, 1);
@@ -4866,20 +4860,13 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The generated Name
 	 */
 
-	public String createNameForAutoResize(String newSize) {
-		// Make sure newSize has at least one letter
-		if (newSize.length() < 1) {
+	public String createNameForAutoResize(SizeAdjustment newSize) {
+		// Make sure newSize is not null
+		if (newSize == null) {
 			return getName();
 		}
 
-		// Make sure the new size is a configured sizeAdjustment
-		SizeAdjustment sa =
-				SettingsHandler.getGame().getSizeAdjustmentNamed(newSize);
-		if (sa == null) {
-			return getName();
-		}
-		String displayName = sa.getDisplayName();
-
+		String displayName = newSize.getDisplayName();
 		String thisName = getName();
 		String upName   = thisName.toUpperCase();
 
@@ -5724,7 +5711,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 		if (!"special".equalsIgnoreCase(aDamage) && !"-".equals(aDamage))
 		{
-			return Globals.adjustDamage(aDamage, getSize(), aSize.getAbbreviation());
+			return Globals.adjustDamage(aDamage, getSafe(ObjectKey.SIZE), aSize);
 		}
 
 		return aDamage;

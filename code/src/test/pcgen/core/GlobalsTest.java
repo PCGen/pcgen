@@ -443,7 +443,9 @@ public class GlobalsTest extends PCGenTestCase
 		is(gameMode.getSizeAdjustmentListSize(), gt(0), "size list initialised");
 		gameMode.getDamageUpMap().put("1d6", "1d8,2d6,3d6,4d6,6d6,8d6,12d6");
 		gameMode.getDamageDownMap().put("1d6", "1d4,1d3,1d2,1");
-		is(Globals.adjustDamage("1d6", "Medium", "Small"), strEq("1d4"),
+		SizeAdjustment small = SettingsHandler.getGame().getSizeAdjustmentNamed("Small");
+		SizeAdjustment medium = SettingsHandler.getGame().getSizeAdjustmentNamed("Medium");
+		is(Globals.adjustDamage("1d6", medium, small), strEq("1d4"),
 			"reduction of damage due to smaller size");
 	}
 }

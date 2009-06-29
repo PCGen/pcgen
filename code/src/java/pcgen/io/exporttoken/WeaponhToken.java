@@ -39,7 +39,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
@@ -145,12 +144,7 @@ public class WeaponhToken extends WeaponToken
 		head.put(IntegerKey.CRIT_MULT, 2);
 		head.put(IntegerKey.CRIT_RANGE, 1);
 		eq.put(ObjectKey.MOD_CONTROL, EqModControl.NO);
-		String sizeString = pc.getSize();
-		if (sizeString.length() > 1) {
-			sizeString = sizeString.toUpperCase().substring(0, 1);
-		}
-		
-		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed(sizeString);
+		SizeAdjustment sa = pc.getSizeAdjustment();
 		eq.put(ObjectKey.SIZE, sa);
 		eq.put(ObjectKey.BASESIZE, sa);
 

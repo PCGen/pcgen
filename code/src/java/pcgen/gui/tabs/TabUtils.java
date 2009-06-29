@@ -3,12 +3,13 @@ package pcgen.gui.tabs;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
-import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -33,7 +34,7 @@ public class TabUtils
 			// has a zero price attached
 			//
 			boolean hasClothes = false;
-			final String pcSize = aPC.getSize();
+			SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();
 
 			if (clothes.size() != 0)
 			{
@@ -41,7 +42,7 @@ public class TabUtils
 				{
 					if ((CoreUtility.doublesEqual(
 						eq.getCost(aPC).doubleValue(), 0.0))
-						&& pcSize.equals(eq.getSize()))
+						&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
 					{
 						hasClothes = true;
 
@@ -86,9 +87,9 @@ public class TabUtils
 						//
 						// Need to resize to fit?
 						//
-						if (!pcSize.equals(eq.getSize()))
+						if (!pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
 						{
-							eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentNamed(pcSize));
+							eq.resizeItem(aPC, pcSizeAdj);
 						}
 
 						eq.setCostMod('-' + eq.getCost(aPC).toString()); // make cost 0

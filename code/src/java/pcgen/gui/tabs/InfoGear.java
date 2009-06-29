@@ -105,6 +105,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
@@ -1172,7 +1173,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				&& Globals.canResizeHaveEffect(pc, selectedEquipment, null)
 				&& pc.sizeInt() != Globals.sizeInt(selectedEquipment.getSize()))
 			{
-				final String newSize = pc.getSize();
+				final SizeAdjustment newSize = pc.getSizeAdjustment();
 				final String existingKey = selectedEquipment.getKeyName();
 				final String newKey =
 						selectedEquipment.createKeyForAutoResize(newSize);
@@ -1218,7 +1219,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 						newEq.setName(newName);
 						newEq.put(StringKey.OUTPUT_NAME, newName);
 						newEq.put(StringKey.KEY_NAME, newKey);
-						newEq.resizeItem(pc, SettingsHandler.getGame().getSizeAdjustmentNamed(newSize));
+						newEq.resizeItem(pc, newSize);
 						newEq.removeType(Type.AUTO_GEN);
 						newEq.removeType(Type.STANDARD);
 						if (!newEq.isType(Constants.s_CUSTOM))

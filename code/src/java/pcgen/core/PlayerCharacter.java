@@ -7026,7 +7026,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							adjustForPCSize));
 		}
 
-		int sizeInt = Globals.sizeInt(getSize());
+		int sizeInt = sizeInt();
 		String pObjDamage = null;
 		for (PObject pObj : getPObjectList())
 		{
@@ -13215,12 +13215,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getLevelAdjustment(this) + 1, this);
 	}
 
-	private SizeAdjustment getSizeAdjustment()
+	public SizeAdjustment getSizeAdjustment()
 	{
-		final SizeAdjustment sa =
-				SettingsHandler.getGame().getSizeAdjustmentAtIndex(sizeInt());
-
-		return sa;
+		return SettingsHandler.getGame().getSizeAdjustmentAtIndex(sizeInt());
 	}
 
 	public int getSpellClassCount()
