@@ -231,7 +231,7 @@ public class NPCGenerator
 			{
 				// If we are not told to ignore rank maxes we need to make sure
 				// we can add this rank to this skill.
-				double maxRanks = aPC.getMaxRank(skill.getKeyName(), aClass).
+				double maxRanks = aPC.getMaxRank(skill, aClass).
 					doubleValue();
 				double pcRanks = pcSkill == null ? 0.0 : SkillRankControl.getRank(aPC, pcSkill).doubleValue();
 				if (pcRanks + ranks > maxRanks)
@@ -250,7 +250,7 @@ public class NPCGenerator
 								ranksLeft = true;
 								break;
 							}
-							if (SkillRankControl.getRank(aPC, chkPcSkill).doubleValue() < aPC.getMaxRank(chkPcSkill.getKeyName(), aClass).
+							if (SkillRankControl.getRank(aPC, chkPcSkill).doubleValue() < aPC.getMaxRank(chkPcSkill, aClass).
 									doubleValue())
 							{
 								ranksLeft = true;
@@ -269,9 +269,9 @@ public class NPCGenerator
 
 			if (pcSkill == null)
 			{
-				pcSkill = aPC.addSkill(skill);
+				aPC.addSkill(skill);
 			}
-			SkillRankControl.modRanks(ranks, aClass, false, aPC, pcSkill);
+			SkillRankControl.modRanks(ranks, aClass, false, aPC, skill);
 			// Add weight to skills we select to try and encourage us to select
 			// them again.
 			skillList.add(choice, 4/cost);

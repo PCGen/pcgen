@@ -135,8 +135,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intel);
 		Globals.getContext().ref.importObject(knowledge[0]);
-		Skill ks0 = character.addSkill(knowledge[0]);
-		SkillRankControl.modRanks(8.0, myClass, true, character, ks0);
+		character.addSkill(knowledge[0]);
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
 		knowledge[1].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -144,8 +144,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intel);
 		Globals.getContext().ref.importObject(knowledge[1]);
-		Skill ks1 = character.addSkill(knowledge[1]);
-		SkillRankControl.modRanks(5.0, myClass, true, character, ks1);
+		character.addSkill(knowledge[1]);
+		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -153,8 +153,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		tumble.put(ObjectKey.KEY_STAT, dex);
 		Globals.getContext().ref.importObject(tumble);
-		Skill ts = character.addSkill(tumble);
-		SkillRankControl.modRanks(7.0, myClass, true, character, ts);
+		character.addSkill(tumble);
+		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -169,8 +169,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(balance);
-		Skill bs = character.addSkill(balance);
-		SkillRankControl.modRanks(4.0, myClass, true, character, bs);
+		character.addSkill(balance);
+		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
 		character.calcActiveBonuses();
 	}

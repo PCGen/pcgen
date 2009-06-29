@@ -93,8 +93,8 @@ public class PreMultTest extends AbstractCharacterTestCase
 		knowledge.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
-		Skill ks = character.addSkill(knowledge);
-		SkillRankControl.modRanks(8.0, myClass, true, character, ks);
+		character.addSkill(knowledge);
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge);
 
 	}
 
@@ -256,8 +256,8 @@ public class PreMultTest extends AbstractCharacterTestCase
 		extraKnow.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		extraKnow.setName("KNOWLEDGE (RELIGION)");
 		TestHelper.addType(extraKnow, "KNOWLEDGE.INT");
-		Skill as = character.addSkill(extraKnow);
-		SkillRankControl.modRanks(5.0, myClass, true, character, as);
+		character.addSkill(extraKnow);
+		SkillRankControl.modRanks(5.0, myClass, true, character, extraKnow);
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass 2 knowledge skill test with 2 skills", passes);

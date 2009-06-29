@@ -1790,21 +1790,7 @@ final class RankFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Skill)
 		{
-			/*
-			 * since InfoSkills was revamped and the concept
-			 * of displaying skills was changed,
-			 * we have to break this clean design :-(
-			 *
-			 * author: Thomas Behr 21-03-02
-			 */
-			Skill aSkill = (Skill) pObject;
-
-			if (aPC.getSkillKeyed(aSkill.getKeyName()) != null)
-			{
-				aSkill = aPC.getSkillKeyed(aSkill.getKeyName());
-			}
-
-			return SkillRankControl.getTotalRank(aPC, aSkill).doubleValue() > min;
+			return SkillRankControl.getTotalRank(aPC, (Skill) pObject).doubleValue() > min;
 		}
 
 		return true;
@@ -1844,11 +1830,6 @@ final class RankModifierFilter extends AbstractPObjectFilter
 			 * author: Thomas Behr 21-03-02
 			 */
 			Skill aSkill = (Skill) pObject;
-
-			if (aPC.getSkillKeyed(aSkill.getKeyName()) != null)
-			{
-				aSkill = aPC.getSkillKeyed(aSkill.getKeyName());
-			}
 
 			return (SkillRankControl.getTotalRank(aPC, aSkill).doubleValue() + SkillModifier.modifier(aSkill, aPC).doubleValue()) > min;
 		}

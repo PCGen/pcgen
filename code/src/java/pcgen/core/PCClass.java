@@ -1834,7 +1834,7 @@ public class PCClass extends PObject
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public boolean hasClassSkill(PlayerCharacter pc, final String aString)
+	public boolean hasClassSkill(PlayerCharacter pc, Skill skill)
 	{
 		List<ClassSkillList> classSkillList = pc.getAssocList(this, AssociationListKey.CLASSSKILLLIST);
 		if ((classSkillList == null) || classSkillList.isEmpty())
@@ -1846,7 +1846,7 @@ public class PCClass extends PObject
 		{
 			final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, key.getLSTformat());
 
-			if ((pcClass != null) && SkillCostCalc.hasCSkill(pc, pcClass, aString))
+			if ((pcClass != null) && SkillCostCalc.hasCSkill(pc, pcClass, skill))
 			{
 				return true;
 			}
@@ -1875,30 +1875,15 @@ public class PCClass extends PObject
 		return false;
 	}
 
-	public boolean hasSkill(PlayerCharacter pc, final String aName)
+	public boolean hasSkill(PlayerCharacter pc, Skill skill)
 	{
-		if (hasSkill(pc, aName, this))
-		{
-			return true;
-		}
-		return false;
+		return hasSkill(pc, skill, this);
 	}
 
-	private boolean hasSkill(PlayerCharacter pc, String aName, CDOMObject cdo)
+	private boolean hasSkill(PlayerCharacter pc, Skill skill, CDOMObject cdo)
 	{
 		List<Skill> assocCSkill = pc.getAssocList(cdo, AssociationListKey.CSKILL);
-		if (assocCSkill != null)
-		{
-			for (Skill sk : assocCSkill)
-			{
-				//Have to do slow due to cloning :P
-				if (sk.getKeyName().equals(aName))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
+		return assocCSkill != null && assocCSkill.contains(skill);
 	}
 
 	/*

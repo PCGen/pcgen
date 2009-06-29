@@ -87,12 +87,12 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 */
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
-		Skill pcSkill = pc.addSkill(choice);
+		pc.addSkill(choice);
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
-		pc.addAssoc(pcc, AssociationListKey.CSKILL, pcSkill);
+		pc.addAssoc(pcc, AssociationListKey.CSKILL, choice);
 		if (applyRank != null)
 		{
-			SkillRankControl.modRanks(applyRank, pcc, false, pc, pcSkill);
+			SkillRankControl.modRanks(applyRank, pcc, false, pc, choice);
 		}
 	}
 
@@ -172,9 +172,9 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 */
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
-		Skill pcSkill = pc.addSkill(choice);
+		pc.addSkill(choice);
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
-		pc.addAssoc(pcc, AssociationListKey.CSKILL, pcSkill);
+		pc.addAssoc(pcc, AssociationListKey.CSKILL, choice);
 	}
 
 	/**
@@ -202,13 +202,13 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 */
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
-		Skill pcSkill = pc.addSkill(choice);
+		pc.addSkill(choice);
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
 		if (applyRank != null)
 		{
-			SkillRankControl.modRanks(-applyRank, pcc, false, pc, pcSkill);
+			SkillRankControl.modRanks(-applyRank, pcc, false, pc, choice);
 		}
-		pc.removeAssoc(pcc, AssociationListKey.CSKILL, pcSkill);
+		pc.removeAssoc(pcc, AssociationListKey.CSKILL, choice);
 	}
 
 	/**

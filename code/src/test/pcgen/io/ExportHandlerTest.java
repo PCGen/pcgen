@@ -152,8 +152,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[0].put(ObjectKey.KEY_STAT, intel);
 		character.setAssoc(knowledge[0], AssociationKey.OUTPUT_INDEX, 2);
 		Globals.getContext().ref.importObject(knowledge[0]);
-		Skill ks0 = character.addSkill(knowledge[0]);
-		SkillRankControl.modRanks(8.0, myClass, true, character, ks0);
+		character.addSkill(knowledge[0]);
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
 		knowledge[1].addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -162,8 +162,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[1].put(ObjectKey.KEY_STAT, intel);
 		character.setAssoc(knowledge[1], AssociationKey.OUTPUT_INDEX, 3);
 		Globals.getContext().ref.importObject(knowledge[1]);
-		Skill ks1 = character.addSkill(knowledge[1]);
-		SkillRankControl.modRanks(5.0, myClass, true, character, ks1);
+		character.addSkill(knowledge[1]);
+		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -172,8 +172,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tumble.put(ObjectKey.KEY_STAT, dex);
 		character.setAssoc(tumble, AssociationKey.OUTPUT_INDEX, 4);
 		Globals.getContext().ref.importObject(tumble);
-		Skill ts = character.addSkill(tumble);
-		SkillRankControl.modRanks(7.0, myClass, true, character, ts);
+		character.addSkill(tumble);
+		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -189,8 +189,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(balance);
-		Skill bs = character.addSkill(balance);
-		SkillRankControl.modRanks(4.0, myClass, true, character, bs);
+		character.addSkill(balance);
+		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
 		character.calcActiveBonuses();
 

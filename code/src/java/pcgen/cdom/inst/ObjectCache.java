@@ -124,7 +124,7 @@ public class ObjectCache extends CDOMObject
 	 * Stores a cache of the cost of each Skill based on the Skill's key and
 	 * PCClass
 	 */
-	private final DoubleKeyMap<String, PCClass, SkillCost> skillCostMap = new DoubleKeyMap<String, PCClass, SkillCost>();
+	private final DoubleKeyMap<Skill, PCClass, SkillCost> skillCostMap = new DoubleKeyMap<Skill, PCClass, SkillCost>();
 
 	/**
 	 * Returns the cost of a given Skill for the given PlayerCharacter and
@@ -142,12 +142,11 @@ public class ObjectCache extends CDOMObject
 	 */
 	public SkillCost getSkillCost(PlayerCharacter pc, Skill skill, PCClass pcc)
 	{
-		String sk = skill.getKeyName();
-		SkillCost cost = skillCostMap.get(sk, pcc);
+		SkillCost cost = skillCostMap.get(skill, pcc);
 		if (cost == null)
 		{
 			cost = SkillCostCalc.skillCostForPCClass(skill, pcc, pc);
-			skillCostMap.put(sk, pcc, cost);
+			skillCostMap.put(skill, pcc, cost);
 		}
 		return cost;
 	}

@@ -481,7 +481,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (final Skill skill : Globals.getContext().ref
 			.getConstructedCDOMObjects(Skill.class))
 		{
-			if (!hasSkill(skill.getKeyName()))
+			if (!hasSkill(skill))
 			{
 				if (!CoreUtility.doublesEqual(skill.getSkillRankBonusTo(this),
 					0.0))
@@ -2308,7 +2308,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (getUseMasterSkill())
 		{
 			final List<Skill> mList = mPC.getSkillList();
-			final List<String> sKeyList = new ArrayList<String>();
+			final List<Skill> sKeyList = new ArrayList<Skill>();
 
 			// now we have to merge the two lists together and
 			// take the higher rank of each skill for the Familiar
@@ -2318,7 +2318,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					// first check to see if familiar
 					// already has ranks in the skill
-					if (mSkill.getKeyName().equals(fSkill.getKeyName()))
+					if (mSkill.equals(fSkill))
 					{
 						// need higher rank of the two
 						if (SkillRankControl.getRank(mPC, mSkill).intValue() > SkillRankControl
@@ -2338,26 +2338,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 					// build a list of all skills a master
 					// Possesses, but the familiar does not
-					if (!hasSkill(mSkill.getKeyName())
-						&& !sKeyList.contains(mSkill.getKeyName()))
+					if (!hasSkill(mSkill)
+						&& !sKeyList.contains(mSkill))
 					{
-						sKeyList.add(mSkill.getKeyName());
+						sKeyList.add(mSkill);
 					}
 				}
 			}
 
 			// now add all the skills only the master has
-			for (String skillKey : sKeyList)
+			for (Skill newSkill : sKeyList)
 			{
 				// familiar doesn't have skill,
 				// but master does, so add it
-				final Skill newSkill =
-						Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(Skill.class,
-								skillKey);
-				final double sr =
-						SkillRankControl.getRank(mPC,
-							mPC.getSkillKeyed(skillKey)).doubleValue();
+				final double sr = SkillRankControl.getRank(mPC, newSkill)
+						.doubleValue();
 
 				if ((newSkill.getSafe(StringKey.CHOICE_STRING) != null)
 					&& (newSkill.getSafe(StringKey.CHOICE_STRING).length() > 0))
@@ -6100,21 +6095,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * Calculate the maximum number of ranks the character is allowed to have in
 	 * the specified skill.
 	 * 
-	 * @param skillKey
-	 *            The key of the skill being checked.
+	 * @param aSkill
+	 *            The skill being checked.
 	 * @param aClass
 	 *            The name of the current class in which points are being spent -
 	 *            only used to check cross-class skill cost.
 	 * @return max rank
 	 */
-	public Float getMaxRank(final String skillKey, final PCClass aClass)
+	public Float getMaxRank(Skill aSkill, final PCClass aClass)
 	{
 		int levelForSkillPurposes = getTotalLevels();
 		final BigDecimal maxRanks;
-
-		final Skill aSkill =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Skill.class, skillKey);
 
 		if (aSkill == null)
 		{
@@ -7713,35 +7704,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public Skill addSkill(final Skill addSkill)
+	public void addSkill(final Skill addSkill)
 	{
-		Skill retSkill;
-
-		//
 		// First, check to see if skill is already in list
-		//
-		for (Skill skill : new ArrayList<Skill>(getSkillList()))
+		if (hasSkill(addSkill))
 		{
-			if (skill.getKeyName().equals(addSkill.getKeyName()))
-			{
-				return skill;
-			}
+			return;
 		}
 
 		//
 		// Skill not found, add to list
 		//
-		retSkill = addSkill;
-		getSkillList().add(retSkill);
+		getSkillList().add(addSkill);
 		setDirty(true);
 
 		if (!isImporting())
 		{
-			retSkill.globalChecks(this);
+			addSkill.globalChecks(this);
 			calcActiveBonuses();
 		}
-
-		return retSkill;
 	}
 
 	/**
@@ -12548,24 +12529,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (Skill aSkill : Globals.getContext().ref
 			.getConstructedCDOMObjects(Skill.class))
 		{
-			if (includeSkill(aSkill, level))
+			if (includeSkill(aSkill, level) && !skillList.contains(aSkill))
 			{
-				/*
-				 * Must do brute force search - no guarantee it's sorted
-				 */
-				boolean found = false;
-				for (Skill sk : skillList)
-				{
-					if (sk.getKeyName().equals(aSkill.getKeyName()))
-					{
-						found = true;
-						break;
-					}
-				}
-				if (!found)
-				{
-					addItems.add(aSkill);
-				}
+				addItems.add(aSkill);
 			}
 		}
 
@@ -13731,11 +13697,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			.passesAll(aFeat.getPrerequisiteList(), this, aFeat);
 	}
 
-	private boolean hasSkill(final String aSkillKey)
-	{
-		return (getSkillKeyed(aSkillKey) != null);
-	}
-
 	private void rebuildLists(final PCClass toClass, final PCClass fromClass,
 		final int iCount, final PlayerCharacter aPC)
 	{
@@ -13755,17 +13716,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private void removeExcessSkills(final int level)
 	{
-		// Elaborate code here is in order to avoid a
-		// ConcurrentModificationException
 		List<Skill> skills = getSkillList();
-		List<Skill> skillIndexList = new ArrayList<Skill>();
-		skillIndexList.addAll(skills);
-		final Iterator<Skill> skillIter = skillIndexList.iterator();
 		boolean modified = false;
-		while (skillIter.hasNext())
+		// Wrap to avoid a ConcurrentModificationException
+		for (Skill skill : new ArrayList<Skill>(skills))
 		{
-			Skill skill = skillIter.next();
-
 			if (!includeSkill(skill, level))
 			{
 				skills.remove(skill);
@@ -18050,5 +18005,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setSpellLevelTemp(0); // reset
 
 		return dc;
+	}
+
+	public boolean hasSkill(Skill skill)
+	{
+		return getAllSkillList(false).contains(skill);
 	}
 }

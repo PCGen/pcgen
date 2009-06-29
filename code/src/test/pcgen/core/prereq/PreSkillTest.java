@@ -88,24 +88,24 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
 		Globals.getContext().ref.importObject(knowledge);
-		Skill ks = character.addSkill(knowledge);
-		SkillRankControl.modRanks(8.0, myClass, true, character, ks);
+		character.addSkill(knowledge);
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge);
 
 		tumble = new Skill();
 		tumble.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		Globals.getContext().ref.importObject(tumble);
-		Skill ts = character.addSkill(tumble);
-		SkillRankControl.modRanks(8.0, myClass, true, character, ts);
+		character.addSkill(tumble);
+		SkillRankControl.modRanks(8.0, myClass, true, character, tumble);
 
 		balance = new Skill();
 		balance.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		Globals.getContext().ref.importObject(balance);
-		Skill bs = character.addSkill(balance);
-		SkillRankControl.modRanks(4.0, myClass, true, character, bs);
+		character.addSkill(balance);
+		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 		
 		target = new Skill();
 		target.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
@@ -126,16 +126,16 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
 		Globals.getContext().ref.importObject(fake);
-		Skill fs1 = character.addSkill(fake);
-		SkillRankControl.modRanks(6.0, myClass, true, character, fs1);
+		character.addSkill(fake);
+		SkillRankControl.modRanks(6.0, myClass, true, character, fake);
 		
 		fake2 = new Skill();
 		fake2.addToListFor(ListKey.CLASSES, CDOMDirectSingleRef.getRef(csl));
 		fake2.setName("Fake 2");
 		fake2.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		Globals.getContext().ref.importObject(fake2);
-		Skill fs2 = character.addSkill(fake2);
-		SkillRankControl.modRanks(8.0, myClass, true, character, fs2);
+		character.addSkill(fake2);
+		SkillRankControl.modRanks(8.0, myClass, true, character, fake2);
 		
 	}
 

@@ -76,7 +76,7 @@ public class SkillRankControl
 		if (!Globals.checkRule(RuleConstants.SKILLMAX)
 				&& pc.getClassList().size() > 0)
 		{
-			double maxRanks = pc.getMaxRank(sk.getKeyName(),
+			double maxRanks = pc.getMaxRank(sk,
 					pc.getClassList().get(0)).doubleValue();
 			maxRanks = Math.max(maxRanks, baseRanks);
 			ranks = Math.min(maxRanks, ranks);
@@ -163,7 +163,7 @@ public class SkillRankControl
 				return "You do not have enough skill points.";
 			}
 
-			double maxRank = aPC.getMaxRank(sk.getKeyName(), aClass)
+			double maxRank = aPC.getMaxRank(sk, aClass)
 					.doubleValue();
 
 			if (!Globals.checkRule(RuleConstants.SKILLMAX) && (rankMod > 0.0))

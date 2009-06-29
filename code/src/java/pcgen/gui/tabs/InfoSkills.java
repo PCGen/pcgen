@@ -1899,8 +1899,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return false;
 		}
 
-		Skill bSkill = aSkill;
-
 		// the old Skills tab used cost as a double,
 		// so I'll duplicate that behavior
 		PCClass aClass = getSelectedPCClass();
@@ -1921,7 +1919,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (aSkill != null)
 		{
 			//bSkill.activateBonuses();
-			bSkill = pc.addSkill(aSkill);
+			pc.addSkill(aSkill);
 
 			// in order to get the selected table to sort properly
 			// we need to sort the PC's skill list now that the
@@ -1938,19 +1936,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			else
 			{
-				Integer outputIndex = pc.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+				Integer outputIndex = pc.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
 				if (outputIndex == null || outputIndex == 0)
 				{
-					pc.setAssoc(bSkill, AssociationKey.OUTPUT_INDEX, getHighestOutputIndex() + 1);
+					pc.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, getHighestOutputIndex() + 1);
 				}
 			}
 		}
 
 		String aString = ""; //$NON-NLS-1$
 
-		if (bSkill != null)
+		if (aSkill != null)
 		{
-			aString = SkillRankControl.modRanks(rank, aClass, false, pc, bSkill);
+			aString = SkillRankControl.modRanks(rank, aClass, false, pc, aSkill);
 
 			if ("".equals(aString)) //$NON-NLS-1$
 			{
@@ -1972,10 +1970,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			// Remove the skill from the skill list if we've
 			// just set the rank to zero and it is not untrained
 			//
-			if (CoreUtility.doublesEqual(SkillRankControl.getRank(pc, bSkill).doubleValue(), 0.0)
-				&& !bSkill.getSafe(ObjectKey.USE_UNTRAINED))
+			if (CoreUtility.doublesEqual(SkillRankControl.getRank(pc, aSkill).doubleValue(), 0.0)
+				&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 			{
-				pc.getSkillList().remove(bSkill);
+				pc.getSkillList().remove(aSkill);
 			}
 		}
 
@@ -2326,7 +2324,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))
 			{
 				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK"))
-					.append(pc.getMaxRank(aSkill.getKeyName(), getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
+					.append(pc.getMaxRank(aSkill, getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
 				b.append(THREE_SPACES); 
 			}
 			b.append(PropertyFactory.getString("in_iskHtml_TYPE"))
@@ -2360,31 +2358,23 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.getShowSkillModifier())
 			{
-				final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
-				if (pcSkill != null)
+				bString = SkillModifier.getModifierExplanation(aSkill, pc, false);
+				if (bString.length() != 0)
 				{
-					bString = SkillModifier.getModifierExplanation(pcSkill, pc, false);
-					if (bString.length() != 0)
-					{
-						b.append(PropertyFactory.getFormattedString(
-							"in_iskHtml_PcMod", //$NON-NLS-1$
-							bString));
-					}
+					b.append(PropertyFactory.getFormattedString(
+						"in_iskHtml_PcMod", //$NON-NLS-1$
+						bString));
 				}
 			}
 
 			if (SettingsHandler.getShowSkillRanks())
 			{
-				final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
-				if (pcSkill != null)
+				bString = SkillRankControl.getRanksExplanation(pc, aSkill);
+				if (bString.length() != 0)
 				{
-					bString = SkillRankControl.getRanksExplanation(pc, pcSkill);
-					if (bString.length() != 0)
-					{
-						b.append(PropertyFactory.getFormattedString(
-							"in_iskHtml_Ranks", //$NON-NLS-1$
-							bString));
-					}
+					b.append(PropertyFactory.getFormattedString(
+						"in_iskHtml_Ranks", //$NON-NLS-1$
+						bString));
 				}
 			}
 
@@ -4161,14 +4151,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				final PlayerCharacter currentPC = pc;
 				currentPC.setDirty(true);
 
-				//if the PC already has this skill, then link to it so that we get accurate existing rank info
-				Skill bSkill = currentPC.getSkillKeyed(aSkill.getKeyName());
-
-				if (bSkill != null)
-				{
-					aSkill = bSkill;
-				}
-
 				PCClass aClass = getSelectedPCClass();
 				PCLevelInfo pcl = getSelectedLevelInfo(currentPC);
 				double maxRank = 0.0;
@@ -4177,7 +4159,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				if (aClass != null)
 				{
 					maxRank =
-							currentPC.getMaxRank(aSkill.getKeyName(), aClass)
+							currentPC.getMaxRank(aSkill, aClass)
 								.doubleValue();
 					if (Globals.getGameModeHasPointPool())
 					{
@@ -4276,10 +4258,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			public void actionPerformed(ActionEvent evt)
 			{
-				Skill aSkill =
-						pc.getSkillKeyed(getSelectedSkill().getKeyName());
+				Skill aSkill = getSelectedSkill();
 
-				if (aSkill != null)
+				if (aSkill != null && pc.hasSkill(aSkill))
 				{
 					//remove all ranks from this skill for all PCClasses
 					for (Iterator<PCClass> iter = pc.getClassList().iterator(); iter

@@ -186,8 +186,8 @@ public class SkillToken extends AbstractToken implements
 
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
-		Skill skillToAdd = pc.addSkill(choice);
-		SkillRankControl.modRanks(1.0, null, true, pc, skillToAdd);
+		pc.addSkill(choice);
+		SkillRankControl.modRanks(1.0, null, true, pc, choice);
 
 		/*
 		 * TODO This is an unbelievably bad hack. I'm copying this from
@@ -229,8 +229,8 @@ public class SkillToken extends AbstractToken implements
 
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
-		Skill skillToAdd = pc.addSkill(choice);
-		SkillRankControl.modRanks(-1.0, null, true, pc, skillToAdd);
+		pc.addSkill(choice);
+		SkillRankControl.modRanks(-1.0, null, true, pc, choice);
 
 		/*
 		 * TODO This is an unbelievably bad hack. I'm copying this from

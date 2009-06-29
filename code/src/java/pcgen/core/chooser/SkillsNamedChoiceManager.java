@@ -108,10 +108,8 @@ public class SkillsNamedChoiceManager extends
 		{
 			for (Skill skill : getAllObjects())
 			{
-				final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
-
-				if (pcSkill == null
-						|| Double.compare(SkillRankControl.getRank(aPc, pcSkill).doubleValue(), 0.0) == 0)
+				if (!aPc.hasSkill(skill)
+						|| Double.compare(SkillRankControl.getRank(aPc, skill).doubleValue(), 0.0) == 0)
 				{
 					availableList.add(skill.getKeyName());
 				}
@@ -122,10 +120,8 @@ public class SkillsNamedChoiceManager extends
 			Double ranks = new Double(token.substring(6));
 			for (Skill skill : getAllObjects())
 			{
-				final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
-
-				if (pcSkill != null
-						&& Double.compare(SkillRankControl.getRank(aPc, pcSkill).doubleValue(),
+				if (!aPc.hasSkill(skill)
+						&& Double.compare(SkillRankControl.getRank(aPc, skill).doubleValue(),
 								ranks) >= 0)
 				{
 					availableList.add(skill.getKeyName());

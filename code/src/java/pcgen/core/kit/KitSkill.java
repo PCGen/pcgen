@@ -238,12 +238,12 @@ public final class KitSkill extends BaseKit
 		final Skill aSkill, final int aRank, final double aCost,
 		List<Language> langList, final PCClass pcClass)
 	{
-		final Skill skill = pc.addSkill(aSkill);
+		pc.addSkill(aSkill);
 
 		boolean oldImporting = pc.isImporting();
 		pc.setImporting(true);
 		final String aString =
-				SkillRankControl.modRanks(aRank, pcClass, true, pc, skill);
+				SkillRankControl.modRanks(aRank, pcClass, true, pc, aSkill);
 		pc.setImporting(oldImporting);
 
 		if (aString.length() > 0)
@@ -259,7 +259,7 @@ public final class KitSkill extends BaseKit
 
 			for (Iterator<Language> i = langList.iterator(); i.hasNext();)
 			{
-				pc.addAssociation(skill, i.next().getKeyName());
+				pc.addAssociation(aSkill, i.next().getKeyName());
 			}
 
 		}
@@ -310,10 +310,7 @@ public final class KitSkill extends BaseKit
 
 		for (CDOMReference<Skill> ref : skillList)
 		{
-			for (Skill s : ref.getContainedObjects())
-			{
-				skillsOfType.add(s);
-			}
+			skillsOfType.addAll(ref.getContainedObjects());
 		}
 
 		if (skillsOfType.size() == 0)
@@ -341,17 +338,16 @@ public final class KitSkill extends BaseKit
 			return null;
 		}
 
-		final Skill pcSkill = pc.getSkillKeyed(aSkill.getKeyName());
 		double curRank = 0.0;
-		if (pcSkill != null)
+		if (pc.hasSkill(aSkill))
 		{
-			curRank = SkillRankControl.getRank(pc, pcSkill).doubleValue();
+			curRank = SkillRankControl.getRank(pc, aSkill).doubleValue();
 		}
 		double ranksToAdd = ranksLeftToAdd;
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && (ranksToAdd > 0.0))
 		{
 			ranksToAdd =
-					Math.min(pc.getMaxRank(aSkill.getKeyName(), pcClass)
+					Math.min(pc.getMaxRank(aSkill, pcClass)
 						.doubleValue(), curRank + ranksLeftToAdd);
 			ranksToAdd -= curRank;
 			if (ranksToAdd != ranksLeftToAdd)
@@ -359,7 +355,7 @@ public final class KitSkill extends BaseKit
 				warnings.add("SKILL: Could not add " + (ranksLeftToAdd - ranksToAdd)
 					+ " to " + aSkill.getDisplayName()
 					+ ". Excedes MAXRANK of "
-					+ pc.getMaxRank(aSkill.getDisplayName(), pcClass) + ".");
+					+ pc.getMaxRank(aSkill, pcClass) + ".");
 			}
 		}
 		int ptsToSpend = 0;
@@ -404,17 +400,17 @@ public final class KitSkill extends BaseKit
 			ranksToAdd = ranksAdded;
 			ptsToSpend = (int) (ranksToAdd * skillCost);
 		}
-		final Skill skill = pc.addSkill(aSkill);
+		pc.addSkill(aSkill);
 
 		String ret =
 				SkillRankControl
-					.modRanks(ranksToAdd, pcClass, false, pc, skill);
+					.modRanks(ranksToAdd, pcClass, false, pc, aSkill);
 		if (ret.length() > 0)
 		{
 			if (isFree
 				&& ret.indexOf("You do not have enough skill points.") != -1)
 			{
-				SkillRankControl.modRanks(ranksToAdd, pcClass, true, pc, skill);
+				SkillRankControl.modRanks(ranksToAdd, pcClass, true, pc, aSkill);
 			}
 			else
 			{
