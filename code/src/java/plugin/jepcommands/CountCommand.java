@@ -133,7 +133,7 @@ public class CountCommand extends PCGenCommand
 						return accum;
 					}
 
-					protected Set<PObject> filterSetP(final String c)
+					protected Set<? extends PObject> filterSetP(final String c)
 					{
 						final String[] keyValue = c.split("=");
 						final JepAbilityCountEnum en;
@@ -245,14 +245,7 @@ public class CountCommand extends PCGenCommand
 								}
 						}
 
-						final Set<PObject> pSet = new HashSet<PObject>();
-
-						for (final Ability ab : cs)
-						{
-							pSet.add(ab);
-						}
-
-						return pSet;
+						return cs;
 					}
 
 					protected Set<String> filterSetS(final String c) throws ParseException
@@ -294,7 +287,7 @@ public class CountCommand extends PCGenCommand
 								"PCClass is a PObject, should be calling filterSetP");
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						final String[] keyValue = c.split("=");
@@ -310,14 +303,7 @@ public class CountCommand extends PCGenCommand
 
 						filterPObjectByType(It, keyValue[1]);
 
-						final Set<PObject> pSet = new HashSet<PObject>();
-
-						for (final PCClass ab : cs)
-						{
-							pSet.add(ab);
-						}
-
-						return pSet;
+						return cs;
 					}
 				},
 
@@ -404,7 +390,7 @@ public class CountCommand extends PCGenCommand
 						return pSet;
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						throw new ParseException(
@@ -444,7 +430,7 @@ public class CountCommand extends PCGenCommand
 								"Equipment is a PObject, should be calling filterSetP");
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						final String[] keyValue = c.split("=");
@@ -506,14 +492,7 @@ public class CountCommand extends PCGenCommand
 								break;
 						}
 
-						final Set<PObject> pSet = new HashSet<PObject>();
-
-						for (final Equipment e : cs)
-						{
-							pSet.add(e);
-						}
-
-						return pSet;
+						return cs;
 					}
 				},
 
@@ -550,7 +529,7 @@ public class CountCommand extends PCGenCommand
 						return countDataS(filtered);
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						throw new ParseException(
@@ -591,7 +570,7 @@ public class CountCommand extends PCGenCommand
 						return (double) filtered.size();
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						final String[] keyValue = c.split("=");
@@ -609,14 +588,7 @@ public class CountCommand extends PCGenCommand
 
 						filterPObjectByType(It, keyValue[1]);
 
-						final Set<PObject> pSet = new HashSet<PObject>();
-
-						for (final Language l : cs)
-						{
-							pSet.add(l);
-						}
-
-						return pSet;
+						return cs;
 					}
 
 					protected Set<String> filterSetS(final String c) throws ParseException
@@ -650,7 +622,7 @@ public class CountCommand extends PCGenCommand
 						return (double) filtered.size();
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						throw new ParseException(
@@ -733,7 +705,7 @@ public class CountCommand extends PCGenCommand
 								"Skill is a PObject, should be calling filterSetP");
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						final String[] keyValue = c.split("=");
@@ -749,14 +721,7 @@ public class CountCommand extends PCGenCommand
 
 						filterPObjectByType(It, keyValue[1]);
 
-						final Set<PObject> pSet = new HashSet<PObject>();
-
-						for (final Skill s : cs)
-						{
-							pSet.add(s);
-						}
-
-						return pSet;
+						return cs;
 					}
 				},
 
@@ -782,7 +747,7 @@ public class CountCommand extends PCGenCommand
 					{
 					}
 
-					protected Set<PObject> filterSetP(final String c)
+					protected Set<? extends PObject> filterSetP(final String c)
 					{
 						return new HashSet<PObject>();
 					}
@@ -810,7 +775,7 @@ public class CountCommand extends PCGenCommand
 						throw new ParseException("Not implemented yet");
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						throw new ParseException("Not implemented yet");
@@ -836,7 +801,7 @@ public class CountCommand extends PCGenCommand
 						throw new ParseException("Not implemented yet");
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						throw new ParseException("Not implemented yet");
@@ -861,7 +826,7 @@ public class CountCommand extends PCGenCommand
 						throw new ParseException("Not implemented yet");
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						throw new ParseException("Not implemented yet");
@@ -890,7 +855,7 @@ public class CountCommand extends PCGenCommand
 								"PCTemplate is a PObject, should be calling filterSetP");
 					}
 
-					protected Set<PObject> filterSetP(final String c) throws
+					protected Set<? extends PObject> filterSetP(final String c) throws
 																	  ParseException
 					{
 						final String[] keyValue = c.split("=");
@@ -905,15 +870,7 @@ public class CountCommand extends PCGenCommand
 						final Iterator<? extends PObject> It = cs.iterator();
 
 						filterPObjectByType(It, keyValue[1]);
-
-						final Set<PObject> pSet = new HashSet<PObject>();
-
-						for (final PCTemplate t : cs)
-						{
-							pSet.add(t);
-						}
-
-						return pSet;
+						return cs;
 					}
 
 				};
@@ -1040,7 +997,7 @@ public class CountCommand extends PCGenCommand
 				return a;
 			}
 
-			return filterSetP(c);
+			return (Set<PObject>) filterSetP(c);
 		}
 
 		public Object countS(final PlayerCharacter pc, final Object[] params) throws
@@ -1087,7 +1044,7 @@ public class CountCommand extends PCGenCommand
 
 		protected abstract void getData(PlayerCharacter pc);
 
-		protected abstract Set<PObject> filterSetP(String c) throws ParseException;
+		protected abstract Set<? extends PObject> filterSetP(String c) throws ParseException;
 
 		protected abstract Set<String> filterSetS(String c) throws ParseException;
 	}
