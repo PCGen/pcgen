@@ -192,7 +192,7 @@ public class LanguageToken extends AbstractToken implements
 	public void applyChoice(CDOMObject owner, Language choice,
 			PlayerCharacter pc)
 	{
-		pc.addLanguageKeyed(choice.getKeyName());
+		pc.addLanguage(choice);
 	}
 
 	public boolean allow(Language choice, PlayerCharacter pc, boolean allowStack)

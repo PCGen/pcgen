@@ -7659,18 +7659,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void addLanguageKeyed(final String aKey)
-	{
-		final Language aLang =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					LANGUAGE_CLASS, aKey);
-
-		if (aLang != null)
-		{
-			addLanguage(aLang);
-		}
-	}
-
 	public void removeLanguage(Language aLang)
 	{
 		languages.remove(aLang);

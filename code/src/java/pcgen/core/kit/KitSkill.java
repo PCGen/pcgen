@@ -25,7 +25,6 @@ package pcgen.core.kit;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -257,9 +256,9 @@ public final class KitSkill extends BaseKit
 		{
 			pc.addLanguages(langList);
 
-			for (Iterator<Language> i = langList.iterator(); i.hasNext();)
+			for (Language l : langList)
 			{
-				pc.addAssociation(aSkill, i.next().getKeyName());
+				pc.addAssociation(aSkill, l.getKeyName());
 			}
 
 		}
