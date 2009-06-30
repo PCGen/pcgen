@@ -589,8 +589,7 @@ final class PCGVer2Creator implements IOConstants
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
 			buffer.append(TAG_ALIGNMENT).append(':');
-			buffer.append(SettingsHandler.getGame().getShortAlignmentAtIndex(
-				thePC.getAlignment()));
+			buffer.append(thePC.getPCAlignment().getKeyName());
 			buffer.append(LINE_SEP);
 		}
 	}

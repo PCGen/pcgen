@@ -1206,18 +1206,15 @@ public final class EditorMainForm extends JDialog
 			String alignName = (String) selItem;
 			boolean found = false;
 
-			for (int align = 0; align < SettingsHandler.getGame()
-				.getUnmodifiableAlignmentList().size(); ++align)
+			for (PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList())
 			{
-				if (alignName.equals(SettingsHandler.getGame()
-					.getLongAlignmentAtIndex(align)))
+				if (alignName.equals(align.getDisplayName()))
 				{
 					if (tbuf.length() > 0)
 					{
 						tbuf.append(',');
 					}
-					tbuf.append(SettingsHandler.getGame()
-						.getShortAlignmentAtIndex(align));
+					tbuf.append(align.getKeyName());
 					found = true;
 					break;
 				}
@@ -1284,10 +1281,8 @@ public final class EditorMainForm extends JDialog
 				List<String> availableFollowerAlignmentList = new ArrayList<String>();
 				List<String> selectedFollowerAlignmentList = new ArrayList<String>();
 
-				for (Iterator<PCAlignment> e = SettingsHandler.getGame().getUnmodifiableAlignmentList().iterator(); e.hasNext();)
+				for (PCAlignment anAlignment : SettingsHandler.getGame().getUnmodifiableAlignmentList())
 				{
-					final PCAlignment anAlignment = e.next();
-
 					if (anAlignment.getSafe(ObjectKey.VALID_FOR_FOLLOWER))
 					{
 						availableFollowerAlignmentList.add(anAlignment.getDisplayName());

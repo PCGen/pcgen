@@ -306,8 +306,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private int age = 0;
 
-	// 0 = LG to 8 = CE and 9 is <none selected>
-	private int alignment = 9;
+	// null is <none selected>
+	private PCAlignment alignment = SettingsHandler.getGame().getAlignment(Constants.s_NONE);
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
 	private int earnedXP = 0;
@@ -456,7 +456,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return alignment
 	 */
-	public int getAlignment()
+	public PCAlignment getPCAlignment()
 	{
 		return alignment;
 	}
@@ -4653,34 +4653,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return calcACOfType("Total");
 	}
 
-	public void setAlignment(final int index, final boolean bLoading)
+	public void setAlignment(final PCAlignment align, final boolean bLoading)
 	{
-		setAlignment(index, bLoading, false);
+		setAlignment(align, bLoading, false);
 	}
 
-	public void setAlignment(final int index, final boolean bLoading,
-		final boolean bForce)
+	public void setAlignment(PCAlignment align, boolean bLoading, boolean bForce)
 	{
-		// Anyone every heard of constants!?
-		// 0 = LG, 3 = NG, 6 = CG
-		// 1 = LN, 4 = TN, 7 = CN
-		// 2 = LE, 5 = NE, 8 = CE
 		if (bForce
-			|| RaceAlignment.canBeAlignment(this.race, Integer.toString(index)))
+			|| RaceAlignment.canBeAlignment(this.race, align))
 		{
-			alignment = index;
+			alignment = align;
 		}
 		else
 		{
 			if ((bLoading)
-				&& (index != SettingsHandler.getGame().getIndexOfAlignment(
-					Constants.s_NONE)))
+				&& (!align.equals(SettingsHandler.getGame().getAlignment(
+					Constants.s_NONE))))
 			{
 				ShowMessageDelegate.showMessageDialog(
 					"Invalid alignment. Setting to <none selected>",
 					Constants.s_APPNAME, MessageType.INFORMATION);
 				alignment =
-						SettingsHandler.getGame().getIndexOfAlignment(
+						SettingsHandler.getGame().getAlignment(
 							Constants.s_NONE);
 			}
 
@@ -12365,8 +12360,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Alignment
-		PCAlignment align =
-				SettingsHandler.getGame().getAlignmentAtIndex(getAlignment());
+		PCAlignment align = getPCAlignment();
 		if (align != null)
 		{
 			results.add(align);
@@ -14506,7 +14500,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.useTempMods = useTempMods;
 		aClone.setFeats(feats);
 		aClone.age = age;
-		aClone.alignment = alignment;
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
 		aClone.earnedXP = earnedXP;

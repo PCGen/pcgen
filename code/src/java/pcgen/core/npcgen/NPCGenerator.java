@@ -43,6 +43,7 @@ import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Names;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -281,13 +282,13 @@ public class NPCGenerator
 		}
 	}
 
-	private int getAlignment(final AlignGeneratorOption option)
+	private PCAlignment getAlignment(final AlignGeneratorOption option)
 	{
 		if (option == null)
 		{
-			return -1;
+			return null;
 		}
-		return SettingsHandler.getGame().getIndexOfAlignment(
+		return SettingsHandler.getGame().getAlignment(
 				option.getList().getRandomValue().getKeyName());
 	}
 
@@ -580,8 +581,8 @@ public class NPCGenerator
 			final int MAX_RETRIES = 5;
 			for ( int i = 0; i < MAX_RETRIES; i++ )
 			{
-				final int randAlign = getAlignment( align );
-				if (randAlign > 0)
+				PCAlignment randAlign = getAlignment( align );
+				if (randAlign != null)
 				{
 					Logging
 						.debugPrint("NPCGenerator: Selected " + randAlign + " for alignment " + align); //$NON-NLS-1$//$NON-NLS-2$

@@ -35,6 +35,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * <code>PreDomainTest</code> tests that the PREDOMAIN tag is
@@ -79,7 +80,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(3, false);
+		TestHelper.setAlignment(character, 3, false);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
@@ -109,7 +110,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(3, false);
+		TestHelper.setAlignment(character, 3, false);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(

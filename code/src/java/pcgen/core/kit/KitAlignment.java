@@ -29,7 +29,6 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.RaceAlignment;
 
 /**
@@ -41,7 +40,7 @@ public class KitAlignment extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient int alignInd = -1;
+	private transient PCAlignment align = null;
 
 	/**
 	 * Actually applies the alignment to this PC.
@@ -51,7 +50,7 @@ public class KitAlignment extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		aPC.setAlignment(alignInd, false, true);
+		aPC.setAlignment(align, false, true);
 	}
 
 	/**
@@ -64,7 +63,6 @@ public class KitAlignment extends BaseKit
 	@Override
 	public boolean testApply(Kit k, PlayerCharacter aPC, List<String> warnings)
 	{
-		PCAlignment align = null;
 		if (alignments.size() == 1)
 		{
 			align = alignments.get(0);
@@ -83,12 +81,8 @@ public class KitAlignment extends BaseKit
 				}
 			}
 		}
-		alignInd =
-				SettingsHandler.getGame().getIndexOfAlignment(
-					align.getKeyName());
 		apply(aPC);
-		return RaceAlignment.canBeAlignment(aPC.getRace(), Integer
-			.toString(alignInd));
+		return RaceAlignment.canBeAlignment(aPC.getRace(), align);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * <code>PrereqHandlerTest</code> tests the operation of the
@@ -47,13 +48,13 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		Globals.setCurrentPC(pc);
 
-		pc.setAlignment(2, true);
+		TestHelper.setAlignment(pc, 2, true);
 		assertEquals("Non-negate returns false", false, PrereqHandler.passes(
 			prereq, pc, null));
 		assertEquals("Negate returns false", false, PrereqHandler.passes(
 			prereqNeg, pc, null));
 
-		pc.setAlignment(4, true);
+		TestHelper.setAlignment(pc, 4, true);
 		assertEquals("Non-negate returns true", true, PrereqHandler.passes(
 			prereq, pc, null));
 		assertEquals("Negate returns true", true, PrereqHandler.passes(

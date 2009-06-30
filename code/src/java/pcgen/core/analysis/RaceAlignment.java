@@ -1,13 +1,14 @@
 package pcgen.core.analysis;
 
-import pcgen.core.Race;
+import pcgen.core.PCAlignment;
+import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 
 public class RaceAlignment
 {
 
-	public static boolean canBeAlignment(Race r, final String aString)
+	public static boolean canBeAlignment(PObject r, PCAlignment align)
 	{
 		if (r.hasPrerequisites())
 		{
@@ -15,36 +16,42 @@ public class RaceAlignment
 			{
 				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
 				{
-					String alignStr = aString;
-					final String[] aligns =
-							SettingsHandler.getGame().getAlignmentListStrings(
-								false);
+					PCAlignment desiredAlignment;
+					String prereqKey = prereq.getKey();
 					try
 					{
-						final int align = Integer.parseInt(alignStr);
-						alignStr = aligns[align];
+						final int index = Integer.parseInt(prereqKey);
+						desiredAlignment = SettingsHandler.getGame()
+								.getAlignmentAtIndex(index);
 					}
 					catch (NumberFormatException ex)
 					{
-						// Do Nothing
-					}
-					String desiredAlignment = prereq.getKey();
-					try
-					{
-						final int align = Integer.parseInt(desiredAlignment);
-						desiredAlignment = aligns[align];
-					}
-					catch (NumberFormatException ex)
-					{
-						// Do Nothing
+						desiredAlignment = SettingsHandler.getGame()
+								.getAlignment(prereqKey);
 					}
 	
-					return desiredAlignment.equalsIgnoreCase(alignStr);
+					return desiredAlignment.equals(align);
 				}
 			}
 		}
 	
 		return true;
+	}
+
+	public static boolean hasAlignmentRestriction(PObject r)
+	{
+		if (r.hasPrerequisites())
+		{
+			for (Prerequisite prereq : r.getPrerequisiteList())
+			{
+				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
+				{
+					return true;
+				}
+			}
+		}
+	
+		return false;
 	}
 
 }

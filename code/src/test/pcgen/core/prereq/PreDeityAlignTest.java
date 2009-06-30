@@ -33,6 +33,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * <code>PreDeityAlignTest</code> tests that the PREDEITYALIGN tag is 
@@ -68,7 +69,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public void testNumeric() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(3, false, true);
+		TestHelper.setAlignment(character, 3, false, true);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -103,7 +104,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(3, false, true);
+		TestHelper.setAlignment(character, 3, false, true);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());

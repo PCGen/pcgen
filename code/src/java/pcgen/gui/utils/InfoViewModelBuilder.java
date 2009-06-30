@@ -57,7 +57,7 @@ public final class InfoViewModelBuilder
 			PlayerCharacter pc, Collection<Deity> pobjects)
 	{
 		PObjectNode root = new PObjectNode();
-		Map<String, PObjectNode> nodeMap = new HashMap<String, PObjectNode>();
+		Map<PCAlignment, PObjectNode> nodeMap = new HashMap<PCAlignment, PObjectNode>();
 		for (final Deity deity : pobjects)
 		{
 			if (filter.accept(pc, deity))
@@ -65,12 +65,11 @@ public final class InfoViewModelBuilder
 				PCAlignment al = deity.get(ObjectKey.ALIGNMENT);
 				if (al != null)
 				{
-					String align = al.getKeyName();
-					PObjectNode node = nodeMap.get(align);
+					PObjectNode node = nodeMap.get(al);
 					if (node == null)
 					{
-						node = new PObjectNode(align);
-						nodeMap.put(align, node);
+						node = new PObjectNode(al.getKeyName());
+						nodeMap.put(al, node);
 						root.addChild(node);
 					}
 					node.addChild(new PObjectNode(deity));

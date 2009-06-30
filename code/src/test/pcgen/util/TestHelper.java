@@ -47,9 +47,11 @@ import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
@@ -432,6 +434,19 @@ public class TestHelper
 		{
 			cdo.addToListFor(ListKey.TYPE, Type.getConstant(s));
 		}
+	}
+
+	public static void setAlignment(PlayerCharacter pc, final int index, final boolean bLoading)
+	{
+		PCAlignment al = SettingsHandler.getGame().getAlignmentAtIndex(index);
+		pc.setAlignment(al, bLoading, false);
+	}
+
+	public static void setAlignment(PlayerCharacter pc, final int index, final boolean bLoading,
+			final boolean bForce)
+	{
+		PCAlignment al = SettingsHandler.getGame().getAlignmentAtIndex(index);
+		pc.setAlignment(al, bLoading, bForce);
 	}
 
 }

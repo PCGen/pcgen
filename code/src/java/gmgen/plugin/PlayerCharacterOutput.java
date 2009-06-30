@@ -51,14 +51,12 @@ public class PlayerCharacterOutput
 
 	public String getAlignmentLong()
 	{
-		return SettingsHandler.getGame().getLongAlignmentAtIndex(
-			pc.getAlignment());
+		return pc.getPCAlignment().getDisplayName();
 	}
 
 	public String getAlignmentShort()
 	{
-		return SettingsHandler.getGame().getShortAlignmentAtIndex(
-			pc.getAlignment());
+		return pc.getPCAlignment().getKeyName();
 	}
 
 	public String getBAB()

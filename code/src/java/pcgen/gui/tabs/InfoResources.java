@@ -668,7 +668,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			newPC.setAssoc(aStat, AssociationKey.STAT_SCORE, 10);
 		}
 
-		newPC.setAlignment(pc.getAlignment(), true, true);
+		newPC.setAlignment(pc.getPCAlignment(), true, true);
 		newPC.setRace(race);
 		newPC.setDirty(true);
 

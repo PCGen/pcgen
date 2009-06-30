@@ -27,7 +27,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -97,11 +96,11 @@ final class DeityBasePanel extends BasePanel
 
 		if (aString != null)
 		{
-			final int dix = SettingsHandler.getGame().getIndexOfAlignment(aString);
+			PCAlignment align = SettingsHandler.getGame().getAlignment(aString);
 
-			if (dix >= 0)
+			if (align != null)
 			{
-				return SettingsHandler.getGame().getShortAlignmentAtIndex(dix);
+				return align.getKeyName();
 			}
 		}
 
@@ -287,10 +286,8 @@ final class DeityBasePanel extends BasePanel
 		//
 		List<String> availableList = new ArrayList<String>();
 
-		for (Iterator e = SettingsHandler.getGame().getUnmodifiableAlignmentList().iterator(); e.hasNext();)
+		for (PCAlignment anAlignment : SettingsHandler.getGame().getUnmodifiableAlignmentList())
 		{
-			final PCAlignment anAlignment = (PCAlignment) e.next();
-
 			if (anAlignment.getSafe(ObjectKey.VALID_FOR_DEITY))
 			{
 				availableList.add(anAlignment.getKeyName());

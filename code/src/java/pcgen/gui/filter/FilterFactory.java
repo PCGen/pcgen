@@ -57,9 +57,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceManager;
@@ -199,11 +199,9 @@ public final class FilterFactory implements FilterConstants
 			deityFilters.add(FilterFactory.createQualifyFilter());
 			deityFilters.add(FilterFactory.createPCAlignmentFilter());
 
-			// TODO - Check if Alignments should be used.
-			final int numAlign = SettingsHandler.getGame().getUnmodifiableAlignmentList().size();
-			for (int i = 0; i < numAlign; i++)
+			for (PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList())
 			{
-				deityFilters.add(FilterFactory.createAlignmentFilter(i));
+				deityFilters.add(FilterFactory.createAlignmentFilter(align));
 			}
 
 			for ( final Domain domain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class) )
@@ -292,12 +290,10 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (prereqAlignmentFilters.size() == 0)
 		{
-			// TODO - Check if Alignments should be used.
-			final int numAlign = SettingsHandler.getGame().getUnmodifiableAlignmentList().size();
-			for (int i = 0; i < numAlign; i++)
+			for (PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList())
 			{
-				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(i, AlignmentFilter.Mode.ALLOWED));
-				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(i, AlignmentFilter.Mode.REQUIRED));
+				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(align, AlignmentFilter.Mode.ALLOWED));
+				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(align, AlignmentFilter.Mode.REQUIRED));
 			}
 
 			prereqAlignmentFilters.add(FilterFactory.createPCAlignmentFilter(AlignmentFilter.Mode.ALLOWED));
@@ -637,7 +633,7 @@ public final class FilterFactory implements FilterConstants
 	 * domain tab factory methods
 	 * #################################################################
 	 */
-	private static PObjectFilter createAlignmentFilter(int alignment)
+	private static PObjectFilter createAlignmentFilter(PCAlignment alignment)
 	{
 		return new DeityAlignmentFilter(alignment);
 	}
@@ -647,7 +643,7 @@ public final class FilterFactory implements FilterConstants
 	 * stats tab factory methods
 	 * #################################################################
 	 */
-	private static PObjectFilter createAlignmentFilter(int alignment, AlignmentFilter.Mode mode)
+	private static PObjectFilter createAlignmentFilter(PCAlignment alignment, AlignmentFilter.Mode mode)
 	{
 		return new DeityAlignmentFilter(alignment, mode);
 	}
@@ -1145,64 +1141,45 @@ abstract class AlignmentFilter extends AbstractPObjectFilter
 	 * @param alignment The alignment index to test for
 	 * @return <tt>true</tt> if the object passes.
 	 */
-	protected boolean passesAlignmentPrereqs(PObject pObject, int alignment)
+	protected boolean passesAlignmentPrereqs(PObject pObject, PCAlignment alignment)
 	{
-		StringBuffer prealign;
+		boolean allowed = false;
 
 		switch ( theMode )
 		{
 		case ALLOWED:
-			prealign = new StringBuffer("0"); //$NON-NLS-1$
-
-			for (int i = 1; i < SettingsHandler.getGame().getUnmodifiableAlignmentList().size(); i++)
-			{
-				prealign.append(Constants.COMMA).append(i);
-			}
+			allowed = true;
 			break;
 
 		case REQUIRED:
-			prealign = new StringBuffer(Constants.EMPTY_STRING);
 			break;
 
 		default:
 			return false;
 		}
 
-		if (pObject.hasPrerequisites()) {
-			for (Prerequisite p : pObject.getPrerequisiteList()) {
-				// TODO - Fix prereqs to not use/give out strings.
-				if ("ALIGN".equalsIgnoreCase( p.getKind() )) //$NON-NLS-1$
-				{
-					prealign = new StringBuffer(p.getKey() );
-
-					break;
-				}
-			}
-		}
-
-		if (prealign.toString().indexOf(Integer.toString(alignment)) > -1)
+		if (RaceAlignment.hasAlignmentRestriction(pObject))
 		{
-			return true;
+			return RaceAlignment.canBeAlignment(pObject, alignment);
 		}
-
-		return false;
+		return allowed;
 	}
 }
 
 
 final class DeityAlignmentFilter extends AlignmentFilter
 {
-	private int alignment;
+	private PCAlignment alignment;
 
-	DeityAlignmentFilter(int anAlignment)
+	DeityAlignmentFilter(PCAlignment anAlignment)
 	{
 		this(anAlignment, Mode.DEFAULT);
 	}
 
-	DeityAlignmentFilter(int anAlignment, Mode mode)
+	DeityAlignmentFilter(PCAlignment anAlignment, Mode mode)
 	{
 		super(PropertyFactory.getString("in_alignLabel"),  //$NON-NLS-1$
-				SettingsHandler.getGame().getLongAlignmentAtIndex(anAlignment));
+				anAlignment.getDisplayName());
 		this.alignment = anAlignment;
 		theMode = mode;
 	}
@@ -1234,16 +1211,7 @@ final class DeityAlignmentFilter extends AlignmentFilter
 
 		if (pObject instanceof Deity)
 		{
-			PCAlignment al = pObject.get(ObjectKey.ALIGNMENT);
-			String deityAlign = al == null ? "" : al.getKeyName();
-
-			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
-				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
-			{
-				return true;
-			}
-
-			return false;
+			return alignment.equals(pObject.get(ObjectKey.ALIGNMENT));
 		}
 		else if (pObject instanceof PCClass)
 		{
@@ -1430,7 +1398,7 @@ final class PCAlignmentFilter extends AlignmentFilter
 		if (aPC != null)
 		{
 			return super.getName(aPC) + " (" //$NON-NLS-1$
-			+ SettingsHandler.getGame().getLongAlignmentAtIndex(aPC.getAlignment()) + ")"; //$NON-NLS-1$
+			+ aPC.getPCAlignment().getDisplayName() + ")"; //$NON-NLS-1$
 		}
 		return super.getName(aPC);
 	}
@@ -1446,20 +1414,11 @@ final class PCAlignmentFilter extends AlignmentFilter
 			return false;
 		}
 
-		int alignment = aPC.getAlignment();
+		PCAlignment alignment = aPC.getPCAlignment();
 
 		if (pObject instanceof Deity)
 		{
-			PCAlignment al = pObject.get(ObjectKey.ALIGNMENT);
-			String deityAlign = al == null ? "" : al.getKeyName();
-
-			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
-				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
-			{
-				return true;
-			}
-
-			return false;
+			return alignment.equals(pObject.get(ObjectKey.ALIGNMENT));
 		}
 		else if (pObject instanceof PCClass)
 		{

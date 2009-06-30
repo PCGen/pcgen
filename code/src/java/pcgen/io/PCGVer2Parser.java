@@ -67,6 +67,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -386,11 +387,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parseAlignmentLine(String line)
 	{
 		final String alignment = line.substring(TAG_ALIGNMENT.length() + 1);
-		final int i = SettingsHandler.getGame().getIndexOfAlignment(alignment);
+		PCAlignment align = SettingsHandler.getGame().getAlignment(alignment);
 
-		if (i >= 0)
+		if (align != null)
 		{
-			thePC.setAlignment(i, true);
+			thePC.setAlignment(align, true);
 
 			return;
 		}

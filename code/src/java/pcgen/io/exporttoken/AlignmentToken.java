@@ -26,7 +26,6 @@
 package pcgen.io.exporttoken;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 
 /**
@@ -74,8 +73,7 @@ public class AlignmentToken extends Token
 	 */
 	public static String getAlignmentToken(PlayerCharacter pc)
 	{
-		return SettingsHandler.getGame().getLongAlignmentAtIndex(
-			pc.getAlignment());
+		return pc.getPCAlignment().getDisplayName();
 	}
 
 	/**
@@ -85,7 +83,6 @@ public class AlignmentToken extends Token
 	 */
 	public static String getShortToken(PlayerCharacter pc)
 	{
-		return SettingsHandler.getGame().getShortAlignmentAtIndex(
-			pc.getAlignment());
+		return pc.getPCAlignment().getKeyName();
 	}
 }

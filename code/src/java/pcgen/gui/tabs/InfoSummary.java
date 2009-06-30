@@ -85,6 +85,7 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -574,7 +575,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			toDoList.add(PropertyFactory.getString("in_sumTodoName")); //$NON-NLS-1$
 		}
 		if (Globals.getGameModeAlignmentText().length() != 0
-			&& pc.getAlignment() == 9)
+			&& pc.getPCAlignment().getDisplayName().equals(Constants.s_NONE))
 		{
 			toDoList.add(PropertyFactory.getString("in_sumTodoAlign")); //$NON-NLS-1$
 		}
@@ -1141,8 +1142,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
 			if ((levels > 0)
-				&& (pc.getAlignment() == SettingsHandler.getGame()
-					.getIndexOfAlignment(Constants.s_NONE)))
+				&& (pc.getPCAlignment().getDisplayName().equals(Constants.s_NONE)))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -1407,10 +1407,11 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	 */
 	private void alignmentChanged()
 	{
-		final int newAlignment = alignmentComboBox.getSelectedIndex();
-		final int oldAlignment = pc.getAlignment();
+		PCAlignment newAlign = SettingsHandler.getGame().getAlignment(
+				alignmentComboBox.getSelectedItem().toString());
+		PCAlignment oldAlign = pc.getPCAlignment();
 
-		if (newAlignment == oldAlignment)
+		if (newAlign.equals(oldAlign))
 		{
 			return;
 		}
@@ -1424,7 +1425,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		for (PCClass aClass : classList)
 		{
-			pc.setAlignment(oldAlignment, false, true);
+			pc.setAlignment(oldAlign, false, true);
 			{
 				if (!aClass.isQualified(pc))
 				{
@@ -1454,8 +1455,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION,
 					JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
-				pc.setAlignment(oldAlignment, false, true);
-				alignmentComboBox.setSelectedIndex(oldAlignment);
+				pc.setAlignment(oldAlign, false, true);
+				alignmentComboBox.setSelectedItem(oldAlign.getDisplayName());
 
 				return;
 			}
@@ -1469,10 +1470,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			pc.makeIntoExClass(aClass);
 		}
 
-		pc.setAlignment(newAlignment, false, true);
+		pc.setAlignment(newAlign, false, true);
 		forceRefresh(false);
-		enableRaceControls(newAlignment != SettingsHandler.getGame()
-			.getIndexOfAlignment(Constants.s_NONE));
+		enableRaceControls(!newAlign.getDisplayName().equals(Constants.s_NONE));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();
 	}
 
@@ -2202,11 +2202,11 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				populateAlignmentStrings()));
 		}
 
-		final int align = pc.getAlignment();
+		PCAlignment align = pc.getPCAlignment();
 
-		if ((align > -1) && (align < alignmentStrings.length))
+		if (align != null)
 		{
-			alignmentComboBox.setSelectedIndex(align);
+			alignmentComboBox.setSelectedItem(align.getDisplayName());
 		}
 
 		final Race pcRace = pc.getRace();
@@ -2310,8 +2310,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		setStatLabelText();
 
 		enableRaceControls(!alignmentComboBox.isVisible()
-			|| (align != SettingsHandler.getGame().getIndexOfAlignment(
-				Constants.s_NONE)));
+			|| !align.getDisplayName().equals(Constants.s_NONE));
 		startListeners();
 	}
 

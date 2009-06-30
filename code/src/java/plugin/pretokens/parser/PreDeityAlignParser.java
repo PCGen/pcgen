@@ -28,6 +28,7 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -75,8 +76,9 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
 
 			try
 			{
-				subprereq.setOperand(SettingsHandler.getGame()
-					.getShortAlignmentAtIndex(Integer.parseInt(token)));
+				PCAlignment align = SettingsHandler.getGame()
+						.getAlignmentAtIndex(Integer.parseInt(token));
+				subprereq.setOperand(align.getKeyName());
 			}
 			catch (NumberFormatException e)
 			{

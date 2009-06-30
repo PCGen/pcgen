@@ -33,6 +33,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * <code>PreDeityTest</code> tests that the PREDEITY tag is
@@ -82,7 +83,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(3, false);
+		TestHelper.setAlignment(character, 3, false);
 		character.setDeity(deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
@@ -116,7 +117,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(3, false);
+		TestHelper.setAlignment(character, 3, false);
 		character.setDeity(deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
@@ -154,7 +155,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(3, false);
+		TestHelper.setAlignment(character, 3, false);
 		character.setDeity(deity);
 
 		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
@@ -187,7 +188,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(3, false);
+		TestHelper.setAlignment(character, 3, false);
 		character.setDeity(deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
@@ -225,7 +226,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(3, false);
+		TestHelper.setAlignment(character, 3, false);
 		character.setDeity(deity);
 		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
 			prereq, character, null));

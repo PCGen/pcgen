@@ -83,8 +83,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 			{
 				// TODO Handle this?
 			}
-			final String charAlignment =
-					gm.getShortAlignmentAtIndex(character.getAlignment());
+			final String charAlignment = character.getPCAlignment().getKeyName();
 
 			if (desiredAlignment.equalsIgnoreCase(charAlignment))
 			{

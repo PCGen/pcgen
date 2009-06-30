@@ -1754,27 +1754,6 @@ public final class GameMode implements Comparable<Object>
 
 		return al;
 	}
-	/**
-	 * Return the index of the alignment name (handles both short and long names.)
-	 * @param anAlignmentName
-	 * @return index
-	 */
-	public int getIndexOfAlignment(final String anAlignmentName)
-	{
-		for (int i = 0; i < alignmentList.size(); ++i)
-		{
-			final PCAlignment alignment = alignmentList.get(i);
-
-			// if long name or short name of alignment matches, return index
-			if (alignment.getDisplayName().equalsIgnoreCase(anAlignmentName)
-					|| alignment.getKeyName().equalsIgnoreCase(anAlignmentName))
-			{
-				return i;
-			}
-		}
-
-		return -1; // not found
-	}
 
 	/**
 	 * Returns a <tt>PCAlignment</tt> object for the alignment key or name 
@@ -1798,45 +1777,6 @@ public final class GameMode implements Comparable<Object>
 		return null;
 	}
 	
-	/**
-	 * Return the long version of the alignment name found at the index. (E.g. Lawful Good)
-	 * @param index
-	 * @return String
-	 */
-	public String getLongAlignmentAtIndex(final int index)
-	{
-		final String alName;
-		final PCAlignment al = getAlignmentAtIndex(index);
-
-		if (al == null)
-		{
-			alName = "";
-		}
-		else
-		{
-			alName = al.getDisplayName();
-		}
-
-		return alName;
-	}
-
-	/**
-	 * Return the short version of the alignment name found at the index. (E.g. LG)
-	 * @param index
-	 * @return String
-	 */
-	public String getShortAlignmentAtIndex(final int index)
-	{
-		final PCAlignment al = getAlignmentAtIndex(index);
-
-		if (al == null)
-		{
-			return "";
-		}
-
-		return al.getKeyName();
-	}
-
 	/**
 	 * Return an <b>unmodifiable</b> version of the alignmentlist.
 	 * @return an <b>unmodifiable</b> version of the alignmentlist.
