@@ -1178,10 +1178,10 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
 	 */
-	public boolean isAutoKnownSpell(final String spellName,
+	public boolean isAutoKnownSpell(Spell spell,
 		final int spellLevel, final PlayerCharacter aPC)
 	{
-		return isAutoKnownSpell(spellName, spellLevel, false, aPC);
+		return isAutoKnownSpell(spell, spellLevel, false, aPC);
 	}
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
@@ -1319,7 +1319,7 @@ public class PCClass extends PObject
 				}
 
 				final boolean isKnownAtThisLevel =
-						isAutoKnownSpell(aSpell.getKeyName(), spellLevel, true,
+						isAutoKnownSpell(aSpell, spellLevel, true,
 							aPC);
 
 				if (!isKnownAtThisLevel)
@@ -1377,7 +1377,7 @@ public class PCClass extends PObject
 					if (spellLevel <= _maxLevel)
 					{
 						// If the spell is autoknown at this level
-						if (isAutoKnownSpell(spell.getKeyName(), spellLevel,
+						if (isAutoKnownSpell(spell, spellLevel,
 							true, aPC))
 						{
 							CharacterSpell cs =
@@ -3023,7 +3023,7 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
 	 */
-	private boolean isAutoKnownSpell(final String aSpellKey,
+	private boolean isAutoKnownSpell(Spell aSpell,
 		final int spellLevel, final boolean useMap, final PlayerCharacter aPC)
 	{
 		List<KnownSpellIdentifier> knownSpellsList = getListFor(ListKey.KNOWN_SPELLS);
@@ -3031,8 +3031,6 @@ public class PCClass extends PObject
 		{
 			return false;
 		}
-
-		final Spell aSpell = Globals.getSpellKeyed(aSpellKey);
 
 		if (useMap)
 		{

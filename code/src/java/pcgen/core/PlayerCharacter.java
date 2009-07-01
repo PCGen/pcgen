@@ -8897,7 +8897,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// there is some weird spell that keeps getting loaded by
 		// accident (or is saved in the .pcg file)
 		if (isDefault
-			&& aClass.isAutoKnownSpell(acs.getSpell().getKeyName(), si
+			&& aClass.isAutoKnownSpell(acs.getSpell(), si
 				.getActualLevel(), this))
 		{
 			Logging.errorPrint("Notice: removing "

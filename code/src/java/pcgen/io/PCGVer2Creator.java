@@ -1998,8 +1998,8 @@ final class PCGVer2Creator implements IOConstants
 
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
-						&& pcClass.isAutoKnownSpell(cSpell.getSpell()
-							.getKeyName(), SpellLevel.getFirstLevelForKey(
+						&& pcClass.isAutoKnownSpell(cSpell.getSpell(),
+							SpellLevel.getFirstLevelForKey(
 							cSpell.getSpell(), lists, thePC), thePC)
 						&& thePC.getAutoSpells())
 					{
