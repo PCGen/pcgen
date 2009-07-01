@@ -340,13 +340,9 @@ public final class SkillCostCalc
 		List<Skill> list = pc.getAssocList(r, AssociationListKey.MONCSKILL);
 		if (list != null)
 		{
-			for (Skill sk : list)
+			if (list.contains(s))
 			{
-				//Slow method
-				if (sk.getKeyName().equals(s.getKeyName()))
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 		CDOMReference<ClassSkillList> mList = PCClass.MONSTER_SKILL_LIST;
