@@ -28,7 +28,6 @@ package pcgen.io;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -2111,9 +2110,8 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendStatLines(StringBuffer buffer)
 	{
-		for (Iterator<PCStat> i = thePC.getStatList().iterator(); i.hasNext();)
+		for (PCStat aStat : thePC.getUnmodifiableStatList())
 		{
-			final PCStat aStat = i.next();
 			buffer.append(TAG_STAT).append(':');
 			buffer.append(aStat.getAbb());
 			buffer.append('|');

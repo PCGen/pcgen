@@ -26,10 +26,11 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.StatAnalysis;
 
 public class PCSPellBaseStatTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -59,7 +60,7 @@ public class PCSPellBaseStatTermEvaluator
 			return 10f;
 		}
 
-		return (float) pc.getStatList().getTotalStatFor(ss);
+		return (float) StatAnalysis.getTotalStatFor(pc, ss);
 	}
 
 	public boolean isSourceDependant()

@@ -7,7 +7,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.StatList;
+import pcgen.core.analysis.StatAnalysis;
 
 /**
  * Deals with the HP part of the gmgen plugin system
@@ -121,11 +121,9 @@ public class SystemHP
 			PlayerCharacter pc = pcgcbt.getPC();
 			Globals.setCurrentPC(pc);
 
-			StatList sl = pc.getStatList();
-
 			PCStat stat = Globals.getContext().ref
 					.getAbbreviatedObject(PCStat.class, "CON");
-			if (damage > sl.getTotalStatFor(stat))
+			if (damage > StatAnalysis.getTotalStatFor(pc, stat))
 			{
 				return true;
 			}

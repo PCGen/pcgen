@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang.math.Fraction;
@@ -19,8 +20,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.StatList;
 import pcgen.core.analysis.QualifiedName;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.AttackType;
 
@@ -229,10 +230,9 @@ public class PlayerCharacterOutput
 
 	public String getInitMiscMod()
 	{
-		StatList sl = pc.getStatList();
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
-		int statMod = sl.getStatModFor(dex);
+		int statMod = StatAnalysis.getStatModFor(pc, dex);
 		int miscMod = pc.initiativeMod() - statMod;
 
 		return "+" + miscMod;
@@ -240,10 +240,9 @@ public class PlayerCharacterOutput
 
 	public String getInitStatMod()
 	{
-		StatList sl = pc.getStatList();
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
-		int statMod = sl.getStatModFor(dex);
+		int statMod = StatAnalysis.getStatModFor(pc, dex);
 
 		return "+" + statMod;
 	}
@@ -333,22 +332,14 @@ public class PlayerCharacterOutput
 
 	public String getStat(PCStat stat)
 	{
-		StatList sl = pc.getStatList();
-
-		return Integer.toString(sl.getTotalStatFor(stat));
-	}
-
-	public StatList getStatList()
-	{
-		return pc.getStatList();
+		return Integer.toString(StatAnalysis.getTotalStatFor(pc, stat));
 	}
 
 	public String getStatMod(PCStat stat)
 	{
 		int returnValue;
 
-		StatList sl = pc.getStatList();
-		returnValue = sl.getStatModFor(stat);
+		returnValue = StatAnalysis.getStatModFor(pc, stat);
 
 		return (returnValue < 0) ? Integer.toString(returnValue) : "+"
 			+ returnValue;
@@ -474,5 +465,10 @@ public class PlayerCharacterOutput
 	public String getUnarmedCritMult()
 	{
 		return getExportToken("WEAPONH.MULT");
+	}
+
+	public List<PCStat> getUnmodifiableStatList()
+	{
+		return pc.getUnmodifiableStatList();
 	}
 }

@@ -210,7 +210,7 @@ public final class Skill extends PObject
 		{
 			for (Type aType : getTrueTypeList(false))
 			{
-				for (PCStat stat : pc.getStatList())
+				for (PCStat stat : pc.getUnmodifiableStatList())
 				{
 					//
 					// Get a list of all BONUS:SKILL|TYPE.<type>|x for this

@@ -75,6 +75,7 @@ import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -401,7 +402,7 @@ public class PCClass extends PObject
 
 		if (aStat != null)
 		{
-			stat = aPC.getStatList().getTotalStatFor(aStat);
+			stat = StatAnalysis.getTotalStatFor(aPC, aStat);
 			statString = aStat.getAbb();
 		}
 
@@ -2114,7 +2115,7 @@ public class PCClass extends PObject
 
 		if (aStat != null)
 		{
-			stat = aPC.getStatList().getTotalStatFor(aStat);
+			stat = StatAnalysis.getTotalStatFor(aPC, aStat);
 			statString = aStat.getAbb();
 		}
 
@@ -2957,13 +2958,9 @@ public class PCClass extends PObject
 				{
 					for (PCLevelInfoStat statToRollback : moddedStats)
 					{
-						for (Iterator<PCStat> i = aPC.getStatList().iterator(); i
-							.hasNext();)
+						for (PCStat aStat : aPC.getUnmodifiableStatList())
 						{
-							final PCStat aStat = i.next();
-
-							if (aStat.getAbb().equalsIgnoreCase(
-								statToRollback.getStat().getAbb()))
+							if (aStat.equals(statToRollback.getStat()))
 							{
 								aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE)
 								- statToRollback.getStatMod());
@@ -3176,20 +3173,19 @@ public class PCClass extends PObject
 		}
 
 		int iCount = 0;
-		Set<String> statsAlreadyBonused = new HashSet<String>();
+		Set<PCStat> statsAlreadyBonused = new HashSet<PCStat>();
 		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
 			final StringBuffer sStats = new StringBuffer();
 			final List<String> selectableStats = new ArrayList<String>();
 
-			for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
+			for (PCStat aStat : aPC.getUnmodifiableStatList())
 			{
-				final PCStat aStat = i.next();
 				final int iAdjStat =
-						aPC.getStatList().getTotalStatFor(aStat);
+						StatAnalysis.getTotalStatFor(aPC, aStat);
 				final int iCurStat =
-						aPC.getStatList().getBaseStatFor(aStat);
+						StatAnalysis.getBaseStatFor(aPC, aStat);
 				sStats.append(aStat.getAbb()).append(": ").append(iCurStat);
 
 				if (iCurStat != iAdjStat)
@@ -3198,10 +3194,10 @@ public class PCClass extends PObject
 				}
 
 				sStats.append(" (").append(
-					aPC.getStatList().getStatModFor(aStat)).append(
+					StatAnalysis.getStatModFor(aPC, aStat)).append(
 					")");
 
-				if (allowStacks || !statsAlreadyBonused.contains(aStat.getAbb()))
+				if (allowStacks || !statsAlreadyBonused.contains(aStat))
 				{
 					sStats.append("\n");
 					selectableStats.add(aStat.getDisplayName());
@@ -3229,18 +3225,15 @@ public class PCClass extends PObject
 
 			if (selectedValue != null)
 			{
-				for (Iterator<PCStat> i = aPC.getStatList().iterator(); i
-					.hasNext();)
+				for (PCStat aStat : aPC.getUnmodifiableStatList())
 				{
-					final PCStat aStat = i.next();
-
 					if (aStat.getDisplayName().equalsIgnoreCase(
 						selectedValue.toString()))
 					{
 						aPC.saveStatIncrease(aStat, 1, isPre);
 						aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE) + 1);
 						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
-						statsAlreadyBonused.add(aStat.getAbb());
+						statsAlreadyBonused.add(aStat);
 						++iCount;
 
 						break;

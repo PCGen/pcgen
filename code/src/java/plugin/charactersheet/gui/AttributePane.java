@@ -138,7 +138,7 @@ public class AttributePane extends JPanel
 		setVisible(true);
 		destruct();
 
-		for (PCStat stat : pc.getStatList())
+		for (PCStat stat : pc.getUnmodifiableStatList())
  		{
 			Attribute attr = new Attribute(stat);
 			attrList.add(attr);

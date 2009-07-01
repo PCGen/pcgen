@@ -51,7 +51,7 @@ public final class PCStat extends PObject
 		return sb.toString();
 	}
 
-	String getStatMod()
+	public String getStatMod()
 	{
 		String s = get(StringKey.STAT_MOD);
 		return s == null ? "0" : s;

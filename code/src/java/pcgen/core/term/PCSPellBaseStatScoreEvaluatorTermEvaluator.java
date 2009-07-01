@@ -30,7 +30,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.StatList;
+import pcgen.core.analysis.StatAnalysis;
 
 public class PCSPellBaseStatScoreEvaluatorTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -60,10 +60,9 @@ public class PCSPellBaseStatScoreEvaluatorTermEvaluator
 			return 10f;
 		}
 
-		final StatList sl   = pc.getStatList();
-		final int statNum   = sl.getTotalStatFor(ss);
+		final int statNum   = StatAnalysis.getTotalStatFor(pc, ss);
 
-		return (float) sl.getModForNumber(statNum, ss);
+		return (float) StatAnalysis.getModForNumber(pc, statNum, ss);
 	}
 
 	public boolean isSourceDependant()

@@ -393,8 +393,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatMod()");
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		final StatList statList = character.getStatList();
-		final PCStat stat = statList.getStatAt(0);
+		final PCStat stat = character.getUnmodifiableStatList().get(0);
 		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
@@ -414,8 +413,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatModNew()");
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		final StatList statList = character.getStatList();
-		final PCStat stat = statList.getStatAt(0);
+		final PCStat stat = character.getUnmodifiableStatList().get(0);
 		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
@@ -433,8 +431,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		final StatList statList = character.getStatList();
-		final PCStat stat = statList.getStatAt(0);
+		final PCStat stat = character.getUnmodifiableStatList().get(0);
 		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
@@ -981,14 +978,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final BonusObj strBonus = Bonus.newBonus("STAT|STR|2");
 		strBonusAbility.addToListFor(ListKey.BONUS, strBonus);
 
-		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor("STR", false, false));
-		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor("STR", true, false));
+		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor(str, false, false));
+		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor(str, true, false));
 
 		AbilityUtilities.modAbility(pc, null, strBonusAbility, "Strength power up", true, AbilityCategory.FEAT);
 		pc.calcActiveBonuses();
 
-		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor("STR", false, false));
-		assertEquals("After bonus, temp no equip", 2, pc.getPartialStatBonusFor("STR", true, false));
+		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor(str, false, false));
+		assertEquals("After bonus, temp no equip", 2, pc.getPartialStatBonusFor(str, true, false));
 		
 //		final BonusObj strBonusViaList = Bonus.newBonus("STAT|%LIST|3");
 //		strBonusAbility.addBonusList(strBonusViaList);

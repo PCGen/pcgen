@@ -93,9 +93,9 @@ import pcgen.core.Race;
 import pcgen.core.RollingMethods;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.StatList;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.RaceStat;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.display.VisionDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -831,14 +831,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	{
 		int i = 0;
 
-		for (PCStat aStat : pc.getStatList())
+		for (PCStat aStat : pc.getUnmodifiableStatList())
 		{
 			if (!aStat.getSafe(ObjectKey.ROLLED))
 			{
 				continue;
 			}
 
-			final int statValue = pc.getStatList().getBaseStatFor(aStat);
+			final int statValue = StatAnalysis.getBaseStatFor(pc, aStat);
 			i += getPurchaseCostForStat(pc, statValue);
 		}
 		i += (int) pc.getTotalBonusTo("POINTBUY", "SPENT"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -872,7 +872,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			final StringBuffer aString = new StringBuffer();
 
-			for (PCStat aStat : pc.getStatList())
+			for (PCStat aStat : pc.getUnmodifiableStatList())
 			{
 				if (RaceStat.isNonAbility(aStat, aRace))
 				{
@@ -1324,7 +1324,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	 */
 	private boolean allAbilitiesAreZero()
 	{
-		for (PCStat stat : pc.getStatList())
+		for (PCStat stat : pc.getUnmodifiableStatList())
 		{
 			if (pc.getAssoc(stat, AssociationKey.STAT_SCORE) != 0)
 			{
@@ -2355,8 +2355,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			return;
 		}
 
-		final PCStat aStat = pc.getStatList().getStatAt(selectedStat);
-		int stat = pc.getStatList().getBaseStatFor(aStat);
+		final PCStat aStat = pc.getUnmodifiableStatList().get(selectedStat);
+		int stat = StatAnalysis.getBaseStatFor(pc, aStat);
 
 		boolean makeChange = false;
 		//		boolean checkPurchase = false;
@@ -2822,17 +2822,16 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			int statTotal = 0;
 			int modTotal = 0;
-			final StatList statList = pc.getStatList();
 
-			for (PCStat aStat : pc.getStatList())
+			for (PCStat aStat : pc.getUnmodifiableStatList())
 			{
 				if (pc.isNonAbility(aStat) || !aStat.getSafe(ObjectKey.ROLLED))
 				{
 					continue;
 				}
 
-				final int currentStat = statList.getBaseStatFor(aStat);
-				final int currentMod = statList.getStatModFor(aStat);
+				final int currentStat = StatAnalysis.getBaseStatFor(pc, aStat);
+				final int currentMod = StatAnalysis.getStatModFor(pc, aStat);
 
 				statTotal += currentStat;
 				modTotal += currentMod;
@@ -3264,14 +3263,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			if (pc != null)
 			{
-				return pc.getStatList().size();
+				return pc.getUnmodifiableStatList().size();
 			}
 			return 0;
 		}
 
 		public void setValueAt(Object obj, int rowIndex, int columnIndex)
 		{
-			if ((rowIndex >= 0) && (rowIndex < pc.getStatList().size())
+			if ((rowIndex >= 0) && (rowIndex < pc.getUnmodifiableStatList().size())
 				&& (columnIndex == 1))
 			{
 				if (obj == null)
@@ -3290,7 +3289,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 				final int pcPlayerLevels = pc.getTotalPlayerLevels();
 
-				final PCStat aStat = pc.getStatList().getStatAt(rowIndex);
+				final PCStat aStat = pc.getUnmodifiableStatList().get(rowIndex);
 
 				if (pc.isNonAbility(aStat))
 				{
@@ -3410,7 +3409,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
-			List<PCStat> statList = pc.getStatList().getStatList();
+			List<PCStat> statList = pc.getUnmodifiableStatList();
 			PCStat activeStat;
 			if ((rowIndex >= 0) && (rowIndex < statList.size()))
 			{
@@ -3436,7 +3435,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						return "*"; //$NON-NLS-1$
 					}
 
-					return Integer.valueOf(pc.getStatList().getBaseStatFor(
+					return Integer.valueOf(StatAnalysis.getBaseStatFor(pc, 
 							activeStat));
 
 				case RACE_COLUMN:
@@ -3446,7 +3445,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						return "*"; //$NON-NLS-1$
 					}
 
-					//return Integer.valueOf(currentPC.getStatList().getTotalStatFor(aStat) - currentPC.getStatList().getBaseStatFor(aStat));
+					//return Integer.valueOf(currentStatAnalysis.getTotalStatFor(aStat) - currentStatAnalysis.getBaseStatFor(aStat));
 					int rBonus = (int) pc.getRaceBonusTo("STAT", aStat); //$NON-NLS-1$
 
 					return Integer.valueOf(rBonus);
@@ -3460,9 +3459,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 					int iRace = (int) pc.getRaceBonusTo("STAT", aStat); //$NON-NLS-1$
 
-					return Integer.valueOf(pc.getStatList().getTotalStatFor(
+					return Integer.valueOf(StatAnalysis.getTotalStatFor(pc, 
 							activeStat)
-						- pc.getStatList().getBaseStatFor(activeStat) - iRace);
+						- StatAnalysis.getBaseStatFor(pc, activeStat) - iRace);
 
 				case TOTAL_COLUMN:
 
@@ -3471,9 +3470,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						return "*"; //$NON-NLS-1$
 					}
 
-					//					return Integer.valueOf(pc.getStatList().getTotalStatFor(aStat));
+					//					return Integer.valueOf(StatAnalysis.getTotalStatFor(aStat));
 					return SettingsHandler.getGame().getStatDisplayText(
-						pc.getStatList().getTotalStatFor(activeStat));
+						StatAnalysis.getTotalStatFor(pc, activeStat));
 
 				case MOD_COLUMN:
 
@@ -3482,8 +3481,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						return Integer.valueOf(0);
 					}
 
-					return Integer.valueOf(pc.getStatList()
-						.getStatModFor(activeStat));
+					return Integer.valueOf(StatAnalysis
+						.getStatModFor(pc, activeStat));
 
 				case INC_COLUMN:
 

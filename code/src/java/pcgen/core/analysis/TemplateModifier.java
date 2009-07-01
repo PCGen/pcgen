@@ -45,7 +45,7 @@ public class TemplateModifier
 		// true than 16
 		// (the default)
 
-		for (PCStat stat : aPC.getStatList())
+		for (PCStat stat : aPC.getUnmodifiableStatList())
 		{
 			if (TemplateStat.isNonAbility(pct, stat))
 			{

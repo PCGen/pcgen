@@ -104,7 +104,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		//Stats
 		setPCStat(character, dex, 16);
 		setPCStat(character, intel, 17);
-		PCStat stat = character.getStatList().getStatAt(3);
+		PCStat stat = character.getUnmodifiableStatList().get(3);
 		BonusObj aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
 		
 		if (aBonus != null)
@@ -185,7 +185,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		balance = null;
 		tumble = null;
 		PlayerCharacter character = getCharacter();
-		PCStat stat = character.getStatList().getStatAt(3);
+		PCStat stat = character.getUnmodifiableStatList().get(3);
 		stat.removeListFor(ListKey.BONUS);
 
 		super.tearDown();

@@ -29,6 +29,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.util.TestHelper;
@@ -82,18 +83,18 @@ public class StatListTest extends AbstractCharacterTestCase
 	public void testGetBaseStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Starting STR should be 6", 6, pc.getStatList().getBaseStatFor(str));
+		assertEquals("Starting STR should be 6", 6, StatAnalysis.getBaseStatFor(pc, str));
 
 		// Bonus should not affect base stat
 		pc.addAbility(AbilityCategory.FEAT, bonus, null);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should still be locked", 6, pc.getStatList().getBaseStatFor(str));
+		assertEquals("Stat should still be locked", 6, StatAnalysis.getBaseStatFor(pc, str));
 		
 		pc.addTemplate(locker);
-		assertEquals("Stat should now be locked", 12, pc.getStatList().getBaseStatFor(str));
+		assertEquals("Stat should now be locked", 12, StatAnalysis.getBaseStatFor(pc, str));
 
 		pc.addTemplate(unlocker);
-		assertEquals("Stat should now be unlocked", 6, pc.getStatList().getBaseStatFor(str));
+		assertEquals("Stat should now be unlocked", 6, StatAnalysis.getBaseStatFor(pc, str));
 	}
 
 	/**
@@ -103,18 +104,18 @@ public class StatListTest extends AbstractCharacterTestCase
 	public void testGetTotalStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Starting STR should be 6", 6, pc.getStatList().getTotalStatFor(str));
+		assertEquals("Starting STR should be 6", 6, StatAnalysis.getTotalStatFor(pc, str));
 
 		// Bonus should affect total stat
 		pc.addAbility(AbilityCategory.FEAT, bonus, null);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should have bonus", 13, pc.getStatList().getTotalStatFor(str));
+		assertEquals("Stat should have bonus", 13, StatAnalysis.getTotalStatFor(pc, str));
 		
 		pc.addTemplate(locker);
-		assertEquals("Stat should now be locked", 12, pc.getStatList().getTotalStatFor(str));
+		assertEquals("Stat should now be locked", 12, StatAnalysis.getTotalStatFor(pc, str));
 
 		pc.addTemplate(unlocker);
-		assertEquals("Stat should now be unlocked", 13, pc.getStatList().getTotalStatFor(str));
+		assertEquals("Stat should now be unlocked", 13, StatAnalysis.getTotalStatFor(pc, str));
 	}
 
 }

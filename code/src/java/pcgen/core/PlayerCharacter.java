@@ -107,6 +107,7 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
@@ -235,7 +236,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			new ConcurrentHashMap<String, String>();
 	private Race race = null;
 	private PCClass selectedFavoredClass = null;
-	private final StatList statList = new StatList(this);
+	private final List<PCStat> stats = new ArrayList<PCStat>();
 
 	// List of Kit objects
 	private List<Kit> kitList = null;
@@ -393,11 +394,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		Globals.setCurrentPC(this);
 
-		for (PCStat stat : SettingsHandler.getGame().getUnmodifiableStatList())
-		{
-			statList.addStat(stat);
-		}
-
+		stats.addAll(SettingsHandler.getGame().getUnmodifiableStatList());
+		
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
 		setFeats(0);
@@ -545,7 +543,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (ss != null)
 		{
-				baseSpellStat = getStatList().getTotalStatFor(ss);
+				baseSpellStat = StatAnalysis.getTotalStatFor(this, ss);
 				// final List<TypedBonus> bonuses = getBonusesTo("STAT",
 				// "BASESPELLSTAT");
 				// bonuses.addAll( getBonusesTo("STAT",
@@ -559,7 +557,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				baseSpellStat +=
 						(int) getTotalBonusTo("STAT", "CAST." + ss.getAbb());
 				baseSpellStat =
-						getStatList().getModForNumber(baseSpellStat, ss);
+						StatAnalysis.getModForNumber(this, baseSpellStat, ss);
 		}
 
 		return baseSpellStat;
@@ -3349,16 +3347,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the stat list
-	 * 
-	 * @return stat list
-	 */
-	public StatList getStatList()
-	{
-		return statList;
-	}
-
-	/**
 	 * Selector <p/> Build on-the-fly so removing templates won't mess up
 	 * subrace
 	 * 
@@ -3934,7 +3922,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// }
 		// }
 
-		for (PCStat obj : statList)
+		for (PCStat obj : stats)
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax, found,
@@ -6856,7 +6844,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public double getStatBonusTo(String aType, String aName)
 	{
 		final List<BonusObj> aList =
-				statList.getBonusListOfType(aType.toUpperCase(), aName
+				StatAnalysis.getBonusListOfType(this, aType.toUpperCase(), aName
 					.toUpperCase());
 		for (Iterator<BonusObj> it = aList.iterator(); it.hasNext();)
 		{
@@ -6955,7 +6943,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getTotalStatAtLevel(final PCStat stat, final int level,
 		final boolean includePost)
 	{
-		int curStat = getStatList().getTotalStatFor(stat);
+		int curStat = StatAnalysis.getTotalStatFor(this, stat);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =
@@ -12427,7 +12415,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(getSkillList());
 
 		// Stat (PCStat)
-		results.addAll(statList.getStatList());
+		results.addAll(stats);
 
 		// Template (PCTemplate)
 		results.addAll(getTemplateList());
@@ -13765,7 +13753,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aMethod = Constants.CHARACTERSTATMETHOD_PURCHASE;
 		}
-		rollStats(aMethod, statList.getStatList(), SettingsHandler.getGame()
+		rollStats(aMethod, stats, SettingsHandler.getGame()
 			.getCurrentRollingMethod(), false);
 	}
 
@@ -14217,11 +14205,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            Should equipment bonuses be included?
 	 * @return The bonus to the stat.
 	 */
-	public int getPartialStatBonusFor(String statAbbr, boolean useTemp,
+	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
 		boolean useEquip)
 	{
 		// List<BonusObj> abl = getAllActiveBonuses();
 		List<BonusObj> abl = getActiveBonusList();
+		String statAbbr = stat.getAbb();
 		final String prefix = "STAT." + statAbbr;
 		Map<String, String> bonusMap = new HashMap<String, String>();
 
@@ -14233,7 +14222,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (Object element : bonus.getBonusInfoList())
 				{
 					if (element instanceof PCStat
-						&& ((PCStat) element).getAbb().equals(statAbbr))
+						&& ((PCStat) element).equals(stat))
 					{
 						found = true;
 						break;
@@ -14295,7 +14284,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 		}
-
 		// Sum the included bonuses to the stat to get our result.
 		int total = 0;
 		for (String bKey : bonusMap.keySet())
@@ -14327,7 +14315,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		boolean usePost, boolean useTemp, boolean useEquip)
 	{
 		int curStat =
-				getStatList().getPartialStatFor(stat, useTemp, useEquip);
+				StatAnalysis.getPartialStatFor(this, stat, useTemp, useEquip);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust =
@@ -17913,7 +17901,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				dc += getStatList().getStatModFor(stat);
+				dc += StatAnalysis.getStatModFor(this, stat);
 			}
 		}
 
@@ -17972,5 +17960,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean hasTemplate(PCTemplate template)
 	{
 		return templateList.contains(template);
+	}
+
+	public List<PCStat> getUnmodifiableStatList()
+	{
+		return Collections.unmodifiableList(stats);
 	}
 }

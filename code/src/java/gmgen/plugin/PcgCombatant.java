@@ -39,8 +39,8 @@ import org.jdom.Element;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
@@ -52,10 +52,10 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
-import pcgen.core.StatList;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -83,12 +83,11 @@ public class PcgCombatant extends Combatant
 		Globals.setCurrentPC(pc);
 		this.init = new PcgSystemInitiative(pc);
 
-		StatList sl = pc.getStatList();
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "CON");
-		this.hitPoints =
-				new SystemHP(new SystemAttribute("Constitution", sl
-					.getTotalStatFor(stat)), pc.hitPoints(), pc.hitPoints());
+		this.hitPoints = new SystemHP(new SystemAttribute("Constitution",
+				StatAnalysis.getTotalStatFor(pc, stat)), pc.hitPoints(), pc
+				.hitPoints());
 		setCombatantType("PC");
 	}
 
@@ -118,12 +117,11 @@ public class PcgCombatant extends Combatant
 			Globals.setCurrentPC(pc);
 			this.init = new PcgSystemInitiative(pc);
 
-			StatList sl = pc.getStatList();
 			PCStat stat = Globals.getContext().ref
 					.getAbbreviatedObject(PCStat.class, "CON");
 			this.hitPoints =
-					new SystemHP(new SystemAttribute("Constitution", sl
-						.getTotalStatFor(stat)), pc.hitPoints(), pc
+					new SystemHP(new SystemAttribute("Constitution", StatAnalysis
+						.getTotalStatFor(pc, stat)), pc.hitPoints(), pc
 						.hitPoints());
 
 			setStatus(combatant.getAttribute("status").getValue());
@@ -709,9 +707,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append("</a>");
 			statBuf.append("</font>; ");
 
-			StatList sl = pcOut.getStatList();
-
-			for (PCStat stat : sl)
+			for (PCStat stat : pcOut.getUnmodifiableStatList())
 			{
 				String statAbb = stat.getAbb();
 				if (pc.isNonAbility(stat))
@@ -827,7 +823,7 @@ public class PcgCombatant extends Combatant
 				{
 					modSkill =
 							SkillModifier.modifier(skill, pc).intValue()
-								- pc.getStatList().getStatModFor(
+								- StatAnalysis.getStatModFor(pc,
 										skill.get(ObjectKey.KEY_STAT));
 					Logging.debugPrint("modSkill: " + modSkill);
 				}

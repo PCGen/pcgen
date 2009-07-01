@@ -36,6 +36,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
@@ -343,7 +344,7 @@ public class SpellListChoiceManager extends AbstractBasicStringChoiceManager
 				PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
 				if (ss != null)
 				{
-					int statMod = aPC.getStatList().getStatModFor(ss);
+					int statMod = StatAnalysis.getStatModFor(aPC, ss);
 
 					if (statMod > 0)
 					{

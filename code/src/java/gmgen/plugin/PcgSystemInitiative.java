@@ -6,7 +6,7 @@ package gmgen.plugin;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.StatList;
+import pcgen.core.analysis.StatAnalysis;
 
 public class PcgSystemInitiative extends SystemInitiative
 {
@@ -17,10 +17,9 @@ public class PcgSystemInitiative extends SystemInitiative
 		this.pc = pc;
 		Globals.setCurrentPC(pc);
 
-		StatList sl = pc.getStatList();
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "DEX");
-		this.attribute = new SystemAttribute("Dexterity", sl.getTotalStatFor(stat));
+		this.attribute = new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
 		bonus = 0;
 		die = new Dice(1, 20);
 	}
@@ -29,11 +28,9 @@ public class PcgSystemInitiative extends SystemInitiative
 	{
 		Globals.setCurrentPC(pc);
 
-		StatList sl = pc.getStatList();
-
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "DEX");
-		return new SystemAttribute("Dexterity", sl.getTotalStatFor(stat));
+		return new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
 	}
 
 	public void setBonus(int bonus)
@@ -46,10 +43,9 @@ public class PcgSystemInitiative extends SystemInitiative
 	{
 		Globals.setCurrentPC(pc);
 
-		StatList sl = pc.getStatList();
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
-		return pc.initiativeMod() - sl.getStatModFor(dex) + bonus;
+		return pc.initiativeMod() - StatAnalysis.getStatModFor(pc, dex) + bonus;
 	}
 
 	public int getModifier()

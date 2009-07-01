@@ -79,7 +79,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.StatList;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.util.Logging;
@@ -951,11 +951,9 @@ public class Initiative extends javax.swing.JPanel
 				PlayerCharacter pc = pcgcbt.getPC();
 				Globals.setCurrentPC(pc);
 
-				StatList sl = pc.getStatList();
-
 				PCStat stat = Globals.getContext().ref
 						.getAbbreviatedObject(PCStat.class, "CON");
-				if (damage > sl.getTotalStatFor(stat))
+				if (damage > StatAnalysis.getTotalStatFor(pc, stat))
 				{
 					isEnough = true;
 				}

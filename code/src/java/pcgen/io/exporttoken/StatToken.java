@@ -26,14 +26,15 @@
 
 package pcgen.io.exporttoken;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 //STAT.x
 //STAT.x.STAT
@@ -81,11 +82,11 @@ public class StatToken extends Token
 		aTok.nextToken();
 		int indexOfStat;
 		indexOfStat = Integer.parseInt(aTok.nextToken());
-		if ((indexOfStat < 0) || (indexOfStat >= pc.getStatList().size()))
+		if ((indexOfStat < 0) || (indexOfStat >= pc.getUnmodifiableStatList().size()))
 		{
 			return "";
 		}
-		PCStat stat = pc.getStatList().getStatAt(indexOfStat);
+		PCStat stat = pc.getUnmodifiableStatList().get(indexOfStat);
 
 		String findType = "STAT";
 
@@ -222,12 +223,12 @@ public class StatToken extends Token
 		}
 		else if (useEquip && useTemp)
 		{
-			aTotal = pc.getStatList().getTotalStatFor(stat);
+			aTotal = StatAnalysis.getTotalStatFor(pc, stat);
 		}
 		else
 		{
 			aTotal =
-					pc.getStatList().getPartialStatFor(stat, useTemp,
+					StatAnalysis.getPartialStatFor(pc, stat, useTemp,
 						useEquip);
 		}
 
@@ -250,7 +251,7 @@ public class StatToken extends Token
 				Integer.parseInt(getStatToken(pc, stat, useTemp, useEquip,
 					usePost, useLevel, aLevel, false));
 
-		int temp = pc.getStatList().getModForNumber(aTotal, stat);
+		int temp = StatAnalysis.getModForNumber(pc, aTotal, stat);
 		return Delta.toString(temp);
 	}
 
@@ -260,7 +261,7 @@ public class StatToken extends Token
 		{
 			return "*";
 		}
-		return Integer.toString(pc.getStatList().getBaseStatFor(stat));
+		return Integer.toString(StatAnalysis.getBaseStatFor(pc, stat));
 	}
 
 	public static String getBaseModToken(PlayerCharacter pc, PCStat stat)
@@ -270,7 +271,7 @@ public class StatToken extends Token
 			return "+0";
 		}
 		int aTotal = Integer.parseInt(getBaseToken(pc, stat));
-		int temp = pc.getStatList().getModForNumber(aTotal, stat);
+		int temp = StatAnalysis.getModForNumber(pc, aTotal, stat);
 
 		return Delta.toString(temp);
 	}

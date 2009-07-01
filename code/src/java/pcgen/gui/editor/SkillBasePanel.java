@@ -106,9 +106,9 @@ final class SkillBasePanel extends BasePanel
 		return chkUntrained.isSelected();
 	}
 
-	public void setKeyStat(final String aString)
+	public void setKeyStat(PCStat stat)
 	{
-		if (aString.length() == 0)
+		if (stat == null)
 		{
 			cmbKeyStat.setSelectedItem(Constants.s_NONE);
 		}
@@ -116,7 +116,7 @@ final class SkillBasePanel extends BasePanel
 		{
 			for (PCStat aStat : Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class))
 			{
-				if (aStat.getAbb().equals(aString))
+				if (aStat.equals(stat))
 				{
 					cmbKeyStat.setSelectedItem(aStat.getKeyName());
 
@@ -207,7 +207,7 @@ final class SkillBasePanel extends BasePanel
 		setTypesAvailableList(availableList, true);
 		setTypesSelectedList(selectedList, true);
 
-		setKeyStat(thisSkill.getKeyStatAbb());
+		setKeyStat(thisSkill.get(ObjectKey.KEY_STAT));
 		setArmorCheck(thisSkill.getSafe(ObjectKey.ARMOR_CHECK).ordinal());
 		setIsExclusive(thisSkill.getSafe(ObjectKey.EXCLUSIVE));
 		Boolean untrained = thisSkill.get(ObjectKey.USE_UNTRAINED);

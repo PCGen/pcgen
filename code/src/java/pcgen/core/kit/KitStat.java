@@ -24,7 +24,6 @@ package pcgen.core.kit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,7 +37,6 @@ import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.StatList;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
@@ -71,11 +69,10 @@ public class KitStat extends BaseKit
 		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
 		{
 			int sVal = me.getValue().resolve(aPC, "").intValue();
-			final StatList statList = aPC.getStatList();
-			for (PCStat currentStat : statList)
+			for (PCStat currentStat : aPC.getUnmodifiableStatList())
 			{
 				if (!aPC.isNonAbility(currentStat)
-					&& currentStat.getAbb().equals(me.getKey().getAbb()))
+					&& currentStat.equals(me.getKey()))
 				{
 					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, sVal);
 					theStat.add(currentStat);
@@ -93,13 +90,11 @@ public class KitStat extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		final StatList aStatList = aPC.getStatList();
-		for (Iterator<PCStat> stat = aStatList.iterator(); stat.hasNext();)
+		for (PCStat currentStat : aPC.getUnmodifiableStatList())
 		{
-			final PCStat currentStat = stat.next();
 			for (PCStat setStat : theStat)
 			{
-				if (currentStat.getAbb().equals(setStat.getAbb()))
+				if (currentStat.equals(setStat))
 				{
 					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, aPC.getAssoc(setStat, AssociationKey.STAT_SCORE));
 					if ("INT".equals(currentStat.getAbb()))

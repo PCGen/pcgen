@@ -5,6 +5,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -43,7 +44,7 @@ public class SkillListModsToken extends Token
 			{
 				modSkill =
 						SkillModifier.modifier(aSkill, pc).intValue()
-							- pc.getStatList().getStatModFor(
+							- StatAnalysis.getStatModFor(pc, 
 									aSkill.get(ObjectKey.KEY_STAT));
 			}
 

@@ -56,7 +56,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -106,6 +105,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.Follower;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
@@ -662,9 +662,8 @@ public class InfoResources extends FilterAdapterPanel implements
 		newPC.setName(nName);
 		newPC.setFileName(file.getAbsolutePath());
 
-		for (Iterator<PCStat> i = newPC.getStatList().iterator(); i.hasNext();)
+		for (PCStat aStat : newPC.getUnmodifiableStatList())
 		{
-			final PCStat aStat = i.next();
 			newPC.setAssoc(aStat, AssociationKey.STAT_SCORE, 10);
 		}
 
@@ -1052,7 +1051,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			b.append(BOLD).append(stat.getAbb())
 					.append(END_BOLD).append(": ") //$NON-NLS-1$
-					.append(newPC.getStatList().getTotalStatFor(stat)).append(
+					.append(StatAnalysis.getTotalStatFor(newPC, stat)).append(
 							" "); //$NON-NLS-1$
 		}
 
