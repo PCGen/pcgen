@@ -159,7 +159,7 @@ public final class KitProf extends BaseKit
 			return false;
 		}
 
-		final List<String> aProfList = new ArrayList<String>();
+		final List<WeaponProf> aProfList = new ArrayList<WeaponProf>();
 
 		for (CDOMSingleRef<WeaponProf> profKey : profList)
 		{
@@ -170,7 +170,7 @@ public final class KitProf extends BaseKit
 				if (ref.contains(wp))
 				{
 					found = true;
-					aProfList.add(wp.getKeyName());
+					aProfList.add(wp);
 					break;
 				}
 			}
@@ -197,7 +197,7 @@ public final class KitProf extends BaseKit
 			return false;
 		}
 
-		List<String> xs;
+		List<WeaponProf> xs;
 
 		if (numberOfChoices == aProfList.size())
 		{
@@ -213,7 +213,7 @@ public final class KitProf extends BaseKit
 				xs =
 						Globals
 							.getChoiceFromList("Choose Proficiencies",
-								aProfList, new ArrayList<String>(),
+								aProfList, new ArrayList<WeaponProf>(),
 								numberOfChoices);
 
 				if (xs.size() != 0)
@@ -226,20 +226,13 @@ public final class KitProf extends BaseKit
 		//
 		// Add to list of things to add to the character
 		//
-		for (String profKey : xs)
+		for (WeaponProf prof : xs)
 		{
-			final WeaponProf aProf =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-						WeaponProf.class, profKey);
-
-			if (aProf != null)
+			if (weaponProfs == null)
 			{
-				if (weaponProfs == null)
-				{
-					weaponProfs = new ArrayList<WeaponProf>();
-				}
-				weaponProfs.add(aProf);
+				weaponProfs = new ArrayList<WeaponProf>();
 			}
+			weaponProfs.add(prof);
 		}
 		return false;
 	}
