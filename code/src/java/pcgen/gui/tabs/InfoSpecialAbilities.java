@@ -293,8 +293,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			for (CharacterDomain aCD : pc.getCharacterDomainList())
 			{
-				if ((aCD.isFromPCClass() || aCD.isFromFeat())
-					&& (aCD.toString().length() != 0)
+				if ((aCD.toString().length() != 0)
 					&& aCD.getDomain().getSafe(StringKey.CHOICE_STRING).startsWith(
 						"WEAPONPROF|"))
 				{

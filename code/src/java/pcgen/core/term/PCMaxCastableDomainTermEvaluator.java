@@ -48,7 +48,7 @@ public class PCMaxCastableDomainTermEvaluator
 
 		if (domain != null)
 		{
-			String classKey = domain.getObjectName();
+			String classKey = domain.getSourceClassKey();
 			PCClass spClass = pc.getClassKeyed(classKey);
 			int cutoff      = spClass.getHighestLevelSpell();
 

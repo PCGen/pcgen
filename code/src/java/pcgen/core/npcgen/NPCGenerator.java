@@ -494,7 +494,7 @@ public class NPCGenerator
 
 			// if any domains have this class as a source
 			// and is a valid domain, add them
-			if ((aDom != null) && aCD.isFromPCClass(aClass.getKeyName()))
+			if ((aDom != null) && aCD.isFromPCClass(aClass))
 			{
 				domains.add( aDom );
 			}

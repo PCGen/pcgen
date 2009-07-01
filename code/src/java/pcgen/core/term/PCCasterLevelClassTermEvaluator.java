@@ -60,7 +60,7 @@ public class PCCasterLevelClassTermEvaluator
 		
 		// If source is a domain, get the Domain source (e.g, "Cleric"),
 		// otherwise just go with the original varSource
-		final String varSource = (aCD != null) ? aCD.getObjectName() : source;
+		final String varSource = (aCD != null) ? aCD.getSourceClassKey() : source;
 
 		final PCClass spClass = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(PCClass.class, varSource);

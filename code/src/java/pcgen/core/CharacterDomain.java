@@ -26,6 +26,7 @@
 package pcgen.core;
 
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.ClassSource;
 
 
 /**
@@ -41,16 +42,15 @@ public final class CharacterDomain
 	/** The object type for a domain from a PC Class */
 	public static final String PC_CLASS_TYPE = "PCClass";
 
-	/** The object type for a domain from a Feat */
-	public static final String ABILITY_CLASS_TYPE = "Feat";
 	private Domain domain; // reference to the domain
 
-	private String domainName = ""; // domain name
-	private String domainType = ""; // type of domain -- feat, class, etc
-	private boolean fromFeat; // true if domain is from a feat
-	private boolean fromPCClass; // true if domain is from a PC Class
-	private int level; // pre-req level
+	private final ClassSource source;
 
+	public CharacterDomain (ClassSource cs)
+	{
+		source = cs;
+	}
+	
 	/**
 	 * Sets the domain
 	 * @param aDomain Domain the domain to be set
@@ -97,45 +97,17 @@ public final class CharacterDomain
 	public String getDomainSourcePcgString()
 	{
 		final StringBuffer buff = new StringBuffer(30);
-		buff.append(domainType);
+		buff.append(PC_CLASS_TYPE);
 		buff.append('|');
-		buff.append(domainName);
+		buff.append(source.getPcclass().getKeyName());
 
-		if (level > 0)
+		if (source.getLevel() > 0)
 		{
 			buff.append('|');
-			buff.append(level);
+			buff.append(source.getLevel());
 		}
 
 		return buff.toString();
-	}
-
-	/**
-	 * Returns whether the domain is from a feat
-	 * @return boolean true if the domain is from a feat, else false
-	 */
-	public boolean isFromFeat()
-	{
-		return fromFeat;
-	}
-
-	/**
-	 * Sets whether the domain is from a PC Class
-	 * @param isPCClass boolean true if the domain is from a PC Class
-	 */
-	public void setFromPCClass(final boolean isPCClass)
-	{
-		fromPCClass = isPCClass;
-		domainType = PC_CLASS_TYPE;
-	}
-
-	/**
-	 * Returns whether the domain is from a PC Class
-	 * @return boolean true if the domain is from a PC Class, else false
-	 */
-	public boolean isFromPCClass()
-	{
-		return fromPCClass;
 	}
 
 	/**
@@ -143,33 +115,24 @@ public final class CharacterDomain
 	 * @param pcClassName String name of PC Clas to check
 	 * @return boolean true if the domain is from the given PC Class
 	 */
-	public boolean isFromPCClass(final String pcClassName)
+	public boolean isFromPCClass(PCClass pcClass)
 	{
-		if (fromPCClass)
-		{
-			return domainName.equalsIgnoreCase(pcClassName);
-		}
-		return false;
+		return pcClass.equals(source.getPcclass());
+	}
+
+	public boolean hasSourceClass()
+	{
+		return source != null && source.getPcclass() != null;
 	}
 
 	/**
-	 * Sets the name of the domain's source
+	 * The domain's source
 	 * e.g: Cleric (if from the Cleric class)
-	 * @param aName
+	 * @return the source
 	 */
-	public void setObjectName(final String aName)
+	public String getSourceClassKey()
 	{
-		domainName = aName;
-	}
-
-	/**
-	 * What the name of the domain's source is
-	 * e.g: Cleric (if from the Cleric class)
-	 * @return String the name of the source
-	 */
-	public String getObjectName()
-	{
-		return domainName;
+		return source.getPcclass().getKeyName();
 	}
 
 	/**
@@ -193,23 +156,11 @@ public final class CharacterDomain
 		{
 			final StringBuffer name = new StringBuffer(domain.getDisplayName());
 
-			if (fromPCClass)
-			{
-				final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, domainName);
+			final PCClass aClass = source.getPcclass();
 
-				if (aClass != null)
-				{
-					name.insert(0, aClass.getDisplayName() + ":");
-				}
-			}
-			else if (fromFeat)
+			if (aClass != null)
 			{
-				final Ability aFeat = Globals.getAbilityKeyed("FEAT", domainName);
-
-				if (aFeat != null)
-				{
-					name.insert(0, aFeat.getDisplayName() + ":");
-				}
+				name.insert(0, aClass.getDisplayName() + ":");
 			}
 
 			string = name.toString();
@@ -225,38 +176,8 @@ public final class CharacterDomain
 	 */
 	boolean isDomainValidFor(final PlayerCharacter aPC)
 	{
-		boolean valid = false;
-
-		if (domain == null)
-		{
-			valid = false;
-		}
-
-		if (fromPCClass)
-		{
-			final PCClass aClass = aPC.getClassKeyed(domainName);
-			valid = ((aClass != null) && (aClass.getLevel(aPC) >= level));
-		}
-
-		// Just preparing for the eventuality
-		// that feats will add domains.
-		// merton_monk@yahoo.com
-		if (fromFeat)
-		{
-			valid = (aPC.hasRealFeat(Globals.getAbilityKeyed("FEAT", domainName)) || aPC.hasFeatAutomatic(domainName) || aPC.hasFeatVirtual(domainName));
-		}
-
-		return valid;
-	}
-
-	/**
-	 * Sets the minimum level for this domain
-	 *
-	 * @param level containing the new minimum level for the domain
-	 */
-	public void setLevel(final int level)
-	{
-		this.level = level;
+		final PCClass aClass = aPC.getClassKeyed(source.getPcclass().getKeyName());
+		return ((aClass != null) && (aClass.getLevel(aPC) >= source.getLevel()));
 	}
 
 	/**
@@ -293,45 +214,12 @@ public final class CharacterDomain
 			}
 		}
 	}
-	/**
-	 * @return Returns the domainName.
-	 */
-	public String getDomainName()
-	{
-		return domainName;
-	}
-
-	/**
-	 * @param domainName The domainName to set.
-	 */
-	public void setDomainName(final String domainName)
-	{
-		this.domainName = domainName;
-	}
 
 	/**
 	 * @return Returns the domainType.
 	 */
 	public String getDomainType()
 	{
-		return domainType;
+		return PC_CLASS_TYPE;
 	}
-
-	/**
-	 * @param domainType The domainType to set.
-	 */
-	public void setDomainType(final String domainType)
-	{
-		this.domainType = domainType;
-
-		if (this.domainType.equalsIgnoreCase(PC_CLASS_TYPE))
-		{
-			fromPCClass = true;
-		}
-		else if (this.domainType.equalsIgnoreCase(ABILITY_CLASS_TYPE))
-		{
-			fromFeat = true;
-		}
-	}
-
 }

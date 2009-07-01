@@ -58,45 +58,42 @@ public class DomainApplication
 
 		if (aCD != null)
 		{
-			if (aCD.isFromPCClass())
+			aClass = pc.getClassKeyed(aCD.getSourceClassKey());
+
+			if (aClass != null)
 			{
-				aClass = pc.getClassKeyed(aCD.getObjectName());
+				int maxLevel;
 
-				if (aClass != null)
+				for (maxLevel = 0; maxLevel < 10; maxLevel++)
 				{
-					int maxLevel;
-
-					for (maxLevel = 0; maxLevel < 10; maxLevel++)
+					if (aClass.getCastForLevel(maxLevel, pc) == 0)
 					{
-						if (aClass.getCastForLevel(maxLevel, pc) == 0)
+						break;
+					}
+				}
+
+				if (maxLevel > 0)
+				{
+					addSpellsToClassForLevels(pc, d, aClass, 0, maxLevel - 1);
+				}
+
+				if ((maxLevel > 1)
+						&& (aClass
+								.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
+				{
+					DomainSpellList domainSpellList = d
+							.get(ObjectKey.DOMAIN_SPELLLIST);
+					final List<Spell> aList = Globals.getSpellsIn(-1,
+							Collections.singletonList(domainSpellList));
+
+					for (Spell gcs : aList)
+					{
+						if (SpellLevel.getFirstLvlForKey(gcs, domainSpellList,
+								pc) < maxLevel)
 						{
+							pc.setAssoc(aClass,
+									AssociationKey.DOMAIN_SPELL_COUNT, 1);
 							break;
-						}
-					}
-
-					if (maxLevel > 0)
-					{
-						addSpellsToClassForLevels(pc, d, aClass, 0, maxLevel - 1);
-					}
-
-					if ((maxLevel > 1)
-							&& (aClass
-									.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
-					{
-						DomainSpellList domainSpellList = d
-								.get(ObjectKey.DOMAIN_SPELLLIST);
-						final List<Spell> aList = Globals.getSpellsIn(-1,
-								Collections.singletonList(domainSpellList));
-
-						for (Spell gcs : aList)
-						{
-							if (SpellLevel
-									.getFirstLvlForKey(gcs, domainSpellList, pc) < maxLevel)
-							{
-								pc.setAssoc(aClass,
-										AssociationKey.DOMAIN_SPELL_COUNT, 1);
-								break;
-							}
 						}
 					}
 				}

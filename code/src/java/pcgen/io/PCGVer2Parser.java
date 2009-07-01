@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
@@ -2170,9 +2171,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// PC doesn't have the domain, so create a new
 				// one and add it to the PC domain list
-				CharacterDomain aCharacterDomain = new CharacterDomain();
-				Domain newDomain = aCharacterDomain.setDomain(aDomain, thePC);
-
+				CharacterDomain aCharacterDomain = null;
+				Domain newDomain = null;
+				
 				while (it.hasNext())
 				{
 					element = it.next();
@@ -2182,14 +2183,28 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					{
 						CharacterDomainParser parser =
 								new CharacterDomainParser();
-						parser.setDomainSource(aCharacterDomain,
+						ClassSource cs = parser.getDomainSource(
 							sourceElementToString(element));
+						aCharacterDomain = new CharacterDomain(cs);
+						newDomain = aCharacterDomain.setDomain(aDomain, thePC);
 					}
 					else if (TAG_ASSOCIATEDDATA.equals(tag))
 					{
+						if (newDomain == null)
+						{
+							warnings
+									.add("Domain has associated data, but no source: "
+											+ domainKey);
+							continue;
+						}
 						thePC.addAssociation(newDomain,
 							EntityEncoder.decode(element.getText()));
 					}
+				}
+				if (aCharacterDomain == null)
+				{
+					warnings.add("Domain not added due to no source: "
+							+ domainKey);
 				}
 
 				thePC.addCharacterDomain(aCharacterDomain);

@@ -597,9 +597,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		{
 			CharacterDomain cd =
 					pc.getCharacterDomainForDomain(theOwner.getKeyName());
-			if ((cd != null) && cd.isFromPCClass())
+			if (cd != null)
 			{
-				classKey = cd.getObjectName();
+				classKey = cd.getSourceClassKey();
 				aClass = pc.getClassKeyed(classKey);
 			}
 			else

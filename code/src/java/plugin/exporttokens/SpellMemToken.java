@@ -520,7 +520,7 @@ public class SpellMemToken extends Token
 			for (CharacterDomain cd : aPC.getCharacterDomainList())
 			{
 				if ((cd != null) && (cd.getDomain() != null)
-					&& cd.isFromPCClass(aObject.getKeyName()))
+					&& cd.isFromPCClass((PCClass) aObject))
 				{
 					dList.add(cd.getDomain().getKeyName());
 				}

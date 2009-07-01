@@ -87,6 +87,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.Qualifier;
@@ -196,11 +197,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Deity deity = null;
 
 	// source of granted domains
-	private HashMap<String, String> domainSourceMap =
-			new HashMap<String, String>();
 	private List<BonusObj> activeBonusList = new ArrayList<BonusObj>();
 	private final List<CharacterDomain> characterDomainList =
 			new ArrayList<CharacterDomain>();
+	private ClassSource defaultDomainSource = null;
 
 	// List of Classes
 	private ArrayList<PCClass> classList = new ArrayList<PCClass>();
@@ -5393,32 +5393,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * return the first source that matches className
-	 * 
-	 * @param className
-	 * @return domain source
-	 */
-	public String getDomainSource(final String className)
-	{
-		for (String aKey : domainSourceMap.keySet())
-		{
-			final String aVal = domainSourceMap.get(aKey);
-			final int aNum = Integer.parseInt(aVal);
-
-			if ((className == null) && (aNum > 0))
-			{
-				return aKey;
-			}
-			else if (aKey.indexOf(className) >= 0)
-			{
-				return aKey;
-			}
-		}
-
-		return Constants.EMPTY_STRING;
-	}
-
-	/**
 	 * Returns the character's Effective Character Level.
 	 * 
 	 * <p>
@@ -6000,7 +5974,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final PlayerCharacter aPC)
 	{
 		int i = getMaxCharacterDomains();
-		if (i == 0 && domainSourceMap.size() == 0)
+		if (i == 0 && !hasDefaultDomainSource())
 			i =
 					(int) source.getBonusTo("DOMAIN", "NUMBER", source
 						.getLevel(this), aPC);
@@ -6129,37 +6103,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public CharacterDomain getNewCharacterDomain()
 	{
-		return getNewCharacterDomain(null);
+		return getNewCharacterDomain(getDefaultDomainSource());
 	}
 
-	public CharacterDomain getNewCharacterDomain(final String className)
+	public CharacterDomain getNewCharacterDomain(ClassSource cs)
 	{
-		final String sDom = getDomainSource(className);
-
-		if (sDom.length() > 0)
+		if (cs != null)
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(sDom, Constants.PIPE);
-			final String aType = aTok.nextToken();
-			final String aName = aTok.nextToken();
-			final int aLevel = Integer.parseInt(aTok.nextToken());
-			final CharacterDomain aCD = new CharacterDomain();
-
-			if (aType.equalsIgnoreCase("PCClass"))
-			{
-				aCD.setFromPCClass(true);
-			}
-			else
-			{
-				aCD.setFromPCClass(false);
-			}
-
-			aCD.setObjectName(aName);
-			aCD.setLevel(aLevel);
-
-			return aCD;
+			return new CharacterDomain(cs);
 		}
-
 		return null;
 	}
 
@@ -7500,33 +7452,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			&& (aCD.getDomain() != null))
 		{
 			characterDomainList.add(aCD);
-			final PCClass domainClass = getClassKeyed(aCD.getObjectName());
-			if (domainClass != null)
+			if (aCD.hasSourceClass())
 			{
-				final int _maxLevel = domainClass.getMaxCastLevel();
-				DomainApplication.addSpellsToClassForLevels(this, aCD
-					.getDomain(), domainClass, 0, _maxLevel);
+				final PCClass domainClass = getClassKeyed(aCD.getSourceClassKey());
+				if (domainClass != null)
+				{
+					final int _maxLevel = domainClass.getMaxCastLevel();
+					DomainApplication.addSpellsToClassForLevels(this, aCD
+						.getDomain(), domainClass, 0, _maxLevel);
+				}
 			}
 			setDirty(true);
 		}
-	}
-
-	/**
-	 * Sets the source of granted domains
-	 * 
-	 * @param aType
-	 * @param aName
-	 * @param aLevel
-	 * @param dNum
-	 */
-	public void addDomainSource(final String aType, final String aName,
-		final int aLevel, final int dNum)
-	{
-		final String aString =
-				aType + Constants.PIPE + aName + Constants.PIPE + aLevel;
-		final String sNum = Integer.toString(dNum);
-		domainSourceMap.put(aString, sNum);
-		setDirty(true);
 	}
 
 	/**
@@ -9273,22 +9210,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Checks for existence of source in domainSourceMap
-	 * 
-	 * @param aType
-	 * @param aName
-	 * @param aLevel
-	 * @return TRUE if it has a domain source
-	 */
-	public boolean hasDomainSource(final String aType, final String aName,
-		final int aLevel)
-	{
-		final String aKey = aType + "|" + aName + "|" + aLevel;
-
-		return domainSourceMap.containsKey(aKey);
-	}
-
-	/**
 	 * Check if the character has the feat 'automatically'
 	 * 
 	 * @param featName
@@ -10353,9 +10274,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final CharacterDomain aCD =
 					getCharacterDomainForDomain(anObj.getKeyName());
 
-			if ((aCD != null) && aCD.isFromPCClass())
+			if (aCD != null)
 			{
-				aSpellClass = "CLASS:" + getClassKeyed(aCD.getObjectName());
+				aSpellClass = "CLASS:" + getClassKeyed(aCD.getSourceClassKey());
 			}
 		}
 		else if (anObj instanceof PCClass)
@@ -11168,11 +11089,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aDomainKey The key of the domain.
 	 * @return true if the doain is present. 
 	 */
-	public boolean containsCharacterDomain(String aClassKey, String aDomainKey)
+	public boolean containsCharacterDomain(PCClass pcclass, String aDomainKey)
 	{
 		for (CharacterDomain cd : characterDomainList)
 		{
-			if (cd.isFromPCClass(aClassKey))
+			if (cd.isFromPCClass(pcclass))
 			{
 				Domain d = cd.getDomain();
 				if (d.getKeyName().equalsIgnoreCase(aDomainKey))
@@ -14305,7 +14226,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.deity = deity;
-		aClone.domainSourceMap = new HashMap<String, String>(domainSourceMap);
 		aClone.characterDomainList.addAll(characterDomainList);
 		for (PCClass pcClass : classList)
 		{
@@ -17784,9 +17704,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final CharacterDomain aCD =
 					getCharacterDomainForDomain(ow.getKeyName());
 
-			if ((aCD != null) && aCD.isFromPCClass())
+			if (aCD != null)
 			{
-				final String a = aCD.getObjectName();
+				final String a = aCD.getSourceClassKey();
 				aClass = getClassKeyed(a);
 			}
 		}
@@ -17893,5 +17813,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<PCStat> getUnmodifiableStatList()
 	{
 		return Collections.unmodifiableList(stats);
+	}
+
+	public boolean hasDefaultDomainSource()
+	{
+		return defaultDomainSource != null;
+	}
+	
+	public ClassSource getDefaultDomainSource()
+	{
+		return defaultDomainSource;
+	}
+	
+	public void setDefaultDomainSource(ClassSource cs)
+	{
+		defaultDomainSource = cs;
 	}
 }

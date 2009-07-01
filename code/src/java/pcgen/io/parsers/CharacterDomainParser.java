@@ -28,10 +28,12 @@
  */
 package pcgen.io.parsers;
 
-import pcgen.core.CharacterDomain;
-import pcgen.util.Logging;
-
 import java.util.StringTokenizer;
+
+import pcgen.cdom.helper.ClassSource;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -47,28 +49,37 @@ public class CharacterDomainParser
 	 * @param aSource the source to be set
 	 * See getDomainSource() for details.
 	 **/
-	public void setDomainSource(CharacterDomain charDomain, String aSource)
+	public ClassSource getDomainSource(String aSource)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aSource, "|", false);
 
 		if (aTok.countTokens() < 2)
 		{
 			Logging.errorPrint("Invalid Domain Source:" + aSource);
-
-			return;
+			return null;
 		}
 
-		charDomain.setDomainType(aTok.nextToken().toUpperCase());
+		aTok.nextToken(); //Throw away "PCClass"
 
-		charDomain.setDomainName(aTok.nextToken().toUpperCase());
-
+		String classString = aTok.nextToken();
+		PCClass cl = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCClass.class, classString);
+		if (cl == null)
+		{
+			Logging.errorPrint("Invalid Class in Domain Source:" + aSource);
+			return null;
+		}
+		ClassSource cs;
 		if (aTok.hasMoreTokens())
 		{
-			charDomain.setLevel(Integer.parseInt(aTok.nextToken()));
+			int level = Integer.parseInt(aTok.nextToken());
+			cs = new ClassSource(cl, level);
 		}
-
-		//domainSource = aSource;
-		//rebuildSource = false;
+		else
+		{
+			cs = new ClassSource(cl);
+		}
+		return cs;
 	}
 
 }

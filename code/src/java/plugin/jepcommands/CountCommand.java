@@ -311,7 +311,7 @@ public class CountCommand extends PCGenCommand
 				{
 					// Domains are not PObjects
 
-					public Map<CharacterDomain, String> objdata;
+					public Set<CharacterDomain> objdata;
 
 					protected void getData(final PlayerCharacter pc)
 					{
@@ -330,7 +330,7 @@ public class CountCommand extends PCGenCommand
 							// then map the Strings back to a set of CharacterDomains, but we
 							// only really need to count them (and we can just as easily
 							// count Strings as CharacterDomains).
-							objdata.put(c, c.getObjectName());
+							objdata.add(c);
 						}
 					}
 
@@ -359,7 +359,7 @@ public class CountCommand extends PCGenCommand
 						}
 
 						final Iterable<CharacterDomain> cs =
-								new HashSet<CharacterDomain>(objdata.keySet());
+								new HashSet<CharacterDomain>(objdata);
 						final Iterator It = cs.iterator();
 
 						if (!"ALL".equalsIgnoreCase(keyValue[1]))
@@ -384,7 +384,7 @@ public class CountCommand extends PCGenCommand
 						//noinspection TypeMayBeWeakened
 						for (final CharacterDomain d : cs)
 						{
-							pSet.add(objdata.get(d));
+							pSet.add(d.getSourceClassKey());
 						}
 
 						return pSet;

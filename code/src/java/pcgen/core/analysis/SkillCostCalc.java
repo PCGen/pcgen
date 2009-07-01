@@ -89,7 +89,7 @@ public final class SkillCostCalc
 		for (CharacterDomain aCD : aPC.getCharacterDomainList())
 		{
 			if ((aCD.getDomain() != null)
-					&& aCD.isFromPCClass(aClass.getKeyName())
+					&& aCD.isFromPCClass(aClass)
 					&& SkillCostCalc.hasCSkill(aPC, aCD.getDomain(), sk))
 			{
 				return true;
@@ -230,7 +230,7 @@ public final class SkillCostCalc
 		for (CharacterDomain aCD : aPC.getCharacterDomainList())
 		{
 			if ((aCD.getDomain() != null)
-					&& aCD.isFromPCClass(aClass.getKeyName())
+					&& aCD.isFromPCClass(aClass)
 					&& SkillCostCalc.hasCcSkill(aPC, aCD.getDomain(), sk))
 			{
 				return true;

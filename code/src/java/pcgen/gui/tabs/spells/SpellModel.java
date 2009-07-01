@@ -557,7 +557,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 			// if any domains have this class as a source
 			// and is a valid domain, add them
-			if ((aDom != null) && aCD.isFromPCClass(aClass.getKeyName()))
+			if ((aDom != null) && aCD.isFromPCClass(aClass))
 			{
 				List<Spell> domainSpells = Globals.getSpellsIn(iLev,
 						Collections.singletonList(aDom

@@ -63,6 +63,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.ArmorProfProvider;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
@@ -459,7 +460,7 @@ public class PCClass extends PObject
 					{
 						for (CharacterDomain cd : aPC.getCharacterDomainList())
 						{
-							if (cd.isFromPCClass(getKeyName())
+							if (cd.isFromPCClass(this)
 								&& (cd.getDomain() != null))
 							{
 								bList = Globals.getSpellsIn(ix, Collections
@@ -990,7 +991,7 @@ public class PCClass extends PObject
 			{
 				for (CharacterDomain cd : aPC.getCharacterDomainList())
 				{
-					if (cd.isFromPCClass(getKeyName()))
+					if (cd.isFromPCClass(this))
 					{
 						return "+1";
 					}
@@ -1409,7 +1410,7 @@ public class PCClass extends PObject
 
 			for (CharacterDomain cd : aPC.getCharacterDomainList())
 			{
-				if ((cd.getDomain() != null) && cd.isFromPCClass(getKeyName()))
+				if ((cd.getDomain() != null) && cd.isFromPCClass(this))
 				{
 					DomainApplication.addSpellsToClassForLevels(aPC,
 							cd.getDomain(), this, 0, _maxLevel);
@@ -2433,12 +2434,9 @@ public class PCClass extends PObject
 				aPC.getMaxCharacterDomains(this, aPC)
 					- aPC.getCharacterDomainUsed();
 
-		if (!aPC.hasDomainSource("PCClass", getKeyName(), newLevel))
+		if (dnum > 0 && !aPC.hasDefaultDomainSource())
 		{
-			if (dnum > 0)
-			{
-				aPC.addDomainSource("PCClass", getKeyName(), newLevel, dnum);
-			}
+			aPC.setDefaultDomainSource(new ClassSource(this, newLevel));
 		}
 
 		aPC.setAutomaticAbilitiesStable(null, false);
@@ -3838,12 +3836,16 @@ public class PCClass extends PObject
 			String domKey = d.getKeyName();
 			if (adding)
 			{
-				if (!aPC.containsCharacterDomain(this.getKeyName(), domKey))
+				if (!aPC.containsCharacterDomain(this, domKey))
 				{
 					Domain aDomain = d;
 
-					final CharacterDomain aCD =
-							aPC.getNewCharacterDomain(getKeyName());
+					// TODO Not entirely correct, as this takes this level, not
+					// the level where BONUS DOMAINS was present
+					ClassSource source = new ClassSource(this, this
+							.getLevel(aPC));
+					final CharacterDomain aCD = aPC
+							.getNewCharacterDomain(source);
 					Domain newDomain = aCD.setDomain(aDomain, aPC);
 					aPC.addCharacterDomain(aCD);
 					DomainApplication.applyDomain(aPC, newDomain);
