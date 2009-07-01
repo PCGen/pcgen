@@ -487,39 +487,27 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 
-		assertFalse("Not yet proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertFalse("Not yet proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
+		assertFalse("Not yet proficient in Weapon A", TestHelper.hasWeaponProfKeyed(character, "Weapon A"));
+		assertFalse("Not yet proficient in Weapon B", TestHelper.hasWeaponProfKeyed(character, "Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", TestHelper.hasWeaponProfKeyed(character, "Weapon C"));
 
 		character.incrementClassLevel(1, pcClass, true);
 
-		assertFalse("First Proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertTrue("Not yet proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
+		assertFalse("First Proficient in Weapon A", TestHelper.hasWeaponProfKeyed(character, "Weapon A"));
+		assertTrue("Not yet proficient in Weapon B", TestHelper.hasWeaponProfKeyed(character, "Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", TestHelper.hasWeaponProfKeyed(character, "Weapon C"));
 
 		character.incrementClassLevel(1, pcClass, true);
 
-		assertTrue("Second Proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertTrue("Proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertFalse("Not yet proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
+		assertTrue("Second Proficient in Weapon A", TestHelper.hasWeaponProfKeyed(character, "Weapon A"));
+		assertTrue("Proficient in Weapon B", TestHelper.hasWeaponProfKeyed(character, "Weapon B"));
+		assertFalse("Not yet proficient in Weapon C", TestHelper.hasWeaponProfKeyed(character, "Weapon C"));
 
 		character.incrementClassLevel(1, pcClass, true);
 
-		assertTrue("Third Proficient in Weapon A", character
-			.hasWeaponProfKeyed("Weapon A"));
-		assertTrue("Proficient in Weapon B", character
-			.hasWeaponProfKeyed("Weapon B"));
-		assertTrue("Proficient in Weapon C", character
-			.hasWeaponProfKeyed("Weapon C"));
+		assertTrue("Third Proficient in Weapon A", TestHelper.hasWeaponProfKeyed(character, "Weapon A"));
+		assertTrue("Proficient in Weapon B", TestHelper.hasWeaponProfKeyed(character, "Weapon B"));
+		assertTrue("Proficient in Weapon C", TestHelper.hasWeaponProfKeyed(character, "Weapon C"));
 	}
 
 	/**

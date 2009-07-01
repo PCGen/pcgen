@@ -131,7 +131,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private final List<String> warnings = new ArrayList<String>();
 	private Cache cache;
-	private final List<String> weaponprofs = new ArrayList<String>();
+	private final List<WeaponProf> weaponprofs = new ArrayList<WeaponProf>();
 	private PlayerCharacter thePC;
 	private final Set<String> seenStats = new HashSet<String>();
 
@@ -4683,7 +4683,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			for (PCGElement child : element.getChildren())
 			{
-				weaponprofs.add(updateProficiencyName(child.getText(), true));
+				weaponprofs.add(getWeaponProf(child.getText()));
 			}
 		}
 		else
@@ -4692,7 +4692,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				thePC.addAssoc(source,
 						AssociationListKey.SELECTED_WEAPON_PROF_BONUS,
-						updateProficiencyName(child.getText(), true));
+						getWeaponProf(child.getText()).getKeyName());
 			}
 		}
 	}
@@ -4719,49 +4719,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return objClass.getName().substring(pckName.length() + 1);
 	}
 
-	/**
-	 * @deprecated
-	 * @param aString
-	 * @param decode
-	 * @return
-	 */
 	@Deprecated
-	private static String updateProficiencyName(final String aString,
-		final boolean decode)
+	private static WeaponProf getWeaponProf(final String aString)
 	{
-		String profKey = aString;
-		if (decode)
-		{
-			profKey = EntityEncoder.decode(aString);
-		}
-
-		// TODO This is totally bogus.  This will never really work properly.
-		// This logic should be deprecated and removed.
-		if (Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			WeaponProf.class, profKey) == null)
-		{
-			int idx = profKey.indexOf("1-H"); //$NON-NLS-1$
-
-			if (idx >= 0)
-			{
-				profKey =
-						profKey.substring(0, idx)
-							+ "Exotic" + profKey.substring(idx + 3); //$NON-NLS-1$
-			}
-			else
-			{
-				idx = profKey.indexOf("2-H"); //$NON-NLS-1$
-
-				if (idx >= 0)
-				{
-					profKey =
-							profKey.substring(0, idx)
-								+ "Martial" + profKey.substring(idx + 3); //$NON-NLS-1$
-				}
-			}
-		}
-
-		return aString;
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			WeaponProf.class, EntityEncoder.decode(aString));
 	}
 
 	private void checkWeaponProficiencies()
@@ -4769,9 +4731,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		//		thePC.setAutomaticFeatsStable(false);
 		thePC.setAutomaticAbilitiesStable(null, false);
 
-		for (final Iterator<String> it = weaponprofs.iterator(); it.hasNext();)
+		for (final Iterator<WeaponProf> it = weaponprofs.iterator(); it.hasNext();)
 		{
-			if (thePC.hasWeaponProfKeyed(it.next()))
+			if (thePC.hasWeaponProf(it.next()))
 			{
 				it.remove();
 			}

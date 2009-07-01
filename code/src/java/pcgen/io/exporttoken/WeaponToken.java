@@ -1844,14 +1844,17 @@ public class WeaponToken extends Token
 
 		int weaponBaseBonus = (int) eq.bonusTo(pc, "WEAPON", "WEAPONBAB", true);
 		CDOMSingleRef<WeaponProf> ref = eq.get(ObjectKey.WEAPON_PROF);
+		WeaponProf prof;
 		String profKey;
 		if (ref == null)
 		{
 			profKey = "";
+			prof = null;
 		}
 		else
 		{
-			profKey = ref.resolvesTo().getKeyName();
+			prof = ref.resolvesTo();
+			profKey = prof.getKeyName();
 		}
 
 		weaponBaseBonus +=
@@ -2076,7 +2079,7 @@ public class WeaponToken extends Token
 		}
 
 		if (!eq.isNatural()
-			&& ((ref == null) || !pc.hasWeaponProfKeyed(profKey)))
+			&& ((ref == null) || !pc.hasWeaponProf(prof)))
 		{
 			baseBonus += pc.getNonProficiencyPenalty();
 		}

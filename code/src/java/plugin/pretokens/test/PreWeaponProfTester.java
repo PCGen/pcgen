@@ -95,11 +95,15 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
 		{
 			List<CDOMReference<WeaponProf>> dwp = character.getDeity().getSafeListFor(
 					ListKey.DEITYWEAPON);
-			for (CDOMReference<WeaponProf> ref : dwp)
+			DEITYWPN: for (CDOMReference<WeaponProf> ref : dwp)
 			{
-				if (character.hasWeaponProfKeyed(ref.getLSTformat()))
+				for (WeaponProf wp : ref.getContainedObjects())
 				{
-					runningTotal++;
+					if (character.hasWeaponProf(wp))
+					{
+						runningTotal++;
+						break DEITYWPN;
+					}
 				}
 			}
 		}
@@ -129,7 +133,9 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
 		}
 		else
 		{
-			if (character.hasWeaponProfKeyed(aString))
+			WeaponProf wp = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
+			if ((wp != null && character.hasWeaponProf(wp)))
 			{
 				runningTotal++;
 			}

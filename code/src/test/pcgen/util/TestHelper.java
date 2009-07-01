@@ -449,4 +449,18 @@ public class TestHelper
 		pc.setAlignment(al, bLoading, bForce);
 	}
 
+	/**
+	 * Checks to see if this PC has the weapon proficiency key aKey
+	 * 
+	 * @param aKey
+	 * @return boolean
+	 */
+	public static boolean hasWeaponProfKeyed(PlayerCharacter pc,
+			final String aKey)
+	{
+		WeaponProf wp = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(WeaponProf.class, aKey);
+		return wp != null && pc.hasWeaponProf(wp);
+	}
+
 }

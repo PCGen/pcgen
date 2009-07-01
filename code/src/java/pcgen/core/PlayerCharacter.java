@@ -366,7 +366,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
 
 	private Set<WeaponProf> theWeaponProfs = null;
-	private Map<String, WeaponProf> cachedWeaponProfs = null;
+	private Set<WeaponProf> cachedWeaponProfs = null;
 
 	// private Map<String, List<TypedBonus>> theBonusMap = new HashMap<String,
 	// List<TypedBonus>>();
@@ -3979,46 +3979,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return new Float(value);
 	}
 
-	// /**
-	// * Returns the <tt>Set</tt> of <tt>WeaponProf</tt> objects for the
-	// character.
-	// *
-	// * @return A sorted <tt>Set</tt> of weapon proficiencies.
-	// */
-	// public TreeSet<WeaponProf> getWeaponProfList()
-	// {
-	// final TreeSet<WeaponProf> wp = new TreeSet<WeaponProf>(weaponProfList);
-	//
-	// // Try all possible PObjects
-	// for (PObject pobj : getPObjectList())
-	// {
-	// if (pobj != null)
-	// {
-	// final List<String> profKeyList =
-	// pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
-	// for (String profKey : profKeyList)
-	// {
-	// final WeaponProf prof = Globals.getWeaponProfKeyed(profKey);
-	// if (prof != null)
-	// {
-	// wp.add(prof);
-	// }
-	// }
-	// }
-	// }
-	//
-	// return wp;
-	// }
-
-	private Map<String, WeaponProf> buildWeaponProfCache()
+	private Set<WeaponProf> buildWeaponProfCache()
 	{
-		final Map<String, WeaponProf> ret = new HashMap<String, WeaponProf>();
+		final Set<WeaponProf> ret = new HashSet<WeaponProf>();
 		if (theWeaponProfs != null)
 		{
-			for (final WeaponProf wp : this.theWeaponProfs)
-			{
-				ret.put(wp.getKeyName(), wp);
-			}
+			ret.addAll(theWeaponProfs);
 		}
 		// Try all possible CDOMObjects
 		for (CDOMObject pobj : getCDOMObjectList())
@@ -4038,7 +4004,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 									WeaponProf.class, profKey);
 					if (prof != null)
 					{
-						ret.put(prof.getKeyName(), prof);
+						ret.add(prof);
 					}
 				}
 			}
@@ -4047,8 +4013,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					pobj.getSafeListFor(ListKey.IMPLIED_WEAPONPROF);
 			for (CDOMSingleRef<WeaponProf> ref : iwp)
 			{
-				WeaponProf prof = ref.resolvesTo();
-				ret.put(prof.getKeyName(), prof);
+				ret.add(ref.resolvesTo());
 			}
 			// AUTO:WEAPONPROF except LIST
 			List<WeaponProfProvider> potentialProfs =
@@ -4057,10 +4022,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				if (wpp.qualifies(this))
 				{
-					for (WeaponProf wp : wpp.getContainedProficiencies(this))
-					{
-						ret.put(wp.getKeyName(), wp);
-					}
+					ret.addAll(wpp.getContainedProficiencies(this));
 				}
 			}
 			// AUTO:WEAPONPROF LIST
@@ -4068,10 +4030,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					getAssocList(pobj, AssociationListKey.WEAPONPROF);
 			if (profs != null)
 			{
-				for (WeaponProf wp : profs)
-				{
-					ret.put(wp.getKeyName(), wp);
-				}
+				ret.addAll(profs);
 			}
 			Boolean all =
 					pobj.getSafe(ObjectKey.HAS_ALL_WEAPONPROF).getObject(this);
@@ -4080,10 +4039,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Collection<WeaponProf> allwps =
 						Globals.getContext().ref
 							.getConstructedCDOMObjects(WeaponProf.class);
-				for (WeaponProf wp : allwps)
-				{
-					ret.put(wp.getKeyName(), wp);
-				}
+				ret.addAll(allwps);
 			}
 			Boolean dwp =
 					pobj.getSafe(ObjectKey.HAS_DEITY_WEAPONPROF)
@@ -4105,7 +4061,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							 */
 							if (!wp.isType("Natural"))
 							{
-								ret.put(wp.getKeyName(), wp);
+								ret.add(wp);
 							}
 						}
 					}
@@ -4122,7 +4078,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			cachedWeaponProfs = buildWeaponProfCache();
 		}
 		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(
-			cachedWeaponProfs.values()));
+			cachedWeaponProfs));
 	}
 
 	/**
@@ -4393,36 +4349,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return ref.contains(qualTestObject);
 	}
 
-	/**
-	 * Checks to see if this PC has the weapon proficiency key aKey
-	 * 
-	 * @param aKey
-	 * @return boolean
-	 */
-	public boolean hasWeaponProfKeyed(final String aKey)
-	{
-		if (cachedWeaponProfs == null)
-		{
-			cachedWeaponProfs = buildWeaponProfCache();
-		}
-		for (WeaponProf wp : cachedWeaponProfs.values())
-		{
-			if (wp != null && wp.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public boolean hasWeaponProf(final WeaponProf wp)
 	{
-		// return hasWeaponProfKeyed( wp.getKeyName() );
 		if (cachedWeaponProfs == null)
 		{
 			cachedWeaponProfs = buildWeaponProfCache();
 		}
-		return cachedWeaponProfs.get(wp.getKeyName()) != null;
+		return cachedWeaponProfs.contains(wp);
 	}
 
 	public Equipment getEquipmentNamed(final String aString)
@@ -11899,8 +11832,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return false;
 		}
 
-		WeaponProf wp = ref.resolvesTo();
-		return hasWeaponProfKeyed(wp.getKeyName());
+		return hasWeaponProf(ref.resolvesTo());
 	}
 
 	private void selectRacialFavoredClass()
@@ -12142,12 +12074,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (wp != null && cachedWeaponProfs != null)
 		{
-			cachedWeaponProfs.put(wp.getKeyName(), wp);
+			cachedWeaponProfs.add(wp);
 		}
-		// if (wp != null && !weaponProfList.contains(wp))
-		// {
-		// weaponProfList.add(wp);
-		// }
 	}
 
 	/**

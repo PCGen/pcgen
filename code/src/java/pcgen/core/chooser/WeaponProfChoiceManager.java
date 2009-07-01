@@ -107,10 +107,12 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 			else if ("SIZE.".regionMatches(true, 0, aString, 0, 5))
 			{
 				final String profKey = aString.substring(7);
+				final WeaponProf wp = refContext
+						.silentlyGetConstructedCDOMObject(WeaponProf.class,
+								profKey);
 				if ((aPc.sizeInt() >= Globals.sizeInt(aString.substring(5, 6)))
-					&& aPc.hasWeaponProfKeyed(profKey))
+					&& aPc.hasWeaponProf(wp))
 				{
-					final WeaponProf wp = refContext.silentlyGetConstructedCDOMObject(WeaponProf.class, profKey);
 					if (!availableList.contains(wp))
 					{
 						availableList.add(wp);
