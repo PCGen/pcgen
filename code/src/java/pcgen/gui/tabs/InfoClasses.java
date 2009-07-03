@@ -86,7 +86,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
@@ -1525,21 +1524,18 @@ public final class InfoClasses extends FilterAdapterPanel implements
 	{
 		final List<PCCheck> checkList =
 				SettingsHandler.getGame().getUnmodifiableCheckList();
-		final int countChecks = checkList.size();
 
-		if ((lCheck == null) || (countChecks != lCheck.length))
+		if ((lCheck == null) || (checkList.size() != lCheck.length))
 		{
 			buildEastPanel();
 		}
 
-		if (countChecks != 0)
+		int i = 0;
+		for (PCCheck check : checkList)
 		{
-			for (int i = 0; i < countChecks; ++i)
-			{
-				final PObject obj = checkList.get(i);
-				lblCheck[i].setText(obj.getDisplayName());
-				lCheck[i].setText(Delta.toString(pc.getTotalCheck(i)));
-			}
+			lblCheck[i].setText(check.getDisplayName());
+			lCheck[i].setText(Delta.toString(pc.getTotalCheck(check)));
+			i++;
 		}
 	}
 

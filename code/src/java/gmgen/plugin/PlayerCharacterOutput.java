@@ -291,17 +291,23 @@ public class PlayerCharacterOutput
 
 	public String getSaveFort()
 	{
-		return "+" + pc.getTotalCheck(0);
+		return "+"
+				+ pc.getTotalCheck(SettingsHandler.getGame().getCheckNamed(
+						"FORT"));
 	}
 
 	public String getSaveRef()
 	{
-		return "+" + pc.getTotalCheck(1);
+		return "+"
+				+ pc.getTotalCheck(SettingsHandler.getGame().getCheckNamed(
+						"REF"));
 	}
 
 	public String getSaveWill()
 	{
-		return "+" + pc.getTotalCheck(2);
+		return "+"
+				+ pc.getTotalCheck(SettingsHandler.getGame().getCheckNamed(
+						"WILL"));
 	}
 
 	public String getSize()

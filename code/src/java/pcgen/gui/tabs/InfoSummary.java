@@ -86,6 +86,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -1093,22 +1094,22 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					.append(" <b>").append(Globals.getGameModeAltHPAbbrev()).append("</b>: ").append(pc.altHP()); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
-			for (int z = 0; z < SettingsHandler.getGame()
-				.getUnmodifiableCheckList().size(); ++z)
+			List<PCCheck> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+			if (!checkList.isEmpty())
 			{
 				//
 				// If the current game mode has no 'saves', then we will omit the header as we will never get here...
 				//
-				if (z == 0)
-				{
-					statBuf.append("<br>"); //$NON-NLS-1$
-					statBuf
-						.append("<b>").append(PropertyFactory.getString("in_sumSaves")).append("</b>: "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				}
-				bonus = pc.getTotalCheck(z);
+				statBuf.append("<br>"); //$NON-NLS-1$
 				statBuf
-					.append(" <i>").append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()) //$NON-NLS-1$
-					.append("</i>: ").append(Delta.toString(bonus)); //$NON-NLS-1$
+					.append("<b>").append(PropertyFactory.getString("in_sumSaves")).append("</b>: "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				for (PCCheck check : checkList)
+				{
+					bonus = pc.getTotalCheck(check);
+					statBuf
+						.append(" <i>").append(check.toString()) //$NON-NLS-1$
+						.append("</i>: ").append(Delta.toString(bonus)); //$NON-NLS-1$
+				}
 			}
 
 			//

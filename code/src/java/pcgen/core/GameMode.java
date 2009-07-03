@@ -1630,39 +1630,16 @@ public final class GameMode implements Comparable<Object>
 	 * @param aName
 	 * @return PObject
 	 */
-	public PObject getCheckNamed(final String aName)
+	public PCCheck getCheckNamed(final String aName)
 	{
-		final PObject check;
-		final int index = getIndexOfCheck(aName);
-
-		if (index == -1)
+		for (PCCheck check : checkList)
 		{
-			check = null;
-		}
-		else
-		{
-			check = checkList.get(index);
-		}
-
-		return check;
-	}
-
-	/**
-	 * Get the Index of a Check
-	 * @param check
-	 * @return index of a check
-	 */
-	public int getIndexOfCheck(final String check)
-	{
-		for (int i = 0; i < checkList.size(); ++i)
-		{
-			if (checkList.get(i).toString().equalsIgnoreCase(check))
+			if (check.toString().equalsIgnoreCase(aName))
 			{
-				return i;
+				return check;
 			}
 		}
-
-		return -1; // not found
+		return null;
 	}
 
 	/**
@@ -1672,22 +1649,6 @@ public final class GameMode implements Comparable<Object>
 	public List<PCCheck> getUnmodifiableCheckList()
 	{
 		return Collections.unmodifiableList(checkList);
-	}
-
-	/**
-	 * Returns the check key of the check at the index specified.
-	 * 
-	 * @param anIndex Index of the check in the game mode check list.
-	 * 
-	 * @return A key for the check.
-	 */
-	public String getCheckKey( final int anIndex )
-	{
-		if (anIndex < 0 || anIndex >= checkList.size())
-		{
-			return "";
-		}
-		return checkList.get(anIndex).getKeyName();
 	}
 	
 	//ALIGNMENTLIST

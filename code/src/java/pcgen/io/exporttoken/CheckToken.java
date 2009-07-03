@@ -25,11 +25,13 @@
  */
 package pcgen.io.exporttoken;
 
+import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -81,7 +83,7 @@ public class CheckToken extends Token
 
 		if ("NAME".equals(saveMods))
 		{
-			return getNameToken(saveType);
+			return getNameToken(saveType).toString();
 		}
 		if (isNosign) 
 		{
@@ -100,7 +102,7 @@ public class CheckToken extends Token
 	public static int getCheckToken(PlayerCharacter pc, String saveType,
 		String saveMods)
 	{
-		String type = getNameToken(saveType);
+		PCCheck type = getNameToken(saveType);
 		return pc.calculateSaveBonus(1, type, "".equals(saveMods) ? "TOTAL"
 			: saveMods);
 	}
@@ -110,24 +112,23 @@ public class CheckToken extends Token
 	 * @param saveType
 	 * @return token name
 	 */
-	public static String getNameToken(String saveType)
+	public static PCCheck getNameToken(String saveType)
 	{
+		List<PCCheck> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
 		try
 		{
 			int i = Integer.parseInt(saveType);
 
-			if ((i >= 0)
-				&& (i < SettingsHandler.getGame().getUnmodifiableCheckList()
-					.size()))
+			if ((i >= 0) && (i < checkList.size()))
 			{
-				return SettingsHandler.getGame().getUnmodifiableCheckList()
-					.get(i).toString();
+				return checkList.get(i);
 			}
 		}
 		catch (NumberFormatException e)
 		{
 			// just means it's a name, not a number
+			return SettingsHandler.getGame().getCheckNamed(saveType);
 		}
-		return saveType;
+		return null;
 	}
 }

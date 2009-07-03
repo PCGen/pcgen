@@ -265,7 +265,7 @@ public class SavingThrowPane extends JPanel
 		//Row 2
 		//Col 1
 		fortPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		fortLabel.setText(CheckToken.getNameToken(FORT).toUpperCase());
+		fortLabel.setText(CheckToken.getNameToken(FORT).toString().toUpperCase());
 		fortPanel.add(fortLabel);
 		conLabel.setFont(FONT_TEN);
 		conLabel.setText(CON);
@@ -306,7 +306,7 @@ public class SavingThrowPane extends JPanel
 		//Row 3
 		//Col 1
 		refPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		refLabel.setText(CheckToken.getNameToken(REFLEX).toUpperCase());
+		refLabel.setText(CheckToken.getNameToken(REFLEX).toString().toUpperCase());
 		refPanel.add(refLabel);
 		dexLabel.setFont(FONT_TEN);
 		dexLabel.setText(DEX);
@@ -347,7 +347,7 @@ public class SavingThrowPane extends JPanel
 		//Row 4
 		//Col 1
 		willPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		willLabel.setText(CheckToken.getNameToken(WILL).toUpperCase());
+		willLabel.setText(CheckToken.getNameToken(WILL).toString().toUpperCase());
 		willPanel.add(willLabel);
 		wisLabel.setFont(FONT_TEN);
 		wisLabel.setText(WIS);

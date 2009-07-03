@@ -373,7 +373,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
 	Integer epicBAB = null;
-	HashMap<Integer, Integer> epicCheckMap = new HashMap<Integer, Integer>();
+	HashMap<PCCheck, Integer> epicCheckMap = new HashMap<PCCheck, Integer>();
 
 	private HashMapToList<CDOMObject, PCTemplate> templatesAdded =
 			new HashMapToList<CDOMObject, PCTemplate>();
@@ -5015,14 +5015,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return The base check value.
 	 */
-	public int getBaseCheck(final int checkInd)
+	public int getBaseCheck(final PCCheck check)
 	{
-		final String cacheLookup = "getBaseCheck:" + checkInd; //$NON-NLS-1$
+		final String cacheLookup = "getBaseCheck:" + check.getKeyName(); //$NON-NLS-1$
 
 		Float total = null;
-		if (epicCheckMap.containsKey(checkInd))
+		if (epicCheckMap.containsKey(check))
 		{
-			total = epicCheckMap.get(checkInd).floatValue();
+			total = epicCheckMap.get(check).floatValue();
 		}
 		else
 		{
@@ -5040,15 +5040,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
 
-		if (checkInd >= 0
-			&& checkInd < SettingsHandler.getGame().getUnmodifiableCheckList()
-				.size())
+		if (check != null)
 		{
 			totalClassLevels = getTotalCharacterLevel();
 			if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
 			{
 				isEpic = true;
-				Integer epicCheck = epicCheckMap.get(checkInd);
+				Integer epicCheck = epicCheckMap.get(check);
 				if (epicCheck == null)
 				{
 					totalLvlMap = getTotalLevelHashMap();
@@ -5067,9 +5065,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			final String checkName =
-					SettingsHandler.getGame().getUnmodifiableCheckList().get(
-						checkInd).toString();
+			final String checkName = check.getKeyName();
 			bonus = getTotalBonusTo("CHECKS", "BASE." + checkName);
 
 			//
@@ -5078,7 +5074,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ((nPC != null) && (getCopyMasterCheck().length() > 0))
 			{
-				int masterBonus = nPC.getBaseCheck(checkInd);
+				int masterBonus = nPC.getBaseCheck(check);
 
 				final String copyMasterCheck =
 						replaceMasterString(getCopyMasterCheck(), masterBonus);
@@ -5092,7 +5088,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (isEpic)
 			{
-				epicCheckMap.put(checkInd, (int) bonus);
+				epicCheckMap.put(check, (int) bonus);
 			}
 
 			if (totalLvlMap != null)
@@ -5105,23 +5101,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Returns the total check value for the check index specified for the
+	 * Returns the total check value for the check specified for the
 	 * character.
 	 * 
 	 * <p>
 	 * This total includes all check bonuses the character has.
 	 * 
-	 * @param aCheck
-	 *            The index of the check to get.
+	 * @param check
+	 *            The check to get.
 	 * 
 	 * @return A check value.
 	 */
-	public int getTotalCheck(final int aCheck)
+	public int getTotalCheck(PCCheck check)
 	{
-		int bonus = getBaseCheck(aCheck);
+		int bonus = getBaseCheck(check);
 		return bonus
-			+ (int) getTotalBonusTo("CHECKS", SettingsHandler.getGame()
-				.getCheckKey(aCheck));
+			+ (int) getTotalBonusTo("CHECKS", check.getKeyName());
 	}
 
 	// /**
@@ -8964,14 +8959,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            tokenString to parse
 	 * @return the calculated save bonus
 	 */
-	public int calculateSaveBonus(final int saveIndex, final String saveType,
+	public int calculateSaveBonus(final int saveIndex, final PCCheck check,
 		final String tokenString)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenString, ".");
 		final String[] tokens = new String[aTok.countTokens()];
-		final int checkIndex =
-				SettingsHandler.getGame().getIndexOfCheck(saveType);
 		int save = 0;
+		String saveType = check.toString();
 
 		for (int i = 0; aTok.hasMoreTokens(); ++i)
 		{
@@ -8979,11 +8973,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ("TOTAL".equals(tokens[i]))
 			{
-				save += getTotalCheck(checkIndex);
+				save += getTotalCheck(check);
 			}
 			else if ("BASE".equals(tokens[i]))
 			{
-				save += getBaseCheck(checkIndex);
+				save += getBaseCheck(check);
 			}
 			else if ("MISC".equals(tokens[i]))
 			{

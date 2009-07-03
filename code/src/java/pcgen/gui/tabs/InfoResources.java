@@ -100,6 +100,7 @@ import pcgen.core.FollowerOption;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
+import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -1118,15 +1119,15 @@ public class InfoResources extends FilterAdapterPanel implements
 			.append(BOLD)
 			.append(PropertyFactory.getString("in_sumSaves")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
 
-		for (int z = 0; z < SettingsHandler.getGame()
-			.getUnmodifiableCheckList().size(); z++)
+		List<PCCheck> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+		for (PCCheck check : checkList)
 		{
-			bonus = newPC.getTotalCheck(z);
+			bonus = newPC.getTotalCheck(check);
 			b
-				.append(" ").append(ITALIC).append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()).append(END_ITALIC).append(": ") //$NON-NLS-1$ //$NON-NLS-2$
-				.append(
-					(bonus >= 0)
-						? PropertyFactory.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$//$NON-NLS-2$
+					.append(" ").append(ITALIC).append(check.toString()).append(END_ITALIC).append(": ") //$NON-NLS-1$ //$NON-NLS-2$
+					.append(
+							(bonus >= 0) ? PropertyFactory
+									.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 		b.append(BR);

@@ -320,48 +320,27 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 			if (saveType == FORT_SAVE)
 			{
-				base =
-						pc.calculateSaveBonus(1, checkList.get(0).toString(),
-							"BASE");
-				ability =
-						pc.calculateSaveBonus(1, checkList.get(0).toString(),
-							"STATMOD");
-				magic =
-						pc.calculateSaveBonus(1, checkList.get(0).toString(),
-							"MAGIC");
-				misc =
-						pc.calculateSaveBonus(1, checkList.get(0).toString(),
-							"MISC.NOMAGIC.NOSTAT");
+				PCCheck fort = checkList.get(0);
+				base = pc.calculateSaveBonus(1, fort, "BASE");
+				ability = pc.calculateSaveBonus(1, fort, "STATMOD");
+				magic = pc.calculateSaveBonus(1, fort, "MAGIC");
+				misc = pc.calculateSaveBonus(1, fort, "MISC.NOMAGIC.NOSTAT");
 			}
 			else if (saveType == REF_SAVE)
 			{
-				base =
-						pc.calculateSaveBonus(2, checkList.get(1).toString(),
-							"BASE");
-				ability =
-						pc.calculateSaveBonus(2, checkList.get(1).toString(),
-							"STATMOD");
-				magic =
-						pc.calculateSaveBonus(2, checkList.get(1).toString(),
-							"MAGIC");
-				misc =
-						pc.calculateSaveBonus(2, checkList.get(1).toString(),
-							"MISC.NOMAGIC.NOSTAT");
+				PCCheck ref = checkList.get(1);
+				base = pc.calculateSaveBonus(2, ref, "BASE");
+				ability = pc.calculateSaveBonus(2, ref, "STATMOD");
+				magic = pc.calculateSaveBonus(2, ref, "MAGIC");
+				misc = pc.calculateSaveBonus(2, ref, "MISC.NOMAGIC.NOSTAT");
 			}
 			else if (saveType == WILL_SAVE)
 			{
-				base =
-						pc.calculateSaveBonus(3, checkList.get(2).toString(),
-							"BASE");
-				ability =
-						pc.calculateSaveBonus(3, checkList.get(2).toString(),
-							"STATMOD");
-				magic =
-						pc.calculateSaveBonus(3, checkList.get(2).toString(),
-							"MAGIC");
-				misc =
-						pc.calculateSaveBonus(3, checkList.get(2).toString(),
-							"MISC.NOMAGIC.NOSTAT");
+				PCCheck will = checkList.get(2);
+				base = pc.calculateSaveBonus(3, will, "BASE");
+				ability = pc.calculateSaveBonus(3, will, "STATMOD");
+				magic = pc.calculateSaveBonus(3, will, "MAGIC");
+				misc = pc.calculateSaveBonus(3, will, "MISC.NOMAGIC.NOSTAT");
 			}
 		}
 		else if (cbt instanceof XMLCombatant)
