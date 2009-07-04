@@ -195,6 +195,9 @@ public final class GameMode implements Comparable<Object>
 	private List<String> xpTableNames = new ArrayList<String>();
 	private String currXpTableName;
 
+	/** The BioSet used for age calculations */
+	private BioSet bioSet = new BioSet();
+
 	/**
 	 * Creates a new instance of GameMode.
 	 *
@@ -3313,6 +3316,22 @@ public final class GameMode implements Comparable<Object>
 	public void setBonusStatAllowsStack(boolean bonusStatAllowsStack)
 	{
 		this.bonusStatAllowsStack = bonusStatAllowsStack;
+	}
+
+	/**
+	 * @return the bioSet
+	 */
+	public BioSet getBioSet()
+	{
+		return bioSet;
+	}
+
+	/**
+	 * @param bioSet the bioSet to set
+	 */
+	public void setBioSet(BioSet bioSet)
+	{
+		this.bioSet = bioSet;
 	}
 
 	@Override

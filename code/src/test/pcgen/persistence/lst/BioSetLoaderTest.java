@@ -35,7 +35,10 @@ import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -142,7 +145,7 @@ public final class BioSetLoaderTest extends PCGenTestCase
 			final String line = bioSetData[i];
 			loader.parseLine(context, line, new URI("http://UNIT_TEST_CASE"));
 		}
-		Globals.setBioSet(loader.bioSet);
+		SettingsHandler.getGame().setBioSet(loader.bioSet);
 	}
 
 	/**

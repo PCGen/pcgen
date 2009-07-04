@@ -24,7 +24,10 @@ package pcgen.persistence.lst;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -71,8 +74,10 @@ final class BioSetLoader extends LstLineFileLoader
 	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		currentAgeSetIndex = 0;
+		final GameMode game = SystemCollections.getGameModeNamed(gameMode);
+		bioSet = game.getBioSet();
 		super.loadLstFile(context, fileName);
-		Globals.setBioSet(bioSet);
+		game.setBioSet(bioSet);
 	}
 
 	/**

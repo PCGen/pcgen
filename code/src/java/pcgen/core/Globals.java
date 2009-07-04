@@ -278,21 +278,12 @@ public final class Globals
 	}
 
 	/**
-	 * Set the BioSet
-	 * @param aBioSet
-	 */
-	public static void setBioSet(final BioSet aBioSet)
-	{
-		bioSet = aBioSet;
-	}
-
-	/**
 	 * Get the Bio Set
 	 * @return the Bio Set
 	 */
 	public static BioSet getBioSet()
 	{
-		return bioSet;
+		return SettingsHandler.getGame().getBioSet();
 	}
 
 	/**
