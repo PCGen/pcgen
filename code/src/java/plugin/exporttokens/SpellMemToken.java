@@ -37,7 +37,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -511,21 +510,11 @@ public class SpellMemToken extends Token
 		final int spellLevel, String sString, String altLabel,
 		final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
 	{
-		final List<String> dList = new ArrayList<String>();
 		StringBuffer retValue = new StringBuffer();
 
 		if ((aObject != null) && (cs != null) && cs.isSpecialtySpell(aPC)
 			&& (aObject instanceof PCClass))
 		{
-			for (CharacterDomain cd : aPC.getCharacterDomainList())
-			{
-				if ((cd != null) && (cd.getDomain() != null)
-					&& cd.isFromPCClass((PCClass) aObject))
-				{
-					dList.add(cd.getDomain().getKeyName());
-				}
-			}
-
 			final List<CharacterSpell> charSpells =
 					aPC.getCharacterSpells(aObject, aSpell, bookName, spellLevel);
 			boolean isDomainOnly = true;

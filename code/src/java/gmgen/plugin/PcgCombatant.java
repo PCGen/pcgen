@@ -42,7 +42,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -856,7 +855,7 @@ public class PcgCombatant extends Combatant
 		{
 			StringBuffer statBuf = new StringBuffer();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
-			if (pc.hasCharacterDomainList())
+			if (pc.hasDomains())
 			{
 				//Domains
 				//Deity
@@ -869,7 +868,7 @@ public class PcgCombatant extends Combatant
 				//Domain List with powers
 				boolean firstLine = true;
 
-				for (CharacterDomain cd : pc.getCharacterDomainList())
+				for (Domain dom : pc.getDomainSet())
 				{
 					if (!firstLine)
 					{
@@ -878,7 +877,6 @@ public class PcgCombatant extends Combatant
 
 					firstLine = false;
 
-					Domain dom = cd.getDomain();
 					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
 					statBuf.append(DescriptionFormatting.piDescString(pc, dom)); //|DOMAIN.POWER|

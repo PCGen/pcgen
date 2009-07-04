@@ -39,7 +39,7 @@ public class PCCountDomainsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getCharacterDomainList().size();
+		return (float) pc.getDomainCount();
 	}
 
 	public boolean isSourceDependant()

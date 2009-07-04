@@ -439,7 +439,7 @@ public class PCClass extends PObject
 		int adj = 0;
 
 		if (includeAdj && !bookName.equals(Globals.getDefaultSpellBook())
-			&& (aPC.hasAssocs(this, AssociationKey.SPECIALTY) || aPC.hasCharacterDomainList()))
+			&& (aPC.hasAssocs(this, AssociationKey.SPECIALTY) || aPC.hasDomains()))
 		{
 			// We need to do this for EVERY spell level up to the
 			// one really under consideration, because if there
@@ -458,13 +458,14 @@ public class PCClass extends PObject
 					if ((ix > 0)
 						&& "DIVINE".equalsIgnoreCase(getSpellType()))
 					{
-						for (CharacterDomain cd : aPC.getCharacterDomainList())
+						for (Domain d : aPC.getDomainSet())
 						{
-							if (cd.isFromPCClass(this)
-								&& (cd.getDomain() != null))
+							if (getKeyName().equals(
+									aPC.getDomainSource(d).getPcclass()
+											.getKeyName()))
 							{
 								bList = Globals.getSpellsIn(ix, Collections
-										.singletonList(cd.getDomain().get(
+										.singletonList(d.get(
 												ObjectKey.DOMAIN_SPELLLIST)));
 							}
 						}
@@ -980,7 +981,7 @@ public class PCClass extends PObject
 				return "+"+target.getSpecialtyKnownForLevel(spellLevel, aPC);
 			}
 
-			if (!aPC.hasCharacterDomainList())
+			if (!aPC.hasDomains())
 			{
 				return "";
 			}
@@ -989,9 +990,10 @@ public class PCClass extends PObject
 			// associated with it, return +1
 			if ((spellLevel > 0) && "DIVINE".equalsIgnoreCase(get(StringKey.SPELLTYPE)))
 			{
-				for (CharacterDomain cd : aPC.getCharacterDomainList())
+				for (Domain d : aPC.getDomainSet())
 				{
-					if (cd.isFromPCClass(this))
+					if (getKeyName().equals(
+							aPC.getDomainSource(d).getPcclass().getKeyName()))
 					{
 						return "+1";
 					}
@@ -1408,12 +1410,13 @@ public class PCClass extends PObject
 				}
 			}
 
-			for (CharacterDomain cd : aPC.getCharacterDomainList())
+			for (Domain d : aPC.getDomainSet())
 			{
-				if ((cd.getDomain() != null) && cd.isFromPCClass(this))
+				if (getKeyName().equals(
+						aPC.getDomainSource(d).getPcclass().getKeyName()))
 				{
 					DomainApplication.addSpellsToClassForLevels(aPC,
-							cd.getDomain(), this, 0, _maxLevel);
+							d, this, 0, _maxLevel);
 				}
 			}
 		}
@@ -2432,7 +2435,7 @@ public class PCClass extends PObject
 		// we record where that domain came from
 		final int dnum =
 				aPC.getMaxCharacterDomains(this, aPC)
-					- aPC.getCharacterDomainUsed();
+					- aPC.getDomainCount();
 
 		if (dnum > 0 && !aPC.hasDefaultDomainSource())
 		{
@@ -3831,29 +3834,26 @@ public class PCClass extends PObject
 	{
 		if (d.qualifies(aPC))
 		{
-			String domKey = d.getKeyName();
 			if (adding)
 			{
-				if (!aPC.containsCharacterDomain(this, domKey))
+				ClassSource source = aPC.getDomainSource(d);
+				if (source != null
+						&& !getKeyName().equals(
+								source.getPcclass().getKeyName()))
 				{
-					Domain aDomain = d;
-
 					// TODO Not entirely correct, as this takes this level, not
 					// the level where BONUS DOMAINS was present
-					ClassSource source = new ClassSource(this, this
+					ClassSource cs = new ClassSource(this, this
 							.getLevel(aPC));
-					final CharacterDomain aCD = aPC
-							.getNewCharacterDomain(source);
-					Domain newDomain = aCD.setDomain(aDomain, aPC);
-					aPC.addCharacterDomain(aCD);
-					DomainApplication.applyDomain(aPC, newDomain);
+					aPC.addDomain(d, cs);
+					DomainApplication.applyDomain(aPC, d);
 				}
 			}
 			else
 			{
-				if (aPC.containsCharacterDomain(domKey))
+				if (aPC.hasDomain(d))
 				{
-					aPC.removeCharacterDomain(domKey);
+					aPC.removeDomain(d);
 				}
 			}
 		}

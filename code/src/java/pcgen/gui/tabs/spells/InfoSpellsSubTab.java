@@ -60,8 +60,8 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -595,11 +595,10 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		aSpell = spellA.getSpell();
 		if (theOwner instanceof Domain)
 		{
-			CharacterDomain cd =
-					pc.getCharacterDomainForDomain(theOwner.getKeyName());
-			if (cd != null)
+			ClassSource source = pc.getDomainSource((Domain) theOwner);
+			if (source != null)
 			{
-				classKey = cd.getSourceClassKey();
+				classKey = source.getPcclass().getKeyName();
 				aClass = pc.getClassKeyed(classKey);
 			}
 			else
@@ -753,7 +752,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			b.appendLineBreak();
 			b.appendI18nElement("InfoSpells.stat.bonus", aClass.getSpellBaseStat()); //$NON-NLS-1$ 
 
-			if (pc.hasAssocs(aClass, AssociationKey.SPECIALTY) || pc.hasCharacterDomainList())
+			if (pc.hasAssocs(aClass, AssociationKey.SPECIALTY) || pc.hasDomains())
 			{
 				boolean needComma = false;
 				StringBuffer schoolInfo = new StringBuffer(); 
@@ -764,17 +763,14 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					needComma = true;
 				}
 
-				for (CharacterDomain cd : pc.getCharacterDomainList())
+				for (Domain d : pc.getDomainSet())
 				{
-					if (cd.getDomain() != null)
+					if (needComma)
 					{
-						if (needComma)
-						{
-							schoolInfo.append(',');
-						}
-						needComma = true;
-						schoolInfo.append(cd.getDomain().getKeyName());
+						schoolInfo.append(',');
 					}
+					needComma = true;
+					schoolInfo.append(d.getKeyName());
 				}
 				b.appendLineBreak();
 				b.appendI18nElement("InfoSpells.school", schoolInfo.toString()); //$NON-NLS-1$ 

@@ -29,7 +29,6 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -200,17 +199,7 @@ public class KitDeity extends BaseKit
 					+ domain.getDisplayName() + "\"");
 				continue;
 			}
-			CharacterDomain aCD =
-					aPC.getCharacterDomainForDomain(domain.getKeyName());
-
-			if (aCD == null)
-			{
-				aCD = aPC.getNewCharacterDomain();
-			}
-
-			if (aCD == null
-				|| (aPC.getCharacterDomainUsed() >= aPC
-					.getMaxCharacterDomains()))
+			if (aPC.getDomainCount() >= aPC.getMaxCharacterDomains())
 			{
 				warnings.add("DEITY: No more allowed domains");
 
@@ -223,9 +212,8 @@ public class KitDeity extends BaseKit
 			}
 			domainsToAdd.add(domain);
 
-			Domain newDomain = aCD.setDomain(domain, aPC);
-			DomainApplication.applyDomain(aPC, newDomain);
-			aPC.addCharacterDomain(aCD);
+			aPC.addDomain(domain);
+			DomainApplication.applyDomain(aPC, domain);
 		}
 		aPC.calcActiveBonuses();
 		return true;
@@ -246,22 +234,8 @@ public class KitDeity extends BaseKit
 		}
 		for (Domain domain : domainsToAdd)
 		{
-			CharacterDomain aCD =
-					aPC.getCharacterDomainForDomain(domain.getKeyName());
-
-			if (aCD == null)
-			{
-				aCD = aPC.getNewCharacterDomain();
-			}
-
-			if (aCD == null)
-			{
-				// Shouldn't happen
-				continue;
-			}
-			Domain newDomain = aCD.setDomain(domain, aPC);
-			DomainApplication.applyDomain(aPC, newDomain);
-			aPC.addCharacterDomain(aCD);
+			aPC.addDomain(domain);
+			DomainApplication.applyDomain(aPC, domain);
 		}
 		aPC.calcActiveBonuses();
 

@@ -50,12 +50,12 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Domain;
@@ -1007,20 +1007,8 @@ final class PCGVer2Creator implements IOConstants
 
 	private void appendDomainLines(StringBuffer buffer)
 	{
-		for (final CharacterDomain cd : thePC.getCharacterDomainList())
+		for (final Domain domain : thePC.getDomainSet())
 		{
-			if (cd == null)
-			{
-				continue;
-			}
-
-			final Domain domain = cd.getDomain();
-
-			if (domain == null)
-			{
-				continue;
-			}
-
 			// TODO is any of this commented out code any use anymore?:
 			//
 			//  			// improve here - performance and concept!!!!
@@ -1062,7 +1050,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(desc.getPCCText());
 			}
 			buffer.append('|');
-			appendSourceInTaggedFormat(buffer, cd.getDomainSourcePcgString());
+			appendSourceInTaggedFormat(buffer, getDomainSourcePcgString(domain));
 
 			//			buffer.append('|');
 			//			buffer.append(TAG_DOMAINFEATS).append(':');
@@ -1104,10 +1092,39 @@ final class PCGVer2Creator implements IOConstants
 	}
 
 	/**
-	 * For each EquipSet, check for a tempBonusList
-	 * and if found, save each bonus
+	 * Returns the source of the domain in the format "PObject|name[|level]"
+	 * For example, "PCClass|Cleric|1"
+	 * (since the level is relevant)
+	 * For example, "Feat|Awesome Divinity" to attach a domain to a feat
+	 *
+	 * This method should NOT be called outside of file i/o routines
+	 * DO NOT perform comparisons on this String
+	 *
+	 * @return String the source of the domain
+	 */
+	private String getDomainSourcePcgString(Domain domain)
+	{
+		final StringBuffer buff = new StringBuffer(30);
+		ClassSource source = thePC.getDomainSource(domain);
+		buff.append("PCClass");
+		buff.append('|');
+		buff.append(source.getPcclass().getKeyName());
+
+		if (source.getLevel() > 0)
+		{
+			buff.append('|');
+			buff.append(source.getLevel());
+		}
+
+		return buff.toString();
+	}
+
+	/**
+	 * For each EquipSet, check for a tempBonusList and if found, save each
+	 * bonus
+	 * 
 	 * @param buffer
-	 **/
+	 */
 	private void appendEqSetBonuses(StringBuffer buffer)
 	{
 		for (EquipSet eSet : thePC.getEquipSet())
@@ -2311,9 +2328,9 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save any selected domain bonus weapons
 		//
-		for (final CharacterDomain cd : thePC.getCharacterDomainList())
+		for (final Domain d : thePC.getDomainSet())
 		{
-			appendWeaponProficiencyLines(buffer, cd.getDomain());
+			appendWeaponProficiencyLines(buffer, d);
 		}
 
 		//

@@ -59,7 +59,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Campaign;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -124,6 +123,8 @@ import pcgen.util.enumeration.ProhibitedSpellType;
  */
 final class PCGVer2Parser implements PCGParser, IOConstants
 {
+	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+
 	/**
 	 * DO NOT CHANGE line separator.
 	 * Need to keep the Unix line separator to ensure cross-platform portability.
@@ -488,9 +489,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_DOMAIN))
 		{
-			final Domain aDomain = thePC.getCharacterDomainKeyed(objectname);
+			Domain aDomain = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, objectname);
 
-			if (aDomain != null)
+			if (aDomain != null && thePC.hasDomain(aDomain))
 			{
 				for (String s : aList)
 				{
@@ -2166,13 +2168,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							domainKey);
 				warnings.add(msg);
 			}
-			else if ((thePC.getCharacterDomainKeyed(domainKey) == null)
+			else if (!thePC.hasDomain(aDomain)
 				&& (!Constants.s_NONE.equals(domainKey)))
 			{
 				// PC doesn't have the domain, so create a new
 				// one and add it to the PC domain list
-				CharacterDomain aCharacterDomain = null;
-				Domain newDomain = null;
+				ClassSource source = null;
 				
 				while (it.hasNext())
 				{
@@ -2183,32 +2184,32 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					{
 						CharacterDomainParser parser =
 								new CharacterDomainParser();
-						ClassSource cs = parser.getDomainSource(
+						source = parser.getDomainSource(
 							sourceElementToString(element));
-						aCharacterDomain = new CharacterDomain(cs);
-						newDomain = aCharacterDomain.setDomain(aDomain, thePC);
 					}
 					else if (TAG_ASSOCIATEDDATA.equals(tag))
 					{
-						if (newDomain == null)
+						if (aDomain == null)
 						{
 							warnings
 									.add("Domain has associated data, but no source: "
 											+ domainKey);
 							continue;
 						}
-						thePC.addAssociation(newDomain,
+						thePC.addAssociation(aDomain,
 							EntityEncoder.decode(element.getText()));
 					}
 				}
-				if (aCharacterDomain == null)
+				if (source == null)
 				{
 					warnings.add("Domain not added due to no source: "
 							+ domainKey);
 				}
-
-				thePC.addCharacterDomain(aCharacterDomain);
-				DomainApplication.applyDomain(thePC, newDomain);
+				else
+				{
+					thePC.addDomain(aDomain, source);
+					DomainApplication.applyDomain(thePC, aDomain);
+				}
 
 				// TODO
 				// set associated list
@@ -3977,9 +3978,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (TAG_DOMAIN.equals(typeName))
 				{
-					source = thePC.getCharacterDomainKeyed(objectKey);
+					Domain domain = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
+									objectKey);
+					ClassSource cs = thePC.getDomainSource(domain);
 
-					if (source == null)
+					if (cs == null)
 					{
 						final String message =
 								"Could not find domain: " + objectKey;
@@ -4668,7 +4672,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else if (TAG_DOMAIN.equals(type))
 				{
-					source = thePC.getCharacterDomainKeyed(key);
+					Domain domain = Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, key);
+					if (thePC.hasDomain(domain))
+					{
+						source = domain;
+					}
+					else
+					{
+						warnings.add("PC does not have Domain: " + key);
+					}
 				}
 				else if (TAG_DOMAIN.equals(type))
 				{

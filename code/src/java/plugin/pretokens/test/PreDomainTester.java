@@ -26,6 +26,8 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.Domain;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -39,6 +41,8 @@ import pcgen.util.Logging;
 public class PreDomainTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
+
+	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -59,11 +63,12 @@ public class PreDomainTester extends AbstractPrerequisiteTest implements
 		}
 		
 		if ( prereq.getKey().equalsIgnoreCase("ANY") ) {
-			runningTotal = character.getCharacterDomainUsed();
+			runningTotal = character.getDomainCount();
 		} else {
-			final boolean hasDomain =
-				character.getCharacterDomainKeyed(prereq.getKey()) != null;
-			
+			Domain domain = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, prereq
+							.getKey());
+			final boolean hasDomain = character.hasDomain(domain);
 			runningTotal = hasDomain ? 1 : 0;
 		}
 

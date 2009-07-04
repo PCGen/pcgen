@@ -55,7 +55,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -291,13 +290,12 @@ public final class InfoSpecialAbilities extends JPanel implements
 				}
 			}
 
-			for (CharacterDomain aCD : pc.getCharacterDomainList())
+			for (Domain d : pc.getDomainSet())
 			{
-				if ((aCD.toString().length() != 0)
-					&& aCD.getDomain().getSafe(StringKey.CHOICE_STRING).startsWith(
-						"WEAPONPROF|"))
+				if (d.getSafe(StringKey.CHOICE_STRING)
+						.startsWith("WEAPONPROF|"))
 				{
-					bonusCategory.add(aCD);
+					bonusCategory.add(d);
 				}
 			}
 
@@ -675,10 +673,9 @@ public final class InfoSpecialAbilities extends JPanel implements
 					}
 				}
 
-				if (profBonusObject instanceof CharacterDomain)
+				if (profBonusObject instanceof Domain)
 				{
-					final Domain aDomain =
-							((CharacterDomain) profBonusObject).getDomain();
+					final Domain aDomain = (Domain) profBonusObject;
 					aDomain.getChoices(aDomain.getSafe(StringKey.CHOICE_STRING), pc);
 				}
 				else

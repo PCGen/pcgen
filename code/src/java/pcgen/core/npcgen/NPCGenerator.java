@@ -37,7 +37,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Categorisable;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
@@ -407,7 +406,7 @@ public class NPCGenerator
 	
 	private void selectDomains( final PlayerCharacter aPC, final PCClass aClass )
 	{
-		while (aPC.getCharacterDomainUsed() < aPC.getMaxCharacterDomains())
+		while (aPC.getDomainCount() < aPC.getMaxCharacterDomains())
 		{
 			final WeightedCollection<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
 			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
@@ -424,30 +423,16 @@ public class NPCGenerator
 			}
 			final Domain domain = domains.getRandomValue();
 
-			CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
-
-			if (aCD == null)
-			{
-				aCD = aPC.getNewCharacterDomain();
-			}
-
 			// TODO - This seems kind of silly.  How would this ever happen?
-			final Domain existingDomain = aCD.getDomain();
-
-			if ((existingDomain != null) && existingDomain.equals(domain))
+			if (aPC.hasDomain(domain))
 			{
-				aPC.removeCharacterDomain(aCD);
+				aPC.removeDomain(domain);
 			}
 			
 			// space remains for another domain, so add it
-			if (existingDomain == null)
-			{
-				Domain newDomain = aCD.setDomain(domain, aPC);
-				DomainApplication.applyDomain(aPC, newDomain);
-				aPC.addCharacterDomain(aCD);
-
-				aPC.calcActiveBonuses();
-			}
+			aPC.addDomain(domain);
+			DomainApplication.applyDomain(aPC, domain);
+			aPC.calcActiveBonuses();
 		}
 	}
 	
@@ -481,22 +466,18 @@ public class NPCGenerator
 
 	private void selectDomainSpell( final PlayerCharacter aPC, final PCClass aClass, final int aLevel )
 	{
-		final int numDomains = aPC.getCharacterDomainList().size();
-		if ( numDomains < 1 )
+		if (!aPC.hasDomains())
 		{
 			return;
 		}
 		final WeightedCollection<Domain> domains = new WeightedCollection<Domain>();
-		for (int iDom = 0; iDom < numDomains; ++iDom)
+		for (Domain d : aPC.getDomainSet())
 		{
-			CharacterDomain aCD = aPC.getCharacterDomainList().get(iDom);
-			final Domain aDom = aCD.getDomain();
-
 			// if any domains have this class as a source
 			// and is a valid domain, add them
-			if ((aDom != null) && aCD.isFromPCClass(aClass))
+			if (aClass.equals(aPC.getDomainSource(d).getPcclass()))
 			{
-				domains.add( aDom );
+				domains.add(d);
 			}
 		}
 		final Domain domain = domains.getRandomValue();

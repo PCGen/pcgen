@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -198,8 +199,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// source of granted domains
 	private List<BonusObj> activeBonusList = new ArrayList<BonusObj>();
-	private final List<CharacterDomain> characterDomainList =
-			new ArrayList<CharacterDomain>();
+	private final Map<Domain, ClassSource> domainMap =
+			new LinkedHashMap<Domain, ClassSource>();
 	private ClassSource defaultDomainSource = null;
 
 	// List of Classes
@@ -3882,15 +3883,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (CharacterDomain obj : characterDomainList)
+		for (Domain obj : domainMap.keySet())
 		{
-			if (obj.getDomain() == null)
-			{
-				continue;
-			}
-
 			final String aString =
-					checkForVariableInList(obj.getDomain(), variableString,
+					checkForVariableInList(obj, variableString,
 						isMax, found, value);
 
 			if (aString.length() > 0)
@@ -5249,56 +5245,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return sumActiveBonusMap(typeString);
 	}
 
-	public CharacterDomain getCharacterDomainForDomain(final String domainKey)
-	{
-		for (CharacterDomain cd : characterDomainList)
-		{
-			final Domain aDomain = cd.getDomain();
-
-			if ((aDomain != null)
-				&& aDomain.getKeyName().equalsIgnoreCase(domainKey))
-			{
-				return cd;
-			}
-		}
-
-		return null;
-	}
-
-	public List<CharacterDomain> getCharacterDomainList()
-	{
-		return Collections.unmodifiableList(characterDomainList);
-	}
-
-	public boolean hasCharacterDomainList()
-	{
-		return characterDomainList != null && !characterDomainList.isEmpty();
-	}
-
-	public Domain getCharacterDomainKeyed(final String domainKey)
-	{
-		for (CharacterDomain cd : characterDomainList)
-		{
-			final Domain aDomain = cd.getDomain();
-
-			if ((aDomain != null)
-				&& aDomain.getKeyName().equalsIgnoreCase(domainKey))
-			{
-				return cd.getDomain();
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * @return the number of Character Domains used
-	 */
-	public int getCharacterDomainUsed()
-	{
-		return characterDomainList.size();
-	}
-
 	public List<CompanionMod> getCompanionModList()
 	{
 		return Collections.unmodifiableList(companionModList);
@@ -6091,26 +6037,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * gets first domain with remaining slots, creates an CharacterDomain
-	 * object, sets all the correct info and returns it
-	 * 
-	 * @return Character Domain
-	 */
-	public CharacterDomain getNewCharacterDomain()
-	{
-		return getNewCharacterDomain(getDefaultDomainSource());
-	}
-
-	public CharacterDomain getNewCharacterDomain(ClassSource cs)
-	{
-		if (cs != null)
-		{
-			return new CharacterDomain(cs);
-		}
-		return null;
-	}
-
-	/**
 	 * Checks if the stat is a non ability.
 	 * 
 	 * @param i the index of the stat
@@ -6573,9 +6499,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addSpells(deity);
 		}
 
-		for (CharacterDomain cd : characterDomainList)
+		for (Domain d : domainMap.keySet())
 		{
-			addSpells(cd.getDomain());
+			addSpells(d);
 		}
 
 		for (PCClass pcClass : classList)
@@ -7434,31 +7360,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int abilityAC()
 	{
 		return calcACOfType("Ability");
-	}
-
-	/**
-	 * adds CharacterDomain to list
-	 * 
-	 * @param aCD
-	 */
-	public void addCharacterDomain(final CharacterDomain aCD)
-	{
-		if ((aCD != null) && !characterDomainList.contains(aCD)
-			&& (aCD.getDomain() != null))
-		{
-			characterDomainList.add(aCD);
-			if (aCD.hasSourceClass())
-			{
-				final PCClass domainClass = getClassKeyed(aCD.getSourceClassKey());
-				if (domainClass != null)
-				{
-					final int _maxLevel = domainClass.getMaxCastLevel();
-					DomainApplication.addSpellsToClassForLevels(this, aCD
-						.getDomain(), domainClass, 0, _maxLevel);
-				}
-			}
-			setDirty(true);
-		}
 	}
 
 	/**
@@ -8652,15 +8553,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.resolve(this, skill.getQualifiedKey()).intValue());
 		}
 
-		for (CharacterDomain cd : characterDomainList)
+		for (Domain d : domainMap.keySet())
 		{
-			if (cd.getDomain() != null)
-			{
-				Domain r = cd.getDomain();
-				SR =
-						Math.max(r.getSafe(ObjectKey.SR).getReduction()
-							.resolve(this, r.getQualifiedKey()).intValue(), SR);
-			}
+			SR =
+					Math.max(d.getSafe(ObjectKey.SR).getReduction()
+						.resolve(this, d.getQualifiedKey()).intValue(), SR);
 		}
 
 		if (includeEquipment)
@@ -9492,26 +9389,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * TODO Why are we doing this, just add the domain
-	 * 
-	 * @return index
-	 */
-	public int indexOfFirstEmptyCharacterDomain()
-	{
-		for (int i = 0; i < characterDomainList.size(); ++i)
-		{
-			final CharacterDomain aCD = characterDomainList.get(i);
-
-			if (aCD.getDomain() == null)
-			{
-				return i;
-			}
-		}
-
-		return -1;
-	}
-
-	/**
 	 * Initiative Modifier
 	 * 
 	 * @return initiative modifier
@@ -10265,12 +10142,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (anObj instanceof Domain)
 		{
-			final CharacterDomain aCD =
-					getCharacterDomainForDomain(anObj.getKeyName());
-
-			if (aCD != null)
+			ClassSource source = domainMap.get(anObj);
+			if (source != null)
 			{
-				aSpellClass = "CLASS:" + getClassKeyed(aCD.getSourceClassKey());
+				aSpellClass = "CLASS:" + getClassKeyed(source.getPcclass().getKeyName());
 			}
 		}
 		else if (anObj instanceof PCClass)
@@ -10425,28 +10300,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					nextOutputIndex++);
 			}
 		}
-	}
-
-	/**
-	 * Removes a CharacterDomain
-	 * 
-	 * @param aCD
-	 */
-	public void removeCharacterDomain(final CharacterDomain aCD)
-	{
-		if (!characterDomainList.isEmpty())
-		{
-			characterDomainList.remove(aCD);
-			// thePObjectList.remove(aCD);
-			setDirty(true);
-		}
-	}
-
-	public void removeCharacterDomain(final String aDomainKey)
-	{
-		final CharacterDomain cd = getCharacterDomainForDomain(aDomainKey);
-		characterDomainList.remove(cd);
-		// thePObjectList.remove(cd);
 	}
 
 	public void removeNaturalWeapons(final PObject obj)
@@ -11058,47 +10911,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// return false;
 	// }
 
-	/**
-	 * Returns true if this PlayerCharacter contains a Domain with a key that
-	 * matches the given Domain
-	 */
-	public boolean containsCharacterDomain(String aDomainKey)
-	{
-		for (CharacterDomain cd : characterDomainList)
-		{
-			Domain d = cd.getDomain();
-			if (d.getKeyName().equalsIgnoreCase(aDomainKey))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Returns true if this PlayerCharacter contains a Domain with a key that
-	 * matches the given Domain
-	 * 
-	 * @param aClassKey The key of the class granting the domain.
-	 * @param aDomainKey The key of the domain.
-	 * @return true if the doain is present. 
-	 */
-	public boolean containsCharacterDomain(PCClass pcclass, String aDomainKey)
-	{
-		for (CharacterDomain cd : characterDomainList)
-		{
-			if (cd.isFromPCClass(pcclass))
-			{
-				Domain d = cd.getDomain();
-				if (d.getKeyName().equalsIgnoreCase(aDomainKey))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
 	public void addFreeLanguage(final Language aLang)
 	{
 		this.languages.add(aLang);
@@ -11139,13 +10951,23 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getSpellList();
 		}
 
-		for (CharacterDomain cd : characterDomainList)
+		for (Map.Entry<Domain, ClassSource> me : domainMap.entrySet())
 		{
-			if (!cd.isDomainValidFor(this))
+			if (!isDomainValid(me.getKey(), me.getValue()))
 			{
-				removeCharacterDomain(cd);
+				removeDomain(me.getKey());
 			}
 		}
+	}
+
+	private boolean isDomainValid(Domain domain, ClassSource cs)
+	{
+		if (domain == null)
+		{
+			return false;
+		}
+		final PCClass aClass = getClassKeyed(cs.getPcclass().getKeyName());
+		return  ((aClass != null) && (aClass.getLevel(this) >= cs.getLevel()));
 	}
 
 	/**
@@ -12204,16 +12026,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			results.add(deity);
 		}
 
-		// Domain (CharacterDomain)
-		for (CharacterDomain aCD : characterDomainList)
-		{
-			final Domain aDomain = aCD.getDomain();
-
-			if (aDomain != null)
-			{
-				results.add(aDomain);
-			}
-		}
+		// Domain
+		results.addAll(domainMap.keySet());
 
 		// Equipment
 		final List<Equipment> eqList =
@@ -14220,7 +14034,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.deity = deity;
-		aClone.characterDomainList.addAll(characterDomainList);
+		aClone.domainMap.putAll(domainMap);
 		for (PCClass pcClass : classList)
 		{
 			PCClass cloneClass = pcClass.clone();
@@ -16582,81 +16396,73 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		if (!getCharacterDomainList().isEmpty())
+		for (Domain d : domainMap.keySet())
 		{
-			for (final CharacterDomain aCD : getCharacterDomainList())
+			for (String aString : getAssociationList(d))
 			{
-				final Domain aDomain = aCD.getDomain();
-
-				if (aDomain != null)
+				if (aString.startsWith("FEAT"))
 				{
-					for (String aString : getAssociationList(aDomain))
-					{
-						if (aString.startsWith("FEAT"))
-						{
-							final int idx = aString.indexOf('?');
+					final int idx = aString.indexOf('?');
 
-							if (idx > -1)
-							{
-								Ability added =
-										AbilityUtilities
-											.addCloneOfGlobalAbilityToListWithChoices(
-												this, abilities,
-												Constants.FEAT_CATEGORY,
-												aString.substring(idx + 1));
-								if (added != null)
-								{
-									added
-										.setAbilityNature(Ability.Nature.AUTOMATIC);
-								}
-							}
-							else
-							{
-								Logging
-									.errorPrint("no '?' in Domain assocatedList entry: "
-										+ aString);
-							}
+					if (idx > -1)
+					{
+						Ability added =
+								AbilityUtilities
+									.addCloneOfGlobalAbilityToListWithChoices(
+										this, abilities,
+										Constants.FEAT_CATEGORY,
+										aString.substring(idx + 1));
+						if (added != null)
+						{
+							added
+								.setAbilityNature(Ability.Nature.AUTOMATIC);
 						}
 					}
-
-					for (CDOMReference<Ability> ref : aDomain
-						.getSafeListMods(Ability.FEATLIST))
+					else
 					{
-						Collection<AssociatedPrereqObject> assoc =
-								aDomain.getListAssociations(Ability.FEATLIST,
-									ref);
-						for (Ability ab : ref.getContainedObjects())
-						{
-							for (AssociatedPrereqObject apo : assoc)
-							{
-								List<String> choices =
-										apo
-											.getAssociation(AssociationKey.ASSOC_CHOICES);
-								if (choices == null)
-								{
-									choices = Collections.emptyList();
-								}
-								Ability added =
-										AbilityUtilities
-											.addAbilityToListwithChoices(this,
-												ab, choices, abilities);
-								if (added != null)
-								{
-									added
-										.setAbilityNature(Ability.Nature.AUTOMATIC);
-								}
-							}
-						}
-					}
-
-					List<String> profKeys =
-							getAssocList(aDomain,
-								AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
-					if (profKeys != null)
-					{
-						addAutoProfsToList(profKeys, abilities);
+						Logging
+							.errorPrint("no '?' in Domain assocatedList entry: "
+								+ aString);
 					}
 				}
+			}
+
+			for (CDOMReference<Ability> ref : d
+				.getSafeListMods(Ability.FEATLIST))
+			{
+				Collection<AssociatedPrereqObject> assoc =
+						d.getListAssociations(Ability.FEATLIST,
+							ref);
+				for (Ability ab : ref.getContainedObjects())
+				{
+					for (AssociatedPrereqObject apo : assoc)
+					{
+						List<String> choices =
+								apo
+									.getAssociation(AssociationKey.ASSOC_CHOICES);
+						if (choices == null)
+						{
+							choices = Collections.emptyList();
+						}
+						Ability added =
+								AbilityUtilities
+									.addAbilityToListwithChoices(this,
+										ab, choices, abilities);
+						if (added != null)
+						{
+							added
+								.setAbilityNature(Ability.Nature.AUTOMATIC);
+						}
+					}
+				}
+			}
+
+			List<String> profKeys =
+					getAssocList(d,
+						AssociationListKey.SELECTED_WEAPON_PROF_BONUS);
+			if (profKeys != null)
+			{
+				addAutoProfsToList(profKeys, abilities);
 			}
 		}
 	}
@@ -17695,13 +17501,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			bonDomain = "DOMAIN." + ow.getKeyName();
 
-			final CharacterDomain aCD =
-					getCharacterDomainForDomain(ow.getKeyName());
-
-			if (aCD != null)
+			ClassSource source = getDomainSource((Domain) ow);
+			if (source != null)
 			{
-				final String a = aCD.getSourceClassKey();
-				aClass = getClassKeyed(a);
+				aClass = getClassKeyed(source.getPcclass().getKeyName());
 			}
 		}
 
@@ -17822,5 +17625,88 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void setDefaultDomainSource(ClassSource cs)
 	{
 		defaultDomainSource = cs;
+	}
+
+	public void addDomain(Domain domain)
+	{
+		addDomain(domain, defaultDomainSource);
+	}
+
+	public void addDomain(Domain domain, ClassSource source)
+	{
+		domainMap.put(domain, source);
+		if (source != null)
+		{
+			String classKey = source.getPcclass().getKeyName();
+			PCClass domainClass = getClassKeyed(classKey);
+			if (domainClass != null)
+			{
+				final int _maxLevel = domainClass.getMaxCastLevel();
+				DomainApplication.addSpellsToClassForLevels(this, domain,
+						domainClass, 0, _maxLevel);
+			}
+		}
+		modifyVariables(domain, true);
+		setDirty(true);
+	}
+
+	public boolean hasDomain(Domain domain)
+	{
+		return domainMap.containsKey(domain);
+	}
+
+	public void removeDomain(Domain domain)
+	{
+		domainMap.remove(domain);
+		modifyVariables(domain, false);
+		setDirty(true);
+	}
+
+	public boolean hasDomains()
+	{
+		return !domainMap.isEmpty();
+	}
+
+	public int getDomainCount()
+	{
+		return domainMap.size();
+	}
+
+	public Set<Domain> getDomainSet()
+	{
+		return Collections.unmodifiableSet(domainMap.keySet());
+	}
+
+	public ClassSource getDomainSource(Domain d)
+	{
+		return domainMap.get(d);
+	}
+
+	public Map<Domain, ClassSource> getDomainMap()
+	{
+		return Collections.unmodifiableMap(domainMap);
+	}
+
+	private void modifyVariables(Domain aDomain, boolean addIt)
+	{
+		StringBuilder prefix = new StringBuilder();
+		prefix.append("DOMAIN:").append(aDomain.getKeyName()).append('|')
+				.append(-9).append('|');
+
+		for (VariableKey vk : aDomain.getVariableKeys())
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.append(prefix).append(vk.toString()).append('|').append(
+					aDomain.get(vk));
+
+			if (addIt)
+			{
+				addVariable(sb.toString());
+			}
+			else
+			{
+				removeVariable(sb.toString());
+			}
+		}
 	}
 }

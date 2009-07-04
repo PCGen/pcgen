@@ -2724,7 +2724,7 @@ public final class ExportHandler
 				index = Integer.parseInt(fString.substring(6));
 			}
 
-			canWrite = (index <= aPC.getCharacterDomainList().size());
+			canWrite = (index <= aPC.getDomainCount());
 
 			return 0;
 		}

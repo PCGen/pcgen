@@ -36,7 +36,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -541,7 +540,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 	private void addDomainSpellsForClass(PCClass aClass, PObjectNode theParent,
 		int iLev)
 	{
-		if (!pc.hasCharacterDomainList())
+		if (!pc.hasDomains())
 		{
 			return;
 		}
@@ -551,13 +550,12 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 		boolean dom = false;
 
-		for (CharacterDomain aCD : pc.getCharacterDomainList())
+		for (Domain aDom : pc.getDomainSet())
 		{
-			Domain aDom = aCD.getDomain();
-
 			// if any domains have this class as a source
 			// and is a valid domain, add them
-			if ((aDom != null) && aCD.isFromPCClass(aClass))
+			if (aClass.getKeyName().equals(
+					pc.getDomainSource(aDom).getPcclass().getKeyName()))
 			{
 				List<Spell> domainSpells = Globals.getSpellsIn(iLev,
 						Collections.singletonList(aDom

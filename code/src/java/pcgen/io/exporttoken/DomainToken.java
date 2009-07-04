@@ -25,6 +25,7 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
@@ -107,7 +108,7 @@ public class DomainToken extends Token
 		try
 		{
 			Domain domain =
-					(pc.getCharacterDomainList().get(domainIndex)).getDomain();
+				new ArrayList<Domain>(pc.getDomainSet()).get(domainIndex);
 
 			return domain.getOutputName();
 		}
@@ -128,7 +129,7 @@ public class DomainToken extends Token
 		try
 		{
 			Domain domain =
-					(pc.getCharacterDomainList().get(domainIndex)).getDomain();
+				new ArrayList<Domain>(pc.getDomainSet()).get(domainIndex);
 
 			return DescriptionFormatting.piDescString(pc, domain);
 		}

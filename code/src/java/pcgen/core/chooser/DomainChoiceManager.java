@@ -26,7 +26,6 @@ package pcgen.core.chooser;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -90,9 +89,9 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 					if (PrereqHandler.passesAll(domain.getPrerequisiteList(), aPc, domain))
 					{
 						boolean found = false;
-						for ( CharacterDomain cd : aPc.getCharacterDomainList())
+						for (Domain d : aPc.getDomainSet())
 						{
-							if (domain.equals(cd.getDomain()))
+							if (domain.equals(d))
 							{
 								found = true;
 								break;
@@ -109,9 +108,9 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 			else if ("PC".equals(option))
 			{
 				// returns a list of all domains a character actually has.
-				for ( CharacterDomain cd : aPc.getCharacterDomainList())
+				for (Domain d : aPc.getDomainSet())
 				{
-					availableList.add(cd.getDomain());
+					availableList.add(d);
 				}
 				break;
 			}

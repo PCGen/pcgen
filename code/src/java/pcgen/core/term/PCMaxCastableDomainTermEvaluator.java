@@ -26,9 +26,11 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.CharacterDomain;
+import pcgen.cdom.helper.ClassSource;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
 public class PCMaxCastableDomainTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -44,38 +46,47 @@ public class PCMaxCastableDomainTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		CharacterDomain domain = pc.getCharacterDomainForDomain(domainKey);
+		Domain domain = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 
-		if (domain != null)
+		if (domain == null)
 		{
-			String classKey = domain.getSourceClassKey();
-			PCClass spClass = pc.getClassKeyed(classKey);
-			int cutoff      = spClass.getHighestLevelSpell();
-
-			Float max = 0f;
-
-			if (spClass.hasCastList())
-			{
-				for (int i = 0; i < cutoff; i++) {
-					if (spClass.getCastForLevel(i, pc) != 0)
-					{
-						max = Math.max(max, i);
-					}
-				}
-			}
-			else
-			{
-				for (int i = 0; i < cutoff; i++) {
-					if (spClass.getKnownForLevel(i, pc) != 0)
-					{
-						max = Math.max(max, i);
-					}
-				}
-			}
-			return max;
+			return 0f;
 		}
 
-		return 0f;
+		ClassSource source = pc.getDomainSource(domain);
+		if (source == null)
+		{
+			return 0f;
+		}
+		
+		String classKey = source.getPcclass().getKeyName();
+		PCClass spClass = pc.getClassKeyed(classKey);
+		int cutoff = spClass.getHighestLevelSpell();
+
+		Float max = 0f;
+
+		if (spClass.hasCastList())
+		{
+			for (int i = 0; i < cutoff; i++)
+			{
+				if (spClass.getCastForLevel(i, pc) != 0)
+				{
+					max = Math.max(max, i);
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < cutoff; i++)
+			{
+				if (spClass.getKnownForLevel(i, pc) != 0)
+				{
+					max = Math.max(max, i);
+				}
+			}
+		}
+		return max;
 	}
 
 	public boolean isSourceDependant()

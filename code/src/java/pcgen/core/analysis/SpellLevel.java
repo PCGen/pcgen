@@ -19,7 +19,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
-import pcgen.core.CharacterDomain;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -127,10 +127,9 @@ public class SpellLevel
 				}
 			}
 		}
-		for (CharacterDomain domain : aPC.getCharacterDomainList())
+		for (Domain domain : aPC.getDomainSet())
 		{
-			DomainSpellList dsl = domain.getDomain().get(
-					ObjectKey.DOMAIN_SPELLLIST);
+			DomainSpellList dsl = domain.get(ObjectKey.DOMAIN_SPELLLIST);
 			Collection<AssociatedPrereqObject> assoc = masterLists
 					.getAssociations(dsl, sp);
 			if (assoc != null)

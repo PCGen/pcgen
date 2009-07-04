@@ -94,7 +94,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
@@ -280,11 +279,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		List<String> toDoList = new ArrayList<String>();
 
-		if (pc.getCharacterDomainUsed() < pc.getMaxCharacterDomains())
+		if (pc.getDomainCount() < pc.getMaxCharacterDomains())
 		{
 			toDoList.add(PropertyFactory.getString("in_domTodoDomainsLeft")); //$NON-NLS-1$
 		}
-		else if (pc.getCharacterDomainUsed() > pc.getMaxCharacterDomains())
+		else if (pc.getDomainCount() > pc.getMaxCharacterDomains())
 		{
 			toDoList.add(PropertyFactory.getString("in_domTodoTooManyDomains")); //$NON-NLS-1$
 		}
@@ -1219,10 +1218,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	private final void updateCharacterInfo()
 	{
-		if ((pc != null) && (numDomains != pc.getCharacterDomainList().size()))
+		if ((pc != null) && (numDomains != pc.getDomainCount()))
 		{
 			needsUpdate = true;
-			numDomains = pc.getCharacterDomainList().size();
+			numDomains = pc.getDomainCount();
 		}
 
 		if (needsUpdate || (pc == null))
@@ -1271,34 +1270,27 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		domainModel.setAvailDomainList(availDomainList);
 
 		// Loop through the character's selected domains
-		for (CharacterDomain aCD : pc.getCharacterDomainList())
+		for (Domain d : pc.getDomainSet())
 		{
-			if ((aCD != null) && (aCD.getDomain() != null))
+			boolean found = false;
+			for (QualifiedObject<Domain> availDomain : availDomainList)
 			{
-				// Get the selected domain
-				final Domain aCDDomain = aCD.getDomain();
-
-				boolean found = false;
-				for (QualifiedObject<Domain> availDomain : availDomainList)
+				found = availDomain.getObject(null).getKeyName().equals(
+						d.getKeyName());
+				if (found)
 				{
-					found =
-							availDomain.getObject(null).getKeyName().equals(
-								aCDDomain.getKeyName());
-					if (found)
-					{
-						break;
-					}
-
-				}
-				if (!found)
-				{
-					availDomainList.add(new QualifiedObject<Domain>(aCDDomain));
+					break;
 				}
 
-				if (!selectedDomainList.contains(aCDDomain))
-				{
-					selectedDomainList.add(aCDDomain);
-				}
+			}
+			if (!found)
+			{
+				availDomainList.add(new QualifiedObject<Domain>(d));
+			}
+
+			if (!selectedDomainList.contains(d))
+			{
+				selectedDomainList.add(d);
 			}
 		}
 
@@ -1320,7 +1312,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		domTotal.setText(Integer.toString(pc.getMaxCharacterDomains()));
 
 		// use star (*) to identify which are chosen in the table
-		domChosen.setText(Integer.toString(pc.getCharacterDomainUsed()) + "*");
+		domChosen.setText(Integer.toString(pc.getDomainCount()) + "*");
 
 		domainModel.resetModel();
 
@@ -1353,8 +1345,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		final QualifiedObject<Domain> qualDomain =
 			(QualifiedObject<Domain>) domainModel.getValueAt(selectedRow, -1);
-		final Domain addedDomain =
-			qualDomain.getObject(null);
+		final Domain addedDomain = qualDomain.getObject(null);
 
 		if (addedDomain == null)
 		{
@@ -1373,32 +1364,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		CharacterDomain aCD =
-				pc.getCharacterDomainForDomain(addedDomain.getKeyName());
-
-		if (aCD == null)
-		{
-			aCD = pc.getNewCharacterDomain();
-		}
-
-		if (aCD == null)
-		{
-			Logging.errorPrintLocalised("in_errorNoMoreAllowedDomains");
-
-			return;
-		}
-
 		// If adding a domain already selected, remove the domain
-		final Domain existingDomain = aCD.getDomain();
-
-		if ((existingDomain != null) && existingDomain.equals(addedDomain))
+		if (pc.hasDomain(addedDomain))
 		{
-			selectedDomainList.remove(existingDomain);
-			pc.removeCharacterDomain(aCD);
+			selectedDomainList.remove(addedDomain);
+			pc.removeDomain(addedDomain);
 		}
 
 		// Check selected domains vs Max number allowed
-		if (pc.getCharacterDomainUsed() >= pc.getMaxCharacterDomains())
+		if (pc.getDomainCount() >= pc.getMaxCharacterDomains())
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_errorNoMoreDomains"),
 				Constants.s_APPNAME, MessageType.INFORMATION);
@@ -1407,23 +1381,19 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// space remains for another domain, so add it
-		if (existingDomain == null)
+		pc.addDomain(addedDomain);
+		DomainApplication.applyDomain(pc, addedDomain);
+
+		if (!selectedDomainList.contains(addedDomain))
 		{
-			Domain newDomain = aCD.setDomain(addedDomain, pc);
-			pc.addCharacterDomain(aCD);
-			DomainApplication.applyDomain(pc, newDomain);
-
-			if (!selectedDomainList.contains(addedDomain))
-			{
-				selectedDomainList.add(addedDomain);
-			}
-
-			pc.calcActiveBonuses();
+			selectedDomainList.add(addedDomain);
 		}
+
+		pc.calcActiveBonuses();
 
 		// Update the displayed domain count,
 		// using star (*) to indicate selected domains
-		domChosen.setText(Integer.toString(pc.getCharacterDomainUsed()) + "*");
+		domChosen.setText(Integer.toString(pc.getDomainCount()) + "*");
 		domainSorter.tableChanged(null);
 		domainModel.fireTableDataChanged();
 		forceUpdates();

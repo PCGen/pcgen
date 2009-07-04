@@ -37,7 +37,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
-import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
@@ -284,11 +283,10 @@ public final class KitSpells extends BaseKit
 		// Check to see if we have any domains that have this spell.
 
 		PObject owner = null;
-		if (pc.hasCharacterDomainList())
+		if (pc.hasDomains())
 		{
-			for (CharacterDomain cd : pc.getCharacterDomainList())
+			for (Domain domain : pc.getDomainSet())
 			{
-				Domain domain = cd.getDomain();
 				List<? extends CDOMList<Spell>> lists =
 						domain.getSpellLists(pc);
 				int newLevel = SpellLevel.getFirstLevelForKey(spell, lists, pc);

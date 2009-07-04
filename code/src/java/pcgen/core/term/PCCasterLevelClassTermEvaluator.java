@@ -27,7 +27,8 @@
 package pcgen.core.term;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.CharacterDomain;
+import pcgen.cdom.helper.ClassSource;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -56,11 +57,13 @@ public class PCCasterLevelClassTermEvaluator
 	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
 
 		// check if this is a domain spell
-		final CharacterDomain aCD = pc.getCharacterDomainForDomain(source);
+		Domain domain = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Domain.class, source);
+		final ClassSource cs = pc.getDomainSource(domain);
 		
 		// If source is a domain, get the Domain source (e.g, "Cleric"),
 		// otherwise just go with the original varSource
-		final String varSource = (aCD != null) ? aCD.getSourceClassKey() : source;
+		final String varSource = (cs != null) ? cs.getPcclass().getKeyName() : source;
 
 		final PCClass spClass = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(PCClass.class, varSource);

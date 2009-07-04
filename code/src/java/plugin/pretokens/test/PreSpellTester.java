@@ -32,7 +32,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.CharacterDomain;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -73,14 +73,10 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 				character.aggregateSpellList("", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		//Needs to add domain spells as well
-		for (CharacterDomain aCD : character.getCharacterDomainList())
+		for (Domain d : character.getDomainSet())
 		{
-			if ((aCD != null) && (aCD.getDomain() != null))
-			{
-				aArrayList.addAll(Globals.getSpellsIn(-1, Collections
-						.singletonList(aCD.getDomain().get(
-								ObjectKey.DOMAIN_SPELLLIST))));
-			}
+			aArrayList.addAll(Globals.getSpellsIn(-1, Collections
+					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
 		}
 
 		//Are there Innate Spell-like abilities?

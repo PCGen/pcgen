@@ -37,9 +37,10 @@ import java.util.Stack;
 import org.nfunk.jep.ParseException;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.CharacterDomain;
+import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
@@ -311,27 +312,11 @@ public class CountCommand extends PCGenCommand
 				{
 					// Domains are not PObjects
 
-					public Set<CharacterDomain> objdata;
+					public Map<Domain, ClassSource> objdata;
 
 					protected void getData(final PlayerCharacter pc)
 					{
-						final Collection<CharacterDomain> domdata =
-								new HashSet<CharacterDomain>();
-
-						domdata.addAll(pc.getCharacterDomainList());
-
-						for (final CharacterDomain c : domdata)
-						{
-							// map each domain to a String.
-							// Each of these Strings is unique and is mapped to exactly
-							// one Character domain.  This means we can perform set
-							// operations on a collection of them and it will behave as
-							// if we were doing it on the set of CharacterDomains.  We could
-							// then map the Strings back to a set of CharacterDomains, but we
-							// only really need to count them (and we can just as easily
-							// count Strings as CharacterDomains).
-							objdata.add(c);
-						}
+						objdata = pc.getDomainMap();
 					}
 
 					public Object count(
@@ -358,33 +343,22 @@ public class CountCommand extends PCGenCommand
 									"Bad parameter to count(\"" + this + "\" ... )" + kv);
 						}
 
-						final Iterable<CharacterDomain> cs =
-								new HashSet<CharacterDomain>(objdata);
-						final Iterator It = cs.iterator();
-
-						if (!"ALL".equalsIgnoreCase(keyValue[1]))
-						{
-							while (It.hasNext())
-							{
-								final CharacterDomain c = (CharacterDomain) It.next();
-								if (!c.getDomainType().equalsIgnoreCase(keyValue[1]))
-								{
-									It.remove();
-								}
-							}
-						}
-
-						// at this point we have a set of character domains which meet the
-						// selection criteria of this leaf node of the parameter tree.
-						// we now convert this to a set of Strings so that the generic doFilterS
-						// can perform set operations on them
+						final Collection<ClassSource> cs = objdata.values();
 
 						final Set<String> pSet = new HashSet<String>();
 
-						//noinspection TypeMayBeWeakened
-						for (final CharacterDomain d : cs)
+						// Hack (should allow various values, but PCGen can only do PCClass)
+						if (keyValue[1].equals("PCClass"))
 						{
-							pSet.add(d.getSourceClassKey());
+							// at this point we have a set of character domains
+							// which meet the
+							// selection criteria of this leaf node of the parameter tree.
+							// we now convert this to a set of Strings so that the generic doFilterS
+							// can perform set operations on them
+							for (ClassSource source : cs)
+							{
+								pSet.add(source.getPcclass().getKeyName());
+							}
 						}
 
 						return pSet;

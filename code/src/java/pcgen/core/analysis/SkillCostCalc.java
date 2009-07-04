@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
-import pcgen.core.CharacterDomain;
+import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCClass;
@@ -86,11 +86,11 @@ public final class SkillCostCalc
 			}
 		}
 
-		for (CharacterDomain aCD : aPC.getCharacterDomainList())
+		for (Domain d : aPC.getDomainSet())
 		{
-			if ((aCD.getDomain() != null)
-					&& aCD.isFromPCClass(aClass)
-					&& SkillCostCalc.hasCSkill(aPC, aCD.getDomain(), sk))
+			if (aClass.getKeyName().equals(
+					aPC.getDomainSource(d).getPcclass().getKeyName())
+					&& SkillCostCalc.hasCSkill(aPC, d, sk))
 			{
 				return true;
 			}
@@ -227,11 +227,11 @@ public final class SkillCostCalc
 			return true;
 		}
 
-		for (CharacterDomain aCD : aPC.getCharacterDomainList())
+		for (Domain d : aPC.getDomainSet())
 		{
-			if ((aCD.getDomain() != null)
-					&& aCD.isFromPCClass(aClass)
-					&& SkillCostCalc.hasCcSkill(aPC, aCD.getDomain(), sk))
+			if (aClass.getKeyName().equals(
+					aPC.getDomainSource(d).getPcclass().getKeyName())
+					&& SkillCostCalc.hasCcSkill(aPC, d, sk))
 			{
 				return true;
 			}
