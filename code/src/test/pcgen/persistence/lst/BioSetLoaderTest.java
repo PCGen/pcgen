@@ -35,10 +35,8 @@ import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SystemCollections;
 import pcgen.rules.context.LoadContext;
 
 /**
