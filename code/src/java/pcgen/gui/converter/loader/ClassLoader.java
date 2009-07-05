@@ -103,7 +103,6 @@ public class ClassLoader implements Loader
 				obj.put(IntegerKey.LEVEL, 1);
 				parent = context.ref.constructCDOMObject(buildParent, line
 						+ "Test" + tok);
-				obj.put(ObjectKey.PARENT, parent);
 				obj.put(ObjectKey.TOKEN_PARENT, parent);
 			}
 			List<CDOMObject> injected = processToken(sb, obj, parent, token,

@@ -3709,7 +3709,7 @@ public class PCClass extends PObject
 		}
 		try
 		{
-			ownBonuses();
+			ownBonuses(this);
 		}
 		catch (CloneNotSupportedException ce)
 		{
@@ -3970,7 +3970,6 @@ public class PCClass extends PObject
 			PCClassLevel classLevel = new PCClassLevel();
 			classLevel.put(IntegerKey.LEVEL, Integer.valueOf(lvl));
 			classLevel.setName(getDisplayName() + "(" + lvl + ")");
-			classLevel.put(ObjectKey.PARENT, this);
 			classLevel.put(ObjectKey.TOKEN_PARENT, this);
 			levelMap.put(lvl, classLevel);
 		}
@@ -4012,35 +4011,8 @@ public class PCClass extends PObject
 
 	public int getPCClassLevel(PCClassLevel pcl)
 	{
-		if (this.equals(pcl.get(ObjectKey.PARENT)))
-		{
-			for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
-			{
-				if (me.getValue().equals(pcl))
-				{
-					return me.getKey().intValue();
-				}
-			}
-		}
-		return -1;
+		return pcl.get(IntegerKey.LEVEL);
 	}
-
-//	public PCClassLevel getRepeatLevel(int level, String objectName)
-//	{
-//		PCClassLevel pcl = new PCClassLevel();
-//		repeatLevelObjects.add(pcl);
-//		pcl.put(ObjectKey.PARENT, this);
-//		pcl.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-//		String originalLevels = level + ":" + objectName;
-//		pcl.put(StringKey.REPEAT, originalLevels);
-//		pcl.setName(getDisplayName() + "(" + originalLevels + ")");
-//		return pcl;
-//	}
-//	
-//	public Collection<PCClassLevel> getRepeatLevels()
-//	{
-//		return Collections.unmodifiableList(repeatLevelObjects);
-//	}
 
 	public boolean updateSpellCache(boolean force)
 	{
@@ -4093,8 +4065,7 @@ public class PCClass extends PObject
 		try
 		{
 			PCClassLevel lvl = pcc.getClassLevel(cl).clone();
-			lvl.put(ObjectKey.PARENT, this);
-			lvl.ownBonuses();
+			lvl.ownBonuses(this);
 			levelMap.put(cl, lvl);
 		}
 		catch (CloneNotSupportedException e)
@@ -4134,12 +4105,12 @@ public class PCClass extends PObject
 	}
 
 	@Override
-	public void ownBonuses() throws CloneNotSupportedException
+	public void ownBonuses(Object owner) throws CloneNotSupportedException
 	{
-		super.ownBonuses();
+		super.ownBonuses(owner);
 		for (PCClassLevel pcl : this.getClassLevelCollection())
 		{
-			pcl.ownBonuses();
+			pcl.ownBonuses(owner);
 		}
 	}
 	

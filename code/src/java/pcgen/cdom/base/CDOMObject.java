@@ -591,7 +591,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		clone.mapChar = new MapKeyMap();
 		clone.mapChar.putAll(mapChar);
 		clone.cdomListMods = cdomListMods.clone();
-		clone.ownBonuses();
+		clone.ownBonuses(clone);
 		return clone;
 	}
 
@@ -676,7 +676,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * Hopefully this is a temporary import - thpr Oct 9, 2008
 	 * @throws CloneNotSupportedException 
 	 */
-	public void ownBonuses() throws CloneNotSupportedException
+	public void ownBonuses(Object owner) throws CloneNotSupportedException
 	{
 		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
 		if (bonusList != null)
@@ -686,7 +686,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			{
 				BonusObj bonus = orig.clone();
 				addToListFor(ListKey.BONUS, bonus);
-				bonus.setCreatorObject(this);
+				bonus.setCreatorObject(owner);
 			}
 		}
 	}

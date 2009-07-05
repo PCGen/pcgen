@@ -22,7 +22,6 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.bonus.BonusObj;
 
 /**
@@ -91,10 +90,9 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	 * items like CL are properly calculated.
 	 */
 	@Override
-	public void ownBonuses() throws CloneNotSupportedException
+	public void ownBonuses(Object owner) throws CloneNotSupportedException
 	{
 		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
-		Object parent = get(ObjectKey.PARENT);
 		if (bonusList != null)
 		{
 			removeListFor(ListKey.BONUS);
@@ -102,7 +100,7 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 			{
 				BonusObj bonus = orig.clone();
 				addToListFor(ListKey.BONUS, bonus);
-				bonus.setCreatorObject(parent);
+				bonus.setCreatorObject(owner);
 			}
 		}
 	}
