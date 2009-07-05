@@ -197,7 +197,8 @@ public final class GameMode implements Comparable<Object>
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
-
+	private final PCAlignment noAlignment;
+	
 	/**
 	 * Creates a new instance of GameMode.
 	 *
@@ -216,6 +217,8 @@ public final class GameMode implements Comparable<Object>
 			ti.tabName = aTab.label();
 			tInfo.put(aTab, ti);
 		}
+		noAlignment = new PCAlignment();
+		noAlignment.setName("");
 	}
 
 	/**
@@ -1738,7 +1741,7 @@ public final class GameMode implements Comparable<Object>
 				return align;
 			}
 		}
-		return null;
+		return noAlignment;
 	}
 	
 	/**
