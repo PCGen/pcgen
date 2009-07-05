@@ -3999,6 +3999,7 @@ public class PCClass extends PObject
 			{
 				PCClassLevel lvl = me.getValue().clone();
 				lvl.put(ObjectKey.TOKEN_PARENT, this);
+				lvl.ownBonuses(this);
 				levelMap.put(me.getKey(), lvl);
 			}
 			catch (CloneNotSupportedException e)
