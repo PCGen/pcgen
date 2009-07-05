@@ -27,13 +27,14 @@ import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.util.Logging;
 
 /**
  * Class deals with MONSTERCLASS Token
  */
 public class MonsterclassToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+		CDOMPrimaryToken<Race>, DeferredToken<Race>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -106,5 +107,28 @@ public class MonsterclassToken extends AbstractToken implements
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
+	}
+
+	public Class<Race> getDeferredTokenClass()
+	{
+		return Race.class;
+	}
+
+	public boolean process(LoadContext context, Race r)
+	{
+		LevelCommandFactory lcf = r.get(ObjectKey.MONSTER_CLASS);
+		if (lcf != null)
+		{
+			String className = lcf.getLSTformat();
+			PCClass pcc = context.ref.silentlyGetConstructedCDOMObject(
+					PCCLASS_CLASS, className);
+			if (pcc != null && !pcc.isMonster())
+			{
+				Logging.log(Logging.LST_WARNING, "Class " + className
+						+ " was used in RACE MONSTERCLASS, "
+						+ "but it is not a Monster class");
+			}
+		}
+		return true;
 	}
 }

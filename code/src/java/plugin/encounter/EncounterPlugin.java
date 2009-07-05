@@ -917,11 +917,6 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private void handleMonster(PlayerCharacter aPC, LevelCommandFactory lcf)
 	{
 		PCClass cl = lcf.getPCClass();
-		/*
-		 * CONSIDER - this is adding to the master Class - BAD!
-		 */
-		cl.put(ObjectKey.IS_MONSTER, true);
-
 		int levels = lcf.getLevelCount().resolve(aPC, "").intValue();
 		Logging.debugPrint("Monster Class: " + cl.getDisplayName()
 				+ " Level: " + levels);
