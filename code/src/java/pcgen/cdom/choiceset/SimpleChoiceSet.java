@@ -23,7 +23,9 @@
 package pcgen.cdom.choiceset;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -43,9 +45,13 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this SimpleChoiceSet contains.
  */
-public class SimpleChoiceSet<T extends Comparable<T>> implements
-		PrimitiveChoiceSet<T>
+public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 {
+
+	/**
+	 * The Comparator to use for this SimpleChoiceSet.
+	 */
+	private final Comparator<? super T> comparator;
 
 	/**
 	 * The underlying Set of objects in this SimpleChoiceSet
@@ -70,6 +76,33 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements
 	 */
 	public SimpleChoiceSet(Collection<? extends T> col)
 	{
+		this(col, null);
+	}
+
+	/**
+	 * Constructs a new SimpleChoiceSet which contains the Set of objects and
+	 * uses the given Comparator to sort the objects.
+	 * 
+	 * This constructor is both reference-semantic and value-semantic. Ownership
+	 * of the Collection provided to this constructor is not transferred and
+	 * this constructor will not modify the given Collection. Modification of
+	 * the Collection (after this constructor completes) does not result in
+	 * modifying the SimpleChoiceSet, and the SimpleChoiceSet will not modify
+	 * the given Collection. However, this SimpleChoiceSet will maintain hard
+	 * references to the objects contained within the given Collection and the
+	 * given Comparator.
+	 * 
+	 * @param col
+	 *            A Collection of objects contained within the SimpleChoiceSet
+	 * @param comp
+	 *            A Comparator used to compare the objects in this
+	 *            SimpleChoiceSet
+	 * @throws IllegalArgumentException
+	 *             if the given Collection is null or empty.
+	 */
+	public SimpleChoiceSet(Collection<? extends T> col,
+			Comparator<? super T> comp)
+	{
 		super();
 		if (col == null)
 		{
@@ -81,7 +114,8 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new HashSet<T>(col);
+		set = new LinkedHashSet<T>(col);
+		comparator = comp;
 	}
 
 	/**
@@ -96,7 +130,17 @@ public class SimpleChoiceSet<T extends Comparable<T>> implements
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return StringUtil.join(new TreeSet<T>(set), Constants.COMMA);
+		Set<T> sortingSet;
+		try
+		{
+			sortingSet = new TreeSet<T>(comparator);
+			sortingSet.addAll(set);
+		}
+		catch (ClassCastException cce)
+		{
+			sortingSet = set;
+		}
+		return StringUtil.join(sortingSet, Constants.COMMA);
 	}
 
 	/**
