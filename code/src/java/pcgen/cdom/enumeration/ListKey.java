@@ -32,6 +32,7 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.CampaignURL;
@@ -249,7 +250,8 @@ public final class ListKey<T> {
 	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<Class<?>>();
 	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<ObjectKey<?>>();
 	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<CDOMReference<Ability>>();
-
+	public static final ListKey<PersistentChoiceActor<?>> NEW_CHOOSE_ACTOR = new ListKey<PersistentChoiceActor<?>>();
+	
 	//These are case sensitive, please do not change them to upper case
 	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();
 	public static final ListKey<String> HIDDEN_Ability = new ListKey<String>();

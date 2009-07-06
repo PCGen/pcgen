@@ -301,6 +301,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> ROLLED = new ObjectKey<Boolean>(Boolean.TRUE);
 	
+	public static final ObjectKey<PersistentTransitionChoice<?>> CHOOSE_INFO = new ObjectKey<PersistentTransitionChoice<?>>(null);
+	
 	/*
 	 * TODO Okay, this is a hack.
 	 */

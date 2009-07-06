@@ -52,6 +52,8 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	private final Set<PrimitiveChoiceSet<T>> set = new TreeSet<PrimitiveChoiceSet<T>>(
 			ChoiceSetUtilities.WRITEABLE_SORTER);
 
+	private final String separator;
+
 	/**
 	 * Constructs a new CompoundOrChoiceSet which will contain objects contained
 	 * by the PrimitiveChoiceSets in the given Collection.
@@ -72,11 +74,17 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> col)
 	{
+		this(col, Constants.PIPE);
+	}
+
+	public CompoundOrChoiceSet(Collection<PrimitiveChoiceSet<T>> col, String sep)
+	{
 		if (col == null)
 		{
 			throw new IllegalArgumentException();
 		}
 		set.addAll(col);
+		separator = sep;
 	}
 
 	/**
@@ -119,7 +127,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public String getLSTformat(boolean useAny)
 	{
-		return ChoiceSetUtilities.joinLstFormat(set, Constants.COMMA, useAny);
+		return ChoiceSetUtilities.joinLstFormat(set, separator, useAny);
 	}
 
 	/**

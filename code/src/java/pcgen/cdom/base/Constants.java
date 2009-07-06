@@ -299,6 +299,7 @@ public interface Constants
 	String COMMA = ","; //$NON-NLS-1$
 	String LST_DOT_CLEAR = ".CLEAR";
 	String LST_TYPE_OLD = "TYPE.";
+	String LST_NOT_TYPE_OLD = "!TYPE.";
 	String LST_TYPE = "TYPE=";
 	int HANDS_SIZEDEPENDENT = -1;
 	String LST_ALL = "ALL";

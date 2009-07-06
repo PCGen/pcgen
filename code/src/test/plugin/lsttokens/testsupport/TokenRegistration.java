@@ -31,6 +31,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.rules.persistence.token.QualifierToken;
 
 public class TokenRegistration
 {
@@ -59,14 +61,14 @@ public class TokenRegistration
 			TokenLibrary.addToTokenMap(token);
 			TokenStore.inst().addToTokenMap(token);
 			tokenSet.add(token);
-//			if (token instanceof QualifierToken)
-//			{
-//				TokenLibrary.addToQualifierMap((QualifierToken<?>) token);
-//			}
-//			if (token instanceof PrimitiveToken)
-//			{
-//				TokenLibrary.addToPrimitiveMap((PrimitiveToken<?>) token);
-//			}
+			if (token instanceof QualifierToken)
+			{
+				TokenLibrary.addToQualifierMap((QualifierToken<?>) token);
+			}
+			if (token instanceof PrimitiveToken)
+			{
+				TokenLibrary.addToPrimitiveMap((PrimitiveToken<?>) token);
+			}
 		}
 	}
 

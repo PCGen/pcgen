@@ -21,7 +21,9 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -168,6 +170,16 @@ public class ChooseLst extends AbstractToken implements
 			{
 				obj.put(FormulaKey.NUMCHOICES, emb);
 			}
+		}
+		PersistentTransitionChoice<?> newChoose = obj
+				.get(ObjectKey.CHOOSE_INFO);
+		String oldChoose = obj.get(StringKey.CHOICE_STRING);
+		if (newChoose != null && oldChoose != null)
+		{
+			Logging.errorPrint("New style CHOOSE "
+					+ "and old style CHOOSE both found on "
+					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+			return false;
 		}
 		return true;
 	}

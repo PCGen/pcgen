@@ -209,7 +209,7 @@ public class FeatToken extends AbstractToken implements
 		}
 		else
 		{
-			ascs = new CompoundOrChoiceSet<AbilitySelection>(pcs);
+			ascs = new CompoundOrChoiceSet<AbilitySelection>(pcs, Constants.COMMA);
 		}
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), ascs, true);

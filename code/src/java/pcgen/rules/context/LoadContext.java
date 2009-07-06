@@ -28,6 +28,8 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.PrimitiveChoiceFilter;
+import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
@@ -37,9 +39,11 @@ import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.TokenSupport;
 import pcgen.rules.persistence.token.DeferredToken;
@@ -182,17 +186,27 @@ public abstract class LoadContext
 
 	private final TokenSupport support = new TokenSupport();
 
-//	public <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
-//			Class<T> poClass, String value)
-//	{
-//		return support.getChoiceSet(this, poClass, value);
-//	}
-//
-//	public <T extends CDOMObject> PrimitiveChoiceFilter<T> getPrimitiveChoiceFilter(
-//			Class<T> cl, String key)
-//	{
-//		return support.getPrimitive(this, cl, key);
-//	}
+	public <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
+			Class<T> poClass, String value)
+	{
+		try
+		{
+			return ChoiceSetLoadUtilities.getChoiceSet(this, poClass, value);
+		}
+		catch (ParsingSeparator.GroupingMismatchException e)
+		{
+			Logging.errorPrint("Group Mismatch in getting ChoiceSet: "
+					+ e.getMessage());
+			return null;
+		}
+	}
+
+	public <T extends CDOMObject> PrimitiveChoiceFilter<T> getPrimitiveChoiceFilter(
+			Class<T> cl, String key)
+	{
+		return ChoiceSetLoadUtilities.getPrimitive(this, cl, key);
+	}
+			
 
 	public <T> boolean processSubToken(T cdo, String tokenName,
 			String key, String value) throws PersistenceLayerException

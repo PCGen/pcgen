@@ -35,7 +35,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -511,6 +515,13 @@ public class ChooserUtilities
 		// Note: Number is special temp mod only chooser and should not be actioned except by temp mods. 
 		if (choiceString == null || choiceString.length() == 0 || choiceString.startsWith("NUMBER"))
 		{
+			PersistentTransitionChoice<?> chooseInfo = aPObject.get(ObjectKey.CHOOSE_INFO);
+			if (chooseInfo != null)
+			{
+				Formula selectionsPerUnitCost = aPObject.getSafe(FormulaKey.SELECT);
+				int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
+				return new CDOMChoiceManager(aPObject, chooseInfo, null, cost);
+			}
 			return null;
 		}
 

@@ -56,6 +56,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
@@ -461,6 +463,8 @@ public class JARClassLoader extends ClassLoader
 			loadLstTokens(clazz, modifiers);
 			loadBonusTokens(clazz, name, modifiers);
 			loadPreTokens(clazz, modifiers);
+			loadPrimitives(clazz, modifiers);
+			loadQualifiers(clazz, modifiers);
 			loadJepCommands(clazz, modifiers);
 			loadConvertCommands(clazz, modifiers);
 		}
@@ -586,4 +590,26 @@ public class JARClassLoader extends ClassLoader
 		}
 		return load;
 	}
+	
+	
+	private void loadPrimitives(Class<?> clazz, int modifiers) throws Exception
+	{
+		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers)
+				&& PrimitiveToken.class.isAssignableFrom(clazz))
+		{
+			PrimitiveToken<?> pl = (PrimitiveToken<?>) clazz.newInstance();
+			TokenLibrary.addToPrimitiveMap(pl);
+		}
+	}
+
+	private void loadQualifiers(Class<?> clazz, int modifiers) throws Exception
+	{
+		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers)
+				&& QualifierToken.class.isAssignableFrom(clazz))
+		{
+			QualifierToken<?> pl = (QualifierToken<?>) clazz.newInstance();
+			TokenLibrary.addToQualifierMap(pl);
+		}
+	}
+
 }

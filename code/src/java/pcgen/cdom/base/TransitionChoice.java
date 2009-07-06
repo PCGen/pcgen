@@ -139,8 +139,11 @@ public class TransitionChoice<T>
 		if (obj instanceof TransitionChoice)
 		{
 			TransitionChoice<?> other = (TransitionChoice<?>) obj;
-			return choiceCount.equals(other.choiceCount)
-					&& choices.equals(other.choices);
+			if (choiceCount == other.choiceCount
+					|| (choiceCount != null && choiceCount.equals(other.choiceCount)))
+			{
+				return choices.equals(other.choices);
+			}
 		}
 		return false;
 	}
@@ -153,7 +156,8 @@ public class TransitionChoice<T>
 	@Override
 	public int hashCode()
 	{
-		return choiceCount.hashCode() * 29 + choices.hashCode();
+		return choices.hashCode() + 29
+				* (choiceCount == null ? -1 : choiceCount.hashCode());
 	}
 
 	/**

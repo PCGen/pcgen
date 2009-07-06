@@ -24,6 +24,8 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
@@ -35,6 +37,8 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ClassWrappedToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.PreCompatibilityToken;
+import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.rules.persistence.util.TokenFamily;
 import pcgen.util.Logging;
 
@@ -46,9 +50,10 @@ public class TokenLibrary
 
 	private static final List<DeferredToken<? extends CDOMObject>> deferredTokens = new ArrayList<DeferredToken<? extends CDOMObject>>();
 
-//	private static final DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<ChooseLstQualifierToken<?>>>();
-//
-//	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap = new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
+	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> qualifierMap = new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
+
+	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap = new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
+	
 
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
 
@@ -58,54 +63,55 @@ public class TokenLibrary
 		TOKEN_FAMILIES.add(TokenFamily.REV514);
 	}
 
-//	public static <T> PrimitiveToken<T> getPrimitive(Class<T> name,
-//			String tokKey)
-//	{
-//		Class<PrimitiveToken<?>> cptc = primitiveMap.get(name, tokKey);
-//		if (cptc == null)
-//		{
-//			return null;
-//		}
-//		try
-//		{
-//			return (PrimitiveToken<T>) cptc.newInstance();
-//		}
-//		catch (InstantiationException e)
-//		{
-//			throw new UnreachableError("new Instance on " + cptc
-//					+ " should not fail in getPrimitive", e);
-//		}
-//		catch (IllegalAccessException e)
-//		{
-//			throw new UnreachableError("new Instance on " + cptc
-//					+ " should not fail due to access", e);
-//		}
-//	}
-//
-//	public static <T extends CDOMObject> ChooseLstQualifierToken<T> getChooseQualifier(
-//			Class<T> domain_class, String key)
-//	{
-//		Class<ChooseLstQualifierToken<?>> clqtc = qualifierMap.get(
-//				domain_class, key);
-//		if (clqtc == null)
-//		{
-//			return null;
-//		}
-//		try
-//		{
-//			return (ChooseLstQualifierToken<T>) clqtc.newInstance();
-//		}
-//		catch (InstantiationException e)
-//		{
-//			throw new UnreachableError("new Instance on " + clqtc
-//					+ " should not fail in getChooseQualifier", e);
-//		}
-//		catch (IllegalAccessException e)
-//		{
-//			throw new UnreachableError("new Instance on " + clqtc
-//					+ " should not fail due to access", e);
-//		}
-//	}
+	public static <T> PrimitiveToken<T> getPrimitive(Class<T> name,
+			String tokKey)
+	{
+		Class<PrimitiveToken<?>> cptc = primitiveMap.get(name, tokKey);
+		if (cptc == null)
+		{
+			return null;
+		}
+		try
+		{
+			return (PrimitiveToken<T>) cptc.newInstance();
+		}
+		catch (InstantiationException e)
+		{
+			throw new UnreachableError("new Instance on " + cptc
+					+ " should not fail in getPrimitive", e);
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new UnreachableError("new Instance on " + cptc
+					+ " should not fail due to access", e);
+		}
+	}
+
+	// public static <T extends CDOMObject> ChooseLstQualifierToken<T>
+	// getChooseQualifier(
+	// Class<T> domain_class, String key)
+	// {
+	// Class<ChooseLstQualifierToken<?>> clqtc = qualifierMap.get(
+	// domain_class, key);
+	// if (clqtc == null)
+	// {
+	// return null;
+	// }
+	// try
+	// {
+	// return (ChooseLstQualifierToken<T>) clqtc.newInstance();
+	// }
+	// catch (InstantiationException e)
+	// {
+	// throw new UnreachableError("new Instance on " + clqtc
+	// + " should not fail in getChooseQualifier", e);
+	// }
+	// catch (IllegalAccessException e)
+	// {
+	// throw new UnreachableError("new Instance on " + clqtc
+	// + " should not fail due to access", e);
+	// }
+	// }
 
 	public static List<DeferredToken<? extends CDOMObject>> getDeferredTokens()
 	{
@@ -113,39 +119,37 @@ public class TokenLibrary
 				deferredTokens);
 	}
 
-//	public static void addToPrimitiveMap(PrimitiveToken<?> p)
-//	{
-//		Class<? extends PrimitiveToken> newTokClass = p.getClass();
-//		if (PrimitiveToken.class.isAssignableFrom(newTokClass))
-//		{
-//			String name = p.getTokenName();
-//			Class cl = ((PrimitiveToken) p).getReferenceClass();
-//			Class<PrimitiveToken<?>> prev = primitiveMap.put(cl, name,
-//					(Class<PrimitiveToken<?>>) newTokClass);
-//			if (prev != null)
-//			{
-//				Logging.errorPrint("Found a second " + name + " Primitive for "
-//						+ cl);
-//			}
-//		}
-//	}
-//
-//	public static void addToQualifierMap(QualifierToken<?> p)
-//	{
-//		Class<? extends QualifierToken> newTokClass = p.getClass();
-//		if (ChooseLstQualifierToken.class.isAssignableFrom(newTokClass))
-//		{
-//			Class<?> cl = ((ChooseLstQualifierToken<?>) p).getChoiceClass();
-//			String name = p.getTokenName();
-//			Class<ChooseLstQualifierToken<?>> prev = qualifierMap.put(cl, name,
-//					(Class<ChooseLstQualifierToken<?>>) newTokClass);
-//			if (prev != null)
-//			{
-//				Logging.errorPrint("Found a second " + name + " Primitive for "
-//						+ cl);
-//			}
-//		}
-//	}
+	public static void addToPrimitiveMap(PrimitiveToken<?> p)
+	{
+		Class<? extends PrimitiveToken> newTokClass = p.getClass();
+		if (PrimitiveToken.class.isAssignableFrom(newTokClass))
+		{
+			String name = p.getTokenName();
+			Class cl = ((PrimitiveToken) p).getReferenceClass();
+			Class<PrimitiveToken<?>> prev = primitiveMap.put(cl, name,
+					(Class<PrimitiveToken<?>>) newTokClass);
+			if (prev != null)
+			{
+				Logging.errorPrint("Found a second " + name + " Primitive for "
+						+ cl);
+			}
+		}
+	}
+
+	public static void addToQualifierMap(QualifierToken<?> p)
+	{
+		Class<? extends QualifierToken> newTokClass = p.getClass();
+		Class<?> cl = p.getChoiceClass();
+		String name = p.getTokenName();
+		Class<? extends QualifierToken> prev = qualifierMap.put(cl, name,
+				newTokClass);
+		if (prev != null)
+		{
+			Logging.errorPrint("Found a second " + name + " Primitive for "
+					+ cl);
+
+		}
+	}
 
 	public static void addToTokenMap(Object newToken)
 	{
@@ -367,58 +371,42 @@ public class TokenLibrary
 		}
 	}
 
-//	static class ChooseTokenIterator<C extends CDOMObject> extends
-//			TokenLibrary.AbstractTokenIterator<C, ChoiceSetToken<? super C>>
-//	{
-//		public ChooseTokenIterator(Class<C> cl, String key)
-//		{
-//			super(cl, key);
-//		}
-//
-//		@Override
-//		protected ChoiceSetToken<? super C> grabToken(TokenFamily family,
-//				Class<?> cl, String key)
-//		{
-//			return (ChoiceSetToken<? super C>) family.getChooseToken(cl, key);
-//		}
-//	}
+	static class QualifierTokenIterator<C extends CDOMObject, T extends QualifierToken<? super C>>
+			extends TokenLibrary.AbstractTokenIterator<C, T>
+	{
+		public QualifierTokenIterator(Class<C> cl, String key)
+		{
+			super(cl, key);
+		}
 
-//	static class QualifierTokenIterator<C extends CDOMObject, T extends ChooseLstQualifierToken<? super C>>
-//			extends TokenLibrary.AbstractTokenIterator<C, T>
-//	{
-//		public QualifierTokenIterator(Class<C> cl, String key)
-//		{
-//			super(cl, key);
-//		}
-//
-//		@Override
-//		protected T grabToken(TokenFamily family, Class<?> cl, String key)
-//		{
-//			if (!TokenFamily.CURRENT.equals(family))
-//			{
-//				return null;
-//			}
-//			Class<ChooseLstQualifierToken<?>> cl1 = qualifierMap.get(cl, key);
-//			if (cl1 == null)
-//			{
-//				return null;
-//			}
-//			try
-//			{
-//				return (T) cl1.newInstance();
-//			}
-//			catch (InstantiationException e)
-//			{
-//				throw new UnreachableError("new Instance on " + cl1
-//						+ " should not fail", e);
-//			}
-//			catch (IllegalAccessException e)
-//			{
-//				throw new UnreachableError("new Instance on " + cl1
-//						+ " should not fail due to access", e);
-//			}
-//		}
-//	}
+		@Override
+		protected T grabToken(TokenFamily family, Class<?> cl, String key)
+		{
+			if (!TokenFamily.CURRENT.equals(family))
+			{
+				return null;
+			}
+			Class<? extends QualifierToken> cl1 = qualifierMap.get(cl, key);
+			if (cl1 == null)
+			{
+				return null;
+			}
+			try
+			{
+				return (T) cl1.newInstance();
+			}
+			catch (InstantiationException e)
+			{
+				throw new UnreachableError("new Instance on " + cl1
+						+ " should not fail", e);
+			}
+			catch (IllegalAccessException e)
+			{
+				throw new UnreachableError("new Instance on " + cl1
+						+ " should not fail due to access", e);
+			}
+		}
+	}
 
 	static class PreTokenIterator
 			extends
