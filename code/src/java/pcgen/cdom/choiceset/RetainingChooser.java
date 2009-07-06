@@ -162,9 +162,10 @@ public class RetainingChooser<T extends CDOMObject> implements
 			choices.addAll(baseSet.getContainedObjects());
 			RETAIN: for (Iterator<T> it = choices.iterator(); it.hasNext();)
 			{
+				T choice = it.next();
 				for (PrimitiveChoiceFilter<? super T> cf : retainingSet)
 				{
-					if (cf.allow(pc, it.next()))
+					if (cf.allow(pc, choice))
 					{
 						continue RETAIN;
 					}
