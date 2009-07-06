@@ -6298,10 +6298,10 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-qualifier-global-plugins" depends="makeplugindirs" description="Build (Link) Global Qualifier Token plugin jar files">
 		<!-- Global Qualifier tokens-->
-		<jar jarfile="${lstplugins.dir}/GlobalQualifier-ALL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/GlobalQualifier-ANY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/qualifier/pobject/AllToken.class" />
+					<include name="plugin/qualifier/pobject/AnyToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
