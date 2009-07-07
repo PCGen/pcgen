@@ -96,21 +96,21 @@ public class PCStatToken extends AbstractToken implements
 		else
 		{
 			StringTokenizer st = new StringTokenizer(activeValue, ",");
-			Set<PCStat> list = new HashSet<PCStat>();
+			Set<PCStat> set = new HashSet<PCStat>();
 			while (st.hasMoreTokens())
 			{
 				PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, st
 						.nextToken());
-				if (!list.add(stat))
+				if (!set.add(stat))
 				{
 					// Error (second add)
 				}
 			}
-			if (list.isEmpty())
+			if (set.isEmpty())
 			{
 				return false;
 			}
-			pcs = new SimpleChoiceSet<PCStat>(list);
+			pcs = new SimpleChoiceSet<PCStat>(set);
 		}
 
 		if (!pcs.getGroupingState().isValid())
