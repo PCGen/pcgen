@@ -38,6 +38,7 @@ import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
@@ -114,6 +115,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<SpecialAbility> SPECIAL_ABILITY = new AssociationListKey<SpecialAbility>();
 
 	public static final AssociationListKey<PCTemplate> CHOOSE_TEMPLATE = new AssociationListKey<PCTemplate>();
+
+	public static final AssociationListKey<PCStat> CHOOSE_PCSTAT = new AssociationListKey<PCStat>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
