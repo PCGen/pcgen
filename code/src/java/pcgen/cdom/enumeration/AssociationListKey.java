@@ -37,6 +37,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -117,6 +118,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<PCTemplate> CHOOSE_TEMPLATE = new AssociationListKey<PCTemplate>();
 
 	public static final AssociationListKey<PCStat> CHOOSE_PCSTAT = new AssociationListKey<PCStat>();
+
+	public static final AssociationListKey<PCCheck> CHOOSE_PCCHECK = new AssociationListKey<PCCheck>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
