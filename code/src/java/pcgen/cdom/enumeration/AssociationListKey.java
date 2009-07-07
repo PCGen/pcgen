@@ -42,6 +42,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
@@ -120,6 +121,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<PCStat> CHOOSE_PCSTAT = new AssociationListKey<PCStat>();
 
 	public static final AssociationListKey<PCCheck> CHOOSE_PCCHECK = new AssociationListKey<PCCheck>();
+
+	public static final AssociationListKey<SizeAdjustment> CHOOSE_SIZEADJUSTMENT = new AssociationListKey<SizeAdjustment>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
