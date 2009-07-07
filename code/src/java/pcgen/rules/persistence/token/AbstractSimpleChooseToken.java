@@ -34,7 +34,6 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
-import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -227,7 +226,7 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	public boolean allow(PCCheck choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
