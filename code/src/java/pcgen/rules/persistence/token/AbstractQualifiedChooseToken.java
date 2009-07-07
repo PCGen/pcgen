@@ -15,7 +15,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public abstract class AbstractChooseToken<T extends CDOMObject> extends
+public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 		AbstractToken implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<T>
 {

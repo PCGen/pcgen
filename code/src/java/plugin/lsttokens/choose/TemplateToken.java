@@ -20,9 +20,9 @@ package plugin.lsttokens.choose;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.rules.persistence.token.AbstractChooseToken;
+import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 
-public class TemplateToken extends AbstractChooseToken<PCTemplate>
+public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 {
 
 	@Override
