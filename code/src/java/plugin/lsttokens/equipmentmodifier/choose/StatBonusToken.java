@@ -23,7 +23,6 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -86,7 +85,7 @@ public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 			return false;
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		Collection<PCStat> list = Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class);
+		Collection<PCStat> list = context.ref.getConstructedCDOMObjects(PCStat.class);
 		Integer min = null;
 		Integer max = null;
 		while (tok.hasMoreTokens())
