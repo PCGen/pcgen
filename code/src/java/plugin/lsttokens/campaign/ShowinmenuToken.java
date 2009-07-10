@@ -67,9 +67,15 @@ public class ShowinmenuToken extends AbstractToken implements
 		}
 		else if (Boolean.valueOf(value).booleanValue())
 		{
-			// TODO Need to deprecate this behavior - inconsistent with ALL
-			// other tokens
+			Logging.deprecationPrint("You should use 'YES' as the "
+				+ getTokenName() + ": " + value + " in " + campaign.toString());
 			set = Boolean.TRUE;
+		}
+		else if ("false".equalsIgnoreCase(value))
+		{
+			Logging.deprecationPrint("You should use 'NO' as the "
+				+ getTokenName() + ": " + value + " in " + campaign.toString());
+			set = Boolean.FALSE;
 		}
 		else
 		{
