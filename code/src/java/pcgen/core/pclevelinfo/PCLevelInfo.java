@@ -46,7 +46,7 @@ public final class PCLevelInfo implements Cloneable
 	private List<PCLevelInfoStat>            statsPreModified     = null;
 	private String          classKeyName         = "";
 	private int             level                = 0;
-	private int             skillPointsGained    = 0;
+	private int             skillPointsGained    = Integer.MIN_VALUE;
 	private int             skillPointsRemaining = 0;
 	private PlayerCharacter aPC;
 	//TODO objects should really be a list of Abilities, shouldn't it? JK070115
@@ -138,7 +138,7 @@ public final class PCLevelInfo implements Cloneable
 	public int getSkillPointsGained()
 	{
 		// If this information in not saved on PCG, then try to recalc it
-		if ((skillPointsGained == 0) && (classKeyName.length() > 0))
+		if ((skillPointsGained == Integer.MIN_VALUE) && (classKeyName.length() > 0))
 		{
 			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 			skillPointsGained = aClass.recalcSkillPointMod(aPC, level) +
@@ -323,7 +323,7 @@ public final class PCLevelInfo implements Cloneable
 
 	/**
 	 * Get any Abilites added at this level
-	 * 
+	 *
 	 * @return  List
 	 */
 	public List<? extends PObject> getObjects()

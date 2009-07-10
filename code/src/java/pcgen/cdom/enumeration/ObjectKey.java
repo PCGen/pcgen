@@ -75,19 +75,19 @@ import pcgen.util.enumeration.Visibility;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This is a Typesafe enumeration of legal Object Characteristics of an object.
  * It is designed to act as an index to a specific Objects within a
  * CDOMObject.
- * 
+ *
  * ObjectKeys are designed to store items in a CDOMObject in a type-safe
  * fashion. Note that it is possible to use the ObjectKey to cast the object to
  * the type of object stored by the ObjectKey. (This assists with Generics)
- * 
+ *
  * A "default value" (may be null) must be provided at object construction (the
  * default is provided when getSafe(ObjectKey) is called in CDOMObject). This
  * default value is especially useful for Boolean ObjectKeys.
- * 
+ *
  * @param <T>
  *            The class of object stored by this ObjectKey.
  */
@@ -229,7 +229,7 @@ public class ObjectKey<T>
 	public static final ObjectKey<LevelCommandFactory> MONSTER_CLASS = new ObjectKey<LevelCommandFactory>(null);
 
 	public static final ObjectKey<CDOMSingleRef<Equipment>> BASE_ITEM = new ObjectKey<CDOMSingleRef<Equipment>>(null);
-	
+
 	public static final ObjectKey<LevelExchange> EXCHANGE_LEVEL = new ObjectKey<LevelExchange>(null);
 
 	public static final ObjectKey<CDOMSingleRef<PCClass>> EX_CLASS = new ObjectKey<CDOMSingleRef<PCClass>>(null);
@@ -260,6 +260,10 @@ public class ObjectKey<T>
 	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<TransitionChoice<Region>>(null);
 
 	public static final ObjectKey<Boolean> USE_MASTER_SKILL = new ObjectKey<Boolean>(Boolean.FALSE);
+	
+	public static final ObjectKey<Boolean> DONTADD_HITDIE = new ObjectKey<Boolean>(null);
+	
+	public static final ObjectKey<Boolean> DONTADD_SKILLPOINTS = new ObjectKey<Boolean>(null);
 
 	public static final ObjectKey<KitApply> APPLY_MODE = new ObjectKey<KitApply>(KitApply.PERMANENT);
 
@@ -333,7 +337,7 @@ public class ObjectKey<T>
 	}
 
 	private final T defaultValue;
-	
+
 	private ObjectKey(T def)
 	{
 		defaultValue = def;

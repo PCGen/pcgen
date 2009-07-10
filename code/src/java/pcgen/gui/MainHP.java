@@ -99,7 +99,8 @@ final class MainHP extends JPanel
 	 * Set the PC for this component
 	 * @param aPC
 	 */
-	public void setCharacter(PlayerCharacter aPC) {
+	public void setCharacter(PlayerCharacter aPC)
+	{
 		this.aPC = aPC;
 	}
 
@@ -149,7 +150,7 @@ final class MainHP extends JPanel
 
 	private int getCurrentHP(int row)
 	{
-		return ((Integer)currentHpTableModel.getValueAt(row, 2)).intValue();
+		return ((Integer) currentHpTableModel.getValueAt(row, 2)).intValue();
 	}
 
 	private void setForRow(int iRow, int value)
@@ -174,13 +175,20 @@ final class MainHP extends JPanel
 
 		if (iRoll < 1)
 		{
-			ShowMessageDelegate.showMessageDialog("Roll must be at least the minimum (1)", Constants.s_APPNAME, MessageType.ERROR);
+			if (iRoll < 0)
+			{
+				iRoll = 0;
+			}
+			if (iMax > 0)
+			{
+				ShowMessageDelegate.showMessageDialog("Roll must be at least the minimum (1)", Constants.s_APPNAME, MessageType.ERROR);
+			}
 		}
-		else if (iRoll > iMax)
-		{
-			ShowMessageDelegate.showMessageDialog("Roll cannot exceed the maximum (" + iMax + ')', Constants.s_APPNAME, MessageType.ERROR);
-		}
-		else
+//		else if (iRoll > iMax)
+//		{
+//			ShowMessageDelegate.showMessageDialog("Roll cannot exceed the maximum (" + iMax + ')', Constants.s_APPNAME, MessageType.ERROR);
+//		}
+//		else
 		{
 			PCClass aClass = null;
 
@@ -293,9 +301,17 @@ final class MainHP extends JPanel
 				{
 					startRow++;
 				}
-				for (int i = startRow; i < iRows-1; i++)
+				for (int i = startRow; i < iRows - 1; ++i)
 				{
-					setForRow(i, Math.abs(Globals.getRandomInt(getHitDieSize(i))) + 1);
+					final int dieSize = getHitDieSize(i);
+					if (dieSize > 0)
+					{
+						setForRow(i, Math.abs(Globals.getRandomInt(dieSize)) + 1);
+					}
+					else
+					{
+						setForRow(i, 0);
+					}
 				}
 			}
 		});
@@ -512,7 +528,7 @@ final class MainHP extends JPanel
 							int iRows = getRowCount() - 1;
 							iHp = 0;
 
-							for (int i = 0; i < iRows; i++)
+							for (int i = 0; i < iRows; ++i)
 							{
 								//
 								// Just in case the list is really messed up, make sure we don't
@@ -552,17 +568,22 @@ final class MainHP extends JPanel
 						return Integer.valueOf(iHp);
 
 					case 3: // Con
-
-						int iConMod = (int) aPC.getStatBonusTo("HP", "BONUS");
-
+						int iConMod = 0;
+						if (iSides > 0)
+						{
+							iConMod = (int) aPC.getStatBonusTo("HP", "BONUS");
+						}
 						return Integer.valueOf(iConMod);
 
 					case 4: // Total
-						iHp += (int) aPC.getStatBonusTo("HP", "BONUS");
-
-						if (iHp < 1)
+						if (iSides > 0)
 						{
-							iHp = 1;
+							iHp += (int) aPC.getStatBonusTo("HP", "BONUS");
+
+							if (iHp < 1)
+							{
+								iHp = 1;
+							}
 						}
 
 						return Integer.valueOf(iHp);

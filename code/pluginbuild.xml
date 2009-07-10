@@ -3325,6 +3325,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLevelLstToken-DONOTADD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/level/DonotaddToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/ClassLevelLstToken-HITDIE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5069,6 +5076,16 @@ jar-all-plugins - Generate the plugin jar files
 	<!-- System tokens-->
 	<target name="jar-systemlst-plugins" depends="makeplugindirs" description="Build (Link) System Lst plugin jar files">
 		<!-- GameMode tokens-->
+
+		<!-- CMP tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-STARTSTATMIN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/StartStatMinToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ACABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5674,6 +5691,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/tab/NameToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-TabToken-SKILLTABLEHIDDENCOLUMNS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/tab/SkilltablehiddencolumnsToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

@@ -643,6 +643,12 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				rollStatsButton.setEnabled(false);
 			}
 		}
+
+		//
+		// Make sure hit points displayed are correct
+		//
+		updateHP();
+
 	}
 
 	/* (non-Javadoc)
@@ -652,7 +658,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	{
 		forceRefresh(true);
 	}
-	
+
 	/**
 	 * Force a refresh of the tab.
 	 * @param newPC Is the refresh because we changed character?
@@ -859,7 +865,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			b.appendSmallTitleElement(PropertyFactory.getString("in_sumRace") //$NON-NLS-1
 				+ aRace.getDisplayName());
-			
+
 			b.appendSpacer();
 			b.appendI18nElement("in_sumTYPE", aRace.getType()); //$NON-NLS-1
 
@@ -948,10 +954,10 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			if (fcs != null)
 			{
-				String favClassName = fcs.length() == 0 ? 
+				String favClassName = fcs.length() == 0 ?
 					PropertyFactory.getString("in_sumVarious"): //$NON-NLS-1$
 						fcs;
-				
+
 				b.appendSpacer();
 				b.appendI18nElement("in_sumFavoredClass", favClassName); //$NON-NLS-1
 			}
@@ -987,7 +993,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			b.appendSmallTitleElement(PropertyFactory.getString("in_sumClass") //$NON-NLS-1
 				+ aClass.getDisplayName());
 
-			
+
 			b.appendSpacer();
 			b.appendI18nElement("in_sumTYPE", aClass.getType()); //$NON-NLS-1
 
@@ -1196,7 +1202,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				return;
 			}
 		}
-		
+
 		if (!Globals.checkRule(RuleConstants.LEVELCAP)
 			&& theClass.hasMaxLevel()
 			&& ((levels > theClass.getSafe(IntegerKey.LEVEL_LIMIT)) || ((aClass != null) && ((aClass
@@ -1288,7 +1294,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		// Recalc the innate spell list
 		pc.getSpellList();
-		
+
 		PCGen_Frame1.forceUpdate_PlayerTabs();
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoClasses());
@@ -1320,7 +1326,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 	/**
 	 * Determine if all of the characters stats are still set to 0.
-	 * 
+	 *
 	 * @return True if they are all zero, false if any are non-zero.
 	 */
 	private boolean allAbilitiesAreZero()
@@ -1332,7 +1338,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 
@@ -2240,25 +2246,25 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			else if (pc.getLevelInfoSize() != 0)
 			{
 				final Object lastSelection = classComboBox.getSelectedItem();
-				
-	
+
+
 				for (int idx = pc.getLevelInfoSize() - 1; idx >= 0; --idx)
 				{
 					final PCClass pcClass =
 							pc.getClassKeyed(pc.getLevelInfoClassKeyName(idx));
-	
+
 					if (pcClass != null)
 					{
 						classComboBox.setSelectedItem(Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, pcClass
 						.getKeyName()));
-	
+
 						if (classComboBox.getSelectedIndex() >= 0)
 						{
 							break;
 						}
 					}
 				}
-	
+
 				//
 				// If couldn't find a selection, then default back to the previous choice
 				//

@@ -91,14 +91,17 @@ public class HitDiceToken extends Token
 			for (int i = 0; i < pcClass.getLevel(pc); i++)
 			{
 				int hitDie = pcClass.getLevelHitDie(pc, i + 1).getDie();
-				Integer num = hdMap.get(hitDie);
-				if (num == null)
+				if (hitDie != 0)
 				{
-					hdMap.put(hitDie, 1);
-				}
-				else
-				{
-					hdMap.put(hitDie, num.intValue() + 1);
+					Integer num = hdMap.get(hitDie);
+					if (num == null)
+					{
+						hdMap.put(hitDie, 1);
+					}
+					else
+					{
+						hdMap.put(hitDie, num.intValue() + 1);
+					}
 				}
 			}
 

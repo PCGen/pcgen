@@ -101,14 +101,14 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * <code>PCClass</code>.
- * 
+ *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  */
 public class PCClass extends PObject
 {
 
 	public static final CDOMReference<ClassSkillList> MONSTER_SKILL_LIST;
-	
+
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;
 
 	static
@@ -161,11 +161,11 @@ public class PCClass extends PObject
 
 	/**
 	 * Returns the abbreviation for this class.
-	 * 
+	 *
 	 * @return The abbreviation string.
 	 */
 	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getAbbrev()
@@ -182,13 +182,13 @@ public class PCClass extends PObject
 	/**
 	 * Return the qualified key, usually used as the source in a
 	 * getVariableValue call. Overriden here to return CLASS:keyname
-	 * 
+	 *
 	 * @return The qualified key of the object
 	 */
 	/*
 	 * PCCLASSANDLEVEL Since the classKey is generally the universal index of whether
-	 * two PCClassLevels are off of the same base, classKey will be populated into 
-	 * each PCClassLevel.  This method must therefore also be in both PCClass and 
+	 * two PCClassLevels are off of the same base, classKey will be populated into
+	 * each PCClassLevel.  This method must therefore also be in both PCClass and
 	 * PCClassLevel
 	 */
 	@Override
@@ -204,14 +204,14 @@ public class PCClass extends PObject
 
 	/**
 	 * Returns the total bonus to the specified bonus type and name.
-	 * 
+	 *
 	 * <p>
 	 * This method checks only bonuses associated with the class. It makes sure
 	 * to return bonuses that are active only to the max level specified. What
 	 * that means is that bonuses specified on class level lines will have a
 	 * level parameter associated with them. Only bonuses specified on the level
 	 * specified or lower will be totalled.
-	 * 
+	 *
 	 * @param argType
 	 *            Bonus type e.g. <code>BONUS:<b>DOMAIN</b></code>
 	 * @param argMname
@@ -221,11 +221,11 @@ public class PCClass extends PObject
 	 * @param aPC
 	 *            The <tt>PlayerCharacter</tt> bonuses are being calculated
 	 *            for.
-	 * 
+	 *
 	 * @return Total bonus value.
 	 */
 	/*
-	 * REFACTOR There is potentially redundant information here - level and PC... 
+	 * REFACTOR There is potentially redundant information here - level and PC...
 	 * is this ever out of sync or can this method be removed/made private??
 	 */
 	public double getBonusTo(final String argType, final String argMname,
@@ -319,7 +319,7 @@ public class PCClass extends PObject
 	/**
 	 * Return the number of spells a character can cast in this class for the
 	 * current level.
-	 * 
+	 *
 	 * @param spellLevel
 	 *            The spell level we are interested in
 	 * @param bookName
@@ -338,7 +338,7 @@ public class PCClass extends PObject
 	/**
 	 * Return the number of spells a character can cast in this class for a
 	 * specified level.
-	 * 
+	 *
 	 * @param pcLevel
 	 *            The number of levels in this class that the character has
 	 * @param spellLevel
@@ -580,7 +580,7 @@ public class PCClass extends PObject
 	 */
 	/*
 	 * DELETEMETHOD This method is NOT appropriate for either PCClass or
-	 * PCClassLevel.  The equivalent functionality in order to sustain the 
+	 * PCClassLevel.  The equivalent functionality in order to sustain the
 	 * maxbablevel and maxcheckslevel globals will have to be done by
 	 * PlayerCharacter as it filters out the PCClassLevels that are allowed
 	 * to be used for those calculations.
@@ -591,7 +591,7 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Identify if this class has a cap on the number of levels it is 
+	 * Identify if this class has a cap on the number of levels it is
 	 * possible to take.
 	 * @return true if a cap on levels exists, false otherwise.
 	 */
@@ -645,7 +645,7 @@ public class PCClass extends PObject
 	 * progression.
 	 */
 	/*
-	 * REFACTOR At least CONSIDER Whether this should be an @Override of 
+	 * REFACTOR At least CONSIDER Whether this should be an @Override of
 	 * getDisplayName()?  What additional value does this provide by being
 	 * a separate method?? - thpr 11/6/06
 	 */
@@ -698,7 +698,7 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSLEVELONLY Must only be the PCClassLevel since this refers to the 
+	 * PCCLASSLEVELONLY Must only be the PCClassLevel since this refers to the
 	 * level in the String that is returned.
 	 */
 	public String getFullDisplayClassName(PlayerCharacter pc)
@@ -742,10 +742,17 @@ public class PCClass extends PObject
 		PCClassLevel cl = levelMap.get(classLevel);
 		if (cl != null)
 		{
-			Modifier<HitDie> lock = cl.get(ObjectKey.HITDIE);
-			if (lock != null)
+			if (cl.get(ObjectKey.DONTADD_HITDIE) != null)
 			{
-				currDie = lock.applyModifier(currDie, this);
+				currDie = HitDie.ZERO;	//null;
+			}
+			else
+			{
+				Modifier<HitDie> lock = cl.get(ObjectKey.HITDIE);
+				if (lock != null)
+				{
+					currDie = lock.applyModifier(currDie, this);
+				}
 			}
 		}
 
@@ -753,7 +760,7 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellBaseStat()
@@ -776,7 +783,7 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellType()
@@ -788,7 +795,7 @@ public class PCClass extends PObject
 	/*
 	 * PCCLASSLEVELONLY Since this is the PCClassLevel specific version
 	 * of getCastList, it is only appropriate for the class levels.
-	 * 
+	 *
 	 * May also be required in the Factory for PCClassLevels, so might
 	 * also appear in PCClass.
 	 */
@@ -820,7 +827,7 @@ public class PCClass extends PObject
 
 	/**
 	 * Return the level of the highest level spell offered by the class.
-	 * 
+	 *
 	 * @return The level of the highest level spell available.
 	 */
 	public int getHighestLevelSpell()
@@ -837,7 +844,7 @@ public class PCClass extends PObject
 	 * Return the level of the highest level spell the character could possibly
 	 * cast in this class. This can return a higher level than the class allows
 	 * if the character has feats which give a bonus to casting.
-	 * 
+	 *
 	 * @param pc
 	 *            The character to be checked.
 	 * @return The level of the highest level spell available.
@@ -865,7 +872,7 @@ public class PCClass extends PObject
 
 	/**
 	 * Return number of spells known for a level.
-	 * 
+	 *
 	 * @param pcLevel
 	 * @param spellLevel
 	 * @param aPC
@@ -878,7 +885,7 @@ public class PCClass extends PObject
 
 	/**
 	 * if castAs has been set, return knownList from that class
-	 * 
+	 *
 	 * @return List
 	 */
 	/*
@@ -911,8 +918,8 @@ public class PCClass extends PObject
 
 	/*
 	 * PCCLASSONLY This is required in PCClass for PCClass editing
-	 * 
-	 * DELETEMETHOD - this isn't used??? Or perhaps that indicates 
+	 *
+	 * DELETEMETHOD - this isn't used??? Or perhaps that indicates
 	 * that the GUI LST CLASS editor is incomplete :)
 	 */
 	public final Map<Integer, List<Formula>> getSpecialtyKnownList()
@@ -928,7 +935,7 @@ public class PCClass extends PObject
 	 * Get the number of spells this PC can cast based on Caster Level and
 	 * desired Spell Level ex: how many 5th level spells can a 17th level wizard
 	 * cast?
-	 * 
+	 *
 	 * @param iCasterLevel
 	 * @param iSpellLevel
 	 * @param aPC
@@ -977,7 +984,7 @@ public class PCClass extends PObject
 				{
 					target = getSubClassKeyed(subClassKey);
 				}
-				
+
 				return "+"+target.getSpecialtyKnownForLevel(spellLevel, aPC);
 			}
 
@@ -1007,7 +1014,7 @@ public class PCClass extends PObject
 	/**
 	 * Return the number of spells a character can cast in this class for a
 	 * specified level.
-	 * 
+	 *
 	 * @param spellLevel
 	 *            The spell level we are interested in
 	 * @param aPC
@@ -1024,14 +1031,14 @@ public class PCClass extends PObject
 	/**
 	 * Return number of speciality spells known for a level for a given
 	 * spellbook
-	 * 
+	 *
 	 * @param pcLevel
 	 * @param spellLevel
 	 * @param aPC
 	 * @return int
 	 */
 	/*
-	 * REFACTOR More redundant information and opportunity to refactor to 
+	 * REFACTOR More redundant information and opportunity to refactor to
 	 * simplify the interface of PCClassLevel
 	 */
 	public int getSpecialtyKnownForLevel(final int spellLevel,
@@ -1237,8 +1244,8 @@ public class PCClass extends PObject
 
 	/**
 	 * Add the bonus to the character's feat pool that is granted by the class.
-	 * NB: LEVELSPERFEAT is now handled via PLayerCHaracter.getNumFeatsFromLevels() 
-	 * rather than bonuses. Only the standard feat progression for the gamemode is 
+	 * NB: LEVELSPERFEAT is now handled via PLayerCHaracter.getNumFeatsFromLevels()
+	 * rather than bonuses. Only the standard feat progression for the gamemode is
 	 * handled here.
 	 * @param aPC The character to bonus.
 	 */
@@ -1251,7 +1258,7 @@ public class PCClass extends PObject
 		if (mLevPerFeat == null)
 		{
 			String aString = Globals.getBonusFeatString();
-			StringTokenizer aTok = 
+			StringTokenizer aTok =
 				new StringTokenizer(aString, "|", false);
 			startLevel = Integer.parseInt(aTok.nextToken());
 			rangeLevel = Integer.parseInt(aTok.nextToken());
@@ -1284,7 +1291,7 @@ public class PCClass extends PObject
 	 * used at all. Because this is losing a level, this will no longer be
 	 * required in a CDOM world, perhaps this can be refactored out of existance
 	 * before then?
-	 * 
+	 *
 	 * May be DELETEMETHOD (related to subLevel)
 	 */
 	protected void removeKnownSpellsForClassLevel(final PlayerCharacter aPC)
@@ -1424,7 +1431,7 @@ public class PCClass extends PObject
 
 	/**
 	 * Get the highest level of spell that this class can cast.
-	 * 
+	 *
 	 * @return the highest level of spells that this class can cast, or -1 if
 	 *         this class can not cast spells
 	 */
@@ -1453,14 +1460,14 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	/*
 	 * FUTUREREFACTOR This would really be nice to have initilized when the LST files
 	 * are read in, which is possible because the ClassTypes are all defined as part
 	 * of the GameMode... however the problem is that the order of the ISMONSTER tag
-	 * and the TYPE tags cannot be defined - .MODs and .COPYs make it impossible to 
+	 * and the TYPE tags cannot be defined - .MODs and .COPYs make it impossible to
 	 * guarantee an order.  Therefore, this must wait for a two-pass design in the
 	 * import system - thpr 10/4/06
 	 */
@@ -1517,19 +1524,19 @@ public class PCClass extends PObject
 
 	/**
 	 * Sets qualified BonusObj's to "active"
-	 * 
+	 *
 	 * @param aPC
 	 */
 	/*
 	 * DELETEMETHOD Because this appears to be simply a correction for PCLevel
-	 * (above and beyond what PObject's activateBonuses method does), this 
-	 * becomes useless in the new architecture, as the bonuses will only be 
+	 * (above and beyond what PObject's activateBonuses method does), this
+	 * becomes useless in the new architecture, as the bonuses will only be
 	 * present and visible to the PlayerCharacter in the PCClassLevels that the
 	 * PlayerCharacter has.
-	 * 
+	 *
 	 * The hasPreReqs test here which is not in PObject is simply a shortcut
 	 * of what is already done in bonus.qualifies, so the operation of this
-	 * (while looking more complicated) really only differs from PObject in 
+	 * (while looking more complicated) really only differs from PObject in
 	 * the level dependence
 	 */
 	@Override
@@ -1608,9 +1615,9 @@ public class PCClass extends PObject
 	 * Add a level of this class to the character. Note this call is assumed to
 	 * only be used when loading characters, and some behaviour is tailored for
 	 * this.
-	 * 
+	 *
 	 * @param pcLevelInfo
-	 * 
+	 *
 	 * @param levelMax
 	 *            True if the level caps, if any, for this class should be
 	 *            respected.
@@ -1630,7 +1637,7 @@ public class PCClass extends PObject
 	/**
 	 * returns the value at which another attack is gained attackCycle of 4
 	 * means a second attack is gained at a BAB of +5/+1
-	 * 
+	 *
 	 * @param index
 	 * @return int
 	 */
@@ -1673,7 +1680,7 @@ public class PCClass extends PObject
 	 * -2 means that the spell itself indicates what stat should be used,
 	 * otherwise this method returns an index into the global list of stats for
 	 * which stat the bonus spells are based upon.
-	 * 
+	 *
 	 * @return int Index of the class' spell stat, or -2 if spell based
 	 */
 	/*
@@ -1703,12 +1710,12 @@ public class PCClass extends PObject
 
 	/**
 	 * Returns the stat to use for bonus spells.
-	 * 
+	 *
 	 * <p>
 	 * The method checks to see if a BONUSSPELLSTAT: has been set for the class.
 	 * If it is set to a stat that stat is returned. If it is set to None null is
 	 * returned. If it is set to Default then the BASESPELLSTAT is returned.
-	 * 
+	 *
 	 * @return the stat to use for bonus spells.
 	 */
 	public PCStat bonusSpellStat()
@@ -1864,7 +1871,7 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY? This really seems to be a shortcut test that is part of
 	 * the GUI presentation of a PlayerCharacter. It would be really nice if
 	 * this could be deleted, but it may actually be providing some speed (need
-	 * to evaluate whether a better test exists, however, since it seems REALLY 
+	 * to evaluate whether a better test exists, however, since it seems REALLY
 	 * slow for something that should be a quick test!)
 	 */
 	public boolean hasKnownSpells(final PlayerCharacter aPC)
@@ -1895,7 +1902,7 @@ public class PCClass extends PObject
 	 * PCCLASSLEVELONLY Since this is really only something that will be done
 	 * within a PlayerCharacter (real processing) it is only required in
 	 * PCClassLevel.
-	 * 
+	 *
 	 * As a side note, I'm not sure what I think of accessing the ClassTypes and
 	 * using one of those to set the response to this request. Should this be
 	 * done when a PCClassLevel is built? Is that possible? How does that
@@ -1921,9 +1928,9 @@ public class PCClass extends PObject
 		int lockedMonsterSkillPoints;
 		int spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
 			getQualifiedKey()).intValue();
-		
+
 		spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
-		
+
 		if (isMonster())
 		{
 			lockedMonsterSkillPoints =
@@ -1941,7 +1948,7 @@ public class PCClass extends PObject
 					spMod = monSkillPts;
 				}
 			}
-		
+
 			if (total != 1)
 			{
 				// If this level is one that is not entitled to skill points
@@ -1955,16 +1962,16 @@ public class PCClass extends PObject
 				}
 			}
 		}
-		
+
 		spMod = updateBaseSkillMod(aPC, spMod);
-		
+
 		if (total == 1)
 		{
 			if (SettingsHandler.getGame().isPurchaseStatMode())
 			{
 				aPC.setPoolAmount(0);
 			}
-		
+
 			spMod *= aPC.getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
 			if (aPC.getAge() <= 0)
 			{
@@ -1976,7 +1983,7 @@ public class PCClass extends PObject
 		{
 			spMod *= Globals.getSkillMultiplierForLevel(total);
 		}
-		
+
 		return spMod;
 	}
 
@@ -1984,7 +1991,7 @@ public class PCClass extends PObject
 	 * REFACTOR TO DELETEMETHOD I would really like to get rid of this, since it
 	 * it used as a "funky spells" test - which should be more explicit than
 	 * implicit in zero cast spells.
-	 * 
+	 *
 	 * Not to mention, this isn't entirely true, is it? I mean, if the only
 	 * spells a Class can get are from the ability score related to their
 	 * spells, then the book system would use a 0 rather than a -. This 0
@@ -2061,7 +2068,7 @@ public class PCClass extends PObject
 
 	/**
 	 * Return number of spells known for a level for a given spellbook.
-	 * 
+	 *
 	 * @param pcLevel
 	 * @param spellLevel
 	 * @param bookName
@@ -2204,7 +2211,7 @@ public class PCClass extends PObject
 
 		// Add in any from SPELLKNOWN
 		total += SpellLevel.getNumBonusKnowSpellsForLevel(aPC, this, spellLevel);
-		
+
 		return total;
 	}
 
@@ -2256,7 +2263,7 @@ public class PCClass extends PObject
 
 	/**
 	 * Get the unarmed Damage for this class at the given level.
-	 * 
+	 *
 	 * @param aLevel
 	 * @param aPC
 	 * @param adjustForPCSize
@@ -2272,7 +2279,7 @@ public class PCClass extends PObject
 
 	/**
 	 * Get the unarmed Damage for this class at the given level.
-	 * 
+	 *
 	 * @param aLevel
 	 * @param aPC
 	 * @param adjustForPCSize
@@ -2282,7 +2289,7 @@ public class PCClass extends PObject
 			boolean adjustForPCSize)
 	{
 		SizeAdjustment pcSize = aPC.getSizeAdjustment();
-		
+
 		//
 		// Check "Unarmed Strike", then default to "1d3"
 		//
@@ -2334,13 +2341,13 @@ public class PCClass extends PObject
 
 	/**
 	 * Adds a level of this class to the character.
-	 * 
+	 *
 	 * TODO: Split the PlayerCharacter code out of PCClass (i.e. the level
 	 * property). Then have a joining class assigned to PlayerCharacter that
 	 * maps PCClass and number of levels in the class.
-	 * 
+	 *
 	 * @param pcLevelInfo
-	 * 
+	 *
 	 * @param argLevelMax
 	 *            True if we should only allow extra levels if there are still
 	 *            levels in this class to take. (i.e. a lot of prestige classes
@@ -2525,8 +2532,16 @@ public class PCClass extends PObject
 
 		// Update Skill Points. Modified 20 Nov 2002 by sage_sam
 		// for bug #629643
-		final int spMod;
-		spMod = recalcSkillPointMod(aPC, total);
+		//final int spMod;
+		int spMod = recalcSkillPointMod(aPC, total);
+		final PCClassLevel cl = levelMap.get(newLevel);
+		if (cl != null)
+		{
+			if (cl.get(ObjectKey.DONTADD_SKILLPOINTS) != null)
+			{
+				spMod = 0;
+			}
+		}
 
 		PCLevelInfo pcl;
 
@@ -2633,7 +2648,7 @@ public class PCClass extends PObject
 	private void exchangeLevels(final PlayerCharacter aPC)
 	{
 		LevelExchange le = get(ObjectKey.EXCHANGE_LEVEL);
-		
+
 			try
  			{
 				PCClass cl = le.getExchangeClass().resolvesTo();
@@ -2748,7 +2763,7 @@ public class PCClass extends PObject
 	/**
 	 * Update the name of the required class for all special abilites, DEFINE's,
 	 * and BONUS's
-	 * 
+	 *
 	 * @param oldClass
 	 *            The name of the class that should have the special abliities
 	 *            changed
@@ -2757,7 +2772,7 @@ public class PCClass extends PObject
 	 */
 	@Override
 	/*
-	 * REFACTOR Great theory, wrong universe.  Well, mayne not, but the name implies 
+	 * REFACTOR Great theory, wrong universe.  Well, mayne not, but the name implies
 	 * events which aren't occurring here.  Need to at least rename this...
 	 */
 	void fireNameChanged(final String oldClass, final String newClass)
@@ -2837,7 +2852,7 @@ public class PCClass extends PObject
 	 * Added to help deal with lower-level spells prepared in higher-level
 	 * slots. BUG [569517] Works in conjunction with PlayerCharacter method
 	 * availableSpells() sk4p 13 Dec 2002
-	 * 
+	 *
 	 * @param aLevel
 	 * @param bookName
 	 * @param pc TODO
@@ -3001,10 +3016,10 @@ public class PCClass extends PObject
 			for (Equipment eq : classLevel.getSafeListFor(ListKey.NATURAL_WEAPON))
 			{
 				/*
-				 * This is a COMPLETE hack to emulate PC.removeNaturalWeapons 
+				 * This is a COMPLETE hack to emulate PC.removeNaturalWeapons
 				 * without going through the convoluted "I am level dependent,
 				 * you're not" game that is required in today's PCClass is
-				 * level-aware world.  This becomes a lot easier in a 
+				 * level-aware world.  This becomes a lot easier in a
 				 * PCClass/PCClassLevel world, and the system can go back to
 				 * using PC.removeNaturalWeapons
 				 */
@@ -3069,9 +3084,9 @@ public class PCClass extends PObject
 	 * Build a caster level map for this class. The map will be of the form
 	 * <String,String> where the key is the spell level and the value is the
 	 * number of times per day that spell level can be cast by the character
-	 * 
+	 *
 	 * @param aPC
-	 * 
+	 *
 	 * TODO: Why is this not a Map<Integer,Integer>
 	 */
 	/*
@@ -3247,11 +3262,11 @@ public class PCClass extends PObject
 	/**
 	 * Build a list of Substitution Classes for the user to choose from. The
 	 * list passed in will be populated.
-	 * 
+	 *
 	 * @param choiceNames
 	 *            The list of substitution classes to choose from.
 	 * @param level
-	 *            The class level to determine the choices for  
+	 *            The class level to determine the choices for
 	 * @param aPC
 	 */
 	/*
@@ -3281,7 +3296,7 @@ public class PCClass extends PObject
 
 			choiceList.add(sc);
 		}
-		Collections.sort(choiceList); // sort the SubstitutionClass's 
+		Collections.sort(choiceList); // sort the SubstitutionClass's
 		choiceList.add(0, this); // THEN add the base class as the first choice
 	}
 
@@ -3312,7 +3327,7 @@ public class PCClass extends PObject
 		{
 			/*
 			 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
-			 * 
+			 *
 			 * STOP THE MAGIC, I want to delete MULTIPREREQs
 			 */
 			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, this))
@@ -3326,7 +3341,7 @@ public class PCClass extends PObject
 			columnList.add(Integer.toString(sc.getSafe(IntegerKey.COST)));
 			columnList.add(sc.getSupplementalDisplayInfo());
 
-			// If a subclass has already been selected, only add that one 
+			// If a subclass has already been selected, only add that one
 			if (!subClassSelected
 					|| sc.getKeyName().equals(
 							aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY)))
@@ -3440,7 +3455,7 @@ public class PCClass extends PObject
 				}
 				/*
 				 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
-				 * 
+				 *
 				 * STOP THE MAGIC, I want to delete MULTIPREREQs
 				 */
 				if (!PrereqHandler.passesAll(sub.getPrerequisiteList(), aPC, this))
@@ -3530,7 +3545,7 @@ public class PCClass extends PObject
 		if (choiceList.size() <= 1)
 		{
 			return; // This means the there are no classes for which
-			// the pc meets the prerequisitions and thus the 
+			// the pc meets the prerequisitions and thus the
 			// base class is chosen.
 		}
 
@@ -3564,7 +3579,7 @@ public class PCClass extends PObject
 		}
 		else
 		{
-			/*	
+			/*
 			 *  the original code has the below line..
 			 *	however, it appears to not be needed.
 			 *	I say this because if the original buildSubstitutionClassChoiceList
@@ -3749,7 +3764,7 @@ public class PCClass extends PObject
 
 		removeListFor(ListKey.SAB);
 		addAllToListFor(ListKey.SAB, otherClass.getSafeListFor(ListKey.SAB));
-		
+
 		/*
 		 * TODO Does this need to have things from the Class Level objects?
 		 * I don't think so based on deferred processing of levels...
@@ -3861,7 +3876,7 @@ public class PCClass extends PObject
 
 	/**
 	 * Rolls hp for the current level according to the rules set in options.
-	 * 
+	 *
 	 * @param aLevel
 	 * @param aPC
 	 * @param first
@@ -3876,30 +3891,38 @@ public class PCClass extends PObject
 	{
 		int roll = 0;
 
-		final int min =
-				1 + (int) aPC.getTotalBonusTo("HD", "MIN")
-					+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + getKeyName());
-		final int max =
-				getLevelHitDie(aPC, aLevel).getDie()
-					+ (int) aPC.getTotalBonusTo("HD", "MAX")
-					+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + getKeyName());
-
-		if (Globals.getGameModeHPFormula().length() == 0)
+		HitDie lvlDie = getLevelHitDie(aPC, aLevel);
+		if ((lvlDie == null) || (lvlDie.getDie() == 0))
 		{
-			if ((first && aLevel == 1) && SettingsHandler.isHPMaxAtFirstLevel())
+			roll = 0;
+		}
+		else
+		{
+			final int min =
+					1 + (int) aPC.getTotalBonusTo("HD", "MIN")
+						+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + getKeyName());
+			final int max =
+					getLevelHitDie(aPC, aLevel).getDie()
+						+ (int) aPC.getTotalBonusTo("HD", "MAX")
+						+ (int) aPC.getTotalBonusTo("HD", "MAX;CLASS." + getKeyName());
+
+			if (Globals.getGameModeHPFormula().length() == 0)
 			{
-				roll = max;
-			}
-			else
-			{
-				if (!aPC.isImporting())
+				if ((first && (aLevel == 1)) && SettingsHandler.isHPMaxAtFirstLevel())
 				{
-					roll = Globals.rollHP(min, max, getDisplayName(), aLevel);
+					roll = max;
+				}
+				else
+				{
+					if (!aPC.isImporting())
+					{
+						roll = Globals.rollHP(min, max, getDisplayName(), aLevel);
+					}
 				}
 			}
-		}
 
-		roll += ((int) aPC.getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
+			roll += ((int) aPC.getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
+		}
 		PCClassLevel classLevel = getClassLevel(aLevel - 1);
 		aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer.valueOf(roll));
 		aPC.setCurrentHP(aPC.hitPoints());
@@ -3975,7 +3998,7 @@ public class PCClass extends PObject
 		}
 		return levelMap.get(lvl);
 	}
-	
+
 	public boolean hasClassLevel(int lvl)
 	{
 		return levelMap.containsKey(lvl);
@@ -4114,7 +4137,7 @@ public class PCClass extends PObject
 			pcl.ownBonuses(owner);
 		}
 	}
-	
+
 	@Override
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
 	{

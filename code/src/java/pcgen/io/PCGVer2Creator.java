@@ -889,7 +889,7 @@ final class PCGVer2Creator implements IOConstants
 
 			int sp = pcl.getSkillPointsGained();
 
-			if (sp != 0)
+			//if (sp != 0)
 			{
 				buffer.append('|').append(TAG_SKILLPOINTSGAINED).append(':')
 					.append(sp);
@@ -897,7 +897,7 @@ final class PCGVer2Creator implements IOConstants
 
 			sp = pcl.getSkillPointsRemaining();
 
-			if (sp != 0)
+			//if (sp != 0)
 			{
 				buffer.append('|').append(TAG_SKILLPOINTSREMAINING).append(':')
 					.append(sp);
@@ -1467,7 +1467,7 @@ final class PCGVer2Creator implements IOConstants
 	 * #Kits
 	 * KIT:KitType|Region|KitName
 	 *
-	 * TODO: Do we need to support the below? 
+	 * TODO: Do we need to support the below?
 	 * KIT:KitName|TYPE:KitType|REGION:Region
 	 */
 	private void appendKitLines(StringBuffer buffer)

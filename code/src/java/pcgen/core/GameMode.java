@@ -121,7 +121,7 @@ public final class GameMode implements Comparable<Object>
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
 	private SortedMap<String, RuleCheck> ruleCheckMap = new TreeMap<String, RuleCheck>();
-	private Map<Tab,TabInfo> tInfo = new HashMap<Tab,TabInfo>(); 
+	private Map<Tab,TabInfo> tInfo = new HashMap<Tab,TabInfo>();
 	private boolean allowAutoResize = false;
 	private boolean bonusStatAllowsStack = false;
 	private boolean showClassDefense;
@@ -188,7 +188,7 @@ public final class GameMode implements Comparable<Object>
 	private int [] dieSizes;
 	private int maxDieSize = 12;
 	private int minDieSize = 4;
-	
+
 	private List<String> resizableTypeList = new ArrayList<String>();
 	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
 
@@ -198,7 +198,7 @@ public final class GameMode implements Comparable<Object>
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
 	private final PCAlignment noAlignment;
-	
+
 	/**
 	 * Creates a new instance of GameMode.
 	 *
@@ -573,9 +573,9 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * map of LevelInfo objects.
-	 * 
+	 *
 	 * @param xpTable the xp table to be used
-	 * 
+	 *
 	 * @return level info map
 	 */
 	public Map<String, LevelInfo> getLevelInfo(final String xpTable)
@@ -672,7 +672,7 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Set the game mode name (aka key). Should not 
+	 * Set the game mode name (aka key). Should not
 	 * be used after game mode is loaded.
 	 * @param name the name to set
 	 */
@@ -1089,7 +1089,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		return this.weaponReachFormula;
 	}
-	
+
 	/**
 	 * Return true if the AC Type is Valid
 	 * @param ACType
@@ -1236,7 +1236,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		defaultDataSetList.clear();
 	}
-	
+
 	/**
 	 * Add Diety List
 	 * @param argDeityLine
@@ -1356,7 +1356,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		this.weaponReachFormula = aString;
 	}
-	
+
 	/**
 	 * Return true if RuleCheck exists given a key
 	 * @param aKey
@@ -1483,7 +1483,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Gets the list of default data sets.
-	 * 
+	 *
 	 * @return the default data set list
 	 */
 	public List<String> getDefaultDataSetList()
@@ -1656,7 +1656,7 @@ public final class GameMode implements Comparable<Object>
 	{
 		return Collections.unmodifiableList(checkList);
 	}
-	
+
 	//ALIGNMENTLIST
 
 	/**
@@ -1723,11 +1723,11 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Returns a <tt>PCAlignment</tt> object for the alignment key or name 
+	 * Returns a <tt>PCAlignment</tt> object for the alignment key or name
 	 * passed in.
-	 * 
+	 *
 	 * @param aKey A short alignment (LG) or long alignment (Lawful Good)
-	 * 
+	 *
 	 * @return A <tt>PCAlignment</tt> object or null if no match is found.
 	 */
 	public PCAlignment getAlignment( final String aKey )
@@ -1743,7 +1743,7 @@ public final class GameMode implements Comparable<Object>
 		}
 		return noAlignment;
 	}
-	
+
 	/**
 	 * Return an <b>unmodifiable</b> version of the alignmentlist.
 	 * @return an <b>unmodifiable</b> version of the alignmentlist.
@@ -2763,7 +2763,17 @@ public final class GameMode implements Comparable<Object>
 		}
 		return true;
 	}
-	
+
+	/**
+	 */
+	public void setSkillTabColumnVisible(final int columnIndex, final boolean bVisible)
+	{
+		if ((columnIndex >= 0) && (columnIndex < skillTabColumnVisible.length))
+		{
+			skillTabColumnVisible[columnIndex] = bVisible;
+		}
+	}
+
 	/**
 	 */
 	public boolean getSkillTabColumnVisible(final int columnIndex)
@@ -2870,7 +2880,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Adds an <tt>AbilityCategory</tt> definition to the game mode.
-	 * 
+	 *
 	 * @param aCategory The <tt>AbilityCategory</tt> to add.
 	 */
 	public void addAbilityCategory(final AbilityCategory aCategory)
@@ -2880,7 +2890,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Adds an <tt>AbilityCategory</tt> definition to the game mode.
-	 * 
+	 *
 	 * @param aCategory The <tt>AbilityCategory</tt> to add.
 	 */
 	public void addLstAbilityCategory(final AbilityCategory aCategory)
@@ -2889,21 +2899,21 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Clears all LST sourced <tt>AbilityCategory</tt> definitions from the 
+	 * Clears all LST sourced <tt>AbilityCategory</tt> definitions from the
 	 * game mode. Used when unloading the data.
-	 * 
+	 *
 	 * @param aCategory The <tt>AbilityCategory</tt> to add.
 	 */
 	public void clearLstAbilityCategories()
 	{
 		theLstAbilityCategories.clear();
 	}
-	
+
 	/**
 	 * Gets the <tt>AbilityCategory</tt> for the given key.
-	 * 
+	 *
 	 * @param aKey The key of the <tt>AbilityCategory</tt> to retreive.
-	 * 
+	 *
 	 * @return The requested <tt>AbilityCategory</tt> or <tt>null</tt> if the
 	 * category is not found in this game mode.
 	 */
@@ -2921,7 +2931,7 @@ public final class GameMode implements Comparable<Object>
 		}
 		return ac;
 	}
-	
+
 	public AbilityCategory silentlyGetAbilityCategory(final String aKey)
 	{
 		for ( final AbilityCategory cat : getAllAbilityCategories() )
@@ -2933,11 +2943,11 @@ public final class GameMode implements Comparable<Object>
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects defined
 	 * by this game mode.
-	 * 
+	 *
 	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
 	 */
 	public Collection<AbilityCategory> getAllAbilityCategories()
@@ -2951,11 +2961,11 @@ public final class GameMode implements Comparable<Object>
 		allCats.addAll(theLstAbilityCategories);
 		return Collections.unmodifiableCollection(allCats);
 	}
-	
+
 	/**
-	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects 
+	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects
 	 * defined by this game mode that match the display location.
-	 * 
+	 *
 	 * @param displayLoc The display location to filter for.
 	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
 	 */
@@ -2976,11 +2986,11 @@ public final class GameMode implements Comparable<Object>
 		return Collections.unmodifiableCollection(catList);
 	}
 
-	
+
 	/**
-	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects 
+	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects
 	 * defined by this game mode that match the category key.
-	 * 
+	 *
 	 * @param key The category key to filter for.
 	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
 	 */
@@ -3006,25 +3016,25 @@ public final class GameMode implements Comparable<Object>
 	{
 		thePreviewDir = aDir;
 	}
-	
+
 	public String getPreviewDir()
 	{
 		return thePreviewDir;
 	}
-	
+
 	public void setDefaultPreviewSheet(final String aSheet)
 	{
 		theDefaultPreviewSheet = aSheet;
 	}
-	
+
 	public String getDefaultPreviewSheet()
 	{
 		return theDefaultPreviewSheet;
 	}
 	/**
-	 * Parses the DIESIZE tag's values to create 
+	 * Parses the DIESIZE tag's values to create
 	 * the dieSizes array
-	 * 
+	 *
 	 * @param value
 	 */
 	public void setDieSizes(final String value)
@@ -3035,10 +3045,10 @@ public final class GameMode implements Comparable<Object>
 		{
 			String aString = aTok.nextToken();
 			// in case there is training\leading whitespace after the comma split
-			aString = aString.trim(); 
+			aString = aString.trim();
 			String minValue;
 			String maxValue;
-			
+
 			try
 			{
 			if (aString.contains("MIN="))
@@ -3057,7 +3067,7 @@ public final class GameMode implements Comparable<Object>
 					setMaxDieSize(die);
 					list.add(die);
 				}
-				else 
+				else
 				{
 					int die = Integer.parseInt(aString);
 					list.add(die);
@@ -3067,15 +3077,15 @@ public final class GameMode implements Comparable<Object>
 			{
 				Logging.errorPrint("Invalid integer value for DIESIZES: " + aString + ".  Original value: DIESIZES:"+ value);
 			}
-			
+
 		}
 		if (list.size() == 0)
 		{
 			return;
 		}
-		
+
 		int[] dieSizes = new int[list.size()];
-		
+
 		for (int i = 0; i < list.size(); i++)
 		{
 			dieSizes[i] = list.get(i);
@@ -3083,7 +3093,7 @@ public final class GameMode implements Comparable<Object>
 		list = null;
 		this.setDieSizes(dieSizes);
 	}
-	
+
 	/**
 	 * Get's current gamemodes MaxDieSize
 	 * @return maxDieSize
@@ -3091,16 +3101,16 @@ public final class GameMode implements Comparable<Object>
 	public int getMaxDieSize()
 	{
 		return maxDieSize;
-	}	
+	}
 	/**
 	 * Sets's current gamemodes MaxDieSize
-	 * @param dice 
-	 */	
+	 * @param dice
+	 */
 	public void setMaxDieSize(final int dice)
 	{
 		maxDieSize = dice;
 	}
-	
+
 	/**
 	 * Get's current gamemodes MinDieSize
 	 * @return minDieSize
@@ -3111,13 +3121,13 @@ public final class GameMode implements Comparable<Object>
 	}
 	/**
 	 * Sets's current gamemodes MinDieSize
-	 * @param dice 
+	 * @param dice
 	 */
 	public void setMinDieSize(final int dice)
 	{
 		minDieSize = dice;
 	}
-		
+
 
 	/**
 	 * Get's current gamemodes DieSizes
@@ -3137,7 +3147,7 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Retrieve the list of equipment types which flag it as able to 
+	 * Retrieve the list of equipment types which flag it as able to
 	 * be resized by the automatic resize feature.
 	 * @return the resizableTypeList
 	 */
@@ -3147,16 +3157,16 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Set the list of equipment types which flag it as able to 
+	 * Set the list of equipment types which flag it as able to
 	 * be resized by the automatic resize feature.
-	 * 
+	 *
 	 * @param resizableTypeList the resizableTypeList to set
 	 */
 	public void setResizableTypeList(List<String> resizableTypeList)
 	{
 		this.resizableTypeList = resizableTypeList;
 	}
-	
+
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
 	private LoadContext context = new RuntimeLoadContext(getRefContext(), masterLCS);
 	private GameReferenceContext gameRefContext = new GameReferenceContext();
@@ -3250,7 +3260,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Gets the name of the currently selected experience table
-	 * 
+	 *
 	 * @return the XP table name
 	 */
 	public String getXpTableName()
@@ -3268,7 +3278,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Sets the name of the currently selected experience table
-	 * 
+	 *
 	 * @param tableName the new XP table name
 	 */
 	public void setXpTableName(String tableName)
@@ -3278,7 +3288,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Gets the array of names of defined experience tables.
-	 * 
+	 *
 	 * @return the xp table names
 	 */
 	public List<String> getAvailXpTableNames()
@@ -3288,7 +3298,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Sets the array of names of defined experience tables.
-	 * 
+	 *
 	 * @param names the new avail XP table names
 	 */
 	public void setAvailXpTableNames(List<String> names)
@@ -3303,7 +3313,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Checks if bonus stat stacking is allowed
-	 * 
+	 *
 	 * @return true, if is bonus stat stacking allowed
 	 */
 	public boolean isBonusStatAllowsStack()
@@ -3313,7 +3323,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Sets the bonus stat stacking allowed value.
-	 * 
+	 *
 	 * @param bonusStatAllowsStack the new bonus stat allows stack
 	 */
 	public void setBonusStatAllowsStack(boolean bonusStatAllowsStack)
@@ -3345,7 +3355,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Sets the title of the default source (used on the quick sources dialog).
-	 * 
+	 *
 	 * @param title the new title
 	 */
 	public void setDefaultSourceTitle(String title)
@@ -3355,7 +3365,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Gets the default source title.
-	 * 
+	 *
 	 * @return the default source title
 	 */
 	public String getDefaultSourceTitle()
