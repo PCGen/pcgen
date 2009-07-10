@@ -818,18 +818,29 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	},
 
 	COMPLETE_PC_FAVCLASSLEVEL
-	("FAVCLASSLEVEL",
-	 new String[] { "FAVCLASSLEVEL" },
-	 true) {
+		("FAVCLASSLEVEL", 
+			new String[]{"FAVCLASSLEVEL"},
+			true) {
 
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString,
+			final String src, final String matchedSection)
+		{
 
-	return new PCFavClassLevelTermEvaluator(expressionString);
-}
-},
+			return new PCFavClassLevelTermEvaluator(expressionString);
+		}
+	},
+
+	PC_CAST_ATWILL
+		("ATWILL", 
+			new String[]{"ATWILL"}, 
+			true) {
+
+		public TermEvaluator getTermEvaluator(final String expressionString,
+			final String src, final String matchedSection)
+		{
+			return new PCCastTimesAtWillTermEvaluator(expressionString);
+		}
+	},
 
 	START_PC_BL
 			("BL[.=]?",
