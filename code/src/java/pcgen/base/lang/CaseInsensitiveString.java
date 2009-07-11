@@ -81,8 +81,8 @@ public class CaseInsensitiveString
 	{
 		if (s instanceof CaseInsensitiveString)
 		{
-			return string.equalsIgnoreCase(((CaseInsensitiveString) s)
-					.toString());
+			CaseInsensitiveString cis = (CaseInsensitiveString) s;
+			return string == cis.string || string.equalsIgnoreCase(cis.string);
 		}
 		return false;
 	}
