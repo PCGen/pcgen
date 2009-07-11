@@ -56,7 +56,7 @@ public class LevelGeneratorOption extends GeneratorOption
 		}
 		for (int i = minVal; i <= maxVal; i++)
 		{
-			theChoices.add(aWeight, i);
+			theChoices.add(i, aWeight);
 		}
 	}
 
