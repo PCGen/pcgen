@@ -54,6 +54,7 @@ public class DefaultTokenProcessor implements TokenProcessor
 			for (String s : output)
 			{
 				tpe.append(s);
+				tpe.append('\t');
 			}
 			tpe.consume();
 		}
