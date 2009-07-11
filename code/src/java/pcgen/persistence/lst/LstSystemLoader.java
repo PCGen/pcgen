@@ -69,6 +69,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -532,6 +533,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			context.ref.importObject(sz);
 			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
+		}
+		for (PCStat s : context.ref.getConstructedCDOMObjects(PCStat.class))
+		{
+			context.ref.registerAbbreviation(s, s.getAbb());
 		}
 
 		for (Campaign c : loaded)

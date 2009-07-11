@@ -27,7 +27,9 @@ package plugin.lsttokens.statsandchecks;
 
 import java.net.URI;
 
-import pcgen.persistence.lst.PCStatLoader;
+import pcgen.core.PCStat;
+import pcgen.persistence.lst.GenericLoader;
+import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
 import pcgen.rules.context.LoadContext;
 
@@ -36,6 +38,8 @@ import pcgen.rules.context.LoadContext;
  */
 public class StatnameToken implements StatsAndChecksLstToken
 {
+	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
+
 	public String getTokenName()
 	{
 		return "STATNAME";
@@ -45,8 +49,10 @@ public class StatnameToken implements StatsAndChecksLstToken
 	{
 		try
 		{
-			PCStatLoader statLoader = new PCStatLoader();
-			statLoader.parseLine(context, lstLine, sourceURI);
+			GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(
+					PCSTAT_CLASS);
+			statLoader.parseLine(context, null, lstLine.substring(9),
+					new SourceEntry.URIOnly(sourceURI));
 			return true;
 		}
 		catch (Exception e)
