@@ -26,7 +26,6 @@ import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.core.PCStat;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -95,6 +94,5 @@ public final class PCStatLoader extends LstLineFileLoader
 
 		context.ref.importObject(stat);
 		context.ref.registerAbbreviation(stat, stat.getAbb());
-		SettingsHandler.getGame().addToStatList(stat);
 	}
 }

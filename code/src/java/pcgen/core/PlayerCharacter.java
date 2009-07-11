@@ -391,8 +391,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		Globals.setCurrentPC(this);
 
-		stats.addAll(SettingsHandler.getGame().getUnmodifiableStatList());
-		
+		stats.addAll(Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class));
+
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
 		setFeats(0);

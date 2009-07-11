@@ -41,7 +41,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.PropertyFactory;
@@ -135,7 +134,7 @@ final class SkillBasePanel extends BasePanel
 			return null;
 		}
 
-		return SettingsHandler.getGame().getUnmodifiableStatList().get(idx);
+		return Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class).get(idx);
 	}
 
 	public void setTypesAvailableList(final List<Type> aList, final boolean sort)
@@ -222,7 +221,7 @@ final class SkillBasePanel extends BasePanel
 		//
 		// Initialize the contents of the skill's key stat combo
 		//
-		List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		List<PCStat> statList = Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class);
 		List<String> availableList = new ArrayList<String>(statList.size() + 1);
 		availableList.add(Constants.s_NONE);
 

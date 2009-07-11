@@ -18,6 +18,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -49,37 +50,30 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		final GameMode gamemode = SettingsHandler.getGame();
-		gamemode.clearStatList();
 		
 		str = new PCStat();
 		str.setName("Strength");
 		str.put(StringKey.ABB, "STR");
-		gamemode.addToStatList(str);
 
 		dex = new PCStat();
 		dex.setName("Dexterity");
 		dex.put(StringKey.ABB, "DEX");
-		gamemode.addToStatList(dex);
 
 		final PCStat con = new PCStat();
 		con.setName("Constitution");
 		con.put(StringKey.ABB, "CON");
-		gamemode.addToStatList(con);
 
 		intel = new PCStat();
 		intel.setName("Intelligence");
 		intel.put(StringKey.ABB, "INT");
-		gamemode.addToStatList(intel);
 
 		wis = new PCStat();
 		wis.setName("Wisdom");
 		wis.put(StringKey.ABB, "WIS");
-		gamemode.addToStatList(wis);
 
 		cha = new PCStat();
 		cha.setName("Charisma");
 		cha.put(StringKey.ABB, "CHA");
-		gamemode.addToStatList(cha);
 
 		TestHelper.makeSizeAdjustments();
 
@@ -101,15 +95,21 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		
-		for (PCStat stat : gamemode.getUnmodifiableStatList())
+		ReferenceContext ref = Globals.getContext().ref;
+		ref.importObject(str);
+		ref.importObject(dex);
+		ref.importObject(con);
+		ref.importObject(intel);
+		ref.importObject(wis);
+		ref.importObject(cha);
+		for (PCStat stat : ref.getOrderSortedCDOMObjects(PCStat.class))
 		{
-			Globals.getContext().ref.importObject(stat);
-			Globals.getContext().ref.registerAbbreviation(stat, stat.getAbb());
+			ref.registerAbbreviation(stat, stat.getAbb());
 		}
 		for (PCAlignment al : gamemode.getUnmodifiableAlignmentList())
 		{
-			Globals.getContext().ref.importObject(al);
-			Globals.getContext().ref.registerAbbreviation(al, al.getKeyName());
+			ref.importObject(al);
+			ref.registerAbbreviation(al, al.getKeyName());
 		}
 		
 		character = new PlayerCharacter();

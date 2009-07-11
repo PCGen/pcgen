@@ -27,7 +27,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -53,7 +52,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
@@ -277,9 +275,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		//
 		// Make list of stats
 		//
-		for (Iterator<PCStat> e = SettingsHandler.getGame().getUnmodifiableStatList().iterator(); e.hasNext();)
+		for (PCStat pcs : Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class))
 		{
-			aList.add(e.next().getAbb());
+			aList.add(pcs.getAbb());
 		}
 
 		aList.remove(Constants.s_NONE);

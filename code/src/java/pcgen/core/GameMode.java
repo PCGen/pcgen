@@ -131,7 +131,6 @@ public final class GameMode implements Comparable<Object>
 	private int babMinVal = 1;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
-	private List<PCStat> statList = new ArrayList<PCStat>();
 	private final List<PCAlignment> alignmentList = new ArrayList<PCAlignment>(15);
 	private final List<String> schoolsList = new ArrayList<String>(20);
 
@@ -1577,36 +1576,6 @@ public final class GameMode implements Comparable<Object>
 		String tabName = "";
 		String contextPath = "";
 		boolean visible = true;
-	}
-
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the stat list.
-	 * @return List
-	 */
-	public List<PCStat> getUnmodifiableStatList()
-	{
-		return Collections.unmodifiableList(statList);
-	}
-
-	//STATLIST
-
-	/**
-	 * Add to the stat list.
-	 *
-	 * @param stat the PC stat
-	 */
-	public  void addToStatList(final PCStat stat)
-	{
-		statList.add(stat);
-	}
-
-	/**
-	 * Clear out the stat list.
-	 */
-	public void clearStatList()
-	{
-		statList.clear();
 	}
 
 	//ALIGNMENTLIST
