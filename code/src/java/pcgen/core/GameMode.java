@@ -1393,7 +1393,7 @@ public final class GameMode implements Comparable<Object>
 		return alignmentName;
 	}
 
-	List<String> getAllowedModes()
+	public List<String> getAllowedModes()
 	{
 		if (allowedModes == null)
 		{

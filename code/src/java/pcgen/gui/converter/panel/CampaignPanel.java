@@ -89,7 +89,7 @@ public class CampaignPanel extends ConvertSubPanel
 	{
 		GameMode game = pc.get(ObjectKey.GAME_MODE);
 		List<String> gameModeList = new ArrayList<String>();
-		gameModeList.add(game.getName());
+		gameModeList.addAll(game.getAllowedModes());
 		
 		File sourceFolder = pc.get(ObjectKey.DIRECTORY);
 		folderName = sourceFolder.toURI().toString();
