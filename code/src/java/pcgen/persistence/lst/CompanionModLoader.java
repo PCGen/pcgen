@@ -66,7 +66,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 
 	@Override
 	public CompanionMod parseLine(LoadContext context, CompanionMod cmpMod,
-			String inputLine, CampaignSourceEntry source) throws PersistenceLayerException {
+			String inputLine, SourceEntry source) throws PersistenceLayerException {
 		if (cmpMod == null) {
 			cmpMod = new CompanionMod();
 		}

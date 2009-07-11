@@ -58,7 +58,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	 */
 	@Override
 	public PCClass parseLine(LoadContext context, PCClass target,
-		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
+		String lstLine, SourceEntry source) throws PersistenceLayerException
 	{
 		if (lstLine.startsWith("SUBCLASS:")
 			|| lstLine.startsWith("SUBCLASSLEVEL:"))
@@ -164,7 +164,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	private PCClass parseClassLine(LoadContext context, String lstLine,
-			CampaignSourceEntry source, PCClass pcClass)
+			SourceEntry source, PCClass pcClass)
 			throws PersistenceLayerException
 	{
 		int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
@@ -217,7 +217,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	private void parseFullClassLevelLine(LoadContext context,
-			CampaignSourceEntry source, PCClass pcClass, String lineIdentifier,
+			SourceEntry source, PCClass pcClass, String lineIdentifier,
 			String restOfLine) throws PersistenceLayerException
 	{
 		try
@@ -271,7 +271,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	public void parseClassLevelLine(LoadContext context, PCClass pcClass,
-			int lvl, CampaignSourceEntry source,
+			int lvl, SourceEntry source,
 			String restOfLine) throws PersistenceLayerException
 	{
 		if (restOfLine == null)
@@ -321,7 +321,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	public void parseLineIntoClass(LoadContext context, PCClass pcClass,
-			CampaignSourceEntry source, String restOfLine) throws PersistenceLayerException
+			SourceEntry source, String restOfLine) throws PersistenceLayerException
 	{
 		if (restOfLine == null)
 		{
@@ -375,7 +375,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	private void parseRepeatClassLevel(LoadContext context, String restOfLine,
-		CampaignSourceEntry source, PCClass pcClass, int iLevel,
+			SourceEntry source, PCClass pcClass, int iLevel,
 		String colString) throws PersistenceLayerException
 	{
 		//

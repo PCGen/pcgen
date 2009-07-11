@@ -55,7 +55,7 @@ public final class FeatLoader extends AbilityLoader
 	 */
 	@Override
 	public Ability parseLine(LoadContext context, Ability aFeat,
-		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
+		String lstLine, SourceEntry source) throws PersistenceLayerException
 	{
 		Ability feat = aFeat;
 

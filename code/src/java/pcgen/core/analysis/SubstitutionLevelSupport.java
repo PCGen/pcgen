@@ -9,8 +9,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SubstitutionClass;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.util.Logging;
 
@@ -18,7 +18,7 @@ public class SubstitutionLevelSupport
 {
 
 	public static boolean levelArrayQualifies(final PlayerCharacter pc, final String aLine,
-		final CampaignSourceEntry tempSource)
+		final SourceEntry tempSource)
 	{
 		final PCClassLoader classLoader = new PCClassLoader(); 
 		 PCClass dummyClass = new PCClass();   

@@ -51,7 +51,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	 */
 	@Override
 	public Language parseLine(LoadContext context, Language aLang,
-		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
+		String lstLine, SourceEntry source) throws PersistenceLayerException
 	{
 		Language lang = aLang;
 

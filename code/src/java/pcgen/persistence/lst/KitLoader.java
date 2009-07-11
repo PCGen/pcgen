@@ -114,7 +114,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 
 	@Override
 	public Kit parseLine(LoadContext context, Kit target, String inputLine,
-			CampaignSourceEntry source) throws PersistenceLayerException
+			SourceEntry source) throws PersistenceLayerException
 	{
 		if (inputLine.startsWith("STARTPACK:"))
 		{

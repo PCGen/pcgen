@@ -55,7 +55,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	 */
 	@Override
 	public Spell parseLine(LoadContext context, Spell aSpell,
-		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
+		String lstLine, SourceEntry source) throws PersistenceLayerException
 	{
 		Spell spell = aSpell;
 

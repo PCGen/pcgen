@@ -56,7 +56,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 */
 	@Override
 	public Ability parseLine(LoadContext context, Ability ability,
-		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException
+		String lstLine, SourceEntry source) throws PersistenceLayerException
 	{
 		Ability anAbility = ability;
 
@@ -194,7 +194,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * @return boolean true if the object should be included, else false
 	 *         to exclude it
 	 */
-	protected final boolean includeObject(CampaignSourceEntry source, PObject parsedObject)
+	protected final boolean includeObject(SourceEntry source, PObject parsedObject)
 	{
 		// Null check; never add nulls or objects without a name/key name
 		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)

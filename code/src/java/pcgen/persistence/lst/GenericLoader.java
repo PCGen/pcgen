@@ -82,7 +82,7 @@ public final class GenericLoader<T extends PObject> extends
 	 */
 	@Override
 	public T parseLine(LoadContext context, T aWP, String lstLine,
-			CampaignSourceEntry source) throws PersistenceLayerException
+			SourceEntry source) throws PersistenceLayerException
 	{
 		T po;
 		boolean isnew = false;

@@ -47,7 +47,7 @@ import pcgen.util.Logging;
  * This class is used to match a source file to the campaign that
  * loaded it.
  */
-public class CampaignSourceEntry
+public class CampaignSourceEntry implements SourceEntry
 {
 	private static final URI FAILED_URI;
 

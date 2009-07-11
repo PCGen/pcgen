@@ -141,7 +141,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @param target PObject to apply the line to, barring the start of a
 	 *         new object
 	 * @param lstLine String LST formatted line read from the source URL
-	 * @param source CampaignSourceEntry indicating the file that the line was
+	 * @param source SourceEntry indicating the file that the line was
 	 *         read from as well as the Campaign object that referenced the file
 	 *
 	 * @return PObject that was either created or modified by the provided
@@ -149,7 +149,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
 	public abstract T parseLine(LoadContext context, T target,
-		String lstLine, CampaignSourceEntry source) throws PersistenceLayerException;
+		String lstLine, SourceEntry source) throws PersistenceLayerException;
 
 	/**
 	 * This method is called by the loading framework to signify that the
@@ -180,7 +180,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * 
 	 * @since 5.11
 	 */
-	public void completeObject(LoadContext context, CampaignSourceEntry source,
+	public void completeObject(LoadContext context, SourceEntry source,
 		final T pObj) throws PersistenceLayerException
 	{
 		if (!processComplete || pObj == null)
@@ -287,7 +287,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 	 * @return boolean true if the object should be included, else false
 	 *         to exclude it
 	 */
-	protected boolean includeObject(CampaignSourceEntry source, PObject parsedObject)
+	protected boolean includeObject(SourceEntry source, PObject parsedObject)
 	{
 		// Null check; never add nulls or objects without a name/key name
 		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)
