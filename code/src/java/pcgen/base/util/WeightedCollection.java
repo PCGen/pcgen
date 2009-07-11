@@ -627,7 +627,8 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 		public void remove()
 		{
-			throw new UnsupportedOperationException();
+			iter.remove();
+			currentEntry = null;
 		}
 	}
 

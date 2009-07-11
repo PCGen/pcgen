@@ -408,14 +408,9 @@ public class WeightedCollectionTest extends TestCase {
 		assertEquals(I3, it5);
 		Object it6 = it.next();
 		assertNull(it6);
-		Object it7 = it.next();
-		try {
-			it.remove();
-			fail();
-		} catch (UnsupportedOperationException e) {
-			// OK
-		}
-		assertNull(it7);
+		assertTrue(it.hasNext());
+		it.remove();
+		assertFalse(it.hasNext());
 		try {
 			it.next();
 			fail();
