@@ -299,6 +299,12 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		// }
 	}
 
+	public <T extends CDOMObject> Collection<T> getOrderSortedCDOMObjects(
+			Class<T> c)
+	{
+		return getManufacturer(c).getOrderSortedObjects();
+	}
+
 	// public <T extends CDOMObject & CategorizedCDOMObject<T>> Collection<T>
 	// getConstructedCDOMObjects(
 	// Class<T> c, Category<T> cat)

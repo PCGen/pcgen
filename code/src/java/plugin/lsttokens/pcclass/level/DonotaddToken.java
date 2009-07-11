@@ -1,27 +1,10 @@
 package plugin.lsttokens.pcclass.level;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
-
-
-
-//import pcgen.base.formula.Formula;
-import pcgen.cdom.base.CDOMListObject;
-import pcgen.cdom.base.CDOMReference;
-//import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
-//import pcgen.cdom.base.FormulaFactory;
-//import pcgen.cdom.base.PrimitiveChoiceSet;
-//import pcgen.cdom.base.TransitionChoice;
-//import pcgen.cdom.choiceset.SpellReferenceChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
-//import pcgen.cdom.list.ClassSpellList;
-//import pcgen.cdom.list.DomainSpellList;
-//import pcgen.core.PCClass;
-//import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -46,7 +29,7 @@ public class DonotaddToken extends AbstractToken implements
 			return false;
 		}
 
-		boolean foundAny = false;
+		boolean foundInvalid = false;
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
@@ -54,21 +37,20 @@ public class DonotaddToken extends AbstractToken implements
 			if ("HITDIE".equals(tokText))
 			{
 				context.getObjectContext().put(po, ObjectKey.DONTADD_HITDIE, Boolean.TRUE);
-				foundAny = true;
 			}
 			else if ("SKILLPOINTS".equals(tokText))
 			{
 				context.getObjectContext().put(po, ObjectKey.DONTADD_SKILLPOINTS, Boolean.TRUE);
-				foundAny = true;
 			}
 			else
 			{
 				Logging.errorPrint(getTokenName() + " encountered an invalid 'Do Not Add' type: " + value);
 				Logging.errorPrint("  Legal values are: HITDIE, SKILLPOINTS");
+				foundInvalid = true;
 			}
 		}
 
-		return foundAny;
+		return !foundInvalid;
 	}
 
 	public String[] unparse(LoadContext context, PCClassLevel po)
@@ -86,7 +68,6 @@ public class DonotaddToken extends AbstractToken implements
 		{
 			sb.append("HITDIE");
 		}
-
 
 		if (increaseSkills != null)
 		{

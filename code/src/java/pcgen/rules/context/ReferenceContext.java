@@ -85,6 +85,9 @@ public interface ReferenceContext
 	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
 			Class<T> c);
 
+	public <T extends CDOMObject> Collection<T> getOrderSortedCDOMObjects(
+			Class<T> c);
+
 	public Set<CDOMObject> getAllConstructedObjects();
 
 	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj);

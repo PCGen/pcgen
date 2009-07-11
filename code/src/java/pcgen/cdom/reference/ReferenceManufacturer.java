@@ -146,6 +146,18 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 
 	/**
 	 * Returns a Collection of all of the objects contained in this
+	 * ReferenceManufacturer sorted by their KeyName. This will not return null,
+	 * it will return an empty list if no objects have been constructed by or
+	 * imported into this ReferenceManufacturer.
+	 * 
+	 * @return A Collection of all of the objects contained in this
+	 *         ReferenceManufacturer
+	 */
+	public Collection<T> getAllObjects();
+
+	/**
+	 * Returns a Collection of all of the objects contained in this
+	 * ReferenceManufacturer sorted by the order they were added to the
 	 * ReferenceManufacturer. This will not return null, it will return an empty
 	 * list if no objects have been constructed by or imported into this
 	 * ReferenceManufacturer.
@@ -153,7 +165,7 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 * @return A Collection of all of the objects contained in this
 	 *         ReferenceManufacturer
 	 */
-	public Collection<T> getAllObjects();
+	public Collection<T> getOrderSortedObjects();
 
 	/**
 	 * Changes the identifier for a given object, as stored in this

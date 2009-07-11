@@ -20,6 +20,7 @@ package pcgen.base.util;
 import java.util.Collection;
 import java.util.IdentityHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -48,6 +49,12 @@ public class KeyMap<V>
 	private final Map<V, String> reverseMap;
 
 	/**
+	 * The underlying map used to store references from the Keys to the Values
+	 * based on input order to the KeyMap.
+	 */
+	private final List<V> inputOrder;
+
+	/**
 	 * Creates a new, empty DoubleKeyMap using HashMap as the underlying Map
 	 * class for both the primary and secondary underlying Map
 	 */
@@ -55,6 +62,7 @@ public class KeyMap<V>
 	{
 		forwardMap = new TreeMap<String, V>(String.CASE_INSENSITIVE_ORDER);
 		reverseMap = new IdentityHashMap<V, String>();
+		inputOrder = new IdentityList<V>();
 	}
 
 	/**
@@ -64,6 +72,7 @@ public class KeyMap<V>
 	{
 		forwardMap.clear();
 		reverseMap.clear();
+		inputOrder.clear();
 	}
 
 	/**
@@ -161,6 +170,7 @@ public class KeyMap<V>
 	public V put(String key, V value)
 	{
 		V old = forwardMap.put(key, value);
+		inputOrder.add(value);
 		reverseMap.remove(old);
 		reverseMap.put(value, key);
 		return old;
@@ -212,6 +222,7 @@ public class KeyMap<V>
 			return null;
 		}
 		V value = forwardMap.remove(key);
+		inputOrder.remove(key);
 		reverseMap.remove(value);
 		return value;
 	}
@@ -237,9 +248,14 @@ public class KeyMap<V>
 	 * 
 	 * @return A Collection of the values for this KeyMap
 	 */
-	public Collection<V> values()
+	public Collection<V> keySortedValues()
 	{
 		return new ListSet<V>(forwardMap.values());
+	}
+
+	public Collection<V> insertOrderValues()
+	{
+		return new IdentityList<V>(inputOrder);
 	}
 
 	/**
