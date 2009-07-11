@@ -1160,9 +1160,10 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 */
 	protected void injectConstructed(ReferenceManufacturer<T, ?> arm)
 	{
-		for (String key : active.keySet())
+		//Must maintain order
+		for (T value : active.insertOrderValues())
 		{
-			arm.addObject(active.get(key), key);
+			arm.addObject(value, active.getKeyFor(value));
 		}
 		for (CaseInsensitiveString cis : duplicates.getKeySet())
 		{
