@@ -122,7 +122,7 @@ public class VisionLst extends AbstractToken implements
 				if (visionString.startsWith(".SET."))
 				{
 					Logging.deprecationPrint(".SET. in " + getTokenName()
-							+ " has been deprecated, please use .CLEAR,x");
+							+ " has been deprecated, please use .CLEAR|x");
 					context.getListContext().removeAllFromList(getTokenName(),
 							obj, Vision.VISIONLIST);
 					visionString = visionString.substring(5);
@@ -203,7 +203,7 @@ public class VisionLst extends AbstractToken implements
 		{
 			list.add(Constants.LST_DOT_CLEAR_DOT
 					+ ReferenceUtilities
-							.joinLstFormat(removedItems, ",.CLEAR."));
+							.joinLstFormat(removedItems, "|.CLEAR."));
 		}
 		MapToList<CDOMReference<Vision>, AssociatedPrereqObject> mtl = changes
 				.getAddedAssociations();
