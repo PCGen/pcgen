@@ -25,14 +25,14 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.PCCheck;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.io.ExportHandler;
-import pcgen.util.Delta;
-
 import java.util.List;
 import java.util.StringTokenizer;
+
+import pcgen.core.Globals;
+import pcgen.core.PCCheck;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
+import pcgen.util.Delta;
 
 /**
  * Deal with token:
@@ -114,11 +114,12 @@ public class CheckToken extends Token
 	 */
 	public static PCCheck getNameToken(String saveType)
 	{
-		List<PCCheck> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
 		try
 		{
 			int i = Integer.parseInt(saveType);
 
+			List<PCCheck> checkList = Globals.getContext().ref
+					.getOrderSortedCDOMObjects(PCCheck.class);
 			if ((i >= 0) && (i < checkList.size()))
 			{
 				return checkList.get(i);
@@ -127,7 +128,8 @@ public class CheckToken extends Token
 		catch (NumberFormatException e)
 		{
 			// just means it's a name, not a number
-			return SettingsHandler.getGame().getCheckNamed(saveType);
+			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					PCCheck.class, saveType);
 		}
 		return null;
 	}

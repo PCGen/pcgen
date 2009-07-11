@@ -38,9 +38,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import plugin.initiative.SaveModel;
 import plugin.initiative.XMLCombatant;
 
@@ -315,8 +315,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 			new PlayerCharacterOutput(pc);
-			List<PCCheck> checkList =
-					SettingsHandler.getGame().getUnmodifiableCheckList();
+			List<PCCheck> checkList = Globals.getContext().ref
+					.getOrderSortedCDOMObjects(PCCheck.class);
 
 			if (saveType == FORT_SAVE)
 			{

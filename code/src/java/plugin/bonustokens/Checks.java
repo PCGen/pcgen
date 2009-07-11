@@ -25,8 +25,10 @@
  */
 package plugin.bonustokens;
 
-import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.Globals;
+import pcgen.core.PCCheck;
 import pcgen.core.bonus.BonusObj;
 
 /**
@@ -53,34 +55,35 @@ public final class Checks extends BonusObj
 			token = argToken;
 		}
 
-		PObject aCheck = SettingsHandler.getGame().getCheckNamed(token);
-
-		if (aCheck != null)
-		{
-			addBonusInfo(new CheckInfo(aCheck, isBase));
-
-			return true;
-		}
-		else if ("%LIST".equals(token))
+		if ("%LIST".equals(token))
 		{
 			// Special case of:  BONUS:CHECKS|%LIST|x
 			addBonusInfo(LIST_CHECK);
-
-			return true;
 		}
 		else if ("ALL".equals(token))
 		{
 			// Special case of:  BONUS:CHECKS|ALL|x
-			for (PObject check : SettingsHandler.getGame()
-				.getUnmodifiableCheckList())
+			/*
+			 * TODO Prohibit use in Game Mode, or alternately, all areas where
+			 * CHECKS are established need to test both CHECKS|Blah and
+			 * CHECKS|ALL
+			 */
+			for (PCCheck check : Globals.getContext().ref
+					.getConstructedCDOMObjects(PCCheck.class))
 			{
-				addBonusInfo(new CheckInfo(check, isBase));
+				addBonusInfo(new CheckInfo(CDOMDirectSingleRef.getRef(check),
+						isBase));
 			}
-
-			return true;
+		}
+		else
+		{
+			CDOMReference<PCCheck> aCheck = Globals.getContext().ref
+					.getCDOMReference(PCCheck.class, token);
+			//Invalid name is caught by Unconstructed Reference system
+			addBonusInfo(new CheckInfo(aCheck, isBase));
 		}
 
-		return false;
+		return true;
 	}
 
 	protected String unparseToken(final Object obj)
@@ -96,7 +99,7 @@ public final class Checks extends BonusObj
 			token = "BASE.";
 		}
 
-		return token + ((CheckInfo) obj).pobj.getKeyName();
+		return token + ((CheckInfo) obj).pobj.getLSTformat();
 	}
 
 	/**
@@ -105,7 +108,7 @@ public final class Checks extends BonusObj
 	public static class CheckInfo
 	{
 		/** The PObject */
-		public final PObject pobj;
+		public final CDOMReference<PCCheck> pobj;
 		/** whether this is a base check, True or False */
 		public final boolean isBase;
 
@@ -114,7 +117,7 @@ public final class Checks extends BonusObj
 		 * @param argPobj
 		 * @param argIsBase
 		 */
-		public CheckInfo(final PObject argPobj, final boolean argIsBase)
+		public CheckInfo(final CDOMReference<PCCheck> argPobj, final boolean argIsBase)
 		{
 			pobj = argPobj;
 			isBase = argIsBase;

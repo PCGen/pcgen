@@ -26,8 +26,9 @@
 
 package pcgen.core.term;
 
+import pcgen.core.Globals;
+import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 
 public class PCCountChecksTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -40,7 +41,8 @@ public class PCCountChecksTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) SettingsHandler.getGame().getUnmodifiableCheckList().size();
+		return (float) Globals.getContext().ref
+				.getConstructedObjectCount(PCCheck.class);
 	}
 
 	public boolean isSourceDependant()

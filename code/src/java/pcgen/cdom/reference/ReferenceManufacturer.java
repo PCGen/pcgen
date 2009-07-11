@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.base.PrereqObject;
 
@@ -156,16 +157,16 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	public Collection<T> getAllObjects();
 
 	/**
-	 * Returns a Collection of all of the objects contained in this
+	 * Returns a List of all of the objects contained in this
 	 * ReferenceManufacturer sorted by the order they were added to the
 	 * ReferenceManufacturer. This will not return null, it will return an empty
 	 * list if no objects have been constructed by or imported into this
 	 * ReferenceManufacturer.
 	 * 
-	 * @return A Collection of all of the objects contained in this
+	 * @return A List of all of the objects contained in this
 	 *         ReferenceManufacturer
 	 */
-	public Collection<T> getOrderSortedObjects();
+	public List<T> getOrderSortedObjects();
 
 	/**
 	 * Changes the identifier for a given object, as stored in this

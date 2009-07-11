@@ -1119,7 +1119,8 @@ public class InfoResources extends FilterAdapterPanel implements
 			.append(BOLD)
 			.append(PropertyFactory.getString("in_sumSaves")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
 
-		List<PCCheck> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+		List<PCCheck> checkList = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCCheck.class);
 		for (PCCheck check : checkList)
 		{
 			bonus = newPC.getTotalCheck(check);

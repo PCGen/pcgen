@@ -69,7 +69,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.PCCheck;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -533,10 +532,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			context.ref.importObject(sz);
 			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
-		}
-		for (PCCheck check : gamemode.getUnmodifiableCheckList())
-		{
-			context.ref.importObject(check);
 		}
 
 		for (Campaign c : loaded)

@@ -1,7 +1,6 @@
 package plugin.lsttokens.statsandchecks.check;
 
 import pcgen.core.PCCheck;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -32,11 +31,6 @@ public class ChecknameToken extends AbstractToken implements
 		 * additional checks being added in Campaigns (vs. Game Modes)
 		 */
 		check.setName(value);
-		/*
-		 * Warning: This is also not editor friendly, and this is a gate to
-		 * additional checks being added in Campaigns (vs. Game Modes)
-		 */
-		SettingsHandler.getGame().addToCheckList(check);
 		return true;
 	}
 

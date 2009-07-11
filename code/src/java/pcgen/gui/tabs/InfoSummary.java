@@ -1100,7 +1100,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					.append(" <b>").append(Globals.getGameModeAltHPAbbrev()).append("</b>: ").append(pc.altHP()); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
-			List<PCCheck> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+			List<PCCheck> checkList = Globals.getContext().ref
+					.getOrderSortedCDOMObjects(PCCheck.class);
 			if (!checkList.isEmpty())
 			{
 				//

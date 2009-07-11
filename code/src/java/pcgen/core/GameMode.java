@@ -132,7 +132,6 @@ public final class GameMode implements Comparable<Object>
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
 	private List<PCStat> statList = new ArrayList<PCStat>();
-	private final List<PCCheck> checkList = new ArrayList<PCCheck>();
 	private final List<PCAlignment> alignmentList = new ArrayList<PCAlignment>(15);
 	private final List<String> schoolsList = new ArrayList<String>(20);
 
@@ -1608,53 +1607,6 @@ public final class GameMode implements Comparable<Object>
 	public void clearStatList()
 	{
 		statList.clear();
-	}
-
-	//CHECKLIST
-
-	/**
-	 * Add a check to the list of checks.
-	 *
-	 * @param obj to add to the check list
-	 */
-	public void addToCheckList(final PCCheck obj)
-	{
-		checkList.add(obj);
-	}
-
-	/**
-	 * Empty the check list.
-	 */
-	public void clearCheckList()
-	{
-		checkList.clear();
-	}
-
-
-	/**
-	 * Return the requested object.
-	 * @param aName
-	 * @return PObject
-	 */
-	public PCCheck getCheckNamed(final String aName)
-	{
-		for (PCCheck check : checkList)
-		{
-			if (check.toString().equalsIgnoreCase(aName))
-			{
-				return check;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the check list.
-	 * @return an <b>unmodifiable</b> version of the check list.
-	 */
-	public List<PCCheck> getUnmodifiableCheckList()
-	{
-		return Collections.unmodifiableList(checkList);
 	}
 
 	//ALIGNMENTLIST

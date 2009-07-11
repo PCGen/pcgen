@@ -254,7 +254,7 @@ public class KeyMap<V>
 		return new ListSet<V>(forwardMap.values());
 	}
 
-	public Collection<V> insertOrderValues()
+	public List<V> insertOrderValues()
 	{
 		return new IdentityList<V>(inputOrder);
 	}

@@ -61,7 +61,6 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	{
 		// Clear relevant Globals
 		GameMode game = SettingsHandler.getGame();
-		game.clearCheckList();
 		game.clearAlignmentList();
 		game.clearStatList();
 		super.loadLstFile(context, fileName);

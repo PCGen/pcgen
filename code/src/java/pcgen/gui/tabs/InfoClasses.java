@@ -627,8 +627,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		pnlEast.setLayout(new GridBagLayout());
 
-		final List<PCCheck> checkList =
-				SettingsHandler.getGame().getUnmodifiableCheckList();
+		final List<PCCheck> checkList = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCCheck.class);
 		final int countChecks = checkList.size();
 
 		if (countChecks != 0)
@@ -1522,8 +1522,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 	private void updateChecks()
 	{
-		final List<PCCheck> checkList =
-				SettingsHandler.getGame().getUnmodifiableCheckList();
+		final List<PCCheck> checkList = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCCheck.class);
 
 		if ((lCheck == null) || (checkList.size() != lCheck.length))
 		{

@@ -1023,16 +1023,16 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	}
 
 	/**
-	 * Returns a Collection of all of the objects contained in this
+	 * Returns a List of all of the objects contained in this
 	 * AbstractReferenceManufacturer in the original order in which they were
 	 * imported into this AbstractReferenceManufacturer. This will not return
 	 * null, it will return an empty list if no objects have been constructed by
 	 * or imported into this AbstractReferenceManufacturer.
 	 * 
-	 * @return A Collection of all of the objects contained in this
+	 * @return A List of all of the objects contained in this
 	 *         AbstractReferenceManufacturer
 	 */
-	public Collection<T> getOrderSortedObjects()
+	public List<T> getOrderSortedObjects()
 	{
 		return active.insertOrderValues();
 	}

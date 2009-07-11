@@ -16,6 +16,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -292,22 +293,22 @@ public class PlayerCharacterOutput
 	public String getSaveFort()
 	{
 		return "+"
-				+ pc.getTotalCheck(SettingsHandler.getGame().getCheckNamed(
-						"FORT"));
+				+ pc.getTotalCheck(Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(PCCheck.class, "FORT"));
 	}
 
 	public String getSaveRef()
 	{
 		return "+"
-				+ pc.getTotalCheck(SettingsHandler.getGame().getCheckNamed(
-						"REF"));
+				+ pc.getTotalCheck(Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(PCCheck.class, "REF"));
 	}
 
 	public String getSaveWill()
 	{
 		return "+"
-				+ pc.getTotalCheck(SettingsHandler.getGame().getCheckNamed(
-						"WILL"));
+				+ pc.getTotalCheck(Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(PCCheck.class, "WILL"));
 	}
 
 	public String getSize()

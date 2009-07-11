@@ -91,5 +91,6 @@ public final class PCCheckLoader extends LstLineFileLoader
 			}
 			Logging.clearParseMessages();
 		}
+		context.ref.importObject(obj);
 	}
 }

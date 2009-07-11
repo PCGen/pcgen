@@ -10906,8 +10906,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aType = aType.toUpperCase();
 		aName = aName.toUpperCase();
 
-		final List<PCCheck> aList =
-				SettingsHandler.getGame().getUnmodifiableCheckList();
+		final List<PCCheck> aList = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCCheck.class);
 
 		for (PObject obj : aList)
 		{
@@ -11711,7 +11711,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// BioSet
 		results.add(Globals.getBioSet());
 
-		results.addAll(SettingsHandler.getGame().getUnmodifiableCheckList());
+		results.addAll(Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCCheck.class));
 
 		// Class
 		results.addAll(classList);
@@ -12319,16 +12320,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int save;
 
+		List<PCCheck> checkList = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCCheck.class);
+
 		if (((saveIndex - 1) < 0)
-			|| ((saveIndex - 1) >= SettingsHandler.getGame()
-				.getUnmodifiableCheckList().size()))
+			|| ((saveIndex - 1) >= checkList.size()))
 		{
 			return 0;
 		}
 
-		final String sString =
-				SettingsHandler.getGame().getUnmodifiableCheckList().get(
-					saveIndex - 1).toString();
+		final String sString = checkList.get(saveIndex - 1).toString();
 		save = (int) race.bonusTo("CHECKS", "BASE." + sString, this, this);
 		save += (int) race.bonusTo("CHECKS", sString, this, this);
 

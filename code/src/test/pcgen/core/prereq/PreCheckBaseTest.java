@@ -32,7 +32,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -134,15 +133,15 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 
 		PCCheck obj = new PCCheck();
 		obj.setName("Fortitude");
-		SettingsHandler.getGame().addToCheckList(obj);
+		Globals.getContext().ref.importObject(obj);
 
 		obj = new PCCheck();
 		obj.setName("Reflex");
-		SettingsHandler.getGame().addToCheckList(obj);
+		Globals.getContext().ref.importObject(obj);
 
 		obj = new PCCheck();
 		obj.setName("Will");
-		SettingsHandler.getGame().addToCheckList(obj);
+		Globals.getContext().ref.importObject(obj);
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));

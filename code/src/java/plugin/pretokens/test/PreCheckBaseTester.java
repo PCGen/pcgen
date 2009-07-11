@@ -28,9 +28,9 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -62,7 +62,8 @@ public class PreCheckBaseTester extends AbstractPrerequisiteTest implements
 		final String checkName = prereq.getKey();
 		final int operand =
 				character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
-		PCCheck check = SettingsHandler.getGame().getCheckNamed(checkName);
+		PCCheck check = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
 		if (check != null)
 		{
 			final int characterCheckBonus = character.getBaseCheck(check);

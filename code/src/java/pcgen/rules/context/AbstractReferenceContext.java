@@ -21,6 +21,7 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -299,8 +300,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		// }
 	}
 
-	public <T extends CDOMObject> Collection<T> getOrderSortedCDOMObjects(
-			Class<T> c)
+	public <T extends CDOMObject> List<T> getOrderSortedCDOMObjects(Class<T> c)
 	{
 		return getManufacturer(c).getOrderSortedObjects();
 	}

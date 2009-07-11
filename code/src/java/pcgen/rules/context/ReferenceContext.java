@@ -19,6 +19,7 @@ package pcgen.rules.context;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -85,8 +86,7 @@ public interface ReferenceContext
 	public <T extends CDOMObject> Collection<T> getConstructedCDOMObjects(
 			Class<T> c);
 
-	public <T extends CDOMObject> Collection<T> getOrderSortedCDOMObjects(
-			Class<T> c);
+	public <T extends CDOMObject> List<T> getOrderSortedCDOMObjects(Class<T> c);
 
 	public Set<CDOMObject> getAllConstructedObjects();
 
