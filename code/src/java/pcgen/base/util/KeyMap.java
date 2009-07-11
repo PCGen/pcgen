@@ -170,6 +170,7 @@ public class KeyMap<V>
 	public V put(String key, V value)
 	{
 		V old = forwardMap.put(key, value);
+		inputOrder.remove(old);
 		inputOrder.add(value);
 		reverseMap.remove(old);
 		reverseMap.put(value, key);
@@ -222,7 +223,7 @@ public class KeyMap<V>
 			return null;
 		}
 		V value = forwardMap.remove(key);
-		inputOrder.remove(key);
+		inputOrder.remove(value);
 		reverseMap.remove(value);
 		return value;
 	}
