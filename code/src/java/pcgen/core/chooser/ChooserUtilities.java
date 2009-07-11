@@ -513,7 +513,11 @@ public class ChooserUtilities
 			choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
 		}
 		// Note: Number is special temp mod only chooser and should not be actioned except by temp mods. 
-		if (choiceString == null || choiceString.length() == 0 || choiceString.startsWith("NUMBER"))
+		if (choiceString.startsWith("NUMBER"))
+		{
+			return null;
+		}
+		if (choiceString == null || choiceString.length() == 0)
 		{
 			PersistentTransitionChoice<?> chooseInfo = aPObject.get(ObjectKey.CHOOSE_INFO);
 			if (chooseInfo != null)
