@@ -25,6 +25,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -178,16 +179,11 @@ public class PCStatToken extends AbstractToken implements
 	public void applyChoice(CDOMObject owner, PCStat st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<PersistentChoiceActor<?>> actors = owner
+		List<ChooseSelectionActor<?>> actors = owner
 				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
-			/*
-			 * TODO There needs to be some verification at some point that the
-			 * ChooseActors are the same type as the CHOOSE that is on the
-			 * object...
-			 */
-			for (PersistentChoiceActor ca : actors)
+			for (ChooseSelectionActor ca : actors)
 			{
 				ca.applyChoice(owner, st, pc);
 			}
@@ -198,18 +194,13 @@ public class PCStatToken extends AbstractToken implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, PCStat choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<PersistentChoiceActor<?>> actors = owner
+		List<ChooseSelectionActor<?>> actors = owner
 				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
-			/*
-			 * TODO There needs to be some verification at some point that the
-			 * ChooseActors are the same type as the CHOOSE that is on the
-			 * object...
-			 */
-			for (PersistentChoiceActor ca : actors)
+			for (ChooseSelectionActor ca : actors)
 			{
-				ca.removeChoice(pc, owner, choice);
+				ca.removeChoice(owner, choice, pc);
 			}
 		}
 	}

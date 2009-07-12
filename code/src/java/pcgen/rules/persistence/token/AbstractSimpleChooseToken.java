@@ -25,6 +25,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -38,8 +39,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
 public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
@@ -180,16 +179,11 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 	public void applyChoice(CDOMObject owner, T st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<PersistentChoiceActor<?>> actors = owner
+		List<ChooseSelectionActor<?>> actors = owner
 				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
-			/*
-			 * TODO There needs to be some verification at some point that the
-			 * ChooseActors are the same type as the CHOOSE that is on the
-			 * object...
-			 */
-			for (PersistentChoiceActor ca : actors)
+			for (ChooseSelectionActor ca : actors)
 			{
 				ca.applyChoice(owner, st, pc);
 			}
@@ -200,18 +194,13 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<PersistentChoiceActor<?>> actors = owner
+		List<ChooseSelectionActor<?>> actors = owner
 				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
 		{
-			/*
-			 * TODO There needs to be some verification at some point that the
-			 * ChooseActors are the same type as the CHOOSE that is on the
-			 * object...
-			 */
-			for (PersistentChoiceActor ca : actors)
+			for (ChooseSelectionActor ca : actors)
 			{
-				ca.removeChoice(pc, owner, choice);
+				ca.removeChoice(owner, choice, pc);
 			}
 		}
 	}

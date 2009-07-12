@@ -17,12 +17,16 @@
  */
 package plugin.lsttokens;
 
+import java.util.List;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
@@ -180,6 +184,24 @@ public class ChooseLst extends AbstractToken implements
 					+ "and old style CHOOSE both found on "
 					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
 			return false;
+		}
+		if (newChoose != null)
+		{
+			Class<?> chooseClass = newChoose.getChoices().getChoiceClass();
+			List<ChooseSelectionActor<?>> newactors = obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+			for (ChooseSelectionActor<?> csa : newactors)
+			{
+				if (!chooseClass.equals(csa.getChoiceClass()))
+				{
+					Logging.errorPrint("CHOOSE of type "
+							+ chooseClass.getSimpleName() + " on "
+							+ obj.getClass().getSimpleName() + " "
+							+ obj.getKeyName() + " had an actor from token "
+							+ csa.getSource() + " that was expecting a "
+							+ csa.getChoiceClass().getSimpleName());
+					return false;
+				}
+			}
 		}
 		return true;
 	}
