@@ -937,4 +937,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 	}
+	
+	public boolean hasChooseToken()
+	{
+		String oldchoice = get(StringKey.CHOICE_STRING);
+		return oldchoice != null && oldchoice.length() > 0
+				|| get(ObjectKey.CHOOSE_INFO) != null;
+	}
 }

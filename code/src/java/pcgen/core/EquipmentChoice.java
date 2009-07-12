@@ -350,7 +350,7 @@ public final class EquipmentChoice
 			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					&& !this.getAvailableList().contains(anAbility.getKeyName()))
 			{
-				if (matchesType && (anAbility.getSafe(StringKey.CHOICE_STRING).length() == 0))
+				if (matchesType && !anAbility.hasChooseToken())
 				{
 					this.getAvailableList().add(anAbility.getKeyName());
 				}

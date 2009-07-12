@@ -126,7 +126,7 @@ public class DomainApplication
 		// sage_sam stop here
 		String choiceString = d.getSafe(StringKey.CHOICE_STRING);
 
-		if ((choiceString.length() > 0) && !pc.isImporting()
+		if (d.hasChooseToken() && !pc.isImporting()
 				&& !choiceString.startsWith("FEAT|"))
 		{
 			ChooserUtilities.modChoices(d, new ArrayList<Object>(),

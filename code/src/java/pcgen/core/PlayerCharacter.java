@@ -2349,8 +2349,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final double sr = SkillRankControl.getRank(mPC, newSkill)
 						.doubleValue();
 
-				if ((newSkill.getSafe(StringKey.CHOICE_STRING) != null)
-					&& (newSkill.getSafe(StringKey.CHOICE_STRING).length() > 0))
+				if (newSkill.hasChooseToken())
 				{
 					continue;
 				}
@@ -14971,8 +14970,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			final int subfeatCount = getSelectCorrectedAssociationCount(aFeat);
 			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			if (aFeat.getSafe(StringKey.CHOICE_STRING) != null
-				&& aFeat.getSafe(StringKey.CHOICE_STRING).length() > 0)
+			if (aFeat.hasChooseToken())
 			{
 				iCount += Math.ceil(subfeatCount * cost);
 			}
@@ -15014,8 +15012,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						getSelectCorrectedAssociationCount(ability);
 				double cost =
 						ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-				if (ability.getSafe(StringKey.CHOICE_STRING) != null
-					&& ability.getSafe(StringKey.CHOICE_STRING).length() > 0)
+				if (ability.hasChooseToken())
 				{
 					spent += Math.ceil(subfeatCount * cost);
 				}

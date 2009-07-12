@@ -21,7 +21,6 @@ package pcgen.core.analysis;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -56,7 +55,7 @@ public class QualifiedName
 		if (pc.hasAssociations(a)
 				&& !a.getKeyName().startsWith("Armor Proficiency"))
 		{
-			if ((a.getSafe(StringKey.CHOICE_STRING).length() == 0)
+			if (!a.hasChooseToken()
 					|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && a
 							.getSafe(ObjectKey.STACKS)))
 			{
