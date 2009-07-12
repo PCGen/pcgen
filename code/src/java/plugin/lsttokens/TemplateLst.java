@@ -25,10 +25,13 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMCompoundOrReference;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -39,7 +42,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * 
  */
 public class TemplateLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>, PersistentChoiceActor<PCTemplate>
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
@@ -55,7 +58,7 @@ public class TemplateLst extends AbstractToken implements
 		ListKey<CDOMReference<PCTemplate>> lk;
 		String remaining;
 		boolean consolidate = false;
-		boolean removeLegal = false;
+		boolean specialLegal = false;
 		if (value.startsWith(Constants.LST_CHOOSE))
 		{
 			lk = ListKey.TEMPLATE_CHOOSE;
@@ -71,7 +74,7 @@ public class TemplateLst extends AbstractToken implements
 		{
 			lk = ListKey.TEMPLATE;
 			remaining = value;
-			removeLegal = true;
+			specialLegal = true;
 		}
 		if (isEmpty(remaining) || hasIllegalSeparator('|', remaining))
 		{
@@ -85,10 +88,15 @@ public class TemplateLst extends AbstractToken implements
 		while (tok.hasMoreTokens())
 		{
 			String templKey = tok.nextToken();
-			if (removeLegal && templKey.endsWith(".REMOVE"))
+			if (specialLegal && templKey.endsWith(".REMOVE"))
 			{
 				removelist.add(context.ref.getCDOMReference(PCTEMPLATE_CLASS,
 						templKey.substring(0, templKey.length() - 7)));
+			}
+			else if (specialLegal && templKey.equals(Constants.LST_PRECENTLIST))
+			{
+				context.getObjectContext().addToList(cdo,
+						ListKey.NEW_CHOOSE_ACTOR, this);
 			}
 			else
 			{
@@ -131,6 +139,9 @@ public class TemplateLst extends AbstractToken implements
 		Changes<CDOMReference<PCTemplate>> removechanges = context
 				.getObjectContext().getListChanges(cdo,
 						ListKey.REMOVE_TEMPLATES);
+		Changes<PersistentChoiceActor<?>> listChanges = context
+				.getObjectContext().getListChanges(cdo,
+						ListKey.NEW_CHOOSE_ACTOR);
 
 		List<String> list = new ArrayList<String>();
 
@@ -140,6 +151,18 @@ public class TemplateLst extends AbstractToken implements
 			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
 
+		Collection<PersistentChoiceActor<?>> listAdded = listChanges.getAdded();
+		if (listAdded != null && !listAdded.isEmpty())
+		{
+			for (PersistentChoiceActor<?> pca : listAdded)
+			{
+				if (pca.equals(this))
+				{
+					list.add(Constants.LST_PRECENTLIST);
+				}
+			}
+		}
+		
 		Changes<CDOMReference<PCTemplate>> choosechanges = context
 				.getObjectContext()
 				.getListChanges(cdo, ListKey.TEMPLATE_CHOOSE);
@@ -196,4 +219,46 @@ public class TemplateLst extends AbstractToken implements
 		return CDOMObject.class;
 	}
 
+	public PCTemplate decodeChoice(String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCTEMPLATE_CLASS, s);
+	}
+
+	public String encodeChoice(Object choice)
+	{
+		return ((PCTemplate) choice).getKeyName();
+	}
+
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+			PCTemplate choice)
+	{
+		pc.removeTemplate(choice);
+	}
+
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+			PCTemplate choice)
+	{
+		//5.x no action necessary
+	}
+
+	public boolean allow(PCTemplate choice, PlayerCharacter pc,
+			boolean allowStack)
+	{
+		//Ignored by CHOOSE
+		return !pc.hasTemplate(choice);
+	}
+
+	public void applyChoice(CDOMObject owner, PCTemplate choice,
+			PlayerCharacter pc)
+	{
+		pc.addTemplate(choice);
+	}
+
+	public List<PCTemplate> getCurrentlySelected(CDOMObject owner,
+			PlayerCharacter pc)
+	{
+		//Ignored by CHOOSE
+		return pc.getTemplateList();
+	}
 }
