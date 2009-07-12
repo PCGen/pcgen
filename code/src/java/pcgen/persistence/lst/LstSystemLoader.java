@@ -68,8 +68,6 @@ import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.PCAlignment;
-import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -522,20 +520,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
 		validateAbilityCategories(gamemode);
 
-		for (PCAlignment al : context.ref
-				.getConstructedCDOMObjects(PCAlignment.class))
-		{
-			context.ref.registerAbbreviation(al, al.getAbb());
-		}
 		for (SizeAdjustment sz : gamemode
 				.getUnmodifiableSizeAdjustmentList())
 		{
 			context.ref.importObject(sz);
 			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
-		}
-		for (PCStat s : context.ref.getConstructedCDOMObjects(PCStat.class))
-		{
-			context.ref.registerAbbreviation(s, s.getAbb());
 		}
 
 		for (Campaign c : loaded)

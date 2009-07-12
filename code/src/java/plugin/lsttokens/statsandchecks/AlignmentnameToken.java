@@ -27,7 +27,9 @@ package plugin.lsttokens.statsandchecks;
 
 import java.net.URI;
 
-import pcgen.persistence.lst.PCAlignmentLoader;
+import pcgen.core.PCAlignment;
+import pcgen.persistence.lst.GenericLoader;
+import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
 import pcgen.rules.context.LoadContext;
 
@@ -36,6 +38,8 @@ import pcgen.rules.context.LoadContext;
  */
 public class AlignmentnameToken implements StatsAndChecksLstToken
 {
+	private static final Class<PCAlignment> PCALIGNMENT_CLASS = PCAlignment.class;
+
 	public String getTokenName()
 	{
 		return "ALIGNMENTNAME";
@@ -45,8 +49,10 @@ public class AlignmentnameToken implements StatsAndChecksLstToken
 	{
 		try
 		{
-			PCAlignmentLoader alignmentLoader = new PCAlignmentLoader();
-			alignmentLoader.parseLine(context, lstLine, sourceURI);
+			GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(
+					PCALIGNMENT_CLASS);
+			alignmentLoader.parseLine(context, null, lstLine.substring(14),
+					new SourceEntry.URIOnly(sourceURI));
 			return true;
 		}
 		catch (Exception e)

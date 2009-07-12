@@ -20,8 +20,6 @@ package plugin.pretokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import pcgen.core.Globals;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.testsupport.TestSupport;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAlignParser;
@@ -48,18 +46,7 @@ public class PreAlignRoundRobin extends AbstractAlignRoundRobin
 		super.setUp();
 		TokenRegistration.register(new PreAlignParser());
 		TokenRegistration.register(new PreAlignWriter());
-		ReferenceContext ref = Globals.getContext().ref;
-		ref.importObject(TestSupport.createAlignment("Lawful Good", "LG"));
-		ref.importObject(TestSupport.createAlignment("Lawful Neutral", "LN"));
-		ref.importObject(TestSupport.createAlignment("Lawful Evil", "LE"));
-		ref.importObject(TestSupport.createAlignment("Neutral Good", "NG"));
-		ref.importObject(TestSupport.createAlignment("True Neutral", "TN"));
-		ref.importObject(TestSupport.createAlignment("Neutral Evil", "NE"));
-		ref.importObject(TestSupport.createAlignment("Chaotic Good", "CG"));
-		ref.importObject(TestSupport.createAlignment("Chaotic Neutral", "CN"));
-		ref.importObject(TestSupport.createAlignment("Chaotic Evil", "CE"));
-		ref.importObject(TestSupport.createAlignment("None", "NONE"));
-		ref.importObject(TestSupport.createAlignment("Deity's", "Deity"));
+		TestSupport.createAllAlignments();
 	}
 
 	public void testDeity()

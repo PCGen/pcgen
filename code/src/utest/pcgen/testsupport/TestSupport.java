@@ -21,7 +21,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
+import pcgen.rules.context.ReferenceContext;
 
 /**
  * Support class for running Junit tests
@@ -75,7 +77,27 @@ public class TestSupport
 		{
 			final PCAlignment align = new PCAlignment();
 			align.setName(longName);
-			align.put(StringKey.KEY_NAME, shortName);
+			align.put(StringKey.ABB, shortName);
 			return align;
-		}	
+		}
+
+	public static void createAllAlignments()
+	{
+		ReferenceContext ref = Globals.getContext().ref;
+		ref.importObject(createAlignment("Lawful Good", "LG"));
+		ref.importObject(createAlignment("Lawful Neutral", "LN"));
+		ref.importObject(createAlignment("Lawful Evil", "LE"));
+		ref.importObject(createAlignment("Neutral Good", "NG"));
+		ref.importObject(createAlignment("True Neutral", "TN"));
+		ref.importObject(createAlignment("Neutral Evil", "NE"));
+		ref.importObject(createAlignment("Chaotic Good", "CG"));
+		ref.importObject(createAlignment("Chaotic Neutral", "CN"));
+		ref.importObject(createAlignment("Chaotic Evil", "CE"));
+		ref.importObject(createAlignment("None", "NONE"));
+		ref.importObject(createAlignment("Deity's", "Deity"));
+		for (PCAlignment al : ref.getConstructedCDOMObjects(PCAlignment.class))
+		{
+			ref.registerAbbreviation(al, al.getAbb());
+		}
+	}	
 }

@@ -1,6 +1,5 @@
 package plugin.lsttokens.statsandchecks.alignment;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
@@ -36,7 +35,6 @@ public class AbbToken extends AbstractToken implements
 		 * Modes)
 		 */
 		context.ref.registerAbbreviation(al, value);
-		context.obj.put(al, StringKey.KEY_NAME, value);
 		return true;
 	}
 

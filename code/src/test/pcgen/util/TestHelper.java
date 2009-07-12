@@ -455,7 +455,7 @@ public class TestHelper
 	{
 		PCAlignment align = new PCAlignment();
 		align.setName(longName);
-		align.put(StringKey.KEY_NAME, shortName);
+		align.put(StringKey.ABB, shortName);
 		return align;
 	}
 
@@ -475,7 +475,7 @@ public class TestHelper
 		ref.importObject(createAlignment("Deity's", "Deity"));
 		for (PCAlignment al : ref.getConstructedCDOMObjects(PCAlignment.class))
 		{
-			ref.registerAbbreviation(al, al.getKeyName());
+			ref.registerAbbreviation(al, al.getAbb());
 		}
 	}
 

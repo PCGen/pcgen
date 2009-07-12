@@ -29,10 +29,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
@@ -52,14 +50,6 @@ public class PreAlignParserTest extends TestCase
 	public static Test suite()
 	{
 		return new TestSuite(PreAlignParserTest.class);
-	}
-
-	private PCAlignment createAlignment(String longName, String shortName)
-	{
-		PCAlignment align = new PCAlignment();
-		align.setName(longName);
-		align.put(StringKey.KEY_NAME, shortName);
-		return align;
 	}
 
 	/**

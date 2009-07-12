@@ -126,7 +126,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		}
 		for (PCAlignment al : ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
-			ref.registerAbbreviation(al, al.getKeyName());
+			ref.registerAbbreviation(al, al.getAbb());
 		}
 		
 		character = new PlayerCharacter();
@@ -160,7 +160,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		final PCAlignment align = new PCAlignment();
 		align.setName(longName);
-		align.put(StringKey.KEY_NAME, shortName);
+		align.put(StringKey.ABB, shortName);
 		return align;
 	}
 
