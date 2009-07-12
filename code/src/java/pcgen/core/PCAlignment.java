@@ -20,6 +20,8 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.enumeration.StringKey;
+
 /**
  * <code>PCAlignment</code>.
  * 
@@ -35,4 +37,8 @@ public final class PCAlignment extends PObject
 		NO_ALIGNMENT.setName("");
 	}
 
+	public String getAbb()
+	{
+		return get(StringKey.ABB);
+	}
 }
