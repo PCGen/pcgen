@@ -189,7 +189,7 @@ public class PCStatToken extends AbstractToken implements
 			 */
 			for (PersistentChoiceActor ca : actors)
 			{
-				ca.applyChoice(st, owner, pc);
+				ca.applyChoice(owner, st, pc);
 			}
 		}
 		pc.addAssociation(owner, encodeChoice(st));

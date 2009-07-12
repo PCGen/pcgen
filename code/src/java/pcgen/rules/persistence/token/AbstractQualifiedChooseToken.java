@@ -140,7 +140,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 			 */
 			for (PersistentChoiceActor ca : actors)
 			{
-				ca.applyChoice(st, owner, pc);
+				ca.applyChoice(owner, st, pc);
 			}
 		}
 		pc.addAssociation(owner, encodeChoice(st));
