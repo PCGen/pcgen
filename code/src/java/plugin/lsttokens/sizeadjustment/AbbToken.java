@@ -38,7 +38,6 @@ public class AbbToken extends AbstractToken implements
 		 * Modes)
 		 */
 		context.ref.registerAbbreviation(size, value);
-		context.obj.put(size, StringKey.ABB, value);
 		return true;
 	}
 
