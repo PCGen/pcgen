@@ -68,6 +68,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.ReferenceContext;
 
 /**
  * Helps Junit tests
@@ -436,19 +437,6 @@ public class TestHelper
 		}
 	}
 
-	public static void setAlignment(PlayerCharacter pc, final int index, final boolean bLoading)
-	{
-		PCAlignment al = SettingsHandler.getGame().getAlignmentAtIndex(index);
-		pc.setAlignment(al, bLoading, false);
-	}
-
-	public static void setAlignment(PlayerCharacter pc, final int index, final boolean bLoading,
-			final boolean bForce)
-	{
-		PCAlignment al = SettingsHandler.getGame().getAlignmentAtIndex(index);
-		pc.setAlignment(al, bLoading, bForce);
-	}
-
 	/**
 	 * Checks to see if this PC has the weapon proficiency key aKey
 	 * 
@@ -461,6 +449,34 @@ public class TestHelper
 		WeaponProf wp = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(WeaponProf.class, aKey);
 		return wp != null && pc.hasWeaponProf(wp);
+	}
+
+	public static PCAlignment createAlignment(String longName, String shortName)
+	{
+		PCAlignment align = new PCAlignment();
+		align.setName(longName);
+		align.put(StringKey.KEY_NAME, shortName);
+		return align;
+	}
+
+	public static void createAllAlignments()
+	{
+		ReferenceContext ref = Globals.getContext().ref;
+		ref.importObject(createAlignment("Lawful Good", "LG"));
+		ref.importObject(createAlignment("Lawful Neutral", "LN"));
+		ref.importObject(createAlignment("Lawful Evil", "LE"));
+		ref.importObject(createAlignment("Neutral Good", "NG"));
+		ref.importObject(createAlignment("True Neutral", "TN"));
+		ref.importObject(createAlignment("Neutral Evil", "NE"));
+		ref.importObject(createAlignment("Chaotic Good", "CG"));
+		ref.importObject(createAlignment("Chaotic Neutral", "CN"));
+		ref.importObject(createAlignment("Chaotic Evil", "CE"));
+		ref.importObject(createAlignment("None", "NONE"));
+		ref.importObject(createAlignment("Deity's", "Deity"));
+		for (PCAlignment al : ref.getConstructedCDOMObjects(PCAlignment.class))
+		{
+			ref.registerAbbreviation(al, al.getKeyName());
+		}
 	}
 
 }

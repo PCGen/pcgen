@@ -26,7 +26,10 @@
 package plugin.pretokens.parser;
 
 import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
@@ -68,8 +71,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 			return prereq;
 		}
 
-		String[] validAlignments = gm.getAlignmentListStrings(false);
-		if (validAlignments.length == 0)
+		if (Globals.getContext().ref.getConstructedObjectCount(PCAlignment.class) == 0)
 		{
 			// There are no alignments for this game mode, so we
 			// do not do prereqs.
@@ -80,7 +82,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 		{
 			if (alignments.length == 1)
 			{
-				prereq.setKey(convertFromNumber(formula, validAlignments));
+				prereq.setKey(getPCAlignment(formula).getKeyName());
 				prereq.setOperator(PrerequisiteOperator.EQ);
 			}
 			else
@@ -93,8 +95,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 				{
 					Prerequisite subreq = new Prerequisite();
 					subreq.setKind("align");
-					subreq.setKey(convertFromNumber(alignments[i],
-						validAlignments));
+					subreq.setKey(getPCAlignment(alignments[i]).getKeyName());
 					subreq.setOperator(PrerequisiteOperator.EQ);
 					prereq.addPrerequisite(subreq);
 				}
@@ -107,21 +108,8 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 		return prereq;
 	}
 
-	/**
-	 * @param string
-	 * @param validAlignments
-	 * @return String
-	 */
-	private String convertFromNumber(String string, String[] validAlignments)
+	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
-		try
-		{
-			int alignInt = Integer.parseInt(string);
-			return validAlignments[alignInt];
-		}
-		catch (NumberFormatException e)
-		{
-			return string;
-		}
+		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
 	}
 }

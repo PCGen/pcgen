@@ -27,16 +27,12 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.TestHelper;
 
 /**
  * <code>PreDeityDomainTest</code> tests that the PREDEITYDOMAIN tag is
@@ -81,7 +77,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
@@ -106,7 +102,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
@@ -137,10 +133,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 
 		deity = new Deity();
 		deity.setName("Test Deity");
-		PCAlignment ng = new PCAlignment();
-		ng.put(StringKey.KEY_NAME, "NG");
-		SettingsHandler.getGame().addToAlignmentList(ng);
-		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
+		deity.put(ObjectKey.ALIGNMENT, ng);
 		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
 				.getRef(goodDomain), new SimpleAssociatedObject());
 		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef

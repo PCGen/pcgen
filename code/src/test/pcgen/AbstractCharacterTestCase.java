@@ -36,6 +36,15 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	protected PCStat dex;
 	protected PCStat wis;
 	protected PCStat intel;
+	protected PCAlignment lg;
+	protected PCAlignment ln;
+	protected PCAlignment le;
+	protected PCAlignment ng;
+	protected PCAlignment tn;
+	protected PCAlignment ne;
+	protected PCAlignment cg;
+	protected PCAlignment cn;
+	protected PCAlignment ce;
 
 	/**
 	 * Sets up the absolute minimum amount of data to create a PlayerCharacter
@@ -77,17 +86,27 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 
 		TestHelper.makeSizeAdjustments();
 
-		gamemode.addToAlignmentList(createAlignment("Lawful Good", "LG"));
-		gamemode.addToAlignmentList(createAlignment("Lawful Neutral", "LN"));
-		gamemode.addToAlignmentList(createAlignment("Lawful Evil", "LE"));
-		gamemode.addToAlignmentList(createAlignment("Neutral Good", "NG"));
-		gamemode.addToAlignmentList(createAlignment("True Neutral", "TN"));
-		gamemode.addToAlignmentList(createAlignment("Neutral Evil", "NE"));
-		gamemode.addToAlignmentList(createAlignment("Chaotic Good", "CG"));
-		gamemode.addToAlignmentList(createAlignment("Chaotic Neutral", "CN"));
-		gamemode.addToAlignmentList(createAlignment("Chaotic Evil", "CE"));
-		gamemode.addToAlignmentList(createAlignment("None", "NONE"));
-		gamemode.addToAlignmentList(createAlignment("Deity's", "Deity"));
+		ReferenceContext ref = Globals.getContext().ref;
+		lg = createAlignment("Lawful Good", "LG");
+		ref.importObject(lg);
+		ln = createAlignment("Lawful Neutral", "LN");
+		ref.importObject(ln);
+		le = createAlignment("Lawful Evil", "LE");
+		ref.importObject(le);
+		ng = createAlignment("Neutral Good", "NG");
+		ref.importObject(ng);
+		tn = createAlignment("True Neutral", "TN");
+		ref.importObject(tn);
+		ne = createAlignment("Neutral Evil", "NE");
+		ref.importObject(ne);
+		cg = createAlignment("Chaotic Good", "CG");
+		ref.importObject(cg);
+		cn = createAlignment("Chaotic Neutral", "CN");
+		ref.importObject(cn);
+		ce = createAlignment("Chaotic Evil", "CE");
+		ref.importObject(ce);
+		ref.importObject(createAlignment("None", "NONE"));
+		ref.importObject(createAlignment("Deity's", "Deity"));
 
 		gamemode.setBonusFeatLevels("3|3");
 
@@ -95,7 +114,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		
-		ReferenceContext ref = Globals.getContext().ref;
 		ref.importObject(str);
 		ref.importObject(dex);
 		ref.importObject(con);
@@ -106,9 +124,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		{
 			ref.registerAbbreviation(stat, stat.getAbb());
 		}
-		for (PCAlignment al : gamemode.getUnmodifiableAlignmentList())
+		for (PCAlignment al : ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
-			ref.importObject(al);
 			ref.registerAbbreviation(al, al.getKeyName());
 		}
 		

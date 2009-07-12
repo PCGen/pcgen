@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.WeightedCollection;
-import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
@@ -154,8 +153,7 @@ public class Configuration
 				ret.add((AlignGeneratorOption)opt);
 			}
 		}
-		for (final PCAlignment align : SettingsHandler.getGame()
-			.getUnmodifiableAlignmentList())
+		for (final PCAlignment align : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
 			boolean included = false;
 			for (AlignGeneratorOption option : ret)
@@ -166,7 +164,7 @@ public class Configuration
 					break;
 				}
 			}
-			if (!align.getDisplayName().equals(Constants.s_NONE) && !included)
+			if (!align.equals(PCAlignment.NO_ALIGNMENT) && !included)
 			{
 				final AlignGeneratorOption opt = new AlignGeneratorOption();
 				opt.setName(align.getDisplayName());

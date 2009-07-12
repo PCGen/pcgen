@@ -131,7 +131,6 @@ public final class GameMode implements Comparable<Object>
 	private int babMinVal = 1;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
-	private final List<PCAlignment> alignmentList = new ArrayList<PCAlignment>(15);
 	private final List<String> schoolsList = new ArrayList<String>(20);
 
 	private int skillCosts_Class     = 1;
@@ -195,7 +194,6 @@ public final class GameMode implements Comparable<Object>
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
-	private final PCAlignment noAlignment;
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -215,8 +213,6 @@ public final class GameMode implements Comparable<Object>
 			ti.tabName = aTab.label();
 			tInfo.put(aTab, ti);
 		}
-		noAlignment = new PCAlignment();
-		noAlignment.setName("");
 	}
 
 	/**
@@ -1576,102 +1572,6 @@ public final class GameMode implements Comparable<Object>
 		String tabName = "";
 		String contextPath = "";
 		boolean visible = true;
-	}
-
-	//ALIGNMENTLIST
-
-	/**
-	 * Add to the alignment list.
-	 *
-	 * @param alignment the alignment
-	 */
-	public void addToAlignmentList(final PCAlignment alignment)
-	{
-		alignmentList.add(alignment);
-	}
-
-	/**
-	 * Clear out the alignment list.
-	 */
-	public void clearAlignmentList()
-	{
-		alignmentList.clear();
-	}
-
-	/**
-	 * Get the Alignment of the PC given an index
-	 * @param index
-	 * @return the Alignment of the PC
-	 */
-	public PCAlignment getAlignmentAtIndex(final int index)
-	{
-		final PCAlignment align;
-
-		if ((index < 0) || (index >= alignmentList.size()))
-		{
-			align = null;
-		}
-		else
-		{
-			align = alignmentList.get(index);
-		}
-
-		return align;
-	}
-	/**
-	 * Returns an array of alignment names.
-	 * @param useLongForm True if the long names should be returned.
-	 * @return alignment list Strings
-	 */
-	public String[] getAlignmentListStrings(final boolean useLongForm)
-	{
-		final String[] al = new String[alignmentList.size()];
-		int x = 0;
-
-		for ( PCAlignment alignment : alignmentList )
-		{
-			if (useLongForm)
-			{
-				al[x++] = alignment.getDisplayName();
-			}
-			else
-			{
-				al[x++] = alignment.getKeyName();
-			}
-		}
-
-		return al;
-	}
-
-	/**
-	 * Returns a <tt>PCAlignment</tt> object for the alignment key or name
-	 * passed in.
-	 *
-	 * @param aKey A short alignment (LG) or long alignment (Lawful Good)
-	 *
-	 * @return A <tt>PCAlignment</tt> object or null if no match is found.
-	 */
-	public PCAlignment getAlignment( final String aKey )
-	{
-		for ( final PCAlignment align : alignmentList )
-		{
-			// if long name or short name of alignment matches, return index
-			if (align.getDisplayName().equalsIgnoreCase(aKey)
-			 || align.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return align;
-			}
-		}
-		return noAlignment;
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the alignmentlist.
-	 * @return an <b>unmodifiable</b> version of the alignmentlist.
-	 */
-	public List<PCAlignment> getUnmodifiableAlignmentList()
-	{
-		return Collections.unmodifiableList(alignmentList);
 	}
 
 	/**

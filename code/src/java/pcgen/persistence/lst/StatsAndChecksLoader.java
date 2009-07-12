@@ -27,9 +27,6 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.Map;
 
-import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -49,20 +46,6 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	public StatsAndChecksLoader()
 	{
 		super();
-	}
-
-	/**
-	 * @param fileName
-	 * @throws PersistenceLayerException
-	 * @see pcgen.persistence.lst.LstFileLoader#loadLstFiles(java.util.List)
-	 */
-	@Override
-	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
-	{
-		// Clear relevant Globals
-		GameMode game = SettingsHandler.getGame();
-		game.clearAlignmentList();
-		super.loadLstFile(context, fileName);
 	}
 
 	/**

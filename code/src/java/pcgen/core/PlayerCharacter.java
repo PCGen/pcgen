@@ -305,7 +305,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int age = 0;
 
 	// null is <none selected>
-	private PCAlignment alignment = SettingsHandler.getGame().getAlignment(Constants.s_NONE);
+	private PCAlignment alignment = PCAlignment.NO_ALIGNMENT;
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
 	private int earnedXP = 0;
@@ -3928,20 +3928,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (PCAlignment obj : SettingsHandler.getGame()
-			.getUnmodifiableAlignmentList())
-		{
-			final String aString =
-					checkForVariableInList(obj, variableString, isMax, found,
-						value);
+		final String aString = checkForVariableInList(alignment,
+				variableString, isMax, found, value);
 
-			if (aString.length() > 0)
-			{
-				value =
-						getMinMaxFirstValue(found, isMax, value, Float
-							.parseFloat(aString));
-				found = true;
-			}
+		if (aString.length() > 0)
+		{
+			value = getMinMaxFirstValue(found, isMax, value, Float
+					.parseFloat(aString));
+			found = true;
 		}
 
 		if (!found)
@@ -4580,15 +4574,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		else
 		{
 			if ((bLoading)
-				&& (!align.equals(SettingsHandler.getGame().getAlignment(
-					Constants.s_NONE))))
+				&& (!align.equals(PCAlignment.NO_ALIGNMENT)))
 			{
 				ShowMessageDelegate.showMessageDialog(
 					"Invalid alignment. Setting to <none selected>",
 					Constants.s_APPNAME, MessageType.INFORMATION);
-				alignment =
-						SettingsHandler.getGame().getAlignment(
-							Constants.s_NONE);
+				alignment = PCAlignment.NO_ALIGNMENT;
 			}
 
 			throw new IllegalArgumentException("Invalid alignment");

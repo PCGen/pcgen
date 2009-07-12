@@ -36,6 +36,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreAlignParser;
 
 public class PreAlignParserTest extends TestCase
@@ -84,18 +85,8 @@ public class PreAlignParserTest extends TestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = new GameMode("3.5");
-		gamemode.addToAlignmentList(createAlignment("Lawful Good", "LG"));
-		gamemode.addToAlignmentList(createAlignment("Lawful Neutral", "LN"));
-		gamemode.addToAlignmentList(createAlignment("Lawful Evil", "LE"));
-		gamemode.addToAlignmentList(createAlignment("Neutral Good", "NG"));
-		gamemode.addToAlignmentList(createAlignment("True Neutral", "TN"));
-		gamemode.addToAlignmentList(createAlignment("Neutral Evil", "NE"));
-		gamemode.addToAlignmentList(createAlignment("Chaotic Good", "CG"));
-		gamemode.addToAlignmentList(createAlignment("Chaotic Neutral", "CN"));
-		gamemode.addToAlignmentList(createAlignment("Chaotic Evil", "CE"));
-		gamemode.addToAlignmentList(createAlignment("None", "NONE"));
-		gamemode.addToAlignmentList(createAlignment("Deity's", "Deity"));
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
+		TestHelper.createAllAlignments();
 	}
 }

@@ -522,10 +522,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
 		validateAbilityCategories(gamemode);
 
-		for (PCAlignment al : gamemode
-				.getUnmodifiableAlignmentList())
+		for (PCAlignment al : context.ref
+				.getConstructedCDOMObjects(PCAlignment.class))
 		{
-			context.ref.importObject(al);
 			context.ref.registerAbbreviation(al, al.getKeyName());
 		}
 		for (SizeAdjustment sz : gamemode

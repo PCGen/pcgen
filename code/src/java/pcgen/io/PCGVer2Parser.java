@@ -389,7 +389,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parseAlignmentLine(String line)
 	{
 		final String alignment = line.substring(TAG_ALIGNMENT.length() + 1);
-		PCAlignment align = SettingsHandler.getGame().getAlignment(alignment);
+		PCAlignment align = Globals.getContext().ref.getAbbreviatedObject(PCAlignment.class, alignment);
 
 		if (align != null)
 		{

@@ -28,15 +28,15 @@
  */
 package plugin.pretokens.parser;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PCAlignment;
-import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-
-import java.util.StringTokenizer;
 
 /**
  * @author wardc
@@ -74,16 +74,7 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
 
 			String token = inputTokenizer.nextToken();
 
-			try
-			{
-				PCAlignment align = SettingsHandler.getGame()
-						.getAlignmentAtIndex(Integer.parseInt(token));
-				subprereq.setOperand(align.getKeyName());
-			}
-			catch (NumberFormatException e)
-			{
-				subprereq.setOperand(token.trim());
-			}
+			subprereq.setOperand(getPCAlignment(token).getKeyName());
 		}
 
 		if ((prereq.getPrerequisites().size() == 1)
@@ -98,5 +89,10 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
 			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
+	}
+
+	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	{
+		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
 	}
 }

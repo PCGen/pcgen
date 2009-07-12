@@ -86,7 +86,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SubClass;
@@ -1206,7 +1205,7 @@ public final class EditorMainForm extends JDialog
 			String alignName = (String) selItem;
 			boolean found = false;
 
-			for (PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList())
+			for (PCAlignment align : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
 			{
 				if (alignName.equals(align.getDisplayName()))
 				{
@@ -1281,7 +1280,7 @@ public final class EditorMainForm extends JDialog
 				List<String> availableFollowerAlignmentList = new ArrayList<String>();
 				List<String> selectedFollowerAlignmentList = new ArrayList<String>();
 
-				for (PCAlignment anAlignment : SettingsHandler.getGame().getUnmodifiableAlignmentList())
+				for (PCAlignment anAlignment : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
 				{
 					if (anAlignment.getSafe(ObjectKey.VALID_FOR_FOLLOWER))
 					{
@@ -3007,8 +3006,8 @@ public final class EditorMainForm extends JDialog
 		}
 		
 		String key = prereq.getKey();
-		PCAlignment align = SettingsHandler.getGame()
-			.getAlignment(key);
+		PCAlignment align = Globals.getContext().ref
+				.getAbbreviatedObject(PCAlignment.class, key);
 		if (align != null)
 		{
 			selectedList.add(align.getDisplayName());

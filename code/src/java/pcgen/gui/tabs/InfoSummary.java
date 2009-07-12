@@ -41,6 +41,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -184,7 +185,6 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	private JTextField tabNameText = new JTextField(""); //$NON-NLS-1$
 	private RaceComboModel raceComboModel = null; // Model for the race combo box.
 	private WholeNumberField levelText = new WholeNumberField(1, 3);
-	private String[] alignmentStrings;
 	private boolean abilitiesFrameHasBeenSized = false;
 
 	private PlayerCharacter pc;
@@ -1150,7 +1150,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
 			if ((levels > 0)
-				&& (pc.getPCAlignment().getDisplayName().equals(Constants.s_NONE)))
+				&& (pc.getPCAlignment().equals(PCAlignment.NO_ALIGNMENT)))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -1415,8 +1415,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	 */
 	private void alignmentChanged()
 	{
-		PCAlignment newAlign = SettingsHandler.getGame().getAlignment(
-				alignmentComboBox.getSelectedItem().toString());
+		PCAlignment newAlign = (PCAlignment) alignmentComboBox.getSelectedItem();
 		PCAlignment oldAlign = pc.getPCAlignment();
 
 		if (newAlign.equals(oldAlign))
@@ -1464,7 +1463,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
 				pc.setAlignment(oldAlign, false, true);
-				alignmentComboBox.setSelectedItem(oldAlign.getDisplayName());
+				alignmentComboBox.setSelectedItem(oldAlign);
 
 				return;
 			}
@@ -1480,7 +1479,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		pc.setAlignment(newAlign, false, true);
 		forceRefresh(false);
-		enableRaceControls(!newAlign.getDisplayName().equals(Constants.s_NONE));
+		enableRaceControls(!newAlign.equals(PCAlignment.NO_ALIGNMENT));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();
 	}
 
@@ -1790,7 +1789,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		northPanel.add(alignmentComboBox);
 
 		alignmentComboBox.setModel(new DefaultComboBoxModel(
-			populateAlignmentStrings()));
+				Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class).toArray()));
 
 		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
@@ -2156,17 +2155,6 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	}
 
 	/**
-	 * This method converts the global alignment list into an array of Strings
-	 * to be used on the alignment menu.
-	 * @return String[] containing the names of the alignments
-	 */
-	private String[] populateAlignmentStrings()
-	{
-		return alignmentStrings =
-				SettingsHandler.getGame().getAlignmentListStrings(true);
-	}
-
-	/**
 	 * This method refreshes the display and everything shown in it.
 	 * @param newPC Is the refresh because we changed character?
 	 */
@@ -2183,38 +2171,21 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		tabNameText.setText(pc.getTabName());
 		playerNameText.setText(pc.getPlayersName());
 
-		boolean rebuild = false;
-
-		if (alignmentStrings.length != SettingsHandler.getGame()
-			.getUnmodifiableAlignmentList().size()) // - 1 DRH
-		{
-			rebuild = true;
-		}
-		else
-		{
-			String[] al =
-					SettingsHandler.getGame().getAlignmentListStrings(true);
-
-			for (int i = 0; i < Math.min(alignmentStrings.length, al.length); ++i)
-			{
-				if (!alignmentStrings[i].equals(al[i]))
-				{
-					rebuild = true;
-				}
-			}
-		}
+		Object[] newArray = Globals.getContext().ref.getOrderSortedCDOMObjects(
+				PCAlignment.class).toArray();
+		boolean rebuild = !Arrays.equals(alignmentComboBox.getAllItems(),
+				newArray);
 
 		if (rebuild)
 		{
-			alignmentComboBox.setModel(new DefaultComboBoxModel(
-				populateAlignmentStrings()));
+			alignmentComboBox.setModel(new DefaultComboBoxModel(newArray));
 		}
 
 		PCAlignment align = pc.getPCAlignment();
 
 		if (align != null)
 		{
-			alignmentComboBox.setSelectedItem(align.getDisplayName());
+			alignmentComboBox.setSelectedItem(align);
 		}
 
 		final Race pcRace = pc.getRace();
@@ -2318,7 +2289,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		setStatLabelText();
 
 		enableRaceControls(!alignmentComboBox.isVisible()
-			|| !align.getDisplayName().equals(Constants.s_NONE));
+			|| !align.equals(PCAlignment.NO_ALIGNMENT));
 		startListeners();
 	}
 

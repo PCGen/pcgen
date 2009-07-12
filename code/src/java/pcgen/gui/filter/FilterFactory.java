@@ -199,7 +199,7 @@ public final class FilterFactory implements FilterConstants
 			deityFilters.add(FilterFactory.createQualifyFilter());
 			deityFilters.add(FilterFactory.createPCAlignmentFilter());
 
-			for (PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList())
+			for (PCAlignment align : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
 			{
 				deityFilters.add(FilterFactory.createAlignmentFilter(align));
 			}
@@ -290,7 +290,7 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (prereqAlignmentFilters.size() == 0)
 		{
-			for (PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList())
+			for (PCAlignment align : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
 			{
 				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(align, AlignmentFilter.Mode.ALLOWED));
 				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(align, AlignmentFilter.Mode.REQUIRED));

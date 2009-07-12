@@ -20,8 +20,8 @@ package plugin.pretokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
+import pcgen.core.Globals;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.testsupport.TestSupport;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAlignParser;
@@ -48,29 +48,18 @@ public class PreAlignRoundRobin extends AbstractAlignRoundRobin
 		super.setUp();
 		TokenRegistration.register(new PreAlignParser());
 		TokenRegistration.register(new PreAlignWriter());
-		GameMode gamemode = SettingsHandler.getGame();
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Lawful Good", "LG"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Lawful Neutral", "LN"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Lawful Evil", "LE"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Neutral Good", "NG"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"True Neutral", "TN"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Neutral Evil", "NE"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Chaotic Good", "CG"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Chaotic Neutral", "CN"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Chaotic Evil", "CE"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"None", "NONE"));
-		gamemode.addToAlignmentList(TestSupport.createAlignment(
-				"Deity's", "Deity"));
+		ReferenceContext ref = Globals.getContext().ref;
+		ref.importObject(TestSupport.createAlignment("Lawful Good", "LG"));
+		ref.importObject(TestSupport.createAlignment("Lawful Neutral", "LN"));
+		ref.importObject(TestSupport.createAlignment("Lawful Evil", "LE"));
+		ref.importObject(TestSupport.createAlignment("Neutral Good", "NG"));
+		ref.importObject(TestSupport.createAlignment("True Neutral", "TN"));
+		ref.importObject(TestSupport.createAlignment("Neutral Evil", "NE"));
+		ref.importObject(TestSupport.createAlignment("Chaotic Good", "CG"));
+		ref.importObject(TestSupport.createAlignment("Chaotic Neutral", "CN"));
+		ref.importObject(TestSupport.createAlignment("Chaotic Evil", "CE"));
+		ref.importObject(TestSupport.createAlignment("None", "NONE"));
+		ref.importObject(TestSupport.createAlignment("Deity's", "Deity"));
 	}
 
 	public void testDeity()

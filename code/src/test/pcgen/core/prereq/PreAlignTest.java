@@ -28,9 +28,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.TestHelper;
 
 /**
  * <code>PreAlignTest</code> tests that the PREALIGN tag is
@@ -66,7 +64,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testNumeric() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		TestHelper.setAlignment(character, 3, false, true);
+		character.setAlignment(ng, false, true);
 
 		Prerequisite prereq;
 
@@ -89,7 +87,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		TestHelper.setAlignment(character, 3, false, true);
+		character.setAlignment(ng, false, true);
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("align");
@@ -124,7 +122,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testDeity() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		TestHelper.setAlignment(character, 3, false, true);
+		character.setAlignment(ng, false, true);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -135,7 +133,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		assertTrue("Number 3 should match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
-		TestHelper.setAlignment(character, 6, false, true);
+		character.setAlignment(cg, false, true);
 
 		assertFalse("Number 6 should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
@@ -144,7 +142,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testMulti() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		TestHelper.setAlignment(character, 3, false, true);
+		character.setAlignment(ng, false, true);
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:2,3,5");
@@ -168,10 +166,9 @@ public class PreAlignTest extends AbstractCharacterTestCase
 
 	protected void setUp() throws Exception
 	{
+		super.setUp();
 		deity = new Deity();
 		deity.setName("TestDeity");
-		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
-
-		super.setUp();
+		deity.put(ObjectKey.ALIGNMENT, ng);
 	}
 }

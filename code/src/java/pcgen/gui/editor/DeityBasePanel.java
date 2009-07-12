@@ -44,7 +44,6 @@ import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.rules.context.LoadContext;
@@ -82,29 +81,8 @@ final class DeityBasePanel extends BasePanel
 	{
 		if (al != null && al.getSafe(ObjectKey.VALID_FOR_DEITY))
 		{
-			cmbDeityAlignment.setSelectedItem(al.getKeyName());
+			cmbDeityAlignment.setSelectedItem(al);
 		}
-	}
-
-	/**
-	 * Get deity alignment
-	 * @return deity alignment
-	 */
-	public String getDeityAlignment()
-	{
-		String aString = (String) cmbDeityAlignment.getSelectedItem();
-
-		if (aString != null)
-		{
-			PCAlignment align = SettingsHandler.getGame().getAlignment(aString);
-
-			if (align != null)
-			{
-				return align.getKeyName();
-			}
-		}
-
-		return null;
 	}
 
 	/**
@@ -202,8 +180,7 @@ final class DeityBasePanel extends BasePanel
 	public void updateData(PObject thisPObject)
 	{
 		thisPObject.put(StringKey.HOLY_ITEM, getHolyItemText());
-		PCAlignment align = SettingsHandler.getGame().getAlignment(
-				getDeityAlignment());
+		PCAlignment align = (PCAlignment) cmbDeityAlignment.getSelectedItem();
 		thisPObject.put(ObjectKey.ALIGNMENT, align);
 
 		LoadContext context = Globals.getContext();
@@ -284,13 +261,13 @@ final class DeityBasePanel extends BasePanel
 		//
 		// Initialize the contents of the deity's alignment combo
 		//
-		List<String> availableList = new ArrayList<String>();
+		List<PCAlignment> availableList = new ArrayList<PCAlignment>();
 
-		for (PCAlignment anAlignment : SettingsHandler.getGame().getUnmodifiableAlignmentList())
+		for (PCAlignment anAlignment : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
 			if (anAlignment.getSafe(ObjectKey.VALID_FOR_DEITY))
 			{
-				availableList.add(anAlignment.getKeyName());
+				availableList.add(anAlignment);
 			}
 		}
 

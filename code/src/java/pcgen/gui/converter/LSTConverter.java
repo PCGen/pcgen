@@ -329,9 +329,8 @@ public class LSTConverter extends Observable
 				"statsandchecks.lst");
 		statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
 
-		for (PCAlignment al : gamemode.getUnmodifiableAlignmentList())
+		for (PCAlignment al : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
-			context.ref.importObject(al);
 			context.ref.registerAbbreviation(al, al.getKeyName());
 		}
 		for (SizeAdjustment sz : gamemode.getUnmodifiableSizeAdjustmentList())

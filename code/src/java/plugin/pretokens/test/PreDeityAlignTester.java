@@ -7,11 +7,10 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -45,9 +44,6 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 		}
 		else
 		{
-			final GameMode gm = SettingsHandler.getGame();
-			final String[] aligns = gm.getAlignmentListStrings(false);
-
 			PCAlignment deityAlign = null; //$NON-NLS-1$
 			if (character.getDeity() != null)
 			{
@@ -55,18 +51,10 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 			}
 			if (deityAlign != null)
 			{
-				String desiredAlign = prereq.getOperand();
-				try
-				{
-					final int align = Integer.parseInt(prereq.getOperand());
-					desiredAlign = aligns[align];
-				}
-				catch (NumberFormatException e)
-				{
-					// If it isn't a number, we expect the exception 
-				}
+				String desiredAlignIdentifier = prereq.getOperand();
+				PCAlignment desiredAlign = getPCAlignment(desiredAlignIdentifier);
 
-				if (desiredAlign.equalsIgnoreCase(deityAlign.getKeyName()))
+				if (desiredAlign.equals(deityAlign))
 				{
 					runningTotal = 1;
 				}
@@ -74,6 +62,11 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 		}
 
 		return countedTotal(prereq, runningTotal);
+	}
+
+	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	{
+		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
 	}
 
 	/* (non-Javadoc)
@@ -92,7 +85,7 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 	{
 		return PropertyFactory
 			.getFormattedString(
-				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), SettingsHandler.getGame().getAlignmentAtIndex(Integer.parseInt(prereq.getKey())).getKeyName()); //$NON-NLS-1$
+				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getKeyName()); //$NON-NLS-1$
 	}
 
 }

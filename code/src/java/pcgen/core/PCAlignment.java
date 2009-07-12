@@ -28,4 +28,11 @@ package pcgen.core;
  */
 public final class PCAlignment extends PObject
 {
+	public static final PCAlignment NO_ALIGNMENT = new PCAlignment();
+
+	static
+	{
+		NO_ALIGNMENT.setName("");
+	}
+
 }

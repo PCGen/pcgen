@@ -30,10 +30,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.TestHelper;
 
 /**
  * <code>PreDeityTest</code> tests that the PREDEITY tag is
@@ -83,7 +81,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
@@ -117,7 +115,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
@@ -155,7 +153,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
@@ -188,7 +186,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertTrue("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertFalse("Character has deity selected", PrereqHandler.passes(
@@ -226,7 +224,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
 			prereq, character, null));
@@ -242,7 +240,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		super.setUp();
 		deity = new Deity();
 		deity.setName("Test Deity");
-		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
+		deity.put(ObjectKey.ALIGNMENT, ng);
 		deity.addToListFor(ListKey.PANTHEON, Pantheon.getConstant("Celtic"));
 	}
 }

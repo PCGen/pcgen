@@ -24,8 +24,8 @@ package pcgen.core.npcgen;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 
 /**
@@ -51,7 +51,7 @@ public class AlignGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList() )
+			for ( final PCAlignment align : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class) )
 			{
 				if ( align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && ! theChoices.contains(align) )
 				{
@@ -60,7 +60,7 @@ public class AlignGeneratorOption extends GeneratorOption
 			}
 			return;
 		}
-		final PCAlignment align = SettingsHandler.getGame().getAlignment(aValue);
+		final PCAlignment align = Globals.getContext().ref.getAbbreviatedObject(PCAlignment.class, aValue);
 		if (align == null)
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.AlignNotFound", aValue); //$NON-NLS-1$

@@ -287,8 +287,7 @@ public class NPCGenerator
 		{
 			return null;
 		}
-		return SettingsHandler.getGame().getAlignment(
-				option.getList().getRandomValue().getKeyName());
+		return option.getList().getRandomValue();
 	}
 
 	private Race getRace(final RaceGeneratorOption option)

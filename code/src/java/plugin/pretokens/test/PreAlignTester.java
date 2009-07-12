@@ -27,7 +27,11 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.*;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -69,23 +73,11 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 		}
 		else
 		{
-			final GameMode gm = SettingsHandler.getGame();
 			String desiredAlignment = prereq.getKey();
-			try
-			{
-				final int align = Integer.parseInt(prereq.getKey());
-				final String[] aligns =
-						SettingsHandler.getGame()
-							.getAlignmentListStrings(false);
-				desiredAlignment = aligns[align];
-			}
-			catch (Exception e)
-			{
-				// TODO Handle this?
-			}
-			final String charAlignment = character.getPCAlignment().getKeyName();
+			PCAlignment al = getPCAlignment(desiredAlignment);
+			final PCAlignment charAlignment = character.getPCAlignment();
 
-			if (desiredAlignment.equalsIgnoreCase(charAlignment))
+			if (al.equals(charAlignment))
 			{
 				runningTotal = 1;
 			}
@@ -94,7 +86,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 			{
 				final PCAlignment deityAlignStr =
 						character.getDeity().get(ObjectKey.ALIGNMENT);
-				if (charAlignment.equalsIgnoreCase(deityAlignStr.getKeyName()))
+				if (charAlignment.equals(deityAlignStr))
 				{
 					runningTotal = 1;
 				}
@@ -119,20 +111,14 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		String alignment = prereq.getKey();
-		try
-		{
-			final int align = Integer.parseInt(prereq.getKey());
-			final String[] aligns =
-					SettingsHandler.getGame().getAlignmentListStrings(false);
-			alignment = aligns[align];
-		}
-		catch (Exception e)
-		{
-			// TODO Handle this?
-		}
+		PCAlignment al = getPCAlignment(alignment);
 		return PropertyFactory
 			.getFormattedString(
-				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), alignment); //$NON-NLS-1$
+				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getKeyName()); //$NON-NLS-1$
 	}
 
+	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	{
+		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
+	}
 }

@@ -26,7 +26,6 @@ import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.core.PCAlignment;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -95,10 +94,6 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 			Logging.clearParseMessages();
 		}
 
-		if (!SettingsHandler.getGame().getUnmodifiableAlignmentList().contains(
-			alignment))
-		{
-			SettingsHandler.getGame().addToAlignmentList(alignment);
-		}
+		context.ref.importObject(alignment);
 	}
 }

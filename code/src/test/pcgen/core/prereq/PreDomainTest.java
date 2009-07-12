@@ -32,9 +32,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.TestHelper;
 
 /**
  * <code>PreDomainTest</code> tests that the PREDOMAIN tag is
@@ -79,7 +77,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
@@ -108,7 +106,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		TestHelper.setAlignment(character, 3, false);
+		character.setAlignment(ng, false, false);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
@@ -185,7 +183,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 
 		deity = new Deity();
 		deity.setName("Test Deity");
-		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
+		deity.put(ObjectKey.ALIGNMENT, ng);
 		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
 				.getRef(goodDomain), new SimpleAssociatedObject());
 		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef

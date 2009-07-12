@@ -27,13 +27,9 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
-import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.TestHelper;
 
 /**
  * <code>PreDeityAlignTest</code> tests that the PREDEITYALIGN tag is 
@@ -69,7 +65,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public void testNumeric() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		TestHelper.setAlignment(character, 3, false, true);
+		character.setAlignment(ng, false, true);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -104,7 +100,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		TestHelper.setAlignment(character, 3, false, true);
+		character.setAlignment(ng, false, true);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -136,14 +132,10 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 
 	protected void setUp() throws Exception
 	{
+		super.setUp();
 		deity = new Deity();
 		deity.setName("TestDeity");
-		PCAlignment ng = new PCAlignment();
-		ng.put(StringKey.KEY_NAME, "NG");
-		SettingsHandler.getGame().addToAlignmentList(ng);
-		deity.put(ObjectKey.ALIGNMENT, SettingsHandler.getGame().getAlignment("NG"));
-
-		super.setUp();
+		deity.put(ObjectKey.ALIGNMENT, ng);
 	}
 
 	protected void tearDown() throws Exception
