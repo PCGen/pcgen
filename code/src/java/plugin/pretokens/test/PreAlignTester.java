@@ -114,7 +114,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 		PCAlignment al = getPCAlignment(alignment);
 		return PropertyFactory
 			.getFormattedString(
-				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getKeyName()); //$NON-NLS-1$
+				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getAbb()); //$NON-NLS-1$
 	}
 
 	private PCAlignment getPCAlignment(String desiredAlignIdentifier)

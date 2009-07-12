@@ -2002,7 +2002,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				Deity aDeity = (Deity) fn.getItem();
 				PCAlignment al = aDeity.get(ObjectKey.ALIGNMENT);
-				return al == null ? "" : al.getKeyName();
+				return al == null ? "" : al.getAbb();
 			}
 			return null;
 		}

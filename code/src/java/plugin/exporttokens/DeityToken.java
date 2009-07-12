@@ -118,7 +118,7 @@ public class DeityToken extends Token
 			else if ("ALIGNMENT".equals(subTag))
 			{
 				PCAlignment al = deity.get(ObjectKey.ALIGNMENT);
-				retString = al == null ? "" : al.getKeyName();
+				retString = al == null ? "" : al.getAbb();
 			}
 			else if ("APPEARANCE".equals(subTag))
 			{

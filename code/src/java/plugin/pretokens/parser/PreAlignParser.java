@@ -82,7 +82,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 		{
 			if (alignments.length == 1)
 			{
-				prereq.setKey(getPCAlignment(formula).getKeyName());
+				prereq.setKey(getPCAlignment(formula).getAbb());
 				prereq.setOperator(PrerequisiteOperator.EQ);
 			}
 			else
@@ -95,7 +95,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 				{
 					Prerequisite subreq = new Prerequisite();
 					subreq.setKind("align");
-					subreq.setKey(getPCAlignment(alignments[i]).getKeyName());
+					subreq.setKey(getPCAlignment(alignments[i]).getAbb());
 					subreq.setOperator(PrerequisiteOperator.EQ);
 					prereq.addPrerequisite(subreq);
 				}

@@ -525,7 +525,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		for (PCAlignment al : context.ref
 				.getConstructedCDOMObjects(PCAlignment.class))
 		{
-			context.ref.registerAbbreviation(al, al.getKeyName());
+			context.ref.registerAbbreviation(al, al.getAbb());
 		}
 		for (SizeAdjustment sz : gamemode
 				.getUnmodifiableSizeAdjustmentList())

@@ -83,6 +83,6 @@ public class AlignmentToken extends Token
 	 */
 	public static String getShortToken(PlayerCharacter pc)
 	{
-		return pc.getPCAlignment().getKeyName();
+		return pc.getPCAlignment().getAbb();
 	}
 }

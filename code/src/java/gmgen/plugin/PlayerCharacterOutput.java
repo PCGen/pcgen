@@ -58,7 +58,7 @@ public class PlayerCharacterOutput
 
 	public String getAlignmentShort()
 	{
-		return pc.getPCAlignment().getKeyName();
+		return pc.getPCAlignment().getAbb();
 	}
 
 	public String getBAB()

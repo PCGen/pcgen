@@ -74,7 +74,7 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
 
 			String token = inputTokenizer.nextToken();
 
-			subprereq.setOperand(getPCAlignment(token).getKeyName());
+			subprereq.setOperand(getPCAlignment(token).getAbb());
 		}
 
 		if ((prereq.getPrerequisites().size() == 1)

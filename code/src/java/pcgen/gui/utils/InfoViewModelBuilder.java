@@ -68,7 +68,7 @@ public final class InfoViewModelBuilder
 					PObjectNode node = nodeMap.get(al);
 					if (node == null)
 					{
-						node = new PObjectNode(al.getKeyName());
+						node = new PObjectNode(al.getAbb());
 						nodeMap.put(al, node);
 						root.addChild(node);
 					}

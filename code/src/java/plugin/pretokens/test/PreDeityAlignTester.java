@@ -85,7 +85,7 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 	{
 		return PropertyFactory
 			.getFormattedString(
-				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getKeyName()); //$NON-NLS-1$
+				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getAbb()); //$NON-NLS-1$
 	}
 
 }

@@ -331,7 +331,7 @@ public class LSTConverter extends Observable
 
 		for (PCAlignment al : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
-			context.ref.registerAbbreviation(al, al.getKeyName());
+			context.ref.registerAbbreviation(al, al.getAbb());
 		}
 		for (SizeAdjustment sz : gamemode.getUnmodifiableSizeAdjustmentList())
 		{
