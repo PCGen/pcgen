@@ -37,6 +37,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
+import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
@@ -126,6 +127,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<SizeAdjustment> CHOOSE_SIZEADJUSTMENT = new AssociationListKey<SizeAdjustment>();
 
 	public static final AssociationListKey<PCAlignment> CHOOSE_PCALIGNMENT = new AssociationListKey<PCAlignment>();
+
+	public static final AssociationListKey<Language> CHOOSE_LANGAUGE = new AssociationListKey<Language>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
