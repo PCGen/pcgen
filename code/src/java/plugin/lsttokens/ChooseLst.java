@@ -189,17 +189,20 @@ public class ChooseLst extends AbstractToken implements
 		{
 			Class<?> chooseClass = newChoose.getChoices().getChoiceClass();
 			List<ChooseSelectionActor<?>> newactors = obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-			for (ChooseSelectionActor<?> csa : newactors)
+			if (newactors != null)
 			{
-				if (!chooseClass.equals(csa.getChoiceClass()))
+				for (ChooseSelectionActor<?> csa : newactors)
 				{
-					Logging.errorPrint("CHOOSE of type "
-							+ chooseClass.getSimpleName() + " on "
-							+ obj.getClass().getSimpleName() + " "
-							+ obj.getKeyName() + " had an actor from token "
-							+ csa.getSource() + " that was expecting a "
-							+ csa.getChoiceClass().getSimpleName());
-					return false;
+					if (!chooseClass.equals(csa.getChoiceClass()))
+					{
+						Logging.errorPrint("CHOOSE of type "
+								+ chooseClass.getSimpleName() + " on "
+								+ obj.getClass().getSimpleName() + " "
+								+ obj.getKeyName() + " had an actor from token "
+								+ csa.getSource() + " that was expecting a "
+								+ csa.getChoiceClass().getSimpleName());
+						return false;
+					}
 				}
 			}
 		}
