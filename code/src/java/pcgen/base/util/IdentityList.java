@@ -39,7 +39,7 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * The underlying map providing storage of Identity structures
 	 */
-	List<Identity<T>> embeddedList = new LinkedList<Identity<T>>();
+	private final List<Identity<T>> embeddedList = new LinkedList<Identity<T>>();
 
 	/**
 	 * Creates a new (empty) IdentityList
