@@ -124,17 +124,8 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 		}
 		ChoiceSet<T> cs = new ChoiceSet<T>(getTokenName(), pcs);
 		cs.setTitle(title);
-		/*
-		 * TODO Null Formula here is a problem - eventually need to pull from
-		 * SELECT
-		 */
 		PersistentTransitionChoice<T> tc = new PersistentTransitionChoice<T>(
 				cs, null);
-		/*
-		 * TODO All CHOOSE based tokens (regardless of whether they use
-		 * AbstractChooseToken) MUST have a validation to ensure they have a
-		 * ChoiceActor - not negotiable...
-		 */
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return true;
