@@ -131,6 +131,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Language> CHOOSE_LANGAUGE = new AssociationListKey<Language>();
 
 	public static final AssociationListKey<Equipment> CHOOSE_EQUIPMENT = new AssociationListKey<Equipment>();
+
+	public static final AssociationListKey<ArmorProf> CHOOSE_ARMORPROFICIENCY = new AssociationListKey<ArmorProf>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
