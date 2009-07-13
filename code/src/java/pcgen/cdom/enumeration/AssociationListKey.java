@@ -129,6 +129,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<PCAlignment> CHOOSE_PCALIGNMENT = new AssociationListKey<PCAlignment>();
 
 	public static final AssociationListKey<Language> CHOOSE_LANGAUGE = new AssociationListKey<Language>();
+
+	public static final AssociationListKey<Equipment> CHOOSE_EQUIPMENT = new AssociationListKey<Equipment>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
