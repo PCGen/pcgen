@@ -55,12 +55,12 @@ import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
+import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.QualifiedObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpellProhibitor;
@@ -319,7 +319,7 @@ public class ObjectKey<T>
 			@Override
 			public SizeAdjustment getDefault()
 			{
-				return SettingsHandler.getGame().getDefaultSizeAdjustment();
+				return Globals.getDefaultSizeAdjustment();
 			}
 
 		};
@@ -329,7 +329,7 @@ public class ObjectKey<T>
 			@Override
 			public SizeAdjustment getDefault()
 			{
-				return SettingsHandler.getGame().getDefaultSizeAdjustment();
+				return Globals.getDefaultSizeAdjustment();
 			}
 
 		};

@@ -156,6 +156,8 @@ import pcgen.util.enumeration.Visibility;
 public final class PlayerCharacter extends Observable implements Cloneable,
 		VariableContainer, AssociationStore
 {
+	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
+
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
 	// Constants for use in getBonus
@@ -10341,10 +10343,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				iSize = 0;
 			}
 
-			if (iSize >= SettingsHandler.getGame().getSizeAdjustmentListSize())
+			int maxIndex = Globals.getContext().ref
+					.getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;
+			if (iSize > maxIndex)
 			{
-				iSize =
-						SettingsHandler.getGame().getSizeAdjustmentListSize() - 1;
+				iSize = maxIndex;
 			}
 		}
 
@@ -12426,7 +12429,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return SettingsHandler.getGame().getSizeAdjustmentAtIndex(sizeInt());
+		return Globals.getContext().ref.getItemInOrder(SIZEADJUSTMENT_CLASS, sizeInt());
 	}
 
 	public int getSpellClassCount()

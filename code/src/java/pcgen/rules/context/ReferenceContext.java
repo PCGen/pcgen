@@ -123,4 +123,6 @@ public interface ReferenceContext
 	public <T extends CDOMObject> int getConstructedObjectCount(Class<T> class1);
 
 	public void copyAbbreviationsFrom(AbstractReferenceContext rc);
+
+	public <T extends CDOMObject> T getItemInOrder(Class<T> cl, int item);
 }

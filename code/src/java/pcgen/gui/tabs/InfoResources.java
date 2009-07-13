@@ -1195,8 +1195,8 @@ public class InfoResources extends FilterAdapterPanel implements
 			if (sz != null)
 			{
 				String str = sz.toString();
-				final SizeAdjustment sadj = SettingsHandler.getGame()
-						.getSizeAdjustmentNamed(str);
+				final SizeAdjustment sadj = Globals.getContext().ref
+						.getAbbreviatedObject(SizeAdjustment.class, str);
 				if (sadj != null)
 				{
 					str = sadj.getDisplayName();

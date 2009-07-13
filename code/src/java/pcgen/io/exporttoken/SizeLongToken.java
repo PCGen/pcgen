@@ -26,7 +26,6 @@
 package pcgen.io.exporttoken;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.io.ExportHandler;
 
@@ -65,9 +64,7 @@ public class SizeLongToken extends Token
 	 */
 	public static String getSizeLongToken(PlayerCharacter pc)
 	{
-		final SizeAdjustment sadj =
-				SettingsHandler.getGame()
-					.getSizeAdjustmentAtIndex(pc.sizeInt());
+		final SizeAdjustment sadj = pc.getSizeAdjustment();
 		if (sadj != null)
 		{
 			return sadj.getDisplayName();

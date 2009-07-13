@@ -73,7 +73,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
@@ -519,13 +518,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
 		validateAbilityCategories(gamemode);
-
-		for (SizeAdjustment sz : gamemode
-				.getUnmodifiableSizeAdjustmentList())
-		{
-			context.ref.importObject(sz);
-			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
-		}
 
 		for (Campaign c : loaded)
 		{

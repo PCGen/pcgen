@@ -26,7 +26,6 @@ import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.core.SizeAdjustment;
-import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
@@ -39,20 +38,6 @@ import pcgen.util.Logging;
  */
 final class SizeAdjustmentLoader extends LstLineFileLoader
 {
-	/** Prevent creation of a new instance of SizeAdjustmentLoader */
-	public SizeAdjustmentLoader()
-	{
-		// TODO: Exception needs to be handled
-	}
-
-	@Override
-	public void loadLstFile(LoadContext context, URI fileName, String gameModeIn)
-		throws PersistenceLayerException
-	{
-		SystemCollections.getGameModeNamed(gameModeIn)
-			.clearSizeAdjustmentList();
-		super.loadLstFile(context, fileName, gameModeIn);
-	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
@@ -90,14 +75,12 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 			}
 			String value = (colonLoc == nameToken.length() - 1) ? null
 					: nameToken.substring(colonLoc + 1);
-			sa = SystemCollections.getGameModeNamed(getGameMode())
-					.getSizeAdjustmentNamed(value);
+			sa = context.ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, value);
 			if (sa == null)
 			{
 				sa = new SizeAdjustment();
 				sa.setName(value);
-				SystemCollections.getGameModeNamed(getGameMode())
-					.addToSizeAdjustmentList(sa);
+				context.ref.importObject(sa);
 			}
 		}
 

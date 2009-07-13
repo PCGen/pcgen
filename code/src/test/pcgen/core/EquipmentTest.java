@@ -136,17 +136,12 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				null,
 				"+1 (Enhancement to Weapon or Ammunition)	KEY:PLUS1W	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	TYPE:Ammunition.Weapon	PLUS:1	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	SOURCEPAGE:RSRD SpecialMaterials.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO",
 				source);
-		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			EquipmentModifier.class, "PLUS1W");
 		loader
 			.parseLine(
 				Globals.getContext(),
 				null,
 				"Masterwork		KEY:MWORKW	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
 				source);
-		eqMod =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					EquipmentModifier.class, "MWORKW");
 
 		SettingsHandler.getGame().addPlusCalculation(
 			"WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)");
@@ -168,8 +163,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 */
 	public void testcreateKeyForAutoResize002()
 	{
-		SizeAdjustment newSize = SettingsHandler.getGame().getSizeAdjustmentNamed("S");
-
+		SizeAdjustment newSize = small;
+		
 		final String expectedKey =
 				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase()
 					+ this.OriginalKey;
@@ -182,7 +177,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 */
 	public void testcreateKeyForAutoResize003()
 	{
-		SizeAdjustment newSize = SettingsHandler.getGame().getSizeAdjustmentNamed("Colossal");
+		SizeAdjustment newSize = colossal;
 
 		final String expectedKey =
 				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase().substring(0, 1)
@@ -200,7 +195,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Ensure that second customisation will work correctly */
 	public void testcreateKeyForAutoResize005()
 	{
-		SizeAdjustment newSize = SettingsHandler.getGame().getSizeAdjustmentNamed("Fine");
+		SizeAdjustment newSize = fine;
 
 		String expectedKey =
 				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase().substring(0, 1)
@@ -208,7 +203,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
 
-		newSize = SettingsHandler.getGame().getSizeAdjustmentNamed("Diminutive");
+		newSize = diminutive;
 
 		expectedKey =
 				Constants.s_AUTO_RESIZE + newSize.getAbbreviation().toUpperCase().substring(0, 1)
@@ -220,12 +215,10 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Try nonsense abbreviation for Size */
 	public void testcreateKeyForAutoResize006()
 	{
-		SizeAdjustment saz = SettingsHandler.getGame().getSizeAdjustmentNamed("XXL");
-
 		String unExpectedKey = Constants.s_AUTO_RESIZE + "X" + this.OriginalKey;
 
-		is(this.eq.createKeyForAutoResize(saz), not(strEq(unExpectedKey)));
-		is(this.eq.createKeyForAutoResize(saz), strEq(this.OriginalKey));
+		is(this.eq.createKeyForAutoResize(null), not(strEq(unExpectedKey)));
+		is(this.eq.createKeyForAutoResize(null), strEq(this.OriginalKey));
 	}
 
 	/*****************************************************************************
@@ -233,39 +226,28 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 ****************************************************************************/
 
 	/** Test with Size that exists and is formatted correctly */
-	public void testcreateNameForAutoResize001()
-	{
-		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("Large");
-		is(this.eq.createNameForAutoResize(sal), strEq("Dummy (Large)"));
-	}
-
-	/** Test with Size that exists and is lower Case */
 	public void testcreateNameForAutoResize002()
 	{
-		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("large");
-		is(this.eq.createNameForAutoResize(sal), strEq("Dummy (Large)"));
+		is(this.eq.createNameForAutoResize(large), strEq("Dummy (Large)"));
 	}
 
 	/** Test with Abbreviation for Size that exists */
 	public void testcreateNameForAutoResize003()
 	{
-		SizeAdjustment saf = SettingsHandler.getGame().getSizeAdjustmentNamed("f");
-		is(this.eq.createNameForAutoResize(saf), strEq("Dummy (Fine)"));
+		is(this.eq.createNameForAutoResize(fine), strEq("Dummy (Fine)"));
 	}
 
 	/** Test with Nonexistant size */
 	public void testcreateNameForAutoResize004()
 	{
-		SizeAdjustment saz = SettingsHandler.getGame().getSizeAdjustmentNamed("z");
-		is(this.eq.createNameForAutoResize(saz), strEq("Dummy"));
+		is(this.eq.createNameForAutoResize(null), strEq("Dummy"));
 	}
 
 	/** Test that size is replaced correctly */
 	public void testcreateNameForAutoResize005()
 	{
-		SizeAdjustment newSize = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
-		String newKey = eq.createKeyForAutoResize(newSize);
-		eq.put(ObjectKey.SIZE, newSize);
+		String newKey = eq.createKeyForAutoResize(large);
+		eq.put(ObjectKey.SIZE, large);
 		eq.setName("Pointy Stick (Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
@@ -277,8 +259,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		is(eq.getSize(), strEq("L"));
 
 		// Now check that new name is generated Correctly
-		newSize = SettingsHandler.getGame().getSizeAdjustmentNamed("D");
-		is(this.eq.createNameForAutoResize(newSize),
+		is(this.eq.createNameForAutoResize(diminutive),
 			strEq("Pointy Stick (Diminutive)"));
 
 	}
@@ -286,10 +267,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Test that size is replaced correctly */
 	public void testcreateNameForAutoResize006()
 	{
-		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
-		String newKey = eq.createKeyForAutoResize(sal);
-		eq.put(ObjectKey.SIZE, sal);
-		eq.put(ObjectKey.BASESIZE, sal);
+		String newKey = eq.createKeyForAutoResize(large);
+		eq.put(ObjectKey.SIZE, large);
+		eq.put(ObjectKey.BASESIZE, large);
 		eq.setName("Pointy Stick (+1/Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
@@ -301,8 +281,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		is(eq.getSize(), strEq("L"));
 
 		// Now check that new name is generated Correctly
-		SizeAdjustment sag = SettingsHandler.getGame().getSizeAdjustmentNamed("G");
-		is(this.eq.createNameForAutoResize(sag),
+		is(this.eq.createNameForAutoResize(gargantuan),
 			strEq("Pointy Stick (+1/Gargantuan)"));
 
 	}
@@ -310,9 +289,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Test that size is replaced correctly */
 	public void testcreateNameForAutoResize007()
 	{
-		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
-		String newKey = eq.createKeyForAutoResize(sal);
-		eq.put(ObjectKey.SIZE, sal);
+		String newKey = eq.createKeyForAutoResize(large);
+		eq.put(ObjectKey.SIZE, large);
 		eq.setName("Pointy Stick (+1/Large/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
@@ -324,17 +302,15 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		is(eq.getSize(), strEq("L"));
 
 		// Now check that new name is generated Correctly
-		SizeAdjustment sac = SettingsHandler.getGame().getSizeAdjustmentNamed("C");
-		is(this.eq.createNameForAutoResize(sac),
+		is(this.eq.createNameForAutoResize(colossal),
 			strEq("Pointy Stick (+1/Colossal/Speed)"));
 	}
 
 	/** Test that size is replaced correctly */
 	public void testcreateNameForAutoResize008()
 	{
-		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
-		String newKey = eq.createKeyForAutoResize(sal);
-		eq.put(ObjectKey.SIZE, sal);
+		String newKey = eq.createKeyForAutoResize(large);
+		eq.put(ObjectKey.SIZE, large);
 		eq.setName("Pointy Stick (+1/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
@@ -346,8 +322,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		is(eq.getSize(), strEq("L"));
 
 		// Now check that new name is generated Correctly
-		SizeAdjustment sac = SettingsHandler.getGame().getSizeAdjustmentNamed("C");
-		is(this.eq.createNameForAutoResize(sac),
+		is(this.eq.createNameForAutoResize(colossal),
 			strEq("Pointy Stick (+1/Speed) (Colossal)"));
 	}
 
@@ -365,22 +340,22 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Globals.getContext().ref.importObject(eq);
 
 		GameMode gameMode = SettingsHandler.getGame();
-		is(gameMode.getSizeAdjustmentListSize(), gt(0), "size list initialised");
+		is(Globals.getContext().ref
+				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
+				"size list initialised");
 		gameMode.getDamageUpMap().put("1d6", "1d8,2d6,3d6,4d6,6d6,8d6,12d6");
 		gameMode.getDamageDownMap().put("1d6", "1d4,1d3,1d2,1");
 
 		is(custEq.getSize(), eq("M"), "starting size");
 		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");
 
-		final GameMode gamemode = SettingsHandler.getGame();
-		
 		// Drop the size
-		custEq.resizeItem(getCharacter(), gamemode.getSizeAdjustmentNamed("S"));
+		custEq.resizeItem(getCharacter(), small);
 		is(custEq.getSize(), eq("S"), "reduce size size");
 		is(custEq.getDamage(getCharacter()), eq("1d4"), "reduce size damage");
 
 		// Increase the size
-		custEq.resizeItem(getCharacter(), gamemode.getSizeAdjustmentNamed("L"));
+		custEq.resizeItem(getCharacter(), large);
 		is(custEq.getSize(), eq("L"), "reduce size size");
 		is(custEq.getDamage(getCharacter()), eq("1d8"), "reduce size damage");
 	}

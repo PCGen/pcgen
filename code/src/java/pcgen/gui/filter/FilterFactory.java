@@ -356,9 +356,9 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (sizeFilters.size() == 0)
 		{
-			for (int i = 0; i < SettingsHandler.getGame().getSizeAdjustmentListSize(); i++)
+			for (SizeAdjustment sadj : Globals.getContext().ref.getOrderSortedCDOMObjects(SizeAdjustment.class))
 			{
-				sizeFilters.add(FilterFactory.createSizeFilter(i));
+				sizeFilters.add(FilterFactory.createSizeFilter(sadj));
 			}
 		}
 
@@ -783,7 +783,7 @@ public final class FilterFactory implements FilterConstants
 		return new SettingFilter(setting);
 	}
 
-	private static PObjectFilter createSizeFilter(int size)
+	private static PObjectFilter createSizeFilter(SizeAdjustment size)
 	{
 		return new SizeFilter(size);
 	}
@@ -1637,8 +1637,7 @@ final class PCSizeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Equipment)
 		{
-			return ((Equipment) pObject).getSafe(ObjectKey.SIZE).equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(
-					aPC.sizeInt()));
+			return ((Equipment) pObject).sizeInt() == aPC.sizeInt();
 		}
 
 		return true;
@@ -2395,11 +2394,11 @@ final class FavoredClassFilter extends AbstractPObjectFilter
 
 final class SizeFilter extends AbstractPObjectFilter
 {
-	private int size;
+	private SizeAdjustment size;
 
-	SizeFilter(final int aSize)
+	SizeFilter(final SizeAdjustment aSize)
 	{
-		super(PropertyFactory.getString("in_size"), SettingsHandler.getGame().getSizeAdjustmentAtIndex(aSize).getDisplayName()); //$NON-NLS-1$
+		super(PropertyFactory.getString("in_size"), aSize.getDisplayName()); //$NON-NLS-1$
 		this.size = aSize;
 	}
 
@@ -2417,16 +2416,15 @@ final class SizeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Equipment)
 		{
-			return ((Equipment) pObject).getSafe(ObjectKey.SIZE).equals(
-					SettingsHandler.getGame().getSizeAdjustmentAtIndex(size));
+			return ((Equipment) pObject).getSafe(ObjectKey.SIZE).equals(size);
 		}
 		else if (pObject instanceof Race)
 		{
 			Formula sz = pObject.get(FormulaKey.SIZE);
 			final String aRaceSize = sz == null ? "" : sz.toString();
 
-			return aRaceSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getAbbreviation())
-			|| aRaceSize.equals(SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getDisplayName());
+			return aRaceSize.equals(size.getAbbreviation())
+					|| aRaceSize.equals(size.getDisplayName());
 		}
 
 		return true;

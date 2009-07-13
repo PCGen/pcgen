@@ -28,12 +28,10 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.formula.FixedSizeFormula;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -221,11 +219,9 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		super.setUp();
 
 		race.setName("Human");
-		GameMode gamemode = SettingsHandler.getGame();
-		race.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
-				.getSizeAdjustmentNamed("Medium")));
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 		Globals.getContext().ref.importObject(race);
 		
-		template.put(FormulaKey.SIZE, new FixedSizeFormula(SettingsHandler.getGame().getSizeAdjustmentNamed("L")));
+		template.put(FormulaKey.SIZE, new FixedSizeFormula(large));
 	}
 }

@@ -2773,8 +2773,7 @@ public class WeaponToken extends Token
 			 */
 			if (!applySize)
 			{
-				final SizeAdjustment defAdj =
-						SettingsHandler.getGame().getDefaultSizeAdjustment();
+				final SizeAdjustment defAdj = Globals.getDefaultSizeAdjustment();
 				if (defAdj != null)
 				{
 					eqSize = Globals.sizeInt(defAdj.getAbbreviation());

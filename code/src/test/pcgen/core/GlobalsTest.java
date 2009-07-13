@@ -3,6 +3,7 @@ package pcgen.core;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
@@ -42,9 +43,9 @@ public class GlobalsTest extends PCGenTestCase
 	@Override
 	protected void setUp() throws Exception
 	{
+		Globals.clearCampaignsForRefresh();
 		super.setUp();
 		TestHelper.makeSizeAdjustments();
-		Globals.clearCampaignsForRefresh();
 	}
 
 	/**
@@ -440,11 +441,15 @@ public class GlobalsTest extends PCGenTestCase
 	public void testAdjustDamage()
 	{
 		GameMode gameMode = SettingsHandler.getGame();
-		is(gameMode.getSizeAdjustmentListSize(), gt(0), "size list initialised");
+		is(Globals.getContext().ref
+				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
+				"size list initialised");
 		gameMode.getDamageUpMap().put("1d6", "1d8,2d6,3d6,4d6,6d6,8d6,12d6");
 		gameMode.getDamageDownMap().put("1d6", "1d4,1d3,1d2,1");
-		SizeAdjustment small = SettingsHandler.getGame().getSizeAdjustmentNamed("Small");
-		SizeAdjustment medium = SettingsHandler.getGame().getSizeAdjustmentNamed("Medium");
+		SizeAdjustment small = Globals.getContext().ref.getAbbreviatedObject(
+				SizeAdjustment.class, "S");
+		SizeAdjustment medium = Globals.getContext().ref.getAbbreviatedObject(
+				SizeAdjustment.class, "M");
 		is(Globals.adjustDamage("1d6", medium, small), strEq("1d4"),
 			"reduction of damage due to smaller size");
 	}

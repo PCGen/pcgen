@@ -91,8 +91,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		nymphRace = new Race();
 		nymphRace.setName("Nymph");
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
-		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
-				.getSizeAdjustmentNamed("Medium")));
+		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 		Globals.getContext().ref.importObject(nymphRace);
 
 		// Create the humanoid class

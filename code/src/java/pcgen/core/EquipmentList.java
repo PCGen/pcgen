@@ -26,8 +26,10 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.FormulaKey;
@@ -98,13 +100,10 @@ public class EquipmentList {
 				final String cString = aTok.nextToken();
 				int iSize;
 
-				for (iSize = 0; iSize <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1); ++iSize) {
-					if (cString.equalsIgnoreCase(SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize).getAbbreviation())) {
-						break;
-					}
-				}
+				SizeAdjustment sa = Globals.getContext().ref
+						.getAbbreviatedObject(SizeAdjustment.class, cString);
 
-				if (iSize <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1)) {
+				if (sa != null) {
 					sizList.add(cString);
 				} else {
 					if ("Mighty Composite".equalsIgnoreCase(cString)) {
@@ -295,7 +294,9 @@ public class EquipmentList {
 				/*
 				 * CONSIDER This size can be further optimized by changing sizList
 				 */
-				eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentNamed(sizList.get(0)));
+				eq.resizeItem(aPC, Globals.getContext().ref
+						.getAbbreviatedObject(SizeAdjustment.class, sizList
+								.get(0)));
 				bModified = true;
 
 				if (sizList.size() > 1) {
@@ -510,15 +511,13 @@ public class EquipmentList {
 	private static void autogenerateRacialEquipment() {
 		if (SettingsHandler.isAutogenRacial()) {
 
+			Set<Integer> gensizesid = new HashSet<Integer>();
 			//
 			// Go through all loaded races and flag whether or not to make equipment
 			// sized for them.  Karianna, changed the array length by 1 as Collosal
 			// creatures weren't being catered for (and therefore an OutOfBounds exception
 			// was being thrown) - Bug 937586
 			//
-			// TODO - This should not be hardcoded to 10
-			final int[] gensizes = new int[10];
-
 			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
 				/*
@@ -526,12 +525,17 @@ public class EquipmentList {
 				 */
 				final int iSize = race.getSafe(
 						FormulaKey.SIZE).resolve(null, "").intValue();
-				final int flag = 1;
-
-				gensizes[iSize] |= flag;
+				gensizesid.add(iSize);
 			}
 
-			int x = -1;
+			SizeAdjustment defaultSize = Globals.getDefaultSizeAdjustment();
+			Set<SizeAdjustment> gensizes = new HashSet<SizeAdjustment>();
+			for (Integer i : gensizesid)
+			{
+				gensizes.add(Globals.getContext().ref.getItemInOrder(SizeAdjustment.class, i));
+			}
+			// skip over default size
+			gensizes.remove(defaultSize);
 
 			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 			{
@@ -543,23 +547,9 @@ public class EquipmentList {
 					continue;
 				}
 
-				for (int j = 0; j <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1); ++j) {
-					if (x == -1) {
-						final SizeAdjustment s = SettingsHandler.getGame().getSizeAdjustmentAtIndex(j);
-
-						if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE)) {
-							x = j;
-						}
-					}
-
-					if (j == x) // skip over default size
-					{
-						continue;
-					}
-
-					if ((gensizes[j] & 0x01) != 0) {
-						createItem(eq, j, null);
-					}
+				for (SizeAdjustment sa : gensizes)
+				{
+					createItem(eq, sa, null);
 				}
 			}
 		}
@@ -613,16 +603,16 @@ public class EquipmentList {
 		}
 	}
 
-	private static void createItem(final Equipment eq, final int iSize, final PlayerCharacter aPC) {
-		createItem(eq, null, iSize, aPC, "", null);
+	private static void createItem(final Equipment eq, final SizeAdjustment sa, final PlayerCharacter aPC) {
+		createItem(eq, null, sa, aPC, "", null);
 	}
 
 	private static void createItem(final Equipment eq, final EquipmentModifier eqMod, final PlayerCharacter aPC, final String choice,
 			final EquipmentChoice equipChoice) {
-		createItem(eq, eqMod, -1, aPC, choice, equipChoice);
+		createItem(eq, eqMod, null, aPC, choice, equipChoice);
 	}
 
-	private static void createItem(Equipment eq, final EquipmentModifier eqMod, final int iSize, final PlayerCharacter aPC,
+	private static void createItem(Equipment eq, final EquipmentModifier eqMod, final SizeAdjustment sa, final PlayerCharacter aPC,
 			final String choice, final EquipmentChoice equipChoice) {
 		if (eq == null) { return; }
 
@@ -649,8 +639,9 @@ public class EquipmentList {
 				}
 			}
 
-			if ((iSize >= 0) && (iSize <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1))) {
-				eq.resizeItem(aPC, SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize));
+			if (sa != null)
+			{
+				eq.resizeItem(aPC, sa);
 			}
 
 			//

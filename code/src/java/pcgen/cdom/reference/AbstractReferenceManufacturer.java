@@ -1306,4 +1306,9 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	{
 		return active.size();
 	}
+
+	public T getItemInOrder(int item)
+	{
+		return active.getItemInOrder(item);
+	}
 }

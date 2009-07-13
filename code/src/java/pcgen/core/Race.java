@@ -71,10 +71,9 @@ public final class Race extends PObject
 	public String getUdam(PlayerCharacter pc)
 	{
 		final int iSize = getSafe(FormulaKey.SIZE).resolve(pc, "").intValue();
-		final SizeAdjustment defAdj =
-				SettingsHandler.getGame().getDefaultSizeAdjustment();
-		final SizeAdjustment sizAdj =
-				SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize);
+		final SizeAdjustment defAdj = Globals.getDefaultSizeAdjustment();
+		final SizeAdjustment sizAdj = Globals.getContext().ref.getItemInOrder(
+				SizeAdjustment.class, iSize);
 		if ((defAdj != null) && (sizAdj != null))
 		{
 			return Globals.adjustDamage("1d3", defAdj, sizAdj);

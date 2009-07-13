@@ -51,7 +51,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -104,7 +103,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		GameMode gamemode = SettingsHandler.getGame();
 		PlayerCharacter character = getCharacter();
 
 		//Stats
@@ -164,8 +162,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Race testRace = new Race();
 		testRace.setName("TestRace");
 		testRace.put(StringKey.KEY_NAME, "KEY_TEST_RACE");
-		testRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
-				.getSizeAdjustmentNamed("Medium")));
+		testRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 		character.setRace(testRace);
 
 		// Class
@@ -192,9 +189,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn.getEquipmentHead(2).put(IntegerKey.CRIT_RANGE, 1);
 		dblWpn.put(IntegerKey.SLOTS, 2);
 		dblWpn.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
-		SizeAdjustment sam = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
-		dblWpn.put(ObjectKey.SIZE, sam);
-		dblWpn.put(ObjectKey.BASESIZE, sam);
+		dblWpn.put(ObjectKey.SIZE, medium);
+		dblWpn.put(ObjectKey.BASESIZE, medium);
 		character.addEquipment(dblWpn);
 		EquipSet def = new EquipSet("0.1", "Default");
 		character.addEquipSet(def);
@@ -225,8 +221,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		bastardSword.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
-		bastardSword.put(ObjectKey.SIZE, sam);
-		bastardSword.put(ObjectKey.BASESIZE, sam);
+		bastardSword.put(ObjectKey.SIZE, medium);
+		bastardSword.put(ObjectKey.BASESIZE, medium);
 
 		wp = new WeaponProf();
 		wp.setName("Longsword");
@@ -245,9 +241,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		largeSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
-		SizeAdjustment sal = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
-		largeSword.put(ObjectKey.SIZE, sal);
-		largeSword.put(ObjectKey.BASESIZE, sal);
+		largeSword.put(ObjectKey.SIZE, large);
+		largeSword.put(ObjectKey.BASESIZE, large);
 
 		fineSword = new Equipment();
 		fineSword.setName("Longsword (Fine)");
@@ -259,8 +254,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		fineSword.put(ObjectKey.WIELD, WieldCategory.findByName("OneHanded"));
-		fineSword.put(ObjectKey.SIZE, sam);
-		fineSword.put(ObjectKey.BASESIZE, sam);
+		fineSword.put(ObjectKey.SIZE, medium);
+		fineSword.put(ObjectKey.BASESIZE, medium);
 
 		longSpear = new Equipment();
 		longSpear.setName("Longspear");
@@ -271,8 +266,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 		longSpear.put(ObjectKey.WIELD, WieldCategory.findByName("TwoHanded"));
-		longSpear.put(ObjectKey.SIZE, sam);
-		longSpear.put(ObjectKey.BASESIZE, sam);
+		longSpear.put(ObjectKey.SIZE, medium);
+		longSpear.put(ObjectKey.BASESIZE, medium);
 		longSpear.put(IntegerKey.REACH, 10);
 
 		GameMode gm = SettingsHandler.getGame();
@@ -297,8 +292,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.put(StringKey.OUTPUT_NAME, "Silly Bite (For Test)");
 		TestHelper.addType(bite, "Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-		bite.put(ObjectKey.SIZE, sam);
-		bite.put(ObjectKey.BASESIZE, sam);
+		bite.put(ObjectKey.SIZE, medium);
+		bite.put(ObjectKey.BASESIZE, medium);
 		aBonus = Bonus.newBonus("WEAPON|ATTACKS|" + 7);
 		
 		if (aBonus != null)

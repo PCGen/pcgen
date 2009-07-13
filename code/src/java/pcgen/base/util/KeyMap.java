@@ -269,4 +269,9 @@ public class KeyMap<V>
 	{
 		return "KeyMap: " + forwardMap.toString();
 	}
+
+	public V getItemInOrder(int item)
+	{
+		return inputOrder.get(item);
+	}
 }

@@ -25,11 +25,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Equipment;
-import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
 
 /**
@@ -124,9 +121,7 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Test Race");
-		GameMode gamemode = SettingsHandler.getGame();
-		race.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
-				.getSizeAdjustmentNamed("Medium")));
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 
 		character.setRace(race);
 
@@ -144,16 +139,14 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		// Test 3.0 Style
-		SizeAdjustment sa = SettingsHandler.getGame().getSizeAdjustmentNamed("M");
-		longsword.put(ObjectKey.SIZE, sa);
-		longsword.put(ObjectKey.BASESIZE, sa);
+		longsword.put(ObjectKey.SIZE, medium);
+		longsword.put(ObjectKey.BASESIZE, medium);
 
 		assertTrue("Weapon is M therefore OneHanded", PrereqHandler.passes(
 			prereq, character, null));
 
-		sa = SettingsHandler.getGame().getSizeAdjustmentNamed("L");
-		longsword.put(ObjectKey.SIZE, sa);
-		longsword.put(ObjectKey.BASESIZE, sa);
+		longsword.put(ObjectKey.SIZE, large);
+		longsword.put(ObjectKey.BASESIZE, large);
 
 		assertFalse("Weapon is L therefore TwoHanded", PrereqHandler.passes(
 			prereq, character, null));

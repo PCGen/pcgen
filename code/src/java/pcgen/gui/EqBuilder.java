@@ -366,7 +366,7 @@ final class EqBuilder extends JPanel
 
 		jButtonDamage.setVisible(aEq.isWeapon());
 
-		setItemSize(aEq.getSafe(ObjectKey.SIZE).getDisplayName());
+		jComboBoxSize.setSelectedItem(aEq.getSafe(ObjectKey.SIZE));
 
 		if (!bReloading)
 		{
@@ -387,29 +387,13 @@ final class EqBuilder extends JPanel
 		return true;
 	}
 
-	private void setItemSize(String aNewSize)
-	{
-		for (int i = 0; i < jComboBoxSize.getItemCount(); i++)
-		{
-			final String aSize = (String) jComboBoxSize.getItemAt(i);
-
-			if (aSize.equalsIgnoreCase(aNewSize))
-			{
-				jComboBoxSize.setSelectedIndex(i);
-
-				return;
-			}
-		}
-	}
-
 	private SizeAdjustment getItemSize()
 	{
 		final int idx = jComboBoxSize.getSelectedIndex();
 
 		if (idx >= 0)
 		{
-			String aSize = (String) jComboBoxSize.getItemAt(idx);
-			return SettingsHandler.getGame().getSizeAdjustmentNamed(aSize);
+			return (SizeAdjustment) jComboBoxSize.getItemAt(idx);
 		}
 
 		return null;
@@ -1018,16 +1002,9 @@ final class EqBuilder extends JPanel
 			});
 	}
 
-	private static String[] populateSizeModel()
+	private static Object[] populateSizeModel()
 	{
-		String[] sizeStrings = new String[SettingsHandler.getGame().getSizeAdjustmentListSize()];
-
-		for (int i = 0; i < SettingsHandler.getGame().getSizeAdjustmentListSize(); i++)
-		{
-			sizeStrings[i] = SettingsHandler.getGame().getSizeAdjustmentAtIndex(i).getDisplayName();
-		}
-
-		return sizeStrings;
+		return Globals.getContext().ref.getOrderSortedCDOMObjects(SizeAdjustment.class).toArray();
 	}
 
 	private void jButtonAdd1ActionPerformed()

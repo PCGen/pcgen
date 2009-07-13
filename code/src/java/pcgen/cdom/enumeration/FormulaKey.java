@@ -25,7 +25,7 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.formula.FixedSizeFormula;
-import pcgen.core.SettingsHandler;
+import pcgen.core.Globals;
 
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
@@ -82,7 +82,7 @@ public class FormulaKey implements TypeSafeConstant
 			@Override
 			public Formula getDefault()
 			{
-				return new FixedSizeFormula(SettingsHandler.getGame().getDefaultSizeAdjustment());
+				return new FixedSizeFormula(Globals.getDefaultSizeAdjustment());
 			}
 
 		};

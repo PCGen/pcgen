@@ -10,6 +10,7 @@ import gmgen.pluginmgr.PluginLoader;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.GameMode;
@@ -18,8 +19,8 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.ReferenceContext;
-import pcgen.util.TestHelper;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
@@ -45,6 +46,15 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	protected PCAlignment cg;
 	protected PCAlignment cn;
 	protected PCAlignment ce;
+	protected SizeAdjustment colossal;
+	protected SizeAdjustment gargantuan;
+	protected SizeAdjustment huge;
+	protected SizeAdjustment large;
+	protected SizeAdjustment medium;
+	protected SizeAdjustment small;
+	protected SizeAdjustment tiny;
+	protected SizeAdjustment diminutive;
+	protected SizeAdjustment fine;
 
 	/**
 	 * Sets up the absolute minimum amount of data to create a PlayerCharacter
@@ -84,8 +94,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		cha.setName("Charisma");
 		cha.put(StringKey.ABB, "CHA");
 
-		TestHelper.makeSizeAdjustments();
-
 		ReferenceContext ref = Globals.getContext().ref;
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
@@ -120,6 +128,18 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		ref.importObject(intel);
 		ref.importObject(wis);
 		ref.importObject(cha);
+
+		fine = createSize("Fine");
+		diminutive = createSize("Diminutive");
+		tiny = createSize("Tiny");
+		small = createSize("Small");
+		medium = createSize("Medium");
+		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
+		large = createSize("Large");
+		huge = createSize("Huge");
+		gargantuan = createSize("Gargantuan");
+		colossal = createSize("Colossal");
+
 		for (PCStat stat : ref.getOrderSortedCDOMObjects(PCStat.class))
 		{
 			ref.registerAbbreviation(stat, stat.getAbb());
@@ -130,6 +150,20 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		}
 		
 		character = new PlayerCharacter();
+	}
+
+	private SizeAdjustment createSize(String name)
+	{
+		final String abb  = name.substring(0, 1);
+
+		final SizeAdjustment sa = new SizeAdjustment();
+
+		sa.setName(name);
+		sa.put(StringKey.ABB, abb);
+
+		Globals.getContext().ref.importObject(sa);
+		Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
+		return sa;
 	}
 
 	/**

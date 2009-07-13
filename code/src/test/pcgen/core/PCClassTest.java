@@ -848,18 +848,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		Globals.getContext().ref.importObject(nymphClass);
 
 		// Create the large size mod
-		sizeL = new SizeAdjustment();
-		sizeL.setName("Large");
-		sizeL.put(StringKey.ABB, "L");
-		sizeL.put(ObjectKey.IS_DEFAULT_SIZE, false);
-		gamemode.addToSizeAdjustmentList(sizeL);
-
 		// Create the BugBear race
 		bugbearRace = new Race();
 		bugbearRace.setName("Bugbear");
 		bugbearRace.put(StringKey.KEY_NAME, "KEY_Bugbear");
-		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
-				.getSizeAdjustmentNamed("Medium")));
+		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
 		Globals.getContext().ref.importObject(bugbearRace);
@@ -867,8 +860,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
 		bigBugbearRace.put(StringKey.KEY_NAME, "KEY_BigBugbear");
-		bigBugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
-				.getSizeAdjustmentNamed("Large")));
+		bigBugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(large));
 		bigBugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bigBugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
 		Globals.getContext().ref.importObject(bigBugbearRace);
@@ -877,8 +869,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nymphRace = new Race();
 		nymphRace.setName("Nymph");
 		nymphRace.put(StringKey.KEY_NAME, "KEY_Nymph");
-		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(gamemode
-				.getSizeAdjustmentNamed("Medium")));
+		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		nymphRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
 				CDOMDirectSingleRef.getRef(nymphClass), FormulaFactory

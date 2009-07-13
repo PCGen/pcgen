@@ -2202,15 +2202,32 @@ public final class Globals
 	 */
 	public static int sizeInt(final String aSize, final int defaultValue)
 	{
-		for (int iSize = 0; iSize <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1); ++iSize)
+		List<SizeAdjustment> list = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(SizeAdjustment.class);
+		for (int i = 0; i < list.size(); i++)
 		{
-			if (aSize.startsWith(SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize).getAbbreviation()))
+			if (aSize.equals(list.get(i).getAbbreviation()))
 			{
-				return iSize;
+				return i;
 			}
 		}
 
 		return defaultValue;
+	}
+
+	public static int sizeInt(final SizeAdjustment aSize)
+	{
+		List<SizeAdjustment> list = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(SizeAdjustment.class);
+		for (int i = 0; i < list.size(); i++)
+		{
+			if (aSize.equals(list.get(i)))
+			{
+				return i;
+			}
+		}
+
+		return -1;
 	}
 
 	/**
@@ -2493,8 +2510,8 @@ public final class Globals
 		{
 			return aDamage;
 		}
-		int baseIndex = SettingsHandler.getGame().sizeIndex(baseSize);
-		int newIndex =  SettingsHandler.getGame().sizeIndex(newSize);
+		int baseIndex = sizeInt(baseSize);
+		int newIndex =  sizeInt(newSize);
 		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
@@ -2686,7 +2703,7 @@ public final class Globals
 		SizeAdjustment sadj = aPC.getSizeAdjustment();
 		if (sadj == null)
 		{
-			sadj = SettingsHandler.getGame().getDefaultSizeAdjustment();
+			sadj = getDefaultSizeAdjustment();
 		}
 
 		if (sadj != null)
@@ -2876,4 +2893,23 @@ public final class Globals
 		}
 		return aList;
 	}
+
+	/**
+	 * Get the default size adjustment
+	 * @return the default size adjustment
+	 */
+	public static SizeAdjustment getDefaultSizeAdjustment()
+	{
+		for (SizeAdjustment s : getContext().ref
+				.getOrderSortedCDOMObjects(SizeAdjustment.class))
+		{
+			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
+			{
+				return s;
+			}
+		}
+
+		return null;
+	}
+
 }

@@ -256,8 +256,7 @@ public final class Equipment extends PObject implements Serializable,
 	private boolean virtualItem;
 
 	{
-		final SizeAdjustment sizeAdj = SettingsHandler.getGame()
-				.getDefaultSizeAdjustment();
+		final SizeAdjustment sizeAdj = Globals.getDefaultSizeAdjustment();
 		if (sizeAdj != null) {
 			put(ObjectKey.SIZE, sizeAdj);
 		}
@@ -1938,6 +1937,10 @@ public final class Equipment extends PObject implements Serializable,
 		return getSafe(ObjectKey.SIZE).getAbbreviation();
 	}
 
+	public SizeAdjustment getSizeAdjustment() {
+		return getSafe(ObjectKey.SIZE);
+	}
+
 	/**
 	 * The number of "Slots" that this item requires The slot type is derived
 	 * from system/special/equipmentslot.lst
@@ -3076,8 +3079,9 @@ public final class Equipment extends PObject implements Serializable,
 			} else if (aString.startsWith("KEY" + endPart)) {
 				put(StringKey.KEY_NAME, aString.substring(3 + endPartLen));
 			} else if (aString.startsWith("SIZE" + endPart)) {
-				newSize = SettingsHandler.getGame().getSizeAdjustmentNamed(
-						aString.substring(4 + endPartLen));
+				newSize = Globals.getContext().ref
+						.getAbbreviatedObject(SizeAdjustment.class, aString
+								.substring(4 + endPartLen));
 			} else if (aString.startsWith("EQMOD" + endPart)) {
 				addEqModifiers(aString.substring(5 + endPartLen), true, true);
 			} else if (aString.startsWith("ALTEQMOD" + endPart)) {
@@ -3350,7 +3354,7 @@ public final class Equipment extends PObject implements Serializable,
 		setBase(pc);
 
 		final int iOldSize = sizeInt();
-		int iNewSize = SettingsHandler.getGame().sizeIndex(newSize);
+		int iNewSize = Globals.sizeInt(newSize);
 
 		if (iNewSize != iOldSize)
 		{
@@ -3428,6 +3432,7 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		if (hasPrerequisites())
 		{
+			int maxIndex = Globals.getContext().ref.getConstructedObjectCount(SizeAdjustment.class);
 			for (Prerequisite aBonus : getPrerequisiteList())
 			{
 				if ("SIZE".equalsIgnoreCase(aBonus.getKind()))
@@ -3435,17 +3440,15 @@ public final class Equipment extends PObject implements Serializable,
 					final int iOldPre = Globals.sizeInt(aBonus.getOperand());
 					iNewSize += (iOldPre - iOldSize);
 
-					if ((iNewSize >= 0)
-						&& (iNewSize <= (SettingsHandler.getGame()
-							.getSizeAdjustmentListSize() - 1)))
+					if ((iNewSize >= 0) && (iNewSize <= maxIndex))
 					{
 						// Note: This actually impacts the Prereq in this
 						// Equipment, since it is returned
 						// by reference from the get above ... thus no need to
 						// perform a set
-						aBonus.setOperand(SettingsHandler.getGame()
-							.getSizeAdjustmentAtIndex(iNewSize)
-							.getAbbreviation());
+						aBonus.setOperand(Globals.getContext().ref
+								.getItemInOrder(SizeAdjustment.class, iNewSize)
+								.getAbbreviation());
 					}
 				}
 			}
@@ -3458,7 +3461,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return size as int
 	 */
 	public int sizeInt() {
-		return SettingsHandler.getGame().sizeIndex(getSafe(ObjectKey.SIZE));
+		return Globals.sizeInt(getSafe(ObjectKey.SIZE));
 	}
 
 	/**
@@ -3764,7 +3767,7 @@ public final class Equipment extends PObject implements Serializable,
 		SizeAdjustment saBase = get(ObjectKey.BASESIZE);
 		if (saBase == null)
 		{
-			saBase = SettingsHandler.getGame().getDefaultSizeAdjustment();
+			saBase = Globals.getDefaultSizeAdjustment();
 		}
 
 		if ((saSize == null) || (saBase == null)) {
@@ -5250,12 +5253,18 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			iMod = 0;
 		}
-		else if (iMod >= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1))
+		else
 		{
-			iMod = SettingsHandler.getGame().getSizeAdjustmentListSize() - 1;
+			int maxIndex = Globals.getContext().ref
+					.getConstructedObjectCount(SizeAdjustment.class) - 1;
+			if (iMod > maxIndex)
+			{
+				iMod = maxIndex;
+			}
 		}
-
-		return adjustDamage(dam, SettingsHandler.getGame().getSizeAdjustmentAtIndex(iMod));
+		SizeAdjustment sa = Globals.getContext().ref.getItemInOrder(
+				SizeAdjustment.class, iMod);
+		return adjustDamage(dam, sa);
 	}
 
 	/**

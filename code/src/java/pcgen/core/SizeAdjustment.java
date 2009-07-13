@@ -56,12 +56,6 @@ public final class SizeAdjustment extends PObject
 		return super.getActiveBonuses(aPC);
 	}
 
-	@Override
-	public String toString()
-	{
-		return "pcgen.core.SizeAdjustment{" + "abbreviation='" + get(StringKey.ABB) + "'" + "}";
-	}
-
 	double getBonusTo(final PlayerCharacter aPC, final String bonusType, final List<String> typeList, double defaultValue)
 	{
 		for ( String type : typeList )

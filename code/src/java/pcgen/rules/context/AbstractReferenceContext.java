@@ -495,4 +495,10 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	{
 		abbMap.putAll(rc.abbMap);
 	}
+
+	public <T extends CDOMObject> T getItemInOrder(Class<T> cl, int item)
+	{
+		return getManufacturer(cl).getItemInOrder(item);
+	}
+
 }

@@ -185,10 +185,16 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 		{
 			for (ChooseSelectionActor ca : actors)
 			{
-				ca.applyChoice(owner, st, pc);
+				applyChoice(owner, st, pc, ca);
 			}
 		}
 		pc.addAssociation(owner, encodeChoice(st));
+	}
+
+	private void applyChoice(CDOMObject owner, T st, PlayerCharacter pc,
+			ChooseSelectionActor ca)
+	{
+		ca.applyChoice(owner, st, pc);
 	}
 
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice)

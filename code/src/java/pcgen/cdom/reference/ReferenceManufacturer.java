@@ -381,4 +381,6 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 */
 	public int getConstructedObjectCount();
 
+	public T getItemInOrder(int item);
+
 }

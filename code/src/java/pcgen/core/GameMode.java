@@ -41,7 +41,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -159,7 +158,6 @@ public final class GameMode implements Comparable<Object>
 
 	private int rollMethod = Constants.CHARACTERSTATMETHOD_USER;
 
-	private final List<SizeAdjustment> sizeAdjustmentList = new ArrayList<SizeAdjustment>(9);
 	private final SizeAdjustment spareSize = new SizeAdjustment();
 
 	private int allStatsValue = 10;
@@ -2253,98 +2251,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Adds the item to the sizeAdjustmentList.
-	 * @param item
-	 */
-	public void addToSizeAdjustmentList(final SizeAdjustment item)
-	{
-		if (!sizeAdjustmentList.contains(item))
-		{
-			sizeAdjustmentList.add(item);
-		}
-	}
-
-	/**
-	 * Clears the sizeAdjustmentList.
-	 */
-	public void clearSizeAdjustmentList()
-	{
-		sizeAdjustmentList.clear();
-	}
-
-	/**
-	 * Get the default size adjustment
-	 * @return the default size adjustment
-	 */
-	public SizeAdjustment getDefaultSizeAdjustment()
-	{
-		for ( SizeAdjustment s : sizeAdjustmentList )
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				return s;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns the requested SizeAdjustment item, or null if the index is inappropriate.
-	 * @param index
-	 * @return the requested SizeAdjustment item, or null if the index is inappropriate.
-	 */
-	public SizeAdjustment getSizeAdjustmentAtIndex(final int index)
-	{
-		SizeAdjustment sa = null;
-
-		if ((index >= 0) && (index < sizeAdjustmentList.size()))
-		{
-			sa = sizeAdjustmentList.get(index);
-		}
-
-		return sa;
-	}
-
-	/**
-	 * Returns the size of the sizeAdjustmentList.
-	 * @return the size of the sizeAdjustmentList.
-	 */
-	public int getSizeAdjustmentListSize()
-	{
-		return sizeAdjustmentList.size();
-	}
-
-	public List<SizeAdjustment> getUnmodifiableSizeAdjustmentList()
-	{
-		return Collections.unmodifiableList(sizeAdjustmentList);
-	}
-
-	/**
-	 * Returns the requested size adjustment.
-	 * @param aName
-	 * @return the requested size adjustment.
-	 */
-	public SizeAdjustment getSizeAdjustmentNamed(final String aName)
-	{
-		if (aName.trim().length() == 0)
-		{
-			return spareSize;
-		}
-
-		for ( SizeAdjustment s : sizeAdjustmentList )
-		{
-			if (s.getDisplayName().equalsIgnoreCase(aName)
-			 || s.getAbbreviation().equalsIgnoreCase(aName))
-			{
-				return s;
-			}
-		}
-
-		return null;
-	}
-
-	/**
 	 * Set the value for all stats
 	 * @param argAllStatsValue
 	 */
@@ -3072,11 +2978,6 @@ public final class GameMode implements Comparable<Object>
 			return set.contains(type) || context.isTypeHidden(cl, type);
 		}
 		return context.isTypeHidden(cl, type);
-	}
-
-	public int sizeIndex(SizeAdjustment sz)
-	{
-		return sizeAdjustmentList.indexOf(sz);
 	}
 
 	/**

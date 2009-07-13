@@ -33,7 +33,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 

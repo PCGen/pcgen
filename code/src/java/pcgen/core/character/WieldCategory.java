@@ -31,6 +31,7 @@ import java.util.Map;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
@@ -184,7 +185,7 @@ public final class WieldCategory
 		{
 			// Check if we have a bonus that changes the weapons effective size
 			// for wield purposes.
-			final String oldEqSize = eq.getSize();
+			SizeAdjustment oldEqSa = eq.getSizeAdjustment();
 			if (aPC.sizeInt() != eq.sizeInt())
 			{
 				int aBump = 0;
@@ -193,8 +194,8 @@ public final class WieldCategory
 				if (aBump != 0)
 				{
 					final int newSizeInt = eq.sizeInt() + aBump;
-					final SizeAdjustment sadj = SettingsHandler.getGame().
-						getSizeAdjustmentAtIndex(newSizeInt);
+					final SizeAdjustment sadj = Globals.getContext().ref
+							.getItemInOrder(SizeAdjustment.class, newSizeInt);
 					eq.put(ObjectKey.SIZE, sadj);
 				}
 			}
@@ -233,7 +234,7 @@ public final class WieldCategory
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			}
-			eq.put(ObjectKey.SIZE, SettingsHandler.getGame().getSizeAdjustmentNamed(oldEqSize));
+			eq.put(ObjectKey.SIZE, oldEqSa);
 		}
 		catch (PersistenceLayerException ple)
 		{

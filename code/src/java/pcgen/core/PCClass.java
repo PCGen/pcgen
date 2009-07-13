@@ -2312,7 +2312,7 @@ public class PCClass extends PObject
 		// resize the damage as if it were a weapon
 		if (adjustForPCSize)
 		{
-			aDamage = Globals.adjustDamage(aDamage, SettingsHandler.getGame()
+			aDamage = Globals.adjustDamage(aDamage, Globals
 					.getDefaultSizeAdjustment(), pcSize);
 		}
 
@@ -2326,7 +2326,7 @@ public class PCClass extends PObject
 			classObjects.add(getClassLevel(i));
 		}
 		classObjects.add(this);
-		int iSize = SettingsHandler.getGame().sizeIndex(pcSize);
+		int iSize = aPC.sizeInt();
 		for (CDOMObject cdo : classObjects)
 		{
 			List<String> udam = cdo.getListFor(ListKey.UNARMED_DAMAGE);

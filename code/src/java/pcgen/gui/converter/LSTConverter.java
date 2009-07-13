@@ -333,7 +333,7 @@ public class LSTConverter extends Observable
 		{
 			context.ref.registerAbbreviation(al, al.getAbb());
 		}
-		for (SizeAdjustment sz : gamemode.getUnmodifiableSizeAdjustmentList())
+		for (SizeAdjustment sz : context.ref.getOrderSortedCDOMObjects(SizeAdjustment.class))
 		{
 			context.ref.importObject(sz);
 			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
