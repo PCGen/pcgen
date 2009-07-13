@@ -73,6 +73,7 @@ import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
@@ -2312,7 +2313,7 @@ public class PCClass extends PObject
 		// resize the damage as if it were a weapon
 		if (adjustForPCSize)
 		{
-			aDamage = Globals.adjustDamage(aDamage, Globals
+			aDamage = Globals.adjustDamage(aDamage, SizeUtilities
 					.getDefaultSizeAdjustment(), pcSize);
 		}
 

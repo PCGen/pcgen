@@ -29,6 +29,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.analysis.SizeUtilities;
 
 /**
  * <code>Race</code>.
@@ -71,7 +72,7 @@ public final class Race extends PObject
 	public String getUdam(PlayerCharacter pc)
 	{
 		final int iSize = getSafe(FormulaKey.SIZE).resolve(pc, "").intValue();
-		final SizeAdjustment defAdj = Globals.getDefaultSizeAdjustment();
+		final SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
 		final SizeAdjustment sizAdj = Globals.getContext().ref.getItemInOrder(
 				SizeAdjustment.class, iSize);
 		if ((defAdj != null) && (sizAdj != null))

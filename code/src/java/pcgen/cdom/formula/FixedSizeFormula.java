@@ -20,9 +20,9 @@ package pcgen.cdom.formula;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.analysis.SizeUtilities;
 
 /**
  * A FixedSizeFormula is a Formula that returns a deterministic value, used to
@@ -110,7 +110,7 @@ public class FixedSizeFormula implements Formula
 	 */
 	public Integer resolve(PlayerCharacter pc, String source)
 	{
-		return Globals.sizeInt(size.getAbbreviation());
+		return SizeUtilities.sizeInt(size.getAbbreviation());
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class FixedSizeFormula implements Formula
 	public Number resolve(Equipment equipment, boolean primary,
 			PlayerCharacter apc, String source)
 	{
-		return Globals.sizeInt(size.getAbbreviation());
+		return SizeUtilities.sizeInt(size.getAbbreviation());
 	}
 
 	/**

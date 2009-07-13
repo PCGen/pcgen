@@ -43,6 +43,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.io.ExportHandler;
@@ -683,11 +684,11 @@ public class WeaponToken extends Token
 	public static String getHeft(PlayerCharacter pc, Equipment eq)
 	{
 		String retString = "";
-		if (pc.sizeInt() > Globals.sizeInt(eq.getSize()))
+		if (pc.sizeInt() > SizeUtilities.sizeInt(eq.getSize()))
 		{
 			retString = "LIGHT";
 		}
-		else if (pc.sizeInt() == Globals.sizeInt(eq.getSize()))
+		else if (pc.sizeInt() == SizeUtilities.sizeInt(eq.getSize()))
 		{
 			retString = "MEDIUM";
 		}
@@ -2773,10 +2774,10 @@ public class WeaponToken extends Token
 			 */
 			if (!applySize)
 			{
-				final SizeAdjustment defAdj = Globals.getDefaultSizeAdjustment();
+				final SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
 				if (defAdj != null)
 				{
-					eqSize = Globals.sizeInt(defAdj.getAbbreviation());
+					eqSize = SizeUtilities.sizeInt(defAdj.getAbbreviation());
 				}
 			}
 

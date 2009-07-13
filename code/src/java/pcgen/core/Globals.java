@@ -61,6 +61,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
@@ -2185,52 +2186,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get size as an int
-	 * @param aSize
-	 * @return size as an int
-	 */
-	public static int sizeInt(final String aSize)
-	{
-		return sizeInt(aSize, 0);
-	}
-
-	/**
-	 * Get size as an integer
-	 * @param aSize
-	 * @param defaultValue
-	 * @return size as an int
-	 */
-	public static int sizeInt(final String aSize, final int defaultValue)
-	{
-		List<SizeAdjustment> list = Globals.getContext().ref
-				.getOrderSortedCDOMObjects(SizeAdjustment.class);
-		for (int i = 0; i < list.size(); i++)
-		{
-			if (aSize.equals(list.get(i).getAbbreviation()))
-			{
-				return i;
-			}
-		}
-
-		return defaultValue;
-	}
-
-	public static int sizeInt(final SizeAdjustment aSize)
-	{
-		List<SizeAdjustment> list = Globals.getContext().ref
-				.getOrderSortedCDOMObjects(SizeAdjustment.class);
-		for (int i = 0; i < list.size(); i++)
-		{
-			if (aSize.equals(list.get(i)))
-			{
-				return i;
-			}
-		}
-
-		return -1;
-	}
-
-	/**
 	 * Sorts chooser lists using the appropriate method, based on the type of the first item in either list.
 	 * Not pretty, but it works.
 	 *
@@ -2510,8 +2465,8 @@ public final class Globals
 		{
 			return aDamage;
 		}
-		int baseIndex = sizeInt(baseSize);
-		int newIndex =  sizeInt(newSize);
+		int baseIndex = SizeUtilities.sizeInt(baseSize);
+		int newIndex =  SizeUtilities.sizeInt(newSize);
 		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
@@ -2703,7 +2658,7 @@ public final class Globals
 		SizeAdjustment sadj = aPC.getSizeAdjustment();
 		if (sadj == null)
 		{
-			sadj = getDefaultSizeAdjustment();
+			sadj = SizeUtilities.getDefaultSizeAdjustment();
 		}
 
 		if (sadj != null)
@@ -2892,24 +2847,6 @@ public final class Globals
 			}
 		}
 		return aList;
-	}
-
-	/**
-	 * Get the default size adjustment
-	 * @return the default size adjustment
-	 */
-	public static SizeAdjustment getDefaultSizeAdjustment()
-	{
-		for (SizeAdjustment s : getContext().ref
-				.getOrderSortedCDOMObjects(SizeAdjustment.class))
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				return s;
-			}
-		}
-
-		return null;
 	}
 
 }

@@ -28,6 +28,7 @@ package plugin.pretokens.test;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -56,7 +57,7 @@ public class PreBaseSizeTester extends AbstractPrerequisiteTest implements
 		{
 			final String key =
 					String.valueOf(prereq.getOperand().toUpperCase().charAt(0));
-			final int targetSize = Globals.sizeInt(key, -1);
+			final int targetSize = SizeUtilities.sizeInt(key, -1);
 			if (targetSize < 0)
 			{
 				throw new PrerequisiteException(PropertyFactory

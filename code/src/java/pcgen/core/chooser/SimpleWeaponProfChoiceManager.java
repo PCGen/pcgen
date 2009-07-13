@@ -42,6 +42,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.WieldCategory;
 
 /**
@@ -234,7 +235,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 			if (bString.startsWith("SIZE=") || parsed.startsWith("SIZE."))
 			{
-				iSize = Globals.sizeInt(bString.substring(5));
+				iSize = SizeUtilities.sizeInt(bString.substring(5));
 			}
 			else
 			{
@@ -260,7 +261,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 				if (iSize >= 0)
 				{
-					bOk &= (Globals.sizeInt(aEq.getSize()) == iSize);
+					bOk &= (SizeUtilities.sizeInt(aEq.getSize()) == iSize);
 				}
 
 				if (bOk)

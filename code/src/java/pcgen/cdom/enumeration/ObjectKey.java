@@ -55,7 +55,6 @@ import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
-import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
@@ -67,6 +66,7 @@ import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.Ability.Nature;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -319,7 +319,7 @@ public class ObjectKey<T>
 			@Override
 			public SizeAdjustment getDefault()
 			{
-				return Globals.getDefaultSizeAdjustment();
+				return SizeUtilities.getDefaultSizeAdjustment();
 			}
 
 		};
@@ -329,7 +329,7 @@ public class ObjectKey<T>
 			@Override
 			public SizeAdjustment getDefault()
 			{
-				return Globals.getDefaultSizeAdjustment();
+				return SizeUtilities.getDefaultSizeAdjustment();
 			}
 
 		};

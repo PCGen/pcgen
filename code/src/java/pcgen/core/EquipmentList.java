@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.EquipmentChoiceDriver;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
@@ -528,7 +529,7 @@ public class EquipmentList {
 				gensizesid.add(iSize);
 			}
 
-			SizeAdjustment defaultSize = Globals.getDefaultSizeAdjustment();
+			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
 			Set<SizeAdjustment> gensizes = new HashSet<SizeAdjustment>();
 			for (Integer i : gensizesid)
 			{

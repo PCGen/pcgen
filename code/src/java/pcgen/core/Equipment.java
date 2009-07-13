@@ -66,6 +66,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.EqModCost;
 import pcgen.core.analysis.EqModSpellInfo;
 import pcgen.core.analysis.EquipmentChoiceDriver;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.WieldCategory;
@@ -256,7 +257,7 @@ public final class Equipment extends PObject implements Serializable,
 	private boolean virtualItem;
 
 	{
-		final SizeAdjustment sizeAdj = Globals.getDefaultSizeAdjustment();
+		final SizeAdjustment sizeAdj = SizeUtilities.getDefaultSizeAdjustment();
 		if (sizeAdj != null) {
 			put(ObjectKey.SIZE, sizeAdj);
 		}
@@ -3354,7 +3355,7 @@ public final class Equipment extends PObject implements Serializable,
 		setBase(pc);
 
 		final int iOldSize = sizeInt();
-		int iNewSize = Globals.sizeInt(newSize);
+		int iNewSize = SizeUtilities.sizeInt(newSize);
 
 		if (iNewSize != iOldSize)
 		{
@@ -3437,7 +3438,7 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				if ("SIZE".equalsIgnoreCase(aBonus.getKind()))
 				{
-					final int iOldPre = Globals.sizeInt(aBonus.getOperand());
+					final int iOldPre = SizeUtilities.sizeInt(aBonus.getOperand());
 					iNewSize += (iOldPre - iOldSize);
 
 					if ((iNewSize >= 0) && (iNewSize <= maxIndex))
@@ -3461,7 +3462,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return size as int
 	 */
 	public int sizeInt() {
-		return Globals.sizeInt(getSafe(ObjectKey.SIZE));
+		return SizeUtilities.sizeInt(getSafe(ObjectKey.SIZE));
 	}
 
 	/**
@@ -3767,7 +3768,7 @@ public final class Equipment extends PObject implements Serializable,
 		SizeAdjustment saBase = get(ObjectKey.BASESIZE);
 		if (saBase == null)
 		{
-			saBase = Globals.getDefaultSizeAdjustment();
+			saBase = SizeUtilities.getDefaultSizeAdjustment();
 		}
 
 		if ((saSize == null) || (saBase == null)) {

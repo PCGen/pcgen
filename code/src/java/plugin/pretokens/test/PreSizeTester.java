@@ -27,8 +27,8 @@
 package plugin.pretokens.test;
 
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -48,7 +48,7 @@ public class PreSizeTester extends AbstractPrerequisiteTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
-		final int targetSize = Globals.sizeInt(prereq.getOperand());
+		final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
 
 		final int runningTotal =
 				prereq.getOperator().compare(character.sizeInt(), targetSize);
@@ -60,7 +60,7 @@ public class PreSizeTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final Equipment equipment,
 		PlayerCharacter character) throws PrerequisiteException
 	{
-		final int targetSize = Globals.sizeInt(prereq.getOperand());
+		final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
 
 		final int runningTotal =
 				prereq.getOperator().compare(equipment.sizeInt(), targetSize);

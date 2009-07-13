@@ -37,6 +37,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 
@@ -110,7 +111,7 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 				final WeaponProf wp = refContext
 						.silentlyGetConstructedCDOMObject(WeaponProf.class,
 								profKey);
-				if ((aPc.sizeInt() >= Globals.sizeInt(aString.substring(5, 6)))
+				if ((aPc.sizeInt() >= SizeUtilities.sizeInt(aString.substring(5, 6)))
 					&& aPc.hasWeaponProf(wp))
 				{
 					if (!availableList.contains(wp))

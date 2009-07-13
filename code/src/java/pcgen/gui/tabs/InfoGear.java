@@ -107,6 +107,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
@@ -1171,7 +1172,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (autoResize.isEnabled() && autoResize.isSelected()
 				&& Globals.canResizeHaveEffect(pc, selectedEquipment, null)
-				&& pc.sizeInt() != Globals.sizeInt(selectedEquipment.getSize()))
+				&& pc.sizeInt() != SizeUtilities.sizeInt(selectedEquipment.getSize()))
 			{
 				final SizeAdjustment newSize = pc.getSizeAdjustment();
 				final String existingKey = selectedEquipment.getKeyName();
