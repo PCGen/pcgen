@@ -6373,7 +6373,7 @@ jar-all-plugins - Generate the plugin jar files
 	<target name="jar-primitive-plugins" depends="" description="Build (Link) Lst Primitive Token plugin jar files">
 	</target>
 
-	<target name="jar-qualifier-plugins" depends="jar-qualifier-global-plugins,jar-qualifier-transition-plugins" description="Build (Link) Lst Compatibility Token plugin jar files">
+	<target name="jar-qualifier-plugins" depends="jar-qualifier-global-plugins,jar-qualifier-armorprof-plugins,jar-qualifier-transition-plugins" description="Build (Link) Lst Compatibility Token plugin jar files">
 	</target>
 
 	<target name="jar-qualifier-global-plugins" depends="makeplugindirs" description="Build (Link) Global Qualifier Token plugin jar files">
@@ -6389,6 +6389,17 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/qualifier/pobject/QualifiedToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+	
+	<target name="jar-qualifier-armorprof-plugins" depends="makeplugindirs" description="Build (Link) Armor Prof Qualifier Token plugin jar files">
+		<!-- ArmorProf Qualifier tokens-->
+		<jar jarfile="${lstplugins.dir}/ArmorProfQualifier-EQUIPMENT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/armorprof/EquipmentToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
