@@ -62,7 +62,7 @@ public class ChooseLst extends AbstractToken implements
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (value.startsWith("FEAT="))
 		{
-			key = "FEAT";
+			key = "FEATEQ";
 			val = value.substring(5);
 		}
 		else if (value.startsWith("LANGAUTO:"))
@@ -127,7 +127,7 @@ public class ChooseLst extends AbstractToken implements
 			{
 				str[i] = choicesString + str[i];
 			}
-			if (str[i].startsWith("FEAT|"))
+			if (str[i].startsWith("FEATEQ|"))
 			{
 				str[i] = "FEAT=" + str[i].substring(5);
 			}

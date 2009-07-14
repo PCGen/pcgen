@@ -2870,10 +2870,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/ChooseToken-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/ChooseToken-FEATEQ.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/choose/FeatToken.class" />
+					<include name="plugin/lsttokens/choose/FeatEqToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

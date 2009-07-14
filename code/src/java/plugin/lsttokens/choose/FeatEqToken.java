@@ -24,12 +24,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.util.Logging;
 
-public class FeatToken implements CDOMSecondaryToken<CDOMObject>
+public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>
 {
 
 	public String getTokenName()
 	{
-		return "FEAT";
+		return "FEATEQ";
 	}
 
 	public String getParentToken()
