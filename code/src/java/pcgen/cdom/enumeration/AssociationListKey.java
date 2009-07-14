@@ -143,6 +143,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<AbilitySelection> CHOOSE_FEAT = new AssociationListKey<AbilitySelection>();
 
 	public static final AssociationListKey<Deity> CHOOSE_DEITY = new AssociationListKey<Deity>();
+
+	public static final AssociationListKey<Skill> CHOOSE_SKILL = new AssociationListKey<Skill>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
