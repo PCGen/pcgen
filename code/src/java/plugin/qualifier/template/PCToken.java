@@ -17,7 +17,7 @@
  */
 package plugin.qualifier.template;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -27,7 +27,7 @@ public class PCToken extends AbstractPCQualifierToken<PCTemplate>
 {
 
 	@Override
-	protected ArrayList<PCTemplate> getPossessed(PlayerCharacter pc)
+	protected Collection<PCTemplate> getPossessed(PlayerCharacter pc)
 	{
 		return pc.getTemplateList();
 	}
