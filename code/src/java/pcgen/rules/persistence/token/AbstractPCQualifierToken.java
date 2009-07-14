@@ -16,9 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.rules.persistence.token;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 
@@ -83,7 +82,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		List<T> objects = getPossessed(pc);
+		Collection<T> objects = getPossessed(pc);
 		Set<T> returnSet = new HashSet<T>();
 		if (objects != null)
 		{
@@ -99,7 +98,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		return returnSet;
 	}
 
-	protected abstract ArrayList<T> getPossessed(PlayerCharacter pc);
+	protected abstract Collection<T> getPossessed(PlayerCharacter pc);
 
 	public String getLSTformat(boolean useAny)
 	{
