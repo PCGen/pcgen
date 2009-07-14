@@ -6461,10 +6461,31 @@ jar-all-plugins - Generate the plugin jar files
 	
 	<target name="jar-qualifier-transition-plugins" depends="makeplugindirs" description="Build (Link) Transition Qualifier Token plugin jar files">
 		<!-- Transition (temporary during CDOM changes) Qualifier tokens-->
-		<jar jarfile="${lstplugins.dir}/TransitionQualifier-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/TransitionQualifierTemplate-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/qualifier/template/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/TransitionQualifierWeaponProf-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/weaponprof/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/TransitionQualifierLanguage-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/language/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/TransitionQualifierDeity-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/deity/PCToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
