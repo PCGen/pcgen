@@ -177,7 +177,7 @@ public class VFeatToken extends AbstractToken implements
 			else
 			{
 				foundOther = true;
-				ab = TokenUtilities.getTypeOrPrimitive(context, rm, token);
+				ab = TokenUtilities.getTypeOrPrimitive(rm, token);
 			}
 			if (ab == null)
 			{

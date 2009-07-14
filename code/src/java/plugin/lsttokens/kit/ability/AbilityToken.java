@@ -137,7 +137,7 @@ public class AbilityToken extends AbstractToken implements
 				return false;
 			}
 			CDOMReference<Ability> ref =
-					TokenUtilities.getTypeOrPrimitive(context, rm, token);
+					TokenUtilities.getTypeOrPrimitive(rm, token);
 			if (ref == null)
 			{
 				return false;

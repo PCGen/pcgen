@@ -85,8 +85,7 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>,
 			}
 			else
 			{
-				CDOMReference<Ability> ability = TokenUtilities
-						.getTypeOrPrimitive(context, rm, token);
+				CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ability == null)
 				{
 					return false;

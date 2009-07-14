@@ -81,8 +81,7 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 		{
 			String token = tok.nextToken();
 
-			CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(
-					context, rm, token);
+			CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, token);
 			if (ref == null)
 			{
 				return false;

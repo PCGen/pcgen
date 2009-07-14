@@ -203,8 +203,7 @@ public class AbilityLst extends AbstractToken implements
 			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
 				String clearText = token.substring(7);
-				CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(
-						context, rm, clearText);
+				CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(rm, clearText);
 				if (ref == null)
 				{
 					return false;
@@ -217,8 +216,7 @@ public class AbilityLst extends AbstractToken implements
 			}
 			else
 			{
-				CDOMReference<Ability> ability = TokenUtilities
-						.getTypeOrPrimitive(context, rm, token);
+				CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ability == null)
 				{
 					return false;

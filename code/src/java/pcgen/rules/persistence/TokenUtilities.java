@@ -36,22 +36,22 @@ public final class TokenUtilities
 	public static <T extends CDOMObject> CDOMReference<T> getTypeOrPrimitive(
 			LoadContext context, Class<T> cl, String s)
 	{
-		return getTypeOrPrimitive(context, context.ref.getManufacturer(cl), s);
+		return 	getTypeOrPrimitive(context.ref.getManufacturer(cl), s);
 	}
 
 	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
 			LoadContext context, Class<T> cl, String subStr)
 	{
-		return getTypeReference(context, context.ref.getManufacturer(cl), subStr);
+		return getTypeReference(context.ref.getManufacturer(cl), subStr);
 	}
 
 	public static <T extends CDOMObject> CDOMReference<T> getTypeOrPrimitive(
-			LoadContext context, ReferenceManufacturer<T, ?> rm, String s)
+			ReferenceManufacturer<T, ?> rm, String s)
 	{
 		if (s.startsWith(Constants.LST_TYPE_OLD)
 				|| s.startsWith(Constants.LST_TYPE))
 		{
-			return getTypeReference(context, rm, s);
+			return getTypeReference(rm, s);
 		}
 		else
 		{
@@ -60,7 +60,7 @@ public final class TokenUtilities
 	}
 
 	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
-			LoadContext context, ReferenceManufacturer<T, ?> rm, String s)
+			ReferenceManufacturer<T, ?> rm, String s)
 	{
 		String subStr = s.substring(5);
 		if (subStr.length() == 0)
