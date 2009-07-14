@@ -33,7 +33,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -74,8 +73,8 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
-				.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (tok.hasMoreTokens())
 		{

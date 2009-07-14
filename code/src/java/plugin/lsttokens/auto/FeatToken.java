@@ -32,7 +32,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.AbilityList;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -97,8 +96,8 @@ public class FeatToken extends AbstractToken implements
 
 		boolean first = true;
 
-		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
-				.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (true)
 		{

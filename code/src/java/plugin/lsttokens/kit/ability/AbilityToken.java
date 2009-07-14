@@ -33,7 +33,6 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -123,8 +122,8 @@ public class AbilityToken extends AbstractToken implements
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
-		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
-				.getManufacturer(ABILITY_CLASS, ac);
+		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+				ABILITY_CLASS, ac);
 
 		while (st.hasMoreTokens())
 		{

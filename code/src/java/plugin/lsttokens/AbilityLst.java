@@ -43,7 +43,6 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -183,8 +182,8 @@ public class AbilityLst extends AbstractToken implements
 		boolean first = true;
 		boolean removed = false;
 
-		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
-				.getManufacturer(ABILITY_CLASS, category);
+		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+				ABILITY_CLASS, category);
 
 		while (true)
 		{
