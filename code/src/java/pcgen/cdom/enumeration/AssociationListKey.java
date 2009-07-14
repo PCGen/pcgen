@@ -32,6 +32,7 @@ import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
@@ -133,6 +134,12 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<Equipment> CHOOSE_EQUIPMENT = new AssociationListKey<Equipment>();
 
 	public static final AssociationListKey<ArmorProf> CHOOSE_ARMORPROFICIENCY = new AssociationListKey<ArmorProf>();
+
+	public static final AssociationListKey<ShieldProf> CHOOSE_SHIELDPROFICIENCY = new AssociationListKey<ShieldProf>();
+	
+	public static final AssociationListKey<WeaponProf> CHOOSE_WEAPONPROFICIENCY = new AssociationListKey<WeaponProf>();
+
+	public static final AssociationListKey<AbilitySelection> CHOOSE_FEAT = new AssociationListKey<AbilitySelection>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
