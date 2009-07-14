@@ -39,6 +39,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -120,6 +122,9 @@ public class VFeatToken extends AbstractToken implements
 		boolean foundAny = false;
 		boolean foundOther = false;
 
+		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
+				.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT);
+
 		while (tok.hasMoreTokens())
 		{
 			CDOMReference<Ability> ab;
@@ -172,8 +177,7 @@ public class VFeatToken extends AbstractToken implements
 			else
 			{
 				foundOther = true;
-				ab = TokenUtilities.getTypeOrPrimitive(context, ABILITY_CLASS,
-						category, token);
+				ab = TokenUtilities.getTypeOrPrimitive(context, rm, token);
 			}
 			if (ab == null)
 			{

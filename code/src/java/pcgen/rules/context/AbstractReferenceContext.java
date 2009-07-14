@@ -72,8 +72,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	 * @param cat The category of the class.
 	 * @return The reference manufacturer
 	 */
-	protected abstract <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
-			Class<T> cl, Category<T> cat);
 
 	public abstract Collection<? extends ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers();
 

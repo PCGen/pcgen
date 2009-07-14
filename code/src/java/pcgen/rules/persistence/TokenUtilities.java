@@ -20,9 +20,9 @@ package pcgen.rules.persistence;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -78,21 +78,21 @@ public final class TokenUtilities
 	}
 
 	public static <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMReference<T> getTypeOrPrimitive(
-			LoadContext context, Class<T> cl, Category<T> cat, String s)
+			LoadContext context, ReferenceManufacturer<T, ?> rm, String s)
 	{
 		if (s.startsWith(Constants.LST_TYPE_OLD)
 				|| s.startsWith(Constants.LST_TYPE))
 		{
-			return getTypeReference(context, cl, cat, s);
+			return getTypeReference(context, rm, s);
 		}
 		else
 		{
-			return context.ref.getCDOMReference(cl, cat, s);
+			return rm.getReference(s);
 		}
 	}
 
 	public static <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMReference<T> getTypeReference(
-			LoadContext context, Class<T> cl, Category<T> cat, String s)
+			LoadContext context, ReferenceManufacturer<T, ?> rm, String s)
 	{
 		String subStr = s.substring(5);
 		if (subStr.length() == 0)
@@ -115,6 +115,6 @@ public final class TokenUtilities
 				return null;
 			}
 		}
-		return context.ref.getCDOMTypeReference(cl, cat, types);
+		return rm.getTypeReference(types);
 	}
 }

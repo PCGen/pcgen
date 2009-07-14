@@ -32,6 +32,8 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -81,15 +83,10 @@ public class FeatToken extends AbstractToken implements
 
 		StringTokenizer st = new StringTokenizer(value, "|");
 
-		AbilityCategory ac = AbilityCategory.FEAT;
-		kitAbil.setCategory(ac);
+		kitAbil.setCategory(AbilityCategory.FEAT);
 
-		//		String categoryToken = st.nextToken();
-		//		if (token.startsWith(CATEGORY_START_TOKEN))
-		//		{
-		//			return token.substring(CATEGORY_START_TOKEN.length());
-		//		}
-		//		Logging.errorPrint("No Category set for Ability");
+		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
+				.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (st.hasMoreTokens())
 		{
@@ -103,8 +100,7 @@ public class FeatToken extends AbstractToken implements
 				return false;
 			}
 			CDOMReference<Ability> ref =
-					TokenUtilities.getTypeOrPrimitive(context, ABILITY_CLASS,
-						ac, token);
+					TokenUtilities.getTypeOrPrimitive(context, rm, token);
 			if (ref == null)
 			{
 				return false;

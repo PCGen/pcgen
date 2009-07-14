@@ -90,8 +90,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return true;
 	}
 
-	@Override
-	protected <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		throw new UnsupportedOperationException(

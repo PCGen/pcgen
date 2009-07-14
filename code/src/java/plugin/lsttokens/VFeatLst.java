@@ -32,6 +32,8 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -82,6 +84,10 @@ public class VFeatLst extends AbstractToken implements
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Ability.Nature.VIRTUAL;
 		CDOMReference<AbilityList> list = Ability.FEATLIST;
+
+		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
+				.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT);
+
 		while (true)
 		{
 			if (token.equals(Constants.LST_DOT_CLEAR))
@@ -99,8 +105,7 @@ public class VFeatLst extends AbstractToken implements
 			else
 			{
 				CDOMReference<Ability> ability = TokenUtilities
-						.getTypeOrPrimitive(context, ABILITY_CLASS, category,
-								token);
+						.getTypeOrPrimitive(context, rm, token);
 				if (ability == null)
 				{
 					return false;

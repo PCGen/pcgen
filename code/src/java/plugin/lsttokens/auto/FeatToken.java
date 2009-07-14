@@ -32,6 +32,8 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -95,6 +97,9 @@ public class FeatToken extends AbstractToken implements
 
 		boolean first = true;
 
+		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
+				.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT);
+
 		while (true)
 		{
 			if (Constants.LST_DOT_CLEAR.equals(token))
@@ -113,15 +118,14 @@ public class FeatToken extends AbstractToken implements
 			{
 				String clearText = token.substring(7);
 				CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(
-						context, ABILITY_CLASS, category, clearText);
+						context, rm, clearText);
 				context.getListContext().removeFromList(getFullName(), obj,
 						abilList, ref);
 			}
 			else
 			{
 				CDOMReference<Ability> ability = TokenUtilities
-						.getTypeOrPrimitive(context, ABILITY_CLASS, category,
-								token);
+						.getTypeOrPrimitive(context, rm, token);
 				if (ability == null)
 				{
 					return false;

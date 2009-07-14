@@ -43,6 +43,8 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
@@ -181,6 +183,9 @@ public class AbilityLst extends AbstractToken implements
 		boolean first = true;
 		boolean removed = false;
 
+		ReferenceManufacturer<Ability, ? extends CDOMSingleRef<Ability>> rm = context.ref
+				.getManufacturer(ABILITY_CLASS, category);
+
 		while (true)
 		{
 			if (Constants.LST_DOT_CLEAR.equals(token))
@@ -198,9 +203,8 @@ public class AbilityLst extends AbstractToken implements
 			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
 				String clearText = token.substring(7);
-				CDOMReference<Ability> ref =
-						TokenUtilities.getTypeOrPrimitive(context,
-							ABILITY_CLASS, category, clearText);
+				CDOMReference<Ability> ref = TokenUtilities.getTypeOrPrimitive(
+						context, rm, clearText);
 				if (ref == null)
 				{
 					return false;
@@ -213,9 +217,8 @@ public class AbilityLst extends AbstractToken implements
 			}
 			else
 			{
-				CDOMReference<Ability> ability =
-						TokenUtilities.getTypeOrPrimitive(context,
-							ABILITY_CLASS, category, token);
+				CDOMReference<Ability> ability = TokenUtilities
+						.getTypeOrPrimitive(context, rm, token);
 				if (ability == null)
 				{
 					return false;
