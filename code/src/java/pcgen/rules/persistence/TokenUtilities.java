@@ -19,7 +19,6 @@ package pcgen.rules.persistence;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -37,47 +36,16 @@ public final class TokenUtilities
 	public static <T extends CDOMObject> CDOMReference<T> getTypeOrPrimitive(
 			LoadContext context, Class<T> cl, String s)
 	{
-		if (s.startsWith(Constants.LST_TYPE_OLD)
-				|| s.startsWith(Constants.LST_TYPE))
-		{
-			return getTypeReference(context, cl, s.substring(5));
-		}
-		else
-		{
-			return context.ref.getCDOMReference(cl, s);
-		}
+		return getTypeOrPrimitive(context, context.ref.getManufacturer(cl), s);
 	}
 
 	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
 			LoadContext context, Class<T> cl, String subStr)
 	{
-		if (subStr.length() == 0)
-		{
-			Logging.errorPrint("Type may not be empty in: " + subStr);
-			return null;
-		}
-		if (subStr.charAt(0) == '.'
-				|| subStr.charAt(subStr.length() - 1) == '.')
-		{
-			Logging
-					.errorPrint("Type may not start or end with . in: "
-							+ subStr);
-			return null;
-		}
-		String[] types = subStr.split("\\.");
-		for (String type : types)
-		{
-			if (type.length() == 0)
-			{
-				Logging.errorPrint("Attempt to acquire empty Type "
-						+ "(the type String contains '..') in: " + subStr);
-				return null;
-			}
-		}
-		return context.ref.getCDOMTypeReference(cl, types);
+		return getTypeReference(context, context.ref.getManufacturer(cl), subStr);
 	}
 
-	public static <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMReference<T> getTypeOrPrimitive(
+	public static <T extends CDOMObject> CDOMReference<T> getTypeOrPrimitive(
 			LoadContext context, ReferenceManufacturer<T, ?> rm, String s)
 	{
 		if (s.startsWith(Constants.LST_TYPE_OLD)
@@ -91,7 +59,7 @@ public final class TokenUtilities
 		}
 	}
 
-	public static <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMReference<T> getTypeReference(
+	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
 			LoadContext context, ReferenceManufacturer<T, ?> rm, String s)
 	{
 		String subStr = s.substring(5);
