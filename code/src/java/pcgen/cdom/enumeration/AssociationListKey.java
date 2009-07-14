@@ -37,6 +37,7 @@ import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
+import pcgen.core.Deity;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
@@ -140,6 +141,8 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<WeaponProf> CHOOSE_WEAPONPROFICIENCY = new AssociationListKey<WeaponProf>();
 
 	public static final AssociationListKey<AbilitySelection> CHOOSE_FEAT = new AssociationListKey<AbilitySelection>();
+
+	public static final AssociationListKey<Deity> CHOOSE_DEITY = new AssociationListKey<Deity>();
 	
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
