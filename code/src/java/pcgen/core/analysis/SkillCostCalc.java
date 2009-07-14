@@ -47,7 +47,7 @@ import pcgen.core.Skill;
 public final class SkillCostCalc
 {
 
-	private static boolean isClassSkill(Skill sk, PCClass aClass,
+	public static boolean isClassSkill(Skill sk, PCClass aClass,
 			PlayerCharacter aPC)
 	{
 		if ((aPC == null) || (aClass == null))
