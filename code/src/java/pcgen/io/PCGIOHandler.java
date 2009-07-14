@@ -50,12 +50,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
-import pcgen.core.bonus.Bonus;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.util.InputFactory;
-import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 
 /**
@@ -375,105 +369,7 @@ public final class PCGIOHandler extends IOHandler
 
 		for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
 		{
-			if (aFeat.getSafe(StringKey.CHOICE_STRING).startsWith("SALIST|"))
-			{
-				List<String> aAvailable = new ArrayList<String>();
-				List<String> aBonus = new ArrayList<String>();
-				buildSALIST(aFeat.getSafe(StringKey.CHOICE_STRING), aAvailable, aBonus,
-					currentPC);
-
-				for (String aString : aPC.getAssociationList(aFeat))
-				{
-					String orig = aString;
-					final String prefix = aString + "|";
-					boolean bLoop = true;
-
-					while (true)
-					{
-						int x;
-
-						for (x = 0; x < aBonus.size(); x++)
-						{
-							final String bString = aBonus.get(x);
-
-							if (bString.startsWith(prefix))
-							{
-								String tmp =
-										bString
-											.substring(bString.indexOf('|') + 1);
-								final BonusObj b = Bonus.newBonus(tmp);
-								
-								if (b != null)
-								{
-									b.setCreatorObject(aFeat);
-									aPC.addAssoc(aFeat, AssociationListKey.BONUS, b);
-								}
-
-								break;
-							}
-						}
-
-						if ((x < aBonus.size()) || !bLoop)
-						{
-							break;
-						}
-
-						bLoop = false; // Avoid infinite loops at all costs!
-
-						// Do direct replacement if only 1 choice
-						if (aBonus.size() == 1)
-						{
-							aString = aBonus.get(0);
-							aString =
-									aString.substring(0, aString.indexOf('|'));
-						}
-						else
-						{
-							/*
-							 * need to come up with a method that will allow to
-							 * remove the necessity of swing to be used here
-							 *
-							 * author: Thomas Behr 15-03-02
-							 */
-							while (true)
-							{
-								final String message =
-										aFeat.getDisplayName()
-											+ " has been modified and PCGen is unable to "
-											+ "determine your previous selection(s)."
-											+ Constants.s_LINE_SEP
-											+ Constants.s_LINE_SEP
-											+ "This box will pop up once for each time you "
-											+ "have taken the feat.";
-
-								InputInterface ii =
-										InputFactory.getInputInstance();
-								Object selectedValue =
-										ii.showInputDialog(null, message,
-											Constants.s_APPNAME,
-											MessageType.INFORMATION, aAvailable
-												.toArray(), aAvailable.get(0));
-
-								if (selectedValue != null)
-								{
-									aString = (String) selectedValue;
-
-									break;
-								}
-
-								ShowMessageDelegate.showMessageDialog(
-									"You MUST make a selection",
-									Constants.s_APPNAME,
-									MessageType.INFORMATION);
-							}
-						}
-
-						aPC.removeAssociation(aFeat, orig);
-						aPC.addAssociation(aFeat, aString);
-					}
-				}
-			}
-			else if (aFeat.getSafe(StringKey.CHOICE_STRING).startsWith("NONCLASSSKILLLIST|"))
+			if (aFeat.getSafe(StringKey.CHOICE_STRING).startsWith("NONCLASSSKILLLIST|"))
 			{
 				for (String skillString : currentPC.getAssociationList(aFeat))
 				{

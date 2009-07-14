@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
@@ -40,6 +40,9 @@ public class SAListToken implements CDOMSecondaryToken<CDOMObject>
 	public boolean parse(LoadContext context, CDOMObject obj, String value)
 			throws PersistenceLayerException
 	{
+		Logging.deprecationPrint("CHOOSE:SALIST has been deprecated.  "
+				+ "If you are looking for a replacement function, "
+				+ "please contact the PCGen team for support");
 		if (value.indexOf('|') != -1)
 		{
 			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()

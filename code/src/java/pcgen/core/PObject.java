@@ -639,16 +639,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		if (aPC != null && "VAR".equals(aType))
 		{
 			iTimes = Math.max(1, aPC.getDetailedAssociationCount(this));
-
-			//
-			// SALIST will stick BONUS:VAR|...
-			// into bonus list so don't multiply
-			//
-			String choiceString = getSafe(StringKey.CHOICE_STRING);
-			if (choiceString.startsWith("SALIST|") && (choiceString.indexOf("|VAR|") >= 0))
-			{
-				iTimes = 1;
-			}
 		}
 
 		for ( BonusObj bonus : aBonusList )
