@@ -6439,6 +6439,48 @@ jar-all-plugins - Generate the plugin jar files
 	
 	<target name="jar-qualifier-skill-plugins" depends="makeplugindirs" description="Build (Link) Skill Qualifier Token plugin jar files">
 		<!-- Skill Qualifier tokens-->
+		<jar jarfile="${lstplugins.dir}/SkillQualifier-CLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/skill/ClassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillQualifier-CROSSCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/skill/CrossClassToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillQualifier-EXCLUSIVE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/skill/ExclusiveToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillQualifier-NORANK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/skill/NoRankToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillQualifier-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/skill/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillQualifier-RANKS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/skill/RanksToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 	
 	<target name="jar-qualifier-shieldprof-plugins" depends="makeplugindirs" description="Build (Link) Shield Prof Qualifier Token plugin jar files">
