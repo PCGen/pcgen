@@ -102,6 +102,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability.Nature;
+import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.RaceStat;
@@ -307,7 +308,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int age = 0;
 
 	// null is <none selected>
-	private PCAlignment alignment = PCAlignment.NO_ALIGNMENT;
+	private PCAlignment alignment = AlignmentConverter.getNoAlignment();
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
 	private int earnedXP = 0;
@@ -4576,12 +4577,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		else
 		{
 			if ((bLoading)
-				&& (!align.equals(PCAlignment.NO_ALIGNMENT)))
+				&& (!align.getAbb().equals(Constants.s_NONE)))
 			{
 				ShowMessageDelegate.showMessageDialog(
 					"Invalid alignment. Setting to <none selected>",
 					Constants.s_APPNAME, MessageType.INFORMATION);
-				alignment = PCAlignment.NO_ALIGNMENT;
+				alignment = AlignmentConverter.getNoAlignment();
 			}
 
 			throw new IllegalArgumentException("Invalid alignment");

@@ -1150,7 +1150,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
 			if ((levels > 0)
-				&& (pc.getPCAlignment().equals(PCAlignment.NO_ALIGNMENT)))
+				&& (pc.getPCAlignment().getAbb().equals(Constants.s_NONE)))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -1479,7 +1479,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		pc.setAlignment(newAlign, false, true);
 		forceRefresh(false);
-		enableRaceControls(!newAlign.equals(PCAlignment.NO_ALIGNMENT));
+		enableRaceControls(!newAlign.getAbb().equals(Constants.s_NONE));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();
 	}
 
@@ -2289,7 +2289,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		setStatLabelText();
 
 		enableRaceControls(!alignmentComboBox.isVisible()
-			|| !align.equals(PCAlignment.NO_ALIGNMENT));
+			|| !align.getAbb().equals(Constants.s_NONE));
 		startListeners();
 	}
 

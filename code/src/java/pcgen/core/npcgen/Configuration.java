@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.WeightedCollection;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
@@ -164,7 +165,7 @@ public class Configuration
 					break;
 				}
 			}
-			if (!align.equals(PCAlignment.NO_ALIGNMENT) && !included)
+			if (!align.getAbb().equals(Constants.s_NONE) && !included)
 			{
 				final AlignGeneratorOption opt = new AlignGeneratorOption();
 				opt.setName(align.getDisplayName());
