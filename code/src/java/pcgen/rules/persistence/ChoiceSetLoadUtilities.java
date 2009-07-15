@@ -287,7 +287,7 @@ public final class ChoiceSetLoadUtilities
 				return TokenUtilities.getTypeReference(context, cl, tokValue);
 			}
 			if ("!TYPE".equals(tokKey))
-		{
+			{
 				CDOMGroupRef<T> typeReference = TokenUtilities
 						.getTypeReference(context, cl, tokValue);
 				if (typeReference == null)
