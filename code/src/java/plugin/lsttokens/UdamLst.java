@@ -83,10 +83,10 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			final StringTokenizer tok = new StringTokenizer(value,
 					Constants.COMMA);
-			if (tok.countTokens() != 9)
+			if (tok.countTokens() != 9 && tok.countTokens() != 1)
 			{
 				Logging.log(Logging.LST_ERROR, getTokenName()
-						+ " requires 9 comma separated values");
+						+ " requires either a single value or 9 comma separated values");
 				return false;
 			}
 			if (context.getObjectContext().containsListFor(obj,
