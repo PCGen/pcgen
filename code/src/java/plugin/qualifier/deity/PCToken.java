@@ -41,4 +41,9 @@ public class PCToken extends AbstractPCQualifierToken<Deity>
 		}
 	}
 
+	public Class<? super Deity> getChoiceClass()
+	{
+		return Deity.class;
+	}
+
 }

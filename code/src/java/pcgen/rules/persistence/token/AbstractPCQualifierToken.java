@@ -68,18 +68,6 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		return true;
 	}
 
-	public Class<? super T> getChoiceClass()
-	{
-		if (refClass == null)
-		{
-			return CDOMObject.class;
-		}
-		else
-		{
-			return refClass;
-		}
-	}
-
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Collection<T> objects = getPossessed(pc);

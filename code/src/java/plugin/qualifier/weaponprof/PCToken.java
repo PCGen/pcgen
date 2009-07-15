@@ -32,4 +32,9 @@ public class PCToken extends AbstractPCQualifierToken<WeaponProf>
 		return pc.getWeaponProfs();
 	}
 
+	public Class<? super WeaponProf> getChoiceClass()
+	{
+		return WeaponProf.class;
+	}
+
 }
