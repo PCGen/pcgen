@@ -6392,7 +6392,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${lstplugins.dir}/DeityPrimitive-ALIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/primitive/deity/AlignmentToken.class" />
+					<include name="plugin/primitive/deity/AlignToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6405,7 +6405,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 	
-	<target name="jar-qualifier-plugins" depends="jar-qualifier-global-plugins,jar-qualifier-armorprof-plugins,jar-qualifier-shieldprof-plugins,jar-qualifier-weaponprof-plugins,jar-qualifier-transition-plugins" description="Build (Link) Lst Compatibility Token plugin jar files">
+	<target name="jar-qualifier-plugins" depends="jar-qualifier-global-plugins,jar-qualifier-armorprof-plugins,jar-qualifier-shieldprof-plugins,jar-qualifier-skill-plugins,jar-qualifier-weaponprof-plugins,jar-qualifier-transition-plugins" description="Build (Link) Lst Compatibility Token plugin jar files">
 	</target>
 
 	<target name="jar-qualifier-global-plugins" depends="makeplugindirs" description="Build (Link) Global Qualifier Token plugin jar files">
@@ -6435,6 +6435,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+	</target>
+	
+	<target name="jar-qualifier-skill-plugins" depends="makeplugindirs" description="Build (Link) Skill Qualifier Token plugin jar files">
+		<!-- Skill Qualifier tokens-->
 	</target>
 	
 	<target name="jar-qualifier-shieldprof-plugins" depends="makeplugindirs" description="Build (Link) Shield Prof Qualifier Token plugin jar files">
