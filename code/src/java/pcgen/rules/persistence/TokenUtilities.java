@@ -51,7 +51,7 @@ public final class TokenUtilities
 		if (s.startsWith(Constants.LST_TYPE_OLD)
 				|| s.startsWith(Constants.LST_TYPE))
 		{
-			return getTypeReference(rm, s);
+			return getTypeReference(rm, s.substring(5));
 		}
 		else
 		{
@@ -62,19 +62,18 @@ public final class TokenUtilities
 	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
 			ReferenceManufacturer<T, ?> rm, String s)
 	{
-		String subStr = s.substring(5);
-		if (subStr.length() == 0)
+		if (s.length() == 0)
 		{
 			Logging.errorPrint("Type may not be empty in: " + s);
 			return null;
 		}
-		if (subStr.charAt(0) == '.'
-				|| subStr.charAt(subStr.length() - 1) == '.')
+		if (s.charAt(0) == '.'
+				|| s.charAt(s.length() - 1) == '.')
 		{
 			Logging.errorPrint("Type may not start or end with . in: " + s);
 			return null;
 		}
-		String[] types = subStr.split("\\.");
+		String[] types = s.split("\\.");
 		for (String type : types)
 		{
 			if (type.length() == 0)
