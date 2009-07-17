@@ -129,7 +129,7 @@ public class ChooseLst extends AbstractToken implements
 			}
 			if (str[i].startsWith("FEATEQ|"))
 			{
-				str[i] = "FEAT=" + str[i].substring(5);
+				str[i] = "FEAT=" + str[i].substring(7);
 			}
 		}
 		return str;
