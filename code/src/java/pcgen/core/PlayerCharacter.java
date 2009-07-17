@@ -3931,14 +3931,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		final String aString = checkForVariableInList(alignment,
-				variableString, isMax, found, value);
-
-		if (aString.length() > 0)
+		if (alignment != null)
 		{
-			value = getMinMaxFirstValue(found, isMax, value, Float
-					.parseFloat(aString));
-			found = true;
+			final String aString = checkForVariableInList(alignment,
+					variableString, isMax, found, value);
+
+			if (aString.length() > 0)
+			{
+				value = getMinMaxFirstValue(found, isMax, value, Float
+						.parseFloat(aString));
+				found = true;
+			}
 		}
 
 		if (!found)
