@@ -33,39 +33,6 @@ public abstract class CDOMListObject<T extends PrereqObject> extends CDOMObject
 {
 
 	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMListObject
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode()
-	{
-		return getClass().hashCode();
-	}
-
-	/**
-	 * Returns true if this CDOMListObject is equal to the given object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object o)
-	{
-		if (o == this)
-		{
-			return true;
-		}
-		if (o instanceof CDOMListObject)
-		{
-			CDOMListObject<?> other = (CDOMListObject<?>) o;
-			return o.getClass().equals(getClass())
-					&& other.getListClass().equals(getListClass())
-					&& getKeyName().equals(other.getKeyName());
-		}
-		return false;
-	}
-	
-	/**
 	 * Returns a String representation of this CDOMListObject
 	 * 
 	 * @see java.lang.Object#toString()
