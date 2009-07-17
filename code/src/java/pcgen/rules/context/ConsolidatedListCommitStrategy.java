@@ -244,4 +244,10 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return false;
 	}
 
+	public <T extends CDOMObject> Collection<T> getObjects(
+			CDOMReference<CDOMList<T>> ref)
+	{
+		return (Collection<T>) masterList.getSecondaryKeySet(ref);
+	}
+
 }

@@ -79,4 +79,7 @@ public interface MasterListInterface
 	 */
 	public <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(
 			CDOMList<T> key1, T key2);
+
+	public <T extends CDOMObject> Collection<T> getObjects(
+			CDOMReference<CDOMList<T>> ref);
 }

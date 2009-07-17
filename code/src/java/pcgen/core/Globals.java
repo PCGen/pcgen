@@ -34,12 +34,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -49,11 +51,14 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
+import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
@@ -62,9 +67,9 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.analysis.SizeUtilities;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
@@ -1506,33 +1511,46 @@ public final class Globals
 	 */
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
 	{
-		final List<Spell> aList = new ArrayList<Spell>();
-		for (String aKey : spellMap.keySet())
+		MasterListInterface masterLists = Globals.getMasterLists();
+		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<CDOMReference<CDOMList<Spell>>>();
+		for (CDOMReference ref : masterLists.getActiveLists())
 		{
-			final Object obj = spellMap.get(aKey);
-
-			if (obj instanceof ArrayList)
+			for (CDOMList<Spell> list : spellLists)
 			{
-				for (Spell aSpell : (ArrayList<Spell>)obj)
+				if (ref.contains(list))
 				{
-					if (SpellLevel.levelForKeyContains(aSpell, spellLists, level, currentPC))
-					{
-						aList.add(aSpell);
-					}
+					useLists.add(ref);
+					break;
 				}
 			}
-			else if (obj instanceof Spell)
+		}
+		boolean allLevels = level == -1;
+		Set<Spell> spellList = new HashSet<Spell>();
+		for (CDOMReference<CDOMList<Spell>> ref : useLists)
+		{
+			for (Spell spell : masterLists.getObjects(ref))
 			{
-				final Spell aSpell = (Spell) obj;
-
-				if (SpellLevel.levelForKeyContains(aSpell, spellLists, level, currentPC))
+				Collection<AssociatedPrereqObject> assoc = masterLists
+				.getAssociations(ref, spell);
+				for (AssociatedPrereqObject apo : assoc)
 				{
-					aList.add(aSpell);
+					// TODO This null for source is incorrect!
+					if (PrereqHandler.passesAll(apo.getPrerequisiteList(),
+							currentPC, null))
+					{
+						int lvl = apo
+								.getAssociation(AssociationKey.SPELL_LEVEL);
+						if (allLevels || level == lvl)
+						{
+							spellList.add(spell);
+							break;
+						}
+					}
 				}
 			}
 		}
 
-		return aList;
+		return new ArrayList<Spell>(spellList);
 	}
 
 	/**
