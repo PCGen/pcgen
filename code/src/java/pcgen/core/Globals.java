@@ -51,6 +51,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
+import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -1531,7 +1532,7 @@ public final class Globals
 			for (Spell spell : masterLists.getObjects(ref))
 			{
 				Collection<AssociatedPrereqObject> assoc = masterLists
-				.getAssociations(ref, spell);
+						.getAssociations(ref, spell);
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					// TODO This null for source is incorrect!
@@ -1541,6 +1542,21 @@ public final class Globals
 						int lvl = apo
 								.getAssociation(AssociationKey.SPELL_LEVEL);
 						if (allLevels || level == lvl)
+						{
+							spellList.add(spell);
+							break;
+						}
+					}
+				}
+				HashMapToList<CDOMList<Spell>, Integer> pcli = currentPC
+						.getPCBasedLevelInfo(spell);
+				for (CDOMList<Spell> list : pcli.getKeySet())
+				{
+					if (spellLists.contains(list))
+					{
+						List<Integer> levels = pcli.getListFor(list);
+						if (levels != null
+								&& (allLevels || levels.contains(level)))
 						{
 							spellList.add(spell);
 							break;
