@@ -102,9 +102,9 @@ public class MapKeyMap
 	 * @param value
 	 *            The value to be added to the List for the given key.
 	 */
-	public <K, V> void addToMapFor(MapKey<K, V> key1, K key2, V value)
+	public <K, V> V addToMapFor(MapKey<K, V> key1, K key2, V value)
 	{
-		map.put(key1, key2, value);
+		return (V) map.put(key1, key2, value);
 	}
 
 	/**

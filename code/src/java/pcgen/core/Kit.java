@@ -23,13 +23,12 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.kit.BaseKit;
@@ -51,17 +50,9 @@ import pcgen.util.enumeration.Visibility;
  */
 public final class Kit extends PObject implements Comparable<Object>
 {
-	private List<KitStat> statList = new ArrayList<KitStat>();
-	private Map<String, KitTable> tableMap = new HashMap<String, KitTable>();
-
 	private int selectValue = -1;
 
 	private boolean doLevelAbilitiesFlag = true;
-
-	public Kit()
-	{
-		//
-	}
 
 	/**
 	 * Returns the list of base stats that are set by the kit.
@@ -71,7 +62,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	 */
 	public List<KitStat> getStats()
 	{
-		return statList;
+		return getListFor(ListKey.STAT_LIST);
 	}
 
 	/**
@@ -110,11 +101,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	{
 		if (kitStat != null)
 		{
-			if (statList == null)
-			{
-				statList = new ArrayList<KitStat>();
-			}
-			statList.add(kitStat);
+			addToListFor(ListKey.STAT_LIST, kitStat);
 		}
 	}
 
@@ -163,7 +150,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	public void processKit(final PlayerCharacter pc,
 		final List<BaseKit> thingsToAdd, final int kitNo)
 	{
-		for (KitStat kStat : statList)
+		for (KitStat kStat : getStats())
 		{
 			kStat.apply(pc);
 		}
@@ -251,7 +238,7 @@ public final class Kit extends PObject implements Comparable<Object>
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
 		PlayerCharacter tempPC = (PlayerCharacter) aPC.clone();
-		for (KitStat kStat : statList)
+		for (KitStat kStat : getStats())
 		{
 			kStat.testApply(this, tempPC, warnings);
 		}
@@ -369,11 +356,11 @@ public final class Kit extends PObject implements Comparable<Object>
 
 	public KitTable getTable(String name)
 	{
-		return tableMap.get(name);
+		return get(MapKey.KIT_TABLE, name);
 	}
 
 	public KitTable addTable(KitTable table)
 	{
-		return tableMap.put(table.getTableName(), table);
+		return addToMapFor(MapKey.KIT_TABLE, table.getTableName(), table);
 	}
 }

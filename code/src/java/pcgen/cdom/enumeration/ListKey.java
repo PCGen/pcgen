@@ -81,6 +81,7 @@ import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.kit.BaseKit;
+import pcgen.core.kit.KitStat;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 
@@ -251,6 +252,7 @@ public final class ListKey<T> {
 	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<ObjectKey<?>>();
 	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseSelectionActor<?>> NEW_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
+	public static final ListKey<KitStat> STAT_LIST = new ListKey<KitStat>();
 	
 	//These are case sensitive, please do not change them to upper case
 	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();

@@ -311,9 +311,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * @param key The key to assign against
 	 * @param value The value to be stored.
 	 */
-	public final <K, V> void addToMapFor(MapKey<K, V> mk, K key, V value)
+	public final <K, V> V addToMapFor(MapKey<K, V> mk, K key, V value)
 	{
-		mapChar.addToMapFor(mk, key, value);
+		return mapChar.addToMapFor(mk, key, value);
 	}
 
 	/**

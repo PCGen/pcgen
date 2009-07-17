@@ -27,6 +27,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
+import pcgen.core.kit.KitTable;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.AttackType;
 
@@ -61,6 +62,7 @@ public final class MapKey<K, V>
 	public static final MapKey<String, Integer> APPLIED_VARIABLE = new MapKey<String, Integer>();
 	public static final MapKey<String, String> QUALITY = new MapKey<String, String>();
 	public static final MapKey<AttackType, Integer> ATTACK_CYCLE = new MapKey<AttackType, Integer>();
+	public static final MapKey<String, KitTable> KIT_TABLE = new MapKey<String, KitTable>();
 
 	/**
 	 * Private constructor to prevent instantiation of this class.
