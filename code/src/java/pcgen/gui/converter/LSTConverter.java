@@ -58,6 +58,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
+import pcgen.persistence.lst.SizeAdjustmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLoader;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
@@ -67,6 +68,7 @@ public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
 	private final StatsAndChecksLoader statCheckLoader = new StatsAndChecksLoader();
+	private final SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
 	private final EditorLoadContext context;
 	private List<Loader> loaders;
 	private Set<URI> written = new HashSet<URI>();
@@ -326,8 +328,11 @@ public class LSTConverter extends Observable
 		File specificGameModeDir = new File(gameModeDir, gamemode
 				.getFolderName());
 		File statsAndChecks = new File(specificGameModeDir,
-				"statsandchecks.lst");
+		"statsandchecks.lst");
 		statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
+		File sizes = new File(specificGameModeDir,
+				"sizeAdjustment.lst");
+		sizeLoader.loadLstFile(context, sizes.toURI());
 
 		for (PCAlignment al : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
