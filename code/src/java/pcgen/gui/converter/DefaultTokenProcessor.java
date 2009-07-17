@@ -51,10 +51,15 @@ public class DefaultTokenProcessor implements TokenProcessor
 				return ("Unable to unparse: " + tpe.getKey() + ":" + tpe
 						.getValue());
 			}
+			boolean needTab = false;
 			for (String s : output)
 			{
+				if (needTab)
+				{
+					tpe.append('\t');
+				}
+				needTab = true;
 				tpe.append(s);
-				tpe.append('\t');
 			}
 			tpe.consume();
 		}
