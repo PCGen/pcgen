@@ -196,6 +196,7 @@ public class AlignmentToken extends AbstractToken implements
 				ca.removeChoice(owner, choice, pc);
 			}
 		}
+		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,

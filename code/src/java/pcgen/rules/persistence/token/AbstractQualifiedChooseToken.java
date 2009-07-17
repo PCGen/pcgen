@@ -145,6 +145,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 				ca.removeChoice(owner, choice, pc);
 			}
 		}
+		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
