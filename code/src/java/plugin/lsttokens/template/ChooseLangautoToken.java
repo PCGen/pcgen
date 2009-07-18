@@ -77,20 +77,16 @@ public class ChooseLangautoToken extends AbstractToken implements
 		List<CDOMReference<Language>> refs =
 				new ArrayList<CDOMReference<Language>>();
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		boolean foundAny = false;
-		boolean foundOther = false;
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
 			CDOMReference<Language> lang;
 			if (Constants.LST_ALL.equals(tokText))
 			{
-				foundAny = true;
 				lang = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
 			}
 			else
 			{
-				foundOther = true;
 				lang =
 						TokenUtilities.getTypeOrPrimitive(context,
 							LANGUAGE_CLASS, tokText);
@@ -104,15 +100,15 @@ public class ChooseLangautoToken extends AbstractToken implements
 			}
 			refs.add(lang);
 		}
-		if (foundAny && foundOther)
+
+		ReferenceChoiceSet<Language> rcs =
+				new ReferenceChoiceSet<Language>(refs);
+		if (!rcs.getGroupingState().isValid())
 		{
 			Logging.errorPrint("Non-sensical " + getFullName()
 				+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
-
-		ReferenceChoiceSet<Language> rcs =
-				new ReferenceChoiceSet<Language>(refs);
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
 		cs.setTitle("Pick a Language");
 		PersistentTransitionChoice<Language> tc =
