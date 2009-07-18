@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -77,12 +76,10 @@ import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -124,12 +121,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * ALLCLASSLEVELS castForLevelMap is part of PCClassLevel - or nothing at
-	 * all since this seems to be a form of cache? - DELETEVARIABLE
-	 */
-	private HashMap<Integer, Integer> castForLevelMap = null;
-
-	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
 	 * but it gets VERY complicated to do that, since the keys are widely used
 	 * in the variable processor.
@@ -148,10 +139,7 @@ public class PCClass extends PObject
 	 */
 	private String classKey = null;
 
-	private SpellProgressionCache spellCache = null;
-	private boolean spellCacheValid = false;
-
-	//	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
+	private SpellSupportForPCClass sCache = new SpellSupportForPCClass(this);
 
 	/**
 	 * Default Constructor. Constructs an empty PCClass.
@@ -334,7 +322,7 @@ public class PCClass extends PObject
 	public int getCastForLevel(final int spellLevel, final String bookName,
 		final PlayerCharacter aPC)
 	{
-		return getCastForLevel(spellLevel, bookName, true, true, aPC);
+		return sCache.getCastForLevel(spellLevel, bookName, true, true, aPC);
 	}
 
 	/**
@@ -361,198 +349,7 @@ public class PCClass extends PObject
 		final boolean includeAdj, final boolean limitByStat,
 		final PlayerCharacter aPC)
 	{
-		int pcLevel = getLevel(aPC);
-		int total = 0;
-		int stat = 0;
-		final String classKeyName = "CLASS." + getKeyName();
-		final String levelSpellLevel = ";LEVEL." + spellLevel;
-		final String allSpellLevel = ";LEVEL.All";
-
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", getKeyName());
-		pcLevel +=
-				(int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
-
-		if (getNumFromCastList(pcLevel, spellLevel, aPC) < 0)
-		{
-			// can't cast spells of this level
-			// however, character might have a bonus spell slot e.g. from
-			// certain feats
-			return (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName
-				+ levelSpellLevel);
-		}
-
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLCAST", classKeyName
-					+ levelSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLCAST", "TYPE." + getSpellType()
-					+ levelSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLCAST", "CLASS.Any"
-					+ levelSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLCAST", classKeyName
-					+ allSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLCAST", "TYPE." + getSpellType()
-					+ allSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLCAST", "CLASS.Any"
-					+ allSpellLevel);
-
-		PCStat aStat = bonusSpellStat();
-		String statString = Constants.s_NONE;
-
-		if (aStat != null)
-		{
-			stat = StatAnalysis.getTotalStatFor(aPC, aStat);
-			statString = aStat.getAbb();
-		}
-
-		final int bonusStat =
-				(int) aPC.getTotalBonusTo("STAT", "CAST." + statString)
-					+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT")
-					+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS."
-						+ getKeyName());
-
-		if ((!getSafe(ObjectKey.USE_SPELL_SPELL_STAT)) && limitByStat)
-		{
-			PCStat ss = get(ObjectKey.SPELL_STAT);
-			if (ss != null)
-			{
-				final int maxSpellLevel =
-					aPC.getVariableValue("MAXLEVELSTAT=" + ss.getAbb(), "")
-						.intValue();
-
-				if ((maxSpellLevel + bonusStat) < spellLevel)
-				{
-					return total;
-				}
-			}
-		}
-
-		stat += bonusStat;
-
-		// Now we decide whether to adjust the number of slots down
-		// the road by adding specialty slots.
-		// Reworked to consider the fact that a lower-level
-		// specialty spell can go into this level of specialty slot
-		//
-		int adj = 0;
-
-		if (includeAdj && !bookName.equals(Globals.getDefaultSpellBook())
-			&& (aPC.hasAssocs(this, AssociationKey.SPECIALTY) || aPC.hasDomains()))
-		{
-			// We need to do this for EVERY spell level up to the
-			// one really under consideration, because if there
-			// are any specialty spells available BELOW this level,
-			// we might wind up using THIS level's slots for them.
-			for (int ix = 0; ix <= spellLevel; ++ix)
-			{
-				final List<CharacterSpell> aList =
-						aPC.getCharacterSpells(this, null, Constants.EMPTY_STRING, ix);
-				List<Spell> bList = new ArrayList<Spell>();
-
-				if (!aList.isEmpty())
-				{
-					// Assume no null check on castInfo requried, because
-					// getNumFromCastList above would have returned -1
-					if ((ix > 0)
-						&& "DIVINE".equalsIgnoreCase(getSpellType()))
-					{
-						for (Domain d : aPC.getDomainSet())
-						{
-							if (getKeyName().equals(
-									aPC.getDomainSource(d).getPcclass()
-											.getKeyName()))
-							{
-								bList = Globals.getSpellsIn(ix, Collections
-										.singletonList(d.get(
-												ObjectKey.DOMAIN_SPELLLIST)));
-							}
-						}
-					}
-
-					for (CharacterSpell cs : aList)
-					{
-						int x = -1;
-
-						if (!bList.isEmpty())
-						{
-							if (bList.contains(cs.getSpell()))
-							{
-								x = 0;
-							}
-						}
-						else
-						{
-							x =
-									cs.getInfoIndexFor(aPC, Constants.EMPTY_STRING,
-										ix, 1);
-						}
-
-						if (x > -1)
-						{
-							PCClass target = this;
-							String subClassKey = aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY);
-							if (subClassKey != null && (subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
-							{
-								target = getSubClassKeyed(subClassKey);
-							}
-							adj = target.getSpecialtyKnownForLevel(spellLevel, aPC);
-
-							break;
-						}
-					}
-				}
-				// end of what to do if aList is not empty
-
-				if (adj > 0)
-				{
-					break;
-				}
-			}
-			// end of looping up to this level looking for specialty spells that
-			// can be cast
-		}
-		// end of deciding whether there are specialty slots to distribute
-
-		int mult =
-				(int) aPC.getTotalBonusTo("SPELLCASTMULT", classKeyName
-					+ levelSpellLevel);
-		mult +=
-				(int) aPC.getTotalBonusTo("SPELLCASTMULT", "TYPE."
-					+ getSpellType() + levelSpellLevel);
-
-		if (mult < 1)
-		{
-			mult = 1;
-		}
-
-		final int t = getNumFromCastList(pcLevel, spellLevel, aPC);
-
-		total += ((t * mult) + adj);
-
-		// TODO - God I hate all these strings. Return an array or list.
-		final String bonusSpell =
-				Globals.getBonusSpellMap().get(String.valueOf(spellLevel));
-
-		// TODO - Yuck. Figure out how to get rid of hardcoded "0|0"
-
-		if ((bonusSpell != null) && !bonusSpell.equals("0|0")) //$NON-NLS-1$
-		{
-			final StringTokenizer s =
-					new StringTokenizer(bonusSpell, Constants.PIPE);
-			final int base = Integer.parseInt(s.nextToken());
-			final int range = Integer.parseInt(s.nextToken());
-
-			if (stat >= base)
-			{
-				total += Math.max(0, (stat - base + range) / range);
-			}
-		}
-
-		return total;
+		return sCache.getCastForLevel(spellLevel, bookName, includeAdj, limitByStat, aPC);
 	}
 
 	/*
@@ -803,16 +600,12 @@ public class PCClass extends PObject
 	 */
 	public List<Formula> getCastListForLevel(int aLevel)
 	{
-		if (!updateSpellCache(false))
-		{
-			return null;
-		}
-		return spellCache.getCastForLevel(aLevel);
+		return sCache.getCastListForLevel(aLevel);
 	}
 
 	public boolean hasCastList()
 	{
-		return updateSpellCache(false) && spellCache.hasCastProgression();
+		return sCache.hasCastList();
 	}
 
 	/*
@@ -820,11 +613,7 @@ public class PCClass extends PObject
 	 */
 	public Map<Integer, List<Formula>> getCastProgression()
 	{
-		if (!updateSpellCache(false))
-		{
-			return null;
-		}
-		return spellCache.getCastProgression();
+		return sCache.getCastProgression();
 	}
 
 	/**
@@ -834,12 +623,7 @@ public class PCClass extends PObject
 	 */
 	public int getHighestLevelSpell()
 	{
-		if (!updateSpellCache(false))
-		{
-			return -1;
-		}
-		return Math.max(spellCache.getHighestCastSpellLevel(), spellCache
-			.getHighestKnownSpellLevel());
+		return sCache.getHighestLevelSpell();
 	}
 
 	/**
@@ -853,23 +637,7 @@ public class PCClass extends PObject
 	 */
 	public int getHighestLevelSpell(PlayerCharacter pc)
 	{
-		final String classKeyName = "CLASS." + getKeyName();
-		int mapHigh = getHighestLevelSpell();
-		int high = mapHigh;
-		for (int i = mapHigh; i < mapHigh + 30; i++)
-		{
-			final String levelSpellLevel = ";LEVEL." + i;
-			if (pc.getTotalBonusTo("SPELLCAST", classKeyName + levelSpellLevel) > 0)
-			{
-				high = i;
-			}
-			else if (pc.getTotalBonusTo("SPELLKNOWN", classKeyName
-				+ levelSpellLevel) > 0)
-			{
-				high = i;
-			}
-		}
-		return high;
+		return sCache.getHighestLevelSpell(pc);
 	}
 
 	/**
@@ -882,7 +650,7 @@ public class PCClass extends PObject
 	 */
 	public int getKnownForLevel(final int spellLevel, final PlayerCharacter aPC)
 	{
-		return getKnownForLevel(spellLevel, "null", aPC);
+		return sCache.getKnownForLevel(spellLevel, "null", aPC);
 	}
 
 	/**
@@ -903,11 +671,7 @@ public class PCClass extends PObject
 	 */
 	public Map<Integer, List<Formula>> getKnownMap()
 	{
-		if (!updateSpellCache(false))
-		{
-			return null;
-		}
-		return spellCache.getKnownProgression();
+		return sCache.getKnownMap();
 	}
 
 	/*
@@ -915,54 +679,7 @@ public class PCClass extends PObject
 	 */
 	public boolean hasKnownList()
 	{
-		return updateSpellCache(false) && spellCache.hasKnownProgression();
-	}
-
-	/*
-	 * PCCLASSONLY This is required in PCClass for PCClass editing
-	 *
-	 * DELETEMETHOD - this isn't used??? Or perhaps that indicates
-	 * that the GUI LST CLASS editor is incomplete :)
-	 */
-	public final Map<Integer, List<Formula>> getSpecialtyKnownList()
-	{
-		if (!updateSpellCache(false))
-		{
-			return null;
-		}
-		return spellCache.getSpecialtyKnownMap();
-	}
-
-	/**
-	 * Get the number of spells this PC can cast based on Caster Level and
-	 * desired Spell Level ex: how many 5th level spells can a 17th level wizard
-	 * cast?
-	 *
-	 * @param iCasterLevel
-	 * @param iSpellLevel
-	 * @param aPC
-	 *            The character we are interested in
-	 * @return int
-	 */
-	/*
-	 * REFACTOR There seems to be redundant information here (if there
-	 * is a PC, why do we need to know the PC Level?
-	 */
-	public int getNumFromCastList(final int iCasterLevel,
-		final int iSpellLevel, final PlayerCharacter aPC)
-	{
-		if (iCasterLevel == 0)
-		{
-			// can't cast spells!
-			return -1;
-		}
-
-		List<Formula> castListForLevel = getCastListForLevel(iCasterLevel);
-		if (castListForLevel == null || iSpellLevel >= castListForLevel.size())
-		{
-			return -1;
-		}
-		return castListForLevel.get(iSpellLevel).resolve(aPC, "").intValue();
+		return sCache.hasKnownList();
 	}
 
 	/*
@@ -975,42 +692,7 @@ public class PCClass extends PObject
 	public String getBonusCastForLevelString(final int spellLevel,
 		final String bookName, final PlayerCharacter aPC)
 	{
-		if (getCastForLevel(spellLevel, bookName, true, true, aPC) > 0)
-		{
-			// if this class has a specialty, return +1
-			if (aPC.hasAssocs(this, AssociationKey.SPECIALTY))
-			{
-				PCClass target = this;
-				String subClassKey = aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY);
-				if (subClassKey != null && (subClassKey.length() > 0) && !subClassKey.equals(Constants.s_NONE))
-				{
-					target = getSubClassKeyed(subClassKey);
-				}
-
-				return "+"+target.getSpecialtyKnownForLevel(spellLevel, aPC);
-			}
-
-			if (!aPC.hasDomains())
-			{
-				return "";
-			}
-
-			// if the spelllevel is >0 and this class has a characterdomain
-			// associated with it, return +1
-			if ((spellLevel > 0) && "DIVINE".equalsIgnoreCase(get(StringKey.SPELLTYPE)))
-			{
-				for (Domain d : aPC.getDomainSet())
-				{
-					if (getKeyName().equals(
-							aPC.getDomainSource(d).getPcclass().getKeyName()))
-					{
-						return "+1";
-					}
-				}
-			}
-		}
-
-		return "";
+		return sCache.getBonusCastForLevelString(spellLevel, bookName, aPC);
 	}
 
 	/**
@@ -1026,8 +708,7 @@ public class PCClass extends PObject
 	 */
 	public int getCastForLevel(final int spellLevel, final PlayerCharacter aPC)
 	{
-		return getCastForLevel(spellLevel, Globals.getDefaultSpellBook(), true,
-			true, aPC);
+		return sCache.getCastForLevel(spellLevel, aPC);
 	}
 
 	/**
@@ -1046,53 +727,7 @@ public class PCClass extends PObject
 	public int getSpecialtyKnownForLevel(final int spellLevel,
 		final PlayerCharacter aPC)
 	{
-		int total;
-		total =
-				(int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "CLASS."
-					+ getKeyName() + ";LEVEL." + spellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "TYPE."
-					+ getSpellType() + ";LEVEL." + spellLevel);
-
-		int pcLevel = getLevel(aPC);
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", getKeyName());
-		pcLevel +=
-				(int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
-
-		PCStat aStat = baseSpellStat();
-
-		if (aStat != null)
-		{
-			final int maxSpellLevel =
-					aPC.getVariableValue("MAXLEVELSTAT=" + aStat.getAbb(), "")
-						.intValue();
-
-			if (spellLevel > maxSpellLevel)
-			{
-				return total;
-			}
-		}
-
-		if (updateSpellCache(false))
-		{
-			List<Formula> specKnown =
-				spellCache.getSpecialtyKnownForLevel(pcLevel);
-			if (specKnown != null && specKnown.size() > spellLevel)
-			{
-				total += specKnown.get(spellLevel).resolve(aPC, "").intValue();
-			}
-		}
-
-		// make sure any slots due from specialties
-		total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
-		// (including domains) are added
-		Integer assoc = aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
-		if (assoc != null)
-		{
-			total += assoc;
-		}
-
-		return total;
+		return sCache.getSpecialtyKnownForLevel(spellLevel, aPC);
 	}
 
 	/*
@@ -1166,25 +801,6 @@ public class PCClass extends PObject
 		return null;
 	}
 
-	//	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
-	//	{
-	//		if ( aCategory == AbilityCategory.FEAT )
-	//		{
-	//			setFeatAutos(aLevel, CoreUtility.join(aList, Constants.PIPE));
-	//			return;
-	//		}
-	//		if ( theAutoAbilities == null )
-	//		{
-	//			theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>();
-	//		}
-	//		List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
-	//		if ( abilities == null )
-	//		{
-	//			abilities = new ArrayList<String>();
-	//		}
-	//		abilities.addAll(aList);
-	//	}
-
 	/*
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
@@ -1192,7 +808,7 @@ public class PCClass extends PObject
 	public boolean isAutoKnownSpell(Spell spell,
 		final int spellLevel, final PlayerCharacter aPC)
 	{
-		return isAutoKnownSpell(spell, spellLevel, false, aPC);
+		return sCache.isAutoKnownSpell(spell, spellLevel, false, aPC);
 	}
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
@@ -1234,7 +850,7 @@ public class PCClass extends PObject
 
 		for (PCClass pcClass : aPC.getClassList())
 		{
-			pcClass.calculateKnownSpellsForClassLevel(aPC);
+			pcClass.sCache.calculateKnownSpellsForClassLevel(aPC);
 		}
 
 		// check to see if we have dropped a level.
@@ -1298,137 +914,7 @@ public class PCClass extends PObject
 	 */
 	protected void removeKnownSpellsForClassLevel(final PlayerCharacter aPC)
 	{
-		if (!containsListFor(ListKey.KNOWN_SPELLS) || aPC.isImporting()
-				|| !aPC.getAutoSpells())
-		{
-			return;
-		}
-
-		if (!aPC.hasAssocs(this, AssociationListKey.CHARACTER_SPELLS))
-		{
-			return;
-		}
-
-		List<? extends CDOMList<Spell>> lists = getSpellLists(aPC);
-
-		for (Iterator<CharacterSpell> iter =
-				aPC.getSafeAssocList(this, AssociationListKey.CHARACTER_SPELLS)
-					.iterator(); iter.hasNext();)
-		{
-			final CharacterSpell charSpell = iter.next();
-
-			final Spell aSpell = charSpell.getSpell();
-
-			// Check that the character can still cast spells of this level.
-			final Integer[] spellLevels = SpellLevel.levelForKey(aSpell, lists, aPC);
-			for (Integer i = 0; i < spellLevels.length; i++)
-			{
-				final int spellLevel = spellLevels[i];
-				if (spellLevel == -1)
-				{
-					continue;
-				}
-
-				final boolean isKnownAtThisLevel =
-						isAutoKnownSpell(aSpell, spellLevel, true,
-							aPC);
-
-				if (!isKnownAtThisLevel)
-				{
-					iter.remove();
-				}
-			}
-		}
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This modifies the PlayerCharacter to have the
-	 * appropriate known spells for this classlevel. As this is called from
-	 * setLevel (really from addLevel), this is clearly part of PCClassLevel. In
-	 * fact, I wonder how much this can be refactored out (this is really a CDOM
-	 * issue) and no longer be loading lots of gunk into the PlayerCharacter.
-	 */
-	protected void calculateKnownSpellsForClassLevel(final PlayerCharacter aPC)
-	{
-		// If this class has at least one entry in the "Known spells" tag
-		// And we aer set up to automatically assign known spells...
-		if (containsListFor(ListKey.KNOWN_SPELLS) && !aPC.isImporting()
-				&& aPC.getAutoSpells())
-		{
-			// Get every spell that can be cast by this class.
-			final List<Spell> cspelllist =
-					Globals.getSpellsIn(-1, getSpellLists(aPC));
-			if (cspelllist.isEmpty())
-			{
-				return;
-			}
-
-			// Recalculate the number of spells per day of each level
-			// that this chracter can cast in this class.
-			calcCastPerDayMapForLevel(aPC);
-
-			// Get the maximum spell level that this character can cast.
-			final int _maxLevel = getMaxCastLevel();
-
-			// Get the key for this class (i.e. "CLASS|Cleric")
-			List<? extends CDOMList<Spell>> lists = getSpellLists(aPC);
-
-			// For every spell that this class can ever cast.
-			for (Spell spell : cspelllist)
-			{
-				// For each spell level that this class can cast this spell at
-				final Integer[] spellLevels = SpellLevel.levelForKey(spell, lists, aPC);
-				for (Integer si = 0; si < spellLevels.length; ++si)
-				{
-					final int spellLevel = spellLevels[si];
-					if (spellLevel == -1)
-					{
-						continue;
-					}
-					if (spellLevel <= _maxLevel)
-					{
-						// If the spell is autoknown at this level
-						if (isAutoKnownSpell(spell, spellLevel,
-							true, aPC))
-						{
-							CharacterSpell cs =
-								aPC.getCharacterSpellForSpell(this, spell);
-							if (cs == null)
-							{
-								// Create a new character spell for this level.
-								cs = new CharacterSpell(this, spell);
-								cs.addInfo(spellLevel, 1, Globals
-									.getDefaultSpellBook());
-								aPC.addAssoc(this, AssociationListKey.CHARACTER_SPELLS, cs);
-							}
-							else
-							{
-								if (cs.getSpellInfoFor(aPC, Globals
-									.getDefaultSpellBook(), spellLevel, -1) == null)
-								{
-									cs.addInfo(spellLevel, 1, Globals
-										.getDefaultSpellBook());
-								}
-								else
-								{
-									// already know this one
-								}
-							}
-						}
-					}
-				}
-			}
-
-			for (Domain d : aPC.getDomainSet())
-			{
-				if (getKeyName().equals(
-						aPC.getDomainSource(d).getPcclass().getKeyName()))
-				{
-					DomainApplication.addSpellsToClassForLevels(aPC,
-							d, this, 0, _maxLevel);
-				}
-			}
-		}
+		sCache.removeKnownSpellsForClassLevel(aPC);
 	}
 
 	/**
@@ -1443,22 +929,7 @@ public class PCClass extends PObject
 	 */
 	public int getMaxCastLevel()
 	{
-		int currHighest = -1;
-		if (castForLevelMap != null)
-		{
-			for (int key : castForLevelMap.keySet())
-			{
-				final Integer value = castForLevelMap.get(key);
-				if (value != null)
-				{
-					if (value > 0 && key > currHighest)
-					{
-						currHighest = key;
-					}
-				}
-			}
-		}
-		return currHighest;
+		return sCache.getMaxCastLevel();
 	}
 
 	/*
@@ -1781,8 +1252,7 @@ public class PCClass extends PObject
 		{
 			aClass = (PCClass) super.clone();
 
-			spellCache = null;
-			spellCacheValid = false;
+			aClass.sCache = new SpellSupportForPCClass(aClass);
 
 			List<KnownSpellIdentifier> ksl = getListFor(ListKey.KNOWN_SPELLS);
 			if (ksl != null)
@@ -1834,14 +1304,7 @@ public class PCClass extends PObject
 	 */
 	public boolean isSpecialtySpell(PlayerCharacter pc, final Spell aSpell)
 	{
-		String specialty = pc.getAssoc(this, AssociationKey.SPECIALTY);
-		if (specialty != null)
-		{
-			return aSpell.containsInList(ListKey.SPELL_SCHOOL, specialty)
-					|| aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, specialty)
-					|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, specialty);
-		}
-		return false;
+		return sCache.isSpecialtySpell(pc, aSpell);
 	}
 
 	/*
@@ -1878,15 +1341,7 @@ public class PCClass extends PObject
 	 */
 	public boolean hasKnownSpells(final PlayerCharacter aPC)
 	{
-		for (int i = 0; i <= getHighestLevelSpell(); i++)
-		{
-			if (getKnownForLevel(i, aPC) > 0)
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return sCache.hasKnownSpells(aPC);
 	}
 
 	public boolean hasSkill(PlayerCharacter pc, Skill skill)
@@ -2002,36 +1457,7 @@ public class PCClass extends PObject
 	 */
 	public boolean zeroCastSpells()
 	{
-		if (!updateSpellCache(false) || !spellCache.hasCastProgression())
-		{
-			return true;
-		}
-		/*
-		 * CONSIDER This is just blatently wrong because it is not considering
-		 * formulas, and not considering bonuses... - thpr 11/8/06
-		 *
-		 * May not be a big issue other than a poorly named method, but
-		 * need to check what is really required here
-		 */
-		for (List<Formula> l : spellCache.getCastProgression().values())
-		{
-			for (Formula st : l)
-			{
-				try
-				{
-					if (Integer.parseInt(st.toString()) > 0)
-					{
-						return false;
-					}
-				}
-				catch (NumberFormatException nfe)
-				{
-					// ignore
-				}
-			}
-		}
-
-		return true;
+		return sCache.zeroCastSpells();
 	}
 
 	/*
@@ -2080,141 +1506,7 @@ public class PCClass extends PObject
 	int getKnownForLevel(final int spellLevel, final String bookName,
 		final PlayerCharacter aPC)
 	{
-		int total = 0;
-		int stat = 0;
-		final String classKeyName = "CLASS." + getKeyName();
-		final String levelSpellLevel = ";LEVEL." + spellLevel;
-		final String allSpellLevel = ";LEVEL.All";
-
-		int pcLevel = getLevel(aPC);
-		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", getKeyName());
-		pcLevel +=
-				(int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + getSpellType());
-
-		/*
-		 * CONSIDER Why is known testing getNumFromCastList??? - thpr 11/8/06
-		 */
-		if (updateSpellCache(false) && spellCache.hasCastProgression()
-			&& (getNumFromCastList(pcLevel, spellLevel, aPC) < 0))
-		{
-			// Don't know any spells of this level
-			// however, character might have a bonus spells e.g. from certain
-			// feats
-			return (int) aPC.getTotalBonusTo("SPELLKNOWN", classKeyName
-				+ levelSpellLevel);
-		}
-
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLKNOWN", classKeyName
-					+ levelSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLKNOWN", "TYPE."
-					+ getSpellType() + levelSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLKNOWN", "CLASS.Any"
-					+ levelSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLKNOWN", classKeyName
-					+ allSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLKNOWN", "TYPE."
-					+ getSpellType() + allSpellLevel);
-		total +=
-				(int) aPC.getTotalBonusTo("SPELLKNOWN", "CLASS.Any"
-					+ allSpellLevel);
-
-		PCStat aStat = baseSpellStat();
-		String statString = Constants.s_NONE;
-
-		if (aStat != null)
-		{
-			stat = StatAnalysis.getTotalStatFor(aPC, aStat);
-			statString = aStat.getAbb();
-		}
-
-		final int bonusStat =
-				(int) aPC.getTotalBonusTo("STAT", "KNOWN." + statString)
-					+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT")
-					+ (int) aPC.getTotalBonusTo("STAT",
-						"BASESPELLKNOWNSTAT;CLASS." + getKeyName());
-
-		if (!getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
-		{
-			final int maxSpellLevel =
-					aPC.getVariableValue("MAXLEVELSTAT=" + statString, "")
-						.intValue();
-
-			if ((maxSpellLevel + bonusStat) < spellLevel)
-			{
-				return total;
-			}
-		}
-
-		stat += bonusStat;
-
-		int mult =
-				(int) aPC.getTotalBonusTo("SPELLKNOWNMULT", classKeyName
-					+ levelSpellLevel);
-		mult +=
-				(int) aPC.getTotalBonusTo("SPELLKNOWNMULT", "TYPE."
-					+ getSpellType() + levelSpellLevel);
-
-		if (mult < 1)
-		{
-			mult = 1;
-		}
-
-		if (!updateSpellCache(false))
-		{
-			return total;
-		}
-
-		if (spellCache.hasKnownProgression())
-		{
-			List<Formula> knownList = spellCache.getKnownForLevel(pcLevel);
-			if (spellLevel >= 0 && spellLevel < knownList.size())
-			{
-				total += mult * knownList.get(spellLevel).resolve(aPC, "").intValue();
-
-				// add Stat based bonus
-				final String bonusSpell =
-						Globals.getBonusSpellMap().get(
-							String.valueOf(spellLevel));
-
-				if (Globals.checkRule(RuleConstants.BONUSSPELLKNOWN)
-					&& (bonusSpell != null) && !bonusSpell.equals("0|0"))
-				{
-					final StringTokenizer s =
-							new StringTokenizer(bonusSpell, "|");
-					final int base = Integer.parseInt(s.nextToken());
-					final int range = Integer.parseInt(s.nextToken());
-
-					if (stat >= base)
-					{
-						total += Math.max(0, (stat - base + range) / range);
-					}
-				}
-			}
-		}
-
-		// if we have known spells (0==no known spells recorded)
-		// or a psi specialty.
-		if (total > 0 && spellLevel > 0)
-		{
-			// make sure any slots due from specialties
-			total += getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
-			// (including domains) are added
-			Integer assoc = aPC.getAssoc(this, AssociationKey.DOMAIN_SPELL_COUNT);
-			if (assoc != null)
-			{
-				total += assoc;
-			}
-		}
-
-		// Add in any from SPELLKNOWN
-		total += SpellLevel.getNumBonusKnowSpellsForLevel(aPC, this, spellLevel);
-
-		return total;
+		return sCache.getKnownForLevel(spellLevel, bookName, aPC);
 	}
 
 	/*
@@ -2226,41 +1518,7 @@ public class PCClass extends PObject
 	 */
 	public boolean isProhibited(final Spell aSpell, final PlayerCharacter aPC)
 	{
-		if (!PrereqHandler.passesAll(aSpell.getPrerequisiteList(), aPC, aSpell))
-		{
-			return true;
-		}
-
-		for (SpellProhibitor prohibit : getSafeListFor(ListKey.SPELL_PROHIBITOR))
-		{
-			if (prohibit.isProhibited(aSpell, aPC))
-			{
-				return true;
-			}
-		}
-
-		for (SpellProhibitor prohibit : getSafeListFor(ListKey.PROHIBITED_SPELLS))
-		{
-			if (prohibit.isProhibited(aSpell, aPC))
-			{
-				return true;
-			}
-		}
-
-		List<SpellProhibitor> assocList =
-				aPC.getAssocList(this, AssociationListKey.PROHIBITED_SCHOOLS);
-		if (assocList != null)
-		{
-			for (SpellProhibitor prohibit : assocList)
-			{
-				if (prohibit.isProhibited(aSpell, aPC))
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
+		return sCache.isProhibited(aSpell, aPC);
 	}
 
 	/**
@@ -2862,43 +2120,12 @@ public class PCClass extends PObject
 	 */
 	int memorizedSpecialtiesForLevelBook(final int aLevel, final String bookName, PlayerCharacter pc)
 	{
-		int m = 0;
-		final List<CharacterSpell> aList =
-				pc.getCharacterSpells(this, null, bookName, aLevel);
-
-		if (aList.isEmpty())
-		{
-			return m;
-		}
-
-		for (CharacterSpell cs : aList)
-		{
-			if (cs.isSpecialtySpell(pc))
-			{
-				m += cs.getSpellInfoFor(pc, bookName, aLevel, -1).getTimes();
-			}
-		}
-
-		return m;
+		return sCache.memorizedSpecialtiesForLevelBook(aLevel, bookName, pc);
 	}
 
 	int memorizedSpellForLevelBook(PlayerCharacter pc, final int aLevel, final String bookName)
 	{
-		int m = 0;
-		final List<CharacterSpell> aList =
-				pc.getCharacterSpells(this, null, bookName, aLevel);
-
-		if (aList.isEmpty())
-		{
-			return m;
-		}
-
-		for (CharacterSpell cs : aList)
-		{
-			m += cs.getSpellInfoFor(pc, bookName, aLevel, -1).getTimes();
-		}
-
-		return m;
+		return sCache.memorizedSpellForLevelBook(pc, aLevel, bookName);
 	}
 
 	void subLevel(final boolean bSilent, final PlayerCharacter aPC)
@@ -3036,80 +2263,6 @@ public class PCClass extends PObject
 				.errorPrint("No current pc in subLevel()? How did this happen?");
 
 			return;
-		}
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
-	 * and is therefore appropriate only for PCClassLevel
-	 */
-	private boolean isAutoKnownSpell(Spell aSpell,
-		final int spellLevel, final boolean useMap, final PlayerCharacter aPC)
-	{
-		List<KnownSpellIdentifier> knownSpellsList = getListFor(ListKey.KNOWN_SPELLS);
-		if (knownSpellsList == null)
-		{
-			return false;
-		}
-
-		if (useMap)
-		{
-			final Integer val = castForLevelMap.get(spellLevel);
-
-			if ((val == null) || val == 0 || (aSpell == null))
-			{
-				return false;
-			}
-		}
-		else if ((getCastForLevel(spellLevel, aPC) == 0) || (aSpell == null))
-		{
-			return false;
-		}
-
-		if (isProhibited(aSpell, aPC) && !isSpecialtySpell(aPC, aSpell))
-		{
-			return false;
-		}
-
-		// iterate through the KNOWNSPELLS: tag
-		for (KnownSpellIdentifier filter : knownSpellsList)
-		{
-			if (filter.matchesFilter(aSpell, spellLevel))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Build a caster level map for this class. The map will be of the form
-	 * <String,String> where the key is the spell level and the value is the
-	 * number of times per day that spell level can be cast by the character
-	 *
-	 * @param aPC
-	 *
-	 * TODO: Why is this not a Map<Integer,Integer>
-	 */
-	/*
-	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
-	 * and is therefore appropriate only for PCClassLevel
-	 */
-	private void calcCastPerDayMapForLevel(final PlayerCharacter aPC)
-	{
-		//
-		// TODO: Shouldn't we be using Globals.getLevelInfo().size() instead of
-		// 100?
-		// Byngl -- November 25, 2002
-		//
-		if (castForLevelMap == null)
-		{
-			castForLevelMap = new HashMap<Integer, Integer>(100);
-		}
-		for (int i = 0; i < 100; i++)
-		{
-			final int s = getCastForLevel(i, aPC);
-			castForLevelMap.put(i, s);
 		}
 	}
 
@@ -3970,23 +3123,15 @@ public class PCClass extends PObject
 
 	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
 	{
-		if (!updateSpellCache(false))
-		{
-			return -1;
-		}
-		return spellCache.getMinLevelForSpellLevel(spellLevel, allowBonus);
+		return sCache.getMinLevelForSpellLevel(spellLevel, allowBonus);
 	}
 
 	public int getMaxSpellLevelForClassLevel(int classLevel)
 	{
-		if (!updateSpellCache(false))
-		{
-			return -1;
-		}
-		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
+		return sCache.getMaxSpellLevelForClassLevel(classLevel);
 	}
 
-	SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();
+	private SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();
 
 	public PCClassLevel getClassLevel(int lvl)
 	{
@@ -4038,40 +3183,6 @@ public class PCClass extends PObject
 	public int getPCClassLevel(PCClassLevel pcl)
 	{
 		return pcl.get(IntegerKey.LEVEL);
-	}
-
-	public boolean updateSpellCache(boolean force)
-	{
-		if (force || !spellCacheValid)
-		{
-			SpellProgressionCache cache = new SpellProgressionCache();
-			for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
-			{
-				Integer lvl = me.getKey();
-				PCClassLevel cl = me.getValue();
-				List<Formula> cast = cl.getListFor(ListKey.CAST);
-				if (cast != null)
-				{
-					cache.setCast(lvl, cast);
-				}
-				List<Formula> known = cl.getListFor(ListKey.KNOWN);
-				if (known != null)
-				{
-					cache.setKnown(lvl, known);
-				}
-				List<Formula> spec = cl.getListFor(ListKey.SPECIALTYKNOWN);
-				if (spec != null)
-				{
-					cache.setSpecialtyKnown(lvl, spec);
-				}
-			}
-			if (!cache.isEmpty())
-			{
-				spellCache = cache;
-			}
-			spellCacheValid = true;
-		}
-		return spellCache != null;
 	}
 
 	public String getFullKey()
@@ -4178,5 +3289,45 @@ public class PCClass extends PObject
 	public String getVariableSource()
 	{
 		return "CLASS|" + this.getKeyName();
+	}
+
+	public int getKnownSpellsFromSpecialty()
+	{
+		return getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
+	}
+
+	public boolean useSpellSpellStat()
+	{
+		return getSafe(ObjectKey.USE_SPELL_SPELL_STAT);
+	}
+
+	public List<KnownSpellIdentifier> getKnownSpells()
+	{
+		return getListFor(ListKey.KNOWN_SPELLS);
+	}
+
+	public ClassSpellList getClassList()
+	{
+		return get(ObjectKey.CLASS_SPELLLIST);
+	}
+
+	public boolean hasKnownSpells()
+	{
+		return containsListFor(ListKey.KNOWN_SPELLS);
+	}
+
+	public Collection<SpellProhibitor> getProhibitedSpells()
+	{
+		return getSafeListFor(ListKey.PROHIBITED_SPELLS);
+	}
+
+	public Collection<SpellProhibitor> getSpellProhibitors()
+	{
+		return getSafeListFor(ListKey.SPELL_PROHIBITOR);
+	}
+
+	public void forceUpdateSpellCache()
+	{
+		sCache.updateSpellCache(true);
 	}
 }

@@ -98,13 +98,13 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 
-		Map<Integer, List<Spell>> spellsMap = SpellLevel.getPCBasedBonusKnownSpells(aPC, pcc);
+		Map<Integer, List<Spell>> spellsMap = SpellLevel.getPCBasedBonusKnownSpells(aPC, pcc.getClassList());
 		assertEquals("Initial number of spell levels incorrect", 0, spellsMap.size());
 		
 		aPC.addAbility(AbilityCategory.FEAT, ab1, null);
 
 		// Now for the tests
-		spellsMap = SpellLevel.getPCBasedBonusKnownSpells(aPC, pcc);
+		spellsMap = SpellLevel.getPCBasedBonusKnownSpells(aPC, pcc.getClassList());
 		assertEquals("Incorrect number of spell levels returned", 1, spellsMap.size());
 		assertEquals("Incorrect spell level returned", new Integer(3), spellsMap.keySet().iterator().next());
 		List<Spell> result = spellsMap.values().iterator().next();

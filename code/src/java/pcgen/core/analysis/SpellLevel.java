@@ -260,11 +260,9 @@ public class SpellLevel
 	 * @param pcc The PC class being checked/
 	 * @return A map of additional spell lists for each spell level 
 	 */
-	public static Map<Integer, List<Spell>> getPCBasedBonusKnownSpells(PlayerCharacter pc, PCClass pcc)
+	public static Map<Integer, List<Spell>> getPCBasedBonusKnownSpells(PlayerCharacter pc, ClassSpellList csl)
 	{
 		HashMap<Integer, List<Spell>> levelInfo = new HashMap<Integer, List<Spell>>();
-		
-		ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);
 		
 		for (CDOMObject cdo : pc.getCDOMObjectList())
 		{
@@ -336,8 +334,9 @@ public class SpellLevel
 		{
 			return;
 		}
-		Map<Integer, List<Spell>> spellsMap =
-				SpellLevel.getPCBasedBonusKnownSpells(pc, (PCClass) aClass);
+		Map<Integer, List<Spell>> spellsMap = SpellLevel
+				.getPCBasedBonusKnownSpells(pc, ((PCClass) aClass)
+						.get(ObjectKey.CLASS_SPELLLIST));
 		for (Integer spellLevel : spellsMap.keySet())
 		{
 			List<Spell> spells = spellsMap.get(spellLevel);
@@ -366,8 +365,16 @@ public class SpellLevel
 		{
 			return 0;
 		}
-		Map<Integer, List<Spell>> spellsMap =
-				SpellLevel.getPCBasedBonusKnownSpells(pc, (PCClass) aClass);
+		ClassSpellList classSpellList = ((PCClass) aClass)
+				.get(ObjectKey.CLASS_SPELLLIST);
+		return getNumBonusKnowSpellsForLevel(pc, spellLevel, classSpellList);
+	}
+
+	public static int getNumBonusKnowSpellsForLevel(PlayerCharacter pc,
+			int spellLevel, ClassSpellList classSpellList)
+	{
+		Map<Integer, List<Spell>> spellsMap = SpellLevel
+				.getPCBasedBonusKnownSpells(pc, classSpellList);
 		List<Spell> spells = spellsMap.get(spellLevel);
 		return spells != null ? spells.size() : 0;
 	}
