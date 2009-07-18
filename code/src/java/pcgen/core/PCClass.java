@@ -76,6 +76,7 @@ import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
@@ -608,14 +609,6 @@ public class PCClass extends PObject
 		return sCache.hasCastList();
 	}
 
-	/*
-	 * PCCLASSONLY For editing a PCClass and Global checks...
-	 */
-	public Map<Integer, List<Formula>> getCastProgression()
-	{
-		return sCache.getCastProgression();
-	}
-
 	/**
 	 * Return the level of the highest level spell offered by the class.
 	 *
@@ -651,27 +644,6 @@ public class PCClass extends PObject
 	public int getKnownForLevel(final int spellLevel, final PlayerCharacter aPC)
 	{
 		return sCache.getKnownForLevel(spellLevel, "null", aPC);
-	}
-
-	/**
-	 * if castAs has been set, return knownList from that class
-	 *
-	 * @return List
-	 */
-	/*
-	 * REFACTOR This contains castAs which is Cross-Class behavior and is VERY
-	 * bad. The caller of this method or the method calling getKnownList() or
-	 * whatever is setting the castAs should really be able to do some other
-	 * check first, rather than using castAs. Since CASTAS is deprecated, this
-	 * CASTAS functionality (hopefully) can be removed from PCClass and
-	 * PCClassLevel
-	 */
-	/*
-	 * PCCLASSONLY This is for PCClass construction and Global queries
-	 */
-	public Map<Integer, List<Formula>> getKnownMap()
-	{
-		return sCache.getKnownMap();
 	}
 
 	/*
@@ -1304,7 +1276,7 @@ public class PCClass extends PObject
 	 */
 	public boolean isSpecialtySpell(PlayerCharacter pc, final Spell aSpell)
 	{
-		return sCache.isSpecialtySpell(pc, aSpell);
+		return SpellCountCalc.isSpecialtySpell(pc, this, aSpell);
 	}
 
 	/*
@@ -1518,7 +1490,7 @@ public class PCClass extends PObject
 	 */
 	public boolean isProhibited(final Spell aSpell, final PlayerCharacter aPC)
 	{
-		return sCache.isProhibited(aSpell, aPC);
+		return SpellCountCalc.isProhibited(aSpell, this, aPC);
 	}
 
 	/**
@@ -2120,12 +2092,12 @@ public class PCClass extends PObject
 	 */
 	int memorizedSpecialtiesForLevelBook(final int aLevel, final String bookName, PlayerCharacter pc)
 	{
-		return sCache.memorizedSpecialtiesForLevelBook(aLevel, bookName, pc);
+		return SpellCountCalc.memorizedSpecialtiesForLevelBook(aLevel, bookName, pc, this);
 	}
 
 	int memorizedSpellForLevelBook(PlayerCharacter pc, final int aLevel, final String bookName)
 	{
-		return sCache.memorizedSpellForLevelBook(pc, aLevel, bookName);
+		return SpellCountCalc.memorizedSpellForLevelBook(pc, this, aLevel, bookName);
 	}
 
 	void subLevel(final boolean bSilent, final PlayerCharacter aPC)

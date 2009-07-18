@@ -1,3 +1,23 @@
+/*
+ * SpellSupportForPCClass
+ * Copyright 2009 (c) Tom Parker <thpr@users.sourceforge.net>
+ * derived from PCClass.java
+ * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 package pcgen.core;
 
 import java.util.ArrayList;
@@ -5,7 +25,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
@@ -19,10 +38,10 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
 public class SpellSupportForPCClass
@@ -86,15 +105,6 @@ public class SpellSupportForPCClass
 	public boolean hasCastList()
 	{
 		return updateSpellCache(false) && spellCache.hasCastProgression();
-	}
-
-	public Map<Integer, List<Formula>> getCastProgression()
-	{
-		if (!updateSpellCache(false))
-		{
-			return null;
-		}
-		return spellCache.getCastProgression();
 	}
 
 	public int getHighestLevelSpell()
@@ -292,15 +302,6 @@ public class SpellSupportForPCClass
 		return spellCache.getMaxSpellLevelForClassLevel(classLevel);
 	}
 
-	public Map<Integer, List<Formula>> getKnownMap()
-	{
-		if (!updateSpellCache(false))
-		{
-			return null;
-		}
-		return spellCache.getKnownProgression();
-	}
-
 	public boolean hasKnownList()
 	{
 		return updateSpellCache(false) && spellCache.hasKnownProgression();
@@ -441,7 +442,7 @@ public class SpellSupportForPCClass
 			return false;
 		}
 
-		if (isProhibited(aSpell, aPC) && !isSpecialtySpell(aPC, aSpell))
+		if (SpellCountCalc.isProhibited(aSpell, source, aPC) && !SpellCountCalc.isSpecialtySpell(aPC, source, aSpell))
 		{
 			return false;
 		}
@@ -888,102 +889,6 @@ public class SpellSupportForPCClass
 	public int getKnownForLevel(final int spellLevel, final PlayerCharacter aPC)
 	{
 		return getKnownForLevel(spellLevel, "null", aPC);
-	}
-
-	public boolean isProhibited(Spell aSpell, PlayerCharacter aPC)
-	{
-		if (!PrereqHandler.passesAll(aSpell.getPrerequisiteList(), aPC, aSpell))
-		{
-			return true;
-		}
-
-		for (SpellProhibitor prohibit : source.getProhibitedSpells())
-		{
-			if (prohibit.isProhibited(aSpell, aPC))
-			{
-				return true;
-			}
-		}
-
-		for (SpellProhibitor prohibit : source.getSpellProhibitors())
-		{
-			if (prohibit.isProhibited(aSpell, aPC))
-			{
-				return true;
-			}
-		}
-
-		List<SpellProhibitor> assocList = aPC.getAssocList(source,
-				AssociationListKey.PROHIBITED_SCHOOLS);
-		if (assocList != null)
-		{
-			for (SpellProhibitor prohibit : assocList)
-			{
-				if (prohibit.isProhibited(aSpell, aPC))
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	public boolean isSpecialtySpell(PlayerCharacter pc, Spell aSpell)
-	{
-		String specialty = pc.getAssoc(source, AssociationKey.SPECIALTY);
-		if (specialty != null)
-		{
-			return aSpell.containsInList(ListKey.SPELL_SCHOOL, specialty)
-					|| aSpell
-							.containsInList(ListKey.SPELL_SUBSCHOOL, specialty)
-					|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR,
-							specialty);
-		}
-		return false;
-	}
-
-	public int memorizedSpecialtiesForLevelBook(int aLevel, String bookName,
-			PlayerCharacter pc)
-	{
-		int m = 0;
-		final List<CharacterSpell> aList =
-				pc.getCharacterSpells(source, null, bookName, aLevel);
-
-		if (aList.isEmpty())
-		{
-			return m;
-		}
-
-		for (CharacterSpell cs : aList)
-		{
-			if (cs.isSpecialtySpell(pc))
-			{
-				m += cs.getSpellInfoFor(pc, bookName, aLevel, -1).getTimes();
-			}
-		}
-
-		return m;
-	}
-
-	public int memorizedSpellForLevelBook(PlayerCharacter pc, int aLevel,
-			String bookName)
-	{
-		int m = 0;
-		final List<CharacterSpell> aList =
-				pc.getCharacterSpells(source, null, bookName, aLevel);
-
-		if (aList.isEmpty())
-		{
-			return m;
-		}
-
-		for (CharacterSpell cs : aList)
-		{
-			m += cs.getSpellInfoFor(pc, bookName, aLevel, -1).getTimes();
-		}
-
-		return m;
 	}
 
 }
