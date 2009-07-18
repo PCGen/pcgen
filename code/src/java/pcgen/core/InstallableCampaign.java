@@ -23,65 +23,16 @@
 
 package pcgen.core;
 
-
 /**
- * <code>InstallableCampaign</code> is a campaign (or data set) that can be 
+ * <code>InstallableCampaign</code> is a campaign (or data set) that can be
  * installed into the PCGen instance.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
+ * 
+ * Last Editor: $Author$ Last Edited: $Date: 2008-12-23 17:08:08 -0500
+ * (Tue, 23 Dec 2008) $
+ * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
 public class InstallableCampaign extends Campaign
 {
-	/**
-	 * <code>Destination</code> is the full collection of possible 
-	 * install destinations.
-	 */
-	public enum Destination
-	{
-		DATA("DATA"), 
-		VENDORDATA("VENDORDATA");
-
-		private final String text;
-		
-		Destination(String s)
-		{
-			text = s;
-		}
-
-		@Override
-		public String toString()
-		{
-			return text;
-		}
-	}
-	private Destination dest;
-	
-	/**
-	 * Instantiates a new installable campaign.
-	 */
-	public InstallableCampaign()
-	{
-		super();
-	}
-
-	/**
-	 * @return the dest
-	 */
-	public Destination getDest()
-	{
-		return dest;
-	}
-
-	/**
-	 * @param dest the dest to set
-	 */
-	public void setDest(Destination dest)
-	{
-		this.dest = dest;
-	}
-
 }

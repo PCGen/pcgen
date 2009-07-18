@@ -208,7 +208,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 
 		assertEquals("Checking min ver", MINVER, camp.getSafe(StringKey.MINVER));
 		assertEquals("Checking min dev ver", MINVER, camp.getSafe(StringKey.MINVER));
-		assertEquals("Checking destination", DEST, camp.getDest().toString());
+		assertEquals("Checking destination", DEST, camp.get(ObjectKey.DESTINATION).toString());
 	}
 
 }

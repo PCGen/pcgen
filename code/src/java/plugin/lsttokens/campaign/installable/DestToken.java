@@ -24,9 +24,10 @@ package plugin.lsttokens.campaign.installable;
 
 import java.net.URI;
 
+import pcgen.cdom.enumeration.Destination;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.core.InstallableCampaign;
-import pcgen.core.InstallableCampaign.Destination;
 import pcgen.persistence.lst.InstallLstToken;
 import pcgen.util.Logging;
 
@@ -65,11 +66,11 @@ public class DestToken implements InstallLstToken
 		
 		if (value.equals("DATA"))
 		{
-			ic.setDest(Destination.DATA);
+			ic.put(ObjectKey.DESTINATION, Destination.DATA);
 		}
 		else if (value.equals("VENDORDATA"))
 		{
-			ic.setDest(Destination.VENDORDATA);
+			ic.put(ObjectKey.DESTINATION, Destination.VENDORDATA);
 		}
 		else
 		{

@@ -55,10 +55,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
 
+import pcgen.cdom.enumeration.Destination;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.core.SettingsHandler;
-import pcgen.core.InstallableCampaign.Destination;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -786,14 +787,14 @@ public class DataInstaller extends JFrame
 		// Display the info
 		dataSetSel.setText(dataSet.getAbsolutePath());
 		dataSetDetails.setText(MainSource.buildInfoLabel(campaign));
-		if (campaign.getDest() == null)
+		if (campaign.get(ObjectKey.DESTINATION) == null)
 		{
 			locDataButton.setSelected(false);
 			locVendorDataButton.setSelected(false);
 		}
 		else
 		{
-			switch (campaign.getDest())
+			switch (campaign.get(ObjectKey.DESTINATION))
 			{
 				case DATA:
 					locDataButton.setSelected(true);
