@@ -42,6 +42,7 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -2585,7 +2586,7 @@ public class PCClass extends PObject
 				{
 					region.act(region.driveChoice(aPC), this, aPC);
 				}
-				addAdds(aPC);
+				CDOMObjectUtilities.addAdds(this, aPC);
 				aPC.addNaturalWeapons(getListFor(ListKey.NATURAL_WEAPON));
 			}
 
@@ -2613,7 +2614,7 @@ public class PCClass extends PObject
 
 		if (!aPC.isImporting())
 		{
-			checkRemovals(aPC);
+			CDOMObjectUtilities.checkRemovals(this, aPC);
 			final int minxp = aPC.minXPForECL();
 			if (aPC.getXP() < minxp)
 			{
@@ -2732,7 +2733,7 @@ public class PCClass extends PObject
 	 */
 	void doMinusLevelMods(final PlayerCharacter aPC, final int oldLevel)
 	{
-		getClassLevel(oldLevel).removeAdds(aPC);
+		CDOMObjectUtilities.removeAdds(getClassLevel(oldLevel), aPC);
 		aPC.removeVariable("CLASS:" + getKeyName() + "|"
 			+ Integer.toString(oldLevel));
 	}
@@ -2756,8 +2757,8 @@ public class PCClass extends PObject
 		aPC.calcActiveBonuses();
 		if (!aPC.isImporting() && aPC.doLevelAbilities())
 		{
-			getClassLevel(newLevel).addAdds(aPC);
-			getClassLevel(newLevel).checkRemovals(aPC);
+			CDOMObjectUtilities.addAdds(getClassLevel(newLevel), aPC);
+			CDOMObjectUtilities.checkRemovals(getClassLevel(newLevel), aPC);
 		}
 	}
 

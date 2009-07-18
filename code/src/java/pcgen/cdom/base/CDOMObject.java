@@ -39,7 +39,6 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
 import pcgen.core.Description;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
@@ -627,47 +626,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			}
 		}
 		return false;
-	}
-
-	public final void addAdds(final PlayerCharacter aPC)
-	{
-		List<PersistentTransitionChoice<?>> addList = getListFor(ListKey.ADD);
-		if (addList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : addList)
-			{
-				driveChoice(tc, aPC);
-			}
-		}
-	}
-
-	public final void removeAdds(final PlayerCharacter aPC)
-	{
-		List<PersistentTransitionChoice<?>> addList = getListFor(ListKey.ADD);
-		if (addList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : addList)
-			{
-				tc.remove(this, aPC);
-			}
-		}
-	}
-
-	public final void checkRemovals(final PlayerCharacter aPC)
-	{
-		List<PersistentTransitionChoice<?>> removeList = getListFor(ListKey.REMOVE);
-		if (removeList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : removeList)
-			{
-				driveChoice(tc, aPC);
-			}
-		}
-	}
-
-	private <T> void driveChoice(TransitionChoice<T> tc, final PlayerCharacter aPC)
-	{
-		tc.act(tc.driveChoice(aPC), this, aPC);
 	}
 
 	public ListKey<Description> getDescriptionKey()

@@ -29,6 +29,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -438,7 +439,7 @@ public class AbilityUtilities
 			removed = aPC.removeRealAbility(category, ability);
 			aPC.removeNaturalWeapons(ability);
 			aPC.removeTemplatesFrom(ability);
-			ability.removeAdds(aPC);
+			CDOMObjectUtilities.removeAdds(ability, aPC);
 		}
 
 		if (singleChoice && !adjustedAbilityPool)

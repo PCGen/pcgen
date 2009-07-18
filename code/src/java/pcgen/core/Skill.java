@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -121,7 +122,7 @@ public final class Skill extends PObject
 				//
 				if (iCount != 0)
 				{
-					removeAdds(aPC);
+					CDOMObjectUtilities.removeAdds(this, aPC);
 				}
 			}
 			else
@@ -133,7 +134,7 @@ public final class Skill extends PObject
 				//
 				if (iCount == 0)
 				{
-					addAdds(aPC);
+					CDOMObjectUtilities.addAdds(this, aPC);
 				}
 			}
 		}

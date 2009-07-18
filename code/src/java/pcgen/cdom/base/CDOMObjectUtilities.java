@@ -19,6 +19,10 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.List;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.PlayerCharacter;
 
 /**
  * CDOMObjectUtilities is a utility class designed to provide utility methods
@@ -133,4 +137,48 @@ public final class CDOMObjectUtilities
 		}
 	}
 
+	public static void addAdds(CDOMObject cdo, PlayerCharacter pc)
+	{
+		List<PersistentTransitionChoice<?>> addList = cdo
+				.getListFor(ListKey.ADD);
+		if (addList != null)
+		{
+			for (PersistentTransitionChoice<?> tc : addList)
+			{
+				driveChoice(cdo, tc, pc);
+			}
+		}
+	}
+
+	public static void removeAdds(CDOMObject cdo, PlayerCharacter pc)
+	{
+		List<PersistentTransitionChoice<?>> addList = cdo
+				.getListFor(ListKey.ADD);
+		if (addList != null)
+		{
+			for (PersistentTransitionChoice<?> tc : addList)
+			{
+				tc.remove(cdo, pc);
+			}
+		}
+	}
+
+	public static void checkRemovals(CDOMObject cdo, PlayerCharacter pc)
+	{
+		List<PersistentTransitionChoice<?>> removeList = cdo
+				.getListFor(ListKey.REMOVE);
+		if (removeList != null)
+		{
+			for (PersistentTransitionChoice<?> tc : removeList)
+			{
+				driveChoice(cdo, tc, pc);
+			}
+		}
+	}
+
+	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
+			final PlayerCharacter aPC)
+	{
+		tc.act(tc.driveChoice(aPC), cdo, aPC);
+	}
 }

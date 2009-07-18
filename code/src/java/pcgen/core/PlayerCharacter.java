@@ -2377,12 +2377,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		oldCompanionMods.removeAll(companionModList);
 		for (CompanionMod cMod : oldCompanionMods)
 		{
-			cMod.removeAdds(this);
+			CDOMObjectUtilities.removeAdds(cMod, this);
 		}
 
 		for (CompanionMod cMod : newCompanionMods)
 		{
-			cMod.addAdds(this);
+			CDOMObjectUtilities.addAdds(cMod, this);
 
 			for (CDOMReference<PCTemplate> ref : cMod
 				.getSafeListFor(ListKey.TEMPLATE))

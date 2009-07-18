@@ -37,6 +37,7 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
@@ -486,13 +487,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			final PCClass aClass = (PCClass) this;
 			PCClassLevel classLevel = aClass.getClassLevel(aClass.getLevel(aPC));
-			classLevel.addAdds(aPC);
-			classLevel.checkRemovals(aPC);
+			CDOMObjectUtilities.addAdds(classLevel, aPC);
+			CDOMObjectUtilities.checkRemovals(classLevel, aPC);
 		}
 		else
 		{
-			addAdds(aPC);
-			checkRemovals(aPC);
+			CDOMObjectUtilities.addAdds(this, aPC);
+			CDOMObjectUtilities.checkRemovals(this, aPC);
 		}
 		activateBonuses(aPC);
 	}
