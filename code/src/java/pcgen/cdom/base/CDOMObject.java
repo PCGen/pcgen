@@ -282,6 +282,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return listChar.containsInList(key, value);
 	}
 
+	public final <T> boolean containsAnyInList(ListKey<T> key, Collection<T> values)
+	{
+		return listChar.containsAnyInList(key, values);
+	}
+
 	public final <T> T getElementInList(ListKey<T> key, int i)
 	{
 		return listChar.getElementInList(key, i);

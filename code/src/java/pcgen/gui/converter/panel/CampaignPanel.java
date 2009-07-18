@@ -99,7 +99,7 @@ public class CampaignPanel extends ConvertSubPanel
 		gameModeCampaigns = new ArrayList<Campaign>();
 		for (Campaign campaign : allCampaigns)
 		{
-			if (campaign.isGameMode(gameModeList))
+			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
 			{
 				if (campaign.getSourceURI().toString().startsWith(folderName))
 				{

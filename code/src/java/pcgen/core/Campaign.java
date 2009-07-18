@@ -55,24 +55,6 @@ public class Campaign extends PObject
 	}
 
 	/**
-	 * Queries to see if this campaign is of a gameMode
-	 * @param gameModeList    list of gameModes to test for
-	 * @return        boolean if present
-	 **/
-	public boolean isGameMode(final List<String> gameModeList)
-	{
-		for ( String gameMode : gameModeList )
-		{
-			if (containsInList(ListKey.GAME_MODE, gameMode))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * @return Has the campaign been initialised?
 	 */
 	public boolean isInitted()

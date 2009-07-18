@@ -1804,7 +1804,7 @@ public class MainSource extends FilterAdapterPanel
 							new TreeMap<String, PObjectNode>();
 					for (Campaign camp : campList)
 					{
-						if (camp.isGameMode(allowedModes)
+						if (camp.containsAnyInList(ListKey.GAME_MODE, allowedModes)
 							&& shouldDisplayThis(camp)
 							&& (available ^ selectedCampaigns.contains(camp)))
 						{
@@ -1914,7 +1914,7 @@ public class MainSource extends FilterAdapterPanel
 
 						// filter out campaigns here
 						if (!shouldDisplayThis(aCamp)
-							|| !aCamp.isGameMode(allowedModes))
+							|| !aCamp.containsAnyInList(ListKey.GAME_MODE, allowedModes))
 						{
 							continue;
 						}

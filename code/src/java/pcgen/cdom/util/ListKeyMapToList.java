@@ -290,6 +290,29 @@ public class ListKeyMapToList
 	}
 
 	/**
+	 * Returns true if this ListKeyMapToList contains a List for the given key
+	 * and that list contains one or more of the values in the given collection.
+	 * Note, this method returns false if the given key is not in this
+	 * ListKeyMapToList.
+	 * 
+	 * This method is value-semantic in that no changes are made to the objects
+	 * passed into the method.
+	 * 
+	 * @param key
+	 *            The key for the List being tested.
+	 * @param values
+	 *            The collection of values to find in the List for the given
+	 *            key.
+	 * @return true if this ListKeyMapToList contains a List for the given key
+	 *         AND that list contains one or more of the given values; false
+	 *         otherwise.
+	 */
+	public <T> boolean containsAnyInList(ListKey<T> key, Collection<T> values)
+	{
+		return map.containsAnyInList(key, values);
+	}
+
+	/**
 	 * Returns a Set indicating the Keys of this ListKeyMapToList. Ownership of
 	 * the Set is transferred to the calling Object, no association is kept
 	 * between the Set and this ListKeyMapToList. (Thus, removal of a key from

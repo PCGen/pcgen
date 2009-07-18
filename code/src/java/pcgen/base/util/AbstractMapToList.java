@@ -229,6 +229,38 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
+	 * Returns true if this MapToList contains a List for the given key and that
+	 * list contains one or more of the values in the given collection. Note,
+	 * this method returns false if the given key is not in this MapToList.
+	 * 
+	 * This method is value-semantic in that no changes are made to the objects
+	 * passed into the method.
+	 * 
+	 * @param key
+	 *            The key for the List being tested.
+	 * @param values
+	 *            The collection of values to find in the List for the given
+	 *            key.
+	 * @return true if this MapToList contains a List for the given key AND that
+	 *         list contains one or more of the given values; false otherwise.
+	 */
+	public boolean containsAnyInList(K key, Collection<V> values)
+	{
+		List<V> list = mapToList.get(key);
+		if (list != null)
+		{
+			for (V v : values)
+			{
+				if (list.contains(v))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Returns the number of objects in the List for the given key. This method
 	 * will throw a NullPointerException if this MapToList does not contain a
 	 * List for the given key.
