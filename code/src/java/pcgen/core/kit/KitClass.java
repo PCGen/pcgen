@@ -34,6 +34,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
+import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.prereq.PrereqHandler;
 
 /**
@@ -73,7 +74,7 @@ public class KitClass extends BaseKit
 		if (subClass != null)
 		{
 			// try and set a subclass too.
-			theClass.setSubClassKey(aPC, getSubClass().getLSTformat());
+			SubClassApplication.setSubClassKey(aPC, theClass, getSubClass().getLSTformat());
 		}
 
 		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
@@ -97,7 +98,7 @@ public class KitClass extends BaseKit
 	public void apply(PlayerCharacter aPC)
 	{
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
-		theClass.setSubClassKey(aPC, theOrigSubClass);
+		SubClassApplication.setSubClassKey(aPC, theClass, theOrigSubClass);
 		theClass = null;
 	}
 

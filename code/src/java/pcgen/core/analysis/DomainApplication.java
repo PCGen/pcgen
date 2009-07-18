@@ -1,6 +1,6 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Domain.java
+ * Derived from Domain.java and PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -30,14 +30,18 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.ClassSource;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
@@ -175,6 +179,82 @@ public class DomainApplication
 					CharacterSpell cs = new CharacterSpell(d, spell);
 					cs.addInfo(aLevel, 1, Globals.getDefaultSpellBook());
 					pc.addAssoc(aClass, AssociationListKey.CHARACTER_SPELLS, cs);
+				}
+			}
+		}
+	}
+
+	public static void addDomain(final PlayerCharacter aPC, PCClass cl, Domain d,
+			final boolean adding)
+	{
+		if (d.qualifies(aPC))
+		{
+			if (adding)
+			{
+				ClassSource source = aPC.getDomainSource(d);
+				if (source != null
+						&& !cl.getKeyName().equals(
+								source.getPcclass().getKeyName()))
+				{
+					// TODO Not entirely correct, as this takes this level, not
+					// the level where BONUS DOMAINS was present
+					ClassSource cs = new ClassSource(cl, cl
+							.getLevel(aPC));
+					aPC.addDomain(d, cs);
+					applyDomain(aPC, d);
+				}
+			}
+			else
+			{
+				if (aPC.hasDomain(d))
+				{
+					aPC.removeDomain(d);
+				}
+			}
+		}
+	}
+
+	public static void modDomainsForLevel(PCClass cl, final int aLevel, final boolean adding,
+		final PlayerCharacter aPC)
+	{
+	
+		// any domains set by level would have already been saved
+		// and don't need to be re-set at level up time
+		if (aPC.isImporting())
+		{
+			return;
+		}
+	
+		/*
+		 * Note this uses ALL of the domains up to and including this level,
+		 * because there is the possibility (albeit strange) that the PC was not
+		 * qualified at a previous level change, but the PlayerCharacter is now
+		 * qualified for the given Domain. Even this has quirks, since it is
+		 * only applied at the time of level increase, but I think that quirk
+		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
+		 */
+		for (QualifiedObject<CDOMSingleRef<Domain>> qo : cl.getSafeListFor(ListKey.DOMAIN))
+		{
+			CDOMSingleRef<Domain> ref = qo.getObject(aPC);
+			if (ref != null)
+			{
+				addDomain(aPC, cl, ref.resolvesTo(), adding);
+			}
+		}
+		for (PCClassLevel pcl : cl.getClassLevelCollection())
+		{
+			//CONSIDER This makes order assumptions :(
+			if (pcl.get(IntegerKey.LEVEL) > aLevel)
+			{
+				break;
+			}
+			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
+					.getSafeListFor(ListKey.DOMAIN))
+			{
+				CDOMSingleRef<Domain> ref = qo.getObject(aPC);
+				if (ref != null)
+				{
+					addDomain(aPC, cl, ref.resolvesTo(), adding);
 				}
 			}
 		}

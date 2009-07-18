@@ -53,6 +53,7 @@ import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -519,7 +520,8 @@ public class NPCGenerator
 		WeightedCollection<String> subClasses = theConfiguration.getSubClassWeights( aClass.getKeyName() );
 		if (subClasses != null && subClasses.size() > 0)
 		{
-			aClass.setSubClassKey( aPC, subClasses.getRandomValue() );
+			SubClassApplication.setSubClassKey(aPC, aClass, subClasses
+					.getRandomValue());
 		}
 	}
 	

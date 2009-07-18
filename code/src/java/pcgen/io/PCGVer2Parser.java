@@ -86,6 +86,7 @@ import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
+import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -1986,7 +1987,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 					}
 				}
-				aPCClass.setSubClassKey(thePC, subClassKey);
+				SubClassApplication.setSubClassKey(thePC, aPCClass, subClassKey);
 			}
 
 			if (TAG_LEVEL.equals(tag))

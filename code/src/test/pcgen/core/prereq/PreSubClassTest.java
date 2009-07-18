@@ -35,6 +35,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.SubClassApplication;
 import plugin.pretokens.test.PreSubClassTester;
 
 /**
@@ -77,7 +78,8 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
-		character.getClassKeyed("KEY_MyClass").setSubClassKey(character, "MySubClass");
+		SubClassApplication.setSubClassKey(character, character
+				.getClassKeyed("KEY_MyClass"), "MySubClass");
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("subclass");
@@ -106,7 +108,8 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 		character.incrementClassLevel(2, pcClass2);
-		character.getClassKeyed("Other Class").setSubClassKey(character, "OtherSubClass");
+		SubClassApplication.setSubClassKey(character, character
+				.getClassKeyed("Other Class"), "OtherSubClass");
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("subclass");
@@ -134,9 +137,11 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
-		character.getClassKeyed("MyClass").setSubClassKey(character, "MySubClass");
+		SubClassApplication.setSubClassKey(character, character
+				.getClassKeyed("MyClass"), "MySubClass");
 		character.incrementClassLevel(2, pcClass2);
-		character.getClassKeyed("Other Class").setSubClassKey(character, "OtherSubClass");
+		SubClassApplication.setSubClassKey(character, character
+				.getClassKeyed("Other Class"), "OtherSubClass");
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("subclass");
@@ -185,7 +190,8 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
-		character.getClassKeyed("MyClass").setSubClassKey(character, "MySubClass");
+		SubClassApplication.setSubClassKey(character, character
+				.getClassKeyed("MyClass"), "MySubClass");
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("subclass");

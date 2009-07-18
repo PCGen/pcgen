@@ -10273,7 +10273,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	void giveClassesAway(final PCClass toClass, final PCClass fromClass,
+	public void giveClassesAway(final PCClass toClass, final PCClass fromClass,
 		int iCount)
 	{
 		if ((toClass == null) || (fromClass == null))

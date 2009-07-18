@@ -25,12 +25,8 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -49,7 +45,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -71,13 +66,16 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.ClassSkillApplication;
+import pcgen.core.analysis.ClassSpellApplication;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.ExchangeLevelApplication;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
-import pcgen.core.analysis.StatAnalysis;
-import pcgen.core.analysis.SubstitutionLevelSupport;
+import pcgen.core.analysis.StatApplication;
+import pcgen.core.analysis.SubClassApplication;
+import pcgen.core.analysis.SubstitutionClassApplication;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -90,13 +88,8 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.ReferenceContext;
-import pcgen.util.InputFactory;
-import pcgen.util.InputInterface;
 import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
-import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * <code>PCClass</code>.
@@ -535,29 +528,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSLEVELONLY Since this is setting the key that will appear in
-	 * the PCClassLevel (called during construction) this is only required
-	 * in the level objects, not PCClass
-	 */
-	public void setSubClassKey(PlayerCharacter pc, final String aKey)
-	{
-		pc.setAssoc(this, AssociationKey.SUBCLASS_KEY, aKey);
-
-		if (!aKey.equals(getKeyName()))
-		{
-			final SubClass a = getSubClassKeyed(aKey);
-
-			if (a != null)
-			{
-				inheritAttributesFrom(a);
-			}
-		}
-
-		pc.removeAllAssocs(this, AssociationListKey.SPELL_LIST_CACHE);
-		getSpellLists(pc);
-	}
-
-	/*
 	 * FINALPCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected subClass, if any, is structured into the PCClassLevel during the
 	 * construction of the PCClassLevel
@@ -621,7 +591,7 @@ public class PCClass extends PObject
 				addFeatPoolBonus(aPC);
 			}
 
-			chooseClassSkillList(aPC);
+			ClassSkillApplication.chooseClassSkillList(aPC, this);
 		}
 
 		if (!aPC.isImporting())
@@ -633,13 +603,13 @@ public class PCClass extends PObject
 
 		if ((newLevel == 1) && !aPC.isImporting() && (curLevel == 0))
 		{
-			checkForSubClass(aPC);
+			SubClassApplication.checkForSubClass(aPC, this);
 			getSpellLists(aPC);
 		}
 
 		if (!aPC.isImporting() && (curLevel < newLevel))
 		{
-			checkForSubstitutionClass(newLevel, aPC);
+			SubstitutionClassApplication.checkForSubstitutionClass(this, newLevel, aPC);
 		}
 
 		for (PCClass pcClass : aPC.getClassList())
@@ -1177,40 +1147,6 @@ public class PCClass extends PObject
 		return spMod;
 	}
 
-	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public final List<ClassSkillList> getClassSkillList(PlayerCharacter pc)
-	{
-		List<ClassSkillList> classSkillList = pc.getAssocList(this, AssociationListKey.CLASSSKILLLIST);
-		if (classSkillList == null)
-		{
-			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
-			ReferenceContext ref = Globals.getContext().ref;
-			Class<ClassSkillList> cl = ClassSkillList.class;
-			ClassSkillList l = ref.silentlyGetConstructedCDOMObject(cl, getKeyName());
-			if (l != null)
-			{
-				returnList.add(l);
-			}
-			String subClassKey = pc.getAssoc(this, AssociationKey.SUBCLASS_KEY);
-			if (subClassKey != null)
-			{
-				l = ref.silentlyGetConstructedCDOMObject(cl, subClassKey);
-				if (l != null)
-				{
-					returnList.add(l);
-				}
-			}
-			return returnList;
-		}
-		else
-		{
-			return classSkillList;
-		}
-	}
-
 	/**
 	 * Get the unarmed Damage for this class at the given level.
 	 *
@@ -1414,7 +1350,7 @@ public class PCClass extends PObject
 
 		if (!aPC.isImporting())
 		{
-			modDomainsForLevel(newLevel, true, aPC);
+			DomainApplication.modDomainsForLevel(this, newLevel, true, aPC);
 		}
 
 		int levelUpStats = 0;
@@ -1473,7 +1409,7 @@ public class PCClass extends PObject
 							&& SettingsHandler.getShowStatDialogAtLevelUp())
 						{
 							levelUpStats =
-									askForStatIncrease(aPC, bonusStats, true);
+									StatApplication.askForStatIncrease(aPC, bonusStats, true);
 						}
 					}
 				}
@@ -1520,7 +1456,7 @@ public class PCClass extends PObject
 			//
 			if (levelUpStats > 0)
 			{
-				askForStatIncrease(aPC, levelUpStats, false);
+				StatApplication.askForStatIncrease(aPC, levelUpStats, false);
 			}
 
 			if (newLevel == 1)
@@ -1585,92 +1521,9 @@ public class PCClass extends PObject
 		if (containsKey(ObjectKey.EXCHANGE_LEVEL) && (getLevel(aPC) == 1)
 				&& !aPC.isImporting())
 		{
-			exchangeLevels(aPC);
+			ExchangeLevelApplication.exchangeLevels(aPC, this);
 		}
 		return true;
-	}
-
-	/*
-	 * REFACTOR This is going to require some inginuity to be able to do this in
-	 * the new PCClass/PCClassLevel world, since this is an interaction across
-	 * multiple PCClassLevels.
-	 */
-	private void exchangeLevels(final PlayerCharacter aPC)
-	{
-		LevelExchange le = get(ObjectKey.EXCHANGE_LEVEL);
-
-			try
- 			{
-				PCClass cl = le.getExchangeClass().resolvesTo();
-				int iMinLevel = le.getMinDonatingLevel();
-				int iMaxDonation = le.getMaxDonatedLevels();
-				int iLowest = le.getDonatingLowerLevelBound();
-				final PCClass aClass = aPC.getClassKeyed(cl.getKeyName());
-
-				if (aClass != null)
-				{
-					final int iLevel = aClass.getLevel(aPC);
-
-					if (iLevel >= iMinLevel)
-					{
-						iMaxDonation = Math.min(iMaxDonation, iLevel - iLowest);
-						if (hasMaxLevel())
-						{
-							iMaxDonation =
-									Math.min(iMaxDonation, getSafe(IntegerKey.LEVEL_LIMIT) - 1);
-						}
-
-						if (iMaxDonation > 0)
-						{
-							//
-							// Build the choice list
-							//
-							final List<String> choiceNames =
-									new ArrayList<String>();
-
-							for (int i = 0; i <= iMaxDonation; ++i)
-							{
-								choiceNames.add(Integer.toString(i));
-							}
-
-							//
-							// Get number of levels to exchange for this class
-							//
-							final ChooserInterface c =
-									ChooserFactory.getChooserInstance();
-							c
-								.setTitle("Select number of levels to convert from "
-									+ aClass.getDisplayName()
-									+ " to "
-									+ getDisplayName());
-							c.setTotalChoicesAvail(1);
-							c.setPoolFlag(false);
-							c.setAvailableList(choiceNames);
-							c.setVisible(true);
-
-							final List<String> selectedList =
-									c.getSelectedList();
-							int iLevels = 0;
-
-							if (!selectedList.isEmpty())
-							{
-								iLevels = Integer.parseInt(selectedList.get(0));
-							}
-
-							if (iLevels > 0)
-							{
-								aPC.giveClassesAway(this, aClass, iLevels);
-							}
-						}
-					}
-				}
-			}
-			catch (NumberFormatException exc)
-			{
-				ShowMessageDelegate.showMessageDialog("levelExchange:"
-					+ Constants.s_LINE_SEP + exc.getMessage(),
-					Constants.s_APPNAME, MessageType.ERROR);
-			}
 	}
 
 	/*
@@ -1834,11 +1687,11 @@ public class PCClass extends PObject
 
 			doMinusLevelMods(aPC, newLevel + 1);
 
-			modDomainsForLevel(newLevel, false, aPC);
+			DomainApplication.modDomainsForLevel(this, newLevel, false, aPC);
 
 			if (newLevel == 0)
 			{
-				setSubClassKey(aPC, Constants.s_NONE);
+				SubClassApplication.setSubClassKey(aPC, this, Constants.s_NONE);
 
 				//
 				// Remove all skills associated with this class
@@ -1970,493 +1823,6 @@ public class PCClass extends PObject
 		}
 	}
 
-	//
-	// Ask user to select a stat to increment. This can happen before skill
-	// points
-	// are calculated, so an increase to the appropriate stat can give more
-	// skill points
-	//
-	/*
-	 * REFACTOR This is part of the leveling up process, but really can't be
-	 * part of the production of a PCClassLevel object, since that is
-	 * PlayerCharacter independent. This really needs to happen during the
-	 * addition of a PCClassLevel to a PlayerCharacter.
-	 */
-	private final int askForStatIncrease(final PlayerCharacter aPC,
-		final int statsToChoose, final boolean isPre)
-	{
-		//
-		// If 1st time here (checks for preincrement), then will only ask if
-		// want to ask before level up
-		// If 2nd time here, will ask if there are any remaining points
-		// unassigned.
-		// So, hitting cancel on the 1st popup will cause the 2nd popup to ask
-		// again.
-		// This is to handle cases where the user is adding multiple levels, so
-		// the SKILL point total
-		// won't be too messed up
-		//
-		if (isPre)
-		{
-			if (!Globals.checkRule(RuleConstants.INTBEFORE))
-			{
-				return statsToChoose;
-			}
-		}
-
-		String extraMsg = "";
-
-		if (isPre)
-		{
-			extraMsg = "\nRaising a stat here may award more skill points.";
-		}
-
-		int iCount = 0;
-		Set<PCStat> statsAlreadyBonused = new HashSet<PCStat>();
-		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
-		for (int ix = 0; ix < statsToChoose; ++ix)
-		{
-			final StringBuffer sStats = new StringBuffer();
-			final List<String> selectableStats = new ArrayList<String>();
-
-			for (PCStat aStat : aPC.getUnmodifiableStatList())
-			{
-				final int iAdjStat =
-						StatAnalysis.getTotalStatFor(aPC, aStat);
-				final int iCurStat =
-						StatAnalysis.getBaseStatFor(aPC, aStat);
-				sStats.append(aStat.getAbb()).append(": ").append(iCurStat);
-
-				if (iCurStat != iAdjStat)
-				{
-					sStats.append(" adjusted: ").append(iAdjStat);
-				}
-
-				sStats.append(" (").append(
-					StatAnalysis.getStatModFor(aPC, aStat)).append(
-					")");
-
-				if (allowStacks || !statsAlreadyBonused.contains(aStat))
-				{
-					sStats.append("\n");
-					selectableStats.add(aStat.getDisplayName());
-				}
-				else
-				{
-					sStats.append(" * Already incremented.\n");
-				}
-			}
-
-			final String[] selectionValues = selectableStats.toArray(new String[]{});
-			final InputInterface ii = InputFactory.getInputInstance();
-			final Object selectedValue =
-					ii
-						.showInputDialog(
-							null,
-							"Choose stat to increment or select Cancel to increment stat on the Summary tab."
-								+ extraMsg
-								+ "\n\n"
-								+ "Current Stats:\n"
-								+ sStats + "\n", Constants.s_APPNAME,
-							MessageType.INFORMATION,
-							selectionValues,
-							selectionValues[0]);
-
-			if (selectedValue != null)
-			{
-				for (PCStat aStat : aPC.getUnmodifiableStatList())
-				{
-					if (aStat.getDisplayName().equalsIgnoreCase(
-						selectedValue.toString()))
-					{
-						aPC.saveStatIncrease(aStat, 1, isPre);
-						aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE) + 1);
-						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
-						statsAlreadyBonused.add(aStat);
-						++iCount;
-
-						break;
-					}
-				}
-			}
-		}
-
-		return statsToChoose - iCount;
-	}
-
-	/**
-	 * Build a list of Substitution Classes for the user to choose from. The
-	 * list passed in will be populated.
-	 *
-	 * @param choiceNames
-	 *            The list of substitution classes to choose from.
-	 * @param level
-	 *            The class level to determine the choices for
-	 * @param aPC
-	 */
-	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
-	 * selected substitutionClass, if any, is structured into the PCClassLevel
-	 * during the construction of the PCClassLevel
-	 */
-	private void buildSubstitutionClassChoiceList(
-		final List<PCClass> choiceList, final int level,
-		final PlayerCharacter aPC)
-	{
-
-		for (SubstitutionClass sc : getListFor(ListKey.SUBSTITUTION_CLASS))
-		{
-			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, this))
-			{
-				continue;
-			}
-			if (!sc.hasClassLevel(level))
-			{
-				continue;
-			}
-			if (!SubstitutionLevelSupport.qualifiesForSubstitutionLevel(sc, aPC, level))
-			{
-				continue;
-			}
-
-			choiceList.add(sc);
-		}
-		Collections.sort(choiceList); // sort the SubstitutionClass's
-		choiceList.add(0, this); // THEN add the base class as the first choice
-	}
-
-	/*
-	 * PCCLASSONLY This is really part of the PCClassLevel Factory, and
-	 * therefore only needs to be placed in PCClass
-	 */
-	private void checkForSubClass(final PlayerCharacter aPC)
-	{
-		List<SubClass> subClassList = getListFor(ListKey.SUB_CLASS);
-		if (subClassList == null || subClassList.isEmpty())
-		{
-			return;
-		}
-
-		List<String> columnNames = new ArrayList<String>(3);
-		columnNames.add("Name");
-		columnNames.add("Cost");
-		columnNames.add("Other");
-
-		List<List> choiceList = new ArrayList<List>();
-		String subClassKey = aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY);
-		boolean subClassSelected = subClassKey != null
-				&& !subClassKey.equals(Constants.s_NONE)
-				&& !subClassKey.equals("");
-
-		for (SubClass sc : subClassList)
-		{
-			/*
-			 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
-			 *
-			 * STOP THE MAGIC, I want to delete MULTIPREREQs
-			 */
-			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, this))
-			{
-				continue;
-			}
-
-			final List<Object> columnList = new ArrayList<Object>(3);
-
-			columnList.add(sc);
-			columnList.add(Integer.toString(sc.getSafe(IntegerKey.COST)));
-			columnList.add(sc.getSupplementalDisplayInfo());
-
-			// If a subclass has already been selected, only add that one
-			if (!subClassSelected
-					|| sc.getKeyName().equals(
-							aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY)))
-			{
-				choiceList.add(columnList);
-			}
-		}
-
-		Collections.sort(choiceList, new Comparator<List>()
-		{
-			public int compare(List o1, List o2)
-			{
-				try
-				{
-					PCClass class1 = ((List<PCClass>) o1).get(0);
-					PCClass class2 = ((List<PCClass>) o2).get(0);
-					return class1.compareTo(class2);
-				}
-				catch (RuntimeException e)
-				{
-					return 0;
-				}
-			}
-		});
-
-		// add base class to the chooser at the TOP
-		if (getSafe(ObjectKey.ALLOWBASECLASS)
-				&& (!subClassSelected || getKeyName().equals(
-						aPC.getAssoc(this, AssociationKey.SUBCLASS_KEY))))
-		{
-			final List<Object> columnList2 = new ArrayList<Object>(3);
-			columnList2.add(this);
-			columnList2.add("0");
-			columnList2.add("");
-			choiceList.add(0, columnList2);
-		}
-
-		/*
-		 * REFACTOR This makes an assumption that SubClasses are ONLY Schools, which may
-		 * not be a fabulous assumption
-		 */
-		final ChooserInterface c = ChooserFactory.getChooserInstance();
-
-		c.setTitle("School Choice (Specialisation)");
-		c
-			.setMessageText("Make a selection.  The cost column indicates the cost of that selection. "
-				+ "If this cost is non-zero, you will be asked to also "
-				+ "select items from this list to give up to cover that cost.");
-		c.setTotalChoicesAvail(1);
-		c.setPoolFlag(false);
-
-		// c.setCostColumnNumber(1); // Allow 1 choice, regardless of
-		// cost...cost will be applied in second phase
-		c.setAvailableColumnNames(columnNames);
-		c.setAvailableList(choiceList);
-
-		if (choiceList.size() == 1)
-		{
-			c.setSelectedList(choiceList);
-		}
-		else if (choiceList.size() != 0)
-		{
-			c.setVisible(true);
-		}
-
-		List<List<PCClass>> selectedList;
-		if (!getSafe(ObjectKey.ALLOWBASECLASS))
-		{
-			while (c.getSelectedList().size() == 0)
-			{
-				c.setVisible(true);
-			}
-			selectedList = c.getSelectedList();
-
-		}
-		else
-		{
-			selectedList = c.getSelectedList();
-		}
-
-		if (selectedList.size() == 0)
-		{
-			return;
-		}
-
-		List<PCClass> selectedRow = selectedList.get(0);
-		if (selectedRow.size() == 0)
-		{
-			return;
-		}
-		PCClass subselected = selectedRow.get(0);
-
-		if (!selectedList.isEmpty() && subselected instanceof SubClass)
-		{
-			aPC.removeAllAssocs(this, AssociationListKey.PROHIBITED_SCHOOLS);
-			/*
-			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
-			 */
-			aPC.removeAssoc(this, AssociationKey.SPECIALTY);
-
-			SubClass sc = (SubClass) subselected;
-
-			choiceList = new ArrayList<List>();
-
-			for (SubClass sub : subClassList)
-			{
-				if (sub.equals(sc))
-				{
-					//Skip the selected specialist school
-					continue;
-				}
-				/*
-				 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
-				 *
-				 * STOP THE MAGIC, I want to delete MULTIPREREQs
-				 */
-				if (!PrereqHandler.passesAll(sub.getPrerequisiteList(), aPC, this))
-				{
-					continue;
-				}
-
-				final List<Object> columnList = new ArrayList<Object>(3);
-
-				int displayedCost = sub.getProhibitCost();
-				if (displayedCost == 0)
-				{
-					continue;
-				}
-
-				columnList.add(sub);
-				columnList.add(Integer.toString(displayedCost));
-				columnList.add(sub.getSupplementalDisplayInfo());
-				columnList.add(sub.getChoice());
-
-				choiceList.add(columnList);
-			}
-
-			setSubClassKey(aPC, sc.getKeyName());
-
-			if (sc.get(ObjectKey.CHOICE) != null)
-			{
-				aPC.setAssoc(this, AssociationKey.SPECIALTY, sc.getChoice());
-			}
-
-			columnNames.add("Specialty");
-
-			if (sc.getSafe(IntegerKey.COST) != 0)
-			{
-				final ChooserInterface c1 = ChooserFactory.getChooserInstance();
-				c1.setTitle("School Choice (Prohibited)");
-				c1.setAvailableColumnNames(columnNames);
-				c1.setAvailableList(choiceList);
-				c1
-					.setMessageText("Make a selection.  You must make as many selections "
-						+ "necessary to cover the cost of your previous selections.");
-				c1.setTotalChoicesAvail(sc.getSafe(IntegerKey.COST));
-				c1.setPoolFlag(true);
-				c1.setCostColumnNumber(1);
-				c1.setNegativeAllowed(true);
-				c1.setVisible(true);
-				selectedList = c1.getSelectedList();
-
-				for (Iterator<List<PCClass>> i = selectedList.iterator(); i
-					.hasNext();)
-				{
-					final List columns = i.next();
-					sc = (SubClass) columns.get(0);
-					SpellProhibitor prohibSchool = new SpellProhibitor();
-					prohibSchool.setType(ProhibitedSpellType.SCHOOL);
-					prohibSchool.addValue(sc.getChoice());
-					SpellProhibitor prohibSubSchool = new SpellProhibitor();
-					prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
-					prohibSubSchool.addValue(sc.getChoice());
-					aPC.addAssoc(this, AssociationListKey.PROHIBITED_SCHOOLS,
-						prohibSchool);
-					aPC.addAssoc(this, AssociationListKey.PROHIBITED_SCHOOLS,
-						prohibSubSchool);
-				}
-			}
-		}
-	}
-
-	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
-	 * selected substitutionClass, if any, is structured into the PCClassLevel
-	 * during the construction of the PCClassLevel
-	 */
-	private void checkForSubstitutionClass(final int aLevel,
-		final PlayerCharacter aPC)
-	{
-		List<SubstitutionClass> substitutionClassList = getListFor(ListKey.SUBSTITUTION_CLASS);
-		if (substitutionClassList == null || substitutionClassList.isEmpty())
-		{
-			return;
-		}
-		List<String> columnNames = new ArrayList<String>(1);
-		columnNames.add("Name");
-
-		List<PCClass> choiceList = new ArrayList<PCClass>();
-		buildSubstitutionClassChoiceList(choiceList, getLevel(aPC), aPC);
-		if (choiceList.size() <= 1)
-		{
-			return; // This means the there are no classes for which
-			// the pc meets the prerequisitions and thus the
-			// base class is chosen.
-		}
-
-		final ChooserInterface c = ChooserFactory.getChooserInstance();
-		c.setTitle("Substitution Levels");
-		c.setMessageText("Choose one of the listed substitution levels "
-			+ "or the base class(top entry).  "
-			+ "Pressing Close will take the standard class level.");
-		c.setTotalChoicesAvail(1);
-		c.setPoolFlag(false);
-
-		c.setAvailableColumnNames(columnNames);
-		c.setAvailableList(choiceList);
-
-		c.setVisible(true);
-
-		List<PCClass> selectedList = c.getSelectedList();
-		PCClass selected = null;
-		if (!selectedList.isEmpty())
-		{
-			selected = selectedList.get(0);
-		}
-
-		PCClassLevel lvl = this.getClassLevel(aLevel);
-		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass)
-		{
-			SubstitutionClass sc = (SubstitutionClass) selected;
-			aPC.setAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY, sc.getKeyName());
-			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, this, aLevel, aPC);
-			return;
-		}
-		else
-		{
-			/*
-			 *  the original code has the below line..
-			 *	however, it appears to not be needed.
-			 *	I say this because if the original buildSubstitutionClassChoiceList
-			 *	method returned an empty list, it returned right away without
-			 *	calling this method.
-			*/
-			aPC.removeAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY);
-			return;
-		}
-
-	}
-
-	/*
-	 * PCCLASSONLY Since this is a choice of ClassSkillList, this is part of the
-	 * PCClass factory of PCClassLevels??
-	 */
-	private void chooseClassSkillList(PlayerCharacter pc)
-	{
-		TransitionChoice<ClassSkillList> csc = get(ObjectKey.SKILLLIST_CHOICE);
-		// if no entry or no choices, just return
-		if (csc == null || (getLevel(pc) < 1))
-		{
-			return;
-		}
-
-		pc.removeAllAssocs(this, AssociationListKey.CLASSSKILLLIST);
-		for (ClassSkillList st : csc.driveChoice(pc))
-		{
-			pc.addAssoc(pc, AssociationListKey.CLASSSKILLLIST, st);
-		}
-	}
-
-	/*
-	 * PCCLASSONLY Since this is part of the construction of a PCClassLevel,
-	 * this is only part of PCClass...
-	 */
-	private void chooseClassSpellList(PlayerCharacter pc)
-	{
-		TransitionChoice<CDOMListObject<Spell>> csc = get(ObjectKey.SPELLLIST_CHOICE);
-		// if no entry or no choices, just return
-		if (csc == null || (getLevel(pc) < 1))
-		{
-			return;
-		}
-
-		pc.removeAllAssocs(this, AssociationListKey.CLASSSPELLLIST);
-		for (CDOMListObject<Spell> st : csc.driveChoice(pc))
-		{
-			addClassSpellList(st, pc);
-		}
-	}
-
 	/*
 	 * REFACTOR Some derivative of this method will be in PCClass only as part
 	 * of the factory creation of a PCClassLevel... or perhaps in PCClassLevel
@@ -2467,7 +1833,7 @@ public class PCClass extends PObject
 	/*
 	 * CONSIDER Why does this not inherit classSkillChoices?
 	 */
-	private void inheritAttributesFrom(final PCClass otherClass)
+	public void inheritAttributesFrom(final PCClass otherClass)
 	{
 		Boolean hbss = otherClass.get(ObjectKey.HAS_BONUS_SPELL_STAT);
 		if (hbss != null)
@@ -2621,82 +1987,6 @@ public class PCClass extends PObject
 				.getListFor(ListKey.NATURAL_WEAPON));
 
 		put(ObjectKey.LEVEL_HITDIE, otherClass.get(ObjectKey.LEVEL_HITDIE));
-	}
-
-	private void modDomainsForLevel(final int aLevel, final boolean adding,
-		final PlayerCharacter aPC)
-	{
-
-		// any domains set by level would have already been saved
-		// and don't need to be re-set at level up time
-		if (aPC.isImporting())
-		{
-			return;
-		}
-
-		/*
-		 * Note this uses ALL of the domains up to and including this level,
-		 * because there is the possibility (albeit strange) that the PC was not
-		 * qualified at a previous level change, but the PlayerCharacter is now
-		 * qualified for the given Domain. Even this has quirks, since it is
-		 * only applied at the time of level increase, but I think that quirk
-		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
-		 */
-		for (QualifiedObject<CDOMSingleRef<Domain>> qo : getSafeListFor(ListKey.DOMAIN))
-		{
-			CDOMSingleRef<Domain> ref = qo.getObject(aPC);
-			if (ref != null)
-			{
-				addDomain(aPC, ref.resolvesTo(), adding);
-			}
-		}
-		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
-		{
-			if (me.getKey() > aLevel)
-			{
-				break;
-			}
-			PCClassLevel pcl = me.getValue();
-			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
-					.getSafeListFor(ListKey.DOMAIN))
-			{
-				CDOMSingleRef<Domain> ref = qo.getObject(aPC);
-				if (ref != null)
-				{
-					addDomain(aPC, ref.resolvesTo(), adding);
-				}
-			}
-		}
-	}
-
-	private void addDomain(final PlayerCharacter aPC, Domain d,
-			final boolean adding)
-	{
-		if (d.qualifies(aPC))
-		{
-			if (adding)
-			{
-				ClassSource source = aPC.getDomainSource(d);
-				if (source != null
-						&& !getKeyName().equals(
-								source.getPcclass().getKeyName()))
-				{
-					// TODO Not entirely correct, as this takes this level, not
-					// the level where BONUS DOMAINS was present
-					ClassSource cs = new ClassSource(this, this
-							.getLevel(aPC));
-					aPC.addDomain(d, cs);
-					DomainApplication.applyDomain(aPC, d);
-				}
-			}
-			else
-			{
-				if (aPC.hasDomain(d))
-				{
-					aPC.removeDomain(d);
-				}
-			}
-		}
 	}
 
 	/**
@@ -2925,7 +2215,7 @@ public class PCClass extends PObject
 				AssociationListKey.CLASSSPELLLIST);
 		if (classSpellList == null)
 		{
-			chooseClassSpellList(pc);
+			ClassSpellApplication.chooseClassSpellList(pc, this);
 
 			classSpellList = pc.getAssocList(this,
 					AssociationListKey.CLASSSPELLLIST);
