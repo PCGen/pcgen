@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -48,7 +47,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 
-import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -243,23 +241,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(lt);
 		}
 
-		if (obj.hasCastList())
-		{
-			for (Entry<Integer, List<Formula>> me : obj.getCastProgression().entrySet())
-			{
-				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_CAST, StringUtil.join(me.getValue(), ","));
-				levelTagList.add(lt);
-			}
-		}
-		
-		if (obj.hasKnownList()) {
-			for (Entry<Integer, List<Formula>> me : obj.getKnownMap().entrySet())
-			{
-				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_KNOWN, StringUtil.join(me.getValue(), ","));
-				levelTagList.add(lt);
-			}
-		}
-
 		for (Iterator<TransitionChoice<Kit>> it = obj.getSafeListFor(
 				ListKey.KIT_CHOICE).iterator(); it.hasNext();)
 		{
@@ -273,7 +254,21 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			Integer cl = pcl.get(IntegerKey.LEVEL);
 			
-			String[] unparse = Globals.getContext().unparse(pcl, "SPELLS");
+			String[] unparse = Globals.getContext().unparse(pcl, "CAST");
+			if (unparse != null)
+			{
+				LevelTag lt = new LevelTag(cl, LevelTag.TAG_CAST, unparse[0]);
+				levelTagList.add(lt);
+			}
+
+			unparse = Globals.getContext().unparse(pcl, "KNOWN");
+			if (unparse != null)
+			{
+				LevelTag lt = new LevelTag(cl, LevelTag.TAG_KNOWN, unparse[0]);
+				levelTagList.add(lt);
+			}
+
+			unparse = Globals.getContext().unparse(pcl, "SPELLS");
 			if (unparse != null)
 			{
 				for (String s : unparse)
