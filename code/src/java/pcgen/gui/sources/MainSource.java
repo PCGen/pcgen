@@ -414,12 +414,9 @@ public class MainSource extends FilterAdapterPanel
 		// -Lone Jedi (Aug. 14, 2002)
 		selectedCampaigns.clear();
 
-		for (Campaign aCamp : Globals.getCampaignList())
+		for (Campaign aCamp : PersistenceManager.getInstance().getLoadedCampaigns())
 		{
-			if (aCamp.isLoaded())
-			{
-				selectedCampaigns.add(aCamp);
-			}
+			selectedCampaigns.add(aCamp);
 		}
 
 		updateModels();
@@ -1747,7 +1744,8 @@ public class MainSource extends FilterAdapterPanel
 
 						if (aCamp != null)
 						{
-							if (aCamp.isLoaded())
+							
+							if (PersistenceManager.getInstance().isLoaded(aCamp))
 							{
 								return "Y";
 							}

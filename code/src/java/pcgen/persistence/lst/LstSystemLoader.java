@@ -130,6 +130,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				}
 			};
 
+	private List<Campaign> loadedCampaigns = new ArrayList<Campaign>();
 	private AbilityCategoryLoader abilityCategoryLoader = new AbilityCategoryLoader();
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private CampaignLoader campaignLoader = new CampaignLoader();
@@ -1291,7 +1292,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		// along with any options required by the campaigns...
 		for (Campaign campaign : aSelectedCampaignsList)
 		{
-			campaign.setIsLoaded(true);
+			loadedCampaigns.add(campaign);
 			
 					final URI sourceFile = campaign.getSourceURI();
 			
@@ -1610,6 +1611,21 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	public void initRecursivePccFiles() throws PersistenceLayerException
 	{
 		campaignLoader.initRecursivePccFiles();
+	}
+
+	public Collection<Campaign> getLoadedCampaigns()
+	{
+		return new ArrayList<Campaign>(loadedCampaigns);
+	}
+
+	public boolean isLoaded(Campaign campaign)
+	{
+		return loadedCampaigns.contains(campaign);
+	}
+
+	public void markAllUnloaded()
+	{
+		loadedCampaigns.clear();
 	}
 
 }

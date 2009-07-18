@@ -139,6 +139,7 @@ import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Delta;
@@ -11686,14 +11687,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final ArrayList<PObject> results = new ArrayList<PObject>();
 
 		// Loaded campaigns
-		final List<Campaign> campaigns = Globals.getCampaignList();
-		for (final Campaign campaign : campaigns)
+		for (Campaign campaign : PersistenceManager.getInstance().getLoadedCampaigns())
 		{
-			if (campaign != null && campaign.isLoaded())
-			{
-				results.add(campaign);
-				results.addAll(campaign.getSubCampaigns());
-			}
+			results.add(campaign);
+			results.addAll(campaign.getSubCampaigns());
 		}
 
 		// Alignment

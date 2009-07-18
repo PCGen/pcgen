@@ -97,18 +97,18 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 	{
 		Set<Campaign> matchingCampaigns = new HashSet<Campaign>();
 		List<Campaign> campList = Globals.getCampaignList();
+		PersistenceManager pMan = PersistenceManager.getInstance();
 		for (Campaign campaign : campList)
 		{
-			if (campaign.isLoaded()
+			if (pMan.isLoaded(campaign)
 				&& bookType.equalsIgnoreCase(campaign.getSafe(StringKey.BOOK_TYPE)))
 			{
-				Logging.debugPrint("Adding campaign " + campaign.isLoaded() + " type:" + campaign.getSafe(StringKey.BOOK_TYPE));
+				Logging.debugPrint("Adding campaign " + pMan.isLoaded(campaign) + " type:" + campaign.getSafe(StringKey.BOOK_TYPE));
 				matchingCampaigns.add(campaign);
 			}
 		}
 
-		List<URI> selCampaigns =
-				PersistenceManager.getInstance().getChosenCampaignSourcefiles();
+		List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
 		for (URI element : selCampaigns)
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
@@ -134,16 +134,14 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 		Campaign campaign = Globals.getCampaignKeyed(key);
 		if (campaign != null)
 		{
-			if (campaign.getKeyName().equals(key)
-				&& campaign.isLoaded())
+			PersistenceManager pMan = PersistenceManager.getInstance();
+			if (campaign.getKeyName().equals(key) && pMan.isLoaded(campaign))
 			{
 				++total;
 			}
 			else
 			{
-				List<URI> selCampaigns =
-						PersistenceManager.getInstance()
-							.getChosenCampaignSourcefiles();
+				List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
 				for (URI element : selCampaigns)
 				{
 					final Campaign aCampaign =

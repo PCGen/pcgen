@@ -87,6 +87,7 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.PersistenceManager;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -446,15 +447,12 @@ final class PCGVer2Creator implements IOConstants
 	{
 		String del = Constants.EMPTY_STRING;
 
-		for (Campaign campaign : Globals.getCampaignList())
+		for (Campaign campaign : PersistenceManager.getInstance().getLoadedCampaigns())
 		{
-			if (campaign.isLoaded())
-			{
-				buffer.append(del);
-				buffer.append(TAG_CAMPAIGN).append(':');
-				buffer.append(campaign.getKeyName());
-				del = "|"; //$NON-NLS-1$
-			}
+			buffer.append(del);
+			buffer.append(TAG_CAMPAIGN).append(':');
+			buffer.append(campaign.getKeyName());
+			del = "|"; //$NON-NLS-1$
 		}
 
 		buffer.append(LINE_SEP);

@@ -22,16 +22,17 @@
  */
 package pcgen.persistence;
 
+import java.net.URI;
+import java.util.Collection;
+import java.util.List;
+import java.util.Observer;
+import java.util.Set;
+
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
-
-import java.net.URI;
-import java.util.List;
-import java.util.Observer;
-import java.util.Set;
 
 /** <code>PersistenceManager</code> is a factory class that hides
  * the implementation details of the actual loader.  The initialize method
@@ -198,10 +199,7 @@ public final class PersistenceManager
 			emptyLists();
 
 			// Mark everything as unloaded
-			for (Campaign campaign : aSelectedCampaignsList)
-			{
-				campaign.setIsLoaded(false);
-			}
+			instance.markAllUnloaded();
 
 			ple.fillInStackTrace();
 			throw ple;
@@ -219,6 +217,22 @@ public final class PersistenceManager
 	public void refreshCampaigns()
 	{
 		instance.refreshCampaigns();
+	}
+
+	public void clear()
+	{
+		instance.emptyLists();
+		instance.markAllUnloaded();
+	}
+
+	public boolean isLoaded(Campaign campaign)
+	{
+		return instance.isLoaded(campaign);
+	}
+
+	public Collection<Campaign> getLoadedCampaigns()
+	{
+		return instance.getLoadedCampaigns();
 	}
 
 }

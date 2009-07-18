@@ -106,13 +106,7 @@ public final class SourceSelectionUtils
 		}
 
 		Globals.emptyLists();
-		PersistenceManager.getInstance().emptyLists();
-		//PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList<URI>());
-
-		for (Campaign aCamp : Globals.getCampaignList())
-		{
-			aCamp.setIsLoaded(false);
-		}
+		PersistenceManager.getInstance().clear();
 
 		parent.enableLstEditors(false);
 
@@ -174,13 +168,8 @@ public final class SourceSelectionUtils
 		// Unload the existing campaigns and load our selected campaign
 		Globals.emptyLists();
 		PersistenceManager pManager = PersistenceManager.getInstance();
-		pManager.emptyLists();
+		pManager.clear();
 		pManager.setChosenCampaignSourcefiles(new ArrayList<URI>());
-
-		for (Campaign aCamp : Globals.getCampaignList())
-		{
-			aCamp.setIsLoaded(false);
-		}
 
 		// Show that we are loading...
 		String oldStatus = PCGen_Frame1.getInst().getMainSource()

@@ -45,7 +45,6 @@ import pcgen.rules.context.RuntimeLoadContext;
  */
 public class Campaign extends PObject
 {
-	private boolean isLoaded;
 	private boolean isInitted;
 
 	/**
@@ -88,23 +87,6 @@ public class Campaign extends PObject
 	public void setInitted(boolean isInitted)
 	{
 		this.isInitted = isInitted;
-	}
-
-	/**
-	 * Sets whether the campaign is loaded.
-	 * @param isLoaded
-	 */
-	public void setIsLoaded(final boolean isLoaded)
-	{
-		this.isLoaded = isLoaded;
-	}
-
-	/**
-	 * @return true if the campaign (source file set) is loaded.
-	 */
-	public boolean isLoaded()
-	{
-		return isLoaded;
 	}
 
 	/**

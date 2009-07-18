@@ -135,8 +135,8 @@ public class InfoPanel extends JPanel
 		gameMode.setText(SettingsHandler.getGame().getName());
 
 		List<String> selectedCampaigns = new ArrayList<String>();
-		List<URI> campaigns =
-			PersistenceManager.getInstance().getChosenCampaignSourcefiles();  
+		PersistenceManager pMan = PersistenceManager.getInstance();
+		List<URI> campaigns = pMan.getChosenCampaignSourcefiles();  
 		for (URI element : campaigns)
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element);
@@ -144,7 +144,7 @@ public class InfoPanel extends JPanel
 			if (aCampaign != null)
 			{
 				String name = aCampaign.getDisplayName();
-				if (!selectedCampaigns.contains(name) && aCampaign.isLoaded())
+				if (!selectedCampaigns.contains(name) && pMan.isLoaded(aCampaign))
 				{
 					selectedCampaigns.add(name);
 				}

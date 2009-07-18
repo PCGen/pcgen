@@ -1398,7 +1398,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					throw new PCGParseException(
 						"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
 				}
-
+				Collection<Campaign> loaded = PersistenceManager.getInstance().getLoadedCampaigns();
 				for (PCGElement element : tokens.getElements())
 				{
 					final Campaign aCampaign =
@@ -1408,7 +1408,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						&& aCampaign.containsInList(ListKey.GAME_MODE, SettingsHandler.getGame()
 						.getName()))
 					{
-						if (!aCampaign.isLoaded())
+						if (!loaded.contains(aCampaign))
 						{
 							campaigns.add(aCampaign);
 						}

@@ -23,6 +23,7 @@
 package pcgen.persistence;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.List;
 import java.util.Observer;
 import java.util.Set;
@@ -126,5 +127,11 @@ public interface SystemLoader
 	 * Notify Observers
 	 */
 	public void notifyObservers();
+
+	public void markAllUnloaded();
+
+	public boolean isLoaded(Campaign campaign);
+
+	public Collection<Campaign> getLoadedCampaigns();
 
 }
