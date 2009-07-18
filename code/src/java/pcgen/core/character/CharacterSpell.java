@@ -32,6 +32,7 @@ import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.spell.Spell;
 
 /**
@@ -139,7 +140,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		else if (owner instanceof PCClass)
 		{
 			final PCClass a = (PCClass) owner;
-			result = a.isSpecialtySpell(pc, spell);
+			result = SpellCountCalc.isSpecialtySpell(pc, a, spell);
 		}
 		else
 		{

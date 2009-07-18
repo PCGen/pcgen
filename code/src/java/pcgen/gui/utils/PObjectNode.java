@@ -36,6 +36,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -746,8 +747,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			if ((spellA.getOwner() instanceof PCClass)
 				&& !isSpecial
-				&& ((PCClass) spellA.getOwner()).isProhibited(
-					spellA.getSpell(), aPC))
+				&& SpellCountCalc.isProhibited(spellA.getSpell(), ((PCClass) spellA.getOwner()), aPC))
 			{
 				Color aColor = Color.red;
 

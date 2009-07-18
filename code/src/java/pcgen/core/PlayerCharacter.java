@@ -105,6 +105,7 @@ import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
+import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.StatAnalysis;
@@ -7228,7 +7229,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// But if a spell is both prohibited and in a speciality
 		// which can be the case for some spells, then allow it.
 		if (spellBook.getType() != SpellBook.TYPE_SPELL_BOOK
-			&& !acs.isSpecialtySpell(this) && aClass.isProhibited(aSpell, this))
+			&& !acs.isSpecialtySpell(this) && SpellCountCalc.isProhibited(aSpell, aClass, this))
 		{
 			return acs.getSpell().getDisplayName() + " is prohibited.";
 		}
@@ -7240,7 +7241,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final int cast =
 				aClass.getCastForLevel(adjSpellLevel, bookName, true, true,
 					this);
-		aClass.memorizedSpellForLevelBook(this, adjSpellLevel, bookName);
+		SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
 
 		final boolean isDefault =
 				bookName.equals(Globals.getDefaultSpellBook());
@@ -7308,8 +7309,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				maxAllowed = known + specialKnown;
 			}
 			int memTot =
-					aClass.memorizedSpellForLevelBook(this, adjSpellLevel,
-						bookName);
+					SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
 			int spellDifference = maxAllowed - memTot;
 			if (spellDifference > 0)
 			{
@@ -7347,8 +7347,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				maxAllowed = cast;
 			}
 			int memTot =
-					aClass.memorizedSpellForLevelBook(this, adjSpellLevel,
-						bookName);
+					SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
 			int spellDifference = maxAllowed - memTot;
 			if (spellDifference > 0)
 			{
@@ -11447,9 +11446,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			// Now get the number of spells memorised, total and specialities
-			memTot = aClass.memorizedSpellForLevelBook(this, i, bookName);
+			memTot = SpellCountCalc.memorizedSpellForLevelBook(this, aClass, i, bookName);
 			memSpec =
-					aClass.memorizedSpecialtiesForLevelBook(i, bookName, this);
+					SpellCountCalc.memorizedSpecialtiesForLevelBook(i, bookName, this, aClass);
 			memNon = memTot - memSpec;
 
 			// Excess castings
@@ -11541,9 +11540,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			// Now get the number of spells memorised, total and specialities
-			memTot = aClass.memorizedSpellForLevelBook(this, i, bookName);
+			memTot = SpellCountCalc.memorizedSpellForLevelBook(this, aClass, i, bookName);
 			memSpec =
-					aClass.memorizedSpecialtiesForLevelBook(i, bookName, this);
+					SpellCountCalc.memorizedSpecialtiesForLevelBook(i, bookName, this, aClass);
 			memNon = memTot - memSpec;
 
 			// Excess castings

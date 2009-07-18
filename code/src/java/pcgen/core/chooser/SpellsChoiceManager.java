@@ -40,6 +40,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
@@ -652,7 +653,7 @@ public class SpellsChoiceManager extends
 		{
 			for (PCClass cl : pc.getClassList())
 			{
-				if (prohibited == cl.isProhibited(spell, pc))
+				if (prohibited == SpellCountCalc.isProhibited(spell, cl, pc))
 				{
 					availableList.add(spell);
 				}

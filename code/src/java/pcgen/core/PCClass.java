@@ -76,7 +76,6 @@ import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillCostCalc;
 import pcgen.core.analysis.SkillRankControl;
-import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.analysis.SubstitutionLevelSupport;
 import pcgen.core.bonus.Bonus;
@@ -1271,15 +1270,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSLEVELONLY since the specialty list is created during PCClassLevel
-	 * creation (in the factory)
-	 */
-	public boolean isSpecialtySpell(PlayerCharacter pc, final Spell aSpell)
-	{
-		return SpellCountCalc.isSpecialtySpell(pc, this, aSpell);
-	}
-
-	/*
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
@@ -1479,18 +1469,6 @@ public class PCClass extends PObject
 		final PlayerCharacter aPC)
 	{
 		return sCache.getKnownForLevel(spellLevel, bookName, aPC);
-	}
-
-	/*
-	 * REFACTOR Exactly where does this end up? I think that passing a
-	 * PlayerCharacter into an object like PCClass is generally (but certainly
-	 * not always) bad form. In this case, the PC is present in order to test
-	 * prerequisites, so perhaps this is an OK use of passing in
-	 * PlayerCharacter... (double dispatch)
-	 */
-	public boolean isProhibited(final Spell aSpell, final PlayerCharacter aPC)
-	{
-		return SpellCountCalc.isProhibited(aSpell, this, aPC);
 	}
 
 	/**
@@ -2078,26 +2056,6 @@ public class PCClass extends PObject
 				}
 			}
 		}
-	}
-
-	/**
-	 * Added to help deal with lower-level spells prepared in higher-level
-	 * slots. BUG [569517] Works in conjunction with PlayerCharacter method
-	 * availableSpells() sk4p 13 Dec 2002
-	 *
-	 * @param aLevel
-	 * @param bookName
-	 * @param pc TODO
-	 * @return int
-	 */
-	int memorizedSpecialtiesForLevelBook(final int aLevel, final String bookName, PlayerCharacter pc)
-	{
-		return SpellCountCalc.memorizedSpecialtiesForLevelBook(aLevel, bookName, pc, this);
-	}
-
-	int memorizedSpellForLevelBook(PlayerCharacter pc, final int aLevel, final String bookName)
-	{
-		return SpellCountCalc.memorizedSpellForLevelBook(pc, this, aLevel, bookName);
 	}
 
 	void subLevel(final boolean bSilent, final PlayerCharacter aPC)
