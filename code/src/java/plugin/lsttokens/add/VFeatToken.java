@@ -36,6 +36,7 @@ import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
@@ -44,7 +45,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -85,7 +85,7 @@ public class VFeatToken extends AbstractToken implements
 			return false;
 		}
 		AbilityCategory category = AbilityCategory.FEAT;
-		Nature nature = Ability.Nature.VIRTUAL;
+		Nature nature = Nature.VIRTUAL;
 
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		Formula count;

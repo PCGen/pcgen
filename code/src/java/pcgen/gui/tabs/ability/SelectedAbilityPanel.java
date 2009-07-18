@@ -38,6 +38,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import javax.swing.table.TableColumn;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -346,7 +347,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 		super.abilitySelected(anAbility);
 		if (anAbility != null)
 		{
-			setRemoveEnabled(anAbility.getAbilityNature() == Ability.Nature.NORMAL);
+			setRemoveEnabled(anAbility.getAbilityNature() == Nature.NORMAL);
 		}
 		else
 		{

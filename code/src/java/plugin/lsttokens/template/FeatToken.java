@@ -33,6 +33,7 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
@@ -268,7 +269,7 @@ public class FeatToken extends AbstractToken implements
 			if (!refs.isEmpty())
 			{
 				AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
-						AbilityCategory.FEAT, refs, Ability.Nature.AUTOMATIC);
+						AbilityCategory.FEAT, refs, Nature.AUTOMATIC);
 				ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 						getTokenName(), rcs);
 				cs.setTitle("Feat Choice");

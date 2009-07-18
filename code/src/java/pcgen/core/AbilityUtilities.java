@@ -33,6 +33,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.BonusAddition;
@@ -134,7 +135,7 @@ public class AbilityUtilities
 
 		AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(category);
 
-		Ability anAbility = getAbilityFromList(theAbilityList, cat.getAbilityCategory(), abilityName, Ability.Nature.ANY);
+		Ability anAbility = getAbilityFromList(theAbilityList, cat.getAbilityCategory(), abilityName, Nature.ANY);
 
 		if (anAbility == null)
 		{
@@ -162,7 +163,7 @@ public class AbilityUtilities
 		final Collection<String> choices = new ArrayList<String>();
 		getUndecoratedName(aKey, choices);
 
-		Ability anAbility = getAbilityFromList(anAbilityList, aCategory.getAbilityCategory(), aKey, Ability.Nature.ANY);
+		Ability anAbility = getAbilityFromList(anAbilityList, aCategory.getAbilityCategory(), aKey, Nature.ANY);
 
 		if (anAbility == null)
 		{
@@ -207,7 +208,7 @@ public class AbilityUtilities
 
 		if (newAbility != null)
 		{
-			newAbility.setAbilityNature(Ability.Nature.VIRTUAL);
+			newAbility.setAbilityNature(Nature.VIRTUAL);
 			newAbility.clearPrerequisiteList();
 			if (levelInfo != null)
 			{
@@ -501,7 +502,7 @@ public class AbilityUtilities
 			final List<Ability>          anAbilityList,
 			final Categorisable abilityInfo)
 	{
-		return getAbilityFromList(anAbilityList, abilityInfo, Ability.Nature.ANY);
+		return getAbilityFromList(anAbilityList, abilityInfo, Nature.ANY);
 	}
 
 
@@ -520,12 +521,12 @@ public class AbilityUtilities
 	public static Ability getAbilityFromList(
 		final List<Ability> anAbilityList,
 		final Categorisable abilityInfo,
-		final Ability.Nature           abilityType)
+		final Nature           abilityType)
 	{
 		for ( Ability ability : anAbilityList )
 		{
 			if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
-					((abilityType == Ability.Nature.ANY) || (ability.getAbilityNature() == abilityType)))
+					((abilityType == Nature.ANY) || (ability.getAbilityNature() == abilityType)))
 			{
 				return ability;
 			}
@@ -550,7 +551,7 @@ public class AbilityUtilities
 			final List<Ability>   anAbilityList,
 			final String aCat,
 			final String aName,
-			final Ability.Nature    abilityType)
+			final Nature    abilityType)
 	{
 		final AbilityInfo abInfo = new AbilityInfo(aCat, aName);
 		return getAbilityFromList(anAbilityList, abInfo, abilityType);

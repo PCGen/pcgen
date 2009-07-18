@@ -31,13 +31,13 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Ability.Nature;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
@@ -81,7 +81,7 @@ public class VFeatLst extends AbstractToken implements
 		boolean foundClear = false;
 		
 		AbilityCategory category = AbilityCategory.FEAT;
-		Nature nature = Ability.Nature.VIRTUAL;
+		Nature nature = Nature.VIRTUAL;
 		CDOMReference<AbilityList> list = Ability.FEATLIST;
 
 		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(

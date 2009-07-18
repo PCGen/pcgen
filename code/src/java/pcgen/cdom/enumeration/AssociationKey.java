@@ -66,7 +66,7 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<List<String>> ASSOC_CHOICES = new AssociationKey<List<String>>();
 
-	public static final AssociationKey<Ability.Nature> NATURE = new AssociationKey<Ability.Nature>();
+	public static final AssociationKey<Nature> NATURE = new AssociationKey<Nature>();
 
 	public static final AssociationKey<Category<Ability>> CATEGORY = new AssociationKey<Category<Ability>>();
 

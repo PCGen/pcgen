@@ -31,13 +31,13 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Ability.Nature;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AssociatedChanges;
@@ -77,7 +77,7 @@ public class FeatToken extends AbstractToken implements
 		}
 
 		AbilityCategory category = AbilityCategory.FEAT;
-		Nature nature = Ability.Nature.AUTOMATIC;
+		Nature nature = Nature.AUTOMATIC;
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String token = tok.nextToken();
 
@@ -182,7 +182,7 @@ public class FeatToken extends AbstractToken implements
 		List<String> returnList = new ArrayList<String>();
 		MapToList<List<Prerequisite>, CDOMReference<Ability>> m = new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
 		AbilityCategory category = AbilityCategory.FEAT;
-		Nature nature = Ability.Nature.AUTOMATIC;
+		Nature nature = Nature.AUTOMATIC;
 
 		CDOMReference<AbilityList> abilList = AbilityList
 				.getAbilityListReference(category, nature);

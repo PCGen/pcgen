@@ -36,6 +36,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import javax.swing.table.TableColumn;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -313,7 +314,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 		{
 			return true;
 		}
-		return !getPC().hasAbility(null, Ability.Nature.ANY, anAbility);
+		return !getPC().hasAbility(null, Nature.ANY, anAbility);
 	}
 
 	/**

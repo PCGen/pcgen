@@ -65,7 +65,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.WeaponProf;
-import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.Prerequisite;
@@ -251,7 +250,7 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Category<SubClass>> SUBCLASS_CATEGORY = new ObjectKey<Category<SubClass>>(null);
 
-	public static final ObjectKey<Nature> ABILITY_NATURE = new ObjectKey<Nature>(Ability.Nature.NORMAL);
+	public static final ObjectKey<Nature> ABILITY_NATURE = new ObjectKey<Nature>(Nature.NORMAL);
 
 	public static final ObjectKey<SizeAdjustment> BASESIZE;
 

@@ -21,12 +21,12 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Ability.Nature;
 
 /**
  * An AbilitySelection represents a "resolved" Ability, Nature and any choice
@@ -46,7 +46,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	/**
 	 * The Nature of the Ability as it should be applied to a PlayerCharacter
 	 */
-	private final Ability.Nature nature;
+	private final Nature nature;
 
 	/**
 	 * The choice (association) made for the Ability in this AbilitySelection
@@ -273,7 +273,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 							+ "must start with NATURE=, found: " + s);
 		}
 		String natString = natureString.substring(7);
-		Nature nat = Ability.Nature.valueOf(natString);
+		Nature nat = Nature.valueOf(natString);
 		String ab = st.nextToken();
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Ability.class, ac, ab);
@@ -310,7 +310,7 @@ public class AbilitySelection implements Comparable<AbilitySelection>
 	 * @return The Nature of the Ability as it should be applied to a
 	 *         PlayerCharacter
 	 */
-	public Ability.Nature getNature()
+	public Nature getNature()
 	{
 		return nature;
 	}

@@ -28,6 +28,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -98,7 +99,7 @@ public class FeatToken extends AbstractToken implements
 						.addToList(getTokenName(), obj, Ability.FEATLIST,
 								ability);
 				assoc.setAssociation(AssociationKey.NATURE,
-						Ability.Nature.AUTOMATIC);
+						Nature.AUTOMATIC);
 				if (token.indexOf('(') != -1)
 				{
 					List<String> choices = new ArrayList<String>();

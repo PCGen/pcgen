@@ -45,6 +45,7 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -56,7 +57,6 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Ability.Nature;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -797,7 +797,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		final PlayerCharacter pc = new PlayerCharacter();
 	
-		HashMap<Ability.Nature, Set<Ability>> map;
+		HashMap<Nature, Set<Ability>> map;
 	
 		pc.setRace(human);
 	
@@ -805,25 +805,25 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		map = pc.getAbilitiesSet();
 
-		assertEquals(map.get(Ability.Nature.NORMAL).size(),    1);//"First Level human with class AbilityRichClass has 1 normal feat");
-		assertEquals(map.get(Ability.Nature.AUTOMATIC).size(), 1);// "First Level human with class AbilityRichClass has 1 automatic feat");
-		assertEquals(map.get(Ability.Nature.VIRTUAL).size(),   0);// "First Level human with class AbilityRichClass has 0 virtual feats");
+		assertEquals(map.get(Nature.NORMAL).size(),    1);//"First Level human with class AbilityRichClass has 1 normal feat");
+		assertEquals(map.get(Nature.AUTOMATIC).size(), 1);// "First Level human with class AbilityRichClass has 1 automatic feat");
+		assertEquals(map.get(Nature.VIRTUAL).size(),   0);// "First Level human with class AbilityRichClass has 0 virtual feats");
 	
 		pc.incrementClassLevel(1, arClass, true);
 		
 		map = pc.getAbilitiesSet();
 		
-		assertEquals(map.get(Ability.Nature.NORMAL).size(),    1);//, "Second Level human with class AbilityRichClass has 1 normal feat");
-		assertEquals(map.get(Ability.Nature.AUTOMATIC).size(), 1);//, "Second Level human with class AbilityRichClass has 1 automatic feat");
-		assertEquals(map.get(Ability.Nature.VIRTUAL).size(),   1);//, "Second Level human with class AbilityRichClass has 1 virtual feat");
+		assertEquals(map.get(Nature.NORMAL).size(),    1);//, "Second Level human with class AbilityRichClass has 1 normal feat");
+		assertEquals(map.get(Nature.AUTOMATIC).size(), 1);//, "Second Level human with class AbilityRichClass has 1 automatic feat");
+		assertEquals(map.get(Nature.VIRTUAL).size(),   1);//, "Second Level human with class AbilityRichClass has 1 virtual feat");
 	
 		pc.incrementClassLevel(1, arClass, true);
 		
 		map = pc.getAbilitiesSet();
 		
-		assertEquals(map.get(Ability.Nature.NORMAL).size(),    1);//, "Third Level human with class AbilityRichClass has 1 normal feat");
-		assertEquals(map.get(Ability.Nature.AUTOMATIC).size(), 3);//, "Third Level human with class AbilityRichClass has 3 automatic feats");
-		assertEquals(map.get(Ability.Nature.VIRTUAL).size(),   1);//, "Third Level human with class AbilityRichClass has 1 virtual feat");
+		assertEquals(map.get(Nature.NORMAL).size(),    1);//, "Third Level human with class AbilityRichClass has 1 normal feat");
+		assertEquals(map.get(Nature.AUTOMATIC).size(), 3);//, "Third Level human with class AbilityRichClass has 3 automatic feats");
+		assertEquals(map.get(Nature.VIRTUAL).size(),   1);//, "Third Level human with class AbilityRichClass has 1 virtual feat");
 		
 		GameMode gm = SettingsHandler.getGame();
 		AbilityCategory ac = gm.getAbilityCategory("FEAT");

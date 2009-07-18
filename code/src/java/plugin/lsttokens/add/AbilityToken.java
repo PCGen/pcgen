@@ -44,6 +44,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
@@ -156,21 +157,21 @@ public class AbilityToken extends AbstractToken implements
 		}
 
 		String natureKey = pipeTok.nextToken();
-		Ability.Nature nature = Ability.Nature.valueOf(natureKey);
+		Nature nature = Nature.valueOf(natureKey);
 		if (nature == null)
 		{
 			Logging.log(Logging.LST_ERROR, getFullName() + ": Invalid ability nature: "
 					+ natureKey);
 			return false;
 		}
-		if (Ability.Nature.ANY.equals(nature))
+		if (Nature.ANY.equals(nature))
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
 					+ getTokenName() + ": " + value);
 			return false;
 		}
-		if (Ability.Nature.AUTOMATIC.equals(nature))
+		if (Nature.AUTOMATIC.equals(nature))
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " refers to AUTOMATIC Ability Nature, cannot be used in "
@@ -290,7 +291,7 @@ public class AbilityToken extends AbstractToken implements
 		}
 		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
 		StringBuilder title = new StringBuilder();
-		if (!Ability.Nature.NORMAL.equals(nature))
+		if (!Nature.NORMAL.equals(nature))
 		{
 			title.append(nature.toString());
 			title.append(' ');
@@ -374,7 +375,7 @@ public class AbilityToken extends AbstractToken implements
 		Ability ab = choice.getAbility();
 		String association = choice.getSelection();
 		AbilityCategory cat = (AbilityCategory) choice.getAbilityCategory();
-		boolean isVirtual = Ability.Nature.VIRTUAL.equals(choice.getNature());
+		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
 		AbilityUtilities
 				.applyAbility(pc, null, cat, ab, association, isVirtual);
 		pc.addAssociation(ab, association);
@@ -383,7 +384,7 @@ public class AbilityToken extends AbstractToken implements
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
-		boolean isVirtual = Ability.Nature.VIRTUAL.equals(choice.getNature());
+		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
 		// Remove any already selected
 		for (Ability a : pc.getAllAbilities())
 		{

@@ -46,6 +46,7 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -2371,7 +2372,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		AbilityCategory category = null;
-		Ability.Nature nature = Ability.Nature.NORMAL;
+		Nature nature = Nature.NORMAL;
 		String abilityCat = null;
 		Ability ability = null;
 		String abilityKey = "";
@@ -2407,7 +2408,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			final String natureKey = EntityEncoder.decode(element.getText());
-			nature = Ability.Nature.valueOf(natureKey);
+			nature = Nature.valueOf(natureKey);
 		}
 
 		// The next element will be the ability's innate category
@@ -2518,7 +2519,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		if (ability != null && category != null && nature != null)
 		{
-			if (nature == Ability.Nature.NORMAL)
+			if (nature == Nature.NORMAL)
 			{
 				// If we weren't loading an old character who had feats stored as seperate
 				// lines, save the feat now.
@@ -2527,7 +2528,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					thePC.addAbility(category, ability, null);
 				}
 			}
-			else if (nature == Ability.Nature.VIRTUAL)
+			else if (nature == Nature.VIRTUAL)
 			{
 				ability =
 						AbilityUtilities.addVirtualAbility(ability,

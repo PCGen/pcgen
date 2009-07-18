@@ -25,6 +25,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
@@ -241,7 +242,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 			return arcs.getCategory();
 		}
 
-		public Ability.Nature getNature()
+		public Nature getNature()
 		{
 			return arcs.getNature();
 		}

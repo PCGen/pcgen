@@ -40,6 +40,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -138,10 +139,10 @@ public class AbilityLst extends AbstractToken implements
 			return false;
 		}
 		final String natureKey = tok.nextToken();
-		Ability.Nature nature;
+		Nature nature;
 		try
 		{
-			nature = Ability.Nature.valueOf(natureKey);
+			nature = Nature.valueOf(natureKey);
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -149,7 +150,7 @@ public class AbilityLst extends AbstractToken implements
 				+ " refers to invalid Ability Nature: " + natureKey);
 			return false;
 		}
-		if (Ability.Nature.ANY.equals(nature))
+		if (Nature.ANY.equals(nature))
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
@@ -288,8 +289,8 @@ public class AbilityLst extends AbstractToken implements
 			return null;
 		}
 		Set<String> returnSet = new TreeSet<String>();
-		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
-		TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear = new TripleKeyMapToList<Ability.Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear = new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
 		for (CDOMReference ref : changedLists)
 		{
 			AssociatedChanges<CDOMReference<Ability>> changes =
@@ -313,7 +314,7 @@ public class AbilityLst extends AbstractToken implements
 				{
 					for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 					{
-						Ability.Nature nature =
+						Nature nature =
 								assoc.getAssociation(AssociationKey.NATURE);
 						Category<Ability> cat =
 								assoc.getAssociation(AssociationKey.CATEGORY);
@@ -330,7 +331,7 @@ public class AbilityLst extends AbstractToken implements
 				{
 					for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 					{
-						Ability.Nature nature = assoc
+						Nature nature = assoc
 								.getAssociation(AssociationKey.NATURE);
 						Category<Ability> cat = assoc
 								.getAssociation(AssociationKey.CATEGORY);
@@ -341,7 +342,7 @@ public class AbilityLst extends AbstractToken implements
 			}
 		}
 
-		for (Ability.Nature nature : m.getKeySet())
+		for (Nature nature : m.getKeySet())
 		{
 			for (Category<Ability> category : m.getSecondaryKeySet(nature))
 			{
@@ -372,7 +373,7 @@ public class AbilityLst extends AbstractToken implements
 				}
 			}
 		}
-		for (Ability.Nature nature : clear.getKeySet())
+		for (Nature nature : clear.getKeySet())
 		{
 			for (Category<Ability> category : clear.getSecondaryKeySet(nature))
 			{

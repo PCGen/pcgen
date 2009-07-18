@@ -36,6 +36,7 @@ import java.util.Stack;
 
 import org.nfunk.jep.ParseException;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
@@ -99,7 +100,7 @@ public class CountCommand extends PCGenCommand
 					// Abilities are PObjects, we can implement the filterSet directly
 					// i.e. without using PObject proxies.
 
-					public Map<Ability.Nature, Set<Ability>> abdata;
+					public Map<Nature, Set<Ability>> abdata;
 
 					protected void getData(final PlayerCharacter pc)
 					{
@@ -159,7 +160,7 @@ public class CountCommand extends PCGenCommand
 							case CATEGORY:
 							case CAT:
 								final String cat = keyValue[1];
-								cs = new HashSet<Ability>(abdata.get(Ability.Nature.ANY));
+								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 
 								abIt = cs.iterator();
 
@@ -175,7 +176,7 @@ public class CountCommand extends PCGenCommand
 
 							case NAME:
 							case NAM:
-								cs = new HashSet<Ability>(abdata.get(Ability.Nature.ANY));
+								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 								abIt = cs.iterator();
 
 								while (abIt.hasNext())
@@ -197,24 +198,24 @@ public class CountCommand extends PCGenCommand
 
 							case NATURE:
 							case NAT:
-								Ability.Nature n;
+								Nature n;
 								try
 								{
-									n = Ability.Nature.valueOf(keyValue[1]);
+									n = Nature.valueOf(keyValue[1]);
 								}
 								catch (IllegalArgumentException ex)
 								{
 									Logging.errorPrint(
 											"Bad paramter to count(\"Ability\"), no such NATURE "
 											+ c);
-									n = Ability.Nature.ANY;
+									n = Nature.ANY;
 								}
 								cs = new HashSet<Ability>(abdata.get(n));
 								break;
 
 							case TYPE:
 							case TYP:
-								cs = new HashSet<Ability>(abdata.get(Ability.Nature.ANY));
+								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 								abIt = cs.iterator();
 
 								filterPObjectByType(abIt, keyValue[1]);
@@ -222,7 +223,7 @@ public class CountCommand extends PCGenCommand
 
 							case VISIBILITY:
 							case VIS:
-								cs = new HashSet<Ability>(abdata.get(Ability.Nature.ANY));
+								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 
 								try
 								{

@@ -34,6 +34,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
@@ -41,7 +42,6 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Ability.Nature;
 import pcgen.core.chooser.ChooserUtilities;
 
 /**
@@ -69,7 +69,7 @@ public class AbilityRefChoiceSet implements
 	/**
 	 * The underlying Ability Nature for this AbilityRefChoiceSet.
 	 */
-	private final Ability.Nature nature;
+	private final Nature nature;
 	
 	/**
 	 * Constructs a new AbilityRefChoiceSet which contains the Set of objects
@@ -335,7 +335,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The underlying Ability Nature for this AbilityRefChoiceSet
 	 */
-	public Ability.Nature getNature()
+	public Nature getNature()
 	{
 		return nature;
 	}

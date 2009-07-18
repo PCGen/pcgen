@@ -38,6 +38,7 @@ import pcgen.cdom.choiceset.AbilityFromClassChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.choiceset.CompoundOrChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilityRef;
 import pcgen.cdom.helper.AbilitySelection;
@@ -48,7 +49,6 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -90,7 +90,7 @@ public class FeatToken extends AbstractToken implements
 			return false;
 		}
 		AbilityCategory category = AbilityCategory.FEAT;
-		Nature nature = Ability.Nature.NORMAL;
+		Nature nature = Nature.NORMAL;
 
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		Formula count;

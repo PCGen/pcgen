@@ -25,10 +25,10 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
-import pcgen.core.Ability.Nature;
 
 /**
  * AbilityList is a CDOMListObject designed to reference a List of Ability
@@ -41,7 +41,7 @@ public class AbilityList extends CDOMListObject<Ability>
 	 * Stores references to the "master" set of lists that are unique for a
 	 * given Category/Nature combination.
 	 */
-	public static final DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>> MASTER_MAP = new DoubleKeyMap<Category<Ability>, Ability.Nature, CDOMReference<AbilityList>>();
+	public static final DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>> MASTER_MAP = new DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>>();
 
 	/**
 	 * Returns the Ability Class object (Ability.class)

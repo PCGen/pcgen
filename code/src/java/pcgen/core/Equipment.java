@@ -54,6 +54,7 @@ import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -2932,7 +2933,7 @@ public final class Equipment extends PObject implements Serializable,
 	public boolean hasVFeats()
 	{
 		return hasListMods(AbilityList.getAbilityListReference(
-				AbilityCategory.FEAT, Ability.Nature.VIRTUAL));
+				AbilityCategory.FEAT, Nature.VIRTUAL));
 	}
 
 	/**

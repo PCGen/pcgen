@@ -26,6 +26,7 @@ import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -48,22 +49,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		wpl.setName("*Feats");
 		FEATLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
-
-	/** An enum for the various types of ability options. */
-	public enum Nature {
-		/** Ability is Normal */
-		NORMAL,
-		/** Ability is Automatic */
-		AUTOMATIC,
-		/** Ability is Virtual */
-		VIRTUAL,
-		/** Ability of any type */
-		ANY
-	}
-
-	// /////////////////////////////////////
-	// Constructor
-	/* default constructor only */
 
 	/**
 	 * Get the category of this ability

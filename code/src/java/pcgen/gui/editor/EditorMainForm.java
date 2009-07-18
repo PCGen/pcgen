@@ -61,6 +61,7 @@ import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.StringKey;
@@ -1557,7 +1558,7 @@ public final class EditorMainForm extends JDialog
 					availableRaceVirtualFeatList.add(anAbility.getKeyName());
 				}
 
-				Collection<CDOMReference<Ability>> mods = thisPObject.getListMods(AbilityList.getAbilityListReference(AbilityCategory.FEAT, Ability.Nature.VIRTUAL));
+				Collection<CDOMReference<Ability>> mods = thisPObject.getListMods(AbilityList.getAbilityListReference(AbilityCategory.FEAT, Nature.VIRTUAL));
 				if (mods != null)
 				{
 					for (CDOMReference<Ability> ref : mods)
