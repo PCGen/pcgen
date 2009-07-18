@@ -118,9 +118,6 @@ public class VFeatToken extends AbstractToken implements
 		boolean allowStack = false;
 		int dupChoices = 0;
 
-		boolean foundAny = false;
-		boolean foundOther = false;
-
 		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
@@ -170,12 +167,10 @@ public class VFeatToken extends AbstractToken implements
 			}
 			else if (Constants.LST_ALL.equals(token))
 			{
-				foundAny = true;
 				ab = context.ref.getCDOMAllReference(ABILITY_CLASS, category);
 			}
 			else
 			{
-				foundOther = true;
 				ab = TokenUtilities.getTypeOrPrimitive(rm, token);
 			}
 			if (ab == null)
@@ -202,12 +197,6 @@ public class VFeatToken extends AbstractToken implements
 			}
 		}
 
-		if (foundAny && foundOther)
-		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
-			return false;
-		}
 		if (refs.isEmpty())
 		{
 			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
@@ -217,6 +206,12 @@ public class VFeatToken extends AbstractToken implements
 
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
 				nature);
+		if (!rcs.getGroupingState().isValid())
+		{
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + value);
+			return false;
+		}
 		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
 				getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");

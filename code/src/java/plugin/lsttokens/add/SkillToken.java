@@ -97,9 +97,6 @@ public class SkillToken extends AbstractToken implements
 		}
 		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
 
-		boolean foundAny = false;
-		boolean foundOther = false;
-
 		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
 		while (tok.hasMoreTokens())
 		{
@@ -107,12 +104,10 @@ public class SkillToken extends AbstractToken implements
 			CDOMReference<Skill> ref;
 			if (Constants.LST_ANY.equalsIgnoreCase(token))
 			{
-				foundAny = true;
 				ref = context.ref.getCDOMAllReference(SKILL_CLASS);
 			}
 			else
 			{
-				foundOther = true;
 				ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS,
 						token);
 				if (ref == null)
@@ -126,14 +121,14 @@ public class SkillToken extends AbstractToken implements
 			refs.add(ref);
 		}
 
-		if (foundAny && foundOther)
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		if (!rcs.getGroupingState().isValid())
 		{
 			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
 
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("SKILL", rcs, true);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
 				cs, count);

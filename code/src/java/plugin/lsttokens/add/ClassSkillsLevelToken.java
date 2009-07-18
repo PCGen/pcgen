@@ -99,9 +99,6 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 			return false;
 		}
 
-		boolean foundAny = false;
-		boolean foundOther = false;
-
 		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
 		StringTokenizer tok = new StringTokenizer(items, Constants.COMMA);
 		CDOMGroupRef<Skill> allRef = context.ref
@@ -113,12 +110,10 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 			if (Constants.LST_ALL.equals(tokText)
 					|| Constants.LST_ANY.equals(tokText))
 			{
-				foundAny = true;
 				refs.add(allRef);
 			}
 			else
 			{
-				foundOther = true;
 				if (Constants.LST_UNTRAINED.equals(tokText))
 				{
 					ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
@@ -194,12 +189,6 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 			}
 		}
 
-		if (foundAny && foundOther)
-		{
-			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
-			return false;
-		}
 		if (refs.isEmpty())
 		{
 			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
@@ -208,6 +197,12 @@ public class ClassSkillsLevelToken extends AbstractToken implements
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		if (!rcs.getGroupingState().isValid())
+		{
+			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + value);
+			return false;
+		}
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs, true);
 		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
 				cs, count);
