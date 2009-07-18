@@ -77,8 +77,6 @@ public class SpelllistToken extends AbstractToken implements
 			return false;
 		}
 		List<CDOMReference<? extends CDOMListObject<Spell>>> refs = new ArrayList<CDOMReference<? extends CDOMListObject<Spell>>>();
-		boolean foundAny = false;
-		boolean foundOther = false;
 
 		while (tok.hasMoreTokens())
 		{
@@ -86,24 +84,23 @@ public class SpelllistToken extends AbstractToken implements
 			CDOMReference<? extends CDOMListObject<Spell>> ref;
 			if (Constants.LST_ALL.equals(token))
 			{
-				foundAny = true;
 				ref = context.ref.getCDOMAllReference(SPELLLIST_CLASS);
 			}
 			else if (token.startsWith("DOMAIN."))
 			{
-				foundOther = true;
 				ref = context.ref.getCDOMReference(DOMAINSPELLLIST_CLASS, token
 						.substring(7));
 			}
 			else
 			{
-				foundOther = true;
 				ref = context.ref.getCDOMReference(SPELLLIST_CLASS, token);
 			}
 			refs.add(ref);
 		}
 
-		if (foundAny && foundOther)
+		PrimitiveChoiceSet<CDOMListObject<Spell>> rcs = new SpellReferenceChoiceSet(
+				refs);
+		if (!rcs.getGroupingState().isValid())
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Non-sensical "
 					+ getTokenName()
@@ -111,8 +108,6 @@ public class SpelllistToken extends AbstractToken implements
 			return false;
 		}
 
-		PrimitiveChoiceSet<CDOMListObject<Spell>> rcs = new SpellReferenceChoiceSet(
-				refs);
 		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<CDOMListObject<Spell>>(
 				getTokenName(), rcs);
 		cs.setTitle("Select class whose list of spells this class will use");

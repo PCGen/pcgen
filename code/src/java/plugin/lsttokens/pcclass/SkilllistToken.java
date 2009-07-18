@@ -71,8 +71,6 @@ public class SkilllistToken extends AbstractToken implements
 			return false;
 		}
 		List<CDOMReference<ClassSkillList>> refs = new ArrayList<CDOMReference<ClassSkillList>>();
-		boolean foundAny = false;
-		boolean foundOther = false;
 
 		while (tok.hasMoreTokens())
 		{
@@ -80,27 +78,24 @@ public class SkilllistToken extends AbstractToken implements
 			CDOMReference<ClassSkillList> ref;
 			if (Constants.LST_ALL.equals(token))
 			{
-				foundAny = true;
 				ref = context.ref.getCDOMAllReference(SKILLLIST_CLASS);
 			}
 			else
 			{
-				foundOther = true;
 				ref = context.ref.getCDOMReference(SKILLLIST_CLASS, token);
 			}
 			refs.add(ref);
 		}
 
-		if (foundAny && foundOther)
+		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<ClassSkillList>(
+				refs);
+		if (!rcs.getGroupingState().isValid())
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Non-sensical "
 					+ getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
-
-		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<ClassSkillList>(
-				refs);
 		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(
 				getTokenName(), rcs);
 		cs.setTitle("Select class whose class-skills this class will inherit");
