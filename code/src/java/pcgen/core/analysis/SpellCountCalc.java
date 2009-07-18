@@ -99,7 +99,7 @@ public class SpellCountCalc
 			return true;
 		}
 	
-		for (SpellProhibitor prohibit : cl.getProhibitedSpells())
+		for (SpellProhibitor prohibit : cl.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 		{
 			if (prohibit.isProhibited(aSpell, aPC))
 			{
@@ -107,7 +107,7 @@ public class SpellCountCalc
 			}
 		}
 	
-		for (SpellProhibitor prohibit : cl.getSpellProhibitors())
+		for (SpellProhibitor prohibit : cl.getSafeListFor(ListKey.SPELL_PROHIBITOR))
 		{
 			if (prohibit.isProhibited(aSpell, aPC))
 			{

@@ -206,7 +206,7 @@ public class SpellSupportForPCClass
 				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT;CLASS."
 						+ source.getKeyName());
 
-		if (!source.useSpellSpellStat())
+		if (!source.getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
 		{
 			final int maxSpellLevel = aPC.getVariableValue(
 					"MAXLEVELSTAT=" + statString, "").intValue();
@@ -267,7 +267,7 @@ public class SpellSupportForPCClass
 		if (total > 0 && spellLevel > 0)
 		{
 			// make sure any slots due from specialties
-			total += source.getKnownSpellsFromSpecialty();
+			total += source.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 			// (including domains) are added
 			Integer assoc = aPC.getAssoc(source,
 					AssociationKey.DOMAIN_SPELL_COUNT);
@@ -279,7 +279,7 @@ public class SpellSupportForPCClass
 
 		// Add in any from SPELLKNOWN
 		total += SpellLevel.getNumBonusKnowSpellsForLevel(aPC, spellLevel,
-				source.getClassList());
+				source.get(ObjectKey.CLASS_SPELLLIST));
 
 		return total;
 	}
@@ -344,7 +344,7 @@ public class SpellSupportForPCClass
 		}
 
 		// make sure any slots due from specialties
-		total += source.getKnownSpellsFromSpecialty();
+		total += source.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 		// (including domains) are added
 		Integer assoc = aPC.getAssoc(source, AssociationKey.DOMAIN_SPELL_COUNT);
 		if (assoc != null)
@@ -422,7 +422,7 @@ public class SpellSupportForPCClass
 	public boolean isAutoKnownSpell(Spell aSpell, int spellLevel,
 			boolean useMap, PlayerCharacter aPC)
 	{
-		List<KnownSpellIdentifier> knownSpellsList = source.getKnownSpells();
+		List<KnownSpellIdentifier> knownSpellsList = source.getListFor(ListKey.KNOWN_SPELLS);
 		if (knownSpellsList == null)
 		{
 			return false;
@@ -680,7 +680,7 @@ public class SpellSupportForPCClass
 	{
 		// If this class has at least one entry in the "Known spells" tag
 		// And we aer set up to automatically assign known spells...
-		if (source.hasKnownSpells() && !aPC.isImporting()
+		if (source.containsListFor(ListKey.KNOWN_SPELLS) && !aPC.isImporting()
 				&& aPC.getAutoSpells())
 		{
 			// Get every spell that can be cast by this class.
@@ -843,7 +843,7 @@ public class SpellSupportForPCClass
 
 	public void removeKnownSpellsForClassLevel(PlayerCharacter aPC)
 	{
-		if (!source.hasKnownSpells() || aPC.isImporting()
+		if (!source.containsListFor(ListKey.KNOWN_SPELLS) || aPC.isImporting()
 				|| !aPC.getAutoSpells())
 		{
 			return;

@@ -305,15 +305,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public final List<CDOMListObject<Spell>> getClassSpellList(PlayerCharacter pc)
-	{
-		return pc.getAssocList(this, AssociationListKey.CLASSSPELLLIST);
-	}
-
-	/*
 	 * PCCLASSLEVELONLY This is only relevant for the PCClassLevel (obviously?)
 	 */
 	public final int getLevel(PlayerCharacter pc)
@@ -825,15 +816,6 @@ public class PCClass extends PObject
 	{
 		pc.addAssoc(this, AssociationListKey.CLASSSPELLLIST, list);
 		pc.removeAllAssocs(this, AssociationListKey.SPELL_LIST_CACHE);
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public void clearClassSpellList(PlayerCharacter pc)
-	{
-		pc.removeAllAssocs(this, AssociationListKey.CLASSSPELLLIST);
 	}
 
 	/*
@@ -2468,7 +2450,7 @@ public class PCClass extends PObject
 			return;
 		}
 
-		clearClassSpellList(pc);
+		pc.removeAllAssocs(this, AssociationListKey.CLASSSPELLLIST);
 		for (CDOMListObject<Spell> st : csc.driveChoice(pc))
 		{
 			addClassSpellList(st, pc);
@@ -2967,40 +2949,5 @@ public class PCClass extends PObject
 	public String getVariableSource()
 	{
 		return "CLASS|" + this.getKeyName();
-	}
-
-	public int getKnownSpellsFromSpecialty()
-	{
-		return getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
-	}
-
-	public boolean useSpellSpellStat()
-	{
-		return getSafe(ObjectKey.USE_SPELL_SPELL_STAT);
-	}
-
-	public List<KnownSpellIdentifier> getKnownSpells()
-	{
-		return getListFor(ListKey.KNOWN_SPELLS);
-	}
-
-	public ClassSpellList getClassList()
-	{
-		return get(ObjectKey.CLASS_SPELLLIST);
-	}
-
-	public boolean hasKnownSpells()
-	{
-		return containsListFor(ListKey.KNOWN_SPELLS);
-	}
-
-	public Collection<SpellProhibitor> getProhibitedSpells()
-	{
-		return getSafeListFor(ListKey.PROHIBITED_SPELLS);
-	}
-
-	public Collection<SpellProhibitor> getSpellProhibitors()
-	{
-		return getSafeListFor(ListKey.SPELL_PROHIBITOR);
 	}
 }
