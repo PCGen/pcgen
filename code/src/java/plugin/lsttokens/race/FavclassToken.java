@@ -92,9 +92,6 @@ public class FavclassToken extends AbstractToken implements
 		{
 			return false;
 		}
-		boolean foundAny = false;
-		boolean foundOther = false;
-
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		List<CDOMReference<? extends PCClass>> refList = new ArrayList<CDOMReference<? extends PCClass>>();
@@ -105,12 +102,10 @@ public class FavclassToken extends AbstractToken implements
 			if (Constants.LST_ALL.equalsIgnoreCase(token)
 					|| Constants.LST_ANY.equalsIgnoreCase(token))
 			{
-				foundAny = true;
 				ref = context.ref.getCDOMAllReference(PCCLASS_CLASS);
 			}
 			else
 			{
-				foundOther = true;
 				int dotLoc = token.indexOf('.');
 				if (dotLoc == -1)
 				{
@@ -129,13 +124,13 @@ public class FavclassToken extends AbstractToken implements
 			}
 			refList.add(ref);
 		}
-		if (foundAny && foundOther)
+		PrimitiveChoiceSet<PCClass> rcs = new ClassReferenceChoiceSet(refList);
+		if (!rcs.getGroupingState().isValid())
 		{
 			Logging.errorPrint("Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
-		PrimitiveChoiceSet<PCClass> rcs = new ClassReferenceChoiceSet(refList);
 		ChoiceSet<? extends PCClass> cs = new ChoiceSet<PCClass>(
 				getTokenName(), rcs);
 		cs.setTitle("Select favored class");
