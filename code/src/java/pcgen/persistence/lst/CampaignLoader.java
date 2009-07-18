@@ -45,6 +45,7 @@ import pcgen.util.Logging;
 public class CampaignLoader extends LstLineFileLoader
 {
 	private Campaign campaign = null;
+	private final List<Campaign> inittedCampaigns = new ArrayList<Campaign>();
 
 	/**
 	 * Creates a new instance of CampaignLoader
@@ -204,12 +205,12 @@ public class CampaignLoader extends LstLineFileLoader
 	private void initRecursivePccFiles(Campaign baseCampaign)
 		throws PersistenceLayerException
 	{
-		if (baseCampaign == null || baseCampaign.isInitted())
+		if (baseCampaign == null || inittedCampaigns.contains(baseCampaign))
 		{
 			return;
 		}
 
-		baseCampaign.setInitted(true);
+		inittedCampaigns.add(baseCampaign);
 		
 		// Add all sub-files to the main campaign, regardless of exclusions
 		for (CampaignSourceEntry cse : baseCampaign.getSafeListFor(ListKey.FILE_PCC))

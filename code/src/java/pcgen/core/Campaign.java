@@ -45,31 +45,6 @@ import pcgen.rules.context.RuntimeLoadContext;
  */
 public class Campaign extends PObject
 {
-	private boolean isInitted;
-
-	/**
-	 * Constructor
-	 */
-	public Campaign() {
-		super();
-	}
-
-	/**
-	 * @return Has the campaign been initialised?
-	 */
-	public boolean isInitted()
-	{
-		return isInitted;
-	}
-
-	/**
-	 * Set the campaign initialised flag.
-	 * @param isInitted The new flag value
-	 */
-	public void setInitted(boolean isInitted)
-	{
-		this.isInitted = isInitted;
-	}
 
 	/**
 	 * This method returns a reference to the Campaign that this object
