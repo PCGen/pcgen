@@ -645,7 +645,7 @@ public class NPCGenerator
 					selectDeity(aPC, classCopy);
 				}
 
-				int highestSpellLevel = aClass.getHighestLevelSpell(aPC);
+				int highestSpellLevel = aPC.getSpellSupport(aClass).getHighestLevelSpell(aPC);
 				final int[] selectedSpells = new int[highestSpellLevel + 1];
 				for ( int k = 0; k < highestSpellLevel; k++ ) { selectedSpells[k] = 0; }
 				
@@ -672,15 +672,15 @@ public class NPCGenerator
 					{
 						// This is a spellcasting class.  We may have to select
 						// spells of some sort (known or prepared).
-						if ( pcClass.hasKnownList() || pcClass.hasKnownSpells(aPC) )
+						if ( aPC.getSpellSupport(pcClass).hasKnownList() || aPC.getSpellSupport(pcClass).hasKnownSpells(aPC) )
 						{
 							Logging.debugPrint("NPCGenerator: known spells to select"); //$NON-NLS-1$
 							for (int lvl = 0; lvl <= highestSpellLevel; ++lvl)
 							{
 								if (aPC.availableSpells(lvl, pcClass, Globals.getDefaultSpellBook(), true, true))
 								{
-									final int a = pcClass.getKnownForLevel(lvl, aPC);
-									final int bonus = pcClass.getSpecialtyKnownForLevel(lvl, aPC);
+									final int a = aPC.getSpellSupport(pcClass).getKnownForLevel(lvl, "null", aPC);
+									final int bonus = aPC.getSpellSupport(pcClass).getSpecialtyKnownForLevel(lvl, aPC);
 									Logging.debugPrint("NPCGenerator: " + a + "known spells to select"); //$NON-NLS-1$ //$NON-NLS-2$
 									
 									final WeightedCollection<Spell> spellChoices = getKnownSpellWeights(pcClass, lvl);
@@ -703,8 +703,8 @@ public class NPCGenerator
 							aPC.addSpellBook("Prepared Spells");
 							for (int lvl = 0; lvl <= highestSpellLevel; ++lvl)
 							{
-								final int castTot = pcClass.getCastForLevel(lvl, "Prepared Spells", true, true, aPC);
-								final int castNon = pcClass.getCastForLevel(lvl, "Prepared Spells", false, true, aPC);
+								final int castTot = aPC.getSpellSupport(pcClass).getCastForLevel(lvl, "Prepared Spells", true, true, aPC);
+								final int castNon = aPC.getSpellSupport(pcClass).getCastForLevel(lvl, "Prepared Spells", false, true, aPC);
 								final int castSpec = castTot - castNon;
 								Logging.debugPrint("NPCGenerator: " + castTot + "+" + castSpec + " prepared spells to select"); //$NON-NLS-1$ //$NON-NLS-2$
 								if ( castSpec - bonusSpells[lvl] > 0 )

@@ -7236,11 +7236,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Now let's see if they should be able to add this spell
 		// first check for known/cast/threshold
-		final int known = aClass.getKnownForLevel(spellLevel, this);
+		final int known = this.getSpellSupport(aClass).getKnownForLevel(spellLevel, "null", this);
 		int specialKnown = 0;
 		final int cast =
-				aClass.getCastForLevel(adjSpellLevel, bookName, true, true,
-					this);
+				this.getSpellSupport(aClass).getCastForLevel(adjSpellLevel, bookName, true, true, this);
 		SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
 
 		final boolean isDefault =
@@ -7248,7 +7247,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (isDefault)
 		{
-			specialKnown = aClass.getSpecialtyKnownForLevel(spellLevel, this);
+			specialKnown = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
 		}
 
 		int numPages = 0;
@@ -7333,8 +7332,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				ret =
 						"Your remaining slot(s) must be filled with your speciality or domain.";
 				maxAllowed =
-						aClass.getCastForLevel(adjSpellLevel, bookName, false,
-							true, this);
+						this.getSpellSupport(aClass).getCastForLevel(adjSpellLevel, bookName, false, true, this);
 			}
 			else
 			{
@@ -8284,9 +8282,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					.equalsIgnoreCase(spellType)))
 			{
 				// Get the number of known spells for the level
-				int knownForLevel = aClass.getKnownForLevel(spellLevel, this);
+				int knownForLevel = this.getSpellSupport(aClass).getKnownForLevel(spellLevel, "null", this);
 				knownForLevel +=
-						aClass.getSpecialtyKnownForLevel(spellLevel, this);
+						this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
 				if (knownForLevel >= minNumSpells)
 				{
 					return true;
@@ -8294,7 +8292,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				// See if the character can cast
 				// at the required spell level
-				if (aClass.getCastForLevel(spellLevel, this) >= minNumSpells)
+				if (this.getSpellSupport(aClass).getCastForLevel(spellLevel, this) >= minNumSpells)
 				{
 					return true;
 				}
@@ -8303,7 +8301,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// a CastList then they use something funky
 				// like Power Points (psionic)
 				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
-					&& !aClass.hasKnownList() && aClass.zeroCastSpells())
+					&& !this.getSpellSupport(aClass).hasKnownList() && this.getSpellSupport(aClass).zeroCastSpells())
 				{
 					return true;
 				}
@@ -8336,18 +8334,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					.equalsIgnoreCase(spellType)))
 			{
 				// Get the number of known spells for the level
-				known += aClass.getKnownForLevel(spellLevel, this);
-				known += aClass.getSpecialtyKnownForLevel(spellLevel, this);
+				known += this.getSpellSupport(aClass).getKnownForLevel(spellLevel, "null", this);
+				known += this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
 
 				// See if the character can cast
 				// at the required spell level
-				cast += aClass.getCastForLevel(spellLevel, this);
+				cast += this.getSpellSupport(aClass).getCastForLevel(spellLevel, this);
 
 				// If they don't memorise spells and don't have
 				// a CastList then they use something funky
 				// like Power Points (psionic)
 				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
-					&& !aClass.hasKnownList() && aClass.zeroCastSpells())
+					&& !this.getSpellSupport(aClass).hasKnownList() && this.getSpellSupport(aClass).zeroCastSpells())
 				{
 					return Integer.MAX_VALUE;
 				}
@@ -8443,8 +8441,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// there is some weird spell that keeps getting loaded by
 		// accident (or is saved in the .pcg file)
 		if (isDefault
-			&& aClass.isAutoKnownSpell(acs.getSpell(), si
-				.getActualLevel(), this))
+			&& this.getSpellSupport(aClass).isAutoKnownSpell(acs.getSpell(), si
+			.getActualLevel(), false, this))
 		{
 			Logging.errorPrint("Notice: removing "
 				+ acs.getSpell().getDisplayName()
@@ -11431,17 +11429,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Get the number of castable slots
 			if (knownLearned)
 			{
-				knownNon = aClass.getKnownForLevel(i, bookName, this);
-				knownSpec = aClass.getSpecialtyKnownForLevel(i, this);
+				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, bookName, this);
+				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
 				knownTot = knownNon + knownSpec; // TODO: : value never used
 			}
 			else
 			{
 				// Get the number of castable slots
 				knownTot =
-						aClass.getCastForLevel(i, bookName, true, true, this);
+						this.getSpellSupport(aClass).getCastForLevel(i, bookName, true, true, this);
 				knownNon =
-						aClass.getCastForLevel(i, bookName, false, true, this);
+						this.getSpellSupport(aClass).getCastForLevel(i, bookName, false, true, this);
 				knownSpec = knownTot - knownNon;
 			}
 
@@ -11511,17 +11509,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if (knownLearned)
 			{
-				knownNon = aClass.getKnownForLevel(i, bookName, this);
-				knownSpec = aClass.getSpecialtyKnownForLevel(i, this);
+				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, bookName, this);
+				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
 				knownTot = knownNon + knownSpec; // for completeness
 			}
 			else
 			{
 				// Get the number of castable slots
 				knownTot =
-						aClass.getCastForLevel(i, bookName, true, true, this);
+						this.getSpellSupport(aClass).getCastForLevel(i, bookName, true, true, this);
 				knownNon =
-						aClass.getCastForLevel(i, bookName, false, true, this);
+						this.getSpellSupport(aClass).getCastForLevel(i, bookName, false, true, this);
 				knownSpec = knownTot - knownNon;
 			}
 
@@ -16281,7 +16279,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			PCClass domainClass = getClassKeyed(classKey);
 			if (domainClass != null)
 			{
-				final int _maxLevel = domainClass.getMaxCastLevel();
+				final int _maxLevel = this.getSpellSupport(domainClass).getMaxCastLevel();
 				DomainApplication.addSpellsToClassForLevels(this, domain,
 						domainClass, 0, _maxLevel);
 			}
@@ -16368,5 +16366,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean isApplied(BonusObj bonus)
 	{
 		return bonusManager.isApplied(bonus);
+	}
+
+	public SpellSupportForPCClass getSpellSupport(PCClass cl)
+	{
+		SpellSupportForPCClass ss = getAssoc(cl, AssociationKey.SPELL_SUPPORT);
+		if (ss == null)
+		{
+			ss = new SpellSupportForPCClass(cl);
+			setAssoc(cl, AssociationKey.SPELL_SUPPORT, ss);
+		}
+		return ss;
 	}
 }

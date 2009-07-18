@@ -139,8 +139,6 @@ public class PCClass extends PObject
 	 */
 	private String classKey = null;
 
-	private SpellSupportForPCClass sCache = new SpellSupportForPCClass(this);
-
 	/**
 	 * Default Constructor. Constructs an empty PCClass.
 	 */
@@ -304,52 +302,6 @@ public class PCClass extends PObject
 		}
 
 		return i;
-	}
-
-	/**
-	 * Return the number of spells a character can cast in this class for the
-	 * current level.
-	 *
-	 * @param spellLevel
-	 *            The spell level we are interested in
-	 * @param bookName
-	 *            the name of the spell book we are interested in
-	 * @param aPC
-	 *            The character we are interested in
-	 * @return The number of spells per day that this cahracter can cast of this
-	 *         level.
-	 */
-	public int getCastForLevel(final int spellLevel, final String bookName,
-		final PlayerCharacter aPC)
-	{
-		return sCache.getCastForLevel(spellLevel, bookName, true, true, aPC);
-	}
-
-	/**
-	 * Return the number of spells a character can cast in this class for a
-	 * specified level.
-	 *
-	 * @param pcLevel
-	 *            The number of levels in this class that the character has
-	 * @param spellLevel
-	 *            The spell level we are interested in
-	 * @param bookName
-	 *            the name of the spell book we are interested in
-	 * @param includeAdj
-	 *            Seems to have something to do with speciality spells
-	 * @param limitByStat
-	 *            Do we return 0 for any spell level that the character does not
-	 *            have a high enough stat to cast
-	 * @param aPC
-	 *            The character we are interested in
-	 * @return The number of spells per day that this cahracter can cast of this
-	 *         level.
-	 */
-	public int getCastForLevel(final int spellLevel, final String bookName,
-		final boolean includeAdj, final boolean limitByStat,
-		final PlayerCharacter aPC)
-	{
-		return sCache.getCastForLevel(spellLevel, bookName, includeAdj, limitByStat, aPC);
 	}
 
 	/*
@@ -592,116 +544,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * PCCLASSLEVELONLY Since this is the PCClassLevel specific version
-	 * of getCastList, it is only appropriate for the class levels.
-	 *
-	 * May also be required in the Factory for PCClassLevels, so might
-	 * also appear in PCClass.
-	 */
-	public List<Formula> getCastListForLevel(int aLevel)
-	{
-		return sCache.getCastListForLevel(aLevel);
-	}
-
-	public boolean hasCastList()
-	{
-		return sCache.hasCastList();
-	}
-
-	/**
-	 * Return the level of the highest level spell offered by the class.
-	 *
-	 * @return The level of the highest level spell available.
-	 */
-	public int getHighestLevelSpell()
-	{
-		return sCache.getHighestLevelSpell();
-	}
-
-	/**
-	 * Return the level of the highest level spell the character could possibly
-	 * cast in this class. This can return a higher level than the class allows
-	 * if the character has feats which give a bonus to casting.
-	 *
-	 * @param pc
-	 *            The character to be checked.
-	 * @return The level of the highest level spell available.
-	 */
-	public int getHighestLevelSpell(PlayerCharacter pc)
-	{
-		return sCache.getHighestLevelSpell(pc);
-	}
-
-	/**
-	 * Return number of spells known for a level.
-	 *
-	 * @param pcLevel
-	 * @param spellLevel
-	 * @param aPC
-	 * @return int
-	 */
-	public int getKnownForLevel(final int spellLevel, final PlayerCharacter aPC)
-	{
-		return sCache.getKnownForLevel(spellLevel, "null", aPC);
-	}
-
-	/*
-	 * PCCLASSANDLEVEL This is used for detecting spell casting ability
-	 */
-	public boolean hasKnownList()
-	{
-		return sCache.hasKnownList();
-	}
-
-	/*
-	 * REFACTOR Again, there is rudundant information here in the fetching of
-	 * what is currently possible for the current character level. This is
-	 * generally something that should only appear in the PCClassLevel, but
-	 * should be considered with the wider range of "what can I really cast"
-	 * methods that are tagged to be refactored.
-	 */
-	public String getBonusCastForLevelString(final int spellLevel,
-		final String bookName, final PlayerCharacter aPC)
-	{
-		return sCache.getBonusCastForLevelString(spellLevel, bookName, aPC);
-	}
-
-	/**
-	 * Return the number of spells a character can cast in this class for a
-	 * specified level.
-	 *
-	 * @param spellLevel
-	 *            The spell level we are interested in
-	 * @param aPC
-	 *            The character we are interested in
-	 * @return The number of spells per day that this character can cast of the
-	 *         given spell level.
-	 */
-	public int getCastForLevel(final int spellLevel, final PlayerCharacter aPC)
-	{
-		return sCache.getCastForLevel(spellLevel, aPC);
-	}
-
-	/**
-	 * Return number of speciality spells known for a level for a given
-	 * spellbook
-	 *
-	 * @param pcLevel
-	 * @param spellLevel
-	 * @param aPC
-	 * @return int
-	 */
-	/*
-	 * REFACTOR More redundant information and opportunity to refactor to
-	 * simplify the interface of PCClassLevel
-	 */
-	public int getSpecialtyKnownForLevel(final int spellLevel,
-		final PlayerCharacter aPC)
-	{
-		return sCache.getSpecialtyKnownForLevel(spellLevel, aPC);
-	}
-
-	/*
 	 * PCCLASSLEVELONLY Since this is setting the key that will appear in
 	 * the PCClassLevel (called during construction) this is only required
 	 * in the level objects, not PCClass
@@ -772,16 +614,6 @@ public class PCClass extends PObject
 		return null;
 	}
 
-	/*
-	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
-	 * and is therefore appropriate only for PCClassLevel
-	 */
-	public boolean isAutoKnownSpell(Spell spell,
-		final int spellLevel, final PlayerCharacter aPC)
-	{
-		return sCache.isAutoKnownSpell(spell, spellLevel, false, aPC);
-	}
-
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
 	{
 		final int curLevel = getLevel(aPC);
@@ -821,7 +653,7 @@ public class PCClass extends PObject
 
 		for (PCClass pcClass : aPC.getClassList())
 		{
-			pcClass.sCache.calculateKnownSpellsForClassLevel(aPC);
+			aPC.getSpellSupport(pcClass).calculateKnownSpellsForClassLevel(aPC);
 		}
 
 		// check to see if we have dropped a level.
@@ -872,35 +704,6 @@ public class PCClass extends PObject
 				aPC.addAssoc(this, AssociationListKey.BONUS, bon);
 			}
 		}
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This really is modification of a PlayerCharacter from
-	 * losing a level, so this is definitely part of PCClassLevel, if it is even
-	 * used at all. Because this is losing a level, this will no longer be
-	 * required in a CDOM world, perhaps this can be refactored out of existance
-	 * before then?
-	 *
-	 * May be DELETEMETHOD (related to subLevel)
-	 */
-	protected void removeKnownSpellsForClassLevel(final PlayerCharacter aPC)
-	{
-		sCache.removeKnownSpellsForClassLevel(aPC);
-	}
-
-	/**
-	 * Get the highest level of spell that this class can cast.
-	 *
-	 * @return the highest level of spells that this class can cast, or -1 if
-	 *         this class can not cast spells
-	 */
-	/*
-	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
-	 * and is therefore appropriate only for PCClassLevel
-	 */
-	public int getMaxCastLevel()
-	{
-		return sCache.getMaxCastLevel();
 	}
 
 	/*
@@ -1223,8 +1026,6 @@ public class PCClass extends PObject
 		{
 			aClass = (PCClass) super.clone();
 
-			aClass.sCache = new SpellSupportForPCClass(aClass);
-
 			List<KnownSpellIdentifier> ksl = getListFor(ListKey.KNOWN_SPELLS);
 			if (ksl != null)
 			{
@@ -1292,18 +1093,6 @@ public class PCClass extends PObject
 		}
 
 		return false;
-	}
-
-	/*
-	 * PCCLASSLEVELONLY? This really seems to be a shortcut test that is part of
-	 * the GUI presentation of a PlayerCharacter. It would be really nice if
-	 * this could be deleted, but it may actually be providing some speed (need
-	 * to evaluate whether a better test exists, however, since it seems REALLY
-	 * slow for something that should be a quick test!)
-	 */
-	public boolean hasKnownSpells(final PlayerCharacter aPC)
-	{
-		return sCache.hasKnownSpells(aPC);
 	}
 
 	public boolean hasSkill(PlayerCharacter pc, Skill skill)
@@ -1407,22 +1196,6 @@ public class PCClass extends PObject
 	}
 
 	/*
-	 * REFACTOR TO DELETEMETHOD I would really like to get rid of this, since it
-	 * it used as a "funky spells" test - which should be more explicit than
-	 * implicit in zero cast spells.
-	 *
-	 * Not to mention, this isn't entirely true, is it? I mean, if the only
-	 * spells a Class can get are from the ability score related to their
-	 * spells, then the book system would use a 0 rather than a -. This 0
-	 * actually contains information which indicates the system may not be zero
-	 * after all...
-	 */
-	public boolean zeroCastSpells()
-	{
-		return sCache.zeroCastSpells();
-	}
-
-	/*
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
@@ -1454,21 +1227,6 @@ public class PCClass extends PObject
 		{
 			return classSkillList;
 		}
-	}
-
-	/**
-	 * Return number of spells known for a level for a given spellbook.
-	 *
-	 * @param pcLevel
-	 * @param spellLevel
-	 * @param bookName
-	 * @param aPC
-	 * @return known for spell level
-	 */
-	int getKnownForLevel(final int spellLevel, final String bookName,
-		final PlayerCharacter aPC)
-	{
-		return sCache.getKnownForLevel(spellLevel, bookName, aPC);
 	}
 
 	/**
@@ -2090,7 +1848,7 @@ public class PCClass extends PObject
 
 			//			aPC.adjustFeats(-aPC.getBonusFeatsForNewLevel(this));
 			setLevel(newLevel, aPC);
-			removeKnownSpellsForClassLevel(aPC);
+			aPC.getSpellSupport(this).removeKnownSpellsForClassLevel(aPC);
 
 			doMinusLevelMods(aPC, newLevel + 1);
 
@@ -3051,16 +2809,6 @@ public class PCClass extends PObject
 		return spMod;
 	}
 
-	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
-	{
-		return sCache.getMinLevelForSpellLevel(spellLevel, allowBonus);
-	}
-
-	public int getMaxSpellLevelForClassLevel(int classLevel)
-	{
-		return sCache.getMaxSpellLevelForClassLevel(classLevel);
-	}
-
 	private SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();
 
 	public PCClassLevel getClassLevel(int lvl)
@@ -3254,10 +3002,5 @@ public class PCClass extends PObject
 	public Collection<SpellProhibitor> getSpellProhibitors()
 	{
 		return getSafeListFor(ListKey.SPELL_PROHIBITOR);
-	}
-
-	public void forceUpdateSpellCache()
-	{
-		sCache.updateSpellCache(true);
 	}
 }

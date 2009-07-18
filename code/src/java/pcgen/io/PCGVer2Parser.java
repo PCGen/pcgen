@@ -4128,7 +4128,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			// do not load auto knownspells into default spellbook
 			if (spellBook.equals(Globals.getDefaultSpellBook())
-				&& aPCClass.isAutoKnownSpell(aSpell, level, thePC)
+				&& thePC.getSpellSupport(aPCClass).isAutoKnownSpell(aSpell, level, false, thePC)
 				&& thePC.getAutoSpells())
 			{
 				continue;

@@ -1123,7 +1123,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 		{
 			if (aClass.get(StringKey.SPELLTYPE) != null)
 			{
-				if (aClass.zeroCastSpells() && !aClass.hasKnownList())
+				if (pc.getSpellSupport(aClass).zeroCastSpells() && !pc.getSpellSupport(aClass).hasKnownList())
 				{
 					continue;
 				}

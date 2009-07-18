@@ -94,7 +94,7 @@ public class SpellListKnownToken extends SpellListToken
 		if (aObject instanceof PCClass)
 		{
 			PCClass aClass = (PCClass) aObject;
-			knownNum = aClass.getKnownForLevel(level, pc);
+			knownNum = pc.getSpellSupport(aClass).getKnownForLevel(level, "null", pc);
 		}
 
 		return knownNum;

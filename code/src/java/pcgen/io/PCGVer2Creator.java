@@ -703,12 +703,12 @@ final class PCGVer2Creator implements IOConstants
 			 * with adjustments for stats. The method should be destroyed, and
 			 * spell casting made more explicit.
 			 */
-			if (!pcClass.zeroCastSpells())
+			if (!thePC.getSpellSupport(pcClass).zeroCastSpells())
 			{
 				isCaster = true;
 			}
 
-			boolean isPsionic = pcClass.hasKnownList() && !isCaster;
+			boolean isPsionic = thePC.getSpellSupport(pcClass).hasKnownList() && !isCaster;
 
 			if (isCaster || isPsionic)
 			{
@@ -717,7 +717,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(pcClass.getSpellBaseStat()));
 				buffer.append('|');
 				buffer.append(TAG_CANCASTPERDAY).append(':');
-				buffer.append(StringUtil.join(pcClass
+				buffer.append(StringUtil.join(thePC.getSpellSupport(pcClass)
 					.getCastListForLevel(classLevel), ","));
 			}
 
@@ -2013,9 +2013,8 @@ final class PCGVer2Creator implements IOConstants
 
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
-						&& pcClass.isAutoKnownSpell(cSpell.getSpell(),
-							SpellLevel.getFirstLevelForKey(
-							cSpell.getSpell(), lists, thePC), thePC)
+						&& thePC.getSpellSupport(pcClass).isAutoKnownSpell(cSpell.getSpell(), SpellLevel.getFirstLevelForKey(
+						cSpell.getSpell(), lists, thePC), false, thePC)
 						&& thePC.getAutoSpells())
 					{
 						continue;

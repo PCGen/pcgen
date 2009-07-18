@@ -59,12 +59,12 @@ public class PCMaxCastableClassTermEvaluator
 			List<? extends CDOMList<Spell>> lists = spClass.getSpellLists(pc);
 			if (spellList != null && lists.contains(spellList))
 			{
-				int cutoff = spClass.getHighestLevelSpell();
-				if (spClass.hasCastList())
+				int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
+				if (pc.getSpellSupport(spClass).hasCastList())
 				{
 					for (int i = 0; i < cutoff; i++)
 					{
-						if (spClass.getCastForLevel(i, pc) != 0)
+						if (pc.getSpellSupport(spClass).getCastForLevel(i, pc) != 0)
 						{
 							max = Math.max(max, i);
 						}
@@ -74,7 +74,7 @@ public class PCMaxCastableClassTermEvaluator
 				{
 					for (int i = 0; i < cutoff; i++)
 					{
-						if (spClass.getKnownForLevel(i, pc) != 0)
+						if (pc.getSpellSupport(spClass).getKnownForLevel(i, "null", pc) != 0)
 						{
 							max = Math.max(max, i);
 						}

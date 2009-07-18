@@ -95,10 +95,10 @@ public class SpellListCastToken extends SpellListToken
 			PCClass aClass = (PCClass) aObject;
 			//			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
 			castNum =
-					String.valueOf(aClass.getCastForLevel(level, Globals
-						.getDefaultSpellBook(), true, false, pc))
-						+ aClass.getBonusCastForLevelString(level, Globals
-							.getDefaultSpellBook(), pc);
+					String.valueOf(pc.getSpellSupport(aClass).getCastForLevel(level, Globals
+					.getDefaultSpellBook(), true, false, pc))
+						+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, Globals
+						.getDefaultSpellBook(), pc);
 		}
 
 		return castNum;

@@ -622,8 +622,7 @@ public class SpellSupportForPCClass
 							{
 								target = source.getSubClassKeyed(subClassKey);
 							}
-							adj = target.getSpecialtyKnownForLevel(spellLevel,
-									aPC);
+							adj = aPC.getSpellSupport(target).getSpecialtyKnownForLevel(spellLevel, aPC);
 
 							break;
 						}
@@ -802,7 +801,7 @@ public class SpellSupportForPCClass
 					target = source.getSubClassKeyed(subClassKey);
 				}
 
-				return "+" + target.getSpecialtyKnownForLevel(spellLevel, aPC);
+				return "+" + aPC.getSpellSupport(target).getSpecialtyKnownForLevel(spellLevel, aPC);
 			}
 
 			if (!aPC.hasDomains())

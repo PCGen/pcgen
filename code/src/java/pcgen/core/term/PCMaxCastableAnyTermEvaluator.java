@@ -43,12 +43,12 @@ public class PCMaxCastableAnyTermEvaluator
 		Float max = 0f;
 		for (PCClass spClass : pc.getClassList())
 		{
-			int cutoff = spClass.getHighestLevelSpell();
-			if (spClass.hasCastList())
+			int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
+			if (pc.getSpellSupport(spClass).hasCastList())
 			{
 				for (int i = 0; i < cutoff; i++)
 				{
-					if (spClass.getCastForLevel(i, pc) != 0)
+					if (pc.getSpellSupport(spClass).getCastForLevel(i, pc) != 0)
 					{
 						max = Math.max(max, i);
 					}
@@ -58,7 +58,7 @@ public class PCMaxCastableAnyTermEvaluator
 			{
 				for (int i = 0; i < cutoff; i++)
 				{
-					if (spClass.getKnownForLevel(i, pc) != 0)
+					if (pc.getSpellSupport(spClass).getKnownForLevel(i, "null", pc) != 0)
 					{
 						max = Math.max(max, i);
 					}

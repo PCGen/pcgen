@@ -48,11 +48,11 @@ public class PCMaxCastableSpellTypeTermEvaluator
 		{
 			if (typeKey.equalsIgnoreCase(spClass.getSpellType()))
 			{
-				int cutoff = spClass.getHighestLevelSpell();
-				if (spClass.hasCastList())
+				int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
+				if (pc.getSpellSupport(spClass).hasCastList())
 				{
 					for (int i = 0; i < cutoff; i++) {
-						if (spClass.getCastForLevel(i, pc) != 0)
+						if (pc.getSpellSupport(spClass).getCastForLevel(i, pc) != 0)
 						{
 							max = Math.max(max,i);
 						}
@@ -61,7 +61,7 @@ public class PCMaxCastableSpellTypeTermEvaluator
 				else
 				{
 					for (int i = 0; i < cutoff; i++) {
-						if (spClass.getKnownForLevel(i, pc) != 0)
+						if (pc.getSpellSupport(spClass).getKnownForLevel(i, "null", pc) != 0)
 						{
 							max = Math.max(max,i);
 						}

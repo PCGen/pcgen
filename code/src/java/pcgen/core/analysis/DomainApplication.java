@@ -61,7 +61,7 @@ public class DomainApplication
 
 			for (maxLevel = 0; maxLevel < 10; maxLevel++)
 			{
-				if (aClass.getCastForLevel(maxLevel, pc) == 0)
+				if (pc.getSpellSupport(aClass).getCastForLevel(maxLevel, pc) == 0)
 				{
 					break;
 				}

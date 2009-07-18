@@ -62,15 +62,15 @@ public class PCMaxCastableDomainTermEvaluator
 		
 		String classKey = source.getPcclass().getKeyName();
 		PCClass spClass = pc.getClassKeyed(classKey);
-		int cutoff = spClass.getHighestLevelSpell();
+		int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
 
 		Float max = 0f;
 
-		if (spClass.hasCastList())
+		if (pc.getSpellSupport(spClass).hasCastList())
 		{
 			for (int i = 0; i < cutoff; i++)
 			{
-				if (spClass.getCastForLevel(i, pc) != 0)
+				if (pc.getSpellSupport(spClass).getCastForLevel(i, pc) != 0)
 				{
 					max = Math.max(max, i);
 				}
@@ -80,7 +80,7 @@ public class PCMaxCastableDomainTermEvaluator
 		{
 			for (int i = 0; i < cutoff; i++)
 			{
-				if (spClass.getKnownForLevel(i, pc) != 0)
+				if (pc.getSpellSupport(spClass).getKnownForLevel(i, "null", pc) != 0)
 				{
 					max = Math.max(max, i);
 				}

@@ -591,7 +591,7 @@ final class ChooseSpellDialog extends JDialog
 
 			if (aClass != null)
 			{
-				minLevel = aClass.getMinLevelForSpellLevel(baseSpellLevel + levelAdjust, true);
+				minLevel = pc.getSpellSupport(aClass).getMinLevelForSpellLevel(baseSpellLevel + levelAdjust, true);
 				if (aClass.hasMaxLevel())
 				{
 					maxClassLevel = aClass.getSafe(IntegerKey.LEVEL_LIMIT);
@@ -1133,7 +1133,7 @@ final class ChooseSpellDialog extends JDialog
 				if (!aClass.getSpellType().equals(Constants.s_NONE))
 				{
 					// Only adds if the class can cast
-					if (aClass.zeroCastSpells())
+					if (pc.getSpellSupport(aClass).zeroCastSpells())
 					{
 						continue;
 					}

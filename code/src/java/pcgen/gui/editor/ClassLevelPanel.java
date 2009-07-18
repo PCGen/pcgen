@@ -170,7 +170,6 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			Logging.errorPrint(exc.getMessage());
 		}
-		object.forceUpdateSpellCache();
 	}
 
 	public void updateView(PObject po)

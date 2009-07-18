@@ -691,7 +691,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		{
 			lastClass = aClass.getKeyName();
 
-			int highestSpellLevel = aClass.getHighestLevelSpell(pc);
+			int highestSpellLevel = pc.getSpellSupport(aClass).getHighestLevelSpell(pc);
 			final InfoLabelTextBuilder b = new InfoLabelTextBuilder();
 			b.append("<table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
 			b.append(OutputNameFormatting.piString(aClass, false)).append(" ["); //$NON-NLS-1$
@@ -716,14 +716,14 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				b.append("</center></font></td>"); //$NON-NLS-1$
 			}
 			// Making sure KnownList can be handled safely and produces the correct behaviour
-			if (aClass.hasKnownList() || aClass.hasKnownSpells(pc))
+			if (pc.getSpellSupport(aClass).hasKnownList() || pc.getSpellSupport(aClass).hasKnownSpells(pc))
 			{
 				b.append("<tr><td><font size=-1><b>Known</b></font></td>"); //$NON-NLS-1$
 
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
-					final int a = aClass.getKnownForLevel(i, pc);
-					final int bonus = aClass.getSpecialtyKnownForLevel(i, pc);
+					final int a = pc.getSpellSupport(aClass).getKnownForLevel(i, "null", pc);
+					final int bonus = pc.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, pc);
 					StringBuffer bString = new StringBuffer();
 
 					if (bonus > 0)
@@ -1092,8 +1092,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	{
 		String sbook = Globals.getDefaultSpellBook();
 		final String cast =
-				aClass.getCastForLevel(level, sbook, true, false, pc)
-					+ aClass.getBonusCastForLevelString(level, sbook, pc);
+				pc.getSpellSupport(aClass).getCastForLevel(level, sbook, true, false, pc)
+					+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, sbook, pc);
 
 		return cast;
 	}
