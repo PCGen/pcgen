@@ -112,10 +112,17 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>,
 		final ChooserInterface chooser = getChooserInstance();
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
 		chooser.setAllowsDups(dupsAllowed);
-		if (!dupsAllowed)
-		{
-			availableList.removeAll(reservedList);
-		}
+		
+		/*
+		 * TODO This is temporarily commented out until the correct behavior of
+		 * the "available" list is established. This is done to make
+		 * CDOMChoiceManager not remove items when selected, which is consistent
+		 * with the (buggy?) old Choose system
+		 */
+		// if (!dupsAllowed)
+		// {
+		// availableList.removeAll(reservedList);
+		//		}
 
 		Globals.sortChooserLists(availableList, selectedList);
 		chooser.setAvailableList(availableList);
