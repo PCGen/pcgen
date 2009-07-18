@@ -32,6 +32,7 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.SpellSupportForPCClass;
 
@@ -107,6 +108,8 @@ public final class AssociationKey<T>
 	public static final AssociationKey<Boolean> IS_APPLIED = new AssociationKey<Boolean>();
 
 	public static final AssociationKey<SpellSupportForPCClass> SPELL_SUPPORT = new AssociationKey<SpellSupportForPCClass>();
+
+	public static final AssociationKey<ClassSource> CLASS_SOURCE = new AssociationKey<ClassSource>();
 
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 

@@ -40,41 +40,6 @@ import pcgen.core.spell.Spell;
  */
 public final class Domain extends PObject
 {
-	/**
-	 * (non-Javadoc)
-	 * Only compares the name.
-	 * @param obj
-	 * @return TRUE if equals, else FALSE
-	 * @see Object#equals
-	 */
-	@Override
-	public boolean equals(final Object obj)
-	{
-		if (obj != null)
-		{
-			if (obj.getClass() == this.getClass())
-			{
-				return ((Domain) obj).getKeyName().equals(this.getKeyName());
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Only uses the name for hashCode.
-	 *
-	 * @return a hashcode for this Domain object
-	 */
-	@Override
-	public int hashCode()
-	{
-		final int result;
-		result = ((getKeyName() != null) ? getKeyName().hashCode() : 0);
-
-		return result;
-	}
-	
 	@Override
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
 	{

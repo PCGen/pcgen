@@ -313,11 +313,11 @@ public class CountCommand extends PCGenCommand
 				{
 					// Domains are not PObjects
 
-					public Map<Domain, ClassSource> objdata;
+					public PlayerCharacter pc;
 
 					protected void getData(final PlayerCharacter pc)
 					{
-						objdata = pc.getDomainMap();
+						this.pc = pc;
 					}
 
 					public Object count(
@@ -344,8 +344,6 @@ public class CountCommand extends PCGenCommand
 									"Bad parameter to count(\"" + this + "\" ... )" + kv);
 						}
 
-						final Collection<ClassSource> cs = objdata.values();
-
 						final Set<String> pSet = new HashSet<String>();
 
 						// Hack (should allow various values, but PCGen can only do PCClass)
@@ -356,8 +354,9 @@ public class CountCommand extends PCGenCommand
 							// selection criteria of this leaf node of the parameter tree.
 							// we now convert this to a set of Strings so that the generic doFilterS
 							// can perform set operations on them
-							for (ClassSource source : cs)
+							for (Domain d : pc.getDomainSet())
 							{
+								ClassSource source = pc.getDomainSource(d);
 								pSet.add(source.getPcclass().getKeyName());
 							}
 						}

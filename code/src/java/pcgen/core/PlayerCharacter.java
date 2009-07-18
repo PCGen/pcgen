@@ -41,7 +41,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -194,9 +193,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BigDecimal gold = new BigDecimal(0);
 	private Deity deity = null;
 
-	// source of granted domains
-	private final Map<Domain, ClassSource> domainMap =
-			new LinkedHashMap<Domain, ClassSource>();
+	private final Set<Domain> domains = new HashSet<Domain>();
 	private ClassSource defaultDomainSource = null;
 
 	// List of Classes
@@ -3757,7 +3754,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Domain obj : domainMap.keySet())
+		for (Domain obj : domains)
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString,
@@ -6226,7 +6223,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addSpells(deity);
 		}
 
-		for (Domain d : domainMap.keySet())
+		for (Domain d : domains)
 		{
 			addSpells(d);
 		}
@@ -8205,7 +8202,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.resolve(this, skill.getQualifiedKey()).intValue());
 		}
 
-		for (Domain d : domainMap.keySet())
+		for (Domain d : domains)
 		{
 			SR =
 					Math.max(d.getSafe(ObjectKey.SR).getReduction()
@@ -9701,7 +9698,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (anObj instanceof Domain)
 		{
-			ClassSource source = domainMap.get(anObj);
+			ClassSource source = getDomainSource((Domain) anObj);
 			if (source != null)
 			{
 				aSpellClass = "CLASS:" + getClassKeyed(source.getPcclass().getKeyName());
@@ -10386,11 +10383,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getSpellList();
 		}
 
-		for (Map.Entry<Domain, ClassSource> me : domainMap.entrySet())
+		for (Domain d : domains)
 		{
-			if (!isDomainValid(me.getKey(), me.getValue()))
+			if (!isDomainValid(d, this.getDomainSource(d)))
 			{
-				removeDomain(me.getKey());
+				removeDomain(d);
 			}
 		}
 	}
@@ -11264,7 +11261,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Domain
-		results.addAll(domainMap.keySet());
+		results.addAll(domains);
 
 		// Equipment
 		final List<Equipment> eqList =
@@ -12794,7 +12791,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.deity = deity;
-		aClone.domainMap.putAll(domainMap);
+		aClone.domains.addAll(domains);
 		for (PCClass pcClass : classList)
 		{
 			PCClass cloneClass = pcClass.clone();
@@ -15039,7 +15036,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Domain d : domainMap.keySet())
+		for (Domain d : domains)
 		{
 			for (String aString : getAssociationList(d))
 			{
@@ -16272,7 +16269,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addDomain(Domain domain, ClassSource source)
 	{
-		domainMap.put(domain, source);
+		domains.add(domain);
+		setAssoc(domain, AssociationKey.CLASS_SOURCE, source);
 		if (source != null)
 		{
 			String classKey = source.getPcclass().getKeyName();
@@ -16290,39 +16288,34 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasDomain(Domain domain)
 	{
-		return domainMap.containsKey(domain);
+		return domains.contains(domain);
 	}
 
 	public void removeDomain(Domain domain)
 	{
-		domainMap.remove(domain);
+		domains.remove(domain);
 		modifyVariables(domain, false);
 		setDirty(true);
 	}
 
 	public boolean hasDomains()
 	{
-		return !domainMap.isEmpty();
+		return !domains.isEmpty();
 	}
 
 	public int getDomainCount()
 	{
-		return domainMap.size();
+		return domains.size();
 	}
 
 	public Set<Domain> getDomainSet()
 	{
-		return Collections.unmodifiableSet(domainMap.keySet());
+		return Collections.unmodifiableSet(domains);
 	}
 
 	public ClassSource getDomainSource(Domain d)
 	{
-		return domainMap.get(d);
-	}
-
-	public Map<Domain, ClassSource> getDomainMap()
-	{
-		return Collections.unmodifiableMap(domainMap);
+		return getAssoc(d, AssociationKey.CLASS_SOURCE);
 	}
 
 	private void modifyVariables(Domain aDomain, boolean addIt)
