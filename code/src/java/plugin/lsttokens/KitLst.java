@@ -88,8 +88,6 @@ public class KitLst extends AbstractToken implements
 			return false;
 		}
 		List<CDOMReference<Kit>> refs = new ArrayList<CDOMReference<Kit>>();
-		boolean foundAny = false;
-		boolean foundOther = false;
 
 		while (tok.hasMoreTokens())
 		{
@@ -97,26 +95,23 @@ public class KitLst extends AbstractToken implements
 			CDOMReference<Kit> ref;
 			if (Constants.LST_ALL.equals(token))
 			{
-				foundAny = true;
 				ref = context.ref.getCDOMAllReference(KIT_CLASS);
 			}
 			else
 			{
-				foundOther = true;
 				ref = context.ref.getCDOMReference(KIT_CLASS, token);
 			}
 			refs.add(ref);
 		}
 
-		if (foundAny && foundOther)
+		ReferenceChoiceSet<Kit> rcs = new ReferenceChoiceSet<Kit>(refs);
+		if (!rcs.getGroupingState().isValid())
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Non-sensical "
 					+ getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
 			return false;
 		}
-
-		ReferenceChoiceSet<Kit> rcs = new ReferenceChoiceSet<Kit>(refs);
 		ChoiceSet<Kit> cs = new ChoiceSet<Kit>(getTokenName(),
 				new QualifiedDecorator<Kit>(rcs));
 		cs.setTitle("Kit Selection");
