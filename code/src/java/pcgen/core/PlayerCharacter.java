@@ -40,7 +40,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -51,14 +50,12 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.NamedValue;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -116,8 +113,6 @@ import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusObj.BonusPair;
-import pcgen.core.bonus.util.MissingObject;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSet;
@@ -167,6 +162,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
+	private BonusManager bonusManager = new BonusManager(this);
 
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(4);
@@ -198,7 +194,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private Deity deity = null;
 
 	// source of granted domains
-	private List<BonusObj> activeBonusList = new ArrayList<BonusObj>();
 	private final Map<Domain, ClassSource> domainMap =
 			new LinkedHashMap<Domain, ClassSource>();
 	private ClassSource defaultDomainSource = null;
@@ -230,11 +225,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// Temporary Bonuses
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
-	private List<BonusObj> tempBonusList = new ArrayList<BonusObj>();
-	private Set<String> tempBonusFilters = new TreeSet<String>();
 
-	private Map<String, String> activeBonusMap =
-			new ConcurrentHashMap<String, String>();
 	private Race race = null;
 	private PCClass selectedFavoredClass = null;
 	private final List<PCStat> stats = new ArrayList<PCStat>();
@@ -411,16 +402,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 		setStringFor(StringKey.HANDED, PropertyFactory.getString("in_right")); //$NON-NLS-1$
-	}
-
-	/**
-	 * Get the active bonus map
-	 * 
-	 * @return active bonus map
-	 */
-	public Map<String, String> getActiveBonusMap()
-	{
-		return activeBonusMap;
 	}
 
 	/**
@@ -2590,36 +2571,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<String> getNamedTempBonusList()
 	{
-		final List<String> aList = new ArrayList<String>();
-
-		for (BonusObj aBonus : getTempBonusList())
-		{
-			if (aBonus == null)
-			{
-				continue;
-			}
-
-			if (!aBonus.isApplied(this))
-			{
-				continue;
-			}
-
-			final CDOMObject aCreator = (CDOMObject) aBonus.getCreatorObject();
-
-			if (aCreator == null)
-			{
-				continue;
-			}
-
-			final String aName = aCreator.getKeyName();
-
-			if (!aList.contains(aName))
-			{
-				aList.add(aName);
-			}
-		}
-
-		return aList;
+		return bonusManager.getNamedTempBonusList();
 	}
 
 	/**
@@ -2630,36 +2582,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<String> getNamedTempBonusDescList()
 	{
-		final List<String> aList = new ArrayList<String>();
-
-		for (BonusObj aBonus : getTempBonusList())
-		{
-			if (aBonus == null)
-			{
-				continue;
-			}
-
-			if (!aBonus.isApplied(this))
-			{
-				continue;
-			}
-
-			final CDOMObject aCreator = (CDOMObject) aBonus.getCreatorObject();
-
-			if (aCreator == null)
-			{
-				continue;
-			}
-
-			String aDesc = aCreator.getSafe(StringKey.DESCRIPTION);
-
-			if (!aList.contains(aDesc))
-			{
-				aList.add(aDesc);
-			}
-		}
-
-		return aList;
+		return bonusManager.getNamedTempBonusDescList();
 	}
 
 	/**
@@ -3419,24 +3342,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Set temp bonus list
-	 * 
-	 * @param aList
-	 */
-	public void setTempBonusList(final List<BonusObj> aList)
-	{
-		tempBonusList = aList;
-		setDirty(true);
-	}
-
-	/**
 	 * Temp Bonus list
 	 * 
 	 * @return List
 	 */
 	public List<BonusObj> getTempBonusList()
 	{
-		return tempBonusList;
+		return bonusManager.getTempBonusList();
 	}
 
 	/**
@@ -3446,15 +3358,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<BonusObj> getFilteredTempBonusList()
 	{
-		final List<BonusObj> ret = new ArrayList<BonusObj>();
-		for (BonusObj bonus : getTempBonusList())
-		{
-			if (!tempBonusFilters.contains(bonus.getName()))
-			{
-				ret.add(bonus);
-			}
-		}
-		return ret;
+		return bonusManager.getFilteredTempBonusList();
 	}
 
 	/**
@@ -3464,7 +3368,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Set<String> getTempBonusFilters()
 	{
-		return tempBonusFilters;
+		return bonusManager.getTempBonusFilters();
 	}
 
 	/**
@@ -3474,7 +3378,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setTempBonusFilter(final String aBonusStr)
 	{
-		tempBonusFilters.add(aBonusStr);
+		bonusManager.addTempBonusFilter(aBonusStr);
 		calcActiveBonuses();
 	}
 
@@ -3485,7 +3389,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void unsetTempBonusFilter(final String aBonusStr)
 	{
-		tempBonusFilters.remove(aBonusStr);
+		bonusManager.removeTempBonusFilter(aBonusStr);
 		calcActiveBonuses();
 	}
 
@@ -3500,37 +3404,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<BonusObj> getTempBonusList(final String aCreator,
 		final String aTarget)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
-
-		for (BonusObj bonus : getTempBonusList())
-		{
-			final Object aTO = bonus.getTargetObject();
-			final Object aCO = bonus.getCreatorObject();
-
-			String targetName = Constants.EMPTY_STRING;
-			String creatorName = Constants.EMPTY_STRING;
-
-			if (aCO instanceof CDOMObject)
-			{
-				creatorName = ((CDOMObject) aCO).getKeyName();
-			}
-
-			if (aTO instanceof PlayerCharacter)
-			{
-				targetName = getName();
-			}
-			else if (aTO instanceof PObject)
-			{
-				targetName = ((PObject) aTO).getKeyName();
-			}
-
-			if (creatorName.equals(aCreator) && targetName.equals(aTarget))
-			{
-				aList.add(bonus);
-			}
-		}
-
-		return aList;
+		return bonusManager.getTempBonusList(aCreator, aTarget);
 	}
 
 	/**
@@ -4266,7 +4140,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void addTempBonus(final BonusObj aBonus)
 	{
-		getTempBonusList().add(aBonus);
+		bonusManager.addTempBonus(aBonus);
 		setDirty(true);
 	}
 
@@ -4483,32 +4357,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// }
 
 		return variableSet.contains(variableString.toUpperCase());
-	}
-
-	/**
-	 * Put the provided bonus key and value into the supplied bonus map. Some
-	 * sanity checking is done on the key.
-	 * 
-	 * @param aKey
-	 *            The bonus key
-	 * @param aVal
-	 *            The value of the bonus
-	 * @param bonusMap
-	 *            The map of bonuses being built.
-	 */
-	private void putActiveBonusMap(final String aKey, final String aVal,
-		Map<String, String> bonusMap)
-	{
-		//
-		// This is a bad idea...will add whatever the bonus is to ALL skills
-		//
-		if (aKey.equalsIgnoreCase("SKILL.LIST"))
-		{
-			displayUpdate = true;
-			return;
-		}
-		bonusMap.put(aKey, aVal);
-		// setDirty(true);
 	}
 
 	public int racialSizeInt()
@@ -5120,9 +4968,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public double getBonusDueToType(final String mainType,
 		final String subType, final String bonusType)
 	{
-		final String typeString = mainType + "." + subType + ":" + bonusType;
-
-		return sumActiveBonusMap(typeString);
+		return bonusManager.getBonusDueToType(mainType, subType, bonusType);
 	}
 
 	public List<CompanionMod> getCompanionModList()
@@ -6569,27 +6415,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public double getTotalBonusTo(final String bonusType, final String bonusName)
 	{
-		final String prefix =
-				new StringBuffer(bonusType).append('.').append(bonusName)
-					.toString();
-
-		return sumActiveBonusMap(prefix);
+		return bonusManager.getTotalBonusTo(bonusType, bonusName);
 	}
-
-	// public List<TypedBonus> getBonusesTo(final String bonusType, final String
-	// bonusName)
-	// {
-	// final String prefix = new
-	// StringBuffer(bonusType).append('.').append(bonusName).toString();
-	//
-	// final List<TypedBonus> ret = theBonusMap.get(prefix);
-	// if ( ret == null )
-	// {
-	// return Collections.emptyList();
-	// }
-	//		
-	// return ret;
-	// }
 
 	public int getTotalLevels()
 	{
@@ -7149,58 +6976,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private String getSpellBonusType(final String bonusType,
 		final String bonusName)
 	{
-		String prefix =
-				new StringBuffer(bonusType).append('.').append(bonusName)
-					.toString();
-		prefix = prefix.toUpperCase();
-
-		for (String aKey : getActiveBonusMap().keySet())
-		{
-			String aString = aKey;
-
-			// rString could be something like:
-			// COMBAT.AC:Armor.REPLACE
-			// So need to remove the .STACK or .REPLACE
-			// to get a match for prefix like: COMBAT.AC:Armor
-			if (aKey.endsWith(".STACK"))
-			{
-				aString = aKey.substring(0, aKey.length() - 6);
-			}
-			else if (aKey.endsWith(".REPLACE"))
-			{
-				aString = aKey.substring(0, aKey.length() - 8);
-			}
-
-			// if prefix is of the form:
-			// COMBAT.AC
-			// then it must match
-			// COMBAT.AC
-			// COMBAT.AC:Luck
-			// COMBAT.AC:Armor.REPLACE
-			// However, it must not match
-			// COMBAT.ACCHECK
-			if ((aString.length() > prefix.length())
-				&& !aString.startsWith(prefix + ":"))
-			{
-				continue;
-			}
-
-			if (aString.startsWith(prefix))
-			{
-				final int typeIndex = aString.indexOf(":");
-				if (typeIndex > 0)
-				{
-					return (aKey.substring(typeIndex + 1)); // use aKey to get
-					// .REPLACE or
-					// .STACK
-				}
-				return Constants.EMPTY_STRING; // no type;
-			}
-
-		}
-
-		return Constants.EMPTY_STRING; // just return no type
-
+		return bonusManager.getSpellBonusType(bonusType, bonusName);
 	}
 
 	public List<Vision> getVisionList()
@@ -8219,8 +7995,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Get the original value of the map.
 		// String origMapVal = theBonusMap.toString();
-		String origMapVal = activeBonusMap.toString();
-
+		String origMapVal = bonusManager.getBonusMapString();
+		
 		// ensure that the values for the looked up variables are the most up to
 		// date
 		setDirty(true);
@@ -8228,7 +8004,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Get the new contents of the map
 		// String mapVal = theBonusMap.toString();
-		String mapVal = activeBonusMap.toString();
+		String mapVal = bonusManager.getBonusMapString();
 
 		// As the map is a TreeMap we know that the contents will be in
 		// alphabetical order, so doing a straight string compare is
@@ -8241,7 +8017,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			calcActiveBonusLoop();
 			origMapVal = mapVal;
 			// mapVal = theBonusMap.toString();
-			mapVal = activeBonusMap.toString();
+			mapVal = bonusManager.getBonusMapString();
 		}
 	}
 
@@ -8271,7 +8047,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (getUseTempMods())
 		{
-			ret.addAll(getTempBonuses());
+			ret.addAll(bonusManager.getTempBonuses());
 		}
 		ret = Bonus.sortBonusList(ret);
 		return ret;
@@ -8291,10 +8067,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 		lastCablInt = cablInt;
-		final List<BonusObj> bonuses = getAllActiveBonuses();
-		activeBonusList = bonuses;
+		bonusManager.setActiveBonusList(getAllActiveBonuses());
 		// buildBonusMap(bonuses);
-		buildActiveBonusMap();
+		bonusManager.buildActiveBonusMap();
 		cablInt++;
 	}
 
@@ -9349,104 +9124,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param prefix
 	 * @return String TODO - Not sure what this is trying to do.
 	 */
-	public String listBonusesFor(final String prefix)
+	public String listBonusesFor(String bonusType, String bonusName)
 	{
-		final StringBuffer buf = new StringBuffer();
-		final List<String> aList = new ArrayList<String>();
-
-		// final List<TypedBonus> bonuses = theBonusMap.get(prefix);
-		// if ( bonuses == null )
-		// {
-		// return Constants.EMPTY_STRING;
-		// }
-		// final List<String> bonusStrings =
-		// TypedBonus.totalBonusesByType(bonuses);
-		// return CoreUtility.commaDelimit(bonusStrings);
-
-		final Set<String> keys = new TreeSet<String>();
-		for (String aKey : getActiveBonusMap().keySet())
-		{
-			if (aKey.startsWith(prefix))
-			{
-				keys.add(aKey);
-			}
-		}
-		for (String aKey : keys)
-		{
-			// make a list of keys that end with .REPLACE
-			if (aKey.endsWith(".REPLACE"))
-			{
-				aList.add(aKey);
-			}
-			else
-			{
-				String reason = "";
-
-				if (aKey.length() > prefix.length())
-				{
-					reason = aKey.substring(prefix.length() + 1);
-				}
-
-				final int b = (int) getActiveBonusForMapKey(aKey, 0);
-
-				if (b == 0)
-				{
-					continue;
-				}
-
-				if (!"NULL".equals(reason) && (reason.length() > 0))
-				{
-					if (buf.length() > 0)
-					{
-						buf.append(", ");
-					}
-					buf.append(reason).append(' ');
-				}
-				buf.append(Delta.toString(b));
-			}
-		}
-
-		// Now adjust the bonus if the .REPLACE value
-		// replaces the value without .REPLACE
-		for (String replaceKey : aList)
-		{
-			if (replaceKey.length() > 7)
-			{
-				final String aKey =
-						replaceKey.substring(0, replaceKey.length() - 8);
-				final double replaceBonus =
-						getActiveBonusForMapKey(replaceKey, 0);
-				double aBonus = getActiveBonusForMapKey(aKey, 0);
-				aBonus += getActiveBonusForMapKey(aKey + ".STACK", 0);
-
-				final int b = (int) Math.max(aBonus, replaceBonus);
-
-				if (b == 0)
-				{
-					continue;
-				}
-
-				if (buf.length() > 0)
-				{
-					buf.append(", ");
-				}
-
-				final String reason = aKey.substring(prefix.length() + 1);
-
-				if (!"NULL".equals(reason))
-				{
-					buf.append(reason).append(' ');
-				}
-
-				buf.append(Delta.toString(b));
-			}
-		}
-
-		return buf.toString();
+		return bonusManager.listBonusesFor(bonusType, bonusName);
 	}
 
-	/*
-	 */
 	public boolean loadDescriptionFilesInDirectory(final String aDirectory)
 	{
 		new File(aDirectory).list(new FilenameFilter()
@@ -10202,7 +9884,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void removeTempBonus(final BonusObj aBonus)
 	{
-		getTempBonusList().remove(aBonus);
+		bonusManager.removeTempBonus(aBonus);
 		setDirty(true);
 	}
 
@@ -10492,119 +10174,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Figures out if a bonus should stack based on type, then adds it to the
-	 * supplied map.
-	 * 
-	 * @param bonus
-	 *            The value of the bonus.
-	 * @param bonusType
-	 *            The type of the bonus e.g. STAT.DEX:LUCK
-	 * @param bonusMap
-	 *            The bonus map being built up.
-	 */
-	void setActiveBonusStack(double bonus, String bonusType,
-		Map<String, String> bonusMap)
-	{
-		if (bonusType != null)
-		{
-			bonusType = bonusType.toUpperCase();
-
-			// only specific bonuses can actually be fractional
-			// -> TODO should define this in external file
-			if (!bonusType.startsWith("ITEMWEIGHT")
-				&& !bonusType.startsWith("ITEMCOST")
-				&& !bonusType.startsWith("ACVALUE")
-				&& !bonusType.startsWith("ITEMCAPACITY")
-				&& !bonusType.startsWith("LOADMULT")
-				&& !bonusType.startsWith("FEAT")
-				&& (bonusType.indexOf("DAMAGEMULT") < 0))
-			{
-				bonus = ((int) bonus); // TODO: never used
-			}
-		}
-		else
-		{
-			return;
-		}
-
-		// default to non-stacking bonuses
-		int index = -1;
-
-		// bonusType is either of form:
-		// COMBAT.AC
-		// or
-		// COMBAT.AC:Luck
-		// or
-		// COMBAT.AC:Armor.REPLACE
-		//
-		final StringTokenizer aTok = new StringTokenizer(bonusType, ":");
-
-		if (aTok.countTokens() == 2)
-		{
-			// need 2nd token to see if it should stack
-			final String aString;
-			aTok.nextToken();
-			aString = aTok.nextToken();
-
-			if (aString != null)
-			{
-				index =
-						SettingsHandler.getGame()
-							.getUnmodifiableBonusStackList().indexOf(aString); // e.g.
-				// Dodge
-			}
-		}
-		else
-		{
-			// un-named (or un-TYPE'd) bonuses stack
-			index = 1;
-		}
-
-		// .STACK means stack with everything
-		// .REPLACE means stack with other .REPLACE
-		if (bonusType.endsWith(".STACK") || bonusType.endsWith(".REPLACE"))
-		{
-			index = 1;
-		}
-
-		// If it's a negative bonus, it always needs to be added
-		if (bonus < 0)
-		{
-			index = 1;
-		}
-
-		if (index == -1) // a non-stacking bonus
-		{
-			final String aVal = bonusMap.get(bonusType);
-
-			if (aVal == null)
-			{
-				putActiveBonusMap(bonusType, String.valueOf(bonus), bonusMap);
-			}
-			else
-			{
-				putActiveBonusMap(bonusType, String.valueOf(Math.max(bonus,
-					Float.parseFloat(aVal))), bonusMap);
-			}
-		}
-		else
-		// a stacking bonus
-		{
-			final String aVal = bonusMap.get(bonusType);
-
-			if (aVal == null)
-			{
-				putActiveBonusMap(bonusType, String.valueOf(bonus), bonusMap);
-			}
-			else
-			{
-				putActiveBonusMap(bonusType, String.valueOf(bonus
-					+ Float.parseFloat(aVal)), bonusMap);
-			}
-		}
-	}
-
-	/**
 	 * Returns a list of Ability Objects of the given Category from the global
 	 * list, which 1) match the given abilityType, 2) the character qualifies
 	 * for, and 3) the character does not already have.
@@ -10840,36 +10409,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Searches the activeBonus HashMap for aKey
-	 * 
-	 * @param aKey
-	 * @param defaultValue
-	 * 
-	 * @return defaultValue if aKey not found
-	 */
-	private double getActiveBonusForMapKey(String aKey,
-		final double defaultValue)
-	{
-		aKey = aKey.toUpperCase();
-
-		final String regVal = getActiveBonusMap().get(aKey);
-
-		if (regVal != null)
-		{
-			return Double.parseDouble(regVal);
-		}
-
-		return defaultValue;
-	}
-
-	/**
 	 * Active BonusObj's
 	 * 
 	 * @return List
 	 */
 	public List<BonusObj> getActiveBonusList()
 	{
-		return activeBonusList;
+		return bonusManager.getActiveBonusList();
 	}
 
 	private List<ProfProvider<ArmorProf>> getAutoArmorProfList()
@@ -12116,70 +11662,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Build the bonus HashMap from all active BonusObj's
-	 */
-	private void buildActiveBonusMap()
-	{
-		clearActiveBonusMap();
-		Set<BonusObj> processedBonuses =
-				new WrappedMapSet<BonusObj>(IdentityHashMap.class);
-
-		//
-		// We do a first pass of just the "static" bonuses
-		// as they require less computation and no recursion
-		List<BonusObj> bonusListCopy = new ArrayList<BonusObj>();
-		bonusListCopy.addAll(getActiveBonusList());
-		for (BonusObj bonus : bonusListCopy)
-		{
-			if (!bonus.isValueStatic())
-			{
-				continue;
-			}
-
-			final CDOMObject anObj = (CDOMObject) bonus.getCreatorObject();
-
-			if (anObj == null)
-			{
-				Logging.debugPrint("BONUS: " + bonus
-					+ " ignored due to no creator");
-				continue;
-			}
-
-			// Keep track of which bonuses have been calculated
-			processedBonuses.add(bonus);
-			for (BonusPair bp : bonus.getStringListFromBonus(this))
-			{
-				final double iBonus = bp.resolve(this).doubleValue();
-				setActiveBonusStack(iBonus, bp.bonusKey, getActiveBonusMap());
-				Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : "
-					+ iBonus + " : " + bp.bonusKey);
-			}
-		}
-
-		//
-		// Now we do all the BonusObj's that require calculations
-		bonusListCopy = new ArrayList<BonusObj>();
-		bonusListCopy.addAll(getActiveBonusList());
-		for (BonusObj bonus : getActiveBonusList())
-		{
-			if (processedBonuses.contains(bonus))
-			{
-				continue;
-			}
-
-			final CDOMObject anObj = (CDOMObject) bonus.getCreatorObject();
-
-			if (anObj == null)
-			{
-				continue;
-			}
-
-			processBonus(bonus, new WrappedMapSet<BonusObj>(
-				IdentityHashMap.class), processedBonuses);
-		}
-	}
-
-	/**
 	 * Compute total bonus from a List of BonusObj's Use cost of bonus to adjust
 	 * total bonus up or down This method takes a list of bonus objects.
 	 * 
@@ -12273,35 +11755,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return Collections.emptyList();
 	}
 
-	// private void calcTempBonuses()
-	private List<BonusObj> getTempBonuses()
-	{
-		final List<BonusObj> tempList = getFilteredTempBonusList();
-		if (tempList.isEmpty())
-		{
-			return Collections.emptyList();
-			// return;
-		}
-		for (final Iterator<BonusObj> tempIter = tempList.iterator(); tempIter
-			.hasNext();)
-		{
-			final BonusObj bonus = tempIter.next();
-			bonus.setApplied(this, false);
-
-			if (bonus.qualifies(this))
-			{
-				bonus.setApplied(this, true);
-			}
-
-			if (!bonus.isApplied(this))
-			{
-				tempIter.remove();
-			}
-		}
-		// addListToActiveBonuses(tempList);
-		return tempList;
-	}
-
 	/**
 	 * calculate the total racial modifier to save: racial bonuses like the
 	 * standard halfling's +1 on all saves template bonuses like the Lightfoot
@@ -12328,11 +11781,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		save += (int) race.bonusTo("CHECKS", sString, this, this);
 
 		return save;
-	}
-
-	private void clearActiveBonusMap()
-	{
-		activeBonusMap.clear();
 	}
 
 	/**
@@ -12795,85 +12243,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	/**
-	 * - Get's a list of dependencies from aBonus - Finds all active bonuses
-	 * that add to those dependencies and have not been processed and
-	 * recursively calls itself - Once recursed in, it adds the computed bonus
-	 * to activeBonusMap
-	 * 
-	 * @param aBonus
-	 *            The bonus to be processed.
-	 * @param prevProcessed
-	 *            The list of bonuses which have already been processed in this
-	 *            run.
-	 * @param processedBonuses TODO
-	 */
-	private void processBonus(final BonusObj aBonus,
-		final Set<BonusObj> prevProcessed, Set<BonusObj> processedBonuses)
-	{
-		// Make sure we don't get into an infinite loop - can occur due to LST
-		// coding or best guess dependancy mapping
-		if (prevProcessed.contains(aBonus))
-		{
-			Logging
-				.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed); //$NON-NLS-1$//$NON-NLS-2$
-			return;
-		}
-		prevProcessed.add(aBonus);
-
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
-
-		// Go through all bonuses and check to see if they add to
-		// aBonus's dependencies and have not already been processed
-		for (BonusObj newBonus : getActiveBonusList())
-		{
-			if (processedBonuses.contains(newBonus))
-			{
-				continue;
-			}
-
-			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList()))
-			{
-				aList.add(newBonus);
-			}
-		}
-
-		// go through all the BonusObj's that aBonus depends on
-		// and process them first
-		for (BonusObj newBonus : aList)
-		{
-			// Recursively call itself
-			processBonus(newBonus, prevProcessed, processedBonuses);
-		}
-
-		// Double check that it hasn't been processed yet
-		if (processedBonuses.contains(aBonus))
-		{
-			return;
-		}
-
-		// Add to processed list
-		processedBonuses.add(aBonus);
-
-		final CDOMObject anObj = (CDOMObject) aBonus.getCreatorObject();
-
-		if (anObj == null)
-		{
-			prevProcessed.remove(aBonus);
-			return;
-		}
-
-		// calculate bonus and add to activeBonusMap
-		for (BonusPair bp : aBonus.getStringListFromBonus(this))
-		{
-			final double iBonus = bp.resolve(this).doubleValue();
-			setActiveBonusStack(iBonus, bp.bonusKey, getActiveBonusMap());
-			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
-				+ iBonus + " : " + bp.bonusKey);
-		}
-		prevProcessed.remove(aBonus);
-	}
-
 	private boolean qualifiesForFeat(final Ability aFeat)
 	{
 		return PrereqHandler
@@ -13132,110 +12501,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return total;
 	}
 
-	/**
-	 * @param prefix
-	 * @return Total bonus for prefix from the activeBonus HashMap
-	 */
-	private double sumActiveBonusMap(String prefix)
-	{
-		double bonus = 0;
-		prefix = prefix.toUpperCase();
-
-		final List<String> aList = new ArrayList<String>();
-
-		// There is a risk that the active bonus map may be modified by other
-		// threads, so we use a for loop rather than an iterator so that we
-		// still get an answer.
-		Object[] keys = getActiveBonusMap().keySet().toArray();
-		for (int i = 0; i < keys.length; i++)
-		{
-			final String aKey = (String) keys[i];
-
-			// aKey is either of the form:
-			// COMBAT.AC
-			// or
-			// COMBAT.AC:Luck
-			// or
-			// COMBAT.AC:Armor.REPLACE
-			if (aList.contains(aKey))
-			{
-				continue;
-			}
-
-			String rString = aKey;
-
-			// rString could be something like:
-			// COMBAT.AC:Armor.REPLACE
-			// So need to remove the .STACK or .REPLACE
-			// to get a match for prefix like: COMBAT.AC:Armor
-			if (rString.endsWith(".STACK"))
-			{
-				rString = rString.substring(0, rString.length() - 6);
-			}
-			else if (rString.endsWith(".REPLACE"))
-			{
-				rString = rString.substring(0, rString.length() - 8);
-			}
-
-			// if prefix is of the form:
-			// COMBAT.AC
-			// then is must match rstring:
-			// COMBAT.AC
-			// COMBAT.AC:Luck
-			// COMBAT.AC:Armor.REPLACE
-			// However, it must not match
-			// COMBAT.ACCHECK
-			if ((rString.length() > prefix.length())
-				&& !rString.startsWith(prefix + ":"))
-			{
-				continue;
-			}
-
-			if (rString.startsWith(prefix))
-			{
-				aList.add(rString);
-				aList.add(rString + ".STACK");
-				aList.add(rString + ".REPLACE");
-
-				final double aBonus =
-						getActiveBonusForMapKey(rString, Double.NaN);
-				final double replaceBonus =
-						getActiveBonusForMapKey(rString + ".REPLACE",
-							Double.NaN);
-				final double stackBonus =
-						getActiveBonusForMapKey(rString + ".STACK", 0);
-				//
-				// Using NaNs in order to be able to get the max
-				// between an undefined bonus and a negative
-				//
-				if (Double.isNaN(aBonus)) // no bonusKey
-				{
-					if (!Double.isNaN(replaceBonus))
-					{
-						// no bonusKey, but there
-						// is a replaceKey
-						bonus += replaceBonus;
-					}
-				}
-				else if (Double.isNaN(replaceBonus))
-				{
-					// is a bonusKey and no replaceKey
-					bonus += aBonus;
-				}
-				else
-				{
-					// is a bonusKey and a replaceKey
-					bonus += Math.max(aBonus, replaceBonus);
-				}
-
-				// always add stackBonus
-				bonus += stackBonus;
-			}
-		}
-
-		return bonus;
-	}
-
 	private int totalMonsterLevels()
 	{
 		int totalLevels = 0;
@@ -13445,89 +12710,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
 		boolean useEquip)
 	{
-		// List<BonusObj> abl = getAllActiveBonuses();
-		List<BonusObj> abl = getActiveBonusList();
-		String statAbbr = stat.getAbb();
-		final String prefix = "STAT." + statAbbr;
-		Map<String, String> bonusMap = new HashMap<String, String>();
-
-		for (BonusObj bonus : abl)
-		{
-			if (bonus.isApplied(this) && bonus.getBonusName().equals("STAT"))
-			{
-				boolean found = false;
-				for (Object element : bonus.getBonusInfoList())
-				{
-					if (element instanceof PCStat
-						&& ((PCStat) element).equals(stat))
-					{
-						found = true;
-						break;
-					}
-					//TODO: This should be put into a proper object when parisng.
-					if (element instanceof MissingObject)
-					{
-						String name = ((MissingObject) element).getObjectName();
-						if (("%LIST".equals(name) || "LIST".equals(name))
-							&& bonus.getCreatorObject() instanceof CDOMObject)
-						{
-							CDOMObject creator =
-									(CDOMObject) bonus.getCreatorObject();
-							for (FixedStringList assoc : getDetailedAssociations(creator))
-							{
-								if (assoc.contains(statAbbr))
-								{
-									found = true;
-									break;
-								}
-							}
-						}
-					}
-				}
-				if (!found)
-				{
-					continue;
-				}
-
-				// The bonus has been applied to the target stat
-				// Should it be included?
-				boolean addIt = false;
-				if (bonus.getCreatorObject() instanceof Equipment
-					|| bonus.getCreatorObject() instanceof EquipmentModifier)
-				{
-					addIt = useEquip;
-				}
-				else if (tempBonusList.contains(bonus))
-				{
-					addIt = useTemp;
-				}
-				else
-				{
-					addIt = true;
-				}
-				if (addIt)
-				{
-					// Grab the list of relevant types so that we can build up
-					// the
-					// bonuses with the stacking rules applied.
-					for (BonusPair bp : bonus.getStringListFromBonus(this))
-					{
-						if (bp.bonusKey.startsWith(prefix))
-						{
-							setActiveBonusStack(bp.resolve(this).doubleValue(),
-								bp.bonusKey, bonusMap);
-						}
-					}
-				}
-			}
-		}
-		// Sum the included bonuses to the stat to get our result.
-		int total = 0;
-		for (String bKey : bonusMap.keySet())
-		{
-			total += Float.parseFloat(bonusMap.get(bKey));
-		}
-		return total;
+		return bonusManager.getPartialStatBonusFor(stat, useTemp, useEquip);
 	}
 
 	/**
@@ -13646,8 +12829,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aClone.addSpellBook(new String(book));
 		}
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
-		aClone.tempBonusList.addAll(tempBonusList);
-		aClone.tempBonusFilters.addAll(tempBonusFilters);
+		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.selectedFavoredClass = selectedFavoredClass;
 		if (kitList != null)
 		{
@@ -17167,5 +16349,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				removeVariable(sb.toString());
 			}
 		}
+	}
+
+	public void setTempBonusList(List<BonusObj> tempBonusList)
+	{
+		bonusManager.setTempBonusList(tempBonusList);
+	}
+
+	public Map<String, String> getBonusStrings(String bonusString, String substring)
+	{
+		return bonusManager.getBonuses(bonusString, substring);
+	}
+
+	public Set<String> getTempBonusNames()
+	{
+		return bonusManager.getTempBonusNames();
+	}
+
+	public boolean isApplied(BonusObj bonus)
+	{
+		return bonusManager.isApplied(bonus);
 	}
 }

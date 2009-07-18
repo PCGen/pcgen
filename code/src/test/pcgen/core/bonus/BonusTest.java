@@ -104,15 +104,15 @@ public class BonusTest extends AbstractCharacterTestCase
 		rideSkill.activateBonuses(pc);
 		double iBonus = saddleBonus.resolve(pc, "").doubleValue();
 		assertEquals("Bonus value", -5.0, iBonus, 0.05);
-		assertTrue("No saddle, should have a penalty", saddleBonus.isApplied(pc));
+		assertTrue("No saddle, should have a penalty", pc.isApplied(saddleBonus));
 
 		pc.addEquipment(saddle);
 		final EquipSet eqSet = new EquipSet("Test", "Test", "", saddle);
 		pc.addEquipSet(eqSet);
 		pc.calcActiveBonuses();
 		rideSkill.activateBonuses(pc);
-		assertFalse("Saddle, should not have a penalty", saddleBonus
-			.isApplied(pc));
+		assertFalse("Saddle, should not have a penalty", pc
+				.isApplied(saddleBonus));
 	}
 
 	/**

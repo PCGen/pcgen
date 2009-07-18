@@ -113,7 +113,7 @@ public final class PointBuyMethod
 			{
 				final BonusObj aBonus = ab.next();
 
-				if (aBonus.isApplied(pc))
+				if (pc.isApplied(aBonus))
 				{
 					aList.add(aBonus);
 				}

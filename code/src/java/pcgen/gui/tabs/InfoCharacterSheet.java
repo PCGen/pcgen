@@ -64,7 +64,6 @@ import org.w3c.dom.Document;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.panes.FlippingSplitPane;
@@ -500,23 +499,6 @@ class SelectPanel extends JPanel implements ActionListener
 	}
 
 	/**
-	 * transforms a <code>List</code> of temporary bonuses(<code>BonusObj</code>)
-	 * to a set containing the names of those bonus.
-	 *
-	 * @param tempBonuses a <code>List</code> of temporary bonuses
-	 * @return a <code>Set</code> of bonus names(<code>String</code>'s)
-	 */
-	private Set<String> tempBonus2Set(List<BonusObj> tempBonuses)
-	{
-		final Set<String> ret = new TreeSet<String>();
-		for (BonusObj bonus : tempBonuses)
-		{
-			ret.add(bonus.getName());
-		}
-		return ret;
-	}
-
-	/**
 	 * <code>equipSet2Set</code> transforms a list of equipment set items
 	 * to a set containing the names of all "root" equipment sets.
 	 *
@@ -543,7 +525,7 @@ class SelectPanel extends JPanel implements ActionListener
 
 		/* First, find which temporary bonuses have been removed,
 		 and which have been added */
-		Set<String> newValues = tempBonus2Set(pc.getTempBonusList());
+		Set<String> newValues = pc.getTempBonusNames();
 		Set<String> oldValues = new TreeSet<String>(tempBonusWidgets.keySet());
 		oldValues.removeAll(newValues);
 		newValues.removeAll(tempBonusWidgets.keySet());

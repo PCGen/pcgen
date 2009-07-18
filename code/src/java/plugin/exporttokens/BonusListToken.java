@@ -112,45 +112,28 @@ public class BonusListToken extends Token
 			}
 
 			boolean needDelim = false;
-			String prefix = bonusString + "." + substring + ".";
-
-			//			final List<String> bonuses = TypedBonus.totalBonusesByType( pc.getBonusesTo(bonusString, substring));
-			//			for ( final String str : bonuses )
-			//			{
-			//				if ( needDelim )
-			//				{
-			//					retString += delim;
-			//				}
-			//				
-			//				retString += str;
-			//				needDelim = true;
-			//			}
-
-			for (Map.Entry<String, String> entry : pc.getActiveBonusMap()
-				.entrySet())
+			for (Map.Entry<String, String> entry : pc.getBonusStrings(
+					bonusString, substring).entrySet())
 			{
 				String aKey = entry.getKey();
 
-				if (aKey.startsWith(prefix))
+				if (needDelim)
 				{
-					if (needDelim)
-					{
-						returnString.append(delim);
-					}
-
-					if (aKey.length() > typeLen)
-					{
-						returnString.append(aKey.substring(typeLen));
-					}
-					else
-					{
-						returnString.append("None");
-					}
-
-					returnString.append(typeSeparator);
-					returnString.append(entry.getValue());
-					needDelim = true;
+					returnString.append(delim);
 				}
+				needDelim = true;
+
+				if (aKey.length() > typeLen)
+				{
+					returnString.append(aKey.substring(typeLen));
+				}
+				else
+				{
+					returnString.append("None");
+				}
+
+				returnString.append(typeSeparator);
+				returnString.append(entry.getValue());
 			}
 		}
 

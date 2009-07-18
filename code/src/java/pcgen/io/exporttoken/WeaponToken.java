@@ -44,8 +44,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SizeUtilities;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -1282,10 +1280,6 @@ public class WeaponToken extends Token
 		{
 			profName = ref.resolvesTo().getKeyName();
 		}
-
-		final List<BonusObj> bonuses = new ArrayList<BonusObj>();
-		bonuses.addAll(BonusUtilities.getBonusFromList(pc.getActiveBonusList(),
-			"WEAPONPROF=" + profName, "CRITRANGEDOUBLE"));
 		int dbl =
 				(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 					"CRITRANGEDOUBLE")

@@ -598,7 +598,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
 		for (BonusObj bonus : getRawBonusList(aPC)) {
-			if (bonus.isApplied(aPC)) {
+			if (aPC.isApplied(bonus)) {
 				aList.add(bonus);
 			}
 		}

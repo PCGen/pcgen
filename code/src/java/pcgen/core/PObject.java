@@ -690,7 +690,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 		for ( BonusObj bonus : getRawBonusList(aPC) )
 		{
-			if (bonus.isApplied(aPC))
+			if (aPC.isApplied(bonus))
 			{
 				aList.add(bonus);
 			}

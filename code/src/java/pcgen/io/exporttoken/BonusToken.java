@@ -100,7 +100,7 @@ public class BonusToken extends Token
 			if (CoreUtility.doublesEqual(total, 0.0)
 				&& "LISTING".equals(bucket))
 			{
-				return pc.listBonusesFor(aType + "." + aName);
+				return pc.listBonusesFor(aType, aName);
 			}
 			if (PreParserFactory.isPreReqString(bucket))
 			{
