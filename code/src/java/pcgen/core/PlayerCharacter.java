@@ -16785,15 +16785,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Add in the spells granted by objects
 		SpellLevel.addBonusKnowSpellsToList(this, po, cspells);
 
-		if (cspells != null)
+		for (CharacterSpell cs : cspells)
 		{
-			for (CharacterSpell cs : cspells)
+			Spell sp = cs.getSpell();
+			if (spell.equals(sp) && (cs.getOwner().equals(po)))
 			{
-				Spell sp = cs.getSpell();
-				if (spell.equals(sp) && (cs.getOwner().equals(po)))
-				{
-					return cs;
-				}
+				return cs;
 			}
 		}
 		return null;
@@ -16821,7 +16818,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		SpellLevel.addBonusKnowSpellsToList(this, spellSource, csList);
 
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
-		if (csList == null || csList.size() == 0)
+		if (csList.size() == 0)
 		{
 			return aList;
 		}
@@ -16864,7 +16861,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
-		if (csList == null || csList.size() == 0)
+		if (csList.size() == 0)
 		{
 			return aList;
 		}
@@ -16917,7 +16914,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		String spellType = "";
 		String classKey = "";
 		int metaDC = 0;
-		PCStat spellStat = null;
 
 		if (si != null)
 		{
@@ -16984,7 +16980,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			bonClass = "CLASS." + aClass.getKeyName();
 			classKey = "CLASS:" + aClass.getKeyName();
 			spellType = aClass.getSpellType();
-			spellStat = aClass.baseSpellStat();
 			useStatFromSpell = aClass.getSafe(ObjectKey.USE_SPELL_SPELL_STAT);
 		}
 
