@@ -684,7 +684,7 @@ public class EqToken extends Token
 	 */
 	public static String getLocationToken(Equipment eq)
 	{
-		pcgen.core.PObject obj = (pcgen.core.PObject) eq.getParent();
+		pcgen.core.PObject obj = eq.getParent();
 		if (obj != null)
 		{
 			return obj.getOutputName();

@@ -95,8 +95,7 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  */
 public final class Equipment extends PObject implements Serializable,
-		EquipmentCollection, Comparable<Object>, VariableContainer,
-		AssociationStore
+		Comparable<Object>, VariableContainer, AssociationStore
 {
 	private static final long serialVersionUID = 1;
 
@@ -191,7 +190,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	private BigDecimal costMod = BigDecimal.ZERO;
 
-	private EquipmentCollection d_parent;
+	private Equipment d_parent;
 
 	private List<Equipment> d_containedEquipment = new ArrayList<Equipment>();
 
@@ -1693,7 +1692,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param parent
 	 *            The new parent value
 	 */
-	public void setParent(final EquipmentCollection parent) {
+	public void setParent(final Equipment parent) {
 		d_parent = parent;
 	}
 
@@ -1702,7 +1701,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The parent
 	 */
-	public EquipmentCollection getParent() {
+	public Equipment getParent() {
 		return d_parent;
 	}
 
@@ -1712,7 +1711,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The parentName
 	 */
 	public String getParentName() {
-		final Equipment anEquip = (Equipment) getParent();
+		final Equipment anEquip = getParent();
 
 		if (anEquip != null) {
 			return anEquip.toString();
@@ -2087,10 +2086,10 @@ public final class Equipment extends PObject implements Serializable,
 			return this;
 		}
 
-		Equipment anEquip = (Equipment) getParent();
+		Equipment anEquip = getParent();
 
 		while (anEquip.getParent() != null) {
-			anEquip = (Equipment) anEquip.getParent();
+			anEquip = anEquip.getParent();
 		}
 
 		return anEquip;
@@ -2996,7 +2995,7 @@ public final class Equipment extends PObject implements Serializable,
 		updateContainerContentsString(aPC);
 
 		while (anEquip.getParent() != null) {
-			anEquip = (Equipment) anEquip.getParent();
+			anEquip = anEquip.getParent();
 			anEquip.updateContainerContentsString(aPC);
 		}
 	}
@@ -3012,10 +3011,10 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		int i = 1;
-		Equipment anEquip = (Equipment) getParent();
+		Equipment anEquip = getParent();
 
 		while (anEquip.getParent() != null) {
-			anEquip = (Equipment) anEquip.getParent();
+			anEquip = anEquip.getParent();
 			++i;
 		}
 
@@ -3222,13 +3221,13 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return the number of this Equipment carried
 	 */
 	public Float numberCarried() {
-		Equipment eqParent = (Equipment) getParent();
+		Equipment eqParent = getParent();
 
 		if (isEquipped() || (eqParent == null)) {
 			return carried;
 		}
 
-		for (; eqParent != null; eqParent = (Equipment) eqParent.getParent()) {
+		for (; eqParent != null; eqParent = eqParent.getParent()) {
 
 			if (eqParent.isEquipped() ||
 				((eqParent.getParent() == null) &&
@@ -3274,7 +3273,7 @@ public final class Equipment extends PObject implements Serializable,
 		Equipment equipment = this;
 
 		while (equipment.getParent() != null) {
-			equipment = (Equipment) equipment.getParent();
+			equipment = equipment.getParent();
 			equipment.updateContainerContentsString(pc);
 		}
 	}

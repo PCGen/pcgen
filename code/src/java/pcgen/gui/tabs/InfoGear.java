@@ -898,8 +898,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					updatedItem.setNumberCarried(new Float(0));
 					updatedItem.setLocation(Equipment.NOT_CARRIED);
 
-					final Equipment eqParent =
-							(Equipment) updatedItem.getParent();
+					final Equipment eqParent = updatedItem.getParent();
 
 					if (eqParent != null)
 					{

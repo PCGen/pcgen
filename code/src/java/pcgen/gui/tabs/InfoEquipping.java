@@ -1245,7 +1245,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// make sure the container can hold that many
 		if (aTok.countTokens() > 3)
 		{
-			Equipment eqP = (Equipment) eqI.getParent();
+			Equipment eqP = eqI.getParent();
 
 			// set these to new values for testing
 			eqI.setQty(new Float(addNum));
@@ -2644,7 +2644,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			// the container Equipment Object
 			if (aTok.countTokens() > 3)
 			{
-				Equipment eqP = (Equipment) eqI.getParent();
+				Equipment eqP = eqI.getParent();
 
 				if (eqP != null)
 				{
