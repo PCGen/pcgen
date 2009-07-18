@@ -26,6 +26,7 @@ import java.lang.reflect.Modifier;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -112,7 +113,7 @@ public final class GenericLoader<T extends PObject> extends
 		if (colToken.hasMoreTokens())
 		{
 			po.setName(colToken.nextToken());
-			po.setSourceCampaign(source.getCampaign());
+			po.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			po.setSourceURI(source.getURI());
 			if (isnew)
 			{

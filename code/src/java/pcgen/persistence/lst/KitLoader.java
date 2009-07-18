@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.core.kit.KitAbilities;
 import pcgen.core.kit.KitAlignment;
@@ -127,7 +128,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 			int colonLoc = firstToken.indexOf(':');
 			target = context.ref.constructCDOMObject(Kit.class, firstToken
 					.substring(colonLoc + 1));
-			target.setSourceCampaign(source.getCampaign());
+			target.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			target.setSourceURI(source.getURI());
 			context.addStatefulInformation(target);
 			while (st.hasMoreTokens())

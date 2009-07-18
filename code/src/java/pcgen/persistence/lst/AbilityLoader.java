@@ -29,6 +29,7 @@ package pcgen.persistence.lst;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -73,7 +74,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		if (colToken.hasMoreTokens())
 		{
 			anAbility.setName(colToken.nextToken());
-			anAbility.setSourceCampaign(source.getCampaign());
+			anAbility.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			anAbility.setSourceURI(source.getURI());
 			if (isnew)
 			{

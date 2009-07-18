@@ -29,6 +29,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -46,16 +47,9 @@ import pcgen.rules.context.RuntimeLoadContext;
 public class Campaign extends PObject
 {
 
-	/**
-	 * This method returns a reference to the Campaign that this object
-	 * originated from.  In this case, it will return (this).
-	 * @return Campaign instance referencing the file containing the
-	 *         source for this object
-	 */
-	@Override
-	public Campaign getSourceCampaign()
+	public Campaign()
 	{
-		return this;
+		put(ObjectKey.SOURCE_CAMPAIGN, this);
 	}
 
 	/**

@@ -339,27 +339,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return true;
 	}
 
-	/**
-	 * Set the campaign source
-	 * @param arg
-	 */
-	public void setSourceCampaign(final Campaign arg)
-	{
-		put(ObjectKey.SOURCE_CAMPAIGN, arg);
-	}
-
-	/**
-	 * This method returns a reference to the Campaign that this object
-	 * originated from
-	 *
-	 * @return Campaign instance referencing the file containing the
-	 *         source for this object
-	 */
-	public Campaign getSourceCampaign()
-	{
-		return get(ObjectKey.SOURCE_CAMPAIGN);
-	}
-
 	@Override
 	public String toString()
 	{

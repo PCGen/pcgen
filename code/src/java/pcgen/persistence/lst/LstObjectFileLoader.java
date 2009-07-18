@@ -622,7 +622,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 
 					if (origCampaign != null)
 					{
-						object.setSourceCampaign(origCampaign);
+						object.put(ObjectKey.SOURCE_CAMPAIGN, origCampaign);
 					}
 				}
 				catch (PersistenceLayerException ple)

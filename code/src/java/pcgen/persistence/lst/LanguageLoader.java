@@ -68,7 +68,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 		if (colToken.hasMoreTokens())
 		{
 			lang.setName(colToken.nextToken());
-			lang.setSourceCampaign(source.getCampaign());
+			lang.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			lang.setSourceURI(source.getURI());
 			if (isnew)
 			{

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
@@ -72,7 +73,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 		if (colToken.hasMoreTokens())
 		{
 			spell.setName(colToken.nextToken());
-			spell.setSourceCampaign(source.getCampaign());
+			spell.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			spell.setSourceURI(source.getURI());
 			if (isnew)
 			{

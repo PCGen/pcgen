@@ -29,6 +29,7 @@ package pcgen.persistence.lst;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.character.CompanionMod;
@@ -75,7 +76,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 				SystemLoader.TAB_DELIM);
 		
 		String name = null;
-		cmpMod.setSourceCampaign(source.getCampaign());
+		cmpMod.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 		cmpMod.setSourceURI(source.getURI());
 
 		while (colToken.hasMoreTokens())

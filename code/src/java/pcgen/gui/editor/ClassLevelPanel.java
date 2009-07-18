@@ -142,7 +142,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				}
 				sourceFile = new URI("file", null, path, null);
 				object.setSourceURI(sourceFile);
-				object.setSourceCampaign(customCampaign);
+				object.put(ObjectKey.SOURCE_CAMPAIGN, customCampaign);
 			}
 
 			// Create the custom source entry

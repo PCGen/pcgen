@@ -28,6 +28,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -88,7 +89,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				{
 					subClass = new SubClass();
 					subClass.setName(n);
-					subClass.setSourceCampaign(source.getCampaign());
+					subClass.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 					subClass.setSourceURI(source.getURI());
 					target.addSubClass(subClass);
 				}
@@ -138,7 +139,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				{
 					substitutionClass = new SubstitutionClass();
 					substitutionClass.setName(name);
-					substitutionClass.setSourceCampaign(source.getCampaign());
+					substitutionClass.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 					substitutionClass.setSourceURI(source.getURI());
 					target.addSubstitutionClass(substitutionClass);
 				}
@@ -195,7 +196,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				pcClass = new PCClass();
 				pcClass.setName(name);
 				pcClass.setSourceURI(source.getURI());
-				pcClass.setSourceCampaign(source.getCampaign());
+				pcClass.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 				context.addStatefulInformation(pcClass);
 				context.ref.importObject(pcClass);
 			}
