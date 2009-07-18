@@ -84,4 +84,19 @@ public final class TokenUtilities
 		}
 		return rm.getTypeReference(types);
 	}
+
+	public static <T extends CDOMObject> CDOMReference<T> getReference(
+			LoadContext context, Class<T> cl, String tokText)
+	{
+		CDOMReference<T> lang;
+		if (Constants.LST_ALL.equals(tokText))
+		{
+			lang = context.ref.getCDOMAllReference(cl);
+		}
+		else
+		{
+			lang = getTypeOrPrimitive(context, cl, tokText);
+		}
+		return lang;
+	}
 }

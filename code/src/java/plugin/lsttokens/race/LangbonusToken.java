@@ -78,17 +78,9 @@ public class LangbonusToken extends AbstractToken implements
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
-				CDOMReference<Language> lang;
 				String clearText = tokText.substring(7);
-				if (Constants.LST_ALL.equals(clearText))
-				{
-					lang = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
-				}
-				else
-				{
-					lang = TokenUtilities.getTypeOrPrimitive(context,
-							LANGUAGE_CLASS, clearText);
-				}
+				CDOMReference<Language> lang = TokenUtilities.getReference(context,
+						LANGUAGE_CLASS, clearText);
 				if (lang == null)
 				{
 					Logging

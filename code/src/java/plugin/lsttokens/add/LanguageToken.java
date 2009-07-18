@@ -104,16 +104,8 @@ public class LanguageToken extends AbstractToken implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMReference<Language> lang;
-			if (Constants.LST_ALL.equals(tokText))
-			{
-				lang = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
-			}
-			else
-			{
-				lang = TokenUtilities.getTypeOrPrimitive(context,
-						LANGUAGE_CLASS, tokText);
-			}
+			CDOMReference<Language> lang = TokenUtilities.getReference(context,
+					LANGUAGE_CLASS, tokText);
 			if (lang == null)
 			{
 				Logging.log(Logging.LST_ERROR, "  Error was encountered while parsing "
