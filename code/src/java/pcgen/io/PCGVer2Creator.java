@@ -777,7 +777,7 @@ final class PCGVer2Creator implements IOConstants
 			for (int i = 1; i <= pcClass.getLevel(thePC); i++)
 			{
 				list =
-						thePC.getAssocList(pcClass.getClassLevel(i),
+						thePC.getAssocList(pcClass.getActiveClassLevel(i),
 							AssociationListKey.BONUS);
 				if (list != null)
 				{
@@ -830,7 +830,7 @@ final class PCGVer2Creator implements IOConstants
 
 			if (pcClass != null)
 			{
-				String aKey = thePC.getAssoc(pcClass.getClassLevel(lvl + 1),
+				String aKey = thePC.getAssoc(pcClass.getActiveClassLevel(lvl + 1),
 						AssociationKey.SUBSTITUTIONCLASS_KEY);
 				if (aKey != null)
 				{
@@ -841,7 +841,7 @@ final class PCGVer2Creator implements IOConstants
 
 				buffer.append('|');
 				buffer.append(TAG_HITPOINTS).append(':');
-				PCClassLevel classLevel = pcClass.getClassLevel(lvl);
+				PCClassLevel classLevel = pcClass.getActiveClassLevel(lvl);
 				Integer hp = thePC.getAssoc(classLevel, AssociationKey.HIT_POINTS);
 				buffer.append(hp == null ? 0 : hp);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
@@ -860,7 +860,7 @@ final class PCGVer2Creator implements IOConstants
 				//
 				// Remember what choices were made for each of the ADD: tags
 				//
-				appendAddTokenInfo(buffer, pcClass.getClassLevel(lvl + 1));
+				appendAddTokenInfo(buffer, pcClass.getActiveClassLevel(lvl + 1));
 			}
 
 			List<PCLevelInfoStat> statList = pcl.getModifiedStats(true);

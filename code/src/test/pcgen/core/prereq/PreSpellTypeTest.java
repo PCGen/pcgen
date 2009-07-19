@@ -77,13 +77,13 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		wiz = context.ref.constructCDOMObject(PCClass.class, "Wizard");
 		context.unconditionallyProcess(wiz, "SPELLTYPE", "ARCANE");
 		context.unconditionallyProcess(wiz, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
-		context.unconditionallyProcess(wiz.getClassLevel(1), "CAST", "1,1");
-		context.unconditionallyProcess(wiz.getClassLevel(2), "CAST", "2,2,2");
+		context.unconditionallyProcess(wiz.getOriginalClassLevel(1), "CAST", "1,1");
+		context.unconditionallyProcess(wiz.getOriginalClassLevel(2), "CAST", "2,2,2");
 		cle = context.ref.constructCDOMObject(PCClass.class, "Cleric");
 		context.unconditionallyProcess(cle, "SPELLTYPE", "DIVINE");
 		context.unconditionallyProcess(cle, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
-		context.unconditionallyProcess(cle.getClassLevel(1), "CAST", "1,1");
-		context.unconditionallyProcess(cle.getClassLevel(2), "CAST", "1,1,1");
+		context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
+		context.unconditionallyProcess(cle.getOriginalClassLevel(2), "CAST", "1,1,1");
 
 		Arcaneball = new Spell();
 		Arcaneball.setName("Arcaneball");

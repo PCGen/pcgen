@@ -241,13 +241,11 @@ public class DomainApplication
 				addDomain(aPC, cl, ref.resolvesTo(), adding);
 			}
 		}
-		for (PCClassLevel pcl : cl.getClassLevelCollection())
+		for (int i = 0 ; i <= aLevel; i++)
 		{
-			//CONSIDER This makes order assumptions :(
-			if (pcl.get(IntegerKey.LEVEL) > aLevel)
-			{
-				break;
-			}
+			// TODO This stinks for really high level characters - can this ever
+			// get null back?
+			PCClassLevel pcl = cl.getActiveClassLevel(i);
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
 					.getSafeListFor(ListKey.DOMAIN))
 			{

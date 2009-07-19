@@ -166,7 +166,7 @@ public class AbilityFromClassChoiceSet implements
 			}
 			for (int lvl = 0; lvl < aClass.getLevel(pc); lvl++)
 			{
-				PCClassLevel pcl = aClass.getClassLevel(lvl);
+				PCClassLevel pcl = aClass.getActiveClassLevel(lvl);
 				abilityList = pc.getAssocList(pcl,
 						AssociationListKey.ADDED_FEAT);
 				if (abilityList != null)

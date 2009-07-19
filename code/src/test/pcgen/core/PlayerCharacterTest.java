@@ -229,11 +229,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 	
-		context.unconditionallyProcess(pcClass.getClassLevel(1), "ADD",
+		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon B)");
-		context.unconditionallyProcess(pcClass.getClassLevel(2), "ADD",
+		context.unconditionallyProcess(pcClass.getOriginalClassLevel(2), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon A)");
-		context.unconditionallyProcess(pcClass.getClassLevel(3), "ADD",
+		context.unconditionallyProcess(pcClass.getOriginalClassLevel(3), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon C)");
 		
 		specialFeatCat = new AbilityCategory("Special Feat");
@@ -364,7 +364,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final BonusObj raceBonus = Bonus.newBonus("1|VAR|GiantVar1|7+HD");
 		giantClass.addToListFor(ListKey.BONUS, raceBonus);
 
-		giantClass.getClassLevel(1).put(VariableKey.getConstant("GiantClass1"),
+		giantClass.getOriginalClassLevel(1).put(VariableKey.getConstant("GiantClass1"),
 				FormulaFactory.ZERO);
 		final BonusObj babClassBonus =
 				Bonus.newBonus("1|VAR|GiantClass1|CL=Giant");
@@ -786,11 +786,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		TestHelper.makeAbilityFromString(
 			"TestARc05\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
 	
-		PCClassLevel lvl1 = arClass.getClassLevel(1);
+		PCClassLevel lvl1 = arClass.getOriginalClassLevel(1);
 		context.unconditionallyProcess(lvl1, "ABILITY", "FEAT|NORMAL|TestARc01");
 		context.unconditionallyProcess(lvl1, "ABILITY", "FEAT|AUTOMATIC|TestARc02");
-		context.unconditionallyProcess(arClass.getClassLevel(2), "ABILITY", "FEAT|VIRTUAL|TestARc03");
-		PCClassLevel lvl3 = arClass.getClassLevel(3);
+		context.unconditionallyProcess(arClass.getOriginalClassLevel(2), "ABILITY", "FEAT|VIRTUAL|TestARc03");
+		PCClassLevel lvl3 = arClass.getOriginalClassLevel(3);
 		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc04");
 		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc05");
 		context.resolveReferences();

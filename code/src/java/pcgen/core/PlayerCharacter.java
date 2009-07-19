@@ -3082,7 +3082,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (int i = 1; i <= cl.getLevel(this); i++)
 			{
-				PCClassLevel classLevel = cl.getClassLevel(i);
+				PCClassLevel classLevel = cl.getActiveClassLevel(i);
 				SpecialAbilityResolution.addSABToList(aList, this, classLevel);
 			}
 		}
@@ -8925,7 +8925,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (int i = 0; i <= pcClass.getLevel(this); ++i)
 		{
-			PCClassLevel pcl = pcClass.getClassLevel(i);
+			PCClassLevel pcl = pcClass.getActiveClassLevel(i);
 			Integer hp = getAssoc(pcl, AssociationKey.HIT_POINTS);
 			if (hp != null && hp > 0)
 			{
@@ -9002,7 +9002,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Load active = cl.getSafe(loadKey);
 				for (int i = 0; i < cl.getLevel(this); i++)
 				{
-					PCClassLevel classLevel = cl.getClassLevel(i);
+					PCClassLevel classLevel = cl.getActiveClassLevel(i);
 					Load override = classLevel.get(loadKey);
 					if (override != null)
 					{
@@ -9213,9 +9213,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				bClass.setLevel(aClass.getLevel(this), this);
 				for (int i = 0; i < aClass.getLevel(this); ++i)
 				{
-					PCClassLevel frompcl = aClass.getClassLevel(i + 1);
+					PCClassLevel frompcl = aClass.getActiveClassLevel(i + 1);
 					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
-					PCClassLevel topcl = bClass.getClassLevel(i + 1);
+					PCClassLevel topcl = bClass.getActiveClassLevel(i + 1);
 					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 				}
 
@@ -9232,10 +9232,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				for (int i = 0; i < aClass.getLevel(this); ++i)
 				{
-					PCClassLevel frompcl = aClass.getClassLevel(i + 1);
+					PCClassLevel frompcl = aClass.getActiveClassLevel(i + 1);
 					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
 					PCClassLevel topcl =
-							bClass.getClassLevel(bClass.getLevel(this) + i + 1);
+							bClass.getActiveClassLevel(bClass.getLevel(this) + i + 1);
 					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 				}
 
@@ -10301,9 +10301,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (int i = 0; i < iCount; ++i)
 		{
-			PCClassLevel frompcl = fromClass.getClassLevel(iFromLevel + i);
+			PCClassLevel frompcl = fromClass.getActiveClassLevel(iFromLevel + i);
 			Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
-			PCClassLevel topcl = toClass.getClassLevel(iToLevel + i);
+			PCClassLevel topcl = toClass.getActiveClassLevel(iToLevel + i);
 			setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 			setAssoc(frompcl, AssociationKey.HIT_POINTS, Integer.valueOf(0));
 		}
@@ -11183,7 +11183,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			for (int i = 1; i <= cl.getLevel(this); i++)
 			{
-				PCClassLevel classLevel = cl.getClassLevel(i);
+				PCClassLevel classLevel = cl.getActiveClassLevel(i);
 				list.add(classLevel);
 			}
 		}
@@ -12160,7 +12160,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					bSilent, this, bypassPrereqs))
 				{
 					PCClassLevel failedpcl =
-							pcClassClone.getClassLevel(currentLevel + 1);
+							pcClassClone.getActiveClassLevel(currentLevel + 1);
 					removeLevelInfo(pcClassClone.getKeyName());
 					removeLevelInfo(failedpcl);
 					return;
@@ -12175,7 +12175,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				pcClassClone.subLevel(bSilent, this);
 				removeLevelInfo(pcClassClone.getKeyName());
 				PCClassLevel removedpcl =
-						pcClassClone.getClassLevel(currentLevel);
+						pcClassClone.getActiveClassLevel(currentLevel);
 				removeLevelInfo(removedpcl);
 			}
 		}

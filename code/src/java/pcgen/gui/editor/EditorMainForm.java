@@ -983,7 +983,7 @@ public final class EditorMainForm extends JDialog
 				thisPCClass.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
 				thisPCClass.remove(IntegerKey.UMULT);
 				thisPCClass.removeListFor(ListKey.UNARMED_DAMAGE);
-				for (PCClassLevel pcl : thisPCClass.getClassLevelCollection())
+				for (PCClassLevel pcl : thisPCClass.getOriginalClassLevelCollection())
 				{
 					pcl.remove(IntegerKey.UMULT);
 					pcl.removeListFor(ListKey.UNARMED_DAMAGE);

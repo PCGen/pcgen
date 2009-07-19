@@ -25,7 +25,6 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SubstitutionClass;
@@ -77,14 +76,13 @@ public class SubstitutionClassApplication
 			selected = selectedList.get(0);
 		}
 
-		PCClassLevel lvl = cl.getClassLevel(aLevel);
 		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass)
 		{
 			SubstitutionClass sc = (SubstitutionClass) selected;
-			aPC.setAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY, sc
-					.getKeyName());
 			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, cl, aLevel,
 					aPC);
+			aPC.setAssoc(cl.getActiveClassLevel(aLevel),
+					AssociationKey.SUBSTITUTIONCLASS_KEY, sc.getKeyName());
 			return;
 		}
 		else
@@ -95,7 +93,7 @@ public class SubstitutionClassApplication
 			 * buildSubstitutionClassChoiceList method returned an empty list,
 			 * it returned right away without calling this method.
 			 */
-			aPC.removeAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY);
+			aPC.removeAssoc(cl.getActiveClassLevel(aLevel), AssociationKey.SUBSTITUTIONCLASS_KEY);
 			return;
 		}
 
@@ -122,7 +120,7 @@ public class SubstitutionClassApplication
 			{
 				continue;
 			}
-			if (!sc.hasClassLevel(level))
+			if (!sc.hasOriginalClassLevel(level))
 			{
 				continue;
 			}

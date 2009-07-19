@@ -66,12 +66,12 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
-		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2");
-		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1");
-		context.unconditionallyProcess(arcaneClass.getClassLevel(2), "KNOWN", "4,3,1");
-		context.unconditionallyProcess(arcaneClass.getClassLevel(2), "CAST", "3,2,1");
-		context.unconditionallyProcess(arcaneClass.getClassLevel(3), "KNOWN", "5,5,2,1");
-		context.unconditionallyProcess(arcaneClass.getClassLevel(3), "CAST", "5,5,3,1");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "KNOWN", "4,2");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "CAST", "3,1");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(2), "KNOWN", "4,3,1");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(2), "CAST", "3,2,1");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(3), "KNOWN", "5,5,2,1");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(3), "CAST", "5,5,3,1");
 		Globals.getContext().ref.importObject(arcaneClass);
 
 		divineClass = new PCClass();
@@ -80,7 +80,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
-		context.unconditionallyProcess(divineClass.getClassLevel(3), "CAST", "3,1,0");
+		context.unconditionallyProcess(divineClass.getOriginalClassLevel(3), "CAST", "3,1,0");
 		Globals.getContext().ref.importObject(divineClass);
 
 		psionicClass = new PCClass();
@@ -89,11 +89,11 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(psionicClass, "SPELLSTAT", "CHA");
 		psionicClass.put(ObjectKey.SPELLBOOK, false);
 		psionicClass.put(ObjectKey.MEMORIZE_SPELLS, false);
-		context.unconditionallyProcess(psionicClass.getClassLevel(1), "KNOWN", "0,3");
-		context.unconditionallyProcess(psionicClass.getClassLevel(2), "KNOWN", "0,5");
-		context.unconditionallyProcess(psionicClass.getClassLevel(3), "KNOWN", "0,5,2");
-		context.unconditionallyProcess(psionicClass.getClassLevel(4), "KNOWN", "0,5,4");
-		context.unconditionallyProcess(psionicClass.getClassLevel(5), "KNOWN", "0,5,4,2");
+		context.unconditionallyProcess(psionicClass.getOriginalClassLevel(1), "KNOWN", "0,3");
+		context.unconditionallyProcess(psionicClass.getOriginalClassLevel(2), "KNOWN", "0,5");
+		context.unconditionallyProcess(psionicClass.getOriginalClassLevel(3), "KNOWN", "0,5,2");
+		context.unconditionallyProcess(psionicClass.getOriginalClassLevel(4), "KNOWN", "0,5,4");
+		context.unconditionallyProcess(psionicClass.getOriginalClassLevel(5), "KNOWN", "0,5,4,2");
 		Globals.getContext().ref.importObject(psionicClass);
 
 		super.setUp();

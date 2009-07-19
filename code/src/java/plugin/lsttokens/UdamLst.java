@@ -67,7 +67,7 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 				}
 				context.getObjectContext().removeList(pcc,
 						ListKey.UNARMED_DAMAGE);
-				for (PCClassLevel level : pcc.getClassLevelCollection())
+				for (PCClassLevel level : pcc.getOriginalClassLevelCollection())
 				{
 					context.getObjectContext().removeList(level,
 							ListKey.UNARMED_DAMAGE);

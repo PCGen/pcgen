@@ -360,7 +360,7 @@ public class SpellSupportForPCClass
 		if (force || !spellCacheValid)
 		{
 			SpellProgressionCache cache = new SpellProgressionCache();
-			for (PCClassLevel cl : source.getClassLevelCollection())
+			for (PCClassLevel cl : source.getOriginalClassLevelCollection())
 			{
 				Integer lvl = cl.get(IntegerKey.LEVEL);
 				List<Formula> cast = cl.getListFor(ListKey.CAST);

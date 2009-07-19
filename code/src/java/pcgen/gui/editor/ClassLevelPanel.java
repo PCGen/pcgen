@@ -182,7 +182,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		levelTagList.clear();
 		obj = (PCClass) po;
 
-		for (PCClassLevel pcl : obj.getClassLevelCollection())
+		for (PCClassLevel pcl : obj.getOriginalClassLevelCollection())
 		{
 			Collection<CDOMReference<Domain>> domains =
 					pcl.getListMods(PCClass.ALLOWED_DOMAINS);
@@ -249,7 +249,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(lt);
 		}
 
-		for (PCClassLevel pcl : obj.getClassLevelCollection())
+		for (PCClassLevel pcl : obj.getOriginalClassLevelCollection())
 		{
 			Integer cl = pcl.get(IntegerKey.LEVEL);
 			
@@ -329,7 +329,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		}
 
 		LoadContext context = Globals.getContext();
-		for (PCClassLevel pcl : obj.getClassLevelCollection())
+		for (PCClassLevel pcl : obj.getOriginalClassLevelCollection())
 		{
 			String[] unp = context.unparse(pcl, "TEMPLATE");
 			if (unp != null)
@@ -342,23 +342,23 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 		
-		for (PCClassLevel pcl : obj.getClassLevelCollection())
+		for (PCClassLevel pcl : obj.getOriginalClassLevelCollection())
 		{
 			Integer umult = pcl.get(IntegerKey.UMULT);
 			if (umult != null)
 			{
-				LevelTag lt = new LevelTag(obj.getPCClassLevel(pcl),
+				LevelTag lt = new LevelTag(pcl.get(IntegerKey.LEVEL),
 						LevelTag.TAG_UMULT, umult.toString());
 				levelTagList.add(lt);
 			}
 		}
 
-		for (PCClassLevel pcl : obj.getClassLevelCollection())
+		for (PCClassLevel pcl : obj.getOriginalClassLevelCollection())
 		{
 			List<String> udam = pcl.getListFor(ListKey.UNARMED_DAMAGE);
 			if (udam != null)
 			{
-				LevelTag lt = new LevelTag(obj.getPCClassLevel(pcl),
+				LevelTag lt = new LevelTag(pcl.get(IntegerKey.LEVEL),
 						LevelTag.TAG_UDAM, StringUtil.join(udam, ","));
 				levelTagList.add(lt);
 			}

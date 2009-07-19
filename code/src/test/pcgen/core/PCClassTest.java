@@ -135,7 +135,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		myClass.setName("myClass");
 		myClass.put(StringKey.KEY_NAME, "KEY_myClass");
 
-		PCClassLevel cl2 = myClass.getClassLevel(2);
+		PCClassLevel cl2 = myClass.getOriginalClassLevel(2);
 		cl2.put(VariableKey.getConstant("someVar"), FormulaFactory
 				.getFormulaFor("(CL=KEY_myClass/2) + CL=KEY_myClass"));
 
@@ -266,7 +266,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aNqClass.setName("NonQualClass");
 		aNqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		aNqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
-		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
+		aNqClass.getOriginalClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 
 		// Setup character without prereqs
@@ -344,7 +344,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aNqClass.setName("NonQualClass");
 		aNqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		aNqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
-		aNqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
+		aNqClass.getOriginalClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 
 		// Setup character without prereqs
@@ -473,8 +473,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals(
 			"Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
-		Collection<CDOMReference<Spell>> startSpells = humanoidClass.getClassLevel(1).getListMods(Spell.SPELLS);
-		Collection<CDOMReference<Spell>> reconstSpells = reconstClass.getClassLevel(1).getListMods(Spell.SPELLS);
+		Collection<CDOMReference<Spell>> startSpells = humanoidClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
+		Collection<CDOMReference<Spell>> reconstSpells = reconstClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
 		assertEquals("All spell should have been reconstituted.", startSpells
 			.size(), reconstSpells.size());
 		assertEquals("Spell names should been preserved.", startSpells, reconstSpells);
@@ -494,10 +494,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "KNOWN", "4,2,2,3,4,5");
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5");
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "KNOWN", "4,2,2,3,4,5");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "CAST", "3,1,2,3,4,5");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().ref.importObject(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();
@@ -561,10 +561,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "KNOWN", "4,2,2,3,4,5,0");
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
-		context.unconditionallyProcess(megaCasterClass.getClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "KNOWN", "4,2,2,3,4,5,0");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().ref.importObject(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();
@@ -665,7 +665,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		Collection<AssociatedPrereqObject> assocs = pcclass.getListAssociations(autoList, ref);
 		assertEquals(1, assocs.size());
 		
-		PCClassLevel level = pcclass.getClassLevel(2);
+		PCClassLevel level = pcclass.getOriginalClassLevel(2);
 		mods = level.getListMods(autoList);
 		assertEquals(1, mods.size());
 		ref = mods.iterator().next();
@@ -891,7 +891,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nqClass.setName("NonQualClass");
 		nqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		nqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
-		nqClass.getClassLevel(2).put(VariableKey.getConstant("Foo"),
+		nqClass.getOriginalClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 	}
 }

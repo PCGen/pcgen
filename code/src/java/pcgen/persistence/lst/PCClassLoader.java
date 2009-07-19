@@ -279,7 +279,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		{
 			return;
 		}
-		PCClassLevel classlevel = pcClass.getClassLevel(lvl);
+		PCClassLevel classlevel = pcClass.getOriginalClassLevel(lvl);
 		final StringTokenizer colToken = new StringTokenizer(restOfLine,
 				SystemLoader.TAB_DELIM);
 

@@ -58,13 +58,13 @@ public class AddDomainsTokenTest extends
 	@Override
 	protected PCClassLevel getPrimary(String name)
 	{
-		return primClass.getClassLevel(1);
+		return primClass.getOriginalClassLevel(1);
 	}
 
 	@Override
 	protected PCClassLevel getSecondary(String name)
 	{
-		return secClass.getClassLevel(1);
+		return secClass.getOriginalClassLevel(1);
 	}
 
 	@Override

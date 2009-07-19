@@ -412,7 +412,7 @@ public final class PCGIOHandler extends IOHandler
 				for (int i = 0; i <= pcClass.getLevel(aPC); i++)
 				{
 					int baseSides = pcClass.getLevelHitDie(currentPC, i + 1).getDie();
-					PCClassLevel pcl = pcClass.getClassLevel(i);
+					PCClassLevel pcl = pcClass.getActiveClassLevel(i);
 					Integer hp = currentPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
 					iRoll = hp == null ? 0 : hp;
 					iSides =
@@ -422,7 +422,7 @@ public final class PCGIOHandler extends IOHandler
 
 					if (iRoll > iSides)
 					{
-						PCClassLevel classLevel = pcClass.getClassLevel(i);
+						PCClassLevel classLevel = pcClass.getActiveClassLevel(i);
 						aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
 								Integer.valueOf(iSides));
 						bFixMade = true;

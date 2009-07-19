@@ -417,7 +417,7 @@ public class PCClass extends PObject
 	 */
 	public String getDisplayClassName(PlayerCharacter pc, final int aLevel)
 	{
-		PCClassLevel lvl = getClassLevel(aLevel);
+		PCClassLevel lvl = getActiveClassLevel(aLevel);
 		String aKey = pc.getAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY);
 		if (aKey == null)
 		{
@@ -474,7 +474,7 @@ public class PCClass extends PObject
 		}
 
 		// Levels
-		PCClassLevel cl = levelMap.get(classLevel);
+		PCClassLevel cl = getActiveClassLevel(classLevel);
 		if (cl != null)
 		{
 			if (cl.get(ObjectKey.DONTADD_HITDIE) != null)
@@ -1209,7 +1209,7 @@ public class PCClass extends PObject
 		//Negative increment to start at highest level until an UDAM is found
 		for (int i = aLevel; i >= 1; i--)
 		{
-			classObjects.add(getClassLevel(i));
+			classObjects.add(getActiveClassLevel(i));
 		}
 		classObjects.add(this);
 		int iSize = aPC.sizeInt();
@@ -1321,7 +1321,7 @@ public class PCClass extends PObject
 		// so now assign the attributes of this class level to the
 		// character...
 		aPC.selectTemplates(this, aPC.isImporting());
-		PCClassLevel classLevel = getClassLevel(newLevel);
+		PCClassLevel classLevel = getActiveClassLevel(newLevel);
 		aPC.selectTemplates(classLevel, aPC.isImporting());
 
 		// Make sure that if this Class adds a new domain that
@@ -1420,13 +1420,9 @@ public class PCClass extends PObject
 		// for bug #629643
 		//final int spMod;
 		int spMod = recalcSkillPointMod(aPC, total);
-		final PCClassLevel cl = levelMap.get(newLevel);
-		if (cl != null)
+		if (classLevel.get(ObjectKey.DONTADD_SKILLPOINTS) != null)
 		{
-			if (cl.get(ObjectKey.DONTADD_SKILLPOINTS) != null)
-			{
-				spMod = 0;
-			}
+			spMod = 0;
 		}
 
 		PCLevelInfo pcl;
@@ -1534,7 +1530,7 @@ public class PCClass extends PObject
 	 */
 	void doMinusLevelMods(final PlayerCharacter aPC, final int oldLevel)
 	{
-		CDOMObjectUtilities.removeAdds(getClassLevel(oldLevel), aPC);
+		CDOMObjectUtilities.removeAdds(getActiveClassLevel(oldLevel), aPC);
 		aPC.removeVariable("CLASS:" + getKeyName() + "|"
 			+ Integer.toString(oldLevel));
 	}
@@ -1558,8 +1554,9 @@ public class PCClass extends PObject
 		aPC.calcActiveBonuses();
 		if (!aPC.isImporting() && aPC.doLevelAbilities())
 		{
-			CDOMObjectUtilities.addAdds(getClassLevel(newLevel), aPC);
-			CDOMObjectUtilities.checkRemovals(getClassLevel(newLevel), aPC);
+			PCClassLevel activeClassLevel = getActiveClassLevel(newLevel);
+			CDOMObjectUtilities.addAdds(activeClassLevel, aPC);
+			CDOMObjectUtilities.checkRemovals(activeClassLevel, aPC);
 		}
 	}
 
@@ -1605,7 +1602,7 @@ public class PCClass extends PObject
 		renameBonusTarget(this, oldClass, newClass);
 
 		//Now repeat for Class Levels
-		for (PCClassLevel pcl : getClassLevelCollection())
+		for (PCClassLevel pcl : getOriginalClassLevelCollection())
 		{
 			for (VariableKey vk : pcl.getVariableKeys())
 			{
@@ -1674,7 +1671,7 @@ public class PCClass extends PObject
 			}
 
 			final int newLevel = oldLevel - 1;
-			PCClassLevel classLevel = getClassLevel(oldLevel);
+			PCClassLevel classLevel = getActiveClassLevel(oldLevel);
 
 			if (oldLevel > 0)
 			{
@@ -1812,7 +1809,7 @@ public class PCClass extends PObject
 		}
 		else
 		{
-			cdo = getClassLevel(aLevel);
+			cdo = getActiveClassLevel(aLevel);
 		}
 		for (VariableKey vk : cdo.getVariableKeys())
 		{
@@ -2038,7 +2035,7 @@ public class PCClass extends PObject
 
 			roll += ((int) aPC.getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
 		}
-		PCClassLevel classLevel = getClassLevel(aLevel - 1);
+		PCClassLevel classLevel = getActiveClassLevel(aLevel - 1);
 		aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer.valueOf(roll));
 		aPC.setCurrentHP(aPC.hitPoints());
 	}
@@ -2083,7 +2080,13 @@ public class PCClass extends PObject
 
 	private SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();
 
-	public PCClassLevel getClassLevel(int lvl)
+	public PCClassLevel getActiveClassLevel(int lvl)
+	{
+		//For now, eventually this will be in PC
+		return getOriginalClassLevel(lvl);
+	}
+
+	public PCClassLevel getOriginalClassLevel(int lvl)
 	{
 		if (!levelMap.containsKey(lvl))
 		{
@@ -2096,17 +2099,12 @@ public class PCClass extends PObject
 		return levelMap.get(lvl);
 	}
 
-	public boolean hasClassLevel(int lvl)
+	public boolean hasOriginalClassLevel(int lvl)
 	{
 		return levelMap.containsKey(lvl);
 	}
 
-	public int getClassLevelCount()
-	{
-		return levelMap.size();
-	}
-
-	public Collection<PCClassLevel> getClassLevelCollection()
+	public Collection<PCClassLevel> getOriginalClassLevelCollection()
 	{
 		return Collections.unmodifiableCollection(levelMap.values());
 	}
@@ -2130,11 +2128,6 @@ public class PCClass extends PObject
 		}
 	}
 
-	public int getPCClassLevel(PCClassLevel pcl)
-	{
-		return pcl.get(IntegerKey.LEVEL);
-	}
-
 	public String getFullKey()
 	{
 		return getKeyName();
@@ -2151,7 +2144,7 @@ public class PCClass extends PObject
 	{
 		try
 		{
-			PCClassLevel lvl = pcc.getClassLevel(cl).clone();
+			PCClassLevel lvl = pcc.getOriginalClassLevel(cl).clone();
 			lvl.ownBonuses(this);
 			levelMap.put(cl, lvl);
 		}
@@ -2169,7 +2162,7 @@ public class PCClass extends PObject
 		int lvl = getLevel(pc);
 		for (int i = 1; i <= lvl; i++)
 		{
-			PCClassLevel pcl = levelMap.get(i);
+			PCClassLevel pcl = getActiveClassLevel(i);
 			if (pcl != null)
 			{
 				List<BonusObj> bonusList = pcl.getListFor(ListKey.BONUS);
@@ -2195,7 +2188,7 @@ public class PCClass extends PObject
 	public void ownBonuses(Object owner) throws CloneNotSupportedException
 	{
 		super.ownBonuses(owner);
-		for (PCClassLevel pcl : this.getClassLevelCollection())
+		for (PCClassLevel pcl : this.getOriginalClassLevelCollection())
 		{
 			pcl.ownBonuses(owner);
 		}

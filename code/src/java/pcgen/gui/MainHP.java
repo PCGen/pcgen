@@ -201,7 +201,7 @@ final class MainHP extends JPanel
 					if (aClass != null)
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(iRow) - 1;
-						PCClassLevel classLevel = aClass.getClassLevel(lvl);
+						PCClassLevel classLevel = aClass.getActiveClassLevel(lvl);
 						aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
 								Integer.valueOf(iRoll));
 					}
@@ -472,7 +472,7 @@ final class MainHP extends JPanel
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(rowIndex);
 						final int baseSides = aClass.getLevelHitDie(aPC, lvl).getDie();
-						PCClassLevel pcl = aClass.getClassLevel(lvl - 1);
+						PCClassLevel pcl = aClass.getActiveClassLevel(lvl - 1);
 						Integer hp = aPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
 						iHp = hp == null ? 0 : hp;
 						iSides = baseSides + (int) aClass.getBonusTo("HD", "MAX", lvl, aPC);
@@ -483,7 +483,7 @@ final class MainHP extends JPanel
 						if (iHp > iSides)
 						{
 							PCClassLevel classLevel = aClass
-									.getClassLevel(lvl - 1);
+									.getActiveClassLevel(lvl - 1);
 							aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
 									Integer.valueOf(iSides));
 							iHp = iSides;

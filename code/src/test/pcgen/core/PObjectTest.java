@@ -414,7 +414,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(arRace, "ADD", "FEAT|KEY_Alertness");
 		PCClass pcClass = TestHelper.makeClass("Remove Feat Test");
-		context.unconditionallyProcess(pcClass.getClassLevel(2), "REMOVE",
+		context.unconditionallyProcess(pcClass.getOriginalClassLevel(2), "REMOVE",
 				"FEAT|KEY_Alertness");
 		context.resolveReferences();
 		PlayerCharacter pc = getCharacter();

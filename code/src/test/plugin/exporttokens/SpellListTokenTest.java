@@ -113,8 +113,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
-		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "KNOWN", "4,2,1");
-		context.unconditionallyProcess(arcaneClass.getClassLevel(1), "CAST", "3,1,0");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "KNOWN", "4,2,1");
+		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "CAST", "3,1,0");
 		Globals.getContext().ref.importObject(arcaneClass);
 
 		divineClass = new PCClass();
@@ -123,7 +123,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
-		context.unconditionallyProcess(divineClass.getClassLevel(1), "CAST", "3,1,0");
+		context.unconditionallyProcess(divineClass.getOriginalClassLevel(1), "CAST", "3,1,0");
 		context.unconditionallyProcess(divineClass, "SPELLLEVEL",
 				"CLASS|SPELLCASTER.Divine=1|Cure Light Wounds");
 		Globals.getContext().ref.importObject(divineClass);

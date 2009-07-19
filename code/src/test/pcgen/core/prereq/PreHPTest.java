@@ -74,7 +74,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 
 		character.incrementClassLevel(1, myClass, true);
 		myClass = character.getClassList().get(0);
-		PCClassLevel pcl = myClass.getClassLevel(1);
+		PCClassLevel pcl = myClass.getActiveClassLevel(1);
 		character.setAssoc(pcl, AssociationKey.HIT_POINTS, 4);
 
 		character.calcActiveBonuses();

@@ -86,12 +86,12 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 				"TestObj");
 		secondaryProf = secondaryContext.ref.constructCDOMObject(PCClass.class,
 				"TestObj");
-		primaryProf1 = primaryProf.getClassLevel(1);
-		primaryProf2 = primaryProf.getClassLevel(2);
-		primaryProf3 = primaryProf.getClassLevel(3);
-		secondaryProf1 = secondaryProf.getClassLevel(1);
-		secondaryProf2 = secondaryProf.getClassLevel(2);
-		secondaryProf3 = secondaryProf.getClassLevel(3);
+		primaryProf1 = primaryProf.getOriginalClassLevel(1);
+		primaryProf2 = primaryProf.getOriginalClassLevel(2);
+		primaryProf3 = primaryProf.getOriginalClassLevel(3);
+		secondaryProf1 = secondaryProf.getOriginalClassLevel(1);
+		secondaryProf2 = secondaryProf.getOriginalClassLevel(2);
+		secondaryProf3 = secondaryProf.getOriginalClassLevel(3);
 	}
 
 	public Class<? extends PCClassLevel> getCDOMClass()
@@ -185,7 +185,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 			throws PersistenceLayerException
 	{
 		boolean b = getToken().parse(primaryContext,
-				primaryProf.getClassLevel(level), str);
+				primaryProf.getOriginalClassLevel(level), str);
 		if (b)
 		{
 			primaryContext.commit();
@@ -203,7 +203,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 			throws PersistenceLayerException
 	{
 		boolean b = getToken().parse(secondaryContext,
-				secondaryProf.getClassLevel(level), str);
+				secondaryProf.getOriginalClassLevel(level), str);
 		if (b)
 		{
 			secondaryContext.commit();
@@ -221,10 +221,10 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	public void testOverwrite() throws PersistenceLayerException
 	{
 		parse(getLegalValue(), 1);
-		validateUnparsed(primaryContext, primaryProf.getClassLevel(1),
+		validateUnparsed(primaryContext, primaryProf.getOriginalClassLevel(1),
 				getLegalValue());
 		parse(getAlternateLegalValue(), 1);
-		validateUnparsed(primaryContext, primaryProf.getClassLevel(1),
+		validateUnparsed(primaryContext, primaryProf.getOriginalClassLevel(1),
 				getConsolidationRule().getAnswer(getLegalValue(),
 						getAlternateLegalValue()));
 	}
