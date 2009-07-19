@@ -197,7 +197,8 @@ public final class SkillModifier
 					}
 					if (!CoreUtility.doublesEqual(iBonus, 0.0))
 					{
-						explanation.add(Delta.toString((int) iBonus) + bonus.getBonusContext(shortForm));
+						explanation.add(Delta.toString((int) iBonus)
+								+ aPC.getBonusContext(bonus, shortForm));
 						bonusObjTotal += iBonus;
 					}
 				}

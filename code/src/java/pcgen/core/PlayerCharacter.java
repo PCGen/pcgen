@@ -16387,4 +16387,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return bonusManager.getTempBonusMap(sourceStr, targetStr);
 	}
+	
+	public String getBonusContext(BonusObj bonus, boolean shortForm)
+	{
+		return bonusManager.getBonusContext(bonus, shortForm);
+	}
 }

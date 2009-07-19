@@ -41,6 +41,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusObj.BonusPair;
 import pcgen.core.bonus.util.MissingObject;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 
@@ -1002,4 +1003,61 @@ public class BonusManager
 		return aMap;
 	}
 
+	public String getBonusContext(BonusObj bo, boolean shortForm)
+	{
+		final StringBuilder sb = new StringBuilder(50);
+		
+		boolean bEmpty = true;
+		sb.append('[');
+		if (bo.hasPrerequisites()) {
+			for (Prerequisite p : bo.getPrerequisiteList()) {
+				if (!bEmpty)
+				{
+					sb.append('|');
+				}
+				sb.append(p.getDescription(shortForm));
+				bEmpty = false;
+			}
+		}
+
+		String type = bo.getTypeString();
+		if (type.length() != 0)
+		{
+			if (!shortForm)
+			{
+				if (!bEmpty)
+				{
+					sb.append('|');
+				}
+				sb.append("TYPE=");
+				bEmpty = false;
+			}
+			if (!shortForm || sb.charAt(sb.length()-1) == '[')
+			{
+				sb.append(type);
+				bEmpty = false;
+			}
+		}
+
+		//
+		// If there is nothing shown in between the [], then show the Bonus's type
+		//
+		if (bEmpty)
+		{
+			sb.append(getSource(bo));
+		}
+		sb.append(']');
+
+		return sb.toString();
+	}
+	
+	private String getSource(BonusObj bo)
+	{
+		Object source = activeBonusBySource.get(bo);
+		if (source == null)
+		{
+			source = tempBonusBySource.get(bo);
+		}
+		return source == null ? "" : source.toString();
+	}
 }

@@ -47,7 +47,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.util.Delta;
 import pcgen.util.Logging;
 
 /**
@@ -573,74 +572,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	public String toString()
 	{
 		return getPCCText();
-	}
-
-
-	/**
-	 * Build and return a description of this bonus for the supplied
-	 * character. This can either be in long form
-	 * '+2[skill TUMBLE gteq 5|TYPE=SYNERGY.STACK]' or in short form
-	 * '+2[TUMBLE]'. If the value of the bonus is a formula, it will
-	 * be evaluated for the supplied character.
-	 *
-	 * @param shortForm True if the abbreviated form should be used.
-	 * @param aPC The character associated with this skill bonus.
-	 * @return A description of the bonus.
-	 */
-	public String getDescription(final boolean shortForm, final PlayerCharacter aPC)
-	{
-		final StringBuilder sb = new StringBuilder(50);
-
-		sb.append(Delta.toString(bonusFormula.resolve(aPC, "").floatValue()));
-
-		return sb.append(getBonusContext(shortForm)).toString();
-	}
-
-	public String getBonusContext(final boolean shortForm)
-	{
-		final StringBuilder sb = new StringBuilder(50);
-		
-		boolean bEmpty = true;
-		sb.append('[');
-		if (hasPrerequisites()) {
-			for (Prerequisite p : getPrerequisiteList()) {
-				if (!bEmpty)
-				{
-					sb.append('|');
-				}
-				sb.append(p.getDescription(shortForm));
-				bEmpty = false;
-			}
-		}
-
-		if (bonusType.length() != 0)
-		{
-			if (!shortForm)
-			{
-				if (!bEmpty)
-				{
-					sb.append('|');
-				}
-				sb.append("TYPE=");
-				bEmpty = false;
-			}
-			if (!shortForm || sb.charAt(sb.length()-1) == '[')
-			{
-				sb.append(bonusType);
-				bEmpty = false;
-			}
-		}
-
-		//
-		// If there is nothing shown in between the [], then show the Bonus's type
-		//
-		if (bEmpty)
-		{
-			sb.append(String.valueOf(getCreatorObject()));
-		}
-		sb.append(']');
-
-		return sb.toString();
 	}
 
 	protected void setBonusName(final String aName)
