@@ -35,6 +35,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.BonusCalc;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateStat;
@@ -214,7 +215,7 @@ public class TemplateToken extends Token
 	 */
 	public static String getOutputNameToken(PCTemplate template)
 	{
-		return template.getOutputName();
+		return OutputNameFormatting.getOutputName(template);
 	}
 
 	/**

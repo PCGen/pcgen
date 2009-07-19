@@ -46,6 +46,7 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
@@ -207,28 +208,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	// Accessor(s) and Mutator(s)
 	///////////////////////////////////////////////////////////////////////
 
-	/**
-	 * Get the output name of the item
-	 * @return the output name of the item
-	 */
 	public final String getOutputName()
 	{
-		String outputName = get(StringKey.OUTPUT_NAME);
-		// if no OutputName has been defined, just return the regular name
-		if (outputName == null)
-		{
-			return displayName;
-		}
-		else if (outputName.equalsIgnoreCase("[BASE]") && displayName.indexOf('(') != -1)
-		{
-			outputName = displayName.substring(0, displayName.indexOf('(')).trim();
-		}
-		if (outputName.indexOf("[NAME]") >= 0)
-		{
-			outputName = outputName.replaceAll("\\[NAME\\]",
-					getPreFormatedOutputName());
-		}
-		return outputName;
+		return OutputNameFormatting.getOutputName(this);
 	}
 
 	/**
@@ -466,37 +448,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	int numberInList(PlayerCharacter pc, final String aType)
 	{
 		return 0;
-	}
-
-	/**
-	 * rephrase parenthetical name components, if appropriate
-	 * @return pre formatted output name
-	 */
-	private String getPreFormatedOutputName()
-	{
-		//if there are no () to pull from, just return the name
-		if ((displayName.indexOf('(') < 0) || (displayName.indexOf(')') < 0))
-		{
-			return displayName;
-		}
-
-		//we just take from the first ( to the first ), typically there should only be one of each
-		final String subName = displayName.substring(displayName.indexOf('(') + 1, displayName.indexOf(')')); //the stuff inside the ()
-		final StringTokenizer tok = new StringTokenizer(subName, "/");
-		final StringBuffer newNameBuff = new StringBuffer();
-
-		while (tok.hasMoreTokens())
-		{
-			//build this new string from right to left
-			newNameBuff.insert(0, tok.nextToken());
-
-			if (tok.hasMoreTokens())
-			{
-				newNameBuff.insert(0, " ");
-			}
-		}
-
-		return newNameBuff.toString();
 	}
 
 	/**

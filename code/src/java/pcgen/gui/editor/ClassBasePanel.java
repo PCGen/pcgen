@@ -48,6 +48,7 @@ import pcgen.cdom.reference.Qualifier;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.PropertyFactory;
 import pcgen.util.StringPClassUtil;
@@ -179,7 +180,7 @@ class ClassBasePanel extends BasePanel
 		PCClass obj = (PCClass) thisPObject;
 		setTypesAvailableList(availableList, true);
 		setTypesSelectedList(selectedList, true);
-		txtDisplayName.setText(obj.getOutputName());
+		txtDisplayName.setText(OutputNameFormatting.getOutputName(obj));
 		abbreviation.setText(obj.getAbbrev());
 		LoadContext context = Globals.getContext();
 		String[] le = context.unparse(obj, "EXCHANGELEVEL");

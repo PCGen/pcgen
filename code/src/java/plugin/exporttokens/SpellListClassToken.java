@@ -26,6 +26,7 @@ package plugin.exporttokens;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
@@ -94,7 +95,7 @@ public class SpellListClassToken extends SpellListToken
 			}
 			else
 			{
-				retValue.append(aObject.getOutputName());
+				retValue.append(OutputNameFormatting.getOutputName(aObject));
 			}
 		}
 

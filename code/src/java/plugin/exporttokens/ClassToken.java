@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -107,8 +108,7 @@ public class ClassToken extends Token {
 			String subClassKey = pc.getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
 			if (subClassKey == null || Constants.s_NONE.equals(subClassKey)
 					|| "".equals(subClassKey)) {
-				// FileAccess.encodeWrite(output, aClass.getName());
-				retString = pcClass.getOutputName();
+				retString = OutputNameFormatting.getOutputName(pcClass);
 			} else {
 				retString = pcClass.getSubClassKeyed(subClassKey)
 						.getDisplayName();

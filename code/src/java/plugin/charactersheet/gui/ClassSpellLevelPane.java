@@ -19,6 +19,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
@@ -483,12 +484,12 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		name.setFont(new java.awt.Font(DIALOG, 1, 11));
 		if (si != null)
 		{
-			name.setText(new StringBuffer(spell.getOutputName()).append(si)
+			name.setText(new StringBuffer(OutputNameFormatting.getOutputName(spell)).append(si)
 				.toString());
 		}
 		else
 		{
-			name.setText(new StringBuffer(spell.getOutputName()).toString());
+			name.setText(OutputNameFormatting.getOutputName(spell));
 		}
 		namePanel.add(name);
 		gridBagConstraints = new java.awt.GridBagConstraints();

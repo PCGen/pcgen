@@ -71,6 +71,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
@@ -1292,7 +1293,7 @@ final class ChooseSpellDialog extends JDialog
 			{
 				if (useOutputName)
 				{
-					return aSpell.getOutputName();
+					return OutputNameFormatting.getOutputName(aSpell);
 				}
 				return aSpell.toString();
 			}

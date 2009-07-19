@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -70,7 +71,7 @@ public class TemplateListToken extends Token
 		for (PCTemplate template : pc.getOutputVisibleTemplateList())
 		{
 			// karianna bug 1514970
-			retString.append(del).append(template.getOutputName());
+			retString.append(del).append(OutputNameFormatting.getOutputName(template));
 			del = ", ";
 		}
 

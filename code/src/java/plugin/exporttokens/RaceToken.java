@@ -35,6 +35,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -128,14 +129,7 @@ public class RaceToken extends Token
 	{
 		String retString = Constants.EMPTY_STRING;
 
-		//		String tempRaceName = pc.getRace().getDisplayName();
-
-		//		if (tempRaceName.equals(Constants.s_NONE))
-		//		{
-		//			tempRaceName = pc.getRace().getOutputName();
-		//		}
-
-		String tempRaceName = pc.getRace().getOutputName();
+		String tempRaceName = OutputNameFormatting.getOutputName(pc.getRace());
 
 		if (tempRaceName == null || tempRaceName.length() == 0)
 		{

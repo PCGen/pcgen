@@ -43,6 +43,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
@@ -211,13 +212,9 @@ public class SpellMemToken extends Token
 
 				if (found && (aSpell != null) && (si != null))
 				{
-					if ("NAME".equals(aLabel))
+					if ("NAME".equals(aLabel) || "OUTPUTNAME".equals(aLabel))
 					{
-						retValue.append(aSpell.getOutputName() + si.toString());
-					}
-					else if ("OUTPUTNAME".equals(aLabel))
-					{
-						retValue.append(aSpell.getOutputName() + si.toString());
+						retValue.append(OutputNameFormatting.getOutputName(aSpell) + si.toString());
 					}
 					else if ("PPCOST".equals(aLabel))
 					{
@@ -371,7 +368,7 @@ public class SpellMemToken extends Token
 						}
 						else if ("CLASS".equals(aLabel))
 						{
-							retValue.append(aObject.getOutputName());
+							retValue.append(OutputNameFormatting.getOutputName(aObject));
 						}
 						else if ("DCSTAT".equals(aLabel))
 						{

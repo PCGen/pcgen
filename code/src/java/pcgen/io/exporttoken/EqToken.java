@@ -687,7 +687,7 @@ public class EqToken extends Token
 		pcgen.core.PObject obj = eq.getParent();
 		if (obj != null)
 		{
-			return obj.getOutputName();
+			return OutputNameFormatting.getOutputName(obj);
 		}
 		return eq.getParentName();
 	}
@@ -768,7 +768,7 @@ public class EqToken extends Token
 	 */
 	public static String getNameToken(Equipment eq, PlayerCharacter pc)
 	{
-		return OutputNameFormatting.parseOutputName(eq.getOutputName(), pc);
+		return OutputNameFormatting.parseOutputName(eq, pc);
 	}
 
 	/**

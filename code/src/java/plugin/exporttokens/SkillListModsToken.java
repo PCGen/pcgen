@@ -3,6 +3,7 @@ package plugin.exporttokens;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.StatAnalysis;
@@ -62,7 +63,7 @@ public class SkillListModsToken extends Token
 				needcomma = true;
 
 				
-				returnString.append(aSkill.getOutputName()).append(temp >= 0 ? " +" : " ")
+				returnString.append(OutputNameFormatting.getOutputName(aSkill)).append(temp >= 0 ? " +" : " ")
 					.append(Integer.toString(temp));
 			}
 		}

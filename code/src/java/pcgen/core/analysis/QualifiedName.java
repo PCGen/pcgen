@@ -43,7 +43,7 @@ public class QualifiedName
 	 */
 	public static String qualifiedName(PlayerCharacter pc, Ability a)
 	{
-		String outputName = a.getOutputName();
+		String outputName = OutputNameFormatting.getOutputName(a);
 		if ("[BASE]".equalsIgnoreCase(outputName))
 		{
 			return a.getDisplayName();
@@ -83,13 +83,14 @@ public class QualifiedName
 
 	public static String qualifiedName(PlayerCharacter pc, Skill s)
 	{
+		String outputName = OutputNameFormatting.getOutputName(s);
 		if (!pc.hasAssociations(s))
 		{
-			return s.getOutputName();
+			return outputName;
 		}
 
 		final StringBuilder buffer = new StringBuilder();
-		buffer.append(s.getOutputName()).append("(");
+		buffer.append(outputName).append("(");
 		buffer.append(StringUtil.joinToStringBuffer(pc.getAssociationList(s),
 				", "));
 		buffer.append(")");

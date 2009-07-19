@@ -449,7 +449,7 @@ public class ArmorToken extends Token
 				ret.append("*");
 			}
 
-			ret.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), aPC));
+			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
 			ret.append(eq.getAppliedName());
 		}
 		else if (property.startsWith("OUTPUTNAME"))
@@ -460,7 +460,7 @@ public class ArmorToken extends Token
 				ret.append("*");
 			}
 
-			ret.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), aPC));
+			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
 			ret.append(eq.getAppliedName());
 		}
 		else if (property.startsWith("TOTALAC"))

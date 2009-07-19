@@ -23,12 +23,18 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
 public class OutputNameFormatting
 {
+
+	public static String parseOutputName(PObject po, PlayerCharacter aPC)
+	{
+		return parseOutputName(getOutputName(po), aPC);
+	}
 
 	/**
 	 * Parse the output name to get a useable Name token
@@ -107,7 +113,7 @@ public class OutputNameFormatting
 	
 		if (SettingsHandler.guiUsesOutputNameEquipment())
 		{
-			aString = po.getOutputName();
+			aString = OutputNameFormatting.getOutputName(po);
 		}
 	
 		if (po.getSafe(ObjectKey.NAME_PI))
@@ -130,6 +136,62 @@ public class OutputNameFormatting
 		}
 	
 		return aString;
+	}
+
+	/**
+	 * rephrase parenthetical name components, if appropriate
+	 * @return pre formatted output name
+	 */
+	public static String getPreFormatedOutputName(String displayName)
+	{
+		//if there are no () to pull from, just return the name
+		if ((displayName.indexOf('(') < 0) || (displayName.indexOf(')') < 0))
+		{
+			return displayName;
+		}
+	
+		//we just take from the first ( to the first ), typically there should only be one of each
+		final String subName = displayName.substring(displayName.indexOf('(') + 1, displayName.indexOf(')')); //the stuff inside the ()
+		final StringTokenizer tok = new StringTokenizer(subName, "/");
+		final StringBuffer newNameBuff = new StringBuffer();
+	
+		while (tok.hasMoreTokens())
+		{
+			//build this new string from right to left
+			newNameBuff.insert(0, tok.nextToken());
+	
+			if (tok.hasMoreTokens())
+			{
+				newNameBuff.insert(0, " ");
+			}
+		}
+	
+		return newNameBuff.toString();
+	}
+
+	/**
+	 * Get the output name of the item
+	 * @return the output name of the item
+	 */
+	public static final String getOutputName(PObject po)
+	{
+		String outputName = po.get(StringKey.OUTPUT_NAME);
+		String displayName = po.getDisplayName();
+		// if no OutputName has been defined, just return the regular name
+		if (outputName == null)
+		{
+			return displayName;
+		}
+		else if (outputName.equalsIgnoreCase("[BASE]") && displayName.indexOf('(') != -1)
+		{
+			outputName = displayName.substring(0, displayName.indexOf('(')).trim();
+		}
+		if (outputName.indexOf("[NAME]") >= 0)
+		{
+			outputName = outputName.replaceAll("\\[NAME\\]",
+					getPreFormatedOutputName(displayName));
+		}
+		return outputName;
 	}
 
 }

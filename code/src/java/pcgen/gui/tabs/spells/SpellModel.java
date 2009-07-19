@@ -440,7 +440,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			case COL_NAME:
 				if (SettingsHandler.guiUsesOutputNameSpells())
 				{
-					return (aSpell != null) ? aSpell.getOutputName() : fn
+					return (aSpell != null) ? OutputNameFormatting.getOutputName(aSpell) : fn
 						.toString();
 				}
 				else

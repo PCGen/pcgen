@@ -495,7 +495,7 @@ public class EqContainerwToken extends Token
 	 */
 	public static String getNameToken(Equipment eq, PlayerCharacter pc)
 	{
-		return OutputNameFormatting.parseOutputName(eq.getOutputName(), pc);
+		return OutputNameFormatting.parseOutputName(eq, pc);
 	}
 
 	/**

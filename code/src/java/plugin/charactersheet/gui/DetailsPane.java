@@ -10,6 +10,7 @@ import gmgen.plugin.PlayerCharacterOutput;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.exporttoken.AlignmentToken;
 import pcgen.io.exporttoken.HeightToken;
 import pcgen.io.exporttoken.SizeLongToken;
@@ -873,7 +874,7 @@ public class DetailsPane extends javax.swing.JPanel
 
 		if (pc.getDeity() != null)
 		{
-			deity.setText(pc.getDeity().getOutputName() + ' ');
+			deity.setText(OutputNameFormatting.getOutputName(pc.getDeity()) + ' ');
 		}
 		else
 		{

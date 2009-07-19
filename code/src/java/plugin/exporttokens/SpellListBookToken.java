@@ -26,6 +26,7 @@ package plugin.exporttokens;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
@@ -92,7 +93,7 @@ public class SpellListBookToken extends SpellListToken
 				}
 				needcomma = true;
 
-				retValue.append(cs.getSpell().getOutputName());
+				retValue.append(OutputNameFormatting.getOutputName(cs.getSpell()));
 			}
 
 			if (!needcomma && eh != null && eh.getExistsOnly())

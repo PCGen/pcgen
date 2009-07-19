@@ -41,6 +41,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -104,7 +105,7 @@ public class DeityToken extends Token
 			}
 			else if ("OUTPUTNAME".equals(subTag))
 			{
-				retString = deity.getOutputName();
+				retString = OutputNameFormatting.getOutputName(deity);
 			}
 			else if ("DOMAINLIST".equals(subTag))
 			{

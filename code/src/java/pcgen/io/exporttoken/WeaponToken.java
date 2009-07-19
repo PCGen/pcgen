@@ -546,7 +546,7 @@ public class WeaponToken extends Token
 		{
 			sb.append("*");
 		}
-		sb.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), pc));
+		sb.append(OutputNameFormatting.parseOutputName(eq, pc));
 		sb.append(eq.getAppliedName());
 
 		return sb.toString();
@@ -565,7 +565,7 @@ public class WeaponToken extends Token
 		{
 			sb.append("*");
 		}
-		sb.append(OutputNameFormatting.parseOutputName(eq.getOutputName(), pc));
+		sb.append(OutputNameFormatting.parseOutputName(eq, pc));
 		sb.append(eq.getAppliedName());
 
 		return sb.toString();
