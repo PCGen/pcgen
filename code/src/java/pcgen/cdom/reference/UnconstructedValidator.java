@@ -17,116 +17,17 @@
  */
 package pcgen.cdom.reference;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import pcgen.base.util.DoubleKeyMapToList;
-import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Campaign;
 
-public class UnconstructedValidator
+
+public interface UnconstructedValidator
 {
-
-	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
-	private final List<Campaign> campaignList;
-	private HashMapToList<Class<?>, String> simpleMap;
-	private DoubleKeyMapToList<Class<?>, String, String> categoryMap;
-
-	public UnconstructedValidator(List<Campaign> campaigns)
-	{
-		campaignList = new ArrayList<Campaign>(campaigns);
-	}
-
-	public <T extends CDOMObject> boolean allow(Class<T> cl, String s)
-	{
-		if (simpleMap == null)
-		{
-			buildSimpleMap();
-		}
-		List<String> list = simpleMap.getListFor(cl);
-		if (list != null)
-		{
-			for (String key : list)
-			{
-				if (key.equalsIgnoreCase(s))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private void buildSimpleMap()
-	{
-		simpleMap = new HashMapToList<Class<?>, String>();
-		for (Campaign c : campaignList)
-		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
-			{
-				Class<? extends CDOMObject> qcl = q.getQualifiedClass();
-				if (!CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
-				{
-					simpleMap.addToListFor(qcl, q.getQualifiedReference()
-							.getLSTformat());
-				}
-			}
-		}
-	}
-
-	private void buildCategoryMap()
-	{
-		categoryMap = new DoubleKeyMapToList<Class<?>, String, String>();
-		for (Campaign c : campaignList)
-		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
-			{
-				Class<? extends CDOMObject> qcl = q.getQualifiedClass();
-				if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
-				{
-					CDOMSingleRef ref = q.getQualifiedReference();
-					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
-							.getCDOMCategory();
-					categoryMap.addToListFor(qcl, cat, ref.getLSTformat());
-				}
-			}
-		}
-	}
-
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> boolean allow(
-			Class<T> cl, Category<T> cat, String s)
-	{
-		if (categoryMap == null)
-		{
-			buildCategoryMap();
-		}
-		List<String> list = categoryMap.getListFor(cl, cat.getKeyName());
-		if (list != null)
-		{
-			for (String key : list)
-			{
-				if (key.equalsIgnoreCase(s))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	public boolean allowDuplicates(Class<?> cl)
-	{
-		for (Campaign c : campaignList)
-		{
-			if (c.containsInList(ListKey.DUPES_ALLOWED, cl))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+			Class<T> cl, Category<T> cat, String s);
+	
+	public boolean allowDuplicates(Class<?> cl);
+	
+	public <T extends CDOMObject> boolean allow(Class<T> cl, String s);
 }
