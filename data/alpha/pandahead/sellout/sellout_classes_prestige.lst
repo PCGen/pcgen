@@ -31,7 +31,7 @@ CLASS:Coach		HD:8		TYPE:PC.Prestige	ABB:Cch		MAXLEVEL:5	SOURCEPAGE:76	BONUS:CHEC
 CLASS:Coach		PREATT:2	PREFEAT:1,Leadership	PRESKILL:5,Intimidate=8,Profession (Coach)=8,Sense Motive=8,Heal=4,Perform=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Coach		STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Heal|Intimidate|Jump|Knowledge (Sports)|Knowledge (Tactics)|Knowledge (XCrawl)|Perform|Profession (Coach)|Read Lips|Sense Motive|Spot|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Sport|TYPE.Boffer
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Sport|TYPE=Boffer
 ###Block: Normal Level Progression
 1	SAB:Motivation %|Motivation	SAB:Maximum Team Size (XCrawl/non-lethal) %/%|MaxTeamSize|2*MaxTeamSize	SAB:Fundamentals (Athlete)	BONUS:VAR|Motivation|min((CL*2)-1,2)	BONUS:VAR|MaxTeamSize|5+CL+CHA	DEFINE:Motivation|0	DEFINE:MaxTeamSize|0
 2	SAB:Fundamentals (Fighter)
@@ -44,15 +44,15 @@ CLASS:Free Agent	HD:6		TYPE:PC.Prestige	ABB:FrA		MAXLEVEL:10	SOURCEPAGE:78	BONUS
 # Class Name	Req. Att.	Required Feat			Required Skill					Required Text
 CLASS:Free Agent	PREATT:3	PREFEAT:1,Crowd Favorite	PRESKILL:2,Perform=6,Knowledge (XCrawl)=4	PRETEXT:Fame must be 55 at some point during the career.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Free Agent	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Diplomacy|Drive|Jump|KNowledge (XCrawl)|Listen|TYPE.Profession|Spot|Swim|Tumble
+CLASS:Free Agent	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Diplomacy|Drive|Jump|Knowledge (XCrawl)|Listen|TYPE=Profession|Spot|Swim|Tumble
 ### Assimilate special ability is rather involved, and its unknown if it can be properly coded.
 1	SAB:Adapt	SAB:Assimilate
 2	SAB:Extra Performance				BONUS:FEAT|POOL|1
 3	SAB:Signing Bonus: +% pct.|SigningBonus				BONUS:VAR|SigningBonus|(CL/3)*20	DEFINE:SigningBonus|0
-4	SAB:Training Bonus																	ADD:FEAT|1|Skill Focus
+4	SAB:Training Bonus																	ADD:FEAT|Skill Focus
 5	SAB:Cameo
 7								BONUS:FEAT|POOL|1
-8																					ADD:FEAT|1|Skill Focus
+8																					ADD:FEAT|Skill Focus
 10	SAB:Rally the Troops
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus

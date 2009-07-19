@@ -22,7 +22,7 @@ Minstrel Music	TYPE:Special	VISIBLE:NO	SAB:Minstrel music %/day|MinstrelMusicTim
 
 ###Block: Knight's Warhorse
 # Feat Name		Type			Visible	Special ABility			Define			Allow Follower			Allowed Companions
-Knight's Warhorse	TYPE:Special	VISIBLE:NO	SAB:Knight's Warhorse (Ex)	DEFINE:KnightLevel|0	FOLLOWERS:Knight's Mount|1	COMPANIONLIST:Knight's Mount|Horse (Light),Horse (Heavy),Horse (Warhorse Heavy),Horse (Warhorse Light)
+Knight's Warhorse	TYPE:Special	VISIBLE:NO	SAB:Knight's Warhorse (Ex)	DEFINE:KnightLevel|0	FOLLOWERS:Knight's Mount|1	COMPANIONLIST:Knight's Mount|Horse (Heavy),Horse (Light),Horse (Warhorse Heavy),Horse (Warhorse Light)
 
 ###Block: Literacy
 # Feat Name	Type			Visible	Automatic Languages

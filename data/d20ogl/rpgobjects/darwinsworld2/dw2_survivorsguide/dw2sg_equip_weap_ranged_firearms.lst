@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Jul 19 17:25:26 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 # DW2 Firearms & MSRD Mods
 #
 # Equipment Name				Required Proficiency			Type																	Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page			Special Property			Rate of Fire
 ###Block: Handguns (Personal Firearms Proficiency feat)
-# Equipment Name					Required Proficiency				Type																Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name					Required Weapon Proficiency			Type																Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property	Rate of Fire
 Beretta 92F (9mm autoloader).MOD																													COST:160
 Black Powder Pistol (Special)			PROFICIENCY:WEAPON|Black Powder Pistol	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Container.Projectile			CONTAINS:1|Bullet=1	COST:100	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6						RANGE:50	SIZE:S	SOURCEPAGE:p. 103	SPROP:Internal 1	RATEOFFIRE:Single
 Colt Python (.357 revolver).MOD																													COST:160
@@ -29,14 +29,14 @@ Zip Gun (.45)					PROFICIENCY:WEAPON|Zip Gun			TYPE:Weapon.Ranged.Standard.Firea
 Zip Gun (.50AE)					PROFICIENCY:WEAPON|Zip Gun			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Container.Projectile			CONTAINS:1|Bullet=1	COST:20	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8						RANGE:20	SIZE:T	SOURCEPAGE:p. 106	SPROP:Internal 1	RATEOFFIRE:Single
 
 ###Block: Machine Pistols (Personal Firearms Proficiency feat)
-# Equipment Name					Required Proficiency			Type																	Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+# Equipment Name					Required Weapon Proficiency		Type																	Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
 Beretta 93R (9mm machine pistol).MOD																												COST:240
 Calico M100 (.22LR machine pistol)		PROFICIENCY:WEAPON|Calico M100	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=100	COST:200	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	RANGE:50	SIZE:M	SOURCEPAGE:p. 103	SPROP:Magazine 100	RATEOFFIRE:S,A
 SA-23 (9mmR machine pistol)			PROFICIENCY:WEAPON|Sa-23		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=40	COST:240	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:50	SIZE:S	SOURCEPAGE:p. 106	SPROP:Magazine 40		RATEOFFIRE:S,A
 Skorpion (.32 machine pistol).MOD																													COST:220
 
 ###Block: Submachineguns (Personal Firearms Proficiency feat)
-# Equipment Name				Required Proficiency				Type																	Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name				Required Weapon Proficiency			Type																	Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
 Bizon (9mmR SMG)				PROFICIENCY:WEAPON|Bizon			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=67	COST:240	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:40	SIZE:M	SOURCEPAGE:p. 106	SPROP:Magazine 67	RATEOFFIRE:S,A
 Calico Liberty 50 (9mm SMG)		PROFICIENCY:WEAPON|Calico Liberty 50	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=50	COST:240	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:75	SIZE:L	SOURCEPAGE:p. 106	SPROP:Magazine 50	RATEOFFIRE:S,A
 Colt 635 (9mm SMG)			PROFICIENCY:WEAPON|Colt 635			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=32	COST:240	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:75	SIZE:M	SOURCEPAGE:p. 106	SPROP:Magazine 32	RATEOFFIRE:S,A
@@ -45,7 +45,7 @@ HK MP5 (9mm submachine gun).MOD																													COST:260
 Ruger MP-9 (5.56mm SMG)			PROFICIENCY:WEAPON|Ruger MP-9			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=32	COST:240	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:40	SIZE:M	SOURCEPAGE:p. 106	SPROP:Magazine 32	RATEOFFIRE:S,A
 
 ###Block: Rifles (Personal Firearms Proficiency feat)
-# Equipment Name			Required Proficiency				Type														Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name			Required Weapon Proficiency			Type														Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
 AR-7 Explorer (.22 rifle)	PROFICIENCY:WEAPON|AR-7 Explorer		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Container.Projectile	CONTAINS:1|Bullet=8	COST:240	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	RANGE:70	SIZE:L	SOURCEPAGE:p. 104	SPROP:Magazine 8	RATEOFFIRE:Single
 Black Powder Rifle (special)	PROFICIENCY:WEAPON|Black Powder Rifle	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Container.Projectile	CONTAINS:1|Bullet=1	COST:120	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:50	SIZE:L	SOURCEPAGE:p. 104	SPROP:Internal 1	RATEOFFIRE:Single
 Dart Rifle (special)		PROFICIENCY:WEAPON|Dart Rifle			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Container.Projectile	CONTAINS:1|Drug=1		COST:220	WT:5		CRITMULT:-			CRITRANGE:0			DAMAGE:0	RANGE:50	SIZE:L	SOURCEPAGE:p. 104	SPROP:Internal 1	RATEOFFIRE:Single
@@ -55,7 +55,7 @@ Pipe Rifle (7.62mmR)		PROFICIENCY:WEAPON|Pipe Rifle			TYPE:Weapon.Ranged.Standar
 Pipe Rifle (7.62mm)		PROFICIENCY:WEAPON|Pipe Rifle			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Container.Projectile	CONTAINS:1|Bullet=1	COST:35	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:30	SIZE:L	SOURCEPAGE:p. 104	SPROP:Internal 1	RATEOFFIRE:Single
 
 ###Block: Assault Rifles (Personal Firearms Proficiency feat)
-# Equipment Name					Required Proficiency			Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name					Required Weapon Proficiency		Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property	Rate of Fire
 AKM/AK-47 (7.62 assault rifle).MOD																														COST:260
 AN-94 (5.56mmR assault rifle)			PROFICIENCY:WEAPON|AN-94		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=30	COST:300	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	EQMOD:MASTERCRAFT_WEAP_HIT_1	RANGE:70	SIZE:L	SOURCEPAGE:p. 104	SPROP:Magazine 30	RATEOFFIRE:S,A
 Bushmaster M-17S (5.56mm assault rifle)	PROFICIENCY:WEAPON|Bushmaster M-17S	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=30	COST:260	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8						RANGE:80	SIZE:L	SOURCEPAGE:p. 104	SPROP:Magazine 30	RATEOFFIRE:S,A
@@ -67,14 +67,14 @@ QBZ-95 (5.8mm assault rifle)			PROFICIENCY:WEAPON|QBZ-95		TYPE:Weapon.Ranged.Sta
 Steyr ACR (5.6mm assault rifle)		PROFICIENCY:WEAPON|Steyr ACR		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=24	COST:300	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	EQMOD:MASTERCRAFT_WEAP_HIT_1	RANGE:90	SIZE:L	SOURCEPAGE:p. 104	SPROP:Magazine 24	RATEOFFIRE:S,A
 
 ###Block: Sniper Rifles (Personal Firearms Proficiency feat)
-# Equipment Name						Required Proficiency			Type																Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name						Required Weapon Proficiency		Type																Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Source Page		Special Property	Rate of Fire
 Barrett Light Fifty (.50 sniper rifle).MOD																											COST:220
 Steyr IWS-2000 (15.2mm sniper rifle)		PROFICIENCY:WEAPON|Steyr IWS-2000	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile	CONTAINS:1|Bullet=5	COST:360	WT:36		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12				RANGE:350	SIZE:H	SOURCEPAGE:p. 104	SPROP:Magazine 5	RATEOFFIRE:S
 VSS Vintorez (9mmR sniper rifle)			PROFICIENCY:WEAPON|VSS Vintorez	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile	CONTAINS:1|Bullet=10	COST:160	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:SPPRSS_RFL	RANGE:140	SIZE:L	SOURCEPAGE:p. 104	SPROP:Magazine 5	RATEOFFIRE:S
 Winchester 94 (.444 hunting rifle).MOD																												COST:160
 
 ###Block: Shotguns (Personal Firearms Proficiency feat)
-# Equipment Name						Required Proficiency					Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name						Required Weapon Proficiency				Type																		Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
 HK CAWS (12 gauge shotgun)				PROFICIENCY:WEAPON|HK CAWS				TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=10	COST:260	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:p. 104	SPROP:Magazine 10	RATEOFFIRE:S,A
 Jackhammer Mk3A1 (12 gauge shotgun)			PROFICIENCY:WEAPON|Jackhammer Mk3A1			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Container.Projectile	CONTAINS:1|Bullet=10	COST:260	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:L	SOURCEPAGE:p. 104	SPROP:Cylinder 10	RATEOFFIRE:S,A
 Remington Streetsweeper (12 gauge shotgun)	PROFICIENCY:WEAPON|Remington Streetsweeper	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile			CONTAINS:1|Bullet=12	COST:180	WT:9		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:M	SOURCEPAGE:p. 104	SPROP:Cylinder 12	RATEOFFIRE:S
@@ -82,7 +82,7 @@ Sawed-Off Shotgun (12 gauge shotgun).MOD																																COST:160
 Valtro PM-5-350 (12 gauge shotgun)			PROFICIENCY:WEAPON|Valtro PM-5-350			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Container.Projectile			CONTAINS:1|Bullet=7	COST:180	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:30	SIZE:M	SOURCEPAGE:p. 104	SPROP:Magazine 7	RATEOFFIRE:S
 
 ###Block: Heavy Weapons (Exotic Firearms Proficiency feat)
-# Equipment Name				Required Proficiency				Type												Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name				Required Weapon Proficiency			Type												Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property	Rate of Fire
 Calico 2-22 (light machine gun)	PROFICIENCY:WEAPON|Heavy Machine Gun	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic.LMG.Container.Projectile	CONTAINS:1|Bullet=10	COST:1200	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	RANGE:70	SIZE:H	SOURCEPAGE:p. 104	SPROP:Magazine 10	RATEOFFIRE:A
 M214 Minigun (Heavy machine gun)	PROFICIENCY:WEAPON|Heavy Machine Gun	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic.HMG.Container.Projectile	CONTAINS:1|Bullet=100	COST:4000	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:110	SIZE:H	SOURCEPAGE:p. 104	SPROP:Linked Ammo	RATEOFFIRE:A
 M2HB (Heavy machine gun).MOD																									COST:360
@@ -94,7 +94,7 @@ RPG-7/16 (rocket launcher)		PROFICIENCY:WEAPON|Rocket Launcher		TYPE:Weapon.Rang
 ###Block Futuristic Handguns (Futuristic Firearms Proficiency feat)
 # Equipment Name				Required Proficiency			Type																			Contains								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property												Rate of Fire
 # Lasers
-# Equipment Name				Required Proficiency				Type																			Contains								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property												Rate of Fire
+# Equipment Name				Required Weapon Proficiency			Type																			Contains								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property												Rate of Fire
 Laser Pistol				PROFICIENCY:WEAPON|Laser Pistol		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Semiauto.Energy.Personal.Container.Futuristic					CONTAINS:1|PwrClip=1|PwrBelt=1|PwrBack=1			COST:6000	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12		RANGE:100	SIZE:S	SOURCEPAGE:p. 118	SPROP:Power Clip,Belt or Back										RATEOFFIRE:S
 Dazzle Rifle				PROFICIENCY:WEAPON|Dazzle Rifle		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Semiauto.Personal.Container.Futuristic						CONTAINS:1|PwrClip=1|PwrBelt=1|PwrBack=1			COST:5000	WT:7		CRITMULT:-			CRITRANGE:1			DAMAGE:0		RANGE:50	SIZE:L	SOURCEPAGE:p. 118	SPROP:Power Clip,Belt or Back; Ref Save (DC:Attack roll) or blinded for 1d6 minutes	RATEOFFIRE:S
 Infra-red Rifle				PROFICIENCY:WEAPON|Infra-red Rifle		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Semiauto.Energy.Personal.Container.Futuristic					CONTAINS:1|PwrClip=1|PwrBelt=1|PwrBack=1			COST:10000	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12		RANGE:150	SIZE:L	SOURCEPAGE:p. 118	SPROP:Power Clip,Belt or Back; See Text								RATEOFFIRE:S

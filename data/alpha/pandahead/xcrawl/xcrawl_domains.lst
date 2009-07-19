@@ -7,6 +7,6 @@ Decision																DESC:You cast divinations at +2 caster leverls
 Fate																	DESC:Once per day, you can manipulate fate and cause an opponent to rerol one die roll that they have just made. The new result must be taken in every situation.
 Fertility																DESC:Gain +10 on all heal checks when dealing with females.
 Love																	DESC:Love domain clerics receive a +4 bonus ton all charisma and charisma-keyed ability checks versus the opposite sex
-Night						ADD:FEAT|1|Blind-Fight
+Night						ADD:FEAT|Blind-Fight
 Weather																DESC:Predict weather with 100%% accuracy within 24 hours
 Wine																	DESC:The cleric can drink three times the normal amount of wine without suffering any effects; i.e. three glasses of wine affects him as if he only had one.

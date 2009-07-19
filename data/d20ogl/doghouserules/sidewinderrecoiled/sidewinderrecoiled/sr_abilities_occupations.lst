@@ -30,7 +30,7 @@ Tribal		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:
 # Ability Name								Required Stat		Required Text
 CATEGORY=Starting Occupation|Academic.MOD								PRETEXT:Age 18
 CATEGORY=Starting Occupation|Adventurer.FORGET
-CATEGORY=Starting Occupation|Athlete.MOD				PRESTAT:1,STR=13|DEX=13
+CATEGORY=Starting Occupation|Athlete.MOD				PRESTAT:1,STR=13,DEX=13
 CATEGORY=Starting Occupation|Blue Collar.FORGET
 CATEGORY=Starting Occupation|Celebrity.FORGET
 CATEGORY=Starting Occupation|Creative.FORGET

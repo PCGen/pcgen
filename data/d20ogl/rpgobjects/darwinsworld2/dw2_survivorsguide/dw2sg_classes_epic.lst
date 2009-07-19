@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Jul 19 17:25:26 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
@@ -10,7 +10,7 @@ CLASS:Champion	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidat
 
 1	SAB:Rallying Cry (+%)|rallyingCry											BONUS:VAR|rallyingCry|2	DEFINE:rallyingCry|0
 2	SAB:Tactical Aid (Improved)|PREVARGTEQ:tactAid,1
-2	SAB:Tactical Aid|!PREVARGTEQ:tactAid,1														DEFINE:tactAid|0
+2	SAB:Tactical Aid|PREVARLT:tactAid,1															DEFINE:tactAid|0
 3										BONUS:ABILITYPOOL|Champion Feat|CL/3
 4																	BONUS:VAR|rallyingCry|1
 5	SAB:Awesome Presence
@@ -73,7 +73,7 @@ CLASS:Scientist	HD:6		TYPE:Base.Epic	ABB:Sci		MAXLEVEL:10	SOURCEPAGE:p. 51	DEFIN
 # Class Name	Multiple Requirements
 CLASS:Scientist	PREMULT:2,[PRESKILL:2,Knowledge (Technology)=13,Research=13],[PRESKILL:1,Knowledge (Behavioral Sciences)=13,Knowledge (Earth and Life Sciences)=13,Knowledge (Physical Sciences)=13]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE.Craft|Decipher Script|Disable Device|Drive|TYPE.Knowledge|Navigate|Read/Write Language|Research|Search|Speak Language|Spot
+CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE=Craft|Decipher Script|Disable Device|Drive|TYPE=Knowledge|Navigate|Read/Write Language|Research|Search|Speak Language|Spot
 
 1	SAB:Scientific Method
 2	SAB:Scientific Improvisation
@@ -137,4 +137,3 @@ CLASS:Warrior Monk	STARTSKILLPTS:3	CSKILL:Drive|Intimidate|Jump|Knowledge (Tacti
 8					BONUS:ABILITYPOOL|Warrior Monk Feat|1
 9					BONUS:ABILITYPOOL|Warrior Monk Superior Ability|1
 10					BONUS:ABILITYPOOL|Warrior Monk Feat|1
-

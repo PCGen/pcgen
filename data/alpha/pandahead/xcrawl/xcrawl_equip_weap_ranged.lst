@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Jul 19 17:14:00 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 ##Block:Simple weapons-ranged
-# Equipment Name		Output Name					Required Proficiency				Type												Contains				Cost		Weight	Required Stat	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Special Property
+# Equipment Name		Output Name					Required Weapon Proficiency			Type												Contains				Cost		Weight	Required Stat	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Special Property
 Slingshot									PROFICIENCY:WEAPON|Slingshot			TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Projectile.Container	CONTAINS:UNLIM|SlingStone=1	COST:10	WT:2					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:30	SIZE:S
 
 ##Block:Martial weapons-ranged
@@ -15,7 +15,7 @@ Flying disc (combat)	OUTPUTNAME:Flying disc, combat	PROFICIENCY:WEAPON|Flying di
 Bowling ball								PROFICIENCY:WEAPON|Bowling ball		TYPE:Weapon.Sport.Ranged.Standard.Bludgeoning										COST:15	WT:15					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	RANGE:20	SIZE:M
 
 ##Block:Exotic weapons-ranged
-Arrow (tranquilizer)	OUTPUTNAME:Arrow, tranquilizer	PROFICIENCY:WEAPON|Arrow (tranquilizer)	TYPE:Weapon.Exotic.Ranged.STandard.Piercing										COST:15	WT:0.25				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:50	SIZE:S
+Arrow (tranquilizer)	OUTPUTNAME:Arrow, tranquilizer	PROFICIENCY:WEAPON|Arrow (tranquilizer)	TYPE:Weapon.Exotic.Ranged.Standard.Piercing										COST:15	WT:0.25				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:50	SIZE:S
 
 ##Block:Martial weapons-firearms
 .25 pistol									PROFICIENCY:WEAPON|.25 pistol			TYPE:Weapon.Firearms.Standard.Ranged.Container					CONTAINS:UNLIM|Bullet=10	COST:300	WT:2		PRESTAT:1,STR=9	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:50	SIZE:S

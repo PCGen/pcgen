@@ -17,4 +17,3 @@ CLASS:Mutant Beast	PRERACETYPE:Mutant Beast
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Mutant Beast	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
 2:REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|-1|!PRESTAT:1,INT=3
-

@@ -14,21 +14,21 @@ Bolts (Crossbow/12)	TYPE:Ammunition.Standard.Wooden.Bolt	COST:2	WT:0		BASEQTY:12
 #Paper Cartridges
 # Equipment Name		Type				Cost		Weight	Base Quantity	Source Page
 .31 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.31 caliber (20)		TYPE:Ammunition.Firearm	COST:.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
+.31 caliber (20)		TYPE:Ammunition.Firearm	COST:0.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .44 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.44 caliber (20)		TYPE:Ammunition.Firearm	COST:.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
+.44 caliber (20)		TYPE:Ammunition.Firearm	COST:0.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .54 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.54 caliber (20)		TYPE:Ammunition.Firearm	COST:.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
+.54 caliber (20)		TYPE:Ammunition.Firearm	COST:0.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .58 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.58 caliber (20)		TYPE:Ammunition.Firearm	COST:.5	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
+.58 caliber (20)		TYPE:Ammunition.Firearm	COST:0.5	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .69 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.69 caliber (20)		TYPE:Ammunition.Firearm	COST:.5	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
+.69 caliber (20)		TYPE:Ammunition.Firearm	COST:0.5	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 
 #Metal Cartridges
 .32 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.32 caliber (20)		TYPE:Ammunition.Firearm	COST:.5	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
+.32 caliber (20)		TYPE:Ammunition.Firearm	COST:0.5	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .38 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-.38 caliber (20)		TYPE:Ammunition.Firearm	COST:.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
+.38 caliber (20)		TYPE:Ammunition.Firearm	COST:0.25	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .41 caliber			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
 .41 caliber (20)		TYPE:Ammunition.Firearm	COST:1	WT:0		BASEQTY:20		SOURCEPAGE:p. 145
 .44-40			TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
@@ -42,8 +42,8 @@ Bolts (Crossbow/12)	TYPE:Ammunition.Standard.Wooden.Bolt	COST:2	WT:0		BASEQTY:12
 
 #Shotgun Shells
 10-gauge buckshot		TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-10-gauge buckshot (10)	TYPE:Ammunition.Firearm	COST:.5	WT:0		BASEQTY:10		SOURCEPAGE:p. 145
+10-gauge buckshot (10)	TYPE:Ammunition.Firearm	COST:0.5	WT:0		BASEQTY:10		SOURCEPAGE:p. 145
 12-gauge buckshot		TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-12-gauge buckshot (10)	TYPE:Ammunition.Firearm	COST:.25	WT:0		BASEQTY:10		SOURCEPAGE:p. 145
+12-gauge buckshot (10)	TYPE:Ammunition.Firearm	COST:0.25	WT:0		BASEQTY:10		SOURCEPAGE:p. 145
 15-gauge buckshot		TYPE:Ammunition.Firearm			WT:0					SOURCEPAGE:p. 145
-15-gauge buckshot (10)	TYPE:Ammunition.Firearm	COST:.25	WT:0		BASEQTY:10		SOURCEPAGE:p. 145
+15-gauge buckshot (10)	TYPE:Ammunition.Firearm	COST:0.25	WT:0		BASEQTY:10		SOURCEPAGE:p. 145

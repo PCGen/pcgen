@@ -53,7 +53,7 @@ WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
 ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
 SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
-TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst|(INCLUDE:Combat Expertise trade off)
+TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst|(INCLUDE:Combat Expertise trade off|Raven Familiar Language)
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
 
 

@@ -47,4 +47,3 @@ FOLLOWER:CompLevel=10	TYPE:Animal Partner	HD:1		SAB:Speak With Symbiote									
 # Class of the Master		Type
 FOLLOWER:NormalMount=1		TYPE:Mount
 FOLLOWER:NormalFollower=1	TYPE:Follower
-

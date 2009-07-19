@@ -26,7 +26,7 @@ Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYP
 
 ###Block: Mutant
 # Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							Subrace
-Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:Yes
+Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:YES
 Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|3	BONUS:ABILITYPOOL|Defects|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
 Mutant Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
 

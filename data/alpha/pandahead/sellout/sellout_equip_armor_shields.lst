@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Wed Feb 20 11:53:55 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Sun Jul 19 17:14:00 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
-# Equipment Name			Required Proficiency			Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+# Equipment Name			Required Armor Proficiency		Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Padded.MOD										TYPE:Padded
 Leather.MOD										TYPE:Leather
 Studded Leather.MOD								TYPE:StuddedLeather
@@ -13,7 +13,7 @@ Chain Shirt.MOD									TYPE:Chain
 Chainmail.MOD									TYPE:Chain
 
 #Light Weight -------------------------------------------------------------------------------------------------------------
-# Equipment Name			Required Proficiency			Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+# Equipment Name			Required Armor Proficiency		Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Pleather				PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Standard.Nonmetal		COST:30	WT:15		ACCHECK:0		MAXDEX:8		SOURCEPAGE:95	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE
 Skinsuit				PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Standard.Nonmetal		COST:100	WT:10		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:95	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
 Studded Pleather			PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal		COST:60	WT:20		ACCHECK:-1		MAXDEX:7		SOURCEPAGE:95	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE

@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Sun Jul 19 17:54:19 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Fort Griffin Echo Vol. 1 No. 1	SOURCESHORT:FGE1-1	SOURCEWEB:http://www.doghouserules.net/echo/index.html
 # Original Entry by: Lone Jedi
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus					Modify VAR
 CLASS:Comanche Parabio	HD:8		TYPE:PC.Prestige	ABB:Cmp		MAXLEVEL:5	SOURCEPAGE:p. 13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+1	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|ClassDefense|(CL+1)/2
-# Class Name		Required Feat		Required Skill				Var. Min. Value
+# Class Name		Required Feat		Required Skill					Var. Min. Value
 CLASS:Comanche Parabio	PREFEAT:1,Trustworthy	PRESKILL:2,Diplomacy=10,Intimidate=10	PREVARGTEQ:Reputation,6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Comanche Parabio	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Listen|Profession|Read/Write Language|Ride|Sense Motive|Speak Language
@@ -34,11 +34,11 @@ CLASS:Pony Soldier (Indian)	PREATT:2	PREFEAT:2,Defensive Riding,Archaic Weapons 
 CLASS:Pony Soldier (Indian)	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Demolitions|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|Search|Speak Language|Spot
 1	SAB:Born in the Saddle +%|BornInTheSaddle						DEFINE:BornInTheSaddle|2
 2	SAB:Effortless Control
-3																		ADD:FEAT|1|TYPE=PonySoldier
+3																		ADD:FEAT|TYPE=PonySoldier
 4	SAB:Cavalry Charge
 5	SAB:Expert Charge
-6																		ADD:FEAT|1|TYPE=PonySoldier
+6																		ADD:FEAT|TYPE=PonySoldier
 7	SAB:Battlefield Savvy
 8								BONUS:VAR|BornInTheSaddle|1
-9																		ADD:FEAT|1|TYPE=PonySoldier
+9																		ADD:FEAT|TYPE=PonySoldier
 10	SAB:Domino Charge

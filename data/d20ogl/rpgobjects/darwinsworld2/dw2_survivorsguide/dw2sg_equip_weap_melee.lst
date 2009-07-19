@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Jan 13 14:08:33 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Jul 19 17:25:26 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 
 #	DW2 & MSRD Melee Weapons
 #	Simple Weapons Melee
-# Equipment Name		Output Name				Required Proficiency				Type													Alternative Type				Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Reach		Size		Source Page		Special Property
+# Equipment Name		Output Name				Required Weapon Proficiency			Type													Alternative Type				Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Reach		Size		Source Page		Special Property
 Brass Knuckles.MOD																																						COST:10
 Cleaver.MOD																																								COST:5
 Club.MOD																																								COST:1
@@ -22,7 +22,7 @@ Stun gun.MOD																																							COST:50
 Tonfa.MOD																																								COST:10
 
 #	Archaic Melee Weapons
-# Equipment Name		Output Name				Required Proficiency				Type													Alternative Type				Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Reach		Size		Source Page		Special Property
+# Equipment Name		Output Name				Required Weapon Proficiency			Type													Alternative Type				Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Reach		Size		Source Page		Special Property
 Battleaxe								PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Melee.Archaic.Standard.Slashing																		COST:10	WT:7		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8													SIZE:M	SOURCEPAGE:p. 188
 Bayonet (Fixed).MOD																																						COST:12
 Energy Pike								PROFICIENCY:WEAPON|Energy Pike		TYPE:Weapon.Melee.Archaic.Standard.Piercing.Metal.Futuristic.Container								CONTAINS:1|PwrBelt=1|PwrBack=1	COST:5000	WT:4		CRITMULT:x2			CRITRANGE:3												DAMAGE:2d8											REACH:10	SIZE:L	SOURCEPAGE:p. 188	SPROP:Power Beltpack or Backpack; 30'Radius Glow
@@ -44,7 +44,7 @@ Spear.MOD																																								COST:10
 Straight Razor.MOD																																						COST:3
 
 #	Exotic Melee Weapons
-# Equipment Name		Output Name				Required Proficiency				Type													Alternative Type				Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Reach		Size		Source Page		Special Property
+# Equipment Name		Output Name				Required Weapon Proficiency			Type													Alternative Type				Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Reach		Size		Source Page		Special Property
 Axe (Raider Double)	OUTPUTNAME:Axe, [NAME]		PROFICIENCY:WEAPON|Axe (Raider Double)	TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double.Axe					ALTTYPE:Weapon.Melee.Slashing								COST:200	WT:25		CRITMULT:x3			CRITRANGE:1			ALTCRITMULT:x3		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8										SIZE:L	SOURCEPAGE:p. 188
 Chain.MOD																																								COST:10
 Chain Saw.MOD																																							COST:300
