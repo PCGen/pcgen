@@ -26,7 +26,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.helper.Qualifier;
 import pcgen.core.Campaign;
 
 public class UnconstructedValidator

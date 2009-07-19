@@ -15,10 +15,9 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.helper;
+package pcgen.cdom.reference;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.reference.CDOMSingleRef;
 
 /**
  * A Qualifier is used to identify a specific instance of a certain type of
