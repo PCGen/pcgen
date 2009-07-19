@@ -194,7 +194,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BigDecimal gold = new BigDecimal(0);
 	private Deity deity = null;
 
-	private final Set<Domain> domains = new HashSet<Domain>();
+	private final Set<Domain> domains = new TreeSet<Domain>(
+			CDOMObjectUtilities.CDOM_SORTER);
 	private ClassSource defaultDomainSource = null;
 
 	// List of Classes
