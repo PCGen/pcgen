@@ -77,7 +77,6 @@ public class StartfeatsToken extends AbstractToken implements
 			return false;
 		}
 		bon.addPrerequisite(prereq);
-		bon.setCreatorObject(race);
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(race, ListKey.BONUS, bon);
 		return true;

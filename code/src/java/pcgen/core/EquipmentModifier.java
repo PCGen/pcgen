@@ -110,7 +110,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					final BonusObj newBonus = Bonus.newBonus(
 							aString.substring(0, idx) + assoc +
 							aString.substring(idx + 7));
-					newBonus.setCreatorObject(this);
 
 					if (aBonus.hasPrerequisites())
 					{

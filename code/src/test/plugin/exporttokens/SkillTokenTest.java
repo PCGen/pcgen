@@ -109,7 +109,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
 			stat.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -165,7 +164,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(balance);
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(balance);

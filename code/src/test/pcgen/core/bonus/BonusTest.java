@@ -92,7 +92,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		Globals.setCurrentPC(character);
 		final BonusObj saddleBonus =
 				Bonus.newBonus("SKILL|Ride|-5|!PREITEM:1,TYPE.Saddle");
-		saddleBonus.setCreatorObject(rideSkill);
 		rideSkill.addToListFor(ListKey.BONUS, saddleBonus);
 
 		final Equipment saddle = new Equipment();
@@ -135,7 +134,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(dummyFeat2);
 			dummyFeat2.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -145,7 +143,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(equip);
 			equip.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -210,7 +207,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		Globals.setCurrentPC(character);
 		final BonusObj spCost =
 				Bonus.newBonus("SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
-		spCost.setCreatorObject(sp);
 		sp.addToListFor(ListKey.BONUS, spCost);
 		sp.activateBonuses(character);
 		
@@ -235,7 +231,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		final Ability testBonus = new Ability();
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
-		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(1, bonusPairs.size());
@@ -259,7 +254,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
 		character.addAssociation(testBonus, "STR");
-		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
@@ -288,7 +282,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		character.addAssociation(testBonus, "INT");
 		character.addAssociation(testBonus, "STR");
-		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);

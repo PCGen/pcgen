@@ -11693,7 +11693,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (BonusObj aBonus : aList)
 		{
-			final CDOMObject anObj = (CDOMObject) aBonus.getCreatorObject();
+			final CDOMObject anObj = (CDOMObject) getCreatorObject(aBonus);
 
 			if (anObj == null)
 			{
@@ -16397,5 +16397,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<BonusPair> getStringListFromBonus(BonusObj bonus)
 	{
 		return bonusManager.getStringListFromBonus(bonus);
+	}
+
+	public Object getCreatorObject(BonusObj obj)
+	{
+		return bonusManager.getSourceObject(obj);
 	}
 }

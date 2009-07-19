@@ -80,7 +80,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(boots);
 			boots.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -90,7 +89,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(spell);
 			spell.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -100,7 +98,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(template1);
 			template1.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -110,7 +107,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(template2);
 			template2.addToListFor(ListKey.BONUS, aBonus);
 		}
 	}

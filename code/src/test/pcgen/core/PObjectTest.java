@@ -128,7 +128,6 @@ public class PObjectTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(template);
 			template.addToListFor(ListKey.BONUS, aBonus);
 		}
 		PlayerCharacter pc = getCharacter();

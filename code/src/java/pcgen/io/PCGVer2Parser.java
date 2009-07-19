@@ -2507,7 +2507,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (aBonus != null)
 					{
-						aBonus.setCreatorObject(ability);
 						thePC.addAssoc(ability, AssociationListKey.BONUS,
 							aBonus);
 					}
@@ -2785,7 +2784,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (aBonus != null)
 					{
-						aBonus.setCreatorObject(aFeat);
 						thePC.addAssoc(aFeat, AssociationListKey.BONUS, aBonus);
 					}
 				}
@@ -5295,7 +5293,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					newB = Bonus.newBonus(bonus);
 					creator = aFeat;
-					newB.setCreatorObject(aFeat);
 				}
 			}
 			else if (cType.equals(TAG_EQUIPMENT))
@@ -5314,7 +5311,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					newB = Bonus.newBonus(bonus);
 					creator = aEquip;
-					newB.setCreatorObject(aEquip);
 				}
 			}
 			else if (cType.equals(TAG_CLASS))
@@ -5329,7 +5325,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				int idx = bonus.indexOf('|');
 				newB = Bonus.newBonus(bonus.substring(idx + 1));
 				creator = aClass;
-				newB.setCreatorObject(aClass);
 			}
 			else if (cType.equals(TAG_TEMPLATE))
 			{
@@ -5347,7 +5342,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					newB = Bonus.newBonus(bonus);
 					creator = aTemplate;
-					newB.setCreatorObject(aTemplate);
 				}
 			}
 			else if (cType.equals(TAG_SKILL))
@@ -5366,7 +5360,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					newB = Bonus.newBonus(bonus);
 					creator = aSkill;
-					newB.setCreatorObject(aSkill);
 				}
 			}
 			else if (cType.equals(TAG_SPELL))
@@ -5377,7 +5370,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					newB = Bonus.newBonus(bonus);
 					creator = aSpell;
-					newB.setCreatorObject(aSpell);
 				}
 			}
 			else if (cType.equals(TAG_NAME))

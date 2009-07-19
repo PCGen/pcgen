@@ -820,7 +820,6 @@ public final class EditorMainForm extends JDialog
 						
 						if (aBonus != null)
 						{
-							aBonus.setCreatorObject(thisPObject);
 							thisPObject.addToListFor(ListKey.BONUS, aBonus);
 						}
 					}

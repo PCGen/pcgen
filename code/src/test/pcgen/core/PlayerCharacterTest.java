@@ -195,7 +195,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(toughness);
 			toughness.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.addAbility(toughness);
@@ -576,7 +575,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(spell2);
 			spell2.addToListFor(ListKey.BONUS, aBonus);
 		}
 		BonusObj penalty = spell2.getRawBonusList(pc).get(0);

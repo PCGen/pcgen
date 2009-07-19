@@ -93,7 +93,6 @@ public class PreHPTest extends AbstractCharacterTestCase
 			.passes(prereq, character, null));
 
 		final BonusObj hpBonus = Bonus.newBonus("HP|CURRENTMAX|1");
-		hpBonus.setCreatorObject(myClass);
 		myClass.addToListFor(ListKey.BONUS, hpBonus);
 		character.calcActiveBonuses();
 

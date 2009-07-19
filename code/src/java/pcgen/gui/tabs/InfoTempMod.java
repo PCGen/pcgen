@@ -1044,7 +1044,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				for (BonusObj eqBonus : aEq.getTempBonusList())
 				{
-					CDOMObject creatorObj = (CDOMObject) eqBonus.getCreatorObject();
+					CDOMObject creatorObj = (CDOMObject) pc.getCreatorObject(eqBonus);
 					if (creatorObj != null
 						&& (aMod.equals(creatorObj) || (aMod.getClass() == creatorObj
 							.getClass() && aMod.getKeyName().equals(
@@ -1115,7 +1115,6 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						{
 							newB.setApplied(pc, true);
 						}
-						newB.setCreatorObject(aMod);
 						newB.setTargetObject(aTarget);
 						pc.addTempBonus(newB, aMod);
 					}
@@ -1128,7 +1127,6 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						{
 							newB.setApplied(pc, true);
 						}
-						newB.setCreatorObject(aMod);
 						newB.setTargetObject(aEq);
 						aEq.addTempBonus(newB);
 						pc.addTempBonus(newB, aMod);
@@ -1657,7 +1655,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		for (BonusObj aBonus : tbList)
 		{
-			Object aC = aBonus.getCreatorObject();
+			Object aC = pc.getCreatorObject(aBonus);
 			Object aT = aBonus.getTargetObject();
 
 			if ((aT instanceof Equipment) && (aEq != null))
@@ -2031,7 +2029,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			// and build an Array of TempWrap'ers
 			for (BonusObj aBonus : pc.getTempBonusList())
 			{
-				Object aC = aBonus.getCreatorObject();
+				Object aC = pc.getCreatorObject(aBonus);
 				Object aT = aBonus.getTargetObject();
 				TempWrap tw = new TempWrap(aC, aT, aBonus);
 

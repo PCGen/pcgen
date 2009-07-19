@@ -59,7 +59,6 @@ public class MonnonskillhdToken extends AbstractToken implements
 					+ " was given invalid bonus value: " + value);
 			return false;
 		}
-		bon.setCreatorObject(pcc);
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(pcc, ListKey.BONUS, bon);
 		return true;

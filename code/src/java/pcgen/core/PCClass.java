@@ -660,7 +660,6 @@ public class PCClass extends PObject
 //						Logging.debugPrint("Feat bonus for " + this + " is "
 //							+ aBuf.toString());
 				BonusObj bon = Bonus.newBonus(aBuf.toString());
-				bon.setCreatorObject(this);
 				bon.setSaveToPCG(false);
 				aPC.addAssoc(this, AssociationListKey.BONUS, bon);
 			}
@@ -1646,7 +1645,6 @@ public class PCClass extends PObject
 
 					if (aBonus != null)
 					{
-						aBonus.setCreatorObject(cdo);
 						cdo.addToListFor(ListKey.BONUS, aBonus);
 					}
 					cdo.removeFromListFor(ListKey.BONUS, bonusObj);

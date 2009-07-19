@@ -1136,7 +1136,7 @@ final class PCGVer2Creator implements IOConstants
 
 				for (BonusObj bObj : eSet.getTempBonusMap().keySet())
 				{
-					final Object cObj = bObj.getCreatorObject();
+					final Object cObj = thePC.getCreatorObject(bObj);
 					final Object tObj = bObj.getTargetObject();
 					final String aName = tempBonusName(cObj, tObj);
 
@@ -2146,7 +2146,7 @@ final class PCGVer2Creator implements IOConstants
 		final List<String> trackList = new ArrayList<String>();
 		for (final BonusObj bonus : thePC.getTempBonusList())
 		{
-			final Object creObj = bonus.getCreatorObject();
+			final Object creObj = thePC.getCreatorObject(bonus);
 			final Object tarObj = bonus.getTargetObject();
 			final String outString = tempBonusName(creObj, tarObj);
 
@@ -2163,7 +2163,7 @@ final class PCGVer2Creator implements IOConstants
 			// TODO Why do we loop through the bonuses again?  Are there sub bonuses for each bouns?
 			for (BonusObj subBonus : thePC.getTempBonusList())
 			{
-				final Object cObj = subBonus.getCreatorObject();
+				final Object cObj = thePC.getCreatorObject(subBonus);
 				final Object tObj = subBonus.getTargetObject();
 				final String inString = tempBonusName(cObj, tObj);
 

@@ -4176,7 +4176,6 @@ public final class Equipment extends PObject implements Serializable,
 						BonusObj b = Bonus.newBonus(aString);
 						if (b != null)
 						{
-							b.setCreatorObject(this);
 							addToListFor(ListKey.BONUS, b);
 						}
 					}

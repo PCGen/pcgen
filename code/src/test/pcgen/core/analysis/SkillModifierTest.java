@@ -85,7 +85,6 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 			
 			if (aBonus != null)
 			{
-				aBonus.setCreatorObject(skillFocus);
 				skillFocus.addToListFor(ListKey.BONUS, aBonus);
 			}
 			skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
@@ -97,7 +96,6 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 			
 			if (aBonus != null)
 			{
-				aBonus.setCreatorObject(persuasive);
 				persuasive.addToListFor(ListKey.BONUS, aBonus);
 			}
 			persuasive.put(ObjectKey.MULTIPLE_ALLOWED, false);

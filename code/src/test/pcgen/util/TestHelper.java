@@ -351,7 +351,6 @@ public class TestHelper
 			final PreParserFactory factory = PreParserFactory.getInstance();
 			final Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
 			bon.addPrerequisite(prereq);
-			bon.setCreatorObject(aRace);
 
 			aRace.addToListFor(ListKey.BONUS, bon);
 		}

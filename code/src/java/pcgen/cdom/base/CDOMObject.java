@@ -649,7 +649,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			{
 				BonusObj bonus = orig.clone();
 				addToListFor(ListKey.BONUS, bonus);
-				bonus.setCreatorObject(owner);
 			}
 		}
 	}

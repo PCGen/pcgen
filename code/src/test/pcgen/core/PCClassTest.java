@@ -251,7 +251,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(aPrClass);
 			aPrClass.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aPrClass.addPrerequisite(aPrereq);
@@ -330,7 +329,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(aPrClass);
 			aPrClass.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aPrClass.addPrerequisite(aPrereq);
@@ -878,7 +876,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(prClass);
 			prClass.addToListFor(ListKey.BONUS, aBonus);
 		}
 		prClass.addPrerequisite(prereq);

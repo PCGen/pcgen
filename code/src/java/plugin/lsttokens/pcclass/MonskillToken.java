@@ -70,7 +70,6 @@ public class MonskillToken extends AbstractToken implements
 			return false;
 		}
 		bon.addPrerequisite(prereq);
-		bon.setCreatorObject(pcc);
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(pcc, ListKey.BONUS, bon);
 		return true;

@@ -219,7 +219,6 @@ public class NaturalattacksLst extends AbstractToken implements
 						+ bonusAttacks);
 				return null;
 			}
-			aBonus.setCreatorObject(anEquip);
 			anEquip.addToListFor(ListKey.BONUS, aBonus);
 		}
 		catch (NumberFormatException exc)

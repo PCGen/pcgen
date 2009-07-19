@@ -79,7 +79,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(dex);
 			dex.addToListFor(ListKey.BONUS, aBonus);
 		}
 		// Ignoring max dex
@@ -87,7 +86,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(dex);
 			dex.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -107,7 +105,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(chainShirt);
 			chainShirt.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -121,7 +118,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(masterwork);
 			masterwork.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(masterwork);
@@ -138,7 +134,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(plus1);
 			plus1.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(plus1);

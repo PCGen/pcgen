@@ -53,7 +53,6 @@ public final class BonusAddition
 		final BonusObj aBonus = Bonus.newBonus(bonusString);
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(target);
 			aBonus.setAddOnceOnly(addOnceOnly);
 			aPC.addAssoc(target, AssociationListKey.BONUS, aBonus);
 		}
@@ -86,7 +85,7 @@ public final class BonusAddition
 			int count = 0;
 			for (BonusObj listBonus : bonusList)
 			{
-				if (listBonus.getCreatorObject().equals(target)
+				if (target.equals(aPC.getCreatorObject(listBonus))
 						&& listBonus.toString().equals(bonusStrRep))
 				{
 					toRemove = listBonus;

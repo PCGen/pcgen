@@ -138,7 +138,6 @@ public class SAListChoiceManager extends AbstractBasicStringChoiceManager {
 					}
 					else
 					{
-						aBonus.setCreatorObject(pobject);
 						aBonus.setAddOnceOnly(true);
 						aPc.addAssoc(pobject, AssociationListKey.BONUS, aBonus);
 					}

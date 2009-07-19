@@ -1091,7 +1091,7 @@ public class BonusManager
 		}
 	}
 
-	private Object getSourceObject(BonusObj bo)
+	public Object getSourceObject(BonusObj bo)
 	{
 		Object source = activeBonusBySource.get(bo);
 		if (source == null)

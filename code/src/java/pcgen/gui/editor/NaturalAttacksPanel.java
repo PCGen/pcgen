@@ -155,7 +155,6 @@ final class NaturalAttacksPanel extends JPanel
 				
 				if (aBonus != null)
 				{
-					aBonus.setCreatorObject(anEquip);
 					anEquip.addToListFor(ListKey.BONUS, aBonus);
 				}
 			}

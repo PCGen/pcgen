@@ -52,7 +52,6 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 					+ value);
 			return false;
 		}
-		bon.setCreatorObject(mod);
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(mod, ListKey.BONUS, bon);
 		return true;

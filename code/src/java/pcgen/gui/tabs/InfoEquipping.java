@@ -2418,7 +2418,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// and build an Array of TempWrap'ers
 		for (BonusObj aBonus : pc.getTempBonusList())
 		{
-			Object aC = aBonus.getCreatorObject();
+			Object aC = pc.getCreatorObject(aBonus);
 			Object aT = aBonus.getTargetObject();
 			TempWrap tw = new TempWrap(aC, aT, aBonus);
 

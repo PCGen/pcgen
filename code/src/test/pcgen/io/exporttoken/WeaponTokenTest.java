@@ -115,35 +115,30 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
 			stat.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
 			stat.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:0|0.5*(STR>=0)");
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
 			stat.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:1|1");
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
 			stat.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:2|1.5*(STR>=0)");
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
 			stat.addToListFor(ListKey.BONUS, aBonus);
 		}
 		stat.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
@@ -154,7 +149,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(stat);
 			stat.addToListFor(ListKey.BONUS, aBonus);
 		}
 
@@ -298,7 +292,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(bite);
 			bite.addToListFor(ListKey.BONUS, aBonus);
 		}
 		bite.put(IntegerKey.SLOTS, 0);
@@ -336,7 +329,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(eqMod);
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(eqMod);
@@ -352,7 +344,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(eqMod);
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(eqMod);
@@ -365,7 +356,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(eqMod);
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().ref.importObject(eqMod);
@@ -596,7 +586,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(longswordTemplate);
 			longswordTemplate.addToListFor(ListKey.BONUS, aBonus);
 		}
 		character.addTemplate(longswordTemplate);
@@ -624,7 +613,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(martialTemplate);
 			martialTemplate.addToListFor(ListKey.BONUS, aBonus);
 		}
 		character.addTemplate(martialTemplate);
@@ -690,7 +678,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		final BonusObj wfBonus =
 				Bonus
 					.newBonus("COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
-		wfBonus.setCreatorObject(wpnFinesse);
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
 		character.addFeat(wpnFinesse, null);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
@@ -704,7 +691,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(spell2);
 			spell2.addToListFor(ListKey.BONUS, aBonus);
 		}
 		BonusObj penalty = spell2.getRawBonusList(character).get(0);

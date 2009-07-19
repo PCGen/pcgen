@@ -195,7 +195,6 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		prereq = factory.parse("PREPCLEVEL:MIN=6");
 
 		final BonusObj levelBonus = Bonus.newBonus("PCLEVEL|MY_CLASS|2");
-		levelBonus.setCreatorObject(myClass);
 		myClass.addToListFor(ListKey.BONUS, levelBonus);
 		character.calcActiveBonuses();
 

@@ -69,7 +69,6 @@ public class StatListTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(bonus);
 			bonus.addToListFor(ListKey.BONUS, aBonus);
 		}
 

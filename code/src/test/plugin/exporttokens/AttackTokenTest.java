@@ -73,7 +73,6 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		
 		if (aBonus != null)
 		{
-			aBonus.setCreatorObject(str);
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
 //		// Ignoring max dex
