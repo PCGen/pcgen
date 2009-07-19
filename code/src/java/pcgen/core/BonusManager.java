@@ -300,7 +300,7 @@ public class BonusManager
 				continue;
 			}
 
-			final CDOMObject anObj = (CDOMObject) bonus.getCreatorObject();
+			final CDOMObject anObj = (CDOMObject) getSourceObject(bonus);
 
 			if (anObj == null)
 			{
@@ -331,7 +331,7 @@ public class BonusManager
 				continue;
 			}
 
-			final CDOMObject anObj = (CDOMObject) bonus.getCreatorObject();
+			final CDOMObject anObj = (CDOMObject) getSourceObject(bonus);
 
 			if (anObj == null)
 			{
@@ -512,7 +512,7 @@ public class BonusManager
 		// Add to processed list
 		processedBonuses.add(aBonus);
 
-		final CDOMObject anObj = (CDOMObject) aBonus.getCreatorObject();
+		final CDOMObject anObj = (CDOMObject) getSourceObject(aBonus);
 
 		if (anObj == null)
 		{
@@ -681,6 +681,7 @@ public class BonusManager
 			if (isApplied(bonus) && bonus.getBonusName().equals("STAT"))
 			{
 				boolean found = false;
+				Object co = getSourceObject(bonus);
 				for (Object element : bonus.getBonusInfoList())
 				{
 					if (element instanceof PCStat
@@ -695,10 +696,9 @@ public class BonusManager
 					{
 						String name = ((MissingObject) element).getObjectName();
 						if (("%LIST".equals(name) || "LIST".equals(name))
-								&& bonus.getCreatorObject() instanceof CDOMObject)
+								&& co instanceof CDOMObject)
 						{
-							CDOMObject creator = (CDOMObject) bonus
-									.getCreatorObject();
+							CDOMObject creator = (CDOMObject) co;
 							for (FixedStringList assoc : pc
 									.getDetailedAssociations(creator))
 							{
@@ -719,8 +719,7 @@ public class BonusManager
 				// The bonus has been applied to the target stat
 				// Should it be included?
 				boolean addIt = false;
-				if (bonus.getCreatorObject() instanceof Equipment
-						|| bonus.getCreatorObject() instanceof EquipmentModifier)
+				if (co instanceof Equipment || co instanceof EquipmentModifier)
 				{
 					addIt = useEquip;
 				}
@@ -831,7 +830,7 @@ public class BonusManager
 		for (BonusObj bonus : tempBonusBySource.keySet())
 		{
 			final Object aTO = bonus.getTargetObject();
-			final Object aCO = bonus.getCreatorObject();
+			final Object aCO = getSourceObject(bonus);
 
 			String targetName = Constants.EMPTY_STRING;
 			String creatorName = Constants.EMPTY_STRING;
@@ -875,7 +874,7 @@ public class BonusManager
 				continue;
 			}
 
-			final CDOMObject aCreator = (CDOMObject) aBonus.getCreatorObject();
+			final CDOMObject aCreator = (CDOMObject) getSourceObject(aBonus);
 
 			if (aCreator == null)
 			{
@@ -909,7 +908,7 @@ public class BonusManager
 				continue;
 			}
 
-			final CDOMObject aCreator = (CDOMObject) aBonus.getCreatorObject();
+			final CDOMObject aCreator = (CDOMObject) getSourceObject(aBonus);
 
 			if (aCreator == null)
 			{
@@ -995,7 +994,7 @@ public class BonusManager
 		{
 			BonusObj bonus = me.getKey();
 			final Object aTO = bonus.getTargetObject();
-			final Object aCO = bonus.getCreatorObject();
+			final Object aCO = getSourceObject(bonus);
 
 			String targetName = Constants.EMPTY_STRING;
 			String creatorName = Constants.EMPTY_STRING;
