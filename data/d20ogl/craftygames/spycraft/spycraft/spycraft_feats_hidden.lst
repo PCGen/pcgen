@@ -44,7 +44,7 @@ Stash It			TYPE:FixerSpecialAbility	VISIBLE:NO	SAB:Stash It
 # Feat Name						Type					Visible	Required Feat				Special ABility							Define				Stackable?	Multiple?	Choose				Add 														Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
 Versatility						TYPE:PointmanSpecialAbility	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS																																				CSKILL:LIST
 
-Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE			ADD:LANGUAGE|1|TYPE=Spoken
+Faceman Linguist					TYPE:CrossClassAbility		VISIBLE:NO																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE			ADD:LANGUAGE|TYPE=Spoken
 Faceman Cold Read					TYPE:CrossClassAbility		VISIBLE:NO							SAB:Cold Read (1/session)										STACK:NO	MULT:NO
 Faceman Quick Change				TYPE:CrossClassAbility		VISIBLE:NO							SAB:Quick Change (%/session)|PointmanQuickChange	DEFINE:PointmanQuickChange|1	STACK:NO	MULT:NO
 Faceman Quick Change (additional session)	TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Faceman Quick Change															STACK:NO	MULT:NO																																			BONUS:VAR|PointmanQuickChange|1
@@ -62,8 +62,8 @@ Snoop Back Door					TYPE:CrossClassAbility		VISIBLE:NO							SAB:Back Door (1 sy
 Snoop Jury-rig					TYPE:CrossClassAbility		VISIBLE:NO							SAB:Jury-rig +%|PointmanJuryrig				DEFINE:PointmanJuryrig|2	STACK:NO	MULT:NO
 Snoop Jury-rig +1					TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Snoop Jury-rig																STACK:NO	MULT:NO																																			BONUS:VAR|PointmanJuryrig|1
 
-Soldier Bonus Feat x1				TYPE:CrossClassAbility		VISIBLE:NO																					STACK:NO	MULT:NO						ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
-Soldier Bonus Feat x2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Soldier Bonus Feat x1															STACK:NO	MULT:NO						ADD:FEAT|1|TYPE.BasicCombat,TYPE.MeleeCombat,TYPE.RangedCombat,TYPE.UnarmedCombat
+Soldier Bonus Feat x1				TYPE:CrossClassAbility		VISIBLE:NO																					STACK:NO	MULT:NO						ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
+Soldier Bonus Feat x2				TYPE:CrossClassAbility		VISIBLE:NO	PREFEAT:1,Soldier Bonus Feat x1															STACK:NO	MULT:NO						ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
 Soldier Damage Reduction			TYPE:CrossClassAbility		VISIBLE:NO																					STACK:NO	MULT:NO																																											DR:1/-
 Soldier Armor Use					TYPE:CrossClassAbility		VISIBLE:NO																					STACK:NO	MULT:NO																				BONUS:COMBAT|AC|1|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCCHECK|-1|PREEQUIP:1,TYPE=Armor
 

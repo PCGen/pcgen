@@ -8,7 +8,7 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 ###Block: Hidden Universal Template--------------------------------------------------
 
 # Template Name	Visible	Add 						Removable?
-Agent			VISIBLE:NO	ADD:FEAT|1|TYPE=StartingNationality	REMOVABLE:NO
+Agent			VISIBLE:NO	ADD:FEAT|TYPE=StartingNationality	REMOVABLE:NO
 
 ###Block: Mission Budget Temporary Bonuses--------------------------------------------------
 

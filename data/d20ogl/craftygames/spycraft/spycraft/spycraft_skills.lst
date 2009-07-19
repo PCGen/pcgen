@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Jul 16 23:47:06 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -55,10 +55,10 @@ Use Rope			KEYSTAT:DEX								TYPE:Dexterity	SOURCEPAGE:p.66
 
 # Intimidate for STR and CHA
 # Skill Name		Key Stat	Type			Visible		Source Page		Bonus to skill																								Bonus to skill rank
-Intimidate					TYPE:None		VISIBLE:GUI		SOURCEPAGE:p.56	BONUS:SKILL|Intimidate|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Intimidate (Charisma),Intimidate (Strength)|SKILL.Intimidate.MISC	BONUS:SKILLRANK|Intimidate (Charisma),Intimidate (Strength)|SKILLRANK=Intimidate
+Intimidate					TYPE:None		VISIBLE:DISPLAY	SOURCEPAGE:p.56	BONUS:SKILL|Intimidate|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Intimidate (Charisma),Intimidate (Strength)|SKILL.Intimidate.MISC	BONUS:SKILLRANK|Intimidate (Charisma),Intimidate (Strength)|SKILLRANK=Intimidate
 
-Intimidate (Charisma)	KEYSTAT:CHA	TYPE:Charisma	VISIBLE:CSHEET	SOURCEPAGE:p.56
-Intimidate (Strength)	KEYSTAT:STR	TYPE:Strength	VISIBLE:CSHEET	SOURCEPAGE:p.56
+Intimidate (Charisma)	KEYSTAT:CHA	TYPE:Charisma	VISIBLE:EXPORT	SOURCEPAGE:p.56
+Intimidate (Strength)	KEYSTAT:STR	TYPE:Strength	VISIBLE:EXPORT	SOURCEPAGE:p.56
 
 ###Block: Multiple Entry Skills
 
@@ -71,7 +71,7 @@ Craft (Bookbinding)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SO
 Craft (Calligraphy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:p.47
 Craft (Painting)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					SOURCEPAGE:p.47
 
-Hobby (Untrained)				KEYSTAT:WIS				TYPE:Wisdom.Hobby			VISIBLE:CSHEET	SOURCEPAGE:p.55
+Hobby (Untrained)				KEYSTAT:WIS				TYPE:Wisdom.Hobby			VISIBLE:EXPORT	SOURCEPAGE:p.55
 
 Hobby (Clubbing)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Hobby						SOURCEPAGE:p.55
 Hobby (Creative Writing)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Hobby						SOURCEPAGE:p.55
@@ -125,7 +125,7 @@ Profession (Teacher)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SO
 Profession (Terrorist)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:p.61
 Profession (Web Programmer)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession					SOURCEPAGE:p.61
 
-Sport (Untrained)				KEYSTAT:DEX				TYPE:Dexterity.Sport		VISIBLE:CSHEET	SOURCEPAGE:p.64
+Sport (Untrained)				KEYSTAT:DEX				TYPE:Dexterity.Sport		VISIBLE:EXPORT	SOURCEPAGE:p.64
 
 Sport (Baseball)				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Dexterity.Sport					SOURCEPAGE:p.64
 Sport (Basketball)			KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Dexterity.Sport					SOURCEPAGE:p.64

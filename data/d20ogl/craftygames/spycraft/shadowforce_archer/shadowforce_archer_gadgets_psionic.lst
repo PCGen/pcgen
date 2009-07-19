@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Jul 16 23:47:06 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -8,7 +8,7 @@ SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://ww
 #### Anti-Psi Technology
 
 # Equipment Name			Product Identity?	Type							Contains		Cost		Weight	Size		Source Page		Modify VAR
-Anti-Psi Grenade			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:.5		SIZE:S	SOURCEPAGE:p.204
+Anti-Psi Grenade			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0.5	SIZE:S	SOURCEPAGE:p.204
 Safety Field			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.204
 Sappers				NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.204
 
@@ -39,7 +39,7 @@ Ear Implant (Standard)		NAMEISPI:YES	TYPE:Gadget.EarImplant							COST:4	WT:0		S
 
 ####
 
-Icon ProStar 7			NAMEISPI:YES	TYPE:Gadget									COST:4	WT:.5		SIZE:S	SOURCEPAGE:p.206
+Icon ProStar 7			NAMEISPI:YES	TYPE:Gadget									COST:4	WT:0.5	SIZE:S	SOURCEPAGE:p.206
 
 #### OmnID Cards
 
@@ -48,15 +48,15 @@ OmnID Card (Standard)		NAMEISPI:YES	TYPE:Gadget.IDCard							COST:1	WT:0		SIZE:S
 #### P a t c h e s
 
 Patch (Adrenaline)		NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.208
-Patch (Brainscanner)		NAMEISPI:YES	TYPE:Gadget									COST:.33	WT:0		SIZE:S	SOURCEPAGE:p.209
-Patch (Caffeine Boost)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
-Patch (Calm Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
-Patch (Coagulant)			NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Brainscanner)		NAMEISPI:YES	TYPE:Gadget									COST:0.33	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Caffeine Boost)		NAMEISPI:YES	TYPE:Gadget									COST:0.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Calm Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:0.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Coagulant)			NAMEISPI:YES	TYPE:Gadget									COST:0.5	WT:0		SIZE:S	SOURCEPAGE:p.209
 Patch (Deepsleep)			NAMEISPI:YES	TYPE:Gadget									COST:2	WT:0		SIZE:S	SOURCEPAGE:p.209
-Patch (Endorphin)			NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Endorphin)			NAMEISPI:YES	TYPE:Gadget									COST:0.5	WT:0		SIZE:S	SOURCEPAGE:p.209
 Patch (Psitector)			NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.209
-Patch (Panic Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
-Patch (Telestatic Emitter)	NAMEISPI:YES	TYPE:Gadget									COST:.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Panic Emitter)		NAMEISPI:YES	TYPE:Gadget									COST:0.5	WT:0		SIZE:S	SOURCEPAGE:p.209
+Patch (Telestatic Emitter)	NAMEISPI:YES	TYPE:Gadget									COST:0.5	WT:0		SIZE:S	SOURCEPAGE:p.209
 
 #### SUPERLUMINAL Patches
 
