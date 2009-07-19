@@ -16366,7 +16366,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean isApplied(BonusObj bonus)
 	{
-		return bonusManager.isApplied(bonus);
+		Boolean applied = getAssoc(bonus, AssociationKey.IS_APPLIED);
+		return applied != null && applied;
 	}
 
 	public SpellSupportForPCClass getSpellSupport(PCClass cl)
@@ -16398,5 +16399,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Object getCreatorObject(BonusObj obj)
 	{
 		return bonusManager.getSourceObject(obj);
+	}
+
+	public void setApplied(BonusObj bonusObj, boolean bool)
+	{
+		setAssoc(bonusObj, AssociationKey.IS_APPLIED, bool);
 	}
 }

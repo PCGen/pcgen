@@ -136,11 +136,11 @@ public final class PointBuyMethod
 		}
 		for ( final BonusObj bonus : aBonusList )
 		{
-			bonus.setApplied(aPC, false);
+			aPC.setApplied(bonus, false);
 
 			if ( bonus.qualifies(aPC) )
 			{
-				bonus.setApplied(aPC, true);
+				aPC.setApplied(bonus, true);
 			}
 		}
 	}

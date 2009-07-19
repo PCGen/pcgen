@@ -5388,12 +5388,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// Check to see if the target was the PC or an Item
 			if (tName.equals(TAG_PC))
 			{
-				newB.setApplied(thePC, true);
+				thePC.setApplied(newB, true);
 				thePC.addTempBonus(newB, creator, thePC);
 			}
 			else
 			{
-				newB.setApplied(thePC, true);
+				thePC.setApplied(newB, true);
 				aEq.addTempBonus(newB);
 				thePC.addTempBonus(newB, creator, aEq);
 			}

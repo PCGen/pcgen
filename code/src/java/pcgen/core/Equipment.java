@@ -4749,12 +4749,12 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public void activateBonuses(final PlayerCharacter aPC) {
 		for (final BonusObj bonus : getRawBonusList(aPC)) {
-			bonus.setApplied(aPC, false);
+			aPC.setApplied(bonus, false);
 
 			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), this, aPC)) {
-				bonus.setApplied(aPC, true);
+				aPC.setApplied(bonus, true);
 			} else {
-				bonus.setApplied(aPC, false);
+				aPC.setApplied(bonus, false);
 			}
 		}
 	}

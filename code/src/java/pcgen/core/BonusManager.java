@@ -677,7 +677,7 @@ public class BonusManager
 
 		for (BonusObj bonus : getActiveBonusList())
 		{
-			if (isApplied(bonus) && bonus.getBonusName().equals("STAT"))
+			if (pc.isApplied(bonus) && bonus.getBonusName().equals("STAT"))
 			{
 				boolean found = false;
 				Object co = getSourceObject(bonus);
@@ -865,7 +865,7 @@ public class BonusManager
 				continue;
 			}
 
-			if (!isApplied(aBonus))
+			if (!pc.isApplied(aBonus))
 			{
 				continue;
 			}
@@ -900,7 +900,7 @@ public class BonusManager
 				continue;
 			}
 
-			if (!isApplied(aBonus))
+			if (!pc.isApplied(aBonus))
 			{
 				continue;
 			}
@@ -960,24 +960,19 @@ public class BonusManager
 				.entrySet())
 		{
 			final BonusObj bonus = me.getKey();
-			bonus.setApplied(pc, false);
+			pc.setApplied(bonus, false);
 
 			if (bonus.qualifies(pc))
 			{
-				bonus.setApplied(pc, true);
+				pc.setApplied(bonus, true);
 			}
 
-			if (isApplied(bonus))
+			if (pc.isApplied(bonus))
 			{
 				map.put(bonus, me.getValue().source);
 			}
 		}
 		return map;
-	}
-
-	public boolean isApplied(BonusObj bonus)
-	{
-		return bonus.isApplied(pc);
 	}
 
 	public Map<BonusObj, TempBonusInfo> getTempBonusMap(String aCreator, String aTarget)

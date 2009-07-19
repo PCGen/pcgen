@@ -1109,14 +1109,14 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						}
 					}
 
-					newB.setApplied(pc, false);
+					pc.setApplied(newB, false);
 					// if Target was this PC, then add
 					// bonus to TempBonusMap
 					if (aTarget instanceof PlayerCharacter)
 					{
 						if (newB.qualifies(pc))
 						{
-							newB.setApplied(pc, true);
+							pc.setApplied(newB, true);
 						}
 						pc.addTempBonus(newB, aMod, aTarget);
 					}
@@ -1127,7 +1127,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						//						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
 						if (PrereqHandler.passesAll(newB.getPrerequisiteList(), aEq, pc))
 						{
-							newB.setApplied(pc, true);
+							pc.setApplied(newB, true);
 						}
 						aEq.addTempBonus(newB);
 						pc.addTempBonus(newB, aMod, aEq);

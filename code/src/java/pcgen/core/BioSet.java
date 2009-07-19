@@ -947,7 +947,7 @@ public final class BioSet extends PObject
 
 				if (aBonus != null)
 				{
-					aBonus.setApplied(aPC, true);
+					aPC.setApplied(aBonus, true);
 					ret.add(aBonus);
 				}
 			}

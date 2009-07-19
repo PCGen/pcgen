@@ -37,7 +37,6 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
@@ -80,35 +79,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		REPLACE 
 	}
 	private StackType theStackingFlag = StackType.NORMAL;
-
-	/**
-	 * Sets the Applied flag on the bonus.
-	 * 
-	 * <p><b>Note</b>: This flag is not used in the bonus object.  Therefore,
-	 * what being applied means is up to the setter and getter of the flag.
-	 * 
-	 * <p>TODO - This method does not belong here.
-	 * @param pc TODO
-	 * @param aBool <tt>true</tt> to mark this bonus as &quot;applied&quot;
-	 */
-	public void setApplied(PlayerCharacter pc, final boolean aBool)
-	{
-		pc.setAssoc(this, AssociationKey.IS_APPLIED, aBool);
-	}
-
-	/**
-	 * Returns the state of the Applied flag.
-	 * @param pc TODO
-	 * 
-	 * @return <tt>true</tt> if the applied flag is set.
-	 * 
-	 * @see #setApplied(PlayerCharacter, boolean)
-	 */
-	public boolean isApplied(PlayerCharacter pc)
-	{
-		Boolean applied = pc.getAssoc(this, AssociationKey.IS_APPLIED);
-		return applied == null ? false : applied;
-	}
 
 	/**
 	 * Get Bonus Info
