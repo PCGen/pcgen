@@ -1915,15 +1915,6 @@ public class PCClass extends PObject
 		{
 			addAllToListFor(ListKey.BONUS, bonusList);
 		}
-		try
-		{
-			ownBonuses(this);
-		}
-		catch (CloneNotSupportedException ce)
-		{
-			// TODO Auto-generated catch block
-			ce.printStackTrace();
-		}
 
 		for (VariableKey vk : otherClass.getVariableKeys())
 		{
@@ -2122,7 +2113,6 @@ public class PCClass extends PObject
 			{
 				PCClassLevel lvl = me.getValue().clone();
 				lvl.put(ObjectKey.TOKEN_PARENT, this);
-				lvl.ownBonuses(this);
 				levelMap.put(me.getKey(), lvl);
 			}
 			catch (CloneNotSupportedException e)
@@ -2150,7 +2140,6 @@ public class PCClass extends PObject
 		try
 		{
 			PCClassLevel lvl = pcc.getOriginalClassLevel(cl).clone();
-			lvl.ownBonuses(this);
 			levelMap.put(cl, lvl);
 		}
 		catch (CloneNotSupportedException e)
@@ -2187,16 +2176,6 @@ public class PCClass extends PObject
 			}
 		}
 		return list;
-	}
-
-	@Override
-	public void ownBonuses(Object owner) throws CloneNotSupportedException
-	{
-		super.ownBonuses(owner);
-		for (PCClassLevel pcl : this.getOriginalClassLevelCollection())
-		{
-			pcl.ownBonuses(owner);
-		}
 	}
 
 	@Override

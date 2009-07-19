@@ -160,15 +160,6 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 				}
 			}
 		}
-		try
-		{
-			obj.ownBonuses(obj);
-		}
-		catch (CloneNotSupportedException e)
-		{
-			Logging.errorPrint(e.getLocalizedMessage());
-			return false;
-		}
 		return returnValue;
 	}
 
