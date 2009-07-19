@@ -100,6 +100,7 @@ import javax.swing.tree.TreeSelectionModel;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -107,6 +108,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
@@ -2416,10 +2418,13 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		// iterate thru all PC's bonuses
 		// and build an Array of TempWrap'ers
-		for (BonusObj aBonus : pc.getTempBonusList())
+		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : pc
+				.getTempBonusMap().entrySet())
 		{
-			Object aC = pc.getCreatorObject(aBonus);
-			Object aT = aBonus.getTargetObject();
+			BonusObj aBonus = me.getKey();
+			TempBonusInfo tbi = me.getValue();
+			Object aC = tbi.source;
+			Object aT = tbi.target;
 			TempWrap tw = new TempWrap(aC, aT, aBonus);
 
 			tbList.add(tw);
@@ -2442,7 +2447,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		lc.setPoolFlag(false);
 		lc.setVisible(true);
 
-		Map<BonusObj, Object> aList = new IdentityHashMap<BonusObj, Object>();
+		Map<BonusObj, BonusManager.TempBonusInfo> aList = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
 		for (String aString : (List<String>) lc.getSelectedList())
 		{
 			for (int j = 0; j < tbList.size(); j++)
@@ -3022,7 +3027,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		Collections.sort(equipSetList);
 
 		// save off the old TempBonusList
-		Map<BonusObj, Object> aList = pc.getTempBonusMap();
+		Map<BonusObj, BonusManager.TempBonusInfo> aList = pc.getTempBonusMap();
 
 		// Current EquipSet count
 		int eqCount = 0;

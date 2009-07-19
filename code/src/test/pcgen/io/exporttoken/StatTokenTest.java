@@ -153,8 +153,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		pc.setUseTempMods(true);
 		BonusObj bonus = spell.getRawBonusList(pc).get(0);
-		pc.addTempBonus(bonus, spell);
-		bonus.setTargetObject(pc);
+		pc.addTempBonus(bonus, spell, pc);
 		pc.calcActiveBonuses();
 		assertEquals("Total stat.", "14", statTok.getToken("STAT.1", pc, null));
 		assertEquals("Temp stat.", "14", statTok.getToken("STAT.1.NOEQUIP", pc,
@@ -234,8 +233,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		pc.setUseTempMods(true);
 		BonusObj bonus = spell.getRawBonusList(pc).get(0);
-		pc.addTempBonus(bonus, spell);
-		bonus.setTargetObject(pc);
+		pc.addTempBonus(bonus, spell, pc);
 		pc.calcActiveBonuses();
 		assertEquals("Total stat.", "+2", statTok.getToken("STAT.1.MOD", pc,
 			null));
@@ -316,8 +314,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 		pc.setUseTempMods(true);
 		BonusObj bonus = spell.getRawBonusList(pc).get(0);
-		pc.addTempBonus(bonus, spell);
-		bonus.setTargetObject(pc);
+		pc.addTempBonus(bonus, spell, pc);
 		pc.calcActiveBonuses();
 
 		assertEquals("Total stat.", "18", statTok.getToken("STAT.1", pc, null));

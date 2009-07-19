@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
@@ -61,7 +62,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	
 	private Equipment eq_item;
 	private Float qty = new Float(1);
-	private Map<BonusObj, Object> tempBonusBySource = new IdentityHashMap<BonusObj, Object>();
+	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
 
 	/*
 	 * the Structure of each EQUIPSET is as follows:
@@ -298,7 +299,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * Set temp bonus list
 	 * @param aList
 	 */
-	public void setTempBonusList(final Map<BonusObj, Object> aList)
+	public void setTempBonusList(final Map<BonusObj, BonusManager.TempBonusInfo> aList)
 	{
 		tempBonusBySource = aList;
 	}
@@ -307,7 +308,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * a List of BonusObj's
 	 * @return temp bonus list
 	 **/
-	public Map<BonusObj, Object> getTempBonusMap()
+	public Map<BonusObj, BonusManager.TempBonusInfo> getTempBonusMap()
 	{
 		return tempBonusBySource;
 	}

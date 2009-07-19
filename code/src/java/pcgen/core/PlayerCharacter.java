@@ -3346,14 +3346,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return List
 	 */
-	public Map<BonusObj, Object> getTempBonusMap()
+	public Map<BonusObj, BonusManager.TempBonusInfo> getTempBonusMap()
 	{
 		return bonusManager.getTempBonusMap();
-	}
-
-	public Collection<BonusObj> getTempBonusList()
-	{
-		return bonusManager.getTempBonusList();
 	}
 
 	/**
@@ -4133,9 +4128,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param aBonus
 	 */
-	public void addTempBonus(final BonusObj aBonus, Object source)
+	public void addTempBonus(final BonusObj aBonus, Object source, Object target)
 	{
-		bonusManager.addTempBonus(aBonus, source);
+		bonusManager.addTempBonus(aBonus, source, target);
 		setDirty(true);
 	}
 
@@ -16354,7 +16349,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public void setTempBonusMap(Map<BonusObj, Object> tempBonusMap)
+	public void setTempBonusMap(Map<BonusObj, BonusManager.TempBonusInfo> tempBonusMap)
 	{
 		bonusManager.setTempBonusMap(tempBonusMap);
 	}
@@ -16385,7 +16380,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return ss;
 	}
 
-	public Map<BonusObj, Object> getTempBonusMap(String sourceStr, String targetStr)
+	public Map<BonusObj, BonusManager.TempBonusInfo> getTempBonusMap(String sourceStr, String targetStr)
 	{
 		return bonusManager.getTempBonusMap(sourceStr, targetStr);
 	}

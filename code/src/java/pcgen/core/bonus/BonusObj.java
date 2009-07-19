@@ -55,7 +55,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	private List<Object>    bonusInfo       = new ArrayList<Object>();
 	private Map<String, String>     dependMap  = new HashMap<String, String>();
 	private Formula bonusFormula = FormulaFactory.ZERO;
-	private Object  targetObj;
 	/** The name of the bonus e.g. STAT or COMBAT */
 	private String  bonusName            = Constants.EMPTY_STRING;
 	/** The type of the bonus e.g. Enhancement or Dodge */
@@ -305,24 +304,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		return false;
 	}
 	
-	/**
-	 * Set Target Object
-	 * @param anObj
-	 */
-	public void setTargetObject(final Object anObj)
-	{
-		targetObj = anObj;
-	}
-
-	/**
-	 * Get target object
-	 * @return target object
-	 */
-	public Object getTargetObject()
-	{
-		return targetObj;
-	}
-
 	////////////////////////////////////////////////
 	//        Public Accessors and Mutators       //
 	////////////////////////////////////////////////

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -55,6 +56,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.BonusManager;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Description;
@@ -76,6 +78,7 @@ import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.BonusObj;
@@ -1134,10 +1137,13 @@ final class PCGVer2Creator implements IOConstants
 
 				List<String> trackList = new ArrayList<String>();
 
-				for (BonusObj bObj : eSet.getTempBonusMap().keySet())
+				for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : eSet
+						.getTempBonusMap().entrySet())
 				{
-					final Object cObj = thePC.getCreatorObject(bObj);
-					final Object tObj = bObj.getTargetObject();
+					BonusObj bObj = me.getKey();
+					TempBonusInfo tbi = me.getValue();
+					Object cObj = tbi.source;
+					Object tObj = tbi.target;
 					final String aName = tempBonusName(cObj, tObj);
 
 					if (trackList.contains(aName))
@@ -2144,10 +2150,13 @@ final class PCGVer2Creator implements IOConstants
 	private void appendTempBonuses(StringBuffer buffer)
 	{
 		final List<String> trackList = new ArrayList<String>();
-		for (final BonusObj bonus : thePC.getTempBonusList())
+		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : thePC
+				.getTempBonusMap().entrySet())
 		{
-			final Object creObj = thePC.getCreatorObject(bonus);
-			final Object tarObj = bonus.getTargetObject();
+			BonusObj bonus = me.getKey();
+			TempBonusInfo tbi = me.getValue();
+			Object creObj = tbi.source;
+			Object tarObj = tbi.target;
 			final String outString = tempBonusName(creObj, tarObj);
 
 			if (trackList.contains(outString))
@@ -2161,10 +2170,13 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(tarString);
 			
 			// TODO Why do we loop through the bonuses again?  Are there sub bonuses for each bouns?
-			for (BonusObj subBonus : thePC.getTempBonusList())
+			for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> subme : thePC
+					.getTempBonusMap().entrySet())
 			{
-				final Object cObj = thePC.getCreatorObject(subBonus);
-				final Object tObj = subBonus.getTargetObject();
+				BonusObj subBonus = me.getKey();
+				TempBonusInfo subtbi = me.getValue();
+				Object cObj = subtbi.source;
+				Object tObj = subtbi.target;
 				final String inString = tempBonusName(cObj, tObj);
 
 				if (inString.equals(outString))

@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
@@ -73,6 +74,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
+import pcgen.core.BonusManager;
 import pcgen.core.Categorisable;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -83,6 +85,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.Bonus;
@@ -1115,8 +1118,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						{
 							newB.setApplied(pc, true);
 						}
-						newB.setTargetObject(aTarget);
-						pc.addTempBonus(newB, aMod);
+						pc.addTempBonus(newB, aMod, aTarget);
 					}
 					else if (aEq != null)
 					{
@@ -1127,9 +1129,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						{
 							newB.setApplied(pc, true);
 						}
-						newB.setTargetObject(aEq);
 						aEq.addTempBonus(newB);
-						pc.addTempBonus(newB, aMod);
+						pc.addTempBonus(newB, aMod, aEq);
 						// TODO - Why does this case make us mark the PC as 
 						// dirty when the other case doesn't?
 						pc.setDirty(true);
@@ -1651,12 +1652,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			bPC = (PlayerCharacter) aTarget;
 		}
 
-		List<BonusObj> tbList = new ArrayList<BonusObj>(pc.getTempBonusList());
-
-		for (BonusObj aBonus : tbList)
+		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : pc
+				.getTempBonusMap().entrySet())
 		{
-			Object aC = pc.getCreatorObject(aBonus);
-			Object aT = aBonus.getTargetObject();
+			BonusObj aBonus = me.getKey();
+			TempBonusInfo tbi = me.getValue();
+			Object aC = tbi.source;
+			Object aT = tbi.target;
 
 			if ((aT instanceof Equipment) && (aEq != null))
 			{
@@ -2027,10 +2029,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			// iterate thru all PC's bonuses
 			// and build an Array of TempWrap'ers
-			for (BonusObj aBonus : pc.getTempBonusList())
+			for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : pc
+					.getTempBonusMap().entrySet())
 			{
-				Object aC = pc.getCreatorObject(aBonus);
-				Object aT = aBonus.getTargetObject();
+				BonusObj aBonus = me.getKey();
+				TempBonusInfo tbi = me.getValue();
+				Object aC = tbi.source;
+				Object aT = tbi.target;
 				TempWrap tw = new TempWrap(aC, aT, aBonus);
 
 				tbwList.add(tw);

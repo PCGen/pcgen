@@ -61,6 +61,7 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.BonusManager;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -84,6 +85,7 @@ import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
@@ -217,7 +219,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Given a Source string and Target string,
 	 * return a List of BonusObj's
 	 */
-	private Map<BonusObj, Object> getBonusFromName(String sName, String tName)
+	private Map<BonusObj, TempBonusInfo> getBonusFromName(String sName, String tName)
 	{
 		//sName = NAME=Haste
 		//tName = PC
@@ -2289,7 +2291,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		//# EquipSet Temp Bonuses
 		//EQSETBONUS:0.2|TEMPBONUS:NAME=Haste|TBTARGET:PC|TEMPBONUS:SPELL=Shield of Faith|TBTARGET:PC
-		final Map<BonusObj, Object> aList = new IdentityHashMap<BonusObj, Object>();
+		final Map<BonusObj, BonusManager.TempBonusInfo> aList = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
 
 		for (final PCGElement element : tokens.getElements())
 		{
@@ -5387,15 +5389,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (tName.equals(TAG_PC))
 			{
 				newB.setApplied(thePC, true);
-				newB.setTargetObject(thePC);
-				thePC.addTempBonus(newB, creator);
+				thePC.addTempBonus(newB, creator, thePC);
 			}
 			else
 			{
 				newB.setApplied(thePC, true);
-				newB.setTargetObject(aEq);
 				aEq.addTempBonus(newB);
-				thePC.addTempBonus(newB, creator);
+				thePC.addTempBonus(newB, creator, aEq);
 			}
 		}
 
