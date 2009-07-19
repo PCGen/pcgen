@@ -30,8 +30,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -215,7 +217,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Given a Source string and Target string,
 	 * return a List of BonusObj's
 	 */
-	private List<BonusObj> getBonusFromName(String sName, String tName)
+	private Map<BonusObj, Object> getBonusFromName(String sName, String tName)
 	{
 		//sName = NAME=Haste
 		//tName = PC
@@ -289,9 +291,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			targetStr = ((PObject) oTarget).getDisplayName();
 		}
 
-		List<BonusObj> aList = thePC.getTempBonusList(sourceStr, targetStr);
-
-		return aList;
+		return thePC.getTempBonusMap(sourceStr, targetStr);
 	}
 
 	private PCTemplate addKeyedTemplate(final String templateKey)
@@ -2289,7 +2289,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		//# EquipSet Temp Bonuses
 		//EQSETBONUS:0.2|TEMPBONUS:NAME=Haste|TBTARGET:PC|TEMPBONUS:SPELL=Shield of Faith|TBTARGET:PC
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final Map<BonusObj, Object> aList = new IdentityHashMap<BonusObj, Object>();
 
 		for (final PCGElement element : tokens.getElements())
 		{
@@ -2311,7 +2311,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				String sName = aTok.nextToken();
 				String tName = aTok.nextToken();
-				aList.addAll(getBonusFromName(sName, tName));
+				aList.putAll(getBonusFromName(sName, tName));
 			}
 		}
 
@@ -5278,6 +5278,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 
 			BonusObj newB = null;
+			Object creator = null;
 
 			// Check the Creator type so we know what
 			// type of object to set as the creator
@@ -5293,6 +5294,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aFeat != null)
 				{
 					newB = Bonus.newBonus(bonus);
+					creator = aFeat;
 					newB.setCreatorObject(aFeat);
 				}
 			}
@@ -5311,6 +5313,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aEquip != null)
 				{
 					newB = Bonus.newBonus(bonus);
+					creator = aEquip;
 					newB.setCreatorObject(aEquip);
 				}
 			}
@@ -5325,6 +5328,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				int idx = bonus.indexOf('|');
 				newB = Bonus.newBonus(bonus.substring(idx + 1));
+				creator = aClass;
 				newB.setCreatorObject(aClass);
 			}
 			else if (cType.equals(TAG_TEMPLATE))
@@ -5342,6 +5346,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aTemplate != null)
 				{
 					newB = Bonus.newBonus(bonus);
+					creator = aTemplate;
 					newB.setCreatorObject(aTemplate);
 				}
 			}
@@ -5360,6 +5365,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aSkill != null)
 				{
 					newB = Bonus.newBonus(bonus);
+					creator = aSkill;
 					newB.setCreatorObject(aSkill);
 				}
 			}
@@ -5370,6 +5376,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aSpell != null)
 				{
 					newB = Bonus.newBonus(bonus);
+					creator = aSpell;
 					newB.setCreatorObject(aSpell);
 				}
 			}
@@ -5389,14 +5396,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				newB.setApplied(thePC, true);
 				newB.setTargetObject(thePC);
-				thePC.addTempBonus(newB);
+				thePC.addTempBonus(newB, creator);
 			}
 			else
 			{
 				newB.setApplied(thePC, true);
 				newB.setTargetObject(aEq);
 				aEq.addTempBonus(newB);
-				thePC.addTempBonus(newB);
+				thePC.addTempBonus(newB, creator);
 			}
 		}
 

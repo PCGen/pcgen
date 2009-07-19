@@ -708,7 +708,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			spell2.addToListFor(ListKey.BONUS, aBonus);
 		}
 		BonusObj penalty = spell2.getRawBonusList(character).get(0);
-		character.addTempBonus(penalty);
+		character.addTempBonus(penalty, spell2);
 		penalty.setTargetObject(character);
 		character.calcActiveBonuses();
 		assertEquals("Fine sword", "+18/+13/+8/+3", token.getToken(

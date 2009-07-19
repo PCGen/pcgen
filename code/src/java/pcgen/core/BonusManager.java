@@ -21,6 +21,7 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
@@ -47,9 +48,9 @@ public class BonusManager
 {
 	private Map<String, String> activeBonusMap = new ConcurrentHashMap<String, String>();
 
-	private List<BonusObj> activeBonusList = new ArrayList<BonusObj>();
+	private Map<BonusObj, Object> activeBonusBySource = new IdentityHashMap<BonusObj, Object>();
 
-	private List<BonusObj> tempBonusList = new ArrayList<BonusObj>();
+	private Map<BonusObj, Object> tempBonusBySource = new IdentityHashMap<BonusObj, Object>();
 
 	private Set<String> tempBonusFilters = new TreeSet<String>();
 
@@ -320,14 +321,14 @@ public class BonusManager
 		}
 	}
 
-	public List<BonusObj> getActiveBonusList()
+	public Collection<BonusObj> getActiveBonusList()
 	{
-		return activeBonusList;
+		return activeBonusBySource.keySet();
 	}
 
-	public void setActiveBonusList(List<BonusObj> list)
+	public void setActiveBonusList(Map<BonusObj, Object> map)
 	{
-		activeBonusList = list;
+		activeBonusBySource = map;
 	}
 
 	public String listBonusesFor(String bonusType, String bonusName)
@@ -649,13 +650,11 @@ public class BonusManager
 	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
 			boolean useEquip)
 	{
-		// List<BonusObj> abl = getAllActiveBonuses();
-		List<BonusObj> abl = getActiveBonusList();
 		String statAbbr = stat.getAbb();
 		final String prefix = "STAT." + statAbbr;
 		Map<String, String> bonusMap = new HashMap<String, String>();
 
-		for (BonusObj bonus : abl)
+		for (BonusObj bonus : getActiveBonusList())
 		{
 			if (isApplied(bonus) && bonus.getBonusName().equals("STAT"))
 			{
@@ -703,7 +702,7 @@ public class BonusManager
 				{
 					addIt = useEquip;
 				}
-				else if (tempBonusList.contains(bonus))
+				else if (tempBonusBySource.containsKey(bonus))
 				{
 					addIt = useTemp;
 				}
@@ -736,16 +735,16 @@ public class BonusManager
 		return total;
 	}
 
-	public List<BonusObj> getTempBonusList()
+	public Collection<BonusObj> getTempBonusList()
 	{
-		return tempBonusList;
+		return tempBonusBySource.keySet();
 	}
 
 	public BonusManager buildDeepClone(PlayerCharacter apc)
 	{
 		BonusManager clone = new BonusManager(apc);
-		clone.activeBonusList.addAll(activeBonusList);
-		clone.tempBonusList.addAll(tempBonusList);
+		clone.activeBonusBySource.putAll(activeBonusBySource);
+		clone.tempBonusBySource.putAll(tempBonusBySource);
 		clone.activeBonusMap.putAll(activeBonusMap);
 		clone.tempBonusFilters.addAll(tempBonusFilters);
 		return clone;
@@ -756,9 +755,14 @@ public class BonusManager
 		return activeBonusMap.toString();
 	}
 
-	public void setTempBonusList(List<BonusObj> tbl)
+	public void setTempBonusMap(Map<BonusObj, Object> tbl)
 	{
-		tempBonusList = tbl;
+		tempBonusBySource = tbl;
+	}
+
+	public Map<BonusObj, Object> getTempBonusMap()
+	{
+		return tempBonusBySource;
 	}
 
 	public Map<String, String> getBonuses(String bonusString, String substring)
@@ -778,20 +782,20 @@ public class BonusManager
 		return returnMap;
 	}
 
-	public void addTempBonus(BonusObj bonus)
+	public void addTempBonus(BonusObj bonus, Object source)
 	{
-		tempBonusList.add(bonus);
+		tempBonusBySource.put(bonus, source);
 	}
 
 	public void removeTempBonus(BonusObj bonus)
 	{
-		tempBonusList.remove(bonus);
+		tempBonusBySource.remove(bonus);
 	}
 
 	public Set<String> getTempBonusNames()
 	{
 		final Set<String> ret = new TreeSet<String>();
-		for (BonusObj bonus : tempBonusList)
+		for (BonusObj bonus : tempBonusBySource.keySet())
 		{
 			ret.add(bonus.getName());
 		}
@@ -802,7 +806,7 @@ public class BonusManager
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (BonusObj bonus : tempBonusList)
+		for (BonusObj bonus : tempBonusBySource.keySet())
 		{
 			final Object aTO = bonus.getTargetObject();
 			final Object aCO = bonus.getCreatorObject();
@@ -837,7 +841,7 @@ public class BonusManager
 	{
 		final List<String> aList = new ArrayList<String>();
 
-		for (BonusObj aBonus : tempBonusList)
+		for (BonusObj aBonus : tempBonusBySource.keySet())
 		{
 			if (aBonus == null)
 			{
@@ -871,7 +875,7 @@ public class BonusManager
 	{
 		final List<String> aList = new ArrayList<String>();
 
-		for (BonusObj aBonus : tempBonusList)
+		for (BonusObj aBonus : tempBonusBySource.keySet())
 		{
 			if (aBonus == null)
 			{
@@ -901,14 +905,15 @@ public class BonusManager
 		return aList;
 	}
 
-	public List<BonusObj> getFilteredTempBonusList()
+	public Map<BonusObj, Object> getFilteredTempBonusList()
 	{
-		final List<BonusObj> ret = new ArrayList<BonusObj>();
-		for (BonusObj bonus : tempBonusList)
+		final Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
+		for (Map.Entry<BonusObj, Object> me : tempBonusBySource.entrySet())
 		{
+			BonusObj bonus = me.getKey();
 			if (!tempBonusFilters.contains(bonus.getName()))
 			{
-				ret.add(bonus);
+				ret.put(bonus, me.getValue());
 			}
 		}
 		return ret;
@@ -929,14 +934,14 @@ public class BonusManager
 		tempBonusFilters.remove(bonusStr);
 	}
 
-	public List<BonusObj> getTempBonuses()
+	public Map<BonusObj, Object> getTempBonuses()
 	{
-		final List<BonusObj> tempList = getFilteredTempBonusList();
+		final Map<BonusObj, Object> tempList = getFilteredTempBonusList();
 		if (tempList.isEmpty())
 		{
-			return Collections.emptyList();
+			return Collections.emptyMap();
 		}
-		for (final Iterator<BonusObj> tempIter = tempList.iterator(); tempIter
+		for (final Iterator<BonusObj> tempIter = tempList.keySet().iterator(); tempIter
 				.hasNext();)
 		{
 			final BonusObj bonus = tempIter.next();
@@ -958,6 +963,43 @@ public class BonusManager
 	public boolean isApplied(BonusObj bonus)
 	{
 		return bonus.isApplied(pc);
+	}
+
+	public Map<BonusObj, Object> getTempBonusMap(String aCreator,
+			String aTarget)
+	{
+		final Map<BonusObj, Object> aMap = new IdentityHashMap<BonusObj, Object>();
+
+		for (Map.Entry<BonusObj, Object> me : tempBonusBySource.entrySet())
+		{
+			BonusObj bonus = me.getKey();
+			final Object aTO = bonus.getTargetObject();
+			final Object aCO = bonus.getCreatorObject();
+
+			String targetName = Constants.EMPTY_STRING;
+			String creatorName = Constants.EMPTY_STRING;
+
+			if (aCO instanceof CDOMObject)
+			{
+				creatorName = ((CDOMObject) aCO).getKeyName();
+			}
+
+			if (aTO instanceof PlayerCharacter)
+			{
+				targetName = ((PlayerCharacter) aTO).getName();
+			}
+			else if (aTO instanceof PObject)
+			{
+				targetName = ((PObject) aTO).getKeyName();
+			}
+
+			if (creatorName.equals(aCreator) && targetName.equals(aTarget))
+			{
+				aMap.put(bonus, me.getValue());
+			}
+		}
+
+		return aMap;
 	}
 
 }

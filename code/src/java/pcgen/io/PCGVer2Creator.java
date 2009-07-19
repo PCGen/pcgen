@@ -1134,7 +1134,7 @@ final class PCGVer2Creator implements IOConstants
 
 				List<String> trackList = new ArrayList<String>();
 
-				for (BonusObj bObj : eSet.getTempBonusList())
+				for (BonusObj bObj : eSet.getTempBonusMap().keySet())
 				{
 					final Object cObj = bObj.getCreatorObject();
 					final Object tObj = bObj.getTargetObject();

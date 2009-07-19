@@ -580,7 +580,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			spell2.addToListFor(ListKey.BONUS, aBonus);
 		}
 		BonusObj penalty = spell2.getRawBonusList(pc).get(0);
-		pc.addTempBonus(penalty);
+		pc.addTempBonus(penalty, spell2);
 		penalty.setTargetObject(pc);
 		pc.calcActiveBonuses();
 

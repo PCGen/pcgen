@@ -25,16 +25,16 @@
  */
 package pcgen.core.character;
 
+import java.util.IdentityHashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-import pcgen.core.bonus.BonusObj;
 
 /*
  ******    ***   ******    ******   ****   *****
@@ -61,7 +61,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	
 	private Equipment eq_item;
 	private Float qty = new Float(1);
-	private List<BonusObj> tempBonusList = new ArrayList<BonusObj>();
+	private Map<BonusObj, Object> tempBonusBySource = new IdentityHashMap<BonusObj, Object>();
 
 	/*
 	 * the Structure of each EQUIPSET is as follows:
@@ -298,18 +298,18 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * Set temp bonus list
 	 * @param aList
 	 */
-	public void setTempBonusList(final List<BonusObj> aList)
+	public void setTempBonusList(final Map<BonusObj, Object> aList)
 	{
-		tempBonusList = aList;
+		tempBonusBySource = aList;
 	}
 
 	/**
 	 * a List of BonusObj's
 	 * @return temp bonus list
 	 **/
-	public List<BonusObj> getTempBonusList()
+	public Map<BonusObj, Object> getTempBonusMap()
 	{
-		return tempBonusList;
+		return tempBonusBySource;
 	}
 
 	/**
@@ -354,7 +354,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 */
 	public void clearTempBonusList()
 	{
-		tempBonusList.clear();
+		tempBonusBySource.clear();
 	}
 
 	/**
@@ -423,6 +423,6 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 */
 	public boolean useTempBonusList()
 	{
-		return !tempBonusList.isEmpty();
+		return !tempBonusBySource.isEmpty();
 	}
 }

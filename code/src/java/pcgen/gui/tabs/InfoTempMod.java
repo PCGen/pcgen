@@ -1117,7 +1117,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						}
 						newB.setCreatorObject(aMod);
 						newB.setTargetObject(aTarget);
-						pc.addTempBonus(newB);
+						pc.addTempBonus(newB, aMod);
 					}
 					else if (aEq != null)
 					{
@@ -1131,7 +1131,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						newB.setCreatorObject(aMod);
 						newB.setTargetObject(aEq);
 						aEq.addTempBonus(newB);
-						pc.addTempBonus(newB);
+						pc.addTempBonus(newB, aMod);
 						// TODO - Why does this case make us mark the PC as 
 						// dirty when the other case doesn't?
 						pc.setDirty(true);

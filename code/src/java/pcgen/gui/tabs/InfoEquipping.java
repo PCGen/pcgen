@@ -58,6 +58,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EventObject;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -2409,7 +2410,6 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	 **/
 	private void chooseTempBonuses(EquipSet eSet)
 	{
-		List<BonusObj> aList = new ArrayList<BonusObj>();
 		List<String> checkList = new ArrayList<String>();
 		List<TempWrap> tbList = new ArrayList<TempWrap>();
 		List<String> sList = new ArrayList<String>();
@@ -2442,6 +2442,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		lc.setPoolFlag(false);
 		lc.setVisible(true);
 
+		Map<BonusObj, Object> aList = new IdentityHashMap<BonusObj, Object>();
 		for (String aString : (List<String>) lc.getSelectedList())
 		{
 			for (int j = 0; j < tbList.size(); j++)
@@ -2453,7 +2454,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				{
 					String sourceStr = tw.getCreatorName();
 					String targetStr = tw.getTargetName();
-					aList.addAll(pc.getTempBonusList(sourceStr, targetStr));
+					aList.putAll(pc.getTempBonusMap(sourceStr, targetStr));
 					checkList.add(tbString);
 				}
 			}
@@ -3021,7 +3022,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		Collections.sort(equipSetList);
 
 		// save off the old TempBonusList
-		List<BonusObj> aList = pc.getTempBonusList();
+		Map<BonusObj, Object> aList = pc.getTempBonusMap();
 
 		// Current EquipSet count
 		int eqCount = 0;
@@ -3048,7 +3049,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			// set TempBonus List
 			if (esRL.useTempBonusList())
 			{
-				pc.setTempBonusList(esRL.getTempBonusList());
+				pc.setTempBonusMap(esRL.getTempBonusMap());
 			}
 
 			// using the split eqsheet template
@@ -3059,7 +3060,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			pc.setUseTempMods(currentTempBonus);
 
 			// reset TempBonus List back to original value
-			pc.setTempBonusList(aList);
+			pc.setTempBonusMap(aList);
 		}
 
 		// make sure everything has been written

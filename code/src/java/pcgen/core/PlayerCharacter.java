@@ -40,6 +40,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -111,7 +112,6 @@ import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
@@ -3344,19 +3344,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return List
 	 */
-	public List<BonusObj> getTempBonusList()
+	public Map<BonusObj, Object> getTempBonusMap()
 	{
-		return bonusManager.getTempBonusList();
+		return bonusManager.getTempBonusMap();
 	}
 
-	/**
-	 * get filtered temp bonus list
-	 * 
-	 * @return filtered temp bonus list
-	 */
-	public List<BonusObj> getFilteredTempBonusList()
+	public Collection<BonusObj> getTempBonusList()
 	{
-		return bonusManager.getFilteredTempBonusList();
+		return bonusManager.getTempBonusList();
 	}
 
 	/**
@@ -4136,9 +4131,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param aBonus
 	 */
-	public void addTempBonus(final BonusObj aBonus)
+	public void addTempBonus(final BonusObj aBonus, Object source)
 	{
-		bonusManager.addTempBonus(aBonus);
+		bonusManager.addTempBonus(aBonus, source);
 		setDirty(true);
 	}
 
@@ -8024,9 +8019,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	private List<BonusObj> getAllActiveBonuses()
+	private Map<BonusObj, Object> getAllActiveBonuses()
 	{
-		List<BonusObj> ret = new ArrayList<BonusObj>();
+		Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
 
 		for (final PObject pobj : getPObjectList())
 		{
@@ -8041,18 +8036,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					pobj.activateBonuses(this);
 
-					ret.addAll(pobj.getActiveBonuses(this));
+					List<BonusObj> abs = pobj.getActiveBonuses(this);
+					for (BonusObj bo : abs)
+					{
+						ret.put(bo, pobj);
+					}
 				}
 			}
 		}
 
-		ret.addAll(getPurchaseModeBonuses());
+		ret.putAll(getPurchaseModeBonuses());
 
 		if (getUseTempMods())
 		{
-			ret.addAll(bonusManager.getTempBonuses());
+			ret.putAll(bonusManager.getTempBonuses());
 		}
-		ret = Bonus.sortBonusList(ret);
+		//ret = Bonus.sortBonusList(ret);
 		return ret;
 	}
 
@@ -10416,7 +10415,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return List
 	 */
-	public List<BonusObj> getActiveBonusList()
+	public Collection<BonusObj> getActiveBonusList()
 	{
 		return bonusManager.getActiveBonusList();
 	}
@@ -11740,9 +11739,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return totalBonus;
 	}
 
-	// private void calcPurchaseModeBonuses()
-	private List<BonusObj> getPurchaseModeBonuses()
+	private Map<BonusObj, Object> getPurchaseModeBonuses()
 	{
+		Map<BonusObj, Object> map = new IdentityHashMap<BonusObj, Object>();
 		final GameMode gm = SettingsHandler.getGame();
 		final String purchaseMethodName = gm.getPurchaseModeMethodName();
 		if (gm.isPurchaseStatMode())
@@ -11751,11 +11750,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					gm.getPurchaseMethodByName(purchaseMethodName);
 			pbm.activateBonuses(this);
 
-			// final List<BonusObj> tempList = pbm.getActiveBonuses();
-			// addListToActiveBonuses(tempList);
-			return pbm.getActiveBonuses(this);
+			List<BonusObj> abs = pbm.getActiveBonuses(this);
+			for (BonusObj bo : abs)
+			{
+				map.put(bo, pbm);
+			}
+			return map;
 		}
-		return Collections.emptyList();
+		return map;
 	}
 
 	/**
@@ -16350,9 +16352,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 	}
 
-	public void setTempBonusList(List<BonusObj> tempBonusList)
+	public void setTempBonusMap(Map<BonusObj, Object> tempBonusMap)
 	{
-		bonusManager.setTempBonusList(tempBonusList);
+		bonusManager.setTempBonusMap(tempBonusMap);
 	}
 
 	public Map<String, String> getBonusStrings(String bonusString, String substring)
@@ -16379,5 +16381,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			setAssoc(cl, AssociationKey.SPELL_SUPPORT, ss);
 		}
 		return ss;
+	}
+
+	public Map<BonusObj, Object> getTempBonusMap(String sourceStr, String targetStr)
+	{
+		return bonusManager.getTempBonusMap(sourceStr, targetStr);
 	}
 }
