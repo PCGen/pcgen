@@ -463,7 +463,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if (!hasSkill(skill))
 			{
-				if (!CoreUtility.doublesEqual(skill.getSkillRankBonusTo(this),
+				if (!CoreUtility.doublesEqual(SkillRankControl.getSkillRankBonusTo(this, skill),
 					0.0))
 				{
 					addSkill(skill);

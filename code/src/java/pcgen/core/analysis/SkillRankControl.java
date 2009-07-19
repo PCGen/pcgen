@@ -23,10 +23,14 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.base.CDOMObjectUtilities;
+import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -72,7 +76,7 @@ public class SkillRankControl
 	{
 		double baseRanks = getRank(pc, sk).doubleValue();
 		double ranks = baseRanks
-				+ (pc == null ? 0.0 : sk.getSkillRankBonusTo(pc));
+				+ (pc == null ? 0.0 : SkillRankControl.getSkillRankBonusTo(pc, sk));
 		if (!Globals.checkRule(RuleConstants.SKILLMAX)
 				&& pc.getClassList().size() > 0)
 		{
@@ -331,6 +335,65 @@ public class SkillRankControl
 	{
 		return StringUtil.join(pc.getAssocList(sk, AssociationListKey.SKILL_RANK),
 				", ");
+	}
+
+	/**
+	 * Get the bonus to a skill rank
+	 * 
+	 * @param aPC
+	 * @return bonus to skill rank
+	 */
+	public static double getSkillRankBonusTo(PlayerCharacter aPC, Skill sk)
+	{
+		double bonus = aPC.getTotalBonusTo("SKILLRANK", sk.getKeyName());
+		for (Type singleType : sk.getTrueTypeList(false))
+		{
+			bonus += aPC.getTotalBonusTo("SKILLRANK", "TYPE." + singleType);
+		}
+	
+		updateAdds(aPC, sk, bonus);
+	
+		return bonus;
+	}
+
+	public static void updateAdds(PlayerCharacter aPC, Skill sk, double bonus)
+	{
+		// Check for ADDs
+		List<PersistentTransitionChoice<?>> adds = sk.getListFor(ListKey.ADD);
+		if (adds != null)
+		{
+			int iCount = 0;
+			for (PersistentTransitionChoice<?> ptc : adds)
+			{
+				iCount += aPC.getAssocCount(ptc, AssociationListKey.ADD);
+			}
+	
+			if (CoreUtility.doublesEqual(getRank(aPC, sk).doubleValue() + bonus,
+					0.0))
+			{
+				//
+				// There was a total (because we've applied the ADD's, but now
+				// there isn't.
+				// Need to remove the ADDed items
+				//
+				if (iCount != 0)
+				{
+					CDOMObjectUtilities.removeAdds(sk, aPC);
+				}
+			}
+			else
+			{
+				//
+				// There wasn't a total (because we haven't applied the ADDs),
+				// but now there is
+				// Need to apply the ADDed items
+				//
+				if (iCount == 0)
+				{
+					CDOMObjectUtilities.addAdds(sk, aPC);
+				}
+			}
+		}
 	}
 
 }

@@ -67,29 +67,6 @@ public final class SubClass extends PCClass implements CategorizedCDOMObject<Sub
 		return getSafe(IntegerKey.COST);
 	}
 
-	public String getSupplementalDisplayInfo() {
-		boolean added = false;
-		StringBuffer displayInfo = new StringBuffer();
-		if (getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) != 0) {
-			displayInfo.append("SPECIALTY SPELLS:").append(
-					getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY));
-			added = true;
-		}
-
-		if (getSpellBaseStat() != null) {
-			if (added) {
-				displayInfo.append(" ");
-			}
-			displayInfo.append("SPELL BASE STAT:").append(getSpellBaseStat());
-			added = true;
-		}
-
-		if (!added) {
-			displayInfo.append(' ');
-		}
-		return displayInfo.toString();
-	}
-
 	public Category<SubClass> getCDOMCategory()
 	{
 		return get(ObjectKey.SUBCLASS_CATEGORY);

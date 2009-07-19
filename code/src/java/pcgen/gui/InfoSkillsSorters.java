@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.SkillInfoUtilities;
 import pcgen.gui.tabs.InfoSkills;
 import pcgen.gui.utils.PObjectNode;
 
@@ -103,7 +104,7 @@ public final class InfoSkillsSorters
 
 		public Object whatPart(boolean available, Skill skill, PlayerCharacter pc)
 		{
-			Iterator<Type> iter = skill.getSubtypeIterator();
+			Iterator<Type> iter = SkillInfoUtilities.getSubtypeIterator(skill);
 			if (iter.hasNext())
 			{
 				return iter;
@@ -317,7 +318,7 @@ public final class InfoSkillsSorters
 		public boolean nodeGoHere(PObjectNode node, Skill skill)
 		{
 			String skillType;
-			for (Iterator<Type> it = skill.getSubtypeIterator(); it.hasNext();)
+			for (Iterator<Type> it = SkillInfoUtilities.getSubtypeIterator(skill); it.hasNext();)
 			{
 				skillType = it.next().toString();
 				if (!Globals.isSkillTypeHidden(skillType))
@@ -388,7 +389,7 @@ public final class InfoSkillsSorters
 		public boolean nodeGoHere(PObjectNode node, Skill skill)
 		{
 			String skillType;
-			for (Iterator<Type> it = skill.getSubtypeIterator(); it.hasNext();)
+			for (Iterator<Type> it = SkillInfoUtilities.getSubtypeIterator(skill); it.hasNext();)
 			{
 				skillType = it.next().toString();
 				if (!Globals.isSkillTypeHidden(skillType))

@@ -129,7 +129,7 @@ public final class SkillModifier
 			if (Globals.getGameModeHasPointPool())
 			{
 				ArrayList<Type> typeList = new ArrayList<Type>();
-				sk.getKeyStatList(pc, typeList);
+				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
 				for (int i = 0; i < typeList.size(); ++i)
 				{
 					statMod += pc.getTotalBonusTo("SKILL", "TYPE."

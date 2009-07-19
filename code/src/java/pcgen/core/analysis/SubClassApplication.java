@@ -78,7 +78,7 @@ public class SubClassApplication
 	
 			columnList.add(sc);
 			columnList.add(Integer.toString(sc.getSafe(IntegerKey.COST)));
-			columnList.add(sc.getSupplementalDisplayInfo());
+			columnList.add(SubClassApplication.getSupplementalDisplayInfo(sc));
 	
 			// If a subclass has already been selected, only add that one
 			if (!subClassSelected
@@ -212,7 +212,7 @@ public class SubClassApplication
 	
 				columnList.add(sub);
 				columnList.add(Integer.toString(displayedCost));
-				columnList.add(sub.getSupplementalDisplayInfo());
+				columnList.add(SubClassApplication.getSupplementalDisplayInfo(sub));
 				columnList.add(sub.getChoice());
 	
 				choiceList.add(columnList);
@@ -279,6 +279,29 @@ public class SubClassApplication
 	
 		pc.removeAllAssocs(cl, AssociationListKey.SPELL_LIST_CACHE);
 		cl.getSpellLists(pc);
+	}
+
+	public static String getSupplementalDisplayInfo(SubClass sc) {
+		boolean added = false;
+		StringBuffer displayInfo = new StringBuffer();
+		if (sc.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) != 0) {
+			displayInfo.append("SPECIALTY SPELLS:").append(
+					sc.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY));
+			added = true;
+		}
+	
+		if (sc.getSpellBaseStat() != null) {
+			if (added) {
+				displayInfo.append(" ");
+			}
+			displayInfo.append("SPELL BASE STAT:").append(sc.getSpellBaseStat());
+			added = true;
+		}
+	
+		if (!added) {
+			displayInfo.append(' ');
+		}
+		return displayInfo.toString();
 	}
 
 }

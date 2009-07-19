@@ -115,6 +115,7 @@ import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.analysis.SkillInfoUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -2330,7 +2331,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			b.append(PropertyFactory.getString("in_iskHtml_TYPE"))
 				.append(StringUtil.join(aSkill.getTrueTypeList(true), ". ")); //$NON-NLS-1$
 
-			String aString = aSkill.getKeyStatFromStats(pc);
+			String aString = SkillInfoUtilities.getKeyStatFromStats(pc, aSkill);
 			if (aString.length() != 0)
 			{
 				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$

@@ -1,0 +1,180 @@
+/*
+ * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Derived from Skill.java
+ * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.core.analysis;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+
+public class SkillInfoUtilities
+{
+
+	/**
+	 * Get the key attribute's description
+	 * 
+	 * @return description
+	 */
+	public static String getKeyStatFromStats(PlayerCharacter pc, Skill sk)
+	{
+		PCStat stat = sk.get(ObjectKey.KEY_STAT);
+		if (stat == null)
+		{
+			if (Globals.getGameModeHasPointPool())
+			{
+				List<PCStat> statList = SkillInfoUtilities.getKeyStatList(pc, sk, null);
+				StringBuilder sb = new StringBuilder();
+				boolean needSlash = false;
+				for (PCStat s : statList)
+				{
+					if (needSlash)
+					{
+						sb.append('/');
+					}
+					sb.append(s.getAbb());
+				}
+				return sb.toString();
+			}
+			else
+			{
+				return "";
+			}
+		}
+		else
+		{
+			return stat.getAbb();
+		}
+	}
+
+	/**
+	 * Get a list of PCStat's that apply a SKILL bonus to this skill. Generates
+	 * (optionally, if typeList is non-null) a list of String's types
+	 * 
+	 * @param typeList
+	 * @return List of stats that apply
+	 */
+	public static List<PCStat> getKeyStatList(PlayerCharacter pc, Skill sk, List<Type> typeList)
+	{
+		List<PCStat> aList = new ArrayList<PCStat>();
+		if (Globals.getGameModeHasPointPool())
+		{
+			for (Type aType : sk.getTrueTypeList(false))
+			{
+				for (PCStat stat : pc.getUnmodifiableStatList())
+				{
+					//
+					// Get a list of all BONUS:SKILL|TYPE.<type>|x for this
+					// skill that would come from current stat
+					//
+					List<BonusObj> bonusList = SkillInfoUtilities.getBonusListOfType(stat, Bonus
+							.getBonusTypeFromName("SKILL"), "TYPE." + aType);
+					if (bonusList.size() > 0)
+					{
+						for (int iCount = bonusList.size() - 1; iCount >= 0; --iCount)
+						{
+							aList.add(stat);
+						}
+						if ((typeList != null) && !typeList.contains(aType))
+						{
+							typeList.add(aType);
+						}
+					}
+				}
+			}
+		}
+		return aList;
+	}
+
+	//
+	// Get a list of all BonusObj's from passed stat that apply a bonus of the
+	// passed type and name
+	//
+	public static List<BonusObj> getBonusListOfType(final PCStat aStat,
+			final int iType, final String aName)
+	{
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
+	
+		for (BonusObj bonus : aStat.getSafeListFor(ListKey.BONUS))
+		{
+			if (bonus.getTypeOfBonusAsInt() != iType)
+			{
+				continue;
+			}
+	
+			if (bonus.getBonusInfoList().size() > 1)
+			{
+				final StringTokenizer aTok = new StringTokenizer(bonus
+						.getBonusInfo(), ",");
+	
+				while (aTok.hasMoreTokens())
+				{
+					final String aBI = aTok.nextToken();
+	
+					if (aBI.equalsIgnoreCase(aName))
+					{
+						aList.add(bonus);
+					}
+				}
+			}
+			else if (bonus.getBonusInfo().equalsIgnoreCase(aName))
+			{
+				aList.add(bonus);
+			}
+		}
+	
+		return aList;
+	}
+
+	/**
+	 * Get an iterator for the sub types
+	 * 
+	 * @return iterator for the sub types
+	 */
+	public static Iterator<Type> getSubtypeIterator(Skill sk)
+	{
+		List<Type> ret = sk.getSafeListFor(ListKey.TYPE);
+		PCStat keystat = sk.get(ObjectKey.KEY_STAT);
+		if (keystat == null)
+		{
+			ret.remove(Type.NONE);
+		}
+		else
+		{
+			// skip the keystat
+			ret.remove(Type.getConstant(keystat.getDisplayName()));
+			/*
+			 * TODO This is magic, and makes tremendous assumptions about the
+			 * DATA - BAD BAD BAD
+			 */
+		}
+		return ret.iterator();
+	}
+
+}

@@ -32,6 +32,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.QualifiedName;
+import pcgen.core.analysis.SkillInfoUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.ExportHandler;
@@ -343,7 +344,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_ABILITY:
-					retValue.append(aSkill.getKeyStatFromStats(pc));
+					retValue.append(SkillInfoUtilities.getKeyStatFromStats(pc, aSkill));
 					break;
 
 				case SKILL_ABMOD:
