@@ -798,7 +798,7 @@ public class BonusManager
 		final Set<String> ret = new TreeSet<String>();
 		for (BonusObj bonus : tempBonusBySource.keySet())
 		{
-			ret.add(bonus.getName());
+			ret.add(getBonusName(bonus));
 		}
 		return ret;
 	}
@@ -912,7 +912,7 @@ public class BonusManager
 		for (Map.Entry<BonusObj, Object> me : tempBonusBySource.entrySet())
 		{
 			BonusObj bonus = me.getKey();
-			if (!tempBonusFilters.contains(bonus.getName()))
+			if (!tempBonusFilters.contains(getBonusName(bonus)))
 			{
 				ret.put(bonus, me.getValue());
 			}
@@ -1058,6 +1058,49 @@ public class BonusManager
 		{
 			source = tempBonusBySource.get(bo);
 		}
-		return source == null ? "" : source.toString();
+		if (source == null)
+		{
+			return "NONE";
+		}
+		if (source instanceof PlayerCharacter)
+		{
+			return ((PlayerCharacter) source).getName();
+		}
+		else //if (source instanceof PObject)
+		{
+			return source.toString();
+		}
 	}
+
+	/**
+	 * Returns a String which can be used to display in the GUI
+	 * @return name
+	 */
+	public String getBonusName(BonusObj bonus)
+	{
+		final StringBuilder buffer = new StringBuilder();
+
+		buffer.append(getSource(bonus));
+		buffer.append(" [");
+
+		Object targetObj = bonus.getTargetObject();
+
+		if (targetObj instanceof PlayerCharacter)
+		{
+			buffer.append("PC");
+		}
+		else if (targetObj instanceof Equipment)
+		{
+			buffer.append(((Equipment) targetObj).getName());
+		}
+		else
+		{
+			buffer.append("NONE");
+		}
+
+		buffer.append(']');
+
+		return buffer.toString();
+	}
+
 }

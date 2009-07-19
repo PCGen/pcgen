@@ -40,7 +40,6 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
@@ -240,47 +239,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		buff.append("]");
 		return buff.toString();
-	}
-
-	/**
-	 * Returns a String which can be used to display in the GUI
-	 * @return name
-	 */
-	public String getName()
-	{
-		final StringBuffer buffer = new StringBuffer();
-
-		if (creatorObj instanceof PlayerCharacter)
-		{
-			buffer.append(((PlayerCharacter) creatorObj).getName());
-		}
-		else if (creatorObj instanceof PObject)
-		{
-			buffer.append(creatorObj.toString());
-		}
-		else
-		{
-			buffer.append("NONE");
-		}
-
-		buffer.append(" [");
-
-		if (targetObj instanceof PlayerCharacter)
-		{
-			buffer.append("PC");
-		}
-		else if (targetObj instanceof Equipment)
-		{
-			buffer.append(((Equipment) targetObj).getName());
-		}
-		else
-		{
-			buffer.append("NONE");
-		}
-
-		buffer.append(']');
-
-		return buffer.toString();
 	}
 
 	/**
