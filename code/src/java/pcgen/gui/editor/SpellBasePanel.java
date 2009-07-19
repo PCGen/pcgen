@@ -221,15 +221,15 @@ public class SpellBasePanel extends BasePanel
 		}
 		pnlDescription.setText(buf.toString()); // don't want PI here
 		pnlDescription.setDescIsPI(thisSpell.getSafe(ObjectKey.DESC_PI));
-		cmbComponents.setSelectedItem(thisSpell.getComponentList());
-		cmbCastingTime.setSelectedItem(thisSpell.getCastingTime());
-		cmbRange.setSelectedItem(thisSpell.getRange());
+		cmbComponents.setSelectedItem(thisSpell.getListAsString(ListKey.COMPONENTS));
+		cmbCastingTime.setSelectedItem(thisSpell.getListAsString(ListKey.CASTTIME));
+		cmbRange.setSelectedItem(thisSpell.getListAsString(ListKey.RANGE));
 		cmbTarget.setSelectedItem(thisSpell.getSafe(StringKey.TARGET_AREA));
-		cmbDuration.setSelectedItem(thisSpell.getDuration());
-		cmbSavingThrow.setSelectedItem(thisSpell.getSaveInfo());
-		cmbSpellRes.setSelectedItem(thisSpell.getSpellResistance());
-		cmbSchool.setSelectedItem(thisSpell.getSchool());
-		cmbSubschool.setSelectedItem(thisSpell.getSubschool());
+		cmbDuration.setSelectedItem(thisSpell.getListAsString(ListKey.DURATION));
+		cmbSavingThrow.setSelectedItem(thisSpell.getListAsString(ListKey.SAVE_INFO));
+		cmbSpellRes.setSelectedItem(thisSpell.getListAsString(ListKey.SPELL_RESISTANCE));
+		cmbSchool.setSelectedItem(thisSpell.getListAsString(ListKey.SPELL_SCHOOL));
+		cmbSubschool.setSelectedItem(thisSpell.getListAsString(ListKey.SPELL_SUBSCHOOL));
 		txtDescriptor.setText(StringUtil.join(thisSpell
 				.getListFor(ListKey.SPELL_DESCRIPTOR), ","));
 

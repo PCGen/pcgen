@@ -60,6 +60,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.spell.Component;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceManager;
@@ -440,12 +441,12 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (spellFilters.size() == 0)
 		{
-			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.VERBAL.toString()));
-			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.SOMATIC.toString()));
-			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.MATERIAL.toString()));
-			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.DIVINEFOCUS.toString()));
-			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.FOCUS.toString()));
-			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.EXPERIENCE.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Component.VERBAL.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Component.SOMATIC.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Component.MATERIAL.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Component.DIVINEFOCUS.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Component.FOCUS.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Component.EXPERIENCE.toString()));
 
 			for ( final String castTime : Globals.getCastingTimesSet() )
 			{
@@ -1883,7 +1884,7 @@ final class CastingTimeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			return ((Spell) pObject).getCastingTime().equals(castingTime);
+			return ((Spell) pObject).getListAsString(ListKey.CASTTIME).equals(castingTime);
 		}
 
 		return true;
@@ -1915,7 +1916,7 @@ final class ComponentFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			StringTokenizer tokens = new StringTokenizer(((Spell) pObject).getComponentList());
+			StringTokenizer tokens = new StringTokenizer(((Spell) pObject).getListAsString(ListKey.COMPONENTS));
 
 			while (tokens.hasMoreTokens())
 			{
@@ -2026,7 +2027,7 @@ final class RangeFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			return normalizeRange(((Spell) pObject).getRange()).indexOf(range) > -1;
+			return normalizeRange(((Spell) pObject).getListAsString(ListKey.RANGE)).indexOf(range) > -1;
 		}
 
 		return true;
@@ -2225,7 +2226,7 @@ final class SchoolFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			return ((Spell) pObject).getSchool().equals(school);
+			return ((Spell) pObject).getListAsString(ListKey.SPELL_SCHOOL).equals(school);
 		}
 
 		return true;
@@ -2259,7 +2260,7 @@ final class SpellResistanceFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			return ((Spell) pObject).getSpellResistance().indexOf(sr) > -1;
+			return ((Spell) pObject).getListAsString(ListKey.SPELL_RESISTANCE).indexOf(sr) > -1;
 		}
 
 		return true;
@@ -2315,7 +2316,7 @@ final class SubschoolFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Spell)
 		{
-			return normalizeSubschool(((Spell) pObject).getSubschool()).equals(school);
+			return normalizeSubschool(((Spell) pObject).getListAsString(ListKey.SPELL_SUBSCHOOL)).equals(school);
 		}
 
 		return true;

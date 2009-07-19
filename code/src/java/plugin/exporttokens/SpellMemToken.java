@@ -34,6 +34,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -259,11 +260,11 @@ public class SpellMemToken extends Token
 						}
 						else if ("CASTINGTIME".equals(aLabel))
 						{
-							retValue.append(aSpell.getCastingTime());
+							retValue.append(aSpell.getListAsString(ListKey.CASTTIME));
 						}
 						else if ("COMPONENTS".equals(aLabel))
 						{
-							retValue.append(aSpell.getComponentList());
+							retValue.append(aSpell.getListAsString(ListKey.COMPONENTS));
 						}
 						else if ("COST".equals(aLabel))
 						{
@@ -271,7 +272,7 @@ public class SpellMemToken extends Token
 						}
 						else if ("DC".equals(aLabel))
 						{
-							String SaveInfo = aSpell.getSaveInfo();
+							String SaveInfo = aSpell.getListAsString(ListKey.SAVE_INFO);
 							if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
 							{
 								int dc = aPC.getDC(aSpell, si);
@@ -281,8 +282,7 @@ public class SpellMemToken extends Token
 						else if ("DURATION".equals(aLabel))
 						{
 							String mString =
-									aPC.parseSpellString(selectedCSpell, aSpell
-										.getDuration(), selectedCSpell
+									aPC.parseSpellString(selectedCSpell, aSpell.getListAsString(ListKey.DURATION), selectedCSpell
 										.getOwner());
 							retValue.append(mString);
 						}
@@ -306,11 +306,11 @@ public class SpellMemToken extends Token
 						}
 						else if ("SAVEINFO".equals(aLabel))
 						{
-							retValue.append(aSpell.getSaveInfo());
+							retValue.append(aSpell.getListAsString(ListKey.SAVE_INFO));
 						}
 						else if ("SCHOOL".equals(aLabel))
 						{
-							retValue.append(aSpell.getSchool());
+							retValue.append(aSpell.getListAsString(ListKey.SPELL_SCHOOL));
 						}
 						else if ("SOURCELEVEL".equals(aLabel))
 						{
@@ -331,36 +331,36 @@ public class SpellMemToken extends Token
 						}
 						else if ("SUBSCHOOL".equals(aLabel))
 						{
-							retValue.append(aSpell.getSubschool());
+							retValue.append(aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL));
 						}
 						else if ("DESCRIPTOR".equals(aLabel))
 						{
-							retValue.append(aSpell.descriptor());
+							retValue.append(aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR));
 						}
 						else if ("FULLSCHOOL".equals(aLabel))
 						{
-							String aTemp = aSpell.getSchool();
+							String aTemp = aSpell.getListAsString(ListKey.SPELL_SCHOOL);
 
-							if ((aSpell.getSubschool().length() > 0)
-								&& (!"NONE".equalsIgnoreCase(aSpell.getSubschool().trim())))
+							if ((aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).length() > 0)
+								&& (!"NONE".equalsIgnoreCase(aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).trim())))
 							{
-								aTemp += (" (" + aSpell.getSubschool() + ')');
+								aTemp += (" (" + aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL) + ')');
 							}
 
-							if (aSpell.descriptor().length() > 0)
+							if (aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR).length() > 0)
 							{
-								aTemp += (" [" + aSpell.descriptor() + ']');
+								aTemp += (" [" + aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR) + ']');
 							}
 
 							retValue.append(aTemp);
 						}
 						else if ("SR".equals(aLabel))
 						{
-							retValue.append(aSpell.getSpellResistance());
+							retValue.append(aSpell.getListAsString(ListKey.SPELL_RESISTANCE));
 						}
 						else if ("SRSHORT".equals(aLabel))
 						{
-							if ("No".equals(aSpell.getSpellResistance()))
+							if ("No".equals(aSpell.getListAsString(ListKey.SPELL_RESISTANCE)))
 							{
 								retValue.append("N");
 							}

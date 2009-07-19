@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -263,6 +264,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		return listChar.containsListFor(key) ? listChar.getListFor(key)
 				: new ArrayList<T>();
+	}
+	
+	public final String getListAsString(ListKey<?> key)
+	{
+		return StringUtil.join(getListFor(key), ", ");
 	}
 
 	public final int getSizeOfListFor(ListKey<?> key)

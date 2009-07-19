@@ -449,19 +449,19 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				}
 
 			case COL_SCHOOL:
-				return (aSpell != null) ? aSpell.getSchool() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.SPELL_SCHOOL) : null;
 
 			case COL_SUBSCHOOL:
-				return (aSpell != null) ? aSpell.getSubschool() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL) : null;
 
 			case COL_DESCRIPTOR:
-				return (aSpell != null) ? aSpell.descriptor() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR) : null;
 
 			case COL_COMPONENT:
-				return (aSpell != null) ? aSpell.getComponentList() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.COMPONENTS) : null;
 
 			case COL_CASTTIME:
-				return (aSpell != null) ? aSpell.getCastingTime() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.CASTTIME) : null;
 
 			case COL_RANGE:
 				return (aSpell != null) ? StringUtil.joinToStringBuffer(aSpell.getListFor(ListKey.RANGE), ", ") : null;
@@ -490,17 +490,17 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 				if ((aSpell != null) && (spellA != null))
 				{
-					return pc.parseSpellString(spellA, aSpell.getDuration(),
+					return pc.parseSpellString(spellA, aSpell.getListAsString(ListKey.DURATION),
 						spellA.getOwner());
 				}
 
-				return (aSpell != null) ? aSpell.getDuration() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.DURATION) : null;
 
 			case COL_SAVE:
-				return (aSpell != null) ? aSpell.getSaveInfo() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.SAVE_INFO) : null;
 
 			case COL_SR:
-				return (aSpell != null) ? aSpell.getSpellResistance() : null;
+				return (aSpell != null) ? aSpell.getListAsString(ListKey.SPELL_RESISTANCE) : null;
 
 			case COL_SRC:
 				return (aSpell != null) ? aSpell.getDefaultSourceString()
@@ -843,12 +843,12 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_RANGE: // By Range
 							primaryMatch =
-									spell.getRange().equals(
+									spell.getListAsString(ListKey.RANGE).equals(
 										primaryNode.toString());
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_DURATION: // By Duration
 							primaryMatch =
-									spell.getDuration().equals(
+									spell.getListAsString(ListKey.DURATION).equals(
 										primaryNode.toString());
 							break;
 						case GuiConstants.INFOSPELLS_VIEW_TYPE: // By Type
@@ -938,14 +938,14 @@ public final class SpellModel extends AbstractTreeTableModel implements
 							case GuiConstants.INFOSPELLS_VIEW_RANGE: // By Range
 								spellMatch =
 										primaryMatch
-											&& spell.getRange().equals(
+											&& spell.getListAsString(ListKey.RANGE).equals(
 												secondaryNodes[sindex]
 													.toString());
 								break;
 							case GuiConstants.INFOSPELLS_VIEW_DURATION: // By Duration
 								spellMatch =
 										primaryMatch
-											&& spell.getDuration().equals(
+											&& spell.getListAsString(ListKey.DURATION).equals(
 												secondaryNodes[sindex]
 													.toString());
 								break;

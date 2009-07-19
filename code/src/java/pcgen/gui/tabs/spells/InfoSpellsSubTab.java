@@ -873,18 +873,18 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 
 			b.append(PropertyFactory.getFormattedString(
 				"InfoSpells.html.spell.details", //$NON-NLS-1$
-                    aSpell.getSchool(),
-                    aSpell.getSubschool(),
-                    aSpell.descriptor(),
-                    aSpell.getComponentList(),
-                    aSpell.getCastingTime(),
-                    pc.parseSpellString(cs, aSpell.getDuration(), cs
+                    aSpell.getListAsString(ListKey.SPELL_SCHOOL),
+                    aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL),
+                    aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR),
+                    aSpell.getListAsString(ListKey.COMPONENTS),
+                    aSpell.getListAsString(ListKey.CASTTIME),
+                    pc.parseSpellString(cs, aSpell.getListAsString(ListKey.DURATION), cs
                         .getOwner()),
                     pc.getSpellRange(cs, cs.getOwner(), si),
                     pc.parseSpellString(cs, aSpell.getSafe(StringKey.TARGET_AREA), cs
                         .getOwner()),
-                    aSpell.getSaveInfo(),
-                    aSpell.getSpellResistance()));
+                    aSpell.getListAsString(ListKey.SAVE_INFO),
+                    aSpell.getListAsString(ListKey.SPELL_RESISTANCE)));
 			
 			if (Globals.hasSpellPPCost())
 			{

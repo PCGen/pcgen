@@ -6277,7 +6277,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public String getSpellRange(final CharacterSpell aSpell,
 		final PObject owner, final SpellInfo si)
 	{
-		String aRange = aSpell.getSpell().getRange();
+		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
 		final String aSpellClass =
 				"CLASS:" + (owner != null ? owner.getKeyName() : "");
 		int rangeInFeet = 0;

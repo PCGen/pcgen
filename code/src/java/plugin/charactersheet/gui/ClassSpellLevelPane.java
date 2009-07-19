@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
@@ -504,7 +505,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			0));
 		dcPanel.setBackground(color);
 		dc.setFont(new java.awt.Font(DIALOG, 1, 10));
-		String SaveInfo = spell.getSaveInfo();
+		String SaveInfo = spell.getListAsString(ListKey.SAVE_INFO);
 		if (!"".equals(SaveInfo) && !"None".equals(SaveInfo) && !"No".equals(SaveInfo))
 		{
 			dc.setText(Integer.toString(pc.getDC(spell, si)));
@@ -523,7 +524,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		save.setWrapStyleWord(true);
 		save.setBackground(color);
 		save.setFont(new java.awt.Font(DIALOG, 0, 10));
-		save.setText(spell.getSaveInfo());
+		save.setText(spell.getListAsString(ListKey.SAVE_INFO));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = gridY;
@@ -537,7 +538,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		time.setWrapStyleWord(true);
 		time.setBackground(color);
 		time.setFont(new java.awt.Font(DIALOG, 0, 10));
-		time.setText(spell.getCastingTime());
+		time.setText(spell.getListAsString(ListKey.CASTTIME));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
 		gridBagConstraints.gridy = gridY;
@@ -551,7 +552,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		duration.setWrapStyleWord(true);
 		duration.setBackground(color);
 		duration.setFont(new java.awt.Font(DIALOG, 0, 10));
-		duration.setText(pc.parseSpellString(cs, spell.getDuration(), cs
+		duration.setText(pc.parseSpellString(cs, spell.getListAsString(ListKey.DURATION), cs
 			.getOwner()));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 5;
@@ -583,7 +584,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			1, 0));
 		compPanel.setBackground(color);
 		comp.setFont(new java.awt.Font(DIALOG, 1, 10));
-		comp.setText(spell.getComponentList());
+		comp.setText(spell.getListAsString(ListKey.COMPONENTS));
 		compPanel.add(comp);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 7;
@@ -598,7 +599,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		sr.setWrapStyleWord(true);
 		sr.setBackground(color);
 		sr.setFont(new java.awt.Font(DIALOG, 0, 10));
-		sr.setText(spell.getSpellResistance());
+		sr.setText(spell.getListAsString(ListKey.SPELL_RESISTANCE));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 8;
 		gridBagConstraints.gridy = gridY;
@@ -612,16 +613,16 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		school.setWrapStyleWord(true);
 		school.setBackground(color);
 		school.setFont(new java.awt.Font(DIALOG, 0, 10));
-		StringBuffer sch = new StringBuffer(spell.getSchool());
-		if ((spell.getSubschool().length() > 0)
-			&& (!NONE.equalsIgnoreCase(spell.getSubschool().trim())))
+		StringBuffer sch = new StringBuffer(spell.getListAsString(ListKey.SPELL_SCHOOL));
+		if ((spell.getListAsString(ListKey.SPELL_SUBSCHOOL).length() > 0)
+			&& (!NONE.equalsIgnoreCase(spell.getListAsString(ListKey.SPELL_SUBSCHOOL).trim())))
 		{
-			sch.append(' ').append('(').append(spell.getSubschool())
+			sch.append(' ').append('(').append(spell.getListAsString(ListKey.SPELL_SUBSCHOOL))
 				.append(')');
 		}
-		if (spell.descriptor().length() > 0)
+		if (spell.getListAsString(ListKey.SPELL_DESCRIPTOR).length() > 0)
 		{
-			sch.append(' ').append('[').append(spell.descriptor()).append(']');
+			sch.append(' ').append('[').append(spell.getListAsString(ListKey.SPELL_DESCRIPTOR)).append(']');
 		}
 		school.setText(sch.toString());
 		gridBagConstraints = new java.awt.GridBagConstraints();

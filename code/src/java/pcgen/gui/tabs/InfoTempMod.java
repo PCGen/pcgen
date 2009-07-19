@@ -72,6 +72,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.BonusManager;
@@ -722,9 +723,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			InfoLabelTextBuilder b = new InfoLabelTextBuilder(OutputNameFormatting.piString(aSpell, false));
 			
 			b.appendLineBreak();
-			b.appendI18nElement("in_itmInfoLabelTextDuration", aSpell.getDuration()); //$NON-NLS-1
+			b.appendI18nElement("in_itmInfoLabelTextDuration", aSpell.getListAsString(ListKey.DURATION)); //$NON-NLS-1
 			b.appendSpacer();
-			b.appendI18nElement("in_itmInfoLabelTextRange",aSpell.getRange()); //$NON-NLS-1$
+			b.appendI18nElement("in_itmInfoLabelTextRange",aSpell.getListAsString(ListKey.RANGE)); //$NON-NLS-1$
 			b.appendSpacer();
 			b.appendI18nElement("in_itmInfoLabelTextTarget",aSpell.getSafe(StringKey.TARGET_AREA)); //$NON-NLS-1$
 			b.appendLineBreak();

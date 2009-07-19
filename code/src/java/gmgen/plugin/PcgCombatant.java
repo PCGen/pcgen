@@ -1091,11 +1091,11 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");
-								spellBuff.append(spell.getCastingTime());
+								spellBuff.append(spell.getListAsString(ListKey.CASTTIME));
 								spellBuff.append("\\");
 								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.SAVE_INFO), ", "));
 								spellBuff.append("\\");
-								spellBuff.append(aPC.parseSpellString(cs, spell.getDuration(), cs.getOwner()));
+								spellBuff.append(aPC.parseSpellString(cs, spell.getListAsString(ListKey.DURATION), cs.getOwner()));
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, spell.getSafe(StringKey.TARGET_AREA), cs.getOwner()));
 								spellBuff.append('"' + " class=" + '"' + "dialog" + '"' + ">");
