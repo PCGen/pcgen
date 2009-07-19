@@ -6525,9 +6525,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				continue;
 			}
+			String aDamage = "";
+			if (unarmedDamage.size() == 1)
+			{
+				aDamage = unarmedDamage.get(0);
+			}
+			else
+			{
+				aDamage = unarmedDamage.get(sizeInt);
+			}
 			retString =
 					PlayerCharacterUtilities.getBestUDamString(retString,
-						unarmedDamage.get(sizeInt));
+						aDamage);
 		}
 		if (pObjDamage == null)
 		{

@@ -1218,7 +1218,14 @@ public class PCClass extends PObject
 			List<String> udam = cdo.getListFor(ListKey.UNARMED_DAMAGE);
 			if (udam != null)
 			{
-				aDamage = udam.get(iSize);
+				if (udam.size() == 1)
+				{
+					aDamage = udam.get(0);
+				}
+				else
+				{
+					aDamage = udam.get(iSize);
+				}
 				break;
 			}
 		}

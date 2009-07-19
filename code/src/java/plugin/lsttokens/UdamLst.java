@@ -123,13 +123,13 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 			returnList.add(Constants.LST_DOT_CLEAR);
 		}
 		Collection<String> list = changes.getAdded();
-		if (list != null && list.size() == 9)
+		if (list != null && (list.size() == 9 || list.size() == 1))
 		{
 			returnList.add(StringUtil.join(list, Constants.COMMA));
 		}
 		if (returnList.isEmpty())
 		{
-			context.addWriteMessage(getTokenName() + " requires 9 values");
+			context.addWriteMessage(getTokenName() + " requires either 1 value or 9 values");
 			return null;
 		}
 		return returnList.toArray(new String[returnList.size()]);
