@@ -56,6 +56,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -70,7 +71,9 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -685,7 +688,7 @@ public final class EditorMainForm extends JDialog
 
 				sel = pnlQSpells.getSelectedList();
 				oldItems.add(thisPObject);
-				thisPObject.clearSpellListInfo();
+				EditorMainForm.clearSpellListInfo(thisPObject);
 
 				for (int i = 0; i < sel.length; ++i)
 				{
@@ -1132,7 +1135,7 @@ public final class EditorMainForm extends JDialog
 
 		if (editType != EditorConstants.EDIT_DOMAIN)
 		{
-			thisPObject.clearSpellListInfo();
+			EditorMainForm.clearSpellListInfo(thisPObject);
 		}
 		
 		sel = pnlAdvanced.getSelectedList();
@@ -1385,7 +1388,7 @@ public final class EditorMainForm extends JDialog
 
 				if (!oldItems.contains(thisPObject))
 				{
-					thisPObject.clearSpellListInfo();
+					EditorMainForm.clearSpellListInfo(thisPObject);
 					for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
 					{
 						final Object obj = e.next();
@@ -3213,6 +3216,19 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 		return selectedList;
+	}
+
+	public static void clearSpellListInfo(PObject po)
+	{
+		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> modLists = po.getModifiedLists();
+		for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : modLists)
+		{
+			if (ref.getReferenceClass().equals(ClassSpellList.class)
+					|| ref.getReferenceClass().equals(DomainSpellList.class))
+			{
+				po.removeAllFromList(ref);
+			}
+		}
 	}
 
 }

@@ -28,7 +28,6 @@ import java.io.Serializable;
 import java.io.StringWriter;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -38,9 +37,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -50,8 +47,6 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.cdom.list.ClassSpellList;
-import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
@@ -895,19 +890,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return "POBJECT|" + this.getKeyName();
 	}
 
-	public void clearSpellListInfo()
-	{
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> modLists = getModifiedLists();
-		for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : modLists)
-		{
-			if (ref.getReferenceClass().equals(ClassSpellList.class)
-					|| ref.getReferenceClass().equals(DomainSpellList.class))
-			{
-				removeAllFromList(ref);
-			}
-		}
-	}
-	
 	public boolean hasChooseToken()
 	{
 		String oldchoice = get(StringKey.CHOICE_STRING);
