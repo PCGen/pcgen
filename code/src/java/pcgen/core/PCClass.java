@@ -2217,4 +2217,14 @@ public class PCClass extends PObject
 	{
 		return "CLASS|" + this.getKeyName();
 	}
+	
+	@Override
+	public void globalChecks(PlayerCharacter aPC)
+	{
+		doBaseChecks(aPC);
+		PCClassLevel classLevel = getActiveClassLevel(getLevel(aPC));
+		CDOMObjectUtilities.addAdds(classLevel, aPC);
+		CDOMObjectUtilities.checkRemovals(classLevel, aPC);
+		activateBonuses(aPC);
+	}
 }

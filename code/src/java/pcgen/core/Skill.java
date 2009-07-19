@@ -22,11 +22,7 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Region;
-import pcgen.cdom.enumeration.StringKey;
 
 /**
  * <code>Skill</code>.
@@ -37,23 +33,9 @@ import pcgen.cdom.enumeration.StringKey;
 public final class Skill extends PObject
 {
 	@Override
-	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
+	public void globalChecks(PlayerCharacter aPC)
 	{
-		aPC.setDirty(true);
-		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
-		{
-			kit.act(kit.driveChoice(aPC), this, aPC);
-		}
-		TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
-		if (region != null)
-		{
-			region.act(region.driveChoice(aPC), this, aPC);
-		}
-
-		if (flag)
-		{
-			getChoices(getSafe(StringKey.CHOICE_STRING), aPC);
-		}
+		doBaseChecks(aPC);
 		activateBonuses(aPC);
 	}
 

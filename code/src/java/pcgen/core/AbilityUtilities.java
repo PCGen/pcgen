@@ -483,7 +483,7 @@ public class AbilityUtilities
 
 		if (addIt && !aPC.isImporting())
 		{
-			ability.globalChecks(false, aPC);
+			ability.globalChecks(aPC);
 		}
 
 		return result ? 1 : 0;

@@ -70,6 +70,7 @@ import pcgen.core.analysis.EquipmentChoiceDriver;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -632,11 +633,11 @@ public final class Equipment extends PObject implements Serializable,
 
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		aList.addAll(getBonusListOfType(pc, aType, aName));
+		aList.addAll(BonusUtilities.getBonusFromList(getBonusList(pc), aType, aName));
 
 		for (EquipmentModifier eqMod : getEqModifierList(bPrimary))
 		{
-			aList.addAll(eqMod.getBonusListOfType(this, aType, aName));
+			aList.addAll(BonusUtilities.getBonusFromList(eqMod.getBonusList(this), aType, aName));
 		}
 
 		return aList;

@@ -114,6 +114,7 @@ import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
+import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSet;
@@ -6030,9 +6031,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return 0;
 		}
 
-		final List<BonusObj> tempList =
-				getRace().getBonusListOfType(this, aType.toUpperCase(),
-					aName.toUpperCase());
+		final List<BonusObj> tempList = BonusUtilities.getBonusFromList(
+				getRace().getBonusList(this), aType.toUpperCase(), aName
+						.toUpperCase());
 
 		return calcBonusFromList(tempList);
 	}
@@ -10454,8 +10455,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PObject obj : aList)
 		{
-			final List<BonusObj> tempList =
-					obj.getBonusListOfType(this, aType, aName);
+			final List<BonusObj> tempList = BonusUtilities.getBonusFromList(obj
+					.getBonusList(this), aType, aName);
 
 			if (!tempList.isEmpty())
 			{
@@ -10785,8 +10786,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PObject anObj : aList)
 		{
-			final List<BonusObj> tempList =
-					anObj.getBonusListOfType(this, aType, aName);
+			final List<BonusObj> tempList = BonusUtilities.getBonusFromList(
+					anObj.getBonusList(this), aType, aName);
 			iBonus += calcBonusWithCostFromList(tempList);
 		}
 

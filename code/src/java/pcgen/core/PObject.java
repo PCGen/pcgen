@@ -46,9 +46,7 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -436,10 +434,13 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	public void globalChecks(final PlayerCharacter aPC)
 	{
-		globalChecks(false, aPC);
+		doBaseChecks(aPC);
+		CDOMObjectUtilities.addAdds(this, aPC);
+		CDOMObjectUtilities.checkRemovals(this, aPC);
+		activateBonuses(aPC);
 	}
 
-	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
+	protected final void doBaseChecks(final PlayerCharacter aPC)
 	{
 		aPC.setDirty(true);
 		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
@@ -451,25 +452,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			region.act(region.driveChoice(aPC), this, aPC);
 		}
-
-		if (flag)
-		{
-			getChoices(getSafe(StringKey.CHOICE_STRING), aPC);
-		}
-
-		if (this instanceof PCClass)
-		{
-			final PCClass aClass = (PCClass) this;
-			PCClassLevel classLevel = aClass.getActiveClassLevel(aClass.getLevel(aPC));
-			CDOMObjectUtilities.addAdds(classLevel, aPC);
-			CDOMObjectUtilities.checkRemovals(classLevel, aPC);
-		}
-		else
-		{
-			CDOMObjectUtilities.addAdds(this, aPC);
-			CDOMObjectUtilities.checkRemovals(this, aPC);
-		}
-		activateBonuses(aPC);
 	}
 
 	/*
@@ -537,18 +519,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Get the list of bounuses of a particular type for this object
-	 * @param as TODO
-	 * @param aType
-	 * @param aName
-	 * @return the list of bounuses of a particular type for this object
-	 */
-	public List<BonusObj> getBonusListOfType(AssociationStore as, final String aType, final String aName)
-	{
-		return BonusUtilities.getBonusFromList(getBonusList(as), aType, aName);
-	}
-
-	/**
 	 * Apply the bonus to a PC, pass through object's default bonuslist
 	 *
 	 * @param aType
@@ -557,7 +527,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aPC
 	 * @return the bonus
 	 */
-	public double bonusTo(final String aType, final String aName, final AssociationStore obj, final PlayerCharacter aPC)
+	public final double bonusTo(final String aType, final String aName, final AssociationStore obj, final PlayerCharacter aPC)
 	{
 		return bonusTo(aType, aName, obj, getBonusList(obj), aPC);
 	}
@@ -572,7 +542,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aPC
 	 * @return the bonus
 	 */
-	public double bonusTo(String aType, String aName, final Object obj, final List<BonusObj> aBonusList, final PlayerCharacter aPC)
+	public final double bonusTo(String aType, String aName, final Object obj, final List<BonusObj> aBonusList, final PlayerCharacter aPC)
 	{
 		if ((aBonusList == null) || (aBonusList.size() == 0))
 		{
@@ -890,7 +860,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return "POBJECT|" + this.getKeyName();
 	}
 
-	public boolean hasChooseToken()
+	public final boolean hasChooseToken()
 	{
 		String oldchoice = get(StringKey.CHOICE_STRING);
 		return oldchoice != null && oldchoice.length() > 0
