@@ -39,7 +39,6 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SpellPoint;
-import pcgen.core.bonus.BonusObj.BonusPair;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
 import plugin.bonustokens.Var;
@@ -238,7 +237,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		character.addAssociation(testBonus, "INT");
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
-		List<BonusPair> bonusPairs = bonus.getStringListFromBonus(character);
+		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
 		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
@@ -263,7 +262,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
-		List<BonusPair> bonusPairs = bonus.getStringListFromBonus(character);
+		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());
 		int totalBonus = 0;
 		BonusPair bp = bonusPairs.get(0);
@@ -292,7 +291,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonus.setCreatorObject(testBonus);
 		character.addFeat(testBonus, null);
 
-		List<BonusPair> bonusPairs = bonus.getStringListFromBonus(character);
+		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());
 		for (BonusPair bp : bonusPairs)
 		{

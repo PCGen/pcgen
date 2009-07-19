@@ -113,6 +113,7 @@ import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateSelect;
 import pcgen.core.analysis.TemplateStat;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusPair;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSet;
@@ -16391,5 +16392,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public String getBonusContext(BonusObj bonus, boolean shortForm)
 	{
 		return bonusManager.getBonusContext(bonus, shortForm);
+	}
+
+	public List<BonusPair> getStringListFromBonus(BonusObj bonus)
+	{
+		return bonusManager.getStringListFromBonus(bonus);
 	}
 }

@@ -34,7 +34,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusObj.BonusPair;
+import pcgen.core.bonus.BonusPair;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 
@@ -173,7 +173,7 @@ public final class SkillModifier
 							.contains(keyName.toUpperCase());
 				if (!include)
 				{
-					for (BonusPair bp : bonus.getStringListFromBonus(aPC))
+					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
 						String bpKey = bp.bonusKey.toUpperCase();
 						if (bpKey.startsWith(bonusKey))
@@ -187,7 +187,7 @@ public final class SkillModifier
 				if (include)
 				{
 					double iBonus = 0;
-					for (BonusPair bp : bonus.getStringListFromBonus(aPC))
+					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
 						String bpKey = bp.bonusKey.toUpperCase();
 						if (bpKey.startsWith(bonusKey))

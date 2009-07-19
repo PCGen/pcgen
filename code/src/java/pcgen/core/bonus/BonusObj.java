@@ -27,7 +27,6 @@ package pcgen.core.bonus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,12 +34,10 @@ import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
@@ -86,11 +83,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	}
 	private StackType theStackingFlag = StackType.NORMAL;
 
-	/** %LIST - Replace one value selected into this spot */
-	private static final String VALUE_TOKEN_REPLACEMENT = "%LIST"; //$NON-NLS-1$
-	/** LIST - Replace all the values selected into this spot */
-	private static final String LIST_TOKEN_REPLACEMENT = "LIST"; //$NON-NLS-1$
-	
 	/**
 	 * Sets the Applied flag on the bonus.
 	 * 
@@ -391,6 +383,15 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		{
 			buildDependMap(bValue.toUpperCase());
 		}
+	}
+
+	/**
+	 * Get the bonus formula
+	 * @return the formula
+	 */
+	public Formula getFormula()
+	{
+		return bonusFormula;
 	}
 
 	/**
@@ -785,194 +786,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			{
 				prereq.expandToken(token, tokenValue);
 			}
-		}
-	}
-
-	private static final String VALUE_TOKEN_PATTERN = Pattern.quote(VALUE_TOKEN_REPLACEMENT);
-	private static final String VAR_TOKEN_REPLACEMENT = "%VAR"; //$NON-NLS-1$
-	private static final String VAR_TOKEN_PATTERN = Pattern.quote(VAR_TOKEN_REPLACEMENT);
-	
-	private static final FixedStringList NO_ASSOC = new FixedStringList("");
-
-	private static final List<FixedStringList> NO_ASSOC_LIST = Collections
-			.singletonList(NO_ASSOC);
-	
-	/**
-	 * TODO - This method should be changed to not return a string.
-	 * <p>
-	 * This method builds a string of the form:
-	 * <code>BONUSNAME.BONUSTYPE:TYPEOFBONUS </code>
-	 * 
-	 * @param anObj The bonus owner.
-	 * 
-	 * @return List of bonus strings
-	 */
-	public List<BonusPair> getStringListFromBonus(PlayerCharacter pc)
-	{
-		List<BonusPair> bonusList = new ArrayList<BonusPair>();
-
-		List<FixedStringList> associatedList;
-		PObject anObj = null;
-		if (creatorObj instanceof PObject)
- 		{
-			anObj = (PObject) creatorObj;
-			associatedList = pc.getDetailedAssociations(anObj);
-			if (associatedList == null || associatedList.isEmpty())
- 			{
-				associatedList = NO_ASSOC_LIST;
-			}
-		}
-		else
-		{
-			associatedList = NO_ASSOC_LIST;
-		}
-
-		// Must use getBonusName because it contains the unaltered bonusType
-		String name = getBonusName();
-		String[] infoArray = getBonusInfo().split(",");
-		String thisType = getTypeString();
-
-		if (addOnceOnly)
-		{
-			String thisName = name;
-			Formula newFormula;
-			if (bonusFormula.isStatic())
-			{
-				newFormula = bonusFormula;
-			}
-			else
-			{
-				newFormula = FormulaFactory.getFormulaFor(bonusFormula.toString());
-			}
-			for (String thisInfo : infoArray)
-			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(thisName).append('.').append(thisInfo);
-				if (hasTypeString())
-				{
-					sb.append(':').append(thisType);
-				}
-				bonusList.add(new BonusPair(sb.toString(), newFormula));
-			}
-		}
-		else
-		{
-			for (FixedStringList assoc : associatedList)
-			{
-				StringBuilder asb = new StringBuilder();
-				int size = assoc.size();
-				if (size == 1)
-				{
-					asb.append(assoc.get(0));
-				}
-				else
-				{
-					asb.append(size).append(':');
-					int loc = asb.length();
-					int count = 0;
-					for (String s : assoc)
-					{
-						if (s != null)
-						{
-							count++;
-							asb.append(':').append(s);
-						}
-					}
-					asb.insert(loc, count);
-				}
-				String assocString = asb.toString();
-				
-				String thisName;
-				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
-				{
-					thisName =
-							name.replaceAll(VALUE_TOKEN_PATTERN, assocString);
-				}
-				else
-				{
-					thisName = name;
-				}
-				List<String> infoList = new ArrayList<String>(4);
-				for (String info : infoArray)
-				{
-					if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
-					{
-						for (String expInfo : assoc)
-						{
-							infoList.add(info.replaceAll(VALUE_TOKEN_PATTERN,
-								expInfo));
-						}
-					}
-					else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
-					{
-						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN, assocString));
-					}
-					else if (info.equals(LIST_TOKEN_REPLACEMENT))
-					{
-						infoList.add(assocString);
-					}
-					else
-					{
-						infoList.add(info);
-					}
-				}
-				Formula newFormula;
-				if (bonusFormula.isStatic())
-				{
-					newFormula = bonusFormula;
-				}
-				else
-				{
-					String value = bonusFormula.toString();
-
-					// A %LIST substitution also needs to be done in the val section
-					int listIndex = value.indexOf(VALUE_TOKEN_REPLACEMENT);
-					String thisValue = value;
-					if (listIndex >= 0)
-					{
-						thisValue =
-								value.replaceAll(VALUE_TOKEN_PATTERN, assocString);
-					}
-					newFormula = FormulaFactory.getFormulaFor(thisValue);
-				}
-				for (String thisInfo : infoList)
-				{
-					StringBuilder sb = new StringBuilder();
-					sb.append(thisName).append('.').append(thisInfo);
-					if (hasTypeString())
-					{
-						sb.append(':').append(thisType);
-					}
-					bonusList.add(new BonusPair(sb.toString(), newFormula));
-				}
-			}
-		}
-		return bonusList;
-	}
-
-	public class BonusPair
-	{
-		private Formula formula;
-		public String bonusKey;
-
-		public BonusPair(String key, Formula f)
-		{
-			bonusKey = key;
-			formula = f;
-		}
-
-		public Number resolve(PlayerCharacter aPC)
-		{
-			String source;
-			if (creatorObj instanceof PObject)
-			{
-				source = ((PObject) creatorObj).getQualifiedKey();
-			}
-			else
-			{
-				source = Constants.EMPTY_STRING;
-			}
-			return formula.resolve(aPC, source);
 		}
 	}
 

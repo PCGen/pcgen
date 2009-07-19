@@ -32,14 +32,17 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusObj.BonusPair;
+import pcgen.core.bonus.BonusPair;
 import pcgen.core.bonus.util.MissingObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.util.Delta;
@@ -47,6 +50,24 @@ import pcgen.util.Logging;
 
 public class BonusManager
 {
+	/** %LIST - Replace one value selected into this spot */
+	private static final String VALUE_TOKEN_REPLACEMENT = "%LIST"; //$NON-NLS-1$
+	/** LIST - Replace all the values selected into this spot */
+	private static final String LIST_TOKEN_REPLACEMENT = "LIST"; //$NON-NLS-1$
+
+	private static final String VALUE_TOKEN_PATTERN = Pattern
+			.quote(VALUE_TOKEN_REPLACEMENT);
+
+	private static final String VAR_TOKEN_REPLACEMENT = "%VAR"; //$NON-NLS-1$
+
+	private static final String VAR_TOKEN_PATTERN = Pattern
+			.quote(VAR_TOKEN_REPLACEMENT);
+
+	private static final FixedStringList NO_ASSOC = new FixedStringList("");
+
+	private static final List<FixedStringList> NO_ASSOC_LIST = Collections
+			.singletonList(NO_ASSOC);
+
 	private Map<String, String> activeBonusMap = new ConcurrentHashMap<String, String>();
 
 	private Map<BonusObj, Object> activeBonusBySource = new IdentityHashMap<BonusObj, Object>();
@@ -290,7 +311,7 @@ public class BonusManager
 
 			// Keep track of which bonuses have been calculated
 			processedBonuses.add(bonus);
-			for (BonusPair bp : bonus.getStringListFromBonus(pc))
+			for (BonusPair bp : getStringListFromBonus(bonus))
 			{
 				final double iBonus = bp.resolve(pc).doubleValue();
 				setActiveBonusStack(iBonus, bp.bonusKey, activeBonusMap);
@@ -500,7 +521,7 @@ public class BonusManager
 		}
 
 		// calculate bonus and add to activeBonusMap
-		for (BonusPair bp : aBonus.getStringListFromBonus(pc))
+		for (BonusPair bp : getStringListFromBonus(aBonus))
 		{
 			final double iBonus = bp.resolve(pc).doubleValue();
 			setActiveBonusStack(iBonus, bp.bonusKey, activeBonusMap);
@@ -716,7 +737,7 @@ public class BonusManager
 					// Grab the list of relevant types so that we can build up
 					// the
 					// bonuses with the stacking rules applied.
-					for (BonusPair bp : bonus.getStringListFromBonus(pc))
+					for (BonusPair bp : getStringListFromBonus(bonus))
 					{
 						if (bp.bonusKey.startsWith(prefix))
 						{
@@ -966,8 +987,7 @@ public class BonusManager
 		return bonus.isApplied(pc);
 	}
 
-	public Map<BonusObj, Object> getTempBonusMap(String aCreator,
-			String aTarget)
+	public Map<BonusObj, Object> getTempBonusMap(String aCreator, String aTarget)
 	{
 		final Map<BonusObj, Object> aMap = new IdentityHashMap<BonusObj, Object>();
 
@@ -1006,11 +1026,13 @@ public class BonusManager
 	public String getBonusContext(BonusObj bo, boolean shortForm)
 	{
 		final StringBuilder sb = new StringBuilder(50);
-		
+
 		boolean bEmpty = true;
 		sb.append('[');
-		if (bo.hasPrerequisites()) {
-			for (Prerequisite p : bo.getPrerequisiteList()) {
+		if (bo.hasPrerequisites())
+		{
+			for (Prerequisite p : bo.getPrerequisiteList())
+			{
 				if (!bEmpty)
 				{
 					sb.append('|');
@@ -1032,7 +1054,7 @@ public class BonusManager
 				sb.append("TYPE=");
 				bEmpty = false;
 			}
-			if (!shortForm || sb.charAt(sb.length()-1) == '[')
+			if (!shortForm || sb.charAt(sb.length() - 1) == '[')
 			{
 				sb.append(type);
 				bEmpty = false;
@@ -1040,24 +1062,21 @@ public class BonusManager
 		}
 
 		//
-		// If there is nothing shown in between the [], then show the Bonus's type
+		// If there is nothing shown in between the [], then show the Bonus's
+		// type
 		//
 		if (bEmpty)
 		{
-			sb.append(getSource(bo));
+			sb.append(getSourceString(bo));
 		}
 		sb.append(']');
 
 		return sb.toString();
 	}
-	
-	private String getSource(BonusObj bo)
+
+	private String getSourceString(BonusObj bo)
 	{
-		Object source = activeBonusBySource.get(bo);
-		if (source == null)
-		{
-			source = tempBonusBySource.get(bo);
-		}
+		Object source = getSourceObject(bo);
 		if (source == null)
 		{
 			return "NONE";
@@ -1066,21 +1085,33 @@ public class BonusManager
 		{
 			return ((PlayerCharacter) source).getName();
 		}
-		else //if (source instanceof PObject)
+		else
+		// if (source instanceof PObject)
 		{
 			return source.toString();
 		}
 	}
 
+	private Object getSourceObject(BonusObj bo)
+	{
+		Object source = activeBonusBySource.get(bo);
+		if (source == null)
+		{
+			source = tempBonusBySource.get(bo);
+		}
+		return source;
+	}
+
 	/**
 	 * Returns a String which can be used to display in the GUI
+	 * 
 	 * @return name
 	 */
 	public String getBonusName(BonusObj bonus)
 	{
 		final StringBuilder buffer = new StringBuilder();
 
-		buffer.append(getSource(bonus));
+		buffer.append(getSourceString(bonus));
 		buffer.append(" [");
 
 		Object targetObj = bonus.getTargetObject();
@@ -1101,6 +1132,146 @@ public class BonusManager
 		buffer.append(']');
 
 		return buffer.toString();
+	}
+
+	public List<BonusPair> getStringListFromBonus(BonusObj bo)
+	{
+		Object creatorObj = getSourceObject(bo);
+
+		List<FixedStringList> associatedList;
+		PObject anObj = null;
+		if (creatorObj instanceof PObject)
+		{
+			anObj = (PObject) creatorObj;
+			associatedList = pc.getDetailedAssociations(anObj);
+			if (associatedList == null || associatedList.isEmpty())
+			{
+				associatedList = NO_ASSOC_LIST;
+			}
+		}
+		else
+		{
+			associatedList = NO_ASSOC_LIST;
+		}
+
+		List<BonusPair> bonusList = new ArrayList<BonusPair>();
+
+		// Must use getBonusName because it contains the unaltered bonusType
+		String name = bo.getBonusName();
+		String[] infoArray = bo.getBonusInfo().split(",");
+		String thisType = bo.getTypeString();
+
+		if (bo.isAddOnceOnly())
+		{
+			String thisName = name;
+			for (String thisInfo : infoArray)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(thisName).append('.').append(thisInfo);
+				if (bo.hasTypeString())
+				{
+					sb.append(':').append(thisType);
+				}
+				bonusList.add(new BonusPair(sb.toString(), bo.getFormula(),
+						creatorObj));
+			}
+		}
+		else
+		{
+			for (FixedStringList assoc : associatedList)
+			{
+				StringBuilder asb = new StringBuilder();
+				int size = assoc.size();
+				if (size == 1)
+				{
+					asb.append(assoc.get(0));
+				}
+				else
+				{
+					asb.append(size).append(':');
+					int loc = asb.length();
+					int count = 0;
+					for (String s : assoc)
+					{
+						if (s != null)
+						{
+							count++;
+							asb.append(':').append(s);
+						}
+					}
+					asb.insert(loc, count);
+				}
+				String assocString = asb.toString();
+
+				String thisName;
+				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+				{
+					thisName = name
+							.replaceAll(VALUE_TOKEN_PATTERN, assocString);
+				}
+				else
+				{
+					thisName = name;
+				}
+				List<String> infoList = new ArrayList<String>(4);
+				for (String info : infoArray)
+				{
+					if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+					{
+						for (String expInfo : assoc)
+						{
+							infoList.add(info.replaceAll(VALUE_TOKEN_PATTERN,
+									expInfo));
+						}
+					}
+					else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
+					{
+						infoList.add(name.replaceAll(VAR_TOKEN_PATTERN,
+								assocString));
+					}
+					else if (info.equals(LIST_TOKEN_REPLACEMENT))
+					{
+						infoList.add(assocString);
+					}
+					else
+					{
+						infoList.add(info);
+					}
+				}
+				Formula newFormula;
+				if (bo.isValueStatic())
+				{
+					newFormula = bo.getFormula();
+				}
+				else
+				{
+					String value = bo.getValue();
+
+					// A %LIST substitution also needs to be done in the val
+					// section
+					int listIndex = value.indexOf(VALUE_TOKEN_REPLACEMENT);
+					String thisValue = value;
+					if (listIndex >= 0)
+					{
+						thisValue = value.replaceAll(VALUE_TOKEN_PATTERN,
+								assocString);
+					}
+					newFormula = FormulaFactory.getFormulaFor(thisValue);
+				}
+				for (String thisInfo : infoList)
+				{
+					StringBuilder sb = new StringBuilder();
+					sb.append(thisName).append('.').append(thisInfo);
+					if (bo.hasTypeString())
+					{
+						sb.append(':').append(thisType);
+					}
+					bonusList.add(new BonusPair(sb.toString(), newFormula,
+							creatorObj));
+				}
+			}
+		}
+		return bonusList;
 	}
 
 }
