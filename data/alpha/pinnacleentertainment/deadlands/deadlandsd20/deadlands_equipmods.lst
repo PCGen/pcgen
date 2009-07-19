@@ -4,15 +4,15 @@ SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.pe
 ###Block:Armor
 #
 # Modifier Name	Unique Key	Type			Cost		Type granted	Source Page		Bonus Armor Modifiers		Apply to both heads
-Masterwork		KEY:ARMRMW	TYPE:Armor.Shield	COST:150	ITYPE:Masterwork	SOURCEPAGE:p.113	BONUS:EQMARMOR|ACCHECK|1	ASSIGNTOALL:Y
+Masterwork		KEY:ARMRMW	TYPE:Armor.Shield	COST:150	ITYPE:Masterwork	SOURCEPAGE:p.113	BONUS:EQMARMOR|ACCHECK|1	ASSIGNTOALL:YES
 #
 ###Block:Weapon
 #
 # Modifier Name	Unique Key		Type			Cost		Type granted	Source Page		Bonus to skill					Weapon prop. bonus				Special Property							Apply to both heads
-Masterwork		KEY:WEAPMW		TYPE:Weapon		COST:150	ITYPE:Masterwork	SOURCEPAGE:p.113								BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT										ASSIGNTOALL:Y
-Masterwork		KEY:AMMOMW		TYPE:Ammunition	COST:6	ITYPE:Masterwork	SOURCEPAGE:p.113								BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT										ASSIGNTOALL:Y
-Masterwork		KEY:TOOLSMW		TYPE:Tools		COST:50	ITYPE:Masterwork	SOURCEPAGE:p.113															SPROP:Applies +2 Skill Bonus to appropriate skill	ASSIGNTOALL:Y
-Masterwork		KEY:INSTMW		TYPE:Instruments	COST:95	ITYPE:Masterwork	SOURCEPAGE:p.113	BONUS:SKILL|Perform|2|TYPE=ENHANCEMENT																	ASSIGNTOALL:Y
+Masterwork		KEY:WEAPMW		TYPE:Weapon		COST:150	ITYPE:Masterwork	SOURCEPAGE:p.113								BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT										ASSIGNTOALL:YES
+Masterwork		KEY:AMMOMW		TYPE:Ammunition	COST:6	ITYPE:Masterwork	SOURCEPAGE:p.113								BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT										ASSIGNTOALL:YES
+Masterwork		KEY:TOOLSMW		TYPE:Tools		COST:50	ITYPE:Masterwork	SOURCEPAGE:p.113															SPROP:Applies +2 Skill Bonus to appropriate skill	ASSIGNTOALL:YES
+Masterwork		KEY:INSTMW		TYPE:Instruments	COST:95	ITYPE:Masterwork	SOURCEPAGE:p.113	BONUS:SKILL|Perform|2|TYPE=ENHANCEMENT																	ASSIGNTOALL:YES
 Silvered		KEY:AMMOSLVR	TYPE:Ammunition	COST:1	ITYPE:Silvered	SOURCEPAGE:p.113
 Silvered		KEY:DAGSLVR		TYPE:Dagger		COST:10	ITYPE:Silvered	SOURCEPAGE:p.113
 #

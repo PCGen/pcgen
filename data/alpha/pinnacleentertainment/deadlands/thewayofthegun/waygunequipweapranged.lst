@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Jul 19 16:47:19 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
 #Martial Ranged Weapons Name				TYPE												Cost		Weight	Weapon Size	Base Damage		Critical Range	Critical Multiplier	Range		Required Proficiency			Bonuses		# of Attacks		Source Material
-# Equipment Name						Required Proficiency				Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Bonus to skill
+# Equipment Name						Required Weapon Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Bonus to skill
 American Pepperbox (Derringer/SA)										TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.CnB.Piercing	COST:12	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4+1	RANGE:15	SIZE:T	SOURCEPAGE:p.38
 Chuchu Pistol (Derringer/DA)											TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.DoubleAction.Piercing		COST:8	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4		RANGE:15	SIZE:T	SOURCEPAGE:p.38
 Colt Derringer (Derringer/SA)											TYPE:Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.Piercing		COST:8	WT:0.5	CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6		RANGE:15	SIZE:T	SOURCEPAGE:p.38

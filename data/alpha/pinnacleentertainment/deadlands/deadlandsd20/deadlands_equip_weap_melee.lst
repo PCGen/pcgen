@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Jul 19 16:47:19 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
-# Equipment Name			Required Proficiency			Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Weapon prop. bonus
+# Equipment Name			Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Weapon prop. bonus
 Unarmed Strike									TYPE:Weapon.Unarmed.Melee.Bludgeoning.Monk		COST:0	WT:0										DAMAGE:1d3				SIZE:T	SOURCEPAGE:p.72
 Brass Knuckles			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Simple.Melee.Unarmed.Bludgeoning		COST:1	WT:1										DAMAGE:1d4						SOURCEPAGE:p.72
 Knife (Flint/Bone)								TYPE:Weapon.Simple.Melee.Piercing				COST:1	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4				SIZE:T	SOURCEPAGE:p.72
@@ -12,7 +12,7 @@ Tomahawk										TYPE:Weapon.Simple.Melee.Ranged.Slashing			COST:3	WT:4		CRITMU
 Club											TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Thrown	COST:0	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:M	SOURCEPAGE:p.72
 Skullcrusher									TYPE:Weapon.Simple.Melee.Bludgeoning			COST:4	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6+1			SIZE:M	SOURCEPAGE:p.72
 War Club (Bladed)									TYPE:Weapon.Simple.Melee.Bludgeoning.Slashing		COST:4	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.72
-Axe (Wood)										TYPE:Weapon.Simple.Melee.Slashing				COST:.5	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8				SIZE:L	SOURCEPAGE:p.72
+Axe (Wood)										TYPE:Weapon.Simple.Melee.Slashing				COST:0.5	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8				SIZE:L	SOURCEPAGE:p.72
 
 #Martial Melee Weapons Name
 Cavalry Saber									TYPE:Weapon.Martial.Melee.Slashing				COST:15	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.72

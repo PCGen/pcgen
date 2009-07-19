@@ -1,39 +1,39 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Jul 19 16:47:19 2009 -- reformated by prettylst.pl v1.39 (build 9548)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 # Equipment Name				Type					Contains			Cost		Weight	Source Page
 Backpack					TYPE:Goods.General.Container	CONTAINS:100|Any=100	COST:2	WT:2		SOURCEPAGE:p.71
-Barbed Wire (30 ft.)			TYPE:Goods.General						COST:.5	WT:2.5	SOURCEPAGE:p.71
+Barbed Wire (30 ft.)			TYPE:Goods.General						COST:0.5	WT:2.5	SOURCEPAGE:p.71
 Camera					TYPE:Goods.General						COST:3	WT:5		SOURCEPAGE:p.71
 Canteen (1 qt.)				TYPE:Goods.General.Container	CONTAINS:1|Liquid=1	COST:1	WT:5		SOURCEPAGE:p.71
 Drill (Hand)				TYPE:Goods.General						COST:2	WT:2		SOURCEPAGE:p.71
-File						TYPE:Goods.General						COST:.5	WT:1		SOURCEPAGE:p.71
+File						TYPE:Goods.General						COST:0.5	WT:1		SOURCEPAGE:p.71
 Guitar					TYPE:Goods.General						COST:8	WT:6		SOURCEPAGE:p.71
 Gun belt					TYPE:Goods.General						COST:2	WT:1		SOURCEPAGE:p.71
-Hammer					TYPE:Goods.General						COST:.5	WT:2		SOURCEPAGE:p.71
+Hammer					TYPE:Goods.General						COST:0.5	WT:2		SOURCEPAGE:p.71
 Handcuffs					TYPE:Goods.General						COST:3.5	WT:3		SOURCEPAGE:p.71
 Holster					TYPE:Goods.General.Container	CONTAINS:4|Any=4		COST:3	WT:1		SOURCEPAGE:p.71
 Holster (Quick-draw)			TYPE:Goods.General.Container	CONTAINS:4|Any=4		COST:11	WT:11		SOURCEPAGE:p.71
-Iron skillet				TYPE:Goods.General						COST:.5	WT:5		SOURCEPAGE:p.71
+Iron skillet				TYPE:Goods.General						COST:0.5	WT:5		SOURCEPAGE:p.71
 Lantern					TYPE:Goods.General						COST:2.5	WT:4		SOURCEPAGE:p.71
-Lantern Oil (1 gallon)			TYPE:Goods.General.Consumable					COST:.1	WT:6		SOURCEPAGE:p.71
-Matches (100)				TYPE:Goods.General						COST:.5	WT:.25	SOURCEPAGE:p.71
+Lantern Oil (1 gallon)			TYPE:Goods.General.Consumable					COST:0.1	WT:6		SOURCEPAGE:p.71
+Matches (100)				TYPE:Goods.General						COST:0.5	WT:0.25	SOURCEPAGE:p.71
 Mess kit					TYPE:Goods.General						COST:2	WT:3		SOURCEPAGE:p.71
-Paper (Sheet)				TYPE:Goods.General.Paper					COST:.4	WT:0		SOURCEPAGE:p.71
-Photographic plate			TYPE:Goods.General						COST:1	WT:.5		SOURCEPAGE:p.71
+Paper (Sheet)				TYPE:Goods.General.Paper					COST:0.4	WT:0		SOURCEPAGE:p.71
+Photographic plate			TYPE:Goods.General						COST:1	WT:0.5	SOURCEPAGE:p.71
 Pick						TYPE:Goods.General						COST:2	WT:12		SOURCEPAGE:p.71
-Pipe (Smoking)				TYPE:Goods.General						COST:2	WT:.75	SOURCEPAGE:p.71
-Playing cards				TYPE:Goods.General						COST:.25	WT:0		SOURCEPAGE:p.71
+Pipe (Smoking)				TYPE:Goods.General						COST:2	WT:0.75	SOURCEPAGE:p.71
+Playing cards				TYPE:Goods.General						COST:0.25	WT:0		SOURCEPAGE:p.71
 Playing cards (marked)			TYPE:Goods.General						COST:2	WT:0		SOURCEPAGE:p.71
-Rifle scabbard				TYPE:Goods.General.Container	CONTAINS:12|Any=12	COST:3	WT:.5		SOURCEPAGE:p.71
+Rifle scabbard				TYPE:Goods.General.Container	CONTAINS:12|Any=12	COST:3	WT:0.5	SOURCEPAGE:p.71
 Rope (50 ft)				TYPE:Goods.General						COST:5	WT:8		SOURCEPAGE:p.71
 Shotgun thong				TYPE:Goods.General						COST:0.25	WT:0		SOURCEPAGE:p.71
 Speed-load cylinder			TYPE:Goods.General						COST:3	WT:1		SOURCEPAGE:p.71
 Shovel					TYPE:Goods.General						COST:1.5	WT:4.5	SOURCEPAGE:p.71
 Spectacles					TYPE:Goods.General						COST:5	WT:0		SOURCEPAGE:p.71
-Tobacco (Chewing/tin)			TYPE:Goods.General						COST:.5	WT:1		SOURCEPAGE:p.71
-Tobacco (Smoking/pouch)			TYPE:Goods.General						COST:.5	WT:1		SOURCEPAGE:p.71
-Watch (Standard)				TYPE:Goods.General						COST:2.5	WT:.5		SOURCEPAGE:p.71
-Watch (Gold)				TYPE:Goods.General						COST:10	WT:.5		SOURCEPAGE:p.71
+Tobacco (Chewing/tin)			TYPE:Goods.General						COST:0.5	WT:1		SOURCEPAGE:p.71
+Tobacco (Smoking/pouch)			TYPE:Goods.General						COST:0.5	WT:1		SOURCEPAGE:p.71
+Watch (Standard)				TYPE:Goods.General						COST:2.5	WT:0.5	SOURCEPAGE:p.71
+Watch (Gold)				TYPE:Goods.General						COST:10	WT:0.5	SOURCEPAGE:p.71
 Doctor's Bag				TYPE:Goods.Tools							COST:25	WT:15		SOURCEPAGE:p.71
 Blouse (Fancy)				TYPE:Goods.Clothing						COST:3	WT:1		SOURCEPAGE:p.71
 Blouse					TYPE:Goods.Clothing						COST:1	WT:1		SOURCEPAGE:p.71
@@ -41,12 +41,12 @@ Bonnet					TYPE:Goods.Clothing						COST:2	WT:0		SOURCEPAGE:p.71
 Boots						TYPE:Goods.Clothing						COST:8	WT:4		SOURCEPAGE:p.71
 Chaps						TYPE:Goods.Clothing						COST:4	WT:6		SOURCEPAGE:p.71
 Cowboy hat					TYPE:Goods.Clothing						COST:3	WT:1		SOURCEPAGE:p.71
-Derby						TYPE:Goods.Clothing						COST:1.5	WT:.5		SOURCEPAGE:p.71
+Derby						TYPE:Goods.Clothing						COST:1.5	WT:0.5	SOURCEPAGE:p.71
 Dress (Fancy)				TYPE:Goods.Clothing						COST:15	WT:6		SOURCEPAGE:p.71
 Dress						TYPE:Goods.Clothing						COST:5	WT:6		SOURCEPAGE:p.71
 Duster					TYPE:Goods.Clothing						COST:10	WT:4		SOURCEPAGE:p.71
 Longjohns					TYPE:Goods.Clothing						COST:2	WT:2		SOURCEPAGE:p.71
-Moccasins					TYPE:Goods.Clothing						COST:.5	WT:.5		SOURCEPAGE:p.71
+Moccasins					TYPE:Goods.Clothing						COST:0.5	WT:0.5	SOURCEPAGE:p.71
 Shirt (Fancy)				TYPE:Goods.Clothing						COST:3	WT:1		SOURCEPAGE:p.71
 Shirt						TYPE:Goods.Clothing						COST:1	WT:1		SOURCEPAGE:p.71
 Silk stockings				TYPE:Goods.Clothing						COST:1	WT:0		SOURCEPAGE:p.71
@@ -57,20 +57,20 @@ Stetson					TYPE:Goods.Clothing						COST:15	WT:1.5	SOURCEPAGE:p.71
 Suit						TYPE:Goods.Clothing						COST:15	WT:6		SOURCEPAGE:p.71
 Trousers					TYPE:Goods.Clothing						COST:2	WT:2		SOURCEPAGE:p.71
 Winter coat					TYPE:Goods.Clothing						COST:15	WT:3		SOURCEPAGE:p.71
-Bacon (per pound)				TYPE:Goods.Food							COST:.15	WT:1		SOURCEPAGE:p.71
-Beer (Glass)				TYPE:Goods.Liquid							COST:.05	WT:0		SOURCEPAGE:p.71
-Coffee (per pound)			TYPE:Goods.Food							COST:.25	WT:1		SOURCEPAGE:p.71
+Bacon (per pound)				TYPE:Goods.Food							COST:0.15	WT:1		SOURCEPAGE:p.71
+Beer (Glass)				TYPE:Goods.Liquid							COST:0.05	WT:0		SOURCEPAGE:p.71
+Coffee (per pound)			TYPE:Goods.Food							COST:0.25	WT:1		SOURCEPAGE:p.71
 Liquor (Bottle/Cheap)			TYPE:Goods.Liquid							COST:2	WT:2.5	SOURCEPAGE:p.71
 Liquor (Bottle/Good)			TYPE:Goods.Liquid							COST:5	WT:2.5	SOURCEPAGE:p.71
-Meal (Restaurant/Cheap)			TYPE:Goods.Food							COST:.25	WT:0		SOURCEPAGE:p.71
+Meal (Restaurant/Cheap)			TYPE:Goods.Food							COST:0.25	WT:0		SOURCEPAGE:p.71
 Meal (Restaurant/Good)			TYPE:Goods.Food							COST:1	WT:0		SOURCEPAGE:p.71
 Blasting cap				TYPE:Goods.Special						COST:1	WT:0		SOURCEPAGE:p.71
 Detonator (Plunger)			TYPE:Goods.Special						COST:10	WT:10		SOURCEPAGE:p.71
 Detonation wire (50 ft.)		TYPE:Goods.Special						COST:2.5	WT:1		SOURCEPAGE:p.71
 Epitaph Camera				TYPE:Goods.Special						COST:1600	WT:12		SOURCEPAGE:p.71
 Gatling Gun cylinder			TYPE:Goods.Special						COST:200	WT:1		SOURCEPAGE:p.71
-Photographic Plate (Epitaph Camera)	TYPE:Goods.Special						COST:5	WT:.5		SOURCEPAGE:p.71
-Fuse (per foot)				TYPE:Goods.Special						COST:.05	WT:0		SOURCEPAGE:p.71
+Photographic Plate (Epitaph Camera)	TYPE:Goods.Special						COST:5	WT:0.5	SOURCEPAGE:p.71
+Fuse (per foot)				TYPE:Goods.Special						COST:0.05	WT:0		SOURCEPAGE:p.71
 Rocket Pack					TYPE:Goods.Special						COST:2100	WT:110	SOURCEPAGE:p.71
 
 #Mounts and Tack
