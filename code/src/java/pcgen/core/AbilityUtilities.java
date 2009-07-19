@@ -440,6 +440,7 @@ public class AbilityUtilities
 			aPC.removeNaturalWeapons(ability);
 			aPC.removeTemplatesFrom(ability);
 			CDOMObjectUtilities.removeAdds(ability, aPC);
+			CDOMObjectUtilities.restoreRemovals(ability, aPC);
 		}
 
 		if (singleChoice && !adjustedAbilityPool)

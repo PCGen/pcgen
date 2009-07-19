@@ -2360,11 +2360,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (CompanionMod cMod : oldCompanionMods)
 		{
 			CDOMObjectUtilities.removeAdds(cMod, this);
+			CDOMObjectUtilities.restoreRemovals(cMod, this);
 		}
 
 		for (CompanionMod cMod : newCompanionMods)
 		{
 			CDOMObjectUtilities.addAdds(cMod, this);
+			CDOMObjectUtilities.checkRemovals(cMod, this);
 
 			for (CDOMReference<PCTemplate> ref : cMod
 				.getSafeListFor(ListKey.TEMPLATE))
@@ -7113,7 +7115,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			addSkill.globalChecks(this);
+			addSkill.doBaseChecks(this);
+			addSkill.activateBonuses(this);
 			calcActiveBonuses();
 		}
 	}
@@ -12314,7 +12317,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	private void removeObjectsForLevelInfo(final PCLevelInfo li)
 	{
-		for (PObject object : li.getObjects())
+		for (Ability object : li.getObjects())
 		{
 
 			// remove this object from the feats lists

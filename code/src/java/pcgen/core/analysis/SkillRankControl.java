@@ -379,6 +379,7 @@ public class SkillRankControl
 				if (iCount != 0)
 				{
 					CDOMObjectUtilities.removeAdds(sk, aPC);
+					CDOMObjectUtilities.restoreRemovals(sk, aPC);
 				}
 			}
 			else
@@ -391,6 +392,7 @@ public class SkillRankControl
 				if (iCount == 0)
 				{
 					CDOMObjectUtilities.addAdds(sk, aPC);
+					CDOMObjectUtilities.checkRemovals(sk, aPC);
 				}
 			}
 		}

@@ -432,7 +432,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return aList;
 	}
 
-	public void globalChecks(final PlayerCharacter aPC)
+	public final void globalChecks(final PlayerCharacter aPC)
 	{
 		doBaseChecks(aPC);
 		CDOMObjectUtilities.addAdds(this, aPC);

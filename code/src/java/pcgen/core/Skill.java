@@ -32,13 +32,6 @@ import pcgen.cdom.enumeration.ObjectKey;
  */
 public final class Skill extends PObject
 {
-	@Override
-	public void globalChecks(PlayerCharacter aPC)
-	{
-		doBaseChecks(aPC);
-		activateBonuses(aPC);
-	}
-
 	public String getKeyStatAbb()
 	{
 		PCStat keyStat = get(ObjectKey.KEY_STAT);

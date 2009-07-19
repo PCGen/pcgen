@@ -1463,16 +1463,9 @@ public class PCClass extends PObject
 
 			if (newLevel == 1)
 			{
-				for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
-				{
-					kit.act(kit.driveChoice(aPC), this, aPC);
-				}
-				TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
-				if (region != null)
-				{
-					region.act(region.driveChoice(aPC), this, aPC);
-				}
+				doBaseChecks(aPC);
 				CDOMObjectUtilities.addAdds(this, aPC);
+				CDOMObjectUtilities.checkRemovals(this, aPC);
 				aPC.addNaturalWeapons(getListFor(ListKey.NATURAL_WEAPON));
 			}
 
@@ -1536,7 +1529,9 @@ public class PCClass extends PObject
 	 */
 	void doMinusLevelMods(final PlayerCharacter aPC, final int oldLevel)
 	{
-		CDOMObjectUtilities.removeAdds(getActiveClassLevel(oldLevel), aPC);
+		PCClassLevel pcl = getActiveClassLevel(oldLevel);
+		CDOMObjectUtilities.removeAdds(pcl, aPC);
+		CDOMObjectUtilities.restoreRemovals(pcl, aPC);
 		aPC.removeVariable("CLASS:" + getKeyName() + "|"
 			+ Integer.toString(oldLevel));
 	}
@@ -2216,15 +2211,5 @@ public class PCClass extends PObject
 	public String getVariableSource()
 	{
 		return "CLASS|" + this.getKeyName();
-	}
-	
-	@Override
-	public void globalChecks(PlayerCharacter aPC)
-	{
-		doBaseChecks(aPC);
-		PCClassLevel classLevel = getActiveClassLevel(getLevel(aPC));
-		CDOMObjectUtilities.addAdds(classLevel, aPC);
-		CDOMObjectUtilities.checkRemovals(classLevel, aPC);
-		activateBonuses(aPC);
 	}
 }

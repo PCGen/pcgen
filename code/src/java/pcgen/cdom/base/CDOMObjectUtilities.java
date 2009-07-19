@@ -176,6 +176,19 @@ public final class CDOMObjectUtilities
 		}
 	}
 
+	public static void restoreRemovals(CDOMObject cdo, PlayerCharacter pc)
+	{
+		List<PersistentTransitionChoice<?>> removeList = cdo
+				.getListFor(ListKey.REMOVE);
+		if (removeList != null)
+		{
+			for (PersistentTransitionChoice<?> tc : removeList)
+			{
+				tc.remove(cdo, pc);
+			}
+		}
+	}
+
 	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
 			final PlayerCharacter aPC)
 	{
