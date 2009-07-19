@@ -68,7 +68,7 @@ public class PreDomainTester extends AbstractPrerequisiteTest implements
 			Domain domain = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, prereq
 							.getKey());
-			final boolean hasDomain = character.hasDomain(domain);
+			final boolean hasDomain = domain != null && character.hasDomain(domain);
 			runningTotal = hasDomain ? 1 : 0;
 		}
 
