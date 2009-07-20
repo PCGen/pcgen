@@ -25,6 +25,12 @@ import pcgen.util.Logging;
 
 public final class ChoiceSetLoadUtilities
 {
+	
+	private ChoiceSetLoadUtilities()
+	{
+		//Don't instantiate utility class
+	}
+
 	public static <T extends CDOMObject> PrimitiveChoiceSet<T> getChoiceSet(
 			LoadContext context, Class<T> poClass, String joinedOr)
 	{

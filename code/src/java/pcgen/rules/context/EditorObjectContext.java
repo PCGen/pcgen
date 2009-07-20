@@ -21,7 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 
 public class EditorObjectContext extends AbstractObjectContext
 {
-	TrackingObjectCommitStrategy commit = new TrackingObjectCommitStrategy();
+	private final TrackingObjectCommitStrategy commit = new TrackingObjectCommitStrategy();
 
 	public void purge(CDOMObject cdo)
 	{

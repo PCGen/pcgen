@@ -29,9 +29,9 @@ import pcgen.core.AbilityCategory;
 public class EditorReferenceContext extends RuntimeReferenceContext
 {
 
-	HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<CDOMObject, CDOMObject>();
-	HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<CDOMObject, CDOMObject>();
-	HashMapToList<URI, CDOMObject> forgetMap = new HashMapToList<URI, CDOMObject>();
+	private final HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<CDOMObject, CDOMObject>();
+	private final HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<CDOMObject, CDOMObject>();
+	private final HashMapToList<URI, CDOMObject> forgetMap = new HashMapToList<URI, CDOMObject>();
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> Category<T> getCategoryFor(
 			Class<T> cl, String s)

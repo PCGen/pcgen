@@ -93,18 +93,21 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 			StringTokenizer st = new StringTokenizer(activeValue, ",");
 			while (st.hasMoreTokens())
 			{
+				String tok = st.nextToken();
 				CDOMReference<T> ref = TokenUtilities.getTypeOrPrimitive(
-						context, getChooseClass(), st.nextToken());
+						context, getChooseClass(), tok);
 				if (ref == null)
 				{
 					Logging.log(Logging.LST_ERROR,
-							"  Error was encountered while parsing "
-									+ getTokenName());
+							"Error: Count not get Reference for " + tok
+									+ " in " + getTokenName());
 					return false;
 				}
 				if (!set.add(ref))
 				{
-					// Error (second add)
+					Logging.log(Logging.LST_ERROR, "Error, Found item: " + ref
+							+ " twice while parsing " + getTokenName());
+					return false;
 				}
 			}
 			if (set.isEmpty())

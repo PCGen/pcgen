@@ -42,7 +42,7 @@ import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.rules.persistence.util.TokenFamily;
 import pcgen.util.Logging;
 
-public class TokenLibrary
+public final class TokenLibrary
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
@@ -63,6 +63,11 @@ public class TokenLibrary
 		TOKEN_FAMILIES.add(TokenFamily.REV514);
 	}
 
+	private TokenLibrary()
+	{
+		//Don't instantiate utility class
+	}
+	
 	public static <T> PrimitiveToken<T> getPrimitive(Class<T> name,
 			String tokKey)
 	{
@@ -424,10 +429,4 @@ public class TokenLibrary
 			return family.getPrerequisiteToken(key);
 		}
 	}
-
-	public Class<CDOMObject> getTokenClass()
-	{
-		return CDOMObject.class;
-	}
-
 }
