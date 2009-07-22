@@ -83,6 +83,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 				value, cdo);
 		String error = TokenConverter.process(tpe);
 		context.purge(cdo);
+		TokenConverter.clearConstants();
 		if (tpe.isConsumed())
 		{
 			return tpe.getResult();

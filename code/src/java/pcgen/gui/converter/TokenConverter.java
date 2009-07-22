@@ -23,6 +23,16 @@ import java.util.NoSuchElementException;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.SubClassCategory;
+import pcgen.cdom.enumeration.SubRace;
+import pcgen.cdom.enumeration.SubRegion;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.gui.converter.event.TokenProcessEvent;
 import pcgen.gui.converter.event.TokenProcessorPlugin;
 import pcgen.util.Logging;
@@ -155,6 +165,20 @@ public class TokenConverter
 			cached.put(cl, name, Boolean.TRUE);
 		}
 		return list;
+	}
+
+	public static void clearConstants()
+	{
+		AspectName.clearConstants();
+		Pantheon.clearConstants();
+		RaceSubType.clearConstants();
+		RaceType.clearConstants();
+		Region.clearConstants();
+		SubClassCategory.clearConstants();
+		SubRace.clearConstants();
+		SubRegion.clearConstants();
+		Type.clearConstants();
+		VariableKey.clearConstants();
 	}
 
 }

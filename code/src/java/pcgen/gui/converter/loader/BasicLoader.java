@@ -78,6 +78,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 				list.addAll(injected);
 			}
 			context.purge(obj);
+			TokenConverter.clearConstants();
 		}
 		return list;
 	}

@@ -111,6 +111,12 @@ public class ClassLoader implements Loader
 			{
 				list.addAll(injected);
 			}
+			context.purge(obj);
+			if (parent != null)
+			{
+				context.purge(parent);
+			}
+			TokenConverter.clearConstants();
 		}
 		return list;
 	}
