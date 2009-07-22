@@ -53,6 +53,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.gui.converter.ConversionDecider;
 import pcgen.gui.converter.LSTConverter;
 import pcgen.gui.converter.ObjectInjector;
@@ -109,7 +110,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 * @see pcgen.gui.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
 	 */
 	@Override
-	public boolean performAnalysis(CDOMObject pc)
+	public boolean performAnalysis(final CDOMObject pc)
 	{
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
@@ -137,6 +138,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				LSTConverter converter = new LSTConverter(context, rootDir,
 						outDir.getAbsolutePath(), RunConvertPanel.this);
 				converter.addObserver(RunConvertPanel.this);
+				SettingsHandler.setGame(pc.get(ObjectKey.GAME_MODE).getName());
 				try
 				{
 					converter.doStartup();
