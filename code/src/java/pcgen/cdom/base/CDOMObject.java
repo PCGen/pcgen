@@ -40,6 +40,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
 import pcgen.core.Description;
+import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
 		Cloneable
@@ -600,6 +601,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		clone.mapChar = new MapKeyMap();
 		clone.mapChar.putAll(mapChar);
 		clone.cdomListMods = cdomListMods.clone();
+		clone.ownBonuses(clone);
 		return clone;
 	}
 
@@ -635,6 +637,26 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public ListKey<Description> getDescriptionKey()
 	{
 		return ListKey.DESCRIPTION;
+	}
+
+	/**
+	 * Set's all the BonusObj's to this creator
+	 * 
+	 * Hopefully this is a temporary import - thpr Oct 9, 2008
+	 * @throws CloneNotSupportedException 
+	 */
+	public void ownBonuses(Object owner) throws CloneNotSupportedException
+	{
+		List<BonusObj> bonusList = getListFor(ListKey.BONUS);
+		if (bonusList != null)
+		{
+			removeListFor(ListKey.BONUS);
+			for (BonusObj orig : bonusList)
+			{
+				BonusObj bonus = orig.clone();
+				addToListFor(ListKey.BONUS, bonus);
+			}
+		}
 	}
 
 	/**
