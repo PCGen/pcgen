@@ -49,7 +49,7 @@ import pcgen.util.Logging;
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  **/
-public abstract class BonusObj extends ConcretePrereqObject implements Serializable
+public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable
 {
 	private List<Object>    bonusInfo       = new ArrayList<Object>();
 	private Map<String, String>     dependMap  = new HashMap<String, String>();
@@ -671,11 +671,44 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	}
 	
 	/**
-	 * This method will expand the given token in the "value" of this
-	 * BonusObj, it will also expand the token in any Prerequisites
-	 * that this bonusObj may have
-	 * @param token The string representing the token to be replaces (i.e. "%CHOICE")
-	 * @param tokenValue The String representing the new value to be used (i.e. "+2")
+	 * @see java.lang.Object#clone()
+	 */
+	@Override
+	public BonusObj clone() throws CloneNotSupportedException
+	{
+		final BonusObj bonusObj = (BonusObj) super.clone();
+
+		bonusObj.bonusInfo = new ArrayList<Object>(bonusInfo);
+
+		bonusObj.dependMap = new HashMap<String, String>();
+		bonusObj.setValue(bonusFormula.toString());
+
+		// we want to keep the same references to these objects
+		// creatorObj
+		// targetObj
+
+		// These objects are immutable and do not need explicit cloning
+		// bonusName
+		// bonusType
+		// choiceString
+		// varPart
+		// isApplied
+		// valueIsStatic
+		// pcLevel
+		// typeOfBonus
+		return bonusObj;
+	}
+
+	/**
+	 * This method will expand the given token in the "value" of this BonusObj,
+	 * it will also expand the token in any Prerequisites that this bonusObj may
+	 * have
+	 * 
+	 * @param token
+	 *            The string representing the token to be replaces (i.e.
+	 *            "%CHOICE")
+	 * @param tokenValue
+	 *            The String representing the new value to be used (i.e. "+2")
 	 */
 	public void expandToken(final String token, final String tokenValue)
 	{
