@@ -103,7 +103,8 @@ public class ClassToken implements CDOMSecondaryToken<CDOMObject>
 		String chooseString = context.getObjectContext().getString(cdo,
 				StringKey.CHOICE_STRING);
 		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') == -1)
+				|| chooseString.indexOf(getTokenName() + '|') == -1
+				|| chooseString.indexOf("SKILLSNAMED|") != -1)
 		{
 			return null;
 		}
