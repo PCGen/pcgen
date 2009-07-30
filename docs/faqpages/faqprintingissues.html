@@ -26,9 +26,9 @@
 		
 		<ol>
 			<li>
-				<p><span class="underline">How do I get the character sheets to only print out the skills my character has?</span></p>
+				<p class="indent0"><span class="underline">How do I get the character sheets to only print out the skills my character has?</span></p>
 				
-				<p>There is a list box in the lower right hand corner of the Skills tab that
+				<p class="indent0">There is a list box in the lower right hand corner of the Skills tab that
 				determines which skills show up on the character sheet (called &quot;Include skills&quot;).</p>
 					
 				<ul>
@@ -39,18 +39,18 @@
 			</li>
 
 			<li>
-				<p><span class="underline">I try to preview a character or bring up the Doc, and nothing happens.</span></p>
+				<p class="indent0"><span class="underline">I try to preview a character or bring up the Doc, and nothing happens.</span></p>
 
 				<p>Since PCGen is cross-platform it's hard to assume what browser you're using.
 				Click on the menu item Settings-&gt;Preferences and a dialog box will appear.</p>
 					
-				<p>One of the options under Locations is to set your Browser Path, just navigate to the executable of your favourite browser.</p>
+				<p class="indent0">One of the options under Locations is to set your Browser Path, just navigate to the executable of your favourite browser.</p>
 			</li>
 			
 			<li>
-				<p><span class="underline">I click on the print icon and get a warning about missing files.</span></p>
+				<p class="indent0"><span class="underline">I click on the print icon and get a warning about missing files.</span></p>
 					
-				<p>The pdf_new.zip library is required if you want to print directly from PCGen - otherwise you can
+				<p class="indent0">The pdf_new.zip library is required if you want to print directly from PCGen - otherwise you can
 				view the files in your browser or adobe acrobat (pdf files) and print from there. The pdf_new.zip
 				file is located <a href="http://prdownloads.sourceforge.net/pcgen/pdf_new.zip">here</a>, 
 				unzip it into the lib subdirectory where you installed PCGen. Then you'll need to re-launch PCGen for it 
@@ -58,11 +58,43 @@
 			</li>
 
 			<li>
-				<p><span class="underline">Does PCGen support any command line exporting functionality?</span></p>
-				<p>For this to work you must have the 'Load Campaign Data with character' box checked and type the following all on one line.</p>
-				<p><code>java -Dpcgen.templatefile=C:\Pcgen\outputsheets\d20\fantasy\htmlxml\csheet_fantasy_std.htm -Dpcgen.inputfile=C:\Pcgen\characters\aaa.pcg -Dpcgen.outputfile=C:\Pcgen\characters\aaa.htm -jar pcgen.jar</code></p>				
+				<p class="indent0"><span class="underline">Does PCGen support any command line exporting functionality?</span></p>
+				<p class="indent0">PCGen does support command line exporting of characters by both HTML and PDF but both require
+					the 'Load Campaign Data with character' box in the preferences to be checked.</p>
+				<p class="indent0"><strong>Command Line HTML Export:</strong></p>
+				<p class="indent0">The general form to export the HTML character sheets is shown below.</p>
+				<p class="indent1"><em>java -Dpcgen.template=&lt;path to OS&gt; -Dpcgen.inputefile=&lt;path to input file&gt; 
+					-Dpcgen.outputfile=&lt;path to output file&gt; -jar pcgen.jar</em></p>
+				<p class="indent0">An example of what the final line may look like is as follows:</p>
+				<p class="indent1"><code>java -Dpcgen.templatefile=C:\Pcgen\outputsheets\d20\fantasy\htmlxml\csheet_fantasy_std.htm 
+					-Dpcgen.inputfile=C:\Pcgen\characters\aaa.pcg -Dpcgen.outputfile=C:\Pcgen\characters\aaa.htm -jar pcgen.jar</code></p>				
+				<p class="indent0"><strong>Command line exporting to a PDF is a two step process.</strong></p>
+				<ol>
+					<li>
+						<p class="indent0">Export the <span class="lstfile">base.xml</span> file.</p>
+						<p class="indent1"><em>/pcgen.sh -Dpcgen.templatefile=outputsheets/base.xml 
+							-Dpcgen.inputfile=&lt;path to character file&gt; 
+							-Dpcgen.outputfile=&lt;path to character output xml file&gt;</em></p>
+						<p class="indent0">An example of what the final line may look like is as follows:</p>
+						<p class="indent1"><code>/pcgen.sh -Dpcgen.templatefile=outputsheets/base.xml 
+							-Dpcgen.inputfile=characters/FOO.pcg 
+							-Dpcgen.outputfile=characters/FOO.xml</code></p>
+					</li>
+					
+					<li>
+						<p class="indent0">Run fop</p>
+						<p class="indent1"><em>java -classpath $(echo lib/fop/*.jar | sed -e 's/ /:/g') org.apache.fop.apps.Fop 
+							-xml &lt;path to character output xml file&gt; -xsl &lt;path to character sheet xslt file&gt; 
+							-pdf &lt;path to character output pdf file&gt;</em></p>
+						<p class="indent0">An example of what the final line may look like is as follows:</p>
+						<p class="indent1"><code>java -classpath $(echo lib/fop/*.jar | sed -e 's/ /:/g') org.apache.fop.apps.Fop 
+							-xml characters/FOO.xml -xsl outputsheets/d20/fantasy/pdf/csheet_fantasy_std_blackandwhite.xslt 
+							-pdf characters/FOO.pdf</code></p>
+					</li>
+				</ol>	
 			</li>
 		</ol>
+		<p></p>
 
 <hr>
 		
