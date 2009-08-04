@@ -172,14 +172,15 @@
 				this purpose, is commonly used though other variables can be used as well.</li>
 			<li>Because anything within parentheses is assumed to be a formula to be parsed,
 				text containing parentheses must substitute brackets [ ] in place of parentheses.</li>
-			<li>Java has a Regular Expression library built in that is very similar to Perl
+		</ul>
+		<li><strong>Regular Expressions:</strong> Java has a Regular Expression library built in that is very similar to Perl
 				regular expressions. Basically it allows for pattern matching in strings. You can
 				create fairly powerful match structures using things like character groups "[a-zA-Z]"
 				match any alphabetic character or groupings "(bat|super)man" match batman or superman
 				and many many more. So, for example, you could clear all benefits by doing <code>BENEFIT:.CLEAR..*</code>,
 				or clear all exceptional abilities by doing <code>BENEFIT:.CLEAR.\(Ex\)</code>, or clear everything
 				that's non-numeric with <code>BENEFIT:.CLEAR.[A-Za-z]</code>.</li>
-		</ul>
+
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BENEFIT:This is sample text for the example purposes</code></p>
@@ -331,10 +332,14 @@
 
 <hr>
 
+	<p class="new">*** Updated 5.17.x</p>
 	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> TEMPLATE:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Template Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a pipe-delimited (|) list of templates that are granted by the ability.</p>
+	<ul class="indent2">
+		<li>This is a pipe-delimited (|) list of templates that are granted by the ability.</li>
+		<li>Supports <code>%LIST</code> in conjunction with a <code>CHOOSE</code> tag.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>
 	<p class="indent3">The ability applies the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;
