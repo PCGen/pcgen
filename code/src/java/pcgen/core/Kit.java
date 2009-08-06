@@ -62,7 +62,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	 */
 	public List<KitStat> getStats()
 	{
-		return getListFor(ListKey.STAT_LIST);
+		return getSafeListFor(ListKey.STAT_LIST);
 	}
 
 	/**
