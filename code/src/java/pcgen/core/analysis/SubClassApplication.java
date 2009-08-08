@@ -265,6 +265,11 @@ public class SubClassApplication
 
 	public static void setSubClassKey(PlayerCharacter pc, PCClass cl, final String aKey)
 	{
+		if (aKey == null || cl == null)
+		{
+			return;
+		}
+		
 		pc.setAssoc(cl, AssociationKey.SUBCLASS_KEY, aKey);
 	
 		if (!aKey.equals(cl.getKeyName()))
