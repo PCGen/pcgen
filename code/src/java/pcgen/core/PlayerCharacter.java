@@ -12836,8 +12836,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
+		aClone.race = race;
 		aClone.selectedFavoredClass = selectedFavoredClass;
-		if (kitList != null)
+        aClone.stats.clear(); 	 
+        aClone.stats.addAll(stats); 	 
+        if (kitList != null)
 		{
 			aClone.kitList = new ArrayList<Kit>();
 			aClone.kitList.addAll(kitList);
@@ -12900,6 +12903,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.useTempMods = useTempMods;
 		aClone.setFeats(feats);
 		aClone.age = age;
+		aClone.alignment = alignment;
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
 		aClone.earnedXP = earnedXP;
