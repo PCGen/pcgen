@@ -26,6 +26,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+import plugin.qualifier.pobject.AnyToken;
 import plugin.qualifier.pobject.QualifiedToken;
 
 public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
@@ -33,6 +34,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 {
 
 	private static QualifierToken<CDOMObject> pcqualifier = new QualifiedToken<CDOMObject>();
+
+	private static QualifierToken<CDOMObject> anyqualifier = new AnyToken<CDOMObject>();
 
 	public abstract CDOMSecondaryToken<?> getSubToken();
 
@@ -49,6 +52,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		super.setUp();
 		TokenRegistration.register(getSubToken());
 		TokenRegistration.register(pcqualifier);
+		TokenRegistration.register(anyqualifier);
 	}
 
 	protected void construct(LoadContext loadContext, String one)
@@ -1046,6 +1050,36 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			runRoundRobin(getSubTokenName() + "|QUALIFIED[ALL]");
+		}
+	}
+
+	@Test
+	public void testRoundRobinTestQualifiedAll1()
+			throws PersistenceLayerException
+	{
+		if (allowsQualifier())
+		{
+			runRoundRobin(getSubTokenName() + "|ALL");
+		}
+	}
+
+	@Test
+	public void testRoundRobinTestQualifiedAll2()
+			throws PersistenceLayerException
+	{
+		if (allowsQualifier())
+		{
+			runRoundRobin(getSubTokenName() + "|ANY");
+		}
+	}
+
+	@Test
+	public void testRoundRobinTestQualifiedAll3()
+			throws PersistenceLayerException
+	{
+		if (allowsQualifier())
+		{
+			runRoundRobin(getSubTokenName() + "|ANY[ALL]");
 		}
 	}
 
