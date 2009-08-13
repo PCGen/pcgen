@@ -98,7 +98,10 @@ public class KitClass extends BaseKit
 	public void apply(PlayerCharacter aPC)
 	{
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
-		SubClassApplication.setSubClassKey(aPC, theClass, theOrigSubClass);
+		if (theOrigSubClass != null)
+		{
+			SubClassApplication.setSubClassKey(aPC, theClass, theOrigSubClass);
+		}
 		theClass = null;
 	}
 
