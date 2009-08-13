@@ -22,7 +22,6 @@
  */
 package pcgen.core.kit;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,8 +47,6 @@ public class KitStat extends BaseKit
 {
 	private Map<PCStat, Formula> statMap = new HashMap<PCStat, Formula>();
 
-	private transient List<PCStat> theStat;
-
 	@Override
 	public String toString()
 	{
@@ -65,7 +62,6 @@ public class KitStat extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
-		theStat = new ArrayList<PCStat>();
 		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
 		{
 			int sVal = me.getValue().resolve(aPC, "").intValue();
@@ -75,7 +71,6 @@ public class KitStat extends BaseKit
 					&& currentStat.equals(me.getKey()))
 				{
 					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, sVal);
-					theStat.add(currentStat);
 					if ("INT".equals(currentStat.getAbb()))
 					{
 						recalculateSkillPoints(aPC);
@@ -90,21 +85,7 @@ public class KitStat extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		for (PCStat currentStat : aPC.getUnmodifiableStatList())
-		{
-			for (PCStat setStat : theStat)
-			{
-				if (currentStat.equals(setStat))
-				{
-					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, aPC.getAssoc(setStat, AssociationKey.STAT_SCORE));
-					if ("INT".equals(currentStat.getAbb()))
-					{
-						recalculateSkillPoints(aPC);
-					}
-					break;
-				}
-			}
-		}
+		testApply(null, aPC, null);
 	}
 
 	@Override
