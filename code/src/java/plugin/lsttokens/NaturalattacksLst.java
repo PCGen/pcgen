@@ -34,7 +34,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
@@ -378,7 +377,7 @@ public class NaturalattacksLst extends AbstractToken implements
 			{
 				int isize = obj.getSafe(FormulaKey.SIZE).resolve(null, "")
 						.intValue();
-				SizeAdjustment size = Globals.getContext().ref.getItemInOrder(
+				SizeAdjustment size = context.ref.getItemInOrder(
 						SizeAdjustment.class, isize);
 				for (Equipment e : natWeapons)
 				{
