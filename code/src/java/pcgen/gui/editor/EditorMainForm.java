@@ -2067,15 +2067,21 @@ public final class EditorMainForm extends JDialog
 			List<Language> selectedLanguageList = new ArrayList<Language>();
 			List<Language> selectedLanguageList2 = new ArrayList<Language>();
 
-			final Collection aSet = thisPObject.getSafeListFor(ListKey.AUTO_LANGUAGES);
+			List<CDOMReference<Language>> aSet = thisPObject.getSafeListFor(ListKey.AUTO_LANGUAGES);
 
 			for (Language aLang : Globals.getContext().ref.getConstructedCDOMObjects(Language.class))
 			{
-				if (aSet.contains(aLang))
+				boolean found = false;
+				for (CDOMReference<Language> ref : aSet)
 				{
-					selectedLanguageList.add(aLang);
+					if (ref.contains(aLang))
+					{
+						selectedLanguageList.add(aLang);
+						found = true;
+						break;
+					}
 				}
-				else
+				if (!found)
 				{
 					availableLanguageList.add(aLang);
 				}
