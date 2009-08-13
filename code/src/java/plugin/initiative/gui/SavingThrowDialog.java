@@ -321,26 +321,26 @@ public class SavingThrowDialog extends javax.swing.JDialog
 			if (saveType == FORT_SAVE)
 			{
 				PCCheck fort = checkList.get(0);
-				base = pc.calculateSaveBonus(1, fort, "BASE");
-				ability = pc.calculateSaveBonus(1, fort, "STATMOD");
-				magic = pc.calculateSaveBonus(1, fort, "MAGIC");
-				misc = pc.calculateSaveBonus(1, fort, "MISC.NOMAGIC.NOSTAT");
+				base = pc.calculateSaveBonus(fort, "BASE");
+				ability = pc.calculateSaveBonus(fort, "STATMOD");
+				magic = pc.calculateSaveBonus(fort, "MAGIC");
+				misc = pc.calculateSaveBonus(fort, "MISC.NOMAGIC.NOSTAT");
 			}
 			else if (saveType == REF_SAVE)
 			{
 				PCCheck ref = checkList.get(1);
-				base = pc.calculateSaveBonus(2, ref, "BASE");
-				ability = pc.calculateSaveBonus(2, ref, "STATMOD");
-				magic = pc.calculateSaveBonus(2, ref, "MAGIC");
-				misc = pc.calculateSaveBonus(2, ref, "MISC.NOMAGIC.NOSTAT");
+				base = pc.calculateSaveBonus(ref, "BASE");
+				ability = pc.calculateSaveBonus(ref, "STATMOD");
+				magic = pc.calculateSaveBonus(ref, "MAGIC");
+				misc = pc.calculateSaveBonus(ref, "MISC.NOMAGIC.NOSTAT");
 			}
 			else if (saveType == WILL_SAVE)
 			{
 				PCCheck will = checkList.get(2);
-				base = pc.calculateSaveBonus(3, will, "BASE");
-				ability = pc.calculateSaveBonus(3, will, "STATMOD");
-				magic = pc.calculateSaveBonus(3, will, "MAGIC");
-				misc = pc.calculateSaveBonus(3, will, "MISC.NOMAGIC.NOSTAT");
+				base = pc.calculateSaveBonus(will, "BASE");
+				ability = pc.calculateSaveBonus(will, "STATMOD");
+				magic = pc.calculateSaveBonus(will, "MAGIC");
+				misc = pc.calculateSaveBonus(will, "MISC.NOMAGIC.NOSTAT");
 			}
 		}
 		else if (cbt instanceof XMLCombatant)

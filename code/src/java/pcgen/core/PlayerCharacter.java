@@ -8514,8 +8514,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 *            tokenString to parse
 	 * @return the calculated save bonus
 	 */
-	public int calculateSaveBonus(final int saveIndex, final PCCheck check,
-		final String tokenString)
+	public int calculateSaveBonus(final PCCheck check, final String tokenString)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenString, ".");
 		final String[] tokens = new String[aTok.countTokens()];
@@ -8551,7 +8550,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ("RACE".equals(tokens[i]))
 			{
-				save += calculateSaveBonusRace(saveIndex);
+				save += calculateSaveBonusRace(check);
 			}
 
 			if ("FEATS".equals(tokens[i]))
@@ -8579,7 +8578,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if ("NORACE".equals(tokens[i]))
 			{
-				save -= calculateSaveBonusRace(saveIndex);
+				save -= calculateSaveBonusRace(check);
 			}
 
 			if ("NOFEATS".equals(tokens[i]))
@@ -11769,20 +11768,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param saveIndex
 	 * @return int
 	 */
-	private int calculateSaveBonusRace(final int saveIndex)
+	private int calculateSaveBonusRace(PCCheck check)
 	{
 		int save;
-
-		List<PCCheck> checkList = Globals.getContext().ref
-				.getOrderSortedCDOMObjects(PCCheck.class);
-
-		if (((saveIndex - 1) < 0)
-			|| ((saveIndex - 1) >= checkList.size()))
-		{
-			return 0;
-		}
-
-		final String sString = checkList.get(saveIndex - 1).toString();
+		final String sString = check.toString();
 		save = (int) race.bonusTo("CHECKS", "BASE." + sString, this, this);
 		save += (int) race.bonusTo("CHECKS", sString, this, this);
 

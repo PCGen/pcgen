@@ -103,7 +103,7 @@ public class CheckToken extends Token
 		String saveMods)
 	{
 		PCCheck type = getNameToken(saveType);
-		return pc.calculateSaveBonus(1, type, "".equals(saveMods) ? "TOTAL"
+		return pc.calculateSaveBonus(type, "".equals(saveMods) ? "TOTAL"
 			: saveMods);
 	}
 
