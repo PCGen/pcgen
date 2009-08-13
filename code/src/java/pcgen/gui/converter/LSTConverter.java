@@ -39,8 +39,10 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
+import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -61,6 +63,7 @@ import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.SizeAdjustmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLoader;
 import pcgen.rules.context.EditorLoadContext;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -334,14 +337,21 @@ public class LSTConverter extends Observable
 				"sizeAdjustment.lst");
 		sizeLoader.loadLstFile(context, sizes.toURI());
 
+		ReferenceContext globalRef = Globals.getContext().ref;
 		for (PCAlignment al : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{
-			context.ref.registerAbbreviation(al, al.getAbb());
+			globalRef.importObject(al);
+			globalRef.registerAbbreviation(al, al.getAbb());
+		}
+		for (PCStat st : context.ref.getOrderSortedCDOMObjects(PCStat.class))
+		{
+			globalRef.importObject(st);
+			globalRef.registerAbbreviation(st, st.getAbb());
 		}
 		for (SizeAdjustment sz : context.ref.getOrderSortedCDOMObjects(SizeAdjustment.class))
 		{
-			context.ref.importObject(sz);
-			context.ref.registerAbbreviation(sz, sz.getAbbreviation());
+			globalRef.importObject(sz);
+			globalRef.registerAbbreviation(sz, sz.getAbbreviation());
 		}
 	}
 
