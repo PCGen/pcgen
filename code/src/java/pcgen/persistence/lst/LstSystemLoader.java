@@ -447,6 +447,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// Load custom items
 			loadCustomItems();
 
+			finishLoad(aSelectedCampaignsList, context);
 			// Check for valid race types
 			//			checkRaceTypes();
 
@@ -579,7 +580,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		 * resolved.
 		 */
 		System.gc();
-		
+	}
+
+	private void finishLoad(final List<Campaign> aSelectedCampaignsList,
+			LoadContext context)
+	{
 		context.resolveDeferredTokens();
 		context.ref.buildDeferredObjects();
 		context.ref.buildDerivedObjects();
