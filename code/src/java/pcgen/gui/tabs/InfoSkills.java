@@ -1905,7 +1905,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		PCClass aClass = getSelectedPCClass();
 		SkillCost sc = pc.getSkillCostForClass(aSkill, aClass);
 
-		if (sc.equals(SkillCost.EXCLUSIVE))
+		final double cost = sc.getCost();
+		if (cost <= 0.001)
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
@@ -1914,7 +1915,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return false;
 		}
 
-		final double cost = sc.getCost();
 		double rank = points / cost;
 
 		if (aSkill != null)

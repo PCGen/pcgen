@@ -156,11 +156,11 @@ public class SkillRankControl
 
 			SkillCost sc = aPC.getSkillCostForClass(sk, aClass);
 
-			if (sc.equals(SkillCost.EXCLUSIVE))
+			i = sc.getCost();
+			if (i == 0)
 			{
 				return "You cannot purchase this exclusive skill.";
 			}
-			i = sc.getCost();
 
 			if ((rankMod > 0.0) && (aClass.getSkillPool(aPC) < (rankMod * i)))
 			{
