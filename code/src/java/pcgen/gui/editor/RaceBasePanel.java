@@ -64,6 +64,7 @@ import pcgen.util.PropertyFactory;
  */
 public class RaceBasePanel extends BasePanel
 {
+	private static final String NO_MONSTER_CLASS = "(None)";
 	private static final String[] sizeTitles =
 			new String[]{"Fine", "Diminutive", "Tiny", "Small", "Medium",
 				"Large", "Huge", "Gargantuan", "Colossal"};
@@ -226,7 +227,7 @@ public class RaceBasePanel extends BasePanel
 	{
 		if ((aString == null) || (aString.length() == 0))
 		{
-			cmbMonsterClass.setSelectedItem("(None)");
+			cmbMonsterClass.setSelectedItem(NO_MONSTER_CLASS);
 		}
 		else
 		{
@@ -362,8 +363,12 @@ public class RaceBasePanel extends BasePanel
 		context.unconditionallyProcess(thisRace, "HITDICEADVANCEMENT", txtHitDiceAdvancement.getText());
 		thisRace.put(IntegerKey.LEGS, getLegs());
 		thisRace.put(FormulaKey.LEVEL_ADJUSTMENT, getLevelAdjustment());
-		context.unconditionallyProcess(thisRace, "MONSTERCLASS",
-				getMonsterClass() + ":" + getMonsterLevel());
+		String monsterClass = getMonsterClass();
+		if (!monsterClass.equals(NO_MONSTER_CLASS))
+		{
+			context.unconditionallyProcess(thisRace, "MONSTERCLASS",
+					monsterClass + ":" + getMonsterLevel());
+		}
 		thisRace.put(FormulaKey.SIZE, new FixedSizeFormula(getRaceSize()));
 		thisRace.put(IntegerKey.REACH, getReach());
 		thisRace.put(IntegerKey.INITIAL_SKILL_MULT, getSkillMultiplier());
@@ -439,7 +444,7 @@ public class RaceBasePanel extends BasePanel
 		/// Populate the monster classes
 		///
 		List<String> classesList = new ArrayList<String>();
-		classesList.add("(None)");
+		classesList.add(NO_MONSTER_CLASS);
 
 		for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
 		{
