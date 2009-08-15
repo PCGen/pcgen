@@ -693,7 +693,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			}
 
 			if (!PrereqHandler.passesAll(((PObject) item).getPrerequisiteList(), aPC,
-				(PObject) item))
+				item))
 			{
 				// indicates to LabelTreeCellRenderer to change text color
 				// to a user-preference (default is red)

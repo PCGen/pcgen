@@ -63,7 +63,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 			return true;
 		}
 
-		return PrereqHandler.passesAll(thePrereqs, aPC, null);
+		return PrereqHandler.passesAll(thePrereqs, aPC, this);
 	}
 
 	/**

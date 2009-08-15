@@ -61,7 +61,7 @@ public class PrereqHandler {
 	 * @param caller The object that we are testing qualification for.
 	 * @return True if the character passes all prereqs.
 	 */
-	public static boolean passesAll(final Collection<Prerequisite> prereqList, final PlayerCharacter character, final CDOMObject caller)
+	public static boolean passesAll(final Collection<Prerequisite> prereqList, final PlayerCharacter character, final Object caller)
 	{
 		if (prereqList == null || prereqList.isEmpty())
 		{
@@ -77,10 +77,10 @@ public class PrereqHandler {
 			return true;
 		}
 
-		if ((character != null) && (caller != null))
+		if (caller instanceof CDOMObject && character != null)
 		{
 			// Check for QUALIFY:
-			if (character.checkQualifyList(caller))
+			if (character.checkQualifyList((CDOMObject) caller))
 			{
 				return true;
 			}
@@ -165,7 +165,7 @@ public class PrereqHandler {
 	 * @param caller The CDOMojbect that is calling this method
 	 * @return true if the character passes the prereq
 	 */
-	public static boolean passes(final Prerequisite prereq, final PlayerCharacter character, final CDOMObject caller)
+	public static boolean passes(final Prerequisite prereq, final PlayerCharacter character, final Object caller)
 	{
 		if (character == null && prereq.isCharacterRequired())
 		{
@@ -186,8 +186,8 @@ public class PrereqHandler {
 		boolean autoQualifies = false;
 		int total = 0;
 
-		if ((caller != null) && character != null
-			&& character.checkQualifyList(caller) && (!overrideQualify))
+		if (caller instanceof CDOMObject && character != null
+			&& character.checkQualifyList((CDOMObject) caller) && (!overrideQualify))
 		{
 			autoQualifies = true;
 		}
