@@ -126,7 +126,7 @@ public class FeatToken extends AbstractToken implements
 		boolean foundAny = false;
 		boolean foundOther = false;
 
-		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (tok.hasMoreTokens())

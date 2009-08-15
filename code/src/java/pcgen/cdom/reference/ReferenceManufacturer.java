@@ -53,7 +53,7 @@ import pcgen.cdom.base.PrereqObject;
  *            The Class of Single Reference that this ReferenceManufacturer will
  *            produce
  */
-public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSingleRef<T>>
+public interface ReferenceManufacturer<T extends PrereqObject>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
@@ -202,7 +202,7 @@ public interface ReferenceManufacturer<T extends PrereqObject, RT extends CDOMSi
 	 * @return A CDOMReference that refers to the object identified by the given
 	 *         key
 	 */
-	public RT getReference(String key);
+	public CDOMSingleRef<T> getReference(String key);
 
 	/**
 	 * Gets a reference to the Class or Class/Context provided by this

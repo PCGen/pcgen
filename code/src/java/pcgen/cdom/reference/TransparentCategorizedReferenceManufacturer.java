@@ -33,7 +33,7 @@ import pcgen.cdom.base.CategorizedCDOMObject;
  */
 public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & CategorizedCDOMObject<T>>
 		extends TransparentReferenceManufacturer<T> implements
-		ReferenceManufacturer<T, CDOMTransparentSingleRef<T>>
+		ReferenceManufacturer<T>
 {
 	/**
 	 * Stores the Category of the CategorizedCDOMObjects that this
@@ -140,7 +140,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends CDOMObject & 
 	 *             if the given ReferenceManufacturer is null
 	 */
 	@Override
-	public void resolveUsing(ReferenceManufacturer<T, ?> rm)
+	public void resolveUsing(ReferenceManufacturer<T> rm)
 	{
 		if (rm == null)
 		{

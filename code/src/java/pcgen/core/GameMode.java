@@ -2929,7 +2929,7 @@ public final class GameMode implements Comparable<Object>
 			ReferenceContext rc, TransparentReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();
-		ReferenceManufacturer<T, ?> mfg;
+		ReferenceManufacturer<T> mfg;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
 			String category = ((TransparentCategorizedReferenceManufacturer) rm)

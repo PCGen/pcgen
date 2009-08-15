@@ -60,7 +60,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 
 	private final HashMap<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
-	public abstract <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public abstract <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
 	/**
@@ -73,12 +73,12 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	 * @return The reference manufacturer
 	 */
 
-	public abstract Collection<? extends ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers();
+	public abstract Collection<? extends ReferenceManufacturer<? extends CDOMObject>> getAllManufacturers();
 
 	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
-		for (ReferenceManufacturer<?, ?> ref : getAllManufacturers())
+		for (ReferenceManufacturer<?> ref : getAllManufacturers())
 		{
 			returnGood &= ref.validate(validator);
 		}
@@ -313,7 +313,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	public Set<CDOMObject> getAllConstructedObjects()
 	{
 		Set<CDOMObject> set = new HashSet<CDOMObject>();
-		for (ReferenceManufacturer<? extends CDOMObject, ?> ref : getAllManufacturers())
+		for (ReferenceManufacturer<? extends CDOMObject> ref : getAllManufacturers())
 		{
 			set.addAll(ref.getAllObjects());
 		}
@@ -452,7 +452,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 
 	public void resolveReferences()
 	{
-		for (ReferenceManufacturer<?, ?> rs : getAllManufacturers())
+		for (ReferenceManufacturer<?> rs : getAllManufacturers())
 		{
 			rs.resolveReferences();
 		}
@@ -460,7 +460,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 
 	public void buildDeferredObjects()
 	{
-		for (ReferenceManufacturer<?, ?> rs : getAllManufacturers())
+		for (ReferenceManufacturer<?> rs : getAllManufacturers())
 		{
 			rs.buildDeferredObjects();
 		}

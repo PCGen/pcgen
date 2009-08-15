@@ -96,7 +96,7 @@ public class FeatToken extends AbstractToken implements
 
 		boolean first = true;
 
-		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (true)

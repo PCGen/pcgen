@@ -122,7 +122,7 @@ public class AbilityToken extends AbstractToken implements
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
-		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, ac);
 
 		while (st.hasMoreTokens())

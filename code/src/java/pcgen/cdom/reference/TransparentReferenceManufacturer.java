@@ -33,7 +33,7 @@ import pcgen.cdom.base.CDOMObject;
 public class TransparentReferenceManufacturer<T extends CDOMObject>
 		extends
 		AbstractReferenceManufacturer<T, CDOMTransparentSingleRef<T>, CDOMTransparentTypeRef<T>, CDOMTransparentAllRef<T>>
-		implements ReferenceManufacturer<T, CDOMTransparentSingleRef<T>>
+		implements ReferenceManufacturer<T>
 {
 	/**
 	 * Constructs a new TransparentReferenceManufacturer for the given Class.
@@ -117,7 +117,7 @@ public class TransparentReferenceManufacturer<T extends CDOMObject>
 	 * @throws IllegalArgumentException
 	 *             if the given ReferenceManufacturer is null
 	 */
-	public void resolveUsing(ReferenceManufacturer<T, ?> rm)
+	public void resolveUsing(ReferenceManufacturer<T> rm)
 	{
 		if (rm == null)
 		{

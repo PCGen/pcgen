@@ -46,7 +46,7 @@ public final class TokenUtilities
 	}
 
 	public static <T extends CDOMObject> CDOMReference<T> getTypeOrPrimitive(
-			ReferenceManufacturer<T, ?> rm, String s)
+			ReferenceManufacturer<T> rm, String s)
 	{
 		if (s.startsWith(Constants.LST_TYPE_OLD)
 				|| s.startsWith(Constants.LST_TYPE))
@@ -60,7 +60,7 @@ public final class TokenUtilities
 	}
 
 	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
-			ReferenceManufacturer<T, ?> rm, String s)
+			ReferenceManufacturer<T> rm, String s)
 	{
 		if (s.length() == 0)
 		{

@@ -172,7 +172,7 @@ public abstract class LoadContext
 		Class<T> cl = token.getDeferredTokenClass();
 		Collection<? extends ReferenceManufacturer> mfgs = ref
 				.getAllManufacturers();
-		for (ReferenceManufacturer<? extends T, ?> rm : mfgs)
+		for (ReferenceManufacturer<? extends T> rm : mfgs)
 		{
 			if (cl.isAssignableFrom(rm.getReferenceClass()))
 			{
@@ -389,7 +389,7 @@ public abstract class LoadContext
 
 	public abstract boolean consolidate();
 
-	public ReferenceManufacturer<? extends CDOMObject, ?> getManufacturer(String firstToken)
+	public ReferenceManufacturer<? extends CDOMObject> getManufacturer(String firstToken)
 	{
 		int equalLoc = firstToken.indexOf('=');
 		String className;
@@ -428,7 +428,7 @@ public abstract class LoadContext
 					+ className);
 			return null;
 		}
-		ReferenceManufacturer<? extends CDOMObject, ?> rm;
+		ReferenceManufacturer<? extends CDOMObject> rm;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
 			if (categoryName == null)

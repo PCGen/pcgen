@@ -73,7 +73,7 @@ public class ForwardRefToken extends AbstractToken implements
 			return false;
 		}
 		String firstToken = value.substring(0, pipeLoc);
-		ReferenceManufacturer<? extends CDOMObject, ?> rm = context
+		ReferenceManufacturer<? extends CDOMObject> rm = context
 				.getManufacturer(firstToken);
 		if (rm == null)
 		{

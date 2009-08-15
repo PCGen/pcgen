@@ -32,16 +32,16 @@ import pcgen.cdom.reference.UnconstructedValidator;
 
 public interface ReferenceContext
 {
-	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, String category);
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat);
 
-	public Collection<? extends ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers();
+	public Collection<? extends ReferenceManufacturer<? extends CDOMObject>> getAllManufacturers();
 
 	public <T extends CDOMObject> T constructCDOMObject(Class<T> c, String val);
 

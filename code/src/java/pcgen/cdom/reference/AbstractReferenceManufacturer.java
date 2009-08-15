@@ -67,8 +67,11 @@ import pcgen.util.Logging;
  *            will produce
  */
 public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT extends CDOMSingleRef<T>, TRT extends CDOMGroupRef<T>, ART extends CDOMGroupRef<T>>
-		implements ReferenceManufacturer<T, SRT>
+		implements ReferenceManufacturer<T>
 {
+	
+	private boolean isResolved = false;
+	
 	/**
 	 * The class of object this AbstractReferenceManufacturer constructs or
 	 * builds references to.
@@ -330,6 +333,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				fireUnconstuctedEvent(trt);
 			}
 		}
+		isResolved = true;
 	}
 
 	private void resolvePrimitiveReferences()
@@ -673,7 +677,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 * @throws IllegalArgumentException
 	 *             if the given key is null or empty
 	 */
-	public SRT getReference(String val)
+	public CDOMSingleRef<T> getReference(String val)
 	{
 		/*
 		 * TODO This is incorrect, but a hack for now :)
@@ -771,8 +775,24 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 				return ref;
 			}
 		}
-		SRT ref = getLocalReference(val);
-		referenced.put(val, new WeakReference<SRT>(ref));
+		CDOMSingleRef<T> ref;
+		if (isResolved)
+		{
+			T current = active.get(val);
+			if (current == null)
+			{
+				throw new IllegalArgumentException(val
+						+ " is not valid post-resolution "
+						+ "because it was never constructed");
+			}
+			ref = CDOMDirectSingleRef.getRef(current);
+		}
+		else
+		{
+			SRT lr = getLocalReference(val);
+			referenced.put(val, new WeakReference<SRT>(lr));
+			ref = lr;
+		}
 		return ref;
 	}
 
@@ -1158,7 +1178,7 @@ public abstract class AbstractReferenceManufacturer<T extends CDOMObject, SRT ex
 	 *            The ReferenceManufacturer from which the objects should be
 	 *            imported into this AbstractReferenceManufacturer
 	 */
-	protected void injectConstructed(ReferenceManufacturer<T, ?> arm)
+	protected void injectConstructed(ReferenceManufacturer<T> arm)
 	{
 		//Must maintain order
 		for (T value : active.insertOrderValues())

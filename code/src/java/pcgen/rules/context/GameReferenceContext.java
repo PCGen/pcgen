@@ -26,7 +26,6 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReferenceManufacturer;
@@ -39,7 +38,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends CDOMObject>>();
 
 	@Override
-	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
@@ -69,7 +68,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, String cat)
 	{
 		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
@@ -90,7 +89,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return true;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		throw new UnsupportedOperationException(

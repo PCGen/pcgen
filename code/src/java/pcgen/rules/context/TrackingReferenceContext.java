@@ -96,10 +96,10 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		return ref;
 	}
 
-	private final Set<ReferenceManufacturer<?, ?>> listening = new HashSet<ReferenceManufacturer<?, ?>>();
+	private final Set<ReferenceManufacturer<?>> listening = new HashSet<ReferenceManufacturer<?>>();
 
 	@Override
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		ReferenceManufacturer mfg = super.getManufacturer(cl, cat);
@@ -112,7 +112,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	}
 
 	@Override
-	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		ReferenceManufacturer mfg = super.getManufacturer(cl);

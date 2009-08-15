@@ -61,5 +61,5 @@ public interface TransparentReference<T extends PrereqObject>
 	 *             different than the Reference Class of this
 	 *             TransparentReference
 	 */
-	public void resolve(ReferenceManufacturer<T, ?> rm);
+	public void resolve(ReferenceManufacturer<T> rm);
 }

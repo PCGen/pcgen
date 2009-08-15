@@ -84,7 +84,7 @@ public class FeatToken extends AbstractToken implements
 
 		kitAbil.setCategory(AbilityCategory.FEAT);
 
-		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (st.hasMoreTokens())

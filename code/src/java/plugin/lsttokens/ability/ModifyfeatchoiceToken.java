@@ -73,7 +73,7 @@ public class ModifyfeatchoiceToken extends AbstractToken implements
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (tok.hasMoreTokens())

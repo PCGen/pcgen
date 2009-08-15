@@ -27,23 +27,23 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>> map = new HashMap<Class<?>, ReferenceManufacturer<? extends CDOMObject, ?>>();
+	private final Map<Class<?>, ReferenceManufacturer<? extends CDOMObject>> map = new HashMap<Class<?>, ReferenceManufacturer<? extends CDOMObject>>();
 
 	private final DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>> catmap = new DoubleKeyMap<Class<?>, Category<?>, CategorizedReferenceManufacturer<?>>();
 
 	@Override
-	public <T extends CDOMObject> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
 		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
@@ -51,7 +51,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
 		}
-		ReferenceManufacturer<T, ?> mfg = (ReferenceManufacturer<T, ?>) map
+		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map
 				.get(cl);
 		if (mfg == null)
 		{
@@ -62,9 +62,9 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public Collection<ReferenceManufacturer<? extends CDOMObject, ?>> getAllManufacturers()
+	public Collection<ReferenceManufacturer<? extends CDOMObject>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>> returnList = new ArrayList<ReferenceManufacturer<? extends CDOMObject, ?>>(
+		ArrayList<ReferenceManufacturer<? extends CDOMObject>> returnList = new ArrayList<ReferenceManufacturer<? extends CDOMObject>>(
 				map.values());
 		for (Class<?> cl : catmap.getKeySet())
 		{
@@ -73,7 +73,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		CategorizedReferenceManufacturer<T> mfg = (CategorizedReferenceManufacturer<T>) catmap
@@ -103,7 +103,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return mfg;
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T, ? extends CDOMSingleRef<T>> getManufacturer(
+	public <T extends CDOMObject & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, String category)
 	{
 		Category<T> cat = getCategoryFor(cl, category);

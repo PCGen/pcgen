@@ -32,7 +32,7 @@ import pcgen.cdom.base.CDOMObject;
 public class SimpleReferenceManufacturer<T extends CDOMObject>
 		extends
 		AbstractReferenceManufacturer<T, CDOMSimpleSingleRef<T>, CDOMTypeRef<T>, CDOMAllRef<T>>
-		implements ReferenceManufacturer<T, CDOMSimpleSingleRef<T>>
+		implements ReferenceManufacturer<T>
 {
 	/**
 	 * Constructs a new SimpleReferenceManufacturer that will construct or

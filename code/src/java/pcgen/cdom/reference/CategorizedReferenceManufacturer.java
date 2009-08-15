@@ -40,7 +40,7 @@ import pcgen.util.Logging;
 public class CategorizedReferenceManufacturer<T extends CDOMObject & CategorizedCDOMObject<T>>
 		extends
 		AbstractReferenceManufacturer<T, CDOMCategorizedSingleRef<T>, CDOMTypeRef<T>, CDOMAllRef<T>>
-		implements ReferenceManufacturer<T, CDOMCategorizedSingleRef<T>>
+		implements ReferenceManufacturer<T>
 {
 
 	/**

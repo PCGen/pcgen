@@ -117,7 +117,7 @@ public class FeatToken extends AbstractToken implements
 		boolean allowStack = false;
 		int dupChoices = 0;
 
-		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (tok.hasMoreTokens())

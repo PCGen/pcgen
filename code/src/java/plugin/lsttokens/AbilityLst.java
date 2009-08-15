@@ -183,7 +183,7 @@ public class AbilityLst extends AbstractToken implements
 		boolean first = true;
 		boolean removed = false;
 
-		ReferenceManufacturer<Ability, ?> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
 				ABILITY_CLASS, category);
 
 		while (true)

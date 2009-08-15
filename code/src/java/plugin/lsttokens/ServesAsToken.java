@@ -90,7 +90,7 @@ public class ServesAsToken extends AbstractToken implements
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
-		ReferenceManufacturer<? extends CDOMObject, ?> rm = context
+		ReferenceManufacturer<? extends CDOMObject> rm = context
 				.getManufacturer(firstToken);
 		if (rm == null)
 		{

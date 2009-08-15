@@ -198,7 +198,7 @@ public class CDOMTransparentSingleRef<T extends PrereqObject> extends
 	 * @throws NullPointerException
 	 *             if the given ReferenceManufacturer is null
 	 */
-	public void resolve(ReferenceManufacturer<T, ?> rm)
+	public void resolve(ReferenceManufacturer<T> rm)
 	{
 		if (rm.getReferenceClass().equals(getReferenceClass()))
 		{
