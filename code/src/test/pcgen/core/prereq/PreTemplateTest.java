@@ -32,6 +32,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import plugin.pretokens.test.PreTemplateTester;
@@ -61,6 +62,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
+		Globals.getContext().ref.importObject(template);
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -101,6 +103,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Celestial");
+		Globals.getContext().ref.importObject(template);
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -123,6 +126,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
+		Globals.getContext().ref.importObject(template);
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -145,10 +149,12 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
+		Globals.getContext().ref.importObject(template);
 		character.addTemplate(template);
 
 		final PCTemplate template2 = new PCTemplate();
 		template2.setName("Half-Celestial");
+		Globals.getContext().ref.importObject(template2);
 		character.addTemplate(template2);
 
 		final Prerequisite prereq = new Prerequisite();
