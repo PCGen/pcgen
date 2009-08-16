@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -41,6 +42,8 @@ import pcgen.util.PropertyFactory;
 public class PreTemplateTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
+
+	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -80,9 +83,14 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements
 					}
 				}
 			}
-			else if (character.getTemplateKeyed(templateKey) != null)
+			else
 			{
-				runningTotal++;
+				PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						PCTEMPLATE_CLASS, templateKey);
+				if (character.hasTemplate(template))
+				{
+					runningTotal++;
+				}
 			}
 		}
 		runningTotal = prereq.getOperator().compare(runningTotal, number);
