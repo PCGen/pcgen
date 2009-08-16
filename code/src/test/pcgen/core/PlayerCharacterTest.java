@@ -392,8 +392,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatMod()");
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		final PCStat stat = character.getUnmodifiableStatList().get(0);
-		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
+		character.setAssoc(str, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
 		final Float result =
@@ -412,8 +411,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatModNew()");
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		final PCStat stat = character.getUnmodifiableStatList().get(0);
-		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
+		character.setAssoc(str, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
 		final Float result =
@@ -430,8 +428,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Globals.getContext().resolveReferences();
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
-		final PCStat stat = character.getUnmodifiableStatList().get(0);
-		character.setAssoc(stat, AssociationKey.STAT_SCORE, 16);
+		character.setAssoc(str, AssociationKey.STAT_SCORE, 16);
 		character.incrementClassLevel(2, pcClass, true);
 
 		int iVal = character.getVariableValue("roll(\"3d6\")+5", "").intValue();

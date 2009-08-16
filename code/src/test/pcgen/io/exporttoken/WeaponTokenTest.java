@@ -45,7 +45,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -109,47 +108,45 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		setPCStat(character, str, 15);
 		setPCStat(character, dex, 16);
 		setPCStat(character, intel, 17);
-		PCStat stat = character.getUnmodifiableStatList().get(0);
-		stat.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
+		str.put(StringKey.STAT_MOD, "floor(SCORE/2)-5");
 		BonusObj aBonus = Bonus.newBonus("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
 		
 		if (aBonus != null)
 		{
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			str.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
 		
 		if (aBonus != null)
 		{
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			str.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:0|0.5*(STR>=0)");
 		
 		if (aBonus != null)
 		{
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			str.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:1|1");
 		
 		if (aBonus != null)
 		{
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			str.addToListFor(ListKey.BONUS, aBonus);
 		}
 		aBonus = Bonus.newBonus("COMBAT|DAMAGEMULT:2|1.5*(STR>=0)");
 		
 		if (aBonus != null)
 		{
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			str.addToListFor(ListKey.BONUS, aBonus);
 		}
-		stat.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
+		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
 				.getFormulaFor(2));
 
-		stat = character.getUnmodifiableStatList().get(3);
 		aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
 		
 		if (aBonus != null)
 		{
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			intel.addToListFor(ListKey.BONUS, aBonus);
 		}
 
 		// Race
@@ -368,8 +365,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		dblWpn = null;
 		PlayerCharacter character = getCharacter();
-		PCStat stat = character.getUnmodifiableStatList().get(0);
-		stat.removeListFor(ListKey.BONUS);
+		str.removeListFor(ListKey.BONUS);
+		intel.removeListFor(ListKey.BONUS);
 
 		super.tearDown();
 	}

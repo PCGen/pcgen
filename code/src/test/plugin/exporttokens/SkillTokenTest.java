@@ -38,7 +38,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
-import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -104,12 +103,11 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		//Stats
 		setPCStat(character, dex, 16);
 		setPCStat(character, intel, 17);
-		PCStat stat = character.getUnmodifiableStatList().get(3);
 		BonusObj aBonus = Bonus.newBonus("MODSKILLPOINTS|NUMBER|INT");
 		
 		if (aBonus != null)
 		{
-			stat.addToListFor(ListKey.BONUS, aBonus);
+			intel.addToListFor(ListKey.BONUS, aBonus);
 		}
 
 		// Race
@@ -182,9 +180,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		knowledge = null;
 		balance = null;
 		tumble = null;
-		PlayerCharacter character = getCharacter();
-		PCStat stat = character.getUnmodifiableStatList().get(3);
-		stat.removeListFor(ListKey.BONUS);
+		intel.removeListFor(ListKey.BONUS);
 
 		super.tearDown();
 	}
