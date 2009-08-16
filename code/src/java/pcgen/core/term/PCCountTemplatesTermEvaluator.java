@@ -39,7 +39,7 @@ public class PCCountTemplatesTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getTemplateList().size();
+		return (float) pc.getTemplateCount();
 	}
 
 	public boolean isSourceDependant()

@@ -2761,9 +2761,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		String r = Constants.s_NONE;
 
-		for (int i = 0, x = templateList.size(); i < x; ++i)
+		for (PCTemplate template : templateList)
 		{
-			final PCTemplate template = templateList.get(i);
 			final String tempRegion = template.getRegion();
 
 			if (!tempRegion.equals(Constants.s_NONE))
@@ -3287,9 +3286,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		String subRace = Constants.s_NONE;
 
-		for (int i = 0, x = templateList.size(); i < x; ++i)
+		for (PCTemplate template : templateList)
 		{
-			final PCTemplate template = templateList.get(i);
 			final String tempSubRace = template.getSubRace();
 
 			if (!tempSubRace.equals(Constants.s_NONE))
@@ -3434,26 +3432,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		return tl;
-	}
-
-	/**
-	 * Get the template keyed aKey from this PC
-	 * 
-	 * @param aKey
-	 * 
-	 * @return PC template or null if not found
-	 */
-	public PCTemplate getTemplateKeyed(final String aKey)
-	{
-		for (PCTemplate template : templateList)
-		{
-			if (template.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return template;
-			}
-		}
-
-		return null;
 	}
 
 	/**
@@ -15003,7 +14981,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		if (!getTemplateList().isEmpty())
+		if (hasTemplates())
 		{
 			for (final PCTemplate aTemplate : getTemplateList())
 			{
@@ -16406,5 +16384,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void setApplied(BonusObj bonusObj, boolean bool)
 	{
 		setAssoc(bonusObj, AssociationKey.IS_APPLIED, bool);
+	}
+
+	public boolean hasTemplates()
+	{
+		return !templateList.isEmpty();
+	}
+
+	public int getTemplateCount()
+	{
+		return templateList.size();
 	}
 }
