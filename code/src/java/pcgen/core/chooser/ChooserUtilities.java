@@ -617,5 +617,13 @@ public class ChooserUtilities
 			stringList.add(String.valueOf(iter.next()));
 		}
 	}
+
+	public static void getChoices(PObject object, String choice,
+			PlayerCharacter apc)
+	{
+		final List availableList = new ArrayList();
+		final List selectedList  = new ArrayList();
+		ChooserUtilities.getChoices(object, choice, availableList, selectedList, apc);
+	}
 	
 }

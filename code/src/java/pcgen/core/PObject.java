@@ -48,7 +48,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -73,7 +72,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
-
 	/** a boolean for whether something should recurse, default is false */
 	private static boolean dontRecurse = false;
 
@@ -154,20 +152,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			otherKey = obj.toString();
 		}
 		return thisKey.equalsIgnoreCase( otherKey );
-	}
-
-	/**
-	 * Get the choices for this PC
-	 * @param aChoice
-	 * @param aPC
-	 */
-	public final void getChoices(
-			final String          aChoice,
-			final PlayerCharacter aPC)
-	{
-		final List availableList = new ArrayList();
-		final List selectedList  = new ArrayList();
-		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
 	}
 
 	/**

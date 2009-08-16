@@ -69,6 +69,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.SkillLanguage;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.AddSpecialAbility;
@@ -676,7 +677,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 				if (profBonusObject instanceof Domain)
 				{
 					final Domain aDomain = (Domain) profBonusObject;
-					aDomain.getChoices(aDomain.getSafe(StringKey.CHOICE_STRING), pc);
+					ChooserUtilities.getChoices(aDomain, aDomain.getSafe(StringKey.CHOICE_STRING), pc);
 				}
 				else
 				{
@@ -687,11 +688,10 @@ public final class InfoSpecialAbilities extends JPanel implements
 						PObject po = (PObject) profBonusObject;
 						Collection<CDOMReference<WeaponProf>> wplist = po
 								.getListMods(WeaponProf.STARTING_LIST);
-						po.getChoices("WEAPONPROF|1|"
-								+ ReferenceUtilities.joinLstFormat(wplist,
-										"[WEAPONPROF]|")
-								+ PropertyFactory.getString("in_proficiency"),
-								pc);
+						ChooserUtilities.getChoices(po, "WEAPONPROF|1|"
+						+ ReferenceUtilities.joinLstFormat(wplist,
+								"[WEAPONPROF]|")
+						+ PropertyFactory.getString("in_proficiency"), pc);
 					}
 				}
 
