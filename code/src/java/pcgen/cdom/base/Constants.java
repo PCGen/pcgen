@@ -329,5 +329,6 @@ public interface Constants
 	char PERCENT = '%';
 	String LST_CHOICE = "CHOICE";
 	String HIGHESTLEVELCLASS = "HIGHESTLEVELCLASS";
+	String TAB = "\t";
 	public static final int NO_LEVEL_LIMIT = -1;
 }

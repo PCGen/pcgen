@@ -28,7 +28,6 @@ import java.util.List;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 
@@ -301,20 +300,11 @@ public class Description extends ConcretePrereqObject
 			}
 		}
 		
-		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		try
+		if (hasPrerequisites())
 		{
-			String prerequisiteString = prereqWriter
-					.getPrerequisiteString(getPrerequisiteList());
-			if (prerequisiteString != null)
-			{
-				buf.append(Constants.PIPE);
-				buf.append(prerequisiteString);
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Error writing Prerequisite: " + e);
+			buf.append(Constants.PIPE);
+			buf.append(new PrerequisiteWriter().getPrerequisiteString(
+					getPrerequisiteList(), Constants.PIPE));
 		}
 		return buf.toString();
 	}

@@ -25,7 +25,6 @@
 package pcgen.core;
 
 import java.io.Serializable;
-import java.io.StringWriter;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,10 +48,8 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.KeyedListContainer;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 
@@ -173,7 +170,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * This method sets only the name not the key.
 	 * @param aName Name to use for display
 	 */
-	public void setDisplayName( final String aName )
+	public final void setDisplayName( final String aName )
 	{
 		displayName = aName;
 	}
@@ -183,7 +180,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @return name
 	 */
 	@Override
-	public String getDisplayName()
+	public final String getDisplayName()
 	{
 		return displayName;
 	}
@@ -316,45 +313,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
 		txt.append("\t");
-		txt.append(getPCCText(false));
-		return txt.toString();
-	}
-
-	/**
-	 * Get the PCC text
-	 * @param saveName
-	 * @return PCC text
-	 */
-	protected String getPCCText(final boolean saveName)
-	{
-//		Iterator e;
-		String aString;
-		final StringBuffer txt = new StringBuffer(200);
-
-		if (saveName)
-		{
-			txt.append(getDisplayName());
-		}
-
-		if (hasPrerequisites())
-		{
-			final StringWriter writer = new StringWriter();
-			for (Prerequisite prereq : getPrerequisiteList())
-			{
-				final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-				try
-				{
-					writer.write("\t");
-					prereqWriter.write(writer, prereq);
-				}
-				catch (PersistenceLayerException e1)
-				{
-					e1.printStackTrace();
-				}
-			}
-			txt.append(writer);
-		}
-
+		txt.append(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 

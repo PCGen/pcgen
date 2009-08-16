@@ -32,6 +32,7 @@ import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 /**
  * Definition and games rules for an Ability.
@@ -120,7 +121,7 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
 		txt.append("\t");
-		txt.append(super.getPCCText(false));
+		txt.append(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 

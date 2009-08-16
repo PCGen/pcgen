@@ -551,8 +551,7 @@ public class PrerequisiteWriterTest extends TestCase
 		pcgen.core.PObject pobj = new pcgen.core.PObject();
 		pobj.addPrerequisite(prereq);
 		assertTrue("PrerequisiteWriter.prereqsToString failure",
-			PrerequisiteWriter.prereqsToString(pobj).equals(
-				"\t" + expectedOutput));
+			PrerequisiteWriter.prereqsToString(pobj).equals(expectedOutput));
 
 		try
 		{

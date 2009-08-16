@@ -40,9 +40,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.util.Logging;
 
 /**
  * <code>BonusObj</code>
@@ -435,20 +433,11 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			}
 			
 			// And put the prereqs at the end of the string.
-			PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-			try
+			if (hasPrerequisites())
 			{
-				String prerequisiteString = prereqWriter
-						.getPrerequisiteString(getPrerequisiteList());
-				if (prerequisiteString != null)
-				{
-					sb.append(Constants.PIPE);
-					sb.append(prerequisiteString);
-				}
-			}
-			catch (PersistenceLayerException e)
-			{
-				Logging.errorPrint("Error writing Prerequisite: " + e);
+				sb.append(Constants.PIPE);
+				sb.append(new PrerequisiteWriter().getPrerequisiteString(
+						getPrerequisiteList(), Constants.PIPE));
 			}
 	
 			stringRepresentation = sb.toString();

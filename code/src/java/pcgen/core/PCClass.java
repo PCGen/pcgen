@@ -86,6 +86,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
@@ -705,7 +706,8 @@ public class PCClass extends PObject
 	{
 		final StringBuffer pccTxt = new StringBuffer(200);
 		pccTxt.append("CLASS:").append(getDisplayName());
-		pccTxt.append(super.getPCCText(false));
+		pccTxt.append("\t");
+		pccTxt.append(PrerequisiteWriter.prereqsToString(this));
 		pccTxt.append("\t");
 		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
 				this), "\t"));
@@ -716,6 +718,8 @@ public class PCClass extends PObject
 		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 		{
 			pccTxt.append(lineSep).append(me.getKey()).append('\t');
+			pccTxt.append(PrerequisiteWriter.prereqsToString(me.getValue()));
+			pccTxt.append("\t");
 			pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext()
 					.unparse(me.getValue()), "\t"));
 		}

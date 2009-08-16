@@ -28,16 +28,17 @@
  */
 package pcgen.persistence.lst.output.prereq;
 
-import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.Constants;
-import pcgen.core.PObject;
-import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
-
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Collection;
 import java.util.TreeSet;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.util.Logging;
 
 public class PrerequisiteWriter
 {
@@ -66,30 +67,23 @@ public class PrerequisiteWriter
 	 * @return The .lst-compatible string representation of the prerequisite
 	 *         list.
 	 */
-	static public String prereqsToString(final PObject pObj)
+	static public String prereqsToString(final PrereqObject pObj)
 	{
 		if (pObj.hasPrerequisites())
 		{
 			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-			final StringWriter swriter = new StringWriter();
-			for (Prerequisite p : pObj.getPrerequisiteList())
-			{
-				try
-				{
-					swriter.write('\t');
-					prereqWriter.write(swriter, p);
-				}
-				catch (Exception e1)
-				{
-					e1.printStackTrace();
-				}
-			}
-			return swriter.toString();
+			return prereqWriter.getPrerequisiteString(pObj.getPrerequisiteList(), Constants.TAB);
 		}
 		return "";
 	}
 
 	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
+			throws PersistenceLayerException
+	{
+		return getPrereqString(prereqs, Constants.PIPE);
+	}
+
+	private String getPrereqString(Collection<Prerequisite> prereqs, String separator)
 			throws PersistenceLayerException
 	{
 		String prereqString = null;
@@ -102,9 +96,22 @@ public class PrerequisiteWriter
 				write(swriter, p);
 				list.add(swriter.toString());
 			}
-			prereqString = StringUtil.join(list, Constants.PIPE);
+			prereqString = StringUtil.join(list, separator);
 		}
 		return prereqString;
+	}
+
+	public String getPrerequisiteString(Collection<Prerequisite> prereqs, String separator)
+	{
+		try
+		{
+			return getPrereqString(prereqs, separator);
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging.errorPrint("Error writing Prerequisites: " + prereqs);
+		}
+		return "";
 	}
 
 }

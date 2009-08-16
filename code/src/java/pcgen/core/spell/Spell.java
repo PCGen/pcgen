@@ -30,6 +30,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.analysis.SpellPoint;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 /**
  * <code>Spell</code> creates a new tabbed panel.
@@ -64,7 +65,8 @@ public final class Spell extends PObject
 			txt.append(SpellPoint.getSpellPointCostActual(this));
 		}
 
-		txt.append(super.getPCCText(false));
+		txt.append("\t");
+		txt.append(PrerequisiteWriter.prereqsToString(this));
 
 		return txt.toString();
 	}
