@@ -175,7 +175,7 @@ BREAKOUT:		for (Race imitator: servesAsRace.keySet())
 		}
 		else
 		{
-			final String characterRace = character.getRace().getKeyName();
+			final String characterRace = pcRace.getKeyName();
 			final int wild = requiredRace.indexOf('%');
 			if (wild == 0)
 			{
