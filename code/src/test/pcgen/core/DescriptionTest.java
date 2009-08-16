@@ -87,6 +87,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
+		Globals.getContext().ref.importObject(template);
 		getCharacter().addTemplate(template);
 		is(desc.getDescription(getCharacter(), null), strEq(simpleDesc));
 	}
