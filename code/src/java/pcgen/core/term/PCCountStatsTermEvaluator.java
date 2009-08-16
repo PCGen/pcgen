@@ -39,7 +39,7 @@ public class PCCountStatsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getUnmodifiableStatList().size();
+		return (float) pc.getStatCount();
 	}
 
 	public boolean isSourceDependant()

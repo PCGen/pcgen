@@ -3242,14 +3242,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			if (pc != null)
 			{
-				return pc.getUnmodifiableStatList().size();
+				return pc.getStatCount();
 			}
 			return 0;
 		}
 
 		public void setValueAt(Object obj, int rowIndex, int columnIndex)
 		{
-			if ((rowIndex >= 0) && (rowIndex < pc.getUnmodifiableStatList().size())
+			if ((rowIndex >= 0) && (rowIndex < pc.getStatCount())
 				&& (columnIndex == 1))
 			{
 				if (obj == null)

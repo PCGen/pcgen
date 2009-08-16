@@ -317,7 +317,7 @@ public class NPCGenerator
 				theConfiguration.getStatWeights(aClass.getKeyName()));
 
 		final List<PCStat> ret = new ArrayList<PCStat>();
-		for (int i = 0; i < pc.getUnmodifiableStatList().size(); i++)
+		for (int i = 0; i < pc.getStatCount(); i++)
 		{
 			final PCStat stat = stats.getRandomValue();
 			ret.add(stat);

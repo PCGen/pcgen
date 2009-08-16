@@ -16395,4 +16395,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return templateList.size();
 	}
+
+	public int getStatCount()
+	{
+		return stats.size();
+	}
 }
