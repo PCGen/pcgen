@@ -831,7 +831,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join(qualities, ", ")); //$NON-NLS-1$
 			}
 
-			bString = aEq.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(aEq,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();

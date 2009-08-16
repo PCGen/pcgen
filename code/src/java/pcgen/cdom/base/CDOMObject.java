@@ -30,6 +30,7 @@ import java.util.Set;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -39,7 +40,9 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
+import pcgen.core.AssociationStore;
 import pcgen.core.Description;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
@@ -681,4 +684,54 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return Constants.EMPTY_STRING;
 	}
 	
+	/**
+	 * Get the list of bonuses for this object
+	 * @param as TODO
+	 * @return the list of bonuses for this object
+	 */
+	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
+	{
+		List<BonusObj> bonusList = getSafeListFor(ListKey.BONUS);
+		if (pc != null)
+		{
+			List<BonusObj> listToo = pc.getAssocList(this, AssociationListKey.BONUS);
+			if (listToo != null)
+			{
+				bonusList.addAll(listToo);
+			}
+		}
+		return bonusList;
+	}
+
+	/**
+	 * returns all BonusObj's that are "active"
+	 * @param aPC A PlayerCharacter object.
+	 * @return active bonuses
+	 */
+	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
+	{
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
+
+		for ( BonusObj bonus : getRawBonusList(aPC) )
+		{
+			if (aPC.isApplied(bonus))
+			{
+				aList.add(bonus);
+			}
+		}
+
+		return aList;
+	}
+
+	public List<BonusObj> getBonusList(AssociationStore as)
+	{
+		if (as instanceof PlayerCharacter)
+		{
+			return getRawBonusList((PlayerCharacter) as);
+		}
+		else
+		{
+			return getRawBonusList(null);
+		}
+	}
 }

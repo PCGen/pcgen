@@ -707,7 +707,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				b.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
 
-			bString = temp.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(temp,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();
@@ -1173,7 +1174,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 						return PrereqHandler.toHtmlString(template.getPrerequisiteList());
 
 					case COL_SRC:
-						return template.getDefaultSourceString();
+						return SourceFormat.getFormattedString(template,
+						Globals.getSourceDisplay(), true);
 
 					default:
 						Logging

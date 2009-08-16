@@ -15,6 +15,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
@@ -298,7 +299,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 
 				if (race != null)
 				{
-					sRet = race.getDefaultSourceString();
+					sRet = SourceFormat.getFormattedString(race,
+					Globals.getSourceDisplay(), true);
 				}
 
 				break;

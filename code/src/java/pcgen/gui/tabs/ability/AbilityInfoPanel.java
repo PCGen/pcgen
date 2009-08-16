@@ -45,10 +45,12 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BenefitFormatting;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -214,7 +216,8 @@ public class AbilityInfoPanel extends JPanel
 		
 		sb.append(PropertyFactory.getFormattedString(
 			"in_InfoSource", //$NON-NLS-1$
-			theAbility.getDefaultSourceString()));
+			SourceFormat.getFormattedString(theAbility,
+			Globals.getSourceDisplay(), true)));
 
 		sb.append(END_HTML);
 

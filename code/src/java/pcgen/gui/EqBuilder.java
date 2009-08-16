@@ -71,6 +71,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
@@ -2055,7 +2056,8 @@ final class EqBuilder extends JPanel
 		 */
 		protected Object getSourceValue(EquipmentModifier e) {
 			Object sRet;
-			sRet = e.getDefaultSourceString();
+			sRet = SourceFormat.getFormattedString(e,
+			Globals.getSourceDisplay(), true);
 			return sRet;
 		}
 

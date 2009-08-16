@@ -1132,10 +1132,10 @@ public class BonusManager
 		Object creatorObj = getSourceObject(bo);
 
 		List<FixedStringList> associatedList;
-		PObject anObj = null;
-		if (creatorObj instanceof PObject)
+		CDOMObject anObj = null;
+		if (creatorObj instanceof CDOMObject)
 		{
-			anObj = (PObject) creatorObj;
+			anObj = (CDOMObject) creatorObj;
 			associatedList = pc.getDetailedAssociations(anObj);
 			if (associatedList == null || associatedList.isEmpty())
 			{

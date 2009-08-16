@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -503,7 +504,8 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				return (aSpell != null) ? aSpell.getListAsString(ListKey.SPELL_RESISTANCE) : null;
 
 			case COL_SRC:
-				return (aSpell != null) ? aSpell.getDefaultSourceString()
+				return (aSpell != null) ? SourceFormat.getFormattedString(aSpell,
+				Globals.getSourceDisplay(), true)
 					: null;
 
 			case COL_SPCOST:

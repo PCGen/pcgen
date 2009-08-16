@@ -36,6 +36,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -351,7 +352,8 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".SOURCE"))
 			{
-				retString += aAbility.getDefaultSourceString();
+				retString += SourceFormat.getFormattedString(aAbility,
+				Globals.getSourceDisplay(), true);
 			}
 			else if (tokenSource.endsWith(".ASPECT"))
 			{

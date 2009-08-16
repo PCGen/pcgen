@@ -472,11 +472,13 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			//
 			// Source
 			//
-			aString = aClass.getDefaultSourceString();
+			aString = SourceFormat.getFormattedString(aClass,
+			Globals.getSourceDisplay(), true);
 
 			if (isSubClass && (aString.length() == 0))
 			{
-				aString = lastClass.getDefaultSourceString();
+				aString = SourceFormat.getFormattedString(lastClass,
+				Globals.getSourceDisplay(), true);
 			}
 
 			if (aString.length() > 0)

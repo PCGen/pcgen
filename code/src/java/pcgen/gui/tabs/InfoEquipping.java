@@ -100,6 +100,7 @@ import javax.swing.tree.TreeSelectionModel;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -831,7 +832,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				b.appendI18nElement("in_ieInfoLabelTextRequirements",cString); //$NON-NLS-1$
 			}
 
-			bString = eqI.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(eqI,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();

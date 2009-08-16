@@ -25,11 +25,13 @@ import java.util.ListIterator;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -380,7 +382,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	{
 		if (item instanceof PObject)
 		{
-			return ((PObject) item).getDefaultSourceString();
+			return SourceFormat.getFormattedString(((PObject) item),
+			Globals.getSourceDisplay(), true);
 		}
 
 		return "";

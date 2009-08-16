@@ -1972,22 +1972,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * This method overrides the PObject method to add "Custom" to the front of
-	 * the source string if the equipment was customized.
-	 * 
-	 * @see pcgen.core.PObject#getDefaultSourceString()
-	 */
-	@Override
-	public String getDefaultSourceString() {
-		if (isType(Constants.s_CUSTOM)) {
-			return PropertyFactory.getString("in_custom") + " - " //$NON-NLS-1$ //$NON-NLS-2$
-					+ super.getDefaultSourceString();
-		}
-
-		return super.getDefaultSourceString();
-	}
-
-	/**
 	 * Returns special properties of an Equipment.
 	 * 
 	 * @param aPC The PC with the Equipment

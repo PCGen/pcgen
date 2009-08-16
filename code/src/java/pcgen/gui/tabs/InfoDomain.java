@@ -90,6 +90,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -431,7 +432,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					aString));
 			}
 
-			aString = aDeity.getDefaultSourceString();
+			aString = SourceFormat.getFormattedString(aDeity,
+			Globals.getSourceDisplay(), true);
 			if (aString.length() > 0)
 			{
 				infoText.append(PropertyFactory.getFormattedString(
@@ -489,7 +491,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					aString));
 			}
 
-			aString = aDomain.getDefaultSourceString();
+			aString = SourceFormat.getFormattedString(aDomain,
+			Globals.getSourceDisplay(), true);
 			if (aString.length() > 0)
 			{
 				infoText.append(PropertyFactory.getFormattedString(
@@ -2040,7 +2043,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (fn.getItem() instanceof Deity)
 			{
 				Deity aDeity = (Deity) fn.getItem();
-				return aDeity.getDefaultSourceString();
+				return SourceFormat.getFormattedString(aDeity,
+				Globals.getSourceDisplay(), true);
 			}
 			return null;
 		}
@@ -2295,7 +2299,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				case 1:
 					try
 					{
-						retVal.append(aDomain.getDefaultSourceString());
+						retVal.append(SourceFormat.getFormattedString(aDomain,
+						Globals.getSourceDisplay(), true));
 					}
 					catch (Exception exc)
 					{

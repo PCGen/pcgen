@@ -316,7 +316,8 @@ public class SpellMemToken extends Token
 						}
 						else if ("SOURCE".equals(aLabel))
 						{
-							retValue.append(aSpell.getDefaultSourceString());
+							retValue.append(SourceFormat.getFormattedString(aSpell,
+							Globals.getSourceDisplay(), true));
 						}
 						else if ("SOURCESHORT".equals(aLabel))
 						{

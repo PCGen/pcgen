@@ -5,6 +5,7 @@ import java.util.Date;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
+import pcgen.util.PropertyFactory;
 
 public enum SourceFormat
 {
@@ -189,6 +190,11 @@ public enum SourceFormat
 			SourceFormat format, boolean includePage)
 	{
 		StringBuffer ret = new StringBuffer();
+		if (cdo.isType(Constants.s_CUSTOM))
+		{
+			ret.append(PropertyFactory.getString("in_custom")).append(" - ");
+		}
+
 		String source = format.getField(cdo);
 
 		String publisher = null;

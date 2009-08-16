@@ -82,6 +82,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -968,7 +969,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				b.appendI18nElement("in_sumLevelAdj", la.toString()); //$NON-NLS-1
 			}
 
-			String bString = aRace.getDefaultSourceString();
+			String bString = SourceFormat.getFormattedString(aRace,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendSpacer();
@@ -1015,7 +1017,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				b.appendI18nElement("in_sumBaseStat", aClass.getSpellBaseStat()); //$NON-NLS-1
 			}
 
-			String bString = aClass.getDefaultSourceString();
+			String bString = SourceFormat.getFormattedString(aClass,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendSpacer();
@@ -3018,7 +3021,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 						if (aClass != null)
 						{
-							retStr = aClass.getDefaultSourceString();
+							retStr = SourceFormat.getFormattedString(aClass,
+							Globals.getSourceDisplay(), true);
 						}
 					}
 

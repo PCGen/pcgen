@@ -21,6 +21,7 @@ package pcgen.core.analysis;
 
 import java.util.Iterator;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
@@ -36,7 +37,7 @@ public class BonusActivation
 		}
 	}
 
-	public static void activateBonuses(PObject po, PlayerCharacter aPC)
+	public static void activateBonuses(CDOMObject po, PlayerCharacter aPC)
 	{
 		for (Iterator<BonusObj> ab = po.getRawBonusList(aPC).iterator(); ab.hasNext();)
 		{

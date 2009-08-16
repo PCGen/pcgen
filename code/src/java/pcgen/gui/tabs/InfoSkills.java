@@ -102,6 +102,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
@@ -2350,7 +2351,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					bString));
 			}
 
-			bString = aSkill.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(aSkill,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.append(PropertyFactory.getString("in_iskHtml_SOURCE")).append(bString); //$NON-NLS-1$
@@ -3137,7 +3139,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						return aSkill.getDefaultSourceString();
+						return SourceFormat.getFormattedString(aSkill,
+						Globals.getSourceDisplay(), true);
 					}
 					return fn.getSource();
 

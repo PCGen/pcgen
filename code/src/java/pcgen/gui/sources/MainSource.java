@@ -500,7 +500,8 @@ public class MainSource extends FilterAdapterPanel
 		}
 
 
-		String bString = aCamp.getDefaultSourceString();
+		String bString = SourceFormat.getFormattedString(aCamp,
+		Globals.getSourceDisplay(), true);
 		if (bString.length() == 0)
 		{
 			bString = SourceFormat.getFormattedString(aCamp,

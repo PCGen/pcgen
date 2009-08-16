@@ -19,6 +19,7 @@ package pcgen.cdom.inst;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.StringKey;
 
 /**
  * A PCClassLevel is a CDOMObject that represents items gained in a specific
@@ -26,6 +27,11 @@ import pcgen.cdom.enumeration.IntegerKey;
  */
 public final class PCClassLevel extends CDOMObject implements Cloneable
 {
+
+	public PCClassLevel()
+	{
+		
+	}
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this PCClassLevel
@@ -80,4 +86,11 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	{
 		return get(IntegerKey.LEVEL) + "|";
 	}
+
+	@Override
+	public String getQualifiedKey()
+	{
+		return get(StringKey.QUALIFIED_KEY);
+	}
+
 }

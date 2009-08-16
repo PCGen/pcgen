@@ -94,6 +94,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
@@ -1232,7 +1233,8 @@ public class InfoResources extends FilterAdapterPanel implements
 					option.getPrerequisiteList(), true));
 			}
 			
-			bString = aRace.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(aRace,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();

@@ -60,6 +60,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
@@ -368,7 +369,8 @@ final class ChooseSpellDialog extends JDialog
 
 		if ((levelInfo == null) || (levelInfo.size() == 0))
 		{
-			Logging.errorPrint("Spell: " + aSpell.getKeyName() + "(" + aSpell.getDefaultSourceString() + ") has no home");
+			Logging.errorPrint("Spell: " + aSpell.getKeyName() + "(" + SourceFormat.getFormattedString(aSpell,
+			Globals.getSourceDisplay(), true) + ") has no home");
 
 			return;
 		}

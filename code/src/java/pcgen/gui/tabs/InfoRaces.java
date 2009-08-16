@@ -76,6 +76,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.Globals;
 import pcgen.core.Movement;
 import pcgen.core.PCClass;
@@ -440,7 +441,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 				b.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
 
-			bString = aRace.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(aRace,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();

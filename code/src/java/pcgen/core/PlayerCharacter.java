@@ -8002,7 +8002,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
 
-		for (final PObject pobj : getPObjectList())
+		for (final CDOMObject pobj : getCDOMObjectList())
 		{
 			// We exclude equipmods here as their bonuses are already counted in
 			// the equipment they belong to.
@@ -8013,7 +8013,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				if (!(pobj instanceof PCClass)
 					|| ((PCClass) pobj).getLevel(this) > 0)
 				{
-					pobj.activateBonuses(this);
+					BonusActivation.activateBonuses(pobj, this);
 
 					List<BonusObj> abs = pobj.getActiveBonuses(this);
 					for (BonusObj bo : abs)

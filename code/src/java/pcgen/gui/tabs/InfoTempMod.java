@@ -73,7 +73,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
 import pcgen.core.BonusManager;
 import pcgen.core.Categorisable;
@@ -82,7 +84,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -174,7 +175,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	private JTreeTableSorter bonusSort = null;
 	private JTreeTableSorter targetSort = null;
 	private List<TempWrap> tbwList;
-	private PObject lastAvaObject = null;
+	private CDOMObject lastAvaObject = null;
 	private boolean hasBeenSized = false;
 
 	private PlayerCharacter pc;
@@ -383,7 +384,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 **/
 	private String getBonusChoice(
 			final BonusObj newB,
-			final PObject source,
+			final CDOMObject source,
 			String repeatValue)
 	{
 
@@ -546,7 +547,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			
 			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aClass.getDisplayName());
 			
-			String bString = aClass.getDefaultSourceString();
+			String bString = SourceFormat.getFormattedString(aClass,
+			Globals.getSourceDisplay(), true);
 
 			if (bString.length() > 0)
 			{
@@ -569,7 +571,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			b.appendLineBreak();
 			b.appendI18nElement("in_itmInfoLabelTextType" , aFeat.getType()); //$NON-NLS-1$
 
-			String bString = aFeat.getDefaultSourceString();
+			String bString = SourceFormat.getFormattedString(aFeat,
+			Globals.getSourceDisplay(), true);
 
 			if (bString.length() > 0)
 			{
@@ -695,7 +698,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc",bString); //$NON-NLS-1$
 			}
 			
-			b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextSource",eqI.getDefaultSourceString()); //$NON-NLS-1$
+			b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextSource",SourceFormat.getFormattedString(eqI,
+			Globals.getSourceDisplay(), true)); //$NON-NLS-1$
 
 			infoLabel.setText(b.toString());
 		}
@@ -709,7 +713,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 			
-			bString = aSkill.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(aSkill,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();
@@ -737,7 +742,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
-			String spellSource = aSpell.getDefaultSourceString();
+			String spellSource = SourceFormat.getFormattedString(aSpell,
+			Globals.getSourceDisplay(), true);
 			if (spellSource.length() > 0)
 			{
 				b.appendLineBreak();
@@ -756,7 +762,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 			
-			bString = aTemp.getDefaultSourceString();
+			bString = SourceFormat.getFormattedString(aTemp,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();
@@ -843,15 +850,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						if ((fNode.getItem() != null)
 							&& !(fNode.getItem() instanceof String))
 						{
-							if (fNode.getItem() instanceof ClassWrap)
-							{
-								ClassWrap tempObj = (ClassWrap) fNode.getItem();
-								lastAvaObject = tempObj.getMyClass();
-							}
-							else
-							{
-								lastAvaObject = (PObject) fNode.getItem();
-							}
+							lastAvaObject = (CDOMObject) fNode.getItem();
 
 							setInfoLabelText(lastAvaObject);
 							updateTargetModel();
@@ -988,7 +987,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		TreePath targetPath = targetTable.getTree().getSelectionPath();
 		Object anObj = null;
 		Object aTarget = null;
-		PObject aMod = null;
+		CDOMObject aMod = null;
 		int bonusLevel = 999;
 
 		Object endComp = targetPath.getLastPathComponent();
@@ -1025,15 +1024,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		if (anObj instanceof PObject)
+		if (anObj instanceof CDOMObject)
 		{
-			aMod = (PObject) anObj;
-		}
-		else if (anObj instanceof ClassWrap)
-		{
-			ClassWrap tempObj = (ClassWrap) anObj;
-			aMod = tempObj.getMyClass();
-			bonusLevel = tempObj.getLevel();
+			aMod = (CDOMObject) anObj;
 		}
 
 		Equipment aEq = null;
@@ -1083,7 +1076,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			if (aBonus.isTempBonus())
 			{
 				BonusObj newB = null;
-				if (aMod instanceof PCClass)
+				if (aMod instanceof PCClass || aMod instanceof PCClassLevel)
 				{
 					if (aBonus.getPCLevel() == bonusLevel)
 					{
@@ -2219,6 +2212,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			Spell aSpell = null;
 			Equipment eqI = null;
 			PCClass aClass = null;
+			PCClassLevel aClassLevel = null;
 			PCTemplate aTemp = null;
 			Skill aSkill = null;
 			PlayerCharacter bPC = null;
@@ -2240,10 +2234,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						new StringBuffer(eqI.longName()).append(
 							eqI.getAppliedName()).toString();
 			}
-			else if (fn.getItem() instanceof ClassWrap)
+			else if (fn.getItem() instanceof PCClass)
 			{
-				ClassWrap tempObj = (ClassWrap) fn.getItem();
-				aClass = tempObj.getMyClass();
+				aClass = (PCClass) fn.getItem();
+			}
+			else if (fn.getItem() instanceof PCClassLevel)
+			{
+				aClassLevel = (PCClassLevel) fn.getItem();
 			}
 			else if (fn.getItem() instanceof Ability)
 			{
@@ -2305,7 +2302,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						return PropertyFactory.getString("in_itmBonModelTargetTypeFeat"); //$NON-NLS-1$
 					}
-					else if (aClass != null)
+					else if (aClass != null || aClassLevel != null)
 					{
 						return PropertyFactory.getString("in_itmBonModelTargetTypeClass"); //$NON-NLS-1$
 					}
@@ -2330,31 +2327,43 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (eqI != null)
 					{
-						return eqI.getDefaultSourceString();
+						return SourceFormat.getFormattedString(eqI,
+						Globals.getSourceDisplay(), true);
 					}
 					else if (aSpell != null)
 					{
-						return aSpell.getDefaultSourceString();
+						return SourceFormat.getFormattedString(aSpell,
+						Globals.getSourceDisplay(), true);
 					}
 					else if (aAbility != null)
 					{
-						return aAbility.getDefaultSourceString();
+						return SourceFormat.getFormattedString(aAbility,
+						Globals.getSourceDisplay(), true);
 					}
 					else if (aFeat != null)
 					{
-						return aFeat.getDefaultSourceString();
+						return SourceFormat.getFormattedString(aFeat,
+						Globals.getSourceDisplay(), true);
 					}
 					else if (aClass != null)
 					{
-						return aClass.getDefaultSourceString();
+						return SourceFormat.getFormattedString(aClass,
+						Globals.getSourceDisplay(), true);
+					}
+					else if (aClassLevel != null)
+					{
+						return SourceFormat.getFormattedString(aClassLevel,
+						Globals.getSourceDisplay(), true);
 					}
 					else if (aTemp != null)
 					{
-						return aTemp.getDefaultSourceString();
+						return SourceFormat.getFormattedString(aTemp,
+						Globals.getSourceDisplay(), true);
 					}
 					else if (aSkill != null)
 					{
-						return aSkill.getDefaultSourceString();
+						return SourceFormat.getFormattedString(aSkill,
+						Globals.getSourceDisplay(), true);
 					}
 					else
 					{
@@ -2580,19 +2589,29 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// iterate thru all PC's Classes
 				for (PCClass aClass : pc.getClassList())
 				{
+					int currentLevel = aClass.getLevel(pc);
 					for (BonusObj aBonus : aClass.getRawBonusList(pc))
 					{
-						final int myLevel = aClass.getLevel(pc);
-						final int level = aBonus.getPCLevel();
-
-						if (aBonus.isTempBonus() && (myLevel >= level))
+						if (aBonus.isTempBonus())
 						{
-							PObjectNode aFN =
-									new PObjectNode(
-										new ClassWrap(aClass, level));
+							PObjectNode aFN = new PObjectNode(aClass);
 							aFN.setParent(pNode[3]);
 							pNode[3].addChild(aFN, true);
 							pNode[3].setParent(avaRoot);
+						}
+					}
+					for (int i = 1; i < currentLevel; i++)
+					{
+						PCClassLevel pcl = aClass.getActiveClassLevel(i);
+						for (BonusObj aBonus : pcl.getRawBonusList(pc))
+						{
+							if (aBonus.isTempBonus())
+							{
+								PObjectNode aFN = new PObjectNode(pcl);
+								aFN.setParent(pNode[3]);
+								pNode[3].addChild(aFN, true);
+								pNode[3].setParent(avaRoot);
+							}
 						}
 					}
 				}

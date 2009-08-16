@@ -216,6 +216,11 @@ public class PCClass extends PObject
 		double i = 0;
 
 		List<BonusObj> rawBonusList = getRawBonusList(aPC);
+		int currentLevel = getLevel(aPC);
+		for (int lvl = 1 ; lvl < currentLevel; lvl++)
+		{
+			rawBonusList.addAll(getActiveClassLevel(lvl).getRawBonusList(aPC));
+		}
 		if ((asLevel == 0) || rawBonusList.isEmpty())
 		{
 			return 0;
@@ -2091,6 +2096,13 @@ public class PCClass extends PObject
 			PCClassLevel classLevel = new PCClassLevel();
 			classLevel.put(IntegerKey.LEVEL, Integer.valueOf(lvl));
 			classLevel.setName(getDisplayName() + "(" + lvl + ")");
+			classLevel.put(StringKey.QUALIFIED_KEY, getQualifiedKey());
+			classLevel.put(ObjectKey.SOURCE_CAMPAIGN, get(ObjectKey.SOURCE_CAMPAIGN));
+			classLevel.put(StringKey.SOURCE_PAGE, get(StringKey.SOURCE_PAGE));
+			classLevel.put(StringKey.SOURCE_LONG, get(StringKey.SOURCE_LONG));
+			classLevel.put(StringKey.SOURCE_SHORT, get(StringKey.SOURCE_SHORT));
+			classLevel.put(StringKey.SOURCE_WEB, get(StringKey.SOURCE_WEB));
+			classLevel.put(ObjectKey.SOURCE_DATE, get(ObjectKey.SOURCE_DATE));
 			classLevel.put(ObjectKey.TOKEN_PARENT, this);
 			levelMap.put(lvl, classLevel);
 		}
@@ -2114,6 +2126,13 @@ public class PCClass extends PObject
 			try
 			{
 				PCClassLevel lvl = me.getValue().clone();
+				lvl.put(StringKey.QUALIFIED_KEY, getQualifiedKey());
+				lvl.put(ObjectKey.SOURCE_CAMPAIGN, get(ObjectKey.SOURCE_CAMPAIGN));
+				lvl.put(StringKey.SOURCE_PAGE, get(StringKey.SOURCE_PAGE));
+				lvl.put(StringKey.SOURCE_LONG, get(StringKey.SOURCE_LONG));
+				lvl.put(StringKey.SOURCE_SHORT, get(StringKey.SOURCE_SHORT));
+				lvl.put(StringKey.SOURCE_WEB, get(StringKey.SOURCE_WEB));
+				lvl.put(ObjectKey.SOURCE_DATE, get(ObjectKey.SOURCE_DATE));
 				lvl.put(ObjectKey.TOKEN_PARENT, this);
 				lvl.ownBonuses(this);
 				levelMap.put(me.getKey(), lvl);
@@ -2151,35 +2170,6 @@ public class PCClass extends PObject
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
-	{
-		List<BonusObj> list = super.getRawBonusList(pc);
-		int lvl = getLevel(pc);
-		for (int i = 1; i <= lvl; i++)
-		{
-			PCClassLevel pcl = getActiveClassLevel(i);
-			if (pcl != null)
-			{
-				List<BonusObj> bonusList = pcl.getListFor(ListKey.BONUS);
-				if (bonusList != null)
-				{
-					list.addAll(bonusList);
-				}
-				if (pc != null)
-				{
-					List<BonusObj> listToo = pc.getAssocList(pcl,
-							AssociationListKey.BONUS);
-					if (listToo != null)
-					{
-						list.addAll(listToo);
-					}
-				}
-			}
-		}
-		return list;
 	}
 
 	@Override

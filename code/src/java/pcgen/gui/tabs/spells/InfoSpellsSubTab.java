@@ -59,6 +59,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
@@ -800,7 +801,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 					StringUtil.join(set, ",")); //$NON-NLS-1$ 
 			}
 
-			String bString = aClass.getDefaultSourceString();
+			String bString = SourceFormat.getFormattedString(aClass,
+			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
 				b.appendLineBreak();
@@ -910,7 +912,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				b.appendI18nElement("in_requirements", cString); //$NON-NLS-1$
 			}
 
-			String spellSource = aSpell.getDefaultSourceString();
+			String spellSource = SourceFormat.getFormattedString(aSpell,
+			Globals.getSourceDisplay(), true);
 			if (spellSource.length() > 0)
 			{
 				b.appendLineBreak();

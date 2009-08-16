@@ -37,6 +37,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
@@ -868,7 +869,8 @@ public class EqToken extends Token
 	 */
 	public static String getSourceToken(Equipment eq)
 	{
-		return eq.getDefaultSourceString();
+		return SourceFormat.getFormattedString(eq,
+		Globals.getSourceDisplay(), true);
 	}
 
 	/**

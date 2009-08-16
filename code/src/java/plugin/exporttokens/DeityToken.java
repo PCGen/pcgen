@@ -34,9 +34,11 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Deity;
+import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
@@ -145,7 +147,8 @@ public class DeityToken extends Token
 			}
 			else if ("SOURCE".equals(subTag))
 			{
-				retString = deity.getDefaultSourceString();
+				retString = SourceFormat.getFormattedString(deity,
+				Globals.getSourceDisplay(), true);
 			}
 			else if ("SA".equals(subTag))
 			{

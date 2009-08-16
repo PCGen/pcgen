@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
@@ -306,7 +307,8 @@ public final class Kit extends PObject implements Comparable<Object>
 			}
 			info.append(bk.toString());
 		}
-		info.append("  <b>Source</b>: ").append(getDefaultSourceString());
+		info.append("  <b>Source</b>: ").append(SourceFormat.getFormattedString(this,
+		Globals.getSourceDisplay(), true));
 		info.append("</html>");
 		//TODO ListKey.KIT_TASKS
 		return info.toString();

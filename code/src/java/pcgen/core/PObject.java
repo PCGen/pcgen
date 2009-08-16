@@ -26,7 +26,6 @@ package pcgen.core;
 
 import java.io.Serializable;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -42,7 +41,6 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
-import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.BonusActivation;
@@ -210,18 +208,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return sourceURI;
 	}
 
-	/**
-	 * Gets the Source string for this object using the default source display
-	 * mode.
-	 * 
-	 * @return The Source string.
-	 */
-	public String getDefaultSourceString()
-	{
-		return SourceFormat.getFormattedString(this,
-				Globals.getSourceDisplay(), true);
-	}
-	
 	/**
 	 * Get the type of PObject
 	 * 
@@ -392,45 +378,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Get the list of bonuses for this object
-	 * @param as TODO
-	 * @return the list of bonuses for this object
-	 */
-	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
-	{
-		List<BonusObj> bonusList = getSafeListFor(ListKey.BONUS);
-		if (pc != null)
-		{
-			List<BonusObj> listToo = pc.getAssocList(this, AssociationListKey.BONUS);
-			if (listToo != null)
-			{
-				bonusList.addAll(listToo);
-			}
-		}
-		return bonusList;
-	}
-
-	/**
-	 * returns all BonusObj's that are "active"
-	 * @param aPC A PlayerCharacter object.
-	 * @return active bonuses
-	 */
-	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
-	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
-
-		for ( BonusObj bonus : getRawBonusList(aPC) )
-		{
-			if (aPC.isApplied(bonus))
-			{
-				aList.add(bonus);
-			}
-		}
-
-		return aList;
-	}
-
-	/**
 	 * Sets all the BonusObj's to "active"
 	 * @param aPC
 	 */
@@ -583,18 +530,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 
 		return bonus * iTimes;
-	}
-
-	public List<BonusObj> getBonusList(AssociationStore as)
-	{
-		if (as instanceof PlayerCharacter)
-		{
-			return getRawBonusList((PlayerCharacter) as);
-		}
-		else
-		{
-			return getRawBonusList(null);
-		}
 	}
 
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
