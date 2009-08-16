@@ -265,7 +265,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		else if (sourceStr.startsWith(TAG_TEMPLATE + '='))
 		{
 			sourceStr = sourceStr.substring(9);
-			oSource = thePC.getTemplateKeyed(sourceStr);
+			oSource = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(PCTemplate.class,
+							sourceStr);
 		}
 		else if (sourceStr.startsWith(TAG_SKILL + '='))
 		{
@@ -530,9 +532,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_TEMPLATE))
 		{
-			final PCTemplate aTemplate = thePC.getTemplateKeyed(objectname);
+			PCTemplate aTemplate = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(PCTemplate.class,
+							objectname);
 
-			if (aTemplate != null)
+			if (aTemplate != null && thePC.hasTemplate(aTemplate))
 			{
 				for (String s : aList)
 				{
@@ -5330,15 +5334,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_TEMPLATE))
 			{
-				PCTemplate aTemplate = thePC.getTemplateKeyed(cKey);
-
-				if (aTemplate == null)
-				{
-					aTemplate =
-							Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(
-									PCTemplate.class, cKey);
-				}
+				PCTemplate aTemplate = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(PCTemplate.class,
+								cKey);
 
 				if (aTemplate != null)
 				{
