@@ -34,6 +34,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrereqHandler;
@@ -207,7 +208,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		final String          aName,
 		final AssociationStore          obj)
 	{
-		double res =  super.bonusTo(aType, aName, obj, getBonusList(obj), aPC);
+		double res =  BonusCalc.bonusTo(this, aType, aName, obj, getBonusList(obj), aPC);
 		return res;
 	}
 

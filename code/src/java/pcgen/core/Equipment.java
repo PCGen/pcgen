@@ -64,6 +64,8 @@ import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.BonusActivation;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.EqModCost;
 import pcgen.core.analysis.EqModSpellInfo;
 import pcgen.core.analysis.EquipmentChoiceDriver;
@@ -1186,7 +1188,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (equipped) {
 			activateBonuses(aPC);
 		} else {
-			deactivateBonuses(aPC);
+			BonusActivation.deactivateBonuses(this, aPC);
 		}
 	}
 
@@ -2604,7 +2606,7 @@ public final class Equipment extends PObject implements Serializable,
 		bonusPrimary = bPrimary;
 
 		if (bPrimary) {
-			super.bonusTo(aType, aName, this, aPC);
+			BonusCalc.bonusTo(this, aType, aName, this, aPC);
 
 			// now do temp bonuses
 			final List<BonusObj> tbList = new ArrayList<BonusObj>();
@@ -2615,14 +2617,14 @@ public final class Equipment extends PObject implements Serializable,
 				}
 			}
 
-			super.bonusTo(aType, aName, anObj, tbList, aPC);
+			BonusCalc.bonusTo(this, aType, aName, anObj, tbList, aPC);
 		}
 
 		// If using 3.5 weapon penalties, add them in also
 		if (Globals.checkRule(RuleConstants.SYS_35WP)) {
 			final List<BonusObj> aList = GameMode.getEqSizePenaltyObj()
 					.getSafeListFor(ListKey.BONUS);
-			super.bonusTo(aType, aName, this, aList, aPC);
+			BonusCalc.bonusTo(this, aType, aName, this, aList, aPC);
 		}
 
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
@@ -6234,4 +6236,24 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		removeListFor(ListKey.TEMP_BONUS);
 	}
+
+	/**
+	 * Get the list of bonuses as a String
+	 * @param pc TODO
+	 * @param aString
+	 * @return the list of bonuses as a String
+	 */
+	public boolean hasBonusWithInfo(PlayerCharacter pc, final String aString)
+	{
+		for ( BonusObj bonus : getRawBonusList(pc) )
+		{
+			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 }

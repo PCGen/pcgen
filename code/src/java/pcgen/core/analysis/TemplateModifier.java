@@ -83,7 +83,7 @@ public class TemplateModifier
 			mods.append("DR:").append(DamageReduction.getDRString(aPC, drList));
 		}
 
-		int nat = (int) pct.bonusTo("COMBAT", "AC", aPC, aPC);
+		int nat = (int) BonusCalc.bonusTo(pct, "COMBAT", "AC", aPC, aPC);
 
 		if (nat != 0)
 		{

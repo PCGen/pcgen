@@ -38,6 +38,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
@@ -99,7 +100,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		saddle.addToListFor(ListKey.TYPE, Type.getConstant("SADDLE"));
 
 		final PlayerCharacter pc = getCharacter();
-		rideSkill.activateBonuses(pc);
+		BonusActivation.activateBonuses(rideSkill, pc);
 		double iBonus = saddleBonus.resolve(pc, "").doubleValue();
 		assertEquals("Bonus value", -5.0, iBonus, 0.05);
 		assertTrue("No saddle, should have a penalty", pc.isApplied(saddleBonus));
@@ -108,7 +109,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		final EquipSet eqSet = new EquipSet("Test", "Test", "", saddle);
 		pc.addEquipSet(eqSet);
 		pc.calcActiveBonuses();
-		rideSkill.activateBonuses(pc);
+		BonusActivation.activateBonuses(rideSkill, pc);
 		assertFalse("Saddle, should not have a penalty", pc
 				.isApplied(saddleBonus));
 	}
@@ -168,7 +169,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		pc.addEquipSet(eqSet);
 		pc.setCalcEquipmentList();
 		pc.calcActiveBonuses();
-		dummyFeat.activateBonuses(pc);
+		BonusActivation.activateBonuses(dummyFeat, pc);
 
 		assertEquals("Variable value", 9.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
@@ -208,7 +209,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		final BonusObj spCost =
 				Bonus.newBonus("SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
 		sp.addToListFor(ListKey.BONUS, spCost);
-		sp.activateBonuses(character);
+		BonusActivation.activateBonuses(sp, character);
 		
 		int a = spCost.resolve(character, "").intValue();
 		assertEquals(10, spCosts + a);

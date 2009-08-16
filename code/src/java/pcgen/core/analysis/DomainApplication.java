@@ -140,7 +140,7 @@ public class DomainApplication
 		if (!pc.isImporting())
 		{
 			d.globalChecks(pc);
-			d.activateBonuses(pc);
+			BonusActivation.activateBonuses(d, pc);
 		}
 	}
 

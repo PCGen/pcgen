@@ -67,6 +67,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
@@ -2697,7 +2698,7 @@ public final class Globals
 
 		if (sadj != null)
 		{
-			mult += sadj.bonusTo("LOADMULT", "TYPE=SIZE", aPC, aPC);
+			mult += BonusCalc.bonusTo(sadj, "LOADMULT", "TYPE=SIZE", aPC, aPC);
 		}
 		return mult;
 	}

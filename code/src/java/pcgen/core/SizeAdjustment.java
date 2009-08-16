@@ -23,6 +23,8 @@ package pcgen.core;
 import java.util.List;
 
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.analysis.BonusActivation;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.CoreUtility;
 
@@ -51,7 +53,7 @@ public final class SizeAdjustment extends PObject
 	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
 	{
-		super.activateBonuses(aPC);
+		BonusActivation.activateBonuses(this, aPC);
 
 		return super.getActiveBonuses(aPC);
 	}
@@ -65,7 +67,7 @@ public final class SizeAdjustment extends PObject
 			 * the bonus objects only correctly match TYPE.  The bonus objects
 			 * probably need to be reevaluated to standardize this usage
 			 */
-			final double a = bonusTo(bonusType, "TYPE." + type, aPC, aPC);
+			final double a = BonusCalc.bonusTo(this, bonusType, "TYPE." + type, aPC, aPC);
 
 			if (!CoreUtility.doublesEqual(a, 0.0))
 			{

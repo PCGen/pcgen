@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -476,8 +477,7 @@ public class ArmorToken extends Token
 			// adjustments for new equipment modifier
 			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
 			//FileAccess.write(output, Delta.toString(eq.getACMod()));
-			ret.append(Delta.toString((int) eq
-				.bonusTo("COMBAT", "AC", aPC, aPC)));
+			ret.append(Delta.toString((int) BonusCalc.bonusTo(eq, "COMBAT", "AC", aPC, aPC)));
 		}
 		else if (property.startsWith("ACBONUS"))
 		{

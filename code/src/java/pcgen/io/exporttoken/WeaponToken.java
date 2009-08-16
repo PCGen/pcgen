@@ -42,6 +42,7 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.io.ExportHandler;
@@ -917,8 +918,7 @@ public class WeaponToken extends Token
 		}
 		int magicdamage =
 				eq.getBonusToDamage(pc, true)
-					+ (int) eq.bonusTo("WEAPONPROF=" + profName,
-						"DAMAGE", pc, pc)
+					+ (int) BonusCalc.bonusTo(eq, "WEAPONPROF=" + profName, "DAMAGE", pc, pc)
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_EQ);
 		return magicdamage;
 	}
@@ -943,8 +943,7 @@ public class WeaponToken extends Token
 		}
 		int magichit =
 				eq.getBonusToHit(pc, true)
-					+ (int) eq.bonusTo("WEAPONPROF=" + profName, "TOHIT",
-						pc, pc)
+					+ (int) BonusCalc.bonusTo(eq, "WEAPONPROF=" + profName, "TOHIT", pc, pc)
 					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_EQ);
 		return magichit;
 	}
@@ -2452,7 +2451,7 @@ public class WeaponToken extends Token
 		meleeDamageMult +=
 				pc.getTotalBonusTo("WEAPONPROF=" + profName, "DAMAGEMULT:"
 					+ hands);
-		meleeDamageMult += eq.bonusTo("WEAPON", "DAMAGEMULT:" + hands, pc, pc);
+		meleeDamageMult += BonusCalc.bonusTo(eq, "WEAPON", "DAMAGEMULT:" + hands, pc, pc);
 
 		int bonus = 0;
 		int weaponProfBonus = 0;
@@ -2515,7 +2514,7 @@ public class WeaponToken extends Token
 					pc.getTotalBonusTo("WEAPONPROF=" + profName, "DAMAGEMULT:"
 						+ hands);
 			meleeDamageMult +=
-					eq.bonusTo("WEAPON", "DAMAGEMULT:" + hands, pc, pc);
+					BonusCalc.bonusTo(eq, "WEAPON", "DAMAGEMULT:" + hands, pc, pc);
 			totalBonus -= eqbonus;
 			/*
 			 * eq.getBonusToDamage(false) returns the eq bonus for
@@ -2884,8 +2883,7 @@ public class WeaponToken extends Token
 
 					case WPTYPEBONUS_EQ:
 						bonus +=
-								(int) eq.bonusTo("WEAPONPROF=TYPE." + tString,
-									bonusType, pc, pc);
+								(int) BonusCalc.bonusTo(eq, "WEAPONPROF=TYPE." + tString, bonusType, pc, pc);
 						break;
 
 					case WPTYPEBONUS_FEAT:

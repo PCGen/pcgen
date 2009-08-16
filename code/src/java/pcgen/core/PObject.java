@@ -45,6 +45,7 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrereqHandler;
@@ -69,9 +70,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
-	/** a boolean for whether something should recurse, default is false */
-	private static boolean dontRecurse = false;
-
 	/** The name to display to the user.  This should be internationalized. */
 	private String displayName = Constants.EMPTY_STRING;
 
@@ -413,111 +411,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Apply the bonus to a PC, pass through object's default bonuslist
-	 *
-	 * @param aType
-	 * @param aName
-	 * @param obj
-	 * @param aPC
-	 * @return the bonus
-	 */
-	public final double bonusTo(final String aType, final String aName, final AssociationStore obj, final PlayerCharacter aPC)
-	{
-		return bonusTo(aType, aName, obj, getBonusList(obj), aPC);
-	}
-
-	/**
-	 * Apply the bonus to a PC
-	 *
-	 * @param aType
-	 * @param aName
-	 * @param obj
-	 * @param aBonusList
-	 * @param aPC
-	 * @return the bonus
-	 */
-	public final double bonusTo(String aType, String aName, final Object obj, final List<BonusObj> aBonusList, final PlayerCharacter aPC)
-	{
-		if ((aBonusList == null) || (aBonusList.size() == 0))
-		{
-			return 0;
-		}
-
-		double retVal = 0;
-
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		final String aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
-
-		if (!dontRecurse && (this instanceof Ability) && !Globals.checkRule(RuleConstants.FEATPRE))
-		{
-			// SUCK!  This is horrid, but bonusTo is actually recursive with respect to
-			// passesPreReqToGain and there is no other way to do this without decomposing the
-			// dependencies.  I am loathe to break working code.
-			// This addresses bug #709677 -- Feats give bonuses even if you no longer qualify
-			dontRecurse = true;
-
-			boolean returnZero = false;
-
-			if (!qualifies(aPC))
-			{
-				returnZero = true;
-			}
-
-			dontRecurse = false;
-
-			if (returnZero)
-			{
-				return 0;
-			}
-		}
-
-		int iTimes = 1;
-
-		if (aPC != null && "VAR".equals(aType))
-		{
-			iTimes = Math.max(1, aPC.getDetailedAssociationCount(this));
-		}
-
-		for ( BonusObj bonus : aBonusList )
-		{
-			String bString = bonus.toString().toUpperCase();
-
-			if (aPC != null && aPC.hasAssociations(this))
-			{
-				int span = 4;
-				int idx = bString.indexOf("%VAR");
-
-				if (idx == -1)
-				{
-					idx = bString.indexOf("%LIST|");
-					span = 5;
-				}
-
-				if (idx >= 0)
-				{
-					final String firstPart = bString.substring(0, idx);
-					final String secondPart = bString.substring(idx + span);
-
-					for (String assoc : aPC.getAssociationList(this))
-					{
-						final String xString = new StringBuffer().append(firstPart).append(assoc).append(secondPart)
-							.toString().toUpperCase();
-						retVal += calcBonus(xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
-					}
-				}
-			}
-			else
-			{
-				retVal += calcBonus(bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
-			}
-		}
-
-		return retVal;
-	}
-
-	/**
 	 * returns all BonusObj's that are "active"
 	 * @param aPC A PlayerCharacter object.
 	 * @return active bonuses
@@ -538,52 +431,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Get the list of bonuses as a String
-	 * @param pc TODO
-	 * @param aString
-	 * @return the list of bonuses as a String
-	 */
-	public boolean hasBonusWithInfo(PlayerCharacter pc, final String aString)
-	{
-		for ( BonusObj bonus : getRawBonusList(pc) )
-		{
-			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Sets all the BonusObj's to "active"
 	 * @param aPC
 	 */
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		for (Iterator<BonusObj> ab = getRawBonusList(aPC).iterator(); ab.hasNext();)
-		{
-			final BonusObj aBonus = ab.next();
-			aPC.setApplied(aBonus, false);
-
-			if (aBonus.qualifies(aPC)
-				&& aBonus.getPCLevel() <= aPC.getTotalLevels())
-			{
-				aPC.setApplied(aBonus, true);
-			}
-		}
-	}
-
-	/**
-	 * Deactivate all of the bonuses
-	 */
-	public void deactivateBonuses(PlayerCharacter aPC)
-	{
-		for (BonusObj bonus : getRawBonusList(aPC))
-		{
-			aPC.setApplied(bonus, false);
-		}
+		BonusActivation.activateBonuses(this, aPC);
 	}
 
 	/**
@@ -599,7 +452,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aPC
 	 * @return bonus
 	 */
-	private double calcBonus(final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
+	public double calcBonus(final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
 							 final BonusObj aBonusObj, final PlayerCharacter aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(bString, "|");

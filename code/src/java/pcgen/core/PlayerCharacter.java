@@ -103,6 +103,8 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.core.analysis.AlignmentConverter;
+import pcgen.core.analysis.BonusActivation;
+import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.RaceStat;
@@ -933,7 +935,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					// Found race and type of follower
 					// so add bonus to the master
 					addCompanionMod(cm);
-					cm.activateBonuses(aPC);
+					BonusActivation.activateBonuses(cm, aPC);
 				}
 			}
 		}
@@ -5886,7 +5888,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (race != null)
 		{
-			race.activateBonuses(this);
+			BonusActivation.activateBonuses(race, this);
 
 			if (!isImporting())
 			{
@@ -6296,11 +6298,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (Ability feat : metaFeats)
 				{
 					rangeInFeet +=
-							(int) feat.bonusTo("SPELL", "RANGE", this, this);
+							(int) BonusCalc.bonusTo(feat, "SPELL", "RANGE", this, this);
 
 					final int iMult =
-							(int) feat
-								.bonusTo("SPELL", "RANGEMULT", this, this);
+							(int) BonusCalc.bonusTo(feat, "SPELL", "RANGEMULT", this, this);
 
 					if (iMult > 0)
 					{
@@ -7097,7 +7098,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			addSkill.doBaseChecks(this);
-			addSkill.activateBonuses(this);
+			BonusActivation.activateBonuses(addSkill, this);
 			calcActiveBonuses();
 		}
 	}
@@ -7420,8 +7421,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (Ability feat : aFeatList)
 				{
 					ppCost +=
-							(int) feat.bonusTo("PPCOST", theSpell.getKeyName(),
-								this, this);
+							(int) BonusCalc.bonusTo(feat, "PPCOST", theSpell.getKeyName(), this, this);
 				}
 				si.setActualPPCost(ppCost);
 			}
@@ -7433,8 +7433,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (Ability feat : aFeatList)
 				{
 					spellPointCost +=
-							(int) feat.bonusTo("SPELLPOINTCOST", theSpell
-								.getKeyName(), this, this);
+							(int) BonusCalc.bonusTo(feat, "SPELLPOINTCOST", theSpell
+							.getKeyName(), this, this);
 				}
 				si.setActualSpellPointCost(spellPointCost);
 			}
@@ -11748,8 +11748,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int save;
 		final String sString = check.toString();
-		save = (int) race.bonusTo("CHECKS", "BASE." + sString, this, this);
-		save += (int) race.bonusTo("CHECKS", sString, this, this);
+		save = (int) BonusCalc.bonusTo(race, "CHECKS", "BASE." + sString, this, this);
+		save += (int) BonusCalc.bonusTo(race, "CHECKS", sString, this, this);
 
 		return save;
 	}
@@ -16096,7 +16096,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				for (Ability metaFeat : si.getFeatList())
 				{
 					spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-					metaDC += metaFeat.bonusTo("DC", "FEATBONUS", this, this);
+					metaDC += BonusCalc.bonusTo(metaFeat, "DC", "FEATBONUS", this, this);
 				}
 			}
 		}
