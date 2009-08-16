@@ -35,7 +35,6 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.Logging;
 
 /**
@@ -158,8 +157,7 @@ public class AbilityChoiceManager extends AbstractBasicStringChoiceManager
 			}
 		}
 
-		if (PrereqHandler.passesAll(anAbility.getPrerequisiteList(), aPc,
-			anAbility))
+		if (anAbility.qualifies(aPc))
 		{
 			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{

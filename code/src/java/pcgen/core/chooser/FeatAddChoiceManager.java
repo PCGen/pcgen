@@ -23,20 +23,19 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Ability;
-import pcgen.core.AbilityUtilities;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.util.Logging;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Categorisable;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 /**
  * This is one of the choosers that deals with choosing from among a set
@@ -140,7 +139,7 @@ public class FeatAddChoiceManager extends AbstractBasicStringChoiceManager {
 			}
 		}
 
-		if (PrereqHandler.passesAll(anAbility.getPrerequisiteList(), aPc, anAbility))
+		if (anAbility.qualifies(aPc))
 		{
 			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{

@@ -56,7 +56,6 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.gui.NameElement;
@@ -373,7 +372,7 @@ public class NPCGenerator
 		{
 			final Ability ability = aFeatList.getRandomValue();
 
-			if (!PrereqHandler.passesAll(ability.getPrerequisiteList(), aPC, ability))
+			if (!ability.qualifies(aPC))
 			{
 				// We will leave the feat because we may qualify later.
 				continue;
@@ -412,7 +411,7 @@ public class NPCGenerator
 			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
 			{
 				Domain domain = iterator.next();
-				if (! PrereqHandler.passesAll(domain.getPrerequisiteList(), aPC, domain))
+				if (!domain.qualifies(aPC))
 				{
 					iterator.remove();
 				}
@@ -578,7 +577,7 @@ public class NPCGenerator
 					continue;
 				}
 				Logging.debugPrint( "NPCGenerator: Selected " + r + " for race " + aRace ); //$NON-NLS-1$ //$NON-NLS-2$
-				if (PrereqHandler.passesAll(r.getPrerequisiteList(), aPC, r))
+				if (r.qualifies(aPC))
 				{
 					Logging.debugPrint( "NPCGenerator: PC qualifies for race " + r ); //$NON-NLS-1$
 					aPC.setRace(r);
@@ -620,8 +619,7 @@ public class NPCGenerator
 							break;
 						}
 						if (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT)
-							&& PrereqHandler.passesAll(aClass.getPrerequisiteList(), aPC,
-							aClass) && aClass.isQualified(aPC))
+							&& aClass.qualifies(aPC))
 						{
 							Logging.debugPrint( "NPCGenerator: Selecting " + aClass + " for class " + classList.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$
 							break;

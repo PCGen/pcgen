@@ -39,7 +39,6 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.core.analysis.TemplateStat;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -238,7 +237,7 @@ public class TemplateToken extends Token
 		List<String> saDescList = new ArrayList<String>();
 		for (SpecialAbility sa : saList)
 		{
-			if (!PrereqHandler.passesAll(sa.getPrerequisiteList(), pc, sa))
+			if (!sa.qualifies(pc))
 			{
 				continue;
 			}

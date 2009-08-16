@@ -24,7 +24,6 @@ import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.PrereqHandler;
 
 /**
  * A QualifiedDecorator decorates a PrimitiveChoiceSet in order to restrict the
@@ -116,7 +115,7 @@ public class QualifiedDecorator<T extends PObject> implements
 		Set<T> returnSet = new HashSet<T>();
 		for (T item : set.getSet(pc))
 		{
-			if (PrereqHandler.passesAll(item.getPrerequisiteList(), pc, item))
+			if (item.qualifies(pc))
 			{
 				returnSet.add(item);
 			}

@@ -20,8 +20,6 @@
  */
 package pcgen.core;
 
-import pcgen.core.prereq.PrereqHandler;
-
 import java.io.Serializable;
 import java.util.StringTokenizer;
 
@@ -71,15 +69,6 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		return getDisplayName();
 	}
 
-	boolean pcQualifiesFor(final PlayerCharacter pc)
-	{
-		if (!PrereqHandler.passesAll(getPrerequisiteList(), pc, null))
-		{
-			return false;
-		}
-		return true;
-	}
-
 	/**
 	 * Get the property text (name, value pair)
 	 * @return the property text (name, value pair)
@@ -106,7 +95,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		}
 
 		String retString = "";
-		if(pcQualifiesFor(pc))
+		if(qualifies(pc))
 		{
 			// full desc will look like "description|var1|var2|var3|..."
 			StringTokenizer varTok = new StringTokenizer(fullDesc, "|");

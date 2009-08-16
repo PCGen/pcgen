@@ -39,7 +39,6 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.util.Logging;
@@ -692,8 +691,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				}
 			}
 
-			if (!PrereqHandler.passesAll(((PObject) item).getPrerequisiteList(), aPC,
-				item))
+			if (!((PObject) item).qualifies(aPC))
 			{
 				// indicates to LabelTreeCellRenderer to change text color
 				// to a user-preference (default is red)
@@ -805,7 +803,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		{
 			case CAN_GAIN_FEAT:
 
-				if (PrereqHandler.passesAll(aFeat.getPrerequisiteList(), aPC, aFeat))
+				if (aFeat.qualifies(aPC))
 				{
 					return "|" + SettingsHandler.getPrereqQualifyColor() + "|"
 						+ itemName;
@@ -815,7 +813,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			case CAN_USE_FEAT:
 
-				if (PrereqHandler.passesAll(aFeat.getPrerequisiteList(), aPC, aFeat))
+				if (aFeat.qualifies(aPC))
 				{
 					return "|" + SettingsHandler.getPrereqQualifyColor() + "|"
 						+ itemName;

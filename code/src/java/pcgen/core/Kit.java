@@ -35,7 +35,6 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
@@ -208,14 +207,7 @@ public final class Kit extends PObject implements Comparable<Object>
 		Visibility kitVisible = getSafe(ObjectKey.VISIBILITY);
 		if (kitVisible == Visibility.QUALIFY)
 		{
-			final List<Prerequisite> prereqList = getPrerequisiteList();
-
-			if (PrereqHandler.passesAll(prereqList, aPC, this))
-			{
-				return true;
-			}
-
-			return false;
+			return qualifies(aPC);
 		}
 		else if (kitVisible == Visibility.DEFAULT)
 		{

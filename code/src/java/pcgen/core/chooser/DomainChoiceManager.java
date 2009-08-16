@@ -31,7 +31,6 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.rules.context.ReferenceContext;
 
 /**
@@ -86,7 +85,7 @@ public class DomainChoiceManager extends AbstractBasicPObjectChoiceManager<Domai
 				// but does not have.
 				for ( Domain domain : refContext.getConstructedCDOMObjects(Domain.class) )
 				{
-					if (PrereqHandler.passesAll(domain.getPrerequisiteList(), aPc, domain))
+					if (domain.qualifies(aPc))
 					{
 						boolean found = false;
 						for (Domain d : aPc.getDomainSet())

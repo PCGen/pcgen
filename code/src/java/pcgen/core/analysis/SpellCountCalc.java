@@ -29,7 +29,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
 public class SpellCountCalc
@@ -94,7 +93,7 @@ public class SpellCountCalc
 
 	public static boolean isProhibited(Spell aSpell, PCClass cl, PlayerCharacter aPC)
 	{
-		if (!PrereqHandler.passesAll(aSpell.getPrerequisiteList(), aPC, aSpell))
+		if (!aSpell.qualifies(aPC))
 		{
 			return true;
 		}

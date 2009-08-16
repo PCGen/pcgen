@@ -100,7 +100,6 @@ import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.display.VisionDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -244,7 +243,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						(PCClass) classComboBox.getSelectedItem();
 				setInfoLabelText(pcClass);
 
-				if (pcClass.isQualified(pc))
+				if (pcClass.qualifies(pc))
 				{
 					labelClass.setForeground(new Color(SettingsHandler
 						.getPrereqQualifyColor()));
@@ -297,7 +296,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				return;
 			}
 
-			if (!pcClass.isQualified(pc))
+			if (!pcClass.qualifies(pc))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -1162,7 +1161,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 		}
 
-		if ((theClass == null) || !theClass.isQualified(pc))
+		if ((theClass == null) || !theClass.qualifies(pc))
 		{
 			return;
 		}
@@ -1191,7 +1190,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			final PCClass subClass =
 					aClass.getSubClassKeyed(subClassKey);
-			if (subClass != null && !subClass.isQualified(pc))
+			if (subClass != null && !subClass.qualifies(pc))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getFormattedString("in_sumYouAreNotQualifiedToTakeTheClass",
@@ -1434,7 +1433,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			pc.setAlignment(oldAlign, false, true);
 			{
-				if (!aClass.isQualified(pc))
+				if (!aClass.qualifies(pc))
 				{
 					if (aClass.containsKey(ObjectKey.EX_CLASS))
 					{
@@ -2191,7 +2190,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final Race pcRace = pc.getRace();
 		raceComboModel.setSelectedItem(pcRace);
 
-		if (PrereqHandler.passesAll(pcRace.getPrerequisiteList(), pc, pcRace))
+		if (pcRace.qualifies(pc))
 		{
 			labelRace.setForeground(new Color(SettingsHandler
 				.getPrereqQualifyColor()));
@@ -2265,7 +2264,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final PCClass pcSelectedClass =
 				(PCClass) classComboBox.getSelectedItem();
 
-		if ((pcSelectedClass != null) && !pcSelectedClass.isQualified(pc))
+		if ((pcSelectedClass != null) && !pcSelectedClass.qualifies(pc))
 		{
 			labelClass.setForeground(new Color(SettingsHandler
 				.getPrereqFailColor()));
@@ -3536,7 +3535,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				setText(aClass.getDisplayName());
 				if (isSelected)
 				{
-					if (aClass.isQualified(pc))
+					if (aClass.qualifies(pc))
 					{
 						setBackground(list.getSelectionBackground());
 						setForeground(list.getSelectionForeground());
@@ -3549,7 +3548,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 				else
 				{
-					if (aClass.isQualified(pc))
+					if (aClass.qualifies(pc))
 					{
 						setBackground(list.getBackground());
 						setForeground(list.getForeground());

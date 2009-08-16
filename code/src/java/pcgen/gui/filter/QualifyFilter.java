@@ -20,8 +20,10 @@
  */
 package pcgen.gui.filter;
 
-import pcgen.core.*;
-import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.Deity;
+import pcgen.core.Equipment;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -54,15 +56,10 @@ final class QualifyFilter extends AbstractPObjectFilter
 		{
 			return aPC.canSelectDeity((Deity) pObject);
 		}
-		else if (pObject instanceof Domain)
-		{
-			Domain r = ((Domain) pObject);
-			return PrereqHandler.passesAll(r.getPrerequisiteList(), aPC, r);
-		}
 		else if (pObject instanceof Equipment)
 		{
 			final Equipment equip = (Equipment) pObject;
-			final boolean accept = PrereqHandler.passesAll(equip.getPrerequisiteList(), aPC, equip);
+			final boolean accept = equip.qualifies(aPC);
 
 			if (accept && (equip.isShield() || equip.isWeapon() || equip.isArmor()))
 			{
@@ -71,14 +68,9 @@ final class QualifyFilter extends AbstractPObjectFilter
 
 			return accept;
 		}
-		else if (pObject instanceof PCClass)
-		{
-			return ((PCClass) pObject).isQualified(aPC);
-		}
 		else
 		{
-			//passesPrereqTests is global now, so this should be the right thing to do.
-			return PrereqHandler.passesAll(pObject.getPrerequisiteList(), aPC, pObject);
+			return pObject.qualifies(aPC);
 		}
 	}
 }

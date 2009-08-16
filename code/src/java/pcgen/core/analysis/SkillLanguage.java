@@ -31,7 +31,6 @@ import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.chooser.ChooserFactory;
@@ -211,7 +210,7 @@ public final class SkillLanguage
 		for (Language lang : Globals.getContext().ref
 				.getConstructedCDOMObjects(Language.class))
 		{
-			if (!PrereqHandler.passesAll(lang.getPrerequisiteList(), aPC, lang))
+			if (!lang.qualifies(aPC))
 			{
 				continue;
 			}

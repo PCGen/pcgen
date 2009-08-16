@@ -700,12 +700,6 @@ public class PCClass extends PObject
 		return false;
 	}
 
-	public boolean isQualified(final PlayerCharacter aPC)
-	{
-		return aPC != null
-			&& PrereqHandler.passesAll(getPrerequisiteList(), aPC, this);
-	}
-
 	@Override
 	public String getPCCText()
 	{
@@ -1277,7 +1271,7 @@ public class PCClass extends PObject
 			// When loading a character, classes are added before feats, so
 			// this test would always fail on loading if feats are required
 			boolean doReturn = false;
-			if (!PrereqHandler.passesAll(getPrerequisiteList(), aPC, this))
+			if (!qualifies(aPC))
 			{
 				doReturn = true;
 				if (!bSilent)

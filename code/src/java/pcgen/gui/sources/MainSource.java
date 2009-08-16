@@ -86,7 +86,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -861,8 +860,7 @@ public class MainSource extends FilterAdapterPanel
 			if (select)
 			{
 				if (!selectedCampaigns.contains(theCamp)
-					&& PrereqHandler.passesAll(theCamp.getPrerequisiteList(),
-						null, (PObject) null))
+						&& theCamp.qualifies(null))
 				{
 					selectedCampaigns.add(theCamp);
 				}
@@ -1292,7 +1290,7 @@ public class MainSource extends FilterAdapterPanel
 
 		for (Campaign campaign : selectedCampaigns)
 		{
-			if (!PrereqHandler.passesAll(campaign.getPrerequisiteList(), null, (PObject)null))
+			if (!campaign.qualifies(null))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getFormattedString("in_Src_Bad_Combo_Load", campaign
@@ -1422,8 +1420,7 @@ public class MainSource extends FilterAdapterPanel
 					if (select)
 					{
 						if (!selectedCampaigns.contains(aCamp)
-							&& PrereqHandler.passesAll(aCamp
-								.getPrerequisiteList(), null, (PObject) null))
+								&& aCamp.qualifies(null))
 						{
 							selectedCampaigns.add(aCamp);
 						}

@@ -80,7 +80,6 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.kit.BaseKit;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.tabs.InfoTabUtils;
 import pcgen.gui.utils.IconUtilitities;
@@ -568,7 +567,7 @@ final class KitSelector extends JFrame
 
 	private boolean kitPassesPrereqs(Kit theKit)
 	{
-		return PrereqHandler.passesAll(theKit.getPrerequisiteList(), aPC, null);
+		return theKit.qualifies(aPC);
 	}
 
 	private void lstAvailableMouseClicked(MouseEvent evt)

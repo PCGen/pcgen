@@ -53,7 +53,6 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -291,9 +290,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		}
 
 		ability = Globals.getAbilityKeyed(theCategory, aKey);
-		if (ability != null
-			&& !PrereqHandler.passesAll(ability.getPrerequisiteList(), pc,
-				ability) && !Globals.checkRule(RuleConstants.FEATPRE))
+		if (ability != null && !ability.qualifies(pc)
+				&& !Globals.checkRule(RuleConstants.FEATPRE))
 		{
 			return ABILITY_NOT_QUALIFIED;
 		}

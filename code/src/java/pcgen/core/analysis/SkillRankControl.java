@@ -36,7 +36,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 
@@ -147,9 +146,7 @@ public class SkillRankControl
 				return "You must be at least level one before you can purchase skills.";
 			}
 
-			if ((rankMod > 0.0)
-					&& !PrereqHandler.passesAll(sk.getPrerequisiteList(), aPC,
-							sk))
+			if ((rankMod > 0.0) && sk.qualifies(aPC))
 			{
 				return "You do not meet the prerequisites required to take this skill.";
 			}

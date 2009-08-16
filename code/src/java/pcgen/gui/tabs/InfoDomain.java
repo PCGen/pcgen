@@ -107,7 +107,6 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.MessageType;
@@ -1353,8 +1352,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// Make sure a valid domain was selected
-		if (!PrereqHandler.passesAll(addedDomain.getPrerequisiteList(), pc, addedDomain)
-				|| !qualDomain.qualifies(pc))
+		if (!addedDomain.qualifies(pc) || !qualDomain.qualifies(pc))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("in_qualifyMess",
@@ -2279,8 +2277,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 							.append(OutputNameFormatting.piString(aDomain, false)).append(
 								"*</b></html>");
 					}
-					else if (!PrereqHandler.passesAll(aDomain.getPrerequisiteList(), pc, aDomain)
-						|| !aQualDomain.qualifies(pc))
+					else if (!aDomain.qualifies(pc) || !aQualDomain.qualifies(pc))
 					{
 						retVal.append("<html>").append(
 							SettingsHandler.getPrereqFailColorAsHtmlStart())

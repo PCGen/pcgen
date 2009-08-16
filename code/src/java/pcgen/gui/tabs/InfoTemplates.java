@@ -849,7 +849,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		PCTemplate template = getSelectedTemplate();
 
-		if ((template == null) || !PrereqHandler.passesAll(template.getPrerequisiteList(), getPc(), template))
+		if ((template == null) || !template.qualifies(getPc()))
 		{
 			return;
 		}

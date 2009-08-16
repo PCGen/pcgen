@@ -273,7 +273,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		// Test no prereqs and no bypass fails class and var
 		assertFalse("PC with no prereqs should fail class qual test.", aPrClass
-			.isQualified(character));
+			.qualifies(character));
 		assertEquals("PC with no prereqs should fail var qual test.", 0.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
@@ -281,7 +281,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aClassPreRule.setDefault("Y");
 		assertTrue(
 			"PC with no prereqs should pass class qual test when bypassing prereqs is on.",
-			aPrClass.isQualified(character));
+			aPrClass.qualifies(character));
 		assertEquals(
 			"PC with no prereqs should fail var qual test when bypass prereqs is on.",
 			0.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
@@ -289,7 +289,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Test prereqs and bypass pass class and var
 		character.incrementClassLevel(1, aNqClass);
 		assertTrue("PC with prereqs and bypass should pass class qual test.",
-			aPrClass.isQualified(character));
+			aPrClass.qualifies(character));
 		character.incrementClassLevel(1, aNqClass);
 		assertEquals("PC with prereqs and bypass should pass var qual test.",
 			10.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
@@ -298,7 +298,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aClassPreRule.setDefault("N");
 		assertTrue(
 			"PC with prereqs and no bypass should pass class qual test.",
-			aPrClass.isQualified(character));
+			aPrClass.qualifies(character));
 		assertEquals(
 			"PC with prereqs and no bypass should pass var qual test.", 10.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
@@ -350,7 +350,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		// Test no prereqs and no bypass fails class and var
 		assertFalse("PC with no prereqs should fail class qual test.", aPrClass
-			.isQualified(character));
+			.qualifies(character));
 		assertEquals("PC with no prereqs should fail var qual test.", 0.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
@@ -358,7 +358,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aClassPreRule.setDefault("Y");
 		assertTrue(
 			"PC with no prereqs should pass class qual test when bypassing prereqs is on.",
-			aPrClass.isQualified(character));
+			aPrClass.qualifies(character));
 		assertEquals(
 			"PC with no prereqs should fail var qual test when bypass prereqs is on.",
 			0.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
@@ -366,7 +366,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Test prereqs and bypass pass class and var
 		character.incrementClassLevel(1, aNqClass);
 		assertTrue("PC with prereqs and bypass should pass class qual test.",
-			aPrClass.isQualified(character));
+			aPrClass.qualifies(character));
 		character.incrementClassLevel(1, aNqClass);
 		assertEquals("PC with prereqs and bypass should pass var qual test.",
 			10.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
@@ -375,7 +375,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aClassPreRule.setDefault("N");
 		assertTrue(
 			"PC with prereqs and no bypass should pass class qual test.",
-			aPrClass.isQualified(character));
+			aPrClass.qualifies(character));
 		assertEquals(
 			"PC with prereqs and no bypass should pass var qual test.", 10.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
@@ -394,7 +394,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		// Test no prereqs and no qualifies fails class and var
 		assertFalse("PC with no prereqs should fail class qual test.", prClass
-			.isQualified(character));
+			.qualifies(character));
 		assertEquals("PC with no prereqs should fail var qual test.", 0.0,
 			prClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
@@ -402,7 +402,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, qClass);
 		assertTrue(
 			"PC with no prereqs but a qualifies should pass class qual test.",
-			prClass.isQualified(character));
+			prClass.qualifies(character));
 		assertEquals(
 			"PC with no prereqs but a qualifies should fail var qual test.",
 			0.0, prClass.getBonusTo("MISC", "SR", 1, character), 0.1);
@@ -411,7 +411,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, nqClass);
 		assertTrue(
 			"PC with prereqs and qualifies should pass class qual test.",
-			prClass.isQualified(character));
+			prClass.qualifies(character));
 		character.incrementClassLevel(1, nqClass);
 		assertEquals(
 			"PC with prereqs and qualifies should pass var qual test.", 10.0,

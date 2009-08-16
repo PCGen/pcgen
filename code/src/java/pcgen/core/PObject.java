@@ -384,7 +384,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		for ( SpecialAbility sa : salist )
 		{
-			if (sa.pcQualifiesFor(aPC))
+			if (sa.qualifies(aPC))
 			{
 				final String key = sa.getKeyName();
 				final int idx = key.indexOf("%CHOICE");
@@ -517,7 +517,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 			boolean returnZero = false;
 
-			if (!PrereqHandler.passesAll(getPrerequisiteList(), aPC, this))
+			if (!qualifies(aPC))
 			{
 				returnZero = true;
 			}

@@ -2238,8 +2238,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// and for the correct level or lower
 				if ((compLev <= mLev) || (compLev <= mTotalLevel))
 				{
-					if (PrereqHandler.passesAll(cMod.getPrerequisiteList(),
-						this, cMod))
+					if (cMod.qualifies(this))
 					{
 						if (!oldCompanionMods.contains(cMod))
 						{
@@ -2261,8 +2260,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (mLev >= cMod.getVariableApplied(varName))
 				{
-					if (PrereqHandler.passesAll(cMod.getPrerequisiteList(),
-						this, cMod))
+					if (cMod.qualifies(this))
 					{
 						if (!oldCompanionMods.contains(cMod))
 						{
@@ -3112,7 +3110,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (SpecialAbility sa : getSpecialAbilityList())
 		{
-			if (!PrereqHandler.passesAll(sa.getPrerequisiteList(), this, sa))
+			if (!sa.qualifies(this))
 			{
 				continue;
 			}
@@ -7202,8 +7200,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// all the exists checks are done.
 
 		// don't allow adding spells which are not qualified for.
-		if (!PrereqHandler
-			.passesAll(aSpell.getPrerequisiteList(), this, aSpell))
+		if (!aSpell.qualifies(this))
 		{
 			return "You do not qualify for " + acs.getSpell().getDisplayName()
 				+ ".";
@@ -7908,8 +7905,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final PObject aPObj = new PObject();
 				getPreReqFromACType(aString, aPObj);
 
-				if (PrereqHandler.passesAll(aPObj.getPrerequisiteList(), this,
-					aPObj))
+				if (aPObj.qualifies(this))
 				{
 					final StringTokenizer aTok =
 							new StringTokenizer(aString, "|");
@@ -7934,8 +7930,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final PObject aPObj = new PObject();
 				getPreReqFromACType(rString, aPObj);
 
-				if (PrereqHandler.passesAll(aPObj.getPrerequisiteList(), this,
-					aPObj))
+				if (aPObj.qualifies(this))
 				{
 					final StringTokenizer aTok =
 							new StringTokenizer(rString, "|");
@@ -8388,9 +8383,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return result
-			&& PrereqHandler.passesAll(aDeity.getPrerequisiteList(), this,
-				aDeity);
+		return result && aDeity.qualifies(this);
 	}
 
 	public int classAC()
@@ -11967,8 +11960,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else
 		{
-			return PrereqHandler.passesAll((skill).getPrerequisiteList(), this,
-				skill);
+			return skill.qualifies(this);
 		}
 	}
 
@@ -12058,7 +12050,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Make sure the character qualifies for the class if adding it
 		if (numberOfLevels > 0)
 		{
-			if (!bypassPrereqs && !globalClass.isQualified(this))
+			if (!bypassPrereqs && !globalClass.qualifies(this))
 			{
 				return;
 			}
@@ -12219,12 +12211,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 		}
-	}
-
-	private boolean qualifiesForFeat(final Ability aFeat)
-	{
-		return PrereqHandler
-			.passesAll(aFeat.getPrerequisiteList(), this, aFeat);
 	}
 
 	private void rebuildLists(final PCClass toClass, final PCClass fromClass,
@@ -14090,7 +14076,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean canSelectAbility(final Ability anAbility,
 		final boolean autoQualify)
 	{
-		final boolean qualify = this.qualifiesForFeat(anAbility);
+		final boolean qualify = anAbility.qualifies(this);
 		final boolean canTakeMult =
 				anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		final boolean hasOrdinary = this.hasRealFeat(anAbility);
@@ -14774,8 +14760,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						for (Ability ability : getDirectVirtualAbilities(cat))
 						{
-							if (PrereqHandler.passesAll(ability
-								.getPrerequisiteList(), this, ability))
+							if (ability.qualifies(this))
 							{
 								abilities.add(ability);
 							}
@@ -15846,8 +15831,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if (aLang != null)
 			{
-				if (PrereqHandler.passesAll(aLang.getPrerequisiteList(), this,
-					aLang))
+				if (aLang.qualifies(this))
 				{
 					availableLangs.add(aLang);
 				}

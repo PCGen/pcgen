@@ -35,7 +35,6 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
 
@@ -192,8 +191,7 @@ public class KitDeity extends BaseKit
 		for (CDOMSingleRef<Domain> ref : xs)
 		{
 			Domain domain = ref.resolvesTo();
-			if (!PrereqHandler.passesAll(domain.getPrerequisiteList(), aPC,
-				domain))
+			if (!domain.qualifies(aPC))
 			{
 				warnings.add("DEITY: Not qualified for domain \""
 					+ domain.getDisplayName() + "\"");

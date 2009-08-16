@@ -402,10 +402,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		return available ? 
 			new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0),
-					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill)) : 
+					skill.qualifies(pc)) : 
 			new SkillWrapper(skill, SkillModifier.modifier(skill, pc), SkillRankControl.getTotalRank(pc, skill), 
-					outputIndex,
-					PrereqHandler.passesAll(skill.getPrerequisiteList(), pc, skill));
+					outputIndex, skill.qualifies(pc));
 	}
 
 	/**
@@ -3029,7 +3028,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 								new SkillWrapper(aSkill, SkillModifier.modifier(aSkill, pc),
 									SkillRankControl.getTotalRank(pc, aSkill), 
 									outi,
-									PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc, aSkill));
+									aSkill.qualifies(pc));
 						fn.setItem(skillA);
 
 						if (needRefresh)
@@ -4378,9 +4377,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (theSkill.compareTo(aSkill) != 0)
 			{
-				if (aSkill.hasPrerequisites()
-					&& PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc,
-						aSkill))
+				if (aSkill.hasPrerequisites() && aSkill.qualifies(pc))
 				{
 					prereqSkills.add(aSkill);
 				}
@@ -4401,7 +4398,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			final Skill aSkill = iter.next();
 
-			if (PrereqHandler.passesAll(aSkill.getPrerequisiteList(), pc, aSkill))
+			if (aSkill.qualifies(pc))
 			{
 				iter.remove();
 			}

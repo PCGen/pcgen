@@ -26,7 +26,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.PrereqHandler;
 
 public class TemplateSelect
 {
@@ -37,7 +36,7 @@ public class TemplateSelect
 		final List<PCTemplate> availableList = new ArrayList<PCTemplate>();
 		for (PCTemplate pct : list)
 		{
-			if (PrereqHandler.passesAll(pct.getPrerequisiteList(), aPC, pct))
+			if (pct.qualifies(aPC))
 			{
 				availableList.add(pct);
 			}
