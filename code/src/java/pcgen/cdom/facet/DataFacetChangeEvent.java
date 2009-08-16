@@ -1,0 +1,138 @@
+/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.EventObject;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+
+/**
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ * 
+ * An DataFacetChangeEvent is an event that indicates when a Facet has changed.
+ * 
+ * The object that implements the FacetChangeListener interface gets this
+ * DataFacetChangeEvent when the event occurs.
+ * 
+ * NOTE: This Object is reference-semantic. It carries a reference to the
+ * affected CDOMObject. Use of this Event does not provide protection from
+ * mutability for that CDOMObject by listeners. DataFacetChangeEvent, however,
+ * makes the guarantee that no modifications are made by DataFacetChangeEvent to
+ * the CDOMObject.
+ */
+public class DataFacetChangeEvent<T extends CDOMObject> extends EventObject
+{
+	/**
+	 * The constant ID used by an DataFacetChangeEvent to indicate that a
+	 * DataFacetChangeEvent was the result of a CDOMObject being added to a
+	 * PlayerCharacter.
+	 */
+	public static final int DATA_ADDED = 0;
+
+	/**
+	 * The constant ID used by an DataFacetChangeEvent to indicate that a
+	 * DataFacetChangeEvent was the result of a CDOMObject being removed from a
+	 * PlayerCharacter.
+	 */
+	public static final int DATA_REMOVED = 1;
+
+	/**
+	 * The ID indicating the type of this DataFacetChangeEvent (addition to or
+	 * removal from a PlayerCharacter)
+	 */
+	private final int eventID;
+
+	/**
+	 * The ID indicating the owning character for this DataFacetChangeEvent
+	 */
+	private final CharID charID;
+
+	/**
+	 * The CDOMObject that was added to or removed from the PlayerCharacter.
+	 */
+	private final T node;
+
+	/**
+	 * Constructs a new DataFacetChangeEvent for the given CharID. The
+	 * CDOMObject which was added or removed and an indication of the action
+	 * (Addition or Removal) is also provided.
+	 * 
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter in which the event
+	 *            took place
+	 * @param ge
+	 *            The CDOMObject which was added to or removed from the Graph
+	 * @param type
+	 *            An integer identifying whether the given CDOMObject was added
+	 *            or removed from the PlayerCharacter
+	 */
+	public DataFacetChangeEvent(CharID id, T cdo, int type)
+	{
+		super(id);
+		if (id == null)
+		{
+			throw new IllegalArgumentException("CharID cannot be null");
+		}
+		if (cdo == null)
+		{
+			throw new IllegalArgumentException("CDOMObject cannot be null");
+		}
+		charID = id;
+		node = cdo;
+		eventID = type;
+	}
+
+	/**
+	 * Returns the CDOMObject which was added to or removed from the
+	 * PlayerCharacter.
+	 * 
+	 * @return The CDOMObject which was added to or removed from the
+	 *         PlayerCharacter
+	 */
+	public T getCDOMObject()
+	{
+		return node;
+	}
+
+	/**
+	 * Returns an identifier indicating if the CDOMObject returned by
+	 * getCDOMObject() was added to or removed from the PlayerCharacter. This
+	 * identifier is either DataFacetChangeEvent.NODE_ADDED or
+	 * DataFacetChangeEvent.NODE_REMOVED
+	 * 
+	 * @return A identifier indicating if the CDOMObject was added to or removed
+	 *         from the PlayerCharacter
+	 */
+	public int getEventType()
+	{
+		return eventID;
+	}
+
+	/**
+	 * Returns an identifier indicating the PlayerCharacter on which this event
+	 * occurred.
+	 * 
+	 * @return A identifier indicating the PlayerCharacter on which this event
+	 *         occurred.
+	 */
+	public CharID getCharID()
+	{
+		return charID;
+	}
+}

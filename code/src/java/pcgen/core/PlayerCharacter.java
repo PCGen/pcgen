@@ -73,6 +73,7 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -86,6 +87,8 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.DomainFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
@@ -162,6 +165,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// Constants for use in getBonus
 	private static String lastVariable = null;
 
+	private CharID id = new CharID();
+
+	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
+
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
@@ -195,8 +202,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BigDecimal gold = new BigDecimal(0);
 	private Deity deity = null;
 
-	private final Set<Domain> domains = new TreeSet<Domain>(
-			CDOMObjectUtilities.CDOM_SORTER);
 	private ClassSource defaultDomainSource = null;
 
 	// List of Classes
@@ -3749,7 +3754,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Domain obj : domains)
+		for (Domain obj : domainFacet.getSet(id))
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString,
@@ -6218,7 +6223,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addSpells(deity);
 		}
 
-		for (Domain d : domains)
+		for (Domain d : domainFacet.getSet(id))
 		{
 			addSpells(d);
 		}
@@ -8211,7 +8216,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.resolve(this, skill.getQualifiedKey()).intValue());
 		}
 
-		for (Domain d : domains)
+		for (Domain d : domainFacet.getSet(id))
 		{
 			SR =
 					Math.max(d.getSafe(ObjectKey.SR).getReduction()
@@ -10391,7 +10396,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getSpellList();
 		}
 
-		for (Domain d : domains)
+		for (Domain d : domainFacet.getSet(id))
 		{
 			if (!isDomainValid(d, this.getDomainSource(d)))
 			{
@@ -11269,7 +11274,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Domain
-		results.addAll(domains);
+		results.addAll(domainFacet.getSet(id));
 
 		// Equipment
 		final List<Equipment> eqList =
@@ -12792,7 +12797,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.deity = deity;
-		aClone.domains.addAll(domains);
+		aClone.domainFacet.addAll(aClone.id, domainFacet.getSet(id));
 		for (PCClass pcClass : classList)
 		{
 			PCClass cloneClass = pcClass.clone();
@@ -15041,7 +15046,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Domain d : domains)
+		for (Domain d : domainFacet.getSet(id))
 		{
 			for (String aString : getAssociationList(d))
 			{
@@ -16274,7 +16279,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addDomain(Domain domain, ClassSource source)
 	{
-		domains.add(domain);
+		domainFacet.add(id, domain);
 		setAssoc(domain, AssociationKey.CLASS_SOURCE, source);
 		if (source != null)
 		{
@@ -16293,29 +16298,29 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasDomain(Domain domain)
 	{
-		return domains.contains(domain);
+		return domainFacet.contains(id, domain);
 	}
 
 	public void removeDomain(Domain domain)
 	{
-		domains.remove(domain);
+		domainFacet.remove(id, domain);
 		modifyVariables(domain, false);
 		setDirty(true);
 	}
 
 	public boolean hasDomains()
 	{
-		return !domains.isEmpty();
+		return !domainFacet.isEmpty(id);
 	}
 
 	public int getDomainCount()
 	{
-		return domains.size();
+		return domainFacet.getCount(id);
 	}
 
 	public Set<Domain> getDomainSet()
 	{
-		return Collections.unmodifiableSet(domains);
+		return Collections.unmodifiableSet(domainFacet.getSet(id));
 	}
 
 	public ClassSource getDomainSource(Domain d)
