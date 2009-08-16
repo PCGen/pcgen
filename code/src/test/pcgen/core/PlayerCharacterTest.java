@@ -915,7 +915,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		resToAcidOutputAuto.setAbilityNature(Nature.AUTOMATIC);
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(human);
-		human = pc.getRace();
 		assertEquals("PC should now have a race of human", human, pc.getRace());
 
 		LoadContext context = Globals.getContext();
