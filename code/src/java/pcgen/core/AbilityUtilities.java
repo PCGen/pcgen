@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -484,7 +485,7 @@ public class AbilityUtilities
 
 		if (addIt && !aPC.isImporting())
 		{
-			ability.globalChecks(aPC);
+			AddObjectActions.globalChecks(ability, aPC);
 		}
 
 		return result ? 1 : 0;

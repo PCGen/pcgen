@@ -34,23 +34,16 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.util.Logging;
 
 /**
  * <code>PObject</code><br>
@@ -341,28 +334,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return aList;
 	}
 
-	public final void globalChecks(final PlayerCharacter aPC)
-	{
-		doBaseChecks(aPC);
-		CDOMObjectUtilities.addAdds(this, aPC);
-		CDOMObjectUtilities.checkRemovals(this, aPC);
-		activateBonuses(aPC);
-	}
-
-	protected final void doBaseChecks(final PlayerCharacter aPC)
-	{
-		aPC.setDirty(true);
-		for (TransitionChoice<Kit> kit : getSafeListFor(ListKey.KIT_CHOICE))
-		{
-			kit.act(kit.driveChoice(aPC), this, aPC);
-		}
-		TransitionChoice<Region> region = get(ObjectKey.REGION_CHOICE);
-		if (region != null)
-		{
-			region.act(region.driveChoice(aPC), this, aPC);
-		}
-	}
-
 	/*
 	 * REFACTOR Get this OUT of PObject's interface since this is ONLY in PCClass.
 	 * Not to mention that the overload code will probably be removed from PCClass.
@@ -372,7 +343,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		// This method currently does nothing so it may be overriden in PCClass.
 	}
 
-	int numberInList(PlayerCharacter pc, final String aType)
+	public int numberInList(PlayerCharacter pc, final String aType)
 	{
 		return 0;
 	}
@@ -386,152 +357,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		BonusActivation.activateBonuses(this, aPC);
 	}
 
-	/**
-	 * calcBonus adds together all the bonuses for aType of aName
-	 *
-	 * @param bString       Either the entire BONUS:COMBAT|AC|2 string or part of a %LIST or %VAR bonus section
-	 * @param aType         Such as "COMBAT"
-	 * @param aName         Such as "AC"
-	 * @param aTypePlusName "COMBAT.AC."
-	 * @param obj           The object to get the bonus from
-	 * @param iTimes        multiply bonus * iTimes
-	 * @param aBonusObj
-	 * @param aPC
-	 * @return bonus
-	 */
-	public double calcBonus(final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
-							 final BonusObj aBonusObj, final PlayerCharacter aPC)
-	{
-		final StringTokenizer aTok = new StringTokenizer(bString, "|");
-
-		if (aTok.countTokens() < 3)
-		{
-			Logging.errorPrint("Badly formed BONUS:" + bString);
-
-			return 0;
-		}
-
-		String aString = aTok.nextToken();
-
-		if ((!aString.equalsIgnoreCase(aType) && !aString.endsWith("%LIST"))
-			|| (aString.endsWith("%LIST") && (numberInList(aPC, aType) == 0)) || (aName.equals("ALL")))
-		{
-			return 0;
-		}
-
-		final String aList = aTok.nextToken();
-
-		if (!aList.equals("LIST") && !aList.equals("ALL") && (aList.toUpperCase().indexOf(aName.toUpperCase()) < 0))
-		{
-			return 0;
-		}
-
-		if (aList.equals("ALL")
-			&& ((aName.indexOf("STAT=") >= 0) || (aName.indexOf("TYPE=") >= 0) || (aName.indexOf("LIST") >= 0)
-			|| (aName.indexOf("VAR") >= 0)))
-		{
-			return 0;
-		}
-
-		if (aTok.hasMoreTokens())
-		{
-			aString = aTok.nextToken();
-		}
-
-		double iBonus = 0;
-
-		if (obj instanceof PlayerCharacter)
-		{
-			iBonus = ((PlayerCharacter) obj).getVariableValue(aString, "").doubleValue();
-		}
-		else if (obj instanceof Equipment)
-		{
-			iBonus = ((Equipment) obj).getVariableValue(aString, "", aPC).doubleValue();
-		}
-		else
-		{
-			try
-			{
-				iBonus = Float.parseFloat(aString);
-			}
-			catch (NumberFormatException e)
-			{
-				//Should this be ignored?
-				Logging.errorPrint("calcBonus NumberFormatException in BONUS: " + aString, e);
-			}
-		}
-
-		final String possibleBonusTypeString = aBonusObj.getTypeString();
-
-		// must meet criteria before adding any bonuses
-		if (obj instanceof PlayerCharacter)
-		{
-			if ( !aBonusObj.qualifies((PlayerCharacter)obj) )
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			if ( !PrereqHandler.passesAll(aBonusObj.getPrerequisiteList(), ((Equipment)obj), aPC) )
-			{
-				return 0;
-			}
-		}
-
-		double bonus = 0;
-
-		if ("LIST".equalsIgnoreCase(aList))
-		{
-			final int iCount = numberInList(aPC, aName);
-
-			if (iCount != 0)
-			{
-				bonus += (iBonus * iCount);
-			}
-		}
-
-		String bonusTypeString = null;
-
-		final StringTokenizer bTok = new StringTokenizer(aList, ",");
-
-		if (aList.equalsIgnoreCase("LIST"))
-		{
-			bTok.nextToken();
-		}
-		else if (aList.equalsIgnoreCase("ALL"))
-		{
-			// aTypePlusName looks like: "SKILL.ALL."
-			// so we need to reset it to "SKILL.Hide."
-			aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
-			bonus = iBonus;
-			bonusTypeString = possibleBonusTypeString;
-		}
-
-		while (bTok.hasMoreTokens())
-		{
-			if (bTok.nextToken().equalsIgnoreCase(aName))
-			{
-				bonus += iBonus;
-				bonusTypeString = possibleBonusTypeString;
-			}
-		}
-
-		if (obj instanceof Equipment)
-		{
-			((Equipment) obj).setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
-		}
-
-		// The "ALL" subtag is used to build the stacking bonusMap
-		// not to get a bonus value, so just return
-		if (aList.equals("ALL"))
-		{
-			return 0;
-		}
-
-		return bonus * iTimes;
-	}
-
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)
 	{
 		return null;
@@ -540,12 +365,5 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public String getVariableSource()
 	{
 		return "POBJECT|" + this.getKeyName();
-	}
-
-	public final boolean hasChooseToken()
-	{
-		String oldchoice = get(StringKey.CHOICE_STRING);
-		return oldchoice != null && oldchoice.length() > 0
-				|| get(ObjectKey.CHOOSE_INFO) != null;
 	}
 }

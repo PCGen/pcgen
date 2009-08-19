@@ -55,7 +55,7 @@ public class QualifiedName
 		if (pc.hasAssociations(a)
 				&& !a.getKeyName().startsWith("Armor Proficiency"))
 		{
-			if (!a.hasChooseToken()
+			if (!ChooseActivation.hasChooseToken(a)
 					|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && a
 							.getSafe(ObjectKey.STACKS)))
 			{

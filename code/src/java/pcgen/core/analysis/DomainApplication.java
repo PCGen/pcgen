@@ -130,7 +130,7 @@ public class DomainApplication
 		// sage_sam stop here
 		String choiceString = d.getSafe(StringKey.CHOICE_STRING);
 
-		if (d.hasChooseToken() && !pc.isImporting()
+		if (ChooseActivation.hasChooseToken(d) && !pc.isImporting()
 				&& !choiceString.startsWith("FEAT|"))
 		{
 			ChooserUtilities.modChoices(d, new ArrayList<Object>(),
@@ -139,7 +139,7 @@ public class DomainApplication
 
 		if (!pc.isImporting())
 		{
-			d.globalChecks(pc);
+			AddObjectActions.globalChecks(d, pc);
 			BonusActivation.activateBonuses(d, pc);
 		}
 	}

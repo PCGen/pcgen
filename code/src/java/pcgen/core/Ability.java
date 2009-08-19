@@ -133,7 +133,8 @@ public final class Ability extends PObject implements Categorisable, Categorized
 	 * @return  enhanced containsAssociated, which parses the input parameter
 	 *          for "=", "+num" and "-num" to extract the value to look for.
 	 */
-	@Override int numberInList(PlayerCharacter pc, final String type)
+	@Override
+	public int numberInList(PlayerCharacter pc, final String type)
 	{
         String aType = type;
 

@@ -66,6 +66,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.ClassSkillApplication;
 import pcgen.core.analysis.ClassSpellApplication;
 import pcgen.core.analysis.DomainApplication;
@@ -1466,7 +1467,7 @@ public class PCClass extends PObject
 
 			if (newLevel == 1)
 			{
-				doBaseChecks(aPC);
+				AddObjectActions.doBaseChecks(this, aPC);
 				CDOMObjectUtilities.addAdds(this, aPC);
 				CDOMObjectUtilities.checkRemovals(this, aPC);
 				aPC.addNaturalWeapons(getListFor(ListKey.NATURAL_WEAPON));

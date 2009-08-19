@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -350,7 +351,7 @@ public final class EquipmentChoice
 			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					&& !this.getAvailableList().contains(anAbility.getKeyName()))
 			{
-				if (matchesType && !anAbility.hasChooseToken())
+				if (matchesType && !ChooseActivation.hasChooseToken(anAbility))
 				{
 					this.getAvailableList().add(anAbility.getKeyName());
 				}

@@ -102,9 +102,11 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
+import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.RaceStat;
@@ -2340,7 +2342,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final double sr = SkillRankControl.getRank(mPC, newSkill)
 						.doubleValue();
 
-				if (newSkill.hasChooseToken())
+				if (ChooseActivation.hasChooseToken(newSkill))
 				{
 					continue;
 				}
@@ -5026,7 +5028,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			deity.globalChecks(this);
+			AddObjectActions.globalChecks(deity, this);
 		}
 		setDirty(true);
 
@@ -5994,7 +5996,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			race.globalChecks(this);
+			AddObjectActions.globalChecks(race, this);
 			adjustMoveRates();
 			calcActiveBonuses();
 		}
@@ -7097,7 +7099,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			addSkill.doBaseChecks(this);
+			AddObjectActions.doBaseChecks(addSkill, this);
 			BonusActivation.activateBonuses(addSkill, this);
 			calcActiveBonuses();
 		}
@@ -7567,7 +7569,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			getSpellList();
 			feats(inTemplate, getTotalLevels(), totalHitDice(), true);
-			inTemplate.globalChecks(this);
+			AddObjectActions.globalChecks(inTemplate, this);
 		}
 
 		setAggregateAbilitiesStable(null, false);
@@ -14115,7 +14117,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			final int subfeatCount = getSelectCorrectedAssociationCount(aFeat);
 			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			if (aFeat.hasChooseToken())
+			if (ChooseActivation.hasChooseToken(aFeat))
 			{
 				iCount += Math.ceil(subfeatCount * cost);
 			}
@@ -14157,7 +14159,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						getSelectCorrectedAssociationCount(ability);
 				double cost =
 						ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-				if (ability.hasChooseToken())
+				if (ChooseActivation.hasChooseToken(ability))
 				{
 					spent += Math.ceil(subfeatCount * cost);
 				}

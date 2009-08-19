@@ -6044,7 +6044,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param bonus  a Number (such as 2)
 	 * @param aType  "COMBAT.AC.Dodge" or "COMBAT.AC.Dodge.STACK"
 	 */
-	void setBonusStackFor(final double bonus, String aType)
+	public void setBonusStackFor(final double bonus, String aType)
 	{
 		String bType = (aType != null) ? aType.toUpperCase() : null;
 
