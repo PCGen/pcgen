@@ -50,11 +50,18 @@ import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>AbilityToken</code> handles the output of ability information.
- * The format is ABILITY.w.x.y.z where
- * w is the category (FEAT, FIGHTER etc, or ALL)
- * x is the ability's position in the list of abilities - 0-based index.
- * y is the required ability type - default is ALL).
- * z is what is to be output DESC, TYPE, SOURCE, default is name, or TYPE=<type> - type filter
+ * 
+ * The format is ABILITY.u.v.w.x.y.z where:
+ * <ul>
+ * <li>u is the AbilityCategory (FEAT, FIGHTER etc, or ALL) - Mandatory</li>
+ * <li>v is the visibility (DEFAULT, ALL, VISIBLE, HIDDEN) - Optional</li>
+ * <li>w is the ability type filtering via strings - Optional</li>
+ * <li>x is the ability's position in the list of abilities, 0-based index -
+ * Optional</li>
+ * <li>y is the ability type filtering via AbilityType - default is ALL).</li>
+ * <li>z is what is to be output DESC, TYPE, SOURCE, default is name, or
+ * TYPE=&lt;type&gt; - type filter</li>
+ * </ul>
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: $
@@ -65,26 +72,40 @@ public class AbilityToken extends Token
 	/** Token Name */
 	public static final String TOKENNAME = "ABILITY";
 
-	/** Default Ability = 0**/
+	/** Filter Definition :: Default Ability = 0 */
 	public static final int ABILITY_DEFAULT = 0;
-	/** Visible Ability = 1 */
+
+	/** Filter Definition :: Visible Ability = 1 */
 	public static final int ABILITY_VISIBLE = 1;
-	/** Hidden Ability = 2 */
+
+	/** Filter Definition :: Hidden Ability = 2 */
 	public static final int ABILITY_HIDDEN = 2;
-	/** All Abilitys = 3 */
+
+	/** Filter Definition :: All Abilities = 3 */
 	public static final int ABILITY_ALL = 3;
 
-	//private int visibility = ABILITY_DEFAULT;
+	/** The list of abilities to potentially output */
 	private List<Ability> abilityList = new ArrayList<Ability>();
-	//TODO: Should these be static? They probably never get used if not.
-	private PlayerCharacter cachedPC = null;
-	private int cachedPcSerial = 0;
-	private String lastToken = null;
-	private AbilityCategory lastCategory = null;
+
+	/** The current visibility filtering to apply */
 	private int visibility = ABILITY_DEFAULT;
+	
+	// TODO: Should the following 4 variables be here?  They don't get used for anythign useful
+	/** The cached PC */
+	private PlayerCharacter cachedPC = null;
+
+	/** TODO */
+	private int cachedPcSerial = 0;
+
+	/** The last token in the list of abilities */
+	private String lastToken = null;
+
+	/** The last ability category in the list of abilities */
+	private AbilityCategory lastCategory = null;
 
 	/**
 	 * Get the TOKENNAME
+	 * 
 	 * @return TOKENNAME
 	 */
 	@Override
@@ -101,37 +122,42 @@ public class AbilityToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		// Skip the ABILITY token itself
+		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		final String tokenString = aTok.nextToken();
-		final String catString = aTok.nextToken();
-		final AbilityCategory aCategory =
-				SettingsHandler.getGame().getAbilityCategory(catString);
 
-		
+		// Get the Ability Category from the Gamemode given the key
+		final String categoryString = aTok.nextToken();
+		final AbilityCategory aCategory =
+				SettingsHandler.getGame().getAbilityCategory(categoryString);
+
+		// Get the ABILITY token for the category
 		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString,
 			aCategory);
 	}
 
 	/**
-	 * Produce the ABILITY token output for a specific ability 
-	 * category.
-	 *  
-	 * @param tokenSource The token being processed. 
-	 * @param pc The character being processed.
-	 * @param eh The export handler in use for the export.
-	 * @param aTok The tokenised request, already past the category.
-	 * @param tokenString The output token requested 
-	 * @param aCategory The ability category being output.
+	 * Produce the ABILITY token output for a specific ability category.
+	 * 
+	 * @param tokenSource
+	 *            The token being processed.
+	 * @param pc
+	 *            The character being processed.
+	 * @param eh
+	 *            The export handler in use for the export.
+	 * @param aTok
+	 *            The tokenised request, already past the category.
+	 * @param tokenString
+	 *            The output token requested
+	 * @param aCategory
+	 *            The ability category being output.
 	 * @return The token value.
 	 */
 	protected String getTokenForCategory(String tokenSource,
 		PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
 		final String tokenString, final AbilityCategory aCategory)
 	{
-		if (cachedPC != pc || !aCategory.equals(lastCategory)
-			|| cachedPcSerial != pc.getSerial()
-			|| !tokenString.equals(lastToken))
+		if (needToPrepareToken(pc, aCategory, tokenString))
 		{
 			// Overridden by subclasses to return the right list.
 			abilityList = getAbilityList(pc, aCategory);
@@ -141,26 +167,35 @@ public class AbilityToken extends Token
 			lastToken = tokenString;
 		}
 
-		// Default values
+		// Ability Types Filter List
 		List<String> types = new ArrayList<String>();
+		// Negated Ability Types Filter List (excludes from types)
 		List<String> negate = new ArrayList<String>();
+		// Ability Type
 		String abilityType = null;
 
-		// abilityIndex holds the number of the ability we want, is 
-		// decremented as we iterate through the list. It is only 
-		// decremented if the current ability matches the desired ability
+		/*
+		 * abilityIndex holds the number of the ability we want, is decremented
+		 * as we iterate through the list. It is only decremented if the current
+		 * ability matches the desired ability
+		 */
 		int abilityIndex = -1;
 
+		/* 
+		 * Grab the next token which will either be be:
+		 * visibility (v), type (w) or index (x), stop processing 
+		 * once you hit the index token 
+		 */
 		while (aTok.hasMoreTokens())
 		{
 			final String bString = aTok.nextToken();
-
 			try
 			{
+				// Get the mandatory ability index
 				abilityIndex = Integer.parseInt(bString);
-
 				break;
 			}
+			// The optional visibility (v) or type (w) has been provided, so deal with those 
 			catch (NumberFormatException exc)
 			{
 				if (bString.equals("VISIBLE"))
@@ -183,17 +218,22 @@ public class AbilityToken extends Token
 					abilityType = bString;
 				}
 			}
-
 		}
 
+		/* 
+		 * Grab the next token which will either be be:
+		 * TYPE (y) or property (z), stop processing 
+		 * once you hit the last token 
+		 */
 		while (aTok.hasMoreTokens())
 		{
 			final String typeStr = aTok.nextToken();
-
-			int typeInd = typeStr.indexOf("TYPE");
-			if (typeInd != -1 && typeStr.length() > 4)
+			int typeInd = typeStr.indexOf("TYPE=");
+			// If it's TYPE and it actually has a value attached then process it 
+			if (typeInd != -1 && typeStr.length() > 5)
 			{
-				if (typeInd > 0)
+				// It's a type to be excluded from the filter list 
+				if (typeStr.startsWith("!"))
 				{
 					negate.add(typeStr.substring(typeInd + 5));
 				}
@@ -204,10 +244,12 @@ public class AbilityToken extends Token
 			}
 		}
 
+		// Build the list of abilities that we should display
 		List<Ability> aList =
 				AbilityToken.buildAbilityList(types, negate, abilityType,
 					visibility, abilityList);
 
+		// Build the return string to give to the OutputSheet
 		String retString =
 				getRetString(tokenSource, pc, eh, abilityIndex, aList);
 
@@ -217,82 +259,34 @@ public class AbilityToken extends Token
 	/**
 	 * Build up the list of abilities of interest based on the type selection.
 	 * 
-	 * @param types The list of types which it must match at least one of.
-	 * @param negate The list of types it must not match any of.
-	 * @param abilityType The type definition it must match.
+	 * @param types
+	 *            The list of types which it must match at least one of.
+	 * @param negate
+	 *            The list of types it must not match any of.
+	 * @param abilityType
+	 *            The type definition it must match.
 	 * @return
 	 */
 	static List<Ability> buildAbilityList(List<String> types,
 		List<String> negate, String abilityType, int visibility,
 		List<Ability> abilityList)
 	{
+		// List to build up
 		List<Ability> aList = new ArrayList<Ability>();
 
+		// Sort the ability list passed in
 		Globals.sortPObjectListByName(abilityList);
 
+		boolean matchTypeDef = false;
+		boolean matchVisibilityDef = false;
+
+		// For each ability figure out whether it should be displayed depending
+		// on its visibility filtering and its ability type filtering 
 		for (Ability aAbility : abilityList)
 		{
-			boolean matchTypeDef = false;
-			boolean matchVisibilityDef = false;
-
-			if (abilityType != null)
-			{
-				if (aAbility.isType(abilityType))
-				{
-					matchTypeDef = true;
-				}
-			}
-			else
-			{
-				matchTypeDef = true;
-			}
-
-			boolean istype = false;
-			boolean isnttype = true;
-
-			// is at leas one of the types we've asked for
-			if (types.size() > 0)
-			{
-				for (String typeStr : types)
-				{
-					istype |= aAbility.isType(typeStr);
-				}
-			}
-			else
-			{
-				istype = true;
-			}
-
-			// isn't all the types we've said it's not
-			for (String typeStr : negate)
-			{
-				isnttype &= !aAbility.isType(typeStr);
-			}
-
-			matchTypeDef = matchTypeDef && istype && isnttype;
-
-			switch (visibility)
-			{
-				case ABILITY_ALL:
-					matchVisibilityDef = true;
-					break;
-				case ABILITY_HIDDEN:
-					if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN
-						|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY)
-					{
-						matchVisibilityDef = true;
-					}
-					break;
-				case ABILITY_VISIBLE: // Fall thru intentional
-				default:
-					if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
-						|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
-					{
-						matchVisibilityDef = true;
-					}
-					break;
-			}
-
+			matchTypeDef =
+					abilityMatchesType(abilityType, aAbility, types, negate);
+			matchVisibilityDef = abilityMatchesVisibility(visibility, aAbility);
 			if (matchTypeDef && matchVisibilityDef)
 			{
 				aList.add(aAbility);
@@ -302,30 +296,123 @@ public class AbilityToken extends Token
 	}
 
 	/**
-	 * Calculate the token value for the ability token.
+	 * Helper method, returns true if the ability has one of the ability types that 
+	 * we are matching on.
 	 * 
-	 * @param tokenSource The text of the export token.
-	 * @param pc The character being exported.
-	 * @param eh The export handler.
-	 * @param abilityIndex The location f the ability in the list.
-	 * @param aList The list of abilities.
+	 * @param abilityType The ability Type to test
+	 * @param aAbility The ability
+	 * @param types The list of types we're trying to match on
+	 * @param negate The exclusion list of types
+	 * @return True if it matches one of the types else false
+	 */
+	private static boolean abilityMatchesType(String abilityType,
+		Ability aAbility, List<String> types, List<String> negate)
+	{
+		boolean matchTypeDef = false;
+
+		// If the ability type is an actual properly registered type or its null
+		// then match the type definition
+		if (abilityType != null)
+		{
+			if (aAbility.isType(abilityType))
+			{
+				matchTypeDef = true;
+			}
+		}
+		else
+		{
+			matchTypeDef = true;
+		}
+
+		boolean istype = false;
+		boolean isnttype = true;
+
+		// If the types contains at least one of the types we've asked for
+		if (types.size() > 0)
+		{
+			for (String typeStr : types)
+			{
+				istype |= aAbility.isType(typeStr);
+			}
+		}
+		else
+		{
+			istype = true;
+		}
+
+		// It isn't all the types we've said
+		for (String typeStr : negate)
+		{
+			isnttype &= !aAbility.isType(typeStr);
+		}
+
+		matchTypeDef = matchTypeDef && istype && isnttype;
+		return matchTypeDef;
+	}
+
+	/**
+	 * Helper method, returns true if the ability meets the visibility requirements.
+	 * 
+	 * @param visibility The ability Type to test
+	 * @param aAbility The ability
+	 * @return true if it meets the visibility requirements
+	 */
+	private static boolean abilityMatchesVisibility(int visibility,
+		Ability aAbility)
+	{
+		boolean matchVisibilityDef = false;
+		switch (visibility)
+		{
+			case ABILITY_ALL:
+				matchVisibilityDef = true;
+				break;
+			case ABILITY_HIDDEN:
+				if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN
+					|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY)
+				{
+					matchVisibilityDef = true;
+				}
+				break;
+			case ABILITY_VISIBLE: // Fall through intentional
+			default:
+				if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
+					|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+				{
+					matchVisibilityDef = true;
+				}
+				break;
+		}
+		return matchVisibilityDef;
+	}
+
+	/**
+	 * Calculate the token value (return string) for the ability token.
+	 * 
+	 * @param tokenSource
+	 *            The text of the export token.
+	 * @param pc
+	 *            The character being exported.
+	 * @param eh
+	 *            The export handler.
+	 * @param abilityIndex
+	 *            The location f the ability in the list.
+	 * @param aList
+	 *            The list of abilities.
 	 * @return The token value.
 	 */
-	private String getRetString(
-			String tokenSource,
-			PlayerCharacter pc,
-			ExportHandler eh,
-			int abilityIndex,
-			List<Ability> aList)
+	private String getRetString(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh, int abilityIndex, List<Ability> aList)
 	{
 		String retString = "";
 		Ability aAbility;
+		// If the ability index given is within a valid range
 		if (abilityIndex >= 0 && abilityIndex < aList.size())
 		{
 			aAbility = aList.get(abilityIndex);
 
-			if (abilityIndex == aList.size() - 1 && eh != null
-				&& eh.getExistsOnly())
+			// If it is the last item and there's a valid export handler and TODO
+			// Then tell the ExpotrHandler that there is no more processing needed
+			if (abilityIndex == aList.size() - 1 && eh != null && eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}
@@ -344,16 +431,20 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
-				retString += StringUtil.join(pc.getAssociationList(aAbility), ",");
+				retString +=
+						StringUtil.join(pc.getAssociationList(aAbility), ",");
 			}
 			else if (tokenSource.endsWith(".ASSOCIATEDCOUNT"))
 			{
-				retString += Integer.toString(pc.getDetailedAssociationCount(aAbility));
+				retString +=
+						Integer.toString(pc
+							.getDetailedAssociationCount(aAbility));
 			}
 			else if (tokenSource.endsWith(".SOURCE"))
 			{
-				retString += SourceFormat.getFormattedString(aAbility,
-				Globals.getSourceDisplay(), true);
+				retString +=
+						SourceFormat.getFormattedString(aAbility, Globals
+							.getSourceDisplay(), true);
 			}
 			else if (tokenSource.endsWith(".ASPECT"))
 			{
@@ -361,7 +452,9 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.indexOf(".ASPECT.") > -1)
 			{
-				final String key = tokenSource.substring(tokenSource.indexOf(".ASPECT.")+8);
+				final String key =
+						tokenSource
+							.substring(tokenSource.indexOf(".ASPECT.") + 8);
 				retString += getAspectString(pc, aAbility, key);
 			}
 			else if (tokenSource.endsWith(".ASPECTCOUNT"))
@@ -370,23 +463,18 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.indexOf(".HASASPECT.") > -1)
 			{
-				final String key = tokenSource.substring(tokenSource.indexOf(".HASASPECT.")+11);
+				final String key =
+						tokenSource.substring(tokenSource
+							.indexOf(".HASASPECT.") + 11);
 				retString += getHasAspectString(pc, aAbility, key);
 			}
-//			else if (tokenSource.indexOf(".IS=") != -1)
-//			{
-//				final String type = tokenSource.substring(tokenSource.indexOf(".IS=")+4);
-//				retString += aAbility.isType(type) == true ? "1" : "0";
-//			}
-//			else if (tokenSource.endsWith(".NATURE"))
-//			{
-//				retString += aAbility.getFeatType();
-//			}
 			else
 			{
 				retString += QualifiedName.qualifiedName(pc, aAbility);
 			}
 		}
+		// If the ability index is not in a valid range then tell the 
+		// ExportHandler that there are no more items to process
 		else if (eh != null && eh.getExistsOnly())
 		{
 			eh.setNoMoreItems(true);
@@ -398,8 +486,10 @@ public class AbilityToken extends Token
 	/**
 	 * Gets the aspect string.
 	 * 
-	 * @param pc The character being exported.
-	 * @param ability the ability
+	 * @param pc
+	 *            The character being exported.
+	 * @param ability
+	 *            The ability
 	 * 
 	 * @return the aspect string
 	 */
@@ -407,8 +497,7 @@ public class AbilityToken extends Token
 	{
 		Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
 		SortedSet<AspectName> sortedKeys = new TreeSet<AspectName>(aspectKeys);
-		//List<Aspect> aspectList = ability.getSafeListFor(ListKey.ASPECT);
-		StringBuffer buff = new StringBuffer(); 
+		StringBuffer buff = new StringBuffer();
 		for (AspectName key : sortedKeys)
 		{
 			Aspect aspect = ability.get(MapKey.ASPECT, key);
@@ -425,19 +514,23 @@ public class AbilityToken extends Token
 	/**
 	 * Gets the aspect string for an aspect identified by position or name.
 	 * 
-	 * @param pc The character being exported.
-	 * @param ability the ability being queried.
-	 * @param key the key (number or name) of the aspect to retrieve
+	 * @param pc
+	 *            The character being exported.
+	 * @param ability
+	 *            The ability being queried.
+	 * @param key
+	 *            The key (number or name) of the aspect to retrieve
 	 * 
 	 * @return the aspect string
 	 */
-	private String getAspectString(PlayerCharacter pc, Ability ability, String key)
+	private String getAspectString(PlayerCharacter pc, Ability ability,
+		String key)
 	{
 		if (key == null)
 		{
 			return "";
 		}
-		
+
 		int index = -1;
 		try
 		{
@@ -445,7 +538,7 @@ public class AbilityToken extends Token
 		}
 		catch (NumberFormatException e)
 		{
-			// Ignore exception - expect this
+			// Ignore exception - expect this as we can get a String at this point
 		}
 		Aspect target = null;
 		if (index > -1)
@@ -453,7 +546,8 @@ public class AbilityToken extends Token
 			if (index < ability.getSafeSizeOfMapFor(MapKey.ASPECT))
 			{
 				Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
-				List<AspectName> sortedKeys = new ArrayList<AspectName>(aspectKeys);
+				List<AspectName> sortedKeys =
+						new ArrayList<AspectName>(aspectKeys);
 				Collections.sort(sortedKeys);
 				target = ability.get(MapKey.ASPECT, sortedKeys.get(index));
 			}
@@ -463,7 +557,7 @@ public class AbilityToken extends Token
 			target = getAspectByName(ability, key);
 		}
 
-		StringBuffer buff = new StringBuffer(); 
+		StringBuffer buff = new StringBuffer();
 		if (target != null)
 		{
 			if (index > -1)
@@ -478,9 +572,12 @@ public class AbilityToken extends Token
 	/**
 	 * Gets the boolean (Y/N) string for the presence of the named aspect.
 	 * 
-	 * @param pc The character being exported.
-	 * @param ability the ability being queried.
-	 * @param key the key (name only) of the aspect to check
+	 * @param pc
+	 *            The character being exported.
+	 * @param ability
+	 *            The ability being queried.
+	 * @param key
+	 *            The key (name only) of the aspect to check
 	 * 
 	 * @return Y if the aspect is present, N if not.
 	 */
@@ -488,14 +585,20 @@ public class AbilityToken extends Token
 		String key)
 	{
 		Aspect target = getAspectByName(ability, key);
-		return target == null ? "N" : "Y";
+		if (target == null)
+		{
+			return "N";
+		}
+		return "Y";
 	}
 
 	/**
 	 * Retrieve a named aspect from the ability.
 	 * 
-	 * @param ability The ability to query
-	 * @param key The name of the aspect
+	 * @param ability
+	 *            The ability to query
+	 * @param key
+	 *            The name of the aspect
 	 * @return The aspect, or null if not present.
 	 */
 	private Aspect getAspectByName(Ability ability, String key)
@@ -509,12 +612,14 @@ public class AbilityToken extends Token
 	}
 
 	/**
-	 * Returns the correct list of abilities for the character.
-	 * This method is overridden in subclasses if they need to change the list
-	 * of abilities looked at.
-	 *
-	 * @param pc the character who's abilities we are retrieving.
-	 * @param aCategory The category of ability being reported. 
+	 * Returns the correct list of abilities for the character. This method is
+	 * overridden in subclasses if they need to change the list of abilities
+	 * looked at.
+	 * 
+	 * @param pc
+	 *            The character who's abilities we are retrieving.
+	 * @param aCategory
+	 *            The category of ability being reported.
 	 * @return List of abilities.
 	 */
 	protected List<Ability> getAbilityList(PlayerCharacter pc,
@@ -542,11 +647,35 @@ public class AbilityToken extends Token
 	}
 
 	/**
-	 * @param visibility the visibility to set
+	 * @param visibility
+	 *            the visibility to set
 	 */
 	protected void setVisibility(int visibility)
 	{
 		this.visibility = visibility;
 	}
 
+	/**
+	 * TODO Helper method - This method actually offers nothing practical as the 
+	 * cachedPC etc variables are never used?
+	 * 
+	 * @param pc
+	 * @param aCategory
+	 * @param tokenString
+	 * @return
+	 */
+	private boolean needToPrepareToken(PlayerCharacter pc,
+		AbilityCategory aCategory, String tokenString)
+	{
+		if (cachedPC != pc || !aCategory.equals(lastCategory)
+			|| cachedPcSerial != pc.getSerial()
+			|| !tokenString.equals(lastToken))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
