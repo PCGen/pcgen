@@ -75,6 +75,7 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 
+import org.jdom.output.Format;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -121,7 +122,7 @@ public class Initiative extends javax.swing.JPanel
 	private JButton bRefresh = new JButton();
 	private javax.swing.JButton bDuplicateCombatant = new JButton();
 
-	// End of variables declaration//GEN-END:variables
+	// End of variables declaration                   
 	//** Dynamic Components **
 	private JButton bSave = new JButton();
 	private JButton bStabilize = new JButton();
@@ -137,7 +138,7 @@ public class Initiative extends javax.swing.JPanel
 	private javax.swing.JCheckBoxMenuItem tablePopupCBPlus;
 
 	//** End Copy & Paste Functions **
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+	// Variables declaration - do not modify                     
 	private javax.swing.JCheckBoxMenuItem tablePopupCBStatus;
 	private javax.swing.JCheckBoxMenuItem tablePopupCBType;
 	private javax.swing.JLabel lCounter;
@@ -1869,7 +1870,7 @@ public class Initiative extends javax.swing.JPanel
 
 		Document saveDocument = new Document(party);
 		InitOutputter xmlOut = new InitOutputter();
-		xmlOut.setEncoding("US-ASCII");
+		xmlOut.setFormat(Format.getRawFormat().setEncoding("US-ASCII"));
 
 		FileWriter fr = new FileWriter(xml);
 		xmlOut.output(saveDocument, fr);
@@ -2134,10 +2135,10 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
-	//GEN-LAST:event_combatantTableMousePressed
+	                                           
 	private void TablePopupActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		//GEN-FIRST:event_TablePopupActionPerformed
+		                                           
 		checkAndFixColumns(tablePopupCBName.getState(), "Name");
 		checkAndFixColumns(tablePopupCBPlayer.getState(), "Player");
 		checkAndFixColumns(tablePopupCBStatus.getState(), "Status");
@@ -2203,10 +2204,10 @@ public class Initiative extends javax.swing.JPanel
 			});
 	}
 
-	//GEN-LAST:event_bNextInitActionPerformed
+	                                         
 	private void bAddCombatantActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		//GEN-FIRST:event_bAddCombatantActionPerformed
+		                                              
 		addCombatant();
 	}
 
@@ -2216,10 +2217,10 @@ public class Initiative extends javax.swing.JPanel
 		focusNextInit();
 	}
 
-	//GEN-LAST:event_bDeleteActionPerformed
+	                                       
 	private void bCombatantReRollActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		//GEN-FIRST:event_bCombatantReRollActionPerformed
+		                                                 
 		rerollCombatant();
 		focusNextInit();
 	}
@@ -2230,10 +2231,10 @@ public class Initiative extends javax.swing.JPanel
 		focusNextInit();
 	}
 
-	//GEN-LAST:event_combatantTableMouseReleased
+	                                            
 	private void bDeleteActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		//GEN-FIRST:event_bDeleteActionPerformed
+		                                        
 		deleteCombatant();
 		focusNextInit();
 	}
@@ -2256,10 +2257,10 @@ public class Initiative extends javax.swing.JPanel
 		focusNextInit();
 	}
 
-	//GEN-LAST:event_bRefocusActionPerformed
+	                                        
 	private void bNextInitActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		//GEN-FIRST:event_bNextInitActionPerformed
+		                                          
 		nextInit();
 	}
 
@@ -2270,23 +2271,23 @@ public class Initiative extends javax.swing.JPanel
 		focusNextInit();
 	}
 
-	//GEN-LAST:event_bCombatantReRollActionPerformed
+	                                                
 	private void bRefocusActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		//GEN-FIRST:event_bRefocusActionPerformed
+		                                         
 		refocusCombatant();
 		focusNextInit();
 	}
 
-	//GEN-LAST:event_bAddCombatantActionPerformed
+	                                             
 	private void bRollActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		//GEN-FIRST:event_bRollActionPerformed
+		                                      
 		roll();
 		focusNextInit();
 	}
 
-	//GEN-LAST:event_TablePopupActionPerformed
+	                                          
 	private void bSaveActionPerformed(java.awt.event.ActionEvent evt)
 	{
 		rollSave();
@@ -2449,10 +2450,10 @@ public class Initiative extends javax.swing.JPanel
 		// TODO:  Method does nothing?
 	}
 
-	//GEN-LAST:event_bRollActionPerformed
+	                                     
 	private void combatantTableMousePressed(java.awt.event.MouseEvent evt)
 	{
-		//GEN-FIRST:event_combatantTableMousePressed
+		                                            
 		if (evt.isPopupTrigger())
 		{
 			initTablePopup();
@@ -2460,10 +2461,10 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
-	//GEN-LAST:event_combatantTablePropertyChange
+	                                             
 	private void combatantTableMouseReleased(java.awt.event.MouseEvent evt)
 	{
-		//GEN-FIRST:event_combatantTableMouseReleased
+		                                             
 		if (evt.isPopupTrigger())
 		{
 			initTablePopup();
@@ -2473,7 +2474,7 @@ public class Initiative extends javax.swing.JPanel
 
 	private void combatantTablePropertyChange(java.beans.PropertyChangeEvent evt)
 	{
-		//GEN-FIRST:event_combatantTablePropertyChange
+		                                              
 		editTableRow();
 		refreshTable();
 	}
@@ -2529,7 +2530,7 @@ public class Initiative extends javax.swing.JPanel
 	 *  regenerated by the Form Editor.
 	 */
 	private void initComponents()
-	{ //GEN-BEGIN:initComponents
+	{//GEN-BEGIN:initComponents
 		tablePopup = new javax.swing.JPopupMenu();
 		tablePopupCBNumber = new javax.swing.JCheckBoxMenuItem();
 		tablePopupCBName = new javax.swing.JCheckBoxMenuItem();

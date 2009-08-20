@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
+import org.jdom.output.Format;
 import pcgen.core.RollingMethods;
 
 /**
@@ -271,11 +272,8 @@ public class DiceBagModel extends Observable
 			saveToDocument(doc);
 
 			XMLOutputter xmlOut = new XMLOutputter();
-			xmlOut.setIndent("   ");
-			xmlOut.setNewlines(true);
-
+			xmlOut.setFormat(Format.getPrettyFormat());
 			FileWriter fr = new FileWriter(file);
-			xmlOut.setEncoding("UTF-8");
 			xmlOut.output(doc, fr);
 			fr.flush();
 			fr.close();
