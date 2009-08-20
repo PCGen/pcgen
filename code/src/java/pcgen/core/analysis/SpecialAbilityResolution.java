@@ -23,6 +23,7 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
@@ -64,6 +65,46 @@ public class SpecialAbilityResolution
 			}
 		}
 		return saList;
+	}
+
+	public static List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC, CDOMObject cdo)
+	{
+		List<SpecialAbility> salist = aPC.getAssocList(cdo,
+				AssociationListKey.SPECIAL_ABILITY);
+		if (salist == null)
+		{
+			return aList;
+		}
+		for ( SpecialAbility sa : salist )
+		{
+			if (sa.qualifies(aPC))
+			{
+				final String key = sa.getKeyName();
+				final int idx = key.indexOf("%CHOICE");
+	
+				if (idx >= 0)
+				{
+					StringBuilder sb = new StringBuilder();
+					sb.append(key.substring(0, idx));
+	
+					if (aPC.hasAssociations(cdo))
+					{
+						sb.append(StringUtil.joinToStringBuffer(aPC.getAssociationList(cdo), ", "));
+					}
+					else
+					{
+						sb.append("<undefined>");
+					}
+	
+					sb.append(key.substring(idx + 7));
+					sa = new SpecialAbility(sb.toString(), sa.getSADesc());
+				}
+	
+				aList.add(sa);
+			}
+		}
+	
+		return aList;
 	}
 
 }

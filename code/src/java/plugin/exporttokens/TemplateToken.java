@@ -226,12 +226,13 @@ public class TemplateToken extends Token
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		template.addSpecialAbilitiesToList(saList, pc);
+		SpecialAbilityResolution.addSpecialAbilitiesToList(saList, pc, template);
 		SpecialAbilityResolution.addSABToList(saList, pc, template);
 		List<PCTemplate> subList = new ArrayList<PCTemplate>();
 		subList.addAll(template.getConditionalTemplates(pc.getTotalLevels(), pc.totalHitDice()));
 		for (PCTemplate subt : subList)
 		{
+			SpecialAbilityResolution.addSpecialAbilitiesToList(saList, pc, subt);
 			SpecialAbilityResolution.addSABToList(saList, pc, subt);
 		}
 		List<String> saDescList = new ArrayList<String>();

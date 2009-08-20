@@ -186,7 +186,7 @@ public class DeityToken extends Token
 	public static String getSAToken(Deity deity, PlayerCharacter pc)
 	{
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		deity.addSpecialAbilitiesToList(saList, pc);
+		SpecialAbilityResolution.addSpecialAbilitiesToList(saList, pc, deity);
 		SpecialAbilityResolution.addSABToList(saList, pc, deity);
 
 		if (saList.isEmpty())

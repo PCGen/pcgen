@@ -146,33 +146,6 @@ public final class PCTemplate extends PObject
 	}
 
 	/**
-	 * Modify the list passed in to include any special abilities granted by
-	 * this Template
-	 * 
-	 * @param aList
-	 *            The list to be modified
-	 * @param level
-	 *            The level to add Special abilities for
-	 * @param hitdice
-	 *            the hit die (/range) to add Special Abilities for
-	 * 
-	 * @return the list passed in with any special abilities this template
-	 *         grants added to it
-	 */
-	@Override
-	public List<SpecialAbility> addSpecialAbilitiesToList(
-			final List<SpecialAbility> aList, PlayerCharacter pc)
-	{
-		super.addSpecialAbilitiesToList(aList, pc);
-		for (PCTemplate pct : getConditionalTemplates(pc.getTotalLevels(), pc
-				.totalHitDice()))
-		{
-			pct.addSpecialAbilitiesToList(aList, pc);
-		}
-		return aList;
-	}
-
-	/**
 	 * Get face
 	 * 
 	 * @return face

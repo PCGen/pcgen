@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
@@ -167,8 +168,16 @@ public class ClassToken extends Token {
 		final List<String> formattedList = new ArrayList<String>();
 		
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		pcclass.addSpecialAbilitiesToList(saList, aPC);
+		SpecialAbilityResolution
+				.addSpecialAbilitiesToList(saList, aPC, pcclass);
 		SpecialAbilityResolution.addSABToList(saList, aPC, pcclass);
+		for (int i = 1; i <= pcclass.getLevel(aPC); i++)
+		{
+			PCClassLevel pcl = pcclass.getActiveClassLevel(i);
+			SpecialAbilityResolution
+					.addSpecialAbilitiesToList(saList, aPC, pcl);
+			SpecialAbilityResolution.addSABToList(saList, aPC, pcl);
+		}
 
 		if (saList.isEmpty())
 		{

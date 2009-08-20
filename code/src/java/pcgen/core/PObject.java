@@ -35,7 +35,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -292,46 +291,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		txt.append("\t");
 		txt.append(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
-	}
-
-	public List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
-	{
-		List<SpecialAbility> salist = aPC.getAssocList(this,
-				AssociationListKey.SPECIAL_ABILITY);
-		if (salist == null)
-		{
-			return aList;
-		}
-		for ( SpecialAbility sa : salist )
-		{
-			if (sa.qualifies(aPC))
-			{
-				final String key = sa.getKeyName();
-				final int idx = key.indexOf("%CHOICE");
-
-				if (idx >= 0)
-				{
-					StringBuilder sb = new StringBuilder();
-					sb.append(key.substring(0, idx));
-
-					if (aPC.hasAssociations(this))
-					{
-						sb.append(StringUtil.joinToStringBuffer(aPC.getAssociationList(this), ", "));
-					}
-					else
-					{
-						sb.append("<undefined>");
-					}
-
-					sb.append(key.substring(idx + 7));
-					sa = new SpecialAbility(sb.toString(), sa.getSADesc());
-				}
-
-				aList.add(sa);
-			}
-		}
-
-		return aList;
 	}
 
 	/*

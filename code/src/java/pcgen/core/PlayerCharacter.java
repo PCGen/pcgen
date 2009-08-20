@@ -3071,31 +3071,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		List<SpecialAbility> aList =
 				new ArrayList<SpecialAbility>(specialAbilityList);
 		// Try all possible POBjects
-		for (PObject aPObj : getPObjectList())
+		for (CDOMObject cdo : getCDOMObjectList())
 		{
-			if (aPObj == null)
-			{
-				continue;
-			}
-
-			aPObj.addSpecialAbilitiesToList(aList, this);
-			SpecialAbilityResolution.addSABToList(aList, this, aPObj);
-		}
-		//		for (CDOMObject cdo : getCDOMObjectList())
-		//		{
-		//			//TODO this is for once SAB: is converted to new token style
-		//		}
-		for (PObject po : getConditionalTemplateObjects())
-		{
-			SpecialAbilityResolution.addSABToList(aList, this, po);
-		}
-		for (PCClass cl : classList)
-		{
-			for (int i = 1; i <= cl.getLevel(this); i++)
-			{
-				PCClassLevel classLevel = cl.getActiveClassLevel(i);
-				SpecialAbilityResolution.addSABToList(aList, this, classLevel);
-			}
+			SpecialAbilityResolution.addSpecialAbilitiesToList(aList, this, cdo);
+			SpecialAbilityResolution.addSABToList(aList, this, cdo);
 		}
 
 		Collections.sort(aList);
