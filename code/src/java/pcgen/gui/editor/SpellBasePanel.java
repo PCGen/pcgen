@@ -53,6 +53,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
@@ -188,22 +189,22 @@ public class SpellBasePanel extends BasePanel
 		s.removeListFor(ListKey.PROHIBITED_ITEM);
 		if (chkPotionAllowed.isSelected())
 		{
-			s.addToListFor(ListKey.ITEM, "potion");
+			s.addToListFor(ListKey.ITEM, Type.POTION);
 		}
 
 		if (!chkRingAllowed.isSelected())
 		{
-			s.addToListFor(ListKey.PROHIBITED_ITEM, "ring");
+			s.addToListFor(ListKey.PROHIBITED_ITEM, Type.RING);
 		}
 
 		if (!chkScrollAllowed.isSelected())
 		{
-			s.addToListFor(ListKey.PROHIBITED_ITEM, "scroll");
+			s.addToListFor(ListKey.PROHIBITED_ITEM, Type.SCROLL);
 		}
 
 		if (!chkWandAllowed.isSelected())
 		{
-			s.addToListFor(ListKey.PROHIBITED_ITEM, "wand");
+			s.addToListFor(ListKey.PROHIBITED_ITEM, Type.WAND);
 		}
 	}
 
@@ -243,10 +244,10 @@ public class SpellBasePanel extends BasePanel
 		txtCost.setValue(thisSpell.getSafe(ObjectKey.COST).doubleValue());
 		txtXpCost.setValue(thisSpell.getSafe(IntegerKey.XP_COST));
 
-		chkPotionAllowed.setSelected(thisSpell.isAllowed("potion"));
-		chkRingAllowed.setSelected(thisSpell.isAllowed( "ring"));
-		chkScrollAllowed.setSelected(thisSpell.isAllowed("scroll"));
-		chkWandAllowed.setSelected(thisSpell.isAllowed("wand"));
+		chkPotionAllowed.setSelected(thisSpell.isAllowed(Type.POTION));
+		chkRingAllowed.setSelected(thisSpell.isAllowed(Type.RING));
+		chkScrollAllowed.setSelected(thisSpell.isAllowed(Type.SCROLL));
+		chkWandAllowed.setSelected(thisSpell.isAllowed(Type.WAND));
 	}
 
 	private void initComponentContents()

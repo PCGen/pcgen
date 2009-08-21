@@ -120,7 +120,7 @@ final class EqBuilder extends JPanel
 	static final long serialVersionUID = -369105812700996734L;
 	private static TableSorter sorter;
 	/** The types of equipment that are valid for creation based on a spell. */
-	static String[] validEqTypes = { "potion", "scroll", "wand", "ring" };
+	static Type[] validEqTypes = { Type.POTION, Type.SCROLL, Type.WAND, Type.RING };
 	private DefaultListModel listModel1;
 	private DefaultListModel listModel2;
 	private Equipment aNewEq = null;
@@ -280,7 +280,7 @@ final class EqBuilder extends JPanel
 
 		for (int idx = 0; idx < validEqTypes.length; ++idx)
 		{
-			if (aEq.isType(validEqTypes[idx]))
+			if (aEq.isType(validEqTypes[idx].toString()))
 			{
 				eqType = idx;
 

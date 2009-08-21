@@ -22,6 +22,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -73,7 +74,7 @@ public class ItemToken extends AbstractToken implements CDOMPrimaryToken<Spell>
 					return false;
 				}
 				context.getObjectContext().addToList(spell,
-						ListKey.PROHIBITED_ITEM, substring);
+						ListKey.PROHIBITED_ITEM, Type.getConstant(substring));
 			}
 			else
 			{
@@ -85,7 +86,7 @@ public class ItemToken extends AbstractToken implements CDOMPrimaryToken<Spell>
 					return false;
 				}
 				context.getObjectContext().addToList(spell, ListKey.ITEM,
-						tokString);
+						Type.getConstant(tokString));
 			}
 		}
 		return true;
@@ -93,17 +94,17 @@ public class ItemToken extends AbstractToken implements CDOMPrimaryToken<Spell>
 
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
+		Changes<Type> changes = context.getObjectContext().getListChanges(
 				spell, ListKey.ITEM);
-		Changes<String> proChanges = context.getObjectContext().getListChanges(
+		Changes<Type> proChanges = context.getObjectContext().getListChanges(
 				spell, ListKey.PROHIBITED_ITEM);
-		Collection<String> changeAdded = changes.getAdded();
-		Collection<String> proAdded = proChanges.getAdded();
+		Collection<Type> changeAdded = changes.getAdded();
+		Collection<Type> proAdded = proChanges.getAdded();
 		StringBuilder sb = new StringBuilder();
 		boolean needComma = false;
 		if (changeAdded != null)
 		{
-			for (String t : changeAdded)
+			for (Type t : changeAdded)
 			{
 				if (needComma)
 				{
@@ -115,7 +116,7 @@ public class ItemToken extends AbstractToken implements CDOMPrimaryToken<Spell>
 		}
 		if (proAdded != null)
 		{
-			for (String t : proAdded)
+			for (Type t : proAdded)
 			{
 				if (needComma)
 				{

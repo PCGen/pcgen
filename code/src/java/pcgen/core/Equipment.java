@@ -449,6 +449,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The type
 	 */
+	@Override
 	public String getType() {
 		return getType(true);
 	}

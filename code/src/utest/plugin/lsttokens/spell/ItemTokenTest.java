@@ -22,6 +22,7 @@ import java.util.List;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -57,7 +58,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	@Override
 	public Object getConstant(String string)
 	{
-		return string;
+		return Type.getConstant(string);
 	}
 
 	@Override

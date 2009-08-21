@@ -80,6 +80,14 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 
 	public static final Type DIVINE = getConstant("Divine");
 
+	public static final Type POTION = getConstant("Potion");
+
+	public static final Type RING = getConstant("Ring");
+
+	public static final Type SCROLL = getConstant("Scroll");
+
+	public static final Type WAND = getConstant("Wand");
+
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
 	 */

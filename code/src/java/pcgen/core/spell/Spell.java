@@ -25,6 +25,7 @@ package pcgen.core.spell;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.SpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
@@ -115,31 +116,11 @@ public final class Spell extends PObject
 		return hasSpellPointCost;
 	}
 
-	public boolean isAllowed(String string)
+	public boolean isAllowed(Type t)
 	{
-		/*
-		 * Due to case insensitivity and lack of type safety so far on ITEM &
-		 * PROHIBITED_ITEM we need this method in order to properly calculate
-		 * what is allowed
-		 */
-		for (String s : getSafeListFor(ListKey.ITEM))
-		{
-			if (s.equalsIgnoreCase(string))
-			{
-				return true;
-			}
-		}
-		if ("potion".equalsIgnoreCase(string))
-		{
-			return false;
-		}
-		for (String s : getSafeListFor(ListKey.PROHIBITED_ITEM))
-		{
-			if (s.equalsIgnoreCase(string))
-			{
-				return false;
-			}
-		}
-		return true;
+		boolean allowed = containsInList(ListKey.ITEM, t);
+		boolean prohibited = Type.POTION.equals(t)
+				|| containsInList(ListKey.PROHIBITED_ITEM, t);
+		return allowed || !prohibited;
 	}
 }

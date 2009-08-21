@@ -177,8 +177,8 @@ public final class ListKey<T> {
 	public static final ListKey<String> SPELL_SCHOOL = new ListKey<String>();
 	public static final ListKey<String> SPELL_SUBSCHOOL = new ListKey<String>();
 	public static final ListKey<String> SPELL_DESCRIPTOR = new ListKey<String>();
-	public static final ListKey<String> PROHIBITED_ITEM = new ListKey<String>();
-	public static final ListKey<String> ITEM = new ListKey<String>();
+	public static final ListKey<Type> PROHIBITED_ITEM = new ListKey<Type>();
+	public static final ListKey<Type> ITEM = new ListKey<Type>();
 	public static final ListKey<Integer> HITDICE_ADVANCEMENT = new ListKey<Integer>();
 	public static final ListKey<String> ITEM_TYPES = new ListKey<String>();
 	public static final ListKey<CDOMSingleRef<EquipmentModifier>> REPLACED_KEYS = new ListKey<CDOMSingleRef<EquipmentModifier>>();
