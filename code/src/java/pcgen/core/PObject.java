@@ -25,7 +25,6 @@
 package pcgen.core;
 
 import java.io.Serializable;
-import java.net.URI;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -34,7 +33,6 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -60,11 +58,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
-	/** The name to display to the user.  This should be internationalized. */
-	private String displayName = Constants.EMPTY_STRING;
 
-	private URI sourceURI = null;
-	
 	private final Class<?> myClass = getClass();
 	
 	/* ************
@@ -91,12 +85,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	@Override
 	public PObject clone() throws CloneNotSupportedException
 	{
-		final PObject retVal = (PObject) super.clone();
-
-		retVal.setName(displayName);
-		retVal.put(StringKey.KEY_NAME, get(StringKey.KEY_NAME));
-
-		return retVal;
+		return (PObject) super.clone();
 	}
 
 	/**
@@ -148,28 +137,9 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		if (!aString.endsWith(".MOD"))
 		{
-			displayName = aString;
+			super.setName(aString);
 			put(StringKey.KEY_NAME, aString);
 		}
-	}
-
-	/**
-	 * This method sets only the name not the key.
-	 * @param aName Name to use for display
-	 */
-	public final void setDisplayName( final String aName )
-	{
-		displayName = aName;
-	}
-	
-	/**
-	 * Get name
-	 * @return name
-	 */
-	@Override
-	public final String getDisplayName()
-	{
-		return displayName;
 	}
 
 	///////////////////////////////////////////////////////////////////////
@@ -182,24 +152,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	}
 
 	/**
-	 * Set the source file for this object
-	 * @param sourceFile
-	 */
-	public final void setSourceURI(URI source)
-	{
-		sourceURI = source;
-	}
-
-	/**
-	 * Get the source file for this object
-	 * @return the source file for this object
-	 */
-	public final URI getSourceURI()
-	{
-		return sourceURI;
-	}
-
-	/**
 	 * Get the type of PObject
 	 * 
 	 * @return the type of PObject
@@ -209,7 +161,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return StringUtil.join(getTrueTypeList(false), ".");
 	}
 
-	public List<Type> getTrueTypeList(final boolean visibleOnly)
+	public final List<Type> getTrueTypeList(final boolean visibleOnly)
 	{
 		final List<Type> ret = getSafeListFor(ListKey.TYPE);
 		if (visibleOnly)
@@ -273,7 +225,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	@Override
 	public String toString()
 	{
-		return displayName;
+		return getDisplayName();
 	}
 
 	/**

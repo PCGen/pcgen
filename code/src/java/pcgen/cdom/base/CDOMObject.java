@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.base;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -48,6 +49,10 @@ import pcgen.core.bonus.BonusObj;
 public abstract class CDOMObject extends ConcretePrereqObject implements
 		Cloneable
 {
+
+	private URI sourceURI = null;
+	
+	private String displayName = Constants.EMPTY_STRING;
 
 	/*
 	 * CONSIDER This should be a NumberMap - not Integer, but allow Double as
@@ -429,14 +434,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return mapChar.containsMapFor(key) ? mapChar.getKeysFor(key).size() : 0;
 	}
 
-	public String getDisplayName()
-	{
-		return this.get(StringKey.NAME);
-	}
-
 	public void setName(String name)
 	{
-		this.put(StringKey.NAME, name);
+		displayName = name;
 	}
 
 	public boolean isCDOMEqual(CDOMObject cdo)
@@ -733,5 +733,32 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return getRawBonusList(null);
 		}
+	}
+
+	/**
+	 * Set the source file for this object
+	 * @param sourceFile
+	 */
+	public final void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	/**
+	 * Get the source file for this object
+	 * @return the source file for this object
+	 */
+	public final URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	/**
+	 * Get name
+	 * @return name
+	 */
+	public final String getDisplayName()
+	{
+		return displayName;
 	}
 }

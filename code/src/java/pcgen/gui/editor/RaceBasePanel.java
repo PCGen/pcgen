@@ -356,7 +356,7 @@ public class RaceBasePanel extends BasePanel
 		thisRace.put(ObjectKey.CHALLENGE_RATING, getCR());
 		if (getDisplayName() != null && getDisplayName().trim().length() > 0)
 		{
-			thisRace.setDisplayName(getDisplayName());
+			thisRace.setName(getDisplayName());
 		}
 		thisRace.put(IntegerKey.CREATURE_HANDS, getHands());
 		LoadContext context = Globals.getContext();
