@@ -86,5 +86,11 @@ public class XtraFeatsTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 		//Consume due to deprecation
 	}
 
+	@Override
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		//Consume due to deprecation
+	}
+
 	
 }

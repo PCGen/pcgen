@@ -22,6 +22,10 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
@@ -29,7 +33,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
@@ -37,7 +41,8 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
-public class FeatTokenTest extends AbstractListTokenTestCase<Domain, Ability>
+public class FeatTokenTest extends
+		AbstractListContextTokenTestCase<Domain, Ability>
 {
 	static FeatToken token = new FeatToken();
 	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>(
@@ -114,10 +119,11 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Domain, Ability>
 	}
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Ability construct(LoadContext loadContext, String one)
 	{
 		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
 		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		return obj;
 	}
 
 	@Test
@@ -256,5 +262,24 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Domain, Ability>
 	{
 		return true;
 	}
-}
 
+	@Override
+	protected CDOMGroupRef<Ability> getTypeReference()
+	{
+		return primaryContext.ref.getCDOMTypeReference(getTargetClass(),
+				AbilityCategory.FEAT, "Type1");
+	}
+
+	@Override
+	protected CDOMGroupRef<Ability> getAllReference()
+	{
+		return primaryContext.ref.getCDOMAllReference(getTargetClass(),
+				AbilityCategory.FEAT);
+	}
+
+	@Override
+	protected CDOMReference<? extends CDOMList<? extends PrereqObject>> getListReference()
+	{
+		return Ability.FEATLIST;
+	}
+}

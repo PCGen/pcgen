@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -88,6 +89,36 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	protected String getLegalValue()
 	{
 		return "3";
+	}
+
+	@Test
+	public void testUnparseNumber() throws PersistenceLayerException
+	{
+		setAndUnparseMatch(FormulaFactory.getFormulaFor(1));
+	}
+
+	@Test
+	public void testUnparseFormula() throws PersistenceLayerException
+	{
+		setAndUnparseMatch(FormulaFactory.getFormulaFor("Formula"));
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getFormulaKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private void setAndUnparseMatch(Formula val)
+	{
+		expectSingle(setAndUnparse(val), val.toString());
+	}
+
+	protected String[] setAndUnparse(Formula val)
+	{
+		primaryProf.put(getFormulaKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
 	}
 
 	@Override

@@ -119,10 +119,11 @@ public class ModifyfeatchoiceTokenTest extends
 	}
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Ability construct(LoadContext loadContext, String one)
 	{
 		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
 		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		return obj;
 	}
 
 	@Test

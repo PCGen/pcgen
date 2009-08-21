@@ -23,7 +23,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 
-public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject> extends
+public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> extends
 		AbstractTokenTestCase<T>
 {
 
@@ -59,9 +59,9 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject> extend
 
 	protected abstract boolean requiresPreconstruction();
 
-	public abstract Object getConstant(String string);
+	public abstract CT getConstant(String string);
 
-	public abstract ObjectKey<?> getObjectKey();
+	public abstract ObjectKey<CT> getObjectKey();
 
 	@Test
 	public void testReplacementInputs() throws PersistenceLayerException
@@ -87,7 +87,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject> extend
 		{
 			assertTrue(parse(".CLEAR"));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull("Expected item to be null", unparsed);
 		}
 	}
 
@@ -188,6 +188,37 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject> extend
 	protected String getLegalValue()
 	{
 		return "Yarra Valley";
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		CT o = getConstant(getLegalValue());
+		primaryProf.put(getObjectKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), o.toString());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 
 	@Override

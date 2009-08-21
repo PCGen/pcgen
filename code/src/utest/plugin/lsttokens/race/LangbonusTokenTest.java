@@ -19,15 +19,17 @@ package plugin.lsttokens.race;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.core.Language;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class LangbonusTokenTest extends
-		AbstractListTokenTestCase<Race, Language>
+		AbstractListContextTokenTestCase<Race, Language>
 {
 
 	static LangbonusToken token = new LangbonusToken();
@@ -97,5 +99,11 @@ public class LangbonusTokenTest extends
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	protected CDOMReference<? extends CDOMList<?>> getListReference()
+	{
+		return Language.STARTING_LIST;
 	}
 }

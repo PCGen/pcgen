@@ -109,6 +109,48 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 		return "NO";
 	}
 
+	@Test
+	public void testUnparseYes() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(true), "YES");
+	}
+
+	@Test
+	public void testUnparseNo() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(false), "NO");
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertNull(unparsed);
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
+	protected String[] setAndUnparse(boolean val)
+	{
+		primaryProf.put(getObjectKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

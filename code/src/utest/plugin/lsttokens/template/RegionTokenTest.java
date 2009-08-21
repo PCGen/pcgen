@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class RegionTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate>
+public class RegionTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate, Region>
 {
 
 	static RegionToken token = new RegionToken();
@@ -54,13 +54,13 @@ public class RegionTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public Region getConstant(String string)
 	{
 		return Region.getConstant(string);
 	}
 
 	@Override
-	public ObjectKey<?> getObjectKey()
+	public ObjectKey<Region> getObjectKey()
 	{
 		return ObjectKey.REGION;
 	}

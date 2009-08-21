@@ -80,6 +80,15 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 	}
 
 	@Test
+	public void testUnparseSpecialCase() throws PersistenceLayerException
+	{
+		String[] unparsed = setAndUnparse(-1);
+		assertNotNull(unparsed);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", "1IFLARGERTHANWEAPON", unparsed[0]);
+	}
+
+	@Test
 	public void testRoundRobinSpecialCase() throws PersistenceLayerException
 	{
 		runRoundRobin("1IFLARGERTHANWEAPON");

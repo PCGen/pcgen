@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class RaceTypeTokenTest extends
-		AbstractTypeSafeTokenTestCase<PCTemplate>
+		AbstractTypeSafeTokenTestCase<PCTemplate, RaceType>
 {
 
 	static RacetypeToken token = new RacetypeToken();
@@ -54,13 +54,13 @@ public class RaceTypeTokenTest extends
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public RaceType getConstant(String string)
 	{
 		return RaceType.getConstant(string);
 	}
 
 	@Override
-	public ObjectKey<?> getObjectKey()
+	public ObjectKey<RaceType> getObjectKey()
 	{
 		return ObjectKey.RACETYPE;
 	}

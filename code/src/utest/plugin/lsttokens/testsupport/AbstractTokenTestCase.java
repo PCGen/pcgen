@@ -269,4 +269,11 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	protected abstract ConsolidationRule getConsolidationRule();
 
+	protected void expectSingle(String[] unparsed, String expected)
+	{
+		assertNotNull(unparsed);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", expected, unparsed[0]);
+	}
+
 }

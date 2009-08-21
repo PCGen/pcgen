@@ -86,4 +86,10 @@ public class SpellfailureTokenTest extends AbstractIntegerTokenTestCase<Equipmen
 		//Consume due to deprecation
 	}
 
+	@Override
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		//Consume due to deprecation
+	}
+
 }

@@ -22,17 +22,19 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.list.LanguageList;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class LangbonusTokenTest extends
-		AbstractListTokenTestCase<PCTemplate, Language>
+		AbstractListContextTokenTestCase<PCTemplate, Language>
 {
 
 	static LangbonusToken token = new LangbonusToken();
@@ -116,5 +118,11 @@ public class LangbonusTokenTest extends
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	protected CDOMReference<? extends CDOMList<?>> getListReference()
+	{
+		return Language.STARTING_LIST;
 	}
 }

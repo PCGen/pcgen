@@ -148,4 +148,12 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	{
 		runRoundRobin("TestWP1|!PRECLASS:1,Fighter=1");
 	}
+
+	@Override
+	protected String[] setAndUnparse(Formula val)
+	{
+		primaryProf.put(ObjectKey.EQUIP_BUY, new QualifiedObject<Formula>(val));
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
 }

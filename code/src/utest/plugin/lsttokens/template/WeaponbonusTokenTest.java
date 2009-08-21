@@ -17,22 +17,19 @@
  */
 package plugin.lsttokens.template;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.list.WeaponProfList;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.core.PCTemplate;
 import pcgen.core.WeaponProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class WeaponbonusTokenTest extends
-		AbstractListTokenTestCase<PCTemplate, WeaponProf>
+		AbstractListContextTokenTestCase<PCTemplate, WeaponProf>
 {
 
 	static WeaponbonusToken token = new WeaponbonusToken();
@@ -100,21 +97,14 @@ public class WeaponbonusTokenTest extends
 	}
 
 	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		/*
-		 * FIXME This construction of *Starting should be unnecessary
-		 */
-		primaryContext.ref.constructCDOMObject(WeaponProfList.class, "*Starting");
-		secondaryContext.ref.constructCDOMObject(WeaponProfList.class,
-			"*Starting");
-	}
-
-	@Override
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	protected CDOMReference<? extends CDOMList<?>> getListReference()
+	{
+		return WeaponProf.STARTING_LIST;
 	}
 }

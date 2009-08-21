@@ -23,6 +23,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -32,7 +35,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
@@ -40,7 +43,8 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
-public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
+public class DomainsTokenTest extends
+		AbstractListContextTokenTestCase<Deity, Domain>
 {
 	static DomainsToken token = new DomainsToken();
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
@@ -112,9 +116,9 @@ public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
 	}
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Domain construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(Domain.class, one);
+		return loadContext.ref.constructCDOMObject(Domain.class, one);
 	}
 
 	@Test
@@ -216,7 +220,7 @@ public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
 		runRoundRobin("TestWP1|PRECLASS:1,Fighter=1",
-			"TestWP1|PRECLASS:1,Wizard=1");
+				"TestWP1|PRECLASS:1,Wizard=1");
 	}
 
 	@Test
@@ -227,7 +231,7 @@ public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		runRoundRobin("TestWP1|PRECLASS:1,Fighter=1",
-			"TestWP2|PRECLASS:1,Wizard=1");
+				"TestWP2|PRECLASS:1,Wizard=1");
 	}
 
 	@Test
@@ -253,5 +257,11 @@ public class DomainsTokenTest extends AbstractListTokenTestCase<Deity, Domain>
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	protected CDOMReference<? extends CDOMList<? extends PrereqObject>> getListReference()
+	{
+		return Deity.DOMAINLIST;
 	}
 }

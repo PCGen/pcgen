@@ -1,0 +1,151 @@
+/*
+ * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.testsupport;
+
+import org.junit.Test;
+
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.persistence.PersistenceLayerException;
+
+public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
+		extends AbstractListInputTokenTestCase<T, TC>
+{
+
+	protected abstract CDOMReference<? extends CDOMList<? extends PrereqObject>> getListReference();
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeAllFromList(getListReference());
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		TC wp1 = construct(primaryContext, "TestWP1");
+		addToList(CDOMDirectSingleRef.getRef(wp1));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "TestWP1");
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		TC wp1 = construct(primaryContext, "TestWP1");
+		addToList(CDOMDirectSingleRef.getRef(wp1));
+		TC wp2 = construct(primaryContext, "TestWP2");
+		addToList(CDOMDirectSingleRef.getRef(wp2));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "TestWP1" + getJoinCharacter() + "TestWP2");
+	}
+
+	@Test
+	public void testUnparseDupe() throws PersistenceLayerException
+	{
+		if (allowDups())
+		{
+			TC wp1 = construct(primaryContext, "TestWP1");
+			addToList(CDOMDirectSingleRef.getRef(wp1));
+			addToList(CDOMDirectSingleRef.getRef(wp1));
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			expectSingle(unparsed, "TestWP1" + getJoinCharacter() + "TestWP1");
+		}
+		else
+		{
+			TC wp1 = construct(primaryContext, "TestWP1");
+			addToList(CDOMDirectSingleRef.getRef(wp1));
+			addToList(CDOMDirectSingleRef.getRef(wp1));
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			expectSingle(unparsed, "TestWP1");
+		}
+	}
+
+	@Test
+	public void testUnparseType() throws PersistenceLayerException
+	{
+		if (isTypeLegal())
+		{
+			CDOMGroupRef<TC> tr = getTypeReference();
+			addToList(tr);
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			expectSingle(unparsed, tr.getLSTformat());
+		}
+	}
+
+	protected CDOMGroupRef<TC> getTypeReference()
+	{
+		return primaryContext.ref.getCDOMTypeReference(getTargetClass(), "Type1");
+	}
+
+	@Test
+	public void testUnparseAll() throws PersistenceLayerException
+	{
+		if (isTypeLegal())
+		{
+			CDOMGroupRef<TC> allReference = getAllReference();
+			addToList(allReference);
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			expectSingle(unparsed, getAllString());
+		}
+	}
+
+	protected CDOMGroupRef<TC> getAllReference()
+	{
+		return primaryContext.ref.getCDOMAllReference(getTargetClass());
+	}
+
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// ListKey listKey = getListKey();
+	// primaryProf.addToListFor(listKey, new Object());
+	// try
+	// {
+	// String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// // Yep!
+	// }
+	// }
+
+	protected AssociatedPrereqObject addToList(CDOMReference<TC> val)
+	{
+		SimpleAssociatedObject sao = new SimpleAssociatedObject();
+		sao.setAssociation(AssociationKey.TOKEN, getToken().getTokenName());
+		primaryProf.putToList(getListReference(), val, sao);
+		doCustomAssociations(sao);
+		return sao;
+	}
+
+	protected void doCustomAssociations(AssociatedPrereqObject apo)
+	{
+		// Empty here, can be overridden
+	}
+
+}

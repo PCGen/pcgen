@@ -267,6 +267,68 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 		assert(isPositiveAllowed() || isNegativeAllowed());
 	}
 
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		if (isPositiveAllowed())
+		{
+			setAndUnparseMatch(1);
+		}
+		else
+		{
+			setAndUnparseFail(1);
+		}
+	}
+
+	@Test
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		if (isZeroAllowed())
+		{
+			setAndUnparseMatch(0);
+		}
+		else
+		{
+			setAndUnparseFail(0);
+		}
+	}
+
+	@Test
+	public void testUnparseNegative() throws PersistenceLayerException
+	{
+		if (isNegativeAllowed())
+		{
+			setAndUnparseMatch(-3);
+		}
+		else
+		{
+			setAndUnparseFail(-3);
+		}
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getIntegerKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private void setAndUnparseMatch(int val)
+	{
+		expectSingle(setAndUnparse(val), Integer.toString(val));
+	}
+
+	protected String[] setAndUnparse(int val)
+	{
+		primaryProf.put(getIntegerKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+	private void setAndUnparseFail(int val)
+	{
+		assertNull(setAndUnparse(val));
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

@@ -21,19 +21,22 @@ import java.net.URISyntaxException;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
 public class AddDomainsTokenTest extends
-		AbstractListTokenTestCase<PCClass, Domain>
+		AbstractListContextTokenTestCase<PCClass, Domain>
 {
 
 	static AdddomainsToken token = new AdddomainsToken();
@@ -193,5 +196,11 @@ public class AddDomainsTokenTest extends
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	protected CDOMReference<? extends CDOMList<? extends PrereqObject>> getListReference()
+	{
+		return PCClass.ALLOWED_DOMAINS;
 	}
 }

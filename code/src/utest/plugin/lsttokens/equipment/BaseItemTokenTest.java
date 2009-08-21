@@ -18,6 +18,7 @@
 package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -63,7 +64,7 @@ public class BaseItemTokenTest extends
 	}
 
 	@Override
-	public ObjectKey<?> getObjectKey()
+	public ObjectKey<CDOMSingleRef<Equipment>> getObjectKey()
 	{
 		return ObjectKey.BASE_ITEM;
 	}

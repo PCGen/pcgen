@@ -197,6 +197,85 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		assert(isPositiveAllowed() || isNegativeAllowed());
 	}
 
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		if (isPositiveAllowed())
+		{
+			setAndUnparseMatch(new BigDecimal(4.5));
+		}
+		else
+		{
+			setAndUnparseFail(new BigDecimal(4.5));
+		}
+	}
+
+	@Test
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		if (isZeroAllowed())
+		{
+			setAndUnparseMatch(new BigDecimal(0));
+		}
+		else
+		{
+			setAndUnparseFail(new BigDecimal(0));
+		}
+	}
+
+	@Test
+	public void testUnparseNegative() throws PersistenceLayerException
+	{
+		if (isNegativeAllowed())
+		{
+			setAndUnparseMatch(new BigDecimal(-2));
+		}
+		else
+		{
+			setAndUnparseFail(new BigDecimal(-2));
+		}
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
+	private void setAndUnparseMatch(BigDecimal val)
+	{
+		expectSingle(setAndUnparse(val), val.toString());
+	}
+
+	protected String[] setAndUnparse(BigDecimal val)
+	{
+		primaryProf.put(getObjectKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+	private void setAndUnparseFail(BigDecimal val)
+	{
+		assertNull(setAndUnparse(val));
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

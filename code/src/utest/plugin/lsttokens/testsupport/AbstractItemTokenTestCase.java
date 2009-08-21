@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
@@ -32,7 +33,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 
 	public abstract boolean isClearLegal();
 
-	public abstract ObjectKey<?> getObjectKey();
+	public abstract ObjectKey<CDOMSingleRef<TC>> getObjectKey();
 
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
@@ -187,6 +188,38 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	protected String getLegalValue()
 	{
 		return "TestWP1";
+	}
+
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		CDOMSingleRef<TC> o = primaryContext.ref.getCDOMReference(getTargetClass(), getLegalValue());
+		primaryProf.put(getObjectKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), o.getLSTformat());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 
 	@Override

@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SubregionTokenTest extends
-		AbstractTypeSafeTokenTestCase<PCTemplate>
+		AbstractTypeSafeTokenTestCase<PCTemplate, SubRegion>
 {
 
 	static SubregionToken token = new SubregionToken();
@@ -55,13 +55,13 @@ public class SubregionTokenTest extends
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public SubRegion getConstant(String string)
 	{
 		return SubRegion.getConstant(string);
 	}
 
 	@Override
-	public ObjectKey<?> getObjectKey()
+	public ObjectKey<SubRegion> getObjectKey()
 	{
 		return ObjectKey.SUBREGION;
 	}

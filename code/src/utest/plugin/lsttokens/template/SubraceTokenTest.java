@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SubraceTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate>
+public class SubraceTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate, SubRace>
 {
 
 	static SubraceToken token = new SubraceToken();
@@ -54,13 +54,13 @@ public class SubraceTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public SubRace getConstant(String string)
 	{
 		return SubRace.getConstant(string);
 	}
 
 	@Override
-	public ObjectKey<?> getObjectKey()
+	public ObjectKey<SubRace> getObjectKey()
 	{
 		return ObjectKey.SUBRACE;
 	}

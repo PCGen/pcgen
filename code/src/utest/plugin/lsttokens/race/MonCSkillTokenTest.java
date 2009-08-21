@@ -19,15 +19,23 @@ package plugin.lsttokens.race;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class MonCSkillTokenTest extends AbstractListTokenTestCase<Race, Skill>
+public class MonCSkillTokenTest extends
+		AbstractListContextTokenTestCase<Race, Skill>
 {
 	static MoncskillToken token = new MoncskillToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
@@ -128,5 +136,17 @@ public class MonCSkillTokenTest extends AbstractListTokenTestCase<Race, Skill>
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Override
+	protected void doCustomAssociations(AssociatedPrereqObject sao)
+	{
+		sao.setAssociation(AssociationKey.SKILL_COST, SkillCost.CLASS);
+	}
+
+	@Override
+	protected CDOMReference<? extends CDOMList<? extends PrereqObject>> getListReference()
+	{
+		return PCClass.MONSTER_SKILL_LIST;
 	}
 }
