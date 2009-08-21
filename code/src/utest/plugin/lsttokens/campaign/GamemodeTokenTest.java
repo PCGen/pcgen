@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign>
+public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign, String>
 {
 
 	static GamemodeToken token = new GamemodeToken();
@@ -54,7 +54,7 @@ public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public String getConstant(String string)
 	{
 		return string;
 	}
@@ -66,7 +66,7 @@ public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign>
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<String> getListKey()
 	{
 		return ListKey.GAME_MODE;
 	}

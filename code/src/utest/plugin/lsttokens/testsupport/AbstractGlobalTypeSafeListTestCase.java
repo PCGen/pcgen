@@ -38,107 +38,79 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			List<?> coll;
-			assertTrue(parse("Rheinhessen"));
-			coll = primaryProf.getListFor(getListKey());
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Rheinhessen")));
-		}
+		List<?> coll;
+		assertTrue(parse("Rheinhessen"));
+		coll = primaryProf.getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	@Test
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
-			coll = primaryProf.getListFor(getListKey());
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Niederösterreich")));
-		}
+		List<?> coll;
+		assertTrue(parse("Niederösterreich"));
+		coll = primaryProf.getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 	}
 
 	@Test
 	public void testValidInputSpace() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			List<?> coll;
-			assertTrue(parse("Finger Lakes"));
-			coll = primaryProf.getListFor(getListKey());
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Finger Lakes")));
-		}
+		List<?> coll;
+		assertTrue(parse("Finger Lakes"));
+		coll = primaryProf.getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
 	public void testValidInputHyphen() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			List<?> coll;
-			assertTrue(parse("Languedoc-Roussillon"));
-			coll = primaryProf.getListFor(getListKey());
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		}
+		List<?> coll;
+		assertTrue(parse("Languedoc-Roussillon"));
+		coll = primaryProf.getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 	}
 
 	@Test
 	public void testValidInputY() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			List<?> coll;
-			assertTrue(parse("Yarra Valley"));
-			coll = primaryProf.getListFor(getListKey());
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Yarra Valley")));
-		}
+		List<?> coll;
+		assertTrue(parse("Yarra Valley"));
+		coll = primaryProf.getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Yarra Valley")));
 	}
 
 	@Test
 	public void testValidInputList() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			List<?> coll;
-			assertTrue(parse("Niederösterreich" + getJoinCharacter()
-					+ "Finger Lakes"));
-			coll = primaryProf.getListFor(getListKey());
-			assertEquals(2, coll.size());
-			assertTrue(coll.contains(getConstant("Niederösterreich")));
-			assertTrue(coll.contains(getConstant("Finger Lakes")));
-		}
+		List<?> coll;
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+				+ "Finger Lakes"));
+		coll = primaryProf.getListFor(getListKey());
+		assertEquals(2, coll.size());
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			List<?> coll;
-			assertTrue(parse("Niederösterreich" + getJoinCharacter()
-					+ "Finger Lakes"));
-			assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
-					+ "Rheinhessen"));
-			coll = primaryProf.getListFor(getListKey());
-			assertEquals(4, coll.size());
-			assertTrue(coll.contains(getConstant("Niederösterreich")));
-			assertTrue(coll.contains(getConstant("Finger Lakes")));
-			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-			assertTrue(coll.contains(getConstant("Rheinhessen")));
-		}
+		List<?> coll;
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+				+ "Finger Lakes"));
+		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
+				+ "Rheinhessen"));
+		coll = primaryProf.getListFor(getListKey());
+		assertEquals(4, coll.size());
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	// FIXME Someday, when PCGen doesn't write out crappy stuff into custom
@@ -342,7 +314,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	}
 
 	protected abstract boolean isAllLegal();
-	
+
 	@Test
 	public void testRoundRobinTestAll() throws PersistenceLayerException
 	{
@@ -352,18 +324,17 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 		}
 	}
 
-
 	@Test
 	public void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Rheinhessen"
-			+ getJoinCharacter() + "Languedoc-Roussillon");
+				+ getJoinCharacter() + "Languedoc-Roussillon");
 	}
 
 	@Override

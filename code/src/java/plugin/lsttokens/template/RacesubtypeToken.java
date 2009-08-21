@@ -99,7 +99,7 @@ public class RacesubtypeToken extends AbstractToken implements
 				{
 					sb.append(Constants.PIPE);
 				}
-				sb.append(".REMOVE.").append(rst);
+				sb.append(".REMOVE.").append(rst.toString());
 				needPipe = true;
 			}
 		}
@@ -111,7 +111,7 @@ public class RacesubtypeToken extends AbstractToken implements
 				{
 					sb.append(Constants.PIPE);
 				}
-				sb.append(rst);
+				sb.append(rst.toString());
 				needPipe = true;
 			}
 		}

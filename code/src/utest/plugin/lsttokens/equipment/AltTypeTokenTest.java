@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
@@ -28,7 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment>
+public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Type>
 {
 
 	static AlttypeToken token = new AlttypeToken();
@@ -54,7 +55,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public Type getConstant(String string)
 	{
 		return Type.getConstant(string);
 	}
@@ -66,9 +67,9 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment>
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<Type> getListKey()
 	{
-		return null;
+		return ListKey.TYPE;
 	}
 
 	@Override
@@ -146,6 +147,12 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment>
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
+	}
+
+	@Override
+	protected CDOMObject getUnparseTarget()
+	{
+		return primaryProf.getEquipmentHead(2);
 	}
 
 	@Override

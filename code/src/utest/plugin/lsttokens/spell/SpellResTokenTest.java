@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell>
+public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	// FIXME Is this really AbstractString? Seems AbstractBoolean??
@@ -67,7 +67,7 @@ public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public String getConstant(String string)
 	{
 		return string;
 	}
@@ -79,7 +79,7 @@ public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<String> getListKey()
 	{
 		return ListKey.SPELL_RESISTANCE;
 	}

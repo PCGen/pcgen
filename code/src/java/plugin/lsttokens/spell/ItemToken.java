@@ -110,7 +110,7 @@ public class ItemToken extends AbstractToken implements CDOMPrimaryToken<Spell>
 				{
 					sb.append(Constants.COMMA);
 				}
-				sb.append(t);
+				sb.append(t.toString());
 				needComma = true;
 			}
 		}
@@ -122,7 +122,7 @@ public class ItemToken extends AbstractToken implements CDOMPrimaryToken<Spell>
 				{
 					sb.append(Constants.COMMA);
 				}
-				sb.append('[').append(t).append(']');
+				sb.append('[').append(t.toString()).append(']');
 				needComma = true;
 			}
 		}

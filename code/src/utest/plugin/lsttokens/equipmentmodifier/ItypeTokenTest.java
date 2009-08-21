@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ItypeTokenTest extends
-		AbstractTypeSafeListTestCase<EquipmentModifier>
+		AbstractTypeSafeListTestCase<EquipmentModifier, String>
 {
 
 	static ItypeToken token = new ItypeToken();
@@ -55,7 +55,7 @@ public class ItypeTokenTest extends
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public String getConstant(String string)
 	{
 		return string;
 	}
@@ -67,7 +67,7 @@ public class ItypeTokenTest extends
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<String> getListKey()
 	{
 		return ListKey.ITEM_TYPES;
 	}

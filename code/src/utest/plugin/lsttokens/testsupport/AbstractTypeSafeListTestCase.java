@@ -26,17 +26,17 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
-public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
-		AbstractTokenTestCase<T>
+public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
+		extends AbstractTokenTestCase<T>
 {
 
 	protected abstract boolean requiresPreconstruction();
 
-	public abstract Object getConstant(String string);
+	public abstract LT getConstant(String string);
 
 	public abstract char getJoinCharacter();
 
-	public abstract ListKey<?> getListKey();
+	public abstract ListKey<LT> getListKey();
 
 	public boolean clearsByDefault()
 	{
@@ -46,138 +46,105 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Rheinhessen");
-			List<?> coll;
-			assertTrue(parse("Rheinhessen"));
-			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Rheinhessen")));
-			assertTrue(primaryContext.ref.validate(null));
-		}
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		List<?> coll;
+		assertTrue(parse("Rheinhessen"));
+		coll = getUnparseTarget().getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Niederösterreich");
-			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
-			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Niederösterreich")));
-			assertTrue(primaryContext.ref.validate(null));
-		}
+		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+				"Niederösterreich");
+		List<?> coll;
+		assertTrue(parse("Niederösterreich"));
+		coll = getUnparseTarget().getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputSpace() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Finger Lakes");
-			List<?> coll;
-			assertTrue(parse("Finger Lakes"));
-			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Finger Lakes")));
-			assertTrue(primaryContext.ref.validate(null));
-		}
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		List<?> coll;
+		assertTrue(parse("Finger Lakes"));
+		coll = getUnparseTarget().getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputHyphen() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Languedoc-Roussillon");
-			List<?> coll;
-			assertTrue(parse("Languedoc-Roussillon"));
-			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-			assertTrue(primaryContext.ref.validate(null));
-		}
+		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+				"Languedoc-Roussillon");
+		List<?> coll;
+		assertTrue(parse("Languedoc-Roussillon"));
+		coll = getUnparseTarget().getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputY() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-			List<?> coll;
-			assertTrue(parse("Yarra Valley"));
-			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains(getConstant("Yarra Valley")));
-			assertTrue(primaryContext.ref.validate(null));
-		}
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
+		List<?> coll;
+		assertTrue(parse("Yarra Valley"));
+		coll = getUnparseTarget().getListFor(getListKey());
+		assertEquals(1, coll.size());
+		assertTrue(coll.contains(getConstant("Yarra Valley")));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputList() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
-		{
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Niederösterreich");
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Finger Lakes");
-			List<?> coll;
-			assertTrue(parse("Niederösterreich" + getJoinCharacter()
-					+ "Finger Lakes"));
-			coll = primaryProf.getListFor(listKey);
-			assertEquals(2, coll.size());
-			assertTrue(coll.contains(getConstant("Niederösterreich")));
-			assertTrue(coll.contains(getConstant("Finger Lakes")));
-			assertTrue(primaryContext.ref.validate(null));
-		}
+		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+				"Niederösterreich");
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		List<?> coll;
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+				+ "Finger Lakes"));
+		coll = getUnparseTarget().getListFor(getListKey());
+		assertEquals(2, coll.size());
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
-		ListKey<?> listKey = getListKey();
-		if (listKey != null)
+		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+				"Niederösterreich");
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+				"Languedoc-Roussillon");
+		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		List<?> coll;
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+				+ "Finger Lakes"));
+		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
+				+ "Rheinhessen"));
+		coll = getUnparseTarget().getListFor(getListKey());
+		assertEquals(clearsByDefault() ? 2 : 4, coll.size());
+		if (!clearsByDefault())
 		{
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Niederösterreich");
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Finger Lakes");
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Languedoc-Roussillon");
-			primaryContext.ref.constructCDOMObject(getCDOMClass(),
-					"Rheinhessen");
-			List<?> coll;
-			assertTrue(parse("Niederösterreich" + getJoinCharacter()
-					+ "Finger Lakes"));
-			assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
-					+ "Rheinhessen"));
-			coll = primaryProf.getListFor(listKey);
-			assertEquals(clearsByDefault() ? 2 : 4, coll.size());
-			if (!clearsByDefault())
-			{
-				assertTrue(coll.contains(getConstant("Niederösterreich")));
-				assertTrue(coll.contains(getConstant("Finger Lakes")));
-			}
-			assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-			assertTrue(coll.contains(getConstant("Rheinhessen")));
-			assertTrue(primaryContext.ref.validate(null));
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
+			assertTrue(coll.contains(getConstant("Finger Lakes")));
 		}
+		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		assertTrue(primaryContext.ref.validate(null));
 	}
 
 	@Test
@@ -221,7 +188,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP2");
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
-			+ "TestWP1"));
+				+ "TestWP1"));
 		assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
@@ -239,7 +206,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		secondaryContext.ref
-			.constructCDOMObject(getCDOMClass(), "Finger Lakes");
+				.constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		runRoundRobin("Finger Lakes");
 	}
 
@@ -247,9 +214,9 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Niederösterreich");
+				"Niederösterreich");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Niederösterreich");
+				"Niederösterreich");
 		runRoundRobin("Niederösterreich");
 	}
 
@@ -257,9 +224,9 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	public void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		runRoundRobin("Languedoc-Roussillon");
 	}
 
@@ -268,7 +235,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		secondaryContext.ref
-			.constructCDOMObject(getCDOMClass(), "Yarra Valley");
+				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		runRoundRobin("Yarra Valley");
 	}
 
@@ -279,13 +246,13 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		secondaryContext.ref
-			.constructCDOMObject(getCDOMClass(), "Yarra Valley");
+				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Yarra Valley"
-			+ getJoinCharacter() + "Languedoc-Roussillon");
+				+ getJoinCharacter() + "Languedoc-Roussillon");
 	}
 
 	@Test
@@ -294,11 +261,11 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Rheinhessen"
-			+ getJoinCharacter() + "Languedoc-Roussillon");
+				+ getJoinCharacter() + "Languedoc-Roussillon");
 	}
 
 	public abstract boolean isClearLegal();
@@ -325,7 +292,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals("Expected item to be equal", "TestWP1"
-			+ getJoinCharacter() + "TestWP2", unparsed[0]);
+				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(".CLEAR"));
@@ -342,7 +309,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals("Expected item to be equal", "TestWP1"
-			+ getJoinCharacter() + "TestWP2", unparsed[0]);
+				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
@@ -357,7 +324,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 		if (isClearLegal())
 		{
 			assertFalse(parse("TestWP1" + getJoinCharacter() + ".CLEAR"));
-			assertNull(primaryProf.getListFor(getListKey()));
+			assertNull(getUnparseTarget().getListFor(getListKey()));
 			assertNoSideEffects();
 		}
 	}
@@ -388,17 +355,17 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	// assertFalse(parse("TestWP3" + getJoinCharacter() + ".CLEAR.TestWP2"
 	// + getJoinCharacter() + "ALL"));
 	// assertNoSideEffects();
-	//		}
-	//	}
+	// }
+	// }
 
 	@Test
 	public void testInputInvalidAddsBasicNoSideEffect()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
-			+ "TestWP4"));
+				+ "TestWP4"));
 		assertNoSideEffects();
 	}
 
@@ -434,6 +401,54 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject> extends
 	protected String getLegalValue()
 	{
 		return "TestWP1";
+	}
+
+	protected CDOMObject getUnparseTarget()
+	{
+		return primaryProf;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		getUnparseTarget().removeListFor(getListKey());
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(),
+				getConstant(getLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(), null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(),
+				getConstant(getLegalValue()));
+		getUnparseTarget().addToListFor(getListKey(),
+				getConstant(getAlternateLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue() + getJoinCharacter()
+				+ getAlternateLegalValue());
 	}
 
 	@Override

@@ -30,7 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell>
+public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 {
 
 	static ItemToken token = new ItemToken();
@@ -56,7 +56,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public Type getConstant(String string)
 	{
 		return Type.getConstant(string);
 	}
@@ -68,7 +68,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<Type> getListKey()
 	{
 		return ListKey.ITEM;
 	}

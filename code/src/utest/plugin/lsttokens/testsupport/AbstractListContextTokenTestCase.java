@@ -85,6 +85,21 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	}
 
 	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		addToList(null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			//Yep!
+		}
+	}
+
+	@Test
 	public void testUnparseType() throws PersistenceLayerException
 	{
 		if (isTypeLegal())

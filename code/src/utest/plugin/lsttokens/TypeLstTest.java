@@ -69,7 +69,7 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	@Override
 	public ListKey<?> getListKey()
 	{
-		return null;
+		return ListKey.TYPE;
 	}
 
 	@Override

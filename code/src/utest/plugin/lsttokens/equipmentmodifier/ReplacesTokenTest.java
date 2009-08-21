@@ -18,6 +18,7 @@
 package plugin.lsttokens.equipmentmodifier;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ReplacesTokenTest extends
-		AbstractTypeSafeListTestCase<EquipmentModifier>
+		AbstractTypeSafeListTestCase<EquipmentModifier, CDOMSingleRef<EquipmentModifier>>
 {
 	static ReplacesToken token = new ReplacesToken();
 	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>(
@@ -52,7 +53,7 @@ public class ReplacesTokenTest extends
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public CDOMSingleRef<EquipmentModifier> getConstant(String string)
 	{
 		return primaryContext.ref.getCDOMReference(EquipmentModifier.class,
 				string);
@@ -65,7 +66,7 @@ public class ReplacesTokenTest extends
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<CDOMSingleRef<EquipmentModifier>> getListKey()
 	{
 		return ListKey.REPLACED_KEYS;
 	}

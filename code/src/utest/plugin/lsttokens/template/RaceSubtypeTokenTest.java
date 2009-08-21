@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class RaceSubtypeTokenTest extends
-		AbstractTypeSafeListTestCase<PCTemplate>
+		AbstractTypeSafeListTestCase<PCTemplate, RaceSubType>
 {
 
 	static RacesubtypeToken token = new RacesubtypeToken();
@@ -57,7 +57,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public RaceSubType getConstant(String string)
 	{
 		return RaceSubType.getConstant(string);
 	}
@@ -69,7 +69,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<RaceSubType> getListKey()
 	{
 		return ListKey.RACESUBTYPE;
 	}

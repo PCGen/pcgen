@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class PantheonTokenTest extends AbstractTypeSafeListTestCase<Deity>
+public class PantheonTokenTest extends AbstractTypeSafeListTestCase<Deity, Pantheon>
 {
 	static PantheonToken token = new PantheonToken();
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
@@ -64,13 +64,13 @@ public class PantheonTokenTest extends AbstractTypeSafeListTestCase<Deity>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public Pantheon getConstant(String string)
 	{
 		return Pantheon.getConstant(string);
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<Pantheon> getListKey()
 	{
 		return ListKey.PANTHEON;
 	}

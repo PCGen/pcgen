@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class RaceTokenTest extends AbstractTypeSafeListTestCase<Deity>
+public class RaceTokenTest extends AbstractTypeSafeListTestCase<Deity, String>
 {
 	static RaceToken token = new RaceToken();
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
@@ -63,13 +63,13 @@ public class RaceTokenTest extends AbstractTypeSafeListTestCase<Deity>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public String getConstant(String string)
 	{
 		return string;
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<String> getListKey()
 	{
 		return ListKey.RACEPANTHEON;
 	}

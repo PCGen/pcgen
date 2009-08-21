@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell>
+public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static SaveinfoToken token = new SaveinfoToken();
@@ -52,7 +52,7 @@ public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	}
 
 	@Override
-	public Object getConstant(String string)
+	public String getConstant(String string)
 	{
 		return string;
 	}
@@ -64,7 +64,7 @@ public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell>
 	}
 
 	@Override
-	public ListKey<?> getListKey()
+	public ListKey<String> getListKey()
 	{
 		return ListKey.SAVE_INFO;
 	}
