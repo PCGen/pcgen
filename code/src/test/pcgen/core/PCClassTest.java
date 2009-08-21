@@ -55,6 +55,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.Qualifier;
+import pcgen.core.analysis.PCClassKeyChange;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -146,7 +147,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
 				VariableKey.getConstant("someVar")).toString());
 
-		myClass.fireNameChanged("myClass", "someOtherClass");
+		myClass.setName("someOtherClass");
+
+		PCClassKeyChange.changeReferences("myClass", myClass);
 
 		assertEquals(1, cl2.getVariableKeys().size());
 		assertEquals("someVar", cl2.getVariableKeys().iterator().next()
@@ -154,7 +157,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
 				VariableKey.getConstant("someVar")).toString());
 
-		myClass.fireNameChanged("KEY_myClass", "someOtherClass");
+		PCClassKeyChange.changeReferences("KEY_myClass", myClass);
 
 		assertEquals(1, cl2.getVariableKeys().size());
 		assertEquals("someVar", cl2.getVariableKeys().iterator().next()

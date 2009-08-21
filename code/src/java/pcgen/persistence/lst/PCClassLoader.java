@@ -34,6 +34,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
+import pcgen.core.analysis.PCClassKeyChange;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -581,4 +582,15 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 		}
 	}
+
+	@Override
+	protected PCClass getCopy(LoadContext context, String baseName,
+			String copyName) throws PersistenceLayerException
+	{
+		PCClass copy = super.getCopy(context, baseName, copyName);
+		PCClassKeyChange.changeReferences(baseName, copy);
+		return copy;
+	}
+	
+	
 }

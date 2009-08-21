@@ -148,7 +148,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		if (!aString.endsWith(".MOD"))
 		{
-			fireNameChanged(displayName, aString);
 			displayName = aString;
 			put(StringKey.KEY_NAME, aString);
 		}
@@ -291,15 +290,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		txt.append("\t");
 		txt.append(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
-	}
-
-	/*
-	 * REFACTOR Get this OUT of PObject's interface since this is ONLY in PCClass.
-	 * Not to mention that the overload code will probably be removed from PCClass.
-	 */
-	void fireNameChanged(final String oldName, final String newName)
-	{
-		// This method currently does nothing so it may be overriden in PCClass.
 	}
 
 	public int numberInList(PlayerCharacter pc, final String aType)

@@ -544,7 +544,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		}
 	}
 
-	private T getCopy(LoadContext context, final String baseName,
+	protected T getCopy(LoadContext context, final String baseName,
 			final String copyName) throws PersistenceLayerException
 	{
 		T object = getObjectKeyed(context, baseName);

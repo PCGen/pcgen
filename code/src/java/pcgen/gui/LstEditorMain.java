@@ -67,6 +67,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.Race;
 import pcgen.core.Skill;
+import pcgen.core.analysis.PCClassKeyChange;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -245,13 +246,16 @@ public final class LstEditorMain extends JFrame
 				region = unp[0];
 			}
 
-			Globals.getBioSet().copyRaceTags(region, originalItem.getKeyName(), region, copyItem.getKeyName());
+			Globals.getBioSet().copyRaceTags(region, originalItem.getKeyName(),
+					region, copyItem.getKeyName());
 		}
 		else if (originalItem instanceof PCClass)
 		{
+			String originalKey = originalItem.getKeyName();
 			PCClass copyClass = (PCClass) copyItem;
+			PCClassKeyChange.changeReferences(originalKey, copyClass);
 			Globals.getContext().unconditionallyProcess(copyClass, "SPELLLIST",
-					"1|" + originalItem.getKeyName());
+					"1|" + originalKey);
 		}
 	}
 

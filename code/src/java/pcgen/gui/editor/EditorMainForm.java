@@ -96,6 +96,7 @@ import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.PCClassKeyChange;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -571,11 +572,12 @@ public final class EditorMainForm extends JDialog
 			return;
 		}
 
+		String originalKey = thisPObject.getKeyName();
 		thisPObject.setName(aString);
 
 		try
 		{
-			copyDataToObject();
+			copyDataToObject(originalKey);
 		}
 		catch (Exception e)
 		{
@@ -593,9 +595,10 @@ public final class EditorMainForm extends JDialog
 	}
 
 	/**
+	 * @param originalKey 
 	 * 
 	 */
-	private void copyDataToObject()
+	private void copyDataToObject(String originalKey)
 	{
 		String aString;
 		Object[] sel;
@@ -1189,6 +1192,11 @@ public final class EditorMainForm extends JDialog
 				thisPObject.addToListFor(ListKey.PANTHEON, Pantheon
 						.getConstant(aString.substring(9)));
 			}
+		}
+		
+		if (editType == EditorConstants.EDIT_CLASS)
+		{
+			PCClassKeyChange.changeReferences(originalKey, (PCClass) thisPObject);
 		}
 	}
 

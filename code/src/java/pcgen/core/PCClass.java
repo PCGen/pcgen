@@ -218,6 +218,7 @@ public class PCClass extends PObject
 
 		List<BonusObj> rawBonusList = getRawBonusList(aPC);
 		int currentLevel = getLevel(aPC);
+
 		for (int lvl = 1 ; lvl < currentLevel; lvl++)
 		{
 			rawBonusList.addAll(getActiveClassLevel(lvl).getRawBonusList(aPC));
@@ -1562,93 +1563,6 @@ public class PCClass extends PObject
 			PCClassLevel activeClassLevel = getActiveClassLevel(newLevel);
 			CDOMObjectUtilities.addAdds(activeClassLevel, aPC);
 			CDOMObjectUtilities.checkRemovals(activeClassLevel, aPC);
-		}
-	}
-
-	/**
-	 * Update the name of the required class for all special abilites, DEFINE's,
-	 * and BONUS's
-	 *
-	 * @param oldClass
-	 *            The name of the class that should have the special abliities
-	 *            changed
-	 * @param newClass
-	 *            The name of the new class for the altered special abilities
-	 */
-	@Override
-	/*
-	 * REFACTOR Great theory, wrong universe.  Well, mayne not, but the name implies
-	 * events which aren't occurring here.  Need to at least rename this...
-	 */
-	void fireNameChanged(final String oldClass, final String newClass)
-	{
-		//
-		// This gets called on clone(), so don't traverse the list if the names
-		// are the same
-		//
-		if (oldClass.equals(newClass))
-		{
-			return;
-		}
-
-		//
-		// Go through the variable list (DEFINE) and adjust the class to the new
-		// name
-		//
-		for (VariableKey vk : getVariableKeys())
-		{
-			put(vk, FormulaFactory.getFormulaFor(get(vk).toString().replaceAll(
-					"=" + oldClass, "=" + newClass)));
-		}
-		//
-		// Go through the bonus list (BONUS) and adjust the class to the new
-		// name
-		//
-		renameBonusTarget(this, oldClass, newClass);
-
-		//Now repeat for Class Levels
-		for (PCClassLevel pcl : getOriginalClassLevelCollection())
-		{
-			for (VariableKey vk : pcl.getVariableKeys())
-			{
-				pcl.put(vk, FormulaFactory.getFormulaFor(pcl.get(vk).toString()
-						.replaceAll("=" + oldClass, "=" + newClass)));
-			}
-			renameBonusTarget(pcl, oldClass, newClass);
-		}
-	}
-
-	private static void renameBonusTarget(CDOMObject cdo, String oldClass,
-			String newClass)
-	{
-		List<BonusObj> bonusList = cdo.getListFor(ListKey.BONUS);
-		if (bonusList != null)
-		{
-			for (BonusObj bonusObj : bonusList)
-			{
-				final String bonus = bonusObj.toString();
-				int offs = -1;
-
-				for (;;)
-				{
-					offs = bonus.indexOf('=' + oldClass, offs + 1);
-
-					if (offs < 0)
-					{
-						break;
-					}
-					final BonusObj aBonus = Bonus.newBonus(bonus.substring(0,
-							offs + 1)
-							+ newClass
-							+ bonus.substring(offs + oldClass.length() + 1));
-
-					if (aBonus != null)
-					{
-						cdo.addToListFor(ListKey.BONUS, aBonus);
-					}
-					cdo.removeFromListFor(ListKey.BONUS, bonusObj);
-				}
-			}
 		}
 	}
 
