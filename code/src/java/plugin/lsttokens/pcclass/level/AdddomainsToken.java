@@ -20,8 +20,11 @@ package plugin.lsttokens.pcclass.level;
 import java.io.StringWriter;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
@@ -138,18 +141,12 @@ public class AdddomainsToken extends AbstractToken implements
 			return null;
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		StringBuilder sb = new StringBuilder();
-		boolean first = true;
+		Set<String> set = new TreeSet<String>();
 		for (CDOMReference<Domain> domain : mtl.getKeySet())
 		{
 			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))
 			{
-				if (!first)
-				{
-					sb.append('.');
-				}
-				first = false;
-				sb.append(domain.getLSTformat());
+				StringBuilder sb = new StringBuilder(domain.getLSTformat());
 				List<Prerequisite> prereqs = assoc.getPrerequisiteList();
 				Prerequisite prereq;
 				if (prereqs == null || prereqs.size() == 0)
@@ -184,9 +181,10 @@ public class AdddomainsToken extends AbstractToken implements
 					sb.append(swriter.toString());
 					sb.append(']');
 				}
+				set.add(sb.toString());
 			}
 		}
-		return new String[] { sb.toString() };
+		return new String[] { StringUtil.join(set, Constants.DOT) };
 	}
 
 	public Class<PCClassLevel> getTokenClass()
