@@ -232,4 +232,11 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	protected abstract String getAlternateLegalValue();
 
 	protected abstract ConsolidationRule getConsolidationRule();
+
+	protected void expectSingle(String[] unparsed, String expected)
+	{
+		assertNotNull(unparsed);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", expected, unparsed[0]);
+	}
 }

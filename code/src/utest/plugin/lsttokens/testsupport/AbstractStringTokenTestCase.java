@@ -147,6 +147,17 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
+	/*
+	 * TODO Need to define the appropriate behavior here - is the token
+	 * responsible for catching this?
+	 */
+	// @Test
+	// public void testUnparseEmpty() throws PersistenceLayerException
+	// {
+	// primaryProf.put(getStringKey(), "");
+	// assertNull(getToken().unparse(primaryContext, primaryProf));
+	// }
+
 	protected String[] setAndUnparse(String val)
 	{
 		primaryProf.put(getStringKey(), val);

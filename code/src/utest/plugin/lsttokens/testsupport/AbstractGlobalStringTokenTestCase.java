@@ -93,6 +93,36 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 		return "Yarra Valley";
 	}
 
+	@Test
+	public void testUnparseNo() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getStringKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	/*
+	 * TODO Need to define the appropriate behavior here - is the token
+	 * responsible for catching this?
+	 */
+	// @Test
+	// public void testUnparseEmpty() throws PersistenceLayerException
+	// {
+	// primaryProf.put(getStringKey(), "");
+	// assertNull(getToken().unparse(primaryContext, primaryProf));
+	// }
+
+	protected String[] setAndUnparse(String val)
+	{
+		primaryProf.put(getStringKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

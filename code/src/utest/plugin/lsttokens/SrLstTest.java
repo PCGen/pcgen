@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
@@ -64,4 +65,9 @@ public class SrLstTest extends AbstractGlobalFormulaTokenTestCase
 		return primaryProf.get(ObjectKey.SR).getReduction();
 	}
 
+	@Override
+	protected void setFormula(Formula f)
+	{
+		primaryProf.put(ObjectKey.SR, new SpellResistance(f));
+	}
 }

@@ -69,7 +69,7 @@ public class GamemodeToken extends AbstractToken implements
 		{
 			return null;
 		}
-		Collection<?> added = changes.getAdded();
+		Collection<String> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
 			Logging.errorPrint("Found Game Mode changes in "

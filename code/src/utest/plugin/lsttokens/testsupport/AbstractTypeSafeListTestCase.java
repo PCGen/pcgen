@@ -451,6 +451,25 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 				+ getAlternateLegalValue());
 	}
 
+	/*
+	 * TODO Need to define the appropriate behavior here - is this the token's responsibility?
+	 */
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// ListKey objectKey = getListKey();
+	// primaryProf.addToListFor(objectKey, new Object());
+	// try
+	// {
+	// String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// //Yep!
+	//		}
+	//	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

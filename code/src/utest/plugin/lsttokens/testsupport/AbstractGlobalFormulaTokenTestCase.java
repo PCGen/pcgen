@@ -20,6 +20,7 @@ package plugin.lsttokens.testsupport;
 import org.junit.Test;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -87,6 +88,41 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	protected String getLegalValue()
 	{
 		return "3";
+	}
+
+	@Test
+	public void testUnparseNumber() throws PersistenceLayerException
+	{
+		setAndUnparseMatch(FormulaFactory.getFormulaFor(1));
+	}
+
+	@Test
+	public void testUnparseFormula() throws PersistenceLayerException
+	{
+		setAndUnparseMatch(FormulaFactory.getFormulaFor("Formula"));
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getFormulaKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private void setAndUnparseMatch(Formula val)
+	{
+		expectSingle(setAndUnparse(val), getFormula().toString());
+	}
+
+	protected String[] setAndUnparse(Formula val)
+	{
+		setFormula(val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+	protected void setFormula(Formula val)
+	{
+		primaryProf.put(getFormulaKey(), val);
 	}
 
 	@Override
