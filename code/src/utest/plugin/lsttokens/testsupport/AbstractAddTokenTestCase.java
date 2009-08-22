@@ -274,24 +274,56 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		}
 	}
 
-	// FIXME These are invalid due to RC being overly protective at the moment
-	// @Test
-	// public void testInvalidInputAny()
-	// {
-	// assertTrue(parse( "ANY"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// @Test
-	// public void testInvalidInputCheckType()
-	// {
-	// if (!isTypeLegal())
-	// {
-	// assertTrue(token.parse(primaryContext, primaryProf, getTypePrefix() +
-	// "TYPE=TestType"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// }
-	//
+	@Test
+	public void testInvalidInputAny() throws PersistenceLayerException
+	{
+		if (!isAllLegal())
+		{
+			try
+			{
+				boolean result = parse("ANY");
+				if (result)
+				{
+					assertFalse(primaryContext.ref.validate(null));
+				}
+				else
+				{
+					assertNoSideEffects();
+				}
+			}
+			catch (IllegalArgumentException e)
+			{
+				//This is okay too
+				assertNoSideEffects();
+			}
+		}
+	}
+
+	@Test
+	public void testInvalidInputCheckType() throws PersistenceLayerException
+	{
+		if (!isTypeLegal())
+		{
+			try
+			{
+				boolean result = getToken().parse(primaryContext, primaryProf,
+						"TYPE=TestType");
+				if (result)
+				{
+					assertFalse(primaryContext.ref.validate(null));
+				}
+				else
+				{
+					assertNoSideEffects();
+				}
+			}
+			catch (IllegalArgumentException e)
+			{
+				// This is okay too
+				assertNoSideEffects();
+			}
+		}
+	}
 
 	@Test
 	public void testInvalidDoubleList() throws PersistenceLayerException
@@ -520,8 +552,6 @@ public abstract class AbstractAddTokenTestCase<T extends CDOMObject, TC extends 
 		}
 	}
 
-	// TODO This really need to check the object is also not modified, not just
-	// that the graph is empty (same with other tests here)
 	@Test
 	public void testInvalidInputAnyItem() throws PersistenceLayerException
 	{

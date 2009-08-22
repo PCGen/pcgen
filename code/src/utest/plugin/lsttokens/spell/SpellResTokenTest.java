@@ -30,8 +30,6 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
-	// FIXME Is this really AbstractString? Seems AbstractBoolean??
-
 	static SpellresToken token = new SpellresToken();
 	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
 			Spell.class);

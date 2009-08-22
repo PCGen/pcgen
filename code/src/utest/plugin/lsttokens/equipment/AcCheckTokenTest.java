@@ -19,7 +19,6 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
@@ -72,18 +71,6 @@ public class AcCheckTokenTest extends AbstractIntegerTokenTestCase<Equipment>
 	public boolean isPositiveAllowed()
 	{
 		return false;
-	}
-
-	// TODO These are not valid due to deprecation issues in ACCheck (fix after
-	// 5.16)
-	@Override
-	public void testInvalidInputSet() throws PersistenceLayerException
-	{
-	}
-
-	@Override
-	public void testInvalidInputUnset() throws PersistenceLayerException
-	{
 	}
 
 }

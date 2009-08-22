@@ -95,23 +95,23 @@ public abstract class AbstractCampaignTokenTestCase extends
 		}
 	}
 
-	// TODO 517 - Deprecated behavior in 5.15
-	//	@Test
-	//	public void testInvalidInputIncludeNoParen() throws PersistenceLayerException
-	//	{
-	//		assertFalse(parse("String|INCLUDE:Incl"));
-	//		assertFalse(primaryProf.containsListFor(getListKey()));
-	//		assertNoSideEffects();
-	//	}
+	@Test
+	public void testInvalidInputIncludeNoParen()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("String|INCLUDE:Incl"));
+		assertFalse(primaryProf.containsListFor(getListKey()));
+		assertNoSideEffects();
+	}
 
-	// TODO 517 - Deprecated behavior in 5.15
-	//	@Test
-	//	public void testInvalidInputIncludeDoubleParen() throws PersistenceLayerException
-	//	{
-	//		assertFalse(parse("String|((INCLUDE:Incl))"));
-	//		assertFalse(primaryProf.containsListFor(getListKey()));
-	//		assertNoSideEffects();
-	//	}
+	@Test
+	public void testInvalidInputIncludeDoubleParen()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("String|((INCLUDE:Incl))"));
+		assertFalse(primaryProf.containsListFor(getListKey()));
+		assertNoSideEffects();
+	}
 
 	@Test
 	public void testInvalidInputEmptyInclude() throws PersistenceLayerException
@@ -129,24 +129,23 @@ public abstract class AbstractCampaignTokenTestCase extends
 		assertNoSideEffects();
 	}
 
-	// TODO 517 - Deprecated behavior in 5.15
-	//	@Test
-	//	public void testInvalidInputExcludeNoParen()
-	//		throws PersistenceLayerException
-	//	{
-	//		assertFalse(parse("String|EXCLUDE:Incl"));
-	//		assertFalse(primaryProf.containsListFor(getListKey()));
-	//		assertNoSideEffects();
-	//	}
+		@Test
+	public void testInvalidInputExcludeNoParen()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("String|EXCLUDE:Incl"));
+		assertFalse(primaryProf.containsListFor(getListKey()));
+		assertNoSideEffects();
+	}
 
-	// TODO 517 - Deprecated behavior in 5.15
-	//	@Test
-	//	public void testInvalidInputExcludeeDoubleParen() throws PersistenceLayerException
-	//	{
-	//		assertFalse(parse("String|((EXCLUDE:Incl))"));
-	//		assertFalse(primaryProf.containsListFor(getListKey()));
-	//		assertNoSideEffects();
-	//	}
+	@Test
+	public void testInvalidInputExcludeeDoubleParen()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse("String|((EXCLUDE:Incl))"));
+		assertFalse(primaryProf.containsListFor(getListKey()));
+		assertNoSideEffects();
+	}
 
 	@Test
 	public void testInvalidInputEmptyExclude() throws PersistenceLayerException

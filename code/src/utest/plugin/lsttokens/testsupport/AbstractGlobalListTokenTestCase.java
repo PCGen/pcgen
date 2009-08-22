@@ -139,30 +139,57 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		}
 	}
 
-	// FIXME These are invalid due to RC being overly protective at the moment
-	// @Test
-	// public void testInvalidInputAll()
-	// {
-	// assertTrue(parse( "ALL"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	//
-	// @Test
-	// public void testInvalidInputAny()
-	// {
-	// assertTrue(parse( "ANY"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// @Test
-	// public void testInvalidInputCheckType()
-	// {
-	// if (!isTypeLegal())
-	// {
-	// assertTrue(token.parse(primaryContext, primaryProf, "TYPE=TestType"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// }
-	//
+
+	@Test
+	public void testInvalidInputAny() throws PersistenceLayerException
+	{
+		if (!isAllLegal())
+		{
+			try
+			{
+				boolean result = parse("ANY");
+				if (result)
+				{
+					assertFalse(primaryContext.ref.validate(null));
+				}
+				else
+				{
+					assertNoSideEffects();
+				}
+			}
+			catch (IllegalArgumentException e)
+			{
+				//This is okay too
+				assertNoSideEffects();
+			}
+		}
+	}
+
+	@Test
+	public void testInvalidInputCheckType() throws PersistenceLayerException
+	{
+		if (!isTypeLegal())
+		{
+			try
+			{
+				boolean result = getToken().parse(primaryContext, primaryProf,
+						"TYPE=TestType");
+				if (result)
+				{
+					assertFalse(primaryContext.ref.validate(null));
+				}
+				else
+				{
+					assertNoSideEffects();
+				}
+			}
+			catch (IllegalArgumentException e)
+			{
+				// This is okay too
+				assertNoSideEffects();
+			}
+		}
+	}
 
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException

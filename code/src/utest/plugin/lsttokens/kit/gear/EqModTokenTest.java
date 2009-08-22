@@ -252,23 +252,40 @@ public class EqModTokenTest extends AbstractSubTokenTestCase<KitGear>
 		}
 	}
 
-	// FIXME These are invalid due to RC being overly protective at the moment
-	// @Test
-	// public void testInvalidInputAny()
-	// {
-	// assertTrue(parse( "ANY"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// @Test
-	// public void testInvalidInputCheckType()
-	// {
-	// if (!isTypeLegal())
-	// {
-	// assertTrue(token.parse(primaryContext, primaryProf, "TYPE=TestType"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// }
-	//
+	@Test
+	public void testInvalidInputAny() throws PersistenceLayerException
+	{
+		try
+		{
+			boolean result = parse("ANY");
+			if (result)
+			{
+				assertFalse(primaryContext.ref.validate(null));
+			}
+		}
+		catch (IllegalArgumentException e)
+		{
+			//This is okay too
+		}
+	}
+
+	@Test
+	public void testInvalidInputCheckType()
+	{
+		try
+		{
+			boolean result = token.parse(primaryContext, primaryProf,
+					"TYPE=TestType");
+			if (result)
+			{
+				assertFalse(primaryContext.ref.validate(null));
+			}
+		}
+		catch (IllegalArgumentException e)
+		{
+			// This is okay too
+		}
+	}
 
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException

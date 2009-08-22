@@ -349,10 +349,6 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 				+ "TYPE=TestAltType.TestThirdType.TestType");
 	}
 
-	/*
-	 * TODO This really need to check the object is also not modified, not just
-	 * that the graph is empty (same with other tests here)
-	 */
 	@Test
 	public void testInvalidInputAnyItem() throws PersistenceLayerException
 	{
@@ -921,10 +917,6 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 	}
 
-	/*
-	 * TODO This really need to check the object is also not modified, not just
-	 * that the graph is empty (same with other tests here)
-	 */
 	@Test
 	public void testInvalidQualifiedInputAnyItem()
 			throws PersistenceLayerException

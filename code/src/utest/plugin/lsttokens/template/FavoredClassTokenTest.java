@@ -167,40 +167,16 @@ public class FavoredClassTokenTest extends
 				+ getJoinCharacter() + "TestWP3");
 	}
 
-	// TODO This really need to check the object is also not modified, not just
-	// that the graph is empty (same with other tests here)
-	@Test
-	public void testInvalidInputAnyItem() throws PersistenceLayerException
+	@Override
+	protected String getAllString()
 	{
-		if (isAllLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			assertFalse(parse("ANY" + getJoinCharacter() + "TestWP1"));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputItemAny() throws PersistenceLayerException
-	{
-		if (isAllLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			assertFalse(parse("TestWP1" + getJoinCharacter() + "ANY"));
-			assertNoSideEffects();
-		}
+		return "HIGHESTLEVELCLASS";
 	}
 
 	@Test
 	public void testRoundRobinList() throws PersistenceLayerException
 	{
 		runRoundRobin("%LIST");
-	}
-
-	@Override
-	public void testRoundRobinTestAll() throws PersistenceLayerException
-	{
-		runRoundRobin("HIGHESTLEVELCLASS");
 	}
 
 	@Override

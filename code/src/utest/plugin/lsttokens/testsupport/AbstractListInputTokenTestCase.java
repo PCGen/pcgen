@@ -246,23 +246,46 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		}
 	}
 
-	// FIXME These are invalid due to RC being overly protective at the moment
-	// @Test
-	// public void testInvalidInputAny()
-	// {
-	// assertTrue(parse( "ANY"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// @Test
-	// public void testInvalidInputCheckType()
-	// {
-	// if (!isTypeLegal())
-	// {
-	// assertTrue(token.parse(primaryContext, primaryProf, "TYPE=TestType"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// }
-	//
+	@Test
+	public void testInvalidInputAny() throws PersistenceLayerException
+	{
+		if (!isAllLegal())
+		{
+			try
+			{
+				boolean result = parse("ANY");
+				if (result)
+				{
+					assertFalse(primaryContext.ref.validate(null));
+				}
+			}
+			catch (IllegalArgumentException e)
+			{
+				//This is okay too
+			}
+		}
+	}
+
+	@Test
+	public void testInvalidInputCheckType() throws PersistenceLayerException
+	{
+		if (!isTypeLegal())
+		{
+			try
+			{
+				boolean result = getToken().parse(primaryContext, primaryProf,
+						"TYPE=TestType");
+				if (result)
+				{
+					assertFalse(primaryContext.ref.validate(null));
+				}
+			}
+			catch (IllegalArgumentException e)
+			{
+				// This is okay too
+			}
+		}
+	}
 
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
@@ -454,8 +477,6 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		}
 	}
 
-	// TODO This really need to check the object is also not modified, not just
-	// that the graph is empty (same with other tests here)
 	@Test
 	public void testInvalidInputAllItem() throws PersistenceLayerException
 	{

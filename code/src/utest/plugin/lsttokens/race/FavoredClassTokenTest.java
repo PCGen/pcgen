@@ -109,7 +109,7 @@ public class FavoredClassTokenTest extends
 	@Test
 	public void testInvalidInputList() throws PersistenceLayerException
 	{
-		assertFalse(parse("ANY" + getJoinCharacter() + "%LIST"));
+		assertFalse(parse("HIGHESTLEVELCLASS" + getJoinCharacter() + "%LIST"));
 		assertNoSideEffects();
 	}
 
@@ -191,7 +191,7 @@ public class FavoredClassTokenTest extends
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse("ANY" + getJoinCharacter() + "TestWP1"));
+			assertFalse(parse("HIGHESTLEVELCLASS" + getJoinCharacter() + "TestWP1"));
 			assertNoSideEffects();
 		}
 	}
@@ -202,377 +202,26 @@ public class FavoredClassTokenTest extends
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse("TestWP1" + getJoinCharacter() + "ANY"));
+			assertFalse(parse("TestWP1" + getJoinCharacter() + "HIGHESTLEVELCLASS"));
 			assertNoSideEffects();
 		}
 	}
 
 	@Test
-	public void testInvalidInputChooseEmptyString()
-			throws PersistenceLayerException
+	public void testInvalidInputCheckType()
 	{
-		assertFalse(parse("CHOOSE:"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidInputChooseJoinOnly()
-			throws PersistenceLayerException
-	{
-		assertFalse(parse("CHOOSE:" + Character.toString(getJoinCharacter())));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidInputChooseString() throws PersistenceLayerException
-	{
-		assertTrue(parse("CHOOSE:String"));
-		assertFalse(primaryContext.ref.validate(null));
-	}
-
-	@Test
-	public void testInvalidInputChooseJoinedComma()
-			throws PersistenceLayerException
-	{
-		if (getJoinCharacter() != ',')
+		try
 		{
-			construct(primaryContext, "TestWP1");
-			construct(primaryContext, "TestWP2");
-			assertTrue(parse("CHOOSE:TestWP1,TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseJoinedPipe()
-			throws PersistenceLayerException
-	{
-		if (getJoinCharacter() != '|')
-		{
-			construct(primaryContext, "TestWP1");
-			construct(primaryContext, "TestWP2");
-			boolean parse = parse("CHOOSE:TestWP1|TestWP2");
-			if (parse)
+			boolean result = token.parse(primaryContext, primaryProf,
+					"TYPE=TestType");
+			if (result)
 			{
 				assertFalse(primaryContext.ref.validate(null));
 			}
-			else
-			{
-				assertNoSideEffects();
-			}
 		}
-	}
-
-	@Test
-	public void testInvalidInputChooseJoinedDot()
-			throws PersistenceLayerException
-	{
-		if (getJoinCharacter() != '.')
+		catch (IllegalArgumentException e)
 		{
-			construct(primaryContext, "TestWP1");
-			construct(primaryContext, "TestWP2");
-			assertTrue(parse("CHOOSE:TestWP1.TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseTypeEmpty()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("CHOOSE:TYPE="));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseTypeUnterminated()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("CHOOSE:TYPE=One."));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseClearDotTypeDoubleSeparator()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("CHOOSE:TYPE=One..Two"));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseClearDotTypeFalseStart()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("CHOOSE:TYPE=.One"));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseAll() throws PersistenceLayerException
-	{
-		if (!isAllLegal())
-		{
-			try
-			{
-				boolean parse = parse("CHOOSE:ALL");
-				if (parse)
-				{
-					// Only need to check if parsed as true
-					assertFalse(primaryContext.ref.validate(null));
-				}
-				else
-				{
-					assertNoSideEffects();
-				}
-			}
-			catch (IllegalArgumentException e)
-			{
-				// This is okay too
-				assertNoSideEffects();
-			}
-		}
-	}
-
-	// FIXME These are invalid due to RC being overly protective at the moment
-	// @Test
-	// public void testInvalidInputAny()
-	// {
-	// assertTrue(parse( "ANY"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// @Test
-	// public void testInvalidInputCheckType()
-	// {
-	// if (!isTypeLegal())
-	// {
-	// assertTrue(token.parse(primaryContext, primaryProf, "TYPE=TestType"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// }
-	//
-
-	@Test
-	public void testInvalidChooseListEnd() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse("CHOOSE:TestWP1" + getJoinCharacter()));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidChooseListStart() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse("CHOOSE:" + getJoinCharacter() + "TestWP1"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidChooseListDoubleJoin()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		assertFalse(parse("CHOOSE:TestWP2" + getJoinCharacter()
-				+ getJoinCharacter() + "TestWP1"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidInputChooseCheckMult()
-			throws PersistenceLayerException
-	{
-		// Explicitly do NOT build TestWP2
-		construct(primaryContext, "TestWP1");
-		assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(primaryContext.ref.validate(null));
-	}
-
-	@Test
-	public void testInvalidInputChooseCheckTypeEqualLength()
-			throws PersistenceLayerException
-	{
-		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
-		// consume the |
-		if (isTypeLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter()
-					+ "TYPE=TestType" + getJoinCharacter() + "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseCheckTypeDotLength()
-			throws PersistenceLayerException
-	{
-		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
-		// consume the |
-		if (isTypeLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter()
-					+ "TYPE.TestType.OtherTestType" + getJoinCharacter()
-					+ "TestWP2"));
-			assertFalse(primaryContext.ref.validate(null));
-		}
-	}
-
-	@Test
-	public void testRoundRobinChooseWithEqualType()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			construct(primaryContext, "TestWP2");
-			construct(secondaryContext, "TestWP1");
-			construct(secondaryContext, "TestWP2");
-			runRoundRobin("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"
-					+ getJoinCharacter() + "TYPE=OtherTestType"
-					+ getJoinCharacter() + "TYPE=TestType");
-		}
-	}
-
-	@Test
-	public void testRoundRobinChooseTestEquals()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			runRoundRobin("CHOOSE:TYPE=TestType");
-		}
-	}
-
-	@Test
-	public void testRoundRobinChooseTestEqualThree()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			runRoundRobin("CHOOSE:TYPE=TestAltType.TestThirdType.TestType");
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseAllItem()
-			throws PersistenceLayerException
-	{
-		if (isAllLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			assertFalse(parse("CHOOSE:ALL" + getJoinCharacter() + "TestWP1"));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseItemAll()
-			throws PersistenceLayerException
-	{
-		if (isAllLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			assertFalse(parse("CHOOSE:TestWP1" + getJoinCharacter() + "ALL"));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseAnyType()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal() && isAllLegal())
-		{
-			assertFalse(parse("CHOOSE:ALL" + getJoinCharacter()
-					+ "TYPE=TestType"));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidInputChooseTypeAny()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal() && isAllLegal())
-		{
-			assertFalse(parse("CHOOSE:TYPE=TestType" + getJoinCharacter()
-					+ "ALL"));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInputInvalidChooseAddsTypeNoSideEffect()
-			throws PersistenceLayerException
-	{
-		if (isTypeLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			construct(secondaryContext, "TestWP1");
-			construct(primaryContext, "TestWP2");
-			construct(secondaryContext, "TestWP2");
-			construct(primaryContext, "TestWP3");
-			construct(secondaryContext, "TestWP3");
-			assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertTrue(parseSecondary("CHOOSE:TestWP1" + getJoinCharacter()
-					+ "TestWP2"));
-			assertFalse(parse("CHOOSE:TestWP3" + getJoinCharacter() + "TYPE="));
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInputInvalidChooseAddsBasicNoSideEffect()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP2");
-		construct(primaryContext, "TestWP3");
-		construct(secondaryContext, "TestWP3");
-		construct(primaryContext, "TestWP4");
-		construct(secondaryContext, "TestWP4");
-		assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(parseSecondary("CHOOSE:TestWP1" + getJoinCharacter()
-				+ "TestWP2"));
-		assertFalse(parse("CHOOSE:TestWP3" + getJoinCharacter()
-				+ getJoinCharacter() + "TestWP4"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInputInvalidChooseAddsAllNoSideEffect()
-			throws PersistenceLayerException
-	{
-		if (isAllLegal())
-		{
-			construct(primaryContext, "TestWP1");
-			construct(secondaryContext, "TestWP1");
-			construct(primaryContext, "TestWP2");
-			construct(secondaryContext, "TestWP2");
-			construct(primaryContext, "TestWP3");
-			construct(secondaryContext, "TestWP3");
-			assertTrue(parse("CHOOSE:TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertTrue(parseSecondary("CHOOSE:TestWP1" + getJoinCharacter()
-					+ "TestWP2"));
-			assertFalse(parse("CHOOSE:TestWP3" + getJoinCharacter() + "ALL"));
-			assertNoSideEffects();
+			// This is okay too
 		}
 	}
 

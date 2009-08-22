@@ -60,13 +60,12 @@ public class ArmortypeTokenTest extends
 		assertNoSideEffects();
 	}
 
-	// TODO After format change
-	// @Test
-	// public void testInvalidInputNoResult() throws PersistenceLayerException
-	// {
-	// assertFalse(parse("Medium"));
-	// assertNoSideEffects();
-	// }
+	 @Test
+	public void testInvalidInputNoResult() throws PersistenceLayerException
+	{
+		assertFalse(parse("Medium"));
+		assertNoSideEffects();
+	}
 
 	@Test
 	public void testInvalidInputEmptyResult() throws PersistenceLayerException
@@ -94,12 +93,6 @@ public class ArmortypeTokenTest extends
 	{
 		assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
-	}
-
-	@Test
-	public void testRoundRobinLightRemoveOldSyntax() throws PersistenceLayerException
-	{
-		runRoundRobin("Light");
 	}
 
 	@Test

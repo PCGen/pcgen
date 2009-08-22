@@ -235,8 +235,6 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		assertFalse(primaryContext.ref.validate(null));
 	}
 
-	// TODO This really need to check the object is also not modified, not just
-	// that the graph is empty (same with other tests here)
 	@Test
 	public void testInvalidInputAnyItem() throws PersistenceLayerException
 	{

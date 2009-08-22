@@ -45,55 +45,54 @@ public abstract class AbstractCritRangeTokenTestCase extends
 		return loader;
 	}
 
-	//TODO CRITRANGE allows bad input in 5.14 :(
-//	@Test
-//	public void testInvalidStringInput() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("String"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidTypeInput() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("TYPE=TestType"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidDecimalInput() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("4.5"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidFractionInput() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("1/2"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidFunctionInput() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("1+3"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidNegativeInput() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("-1"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidEmptyInput() throws PersistenceLayerException
-//	{
-//		assertFalse(parse(""));
-//		assertNoSideEffects();
-//	}
+	@Test
+	public void testInvalidStringInput() throws PersistenceLayerException
+	{
+		assertFalse(parse("String"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTypeInput() throws PersistenceLayerException
+	{
+		assertFalse(parse("TYPE=TestType"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidDecimalInput() throws PersistenceLayerException
+	{
+		assertFalse(parse("4.5"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidFractionInput() throws PersistenceLayerException
+	{
+		assertFalse(parse("1/2"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidFunctionInput() throws PersistenceLayerException
+	{
+		assertFalse(parse("1+3"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNegativeInput() throws PersistenceLayerException
+	{
+		assertFalse(parse("-1"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidEmptyInput() throws PersistenceLayerException
+	{
+		assertFalse(parse(""));
+		assertNoSideEffects();
+	}
 
 	@Test
 	public void testRoundRobinZero() throws PersistenceLayerException

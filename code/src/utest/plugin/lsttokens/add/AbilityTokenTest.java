@@ -354,24 +354,6 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		}
 	}
 
-	// FIXME These are invalid due to RC being overly protective at the moment
-	// @Test
-	// public void testInvalidInputAny()
-	// {
-	// assertTrue(parse( "ANY"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// @Test
-	// public void testInvalidInputCheckType()
-	// {
-	// if (!isTypeLegal())
-	// {
-	// assertTrue(token.parse(primaryContext, primaryProf, "TYPE=TestType"));
-	// assertFalse(primaryContext.ref.validate());
-	// }
-	// }
-	//
-
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
@@ -582,8 +564,6 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		}
 	}
 
-	// TODO This really need to check the object is also not modified, not just
-	// that the graph is empty (same with other tests here)
 	@Test
 	public void testInvalidInputAnyItem() throws PersistenceLayerException
 	{
