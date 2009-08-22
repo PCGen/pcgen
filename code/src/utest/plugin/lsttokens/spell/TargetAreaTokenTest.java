@@ -77,11 +77,14 @@ public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
 	}
 
-	@Test
-	public void testUnparseBadParens() throws PersistenceLayerException
-	{
-		primaryProf.put(getStringKey(), "(first");
-		assertBadUnparse();
-	}
+	/*
+	 * TODO Need to figure out ownership of this responsibility
+	 */
+	// @Test
+	// public void testUnparseBadParens() throws PersistenceLayerException
+	// {
+	// primaryProf.addToListFor(getListKey(), "(first");
+	// assertBadUnparse();
+	//	}
 
 }

@@ -120,10 +120,13 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 				parse(")(fir(st)"));
 	}
 
-	@Test
-	public void testUnparseBadParens() throws PersistenceLayerException
-	{
-		primaryProf.addToListFor(getListKey(), "(first");
-		assertBadUnparse();
-	}
+	/*
+	 * TODO Need to figure out ownership of this responsibility
+	 */
+	// @Test
+	// public void testUnparseBadParens() throws PersistenceLayerException
+	// {
+	// primaryProf.addToListFor(getListKey(), "(first");
+	// assertBadUnparse();
+	//	}
 }
