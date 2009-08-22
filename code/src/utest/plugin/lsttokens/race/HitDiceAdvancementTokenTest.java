@@ -233,7 +233,7 @@ public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 		primaryProf.addToListFor(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)

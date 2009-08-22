@@ -369,7 +369,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 		primaryProf.addToListFor(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)

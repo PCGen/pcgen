@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.pcclass.level;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -28,6 +30,12 @@ public class SpecialtyKnownTokenTest extends AbstractSpellCastingTokenTestCase
 	public CDOMPrimaryToken<PCClassLevel> getToken()
 	{
 		return token;
+	}
+
+	@Override
+	protected ListKey<Formula> getListKey()
+	{
+		return ListKey.SPECIALTYKNOWN;
 	}
 
 }

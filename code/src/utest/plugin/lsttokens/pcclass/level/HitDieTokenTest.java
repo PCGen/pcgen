@@ -19,7 +19,10 @@ package plugin.lsttokens.pcclass.level;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.HitDie;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.modifier.HitDieLock;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -356,5 +359,35 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	protected String getLegalValue()
 	{
 		return "%Hup2";
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf1.put(ObjectKey.HITDIE, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf1));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf1.put(ObjectKey.HITDIE, new HitDieLock(new HitDie(1)));
+		expectSingle(getToken().unparse(primaryContext, primaryProf1), "1");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.HITDIE;
+		primaryProf1.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf1);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 }

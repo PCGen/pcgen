@@ -19,6 +19,9 @@ package plugin.lsttokens.pcclass.level;
 
 import org.junit.Test;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -155,4 +158,59 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	{
 		return "3,2,1";
 	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		primaryProf1.addToListFor(getListKey(), FormulaFactory.ONE);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf1);
+		expectSingle(unparsed, "1");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf1.addToListFor(getListKey(), null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf1);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		primaryProf1
+				.addToListFor(getListKey(), FormulaFactory.getFormulaFor(1));
+		primaryProf1
+				.addToListFor(getListKey(), FormulaFactory.getFormulaFor(2));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf1);
+		expectSingle(unparsed, "1,2");
+	}
+
+	/*
+	 * TODO Need to figure out responsibility for this behavior
+	 */
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// ListKey objectKey = getListKey();
+	// primaryProf.addToListFor(objectKey, new Object());
+	// try
+	// {
+	// getToken().unparse(primaryContext, primaryProf1);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// // Yep!
+	//		}
+	//	}
+
+	protected abstract ListKey<Formula> getListKey();
 }

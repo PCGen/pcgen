@@ -210,7 +210,7 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 		primaryProf.addToListFor(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)
