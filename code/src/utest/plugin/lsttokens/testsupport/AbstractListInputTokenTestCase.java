@@ -389,6 +389,10 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 			+ getJoinCharacter() + "TestWP3");
 	}
 
+	/*
+	 * TODO This needs to be tested for !allowDups to ensure it consolidates or
+	 * throws an error
+	 */
 	@Test
 	public void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
