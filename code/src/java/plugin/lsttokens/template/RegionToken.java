@@ -65,21 +65,21 @@ public class RegionToken extends AbstractToken implements
 				ObjectKey.USETEMPLATENAMEFORREGION);
 		Region region = context.getObjectContext().getObject(pct,
 				ObjectKey.REGION);
-		if (useName == null)
+		if (useName != null && useName)
 		{
-			if (region == null)
+			if (region != null)
 			{
-				// Okay, nothing set
-				return null;
+				context.addWriteMessage("Cannot have Template with "
+						+ getTokenName() + " YES and specific value");
 			}
-			return new String[] { region.toString() };
+			return new String[] { "YES" };
 		}
-		if (region != null)
+		if (region == null)
 		{
-			context.addWriteMessage("Cannot have Template with "
-					+ getTokenName() + " YES and specific value");
+			// Okay, nothing set
+			return null;
 		}
-		return new String[] { "YES" };
+		return new String[] { region.toString() };
 	}
 
 	public Class<PCTemplate> getTokenClass()

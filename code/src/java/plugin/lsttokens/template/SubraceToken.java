@@ -65,21 +65,21 @@ public class SubraceToken extends AbstractToken implements
 				ObjectKey.USETEMPLATENAMEFORSUBRACE);
 		SubRace subrace = context.getObjectContext().getObject(pct,
 				ObjectKey.SUBRACE);
-		if (useName == null)
+		if (useName != null && useName)
 		{
-			if (subrace == null)
+			if (subrace != null)
 			{
-				// Okay, nothing set
-				return null;
+				context.addWriteMessage("Cannot have Template with "
+						+ getTokenName() + " YES and specific value");
 			}
-			return new String[] { subrace.toString() };
+			return new String[] { "YES" };
 		}
-		if (subrace != null)
+		if (subrace == null)
 		{
-			context.addWriteMessage("Cannot have Template with "
-					+ getTokenName() + " YES and specific value");
+			// Okay, nothing set
+			return null;
 		}
-		return new String[] { "YES" };
+		return new String[] { subrace.toString() };
 	}
 
 	public Class<PCTemplate> getTokenClass()

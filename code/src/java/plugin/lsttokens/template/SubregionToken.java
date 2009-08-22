@@ -66,21 +66,21 @@ public class SubregionToken extends AbstractToken implements
 				ObjectKey.USETEMPLATENAMEFORSUBREGION);
 		SubRegion subregion = context.getObjectContext().getObject(pct,
 				ObjectKey.SUBREGION);
-		if (useName == null)
+		if (useName != null && useName)
 		{
-			if (subregion == null)
+			if (subregion != null)
 			{
-				// Okay, nothing set
-				return null;
+				context.addWriteMessage("Cannot have Template with "
+						+ getTokenName() + " YES and specific value");
 			}
-			return new String[] { subregion.toString() };
+			return new String[] { "YES" };
 		}
-		if (subregion != null)
+		if (subregion == null)
 		{
-			context.addWriteMessage("Cannot have Template with "
-					+ getTokenName() + " YES and specific value");
+			// Okay, nothing set
+			return null;
 		}
-		return new String[] { "YES" };
+		return new String[] { subregion.toString() };
 	}
 
 	public Class<PCTemplate> getTokenClass()
