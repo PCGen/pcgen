@@ -108,7 +108,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 
 	@Test
 	public void testValidInputNegativeNonEnglish()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		List<?> coll;
 		assertTrue(parse("[Niederösterreich]"));
@@ -142,7 +142,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	{
 		List<?> coll;
 		assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
-			+ "[Finger Lakes]"));
+				+ "[Finger Lakes]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
 		assertEquals(2, coll.size());
 		assertTrue(coll.contains(getConstant("Niederösterreich")));
@@ -151,13 +151,13 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 
 	@Test
 	public void testValidInputMultNegativeList()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		List<?> coll;
 		assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
-			+ "[Finger Lakes]"));
+				+ "[Finger Lakes]"));
 		assertTrue(parse("[Languedoc-Roussillon]" + getJoinCharacter()
-			+ "[Rheinhessen]"));
+				+ "[Rheinhessen]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
 		assertEquals(4, coll.size());
 		assertTrue(coll.contains(getConstant("Niederösterreich")));
@@ -242,12 +242,12 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 
 	@Test
 	public void testInvalidNegativeListDoubleJoin()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP2");
 		assertFalse(parse("[TestWP2]" + getJoinCharacter() + getJoinCharacter()
-			+ "[TestWP1]"));
+				+ "[TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -261,22 +261,22 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 
 	@Test
 	public void testRoundRobinNegativeWithSpace()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		secondaryContext.ref
-			.constructCDOMObject(getCDOMClass(), "Finger Lakes");
+				.constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		runRoundRobin("[Finger Lakes]");
 	}
 
 	@Test
 	public void testRoundRobinNegativeNonEnglishAndN()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Niederösterreich");
+				"Niederösterreich");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Niederösterreich");
+				"Niederösterreich");
 		runRoundRobin("[Niederösterreich]");
 	}
 
@@ -287,13 +287,13 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		secondaryContext.ref
-			.constructCDOMObject(getCDOMClass(), "Yarra Valley");
+				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		runRoundRobin("[Rheinhessen]" + getJoinCharacter() + "[Yarra Valley]"
-			+ getJoinCharacter() + "[Languedoc-Roussillon]");
+				+ getJoinCharacter() + "[Languedoc-Roussillon]");
 	}
 
 	@Test
@@ -303,18 +303,78 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		secondaryContext.ref
-			.constructCDOMObject(getCDOMClass(), "Yarra Valley");
+				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Languedoc-Roussillon");
+				"Languedoc-Roussillon");
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Yarra Valley"
-			+ getJoinCharacter() + "[Languedoc-Roussillon]");
+				+ getJoinCharacter() + "[Languedoc-Roussillon]");
 	}
 
 	@Override
 	protected boolean requiresPreconstruction()
 	{
 		return false;
+	}
+
+	@Test
+	public void testUnparseRemoveNull() throws PersistenceLayerException
+	{
+		getUnparseTarget().removeListFor(ListKey.PROHIBITED_ITEM);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingleRemove() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(ListKey.PROHIBITED_ITEM,
+				getConstant(getLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "[" + getLegalValue() + "]");
+	}
+
+	@Test
+	public void testUnparseNullInRemoveList() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(ListKey.PROHIBITED_ITEM, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultipleRemove() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(ListKey.PROHIBITED_ITEM,
+				getConstant(getLegalValue()));
+		getUnparseTarget().addToListFor(ListKey.PROHIBITED_ITEM,
+				getConstant(getAlternateLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "[" + getLegalValue() + "]" + getJoinCharacter()
+				+ "[" + getAlternateLegalValue() + "]");
+	}
+
+	@Test
+	public void testUnparseGenericsFailRemove()
+			throws PersistenceLayerException
+	{
+		ListKey objectKey = ListKey.PROHIBITED_ITEM;
+		primaryProf.addToListFor(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

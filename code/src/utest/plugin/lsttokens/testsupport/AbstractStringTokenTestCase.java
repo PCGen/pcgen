@@ -135,7 +135,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseNo() throws PersistenceLayerException
+	public void testUnparseLegal() throws PersistenceLayerException
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
@@ -155,7 +155,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	// public void testUnparseEmpty() throws PersistenceLayerException
 	// {
 	// primaryProf.put(getStringKey(), "");
-	// assertNull(getToken().unparse(primaryContext, primaryProf));
+	// assertBadUnparse();
 	// }
 
 	protected String[] setAndUnparse(String val)

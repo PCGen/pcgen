@@ -19,15 +19,18 @@ package plugin.lsttokens.subclass;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.enumeration.ProhibitedSpellType;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class ProhibitspellTokenTest extends AbstractTokenTestCase<SubClass>
+public class ChoiceTokenTest extends AbstractTokenTestCase<SubClass>
 {
 
 	static ChoiceToken token = new ChoiceToken();
@@ -138,6 +141,66 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<SubClass>
 	protected String getLegalValue()
 	{
 		return "SCHOOL|Evocation";
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<SpellProhibitor> getObjectKey()
+	{
+		return ObjectKey.CHOICE;
+	}
+
+	@Test
+	public void testUnparseLegalSchool() throws PersistenceLayerException
+	{
+		SpellProhibitor o = getConstant(ProhibitedSpellType.SCHOOL, "Public");
+		primaryProf.put(getObjectKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "SCHOOL|Public");
+	}
+
+	@Test
+	public void testUnparseLegalSubSchool() throws PersistenceLayerException
+	{
+		SpellProhibitor o = getConstant(ProhibitedSpellType.SUBSCHOOL, "Elementary");
+		primaryProf.put(getObjectKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "SUBSCHOOL|Elementary");
+	}
+
+	@Test
+	public void testUnparseLegalDescriptor() throws PersistenceLayerException
+	{
+		SpellProhibitor o = getConstant(ProhibitedSpellType.DESCRIPTOR, "Fire");
+		primaryProf.put(getObjectKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "DESCRIPTOR|Fire");
+	}
+
+	private SpellProhibitor getConstant(ProhibitedSpellType type, String args)
+	{
+		SpellProhibitor spellProb = new SpellProhibitor();
+		spellProb.setType(type);
+		spellProb.addValue(args);
+		return spellProb;
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 
 	@Override

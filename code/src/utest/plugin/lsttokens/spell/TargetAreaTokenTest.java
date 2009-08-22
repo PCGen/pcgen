@@ -76,4 +76,12 @@ public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
 		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
 	}
+
+	@Test
+	public void testUnparseBadParens() throws PersistenceLayerException
+	{
+		primaryProf.put(getStringKey(), "(first");
+		assertBadUnparse();
+	}
+
 }

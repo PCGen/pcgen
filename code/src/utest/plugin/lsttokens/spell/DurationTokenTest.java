@@ -100,4 +100,12 @@ public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
 		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
 	}
+
+	@Test
+	public void testUnparseBadParens() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(getListKey(), "(first");
+		assertBadUnparse();
+	}
+
 }

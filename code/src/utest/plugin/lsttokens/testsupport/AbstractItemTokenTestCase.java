@@ -213,7 +213,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		primaryProf.put(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)

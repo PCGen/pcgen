@@ -28,7 +28,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SubraceTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate, SubRace>
+public class SubraceTokenTest extends
+		AbstractTypeSafeTokenTestCase<PCTemplate, SubRace>
 {
 
 	static SubraceToken token = new SubraceToken();
@@ -88,33 +89,24 @@ public class SubraceTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate, 
 	{
 		runRoundRobin("YES");
 	}
-	
+
 	@Test
 	public void testReplacementYes() throws PersistenceLayerException
 	{
 		String[] unparsed;
-		if (requiresPreconstruction())
-		{
-			getConstant("TestWP1");
-		}
-		if (isClearLegal())
-		{
-			assertTrue(parse("YES"));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals(1, unparsed.length);
-			assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
-		}
+		getConstant("TestWP1");
+		assertTrue(parse("YES"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", "YES", unparsed[0]);
 		assertTrue(parse("TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
 		assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
-		if (isClearLegal())
-		{
-			assertTrue(parse("YES"));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals(1, unparsed.length);
-			assertEquals("Expected item to be equal", "YES", unparsed[0]);
-		}
+		assertTrue(parse("YES"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", "YES", unparsed[0]);
 	}
 
 	@Test
@@ -137,4 +129,32 @@ public class SubraceTokenTest extends AbstractTypeSafeTokenTestCase<PCTemplate, 
 				.getAnswer("YES"));
 	}
 
+	@Test
+	public void testUnparseYes() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
+	}
+
+	@Test
+	public void testUnparseIllegal() throws PersistenceLayerException
+	{
+		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		SubRace o = getConstant(getLegalValue());
+		primaryProf.put(getObjectKey(), o);
+		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
+		assertTrue(primaryContext.getWriteMessageCount() > 0);
+	}
+
+	@Test
+	public void testUnparseLegalWithFalse() throws PersistenceLayerException
+	{
+		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		SubRace o = getConstant(getLegalValue());
+		primaryProf.put(getObjectKey(), o);
+		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, false);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				getLegalValue());
+	}
 }

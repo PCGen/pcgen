@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.template;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
@@ -29,41 +29,17 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListKeyTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.pretokens.parser.PreClassParser;
-import plugin.pretokens.parser.PreRaceParser;
-import plugin.pretokens.writer.PreClassWriter;
-import plugin.pretokens.writer.PreRaceWriter;
 
 public class FeatTokenTest extends
-		AbstractListTokenTestCase<PCTemplate, Ability>
+		AbstractListKeyTokenTestCase<PCTemplate, Ability>
 {
 	static FeatToken token = new FeatToken();
 
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
 			PCTemplate.class);
-
-	PreClassParser preclass = new PreClassParser();
-
-	PreClassWriter preclasswriter = new PreClassWriter();
-
-	PreRaceParser prerace = new PreRaceParser();
-
-	PreRaceWriter preracewriter = new PreRaceWriter();
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(preclass);
-		TokenRegistration.register(preclasswriter);
-		TokenRegistration.register(prerace);
-		TokenRegistration.register(preracewriter);
-	}
 
 	@Override
 	public char getJoinCharacter()
@@ -175,97 +151,6 @@ public class FeatTokenTest extends
 		runRoundRobin("TestWP1 (Other)|TestWP1 (That)");
 	}
 
-	// @Test
-	// public void testInvalidInputEmbeddedPre() throws
-	// PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|TestWP2"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testInvalidInputDoublePipePre()
-	// throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// assertFalse(parse("TestWP1||PRECLASS:1,Fighter=1"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testInvalidInputPostPrePipe() throws
-	// PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|"));
-	// assertNoSideEffects();
-	// }
-	//
-	// @Test
-	// public void testRoundRobinPre() throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP1");
-	// runRoundRobin("TestWP1|PRECLASS:1,Fighter=1");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinTwoPre() throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP1");
-	// runRoundRobin("TestWP1|!PRERACE:1,Human|PRECLASS:1,Fighter=1");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinNotPre() throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP1");
-	// runRoundRobin("TestWP1|!PRECLASS:1,Fighter=1");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinWWoPre() throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(primaryContext, "TestWP2");
-	// construct(secondaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP2");
-	// runRoundRobin("TestWP1|PRECLASS:1,Fighter=1", "TestWP2");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinDupeOnePrereq() throws
-	// PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP1");
-	// runRoundRobin("TestWP1|TestWP1|PRERACE:1,Human");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinDupeDiffPrereqs()
-	// throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP1");
-	// runRoundRobin("TestWP1", "TestWP1|PRERACE:1,Human");
-	// }
-	//
-	// @Test
-	// public void testRoundRobinDupeTwoDiffPrereqs()
-	// throws PersistenceLayerException
-	// {
-	// construct(primaryContext, "TestWP1");
-	// construct(secondaryContext, "TestWP1");
-	// construct(primaryContext, "TestWP2");
-	// construct(secondaryContext, "TestWP2");
-	// runRoundRobin("TestWP1|TestWP1|PRERACE:1,Human",
-	// "TestWP2|TestWP2|PRERACE:1,Elf");
-	// }
-
 	@Override
 	public boolean allowDups()
 	{
@@ -277,4 +162,25 @@ public class FeatTokenTest extends
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Override
+	protected ListKey<CDOMReference<Ability>> getListKey()
+	{
+		return ListKey.FEAT_TOKEN_LIST;
+	}
+
+	@Override
+	protected CDOMGroupRef<Ability> getTypeReference()
+	{
+		return primaryContext.ref.getCDOMTypeReference(getTargetClass(),
+				AbilityCategory.FEAT, "Type1");
+	}
+
+	@Override
+	protected CDOMGroupRef<Ability> getAllReference()
+	{
+		return primaryContext.ref.getCDOMAllReference(getTargetClass(),
+				AbilityCategory.FEAT);
+	}
+
 }

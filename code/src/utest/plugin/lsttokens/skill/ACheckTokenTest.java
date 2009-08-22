@@ -155,6 +155,42 @@ public class ACheckTokenTest extends AbstractTokenTestCase<Skill>
 		return "WEIGHT";
 	}
 
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<SkillArmorCheck> getObjectKey()
+	{
+		return ObjectKey.ARMOR_CHECK;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), SkillArmorCheck.DOUBLE);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				SkillArmorCheck.DOUBLE.toString());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

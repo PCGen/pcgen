@@ -133,6 +133,9 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 		return primaryContext.ref.getCDOMAllReference(getTargetClass());
 	}
 
+	/*
+	 * TODO Need to figure out who owns this responsibility
+	 */
 	// @Test
 	// public void testUnparseGenericsFail() throws PersistenceLayerException
 	// {

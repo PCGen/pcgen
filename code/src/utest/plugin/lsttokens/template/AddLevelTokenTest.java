@@ -17,8 +17,15 @@
  */
 package plugin.lsttokens.template;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -82,7 +89,7 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputNegativeLevelCount()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fighter|-5"));
 		assertNoSideEffects();
@@ -90,7 +97,7 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputZeroLevelCount()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fighter|0"));
 		assertNoSideEffects();
@@ -141,6 +148,80 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 		return "Thief|4";
 	}
 
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(ListKey.ADD_LEVEL);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+				PCClass.class, "Fighter");
+		primaryProf.addToListFor(ListKey.ADD_LEVEL, new LevelCommandFactory(cl,
+				FormulaFactory.getFormulaFor(4)));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "Fighter|4");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.ADD_LEVEL, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Cleric");
+		CDOMSingleRef<PCClass> fi = primaryContext.ref.getCDOMReference(
+				PCClass.class, "Fighter");
+		primaryProf.addToListFor(ListKey.ADD_LEVEL, new LevelCommandFactory(fi,
+				FormulaFactory.getFormulaFor(2)));
+		CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+				PCClass.class, "Cleric");
+		primaryProf.addToListFor(ListKey.ADD_LEVEL, new LevelCommandFactory(cl,
+				FormulaFactory.getFormulaFor("Formula")));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertNotNull(unparsed);
+		assertEquals(2, unparsed.length);
+		List<String> upList = Arrays.asList(unparsed);
+		assertTrue(upList.contains("Fighter|2"));
+		assertTrue(upList.contains("Cleric|Formula"));
+	}
+
+	/*
+	 * TODO Need to define the appropriate behavior here - is this the token's
+	 * responsibility?
+	 */
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// ListKey objectKey = getListKey();
+	// primaryProf.addToListFor(objectKey, new Object());
+	// try
+	// {
+	// String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// //Yep!
+	// }
+	// }
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

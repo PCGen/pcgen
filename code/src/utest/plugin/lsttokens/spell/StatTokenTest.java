@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.core.spell.Spell;
@@ -38,13 +39,14 @@ public class StatTokenTest extends AbstractTokenTestCase<Spell>
 	static StatToken token = new StatToken();
 	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
 			Spell.class);
+	private PCStat ps;
 
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
+		ps = primaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
 		primaryContext.ref.registerAbbreviation(ps, "STR");
 		ps.put(StringKey.ABB, "STR");
 		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
@@ -120,6 +122,41 @@ public class StatTokenTest extends AbstractTokenTestCase<Spell>
 	protected String getLegalValue()
 	{
 		return "INT";
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<PCStat> getObjectKey()
+	{
+		return ObjectKey.SPELL_STAT;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), ps);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getAbb());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 
 	@Override

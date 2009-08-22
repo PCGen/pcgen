@@ -271,11 +271,12 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	{
 		if (isPositiveAllowed())
 		{
-			setAndUnparseMatch(1);
+			expectSingle(setAndUnparse(1), Integer.toString(1));
 		}
 		else
 		{
-			setAndUnparseFail(1);
+			primaryProf.put(getIntegerKey(), 1);
+			assertBadUnparse();
 		}
 	}
 
@@ -284,11 +285,12 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	{
 		if (isZeroAllowed())
 		{
-			setAndUnparseMatch(0);
+			expectSingle(setAndUnparse(0), Integer.toString(0));
 		}
 		else
 		{
-			setAndUnparseFail(0);
+			primaryProf.put(getIntegerKey(), 0);
+			assertBadUnparse();
 		}
 	}
 
@@ -297,11 +299,12 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	{
 		if (isNegativeAllowed())
 		{
-			setAndUnparseMatch(-3);
+			expectSingle(setAndUnparse(-3), Integer.toString(-3));
 		}
 		else
 		{
-			setAndUnparseFail(-3);
+			primaryProf.put(getIntegerKey(), -3);
+			assertBadUnparse();
 		}
 	}
 
@@ -312,20 +315,10 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private void setAndUnparseMatch(int val)
-	{
-		expectSingle(setAndUnparse(val), Integer.toString(val));
-	}
-
 	protected String[] setAndUnparse(int val)
 	{
 		primaryProf.put(getIntegerKey(), val);
 		return getToken().unparse(primaryContext, primaryProf);
-	}
-
-	private void setAndUnparseFail(int val)
-	{
-		assertNull(setAndUnparse(val));
 	}
 
 	@Override

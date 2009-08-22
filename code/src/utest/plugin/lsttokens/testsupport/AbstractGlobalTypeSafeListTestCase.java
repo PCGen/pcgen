@@ -25,15 +25,15 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
-public abstract class AbstractGlobalTypeSafeListTestCase extends
+public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		AbstractGlobalTokenTestCase
 {
 
-	public abstract Object getConstant(String string);
+	public abstract T getConstant(String string);
 
 	public abstract char getJoinCharacter();
 
-	public abstract ListKey<?> getListKey();
+	public abstract ListKey<T> getListKey();
 
 	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
@@ -348,6 +348,68 @@ public abstract class AbstractGlobalTypeSafeListTestCase extends
 	{
 		return "TestWP1";
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(getListKey());
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(getListKey(),
+				getConstant(getLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(getListKey(), null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(getListKey(),
+				getConstant(getLegalValue()));
+		primaryProf.addToListFor(getListKey(),
+				getConstant(getAlternateLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue() + getJoinCharacter()
+				+ getAlternateLegalValue());
+	}
+
+	/*
+	 * TODO Need to define the appropriate behavior here - is this the token's responsibility?
+	 */
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// ListKey objectKey = getListKey();
+	// primaryProf.addToListFor(objectKey, new Object());
+	// try
+	// {
+	// String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// //Yep!
+	//		}
+	//	}
 
 	@Override
 	protected ConsolidationRule getConsolidationRule()

@@ -17,18 +17,14 @@
  */
 package plugin.lsttokens.skill;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractYesNoTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class ExclusiveTokenTest extends AbstractTokenTestCase<Skill>
+public class ExclusiveTokenTest extends AbstractYesNoTokenTestCase<Skill>
 {
 
 	static ExclusiveToken token = new ExclusiveToken();
@@ -53,82 +49,10 @@ public class ExclusiveTokenTest extends AbstractTokenTestCase<Skill>
 		return token;
 	}
 
-	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
-	{
-		internalTestInvalidInputString(null);
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
-	{
-		assertTrue(parse("YES"));
-		assertTrue(parseSecondary("YES"));
-		assertEquals(Boolean.TRUE, primaryProf.get(ObjectKey.EXCLUSIVE));
-		internalTestInvalidInputString(Boolean.TRUE);
-		assertNoSideEffects();
-	}
-
-	public void internalTestInvalidInputString(Object val)
-		throws PersistenceLayerException
-	{
-		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertFalse(parse("Yo!"));
-		assertEquals(val, primaryProf.get(ObjectKey.EXCLUSIVE));
-	}
-
-	@Test
-	public void testValidInputs() throws PersistenceLayerException
-	{
-		assertTrue(parse("YES"));
-		assertEquals(Boolean.TRUE, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertTrue(parse("NO"));
-		assertEquals(Boolean.FALSE, primaryProf.get(ObjectKey.EXCLUSIVE));
-		// We're nice enough to be case insensitive here...
-		assertTrue(parse("YeS"));
-		assertEquals(Boolean.TRUE, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertTrue(parse("Yes"));
-		assertEquals(Boolean.TRUE, primaryProf.get(ObjectKey.EXCLUSIVE));
-		assertTrue(parse("No"));
-		assertEquals(Boolean.FALSE, primaryProf.get(ObjectKey.EXCLUSIVE));
-	}
-
-	@Test
-	public void testRoundRobinDisplay() throws PersistenceLayerException
-	{
-		runRoundRobin("YES");
-	}
-
-	@Test
-	public void testRoundRobinExport() throws PersistenceLayerException
-	{
-		runRoundRobin("NO");
-	}
-
 	@Override
-	protected String getAlternateLegalValue()
+	public ObjectKey<Boolean> getObjectKey()
 	{
-		return "YES";
+		return ObjectKey.EXCLUSIVE;
 	}
 
-	@Override
-	protected String getLegalValue()
-	{
-		return "NO";
-	}
-
-	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
-	}
 }

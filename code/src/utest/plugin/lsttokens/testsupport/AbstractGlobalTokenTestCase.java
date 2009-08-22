@@ -239,4 +239,11 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		assertEquals(1, unparsed.length);
 		assertEquals("Expected item to be equal", expected, unparsed[0]);
 	}
+
+	protected void assertBadUnparse()
+	{
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertTrue(primaryContext.getWriteMessageCount() > 0);
+	}
+
 }

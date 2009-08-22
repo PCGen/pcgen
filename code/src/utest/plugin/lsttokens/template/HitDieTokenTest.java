@@ -19,6 +19,9 @@ package plugin.lsttokens.template;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.HitDie;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.modifier.HitDieLock;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -518,6 +521,36 @@ public class HitDieTokenTest extends AbstractTokenTestCase<PCTemplate>
 	protected String getLegalValue()
 	{
 		return "%*2|CLASS.TYPE=Base";
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.HITDIE, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.HITDIE, new HitDieLock(new HitDie(1)));
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.HITDIE;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 
 	@Override

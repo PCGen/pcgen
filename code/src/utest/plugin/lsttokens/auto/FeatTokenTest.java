@@ -25,7 +25,6 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Equipment;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -43,7 +42,7 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
 public class FeatTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Equipment>
+		AbstractAddTokenTestCase<CDOMObject, Ability>
 {
 
 	PreClassParser preclass = new PreClassParser();
@@ -68,10 +67,11 @@ public class FeatTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	protected void construct(LoadContext loadContext, String one)
+	protected Ability construct(LoadContext loadContext, String one)
 	{
 		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
 		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		return obj;
 	}
 
 	@Override
@@ -105,9 +105,9 @@ public class FeatTokenTest extends
 	}
 
 	@Override
-	public Class<Equipment> getTargetClass()
+	public Class<Ability> getTargetClass()
 	{
-		return Equipment.class;
+		return Ability.class;
 	}
 
 	@Override

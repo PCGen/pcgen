@@ -64,7 +64,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	public void testInvalidInputs(BigDecimal val)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
@@ -190,50 +190,61 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 			return "-2.2";
 		}
 	}
-	
+
 	@Test
 	public void testArchitecturePositiveNegative()
 	{
-		assert(isPositiveAllowed() || isNegativeAllowed());
+		assert (isPositiveAllowed() || isNegativeAllowed());
 	}
-
 
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
+		BigDecimal val = new BigDecimal(4.5);
 		if (isPositiveAllowed())
 		{
-			setAndUnparseMatch(new BigDecimal(4.5));
+			primaryProf.put(getObjectKey(), val);
+			expectSingle(getToken().unparse(primaryContext, primaryProf), val
+					.toString());
 		}
 		else
 		{
-			setAndUnparseFail(new BigDecimal(4.5));
+			primaryProf.put(getObjectKey(), val);
+			assertBadUnparse();
 		}
 	}
 
 	@Test
 	public void testUnparseZero() throws PersistenceLayerException
 	{
+		BigDecimal val = new BigDecimal(0);
 		if (isZeroAllowed())
 		{
-			setAndUnparseMatch(new BigDecimal(0));
+			primaryProf.put(getObjectKey(), val);
+			expectSingle(getToken().unparse(primaryContext, primaryProf), val
+					.toString());
 		}
 		else
 		{
-			setAndUnparseFail(new BigDecimal(0));
+			primaryProf.put(getObjectKey(), val);
+			assertBadUnparse();
 		}
 	}
 
 	@Test
 	public void testUnparseNegative() throws PersistenceLayerException
 	{
+		BigDecimal val = new BigDecimal(-2);
 		if (isNegativeAllowed())
 		{
-			setAndUnparseMatch(new BigDecimal(-2));
+			primaryProf.put(getObjectKey(), val);
+			expectSingle(getToken().unparse(primaryContext, primaryProf), val
+					.toString());
 		}
 		else
 		{
-			setAndUnparseFail(new BigDecimal(-2));
+			primaryProf.put(getObjectKey(), val);
+			assertBadUnparse();
 		}
 	}
 
@@ -251,29 +262,13 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		primaryProf.put(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)
 		{
-			//Yep!
+			// Yep!
 		}
-	}
-
-	private void setAndUnparseMatch(BigDecimal val)
-	{
-		expectSingle(setAndUnparse(val), val.toString());
-	}
-
-	protected String[] setAndUnparse(BigDecimal val)
-	{
-		primaryProf.put(getObjectKey(), val);
-		return getToken().unparse(primaryContext, primaryProf);
-	}
-
-	private void setAndUnparseFail(BigDecimal val)
-	{
-		assertNull(setAndUnparse(val));
 	}
 
 	@Override

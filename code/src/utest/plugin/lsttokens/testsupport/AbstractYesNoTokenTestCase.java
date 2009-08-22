@@ -136,7 +136,7 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 		primaryProf.put(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)

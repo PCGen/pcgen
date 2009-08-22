@@ -94,28 +94,18 @@ public class SubregionTokenTest extends
 	public void testReplacementYes() throws PersistenceLayerException
 	{
 		String[] unparsed;
-		if (requiresPreconstruction())
-		{
-			getConstant("TestWP1");
-		}
-		if (isClearLegal())
-		{
-			assertTrue(parse("YES"));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals(1, unparsed.length);
-			assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
-		}
+		assertTrue(parse("YES"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", "YES", unparsed[0]);
 		assertTrue(parse("TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
 		assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
-		if (isClearLegal())
-		{
-			assertTrue(parse("YES"));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals(1, unparsed.length);
-			assertEquals("Expected item to be equal", "YES", unparsed[0]);
-		}
+		assertTrue(parse("YES"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertEquals(1, unparsed.length);
+		assertEquals("Expected item to be equal", "YES", unparsed[0]);
 	}
 
 	@Test
@@ -137,4 +127,33 @@ public class SubregionTokenTest extends
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer("YES"));
 	}
+
+	@Test
+	public void testUnparseYes() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
+	}
+
+	@Test
+	public void testUnparseIllegal() throws PersistenceLayerException
+	{
+		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		SubRegion o = getConstant(getLegalValue());
+		primaryProf.put(getObjectKey(), o);
+		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
+		assertTrue(primaryContext.getWriteMessageCount() > 0);
+	}
+
+	@Test
+	public void testUnparseLegalWithFalse() throws PersistenceLayerException
+	{
+		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		SubRegion o = getConstant(getLegalValue());
+		primaryProf.put(getObjectKey(), o);
+		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, false);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), getLegalValue());
+	}
+
 }

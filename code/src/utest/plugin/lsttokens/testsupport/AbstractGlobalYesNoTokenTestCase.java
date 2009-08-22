@@ -135,7 +135,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 		primaryProf.put(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)

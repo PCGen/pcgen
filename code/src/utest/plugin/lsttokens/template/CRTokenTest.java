@@ -17,17 +17,17 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
+import java.math.BigDecimal;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractBigDecimalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class CRTokenTest extends AbstractTokenTestCase<PCTemplate>
+public class CRTokenTest extends AbstractBigDecimalTokenTestCase<PCTemplate>
 {
 
 	static CrToken token = new CrToken();
@@ -52,38 +52,6 @@ public class CRTokenTest extends AbstractTokenTestCase<PCTemplate>
 		return token;
 	}
 
-	@Test
-	public void testBadInputNonNumber() throws PersistenceLayerException
-	{
-		try
-		{
-			assertFalse(parse("x"));
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testRoundRobinFive() throws PersistenceLayerException
-	{
-		runRoundRobin("5");
-	}
-
-	@Test
-	public void testRoundRobinZero() throws PersistenceLayerException
-	{
-		runRoundRobin("0");
-	}
-
-	@Test
-	public void testRoundRobinNegative() throws PersistenceLayerException
-	{
-		runRoundRobin("-3.5");
-	}
-
 	@Override
 	protected String getAlternateLegalValue()
 	{
@@ -100,5 +68,29 @@ public class CRTokenTest extends AbstractTokenTestCase<PCTemplate>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	public ObjectKey<BigDecimal> getObjectKey()
+	{
+		return ObjectKey.CR_MODIFIER;
+	}
+
+	@Override
+	public boolean isNegativeAllowed()
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isPositiveAllowed()
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isZeroAllowed()
+	{
+		return true;
 	}
 }

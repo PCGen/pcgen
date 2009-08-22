@@ -130,6 +130,37 @@ public class GenderLockTokenTest extends AbstractTokenTestCase<PCTemplate>
 		return "Female";
 	}
 
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.GENDER_LOCK, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.GENDER_LOCK, Gender.Male);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "Male");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.GENDER_LOCK;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{

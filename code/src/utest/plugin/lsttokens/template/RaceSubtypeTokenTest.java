@@ -86,7 +86,7 @@ public class RaceSubtypeTokenTest extends
 
 	@Test
 	public void testValidRemoveInputNonEnglish()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Niederösterreich"));
@@ -120,7 +120,7 @@ public class RaceSubtypeTokenTest extends
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
-			+ ".REMOVE.Finger Lakes"));
+				+ ".REMOVE.Finger Lakes"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
 		assertEquals(2, coll.size());
 		assertTrue(coll.contains(getConstant("Niederösterreich")));
@@ -132,9 +132,9 @@ public class RaceSubtypeTokenTest extends
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
-			+ ".REMOVE.Finger Lakes"));
+				+ ".REMOVE.Finger Lakes"));
 		assertTrue(parse(".REMOVE.Languedoc-Roussillon" + getJoinCharacter()
-			+ ".REMOVE.Rheinhessen"));
+				+ ".REMOVE.Rheinhessen"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
 		assertEquals(4, coll.size());
 		assertTrue(coll.contains(getConstant("Niederösterreich")));
@@ -169,12 +169,12 @@ public class RaceSubtypeTokenTest extends
 
 	@Test
 	public void testInvalidRemoveListDoubleJoin()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(PCTemplate.class, "TestWP1");
 		primaryContext.ref.constructCDOMObject(PCTemplate.class, "TestWP2");
 		assertFalse(parse(".REMOVE.TestWP2" + getJoinCharacter()
-			+ getJoinCharacter() + ".REMOVE.TestWP1"));
+				+ getJoinCharacter() + ".REMOVE.TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -186,14 +186,14 @@ public class RaceSubtypeTokenTest extends
 
 	@Test
 	public void testRemoveRoundRobinWithSpace()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Finger Lakes");
 	}
 
 	@Test
 	public void testRemoveRoundRobinNonEnglish()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Niederösterreich");
 	}
@@ -208,21 +208,21 @@ public class RaceSubtypeTokenTest extends
 	public void testRemoveRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.TestWP1" + getJoinCharacter()
-			+ ".REMOVE.TestWP2" + getJoinCharacter() + ".REMOVE.TestWP3");
+				+ ".REMOVE.TestWP2" + getJoinCharacter() + ".REMOVE.TestWP3");
 	}
 
 	@Test
 	public void testMixRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.TestWP3" + getJoinCharacter() + "TestWP1"
-			+ getJoinCharacter() + "TestWP2");
+				+ getJoinCharacter() + "TestWP2");
 	}
 
 	@Test
 	public void testMixRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Finger Lakes" + getJoinCharacter()
-			+ "Languedoc-Roussillon");
+				+ "Languedoc-Roussillon");
 	}
 
 	@Override
@@ -243,7 +243,6 @@ public class RaceSubtypeTokenTest extends
 		return false;
 	}
 
-
 	@Test
 	public void testOverwriteRemove() throws PersistenceLayerException
 	{
@@ -262,5 +261,53 @@ public class RaceSubtypeTokenTest extends
 		parse(".REMOVE.TestWP2");
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer(".REMOVE.TestWP2|TestWP1"));
+	}
+
+	@Test
+	public void testUnparseRemoveSingle() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE,
+				getConstant(getLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, ".REMOVE." + getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNullInRemoveList() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseRemoveMultiple() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE,
+				getConstant(getLegalValue()));
+		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE,
+				getConstant(getAlternateLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, ".REMOVE." + getLegalValue()
+				+ getJoinCharacter() + ".REMOVE." + getAlternateLegalValue());
+	}
+
+	@Test
+	public void testUnparseMixedMultiple() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(),
+				getConstant(getLegalValue()));
+		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE,
+				getConstant(getAlternateLegalValue()));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, ".REMOVE." + getAlternateLegalValue()
+				+ getJoinCharacter() + getLegalValue());
 	}
 }

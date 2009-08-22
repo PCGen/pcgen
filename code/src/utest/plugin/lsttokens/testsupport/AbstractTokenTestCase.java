@@ -276,4 +276,10 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		assertEquals("Expected item to be equal", expected, unparsed[0]);
 	}
 
+	protected void assertBadUnparse()
+	{
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertTrue(primaryContext.getWriteMessageCount() > 0);
+	}
+
 }

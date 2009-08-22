@@ -19,7 +19,10 @@ package plugin.lsttokens.template;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.SubClass;
@@ -123,8 +126,8 @@ public class FavoredClassTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.ref.constructCDOMObject(
-				SubClass.class, "Two");
+		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
 		primaryContext.ref.reassociateCategory(cat, obj);
 		assertFalse(primaryContext.ref.validate(null));
@@ -135,8 +138,8 @@ public class FavoredClassTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.ref.constructCDOMObject(
-				SubClass.class, "Two");
+		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
 		primaryContext.ref.reassociateCategory(cat, obj);
 		obj = primaryContext.ref.constructCDOMObject(SubClass.class, "Two");
@@ -154,12 +157,11 @@ public class FavoredClassTokenTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		SubClass obj = primaryContext.ref.constructCDOMObject(
-				SubClass.class, "Sub");
+		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+				"Sub");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
 		primaryContext.ref.reassociateCategory(cat, obj);
-		obj = secondaryContext.ref.constructCDOMObject(SubClass.class,
-				"Sub");
+		obj = secondaryContext.ref.constructCDOMObject(SubClass.class, "Sub");
 		secondaryContext.ref.reassociateCategory(cat, obj);
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2.Sub"
 				+ getJoinCharacter() + "TestWP3");
@@ -252,4 +254,192 @@ public class FavoredClassTokenTest extends
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer("HIGHESTLEVELCLASS"));
 	}
+
+	@Test
+	public void testUnparseHighest() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				"HIGHESTLEVELCLASS");
+	}
+
+	@Test
+	public void testUnparseHighestUnset() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, false);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseHighestNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseGenericsFailHighest()
+			throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.ANY_FAVORED_CLASS;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(ListKey.FAVORED_CLASS);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		PCClass wp1 = construct(primaryContext, "TestWP1");
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
+				.getRef(wp1));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		PCClass wp1 = construct(primaryContext, getLegalValue());
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
+				.getRef(wp1));
+		PCClass wp2 = construct(primaryContext, getAlternateLegalValue());
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
+				.getRef(wp2));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue() + getJoinCharacter()
+				+ getAlternateLegalValue());
+	}
+
+	@Test
+	public void testUnparseMultipleHighest() throws PersistenceLayerException
+	{
+		PCClass wp1 = construct(primaryContext, getLegalValue());
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
+				.getRef(wp1));
+		PCClass wp2 = construct(primaryContext, getAlternateLegalValue());
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
+				.getRef(wp2));
+		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "HIGHESTLEVELCLASS" + getJoinCharacter()
+				+ getLegalValue() + getJoinCharacter()
+				+ getAlternateLegalValue());
+	}
+
+	/*
+	 * TODO Need to define the appropriate behavior here (LIST) - is this the token's
+	 * responsibility?
+	 */
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// ListKey objectKey = getListKey();
+	// primaryProf.addToListFor(objectKey, new Object());
+	// try
+	// {
+	// String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// //Yep!
+	// }
+	// }
+
+	@Test
+	public void testUnparseNullCA() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(ListKey.CHOOSE_ACTOR);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseCA() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, token);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "%LIST");
+	}
+
+	@Test
+	public void testUnparseNullInCAList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultipleAll() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, token);
+		PCClass wp1 = construct(primaryContext, getLegalValue());
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
+				.getRef(wp1));
+		PCClass wp2 = construct(primaryContext, getAlternateLegalValue());
+		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
+				.getRef(wp2));
+		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "%LIST" + getJoinCharacter()
+				+ "HIGHESTLEVELCLASS" + getJoinCharacter() + getLegalValue()
+				+ getJoinCharacter() + getAlternateLegalValue());
+	}
+
+	/*
+	 * TODO Need to define the appropriate behavior here (CA) - is this the token's
+	 * responsibility?
+	 */
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// ListKey objectKey = getListKey();
+	// primaryProf.addToListFor(objectKey, new Object());
+	// try
+	// {
+	// String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// //Yep!
+	// }
+	// }
 }
