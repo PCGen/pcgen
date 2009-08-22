@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.list.WeaponProfList;
 import pcgen.core.PCClass;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
@@ -46,13 +45,6 @@ public class WeaponbonusIntegrationTest extends
 	{
 		super.setUp();
 		prefix = "CLASS:";
-		/*
-		 * FIXME This construction of *Starting should be unnecessary
-		 */
-		primaryContext.ref.constructCDOMObject(WeaponProfList.class,
-				"*Starting");
-		secondaryContext.ref.constructCDOMObject(WeaponProfList.class,
-				"*Starting");
 	}
 
 	@Override

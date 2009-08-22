@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.list.LanguageList;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -46,12 +45,6 @@ public class LangbonusIntegrationTest extends
 	{
 		super.setUp();
 		prefix = "CLASS:";
-		/*
-		 * FIXME This construction of *Starting should be unnecessary
-		 */
-		primaryContext.ref.constructCDOMObject(LanguageList.class, "*Starting");
-		secondaryContext.ref.constructCDOMObject(LanguageList.class,
-				"*Starting");
 	}
 
 	@Override

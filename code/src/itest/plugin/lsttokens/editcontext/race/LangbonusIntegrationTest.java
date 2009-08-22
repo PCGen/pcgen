@@ -17,15 +17,10 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.list.LanguageList;
 import pcgen.core.Language;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
@@ -38,19 +33,6 @@ public class LangbonusIntegrationTest extends
 
 	static LangbonusToken token = new LangbonusToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		/*
-		 * FIXME This construction of *Starting should be unnecessary
-		 */
-		primaryContext.ref.constructCDOMObject(LanguageList.class, "*Starting");
-		secondaryContext.ref.constructCDOMObject(LanguageList.class,
-				"*Starting");
-	}
 
 	@Override
 	public Class<Race> getCDOMClass()

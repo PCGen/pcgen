@@ -17,15 +17,10 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.list.WeaponProfList;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
@@ -38,20 +33,6 @@ public class WeaponbonusIntegrationTest extends
 
 	static WeaponbonusToken token = new WeaponbonusToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		/*
-		 * FIXME This construction of *Starting should be unnecessary
-		 */
-		primaryContext.ref.constructCDOMObject(WeaponProfList.class,
-				"*Starting");
-		secondaryContext.ref.constructCDOMObject(WeaponProfList.class,
-				"*Starting");
-	}
 
 	@Override
 	public Class<Race> getCDOMClass()
