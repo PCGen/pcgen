@@ -49,22 +49,27 @@ public class ExclusiveToken extends AbstractToken implements
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+				Logging.errorPrint("You should use 'YES' as the "
+						+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = true;
+			set = Boolean.TRUE;
 		}
 		else
 		{
-			if (firstChar != 'N' && firstChar != 'n'
-					&& !value.equalsIgnoreCase("NO"))
+			if (firstChar != 'N' && firstChar != 'n')
 			{
 				Logging.errorPrint("You should use 'YES' or 'NO' as the "
-						+ getTokenName());
+						+ getTokenName() + ": " + value);
 				return false;
 			}
-			set = false;
+			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName() + ": " + value);
+				return false;
+			}
+			set = Boolean.FALSE;
 		}
 		context.getObjectContext().put(skill, ObjectKey.EXCLUSIVE, set);
 		return true;
