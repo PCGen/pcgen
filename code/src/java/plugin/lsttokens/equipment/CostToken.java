@@ -62,10 +62,8 @@ public class CostToken extends AbstractToken implements
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.deprecationPrint(getTokenName() + " expected a number: "
-					+ value + ", assuming zero");
-			context.getObjectContext().put(eq, ObjectKey.COST, BigDecimal.ZERO);
-			return true;
+			Logging.errorPrint(getTokenName() + " expected a number: " + value);
+			return false;
 		}
 	}
 

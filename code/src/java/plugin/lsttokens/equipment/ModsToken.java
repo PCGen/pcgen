@@ -51,31 +51,9 @@ public class ModsToken extends AbstractToken implements
 		}
 		catch (IllegalArgumentException iae)
 		{
-			Logging.deprecationPrint("Invalid Mod Control provided in "
+			Logging.errorPrint("Invalid Mod Control provided in "
 					+ getTokenName() + ": " + value);
-			switch (value.charAt(0))
-			{
-			case 'R':
-			case 'r':
-				Logging.deprecationPrint("Use REQUIRED instead of " + value);
-				ctrl = EqModControl.REQUIRED;
-				break;
-
-			case 'Y':
-			case 'y':
-				Logging.deprecationPrint("Use YES instead of " + value);
-				ctrl = EqModControl.YES;
-				break;
-
-			case 'N':
-			case 'n':
-				Logging.deprecationPrint("Use NO instead of " + value);
-				ctrl = EqModControl.NO;
-				break;
-
-			default:
-				return false;
-			}
+			return false;
 		}
 		context.getObjectContext().put(eq, ObjectKey.MOD_CONTROL, ctrl);
 		return true;

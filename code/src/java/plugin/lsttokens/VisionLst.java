@@ -119,14 +119,6 @@ public class VisionLst extends AbstractToken implements
 			}
 			else
 			{
-				if (visionString.startsWith(".SET."))
-				{
-					Logging.deprecationPrint(".SET. in " + getTokenName()
-							+ " has been deprecated, please use .CLEAR|x");
-					context.getListContext().removeAllFromList(getTokenName(),
-							obj, Vision.VISIONLIST);
-					visionString = visionString.substring(5);
-				}
 				try
 				{
 					Vision vision = Vision.getVision(visionString);

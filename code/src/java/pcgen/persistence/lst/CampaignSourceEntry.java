@@ -430,10 +430,10 @@ public class CampaignSourceEntry implements SourceEntry
 			else
 			{
 				Logging
-					.deprecationPrint("Found Suffix in Campaign Source without parenthesis: "
-						+ "Parens required around INCLUDE/EXCLUDE");
-				Logging.deprecationPrint("Found: '" + inExString + "' in "
-					+ value);
+						.errorPrint("Found Suffix in Campaign Source without parenthesis: "
+								+ "Parens required around INCLUDE/EXCLUDE");
+				Logging.errorPrint("Found: '" + inExString + "' in " + value);
+				return null;
 			}
 
 			// Check for surrounding parens
@@ -442,10 +442,11 @@ public class CampaignSourceEntry implements SourceEntry
 				// assume matching parens
 				inExString = inExString.substring(1, inExString.length() - 1);
 				Logging
-					.deprecationPrint("Found Suffix in Campaign Source with multiple parenthesis: "
-						+ "Single set of parens required around INCLUDE/EXCLUDE");
-				Logging.deprecationPrint("Found: '" + value.substring(pipePos + 1) + "' in "
-					+ value);
+						.errorPrint("Found Suffix in Campaign Source with multiple parenthesis: "
+								+ "Single set of parens required around INCLUDE/EXCLUDE");
+				Logging.errorPrint("Found: '" + value.substring(pipePos + 1)
+						+ "' in " + value);
+				return null;
 			}
 
 			// Update the include or exclude items list, as appropriate

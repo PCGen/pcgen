@@ -336,12 +336,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		while (colToken.hasMoreTokens())
 		{
 			String token = colToken.nextToken().trim();
-			if (token.startsWith("CHECK"))
-			{
-				Logging.deprecationPrint("Class " + pcClass.getDisplayName()
-						+ " has token " + token + " which is ignored");
-				continue;
-			}
 			int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{

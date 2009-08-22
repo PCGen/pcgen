@@ -51,17 +51,10 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.deprecationPrint(getTokenName() + " expected "
-					+ "an integer.  " + "Tag should be of the form: "
+			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+					+ " expected an integer. " + "Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			Logging.deprecationPrint("   ...Assuming Zero");
-			context.getObjectContext().put(eq.getEquipmentHead(2),
-					IntegerKey.CRIT_RANGE, 0);
-			return true;
-			// Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-			// + " expected an integer. " + "Tag must be of the form: "
-			// + getTokenName() + ":<int>");
-			// return false;
+			return false;
 		}
 	}
 

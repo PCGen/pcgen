@@ -28,13 +28,8 @@
  */
 package plugin.pretokens.parser;
 
-import java.util.Iterator;
-
-import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -45,38 +40,6 @@ public class PreShieldProfParser extends AbstractPrerequisiteListParser
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{"SHIELDPROF", "PROFWITHSHIELD"};
+		return new String[]{"PROFWITHSHIELD"};
 	}
-	
-	
-	@Override
-	public Prerequisite parse(String kind, String formula,
-			boolean invertResult, boolean overrideQualify)
-			throws PersistenceLayerException
-	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult,
-				overrideQualify);
-		if (kind.equalsIgnoreCase("shieldprof"))
-		{
-			Logging.deprecationPrint("PRESHIELDPROF has been deprecated, "
-					+ "please use PREPROFWITHSHIELD");
-		}
-		replaceKind(prereq);
-		return prereq;
-	}
-
-	private void replaceKind(Prerequisite prereq)
-	{
-		if ("shieldprof".equalsIgnoreCase(prereq.getKind()))
-		{
-			prereq.setKind("profwithshield");
-		}
-		for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter
-				.hasNext();)
-		{
-			Prerequisite subprereq = iter.next();
-			replaceKind(subprereq);
-		}
-	}
-	
 }

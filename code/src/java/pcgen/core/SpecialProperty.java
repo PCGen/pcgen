@@ -69,6 +69,8 @@ public final class SpecialProperty extends TextProperty
 
 		StringBuilder sb = new StringBuilder();
 		sb.append(spName);
+		boolean hitPre = false;
+		boolean warnedPre = false;
 		while (tok.hasMoreTokens())
 		{
 			final String cString = tok.nextToken();
@@ -76,6 +78,7 @@ public final class SpecialProperty extends TextProperty
 			// Check to see if it's a PRExxx: tag
 			if (PreParserFactory.isPreReqString(cString))
 			{
+				hitPre = true;
 				try
 				{
 					final PreParserFactory factory = PreParserFactory.getInstance();
@@ -90,6 +93,13 @@ public final class SpecialProperty extends TextProperty
 			}
 			else
 			{
+				if (hitPre && !warnedPre)
+				{
+					warnedPre = true;
+					Logging.deprecationPrint("Found PRExxx in middle of"
+							+ "SPROP value: " + input);
+					Logging.deprecationPrint("PRExxx should be at the end");
+				}
 				sb.append(Constants.PIPE);
 				sb.append(cString);
 			}

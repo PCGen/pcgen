@@ -49,16 +49,10 @@ public class AccheckToken implements CDOMPrimaryToken<Equipment>
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.deprecationPrint(getTokenName()
-					+ " expected an integer.  Found: " + value
-					+ "  Assuming zero.  Tag should be of the form: "
+			Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " expected an integer. Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			context.getObjectContext().put(eq, IntegerKey.AC_CHECK, 0);
-			return true;
-			// Logging.log(Logging.LST_ERROR, getTokenName()
-			// + " expected an integer. Tag must be of the form: "
-			// + getTokenName() + ":<int>");
-			// return false;
+			return false;
 		}
 	}
 

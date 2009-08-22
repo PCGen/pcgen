@@ -54,9 +54,9 @@ public class ArmortypeToken extends AbstractToken implements
 		ChangeArmorType cat;
 		if (pipeLoc == -1)
 		{
-			Logging.deprecationPrint(getTokenName()
+			Logging.errorPrint(getTokenName()
 					+ " has no PIPE character: Must be of the form old|new");
-			cat = new ChangeArmorType(value, null);
+			return false;
 		}
 		else if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{

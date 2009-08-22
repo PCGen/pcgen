@@ -71,11 +71,11 @@ public class ChangeArmorType implements Modifier<String>
 			throw new IllegalArgumentException(
 					"Source Type for ChangeArmorType cannot be null");
 		}
-		// if (resultType == null)
-		// {
-		// throw new IllegalArgumentException(
-		// "Resulting Type for ChangeArmorType cannot be null");
-		// }
+		if (resultType == null)
+		{
+			throw new IllegalArgumentException(
+					"Resulting Type for ChangeArmorType cannot be null");
+		}
 		result = resultType;
 		source = sourceType;
 	}

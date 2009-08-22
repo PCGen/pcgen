@@ -85,20 +85,11 @@ public class FavoredclassToken extends AbstractToken implements
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
-			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token)
-					|| Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
+			if (Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
 				context.getObjectContext().put(cdo,
 						ObjectKey.ANY_FAVORED_CLASS, true);
-				if (Constants.LST_ALL.equalsIgnoreCase(token)
-						|| Constants.LST_ANY.equalsIgnoreCase(token))
-				{
-					Logging.deprecationPrint("Use of " + getTokenName() + ":"
-							+ token + " is deprecated. " + "Please use "
-							+ getTokenName() + ":HIGHESTLEVELCLASS");
-				}
 			}
 			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
 			{

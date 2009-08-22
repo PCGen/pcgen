@@ -17,9 +17,7 @@
  */
 package plugin.lsttokens.race;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -28,13 +26,8 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.choiceset.ClassReferenceChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -76,107 +69,25 @@ public class FavclassToken extends AbstractToken implements
 		context.getObjectContext().remove(race, ObjectKey.ANY_FAVORED_CLASS);
 		context.getObjectContext().removeList(race, ListKey.FAVORED_CLASS);
 		context.getObjectContext().removeFromList(race, ListKey.CHOOSE_ACTOR, this);
-		context.getObjectContext().remove(race, ObjectKey.FAVCLASS_CHOICE);
 
-		if (value.startsWith(Constants.LST_CHOOSE))
-		{
-			return parseFavoredChoose(context, race, value.substring(7));
-		}
-		return parseFavoredClass(context, race, value);
-	}
-
-	private boolean parseFavoredChoose(LoadContext context, Race race,
-			String value)
-	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-
-		List<CDOMReference<? extends PCClass>> refList = new ArrayList<CDOMReference<? extends PCClass>>();
-		while (tok.hasMoreTokens())
-		{
-			CDOMReference<? extends PCClass> ref;
-			String token = tok.nextToken();
-			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
-			{
-				ref = context.ref.getCDOMAllReference(PCCLASS_CLASS);
-			}
-			else
-			{
-				int dotLoc = token.indexOf('.');
-				if (dotLoc == -1)
-				{
-					// Primitive
-					ref = context.ref.getCDOMReference(PCCLASS_CLASS, token);
-				}
-				else
-				{
-					// SubClass
-					String parent = token.substring(0, dotLoc);
-					String subclass = token.substring(dotLoc + 1);
-					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.ref.getCDOMReference(SUBCLASS_CLASS, scc,
-							subclass);
-				}
-			}
-			refList.add(ref);
-		}
-		PrimitiveChoiceSet<PCClass> rcs = new ClassReferenceChoiceSet(refList);
-		if (!rcs.getGroupingState().isValid())
-		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
-			return false;
-		}
-		ChoiceSet<? extends PCClass> cs = new ChoiceSet<PCClass>(
-				getTokenName(), rcs);
-		cs.setTitle("Select favored class");
-		TransitionChoice<PCClass> tc = new TransitionChoice<PCClass>(cs,
-				FormulaFactory.ONE);
-		context.getObjectContext().put(race, ObjectKey.FAVCLASS_CHOICE, tc);
-		tc.setRequired(true);
-
-		Logging
-				.deprecationPrint("Use of FAVCLASS:CHOOSE is deprecated. "
-						+ "Please use FAVCLASS:%LIST with a CHOOSE:CLASS insetad of FAVCLASS:CHOOSE|"
-						+ value);
-
-		return true;
-	}
-
-	public boolean parseFavoredClass(LoadContext context, CDOMObject cdo,
-			String value)
-	{
 		boolean foundAny = false;
 		boolean foundOther = false;
-
+		
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-
+		
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
-			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token)
-					|| Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
+			if (Constants.HIGHESTLEVELCLASS.equalsIgnoreCase(token))
 			{
 				foundAny = true;
-				context.getObjectContext().put(cdo,
+				context.getObjectContext().put(race,
 						ObjectKey.ANY_FAVORED_CLASS, true);
-				if (Constants.LST_ALL.equalsIgnoreCase(token)
-						|| Constants.LST_ANY.equalsIgnoreCase(token))
-				{
-					Logging.deprecationPrint("Use of FAVCLASS:" + token
-							+ " is deprecated. "
-							+ "Please use FAVCLASS:HIGHESTLEVELCLASS");
-				}
 			}
 			else if (Constants.LST_PRECENTLIST.equalsIgnoreCase(token))
 			{
 				foundOther = true;
-				context.getObjectContext().addToList(cdo, ListKey.CHOOSE_ACTOR,
+				context.getObjectContext().addToList(race, ListKey.CHOOSE_ACTOR,
 						this);
 			}
 			else
@@ -202,7 +113,7 @@ public class FavclassToken extends AbstractToken implements
 					ref = context.ref.getCDOMReference(SUBCLASS_CLASS, scc,
 							subclass);
 				}
-				context.getObjectContext().addToList(cdo,
+				context.getObjectContext().addToList(race,
 						ListKey.FAVORED_CLASS, ref);
 			}
 		}

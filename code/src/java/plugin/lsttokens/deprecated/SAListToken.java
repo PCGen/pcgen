@@ -43,36 +43,6 @@ public class SAListToken implements CDOMSecondaryToken<CDOMObject>
 		Logging.deprecationPrint("CHOOSE:SALIST has been deprecated.  "
 				+ "If you are looking for a replacement function, "
 				+ "please contact the PCGen team for support");
-		if (value.indexOf('|') != -1)
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not contain | : " + value);
-			return false;
-		}
-		if (value.indexOf('[') != -1)
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
-			return false;
-		}
-		if (value.charAt(0) == ',')
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not start with , : " + value);
-			return false;
-		}
-		if (value.charAt(value.length() - 1) == ',')
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments may not end with , : " + value);
-			return false;
-		}
-		if (value.indexOf(",,") != -1)
-		{
-			Logging.log(Logging.LST_ERROR, "CHOOSE:" + getTokenName()
-					+ " arguments uses double separator ,, : " + value);
-			return false;
-		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
 		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
