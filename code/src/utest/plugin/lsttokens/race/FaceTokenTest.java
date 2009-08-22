@@ -249,4 +249,99 @@ public class FaceTokenTest extends AbstractTokenTestCase<Race>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseWidthNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.FACE_WIDTH, null);
+		primaryProf.put(ObjectKey.FACE_HEIGHT, new BigDecimal(10));
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseHeightNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.FACE_WIDTH, new BigDecimal(10));
+		primaryProf.put(ObjectKey.FACE_HEIGHT, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseNormal() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(10, 5), "10,5");
+	}
+
+	@Test
+	public void testUnparseSquare() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(5, 5), "5,5");
+	}
+
+	@Test
+	public void testUnparseZeroWidth() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(0, 5), "0,5");
+	}
+
+	@Test
+	public void testUnparseZeroHeight() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(5, 0), "5");
+	}
+
+	@Test
+	public void testUnparseNegativeWidth() throws PersistenceLayerException
+	{
+		assertNull(setAndUnparse(-5, 10));
+	}
+
+	@Test
+	public void testUnparseNegativeHeight() throws PersistenceLayerException
+	{
+		assertNull(setAndUnparse(5, -10));
+	}
+
+	protected String[] setAndUnparse(double width, double height)
+	{
+		primaryProf.put(ObjectKey.FACE_WIDTH, new BigDecimal(width));
+		primaryProf.put(ObjectKey.FACE_HEIGHT, new BigDecimal(height));
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+
+	@Test
+	public void testUnparseGenericsFailWidth() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.FACE_WIDTH;
+		primaryProf.put(ObjectKey.FACE_HEIGHT, new BigDecimal(10));
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
+
+	@Test
+	public void testUnparseGenericsFailHeight() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.FACE_WIDTH, new BigDecimal(10));
+		ObjectKey objectKey = ObjectKey.FACE_HEIGHT;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
 }

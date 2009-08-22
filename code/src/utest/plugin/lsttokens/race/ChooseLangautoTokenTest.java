@@ -17,11 +17,19 @@
  */
 package plugin.lsttokens.race;
 
+import java.util.Collections;
+
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Language;
 import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -103,6 +111,109 @@ public class ChooseLangautoTokenTest extends
 	public boolean allowsFormula()
 	{
 		return false;
+	}
+
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		Language wp1 = construct(primaryContext, "TestWP1");
+		PersistentTransitionChoice<Language> tc = buildChoice(CDOMDirectSingleRef
+				.getRef(wp1));
+		tc.setChoiceActor(subtoken);
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "LANGAUTO|TestWP1");
+	}
+
+	@Test
+	public void testUnparseBadCount() throws PersistenceLayerException
+	{
+		Language wp1 = construct(primaryContext, "TestWP1");
+		ReferenceChoiceSet<Language> rcs = new ReferenceChoiceSet<Language>(
+				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
+		ChoiceSet<Language> cs = new ChoiceSet<Language>(getSubTokenName(), rcs);
+		cs.setTitle("Pick a Language");
+		PersistentTransitionChoice<Language> tc1 = new PersistentTransitionChoice<Language>(
+				cs, null);
+		tc1.setChoiceActor(subtoken);
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc1);
+		assertBadUnparse();
+	}
+
+	/*
+	 * TODO Need to figure out who's responsibility this is!
+	 */
+	// @Test
+	// public void testUnparseBadList() throws PersistenceLayerException
+	// {
+	// Language wp1 = construct(primaryContext, "TestWP1");
+	// ReferenceChoiceSet<Language> rcs = buildRCS(CDOMDirectSingleRef
+	// .getRef(wp1), primaryContext.ref
+	// .getCDOMAllReference(getTargetClass()));
+	// assertFalse(rcs.getGroupingState().isValid());
+	// PersistentTransitionChoice<Language> tc = buildTC(rcs);
+	// tc.setChoiceActor(subtoken);
+	// primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc);
+	// assertBadUnparse();
+	// }
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		Language wp1 = construct(primaryContext, "TestWP1");
+		Language wp2 = construct(primaryContext, "TestWP2");
+		PersistentTransitionChoice<Language> tc = buildChoice(
+				CDOMDirectSingleRef.getRef(wp1), CDOMDirectSingleRef
+						.getRef(wp2));
+		tc.setChoiceActor(subtoken);
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "LANGAUTO|TestWP1" + getJoinCharacter()
+				+ "TestWP2");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		Language wp1 = construct(primaryContext, "TestWP1");
+		ReferenceChoiceSet<Language> rcs = buildRCS(CDOMDirectSingleRef
+				.getRef(wp1), null);
+		PersistentTransitionChoice<Language> tc = buildTC(rcs);
+		tc.setChoiceActor(subtoken);
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.CHOOSE_LANGAUTO;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 
 	@Override

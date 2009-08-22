@@ -22,6 +22,9 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Race;
@@ -29,7 +32,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListKeyTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -38,7 +41,7 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
-public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
+public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 {
 	static FeatToken token = new FeatToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
@@ -205,5 +208,25 @@ public class FeatTokenTest extends AbstractListTokenTestCase<Race, Ability>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	protected ListKey<CDOMReference<Ability>> getListKey()
+	{
+		return ListKey.FEAT_TOKEN_LIST;
+	}
+
+	@Override
+	protected CDOMGroupRef<Ability> getTypeReference()
+	{
+		return primaryContext.ref.getCDOMTypeReference(getTargetClass(),
+				AbilityCategory.FEAT, "Type1");
+	}
+
+	@Override
+	protected CDOMGroupRef<Ability> getAllReference()
+	{
+		return primaryContext.ref.getCDOMAllReference(getTargetClass(),
+				AbilityCategory.FEAT);
 	}
 }

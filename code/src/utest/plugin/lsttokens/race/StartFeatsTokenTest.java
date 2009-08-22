@@ -22,8 +22,13 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.Feat;
@@ -79,19 +84,19 @@ public class StartFeatsTokenTest extends AbstractTokenTestCase<Race>
 
 	// TODO Probably want to implement these? But needs deprecation warning
 	// before these can be turned on
-//	@Test
-//	public void testInvalidZero() throws PersistenceLayerException
-//	{
-//		assertFalse(token.parse(primaryContext, primaryProf, "0"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidNegative() throws PersistenceLayerException
-//	{
-//		assertFalse(token.parse(primaryContext, primaryProf, "-5"));
-//		assertNoSideEffects();
-//	}
+	// @Test
+	// public void testInvalidZero() throws PersistenceLayerException
+	// {
+	// assertFalse(token.parse(primaryContext, primaryProf, "0"));
+	// assertNoSideEffects();
+	// }
+	//
+	// @Test
+	// public void testInvalidNegative() throws PersistenceLayerException
+	// {
+	// assertFalse(token.parse(primaryContext, primaryProf, "-5"));
+	// assertNoSideEffects();
+	// }
 
 	@Test
 	public void testInvalidEquation() throws PersistenceLayerException
@@ -148,5 +153,60 @@ public class StartFeatsTokenTest extends AbstractTokenTestCase<Race>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(1), Integer.toString(1));
+	}
+
+	// TODO Probably want to implement these? But needs deprecation warning
+	// before these can be turned on
+	// @Test
+	// public void testUnparseZero() throws PersistenceLayerException
+	// {
+	// primaryProf.addToListFor(ListKey.BONUS, getBonus(0));
+	// assertNull(getToken().unparse(primaryContext, primaryProf));
+	// }
+	//
+	// @Test
+	// public void testUnparseNegative() throws PersistenceLayerException
+	// {
+	// primaryProf.addToListFor(ListKey.BONUS, getBonus(-3));
+	// assertNull(getToken().unparse(primaryContext, primaryProf));
+	// }
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.BONUS, null);
+		try
+		{
+			assertNull(getToken().unparse(primaryContext, primaryProf));
+		}
+		catch (NullPointerException e)
+		{
+			//This is okay too
+		}
+	}
+
+	protected String[] setAndUnparse(int val) throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.BONUS, getBonus(val));
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+	private BonusObj getBonus(int bonusValue) throws PersistenceLayerException
+	{
+		BonusObj bon = Bonus.newBonus("FEAT|POOL|" + bonusValue);
+		assertNotNull(bon);
+		PreParserFactory prereqParser = PreParserFactory.getInstance();
+		Prerequisite prereq = prereqParser
+				.parse("PREMULT:1,[PREHD:MIN=1],[PRELEVEL:MIN=1]");
+		assertNotNull(prereq);
+		bon.addPrerequisite(prereq);
+		bon.setTokenSource(token.getTokenName());
+		return bon;
 	}
 }

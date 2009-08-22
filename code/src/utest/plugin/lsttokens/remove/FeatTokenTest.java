@@ -17,11 +17,25 @@
  */
 package plugin.lsttokens.remove;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.AbilityRef;
+import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -177,4 +191,152 @@ public class FeatTokenTest extends
 		assertNoSideEffects();
 	}
 
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private AbilityRefChoiceSet build(String... names)
+	{
+		List<AbilityRef> list = new ArrayList<AbilityRef>();
+		for (String name : names)
+		{
+			Ability ab = construct(primaryContext, name);
+			AbilityRef ar = new AbilityRef(CDOMDirectSingleRef.getRef(ab));
+			if (name.indexOf('(') != -1)
+			{
+				List<String> choices = new ArrayList<String>();
+				AbilityUtilities.getUndecoratedName(name, choices);
+				assertEquals("Can't proceed if not true", 1, choices.size());
+				ar.setChoice(choices.get(0));
+			}
+			list.add(ar);
+		}
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
+				list, Nature.NORMAL);
+		return rcs;
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		AbilityRefChoiceSet arcs = build("TestWP1");
+		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+				getSubTokenName(), arcs, true);
+		cs.setTitle("Select for removal");
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, FormulaFactory.ONE);
+		tc.setChoiceActor(subtoken);
+		primaryProf.addToListFor(ListKey.REMOVE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "FEAT|TestWP1");
+	}
+
+	@Test
+	public void testUnparseBadCount() throws PersistenceLayerException
+	{
+		AbilityRefChoiceSet arcs = build("TestWP1");
+		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+				getSubTokenName(), arcs, true);
+		cs.setTitle("Select for removal");
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, null);
+		tc.setChoiceActor(subtoken);
+		primaryProf.addToListFor(ListKey.REMOVE, tc);
+		assertBadUnparse();
+	}
+
+	/*
+	 * TODO Need to figure out who's responsibility this is!
+	 */
+	// @Test
+	// public void testUnparseBadList() throws PersistenceLayerException
+	// {
+	// Language wp1 = construct(primaryContext, "TestWP1");
+	// ReferenceChoiceSet<Language> rcs = buildRCS(CDOMDirectSingleRef
+	// .getRef(wp1), primaryContext.ref
+	// .getCDOMAllReference(getTargetClass()));
+	// assertFalse(rcs.getGroupingState().isValid());
+	// PersistentTransitionChoice<Language> tc = buildTC(rcs);
+	// tc.setChoiceActor(subtoken);
+	// primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc);
+	// assertBadUnparse();
+	// }
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		AbilityRefChoiceSet arcs = build("TestWP1", "TestWP2");
+		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+				getSubTokenName(), arcs, true);
+		cs.setTitle("Select for removal");
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, FormulaFactory.ONE);
+		tc.setChoiceActor(subtoken);
+		primaryProf.addToListFor(ListKey.REMOVE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "FEAT|TestWP1" + getJoinCharacter() + "TestWP2");
+	}
+
+	@Test
+	public void testUnparseMultipleParen() throws PersistenceLayerException
+	{
+		AbilityRefChoiceSet arcs = build("TestWP1 (Foo)", "TestWP2 (Bar)");
+		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+				getSubTokenName(), arcs, true);
+		cs.setTitle("Select for removal");
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, FormulaFactory.ONE);
+		tc.setChoiceActor(subtoken);
+		primaryProf.addToListFor(ListKey.REMOVE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "FEAT|TestWP1 (Foo)" + getJoinCharacter() + "TestWP2 (Bar)");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		List<AbilityRef> list = new ArrayList<AbilityRef>();
+		Ability ab = construct(primaryContext, "TestWP1");
+		AbilityRef ar = new AbilityRef(CDOMDirectSingleRef.getRef(ab));
+		list.add(ar);
+		list.add(null);
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
+				list, Nature.NORMAL);
+		AbilityRefChoiceSet arcs = rcs;
+		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+				getSubTokenName(), arcs, true);
+		cs.setTitle("Select for removal");
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, FormulaFactory.ONE);
+		tc.setChoiceActor(subtoken);
+		primaryProf.addToListFor(ListKey.REMOVE, tc);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey listKey = ListKey.REMOVE;
+		primaryProf.addToListFor(listKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
 }

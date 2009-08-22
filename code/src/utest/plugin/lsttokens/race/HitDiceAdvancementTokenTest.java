@@ -19,6 +19,8 @@ package plugin.lsttokens.race;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -162,5 +164,81 @@ public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	protected CDOMObject getUnparseTarget()
+	{
+		return primaryProf;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		getUnparseTarget().removeListFor(getListKey());
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ListKey<Integer> getListKey()
+	{
+		return ListKey.HITDICE_ADVANCEMENT;
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(), 1);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "1");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(), null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(), 1);
+		getUnparseTarget().addToListFor(getListKey(), 2);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "1,2");
+	}
+
+
+	@Test
+	public void testUnparseMultipleStar() throws PersistenceLayerException
+	{
+		getUnparseTarget().addToListFor(getListKey(), 1);
+		getUnparseTarget().addToListFor(getListKey(), 2);
+		getUnparseTarget().addToListFor(getListKey(), Integer.MAX_VALUE);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "1,2,*");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey objectKey = getListKey();
+		primaryProf.addToListFor(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

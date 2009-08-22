@@ -19,6 +19,8 @@ package plugin.lsttokens.race;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -141,5 +143,44 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		ChallengeRating cr = new ChallengeRating("1");
+		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
+	}
+
+	@Test
+	public void testUnparseFraction() throws PersistenceLayerException
+	{
+		ChallengeRating cr = new ChallengeRating("1/2");
+		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "1/2");
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.CHALLENGE_RATING, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.CHALLENGE_RATING;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

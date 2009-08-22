@@ -23,6 +23,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
@@ -37,6 +39,7 @@ public class SizeTokenTest extends AbstractTokenTestCase<Race>
 
 	static SizeToken token = new SizeToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	private SizeAdjustment ps;
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -61,8 +64,8 @@ public class SizeTokenTest extends AbstractTokenTestCase<Race>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		SizeAdjustment ps = primaryContext.ref.constructCDOMObject(
-				SizeAdjustment.class, "Small");
+		ps = primaryContext.ref.constructCDOMObject(SizeAdjustment.class,
+				"Small");
 		primaryContext.ref.registerAbbreviation(ps, "S");
 		SizeAdjustment pm = primaryContext.ref.constructCDOMObject(
 				SizeAdjustment.class, "Medium");
@@ -118,4 +121,31 @@ public class SizeTokenTest extends AbstractTokenTestCase<Race>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(FormulaKey.SIZE, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		FixedSizeFormula fsf = new FixedSizeFormula(ps);
+		primaryProf.put(FormulaKey.SIZE, fsf);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), ps
+				.getAbbreviation());
+	}
+
+	/*
+	 * TODO Need to have this as someone's responsibility to check...
+	 */
+	// @Test
+	// public void testUnparseIllegal() throws PersistenceLayerException
+	// {
+	// Formula f = FormulaFactory.getFormulaFor(1);
+	// primaryProf.put(FormulaKey.SIZE, f);
+	// assertBadUnparse();
+	// }
 }

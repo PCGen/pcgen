@@ -203,28 +203,26 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 		assertTrue(upList.contains("Cleric|Formula"));
 	}
 
-	/*
-	 * TODO Need to define the appropriate behavior here - is this the token's
-	 * responsibility?
-	 */
-	// @Test
-	// public void testUnparseGenericsFail() throws PersistenceLayerException
-	// {
-	// ListKey objectKey = getListKey();
-	// primaryProf.addToListFor(objectKey, new Object());
-	// try
-	// {
-	// String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-	// fail();
-	// }
-	// catch (ClassCastException e)
-	// {
-	// //Yep!
-	// }
-	// }
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey objectKey = ListKey.ADD_LEVEL;
+		primaryProf.addToListFor(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
 	}
+
 }

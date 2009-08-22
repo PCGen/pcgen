@@ -19,6 +19,10 @@ package plugin.lsttokens.race;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
@@ -32,8 +36,7 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 {
 
 	static MonsterclassToken token = new MonsterclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(
-			Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -119,5 +122,40 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.MONSTER_CLASS, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+				PCClass.class, "Fighter");
+		primaryProf.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(cl,
+				FormulaFactory.getFormulaFor(4)));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "Fighter:4");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.MONSTER_CLASS;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }
