@@ -19,6 +19,10 @@ package plugin.lsttokens.pcclass;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.KnownSpellIdentifier;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -122,41 +126,36 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testInvalidInputLevelNaN() throws PersistenceLayerException
 	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("LEVEL=One"));
-			assertNoSideEffects();
-		}
+		assertFalse(parse("LEVEL=One"));
+		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLevelDouble() throws PersistenceLayerException
 	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("LEVEL=1.0"));
-			assertNoSideEffects();
-		}
+		assertFalse(parse("LEVEL=1.0"));
+		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputStart() throws PersistenceLayerException
 	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse(",LEVEL=2"));
-			assertNoSideEffects();
-		}
+		assertFalse(parse(",LEVEL=2"));
+		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEnd() throws PersistenceLayerException
 	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("LEVEL=2,"));
-			assertNoSideEffects();
-		}
+		assertFalse(parse("LEVEL=2,"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("LEVEL=-2"));
+		assertNoSideEffects();
 	}
 
 	@Test
@@ -172,11 +171,8 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testInvalidInputTwoLevel() throws PersistenceLayerException
 	{
-		if (isTypeLegal())
-		{
-			assertFalse(parse("LEVEL=1,LEVEL=2"));
-			assertNoSideEffects();
-		}
+		assertFalse(parse("LEVEL=1,LEVEL=2"));
+		assertNoSideEffects();
 	}
 
 	@Test
@@ -217,7 +213,7 @@ public class KnownspellsTokenTest extends
 
 	@Test
 	public void testRoundRobinTestEqualThreeLevel()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		if (isTypeLegal())
 		{
@@ -247,5 +243,102 @@ public class KnownspellsTokenTest extends
 	public boolean allowDups()
 	{
 		return false;
+	}
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		Spell fireball = primaryContext.ref.constructCDOMObject(Spell.class,
+				"Fireball");
+		CDOMDirectSingleRef<Spell> ref = CDOMDirectSingleRef.getRef(fireball);
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+				new KnownSpellIdentifier(ref, null));
+		String[] a = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(a, "Fireball");
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		Spell fireball = primaryContext.ref.constructCDOMObject(Spell.class,
+				"Fireball");
+		Spell bolt = primaryContext.ref.constructCDOMObject(Spell.class,
+				"Lightning Bolt");
+		CDOMDirectSingleRef<Spell> ref = CDOMDirectSingleRef.getRef(fireball);
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+				new KnownSpellIdentifier(ref, null));
+		CDOMDirectSingleRef<Spell> ref2 = CDOMDirectSingleRef.getRef(bolt);
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+				new KnownSpellIdentifier(ref2, null));
+		String[] a = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(a, "Fireball" + getJoinCharacter() + "Lightning Bolt");
+	}
+
+	@Test
+	public void testUnparseLevel() throws PersistenceLayerException
+	{
+		CDOMGroupRef<Spell> all = primaryContext.ref
+				.getCDOMAllReference(Spell.class);
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+				new KnownSpellIdentifier(all, 4));
+		String[] sap = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(sap, "LEVEL=4");
+	}
+
+	@Test
+	public void testUnparseNegativeLevel() throws PersistenceLayerException
+	{
+		try
+		{
+			CDOMGroupRef<Spell> all = primaryContext.ref
+					.getCDOMAllReference(Spell.class);
+			primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+					new KnownSpellIdentifier(all, -3));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseTypeLevel() throws PersistenceLayerException
+	{
+		CDOMGroupRef<Spell> cool = primaryContext.ref.getCDOMTypeReference(
+				Spell.class, "Cool");
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+				new KnownSpellIdentifier(cool, 4));
+		String[] sap = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(sap, "TYPE=Cool,LEVEL=4");
+	}
+
+	@Test
+	public void testUnparseMultTypeLevel() throws PersistenceLayerException
+	{
+		CDOMGroupRef<Spell> cool = primaryContext.ref.getCDOMTypeReference(
+				Spell.class, "Cool");
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+				new KnownSpellIdentifier(cool, 4));
+		CDOMGroupRef<Spell> awesome = primaryContext.ref.getCDOMTypeReference(
+				Spell.class, "Awesome");
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
+				new KnownSpellIdentifier(awesome, 7));
+		String[] sap = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(sap, "TYPE=Awesome,LEVEL=7|TYPE=Cool,LEVEL=4");
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.KNOWN_SPELLS, null);
+		try
+		{
+			assertNull(getToken().unparse(primaryContext, primaryProf));
+		}
+		catch (NullPointerException e)
+		{
+			// This is okay too
+		}
 	}
 }

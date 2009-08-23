@@ -143,6 +143,27 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 		expectSingle(unparsed, "Fighter:4");
 	}
 
+	/*
+	 * TODO Need to get responsibility set for this
+	 */
+	// @Test
+	// public void testUnparseNegativeLevel() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+	// CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+	// PCClass.class, "Fighter");
+	// primaryProf.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(cl,
+	// FormulaFactory.getFormulaFor(-4)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	//		}
+	//	}
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -38,22 +39,26 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	static SpellstatToken token = new SpellstatToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
 			PCClass.class);
+	private PCStat ps;
 
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
+		ps = primaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
 		primaryContext.ref.registerAbbreviation(ps, "STR");
 		ps.put(StringKey.ABB, "STR");
-		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
+		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class,
+				"Strength");
 		secondaryContext.ref.registerAbbreviation(ss, "STR");
 		ss.put(StringKey.ABB, "STR");
-		PCStat pi = primaryContext.ref.constructCDOMObject(PCStat.class, "Intelligence");
+		PCStat pi = primaryContext.ref.constructCDOMObject(PCStat.class,
+				"Intelligence");
 		primaryContext.ref.registerAbbreviation(pi, "INT");
 		pi.put(StringKey.ABB, "INT");
-		PCStat si = secondaryContext.ref.constructCDOMObject(PCStat.class, "Intelligence");
+		PCStat si = secondaryContext.ref.constructCDOMObject(PCStat.class,
+				"Intelligence");
 		secondaryContext.ref.registerAbbreviation(si, "INT");
 		si.put(StringKey.ABB, "INT");
 	}
@@ -151,6 +156,16 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	}
 
 	@Test
+	public void testOverwriteStrOther() throws PersistenceLayerException
+	{
+		parse("STR");
+		validateUnparsed(primaryContext, primaryProf, "STR");
+		parse("OTHER");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("STR", "OTHER"));
+	}
+
+	@Test
 	public void testOverwriteSpellOther() throws PersistenceLayerException
 	{
 		parse("SPELL");
@@ -180,4 +195,146 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 				.getAnswer("OTHER", "STR"));
 	}
 
+	@Test
+	public void testOverwriteOtherSpell() throws PersistenceLayerException
+	{
+		parse("OTHER");
+		validateUnparsed(primaryContext, primaryProf, "OTHER");
+		parse("SPELL");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("OTHER", "SPELL"));
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<PCStat> getObjectKey()
+	{
+		return ObjectKey.SPELL_STAT;
+	}
+
+	@Test
+	public void testUnparseGenericsFailHas() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.USE_SPELL_SPELL_STAT;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseSpell() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "SPELL");
+	}
+
+	/*
+	 * TODO Is unparse priority based, or are there a set of legal items (forces
+	 * parse to change as well due to mod behavior)
+	 */
+	// @Test
+	// public void testUnparseIllegalMixTrue() throws PersistenceLayerException
+	// {
+	// primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, true);
+	// primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, true);
+	// assertBadUnparse();
+	// }
+	//
+	// @Test
+	// public void testUnparseIllegalMixTruePlus() throws
+	// PersistenceLayerException
+	// {
+	// primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, true);
+	// primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, true);
+	// primaryProf.put(getObjectKey(), ps);
+	// assertBadUnparse();
+	// }
+	//
+	// @Test
+	// public void testUnparseIllegalMixFalse() throws PersistenceLayerException
+	// {
+	// primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, true);
+	// primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
+	// primaryProf.put(getObjectKey(), ps);
+	// assertBadUnparse();
+	// }
+	
+	@Test
+	public void testUnparseGenericsFailCaster()
+			throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
+		ObjectKey objectKey = ObjectKey.CASTER_WITHOUT_SPELL_STAT;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseIncompleteSpell() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseOther() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
+		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "OTHER");
+	}
+
+	@Test
+	public void testUnparseIncompleteOther() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
+		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
+		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
+		primaryProf.put(getObjectKey(), ps);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), ps
+				.getAbb());
+	}
+
+	@Test
+	public void testUnparseGenericsFailStat() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
 }

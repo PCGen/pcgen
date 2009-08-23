@@ -167,6 +167,28 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 		expectSingle(unparsed, "Fighter|4");
 	}
 
+	/*
+	 * TODO Need to set responsibility for this
+	 */
+	// @Test
+	// public void testUnparseNegativeLevel() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+	// CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+	// PCClass.class, "Fighter");
+	// primaryProf.addToListFor(ListKey.ADD_LEVEL,
+	// new LevelCommandFactory(cl, FormulaFactory
+	// .getFormulaFor(-4)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	//		}
+	//	}
+
 	@Test
 	public void testUnparseNullInList() throws PersistenceLayerException
 	{

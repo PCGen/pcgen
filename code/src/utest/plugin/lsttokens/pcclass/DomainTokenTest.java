@@ -22,9 +22,15 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
+import pcgen.core.QualifiedObject;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
@@ -185,4 +191,85 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 	{
 		return false;
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(ListKey.DOMAIN);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		Domain wp1 = construct(primaryContext, "TestWP1");
+		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue());
+	}
+
+	private QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
+	{
+		return new QualifiedObject<CDOMSingleRef<Domain>>(CDOMDirectSingleRef
+				.getRef(wp1));
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.DOMAIN, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		Domain wp1 = construct(primaryContext, getLegalValue());
+		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
+		Domain wp2 = construct(primaryContext, getAlternateLegalValue());
+		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp2));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue() + getJoinCharacter()
+				+ getAlternateLegalValue());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey objectKey = ListKey.DOMAIN;
+		primaryProf.addToListFor(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+	
+	@Test
+	public void testUnparseSinglePre() throws PersistenceLayerException
+	{
+		Domain wp1 = construct(primaryContext, "TestWP1");
+		CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef.getRef(wp1);
+		PreParserFactory prereqParser = PreParserFactory.getInstance();
+		Prerequisite prereq = prereqParser.parse("PRERACE:1,Dwarf");
+		assertNotNull(prereq);
+		QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
+				ref, prereq);
+		primaryProf.addToListFor(ListKey.DOMAIN, qo);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue() + "[PRERACE:1,Dwarf]");
+	}
+
 }

@@ -183,4 +183,20 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 			// Yep!
 		}
 	}
+
+	@Test
+	public void testUnparseBadFraction() throws PersistenceLayerException
+	{
+		try
+		{
+			ChallengeRating cr = new ChallengeRating("2/3");
+			primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//Good here too :)
+		}
+	}
+
 }

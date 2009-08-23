@@ -157,4 +157,49 @@ public class HDTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.LEVEL_HITDIE, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.LEVEL_HITDIE, new HitDie(1));
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.LEVEL_HITDIE;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseNegativeLevel() throws PersistenceLayerException
+	{
+		try
+		{
+			primaryProf.put(ObjectKey.LEVEL_HITDIE, new HitDie(-1));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//Good here too :)
+		}
+	}
+
 }

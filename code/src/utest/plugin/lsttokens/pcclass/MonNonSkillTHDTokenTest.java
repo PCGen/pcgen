@@ -21,8 +21,13 @@ import java.net.URISyntaxException;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.MonNonSkillHD;
@@ -149,5 +154,68 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(1), Integer.toString(1));
+	}
+
+	@Test
+	public void testUnparseOnePrereq() throws PersistenceLayerException
+	{
+		BonusObj bonus = getBonus(1);
+		PreParserFactory prereqParser = PreParserFactory.getInstance();
+		Prerequisite prereq = prereqParser.parse("PRERACE:1,Dwarf");
+		assertNotNull(prereq);
+		bonus.addPrerequisite(prereq);
+		primaryProf.addToListFor(ListKey.BONUS, bonus);
+		String[] sap = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(sap, "1|PRERACE:1,Dwarf");
+	}
+
+	// TODO Probably want to implement these? But needs deprecation warning
+	// before these can be turned on
+	// @Test
+	// public void testUnparseZero() throws PersistenceLayerException
+	// {
+	// primaryProf.addToListFor(ListKey.BONUS, getBonus(0));
+	// assertNull(getToken().unparse(primaryContext, primaryProf));
+	// }
+	//
+	// @Test
+	// public void testUnparseNegative() throws PersistenceLayerException
+	// {
+	// primaryProf.addToListFor(ListKey.BONUS, getBonus(-3));
+	// assertNull(getToken().unparse(primaryContext, primaryProf));
+	// }
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.BONUS, null);
+		try
+		{
+			assertNull(getToken().unparse(primaryContext, primaryProf));
+		}
+		catch (NullPointerException e)
+		{
+			//This is okay too
+		}
+	}
+
+	protected String[] setAndUnparse(int val) throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.BONUS, getBonus(val));
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+	private BonusObj getBonus(int bonusValue) throws PersistenceLayerException
+	{
+		BonusObj bon = Bonus.newBonus("0|MONNONSKILLHD|NUMBER|" + bonusValue);
+		assertNotNull(bon);
+		bon.setTokenSource(token.getTokenName());
+		return bon;
 	}
 }

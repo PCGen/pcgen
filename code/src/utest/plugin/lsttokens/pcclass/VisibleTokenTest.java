@@ -155,4 +155,46 @@ public class VisibleTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<Visibility> getObjectKey()
+	{
+		return ObjectKey.VISIBILITY;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), Visibility.DEFAULT);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), Visibility.DEFAULT.getLSTFormat());
+	}
+
+	@Test
+	public void testUnparseIllegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), Visibility.QUALIFY);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
 }

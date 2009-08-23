@@ -17,9 +17,19 @@
  */
 package plugin.lsttokens.pcclass;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSkillList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -263,9 +273,9 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 		runRoundRobin("2|TestWP1|TestWP2|TestWP3");
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected ClassSkillList construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(ClassSkillList.class, one);
+		return loadContext.ref.constructCDOMObject(ClassSkillList.class, one);
 	}
 
 	@Override
@@ -284,5 +294,129 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	protected PersistentTransitionChoice<ClassSkillList> buildChoice(
+			CDOMReference<ClassSkillList>... refs)
+	{
+		ReferenceChoiceSet<ClassSkillList> rcs = buildRCS(refs);
+		assertTrue(rcs.getGroupingState().isValid());
+		return buildTC(rcs);
+	}
+
+	protected PersistentTransitionChoice<ClassSkillList> buildTC(
+			ReferenceChoiceSet<ClassSkillList> rcs)
+	{
+		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(getToken()
+				.getTokenName(), rcs);
+		cs.setTitle("Pick a ClassSkillList");
+		PersistentTransitionChoice<ClassSkillList> tc = new PersistentTransitionChoice<ClassSkillList>(
+				cs, FormulaFactory.ONE);
+		return tc;
+	}
+
+	protected ReferenceChoiceSet<ClassSkillList> buildRCS(
+			CDOMReference<ClassSkillList>... refs)
+	{
+		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<ClassSkillList>(
+				Arrays.asList(refs));
+		return rcs;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
+		PersistentTransitionChoice<ClassSkillList> tc = buildChoice(CDOMDirectSingleRef
+				.getRef(wp1));
+		primaryProf.put(ObjectKey.SKILLLIST_CHOICE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "1|TestWP1");
+	}
+
+	@Test
+	public void testUnparseBadCount() throws PersistenceLayerException
+	{
+		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
+		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<ClassSkillList>(
+				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
+		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(token.getTokenName(), rcs);
+		cs.setTitle("Pick a ClassSkillList");
+		PersistentTransitionChoice<ClassSkillList> tc1 = new PersistentTransitionChoice<ClassSkillList>(
+				cs, null);
+		primaryProf.put(ObjectKey.SKILLLIST_CHOICE, tc1);
+		assertBadUnparse();
+	}
+
+	/*
+	 * TODO Need to figure out who's responsibility this is!
+	 */
+	// @Test
+	// public void testUnparseBadList() throws PersistenceLayerException
+	// {
+	// Language wp1 = construct(primaryContext, "TestWP1");
+	// ReferenceChoiceSet<Language> rcs = buildRCS(CDOMDirectSingleRef
+	// .getRef(wp1), primaryContext.ref
+	// .getCDOMAllReference(getTargetClass()));
+	// assertFalse(rcs.getGroupingState().isValid());
+	// PersistentTransitionChoice<Language> tc = buildTC(rcs);
+	// tc.setChoiceActor(subtoken);
+	// primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc);
+	// assertBadUnparse();
+	// }
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
+		ClassSkillList wp2 = construct(primaryContext, "TestWP2");
+		PersistentTransitionChoice<ClassSkillList> tc = buildChoice(
+				CDOMDirectSingleRef.getRef(wp1), CDOMDirectSingleRef
+						.getRef(wp2));
+		primaryProf.put(ObjectKey.SKILLLIST_CHOICE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "1|TestWP1|TestWP2");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
+		ReferenceChoiceSet<ClassSkillList> rcs = buildRCS(CDOMDirectSingleRef
+				.getRef(wp1), null);
+		PersistentTransitionChoice<ClassSkillList> tc = buildTC(rcs);
+		primaryProf.put(ObjectKey.SKILLLIST_CHOICE, tc);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.SKILLLIST_CHOICE;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

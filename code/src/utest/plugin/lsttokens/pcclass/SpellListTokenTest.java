@@ -17,11 +17,23 @@
  */
 package plugin.lsttokens.pcclass;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMListObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
+import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -316,9 +328,9 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		runRoundRobin("2|TestWP1|TestWP2|DOMAIN.AestWP3");
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected ClassSpellList construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(ClassSpellList.class, one);
+		return loadContext.ref.constructCDOMObject(ClassSpellList.class, one);
 	}
 
 	protected void constructDomain(LoadContext loadContext, String one)
@@ -342,5 +354,129 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	protected PersistentTransitionChoice<CDOMListObject<Spell>> buildChoice(
+			CDOMReference<ClassSpellList>... refs)
+	{
+		ReferenceChoiceSet<ClassSpellList> rcs = buildRCS(refs);
+		assertTrue(rcs.getGroupingState().isValid());
+		return buildTC(rcs);
+	}
+
+	protected PersistentTransitionChoice<CDOMListObject<Spell>> buildTC(
+			ReferenceChoiceSet<ClassSpellList> rcs)
+	{
+		ChoiceSet<ClassSpellList> cs = new ChoiceSet<ClassSpellList>(getToken()
+				.getTokenName(), rcs);
+		cs.setTitle("Pick a SpellList");
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc = new PersistentTransitionChoice<CDOMListObject<Spell>>(
+				cs, FormulaFactory.ONE);
+		return tc;
+	}
+
+	protected ReferenceChoiceSet<ClassSpellList> buildRCS(
+			CDOMReference<ClassSpellList>... refs)
+	{
+		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<ClassSpellList>(
+				Arrays.asList(refs));
+		return rcs;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc = buildChoice(CDOMDirectSingleRef
+				.getRef(wp1));
+		primaryProf.put(ObjectKey.SPELLLIST_CHOICE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "1|TestWP1");
+	}
+
+	@Test
+	public void testUnparseBadCount() throws PersistenceLayerException
+	{
+		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
+		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<ClassSpellList>(
+				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
+		ChoiceSet<ClassSpellList> cs = new ChoiceSet<ClassSpellList>(token.getTokenName(), rcs);
+		cs.setTitle("Pick a ClassSpellList");
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc1 = new PersistentTransitionChoice<CDOMListObject<Spell>>(
+				cs, null);
+		primaryProf.put(ObjectKey.SPELLLIST_CHOICE, tc1);
+		assertBadUnparse();
+	}
+
+	/*
+	 * TODO Need to figure out who's responsibility this is!
+	 */
+	// @Test
+	// public void testUnparseBadList() throws PersistenceLayerException
+	// {
+	// Language wp1 = construct(primaryContext, "TestWP1");
+	// ReferenceChoiceSet<Language> rcs = buildRCS(CDOMDirectSingleRef
+	// .getRef(wp1), primaryContext.ref
+	// .getCDOMAllReference(getTargetClass()));
+	// assertFalse(rcs.getGroupingState().isValid());
+	// PersistentTransitionChoice<Language> tc = buildTC(rcs);
+	// tc.setChoiceActor(subtoken);
+	// primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, tc);
+	// assertBadUnparse();
+	// }
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
+		ClassSpellList wp2 = construct(primaryContext, "TestWP2");
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc = buildChoice(
+				CDOMDirectSingleRef.getRef(wp1), CDOMDirectSingleRef
+						.getRef(wp2));
+		primaryProf.put(ObjectKey.SPELLLIST_CHOICE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "1|TestWP1|TestWP2");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
+		ReferenceChoiceSet<ClassSpellList> rcs = buildRCS(CDOMDirectSingleRef
+				.getRef(wp1), null);
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc = buildTC(rcs);
+		primaryProf.put(ObjectKey.SPELLLIST_CHOICE, tc);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.SPELLLIST_CHOICE;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

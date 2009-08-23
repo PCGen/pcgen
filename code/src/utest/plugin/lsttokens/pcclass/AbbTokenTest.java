@@ -133,4 +133,39 @@ public class AbbTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getStringKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	/*
+	 * TODO Need to define the appropriate behavior here - is the token
+	 * responsible for catching this?
+	 */
+	// @Test
+	// public void testUnparseEmpty() throws PersistenceLayerException
+	// {
+	// primaryProf.put(getStringKey(), "");
+	// assertBadUnparse();
+	// }
+
+	protected String[] setAndUnparse(String val)
+	{
+		primaryProf.put(getStringKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+	private StringKey getStringKey()
+	{
+		return StringKey.ABB;
+	}
 }

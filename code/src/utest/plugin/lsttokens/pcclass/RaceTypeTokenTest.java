@@ -19,7 +19,10 @@ package plugin.lsttokens.pcclass;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -105,5 +108,61 @@ public class RaceTypeTokenTest extends AbstractTokenTestCase<PCClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<Prerequisite> getObjectKey()
+	{
+		return ObjectKey.PRERACETYPE;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		Prerequisite p = new Prerequisite();
+		p.setKind("RACETYPE");
+		p.setOperand("1");
+		p.setKey(getLegalValue());
+		p.setOperator(PrerequisiteOperator.GTEQ);
+		primaryProf.put(getObjectKey(), p);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				getLegalValue());
+	}
+
+	/*
+	 * TODO Where is responsibility to catch this?
+	 */
+	// @Test
+	// public void testUnparseIllegal() throws PersistenceLayerException
+	// {
+	// Prerequisite p = new Prerequisite();
+	// p.setKind("RACE");
+	// p.setOperand("1");
+	// p.setKey(getLegalValue());
+	// p.setOperator(PrerequisiteOperator.GTEQ);
+	// primaryProf.put(getObjectKey(), p);
+	// assertBadUnparse();
+	//	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 }

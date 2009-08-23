@@ -22,7 +22,9 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -194,4 +196,58 @@ public class LevelsPerFeatTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(1), Integer.toString(1));
+	}
+
+	@Test
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(0), Integer.toString(0));
+	}
+
+	@Test
+	public void testUnparseNegative() throws PersistenceLayerException
+	{
+		primaryProf.put(getIntegerKey(), -3);
+		assertBadUnparse();
+	}
+
+	private IntegerKey getIntegerKey()
+	{
+		return IntegerKey.LEVELS_PER_FEAT;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getIntegerKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	protected String[] setAndUnparse(int val)
+	{
+		primaryProf.put(getIntegerKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+	
+	@Test
+	public void testUnparseOneTyped() throws PersistenceLayerException
+	{
+		primaryProf.put(getIntegerKey(), 1);
+		primaryProf.put(StringKey.LEVEL_TYPE, "Foo");
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "1|LEVELTYPE=Foo");
+	}
+
+	@Test
+	public void testUnparseInvalidOnlyType() throws PersistenceLayerException
+	{
+		primaryProf.put(StringKey.LEVEL_TYPE, "Foo");
+		assertBadUnparse();
+	}
+
+	//StringKey.LEVEL_TYPE
 }

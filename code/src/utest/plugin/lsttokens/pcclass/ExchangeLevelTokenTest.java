@@ -19,6 +19,9 @@ package plugin.lsttokens.pcclass;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.LevelExchange;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -31,8 +34,8 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 {
 
 	static ExchangelevelToken token = new ExchangelevelToken();
-	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>(PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
+			PCClass.class);
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -98,7 +101,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputNotEnoughPipes()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5"));
@@ -138,7 +141,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeOne()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin||6|5|4"));
@@ -147,7 +150,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeTwo()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6||5|4"));
@@ -156,7 +159,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoublePipeTypeThree()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		assertFalse(parse("Paladin|6|5||4"));
 		assertNoSideEffects();
@@ -185,7 +188,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputNegativeDonate()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		assertFalse(parse("Paladin|5|-2|1"));
 		assertNoSideEffects();
@@ -200,7 +203,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputNegativeRemaining()
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		assertFalse(parse("Paladin|4|5|-1"));
 		assertNoSideEffects();
@@ -267,5 +270,119 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		PCClass fighter = primaryContext.ref.constructCDOMObject(PCClass.class,
+				"Fighter");
+		LevelExchange le = new LevelExchange(CDOMDirectSingleRef
+				.getRef(fighter), 4, 12, 2);
+		primaryProf.put(ObjectKey.EXCHANGE_LEVEL, le);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				"Fighter|4|12|2");
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.EXCHANGE_LEVEL, null);
+		try
+		{
+			assertNull(getToken().unparse(primaryContext, primaryProf));
+		}
+		catch (NullPointerException e)
+		{
+			// This is okay too
+		}
+	}
+
+	@Test
+	public void testUnparseNegativeMinLevel() throws PersistenceLayerException
+	{
+		try
+		{
+			PCClass fighter = primaryContext.ref.constructCDOMObject(
+					PCClass.class, "Fighter");
+			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
+					.getRef(fighter), -4, 12, 2);
+			primaryProf.put(ObjectKey.EXCHANGE_LEVEL, le);
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseNegativeMaxLevel() throws PersistenceLayerException
+	{
+		try
+		{
+			PCClass fighter = primaryContext.ref.constructCDOMObject(
+					PCClass.class, "Fighter");
+			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
+					.getRef(fighter), 4, -12, 2);
+			primaryProf.put(ObjectKey.EXCHANGE_LEVEL, le);
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseBadRemainMathLevel()
+			throws PersistenceLayerException
+	{
+		try
+		{
+			PCClass fighter = primaryContext.ref.constructCDOMObject(
+					PCClass.class, "Fighter");
+			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
+					.getRef(fighter), 4, 2, 1);
+			primaryProf.put(ObjectKey.EXCHANGE_LEVEL, le);
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseNegRemainingLevel() throws PersistenceLayerException
+	{
+		try
+		{
+			PCClass fighter = primaryContext.ref.constructCDOMObject(
+					PCClass.class, "Fighter");
+			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
+					.getRef(fighter), 4, 3, -2);
+			primaryProf.put(ObjectKey.EXCHANGE_LEVEL, le);
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseNullClass() throws PersistenceLayerException
+	{
+		try
+		{
+			LevelExchange le = new LevelExchange(null, 4, 3, 2);
+			primaryProf.put(ObjectKey.EXCHANGE_LEVEL, le);
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
 	}
 }

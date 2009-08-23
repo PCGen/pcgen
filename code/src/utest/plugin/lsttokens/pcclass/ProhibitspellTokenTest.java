@@ -22,10 +22,13 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
+import pcgen.core.SpellProhibitor;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.enumeration.ProhibitedSpellType;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -325,5 +328,80 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<PCClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(getListKey());
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ListKey<SpellProhibitor> getListKey()
+	{
+		return ListKey.SPELL_PROHIBITOR;
+	}
+
+	@Test
+	public void testUnparseLegalSchool() throws PersistenceLayerException
+	{
+		SpellProhibitor o = getConstant(ProhibitedSpellType.SCHOOL, "Public");
+		primaryProf.addToListFor(getListKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "SCHOOL.Public");
+	}
+
+	@Test
+	public void testUnparseLegalSubSchool() throws PersistenceLayerException
+	{
+		SpellProhibitor o = getConstant(ProhibitedSpellType.SUBSCHOOL, "Elementary");
+		primaryProf.addToListFor(getListKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "SUBSCHOOL.Elementary");
+	}
+
+	@Test
+	public void testUnparseLegalDescriptor() throws PersistenceLayerException
+	{
+		SpellProhibitor o = getConstant(ProhibitedSpellType.DESCRIPTOR, "Fire");
+		primaryProf.addToListFor(getListKey(), o);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "DESCRIPTOR.Fire");
+	}
+
+	private SpellProhibitor getConstant(ProhibitedSpellType type, String args)
+	{
+		SpellProhibitor spellProb = new SpellProhibitor();
+		spellProb.setType(type);
+		spellProb.addValue(args);
+		return spellProb;
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(getListKey(), null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey objectKey = getListKey();
+		primaryProf.addToListFor(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 }

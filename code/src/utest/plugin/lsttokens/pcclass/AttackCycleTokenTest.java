@@ -19,10 +19,12 @@ package plugin.lsttokens.pcclass;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.enumeration.AttackType;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -98,6 +100,20 @@ public class AttackCycleTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputNaN() throws PersistenceLayerException
 	{
 		assertFalse(parse("BAB|x"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputNegative() throws PersistenceLayerException
+	{
+		assertFalse(parse("BAB|-2"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputZero() throws PersistenceLayerException
+	{
+		assertFalse(parse("BAB|0"));
 		assertNoSideEffects();
 	}
 
@@ -179,5 +195,80 @@ public class AttackCycleTokenTest extends AbstractTokenTestCase<PCClass>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 1);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "BAB|1");
+	}
+
+	@Test
+	public void testUnparseNegative() throws PersistenceLayerException
+	{
+		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, -2);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 0);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 1);
+		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.RANGED, 2);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "BAB|1|RAB|2");
+	}
+
+	@Test
+	public void testUnparseGrappleNoMelee() throws PersistenceLayerException
+	{
+		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.GRAPPLE, 1);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseGenericsFailValue() throws PersistenceLayerException
+	{
+		MapKey mapKey = MapKey.ATTACK_CYCLE;
+		primaryProf.addToMapFor(mapKey, AttackType.MELEE, "STR");
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFailKey() throws PersistenceLayerException
+	{
+		MapKey mapKey = MapKey.ATTACK_CYCLE;
+		primaryProf.addToMapFor(mapKey, "STR", 1);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
 	}
 }

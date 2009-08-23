@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
@@ -37,13 +38,14 @@ public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	static BonusspellstatToken token = new BonusspellstatToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
 			PCClass.class);
+	private PCStat ps;
 
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.ref.constructCDOMObject(PCStat.class,
+		ps = primaryContext.ref.constructCDOMObject(PCStat.class,
 				"Strength");
 		primaryContext.ref.registerAbbreviation(ps, "STR");
 		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class,
@@ -142,5 +144,93 @@ public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 		parse("STR");
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer("STR"));
+	}
+
+	@Test
+	public void testOverwriteStrNone() throws PersistenceLayerException
+	{
+		parse("STR");
+		validateUnparsed(primaryContext, primaryProf, "STR");
+		parse("NONE");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("NONE"));
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<PCStat> getObjectKey()
+	{
+		return ObjectKey.BONUS_SPELL_STAT;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), ps);
+		primaryProf.put(ObjectKey.HAS_BONUS_SPELL_STAT, true);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getAbb());
+	}
+
+	@Test
+	public void testUnparseGenericsFailStat() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFailHas() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.HAS_BONUS_SPELL_STAT;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			//Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseNone() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.HAS_BONUS_SPELL_STAT, false);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "NONE");
+	}
+
+	/*
+	 * TODO Need to define if unparse if priority-based or whether this is
+	 * illegal. Changes parse if not priority based (Due to mods)
+	 */
+	// @Test
+	// public void testUnparseInvalidNonePlus() throws PersistenceLayerException
+	// {
+	// primaryProf.put(getObjectKey(), ps);
+	// primaryProf.put(ObjectKey.HAS_BONUS_SPELL_STAT, false);
+	// assertBadUnparse();
+	// }
+
+	@Test
+	public void testUnparseIllegal() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.HAS_BONUS_SPELL_STAT, true);
+		assertBadUnparse();
 	}
 }

@@ -264,7 +264,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		primaryProf.addToListFor(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)

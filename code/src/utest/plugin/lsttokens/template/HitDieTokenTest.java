@@ -19,9 +19,12 @@ package plugin.lsttokens.template;
 
 import org.junit.Test;
 
+import pcgen.base.formula.DividingFormula;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.modifier.HitDieFormula;
 import pcgen.cdom.modifier.HitDieLock;
+import pcgen.cdom.modifier.HitDieStep;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -558,4 +561,199 @@ public class HitDieTokenTest extends AbstractTokenTestCase<PCTemplate>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseZeroSteps() throws PersistenceLayerException
+	{
+		try
+		{
+			primaryProf.put(ObjectKey.HITDIE,
+					new HitDieStep(0, new HitDie(12)));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseNegativeLevel() throws PersistenceLayerException
+	{
+		try
+		{
+			primaryProf.put(ObjectKey.HITDIE, new HitDieLock(new HitDie(-1)));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseZeroDivide() throws PersistenceLayerException
+	{
+		try
+		{
+			primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(
+					new DividingFormula(0)));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	/*
+	 * TODO Need to find owner for this responsibility
+	 */
+	// @Test
+	// public void testUnparseNegativeDivide() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(new
+	// DividingFormula(-3)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseZeroMult() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(new
+	// MultiplyingFormula(0)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseNegativeMult() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(new
+	// MultiplyingFormula(-3)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseZeroAdd() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(new
+	// AddingFormula(0)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseNegativeAdd() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(new
+	// AddingFormula(-3)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseZeroSub() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(new
+	// SubtractingFormula(0)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseNegativeSub() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieFormula(new
+	// SubtractingFormula(-3)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseBigSteps() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieStep(8, new HitDie(12)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseBigNegativeSteps() throws
+	// PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieStep(-8, new HitDie(12)));
+	// assertBadUnparse();
+	// }
+	// catch (IllegalArgumentException e)
+	// {
+	// //Good here too :)
+	// }
+	// }
+	//
+	// @Test
+	// public void testUnparseBadBase() throws PersistenceLayerException
+	// {
+	// try
+	// {
+	// primaryProf.put(ObjectKey.HITDIE, new HitDieStep(1, new HitDie(6)));
+	//			assertBadUnparse();
+	//		}
+	//		catch (IllegalArgumentException e)
+	//		{
+	//			//Good here too :)
+	//		}
+	//	}
 }
