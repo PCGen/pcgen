@@ -77,7 +77,7 @@ public class AttackcycleToken extends AbstractToken implements
 				if (i <= 0)
 				{
 					Logging.errorPrint("Invalid " + getTokenName() + ": " + value
-							+ " Cycle " + cycle + " must be an integer.");
+							+ " Cycle " + cycle + " must be a positive integer.");
 					return false;
 				}
 				context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE, at, i);
@@ -131,7 +131,7 @@ public class AttackcycleToken extends AbstractToken implements
 				{
 					context.addWriteMessage("Invalid " + getTokenName() + ": "
 							+ value + " Cycle " + attackType
-							+ " must be an integer.");
+							+ " must be a positive integer.");
 					return null;
 				}
 				if (attackType.equals(AttackType.GRAPPLE))
