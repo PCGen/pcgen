@@ -72,6 +72,11 @@ public class LevelExchange extends ConcretePrereqObject
 	public LevelExchange(CDOMSingleRef<PCClass> pcc, int minDonatingLvl,
 			int maxDonated, int donatingLowerBound)
 	{
+		if (pcc == null)
+		{
+			throw new IllegalArgumentException(
+					"Error: Exchange Class must not be null");
+		}
 		if (minDonatingLvl <= 0)
 		{
 			throw new IllegalArgumentException(

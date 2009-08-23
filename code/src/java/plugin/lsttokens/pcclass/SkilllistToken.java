@@ -116,7 +116,14 @@ public class SkilllistToken extends AbstractToken implements
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(grantChanges.getCount());
+		Formula count = grantChanges.getCount();
+		if (count == null)
+		{
+			context.addWriteMessage("Unable to find " + getTokenName()
+					+ " Count");
+			return null;
+		}
+		sb.append(count);
 		sb.append(Constants.PIPE);
 		sb.append(grantChanges.getChoices().getLSTformat().replaceAll(
 				Constants.COMMA, Constants.PIPE));

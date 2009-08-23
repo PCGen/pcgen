@@ -68,10 +68,15 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 */
 	public KnownSpellIdentifier(CDOMReference<Spell> sr, Integer levelLimit)
 	{
-		if (sr == null && levelLimit == null)
+		if (sr == null)
 		{
 			throw new IllegalArgumentException(
-					"Known Spell Identifier cannot have null spell reference and level limit");
+					"Known Spell Identifier cannot have null spell reference");
+		}
+		if (levelLimit != null && levelLimit.intValue() < 0)
+		{
+			throw new IllegalArgumentException(
+					"Known Spell Identifier level limit cannot be negative");
 		}
 		ref = sr;
 		spellLevel = levelLimit;

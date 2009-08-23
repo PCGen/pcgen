@@ -74,6 +74,12 @@ public class AttackcycleToken extends AbstractToken implements
 			try
 			{
 				Integer i = Integer.parseInt(cycle);
+				if (i <= 0)
+				{
+					Logging.errorPrint("Invalid " + getTokenName() + ": " + value
+							+ " Cycle " + cycle + " must be an integer.");
+					return false;
+				}
 				context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE, at, i);
 				/*
 				 * This is a bit of a hack - it is designed to account for the
@@ -96,7 +102,7 @@ public class AttackcycleToken extends AbstractToken implements
 			catch (NumberFormatException e)
 			{
 				Logging.errorPrint("Invalid " + getTokenName() + ": " + value
-						+ " Cycle " + cycle + " must be an integer.");
+						+ " Cycle " + cycle + " must be a (positive) integer.");
 				return false;
 			}
 		}
@@ -118,19 +124,30 @@ public class AttackcycleToken extends AbstractToken implements
 		for (Map.Entry<AttackType, Integer> me : added.entrySet())
 		{
 			AttackType attackType = me.getKey();
-			if (attackType.equals(AttackType.GRAPPLE))
+			Integer value = me.getValue();
+			if (value != null)
 			{
-				grappleValue = me.getValue();
-			}
-			else
-			{
-				if (attackType.equals(AttackType.MELEE))
+				if (value <= 0)
 				{
-					meleeValue = me.getValue();
+					context.addWriteMessage("Invalid " + getTokenName() + ": "
+							+ value + " Cycle " + attackType
+							+ " must be an integer.");
+					return null;
 				}
-				set.add(new StringBuilder().append(attackType.getIdentifier())
-						.append(Constants.PIPE).append(me.getValue())
-						.toString());
+				if (attackType.equals(AttackType.GRAPPLE))
+				{
+					grappleValue = value;
+				}
+				else
+				{
+					if (attackType.equals(AttackType.MELEE))
+					{
+						meleeValue = value;
+					}
+					set.add(new StringBuilder().append(attackType.getIdentifier())
+							.append(Constants.PIPE).append(value)
+							.toString());
+				}
 			}
 		}
 		if (grappleValue != null)
@@ -143,6 +160,11 @@ public class AttackcycleToken extends AbstractToken implements
 						+ meleeValue + ") because it is not stored");
 				return null;
 			}
+		}
+		if (set.isEmpty())
+		{
+			//OK, someone set keys with no values
+			return null;
 		}
 		return new String[] { StringUtil.join(set, Constants.PIPE) };
 	}

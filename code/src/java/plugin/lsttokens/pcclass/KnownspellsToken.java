@@ -77,7 +77,8 @@ public class KnownspellsToken extends AbstractToken implements
 									+ ": When used, .CLEARALL must be the first argument");
 					return false;
 				}
-				context.getObjectContext().removeList(pcc, ListKey.KNOWN_SPELLS);
+				context.getObjectContext()
+						.removeList(pcc, ListKey.KNOWN_SPELLS);
 				continue;
 			}
 			if (hasIllegalSeparator(',', totalFilter))
@@ -119,12 +120,20 @@ public class KnownspellsToken extends AbstractToken implements
 					try
 					{
 						levelLim = Integer.valueOf(filterString.substring(6));
+						if (levelLim < 0)
+						{
+							Logging.errorPrint("Invalid Number in "
+									+ getTokenName() + ": " + value);
+							Logging.errorPrint("  Level must be >= 0");
+							return false;
+						}
 					}
 					catch (NumberFormatException e)
 					{
 						Logging.errorPrint("Invalid Number in "
 								+ getTokenName() + ": " + value);
-						Logging.errorPrint("  Level must be an integer");
+						Logging.errorPrint("  Level must be "
+								+ "a non-negative integer");
 						return false;
 					}
 				}
@@ -158,7 +167,8 @@ public class KnownspellsToken extends AbstractToken implements
 				sp = context.ref.getCDOMAllReference(SPELL_CLASS);
 			}
 			KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, levelLim);
-			context.getObjectContext().addToList(pcc, ListKey.KNOWN_SPELLS, ksi);
+			context.getObjectContext()
+					.addToList(pcc, ListKey.KNOWN_SPELLS, ksi);
 		}
 		return true;
 	}

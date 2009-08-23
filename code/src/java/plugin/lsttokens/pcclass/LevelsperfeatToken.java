@@ -129,8 +129,15 @@ public class LevelsperfeatToken extends AbstractToken implements
 	{
 		Integer lpf = context.getObjectContext().getInteger(pcc,
 				IntegerKey.LEVELS_PER_FEAT);
+		String levelType = context.getObjectContext().getString(pcc,
+				StringKey.LEVEL_TYPE);
 		if (lpf == null)
 		{
+			if (levelType != null)
+			{
+				context.addWriteMessage(getTokenName()
+						+ " found level type, but no levels per feat value");
+			}
 			return null;
 		}
 		if (lpf.intValue() < 0)
@@ -142,8 +149,6 @@ public class LevelsperfeatToken extends AbstractToken implements
 		}
 		StringBuffer result = new StringBuffer();
 		result.append(lpf);
-		String levelType = context.getObjectContext().getString(pcc,
-				StringKey.LEVEL_TYPE);
 		if (levelType != null && levelType.length() > 0
 				&& !levelType.equals(Constants.LST_DOT_CLEAR))
 		{
