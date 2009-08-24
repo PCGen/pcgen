@@ -17,8 +17,13 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.modifier.ChangeArmorType;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -60,7 +65,7 @@ public class ArmortypeTokenTest extends
 		assertNoSideEffects();
 	}
 
-	 @Test
+	@Test
 	public void testInvalidInputNoResult() throws PersistenceLayerException
 	{
 		assertFalse(parse("Medium"));
@@ -124,4 +129,97 @@ public class ArmortypeTokenTest extends
 	{
 		return ConsolidationRule.SEPARATE;
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(ListKey.ARMORTYPE);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
+				"Light", "Medium"));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "Light|Medium");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.ARMORTYPE, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
+				"Medium", "Light"));
+		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
+				"Heavy", "Medium"));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertNotNull(unparsed);
+		assertEquals(2, unparsed.length);
+		List<String> upList = Arrays.asList(unparsed);
+		assertTrue(upList.contains("Medium|Light"));
+		assertTrue(upList.contains("Heavy|Medium"));
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey objectKey = ListKey.ARMORTYPE;
+		primaryProf.addToListFor(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseNullSource() throws PersistenceLayerException
+	{
+		try
+		{
+			primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
+					null, "Medium"));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
+	@Test
+	public void testUnparseNullTarget() throws PersistenceLayerException
+	{
+		try
+		{
+			primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
+					"Heavy", null));
+			assertBadUnparse();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Good here too :)
+		}
+	}
+
 }

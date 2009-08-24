@@ -19,6 +19,7 @@ package plugin.lsttokens.equipmentmodifier;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -136,5 +137,70 @@ public class ChargesTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseMinNull() throws PersistenceLayerException
+	{
+		primaryProf.put(IntegerKey.MIN_CHARGES, null);
+		primaryProf.put(IntegerKey.MAX_CHARGES, 1);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseMaxNull() throws PersistenceLayerException
+	{
+		primaryProf.put(IntegerKey.MIN_CHARGES, 1);
+		primaryProf.put(IntegerKey.MAX_CHARGES, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseNormal() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(5, 10), "5|10");
+	}
+
+	@Test
+	public void testUnparseEqual() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(5, 5), "5|5");
+	}
+
+	@Test
+	public void testUnparseZeroMin() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(0, 5), "0|5");
+	}
+
+	@Test
+	public void testUnparseZeroMinMax() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(0, 0), "0|0");
+	}
+
+	@Test
+	public void testUnparseMaxLTMin() throws PersistenceLayerException
+	{
+		assertNull(setAndUnparse(10, 5));
+	}
+
+	@Test
+	public void testUnparseNegativeMin() throws PersistenceLayerException
+	{
+		assertNull(setAndUnparse(-5, 10));
+	}
+
+	@Test
+	public void testUnparseNegativeMax() throws PersistenceLayerException
+	{
+		assertNull(setAndUnparse(5, -10));
+	}
+
+	protected String[] setAndUnparse(int min, int max)
+	{
+		primaryProf.put(IntegerKey.MIN_CHARGES, min);
+		primaryProf.put(IntegerKey.MAX_CHARGES, max);
+		return getToken().unparse(primaryContext, primaryProf);
 	}
 }

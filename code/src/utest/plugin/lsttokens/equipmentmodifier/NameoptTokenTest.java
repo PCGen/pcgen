@@ -19,6 +19,9 @@ package plugin.lsttokens.equipmentmodifier;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.EqModNameOpt;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -139,4 +142,89 @@ public class NameoptTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+
+	@Test
+	public void testOverwriteToText() throws PersistenceLayerException
+	{
+		parse("SPELL");
+		validateUnparsed(primaryContext, primaryProf, "SPELL");
+		parse("TEXT=This is the text");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("SPELL", "TEXT=This is the text"));
+	}
+
+	@Test
+	public void testOverwriteFromText() throws PersistenceLayerException
+	{
+		parse("TEXT=This is the text");
+		validateUnparsed(primaryContext, primaryProf, "TEXT=This is the text");
+		parse("NOTHING");
+		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
+				.getAnswer("TEXT=This is the text", "NOTHING"));
+	}
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<EqModNameOpt> getObjectKey()
+	{
+		return ObjectKey.NAME_OPT;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), EqModNameOpt.SPELL);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				EqModNameOpt.SPELL.toString());
+	}
+
+	@Test
+	public void testUnparseLegalName() throws PersistenceLayerException
+	{
+		primaryProf.put(StringKey.NAME_TEXT, "MyText");
+		primaryProf.put(ObjectKey.NAME_OPT, EqModNameOpt.TEXT);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				"TEXT=MyText");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseIncompleteSpell() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.NAME_OPT, EqModNameOpt.TEXT);
+		assertBadUnparse();
+	}
+
+	/*
+	 * TODO Another item that is overwrite sensitive, need to understand how
+	 * this should work and whether this is ok based on overwrite unit tests
+	 * above, or whether this is invalid
+	 */
+	// @Test
+	// public void testUnparseOther() throws PersistenceLayerException
+	// {
+	// primaryProf.put(ObjectKey.NAME_OPT, EqModNameOpt.SPELL);
+	// primaryProf.put(StringKey.NAME_TEXT, "MyText");
+	// assertBadUnparse();
+	// }
 }
