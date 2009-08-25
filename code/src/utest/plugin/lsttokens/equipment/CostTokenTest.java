@@ -19,18 +19,15 @@ package plugin.lsttokens.equipment;
 
 import java.math.BigDecimal;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractBigDecimalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class CostTokenTest extends AbstractTokenTestCase<Equipment>
+public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Equipment>
 {
 	static CostToken token = new CostToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
@@ -54,98 +51,33 @@ public class CostTokenTest extends AbstractTokenTestCase<Equipment>
 		return token;
 	}
 
-//	@Test
-//	public void testInvalidInputString() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("String"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidInputType() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("TYPE=TestType"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidInputNegative() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("-1"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidInputFormula() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("1+3"));
-//		assertNoSideEffects();
-//	}
-//
-//	@Test
-//	public void testInvalidInputFraction() throws PersistenceLayerException
-//	{
-//		assertFalse(parse("1/2"));
-//		assertNoSideEffects();
-//	}
-
-	@Test
-	public void testValidInputDecimal() throws PersistenceLayerException
-	{
-		assertTrue(parse("4.5"));
-		BigDecimal weight = primaryProf.get(ObjectKey.COST);
-		assertEquals(new BigDecimal(4.5), weight);
-	}
-
-	@Test
-	public void testValidInputInteger() throws PersistenceLayerException
-	{
-		assertTrue(parse("5"));
-		BigDecimal weight = primaryProf.get(ObjectKey.COST);
-		assertEquals(new BigDecimal(5), weight);
-	}
-
-	@Test
-	public void testValidInputZero() throws PersistenceLayerException
-	{
-		assertTrue(parse("0"));
-		BigDecimal weight = primaryProf.get(ObjectKey.COST);
-		assertEquals(new BigDecimal(0), weight);
-	}
-
-	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
-	{
-		runRoundRobin("1");
-	}
-
-	@Test
-	public void testRoundRobinZero() throws PersistenceLayerException
-	{
-		runRoundRobin("0");
-	}
-
-	@Test
-	public void testRoundRobinThreePointFive() throws PersistenceLayerException
-	{
-		runRoundRobin("3.5");
-	}
-
-	@Override
-	protected String getAlternateLegalValue()
-	{
-		return "1";
-	}
-
-	@Override
-	protected String getLegalValue()
-	{
-		return "3.5";
-	}
-
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	public ObjectKey<BigDecimal> getObjectKey()
+	{
+		return ObjectKey.COST;
+	}
+
+	@Override
+	public boolean isNegativeAllowed()
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isPositiveAllowed()
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isZeroAllowed()
+	{
+		return true;
 	}
 }

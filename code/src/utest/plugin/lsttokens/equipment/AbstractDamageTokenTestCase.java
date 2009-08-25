@@ -19,6 +19,8 @@ package plugin.lsttokens.equipment;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -45,73 +47,11 @@ public abstract class AbstractDamageTokenTestCase extends
 		return loader;
 	}
 
-	// @Test
-	// public void testInvalidStringInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "String"));
-	// }
-	//
-	// @Test
-	// public void testInvalidTypeInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf,
-	// "TYPE=TestType"));
-	// }
-	//
-	// @Test
-	// public void testInvalidDecimalInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "4.5"));
-	// }
-	//
-	// @Test
-	// public void testInvalidFractionInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "1/2"));
-	// }
-	//
-	// @Test
-	// public void testInvalidFunctionInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "1+3"));
-	// }
-	//
-	// @Test
-	// public void testInvalidNegativeInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "-1"));
-	// }
-	//
-	// @Test
-	// public void testInvalidZeroInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "0"));
-	// }
-	//
-	// @Test
-	// public void testInvalidTimesNegativeInput()
-	// throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "x-1"));
-	// }
-	//
-	// @Test
-	// public void testInvalidTimesZeroInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "x0"));
-	// }
-	//
-	// @Test
-	// public void testInvalidNoTimesInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, "3"));
-	// }
-	//
-	// @Test
-	// public void testInvalidEmptyInput() throws PersistenceLayerException
-	// {
-	// assertFalse(getToken().parse(primaryContext, primaryProf, ""));
-	// }
+	@Test
+	public void testInvalidEmptyInput() throws PersistenceLayerException
+	{
+		assertFalse(getToken().parse(primaryContext, primaryProf, ""));
+	}
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
@@ -148,4 +88,42 @@ public abstract class AbstractDamageTokenTestCase extends
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		getUnparseTarget().put(getStringKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	/*
+	 * TODO Need to define the appropriate behavior here - is the token
+	 * responsible for catching this?
+	 */
+	// @Test
+	// public void testUnparseEmpty() throws PersistenceLayerException
+	// {
+	// primaryProf.put(getStringKey(), "");
+	// assertBadUnparse();
+	// }
+
+	private StringKey getStringKey()
+	{
+		return StringKey.DAMAGE;
+	}
+
+	protected String[] setAndUnparse(String val)
+	{
+		getUnparseTarget().put(getStringKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
+	}
+
+	protected abstract CDOMObject getUnparseTarget();
+
 }

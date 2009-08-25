@@ -37,6 +37,7 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 	static AlignToken token = new AlignToken();
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
 			Deity.class);
+	private PCAlignment lg;
 
 	@Override
 	@Before
@@ -44,7 +45,7 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 			URISyntaxException
 	{
 		super.setUp();
-		PCAlignment lg = primaryContext.ref.constructCDOMObject(
+		lg = primaryContext.ref.constructCDOMObject(
 				PCAlignment.class, "Lawful Good");
 		primaryContext.ref.registerAbbreviation(lg, "LG");
 		PCAlignment ln = primaryContext.ref.constructCDOMObject(
@@ -137,5 +138,36 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.ALIGNMENT, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.ALIGNMENT, lg);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), lg
+				.getAbb());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.ALIGNMENT;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

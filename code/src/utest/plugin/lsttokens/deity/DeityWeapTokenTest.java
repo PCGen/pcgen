@@ -19,8 +19,11 @@ package plugin.lsttokens.deity;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -112,5 +115,65 @@ public class DeityWeapTokenTest extends
 		return "ANY";
 	}
 
-	
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeListFor(ListKey.DEITYWEAPON);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		WeaponProf wp1 = construct(primaryContext, "TestWP1");
+		primaryProf.addToListFor(ListKey.DEITYWEAPON, CDOMDirectSingleRef
+				.getRef(wp1));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue());
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		primaryProf.addToListFor(ListKey.DEITYWEAPON, null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		WeaponProf wp1 = construct(primaryContext, getLegalValue());
+		primaryProf.addToListFor(ListKey.DEITYWEAPON, CDOMDirectSingleRef
+				.getRef(wp1));
+		WeaponProf wp2 = construct(primaryContext, getAlternateLegalValue());
+		primaryProf.addToListFor(ListKey.DEITYWEAPON, CDOMDirectSingleRef
+				.getRef(wp2));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getLegalValue() + getJoinCharacter()
+				+ getAlternateLegalValue());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey objectKey = ListKey.DEITYWEAPON;
+		primaryProf.addToListFor(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
 }

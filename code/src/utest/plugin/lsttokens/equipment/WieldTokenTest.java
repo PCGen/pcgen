@@ -19,7 +19,9 @@ package plugin.lsttokens.equipment;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
+import pcgen.core.character.WieldCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -106,5 +108,41 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<WieldCategory> getObjectKey()
+	{
+		return ObjectKey.WIELD;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), WieldCategory.findByName("OneHanded"));
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				"OneHanded");
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

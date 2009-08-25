@@ -19,6 +19,8 @@ package plugin.lsttokens.equipment;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.EqModControl;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -106,5 +108,41 @@ public class ModsTokenTest extends AbstractTokenTestCase<Equipment>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<EqModControl> getObjectKey()
+	{
+		return ObjectKey.MOD_CONTROL;
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), EqModControl.REQUIRED);
+		expectSingle(getToken().unparse(primaryContext, primaryProf),
+				EqModControl.REQUIRED.toString());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

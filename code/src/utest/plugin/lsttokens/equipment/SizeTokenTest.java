@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
@@ -38,6 +39,7 @@ public class SizeTokenTest extends AbstractTokenTestCase<Equipment>
 	static SizeToken token = new SizeToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
 			Equipment.class);
+	private SizeAdjustment ps;
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -62,7 +64,7 @@ public class SizeTokenTest extends AbstractTokenTestCase<Equipment>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		SizeAdjustment ps = primaryContext.ref.constructCDOMObject(
+		ps = primaryContext.ref.constructCDOMObject(
 				SizeAdjustment.class, "Small");
 		ps.put(StringKey.ABB, "S");
 		primaryContext.ref.registerAbbreviation(ps, "S");
@@ -115,5 +117,36 @@ public class SizeTokenTest extends AbstractTokenTestCase<Equipment>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.BASESIZE, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.BASESIZE, ps);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), ps
+				.getAbbreviation());
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.BASESIZE;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
 	}
 }

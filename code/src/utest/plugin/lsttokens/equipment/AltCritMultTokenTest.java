@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
@@ -30,4 +31,9 @@ public class AltCritMultTokenTest extends AbstractCritMultTokenTestCase
 		return token;
 	}
 
+	@Override
+	protected CDOMObject getUnparseTarget()
+	{
+		return primaryProf.getEquipmentHead(2);
+	}
 }

@@ -19,6 +19,8 @@ package plugin.lsttokens.equipment;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -163,5 +165,51 @@ public abstract class AbstractCritMultTokenTestCase extends
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Test
+	public void testUnparseOne() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(1), "x1");
+	}
+
+	@Test
+	public void testUnparseNone() throws PersistenceLayerException
+	{
+		expectSingle(setAndUnparse(-1), "-");
+	}
+
+	@Test
+	public void testUnparseZero() throws PersistenceLayerException
+	{
+		getUnparseTarget().put(getIntegerKey(), 0);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseNegative() throws PersistenceLayerException
+	{
+		getUnparseTarget().put(getIntegerKey(), -3);
+		assertBadUnparse();
+	}
+
+	protected abstract CDOMObject getUnparseTarget();
+
+	private IntegerKey getIntegerKey()
+	{
+		return IntegerKey.CRIT_MULT;
+	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		getUnparseTarget().put(getIntegerKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	protected String[] setAndUnparse(int val)
+	{
+		getUnparseTarget().put(getIntegerKey(), val);
+		return getToken().unparse(primaryContext, primaryProf);
 	}
 }
