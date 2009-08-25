@@ -78,6 +78,12 @@ public class WtToken extends AbstractToken implements
 		{
 			return null;
 		}
+		if (weight.compareTo(BigDecimal.ZERO) < 0)
+		{
+			context.addWriteMessage(getTokenName()
+					+ " was expecting a decimal value >= 0 : " + weight);
+			return null;
+		}
 		return new String[] { weight.toString() };
 	}
 

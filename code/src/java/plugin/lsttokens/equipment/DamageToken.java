@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
  * 
+ * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -21,14 +21,16 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Deals with DAMAGE token
  */
-public class DamageToken implements CDOMPrimaryToken<Equipment>
+public class DamageToken extends AbstractToken implements CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "DAMAGE";
@@ -36,6 +38,10 @@ public class DamageToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		context.getObjectContext().put(eq.getEquipmentHead(1),
 				StringKey.DAMAGE, value);
 		return true;

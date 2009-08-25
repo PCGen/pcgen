@@ -98,6 +98,11 @@ public class AltcritmultToken extends AbstractToken implements
 		{
 			retString = "-";
 		}
+		else if (multInt <= 0)
+		{
+			context.addWriteMessage(getTokenName() + " cannot be <= 0");
+			return null;
+		}
 		else
 		{
 			retString = "x" + multInt;

@@ -72,6 +72,12 @@ public class CritrangeToken implements CDOMPrimaryToken<Equipment>
 		{
 			return null;
 		}
+		if (mult < 0)
+		{
+			context.addWriteMessage(getTokenName() + " cannot be negative: "
+					+ mult);
+			return null;
+		}
 		return new String[] { mult.toString() };
 	}
 

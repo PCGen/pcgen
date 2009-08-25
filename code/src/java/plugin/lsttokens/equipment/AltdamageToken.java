@@ -21,14 +21,16 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
  * Deals with ALTDAMAGE token
  */
-public class AltdamageToken implements CDOMPrimaryToken<Equipment>
+public class AltdamageToken extends AbstractToken implements CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ALTDAMAGE";
@@ -36,6 +38,10 @@ public class AltdamageToken implements CDOMPrimaryToken<Equipment>
 
 	public boolean parse(LoadContext context, Equipment eq, String value)
 	{
+		if (isEmpty(value))
+		{
+			return false;
+		}
 		context.getObjectContext().put(eq.getEquipmentHead(2),
 				StringKey.DAMAGE, value);
 		return true;
