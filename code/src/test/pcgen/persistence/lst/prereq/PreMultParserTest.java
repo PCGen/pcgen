@@ -85,7 +85,7 @@ public class PreMultParserTest extends TestCase
 				parser
 					.parse(
 						"mult",
-						"1,[PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]",
+						"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]",
 						false, false);
 
 		assertEquals(

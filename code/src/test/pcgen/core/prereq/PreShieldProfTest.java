@@ -47,7 +47,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
 /**
- * <code>PreShieldProfTest</code> tests that the PRESHIELDPROF tag is
+ * <code>PreShieldProfTest</code> tests that the PREPROFWITHSHIELD tag is
  * working correctly.
  *
  * Last Editor: $Author$
@@ -91,7 +91,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRESHIELDPROF:1,Heavy Wooden Shield");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Wooden Shield");
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
@@ -107,12 +107,12 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has the Heavy Wooden Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESHIELDPROF:1,Light Wooden Shield");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,Light Wooden Shield");
 		
 		assertFalse("Character does not have the Light Wooden Shield proficiency", 
 				PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESHIELDPROF:1,Heavy Steel Shield");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Steel Shield");
 		
 		assertTrue("Character has the Heavy Steel Shield proficiency.", 
 				PrereqHandler.passes(prereq, character, null));
@@ -131,7 +131,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRESHIELDPROF:1,Heavy Wooden Shield,Full Plate");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Wooden Shield,Full Plate");
 
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -148,12 +148,12 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has one of Heavy Wooden Shield or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
 
-		prereq = factory.parse("PRESHIELDPROF:2,Heavy Wooden Shield,Full Plate");
+		prereq = factory.parse("PREPROFWITHSHIELD:2,Heavy Wooden Shield,Full Plate");
 
 		assertTrue("Character has both Heavy Wooden Shield and Full Plate proficiency", 
 				PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESHIELDPROF:3,Heavy Wooden Shield,Full Plate,Light Wooden Shield");
+		prereq = factory.parse("PREPROFWITHSHIELD:3,Heavy Wooden Shield,Full Plate,Light Wooden Shield");
 
 		assertFalse("Character has both Heavy Wooden Shield and Full Plate proficiency but not Light Wooden Shield", 
 				PrereqHandler.passes(prereq, character, null));
@@ -161,7 +161,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	}
 	
 	/**
-	 * Test a preshieldprof that checks for a number of profs of a certain type.
+	 * Test a PREPROFWITHSHIELD that checks for a number of profs of a certain type.
 	 * 
 	 * @throws Exception the exception
 	 */
@@ -172,7 +172,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRESHIELDPROF:1,TYPE.Medium");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,TYPE.Medium");
 
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -201,7 +201,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("!PRESHIELDPROF:1,Heavy Steel Shield");
+		prereq = factory.parse("!PREPROFWITHSHIELD:1,Heavy Steel Shield");
 
 		assertTrue("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -218,12 +218,12 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has the Heavy Steel Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("!PRESHIELDPROF:1,Light Wooden Shield");
+		prereq = factory.parse("!PREPROFWITHSHIELD:1,Light Wooden Shield");
 		
 		assertTrue("Character does not have the Light Wooden Shield proficiency", 
 				PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("!PRESHIELDPROF:1,Heavy Wooden Shield");
+		prereq = factory.parse("!PREPROFWITHSHIELD:1,Heavy Wooden Shield");
 		
 		assertFalse("Character has the Heavy Wooden Shield proficiency.", 
 				PrereqHandler.passes(prereq, character, null));
@@ -231,7 +231,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	}
 	
 	/**
-	 * Test the preshieldprof with shieldprofs added by a AUTO:SHIELDPROF tag
+	 * Test the PREPROFWITHSHIELD with shieldprofs added by a AUTO:SHIELDPROF tag
 	 * This is probably more an integration test than a unit test
 	 * 
 	 * @throws Exception the exception
@@ -243,7 +243,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PRESHIELDPROF:1,Heavy Steel Shield");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Steel Shield");
 
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -258,22 +258,22 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has the Heavy Steel Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESHIELDPROF:1,Heavy Wooden Shield");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Wooden Shield");
 		assertTrue("Character has the Heavy Wooden Shield proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESHIELDPROF:1,Light Wooden Shield");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,Light Wooden Shield");
 		assertFalse("Character does not have the Light Wooden Shield proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PRESHIELDPROF:1,TYPE.Heavy");
+		prereq = factory.parse("PREPROFWITHSHIELD:1,TYPE.Heavy");
 		assertTrue("Character has heavy shield prof.",
 					PrereqHandler.passes(prereq, character, null));
 		
 	}
 	
 	/**
-	 * Test PreShieldProf with a feat that has a bonus tag
+	 * Test PREPROFWITHSHIELD with a feat that has a bonus tag
 	 * 
 	 * @throws Exception the exception
 	 */
@@ -317,7 +317,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		
 		Ability foo = new Ability();
 		final String fooStr =
-			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PRESHIELDPROF:1,Full Plate";
+			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREPROFWITHSHIELD:1,Full Plate";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
 		character.addFeat(foo, null);
 		

@@ -91,7 +91,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREARMORPROF:1,Chainmail");
+		prereq = factory.parse("PREPROFWITHARMOR:1,Chainmail");
 
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -109,12 +109,12 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has the Chainmail proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PREARMORPROF:1,Leather");
+		prereq = factory.parse("PREPROFWITHARMOR:1,Leather");
 		
 		assertFalse("Character does not have the Leather proficiency", 
 				PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PREARMORPROF:1,Full Plate");
+		prereq = factory.parse("PREPROFWITHARMOR:1,Full Plate");
 		
 		assertTrue("Character has the Full Plate proficiency.", 
 				PrereqHandler.passes(prereq, character, null));
@@ -133,7 +133,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREARMORPROF:1,Chainmail,Full Plate");
+		prereq = factory.parse("PREPROFWITHARMOR:1,Chainmail,Full Plate");
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
@@ -150,12 +150,12 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has one of Chainmail or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
 
-		prereq = factory.parse("PREARMORPROF:2,Chainmail,Full Plate");
+		prereq = factory.parse("PREPROFWITHARMOR:2,Chainmail,Full Plate");
 
 		assertTrue("Character has both Chainmail and Full Plate proficiency", 
 				PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PREARMORPROF:3,Chainmail,Full Plate,Leather");
+		prereq = factory.parse("PREPROFWITHARMOR:3,Chainmail,Full Plate,Leather");
 
 		assertFalse("Character has both Chainmail and Full Plate proficiency but not Leather", 
 				PrereqHandler.passes(prereq, character, null));
@@ -174,7 +174,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREARMORPROF:1,TYPE.Medium");
+		prereq = factory.parse("PREPROFWITHARMOR:1,TYPE.Medium");
 
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -202,7 +202,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("!PREARMORPROF:1,Breastplate");
+		prereq = factory.parse("!PREPROFWITHARMOR:1,Breastplate");
 
 		assertTrue("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -220,12 +220,12 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertFalse("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("!PREARMORPROF:1,Leather");
+		prereq = factory.parse("!PREPROFWITHARMOR:1,Leather");
 		
 		assertTrue("Character does not have the Leather proficiency", 
 				PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("!PREARMORPROF:1,Chainmail");
+		prereq = factory.parse("!PREPROFWITHARMOR:1,Chainmail");
 		
 		assertFalse("Character has the Chainmail proficiency.", 
 				PrereqHandler.passes(prereq, character, null));
@@ -245,7 +245,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREARMORPROF:1,Breastplate");
+		prereq = factory.parse("PREPROFWITHARMOR:1,Breastplate");
 
 		assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
@@ -261,15 +261,15 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		assertTrue("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PREARMORPROF:1,Chainmail");
+		prereq = factory.parse("PREPROFWITHARMOR:1,Chainmail");
 		assertTrue("Character has the Chainmail proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PREARMORPROF:1,Leather");
+		prereq = factory.parse("PREPROFWITHARMOR:1,Leather");
 		assertFalse("Character does not have the Leather proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
-		prereq = factory.parse("PREARMORPROF:1,TYPE.Medium");
+		prereq = factory.parse("PREPROFWITHARMOR:1,TYPE.Medium");
 		assertTrue("Character has martial weaponprofs.",
 					PrereqHandler.passes(prereq, character, null));
 		
@@ -321,7 +321,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		
 		Ability foo = new Ability();
 		final String fooStr =
-			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREARMORPROF:1,Full Plate";
+			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREPROFWITHARMOR:1,Full Plate";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
 		character.addFeat(foo, null);
 		
