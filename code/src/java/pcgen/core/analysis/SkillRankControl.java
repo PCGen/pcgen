@@ -146,7 +146,7 @@ public class SkillRankControl
 				return "You must be at least level one before you can purchase skills.";
 			}
 
-			if ((rankMod > 0.0) && sk.qualifies(aPC))
+			if ((rankMod > 0.0) && !sk.qualifies(aPC))
 			{
 				return "You do not meet the prerequisites required to take this skill.";
 			}
