@@ -25,6 +25,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.Ability;
@@ -191,6 +192,11 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject
 	public String getTitle()
 	{
 		return title;
+	}
+
+	public GroupingState getGroupingState()
+	{
+		return pcs.getGroupingState();
 	}
 
 	/**
