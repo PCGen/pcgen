@@ -55,6 +55,12 @@ public class WeaponProfProvider extends ConcretePrereqObject
 	private List<CDOMGroupRef<WeaponProf>> type;
 
 	/**
+	 * Contains the All WeaponProf reference if this WeaponProfProvider contains
+	 * it
+	 */
+	private CDOMGroupRef<WeaponProf> all;
+
+	/**
 	 * Adds a primitive WeaponProf reference to this WeaponProfProvider.
 	 * 
 	 * @param ref
@@ -87,6 +93,18 @@ public class WeaponProfProvider extends ConcretePrereqObject
 	}
 
 	/**
+	 * Adds a All WeaponProf reference to this WeaponProfProvider.
+	 * 
+	 * @param ref
+	 *            The WeaponProf ALL reference that should be added to this
+	 *            WeaponProfProvider
+	 */
+	public void addWeaponProfAll(CDOMGroupRef<WeaponProf> ref)
+	{
+		all = ref;
+	}
+
+	/**
 	 * Returns a collection of the WeaponProf objects that this
 	 * WeaponProfProvider contains relative to a given PlayerCharacter. The
 	 * PlayerCharacter must be known in order to resolve changes that may be
@@ -106,18 +124,25 @@ public class WeaponProfProvider extends ConcretePrereqObject
 	public Collection<WeaponProf> getContainedProficiencies(PlayerCharacter pc)
 	{
 		List<WeaponProf> list = new ArrayList<WeaponProf>();
-		if (direct != null)
+		if (all != null)
 		{
-			for (CDOMSingleRef<WeaponProf> ref : direct)
-			{
-				list.add(ref.resolvesTo());
-			}
+			list.addAll(all.getContainedObjects());
 		}
-		if (type != null)
+		else
 		{
-			for (CDOMGroupRef<WeaponProf> ref : type)
+			if (direct != null)
 			{
-				list.addAll(WeaponProfType.getWeaponProfsInTarget(pc, ref));
+				for (CDOMSingleRef<WeaponProf> ref : direct)
+				{
+					list.add(ref.resolvesTo());
+				}
+			}
+			if (type != null)
+			{
+				for (CDOMGroupRef<WeaponProf> ref : type)
+				{
+					list.addAll(WeaponProfType.getWeaponProfsInTarget(pc, ref));
+				}
 			}
 		}
 		return list;
@@ -131,6 +156,10 @@ public class WeaponProfProvider extends ConcretePrereqObject
 	 */
 	public String getLstFormat()
 	{
+		if (all != null)
+		{
+			return Constants.LST_ALL;
+		}
 		StringBuilder sb = new StringBuilder();
 		boolean typeEmpty = type == null || type.isEmpty();
 		if (direct != null && !direct.isEmpty())
@@ -188,6 +217,20 @@ public class WeaponProfProvider extends ConcretePrereqObject
 					return false;
 				}
 			}
+			if (all == null)
+			{
+				if (other.all != null)
+				{
+					return false;
+				}
+			}
+			else
+			{
+				if (!all.equals(other.all))
+				{
+					return false;
+				}
+			}
 			return this.equalsPrereqObject(other);
 		}
 		return false;
@@ -213,7 +256,16 @@ public class WeaponProfProvider extends ConcretePrereqObject
 	 */
 	public boolean isEmpty()
 	{
-		return (direct == null || direct.isEmpty())
+		return all == null && (direct == null || direct.isEmpty())
 				&& (type == null || type.isEmpty());
+	}
+	
+	public boolean isValid()
+	{
+		boolean hasDirect = (direct != null) && !direct.isEmpty();
+		boolean hasType = (type != null) && !type.isEmpty();
+		boolean hasIndividual = hasDirect || hasType;
+		boolean hasAll = all != null;
+		return hasAll ^ hasIndividual;
 	}
 }

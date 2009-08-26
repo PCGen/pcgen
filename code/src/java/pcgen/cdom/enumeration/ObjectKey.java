@@ -286,8 +286,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Prerequisite> PRERACETYPE = new ObjectKey<Prerequisite>(null);
 
-	public static final ObjectKey<QualifiedObject<Boolean>> HAS_ALL_WEAPONPROF = new ObjectKey<QualifiedObject<Boolean>>(new QualifiedObject<Boolean>(Boolean.FALSE));
-
 	public static final ObjectKey<File> DIRECTORY = new ObjectKey<File>(null);
 
 	public static final ObjectKey<File> WRITE_DIRECTORY = new ObjectKey<File>(null);

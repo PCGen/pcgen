@@ -38,6 +38,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -122,6 +123,7 @@ public class ArmorProfToken extends AbstractToken implements
 
 			if ("%LIST".equals(aProf))
 			{
+				foundOther = true;
 				ChooseResultActor cra;
 				if (prereq == null)
 				{
@@ -170,12 +172,15 @@ public class ArmorProfToken extends AbstractToken implements
 			return false;
 		}
 
-		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
-		if (prereq != null)
+		if (!armorProfs.isEmpty() || !equipTypes.isEmpty())
 		{
-			pp.addPrerequisite(prereq);
+			ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
+			if (prereq != null)
+			{
+				pp.addPrerequisite(prereq);
+			}
+			context.obj.addToList(obj, ListKey.AUTO_ARMORPROF, pp);
 		}
-		context.obj.addToList(obj, ListKey.AUTO_ARMORPROF, pp);
 
 		return true;
 	}
@@ -184,31 +189,67 @@ public class ArmorProfToken extends AbstractToken implements
 	{
 		Changes<ArmorProfProvider> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_ARMORPROF);
+		Changes<ChooseResultActor> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
 		Collection<ArmorProfProvider> added = changes.getAdded();
 		Set<String> set = new TreeSet<String>();
-		if (added == null || added.isEmpty())
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		boolean foundAny = false;
+		boolean foundOther = false;
+		if (listAdded != null && !listAdded.isEmpty())
 		{
+			for (ChooseResultActor cra : listAdded)
+			{
+				if (cra.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						set.add(cra.getLstFormat());
+						foundOther = true;
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
+					}
+				}
+			}
+		}
+		if (added != null)
+		{
+			for (ArmorProfProvider spp : added)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(spp.getLstFormat());
+				if (spp.hasPrerequisites())
+				{
+					sb.append('[');
+					sb.append(getPrerequisiteString(context, spp
+							.getPrerequisiteList()));
+					sb.append(']');
+				}
+				String ab = sb.toString();
+				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
+				foundAny |= isUnconditionalAll;
+				foundOther |= !isUnconditionalAll;
+				set.add(ab);
+			}
+		}
+		if (foundAny && foundOther)
+		{
+			context.addWriteMessage("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + set);
 			return null;
 		}
-		for (ArmorProfProvider spp : added)
+		if (set.isEmpty())
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(spp.getLstFormat());
-			if (sb.length() == 0)
-			{
-				sb.append("%LIST");
-			}
-			if (spp.hasPrerequisites())
-			{
-				sb.append('[');
-				sb.append(getPrerequisiteString(context, spp
-						.getPrerequisiteList()));
-				sb.append(']');
-			}
-			set.add(sb.toString());
+			//okay
+			return null;
 		}
 		return set.toArray(new String[set.size()]);
 	}
+
 
 	public Class<CDOMObject> getTokenClass()
 	{

@@ -1802,12 +1802,6 @@ public class PCClass extends PObject
 		{
 			put(ObjectKey.HAS_DEITY_WEAPONPROF, otherWP);
 		}
-		QualifiedObject<Boolean> otherAllWP = otherClass
-				.get(ObjectKey.HAS_ALL_WEAPONPROF);
-		if (otherAllWP != null)
-		{
-			put(ObjectKey.HAS_ALL_WEAPONPROF, otherWP);
-		}
 
 		List<ArmorProfProvider> ap = otherClass
 				.getListFor(ListKey.AUTO_ARMORPROF);

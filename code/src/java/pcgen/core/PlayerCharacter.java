@@ -3855,15 +3855,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				ret.addAll(profs);
 			}
-			Boolean all =
-					pobj.getSafe(ObjectKey.HAS_ALL_WEAPONPROF).getObject(this);
-			if (all != null && all)
-			{
-				Collection<WeaponProf> allwps =
-						Globals.getContext().ref
-							.getConstructedCDOMObjects(WeaponProf.class);
-				ret.addAll(allwps);
-			}
 			Boolean dwp =
 					pobj.getSafe(ObjectKey.HAS_DEITY_WEAPONPROF)
 						.getObject(this);

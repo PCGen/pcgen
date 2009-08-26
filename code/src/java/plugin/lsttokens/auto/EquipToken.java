@@ -163,9 +163,6 @@ public class EquipToken extends AbstractToken implements
 
 		Changes<ChooseResultActor> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
-
-		// TODO remove not supported?
-
 		Changes<QualifiedObject<CDOMReference<Equipment>>> changes = context.obj
 				.getListChanges(obj, ListKey.EQUIPMENT);
 		Collection<QualifiedObject<CDOMReference<Equipment>>> added = changes

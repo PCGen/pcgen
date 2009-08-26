@@ -38,6 +38,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.ShieldProf;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -113,7 +114,7 @@ public class ShieldProfToken extends AbstractToken implements
 
 		StringTokenizer tok = new StringTokenizer(shieldProf, Constants.PIPE);
 
-		List<CDOMReference<ShieldProf>> ShieldProfs = new ArrayList<CDOMReference<ShieldProf>>();
+		List<CDOMReference<ShieldProf>> shieldProfs = new ArrayList<CDOMReference<ShieldProf>>();
 		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
 
 		while (tok.hasMoreTokens())
@@ -122,6 +123,7 @@ public class ShieldProfToken extends AbstractToken implements
 
 			if ("%LIST".equals(aProf))
 			{
+				foundOther = true;
 				ChooseResultActor cra;
 				if (prereq == null)
 				{
@@ -139,7 +141,7 @@ public class ShieldProfToken extends AbstractToken implements
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
 				foundAny = true;
-				ShieldProfs.add(context.ref
+				shieldProfs.add(context.ref
 						.getCDOMAllReference(SHIELDPROF_CLASS));
 			}
 			else if (aProf.startsWith(Constants.LST_SHIELDTYPE_OLD)
@@ -158,11 +160,10 @@ public class ShieldProfToken extends AbstractToken implements
 			else
 			{
 				foundOther = true;
-				ShieldProfs.add(context.ref.getCDOMReference(SHIELDPROF_CLASS,
+				shieldProfs.add(context.ref.getCDOMReference(SHIELDPROF_CLASS,
 						aProf));
 			}
 		}
-
 		if (foundAny && foundOther)
 		{
 			Logging.log(Logging.LST_ERROR, "Non-sensical " + getFullName()
@@ -170,12 +171,15 @@ public class ShieldProfToken extends AbstractToken implements
 			return false;
 		}
 
-		ShieldProfProvider pp = new ShieldProfProvider(ShieldProfs, equipTypes);
-		if (prereq != null)
+		if (!shieldProfs.isEmpty() || !equipTypes.isEmpty())
 		{
-			pp.addPrerequisite(prereq);
+			ShieldProfProvider pp = new ShieldProfProvider(shieldProfs, equipTypes);
+			if (prereq != null)
+			{
+				pp.addPrerequisite(prereq);
+			}
+			context.obj.addToList(obj, ListKey.AUTO_SHIELDPROF, pp);
 		}
-		context.obj.addToList(obj, ListKey.AUTO_SHIELDPROF, pp);
 
 		return true;
 	}
@@ -184,28 +188,63 @@ public class ShieldProfToken extends AbstractToken implements
 	{
 		Changes<ShieldProfProvider> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_SHIELDPROF);
+		Changes<ChooseResultActor> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
 		Collection<ShieldProfProvider> added = changes.getAdded();
 		Set<String> set = new TreeSet<String>();
-		if (added == null || added.isEmpty())
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		boolean foundAny = false;
+		boolean foundOther = false;
+		if (listAdded != null && !listAdded.isEmpty())
 		{
+			for (ChooseResultActor cra : listAdded)
+			{
+				if (cra.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						set.add(cra.getLstFormat());
+						foundOther = true;
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage("Error writing Prerequisite: "
+								+ e);
+						return null;
+					}
+				}
+			}
+		}
+		if (added != null)
+		{
+			for (ShieldProfProvider spp : added)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(spp.getLstFormat());
+				if (spp.hasPrerequisites())
+				{
+					sb.append('[');
+					sb.append(getPrerequisiteString(context, spp
+							.getPrerequisiteList()));
+					sb.append(']');
+				}
+				String ab = sb.toString();
+				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
+				foundAny |= isUnconditionalAll;
+				foundOther |= !isUnconditionalAll;
+				set.add(ab);
+			}
+		}
+		if (foundAny && foundOther)
+		{
+			context.addWriteMessage("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + set);
 			return null;
 		}
-		for (ShieldProfProvider spp : added)
+		if (set.isEmpty())
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(spp.getLstFormat());
-			if (sb.length() == 0)
-			{
-				sb.append("%LIST");
-			}
-			if (spp.hasPrerequisites())
-			{
-				sb.append('[');
-				sb.append(getPrerequisiteString(context, spp
-						.getPrerequisiteList()));
-				sb.append(']');
-			}
-			set.add(sb.toString());
+			//okay
+			return null;
 		}
 		return set.toArray(new String[set.size()]);
 	}

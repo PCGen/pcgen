@@ -117,6 +117,7 @@ public class WeaponProfToken extends AbstractToken implements
 			String aProf = tok.nextToken();
 			if ("%LIST".equals(aProf))
 			{
+				foundOther = true;
 				ChooseResultActor cra;
 				if (prereq == null)
 				{
@@ -133,6 +134,7 @@ public class WeaponProfToken extends AbstractToken implements
 			}
 			else if ("DEITYWEAPONS".equals(aProf))
 			{
+				foundOther = true;
 				context.obj.put(obj, ObjectKey.HAS_DEITY_WEAPONPROF,
 						new QualifiedObject<Boolean>(Boolean.TRUE, prereq));
 			}
@@ -141,8 +143,9 @@ public class WeaponProfToken extends AbstractToken implements
 				if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 				{
 					foundAny = true;
-					context.obj.put(obj, ObjectKey.HAS_ALL_WEAPONPROF,
-							new QualifiedObject<Boolean>(Boolean.TRUE, prereq));
+					CDOMGroupRef<WeaponProf> allRef = context.ref
+							.getCDOMAllReference(WEAPONPROF_CLASS);
+					wpp.addWeaponProfAll(allRef);
 				}
 				else
 				{
@@ -195,12 +198,13 @@ public class WeaponProfToken extends AbstractToken implements
 				ListKey.WEAPONPROF);
 		QualifiedObject<Boolean> deityweap = context.obj.getObject(obj,
 				ObjectKey.HAS_DEITY_WEAPONPROF);
-		QualifiedObject<Boolean> allweap = context.obj.getObject(obj,
-				ObjectKey.HAS_ALL_WEAPONPROF);
 		Collection<WeaponProfProvider> added = changes.getAdded();
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		boolean foundAny = false;
+		boolean foundOther = false;
 		if (listAdded != null && !listAdded.isEmpty())
 		{
+			foundOther = true;
 			for (ChooseResultActor cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
@@ -218,8 +222,9 @@ public class WeaponProfToken extends AbstractToken implements
 				}
 			}
 		}
-		if (deityweap != null)
+		if (deityweap != null && deityweap.getObject(null))
 		{
+			foundOther = true;
 			StringBuilder sb = new StringBuilder();
 			sb.append("DEITYWEAPONS");
 			if (deityweap.hasPrerequisites())
@@ -230,23 +235,18 @@ public class WeaponProfToken extends AbstractToken implements
 			}
 			list.add(sb.toString());
 		}
-		if (allweap != null)
-		{
-			StringBuilder sb = new StringBuilder();
-			sb.append("ALL");
-			if (allweap.hasPrerequisites())
-			{
-				sb.append('[').append(
-						context.getPrerequisiteString(allweap
-								.getPrerequisiteList())).append(']');
-			}
-			list.add(sb.toString());
-		}
 		if (added != null)
 		{
 			for (WeaponProfProvider wpp : added)
 			{
-				String ab = wpp.getLstFormat();
+				if (!wpp.isValid())
+				{
+					context.addWriteMessage("Non-sensical "
+							+ "WeaponProfProvider in " + getFullName()
+							+ ": Had invalid contents");
+					return null;
+				}
+				StringBuilder sb = new StringBuilder(wpp.getLstFormat());
 				List<Prerequisite> prereqs = wpp.getPrerequisiteList();
 				if (prereqs != null && !prereqs.isEmpty())
 				{
@@ -258,11 +258,22 @@ public class WeaponProfToken extends AbstractToken implements
 								+ getFullName());
 						return null;
 					}
-					ab = ab + '[' + context.getPrerequisiteString(prereqs)
-							+ ']';
+					sb.append('[').append(
+							context.getPrerequisiteString(prereqs)).append(']');
 				}
-				list.add(ab);
+				String lstFormat = sb.toString();
+				boolean isUnconditionalAll = Constants.LST_ALL
+						.equals(lstFormat);
+				foundAny |= isUnconditionalAll;
+				foundOther |= !isUnconditionalAll;
+				list.add(lstFormat);
 			}
+		}
+		if (foundAny && foundOther)
+		{
+			context.addWriteMessage("Non-sensical " + getFullName()
+					+ ": Contains ANY and a specific reference: " + list);
+			return null;
 		}
 		if (list.isEmpty())
 		{
