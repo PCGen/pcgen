@@ -241,6 +241,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	public abstract CDOMPrimaryToken<T> getToken();
 
+	@Test
 	public void testNoStackTrace()
 	{
 		try
@@ -256,9 +257,9 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 	@Test
 	public void testOverwrite() throws PersistenceLayerException
 	{
-		parse(getLegalValue());
+		assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
-		parse(getAlternateLegalValue());
+		assertTrue(parse(getAlternateLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer(getLegalValue(), getAlternateLegalValue()));
 	}

@@ -17,68 +17,26 @@
  */
 package plugin.lsttokens.auto;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PCTemplate;
+import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.WeaponProfProvider;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.QualifiedObject;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AutoLst;
-import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.pretokens.parser.PreRaceParser;
-import plugin.pretokens.writer.PreRaceWriter;
+import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
 public class WeaponProfTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, WeaponProf>
+		AbstractAutoTokenTestCase<WeaponProf>
 {
 
-	static AutoLst token = new AutoLst();
 	static WeaponProfToken subtoken = new WeaponProfToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-	PreRaceParser prerace = new PreRaceParser();
-	PreRaceWriter preracewriter = new PreRaceWriter();
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(prerace);
-		TokenRegistration.register(preracewriter);
-	}
-
-	@Override
-	public char getJoinCharacter()
-	{
-		return '|';
-	}
-
-	@Override
-	public Class<PCTemplate> getCDOMClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -98,34 +56,19 @@ public class WeaponProfTokenTest extends
 		return true;
 	}
 
-	@Override
-	public boolean isTypeLegal()
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
 	{
-		return true;
+		primaryProf.removeListFor(ListKey.WEAPONPROF);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testEmpty()
+	public void testUnparseSingleEmpty() throws PersistenceLayerException
 	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean allowsFormula()
-	{
-		return false;
-	}
-
-	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
-	{
-		runRoundRobin(getSubTokenName() + '|' + "%LIST");
+		WeaponProfProvider wpp = new WeaponProfProvider();
+		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
+		assertBadUnparse();
 	}
 
 	@Test
@@ -134,95 +77,124 @@ public class WeaponProfTokenTest extends
 		runRoundRobin(getSubTokenName() + '|' + "DEITYWEAPONS");
 	}
 
-
-	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[]"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1["));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		boolean parse = parse(getSubTokenName() + '|' + "TestWP1]");
-		if (parse)
-		{
-			assertFalse(primaryContext.ref.validate(null));
-		}
-		else
-		{
-			assertNoSideEffects();
-		}
-	}
-
-	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTrailingAfterBracket()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf]Hi"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testRoundRobinOnePre() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]");
-	}
-
-	@Test
-	public void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]",
-				getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
-	}
-
-	@Test
-	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PREFOO:1,Human]"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testRoundRobinListPre() throws PersistenceLayerException
-	{
-		runRoundRobin(getSubTokenName() + '|' + "%LIST[PRERACE:1,Dwarf]");
-	}
-
 	@Test
 	public void testRoundRobinDeityWeaponsPre() throws PersistenceLayerException
 	{
 		runRoundRobin(getSubTokenName() + '|' + "DEITYWEAPONS[PRERACE:1,Dwarf]");
+	}
+
+	@Test
+	public void testUnparseDeityWeaponsAll() throws PersistenceLayerException
+	{
+		loadAllReference();
+		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
+				new QualifiedObject<Boolean>(Boolean.TRUE));
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseIndivAll() throws PersistenceLayerException
+	{
+		WeaponProfProvider wpp = new WeaponProfProvider();
+		wpp.addWeaponProfAll(primaryContext.ref
+				.getCDOMAllReference(WeaponProf.class));
+		WeaponProf wp1 = construct(primaryContext, "TestWP1");
+		CDOMSingleRef<WeaponProf> ref = CDOMDirectSingleRef.getRef(wp1);
+		wpp.addWeaponProf(ref);
+		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseDeityWeapons() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
+				new QualifiedObject<Boolean>(Boolean.TRUE));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "WEAPONPROF|DEITYWEAPONS");
+	}
+
+	@Test
+	public void testUnparseDeityWeaponsFalse() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
+				new QualifiedObject<Boolean>(Boolean.FALSE));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertNull(unparsed);
+	}
+
+
+	@Override
+	protected void loadProf(CDOMSingleRef<WeaponProf> ref)
+	{
+		WeaponProfProvider wpp = new WeaponProfProvider();
+		wpp.addWeaponProf(ref);
+		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
+	}
+
+	@Override
+	protected void loadAllReference()
+	{
+		WeaponProfProvider wpp = new WeaponProfProvider();
+		wpp.addWeaponProfAll(primaryContext.ref
+				.getCDOMAllReference(WeaponProf.class));
+		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		WeaponProfProvider wpp = new WeaponProfProvider();
+		wpp.addWeaponProf(null);
+		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ListKey listKey = ListKey.WEAPONPROF;
+		primaryProf.addToListFor(listKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testInvalidAllPlusDeityWeaponsIllegal()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "DEITYWEAPONS|ALL"));
+		assertNoSideEffects();
+	}
+
+	@Override
+	protected ChooseResultActor getActor()
+	{
+		return subtoken;
+	}
+
+	@Override
+	protected void loadTypeProf(String... types)
+	{
+		WeaponProfProvider wpp = new WeaponProfProvider();
+		CDOMGroupRef<WeaponProf> ref = primaryContext.ref.getCDOMTypeReference(
+				WeaponProf.class, types);
+		wpp.addWeaponProfType(ref);
+		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
 	}
 }

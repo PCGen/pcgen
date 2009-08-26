@@ -17,75 +17,27 @@
  */
 package plugin.lsttokens.auto;
 
-import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PCTemplate;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.ShieldProfProvider;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AutoLst;
-import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.pretokens.parser.PreClassParser;
-import plugin.pretokens.parser.PreRaceParser;
-import plugin.pretokens.writer.PreClassWriter;
-import plugin.pretokens.writer.PreRaceWriter;
+import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
-public class ShieldProfTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, ShieldProf>
+public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 {
 
-	PreClassParser preclass = new PreClassParser();
-	PreClassWriter preclasswriter = new PreClassWriter();
-	PreRaceParser prerace = new PreRaceParser();
-	PreRaceWriter preracewriter = new PreRaceWriter();
-
-	static AutoLst token = new AutoLst();
 	static ShieldProfToken subtoken = new ShieldProfToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		TokenRegistration.register(preclass);
-		TokenRegistration.register(preclasswriter);
-		TokenRegistration.register(prerace);
-		TokenRegistration.register(preracewriter);
-	}
-
-	@Override
-	public char getJoinCharacter()
-	{
-		return '|';
-	}
-
-	@Override
-	public Class<PCTemplate> getCDOMClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -100,13 +52,13 @@ public class ShieldProfTokenTest extends
 	}
 
 	@Override
-	public boolean isAllLegal()
+	public String getTypePrefix()
 	{
-		return true;
+		return "SHIELD";
 	}
 
 	@Override
-	public boolean isTypeLegal()
+	public boolean isAllLegal()
 	{
 		return true;
 	}
@@ -118,112 +70,57 @@ public class ShieldProfTokenTest extends
 	}
 
 	@Override
-	public boolean allowsParenAsSub()
+	protected ChooseResultActor getActor()
 	{
-		return false;
+		return subtoken;
 	}
 
 	@Override
-	public boolean allowsFormula()
+	protected void loadAllReference()
 	{
-		return false;
+		List<CDOMReference<ShieldProf>> shieldProfs = new ArrayList<CDOMReference<ShieldProf>>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		shieldProfs.add(primaryContext.ref
+				.getCDOMAllReference(ShieldProf.class));
+		ShieldProfProvider pp = new ShieldProfProvider(shieldProfs, equipTypes);
+		primaryProf.addToListFor(ListKey.AUTO_SHIELDPROF, pp);
 	}
 
 	@Override
-	public String getTypePrefix()
+	protected void loadProf(CDOMSingleRef<ShieldProf> ref)
 	{
-		return "SHIELD";
+		List<CDOMReference<ShieldProf>> shieldProfs = new ArrayList<CDOMReference<ShieldProf>>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		shieldProfs.add(ref);
+		ShieldProfProvider pp = new ShieldProfProvider(shieldProfs, equipTypes);
+		primaryProf.addToListFor(ListKey.AUTO_SHIELDPROF, pp);
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "%LIST");
-	}
-
-	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[]"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1["));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		boolean parse = parse(getSubTokenName() + '|' + "TestWP1]");
-		if (parse)
+		ListKey listKey = ListKey.AUTO_SHIELDPROF;
+		primaryProf.addToListFor(listKey, new Object());
+		try
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
 		}
-		else
+		catch (ClassCastException e)
 		{
-			assertNoSideEffects();
+			// Yep!
 		}
 	}
 
-	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
+	@Override
+	protected void loadTypeProf(String... types)
 	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTrailingAfterBracket()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf]Hi"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testRoundRobinOnePre() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]");
-	}
-
-	@Test
-	public void testRoundRobinListPre() throws PersistenceLayerException
-	{
-		runRoundRobin(getSubTokenName() + '|' + "%LIST[PRERACE:1,Dwarf]");
-	}
-
-	@Test
-	public void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]",
-				getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
-	}
-
-	@Test
-	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PREFOO:1,Human]"));
-		assertNoSideEffects();
+		CDOMGroupRef<Equipment> ref = primaryContext.ref.getCDOMTypeReference(Equipment.class, types);
+		List<CDOMReference<ShieldProf>> shieldProfs = new ArrayList<CDOMReference<ShieldProf>>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		equipTypes.add(ref);
+		ShieldProfProvider pp = new ShieldProfProvider(shieldProfs, equipTypes);
+		primaryProf.addToListFor(ListKey.AUTO_SHIELDPROF, pp);
 	}
 
 }

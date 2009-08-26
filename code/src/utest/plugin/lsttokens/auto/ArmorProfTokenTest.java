@@ -17,51 +17,27 @@
  */
 package plugin.lsttokens.auto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.ArmorProfProvider;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Equipment;
 import pcgen.core.ArmorProf;
-import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AutoLst;
-import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
-public class ArmorProfTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, ArmorProf>
+public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 {
 
-	static AutoLst token = new AutoLst();
 	static ArmorProfToken subtoken = new ArmorProfToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-
-	@Override
-	public char getJoinCharacter()
-	{
-		return '|';
-	}
-
-	@Override
-	public Class<PCTemplate> getCDOMClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -76,13 +52,13 @@ public class ArmorProfTokenTest extends
 	}
 
 	@Override
-	public boolean isAllLegal()
+	public String getTypePrefix()
 	{
-		return true;
+		return "ARMOR";
 	}
 
 	@Override
-	public boolean isTypeLegal()
+	public boolean isAllLegal()
 	{
 		return true;
 	}
@@ -94,113 +70,57 @@ public class ArmorProfTokenTest extends
 	}
 
 	@Override
-	public boolean allowsParenAsSub()
+	protected ChooseResultActor getActor()
 	{
-		return false;
+		return subtoken;
 	}
 
 	@Override
-	public boolean allowsFormula()
+	protected void loadAllReference()
 	{
-		return false;
+		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		armorProfs.add(primaryContext.ref
+				.getCDOMAllReference(ArmorProf.class));
+		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
+		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);
 	}
 
 	@Override
-	public String getTypePrefix()
+	protected void loadProf(CDOMSingleRef<ArmorProf> ref)
 	{
-		return "ARMOR";
+		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		armorProfs.add(ref);
+		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
+		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "%LIST");
-	}
-
-
-	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[]"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1["));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		boolean parse = parse(getSubTokenName() + '|' + "TestWP1]");
-		if (parse)
+		ListKey listKey = ListKey.AUTO_ARMORPROF;
+		primaryProf.addToListFor(listKey, new Object());
+		try
 		{
-			assertFalse(primaryContext.ref.validate(null));
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
 		}
-		else
+		catch (ClassCastException e)
 		{
-			assertNoSideEffects();
+			// Yep!
 		}
 	}
 
-	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
+	@Override
+	protected void loadTypeProf(String... types)
 	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTrailingAfterBracket()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PRERACE:Dwarf]Hi"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testRoundRobinOnePre() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]");
-	}
-
-	@Test
-	public void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
-		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]",
-				getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
-	}
-
-	@Test
-	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1[PREFOO:1,Human]"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testRoundRobinListPre() throws PersistenceLayerException
-	{
-		runRoundRobin(getSubTokenName() + '|' + "%LIST[PRERACE:1,Dwarf]");
+		CDOMGroupRef<Equipment> ref = primaryContext.ref.getCDOMTypeReference(Equipment.class, types);
+		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		equipTypes.add(ref);
+		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
+		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);
 	}
 
 }

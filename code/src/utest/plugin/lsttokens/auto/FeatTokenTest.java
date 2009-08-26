@@ -22,7 +22,16 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
@@ -44,6 +53,8 @@ import plugin.pretokens.writer.PreRaceWriter;
 public class FeatTokenTest extends
 		AbstractAddTokenTestCase<CDOMObject, Ability>
 {
+	private static final AbilityCategory FEAT = AbilityCategory.FEAT;
+	private static final Nature AUTOMATIC = Nature.AUTOMATIC;
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();
@@ -173,7 +184,8 @@ public class FeatTokenTest extends
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
-		runRoundRobin(getSubTokenName() + '|' + "TestWP1|PRECLASS:1,Fighter=3|PRERACE:1,Dwarf");
+		runRoundRobin(getSubTokenName() + '|'
+				+ "TestWP1|PRECLASS:1,Fighter=3|PRERACE:1,Dwarf");
 	}
 
 	@Test
@@ -217,4 +229,144 @@ public class FeatTokenTest extends
 			}
 		};
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.removeAllFromList(getListReference());
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private CDOMReference<? extends CDOMList<?>> getListReference()
+	{
+		return AbilityList.getAbilityListReference(FEAT, AUTOMATIC);
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		Ability wp1 = construct(primaryContext, "TestWP1");
+		addToList(CDOMDirectSingleRef.getRef(wp1));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "TestWP1");
+	}
+
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		Ability wp1 = construct(primaryContext, "TestWP1");
+		addToList(CDOMDirectSingleRef.getRef(wp1));
+		Ability wp2 = construct(primaryContext, "TestWP2");
+		addToList(CDOMDirectSingleRef.getRef(wp2));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "TestWP1" + getJoinCharacter() + "TestWP2");
+	}
+
+	@Test
+	public void testUnparseDupe() throws PersistenceLayerException
+	{
+		Ability wp1 = construct(primaryContext, "TestWP1");
+		addToList(CDOMDirectSingleRef.getRef(wp1));
+		addToList(CDOMDirectSingleRef.getRef(wp1));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "TestWP1" + getJoinCharacter() + "TestWP1");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		addToList(null);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseType() throws PersistenceLayerException
+	{
+		if (isTypeLegal())
+		{
+			CDOMGroupRef<Ability> tr = getTypeReference();
+			addToList(tr);
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			expectSingle(unparsed, tr.getLSTformat());
+		}
+	}
+
+	protected CDOMGroupRef<Ability> getTypeReference()
+	{
+		return primaryContext.ref.getCDOMTypeReference(getTargetClass(), FEAT,
+				"Type1");
+	}
+
+	@Test
+	public void testUnparseAll() throws PersistenceLayerException
+	{
+		if (isTypeLegal())
+		{
+			CDOMGroupRef<Ability> allReference = getAllReference();
+			addToList(allReference);
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			expectSingle(unparsed, getAllString());
+		}
+	}
+
+	protected CDOMGroupRef<Ability> getAllReference()
+	{
+		return primaryContext.ref.getCDOMAllReference(getTargetClass(), FEAT);
+	}
+
+	/*
+	 * TODO Need to figure out who owns this responsibility
+	 */
+	// @Test
+	// public void testUnparseGenericsFail() throws PersistenceLayerException
+	// {
+	// CDOMReference listKey = getListReference();
+	// SimpleAssociatedObject sao = new SimpleAssociatedObject();
+	// sao.setAssociation(AssociationKey.TOKEN, getToken().getTokenName()
+	// + ":" + subtoken.getTokenName());
+	// primaryProf.putToList(listKey, CDOMDirectSingleRef
+	// .getRef(primaryContext.ref.constructCDOMObject(Domain.class,
+	// "DomainItem")), sao);
+	// doCustomAssociations(sao);
+	// try
+	// {
+	// getToken().unparse(primaryContext, primaryProf);
+	// fail();
+	// }
+	// catch (ClassCastException e)
+	// {
+	// // Yep!
+	// }
+	// }
+
+	protected AssociatedPrereqObject addToList(CDOMReference<Ability> val)
+	{
+		SimpleAssociatedObject sao = new SimpleAssociatedObject();
+		sao.setAssociation(AssociationKey.TOKEN, getToken().getTokenName()
+				+ ":" + subtoken.getTokenName());
+		primaryProf.putToList(getListReference(), val, sao);
+		doCustomAssociations(sao);
+		return sao;
+	}
+
+	protected void doCustomAssociations(AssociatedPrereqObject apo)
+	{
+		apo.setAssociation(AssociationKey.NATURE, AUTOMATIC);
+		apo.setAssociation(AssociationKey.CATEGORY, FEAT);
+	}
+
+	@Override
+	protected void expectSingle(String[] unparsed, String expected)
+	{
+		super.expectSingle(unparsed, "FEAT|" + expected);
+	}
+
 }
