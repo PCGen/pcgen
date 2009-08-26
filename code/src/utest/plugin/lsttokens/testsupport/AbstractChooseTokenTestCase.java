@@ -22,6 +22,10 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -719,7 +723,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1]TYPE=Foo"));
+			assertFalse(parse(getSubTokenName() + '|'
+					+ "QUALIFIED[TestWP1]TYPE=Foo"));
 			assertNoSideEffects();
 		}
 	}
@@ -731,7 +736,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]TestWP1"));
+			assertFalse(parse(getSubTokenName() + '|'
+					+ "QUALIFIED[TYPE=Foo]TestWP1"));
 			assertNoSideEffects();
 		}
 	}
@@ -743,7 +749,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1]TYPE=Foo|TYPE=Bar"));
+			assertFalse(parse(getSubTokenName() + '|'
+					+ "QUALIFIED[TestWP1]TYPE=Foo|TYPE=Bar"));
 			assertNoSideEffects();
 		}
 	}
@@ -755,7 +762,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		if (allowsQualifier())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]TestWP1,TYPE=Bar"));
+			assertFalse(parse(getSubTokenName() + '|'
+					+ "QUALIFIED[TYPE=Foo]TestWP1,TYPE=Bar"));
 			assertNoSideEffects();
 		}
 	}
@@ -1075,4 +1083,91 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		}
 	}
 
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(getObjectKey(), null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	private ObjectKey<PersistentTransitionChoice<?>> getObjectKey()
+	{
+		return ObjectKey.CHOOSE_INFO;
+	}
+
+	@Test
+	public void testUnparseIllegalAllItem() throws PersistenceLayerException
+	{
+		assertBadChoose("ALL|TestWP1");
+	}
+
+	private void assertBadChoose(String value)
+	{
+		parseForUnparse(value, false);
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseIllegalItemAll() throws PersistenceLayerException
+	{
+		assertBadChoose("ALL|TestWP1");
+	}
+
+	@Test
+	public void testUnparseIllegalAllType() throws PersistenceLayerException
+	{
+		assertBadChoose("ALL|TestWP1");
+	}
+
+	@Test
+	public void testUnparseIllegalTypeAll() throws PersistenceLayerException
+	{
+		assertBadChoose("ALL|TestWP1");
+	}
+
+	@Test
+	public void testUnparseLegal() throws PersistenceLayerException
+	{
+		assertGoodChoose("TestWP1|TestWP2");
+	}
+
+	private void assertGoodChoose(String value)
+	{
+		parseForUnparse(value, true);
+		String[] unparse = getToken().unparse(primaryContext, primaryProf);
+		assertNotNull(unparse);
+		assertEquals(1, unparse.length);
+		assertEquals(unparse[0], getSubToken().getTokenName() + "|" + value);
+	}
+
+	private void parseForUnparse(String value, boolean valid)
+	{
+		PrimitiveChoiceSet<TC> pcs = primaryContext.getChoiceSet(
+				getTargetClass(), value);
+		assertNotNull(pcs);
+		assertEquals(valid, pcs.getGroupingState().isValid());
+		ChoiceSet<TC> cs = new ChoiceSet<TC>(getSubToken().getTokenName(), pcs);
+		cs.setTitle(getChoiceTitle());
+		PersistentTransitionChoice<TC> tc = new PersistentTransitionChoice<TC>(
+				cs, null);
+		primaryProf.put(ObjectKey.CHOOSE_INFO, tc);
+	}
+
+	protected abstract String getChoiceTitle();
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = getObjectKey();
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
 }

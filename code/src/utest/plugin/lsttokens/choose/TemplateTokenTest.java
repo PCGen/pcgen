@@ -78,4 +78,10 @@ public class TemplateTokenTest extends
 	{
 		return true;
 	}
+
+	@Override
+	protected String getChoiceTitle()
+	{
+		return subtoken.getDefaultTitle();
+	}
 }
