@@ -8,7 +8,7 @@ STANDARD TARGETS
 
 jar-all-plugins - Generate the plugin jar files
 
-
+ 
 -->
 
 <project name="pcgen-plugins">
