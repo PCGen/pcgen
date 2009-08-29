@@ -17,7 +17,6 @@
  */
 package plugin.qualifier.skill;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -84,8 +83,7 @@ public class NoRankToken implements QualifierToken<Skill>
 	public Set<Skill> getSet(PlayerCharacter pc)
 	{
 		Set<Skill> skillSet = new HashSet<Skill>();
-		ArrayList<Skill> skilllist = pc.getSkillList();
-		for (Skill sk : skilllist)
+		for (Skill sk : pc.getSkillSet())
 		{
 			if (SkillRankControl.getRank(pc, sk) == 0)
 			{

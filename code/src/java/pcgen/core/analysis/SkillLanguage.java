@@ -53,8 +53,7 @@ public final class SkillLanguage
 	{
 		Skill languageSkill = null;
 
-		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : aPC.getSkillSet())
 		{
 			if (isLanguage(aSkill))
 			{

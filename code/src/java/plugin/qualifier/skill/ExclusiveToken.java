@@ -84,8 +84,7 @@ public class ExclusiveToken implements QualifierToken<Skill>
 	{
 		Set<Skill> skillSet = new HashSet<Skill>();
 		ArrayList<PCClass> classlist = pc.getClassList();
-		ArrayList<Skill> skilllist = pc.getSkillList();
-		for (Skill sk : skilllist)
+		for (Skill sk : pc.getSkillSet())
 		{
 			CLASS: for (PCClass cl : classlist)
 			{

@@ -25,9 +25,6 @@
  *
  */package plugin.pretokens.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -67,8 +64,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 
 		boolean foundMatch = false;
-		final List<Skill> skillList = new ArrayList<Skill>(character.getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : character.getSkillSet())
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)

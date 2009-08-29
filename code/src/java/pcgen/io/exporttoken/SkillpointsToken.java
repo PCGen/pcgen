@@ -26,7 +26,6 @@
 package pcgen.io.exporttoken;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -180,8 +179,7 @@ public class SkillpointsToken extends Token
 	public static int getUsedSkillPoints(PlayerCharacter pc)
 	{
 		float usedPoints = 0;
-		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : pc.getSkillSet())
 		{
 			List<NamedValue> rankList = pc.getAssocList(aSkill,
 					AssociationListKey.SKILL_RANK);
@@ -212,8 +210,7 @@ public class SkillpointsToken extends Token
 		}
 		PCClass targetClass = pc.getClassList().get(classNum);
 		float usedPoints = 0;
-		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : pc.getSkillSet())
 		{
 			Integer outputIndex = pc.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
 			if ((SkillRankControl.getRank(pc, aSkill).doubleValue() > 0)

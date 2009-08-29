@@ -29,6 +29,7 @@
 package pcgen.core;
 
 import java.awt.HeadlessException;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -625,7 +626,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.addSkill(defaultSkill);
 
 		// Test retrieved list
-		List<Skill> skillList = pc.getSkillList();
+		Collection<Skill> skillList = pc.getSkillSet();
 		assertEquals("Full skill list should have all 3 skills", 3, skillList
 			.size());
 

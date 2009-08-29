@@ -547,8 +547,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private int getHighestOutputIndex()
 	{
 		int maxOutputIndex = 0;
-		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
-		for (Skill bSkill : skillList)
+		for (Skill bSkill : pc.getSkillSet())
 		{
 			Integer outputIndex = pc.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
 			if (outputIndex != null && outputIndex > maxOutputIndex)
@@ -1927,8 +1926,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			// new skill has been added, this won't get called
 			// when adding a rank to an existing skill
 			// NB: This does get called on a rank change, should it be fixed?
-			Collections.sort(pc.getSkillList(),
-				new StringIgnoreCaseComparator());
+//			Collections.sort(pc.getSkillList(),
+//				new StringIgnoreCaseComparator());
 
 			// Now re calc the output order
 			if (selectedOutputOrder != GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL)
@@ -1974,7 +1973,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if (CoreUtility.doublesEqual(SkillRankControl.getRank(pc, aSkill).doubleValue(), 0.0)
 				&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 			{
-				pc.getSkillList().remove(aSkill);
+				pc.removeSkill(aSkill);
 			}
 		}
 
@@ -2063,7 +2062,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		SkillComparator comparator = new SkillComparator(pc, sort, sortOrder);
 		int nextOutputIndex = 1;
-		List<Skill> skillList = pc.getSkillList();
+		List<Skill> skillList = new ArrayList<Skill>(pc.getSkillSet());
 		Collections.sort(skillList, comparator);
 
 		for (Skill aSkill : skillList)
@@ -2180,7 +2179,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			selectedOutputOrder = bPC.getSkillsOutputOrder();
 			outputOrderComboBox.setSelectedIndex(selectedOutputOrder);
-			bPC.getAllSkillList(true); // forces refresh of skills
+			bPC.refreshSkillList(); // forces refresh of skills
 
 			SettingsHandler.getSkillsTab_IncludeSkills();
 
@@ -4293,7 +4292,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						.doubleValue(), 0.0))
 						&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 					{
-						pc.getSkillList().remove(aSkill);
+						pc.removeSkill(aSkill);
 					}
 
 					// don't need to update availableTable
@@ -4375,8 +4374,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private ArrayList<Skill> getSatisfiedPrereqSkills(final Skill theSkill)
 	{
 		ArrayList<Skill> prereqSkills = new ArrayList<Skill>();
-		final ArrayList<Skill> pcSkills = pc.getSkillList();
-		for (Skill aSkill : pcSkills)
+		for (Skill aSkill : pc.getSkillSet())
 		{
 			if (theSkill.compareTo(aSkill) != 0)
 			{

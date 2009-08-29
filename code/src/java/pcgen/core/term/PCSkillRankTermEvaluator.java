@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.spell.Spell;
@@ -51,11 +52,14 @@ public class PCSkillRankTermEvaluator
 	@Override
 	public String evaluate(PlayerCharacter pc)
 	{
-		final Skill aSkill = pc.getSkillKeyed(rank);
+		Skill skill = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Skill.class, rank);
+		if (skill == null || !pc.hasSkill(skill))
+		{
+			return "0.0";
+		}
 
-		return null == aSkill ?
-			   "0.0" :
-			   SkillRankControl.getRank(pc, aSkill).toString();		
+		return SkillRankControl.getRank(pc, skill).toString();		
 	}
 
 	@Override

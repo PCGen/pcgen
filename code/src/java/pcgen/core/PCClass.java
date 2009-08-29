@@ -1611,7 +1611,7 @@ public class PCClass extends PObject
 				//
 				// Remove all skills associated with this class
 				//
-				for (Skill skill : aPC.getSkillList())
+				for (Skill skill : aPC.getSkillSet())
 				{
 					SkillRankControl.setZeroRanks(this, aPC, skill);
 				}
@@ -1657,11 +1657,8 @@ public class PCClass extends PObject
 			if (!isMonster() && (total == 0))
 			{
 				aPC.setSkillPoints(0);
-				// aPC.setFeats(0);
-				aPC.getSkillList().clear();
+				aPC.removeAllSkills();
 				aPC.clearRealAbilities(null);
-				//				aPC.clearRealFeats();
-				//				aPC.getWeaponProfList().clear();
 				aPC.setDirty(true);
 			}
 			else

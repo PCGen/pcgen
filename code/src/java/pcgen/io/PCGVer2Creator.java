@@ -1890,9 +1890,7 @@ final class PCGVer2Creator implements IOConstants
 
 		thePC.populateSkills(includeSkills);
 
-		final List<Skill> skillList =
-				new ArrayList<Skill>(thePC.getSkillList());
-		for (Skill skill : skillList)
+		for (Skill skill : thePC.getSkillSet())
 		{
 			Integer outputIndex =
 					thePC.getAssoc(skill, AssociationKey.OUTPUT_INDEX);

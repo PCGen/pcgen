@@ -109,8 +109,7 @@ public final class SkillCostCalc
 			}
 		}
 
-		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : aPC.getSkillSet())
 		{
 			if (SkillCostCalc.hasCSkill(aPC, aSkill, sk))
 			{
@@ -263,8 +262,7 @@ public final class SkillCostCalc
 			}
 		}
 
-		List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : aPC.getSkillSet())
 		{
 			if (SkillCostCalc.hasCcSkill(aPC, aSkill, sk))
 			{

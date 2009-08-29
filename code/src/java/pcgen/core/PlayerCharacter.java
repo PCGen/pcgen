@@ -95,6 +95,7 @@ import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
+import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
@@ -184,6 +185,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
+	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
@@ -208,9 +210,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			new ArrayList<Equipment>();
 	private final ArrayList<Equipment> secondaryWeapons =
 			new ArrayList<Equipment>();
-
-	// List of Skills
-	private final ArrayList<Skill> skillList = new ArrayList<Skill>();
 
 	// Collections of String (probably should be full objects)
 	private final ArrayList<SpecialAbility> specialAbilityList =
@@ -463,39 +462,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * if checkBonus is true, then search for all skills with a SKILLRANK bonus
-	 * to include in list as well TODO This is bogus. Not only does it return
-	 * skills with a bonus but it modifies the PC's skill list to include them.
-	 * 
-	 * @param checkBonus Whether to return all skills (true) (including those with
-	 *                    a bonus but no ranks) or just the skills that are actually
-	 *                    in the skillList.
-	 * @return ArrayList
-	 */
-	public ArrayList<Skill> getAllSkillList(final boolean checkBonus)
-	{
-		if (!checkBonus)
-		{
-			return skillList;
-		}
-
-		for (final Skill skill : Globals.getContext().ref
-			.getConstructedCDOMObjects(Skill.class))
-		{
-			if (!hasSkill(skill))
-			{
-				if (!CoreUtility.doublesEqual(SkillRankControl.getSkillRankBonusTo(this, skill),
-					0.0))
-				{
-					addSkill(skill);
-				}
-			}
-		}
-
-		return skillList;
-	}
-
-	/**
 	 * Retrieve those skills in the character's skill list that match the
 	 * supplied visibility level.
 	 * 
@@ -508,7 +474,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<Skill> getPartialSkillList(Visibility vis)
 	{
 		// Now select the required set of skills, based on their visibility.
-		return Globals.getObjectsOfVisibility(skillList, vis);
+		return Globals.getObjectsOfVisibility(skillFacet.getSet(id), vis);
 	}
 
 	/**
@@ -2229,12 +2195,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// If it's a familiar, we need to change it's Skills
 		if (getUseMasterSkill())
 		{
-			final List<Skill> mList = mPC.getSkillList();
+			final Set<Skill> mList = mPC.getSkillSet();
 			final List<Skill> sKeyList = new ArrayList<Skill>();
 
 			// now we have to merge the two lists together and
 			// take the higher rank of each skill for the Familiar
-			for (Skill fSkill : getAllSkillList(true))
+			refreshSkillList();
+			for (Skill fSkill : getSkillSet())
 			{
 				for (Skill mSkill : mList)
 				{
@@ -2284,7 +2251,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// We don't pass in a class here so that the real skills can be
 				// distinguished from the ones form the master.
 				SkillRankControl.modRanks(sr, null, true, this, newSkill);
-				getSkillList().add(newSkill);
+				skillFacet.add(id, newSkill);
 			}
 		}
 
@@ -2820,9 +2787,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return list of skills
 	 */
-	public ArrayList<Skill> getSkillList()
+	public Set<Skill> getSkillSet()
 	{
-		return getAllSkillList(false);
+		return skillFacet.getSet(id);
 	}
 
 	/**
@@ -2835,7 +2802,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<Skill> getSkillListInOutputOrder()
 	{
-		return getSkillListInOutputOrder(new ArrayList<Skill>(getSkillList()));
+		return getSkillListInOutputOrder(new ArrayList<Skill>(getSkillSet()));
 	}
 
 	/**
@@ -2939,8 +2906,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			returnValue += li.getSkillPointsGained();
 		}
 
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : getSkillSet())
 		{
 			List<NamedValue> rankList =
 					getAssocList(aSkill, AssociationListKey.SKILL_RANK);
@@ -3491,8 +3457,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill obj : skillList)
+		for (Skill obj : getSkillSet())
 		{
 			final String varInList =
 					checkForVariableInList(obj, variableString, isMax, found,
@@ -5942,20 +5907,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			"SIZE");
 	}
 
-	public Skill getSkillKeyed(final String skillKey)
-	{
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill skill : skillList)
-		{
-			if (skill.getKeyName().equalsIgnoreCase(skillKey))
-			{
-				return skill;
-			}
-		}
-
-		return null;
-	}
-
 	/**
 	 * Set the order in which skills should be sorted for output.
 	 * 
@@ -6096,8 +6047,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addSpells(ability);
 		}
 
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill skill : skillList)
+		for (Skill skill : getSkillSet())
 		{
 			addSpells(skill);
 		}
@@ -6972,7 +6922,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		// Skill not found, add to list
 		//
-		getSkillList().add(addSkill);
+		skillFacet.add(id, addSkill);
 		setDirty(true);
 
 		if (!isImporting())
@@ -8062,8 +8012,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.resolve(this, aFeat.getQualifiedKey()).intValue());
 		}
 
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill skill : skillList)
+		for (Skill skill : getSkillSet())
 		{
 			SR =
 					Math.max(SR, skill.getSafe(ObjectKey.SR).getReduction()
@@ -8928,7 +8877,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		int i = (int) getStatBonusTo("LANG", "BONUS");
 		final Race pcRace = getRace();
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
 
 		if (i < 0)
 		{
@@ -8937,7 +8885,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (includeSpeakLanguage)
 		{
-			for (Skill skill : skillList)
+			for (Skill skill : getSkillSet())
 			{
 				if (skill.getSafe(StringKey.CHOICE_STRING).indexOf("Language") >= 0)
 				{
@@ -9125,7 +9073,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Find all skills associated with old class and link them to new
 			// class
 			//
-			for (Skill skill : getSkillList())
+			for (Skill skill : getSkillSet())
 			{
 				SkillRankControl.replaceClassRank(this, skill, aClass
 					.getKeyName(), cl.getKeyName());
@@ -9665,7 +9613,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void populateSkills(final int level)
 	{
-		Globals.sortPObjectListByName(getSkillList());
 		removeExcessSkills(level);
 		addNewSkills(level);
 
@@ -9705,7 +9652,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				return;
 		}
 
-		final List<Skill> localSkillList = new ArrayList<Skill>(getSkillList());
+		final List<Skill> localSkillList = new ArrayList<Skill>(getSkillSet());
 		final SkillComparator comparator =
 				new SkillComparator(this, sort, sortOrder);
 		int nextOutputIndex = 1;
@@ -11170,7 +11117,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Skill
-		results.addAll(getSkillList());
+		results.addAll(getSkillSet());
 
 		// Stat (PCStat)
 		results.addAll(statFacet.getSet(id));
@@ -11228,7 +11175,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private void addNewSkills(final int level)
 	{
 		final List<Skill> addItems = new ArrayList<Skill>();
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
+		final List<Skill> skillList = new ArrayList<Skill>(getSkillSet());
 
 		for (Skill aSkill : Globals.getContext().ref
 			.getConstructedCDOMObjects(Skill.class))
@@ -11239,7 +11186,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		getSkillList().addAll(addItems);
+		skillFacet.addAll(id, addItems);
 		// setDirty(true);
 	}
 
@@ -12118,14 +12065,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private void removeExcessSkills(final int level)
 	{
-		List<Skill> skills = getSkillList();
 		boolean modified = false;
 		// Wrap to avoid a ConcurrentModificationException
-		for (Skill skill : new ArrayList<Skill>(skills))
+		for (Skill skill : new ArrayList<Skill>(skillFacet.getSet(id)))
 		{
 			if (!includeSkill(skill, level))
 			{
-				skills.remove(skill);
+				skillFacet.remove(id, skill);
 				modified = true;
 			}
 		}
@@ -12395,8 +12341,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		getSpellList();
 
 		// Force refresh of skills
-		getAllSkillList(true);
-
+		refreshSkillList();
+		
 		int includeSkills = SettingsHandler.getIncludeSkills();
 
 		// Include the skills from the skills tab if that preference is set
@@ -12632,11 +12578,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill skill : skillList)
-		{
-			aClone.skillList.add(skill);
-		}
 		aClone.specialAbilityList.addAll(getSpecialAbilityList());
 		for (String s : this.variableList)
 		{
@@ -12650,6 +12591,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
 		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
 		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
+		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
 		for (PCClass pcClass : classList)
 		{
 			PCClass cloneClass = pcClass.clone();
@@ -15645,8 +15587,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		SortedSet<Language> autoLangs = getAutoLanguages();
 		Skill speakLanguage = null;
 
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : getSkillSet())
 		{
 			if (aSkill.getSafe(StringKey.CHOICE_STRING).indexOf(
 				PropertyFactory.getString("in_language")) >= 0)
@@ -16034,7 +15975,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasSkill(Skill skill)
 	{
-		return getAllSkillList(false).contains(skill);
+		return skillFacet.contains(id, skill);
 	}
 
 	public boolean hasTemplate(PCTemplate template)
@@ -16211,5 +16152,31 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getStatCount()
 	{
 		return statFacet.getCount(id);
+	}
+
+	public void removeSkill(Skill sk)
+	{
+		skillFacet.remove(id, sk);
+	}
+
+	public void removeAllSkills()
+	{
+		skillFacet.removeAll(id);
+	}
+	
+	public void refreshSkillList()
+	{
+		for (final Skill skill : Globals.getContext().ref
+				.getConstructedCDOMObjects(Skill.class))
+		{
+			if (!hasSkill(skill))
+			{
+				if (!CoreUtility.doublesEqual(SkillRankControl
+						.getSkillRankBonusTo(this, skill), 0.0))
+				{
+					addSkill(skill);
+				}
+			}
+		}
 	}
 }

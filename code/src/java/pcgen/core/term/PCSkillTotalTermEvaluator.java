@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
@@ -45,12 +46,13 @@ public class PCSkillTotalTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		final Skill aSkill = pc.getSkillKeyed(total);
+		Skill aSkill = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Skill.class, total);
 
-		Float total = SkillRankControl.getTotalRank(pc, aSkill);
-		total += SkillModifier.modifier(aSkill, pc);
+		Float totalRank = SkillRankControl.getTotalRank(pc, aSkill);
+		totalRank += SkillModifier.modifier(aSkill, pc);
 
-		return (aSkill == null) ? 0f : total;
+		return (aSkill == null) ? 0f : totalRank;
 	}
 
 	public boolean isSourceDependant()

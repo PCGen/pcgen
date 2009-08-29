@@ -1,6 +1,10 @@
 package plugin.jepcommands;
 
+import java.util.Stack;
+
 import org.nfunk.jep.ParseException;
+
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
@@ -8,8 +12,6 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
-
-import java.util.Stack;
 
 /**
  * Deals with skill() JEP commands
@@ -73,10 +75,12 @@ public class SkillInfoCommand extends PCGenCommand
 					+ parent.getClass().getName());
 			}
 
-			final Skill aSkill = pc.getSkillKeyed((String) param2);
+			Skill aSkill = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Skill.class, param2
+							.toString());
 
 			Object result = null;
-			if (aSkill != null)
+			if (aSkill != null && pc.hasSkill(aSkill))
 			{
 				if ("modifier".equalsIgnoreCase((String) param1))
 				{

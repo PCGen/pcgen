@@ -48,9 +48,11 @@ public class PCSkillTypeTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc) {
 
-		//noinspection CollectionDeclaredAsConcreteClass
-		final ArrayList<Skill> skills = new ArrayList<Skill>(pc.getAllSkillList(true)); 
-		final List<Skill> skillList = pc.getSkillListInOutputOrder( skills);
+		pc.refreshSkillList();
+
+		final List<Skill> skillList = pc
+				.getSkillListInOutputOrder(new ArrayList<Skill>(pc
+						.getSkillSet()));
 
 		Float typeCount = 0f;
 

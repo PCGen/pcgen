@@ -133,12 +133,8 @@ public class SkillToken extends Token
 		catch (NumberFormatException exc)
 		{
 			//Allowing SKILL.Spot.<subtoken>
-			skill = pc.getSkillKeyed(details.skillId);
-
-			if (skill == null)
-			{
-				skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, details.skillId);
-			}
+			skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Skill.class, details.skillId);
 		}
 		return skill;
 	}

@@ -223,7 +223,6 @@ public class NPCGenerator
 				continue;
 			}
 
-			Skill pcSkill = aPC.getSkillKeyed(skill.getKeyName());
 			final int cost = aPC.getSkillCostForClass(skill, aClass).getCost();
 			double ranks = 1.0 / cost;
 			Logging.debugPrint( "NPCGenerator: Adding " + (int)ranks + "ranks" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -233,7 +232,7 @@ public class NPCGenerator
 				// we can add this rank to this skill.
 				double maxRanks = aPC.getMaxRank(skill, aClass).
 					doubleValue();
-				double pcRanks = pcSkill == null ? 0.0 : SkillRankControl.getRank(aPC, pcSkill).doubleValue();
+				double pcRanks = SkillRankControl.getRank(aPC, skill).doubleValue();
 				if (pcRanks + ranks > maxRanks)
 				{
 					Logging.debugPrint("NPCGenerator: Skill already at max."); //$NON-NLS-1$
@@ -244,13 +243,7 @@ public class NPCGenerator
 						Skill chkSkill = skillChoice.getSkill();
 						if (chkSkill != null)
 						{
-							Skill chkPcSkill = aPC.getSkillKeyed(chkSkill.getKeyName());
-							if (chkPcSkill == null)
-							{
-								ranksLeft = true;
-								break;
-							}
-							if (SkillRankControl.getRank(aPC, chkPcSkill).doubleValue() < aPC.getMaxRank(chkPcSkill, aClass).
+							if (SkillRankControl.getRank(aPC, chkSkill).doubleValue() < aPC.getMaxRank(chkSkill, aClass).
 									doubleValue())
 							{
 								ranksLeft = true;
@@ -267,7 +260,7 @@ public class NPCGenerator
 				}
 			}
 
-			if (pcSkill == null)
+			if (skill == null)
 			{
 				aPC.addSkill(skill);
 			}

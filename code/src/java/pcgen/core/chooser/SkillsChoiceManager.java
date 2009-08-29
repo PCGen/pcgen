@@ -23,8 +23,8 @@
  */
 package pcgen.core.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -62,8 +62,7 @@ public class SkillsChoiceManager extends AbstractBasicStringChoiceManager {
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		final List<Skill> skillList = new ArrayList<Skill>(aPC.getSkillList());
-		for (Skill aSkill : skillList)
+		for (Skill aSkill : aPC.getSkillSet())
 		{
 			availableList.add(aSkill.getKeyName());
 		}

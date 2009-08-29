@@ -2661,8 +2661,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Iterate through all the PC's Skills
-				List<Skill> skillList = new ArrayList<Skill>(pc.getSkillList());
-				for (Skill aSkill : skillList)
+				for (Skill aSkill : pc.getSkillSet())
 				{
 					for (BonusObj aBonus : aSkill.getRawBonusList(pc))
 					{

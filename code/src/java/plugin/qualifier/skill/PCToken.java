@@ -29,7 +29,7 @@ public class PCToken extends AbstractPCQualifierToken<Skill>
 	@Override
 	protected Collection<Skill> getPossessed(PlayerCharacter pc)
 	{
-		return pc.getSkillList();
+		return pc.getSkillSet();
 	}
 
 	public Class<? super Skill> getChoiceClass()

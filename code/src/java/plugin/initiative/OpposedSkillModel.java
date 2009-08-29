@@ -102,23 +102,21 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 			{
 				PlayerCharacter pc = initiative.getPC();
 				Globals.setCurrentPC(pc);
-				Skill skill = pc.getSkillKeyed(aSkillKey);
-				if (skill != null)
+				Skill skill = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Skill.class,
+								aSkillKey);
+				if (skill != null && pc.hasSkill(skill))
 				{
 					returnValue =
 							Integer.valueOf(SkillModifier.modifier(skill, pc).intValue()
 								+ SkillRankControl.getTotalRank(pc, skill).intValue());
 				}
-				else
-				{
-					skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, aSkillKey);
-					if (skill != null
+				else if (skill != null
 						&& skill.getSafe(ObjectKey.USE_UNTRAINED)
 						&& skill.get(ObjectKey.KEY_STAT) != null)
-					{
-						returnValue =
-								Integer.valueOf(SkillModifier.modifier(skill, pc).intValue());
-					}
+				{
+					returnValue = Integer.valueOf(SkillModifier.modifier(skill,
+							pc).intValue());
 				}
 			}
 			return returnValue;

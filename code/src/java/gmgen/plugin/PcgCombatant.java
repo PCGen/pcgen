@@ -789,7 +789,7 @@ public class PcgCombatant extends Combatant
 			statBuf
 				.append("<p><font class='type'>Skills and Feats:</font>&nbsp;");
 
-			pc.getAllSkillList(true); //force refresh of skills
+			pc.refreshSkillList(); //force refresh of skills
 
 			/*
 			 * TODO includeSkill is written and never read... so what does it do?

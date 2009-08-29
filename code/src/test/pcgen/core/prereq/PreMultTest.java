@@ -262,7 +262,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass 2 knowledge skill test with 2 skills", passes);
 
-		character.getSkillList().remove(knowledge);
+		character.removeSkill(knowledge);
 		character.calcActiveBonuses();
 
 	}

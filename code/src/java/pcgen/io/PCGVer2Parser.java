@@ -272,7 +272,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		else if (sourceStr.startsWith(TAG_SKILL + '='))
 		{
 			sourceStr = sourceStr.substring(6);
-			oSource = thePC.getSkillKeyed(sourceStr);
+			Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Skill.class, sourceStr);
+			if (thePC.hasSkill(aSkill))
+			{
+				oSource = aSkill;
+			}
+			else
+			{
+				// TODO Error message
+			}
 		}
 		else
 		{
@@ -477,9 +486,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_SKILL))
 		{
-			final Skill aSkill = thePC.getSkillKeyed(objectname);
+			Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Skill.class, objectname);
 
-			if (aSkill != null)
+			if (aSkill != null && thePC.hasSkill(aSkill))
 			{
 				for (String s : aList)
 				{
@@ -3600,26 +3610,19 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			final String skillKey = EntityEncoder.decode(element.getText());
-			aSkill = thePC.getSkillKeyed(skillKey);
+			aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Skill.class, skillKey);
 
 			if (aSkill == null)
 			{
-				aSkill =
-						Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(Skill.class,
-								skillKey);
+				final String message = "Could not add skill: " + skillKey;
+				warnings.add(message);
 
-				if (aSkill != null)
-				{
-					thePC.getSkillList().add(aSkill);
-				}
-				else
-				{
-					final String message = "Could not add skill: " + skillKey;
-					warnings.add(message);
-
-					return;
-				}
+				return;
+			}
+			if (!thePC.hasSkill(aSkill))
+			{
+				thePC.addSkill(aSkill);
 			}
 		}
 
@@ -5346,15 +5349,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_SKILL))
 			{
-				Skill aSkill = thePC.getSkillKeyed(cKey);
-
-				if (aSkill == null)
-				{
-					aSkill =
-							Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(Skill.class,
-									cKey);
-				}
+				Skill aSkill = Globals.getContext().ref
+						.silentlyGetConstructedCDOMObject(Skill.class, cKey);
 
 				if (aSkill != null)
 				{

@@ -17,7 +17,6 @@
  */
 package plugin.qualifier.skill;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -94,8 +93,7 @@ public class RanksToken implements QualifierToken<Skill>
 	public Set<Skill> getSet(PlayerCharacter pc)
 	{
 		Set<Skill> skillSet = new HashSet<Skill>();
-		ArrayList<Skill> skilllist = pc.getSkillList();
-		for (Skill sk : skilllist)
+		for (Skill sk : pc.getSkillSet())
 		{
 			boolean allow = ranks >= SkillRankControl.getRank(pc, sk);
 			if (negated ^ allow)
