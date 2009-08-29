@@ -2129,7 +2129,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendStatLines(StringBuffer buffer)
 	{
-		for (PCStat aStat : thePC.getUnmodifiableStatList())
+		for (PCStat aStat : thePC.getStatSet())
 		{
 			buffer.append(TAG_STAT).append(':');
 			buffer.append(aStat.getAbb());

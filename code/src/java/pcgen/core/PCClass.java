@@ -1641,7 +1641,7 @@ public class PCClass extends PObject
 				{
 					for (PCLevelInfoStat statToRollback : moddedStats)
 					{
-						for (PCStat aStat : aPC.getUnmodifiableStatList())
+						for (PCStat aStat : aPC.getStatSet())
 						{
 							if (aStat.equals(statToRollback.getStat()))
 							{

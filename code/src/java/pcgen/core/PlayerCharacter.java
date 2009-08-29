@@ -95,6 +95,7 @@ import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
+import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
@@ -182,6 +183,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
@@ -247,7 +249,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
 
 	private PCClass selectedFavoredClass = null;
-	private final List<PCStat> stats = new ArrayList<PCStat>();
 
 	// List of Kit objects
 	private List<Kit> kitList = null;
@@ -405,7 +406,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		Globals.setCurrentPC(this);
 
-		stats.addAll(Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class));
+		statFacet.addAll(id, Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCStat.class));
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
@@ -3661,7 +3663,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// }
 		// }
 
-		for (PCStat obj : stats)
+		for (PCStat obj : statFacet.getSet(id))
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax, found,
@@ -11171,7 +11173,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(getSkillList());
 
 		// Stat (PCStat)
-		results.addAll(stats);
+		results.addAll(statFacet.getSet(id));
 
 		// Template (PCTemplate)
 		results.addAll(getTemplateSet());
@@ -12207,11 +12209,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aMethod = Constants.CHARACTERSTATMETHOD_PURCHASE;
 		}
-		rollStats(aMethod, stats, SettingsHandler.getGame()
+		rollStats(aMethod, statFacet.getSet(id), SettingsHandler.getGame()
 			.getCurrentRollingMethod(), false);
 	}
 
-	public void rollStats(final int method, final List<PCStat> aStatList,
+	public void rollStats(final int method, final Collection<PCStat> aStatList,
 		final GameModeRollMethod rollMethod, boolean aSortedFlag)
 	{
 		int[] rolls = new int[aStatList.size()];
@@ -12244,10 +12246,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			Arrays.sort(rolls);
 		}
 
-		for (int stat = aStatList.size() - 1, i = 0; stat >= 0; stat--, i++)
+		int i = rolls.length - 1;
+		for (PCStat currentStat : aStatList)
 		{
-			PCStat currentStat = aStatList.get(stat);
-
 			this.setAssoc(currentStat, AssociationKey.STAT_SCORE, 0);
 
 			if (!currentStat.getSafe(ObjectKey.ROLLED))
@@ -12256,7 +12257,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			int roll =
-					rolls[i]
+					rolls[i--]
 						+ this.getAssoc(currentStat, AssociationKey.STAT_SCORE);
 
 			if (roll < currentStat.getSafe(IntegerKey.MIN_VALUE))
@@ -12648,6 +12649,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
 		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
 		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
+		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
 		for (PCClass pcClass : classList)
 		{
 			PCClass cloneClass = pcClass.clone();
@@ -12680,8 +12682,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.selectedFavoredClass = selectedFavoredClass;
-        aClone.stats.clear(); 	 
-        aClone.stats.addAll(stats); 	 
         if (kitList != null)
 		{
 			aClone.kitList = new ArrayList<Kit>();
@@ -16042,9 +16042,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return templateFacet.contains(id, template);
 	}
 
-	public List<PCStat> getUnmodifiableStatList()
+	public Set<PCStat> getStatSet()
 	{
-		return Collections.unmodifiableList(stats);
+		return statFacet.getSet(id);
 	}
 
 	public boolean hasDefaultDomainSource()
@@ -16210,6 +16210,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int getStatCount()
 	{
-		return stats.size();
+		return statFacet.getCount(id);
 	}
 }

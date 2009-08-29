@@ -58,7 +58,7 @@ public class StatAnalysis
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for ( PCStat stat : pc.getUnmodifiableStatList() )
+		for ( PCStat stat : pc.getStatSet() )
 		{
 			aList.addAll(BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS),
 					aType, aName));

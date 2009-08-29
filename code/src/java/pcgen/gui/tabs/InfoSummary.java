@@ -838,7 +838,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	{
 		int i = 0;
 
-		for (PCStat aStat : pc.getUnmodifiableStatList())
+		for (PCStat aStat : pc.getStatSet())
 		{
 			if (!aStat.getSafe(ObjectKey.ROLLED))
 			{
@@ -879,7 +879,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			final StringBuffer aString = new StringBuffer();
 
-			for (PCStat aStat : pc.getUnmodifiableStatList())
+			for (PCStat aStat : pc.getStatSet())
 			{
 				if (RaceStat.isNonAbility(aStat, aRace))
 				{
@@ -1334,7 +1334,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	 */
 	private boolean allAbilitiesAreZero()
 	{
-		for (PCStat stat : pc.getUnmodifiableStatList())
+		for (PCStat stat : pc.getStatSet())
 		{
 			if (pc.getAssoc(stat, AssociationKey.STAT_SCORE) != 0)
 			{
@@ -2329,14 +2329,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	{
 		final int selectedStat = statTable.getSelectedRow();
 
-		if ((selectedStat < 0)
-			|| (selectedStat >= Globals.getContext().ref.getConstructedObjectCount(PCStat.class)))
+		if ((selectedStat < 0) || (selectedStat >= pc.getStatCount()))
 		{
 			// Ignore invalid row selection
 			return;
 		}
 
-		final PCStat aStat = pc.getUnmodifiableStatList().get(selectedStat);
+		List<PCStat> statList = new ArrayList<PCStat>(pc.getStatSet());
+		final PCStat aStat = statList.get(selectedStat);
 		int stat = StatAnalysis.getBaseStatFor(pc, aStat);
 
 		boolean makeChange = false;
@@ -2804,7 +2804,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			int statTotal = 0;
 			int modTotal = 0;
 
-			for (PCStat aStat : pc.getUnmodifiableStatList())
+			for (PCStat aStat : pc.getStatSet())
 			{
 				if (pc.isNonAbility(aStat) || !aStat.getSafe(ObjectKey.ROLLED))
 				{
@@ -3271,7 +3271,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 				final int pcPlayerLevels = pc.getTotalPlayerLevels();
 
-				final PCStat aStat = pc.getUnmodifiableStatList().get(rowIndex);
+				List<PCStat> statList = new ArrayList<PCStat>(pc.getStatSet());
+				final PCStat aStat = statList.get(rowIndex);
 
 				if (pc.isNonAbility(aStat))
 				{
@@ -3391,7 +3392,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
-			List<PCStat> statList = pc.getUnmodifiableStatList();
+			List<PCStat> statList = new ArrayList<PCStat>(pc.getStatSet());
 			PCStat activeStat;
 			if ((rowIndex >= 0) && (rowIndex < statList.size()))
 			{

@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
-import java.util.List;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang.math.Fraction;
@@ -474,8 +474,8 @@ public class PlayerCharacterOutput
 		return getExportToken("WEAPONH.MULT");
 	}
 
-	public List<PCStat> getUnmodifiableStatList()
+	public Collection<PCStat> getUnmodifiableStatList()
 	{
-		return pc.getUnmodifiableStatList();
+		return pc.getStatSet();
 	}
 }

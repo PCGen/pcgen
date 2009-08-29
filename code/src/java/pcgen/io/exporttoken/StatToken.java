@@ -26,6 +26,8 @@
 
 package pcgen.io.exporttoken;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.PCStat;
@@ -82,11 +84,12 @@ public class StatToken extends Token
 		aTok.nextToken();
 		int indexOfStat;
 		indexOfStat = Integer.parseInt(aTok.nextToken());
-		if ((indexOfStat < 0) || (indexOfStat >= pc.getUnmodifiableStatList().size()))
+		if ((indexOfStat < 0) || (indexOfStat >= pc.getStatCount()))
 		{
 			return "";
 		}
-		PCStat stat = pc.getUnmodifiableStatList().get(indexOfStat);
+		List<PCStat> statList = new ArrayList<PCStat>(pc.getStatSet());
+		PCStat stat = statList.get(indexOfStat);
 
 		String findType = "STAT";
 

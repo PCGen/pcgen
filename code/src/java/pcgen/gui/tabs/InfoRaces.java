@@ -1122,7 +1122,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 				Race race = (Race) fn.getItem();
 				final StringBuffer retString = new StringBuffer();
 
-				for (PCStat stat : getPc().getUnmodifiableStatList())
+				for (PCStat stat : getPc().getStatSet())
 				{
 					if (RaceStat.isNonAbility(stat, race))
 					{

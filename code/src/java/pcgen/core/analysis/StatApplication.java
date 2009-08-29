@@ -81,7 +81,7 @@ public class StatApplication
 			final StringBuffer sStats = new StringBuffer();
 			final List<String> selectableStats = new ArrayList<String>();
 	
-			for (PCStat aStat : aPC.getUnmodifiableStatList())
+			for (PCStat aStat : aPC.getStatSet())
 			{
 				final int iAdjStat =
 						StatAnalysis.getTotalStatFor(aPC, aStat);
@@ -126,7 +126,7 @@ public class StatApplication
 	
 			if (selectedValue != null)
 			{
-				for (PCStat aStat : aPC.getUnmodifiableStatList())
+				for (PCStat aStat : aPC.getStatSet())
 				{
 					if (aStat.getDisplayName().equalsIgnoreCase(
 						selectedValue.toString()))

@@ -65,7 +65,7 @@ public class KitStat extends BaseKit
 		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
 		{
 			int sVal = me.getValue().resolve(aPC, "").intValue();
-			for (PCStat currentStat : aPC.getUnmodifiableStatList())
+			for (PCStat currentStat : aPC.getStatSet())
 			{
 				if (!aPC.isNonAbility(currentStat)
 					&& currentStat.equals(me.getKey()))

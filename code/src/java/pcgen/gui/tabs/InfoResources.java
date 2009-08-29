@@ -664,7 +664,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		newPC.setName(nName);
 		newPC.setFileName(file.getAbsolutePath());
 
-		for (PCStat aStat : newPC.getUnmodifiableStatList())
+		for (PCStat aStat : newPC.getStatSet())
 		{
 			newPC.setAssoc(aStat, AssociationKey.STAT_SCORE, 10);
 		}
