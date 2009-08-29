@@ -61,7 +61,21 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		{
 			componentSet.remove(obj);
 		}
-		fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
+	}
+
+	public Set<T> removeAll(CharID id)
+	{
+		Set<T> componentSet = getCachedSet(id);
+		if (componentSet != null)
+		{
+			FacetCache.set(id, thisClass, null);
+			for (T obj : componentSet)
+			{
+				fireGraphNodeChangeEvent(id, obj,
+						DataFacetChangeEvent.DATA_REMOVED);
+			}
+		}
+		return componentSet;
 	}
 
 	public Set<T> getSet(CharID id)

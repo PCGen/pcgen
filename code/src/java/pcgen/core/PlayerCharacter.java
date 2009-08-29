@@ -81,15 +81,21 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.DomainFacet;
+import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.HandsFacet;
+import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.RaceFacet;
+import pcgen.cdom.facet.RaceTypeFacet;
+import pcgen.cdom.facet.RacialSubTypesFacet;
+import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.FollowerLimit;
@@ -176,10 +182,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
+
+	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
+	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
+	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
+	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
+	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
+	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(4);
@@ -210,9 +224,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// List of Classes
 	private ArrayList<PCClass> classList = new ArrayList<PCClass>();
 
-	// List of CompanionMods
-	private final ArrayList<CompanionMod> companionModList =
-			new ArrayList<CompanionMod>();
 	/** This character's list of followers */
 	private final List<Follower> followerList = new ArrayList<Follower>();
 	private HashMapToList<Class, String> qualifyArrayMap =
@@ -934,22 +945,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					// Found race and type of follower
 					// so add bonus to the master
-					addCompanionMod(cm);
+					companionModFacet.add(id, cm);
 					BonusActivation.activateBonuses(cm, aPC);
 				}
 			}
 		}
-	}
-
-	/**
-	 * Adds a <tt>CompanionMod</tt> to the character.
-	 * 
-	 * @param aMod
-	 *            The <tt>CompanionMod</tt> to add.
-	 */
-	public void addCompanionMod(final CompanionMod aMod)
-	{
-		companionModList.add(aMod);
 	}
 
 	/**
@@ -1089,36 +1089,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getRaceType()
 	{
-		String raceType = Constants.s_NONE;
-		Race race = getRace();
-		if (race != null)
-		{
-			RaceType rt = race.get(ObjectKey.RACETYPE);
-			if (rt != null)
-			{
-				raceType = rt.toString();
-			}
-		}
-		if (!companionModList.isEmpty())
-		{
-			for (CompanionMod cm : companionModList)
-			{
-				RaceType rt = cm.get(ObjectKey.RACETYPE);
-				if (rt != null)
-				{
-					raceType = rt.toString();
-				}
-			}
-		}
-		for (PCTemplate t : templateFacet.getSet(id))
-		{
-			RaceType rt = t.get(ObjectKey.RACETYPE);
-			if (rt != null)
-			{
-				raceType = rt.toString();
-			}
-		}
-		return raceType;
+		RaceType rt = raceTypeFacet.getRaceType(id);
+		return rt == null ? Constants.s_NONE : rt.toString();
 	}
 
 	/**
@@ -1128,33 +1100,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Collection<String> getRacialSubTypes()
 	{
-		final ArrayList<String> racialSubTypes = new ArrayList<String>();
-		for (RaceSubType st : getRace().getSafeListFor(ListKey.RACESUBTYPE))
-		{
-			racialSubTypes.add(st.toString());
-		}
-		Set<PCTemplate> templates = templateFacet.getSet(id);
-		if (!templates.isEmpty())
-		{
-			List<RaceSubType> added = new ArrayList<RaceSubType>();
-			List<RaceSubType> removed = new ArrayList<RaceSubType>();
-			for (PCTemplate aTemplate : templates)
-			{
-				added.addAll(aTemplate.getSafeListFor(ListKey.RACESUBTYPE));
-				removed.addAll(aTemplate
-					.getSafeListFor(ListKey.REMOVED_RACESUBTYPE));
-			}
-			for (RaceSubType st : added)
-			{
-				racialSubTypes.add(st.toString());
-			}
-			for (RaceSubType st : removed)
-			{
-				racialSubTypes.remove(st.toString());
-			}
-		}
-
-		return Collections.unmodifiableList(racialSubTypes);
+		return subTypesFacet.getRacialSubTypes(id);
 	}
 
 	/**
@@ -2157,14 +2103,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Removes all <tt>CompanionMod</tt>s from the character.
-	 */
-	public void clearCompanionMods()
-	{
-		companionModList.clear();
-	}
-
-	/**
 	 * Set the master for this object also set the level dependent stats based
 	 * on the masters level and info contained in the companionModList Array
 	 * such as HitDie, SR, BONUS, SA, etc
@@ -2214,12 +2152,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		List<CompanionMod> oldCompanionMods =
-				new ArrayList<CompanionMod>(companionModList);
 		List<CompanionMod> newCompanionMods = new ArrayList<CompanionMod>();
 
 		// Clear the companionModList so we can add everything to it
-		clearCompanionMods();
+		Set<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
 
 		for (CompanionMod cMod : Globals.getCompanionMods(aM.getType()))
 		{
@@ -2244,7 +2180,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						{
 							newCompanionMods.add(cMod);
 						}
-						addCompanionMod(cMod);
+						companionModFacet.add(id, cMod);
 						addHD += cMod.getSafe(IntegerKey.HIT_DIE);
 					}
 				}
@@ -2266,7 +2202,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						{
 							newCompanionMods.add(cMod);
 						}
-						addCompanionMod(cMod);
+						companionModFacet.add(id, cMod);
 						addHD += cMod.getSafe(IntegerKey.HIT_DIE);
 					}
 				}
@@ -2359,7 +2295,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addEquipSet(eSet);
 		}
 
-		oldCompanionMods.removeAll(companionModList);
+		oldCompanionMods.removeAll(companionModFacet.getSet(id));
 		for (CompanionMod cMod : oldCompanionMods)
 		{
 			CDOMObjectUtilities.removeAdds(cMod, this);
@@ -3254,26 +3190,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Selector <p/> Build on-the-fly so removing templates won't mess up
-	 * subrace
-	 * 
 	 * @return character subrace
 	 */
 	public String getSubRace()
 	{
-		String subRace = Constants.s_NONE;
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			final String tempSubRace = template.getSubRace();
-
-			if (!tempSubRace.equals(Constants.s_NONE))
-			{
-				subRace = tempSubRace;
-			}
-		}
-
-		return subRace;
+		return subRaceFacet.getSubRace(id);
 	}
 
 	/**
@@ -3659,7 +3580,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (CompanionMod obj : companionModList)
+		for (CompanionMod obj : companionModFacet.getSet(id))
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax, found,
@@ -4911,14 +4832,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return bonusManager.getBonusDueToType(mainType, subType, bonusType);
 	}
 
-	public List<CompanionMod> getCompanionModList()
-	{
-		return Collections.unmodifiableList(companionModList);
-	}
-
 	public String getCopyMasterBAB()
 	{
-		for (CompanionMod cMod : companionModList)
+		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
 			/*
 			 * TODO This is the "slow" method - proper solution here is to
@@ -4941,7 +4857,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public String getCopyMasterCheck()
 	{
-		for (CompanionMod cMod : companionModList)
+		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
 			if (cMod.getType().equalsIgnoreCase(
 				getMaster().getType().getKeyName()))
@@ -4958,7 +4874,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public String getCopyMasterHP()
 	{
-		for (CompanionMod cMod : companionModList)
+		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
 			if (cMod.getType().equalsIgnoreCase(
 				getMaster().getType().getKeyName()))
@@ -6508,7 +6424,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean getUseMasterSkill()
 	{
-		for (CompanionMod cMod : companionModList)
+		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
 			if (cMod.getType().equalsIgnoreCase(
 				getMaster().getType().getKeyName()))
@@ -8123,7 +8039,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.resolve(this, deity.getQualifiedKey()).intValue());
 		}
 
-		for (CompanionMod cMod : companionModList)
+		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
 			SR =
 					Math.max(SR, cMod.getSafe(ObjectKey.SR).getReduction()
@@ -11201,7 +11117,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(classList);
 
 		// CompanionMod
-		results.addAll(companionModList);
+		results.addAll(companionModFacet.getSet(id));
 
 		// Deity
 		if (deity != null)
@@ -12730,6 +12646,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.deity = deity;
 		aClone.domainFacet.addAll(aClone.id, domainFacet.getSet(id));
 		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
+		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
 		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
 		for (PCClass pcClass : classList)
 		{
@@ -12737,7 +12654,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			cloneClass.addFeatPoolBonus(aClone);
 			aClone.classList.add(cloneClass);
 		}
-		aClone.companionModList.addAll(companionModList);
 		aClone.qualifyArrayMap.addAllLists(qualifyArrayMap);
 		if (followerMaster != null)
 		{
@@ -15067,89 +14983,33 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Determine the character's facing. This is based on their race and any
-	 * applied templates.
+	 * Determine the character's facing.
 	 * 
 	 * @return The facing.
 	 */
 	public Point2D.Double getFace()
 	{
-		final Race aRace = getRace();
-		// Default to 5' by 5'
-		Point2D.Double face = new Point2D.Double(5, 0);
-		if (aRace != null)
-		{
-			Point2D.Double rf = aRace.getFace();
-			if (rf != null)
-			{
-				face = rf;
-			}
-		}
-
-		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateSet())
-		{
-			Point2D.Double tf = template.getFace();
-			if (tf != null)
-			{
-				face = tf;
-			}
-		}
-		return face;
+		return faceFacet.getFace(id);
 	}
 
 	/**
-	 * Determine the number of hands the character has. This is based on their
-	 * race and any applied templates.
+	 * Determine the number of hands the character has.
 	 * 
 	 * @return The number of hands.
 	 */
 	public int getHands()
 	{
-		final Race aRace = getRace();
-		int hands = 0;
-		if (aRace != null)
-		{
-			hands = aRace.getSafe(IntegerKey.CREATURE_HANDS);
-		}
-
-		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateSet())
-		{
-			Integer h = template.get(IntegerKey.CREATURE_HANDS);
-			if (h != null)
-			{
-				hands = h;
-			}
-		}
-		return hands;
+		return handsFacet.getHands(id);
 	}
 
 	/**
-	 * Determine the number of legs the character has. This is based on their
-	 * race and any applied templates.
+	 * Determine the number of legs the character has.
 	 * 
 	 * @return The number of legs.
 	 */
 	public int getLegs()
 	{
-		final Race aRace = getRace();
-		int legs = 0;
-		if (aRace != null)
-		{
-			legs = aRace.getSafe(IntegerKey.LEGS);
-		}
-
-		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateSet())
-		{
-			Integer l = template.get(IntegerKey.LEGS);
-			if (l != null)
-			{
-				legs = l;
-			}
-		}
-		return legs;
+		return legsFacet.getLegs(id);
 	}
 
 	/**

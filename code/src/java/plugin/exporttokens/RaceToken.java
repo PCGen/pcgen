@@ -138,9 +138,10 @@ public class RaceToken extends Token
 
 		StringBuffer extraRaceInfo = new StringBuffer(40);
 
-		if (!pc.getSubRace().equals(Constants.s_NONE))
+		String subRace = pc.getSubRace();
+		if (subRace != null)
 		{
-			extraRaceInfo.append(pc.getSubRace());
+			extraRaceInfo.append(subRace);
 		}
 
 		if (SettingsHandler.hideMonsterClasses())

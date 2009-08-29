@@ -83,7 +83,7 @@ public final class PCTemplate extends PObject
 			{
 				return this.getDisplayName();
 			}
-			return "None";
+			return null;
 		}
 		return sr.toString();
 	}

@@ -7,7 +7,9 @@
 package plugin.charactersheet.gui;
 
 import gmgen.plugin.PlayerCharacterOutput;
-import pcgen.cdom.base.Constants;
+
+import java.util.ArrayList;
+
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -15,8 +17,6 @@ import pcgen.io.exporttoken.AlignmentToken;
 import pcgen.io.exporttoken.HeightToken;
 import pcgen.io.exporttoken.SizeLongToken;
 import pcgen.io.exporttoken.WeightToken;
-
-import java.util.ArrayList;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -859,14 +859,14 @@ public class DetailsPane extends javax.swing.JPanel
 		nextLevel.setText(pc.minXPForNextECL() + " ");
 
 		playerName.setText(pc.getPlayersName() + ' ');
-		if (pc.getSubRace().equals(Constants.s_NONE))
+		String subRace = pc.getSubRace();
+		if (subRace == null)
 		{
 			race.setText(pc.getRace().getDisplayName() + ' ');
 		}
 		else
 		{
-			race.setText(pc.getRace().getDisplayName() + " (" + pc.getSubRace()
-				+ ") ");
+			race.setText(pc.getRace().getDisplayName() + " (" + subRace + ") ");
 		}
 		age.setText(pc.getAge() + " ");
 		size.setText(SizeLongToken.getSizeLongToken(pc) + ' ');

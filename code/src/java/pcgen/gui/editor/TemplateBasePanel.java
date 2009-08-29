@@ -519,7 +519,8 @@ public class TemplateBasePanel extends BasePanel
 		}
 		setVisible(thisPCTemplate.getSafe(ObjectKey.VISIBILITY));
 		setSubRegion(thisPCTemplate.getSubRegion());
-		setSubRace(thisPCTemplate.getSubRace());
+		String subRace = thisPCTemplate.getSubRace();
+		setSubRace(subRace == null ? Constants.s_NONE : subRace);
 		setBonusSkillPoints(thisPCTemplate.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS));
 		setNonProficiencyPenalty(thisPCTemplate.getSafe(IntegerKey.NONPP));
 		setCR(thisPCTemplate.getCR(-1, -1));
