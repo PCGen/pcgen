@@ -34,12 +34,12 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractSelectionTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class ChooseLangautoTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Language>
+		AbstractSelectionTokenTestCase<CDOMObject, Language>
 {
 
 	static ChooseLst token = new ChooseLst();

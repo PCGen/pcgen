@@ -44,11 +44,11 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.RemoveLst;
-import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractSelectionTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class FeatTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Ability>
+		AbstractSelectionTokenTestCase<CDOMObject, Ability>
 {
 
 	static RemoveLst token = new RemoveLst();

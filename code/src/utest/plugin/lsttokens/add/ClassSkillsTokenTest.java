@@ -17,27 +17,34 @@
  */
 package plugin.lsttokens.add;
 
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceActor;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.ClassSkillChoiceActor;
+import pcgen.cdom.reference.CDOMGroupRef;
+import pcgen.cdom.reference.ObjectMatchingReference;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class ClassSkillsTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Skill>
+public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 {
 
-	static AddLst token = new AddLst();
 	static ClassSkillsToken subtoken = new ClassSkillsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	private PCClass fighter;
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -46,15 +53,11 @@ public class ClassSkillsTokenTest extends
 	}
 
 	@Override
-	public CDOMLoader<CDOMObject> getLoader()
+	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
+		super.setUp();
+		fighter = primaryContext.ref.constructCDOMObject(PCClass.class,
+				"Fighter");
 	}
 
 	@Override
@@ -130,30 +133,35 @@ public class ClassSkillsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputAutoRankNoRank() throws PersistenceLayerException
+	public void testInvalidInputAutoRankNoRank()
+			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAutoRankNegativeRank() throws PersistenceLayerException
+	public void testInvalidInputAutoRankNegativeRank()
+			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAutoRankZeroRank() throws PersistenceLayerException
+	public void testInvalidInputAutoRankZeroRank()
+			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAutoRankDuplicated() throws PersistenceLayerException
+	public void testInvalidInputAutoRankDuplicated()
+			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=3,AUTORANK=2"));
+		assertFalse(parse(getSubTokenName() + '|'
+				+ "NONEXCLUSIVE,AUTORANK=3,AUTORANK=2"));
 		assertNoSideEffects();
 	}
 
@@ -168,5 +176,113 @@ public class ClassSkillsTokenTest extends
 	public String getAllString()
 	{
 		return "ANY";
+	}
+
+	@Override
+	protected ChoiceActor<Skill> getActor()
+	{
+		// TODO This is a hack, to get this to work pre-CDOM
+		return new ClassSkillChoiceActor(fighter, null);
+	}
+
+	@Test
+	public void testUnparseSingleRanked() throws PersistenceLayerException
+	{
+		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
+		addSingleRef(refs, "TestWP1");
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+				getSubToken().getTokenName(), rcs);
+		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+				cs, FormulaFactory.ONE);
+		primaryProf.addToListFor(ListKey.ADD, tc);
+		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, 3));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "TestWP1,AUTORANK=3");
+	}
+
+	@Test
+	public void testUnparseUntrained() throws PersistenceLayerException
+	{
+		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+				"UNTRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
+				Boolean.TRUE);
+		omr.returnIncludesNulls(true);
+		refs.add(omr);
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+				getSubToken().getTokenName(), rcs);
+		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+				cs, FormulaFactory.ONE);
+		primaryProf.addToListFor(ListKey.ADD, tc);
+		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "UNTRAINED");
+	}
+
+	@Test
+	public void testUnparseTrained() throws PersistenceLayerException
+	{
+		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+				"TRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
+				Boolean.FALSE);
+		omr.returnIncludesNulls(true);
+		refs.add(omr);
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+				getSubToken().getTokenName(), rcs);
+		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+				cs, FormulaFactory.ONE);
+		primaryProf.addToListFor(ListKey.ADD, tc);
+		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "TRAINED");
+	}
+
+	@Test
+	public void testUnparseExclusive() throws PersistenceLayerException
+	{
+		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+				"EXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
+				Boolean.TRUE);
+		omr.returnIncludesNulls(true);
+		refs.add(omr);
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+				getSubToken().getTokenName(), rcs);
+		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+				cs, FormulaFactory.ONE);
+		primaryProf.addToListFor(ListKey.ADD, tc);
+		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "EXCLUSIVE");
+	}
+
+	@Test
+	public void testUnparseNonExclusive() throws PersistenceLayerException
+	{
+		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
+		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
+				"NONEXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
+				Boolean.FALSE);
+		omr.returnIncludesNulls(true);
+		refs.add(omr);
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(
+				getSubToken().getTokenName(), rcs);
+		PersistentTransitionChoice<Skill> tc = new PersistentTransitionChoice<Skill>(
+				cs, FormulaFactory.ONE);
+		primaryProf.addToListFor(ListKey.ADD, tc);
+		tc.setChoiceActor(new ClassSkillChoiceActor(fighter, null));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "NONEXCLUSIVE");
+	}
+
+	private CDOMGroupRef<Skill> getAllRef()
+	{
+		return primaryContext.ref.getCDOMAllReference(getTargetClass());
 	}
 }

@@ -18,12 +18,26 @@
 package plugin.lsttokens.add;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
+import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.AbilityRef;
+import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -774,5 +788,170 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		List<AbilityRef> refs = createSingle("TestWP1");
+		createTC(refs, FormulaFactory.ONE);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1");
+	}
+
+	private List<AbilityRef> createSingle(String name)
+	{
+		List<AbilityRef> refs = new ArrayList<AbilityRef>();
+		Ability obj = primaryContext.ref.constructCDOMObject(Ability.class,
+				name);
+		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		AbilityRef ar = new AbilityRef(CDOMDirectSingleRef.getRef(obj));
+		refs.add(ar);
+		if (name.indexOf('(') != -1)
+		{
+			List<String> choices = new ArrayList<String>();
+			AbilityUtilities.getUndecoratedName(name, choices);
+			assertEquals(1, choices.size());
+			ar.setChoice(choices.get(0));
+		}
+		return refs;
+	}
+
+	@Test
+	public void testUnparseType() throws PersistenceLayerException
+	{
+		List<AbilityRef> refs = new ArrayList<AbilityRef>();
+		CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMTypeReference(
+				Ability.class, AbilityCategory.FEAT, "Foo", "Bar");
+		AbilityRef ar = new AbilityRef(ref);
+		refs.add(ar);
+
+		createTC(refs, FormulaFactory.ONE);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "FEAT|NORMAL|TYPE=Bar.Foo");
+	}
+
+	private void createTC(List<AbilityRef> refs, Formula count)
+	{
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
+				refs, Nature.NORMAL);
+		assert (rcs.getGroupingState().isValid());
+		AbilityChoiceSet cs = new AbilityChoiceSet(
+				getSubToken().getTokenName(), rcs);
+		cs.setTitle("Virtual Feat Selection");
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, count);
+		tc.allowStack(false);
+		// if (dupChoices != 0)
+		// {
+		// tc.setStackLimit(dupChoices);
+		// }
+		tc.setChoiceActor(subtoken);
+		primaryProf.addToListFor(ListKey.ADD, tc);
+	}
+
+	@Test
+	public void testUnparseSingleThree() throws PersistenceLayerException
+	{
+		List<AbilityRef> refs = createSingle("TestWP1");
+		createTC(refs, FormulaFactory.getFormulaFor(3));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "3|FEAT|NORMAL|TestWP1");
+	}
+
+	@Test
+	public void testUnparseSingleNegative() throws PersistenceLayerException
+	{
+		List<AbilityRef> refs = createSingle("TestWP1");
+		createTC(refs, FormulaFactory.getFormulaFor(-2));
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseSingleZero() throws PersistenceLayerException
+	{
+		List<AbilityRef> refs = createSingle("TestWP1");
+		createTC(refs, FormulaFactory.getFormulaFor(0));
+		assertBadUnparse();
+	}
+
+	@Test
+	public void testUnparseSingleVariable() throws PersistenceLayerException
+	{
+		List<AbilityRef> refs = createSingle("TestWP1");
+		createTC(refs, FormulaFactory.getFormulaFor("Formula"));
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "Formula|FEAT|NORMAL|TestWP1");
+	}
+
+	@Test
+	public void testUnparseSingleAll() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			List<AbilityRef> refs = createSingle("TestWP1");
+			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMAllReference(
+					Ability.class, AbilityCategory.FEAT);
+			AbilityRef ar = new AbilityRef(ref);
+			refs.add(ar);
+			createTC(refs, FormulaFactory.ONE);
+			assertBadUnparse();
+		}
+	}
+
+	@Test
+	public void testUnparseAll() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			List<AbilityRef> refs = new ArrayList<AbilityRef>();
+			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMAllReference(
+					Ability.class, AbilityCategory.FEAT);
+			AbilityRef ar = new AbilityRef(ref);
+			refs.add(ar);
+			createTC(refs, FormulaFactory.ONE);
+			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			expectSingle(unparsed, getSubTokenName() + '|' + "FEAT|NORMAL|ALL");
+		}
+	}
+
+	@Test
+	public void testUnparseTypeAll() throws PersistenceLayerException
+	{
+		if (isAllLegal())
+		{
+			List<AbilityRef> refs = new ArrayList<AbilityRef>();
+			CDOMGroupRef<Ability> ref = primaryContext.ref
+					.getCDOMTypeReference(Ability.class, AbilityCategory.FEAT,
+							"Foo", "Bar");
+			AbilityRef ar = new AbilityRef(ref);
+			refs.add(ar);
+			ref = primaryContext.ref.getCDOMAllReference(Ability.class,
+					AbilityCategory.FEAT);
+			ar = new AbilityRef(ref);
+			refs.add(ar);
+			createTC(refs, FormulaFactory.ONE);
+			assertBadUnparse();
+		}
+	}
+
+	@Test
+	public void testUnparseComplex() throws PersistenceLayerException
+	{
+		List<AbilityRef> refs = createSingle("TestWP1");
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
+				refs, Nature.VIRTUAL);
+		assert (rcs.getGroupingState().isValid());
+		AbilityChoiceSet cs = new AbilityChoiceSet(
+				getSubToken().getTokenName(), rcs);
+		cs.setTitle("Virtual Feat Selection");
+		PersistentTransitionChoice<AbilitySelection> tc = new PersistentTransitionChoice<AbilitySelection>(
+				cs, FormulaFactory.getFormulaFor(3));
+		tc.allowStack(true);
+		tc.setStackLimit(2);
+		tc.setChoiceActor(subtoken);
+		primaryProf.addToListFor(ListKey.ADD, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, getSubTokenName() + '|' + "3|FEAT|VIRTUAL|STACKS=2,TestWP1");
 	}
 }

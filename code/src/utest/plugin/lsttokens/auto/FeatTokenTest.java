@@ -41,7 +41,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.AutoLst;
-import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractSelectionTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -51,7 +51,7 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
 public class FeatTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Ability>
+		AbstractSelectionTokenTestCase<CDOMObject, Ability>
 {
 	private static final AbilityCategory FEAT = AbilityCategory.FEAT;
 	private static final Nature AUTOMATIC = Nature.AUTOMATIC;

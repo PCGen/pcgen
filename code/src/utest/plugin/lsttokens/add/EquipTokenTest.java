@@ -19,42 +19,17 @@ package plugin.lsttokens.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class EquipTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Equipment>
+		AbstractAddTokenTestCase<Equipment>
 {
 
-	static AddLst token = new AddLst();
 	static EquipToken subtoken = new EquipToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-
-	@Override
-	public Class<Equipment> getCDOMClass()
-	{
-		return Equipment.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -107,6 +82,12 @@ public class EquipTokenTest extends
 		construct(secondaryContext, "TestWP2");
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1",
 				getSubTokenName() + '|' + "TestWP1");
+	}
+
+	@Override
+	protected ChoiceActor<Equipment> getActor()
+	{
+		return subtoken;
 	}
 
 }

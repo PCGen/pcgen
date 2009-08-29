@@ -19,41 +19,15 @@ package plugin.lsttokens.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.PCTemplate;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class TemplateTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, PCTemplate>
+public class TemplateTokenTest extends AbstractAddTokenTestCase<PCTemplate>
 {
 
-	static AddLst token = new AddLst();
 	static TemplateToken subtoken = new TemplateToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-
-	@Override
-	public Class<PCTemplate> getCDOMClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -86,14 +60,9 @@ public class TemplateTokenTest extends
 	}
 
 	@Override
-	public boolean allowsParenAsSub()
+	protected ChoiceActor<PCTemplate> getActor()
 	{
-		return false;
+		return subtoken;
 	}
 
-	@Override
-	public boolean allowsFormula()
-	{
-		return true;
-	}
 }

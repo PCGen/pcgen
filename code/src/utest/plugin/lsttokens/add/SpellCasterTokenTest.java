@@ -19,42 +19,17 @@ package plugin.lsttokens.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SpellCasterTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, PCClass>
+		AbstractAddTokenTestCase<PCClass>
 {
 
-	static AddLst token = new AddLst();
 	static SpellCasterToken subtoken = new SpellCasterToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-
-	@Override
-	public Class<PCClass> getCDOMClass()
-	{
-		return PCClass.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -150,5 +125,11 @@ public class SpellCasterTokenTest extends
 				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}
+	}
+
+	@Override
+	protected ChoiceActor<PCClass> getActor()
+	{
+		return subtoken;
 	}
 }

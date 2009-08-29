@@ -36,7 +36,7 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
 public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
-		AbstractAddTokenTestCase<CDOMObject, TC>
+		AbstractSelectionTokenTestCase<CDOMObject, TC>
 {
 	static AutoLst token = new AutoLst();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(

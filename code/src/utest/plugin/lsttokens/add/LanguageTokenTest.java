@@ -19,41 +19,15 @@ package plugin.lsttokens.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Language;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class LanguageTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Language>
+public class LanguageTokenTest extends AbstractAddTokenTestCase<Language>
 {
 
-	static AddLst token = new AddLst();
 	static LanguageToken subtoken = new LanguageToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-
-	@Override
-	public Class<Language> getCDOMClass()
-	{
-		return Language.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -95,5 +69,11 @@ public class LanguageTokenTest extends
 	public boolean allowsFormula()
 	{
 		return true;
+	}
+
+	@Override
+	protected ChoiceActor<Language> getActor()
+	{
+		return subtoken;
 	}
 }

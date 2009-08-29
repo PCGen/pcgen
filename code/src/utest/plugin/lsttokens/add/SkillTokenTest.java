@@ -19,41 +19,16 @@ package plugin.lsttokens.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Skill;
-import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.AddLst;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SkillTokenTest extends
-		AbstractAddTokenTestCase<CDOMObject, Skill>
+		AbstractAddTokenTestCase<Skill>
 {
 
-	static AddLst token = new AddLst();
 	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
-
-	@Override
-	public Class<Skill> getCDOMClass()
-	{
-		return Skill.class;
-	}
-
-	@Override
-	public CDOMLoader<CDOMObject> getLoader()
-	{
-		return loader;
-	}
-
-	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
-	{
-		return token;
-	}
 
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
@@ -101,5 +76,11 @@ public class SkillTokenTest extends
 	public String getAllString()
 	{
 		return "ANY";
+	}
+
+	@Override
+	protected ChoiceActor<Skill> getActor()
+	{
+		return subtoken;
 	}
 }

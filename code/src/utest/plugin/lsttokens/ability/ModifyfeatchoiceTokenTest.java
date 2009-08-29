@@ -18,16 +18,27 @@
 package plugin.lsttokens.ability;
 
 import java.net.URISyntaxException;
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.choiceset.ModifyChoiceDecorator;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.util.enumeration.Tab;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -144,4 +155,136 @@ public class ModifyfeatchoiceTokenTest extends
 	{
 		return ConsolidationRule.OVERWRITE;
 	}
+
+	@Test
+	public void testUnparseNull() throws PersistenceLayerException
+	{
+		primaryProf.put(ObjectKey.MODIFY_CHOICE, null);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+	}
+
+	protected TransitionChoice<Ability> buildChoice(
+			CDOMReference<Ability>... refs)
+	{
+		ReferenceChoiceSet<Ability> rcs = buildRCS(refs);
+		assertTrue(rcs.getGroupingState().isValid());
+		return buildTC(rcs);
+	}
+
+	protected TransitionChoice<Ability> buildTC(ReferenceChoiceSet<Ability> rcs)
+	{
+		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
+		ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getToken()
+				.getTokenName(), gfd);
+		cs.setTitle("Select a "
+				+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
+				+ " to modify");
+		TransitionChoice<Ability> tc = new TransitionChoice<Ability>(cs,
+				FormulaFactory.ONE);
+		tc.setRequired(false);
+		// tc.setChoiceActor(getToken());
+		return tc;
+	}
+
+	protected ReferenceChoiceSet<Ability> buildRCS(
+			CDOMReference<Ability>... refs)
+	{
+		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(
+				Arrays.asList(refs));
+		return rcs;
+	}
+
+	@Test
+	public void testUnparseSingle() throws PersistenceLayerException
+	{
+		Ability wp1 = construct(primaryContext, "TestWP1");
+		TransitionChoice<Ability> tc = buildChoice(CDOMDirectSingleRef
+				.getRef(wp1));
+		primaryProf.put(ObjectKey.MODIFY_CHOICE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "TestWP1");
+	}
+
+	/*
+	 * TODO Need to check this - count needs to be 1
+	 */
+	// @Test
+	// public void testUnparseBadCount() throws PersistenceLayerException
+	// {
+	// Ability wp1 = construct(primaryContext, "TestWP1");
+	// ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(
+	// Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
+	// ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
+	// ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getToken()
+	// .getTokenName(), gfd);
+	// cs.setTitle("Select a "
+	// + SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
+	// + " to modify");
+	// TransitionChoice<Ability> tc1 = new TransitionChoice<Ability>(cs, null);
+	// primaryProf.put(ObjectKey.MODIFY_CHOICE, tc1);
+	// assertBadUnparse();
+	// }
+	/*
+	 * TODO Need to figure out who's responsibility this is!
+	 */
+	// @Test
+	// public void testUnparseBadList() throws PersistenceLayerException
+	// {
+	// Language wp1 = construct(primaryContext, "TestWP1");
+	// ReferenceChoiceSet<Language> rcs = buildRCS(CDOMDirectSingleRef
+	// .getRef(wp1), primaryContext.ref
+	// .getCDOMAllReference(getTargetClass()));
+	// assertFalse(rcs.getGroupingState().isValid());
+	// PersistentTransitionChoice<Language> tc = buildTC(rcs);
+	// tc.setChoiceActor(subtoken);
+	// primaryProf.put(ObjectKey.MODIFY_CHOICE, tc);
+	// assertBadUnparse();
+	// }
+	@Test
+	public void testUnparseMultiple() throws PersistenceLayerException
+	{
+		Ability wp1 = construct(primaryContext, "TestWP1");
+		Ability wp2 = construct(primaryContext, "TestWP2");
+		TransitionChoice<Ability> tc = buildChoice(CDOMDirectSingleRef
+				.getRef(wp1), CDOMDirectSingleRef.getRef(wp2));
+		primaryProf.put(ObjectKey.MODIFY_CHOICE, tc);
+		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+		expectSingle(unparsed, "TestWP1|TestWP2");
+	}
+
+	@Test
+	public void testUnparseNullInList() throws PersistenceLayerException
+	{
+		Ability wp1 = construct(primaryContext, "TestWP1");
+		ReferenceChoiceSet<Ability> rcs = buildRCS(CDOMDirectSingleRef
+				.getRef(wp1), null);
+		TransitionChoice<Ability> tc = buildTC(rcs);
+		primaryProf.put(ObjectKey.MODIFY_CHOICE, tc);
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (NullPointerException e)
+		{
+			// Yep!
+		}
+	}
+
+	@Test
+	public void testUnparseGenericsFail() throws PersistenceLayerException
+	{
+		ObjectKey objectKey = ObjectKey.MODIFY_CHOICE;
+		primaryProf.put(objectKey, new Object());
+		try
+		{
+			getToken().unparse(primaryContext, primaryProf);
+			fail();
+		}
+		catch (ClassCastException e)
+		{
+			// Yep!
+		}
+	}
+
 }
