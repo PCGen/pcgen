@@ -140,6 +140,12 @@ public class TemplateToken extends AbstractToken implements
 							+ " Count");
 					return null;
 				}
+				if (f.isStatic() && f.resolve(null, "").doubleValue() <= 0)
+				{
+					context.addWriteMessage("Count in " + getFullName()
+							+ " must be > 0");
+					return null;
+				}
 				StringBuilder sb = new StringBuilder();
 				if (!FormulaFactory.ONE.equals(f))
 				{
