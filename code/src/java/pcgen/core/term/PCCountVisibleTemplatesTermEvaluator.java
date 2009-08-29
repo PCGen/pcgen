@@ -44,7 +44,7 @@ public class PCCountVisibleTemplatesTermEvaluator
 	{
 		Float count = 0f;
 
-		for ( PCTemplate template : pc.getTemplateList() )
+		for ( PCTemplate template : pc.getTemplateSet() )
 		{
 			final Visibility vis = template.getSafe(ObjectKey.VISIBILITY);
 

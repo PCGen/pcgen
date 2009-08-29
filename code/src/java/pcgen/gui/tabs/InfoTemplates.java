@@ -1204,7 +1204,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			}
 			else
 			{
-				templList = getPc().getTemplateList();
+				templList = getPc().getTemplateSet();
 			}
 
 			switch (mode)

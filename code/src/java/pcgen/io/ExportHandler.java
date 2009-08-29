@@ -2195,7 +2195,7 @@ public final class ExportHandler
 			// New token syntax |%TEMPLATE.x| instead of |%TEMPLATEx|
 			final StringTokenizer aTok =
 					new StringTokenizer(aString.substring(1), ".");
-			final List<PCTemplate> tList = aPC.getTemplateList();
+			final List<PCTemplate> tList = new ArrayList<PCTemplate>(aPC.getTemplateSet());
 			String fString = aTok.nextToken();
 			final int index;
 

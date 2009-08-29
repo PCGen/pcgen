@@ -2623,7 +2623,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Iterate through all the PC's Templates
-				for (PCTemplate aTemp : pc.getTemplateList())
+				for (PCTemplate aTemp : pc.getTemplateSet())
 				{
 					for (BonusObj aBonus : aTemp.getRawBonusList(pc))
 					{

@@ -813,7 +813,7 @@ public class CountCommand extends PCGenCommand
 
 					protected void getData(final PlayerCharacter pc)
 					{
-						objdata.addAll(pc.getTemplateList());
+						objdata.addAll(pc.getTemplateSet());
 					}
 
 					public Object count(

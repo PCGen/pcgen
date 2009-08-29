@@ -283,7 +283,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 				}
 			}
 
-			for (PCTemplate aTemplate : pc.getTemplateList())
+			for (PCTemplate aTemplate : pc.getTemplateSet())
 			{
 				if (aTemplate.getListMods(WeaponProf.STARTING_LIST) != null)
 				{

@@ -469,7 +469,7 @@ public class PCClass extends PObject
 		}
 
 		// Templates
-		for (PCTemplate template : aPC.getTemplateList())
+		for (PCTemplate template : aPC.getTemplateSet())
 		{
 			if (template != null)
 			{
@@ -1979,12 +1979,9 @@ public class PCClass extends PObject
 		// skills per
 
 		// level can be < 1, better safe than sorry
-		if (!aPC.getTemplateList().isEmpty())
+		for (PCTemplate template : aPC.getTemplateSet())
 		{
-			for (PCTemplate template : aPC.getTemplateList())
-			{
-				spMod += template.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS);
-			}
+			spMod += template.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS);
 		}
 
 		return spMod;

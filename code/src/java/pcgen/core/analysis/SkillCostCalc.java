@@ -147,7 +147,7 @@ public final class SkillCostCalc
 			}
 		}
 
-		for (PCTemplate aTemplate : aPC.getTemplateList())
+		for (PCTemplate aTemplate : aPC.getTemplateSet())
 		{
 			if (SkillCostCalc.hasCSkill(aPC, aTemplate, sk))
 			{
@@ -299,7 +299,7 @@ public final class SkillCostCalc
 			}
 		}
 
-		for (PCTemplate template : aPC.getTemplateList())
+		for (PCTemplate template : aPC.getTemplateSet())
 		{
 			if (SkillCostCalc.hasCcSkill(aPC, template, sk))
 			{

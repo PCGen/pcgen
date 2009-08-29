@@ -73,7 +73,7 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements
 			if (wildCard >= 0)
 			{
 				templateKey = templateKey.substring(0, wildCard);
-				for (PCTemplate aTemplate : character.getTemplateList())
+				for (PCTemplate aTemplate : character.getTemplateSet())
 				{
 					if (aTemplate.getKeyName().toUpperCase().startsWith(
 						templateKey))

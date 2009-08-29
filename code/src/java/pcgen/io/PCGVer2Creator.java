@@ -2198,7 +2198,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendTemplateLines(StringBuffer buffer)
 	{
-		for (PCTemplate template : thePC.getTemplateList())
+		for (PCTemplate template : thePC.getTemplateSet())
 		{
 			//
 			// TEMPLATESAPPLIED:[NAME:<template_name>]

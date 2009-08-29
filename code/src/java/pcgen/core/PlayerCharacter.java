@@ -89,6 +89,8 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.RaceFacet;
+import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.helper.ProfProvider;
@@ -172,6 +174,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private CharID id = new CharID();
 
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
+	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -195,11 +199,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// Collections of String (probably should be full objects)
 	private final ArrayList<SpecialAbility> specialAbilityList =
 			new ArrayList<SpecialAbility>();
-
-	// List of Template objects
-	private final ArrayList<PCTemplate> templateList =
-			new ArrayList<PCTemplate>(); // of
-	// Template
 
 	// List of VARs
 	private final ArrayList<String> variableList = new ArrayList<String>();
@@ -236,7 +235,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// Temporary Bonuses
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
 
-	private Race race = null;
 	private PCClass selectedFavoredClass = null;
 	private final List<PCStat> stats = new ArrayList<PCStat>();
 
@@ -1036,6 +1034,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<String> list = new ArrayList<String>();
 
+		Race race = getRace();
 		if (race != null)
 		{
 			list.add(race.getType());
@@ -1045,7 +1044,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			list.add("Humanoid");
 		}
 
-		for (PCTemplate t : templateList)
+		for (PCTemplate t : templateFacet.getSet(id))
 		{
 			list.add(t.getType());
 		}
@@ -1060,6 +1059,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Not too sure about this if, but that's what the previous code
 		// implied...
+		Race race = getRace();
 		if (race != null)
 		{
 			critterType.append(race.getType());
@@ -1069,16 +1069,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			critterType.append("Humanoid");
 		}
 
-		if (!templateList.isEmpty())
+		for (PCTemplate t : templateFacet.getSet(id))
 		{
-			for (PCTemplate t : templateList)
-			{
-				final String aType = t.getType();
+			final String aType = t.getType();
 
-				if (!"".equals(aType))
-				{
-					critterType.append('|').append(aType);
-				}
+			if (!"".equals(aType))
+			{
+				critterType.append('|').append(aType);
 			}
 		}
 
@@ -1093,6 +1090,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public String getRaceType()
 	{
 		String raceType = Constants.s_NONE;
+		Race race = getRace();
 		if (race != null)
 		{
 			RaceType rt = race.get(ObjectKey.RACETYPE);
@@ -1112,15 +1110,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 		}
-		if (!templateList.isEmpty())
+		for (PCTemplate t : templateFacet.getSet(id))
 		{
-			for (PCTemplate t : templateList)
+			RaceType rt = t.get(ObjectKey.RACETYPE);
+			if (rt != null)
 			{
-				RaceType rt = t.get(ObjectKey.RACETYPE);
-				if (rt != null)
-				{
-					raceType = rt.toString();
-				}
+				raceType = rt.toString();
 			}
 		}
 		return raceType;
@@ -1134,15 +1129,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Collection<String> getRacialSubTypes()
 	{
 		final ArrayList<String> racialSubTypes = new ArrayList<String>();
-		for (RaceSubType st : race.getSafeListFor(ListKey.RACESUBTYPE))
+		for (RaceSubType st : getRace().getSafeListFor(ListKey.RACESUBTYPE))
 		{
 			racialSubTypes.add(st.toString());
 		}
-		if (!templateList.isEmpty())
+		Set<PCTemplate> templates = templateFacet.getSet(id);
+		if (!templates.isEmpty())
 		{
 			List<RaceSubType> added = new ArrayList<RaceSubType>();
 			List<RaceSubType> removed = new ArrayList<RaceSubType>();
-			for (PCTemplate aTemplate : templateList)
+			for (PCTemplate aTemplate : templates)
 			{
 				added.addAll(aTemplate.getSafeListFor(ListKey.RACESUBTYPE));
 				removed.addAll(aTemplate
@@ -2278,7 +2274,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Add additional HD if required
-		LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
+		LevelCommandFactory lcf = getRace().get(ObjectKey.MONSTER_CLASS);
 
 		final int usedHD = followerMaster.getUsedHD();
 		addHD -= usedHD;
@@ -2602,7 +2598,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int npp = Globals.getGameModeNonProfPenalty();
 
-		for (PCTemplate t : templateList)
+		for (PCTemplate t : templateFacet.getSet(id))
 		{
 			Integer temp = t.get(IntegerKey.NONPP);
 			if (temp != null)
@@ -2714,7 +2710,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Race getRace()
 	{
-		return race;
+		return raceFacet.get(id);
 	}
 
 	/**
@@ -2763,7 +2759,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		String r = Constants.s_NONE;
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			final String tempRegion = template.getRegion();
 
@@ -3267,7 +3263,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		String subRace = Constants.s_NONE;
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			final String tempSubRace = template.getSubRace();
 
@@ -3384,14 +3380,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return bonusManager.getTempBonusList(aCreator, aTarget);
 	}
 
-	/**
-	 * Get the list of Templates applied to this PC
-	 * 
-	 * @return List of templates
-	 */
-	public ArrayList<PCTemplate> getTemplateList()
+	public Set<PCTemplate> getTemplateSet()
 	{
-		return templateList;
+		return Collections.unmodifiableSet(templateFacet.getSet(id));
 	}
 
 	/**
@@ -3404,7 +3395,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		List<PCTemplate> tl = new ArrayList<PCTemplate>();
 
-		for (PCTemplate template : getTemplateList())
+		for (PCTemplate template : getTemplateSet())
 		{
 			if ((template.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 				|| (template.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY))
@@ -3638,7 +3629,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (PCTemplate obj : templateList)
+		for (PCTemplate obj : templateFacet.getSet(id))
 		{
 			final String aString =
 					checkForVariableInList(obj, variableString, isMax, found,
@@ -3683,6 +3674,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		Race race = getRace();
 		if (race != null)
 		{
 			final String aString =
@@ -4311,6 +4303,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int iSize = 0;
 
+		Race race = getRace();
 		if (race != null)
 		{
 			// get the base size for the race
@@ -4319,7 +4312,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// now check and see if a template has set the
 			// size of the character in question
 			// with something like SIZE:L
-			for (PCTemplate template : getTemplateList())
+			for (PCTemplate template : getTemplateSet())
 			{
 				Formula sizeFormula = template.get(FormulaKey.SIZE);
 				if (sizeFormula != null)
@@ -4369,8 +4362,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void setAlignment(PCAlignment align, boolean bLoading, boolean bForce)
 	{
-		if (bForce
-			|| RaceAlignment.canBeAlignment(this.race, align))
+		if (bForce || RaceAlignment.canBeAlignment(getRace(), align))
 		{
 			alignment = align;
 		}
@@ -5371,7 +5363,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			List<CDOMReference<? extends PCClass>> fc =
 					template.getListFor(ListKey.FAVORED_CLASS);
@@ -5494,10 +5486,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public int getLevelAdjustment(final PlayerCharacter aPC)
 	{
 		int levelAdj =
-				race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(aPC, "")
+				getRace().getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(aPC, "")
 					.intValue();
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			levelAdj +=
 					template.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(aPC,
@@ -5720,11 +5712,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean isNonAbility(PCStat stat)
 	{
 		//Unlocked overrides any lock to a non ability so check for it first
+		Race race = getRace();
 		if (RaceStat.isUnlocked(stat, race))
 		{
 			return false;
 		}
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			if (TemplateStat.isUnlocked(template, stat))
 			{
@@ -5737,7 +5730,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return true;
 		}
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			if (TemplateStat.isNonAbility(template, stat))
 			{
@@ -5820,9 +5813,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * Changes the race of the character. First it removes the current Race, and
 	 * any bonus attributes (e.g. feats), then add the new Race.
 	 * 
-	 * @param aRace
+	 * @param newRace
 	 */
-	public void setRace(final Race aRace)
+	public void setRace(final Race newRace)
 	{
 		final Race oldRace = getRace();
 		final boolean raceIsNull = (oldRace == null); // needed because race
@@ -5837,10 +5830,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			cachedWeaponProfs = null;
 
-			removeNaturalWeapons(race);
-			removeTemplatesFrom(race);
+			removeNaturalWeapons(oldRace);
+			removeTemplatesFrom(oldRace);
 			selectedFavoredClass = null;
-			LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
+			LevelCommandFactory lcf = oldRace.get(ObjectKey.MONSTER_CLASS);
 			if (lcf != null)
 			{
 				final PCClass mclass = lcf.getPCClass();
@@ -5851,22 +5844,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// add new race attributes
-		race = null;
+		raceFacet.remove(id);
 
-		if (aRace != null)
+		if (newRace != null)
 		{
-			race = aRace;//.clone();
-		}
-
-		if (race != null)
-		{
-			BonusActivation.activateBonuses(race, this);
+			raceFacet.set(id, newRace);
+			BonusActivation.activateBonuses(newRace, this);
 
 			if (!isImporting())
 			{
 				Globals.getBioSet().randomize("AGE.HT.WT", this);
 
-				ChooserUtilities.modChoices(race, new ArrayList(),
+				ChooserUtilities.modChoices(newRace, new ArrayList(),
 					new ArrayList(), true, this, true, null);
 			}
 
@@ -5898,7 +5887,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Make sure monster classes are added first
 			if (!isImporting())
 			{
-				LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
+				LevelCommandFactory lcf = newRace.get(ObjectKey.MONSTER_CLASS);
 				if (lcf != null)
 				{
 					PCClass mclass = lcf.getPCClass();
@@ -5947,14 +5936,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			addNaturalWeapons(race.getListFor(ListKey.NATURAL_WEAPON));
+			addNaturalWeapons(newRace.getListFor(ListKey.NATURAL_WEAPON));
 			getAutoLanguages();
 			if (!isImporting())
 			{
 				selectRacialFavoredClass();
 			}
 
-			selectTemplates(race, isImporting()); // gets and adds templates
+			selectTemplates(newRace, isImporting()); // gets and adds templates
 		}
 
 		// TODO - Change this back
@@ -5966,7 +5955,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			AddObjectActions.globalChecks(race, this);
+			AddObjectActions.globalChecks(newRace, this);
 			adjustMoveRates();
 			calcActiveBonuses();
 		}
@@ -6160,6 +6149,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		// all non-spellcaster spells are added to race
 		// so return if it's null
+		Race race = getRace();
 		if (race == null)
 		{
 			return;
@@ -6214,7 +6204,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			addSpells(template);
 		}
@@ -6345,7 +6335,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public double getTemplateBonusTo(String aType, String aName)
 	{
-		return getPObjectWithCostBonusTo(templateList, aType.toUpperCase(),
+		return getPObjectWithCostBonusTo(templateFacet.getSet(id), aType.toUpperCase(),
 			aName.toUpperCase());
 	}
 
@@ -7473,7 +7463,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Don't allow multiple copies of template.
-		if (templateList.contains(inTemplate))
+		if (templateFacet.contains(id, inTemplate))
 		{
 			return;
 		}
@@ -7491,7 +7481,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		templateList.add(inTemplate);
+		templateFacet.add(id, inTemplate);
 
 		// If we are importing these levels will have been saved with the
 		// character so don't apply them again.
@@ -7928,7 +7918,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void calcActiveBonuses()
 	{
-		if (isImporting() || (race == null) || rebuildingAbilities)
+		if (isImporting() || (getRace() == null) || rebuildingAbilities)
 		{
 			return;
 		}
@@ -8042,13 +8032,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Calculate and add the CR from the templates 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			CR += template.getCR(getTotalLevels(), totalHitDice());
 		}
 
 		// Calculate and add the CR from race
-		ChallengeRating cr = race.getSafe(ObjectKey.CHALLENGE_RATING);
+		ChallengeRating cr = getRace().getSafe(ObjectKey.CHALLENGE_RATING);
 		final float raceCR = cr.getRating().resolve(this, "").floatValue();
 		// If the total CR to date is 0 then add race CR, e.g.  A Lizard has CR of 1/2
 		if (CR == 0)
@@ -8121,6 +8111,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int calcSR(final boolean includeEquipment)
 	{
+		Race race = getRace();
 		int SR =
 				race.getSafe(ObjectKey.SR).getReduction().resolve(this,
 					race.getQualifiedKey()).intValue();
@@ -8195,7 +8186,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final int atl = getTotalLevels();
 		final int thd = totalHitDice();
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			SR = Math.max(SR, TemplateSR.getSR(template, atl, thd, this));
 		}
@@ -9623,7 +9614,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return true;
 		}
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			if (template.getSafe(ObjectKey.ANY_FAVORED_CLASS))
 			{
@@ -9884,7 +9875,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		removeTemplatesFrom(inTmpl);
 
-		templateList.remove(inTmpl);
+		templateFacet.remove(id, inTmpl);
 
 		// TODO - ABILITYOBJECT
 		setAutomaticFeatsStable(false);
@@ -9958,6 +9949,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int iSize = racialSizeInt();
 
+		Race race = getRace();
 		if (race != null)
 		{
 			// Now check and see if a class has modified
@@ -10724,7 +10716,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return double
 	 */
 	private double getPObjectWithCostBonusTo(
-		final List<? extends PObject> aList, final String aType,
+		final Collection<? extends PObject> aList, final String aType,
 		final String aName)
 	{
 		double iBonus = 0;
@@ -10781,7 +10773,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		String s = Constants.s_NONE;
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			final String tempSubRegion = template.getSubRegion();
 
@@ -10830,6 +10822,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private void addSpells(final PObject obj)
 	{
+		Race race = getRace();
 		if (race == null || obj == null)
 		{
 			return;
@@ -11152,7 +11145,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		List<PObject> list = new ArrayList<PObject>();
 		int totalLevels = getTotalLevels();
 		int totalHitDice = totalHitDice();
-		for (PCTemplate templ : getTemplateList())
+		for (PCTemplate templ : getTemplateSet())
 		{
 			list.addAll(templ
 				.getConditionalTemplates(totalLevels, totalHitDice));
@@ -11265,7 +11258,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(stats);
 
 		// Template (PCTemplate)
-		results.addAll(getTemplateList());
+		results.addAll(getTemplateSet());
 
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
@@ -11720,6 +11713,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int save;
 		final String sString = check.toString();
+		Race race = getRace();
 		save = (int) BonusCalc.bonusTo(race, "CHECKS", "BASE." + sString, this, this);
 		save += (int) BonusCalc.bonusTo(race, "CHECKS", sString, this, this);
 
@@ -11790,7 +11784,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		Gender g = null;
 
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			Gender lock = template.get(ObjectKey.GENDER_LOCK);
 			if (lock != null)
@@ -11838,6 +11832,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final ArrayList<PObject> aList = new ArrayList<PObject>();
 
+		Race race = getRace();
 		if (!getCharacterSpells(race, null, Constants.EMPTY_STRING, -1)
 			.isEmpty())
 		{
@@ -12027,6 +12022,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				return;
 			}
 
+			Race race = getRace();
 			if (globalClass.isMonster()
 				&& !SettingsHandler.isIgnoreMonsterHDCap()
 				&& !race.isAdvancementUnlimited()
@@ -12129,7 +12125,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Handle any feat changes as a result of level changes
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			final List<String> templateFeats =
 					feats(template, getTotalLevels(), totalHitDice(), true);
@@ -12600,10 +12596,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Set<Language> getLanguageBonusSelectionList()
 	{
 		Set<Language> languageList = new HashSet<Language>();
-		addStartingLanguages(race, languageList);
+		addStartingLanguages(getRace(), languageList);
 
 		// Templates
-		for (PCTemplate template : templateList)
+		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			addStartingLanguages(template, languageList);
 		}
@@ -12725,7 +12721,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aClone.skillList.add(skill);
 		}
 		aClone.specialAbilityList.addAll(getSpecialAbilityList());
-		aClone.templateList.addAll(getTemplateList());
 		for (String s : this.variableList)
 		{
 			aClone.variableList.add(s);
@@ -12734,6 +12729,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.deity = deity;
 		aClone.domainFacet.addAll(aClone.id, domainFacet.getSet(id));
+		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
+		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
 		for (PCClass pcClass : classList)
 		{
 			PCClass cloneClass = pcClass.clone();
@@ -12766,7 +12763,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
-		aClone.race = race;
 		aClone.selectedFavoredClass = selectedFavoredClass;
         aClone.stats.clear(); 	 
         aClone.stats.addAll(stats); 	 
@@ -14940,7 +14936,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (hasTemplates())
 		{
-			for (final PCTemplate aTemplate : getTemplateList())
+			for (final PCTemplate aTemplate : getTemplateSet())
 			{
 				final List<String> templateFeats =
 						feats(aTemplate, getTotalLevels(), totalHitDice(),
@@ -15091,7 +15087,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateList())
+		for (PCTemplate template : getTemplateSet())
 		{
 			Point2D.Double tf = template.getFace();
 			if (tf != null)
@@ -15118,7 +15114,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateList())
+		for (PCTemplate template : getTemplateSet())
 		{
 			Integer h = template.get(IntegerKey.CREATURE_HANDS);
 			if (h != null)
@@ -15145,7 +15141,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateList())
+		for (PCTemplate template : getTemplateSet())
 		{
 			Integer l = template.get(IntegerKey.LEGS);
 			if (l != null)
@@ -15172,7 +15168,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateList())
+		for (PCTemplate template : getTemplateSet())
 		{
 			Integer r = template.get(IntegerKey.REACH);
 			if (r != null)
@@ -16183,7 +16179,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasTemplate(PCTemplate template)
 	{
-		return templateList.contains(template);
+		return templateFacet.contains(id, template);
 	}
 
 	public List<PCStat> getUnmodifiableStatList()
@@ -16344,12 +16340,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean hasTemplates()
 	{
-		return !templateList.isEmpty();
+		return !templateFacet.isEmpty(id);
 	}
 
 	public int getTemplateCount()
 	{
-		return templateList.size();
+		return templateFacet.getCount(id);
 	}
 
 	public int getStatCount()
