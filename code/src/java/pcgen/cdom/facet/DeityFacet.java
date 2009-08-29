@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.core.Race;
+import pcgen.core.Deity;
 
-public class RaceFacet extends AbstractItemFacet<Race>
+public class DeityFacet extends AbstractItemFacet<Deity>
 {
 
 }

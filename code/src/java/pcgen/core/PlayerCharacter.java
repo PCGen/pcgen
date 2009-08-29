@@ -87,6 +87,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.CompanionModFacet;
+import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
@@ -183,6 +184,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
@@ -218,7 +220,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// List of VARs
 	private final ArrayList<String> variableList = new ArrayList<String>();
 	private BigDecimal gold = new BigDecimal(0);
-	private Deity deity = null;
 
 	private ClassSource defaultDomainSource = null;
 
@@ -1098,7 +1099,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Deity getDeity()
 	{
-		return deity;
+		return deityFacet.get(id);
 	}
 
 	/**
@@ -3578,6 +3579,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		Deity deity = getDeity();
 		if (deity != null)
 		{
 			final String aString =
@@ -4868,12 +4870,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return false;
 		}
 
-		deity = aDeity;
+		deityFacet.set(id, aDeity);
 
 		if (!isImporting())
 		{
 			getSpellList();
-			AddObjectActions.globalChecks(deity, this);
+			AddObjectActions.globalChecks(aDeity, this);
 		}
 		setDirty(true);
 
@@ -6027,6 +6029,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		removeAllAssocs(race, AssociationListKey.CHARACTER_SPELLS);
 		addSpells(race);
 
+		Deity deity = deityFacet.get(id);
 		if (deity != null)
 		{
 			addSpells(deity);
@@ -7984,6 +7987,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				race.getSafe(ObjectKey.SR).getReduction().resolve(this,
 					race.getQualifiedKey()).intValue();
 
+		Deity deity = deityFacet.get(id);
 		if (deity != null)
 		{
 			SR =
@@ -11069,6 +11073,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(companionModFacet.getSet(id));
 
 		// Deity
+		Deity deity = deityFacet.get(id);
 		if (deity != null)
 		{
 			results.add(deity);
@@ -12585,11 +12590,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
-		aClone.deity = deity;
 		aClone.domainFacet.addAll(aClone.id, domainFacet.getSet(id));
 		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
 		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
 		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
+		aClone.deityFacet.set(aClone.id, deityFacet.get(id));
 		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
 		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
 		for (PCClass pcClass : classList)
