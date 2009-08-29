@@ -65,7 +65,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public void testNumeric() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng, false, true);
+		character.setAlignment(ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -100,7 +100,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng, false, true);
+		character.setAlignment(ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());

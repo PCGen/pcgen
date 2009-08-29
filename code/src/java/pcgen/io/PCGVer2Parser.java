@@ -86,8 +86,10 @@ import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.BonusManager.TempBonusInfo;
+import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SubClassApplication;
@@ -102,6 +104,8 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
@@ -408,7 +412,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (align != null)
 		{
-			thePC.setAlignment(align, true);
+			if (!RaceAlignment.canBeAlignment(thePC.getRace(), align))
+			{
+				ShowMessageDelegate.showMessageDialog(
+						"Invalid alignment. Setting to <none selected>",
+						Constants.s_APPNAME, MessageType.INFORMATION);
+				align = AlignmentConverter.getNoAlignment();
+			}
+			thePC.setAlignment(align);
 
 			return;
 		}

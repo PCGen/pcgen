@@ -86,6 +86,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
@@ -114,12 +115,10 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.core.analysis.AddObjectActions;
-import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
@@ -185,6 +184,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
+	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
@@ -320,7 +320,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int age = 0;
 
 	// null is <none selected>
-	private PCAlignment alignment = AlignmentConverter.getNoAlignment();
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
 	private int earnedXP = 0;
@@ -459,7 +458,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PCAlignment getPCAlignment()
 	{
-		return alignment;
+		return alignmentFacet.get(id);
 	}
 
 	/**
@@ -3645,6 +3644,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		PCAlignment alignment = getPCAlignment();
 		if (alignment != null)
 		{
 			final String aString = checkForVariableInList(alignment,
@@ -4245,31 +4245,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return calcACOfType("Total");
 	}
 
-	public void setAlignment(final PCAlignment align, final boolean bLoading)
+	public void setAlignment(PCAlignment align)
 	{
-		setAlignment(align, bLoading, false);
-	}
-
-	public void setAlignment(PCAlignment align, boolean bLoading, boolean bForce)
-	{
-		if (bForce || RaceAlignment.canBeAlignment(getRace(), align))
-		{
-			alignment = align;
-		}
-		else
-		{
-			if ((bLoading)
-				&& (!align.getAbb().equals(Constants.s_NONE)))
-			{
-				ShowMessageDelegate.showMessageDialog(
-					"Invalid alignment. Setting to <none selected>",
-					Constants.s_APPNAME, MessageType.INFORMATION);
-				alignment = AlignmentConverter.getNoAlignment();
-			}
-
-			throw new IllegalArgumentException("Invalid alignment");
-		}
-
+		alignmentFacet.set(id, align);
 		setDirty(true);
 	}
 
@@ -12595,6 +12573,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
 		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
 		aClone.deityFacet.set(aClone.id, deityFacet.get(id));
+		aClone.alignmentFacet.set(aClone.id, alignmentFacet.get(id));
 		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
 		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
 		for (PCClass pcClass : classList)
@@ -12692,7 +12671,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.useTempMods = useTempMods;
 		aClone.setFeats(feats);
 		aClone.age = age;
-		aClone.alignment = alignment;
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
 		aClone.earnedXP = earnedXP;

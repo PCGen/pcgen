@@ -50,7 +50,7 @@ public class KitAlignment extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		aPC.setAlignment(align, false, true);
+		aPC.setAlignment(align);
 	}
 
 	/**

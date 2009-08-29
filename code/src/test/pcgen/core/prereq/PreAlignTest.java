@@ -64,7 +64,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testNumeric() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng, false, true);
+		character.setAlignment(ng);
 
 		Prerequisite prereq;
 
@@ -87,7 +87,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testAbbrev() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng, false, true);
+		character.setAlignment(ng);
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("align");
@@ -122,7 +122,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testDeity() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng, false, true);
+		character.setAlignment(ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -133,7 +133,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		assertTrue("Number 3 should match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
-		character.setAlignment(cg, false, true);
+		character.setAlignment(cg);
 
 		assertFalse("Number 6 should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
@@ -142,7 +142,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public void testMulti() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng, false, true);
+		character.setAlignment(ng);
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:2,3,5");

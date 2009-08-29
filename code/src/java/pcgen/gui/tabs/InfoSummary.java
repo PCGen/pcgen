@@ -1426,7 +1426,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		}
 
 		//
-		// Get a list of classes that will become unqualified (and have an ex-class)
+		// Get a list of classes that will become unqualified (and have an
+		// ex-class)
 		//
 		StringBuffer unqualified = new StringBuffer();
 		List<PCClass> classList = pc.getClassList();
@@ -1434,20 +1435,17 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		for (PCClass aClass : classList)
 		{
-			pc.setAlignment(oldAlign, false, true);
+			if (!aClass.qualifies(pc))
 			{
-				if (!aClass.qualifies(pc))
+				if (aClass.containsKey(ObjectKey.EX_CLASS))
 				{
-					if (aClass.containsKey(ObjectKey.EX_CLASS))
+					if (unqualified.length() > 0)
 					{
-						if (unqualified.length() > 0)
-						{
-							unqualified.append(", "); //$NON-NLS-1$
-						}
-
-						unqualified.append(aClass.getKeyName());
-						exclassList.add(aClass);
+						unqualified.append(", "); //$NON-NLS-1$
 					}
+
+					unqualified.append(aClass.getKeyName());
+					exclassList.add(aClass);
 				}
 			}
 		}
@@ -1464,7 +1462,6 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION,
 					JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
-				pc.setAlignment(oldAlign, false, true);
 				alignmentComboBox.setSelectedItem(oldAlign);
 
 				return;
@@ -1479,7 +1476,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			pc.makeIntoExClass(aClass);
 		}
 
-		pc.setAlignment(newAlign, false, true);
+		pc.setAlignment(newAlign);
 		forceRefresh(false);
 		enableRaceControls(!newAlign.getAbb().equals(Constants.s_NONE));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();

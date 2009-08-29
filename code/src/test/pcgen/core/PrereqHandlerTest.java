@@ -47,13 +47,13 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		Globals.setCurrentPC(pc);
 
-		pc.setAlignment(le, true, false);
+		pc.setAlignment(le);
 		assertEquals("Non-negate returns false", false, PrereqHandler.passes(
 			prereq, pc, null));
 		assertEquals("Negate returns false", false, PrereqHandler.passes(
 			prereqNeg, pc, null));
 
-		pc.setAlignment(tn, true, false);
+		pc.setAlignment(tn);
 		assertEquals("Non-negate returns true", true, PrereqHandler.passes(
 			prereq, pc, null));
 		assertEquals("Negate returns true", true, PrereqHandler.passes(

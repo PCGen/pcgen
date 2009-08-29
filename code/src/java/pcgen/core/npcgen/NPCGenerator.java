@@ -560,7 +560,7 @@ public class NPCGenerator
 				{
 					Logging
 						.debugPrint("NPCGenerator: Selected " + randAlign + " for alignment " + align); //$NON-NLS-1$//$NON-NLS-2$
-					aPC.setAlignment(randAlign, false);
+					aPC.setAlignment(randAlign);
 				}
 				
 				final Race r = getRace(aRace);

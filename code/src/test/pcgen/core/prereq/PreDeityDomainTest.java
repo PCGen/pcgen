@@ -77,7 +77,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(ng, false, false);
+		character.setAlignment(ng);
 		character.setDeity(deity);
 
 		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
@@ -102,7 +102,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(ng, false, false);
+		character.setAlignment(ng);
 		character.setDeity(deity);
 
 		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
