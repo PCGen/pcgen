@@ -259,8 +259,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// .CLEAR-TEMPLATES from clearing the OLDER template languages.
 	private final List<Language> templateAutoLanguages =
 			new ArrayList<Language>();
-	private final SortedSet<Language> templateLanguages =
-			new TreeSet<Language>();
 	private final SortedSet<Language> languages = new TreeSet<Language>();
 	private Map<StringKey, String> stringChar =
 			new HashMap<StringKey, String>();
@@ -7351,7 +7349,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			templateAutoLanguages.addAll(ref.getContainedObjects());
 		}
-		addStartingLanguages(inTemplate, templateLanguages);
 		getAutoLanguages();
 		addNaturalWeapons(inTemplate.getListFor(ListKey.NATURAL_WEAPON));
 
@@ -9700,16 +9697,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// clear though in case
 		// of multiple
 		// templates.
-
-		Collection<CDOMReference<Language>> langCollection =
-				inTmpl.getListMods(Language.STARTING_LIST);
-		if (langCollection != null)
-		{
-			for (CDOMReference<Language> ref : langCollection)
-			{
-				templateLanguages.removeAll(ref.getContainedObjects());
-			}
-		}
 
 		removeNaturalWeapons(inTmpl);
 
@@ -12614,7 +12601,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aClone.kitList.addAll(kitList);
 		}
 		aClone.templateAutoLanguages.addAll(templateAutoLanguages);
-		aClone.templateLanguages.addAll(templateLanguages);
 		aClone.setBio(new String(getBio()));
 		aClone.setBirthday(new String(getBirthday()));
 		aClone.setBirthplace(new String(getBirthplace()));
