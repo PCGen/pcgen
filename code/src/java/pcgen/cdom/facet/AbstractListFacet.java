@@ -59,7 +59,27 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		Set<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
 		{
-			componentSet.remove(obj);
+			if (componentSet.remove(obj))
+			{
+				fireGraphNodeChangeEvent(id, obj,
+						DataFacetChangeEvent.DATA_REMOVED);
+			}
+		}
+	}
+
+	public void removeAll(CharID id, Collection<T> c)
+	{
+		Set<T> componentSet = getCachedSet(id);
+		if (componentSet != null)
+		{
+			for (T obj : c)
+			{
+				if (componentSet.remove(obj))
+				{
+					fireGraphNodeChangeEvent(id, obj,
+							DataFacetChangeEvent.DATA_REMOVED);
+				}
+			}
 		}
 	}
 
@@ -68,7 +88,7 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		Set<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
 		{
-			FacetCache.set(id, thisClass, null);
+			FacetCache.remove(id, thisClass);
 			for (T obj : componentSet)
 			{
 				fireGraphNodeChangeEvent(id, obj,
