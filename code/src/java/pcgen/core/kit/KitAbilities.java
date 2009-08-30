@@ -168,7 +168,7 @@ public final class KitAbilities extends BaseKit
 			tooManyAbilities = true;
 		}
 
-		if (numberOfChoices == 0)
+		if (!isFree() && numberOfChoices == 0)
 		{
 			warnings.add("ABILITY: Not enough " + category.getPluralName()
 				+ " available to take \"" + this + "\"");
