@@ -90,6 +90,7 @@ import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceAlignment;
+import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SubClassApplication;
@@ -146,6 +147,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private final List<WeaponProf> weaponprofs = new ArrayList<WeaponProf>();
 	private PlayerCharacter thePC;
 	private final Set<String> seenStats = new HashSet<String>();
+	private final Set<Language> cachedLanguages = new HashSet<Language>();
 
 	//
 	// MAJOR.MINOR.REVISION
@@ -187,6 +189,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	public void parsePCG(String[] lines) throws PCGParseException
 	{
+		cachedLanguages.clear();
 		initCache(lines.length);
 
 		for (int i = 0; i < lines.length; ++i)
@@ -198,6 +201,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		parseCachedLines();
+		resolveLanguages();
 	}
 
 	/*
@@ -3079,7 +3083,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add(message);
 				continue;
 			}
-			thePC.addLanguage(aLang);
+			cachedLanguages.add(aLang);
 		}
 	}
 
@@ -5879,4 +5883,48 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		return calcFeatPoolAfterLoad;
 	}
+
+	private void resolveLanguages()
+	{
+		Set<Language> foundLanguages = new HashSet<Language>();
+		thePC.getAutoLanguages();
+		//Captures Auto (LANGAUTO) and Persistent choices (CHOOSE, ADD)
+		foundLanguages.addAll(thePC.getLanguageSet());
+		
+		List<Language> selected = new ArrayList<Language>();
+		Skill languageSkill = SkillLanguage.getLanguageSkill(thePC);
+		if (languageSkill != null)
+		{
+			SkillLanguage.buildLanguageListsForSkill(thePC, languageSkill,
+					selected, new ArrayList<Language>(), new ArrayList<Language>());
+			// See if we can figure out where they are from!
+			for (Language l : selected)
+			{
+				thePC.addSkillLanguage(l, languageSkill);
+				foundLanguages.add(l);
+			}
+		}
+		Set<Language> bonusList = thePC.getLanguageBonusSelectionList();
+		for (Language l : cachedLanguages)
+		{
+			if (!foundLanguages.contains(l))
+			{
+				//Haven't seen it, check for starting language
+				if (bonusList.contains(l))
+				{
+					//Assume this is right (!)
+					thePC.addStartingLanguage(l);
+					foundLanguages.add(l);
+				}
+			}
+		}
+		cachedLanguages.removeAll(foundLanguages);
+		for (Language l : cachedLanguages)
+		{
+			warnings.add("Unable to find source: "
+					+ "Character no longer speaks language: "
+					+ l.getDisplayName());
+		}
+	}
+
 }

@@ -35,18 +35,18 @@ public interface DataFacetChangeListener<T extends CDOMObject> extends EventList
 	 * this DataFacetChangeListener has been added as a DataFacetChangeListener
 	 * to the source DataFacet.
 	 * 
-	 * @param gce
+	 * @param dfce
 	 *            The DataFacetChangeEvent that occurred.
 	 */
-	public void dataAdded(DataFacetChangeEvent<T> gce);
+	public void dataAdded(DataFacetChangeEvent<T> dfce);
 
 	/**
 	 * Method called when a CDOMObject has been removed from a PlayerCharacter
 	 * and this DataFacetChangeListener has been added as a
 	 * DataFacetChangeListener to the source DataFacet.
 	 * 
-	 * @param gce
+	 * @param dfce
 	 *            The DataFacetChangeEvent that occurred.
 	 */
-	public void dataRemoved(DataFacetChangeEvent<T> gce);
+	public void dataRemoved(DataFacetChangeEvent<T> dfce);
 }

@@ -1495,7 +1495,7 @@ final class PCGVer2Creator implements IOConstants
 	{
 		String del = Constants.EMPTY_STRING;
 
-		for (final Language lang : thePC.getLanguagesList())
+		for (final Language lang : thePC.getLanguageSet())
 		{
 			buffer.append(del);
 			buffer.append(TAG_LANGUAGE).append(':');

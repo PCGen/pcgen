@@ -70,7 +70,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 	public void testLang() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.addLanguage(elven);
+		character.addStartingLanguage(elven);
 
 		Prerequisite prereq;
 
@@ -90,7 +90,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 		assertFalse("Character doesn't have Dwarven", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addLanguage(dwarven);
+		character.addStartingLanguage(dwarven);
 
 		assertTrue("Character has Elven and Dwarven", PrereqHandler.passes(
 			prereq, character, null));
@@ -100,7 +100,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 		assertFalse("Character doesn't have 3 langs", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addLanguage(halfling);
+		character.addStartingLanguage(halfling);
 
 		assertTrue("Character has Elven, Dwarven, and Halfling", PrereqHandler
 			.passes(prereq, character, null));

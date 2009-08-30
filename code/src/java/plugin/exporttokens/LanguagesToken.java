@@ -64,7 +64,7 @@ public class LanguagesToken extends Token
 		int startIndex = 0;
 
 		List<Language> languageList =
-				new ArrayList<Language>(pc.getLanguagesList());
+				new ArrayList<Language>(pc.getSortedLanguageSet());
 
 		if (aTok.hasMoreTokens())
 		{

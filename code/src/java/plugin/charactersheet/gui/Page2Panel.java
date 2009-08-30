@@ -204,7 +204,7 @@ public class Page2Panel extends javax.swing.JPanel
 			weaponProfPane.setList("WEAPON PROFICIENCIES", new ArrayList<WeaponProf>(pc
 				.getWeaponProfs()));
 			languagePane.setList("LANGUAGES", new ArrayList<Language>(pc
-				.getLanguagesList()));
+				.getSortedLanguageSet()));
 			templatePane
 				.setList("TEMPLATES", pc.getOutputVisibleTemplateList());
 			domainPane.setMap("DOMAINS", getDomainMap(pc));

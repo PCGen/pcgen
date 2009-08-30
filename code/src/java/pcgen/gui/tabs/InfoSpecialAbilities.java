@@ -237,7 +237,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		List<String> specialAbilities = pc.getSpecialAbilityTimesList();
 		pc.getAutoLanguages();
 
-		String languages = pc.getLanguagesListNames();
+		String languages = StringUtil.join(pc.getSortedLanguageSet(), ", ");
 
 		if (specialAbilities.size() > 0)
 		{
@@ -460,6 +460,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 			int numLanguages = pc.languageNum(false);
 
 			pc.buildLangLists(availableLangs, selectedLangs, excludedLangs);
+			List<Language> origselected = new ArrayList<Language>(selectedLangs);
+			List<Language> origavailable = new ArrayList<Language>(availableLangs);
 
 			Globals.sortPObjectListByName(availableLangs);
 
@@ -497,9 +499,17 @@ public final class InfoSpecialAbilities extends JPanel implements
 				return;
 			}
 
-			pc.clearLanguages();
-			pc.addLanguages(lc.getSelectedList());
-			pc.addLanguages(excludedLangs);
+			selectedLangs.removeAll(origselected); // Only new selections now
+			availableLangs.removeAll(origavailable); // Only old selections now
+
+			for (Language lang : selectedLangs)
+			{
+				pc.addStartingLanguage(lang);
+			}
+			for (Language lang : availableLangs)
+			{
+				pc.removeStartingLanguage(lang);
+			}
 			refresh();
 			ensureFocus();
 		}

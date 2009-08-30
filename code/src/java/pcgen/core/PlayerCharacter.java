@@ -93,6 +93,7 @@ import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.HandsFacet;
+import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
@@ -190,6 +191,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 
+	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
+	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
+	private LanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
+	private LanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
+	//private LanguageFacet langAutoFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
+	private LanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
+
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
@@ -259,7 +267,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// .CLEAR-TEMPLATES from clearing the OLDER template languages.
 	private final List<Language> templateAutoLanguages =
 			new ArrayList<Language>();
-	private final SortedSet<Language> languages = new TreeSet<Language>();
 	private Map<StringKey, String> stringChar =
 			new HashMap<StringKey, String>();
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
@@ -394,6 +401,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PlayerCharacter()
 	{
+		freeLangFacet.addDataFacetChangeListener(languageFacet);
+		addLangFacet.addDataFacetChangeListener(languageFacet);
+		skillLangFacet.addDataFacetChangeListener(languageFacet);
+		startingLangFacet.addDataFacetChangeListener(languageFacet);
+		//langAutoFacet.addDataFacetChangeListener(languageFacet);
+
 		variableProcessor = new VariableProcessorPC(this);
 
 		for (int i = 0; i < 10; i++)
@@ -1952,50 +1965,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return An unmodifiable language set.
 	 */
-	public SortedSet<Language> getLanguagesList()
+	public Set<Language> getLanguageSet()
 	{
-		return Collections.unmodifiableSortedSet(languages);
+		return languageFacet.getSet(id);
 	}
 
-	/**
-	 * Removes all the character's languages.
+	/*
+	 * TODO This is a discussion we have to have about where items are sorted
 	 */
-	public void clearLanguages()
+	public Set<Language> getSortedLanguageSet()
 	{
-		languages.clear();
-	}
-
-	/**
-	 * Adds a <tt>Collection</tt> of languages to the character.
-	 * 
-	 * @param aList
-	 *            A <tt>Collection</tt> of <tt>Language</tt> objects.
-	 */
-	public void addLanguages(final Collection<Language> aList)
-	{
-		languages.addAll(aList);
-	}
-
-	/**
-	 * TODO - This doesn't need to be a PlayerCharacter method.
-	 * 
-	 * @return
-	 */
-	public String getLanguagesListNames()
-	{
-		final StringBuffer b = new StringBuffer();
-
-		for (final Language l : languages)
-		{
-			if (b.length() > 0)
-			{
-				b.append(", ");
-			}
-
-			b.append(l.toString());
-		}
-
-		return b.toString();
+		return new TreeSet<Language>(languageFacet.getSet(id));
 	}
 
 	/**
@@ -3269,7 +3249,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Set<PCTemplate> getTemplateSet()
 	{
-		return Collections.unmodifiableSet(templateFacet.getSet(id));
+		return templateFacet.getSet(id);
 	}
 
 	/**
@@ -4475,55 +4455,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public SortedSet<Language> getAutoLanguages()
 	{
 		// find list of all possible languages
-		boolean clearRacials = false;
-
 		final SortedSet<Language> autoLangs = new TreeSet<Language>();
-
-		// Search for a CLEAR in the list and
-		// if found clear all BEFORE but not AFTER it.
-		// ---arcady June 1, 2002
-		for (Language lang : templateAutoLanguages)
-		{
-			final String aString = lang.toString();
-
-			if (".CLEARRACIAL".equals(aString))
-			{
-				clearRacials = true;
-				languages.removeAll(getRace().getSafeListFor(
-					ListKey.AUTO_LANGUAGES));
-			}
-			else if (".CLEARALL".equals(aString) || ".CLEAR".equals(aString))
-			{
-				clearRacials = true;
-				autoLangs.clear();
-				languages.clear();
-			}
-			else if (".CLEARTEMPLATES".equals(aString))
-			{
-				autoLangs.clear();
-				languages.removeAll(templateAutoLanguages);
-			}
-			else
-			{
-				autoLangs.add(lang);
-			}
-		}
 
 		for (PObject pObj : getPObjectList())
 		{
-			if (clearRacials && pObj instanceof Race)
-			{
-				clearRacials = false;
-				continue;
-			}
 			for (CDOMReference<Language> ref : pObj
 				.getSafeListFor(ListKey.AUTO_LANGUAGES))
 			{
-				autoLangs.addAll(ref.getContainedObjects());
+				Collection<Language> langs = ref.getContainedObjects();
+				autoLangs.addAll(langs);
+				languageFacet.addAll(id, langs, pObj);
 			}
 		}
-
-		languages.addAll(autoLangs);
 
 		return autoLangs;
 	}
@@ -5686,8 +5629,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (!raceIsNull)
 		{
 			removeAllAssocs(oldRace, AssociationListKey.CHARACTER_SPELLS);
-
-			languages.removeAll(oldRace.getSafeListFor(ListKey.AUTO_LANGUAGES));
 
 			cachedWeaponProfs = null;
 
@@ -6856,18 +6797,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void addLanguage(final Language aLang)
-	{
-		languages.add(aLang);
-		setDirty(true);
-	}
-
-	public void removeLanguage(Language aLang)
-	{
-		languages.remove(aLang);
-		setDirty(true);
-	}
-
 	public void addNaturalWeapons(final List<Equipment> weapons)
 	{
 		if (weapons == null || weapons.isEmpty())
@@ -7343,12 +7272,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		this.setDirty(true);
 
 		calcActiveBonuses();
-
-		for (CDOMReference<Language> ref : inTemplate
-			.getSafeListFor(ListKey.AUTO_LANGUAGES))
-		{
-			templateAutoLanguages.addAll(ref.getContainedObjects());
-		}
 		getAutoLanguages();
 		addNaturalWeapons(inTemplate.getListFor(ListKey.NATURAL_WEAPON));
 
@@ -9688,16 +9611,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		cachedWeaponProfs = null;
 
-		languages.removeAll(inTmpl.getSafeListFor(ListKey.AUTO_LANGUAGES)); // remove
-		// template
-		// languages.
-		templateAutoLanguages.removeAll(inTmpl
-			.getSafeListFor(ListKey.AUTO_LANGUAGES)); // remove them from the
-		// local listing. Don't
-		// clear though in case
-		// of multiple
-		// templates.
-
 		removeNaturalWeapons(inTmpl);
 
 		List<LevelCommandFactory> lcfList = inTmpl.getSafeListFor(ListKey.ADD_LEVEL);
@@ -10125,17 +10038,53 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		 */
 	}
 
-	public void addFreeLanguage(final Language aLang)
+	public void addFreeLanguage(final Language aLang, CDOMObject source)
 	{
-		this.languages.add(aLang);
+		freeLangFacet.add(id, aLang, source);
 		++freeLangs;
 		setDirty(true);
 	}
 
-	public void removeFreeLanguage(final Language aLang)
+	public void removeFreeLanguage(final Language aLang, CDOMObject source)
 	{
-		languages.remove(aLang);
+		freeLangFacet.remove(id, aLang, source);
 		--freeLangs;
+		setDirty(true);
+	}
+
+	public void addAddLanguage(final Language aLang, CDOMObject source)
+	{
+		addLangFacet.add(id, aLang, source);
+		setDirty(true);
+	}
+
+	public void removeAddLanguage(final Language aLang, CDOMObject source)
+	{
+		addLangFacet.remove(id, aLang, source);
+		setDirty(true);
+	}
+
+	public void addSkillLanguage(final Language aLang, CDOMObject source)
+	{
+		skillLangFacet.add(id, aLang, source);
+		setDirty(true);
+	}
+
+	public void removeSkillLanguage(final Language aLang, CDOMObject source)
+	{
+		skillLangFacet.remove(id, aLang, source);
+		setDirty(true);
+	}
+
+	public void addStartingLanguage(final Language aLang)
+	{
+		startingLangFacet.add(id, aLang, getRace());
+		setDirty(true);
+	}
+
+	public void removeStartingLanguage(final Language aLang)
+	{
+		startingLangFacet.remove(id, aLang, getRace());
 		setDirty(true);
 	}
 
@@ -11910,14 +11859,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				// do the following only if adding a level of a class for the
 				// first time
-				if (numberOfLevels > 0)
-				{
-					for (CDOMReference<Language> ref : pcClassClone
-						.getSafeListFor(ListKey.AUTO_LANGUAGES))
-					{
-						languages.addAll(ref.getContainedObjects());
-					}
-				}
+//				if (numberOfLevels > 0)
+//				{
+//					for (CDOMReference<Language> ref : pcClassClone
+//						.getSafeListFor(ListKey.AUTO_LANGUAGES))
+//					{
+//						langAutoFacet.addAll(id, ref.getContainedObjects(),
+//								pcClassClone);
+//					}
+//				}
 			}
 			else
 			{
@@ -12191,7 +12141,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		this.setPoolAmount(0);
 		this.costPool = 0;
-		languages.clear();
+		//TODO Why does rolling stats delete the language list?!?
+		languageFacet.removeAll(id);
 		getAutoLanguages();
 		setPoolAmount(0);
 	}
@@ -12563,6 +12514,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.alignmentFacet.set(aClone.id, alignmentFacet.get(id));
 		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
 		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
+		aClone.languageFacet.copyContents(id, aClone.id);
+		aClone.freeLangFacet.copyContents(id, aClone.id);
+		aClone.addLangFacet.copyContents(id, aClone.id);
+		aClone.skillLangFacet.copyContents(id, aClone.id);
+		//aClone.langAutoFacet.copyContents(id, aClone.id);
+		aClone.startingLangFacet.copyContents(id, aClone.id);
 		for (PCClass pcClass : classList)
 		{
 			PCClass cloneClass = pcClass.clone();
@@ -12600,7 +12557,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aClone.kitList = new ArrayList<Kit>();
 			aClone.kitList.addAll(kitList);
 		}
-		aClone.templateAutoLanguages.addAll(templateAutoLanguages);
 		aClone.setBio(new String(getBio()));
 		aClone.setBirthday(new String(getBirthday()));
 		aClone.setBirthplace(new String(getBirthplace()));
@@ -12634,7 +12590,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tabName = new String(tabName);
 		aClone.setTrait1(new String(getTrait1()));
 		aClone.setTrait2(new String(getTrait2()));
-		aClone.languages.addAll(languages);
 		if (theWeaponProfs != null)
 		{
 			aClone.theWeaponProfs = new TreeSet<WeaponProf>();
@@ -15581,7 +15536,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Remove any language selected via "Speak Language"
 		// from the list of available selections
 		//
-		for (Language aLang : getLanguagesList())
+		for (Language aLang : getLanguageSet())
 		{
 			boolean addLang = false;
 
@@ -16151,11 +16106,24 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int getLanguageCount()
 	{
-		return getLanguagesList().size();
+		return languageFacet.getCount(id);
 	}
 
 	public boolean hasLanguage(Language lang)
 	{
-		return getLanguagesList().contains(lang);
+		return languageFacet.contains(id, lang);
 	}
+	
+	/*
+	 * These are present here because they (1) Should be contained within
+	 * PlayerCharacter (2) Should disappear once LanguageFacet can be reused
+	 * with different parameters in a DI system if we go that direction
+	 */
+	public static class FreeLanguageFacet extends LanguageFacet {}
+
+	public static class AddLanguageFacet extends LanguageFacet {}
+
+	public static class SkillLanguageFacet extends LanguageFacet {}
+
+	public static class StartingLanguageFacet extends LanguageFacet {}
 }

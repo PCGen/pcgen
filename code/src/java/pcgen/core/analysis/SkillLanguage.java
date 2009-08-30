@@ -22,7 +22,6 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
@@ -51,6 +50,11 @@ public final class SkillLanguage
 	 */
 	public static boolean chooseLanguageForSkill(PlayerCharacter aPC)
 	{
+		return chooseLanguageForSkill(aPC, getLanguageSkill(aPC));
+	}
+
+	public static Skill getLanguageSkill(PlayerCharacter aPC)
+	{
 		Skill languageSkill = null;
 
 		for (Skill aSkill : aPC.getSkillSet())
@@ -60,8 +64,7 @@ public final class SkillLanguage
 				languageSkill = aSkill;
 			}
 		}
-
-		return chooseLanguageForSkill(aPC, languageSkill);
+		return languageSkill;
 	}
 
 	/**
@@ -106,6 +109,9 @@ public final class SkillLanguage
 			buildLanguageListsForSkill(aPC, languageSkill, selected, available,
 				excludedLangs);
 
+			List<Language> origselected = new ArrayList<Language>(selected);
+			List<Language> origavailable = new ArrayList<Language>(available);
+
 			Globals.sortChooserLists(available, selected);
 
 			ChooserInterface lc = ChooserFactory.getChooserInstance();
@@ -116,16 +122,18 @@ public final class SkillLanguage
 			lc.setPoolFlag(false);
 			lc.setVisible(true);
 
-			aPC.clearLanguages();
-			aPC.addLanguages(selected);
+			selected.removeAll(origselected); //Only new selections now
+			available.removeAll(origavailable); //Only old selections now
 
-			// Add in all choice-excluded languages
-			aPC.addLanguages(excludedLangs);
-			aPC.removeAllAssociations(languageSkill);
-			// TODO Fix this to allow Language objects.
-			for (Iterator<?> i = lc.getSelectedList().iterator(); i.hasNext();)
+			for (Language lang : selected)
 			{
-				aPC.addAssociation(languageSkill, ((Language) i.next()).getKeyName());
+				aPC.addSkillLanguage(lang, languageSkill);
+				aPC.addAssociation(languageSkill, lang.getKeyName());
+			}
+			for (Language lang : available)
+			{
+				aPC.removeSkillLanguage(lang, languageSkill);
+				aPC.removeAssociation(languageSkill, lang.getKeyName());
 			}
 			aPC.setDirty(true);
 
@@ -243,7 +251,7 @@ public final class SkillLanguage
 		//
 		// Do not give choice of selected bonus languages
 		//
-		for (Language lang : aPC.getLanguagesList())
+		for (Language lang : aPC.getLanguageSet())
 		{
 			if (!selected.contains(lang))
 			{

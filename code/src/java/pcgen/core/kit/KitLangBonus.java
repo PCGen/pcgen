@@ -58,7 +58,10 @@ public class KitLangBonus extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		aPC.addLanguages(theLanguages);
+		for (Language l : theLanguages)
+		{
+			aPC.addStartingLanguage(l);
+		}
 	}
 
 	/**

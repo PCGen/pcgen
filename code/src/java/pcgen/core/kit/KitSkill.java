@@ -254,14 +254,13 @@ public final class KitSkill extends BaseKit
 		// Add any supplied languages
 		if (!langList.isEmpty())
 		{
-			pc.addLanguages(langList);
-
 			for (Language l : langList)
 			{
+				pc.addSkillLanguage(l, aSkill);
 				pc.addAssociation(aSkill, l.getKeyName());
 			}
-
 		}
+
 		//
 		// Fix up the skill pools to reflect what we just spent.
 		//

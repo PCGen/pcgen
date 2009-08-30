@@ -140,7 +140,7 @@ public class ChooseLangautoToken extends AbstractToken implements
 	public void applyChoice(CDOMObject owner, Language choice,
 		PlayerCharacter pc)
 	{
-		pc.addFreeLanguage(choice);
+		pc.addFreeLanguage(choice, owner);
 	}
 
 	public boolean allow(Language choice, PlayerCharacter pc, boolean allowStack)
@@ -162,7 +162,7 @@ public class ChooseLangautoToken extends AbstractToken implements
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		Language choice)
 	{
-		// No action required
+		pc.addFreeLanguage(choice, owner);
 	}
 
 	public Class<Race> getDeferredTokenClass()
@@ -189,7 +189,7 @@ public class ChooseLangautoToken extends AbstractToken implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			Language choice)
 	{
-		pc.removeFreeLanguage(choice);
+		pc.removeFreeLanguage(choice, owner);
 	}
 
 	public List<Language> getCurrentlySelected(CDOMObject owner,

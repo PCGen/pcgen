@@ -528,7 +528,7 @@ public class CountCommand extends PCGenCommand
 					protected void getData(final PlayerCharacter pc)
 					{
 						objdata = new HashSet<Language>();
-						objdata.addAll(pc.getLanguagesList());
+						objdata.addAll(pc.getLanguageSet());
 					}
 
 					public Object count(
