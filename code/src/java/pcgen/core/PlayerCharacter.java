@@ -87,6 +87,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.AlignmentFacet;
+import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
@@ -188,6 +189,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
+	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 
@@ -418,6 +420,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		statFacet.addAll(id, Globals.getContext().ref
 				.getOrderSortedCDOMObjects(PCStat.class));
+		checkFacet.addAll(id, Globals.getContext().ref
+				.getOrderSortedCDOMObjects(PCCheck.class));
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
@@ -10175,10 +10179,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aType = aType.toUpperCase();
 		aName = aName.toUpperCase();
 
-		final List<PCCheck> aList = Globals.getContext().ref
-				.getOrderSortedCDOMObjects(PCCheck.class);
-
-		for (PObject obj : aList)
+		for (PObject obj : checkFacet.getSet(id))
 		{
 			final List<BonusObj> tempList = BonusUtilities.getBonusFromList(obj
 					.getBonusList(this), aType, aName);
@@ -10977,8 +10978,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// BioSet
 		results.add(Globals.getBioSet());
 
-		results.addAll(Globals.getContext().ref
-				.getOrderSortedCDOMObjects(PCCheck.class));
+		results.addAll(checkFacet.getSet(id));
 
 		// Class
 		results.addAll(classList);
