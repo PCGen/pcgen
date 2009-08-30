@@ -1106,9 +1106,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		}
 		catch (Exception ex)
 		{
+			Logging.errorPrint("Could not save " + aPC.getDisplayName(), ex);
 			ShowMessageDelegate.showMessageDialog("Could not save "
 				+ aPC.getDisplayName(), Constants.s_APPNAME, MessageType.ERROR);
-			Logging.errorPrint("Could not save " + aPC.getDisplayName(), ex);
 
 			return false;
 		}
