@@ -2652,7 +2652,6 @@ public final class GameMode implements Comparable<Object>
 		// (all Category) getch
 		if (aKey == null || (ac == null && aKey.length() > 0))
 		{
-			Thread.dumpStack();
 			Logging.errorPrint("Attempt to fetch AbilityCategory: " + aKey
 				+ "... but it does not exist");
 		}
