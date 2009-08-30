@@ -586,7 +586,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Only save alignment if game mode supports it
 		//
-		if (Globals.getGameModeAlignmentText().length() != 0)
+		if (Globals.getGameModeAlignmentText().length() != 0 && thePC.getPCAlignment() != null)
 		{
 			buffer.append(TAG_ALIGNMENT).append(':');
 			buffer.append(thePC.getPCAlignment().getAbb());

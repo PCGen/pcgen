@@ -96,6 +96,7 @@ import pcgen.core.Race;
 import pcgen.core.RollingMethods;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
+import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.RaceStat;
 import pcgen.core.analysis.StatAnalysis;
@@ -506,6 +507,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	private StatTableModel statTableModel = new StatTableModel();
 	private WholeNumberField txtHD = new WholeNumberField(1, 3);
 
+	private Object[] oldAlignments;
+
 	/**
 	 * InfoSummary default constructor.
 	 * @param pc PlayerCharacter to display summary for.
@@ -576,7 +579,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			toDoList.add(PropertyFactory.getString("in_sumTodoName")); //$NON-NLS-1$
 		}
 		if (Globals.getGameModeAlignmentText().length() != 0
-			&& pc.getPCAlignment().getDisplayName().equals(Constants.s_NONE))
+			&& (pc.getPCAlignment() == null || pc.getPCAlignment()
+				.getDisplayName().equals(Constants.s_NONE)))
 		{
 			toDoList.add(PropertyFactory.getString("in_sumTodoAlign")); //$NON-NLS-1$
 		}
@@ -1478,7 +1482,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		pc.setAlignment(newAlign);
 		forceRefresh(false);
-		enableRaceControls(!newAlign.getAbb().equals(Constants.s_NONE));
+		enableRaceControls(!newAlign.getKeyName().equals(Constants.s_NONE));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();
 	}
 
@@ -2172,12 +2176,15 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		Object[] newArray = Globals.getContext().ref.getOrderSortedCDOMObjects(
 				PCAlignment.class).toArray();
-		boolean rebuild = !Arrays.equals(alignmentComboBox.getAllItems(),
+		boolean rebuild = !Arrays.equals(oldAlignments,
 				newArray);
 
 		if (rebuild)
 		{
-			alignmentComboBox.setModel(new DefaultComboBoxModel(newArray));
+			oldAlignments = newArray;
+			final DefaultComboBoxModel model = new DefaultComboBoxModel(newArray);
+			model.insertElementAt(AlignmentConverter.getNoAlignment(), 0);
+			alignmentComboBox.setModel(model);
 		}
 
 		PCAlignment align = pc.getPCAlignment();
@@ -2185,6 +2192,10 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		if (align != null)
 		{
 			alignmentComboBox.setSelectedItem(align);
+		}
+		else
+		{
+			alignmentComboBox.setSelectedIndex(0);
 		}
 
 		final Race pcRace = pc.getRace();
@@ -2288,7 +2299,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		setStatLabelText();
 
 		enableRaceControls(!alignmentComboBox.isVisible()
-			|| !align.getAbb().equals(Constants.s_NONE));
+			|| (align != null && !align.getKeyName().equals(Constants.s_NONE)));
 		startListeners();
 	}
 
