@@ -313,11 +313,11 @@ Section "-Local" Section4
 	; Create Shortcuts
 	SetOutPath "$$INSTDIR\$${APPDIR}\"
 	CreateDirectory "$$SMPROGRAMS\PCGen\$${APPDIR}"
-	CreateShortCut "$$DESKTOP\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.bat" "" \
+	CreateShortCut "$$DESKTOP\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.exe" "" \
 				"$$INSTDIR\$${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
 	CreateShortCut "$$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}-Low.lnk" "$$INSTDIR\$${APPDIR}\pcgen_low_mem.bat" "" \
 				"$$INSTDIR\$${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.bat" "" \
+	CreateShortCut "$$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.exe" "" \
 				"$$INSTDIR\$${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
 	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\Convert Data.lnk" "javaw.exe" "-Xmx256M -jar batch-convert.jar" \
 				"$$INSTDIR\$${APPDIR}\Local\convert.ico"
@@ -408,7 +408,7 @@ Section Uninstall
 	;Ed- below would be the removal of all files in the PCGen root directory, on a file by file basis.
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen.jar"
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen-release-notes-$${SIMPVER}.html"
-	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen.bat"
+	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen.exe"
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen.sh"
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen_low_mem.bat"
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\batch-convert.jar"

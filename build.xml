@@ -87,7 +87,7 @@ These files can be renamed and used for releases.
 	<property name="batch.dist.files" value="${convert-jar.bin.file}" />
 
 	<!-- For installation -->
-	<property name="bin.pcgen.bat" value="pcgen.bat" />
+	<property name="bin.pcgen.exe" value="pcgen.exe" />
 	<property name="bin.pcgenlowmem.bat" value="pcgen_low_mem.bat" />
 	<property name="bin.pcgen.sh" value="pcgen.sh" />
 	<property name="bin.filepaths.ini" value="filepaths.ini" />
@@ -236,18 +236,7 @@ Class-Path: pcgen.jar ${manifest.extra.jars}
 
 	<!-- Create the Windows and POSIX scripts that can be used to start PCGen -->
 	<target name="scripts" depends="init" description="Write program scripts">
-		<!-- <echo file="${bin.dir}/${bin.pcgen.bat}" message="java -Dpcgen.filter=filter.ini -Dpcgen.options=options.ini -jar ${jar.bin.file}"> -->
-		<echo file="${bin.dir}/${bin.pcgen.bat}">@ECHO OFF
-ECHO PCGEN.BAT
-ECHO ==================
-ECHO This script should only be used if you have more than 256MB of RAM and if you
-ECHO don't mind committing at least 128MB of these to PCGEN.
-ECHO The value after -Xmx is the maximum amount of memory that PCGen will be allowed to use.
-ECHO It defaults to 64MB.
-ECHO The value after -Xms is the starting memory, using both then to speed up PCGEN.
-ECHO To load all sources takes more than the default 64MB.
-java -Dswing.aatext=true -Xms128m -Xmx256m -jar ${jar.bin.file}
-</echo>
+		<copy file="${basedir}/code/${bin.pcgen.exe}" todir="${bin.dir}"/>
 		<echo file="${bin.dir}/${bin.pcgenlowmem.bat}">@ECHO OFF
 ECHO PCGEN_LOW_MEM.BAT
 ECHO ==================
@@ -394,6 +383,7 @@ pcgen.filepaths=user
 		<copy todir="${basedir}">
 			<fileset dir="${bin.dir}" includes="**/*.jar" />
 			<fileset dir="${bin.dir}" includes="**/*.bat" />
+			<fileset dir="${bin.dir}" includes="**/*.exe" />
 			<fileset dir="${bin.dir}" includes="**/*.sh" />
 		</copy>
 		<!-- fix for UNIXen; harmless on Windows -->
@@ -414,6 +404,7 @@ pcgen.filepaths=user
 		<copy todir="${basedir}">
 			<fileset dir="${bin.dir}" includes="**/*.jar" />
 			<fileset dir="${bin.dir}" includes="**/*.bat" />
+			<fileset dir="${bin.dir}" includes="**/*.exe" />
 			<fileset dir="${bin.dir}" includes="**/*.sh" />
 		</copy>
 		<chmod file="pcgen.sh" perm="a+rx" />
@@ -439,7 +430,7 @@ pcgen.filepaths=user
 			<fileset dir="${bin.dir}">
 				<include name="pcgen.jar" />
 				<include name="pcgen.sh" />
-				<include name="pcgen.bat" />
+				<include name="pcgen.exe" />
 				<include name="filepaths.ini" />
 			</fileset>
 			<fileset dir=".">
@@ -514,7 +505,7 @@ pcgen.filepaths=user
 			<fileset dir="${bin.dir}">
 				<include name="pcgen.jar" />
 				<include name="pcgen.sh" />
-				<include name="pcgen.bat" />
+				<include name="pcgen.exe" />
 				<include name="filepaths.ini" />
 			</fileset>
 			<fileset dir=".">
@@ -564,7 +555,7 @@ pcgen.filepaths=user
 			<tarfileset dir="${bin.dir}">
 				<include name="pcgen.jar" />
 				<include name="pcgen.sh" />
-				<include name="pcgen.bat" />
+				<include name="pcgen.exe" />
 				<include name="filepaths.ini" />
 			</tarfileset>
 			<tarfileset dir=".">

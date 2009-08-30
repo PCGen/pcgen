@@ -65,7 +65,7 @@
 			<fileset dir="${basedir}/code/bin">
 				<include name="batch-convert.jar"/>
 				<include name="pcgen.sh"/>
-				<include name="pcgen.bat"/>
+				<include name="pcgen.exe"/>
 				<include name="pcgen_low_mem.bat"/>
 				<include name="filepaths.ini"/>
 				<include name="autobuild.timestamp"/>
