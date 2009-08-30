@@ -199,7 +199,7 @@ public class LanguageToken extends AbstractToken implements
 
 	public boolean allow(Language choice, PlayerCharacter pc, boolean allowStack)
 	{
-		return !pc.getLanguagesList().contains(choice);
+		return !pc.hasLanguage(choice);
 	}
 
 	public Language decodeChoice(String s)

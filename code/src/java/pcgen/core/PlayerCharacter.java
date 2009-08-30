@@ -16162,4 +16162,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 	}
+
+	public int getLanguageCount()
+	{
+		return getLanguagesList().size();
+	}
+
+	public boolean hasLanguage(Language lang)
+	{
+		return getLanguagesList().contains(lang);
+	}
 }

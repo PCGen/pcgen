@@ -39,7 +39,7 @@ public class PCCountLanguagesTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getLanguagesList().size();
+		return (float) pc.getLanguageCount();
 	}
 
 	public boolean isSourceDependant()
