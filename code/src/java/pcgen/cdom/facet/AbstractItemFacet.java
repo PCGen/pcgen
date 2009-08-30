@@ -26,8 +26,8 @@ import pcgen.cdom.enumeration.CharID;
  * A AbstractItemFacet is a DataFacet that contains information about
  * CDOMObjects that are contained in a PlayerCharacter when a PlayerCharacter
  * may have only one of that type of CDOMObject (e.g. Race, Deity). This is not
- * used for CDOMObjects where the PlayerCharacter only possesses one of that
- * type of object (e.g. Template, Language)
+ * used for CDOMObjects where the PlayerCharacter may possesse more than one of
+ * that type of object (e.g. Template, Language)
  */
 public abstract class AbstractItemFacet<T extends CDOMObject> extends
 		AbstractDataFacet<T>
@@ -50,6 +50,7 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 		T old = get(id);
 		if (old != null)
 		{
+			FacetCache.remove(id, thisClass);
 			fireGraphNodeChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
 	}

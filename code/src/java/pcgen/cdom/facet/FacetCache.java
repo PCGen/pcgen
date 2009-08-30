@@ -40,4 +40,9 @@ public class FacetCache
 	{
 		return cache.put(id, cl, o);
 	}
+
+	public static Object remove(CharID id, Class<?> cl)
+	{
+		return cache.remove(id, cl);
+	}
 }
