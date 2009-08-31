@@ -158,7 +158,7 @@ public final class AddSpecialAbility extends JFrame
 
 	private void addSpecialAbility()
 	{
-		if ((aPC == null) || aPC.getClassList().isEmpty())
+		if ((aPC == null) || !aPC.hasClass())
 		{
 			return;
 		}

@@ -594,7 +594,7 @@ public class NPCGenerator
 				Logging.debugPrint( "NPCGenerator: Selecting " + numLevels + " for level " + levels.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$
 				PCClass aClass = null;
 				
-				if ( !doneRacialClasses && aPC.getClassList().size() > 0 )
+				if ( !doneRacialClasses && aPC.hasClass())
 				{
 					aClass = aPC.getClassList().get(0);
 					numLevels = aClass.getLevel(aPC);

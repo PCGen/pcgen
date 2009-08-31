@@ -22,6 +22,7 @@
  */
 package pcgen.core.kit;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,7 +97,7 @@ public class KitStat extends BaseKit
 
 	private void recalculateSkillPoints(PlayerCharacter aPC)
 	{
-		final List<PCClass> classes = aPC.getClassList();
+		final Collection<PCClass> classes = aPC.getClassSet();
 		aPC.calcActiveBonuses();
 		if (classes != null && classes.size() != 0)
 		{

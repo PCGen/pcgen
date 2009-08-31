@@ -48,7 +48,7 @@ public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		int att = 0;
-		for (PCClass aClass : character.getClassList())
+		for (PCClass aClass : character.getClassSet())
 		{
 			att = Math.max(att, aClass.baseAttackBonus(character));
 		}

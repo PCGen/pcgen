@@ -1118,7 +1118,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 		}
 		else
 		{
-			classes = pc.getClassList();
+			classes = pc.getClassSet();
 		}
 
 		for (PCClass aClass : classes)

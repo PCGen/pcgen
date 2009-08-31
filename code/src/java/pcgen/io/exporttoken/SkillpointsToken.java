@@ -138,7 +138,7 @@ public class SkillpointsToken extends Token
 	{
 		float usedPoints = 0;
 
-		for (PCClass pcClass : pc.getClassList())
+		for (PCClass pcClass : pc.getClassSet())
 		{
 			if (pcClass.getSkillPool(pc) > 0)
 			{
@@ -158,7 +158,7 @@ public class SkillpointsToken extends Token
 	{
 		float usedPoints = 0;
 
-		if (classNum < 0 || classNum >= pc.getClassList().size())
+		if (classNum < 0 || classNum >= pc.getClassCount())
 		{
 			return 0;
 		}
@@ -204,7 +204,7 @@ public class SkillpointsToken extends Token
 	 */
 	public static int getUsedSkillPoints(PlayerCharacter pc, int classNum)
 	{
-		if (classNum < 0 || classNum >= pc.getClassList().size())
+		if (classNum < 0 || classNum >= pc.getClassCount())
 		{
 			return 0;
 		}

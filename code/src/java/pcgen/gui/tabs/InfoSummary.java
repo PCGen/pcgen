@@ -1434,10 +1434,9 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		// ex-class)
 		//
 		StringBuffer unqualified = new StringBuffer();
-		List<PCClass> classList = pc.getClassList();
 		List<PCClass> exclassList = new ArrayList<PCClass>();
 
-		for (PCClass aClass : classList)
+		for (PCClass aClass : pc.getClassSet())
 		{
 			if (!aClass.qualifies(pc))
 			{

@@ -148,7 +148,7 @@ public class SpellMemToken extends Token
 							new ArrayList<CharacterSpell>();
 
 					// For each class
-					for (PCClass pcClass : aPC.getClassList())
+					for (PCClass pcClass : aPC.getClassSet())
 					{
 						// Get the spells provided by the class
 						List<CharacterSpell> aList =

@@ -83,7 +83,7 @@ public class HitDiceToken extends Token
 		StringBuffer ret = new StringBuffer();
 		String del = "";
 
-		for (PCClass pcClass : pc.getClassList())
+		for (PCClass pcClass : pc.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<Integer, Integer>();
@@ -142,7 +142,7 @@ public class HitDiceToken extends Token
 
 		dice = 0;
 
-		for (PCClass pcClass : pc.getClassList())
+		for (PCClass pcClass : pc.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<Integer, Integer>();

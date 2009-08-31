@@ -86,7 +86,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 		}
 		else if (aString.equals("ANY"))
 		{
-			for (PCClass cl : character.getClassList())
+			for (PCClass cl : character.getClassSet())
 			{
 				if (prereq.isCountMultiples())
 				{
@@ -104,7 +104,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 		else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 		{
 			String typeString = aString.substring(5);
-			for (PCClass cl : character.getClassList())
+			for (PCClass cl : character.getClassSet())
 			{
 				if (cl.isType(typeString))
 				{
@@ -165,7 +165,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 			}
 			else
 			{
-CLASSLIST:		for(PCClass theClass: character.getClassList())
+CLASSLIST:		for(PCClass theClass: character.getClassSet())
 				{
 					for (CDOMReference<PCClass> ref : theClass
 							.getSafeListFor(ListKey.SERVES_AS_CLASS))

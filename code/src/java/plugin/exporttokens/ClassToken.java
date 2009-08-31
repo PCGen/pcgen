@@ -103,7 +103,7 @@ public class ClassToken extends Token {
 	public static String getClassToken(PlayerCharacter pc, int classNumber) {
 		String retString = "";
 
-		if (pc.getClassList().size() > classNumber) {
+		if (pc.getClassCount() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			String subClassKey = pc.getAssoc(pcClass, AssociationKey.SUBCLASS_KEY);
@@ -127,7 +127,7 @@ public class ClassToken extends Token {
 	 * @return level token
 	 */
 	public static int getLevelToken(PlayerCharacter pc, int classNumber) {
-		if (pc.getClassList().size() > classNumber) {
+		if (pc.getClassCount() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			return pcClass.getLevel(pc);
@@ -144,7 +144,7 @@ public class ClassToken extends Token {
 	 * @return level token
 	 */
 	public static String getSAListToken(PlayerCharacter pc, int classNumber) {
-		if (pc.getClassList().size() > classNumber) {
+		if (pc.getClassCount() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 			List<String> saList = getClassSpecialAbilityList(pcClass, pc);
 			return StringUtil.join(saList, ", ");
@@ -173,7 +173,7 @@ public class ClassToken extends Token {
 		SpecialAbilityResolution.addSABToList(saList, aPC, pcclass);
 		for (int i = 1; i <= pcclass.getLevel(aPC); i++)
 		{
-			PCClassLevel pcl = pcclass.getActiveClassLevel(i);
+			PCClassLevel pcl = aPC.getActiveClassLevel(pcclass, i);
 			SpecialAbilityResolution
 					.addSpecialAbilitiesToList(saList, aPC, pcl);
 			SpecialAbilityResolution.addSABToList(saList, aPC, pcl);
@@ -258,7 +258,7 @@ public class ClassToken extends Token {
 	 * @return class Type
 	 */
 	public static String getClassType(PlayerCharacter pc, int classNumber) {
-		if (pc.getClassList().size() > classNumber) {
+		if (pc.getClassCount() > classNumber) {
 			return pc.getClassList().get(classNumber).getType();
 		}
 		return "";

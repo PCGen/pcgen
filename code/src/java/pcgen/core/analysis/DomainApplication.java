@@ -245,7 +245,7 @@ public class DomainApplication
 		{
 			// TODO This stinks for really high level characters - can this ever
 			// get null back?
-			PCClassLevel pcl = cl.getActiveClassLevel(i);
+			PCClassLevel pcl = aPC.getActiveClassLevel(cl, i);
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
 					.getSafeListFor(ListKey.DOMAIN))
 			{

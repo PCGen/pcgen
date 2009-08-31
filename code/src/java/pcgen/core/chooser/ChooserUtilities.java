@@ -162,10 +162,8 @@ public class ChooserUtilities
 			{
 				aString = aString.substring(5);
 
-				for (Iterator e = aPC.getClassList().iterator(); e.hasNext();)
+				for (PCClass aClass : aPC.getClassSet())
 				{
-					final PCClass aClass = (PCClass) e.next();
-
 					if (aClass.getSpellType().equals(aString))
 					{
 						if (mString.indexOf("MAXLEVEL") >= 0)

@@ -88,6 +88,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.CheckFacet;
+import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
@@ -191,6 +192,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
+	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
@@ -232,9 +234,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BigDecimal gold = new BigDecimal(0);
 
 	private ClassSource defaultDomainSource = null;
-
-	// List of Classes
-	private ArrayList<PCClass> classList = new ArrayList<PCClass>();
 
 	/** This character's list of followers */
 	private final List<Follower> followerList = new ArrayList<Follower>();
@@ -963,7 +962,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PCClass getClassKeyed(final String aString)
 	{
-		for (PCClass aClass : classList)
+		for (PCClass aClass : getClassSet())
 		{
 			if (aClass.getKeyName().equalsIgnoreCase(aString))
 			{
@@ -981,7 +980,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public ArrayList<PCClass> getClassList()
 	{
-		return classList;
+		/*
+		 * TODO This is a discussion we have to have about where items are sorted
+		 */
+		return new ArrayList<PCClass>(getClassSet());
+	}
+
+	public Set<PCClass> getClassSet()
+	{
+		return classFacet.getSet(id);
 	}
 
 	/**
@@ -1627,7 +1634,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	double getNumFeatsFromLevels()
 	{
 		Map<String, Double> featByLevelType = new HashMap<String, Double>();
-		for (PCClass pcClass : getClassList())
+		for (PCClass pcClass : getClassSet())
 		{
 			int lvlPerFeat = pcClass.getSafe(IntegerKey.LEVELS_PER_FEAT);
 			if (lvlPerFeat != 0)
@@ -1720,7 +1727,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return new StringBuffer().append(getName()).append(" the ").append(
 			levels).append(getOrdinal(levels)).append(" level ").append(
 			getDisplayRaceName()).append(' ').append(
-			(classList.size() < 2) ? getDisplayClassName()
+			(classFacet.getCount(id) < 2) ? getDisplayClassName()
 				: getFullDisplayClassName()).toString();
 	}
 
@@ -2088,7 +2095,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int mTotalLevel = 0;
 		int addHD = 0;
 
-		for (PCClass mClass : mPC.getClassList())
+		for (PCClass mClass : mPC.getClassSet())
 		{
 			boolean found = false;
 
@@ -2110,7 +2117,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		for (CompanionMod cMod : Globals.getCompanionMods(aM.getType()))
 		{
 			// Check all the masters classes
-			for (PCClass mClass : mPC.getClassList())
+			for (PCClass mClass : mPC.getClassSet())
 			{
 				final int mLev = mClass.getLevel(this) + aM.getAdjustment();
 				final int compLev = cMod.getLevelApplied(mClass);
@@ -2346,7 +2353,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					PCClass pcclass = me.getKey().resolvesTo();
 					String key = pcclass.getKeyName();
-					for (PCClass pcClass : getClassList())
+					for (PCClass pcClass : getClassSet())
 					{
 						if (pcClass.getKeyName().equals(key))
 						{
@@ -4353,7 +4360,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Some classes (like the Monk or Ranged Sniper) use
 		// a different attack cycle than the standard classes
 		// So compute the base attack for this type (BAB, RAB, UAB)
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			// Get the attack bonus
 			final int b = pcClass.baseAttackBonus(this);
@@ -5209,7 +5216,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCClass cl : aList)
 		{
-			for (PCClass pcClass : classList)
+			for (PCClass pcClass : getClassSet())
 			{
 				if (isAny)
 				{
@@ -5423,7 +5430,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// to the skill
 			levelForSkillPurposes = 0;
 
-			for (PCClass bClass : classList)
+			for (PCClass bClass : getClassSet())
 			{
 				if (this.isClassSkill(aSkill, bClass))
 				{
@@ -5667,8 +5674,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			// Get existing classes
 			final List<PCClass> existingClasses =
-					new ArrayList<PCClass>(classList);
-			classList.clear();
+					new ArrayList<PCClass>(getClassSet());
+			classFacet.removeAll(id);
 
 			//
 			// Remove all saved monster level information
@@ -5722,7 +5729,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					//
 					if (!pcClass.isMonster())
 					{
-						classList.add(pcClass);
+						classFacet.add(id, pcClass);
 
 						final int cLevels = pcClass.getLevel(this);
 
@@ -5899,7 +5906,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int classTotal = 0;
 		int runningTotal = 0;
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (spellType == null
 				|| spellType.equalsIgnoreCase(pcClass.getSpellType()))
@@ -5961,7 +5968,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addSpells(d);
 		}
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			addSpells(pcClass);
 		}
@@ -6234,7 +6241,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		String retString = "2|1d2";
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			retString =
 					PlayerCharacterUtilities.getBestUDamString(retString,
@@ -7251,7 +7258,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Add a clone of the template passed in
 		int lockMonsterSkillPoints = 0; // this is what this value was before
 		// adding this template
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (pcClass.isMonster())
 			{
@@ -7315,7 +7322,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int postLockMonsterSkillPoints; // this is what this value was before
 		// adding this template
 		boolean first = true;
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (pcClass.isMonster())
 			{
@@ -7799,7 +7806,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		float CR = 0;
 
 		// Calculate and add the CR from the PC Classes
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			CR += pcClass.calcCR(this);
 		}
@@ -7904,7 +7911,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						.resolve(this, cMod.getQualifiedKey()).intValue());
 		}
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			SR =
 					Math.max(SR, pcClass.getSafe(ObjectKey.SR).getReduction()
@@ -7994,7 +8001,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean canCastSpellTypeLevel(final String spellType,
 		final int spellLevel, final int minNumSpells)
 	{
-		for (PCClass aClass : classList)
+		for (PCClass aClass : getClassSet())
 		{
 			String classSpellType = aClass.get(StringKey.SPELLTYPE);
 			if (classSpellType != null
@@ -8046,7 +8053,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int known = 0;
 		int cast = 0;
-		for (PCClass aClass : classList)
+		for (PCClass aClass : getClassSet())
 		{
 			String classSpellType = aClass.get(StringKey.SPELLTYPE);
 			if (classSpellType != null
@@ -8089,14 +8096,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return false;
 		}
 		boolean result;
-		if (classList.isEmpty())
+		if (classFacet.isEmpty(id))
 		{
 			result = true;
 		}
 		else
 		{
 			result = false;
-			CLASS: for (PCClass aClass : classList)
+			CLASS: for (PCClass aClass : getClassSet())
 			{
 				List<CDOMReference<Deity>> deityList =
 						aClass.getListFor(ListKey.DEITY);
@@ -8343,7 +8350,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				spellBookMap.remove(aName);
 				setDirty(true);
 
-				for (PCClass pcClass : classList)
+				for (PCClass pcClass : getClassSet())
 				{
 					final List<CharacterSpell> aList =
 							getCharacterSpells(pcClass, null, aName, -1);
@@ -8601,7 +8608,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final double iConMod = getStatBonusTo("HP", "BONUS");
 
-			for (PCClass pcClass : classList)
+			for (PCClass pcClass : getClassSet())
 			{
 				total += getClassHitPoints(pcClass, (int) iConMod);
 			}
@@ -8645,7 +8652,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (int i = 0; i <= pcClass.getLevel(this); ++i)
 		{
-			PCClassLevel pcl = pcClass.getActiveClassLevel(i);
+			PCClassLevel pcl = getActiveClassLevel(pcClass, i);
 			Integer hp = getAssoc(pcl, AssociationKey.HIT_POINTS);
 			if (hp != null && hp > 0)
 			{
@@ -8717,12 +8724,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					pcload = poLoad;
 				}
 			}
-			for (PCClass cl : classList)
+			for (PCClass cl : getClassSet())
 			{
 				Load active = cl.getSafe(loadKey);
 				for (int i = 0; i < cl.getLevel(this); i++)
 				{
-					PCClassLevel classLevel = cl.getActiveClassLevel(i);
+					PCClassLevel classLevel = getActiveClassLevel(cl, i);
 					Load override = classLevel.get(loadKey);
 					if (override != null)
 					{
@@ -8925,23 +8932,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (bClass == null)
 			{
-				bClass = cl.clone();
+				bClass = cl.clone(); //Still required :(
 
 				rebuildLists(bClass, aClass, aClass.getLevel(this), this);
 
 				bClass.setLevel(aClass.getLevel(this), this);
 				for (int i = 0; i < aClass.getLevel(this); ++i)
 				{
-					PCClassLevel frompcl = aClass.getActiveClassLevel(i + 1);
+					PCClassLevel frompcl = getActiveClassLevel(aClass, i + 1);
 					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
-					PCClassLevel topcl = bClass.getActiveClassLevel(i + 1);
+					PCClassLevel topcl = getActiveClassLevel(bClass, i + 1);
 					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 				}
 
-				final int idx = classList.indexOf(aClass);
-				classList.set(idx, bClass);
-				// thePObjectList.remove(aClass);
-				// thePObjectList.add(bClass);
+				classFacet.replace(id, aClass, bClass);
 			}
 			else
 			{
@@ -8951,15 +8955,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				for (int i = 0; i < aClass.getLevel(this); ++i)
 				{
-					PCClassLevel frompcl = aClass.getActiveClassLevel(i + 1);
+					PCClassLevel frompcl = getActiveClassLevel(aClass, i + 1);
 					Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
 					PCClassLevel topcl =
-							bClass.getActiveClassLevel(bClass.getLevel(this) + i + 1);
+							getActiveClassLevel(bClass, bClass.getLevel(this) + i + 1);
 					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 				}
 
-				classList.remove(aClass);
-				// thePObjectList.remove(aClass);
+				classFacet.remove(id, aClass);
 			}
 
 			//
@@ -9313,7 +9316,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int xpPenalty = 0;
 		double xpMultiplier = 1.0;
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (!pcClass.hasXPPenalty())
 			{
@@ -9743,7 +9746,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int totalLevels = 0;
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (!pcClass.isMonster())
 			{
@@ -10000,9 +10003,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (int i = 0; i < iCount; ++i)
 		{
-			PCClassLevel frompcl = fromClass.getActiveClassLevel(iFromLevel + i);
+			PCClassLevel frompcl = getActiveClassLevel(fromClass, iFromLevel + i);
 			Integer hp = getAssoc(frompcl, AssociationKey.HIT_POINTS);
-			PCClassLevel topcl = toClass.getActiveClassLevel(iToLevel + i);
+			PCClassLevel topcl = getActiveClassLevel(toClass, iToLevel + i);
 			setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 			setAssoc(frompcl, AssociationKey.HIT_POINTS, Integer.valueOf(0));
 		}
@@ -10197,7 +10200,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final Map<String, String> lvlMap)
 	{
 		// set class levels to class name,level pair
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			String lvl = lvlMap.get(pcClass.getKeyName());
 
@@ -10216,7 +10219,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private String getDisplayClassName()
 	{
-		return (classList.isEmpty() ? "Nobody" : classList.get(
+		ArrayList<PCClass> classList = getClassList();
+		return (classFacet.isEmpty(id) ? "Nobody" : classList.get(
 			classList.size() - 1).getDisplayClassName(this));
 	}
 
@@ -10269,7 +10273,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private String getFullDisplayClassName()
 	{
-		if (classList.isEmpty())
+		if (classFacet.isEmpty(id))
 		{
 			return "Nobody";
 		}
@@ -10277,7 +10281,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final StringBuffer buf = new StringBuffer();
 
 		boolean first = true;
-		for (PCClass c : classList)
+		for (PCClass c : getClassSet())
 		{
 			if (!first)
 			{
@@ -10580,7 +10584,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int total = 0;
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (!pcClass.isMonster())
 			{
@@ -10595,7 +10599,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final HashMap<String, String> lvlMap = new HashMap<String, String>();
 
-		for (PCClass aClass : classList)
+		for (PCClass aClass : getClassSet())
 		{
 			lvlMap.put(aClass.getKeyName(), String.valueOf(aClass
 				.getLevel(this)));
@@ -10842,7 +10846,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			int totalLevels = 0;
 			String[] classTypes = aClassKey.substring(5).split("\\.");
-			CLASSFOR: for (PCClass cl : getClassList())
+			CLASSFOR: for (PCClass cl : getClassSet())
 			{
 				for (String type : classTypes)
 				{
@@ -10912,11 +10916,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				list.add(po);
 			}
 		}
-		for (PCClass cl : classList)
+		for (PCClass cl : getClassSet())
 		{
 			for (int i = 1; i <= cl.getLevel(this); i++)
 			{
-				PCClassLevel classLevel = cl.getActiveClassLevel(i);
+				PCClassLevel classLevel = getActiveClassLevel(cl, i);
 				list.add(classLevel);
 			}
 		}
@@ -10981,7 +10985,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(checkFacet.getSet(id));
 
 		// Class
-		results.addAll(classList);
+		results.addAll(getClassSet());
 
 		// CompanionMod
 		results.addAll(companionModFacet.getSet(id));
@@ -11623,7 +11627,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aList.add(race);
 		}
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (pcClass.get(StringKey.SPELLTYPE) != null)
 			{
@@ -11835,7 +11839,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (numberOfLevels >= 0)
 			{
 				// Get a clone of the class so we don't modify the globals!
-				pcClassClone = globalClass.clone();
+				pcClassClone = globalClass.clone(); //Still required :(
 
 				// Make sure the clone was successful
 				if (pcClassClone == null)
@@ -11849,13 +11853,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 
 				// If not importing, add extra feats
-				if (!isImporting() && classList.isEmpty())
+				if (!isImporting() && classFacet.isEmpty(id))
 				{
 					adjustFeats(pcClassClone.getSafe(IntegerKey.START_FEATS));
 				}
 
 				// Add the class to the character classes as level 0
-				classList.add(pcClassClone);
+				classFacet.add(id, pcClassClone);
 
 				// do the following only if adding a level of a class for the
 				// first time
@@ -11889,7 +11893,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					bSilent, this, bypassPrereqs))
 				{
 					PCClassLevel failedpcl =
-							pcClassClone.getActiveClassLevel(currentLevel + 1);
+							getActiveClassLevel(pcClassClone, currentLevel + 1);
 					removeLevelInfo(pcClassClone.getKeyName());
 					removeLevelInfo(failedpcl);
 					return;
@@ -11904,7 +11908,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				pcClassClone.subLevel(bSilent, this);
 				removeLevelInfo(pcClassClone.getKeyName());
 				PCClassLevel removedpcl =
-						pcClassClone.getActiveClassLevel(currentLevel);
+						getActiveClassLevel(pcClassClone, currentLevel);
 				removeLevelInfo(removedpcl);
 			}
 		}
@@ -12221,7 +12225,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		int totalLevels = 0;
 
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			if (pcClass.isMonster())
 			{
@@ -12275,7 +12279,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		populateSkills(includeSkills);
 
 		// Sort the characters spell lists
-		for (PObject pcClass : getClassList())
+		for (PObject pcClass : getClassSet())
 		{
 			sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
 		}
@@ -12389,7 +12393,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Classes
-		for (PCClass pcClass : classList)
+		for (PCClass pcClass : getClassSet())
 		{
 			addStartingLanguages(pcClass, languageList);
 		}
@@ -12520,11 +12524,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.skillLangFacet.copyContents(id, aClone.id);
 		//aClone.langAutoFacet.copyContents(id, aClone.id);
 		aClone.startingLangFacet.copyContents(id, aClone.id);
-		for (PCClass pcClass : classList)
+		aClone.classFacet.copyContents(id, aClone.id);
+		for (PCClass cloneClass : aClone.classFacet.getSet(aClone.id))
 		{
-			PCClass cloneClass = pcClass.clone();
 			cloneClass.addFeatPoolBonus(aClone);
-			aClone.classList.add(cloneClass);
 		}
 		aClone.qualifyArrayMap.addAllLists(qualifyArrayMap);
 		if (followerMaster != null)
@@ -14705,7 +14708,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (final PCClass aClass : getClassList())
+		for (final PCClass aClass : getClassSet())
 		{
 			List<String> profKeys =
 					getAssocList(aClass,
@@ -15164,7 +15167,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean isClassSkill(Skill sk)
 	{
-		for (PCClass cl : classList)
+		for (PCClass cl : getClassSet())
 		{
 			if (isClassSkill(sk, cl))
 			{
@@ -15181,7 +15184,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public boolean isCrossClassSkill(Skill sk)
 	{
-		for (PCClass cl : classList)
+		for (PCClass cl : getClassSet())
 		{
 			if (isCrossClassSkill(sk, cl))
 			{
@@ -16113,7 +16116,46 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return languageFacet.contains(id, lang);
 	}
-	
+
+	public void setSubstitutionLevel(PCClass pcc,
+			PCClassLevel originalClassLevel)
+	{
+		try
+		{
+			classFacet.setLevel(id, pcc, originalClassLevel.clone());
+		}
+		catch (CloneNotSupportedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public PCClassLevel getActiveClassLevel(PCClass pcc, int lvl)
+	{
+		return classFacet.getLevel(id, pcc, lvl);
+	}
+
+	public int getClassCount()
+	{
+		return classFacet.getCount(id);
+	}
+
+	public boolean hasClass()
+	{
+		return !classFacet.isEmpty(id);
+	}
+
+	public void removeClass(PCClass pcc)
+	{
+		classFacet.remove(id, pcc);
+	}
+
+	public void addClass(PCClass pcc)
+	{
+		classFacet.add(id, pcc);
+	}
+
 	/*
 	 * These are present here because they (1) Should be contained within
 	 * PlayerCharacter (2) Should disappear once LanguageFacet can be reused
@@ -16126,4 +16168,5 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public static class SkillLanguageFacet extends LanguageFacet {}
 
 	public static class StartingLanguageFacet extends LanguageFacet {}
+
 }

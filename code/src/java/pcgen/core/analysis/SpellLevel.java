@@ -106,7 +106,7 @@ public class SpellLevel
 	{
 		Integer levelKey = Integer.valueOf(aLevel);
 		MasterListInterface masterLists = Globals.getMasterLists();
-		for (PCClass pcc : aPC.getClassList())
+		for (PCClass pcc : aPC.getClassSet())
 		{
 			ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);
 			Collection<AssociatedPrereqObject> assoc = masterLists

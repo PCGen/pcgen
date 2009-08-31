@@ -65,7 +65,7 @@ public class SpellClassesChoiceManager extends AbstractBasicStringChoiceManager 
 			final List<String>            selectedList)
 	{
 
-		for ( PCClass pcClass : aPc.getClassList() )
+		for ( PCClass pcClass : aPc.getClassSet() )
 		{
 			if (pcClass.get(ObjectKey.USE_SPELL_SPELL_STAT) != null)
 			{

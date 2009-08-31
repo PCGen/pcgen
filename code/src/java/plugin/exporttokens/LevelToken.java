@@ -168,7 +168,7 @@ public class LevelToken extends Token
 		}
 		if (aClass != null)
 		{
-			PCClassLevel classLevel = aClass.getActiveClassLevel(pcl.getLevel() - 1);
+			PCClassLevel classLevel = pc.getActiveClassLevel(aClass, pcl.getLevel() - 1);
 			Integer hp = pc.getAssoc(classLevel, AssociationKey.HIT_POINTS);
 			return hp == null ? "0" : hp.toString();
 		}

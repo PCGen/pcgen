@@ -41,13 +41,11 @@ public class PCCountClassesTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		pc.getClassList().trimToSize();
-
-		Float s = (float) pc.getClassList().size();
+		Float s = (float) pc.getClassCount();
 
 		if (SettingsHandler.hideMonsterClasses())
 		{
-			for ( PCClass pcClass : pc.getClassList() )
+			for ( PCClass pcClass : pc.getClassSet() )
 			{
 				if (pcClass.isMonster())
 				{

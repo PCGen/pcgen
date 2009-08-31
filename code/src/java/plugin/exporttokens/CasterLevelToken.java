@@ -100,7 +100,7 @@ public class CasterLevelToken extends Token
 	{
 		String cString = "";
 
-		if (pc.getClassList().size() > classNumber)
+		if (pc.getClassCount() > classNumber)
 		{
 			PCClass pcClass = pc.getClassList().get(classNumber);
 			cString = "CLASS:" + pcClass.getKeyName();

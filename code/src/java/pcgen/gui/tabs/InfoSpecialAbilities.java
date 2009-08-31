@@ -275,7 +275,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 				}
 			}
 
-			for (PCClass aClass : pc.getClassList())
+			for (PCClass aClass : pc.getClassSet())
 			{
 				if (aClass.getListMods(WeaponProf.STARTING_LIST) != null)
 				{
@@ -308,7 +308,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 	private void addSpecialAbility()
 	{
-		if ((pc == null) || pc.getClassList().isEmpty())
+		if ((pc == null) || !pc.hasClass())
 		{
 			return;
 		}
@@ -521,7 +521,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 		List<String> bList = new ArrayList<String>();
 		List<SpecialAbility> cList = new ArrayList<SpecialAbility>();
 
-		for (PCClass aClass : pc.getClassList())
+		for (PCClass aClass : pc.getClassSet())
 		{
 			List<SpecialAbility> salist = pc.getAssocList(aClass,
 					AssociationListKey.SPECIAL_ABILITY);

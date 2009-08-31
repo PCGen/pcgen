@@ -671,7 +671,7 @@ final class PCGVer2Creator implements IOConstants
 	{
 		Cache specials = new Cache();
 
-		for (PCClass pcClass : thePC.getClassList())
+		for (PCClass pcClass : thePC.getClassSet())
 		{
 			int classLevel = pcClass.getLevel(thePC);
 
@@ -780,7 +780,7 @@ final class PCGVer2Creator implements IOConstants
 			for (int i = 1; i <= pcClass.getLevel(thePC); i++)
 			{
 				list =
-						thePC.getAssocList(pcClass.getActiveClassLevel(i),
+						thePC.getAssocList(thePC.getActiveClassLevel(pcClass, i),
 							AssociationListKey.BONUS);
 				if (list != null)
 				{
@@ -833,7 +833,7 @@ final class PCGVer2Creator implements IOConstants
 
 			if (pcClass != null)
 			{
-				String aKey = thePC.getAssoc(pcClass.getActiveClassLevel(lvl + 1),
+				String aKey = thePC.getAssoc(thePC.getActiveClassLevel(pcClass, lvl + 1),
 						AssociationKey.SUBSTITUTIONCLASS_KEY);
 				if (aKey != null)
 				{
@@ -844,7 +844,7 @@ final class PCGVer2Creator implements IOConstants
 
 				buffer.append('|');
 				buffer.append(TAG_HITPOINTS).append(':');
-				PCClassLevel classLevel = pcClass.getActiveClassLevel(lvl);
+				PCClassLevel classLevel = thePC.getActiveClassLevel(pcClass, lvl);
 				Integer hp = thePC.getAssoc(classLevel, AssociationKey.HIT_POINTS);
 				buffer.append(hp == null ? 0 : hp);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
@@ -863,7 +863,7 @@ final class PCGVer2Creator implements IOConstants
 				//
 				// Remember what choices were made for each of the ADD: tags
 				//
-				appendAddTokenInfo(buffer, pcClass.getActiveClassLevel(lvl + 1));
+				appendAddTokenInfo(buffer, thePC.getActiveClassLevel(pcClass, lvl + 1));
 			}
 
 			List<PCLevelInfoStat> statList = pcl.getModifiedStats(true);
@@ -2005,7 +2005,7 @@ final class PCGVer2Creator implements IOConstants
 	{
 		String del;
 
-		for (PCClass pcClass : thePC.getClassList())
+		for (PCClass pcClass : thePC.getClassSet())
 		{
 			for (CharacterSpell cSpell : thePC.getCharacterSpellsNoBonus(pcClass,
 				null, Constants.EMPTY_STRING, -1))
@@ -2093,7 +2093,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSpellListLines(StringBuffer buffer)
 	{
-		for (PCClass pcClass : thePC.getClassList())
+		for (PCClass pcClass : thePC.getClassSet())
 		{
 			if ((thePC.getAssocList(pcClass, AssociationListKey.CLASSSPELLLIST) != null)
 				&& (thePC.getAssocList(pcClass, AssociationListKey.CLASSSPELLLIST).size() > 0))
@@ -2326,7 +2326,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save any selected class bonus weapons
 		//
-		for (final PCClass pcClass : thePC.getClassList())
+		for (final PCClass pcClass : thePC.getClassSet())
 		{
 			appendWeaponProficiencyLines(buffer, pcClass);
 		}

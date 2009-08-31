@@ -348,7 +348,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		int skillPoints = 0;
 
-		for (final PCClass pcClass : thePC.getClassList())
+		for (final PCClass pcClass : thePC.getClassSet())
 		{
 			skillPoints += pcClass.getSkillPool(thePC);
 		}
@@ -1682,7 +1682,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				SubstitutionLevelSupport.applyLevelArrayModsToLevel(
 					aSubstitutionClass, aPCClass, level, thePC);
-				thePC.setAssoc(aPCClass.getActiveClassLevel(level),
+				thePC.setAssoc(thePC.getActiveClassLevel(aPCClass, level),
 						AssociationKey.SUBSTITUTIONCLASS_KEY,
 						substitutionClassKeyName);
 			}
@@ -1690,7 +1690,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				try
 				{
-					PCClassLevel classLevel = aPCClass.getActiveClassLevel(level - 1);
+					PCClassLevel classLevel = thePC.getActiveClassLevel(aPCClass, level - 1);
 					thePC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
 							Integer.valueOf(element.getText()));
 				}
@@ -1721,7 +1721,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 										pipeLoc));
 							if (bonusLevel > 0)
 							{
-								target = aPCClass.getActiveClassLevel(bonusLevel);
+								target = thePC.getActiveClassLevel(aPCClass, bonusLevel);
 							}
 							bonusString = bonusString.substring(pipeLoc + 1);
 							BonusAddition.applyBonus(bonusString, "", thePC,
@@ -1761,7 +1761,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					CDOMObject target = aPCClass;
 					if (level > 0)
 					{
-						target = aPCClass.getActiveClassLevel(level);
+						target = thePC.getActiveClassLevel(aPCClass, level);
 					}
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
@@ -1778,7 +1778,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (tag.equals(TAG_ADDTOKEN))
 			{
-				parseAddTokenInfo(element, aPCClass.getActiveClassLevel(level));
+				parseAddTokenInfo(element, thePC.getActiveClassLevel(aPCClass, level));
 			}
 
 			//
@@ -2091,7 +2091,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (level > -1)
 		{
-			thePC.getClassList().add(aPCClass);
+			thePC.addClass(aPCClass);
 
 			for (int i = 0; i < level; ++i)
 			{
@@ -3402,7 +3402,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							PCLevelInfo info = thePC.getLevelInfo().get(lvl);
 							PCClass pcClass =
 									thePC.getClassKeyed(info.getClassKeyName());
-							PCClassLevel classLevel = pcClass.getActiveClassLevel(lvl);
+							PCClassLevel classLevel = thePC.getActiveClassLevel(pcClass, lvl);
 							thePC.setAssoc(classLevel,
 									AssociationKey.HIT_POINTS, hitPointMap
 											.get(lvlStr));
@@ -5418,7 +5418,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void sortCharacterSpells()
 	{
 		// now sort each classes spell list
-		for (PCClass pcClass : thePC.getClassList())
+		for (PCClass pcClass : thePC.getClassSet())
 		{
 			thePC.sortAssocList(pcClass, AssociationListKey.CHARACTER_SPELLS);
 		}
@@ -5851,7 +5851,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			CDOMObject target = pObj;
 			if (pObj instanceof PCClass)
 			{
-				target = ((PCClass) pObj).getActiveClassLevel(level);
+				target = thePC.getActiveClassLevel(((PCClass) pObj), level);
 			}
 			for (PersistentTransitionChoice<?> tptc : target.getSafeListFor(ListKey.ADD))
 			{

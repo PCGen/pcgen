@@ -386,7 +386,7 @@ public class SpellsChoiceManager extends
 					if (res.knownRequired)
 					{
 						boolean found = false;
-						for (PCClass cl : pc.getClassList())
+						for (PCClass cl : pc.getClassSet())
 						{
 							List<CharacterSpell> csl = pc.getCharacterSpells(
 									cl, spell, defaultbook, -1);
@@ -458,7 +458,7 @@ public class SpellsChoiceManager extends
 				if (res.knownRequired)
 				{
 					boolean found = false;
-					for (PCClass cl : pc.getClassList())
+					for (PCClass cl : pc.getClassSet())
 					{
 						List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell, defaultbook, -1);
 						if (csl != null && !csl.isEmpty())
@@ -522,7 +522,7 @@ public class SpellsChoiceManager extends
 				if (res.knownRequired)
 				{
 					boolean found = false;
-					for (PCClass cl : pc.getClassList())
+					for (PCClass cl : pc.getClassSet())
 					{
 						List<CharacterSpell> csl = pc.getCharacterSpells(cl, spell, defaultbook, -1);
 						if (csl != null && !csl.isEmpty())
@@ -651,7 +651,7 @@ public class SpellsChoiceManager extends
 		public void conditionallyAdd(Spell spell, PlayerCharacter pc,
 				List<Spell> availableList)
 		{
-			for (PCClass cl : pc.getClassList())
+			for (PCClass cl : pc.getClassSet())
 			{
 				if (prohibited == SpellCountCalc.isProhibited(spell, cl, pc))
 				{

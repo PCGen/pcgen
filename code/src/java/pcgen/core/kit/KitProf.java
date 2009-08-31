@@ -123,7 +123,7 @@ public final class KitProf extends BaseKit
 		}
 		else
 		{
-			List<PCClass> pcClasses = aPC.getClassList();
+			Collection<PCClass> pcClasses = aPC.getClassSet();
 			if (pcClasses == null || pcClasses.size() == 0)
 			{
 				warnings.add("PROF: No owning class found.");

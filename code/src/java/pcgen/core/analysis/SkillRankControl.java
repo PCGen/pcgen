@@ -76,9 +76,12 @@ public class SkillRankControl
 		double baseRanks = getRank(pc, sk).doubleValue();
 		double ranks = baseRanks
 				+ (pc == null ? 0.0 : SkillRankControl.getSkillRankBonusTo(pc, sk));
-		if (!Globals.checkRule(RuleConstants.SKILLMAX)
-				&& pc.getClassList().size() > 0)
+		if (!Globals.checkRule(RuleConstants.SKILLMAX) && pc.hasClass())
 		{
+			/*
+			 * TODO Why does this grab class #1 - doesn't that make this an
+			 * error for multi-class characters?
+			 */
 			double maxRanks = pc.getMaxRank(sk,
 					pc.getClassList().get(0)).doubleValue();
 			maxRanks = Math.max(maxRanks, baseRanks);

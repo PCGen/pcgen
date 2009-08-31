@@ -125,7 +125,7 @@ public class HPRollToken extends Token
 
 		if (pcClass != null)
 		{
-			PCClassLevel pcl = pcClass.getActiveClassLevel(classLevel);
+			PCClassLevel pcl = pc.getActiveClassLevel(pcClass, classLevel);
 			Integer hp = pc.getAssoc(pcl, AssociationKey.HIT_POINTS);
 			hpRoll = hp == null ? 0 : hp;
 		}

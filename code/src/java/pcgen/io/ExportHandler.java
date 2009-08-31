@@ -797,7 +797,7 @@ public final class ExportHandler
 		}
 		else
 		{
-			for (final PCClass pcClass : aPC.getClassList())
+			for (final PCClass pcClass : aPC.getClassSet())
 			{
 				if (fString.equalsIgnoreCase(pcClass.getSpellType()))
 				{
@@ -2298,7 +2298,7 @@ public final class ExportHandler
 		// Filter out PROHIBITEDLIST
 		if ("PROHIBITEDLIST".equals(aString.substring(1)))
 		{
-			for (PCClass pcClass : aPC.getClassList())
+			for (PCClass pcClass : aPC.getClassSet())
 			{
 				if (pcClass.getLevel(aPC) > 0)
 				{

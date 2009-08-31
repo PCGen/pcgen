@@ -41,7 +41,7 @@ public class PCMaxCastableAnyTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float max = 0f;
-		for (PCClass spClass : pc.getClassList())
+		for (PCClass spClass : pc.getClassSet())
 		{
 			int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
 			if (pc.getSpellSupport(spClass).hasCastList())

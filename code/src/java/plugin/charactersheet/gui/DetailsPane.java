@@ -7,9 +7,6 @@
 package plugin.charactersheet.gui;
 
 import gmgen.plugin.PlayerCharacterOutput;
-
-import java.util.ArrayList;
-
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -893,8 +890,7 @@ public class DetailsPane extends javax.swing.JPanel
 	private String getClasses(PlayerCharacter aPC)
 	{
 		StringBuffer sb = new StringBuffer();
-		ArrayList<PCClass> classList = aPC.getClassList();
-		for (PCClass mClass : classList)
+		for (PCClass mClass : aPC.getClassSet())
 		{
 			sb.append(mClass.getAbbrev()).append(mClass.getLevel(aPC)).append(' ');
 		}

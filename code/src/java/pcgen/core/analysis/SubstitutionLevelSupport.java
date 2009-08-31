@@ -67,8 +67,7 @@ public class SubstitutionLevelSupport
 		// and put into newLevels list.
 		if (!newLevels.isEmpty())
 		{
-			// remove all stuff from the original level
-			aClass.stealClassLevel(sc, aLevel);
+			aPC.setSubstitutionLevel(aClass, sc.getOriginalClassLevel(aLevel));
 		}
 	}
 

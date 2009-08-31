@@ -1321,7 +1321,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 	private void rollHP(PlayerCharacter aPC)
 	{
-		for (PCClass pcClass : aPC.getClassList())
+		for (PCClass pcClass : aPC.getClassSet())
 		{
 			for (int j = 0; j < pcClass.getLevel(aPC); j++)
 			{
@@ -1330,7 +1330,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 							+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS."
 								+ pcClass.getKeyName());
 				int size = pcClass.getLevelHitDie(aPC, j + 1).getDie();
-				PCClassLevel classLevel = pcClass.getActiveClassLevel(j);
+				PCClassLevel classLevel = aPC.getActiveClassLevel(pcClass, j);
 				aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS, Integer
 						.valueOf(new Dice(1, size, bonus).roll()));
 			}

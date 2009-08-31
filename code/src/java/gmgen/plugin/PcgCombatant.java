@@ -1035,7 +1035,7 @@ public class PcgCombatant extends Combatant
 				 <!-- End Prepared Spells -->
 			 */
 			ArrayList<PObject> classList =
-					new ArrayList<PObject>(pc.getClassList());
+					new ArrayList<PObject>(pc.getClassSet());
 			classList.add(pc.getRace());
 
 			List<String> bookList = new ArrayList<String>(pc.getSpellBooks());

@@ -179,7 +179,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		List<String> toDoList = new ArrayList<String>();
 
 		boolean hasFree = false;
-		for (PCClass aClass : pc.getClassList())
+		for (PCClass aClass : pc.getClassSet())
 		{
 			if (pc.getSpellSupport(aClass).hasKnownList() || pc.getSpellSupport(aClass).hasKnownSpells(pc))
 			{

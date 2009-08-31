@@ -76,7 +76,7 @@ public class ProhibitedListToken extends Token
 		}
 
 		Set<String> set = new TreeSet<String>();
-		for (PCClass pcClass : pc.getClassList())
+		for (PCClass pcClass : pc.getClassSet())
 		{
 			if (pcClass.getLevel(pc) > 0)
 			{

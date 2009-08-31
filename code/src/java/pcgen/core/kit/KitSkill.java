@@ -172,7 +172,7 @@ public final class KitSkill extends BaseKit
 						+ classKey + " in PC to add ranks from.");
 				}
 			}
-			for (PCClass pcClass : aPC.getClassList())
+			for (PCClass pcClass : aPC.getClassSet())
 			{
 				if (!classList.contains(pcClass))
 				{

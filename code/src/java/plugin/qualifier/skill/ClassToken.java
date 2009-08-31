@@ -17,7 +17,7 @@
  */
 package plugin.qualifier.skill;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -82,7 +82,7 @@ public class ClassToken implements QualifierToken<Skill>
 	public Set<Skill> getSet(PlayerCharacter pc)
 	{
 		Set<Skill> skillSet = new HashSet<Skill>();
-		ArrayList<PCClass> classlist = pc.getClassList();
+		Collection<PCClass> classlist = pc.getClassSet();
 		for (Skill sk : pc.getSkillSet())
 		{
 			CLASS: for (PCClass cl : classlist)

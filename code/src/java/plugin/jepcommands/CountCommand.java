@@ -267,7 +267,7 @@ public class CountCommand extends PCGenCommand
 					protected void getData(final PlayerCharacter pc)
 					{
 						objdata = new HashSet<PCClass>();
-						objdata.addAll(pc.getClassList());
+						objdata.addAll(pc.getClassSet());
 					}
 
 					public Object count(

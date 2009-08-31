@@ -52,7 +52,7 @@ public class PreSpellBookTester extends AbstractPrerequisiteTest implements
 		int runningTotal = 0;
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 
-		for (PCClass spellClass : character.getClassList())
+		for (PCClass spellClass : character.getClassSet())
 		{
 			if (spellClass.getSafe(ObjectKey.SPELLBOOK) == prereqUsesBook)
 			{

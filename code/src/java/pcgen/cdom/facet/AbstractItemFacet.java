@@ -47,10 +47,9 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 
 	public void remove(CharID id)
 	{
-		T old = get(id);
+		T old = (T) FacetCache.remove(id, thisClass);
 		if (old != null)
 		{
-			FacetCache.remove(id, thisClass);
 			fireGraphNodeChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
 	}

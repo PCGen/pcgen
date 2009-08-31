@@ -397,9 +397,9 @@ public final class PCGIOHandler extends IOHandler
 		// sk4p 11 Dec 2002
 
 		//PCTemplate aTemplate = null;
-		if (aPC.getClassList() != null)
+		if (aPC.hasClass())
 		{
-			for (PCClass pcClass : aPC.getClassList())
+			for (PCClass pcClass : aPC.getClassSet())
 			{
 				// Ignore if no levels
 				if (pcClass.getLevel(aPC) < 1)
@@ -412,7 +412,7 @@ public final class PCGIOHandler extends IOHandler
 				for (int i = 0; i <= pcClass.getLevel(aPC); i++)
 				{
 					int baseSides = pcClass.getLevelHitDie(currentPC, i + 1).getDie();
-					PCClassLevel pcl = pcClass.getActiveClassLevel(i);
+					PCClassLevel pcl = aPC.getActiveClassLevel(pcClass, i);
 					Integer hp = currentPC.getAssoc(pcl, AssociationKey.HIT_POINTS);
 					iRoll = hp == null ? 0 : hp;
 					iSides =
@@ -422,7 +422,7 @@ public final class PCGIOHandler extends IOHandler
 
 					if (iRoll > iSides)
 					{
-						PCClassLevel classLevel = pcClass.getActiveClassLevel(i);
+						PCClassLevel classLevel = aPC.getActiveClassLevel(pcClass, i);
 						aPC.setAssoc(classLevel, AssociationKey.HIT_POINTS,
 								Integer.valueOf(iSides));
 						bFixMade = true;
@@ -448,7 +448,7 @@ public final class PCGIOHandler extends IOHandler
 		// now that the import is completed. The level isn't affected.
 		//  merton_monk@yahoo.com 2/15/2002
 		//
-		for (PCClass pcClass : aPC.getClassList())
+		for (PCClass pcClass : aPC.getClassSet())
 		{
 			pcClass.setLevel(pcClass.getLevel(aPC), currentPC);
 		}

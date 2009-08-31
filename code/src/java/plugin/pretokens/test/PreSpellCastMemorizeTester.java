@@ -44,7 +44,7 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
 		int runningTotal = 0;
 
-		for (PCClass aClass : character.getClassList())
+		for (PCClass aClass : character.getClassSet())
 		{
 			if (aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) == prereqMemorized)
 			{

@@ -81,7 +81,7 @@ public class SubstitutionClassApplication
 			SubstitutionClass sc = (SubstitutionClass) selected;
 			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, cl, aLevel,
 					aPC);
-			aPC.setAssoc(cl.getActiveClassLevel(aLevel),
+			aPC.setAssoc(aPC.getActiveClassLevel(cl, aLevel),
 					AssociationKey.SUBSTITUTIONCLASS_KEY, sc.getKeyName());
 			return;
 		}
@@ -93,7 +93,7 @@ public class SubstitutionClassApplication
 			 * buildSubstitutionClassChoiceList method returned an empty list,
 			 * it returned right away without calling this method.
 			 */
-			aPC.removeAssoc(cl.getActiveClassLevel(aLevel), AssociationKey.SUBSTITUTIONCLASS_KEY);
+			aPC.removeAssoc(aPC.getActiveClassLevel(cl, aLevel), AssociationKey.SUBSTITUTIONCLASS_KEY);
 			return;
 		}
 

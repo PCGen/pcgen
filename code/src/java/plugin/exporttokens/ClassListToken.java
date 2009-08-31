@@ -70,10 +70,8 @@ public class ClassListToken extends Token
 		StringBuffer returnString = new StringBuffer();
 		boolean firstLine = true;
 
-		for (int i = 0; i < pc.getClassList().size(); i++)
+		for (PCClass pcClass : pc.getClassSet())
 		{
-			PCClass pcClass = pc.getClassList().get(i);
-
 			if (!firstLine)
 			{
 				returnString.append(" ");

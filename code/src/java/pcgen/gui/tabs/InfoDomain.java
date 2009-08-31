@@ -539,7 +539,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// Loop through the available prestige domains
-		for (PCClass aClass : pc.getClassList())
+		for (PCClass aClass : pc.getClassSet())
 		{
 			/*
 			 * Need to do for the class, for compatibility, since level 0 is
@@ -549,7 +549,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			processAddDomains(aClass, availDomainList);
 			for (int lvl = 0; lvl <= aClass.getLevel(pc); lvl++)
 			{
-				PCClassLevel cl = aClass.getActiveClassLevel(lvl);
+				PCClassLevel cl = pc.getActiveClassLevel(aClass, lvl);
 				processAddDomains(cl, availDomainList);
 				processDomainList(cl, availDomainList);
 			}

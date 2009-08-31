@@ -2587,7 +2587,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// or will they be covered by getClassList()?
 				//
 				// iterate thru all PC's Classes
-				for (PCClass aClass : pc.getClassList())
+				for (PCClass aClass : pc.getClassSet())
 				{
 					int currentLevel = aClass.getLevel(pc);
 					for (BonusObj aBonus : aClass.getRawBonusList(pc))
@@ -2602,7 +2602,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					}
 					for (int i = 1; i < currentLevel; i++)
 					{
-						PCClassLevel pcl = aClass.getActiveClassLevel(i);
+						PCClassLevel pcl = pc.getActiveClassLevel(aClass, i);
 						for (BonusObj aBonus : pcl.getRawBonusList(pc))
 						{
 							if (aBonus.isTempBonus())

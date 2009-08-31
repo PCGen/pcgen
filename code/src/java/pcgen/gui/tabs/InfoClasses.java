@@ -1941,7 +1941,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			}
 			else
 			{
-				classList = pc.getClassList();
+				classList = pc.getClassSet();
 			}
 
 			switch (mode)

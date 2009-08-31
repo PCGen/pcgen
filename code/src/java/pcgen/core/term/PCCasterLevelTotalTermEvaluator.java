@@ -53,7 +53,7 @@ public class PCCasterLevelTotalTermEvaluator
 
 		int iLev = 0;
 
-		for ( PCClass pcClass : pc.getClassList() )
+		for ( PCClass pcClass : pc.getClassSet() )
 		{
 			if (!pcClass.getSpellType().equals(Constants.s_NONE))
 			{

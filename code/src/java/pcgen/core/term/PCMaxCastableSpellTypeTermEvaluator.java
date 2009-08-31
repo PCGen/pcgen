@@ -44,7 +44,7 @@ public class PCMaxCastableSpellTypeTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float max = 0f;
-		for (PCClass spClass : pc.getClassList())
+		for (PCClass spClass : pc.getClassSet())
 		{
 			if (typeKey.equalsIgnoreCase(spClass.getSpellType()))
 			{

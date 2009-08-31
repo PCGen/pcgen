@@ -54,7 +54,7 @@ public class PCMaxCastableClassTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		Float max = -1f;
-		for (PCClass spClass : pc.getClassList())
+		for (PCClass spClass : pc.getClassSet())
 		{
 			List<? extends CDOMList<Spell>> lists = spClass.getSpellLists(pc);
 			if (spellList != null && lists.contains(spellList))

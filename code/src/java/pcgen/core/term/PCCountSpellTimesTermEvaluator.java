@@ -71,7 +71,7 @@ public class PCCountSpellTimesTermEvaluator
 			{
 				csList = new ArrayList<CharacterSpell>();
 
-				for (PObject cl : pc.getClassList())
+				for (PObject cl : pc.getClassSet())
 				{
 					final List<CharacterSpell> bookList =
 							pc

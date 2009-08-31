@@ -52,7 +52,7 @@ public class PreSpellCastTester extends AbstractPrerequisiteTest implements
 		final String prereqSpellType = prereq.getKey();
 		int runningTotal = 0;
 
-		for (PCClass aClass : character.getClassList())
+		for (PCClass aClass : character.getClassSet())
 		{
 			if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
 			{

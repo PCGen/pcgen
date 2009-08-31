@@ -63,7 +63,7 @@ public class PreSubClassTester extends AbstractPrerequisiteTest implements
 		}
 
 		final String thisClass = prereq.getKey();
-		for (PCClass aClass : character.getClassList())
+		for (PCClass aClass : character.getClassSet())
 		{
 			final String subClassName = character.getAssoc(aClass, AssociationKey.SUBCLASS_KEY);
 			if (subClassName != null && subClassName.length() != 0)

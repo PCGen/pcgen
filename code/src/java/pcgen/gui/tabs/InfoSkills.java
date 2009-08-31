@@ -2140,14 +2140,14 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			currentPC.setSkillPoints(anInt);
 
-			final int x = currentPC.getClassList().size();
+			final int x = currentPC.getClassCount();
 			if (x == 0)
 			{
 				return;
 			}
 			final int y = anInt / x;
 
-			for (PCClass aClass : currentPC.getClassList())
+			for (PCClass aClass : currentPC.getClassSet())
 			{
 				currentPC.setAssoc(aClass, AssociationKey.SKILL_POOL, Math.max(0, y));
 			}

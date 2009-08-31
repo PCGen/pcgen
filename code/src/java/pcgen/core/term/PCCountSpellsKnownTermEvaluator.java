@@ -53,7 +53,7 @@ public class PCCountSpellsKnownTermEvaluator
 		{
 			if (nums[0] == -1)
 			{
-				for (PObject pcClass : pc.getClassList())
+				for (PObject pcClass : pc.getClassSet())
 				{
 					count += pc.getAssocCount(pcClass, AssociationListKey.CHARACTER_SPELLS);
 				}
