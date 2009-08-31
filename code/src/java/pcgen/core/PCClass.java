@@ -217,7 +217,7 @@ public class PCClass extends PObject
 		double i = 0;
 
 		List<BonusObj> rawBonusList = getRawBonusList(aPC);
-		int currentLevel = getLevel(aPC);
+		int currentLevel = aPC.getLevel(this);
 
 		for (int lvl = 1 ; lvl < currentLevel; lvl++)
 		{
@@ -303,34 +303,6 @@ public class PCClass extends PObject
 		}
 
 		return i;
-	}
-
-	/*
-	 * PCCLASSLEVELONLY This is only relevant for the PCClassLevel (obviously?)
-	 */
-	public final int getLevel(PlayerCharacter pc)
-	{
-		Integer level = pc.getAssoc(this, AssociationKey.CLASS_LEVEL);
-		return level == null ? 0 : level;
-	}
-
-	/**
-	 * set the level to arg without impacting spells, hp, or anything else - use
-	 * this with great caution only TODO Then why is it even here, What is it
-	 * used for (JSC 07/21/03)
-	 * @param pc TODO
-	 * @param arg
-	 */
-	/*
-	 * DELETEMETHOD This method is NOT appropriate for either PCClass or
-	 * PCClassLevel.  The equivalent functionality in order to sustain the
-	 * maxbablevel and maxcheckslevel globals will have to be done by
-	 * PlayerCharacter as it filters out the PCClassLevels that are allowed
-	 * to be used for those calculations.
-	 */
-	public final void setLevelWithoutConsequence(PlayerCharacter pc, final int arg)
-	{
-		pc.setAssoc(this, AssociationKey.CLASS_LEVEL, arg);
 	}
 
 	/**
@@ -450,7 +422,7 @@ public class PCClass extends PObject
 
 		buf.append(getDisplayClassName(pc));
 
-		return buf.append(" ").append(getLevel(pc)).toString();
+		return buf.append(" ").append(pc.getLevel(this)).toString();
 	}
 
 	/*
@@ -585,11 +557,11 @@ public class PCClass extends PObject
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
 	{
-		final int curLevel = getLevel(aPC);
+		final int curLevel = aPC.getLevel(this);
 
 		if (newLevel >= 0)
 		{
-			setLevelWithoutConsequence(aPC, newLevel);
+			aPC.setLevelWithoutConsequence(this, newLevel);
 		}
 
 		if (newLevel == 1)
@@ -756,7 +728,7 @@ public class PCClass extends PObject
 	{
 		for (BonusObj bonus : getRawBonusList(aPC))
 		{
-			if ((bonus.getPCLevel() <= getLevel(aPC)))
+			if ((bonus.getPCLevel() <= aPC.getLevel(this)))
 			{
 				if (bonus.hasPrerequisites())
 				{
@@ -867,14 +839,14 @@ public class PCClass extends PObject
 
 	public int baseAttackBonus(final PlayerCharacter aPC)
 	{
-		if (getLevel(aPC) == 0)
+		if (aPC.getLevel(this) == 0)
 		{
 			return 0;
 		}
 
 		// final int i = (int) this.getBonusTo("TOHIT", "TOHIT", level) + (int)
 		// getBonusTo("COMBAT", "BAB");
-		final int i = (int) getBonusTo("COMBAT", "BAB", getLevel(aPC), aPC);
+		final int i = (int) getBonusTo("COMBAT", "BAB", aPC.getLevel(this), aPC);
 
 		return i;
 	}
@@ -1273,10 +1245,10 @@ public class PCClass extends PObject
 
 		// Check to see if we can add a level of this class to the
 		// current character
-		final int newLevel = getLevel(aPC) + 1;
+		final int newLevel = aPC.getLevel(this) + 1;
 		boolean levelMax = argLevelMax;
 
-		setLevelWithoutConsequence(aPC, newLevel);
+		aPC.setLevelWithoutConsequence(this, newLevel);
 		if (!ignorePrereqs)
 		{
 			// When loading a character, classes are added before feats, so
@@ -1292,7 +1264,7 @@ public class PCClass extends PObject
 						Constants.s_APPNAME, MessageType.ERROR);
 				}
 			}
-			setLevelWithoutConsequence(aPC, newLevel - 1);
+			aPC.setLevelWithoutConsequence(this, newLevel - 1);
 			if (doReturn)
 			{
 				return false;
@@ -1355,7 +1327,7 @@ public class PCClass extends PObject
 		// out
 		if (Globals.getUseGUI())
 		{
-			rollHP(aPC, getLevel(aPC), (SettingsHandler.isHPMaxAtFirstClassLevel()
+			rollHP(aPC, aPC.getLevel(this), (SettingsHandler.isHPMaxAtFirstClassLevel()
 				? aPC.totalNonMonsterLevels() : aPC.getTotalLevels()) == 1);
 		}
 
@@ -1444,7 +1416,7 @@ public class PCClass extends PObject
 
 			if (pcl != null)
 			{
-				pcl.setLevel(getLevel(aPC));
+				pcl.setLevel(aPC.getLevel(this));
 				pcl.setSkillPointsGained(spMod);
 				pcl.setSkillPointsRemaining(pcl.getSkillPointsGained());
 			}
@@ -1518,7 +1490,7 @@ public class PCClass extends PObject
 		//
 		// Allow exchange of classes only when assign 1st level
 		//
-		if (containsKey(ObjectKey.EXCHANGE_LEVEL) && (getLevel(aPC) == 1)
+		if (containsKey(ObjectKey.EXCHANGE_LEVEL) && (aPC.getLevel(this) == 1)
 				&& !aPC.isImporting())
 		{
 			ExchangeLevelApplication.exchangeLevels(aPC, this);
@@ -1573,7 +1545,7 @@ public class PCClass extends PObject
 		{
 			int total = aPC.getTotalLevels();
 
-			int oldLevel = getLevel(aPC);
+			int oldLevel = aPC.getLevel(this);
 			int spMod = 0;
 			final PCLevelInfo pcl = aPC.getLevelInfoFor(getKeyName(), oldLevel);
 
@@ -1669,7 +1641,7 @@ public class PCClass extends PObject
 				aPC.setAssoc(this, AssociationKey.SKILL_POOL, newSkillPool);
 			}
 
-			if (getLevel(aPC) == 0)
+			if (aPC.getLevel(this) == 0)
 			{
 				aPC.removeClass(this);
 			}

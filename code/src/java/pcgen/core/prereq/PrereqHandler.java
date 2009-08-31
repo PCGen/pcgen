@@ -173,7 +173,7 @@ public class PrereqHandler {
 		}
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 		final PrerequisiteTest test = factory.getTest(prereq.getKind());
-		if (prereq.getLevelQualifier() >= 0 && (caller instanceof PCClass) && ((PCClass)caller).getLevel(character)!=prereq.getLevelQualifier())
+		if (prereq.getLevelQualifier() >= 0 && (caller instanceof PCClass) && character.getLevel(((PCClass)caller))!=prereq.getLevelQualifier())
 			return true;
 
 		if (test == null)

@@ -88,7 +88,7 @@ public class HitDiceToken extends Token
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<Integer, Integer>();
 
-			for (int i = 0; i < pcClass.getLevel(pc); i++)
+			for (int i = 0; i < pc.getLevel(pcClass); i++)
 			{
 				int hitDie = pcClass.getLevelHitDie(pc, i + 1).getDie();
 				if (hitDie != 0)
@@ -147,7 +147,7 @@ public class HitDiceToken extends Token
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<Integer, Integer>();
 
-			for (int i = 0; i < pcClass.getLevel(pc); i++)
+			for (int i = 0; i < pc.getLevel(pcClass); i++)
 			{
 				int hitDie = pcClass.getLevelHitDie(pc, i + 1).getDie();
 				Integer num = hdMap.get(hitDie);

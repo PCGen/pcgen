@@ -164,7 +164,7 @@ public class AbilityFromClassChoiceSet implements
 							.getAbilityNature()));
 				}
 			}
-			for (int lvl = 0; lvl < aClass.getLevel(pc); lvl++)
+			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
 			{
 				PCClassLevel pcl = pc.getActiveClassLevel(aClass, lvl);
 				abilityList = pc.getAssocList(pcl,

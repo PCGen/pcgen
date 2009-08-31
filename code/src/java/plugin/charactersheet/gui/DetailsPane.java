@@ -892,7 +892,7 @@ public class DetailsPane extends javax.swing.JPanel
 		StringBuffer sb = new StringBuffer();
 		for (PCClass mClass : aPC.getClassSet())
 		{
-			sb.append(mClass.getAbbrev()).append(mClass.getLevel(aPC)).append(' ');
+			sb.append(mClass.getAbbrev()).append(aPC.getLevel(mClass)).append(' ');
 		}
 
 		return sb.toString();

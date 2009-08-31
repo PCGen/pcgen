@@ -1061,7 +1061,7 @@ public class PcgCombatant extends Combatant
 					if (pObj instanceof PCClass) 
 					{
 						PCClass theClass = (PCClass) pObj;
-						maxLevel = (theClass.getLevel(aPC) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel();
+						maxLevel = (aPC.getLevel(theClass) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel();
 					}
 					StringBuffer spellBuff = new StringBuffer();
 					for (int level = 0; level <=maxLevel; level++)

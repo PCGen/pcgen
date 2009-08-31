@@ -90,14 +90,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 			{
 				if (prereq.isCountMultiples())
 				{
-					if (cl.getLevel(character) >= preClass)
+					if (character.getLevel(cl) >= preClass)
 					{
 						countedTotal++;
 					}
 				}
 				else
 				{
-					runningTotal = Math.max(runningTotal, cl.getLevel(character));
+					runningTotal = Math.max(runningTotal, character.getLevel(cl));
 				}
 			}
 		}
@@ -110,14 +110,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 				{
 					if (prereq.isCountMultiples())
 					{
-						if (cl.getLevel(character) >= preClass)
+						if (character.getLevel(cl) >= preClass)
 						{
 							countedTotal++;
 						}
 					}
 					else
 					{
-						runningTotal = Math.max(runningTotal, cl.getLevel(character));
+						runningTotal = Math.max(runningTotal, character.getLevel(cl));
 					}
 				}
 				else
@@ -130,14 +130,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 							{
 								if (prereq.isCountMultiples())
 								{
-									if (cl.getLevel(character) >= preClass)
+									if (character.getLevel(cl) >= preClass)
 									{
 										countedTotal++;
 									}
 								}
 								else
 								{
-									runningTotal += cl.getLevel(character);
+									runningTotal += character.getLevel(cl);
 								}
 								break;
 							}
@@ -153,14 +153,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements
 			{
 				if (prereq.isCountMultiples())
 				{
-					if (aClass.getLevel(character) >= preClass)
+					if (character.getLevel(aClass) >= preClass)
 					{
 						countedTotal++;
 					}
 				}
 				else
 				{
-					runningTotal += aClass.getLevel(character);
+					runningTotal += character.getLevel(aClass);
 				}
 			}
 			else
@@ -176,14 +176,14 @@ CLASSLIST:		for(PCClass theClass: character.getClassSet())
 							{
 								if (prereq.isCountMultiples())
 								{
-									if (theClass.getLevel(character) >= preClass)
+									if (character.getLevel(theClass) >= preClass)
 									{
 										countedTotal++;
 									}
 								}
 								else
 								{
-									runningTotal += theClass.getLevel(character);
+									runningTotal += character.getLevel(theClass);
 								}
 								break CLASSLIST;
 							}

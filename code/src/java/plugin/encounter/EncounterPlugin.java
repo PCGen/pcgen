@@ -925,7 +925,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		int currentLevels = 0;
 		if (pcClass != null)
 		{
-			currentLevels = pcClass.getLevel(aPC);
+			currentLevels = aPC.getLevel(pcClass);
 		}
 		if (currentLevels < levels)
 		{
@@ -1323,7 +1323,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	{
 		for (PCClass pcClass : aPC.getClassSet())
 		{
-			for (int j = 0; j < pcClass.getLevel(aPC); j++)
+			for (int j = 0; j < aPC.getLevel(pcClass); j++)
 			{
 				int bonus =
 						(int) aPC.getTotalBonusTo("HD", "MIN")

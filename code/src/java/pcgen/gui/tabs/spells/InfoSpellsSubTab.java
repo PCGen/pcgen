@@ -696,7 +696,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			final InfoLabelTextBuilder b = new InfoLabelTextBuilder();
 			b.append("<table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
 			b.append(OutputNameFormatting.piString(aClass, false)).append(" ["); //$NON-NLS-1$
-			b.append(String.valueOf(aClass.getLevel(pc)
+			b.append(String.valueOf(pc.getLevel(aClass)
 				+ (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName()))); //$NON-NLS-1$
 			b.append("]</b></font></td>"); //$NON-NLS-1$
 

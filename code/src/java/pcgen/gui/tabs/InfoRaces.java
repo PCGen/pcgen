@@ -898,7 +898,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 				minLevel = lcf.getLevelCount().resolve(getPc(), "").intValue();
 				if (aClass != null)
 				{
-					monsterHD = aClass.getLevel(getPc());
+					monsterHD = getPc().getLevel(aClass);
 				}
 			}
 			btnAddHD.setEnabled(race.containsListFor(ListKey.HITDICE_ADVANCEMENT)

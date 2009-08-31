@@ -198,8 +198,8 @@ public class DomainApplication
 				{
 					// TODO Not entirely correct, as this takes this level, not
 					// the level where BONUS DOMAINS was present
-					ClassSource cs = new ClassSource(cl, cl
-							.getLevel(aPC));
+					ClassSource cs = new ClassSource(cl, aPC
+							.getLevel(cl));
 					aPC.addDomain(d, cs);
 					applyDomain(aPC, d);
 				}

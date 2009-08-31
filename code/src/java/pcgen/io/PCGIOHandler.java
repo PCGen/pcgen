@@ -402,14 +402,14 @@ public final class PCGIOHandler extends IOHandler
 			for (PCClass pcClass : aPC.getClassSet())
 			{
 				// Ignore if no levels
-				if (pcClass.getLevel(aPC) < 1)
+				if (aPC.getLevel(pcClass) < 1)
 				{
 					continue;
 				}
 
 				// Walk through the levels for this class
 
-				for (int i = 0; i <= pcClass.getLevel(aPC); i++)
+				for (int i = 0; i <= aPC.getLevel(pcClass); i++)
 				{
 					int baseSides = pcClass.getLevelHitDie(currentPC, i + 1).getDie();
 					PCClassLevel pcl = aPC.getActiveClassLevel(pcClass, i);
@@ -450,7 +450,7 @@ public final class PCGIOHandler extends IOHandler
 		//
 		for (PCClass pcClass : aPC.getClassSet())
 		{
-			pcClass.setLevel(pcClass.getLevel(aPC), currentPC);
+			pcClass.setLevel(aPC.getLevel(pcClass), currentPC);
 		}
 
 		//

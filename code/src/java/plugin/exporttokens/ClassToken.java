@@ -130,7 +130,7 @@ public class ClassToken extends Token {
 		if (pc.getClassCount() > classNumber) {
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
-			return pcClass.getLevel(pc);
+			return pc.getLevel(pcClass);
 		}
 
 		return 0;
@@ -171,7 +171,7 @@ public class ClassToken extends Token {
 		SpecialAbilityResolution
 				.addSpecialAbilitiesToList(saList, aPC, pcclass);
 		SpecialAbilityResolution.addSABToList(saList, aPC, pcclass);
-		for (int i = 1; i <= pcclass.getLevel(aPC); i++)
+		for (int i = 1; i <= aPC.getLevel(pcclass); i++)
 		{
 			PCClassLevel pcl = aPC.getActiveClassLevel(pcclass, i);
 			SpecialAbilityResolution

@@ -160,7 +160,7 @@ public class SpellSupportForPCClass
 		final String levelSpellLevel = ";LEVEL." + spellLevel;
 		final String allSpellLevel = ";LEVEL.All";
 
-		int pcLevel = source.getLevel(aPC);
+		int pcLevel = aPC.getLevel(source);
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", source.getKeyName());
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE."
 				+ source.getSpellType());
@@ -315,7 +315,7 @@ public class SpellSupportForPCClass
 		total += (int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "TYPE."
 				+ source.getSpellType() + ";LEVEL." + spellLevel);
 
-		int pcLevel = source.getLevel(aPC);
+		int pcLevel = aPC.getLevel(source);
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", source.getKeyName());
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE."
 				+ source.getSpellType());
@@ -484,7 +484,7 @@ public class SpellSupportForPCClass
 	public int getCastForLevel(int spellLevel, String bookName,
 			boolean includeAdj, boolean limitByStat, PlayerCharacter aPC)
 	{
-		int pcLevel = source.getLevel(aPC);
+		int pcLevel = aPC.getLevel(source);
 		int total = 0;
 		int stat = 0;
 		final String classKeyName = "CLASS." + source.getKeyName();

@@ -2300,7 +2300,7 @@ public final class ExportHandler
 		{
 			for (PCClass pcClass : aPC.getClassSet())
 			{
-				if (pcClass.getLevel(aPC) > 0)
+				if (aPC.getLevel(pcClass) > 0)
 				{
 					if (pcClass.containsListFor(ListKey.PROHIBITED_SPELLS)
 						|| aPC.containsAssocList(pcClass,
@@ -2798,7 +2798,7 @@ public final class ExportHandler
 			}
 			else
 			{
-				canWrite = (aClass.getLevel(aPC) >= i);
+				canWrite = (aPC.getLevel(aClass) >= i);
 			}
 
 			// Filter out SPELLLISTCLASS			

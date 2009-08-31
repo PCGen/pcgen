@@ -760,7 +760,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				if (pcClass != null)
 				{
-					currentHD += pcClass.getLevel(pc);
+					currentHD += pc.getLevel(pcClass);
 				}
 
 				//
@@ -1212,8 +1212,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		if (!Globals.checkRule(RuleConstants.LEVELCAP)
 			&& theClass.hasMaxLevel()
-			&& ((levels > theClass.getSafe(IntegerKey.LEVEL_LIMIT)) || ((aClass != null) && ((aClass
-				.getLevel(pc) + levels) > aClass.getSafe(IntegerKey.LEVEL_LIMIT)))))
+			&& ((levels > theClass.getSafe(IntegerKey.LEVEL_LIMIT)) || ((aClass != null) && ((pc
+				.getLevel(aClass) + levels) > aClass.getSafe(IntegerKey.LEVEL_LIMIT)))))
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
@@ -2668,7 +2668,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				if (aClass != null)
 				{
-					monsterHD = aClass.getLevel(pc);
+					monsterHD = pc.getLevel(aClass);
 				}
 			}
 		}
@@ -2859,7 +2859,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					{
 						PCClass aClass = pc.getClassKeyed(lcf.getPCClass().getKeyName());
 						final int numLevels =
-								aClass.getLevel(pc)
+								pc.getLevel(aClass)
 								- lcf.getLevelCount().resolve(pc, "").intValue();
 						if (numLevels > 0)
 						{
@@ -2995,7 +2995,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							}
 						}
 
-						if ((aClass == null) || (aClass.getLevel(pc) == lvl))
+						if ((aClass == null) || (pc.getLevel(aClass) == lvl))
 						{
 							retStr += (" (" + Integer.toString(lvl) + ')'); //$NON-NLS-1$
 						}

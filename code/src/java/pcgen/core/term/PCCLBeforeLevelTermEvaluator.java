@@ -56,7 +56,7 @@ public class PCCLBeforeLevelTermEvaluator
 				return (float) pc.getLevelBefore(aClass.getKeyName(), level);
 			}
 
-			return (float) aClass.getLevel(pc);
+			return (float) pc.getLevel(aClass);
 		}
 		
 		return 0f;

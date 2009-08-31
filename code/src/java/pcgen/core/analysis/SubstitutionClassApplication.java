@@ -48,7 +48,7 @@ public class SubstitutionClassApplication
 		columnNames.add("Name");
 
 		List<PCClass> choiceList = new ArrayList<PCClass>();
-		buildSubstitutionClassChoiceList(cl, choiceList, cl.getLevel(aPC), aPC);
+		buildSubstitutionClassChoiceList(cl, choiceList, aPC.getLevel(cl), aPC);
 		if (choiceList.size() <= 1)
 		{
 			return; // This means the there are no classes for which

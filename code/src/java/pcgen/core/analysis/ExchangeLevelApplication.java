@@ -50,7 +50,7 @@ public class ExchangeLevelApplication
 	
 				if (aClass != null)
 				{
-					final int iLevel = aClass.getLevel(aPC);
+					final int iLevel = aPC.getLevel(aClass);
 	
 					if (iLevel >= iMinLevel)
 					{

@@ -156,7 +156,7 @@ public class RaceToken extends Token
 				if (aClass != null)
 				{
 					int minHD = lcf.getLevelCount().resolve(pc, "").intValue();
-					int monsterHD = aClass.getLevel(pc);
+					int monsterHD = pc.getLevel(aClass);
 
 					if (monsterHD != minHD)
 					{

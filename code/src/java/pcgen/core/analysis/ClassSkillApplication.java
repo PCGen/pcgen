@@ -39,7 +39,7 @@ public class ClassSkillApplication
 	{
 		TransitionChoice<ClassSkillList> csc = cl.get(ObjectKey.SKILLLIST_CHOICE);
 		// if no entry or no choices, just return
-		if (csc == null || (cl.getLevel(pc) < 1))
+		if (csc == null || (pc.getLevel(cl) < 1))
 		{
 			return;
 		}

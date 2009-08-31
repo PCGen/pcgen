@@ -112,7 +112,7 @@ public class PlayerCharacterOutput
 		StringBuffer sb = new StringBuffer();
 		for (PCClass mClass : pc.getClassSet())
 		{
-			sb.append(mClass.getDisplayName() + mClass.getLevel(pc) + " ");
+			sb.append(mClass.getDisplayName() + pc.getLevel(mClass) + " ");
 		}
 
 		return sb.toString();
