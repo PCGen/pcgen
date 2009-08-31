@@ -199,6 +199,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 				map.put(me.getKey(), new HashMap<Integer, PCClassLevel>(me
 						.getValue()));
 			}
+			levelmap.putAll(info.levelmap);
 		}
 
 		public boolean addClass(PCClass pcc)
