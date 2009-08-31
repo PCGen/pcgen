@@ -5657,9 +5657,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 
 			// Get existing classes
-			final List<PCClass> existingClasses =
-					new ArrayList<PCClass>(getClassSet());
-			classFacet.removeAllClasses(id);
+			ClassInfo ci = classFacet.removeAllClasses(id);
 
 			//
 			// Remove all saved monster level information
@@ -5699,12 +5697,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// If user has chosen a class before choosing a race,
 			// we need to tweak the number of skill points and feats
 			//
-			if (!isImporting() && existingClasses.size() != 0)
+			if (!isImporting() && ci != null && !ci.isEmpty())
 			{
 				int totalLevels = this.getTotalLevels();
-				// final Integer zero = Integer.valueOf(0);
 
-				for (PCClass pcClass : existingClasses)
+				for (PCClass pcClass : ci.getClassSet())
 				{
 					//
 					// Don't add monster classes back in. This will possibly
@@ -5714,8 +5711,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					if (!pcClass.isMonster())
 					{
 						classFacet.addClass(id, pcClass);
-
-						final int cLevels = getLevel(pcClass);
+						final int cLevels = ci.getLevel(pcClass);
+						classFacet.setLevel(id, pcClass, cLevels);
 
 						setAssoc(pcClass, AssociationKey.SKILL_POOL, 0);
 
