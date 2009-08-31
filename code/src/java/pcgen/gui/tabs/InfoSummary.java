@@ -637,7 +637,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		//
 		if (rollStatsButton != null)
 		{
-			if ((pc.getTotalPlayerLevels() == 0)
+			if ((pc.totalNonMonsterLevels() == 0)
 				&& (SettingsHandler.getGame().getRollMethod() == Constants.CHARACTERSTATMETHOD_ROLLED))
 			{
 				rollStatsButton.setEnabled(true);
@@ -2367,7 +2367,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				increment = 1;
 
 				final int pcTotalLevels = pc.getTotalLevels();
-				final int pcPlayerLevels = pc.getTotalPlayerLevels();
+				final int pcPlayerLevels = pc.totalNonMonsterLevels();
 				final boolean isPurchaseMode =
 						SettingsHandler.getGame().isPurchaseStatMode();
 
@@ -2441,7 +2441,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				final int minPurchaseScore =
 						SettingsHandler.getGame().getPurchaseScoreMin(pc);
 				final int pcTotalLevels = pc.getTotalLevels();
-				final int pcPlayerLevels = pc.getTotalPlayerLevels();
+				final int pcPlayerLevels = pc.totalNonMonsterLevels();
 				final boolean isPurchaseMode =
 						SettingsHandler.getGame().isPurchaseStatMode();
 
@@ -2698,7 +2698,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		// This is a problem for races with non-0 level
 		// adjustment so only count PC & NPC levels, not
 		// monster levels XXX
-		int pcPlayerLevels = pc.getTotalPlayerLevels();
+		int pcPlayerLevels = pc.totalNonMonsterLevels();
 
 		int maxDiddleLevel;
 		if (poolPointText != null)
@@ -3276,7 +3276,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					statVal = 10;
 				}
-				final int pcPlayerLevels = pc.getTotalPlayerLevels();
+				final int pcPlayerLevels = pc.totalNonMonsterLevels();
 
 				List<PCStat> statList = new ArrayList<PCStat>(pc.getStatSet());
 				final PCStat aStat = statList.get(rowIndex);

@@ -94,9 +94,11 @@ import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.HandsFacet;
 import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
+import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
@@ -212,6 +214,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
 	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
+	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+
+	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(4);
@@ -262,12 +267,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// List of Kit objects
 	private List<Kit> kitList = null;
 
-	//
-	// We don't want this list sorted until after it has been added
-	// to the character, The reason is that sorting prevents
-	// .CLEAR-TEMPLATES from clearing the OLDER template languages.
-	private final List<Language> templateAutoLanguages =
-			new ArrayList<Language>();
 	private Map<StringKey, String> stringChar =
 			new HashMap<StringKey, String>();
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
@@ -407,6 +406,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		skillLangFacet.addDataFacetChangeListener(languageFacet);
 		startingLangFacet.addDataFacetChangeListener(languageFacet);
 		//langAutoFacet.addDataFacetChangeListener(languageFacet);
+
+		resolveFacet.associatePlayerCharacter(id, this);
 
 		variableProcessor = new VariableProcessorPC(this);
 
@@ -1599,7 +1600,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		Logging.debugPrint(""); //$NON-NLS-1$
 		Logging.debugPrint("=============="); //$NON-NLS-1$
-		Logging.debugPrint("level " + this.getTotalPlayerLevels()); //$NON-NLS-1$
+		Logging.debugPrint("level " + this.totalNonMonsterLevels()); //$NON-NLS-1$
 
 		Logging.debugPrint("POOL:   " + pool); //$NON-NLS-1$
 		Logging.debugPrint("PCPOOL: " + pcpool); //$NON-NLS-1$
@@ -4825,12 +4826,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getECL()
 	{
-		int totalLevels = 0;
-		totalLevels += totalNonMonsterLevels();
-		totalLevels += totalHitDice();
-		totalLevels += getLevelAdjustment(this);
-
-		return totalLevels;
+		return levelFacet.getECL(id);
 	}
 
 	/**
@@ -5298,20 +5294,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return returnList;
 	}
 
-	public int getLevelAdjustment(final PlayerCharacter aPC)
+	public int getLevelAdjustment()
 	{
-		int levelAdj =
-				getRace().getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(aPC, "")
-					.intValue();
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			levelAdj +=
-					template.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(aPC,
-						"").intValue();
-		}
-
-		return levelAdj;
+		return levelFacet.getLevelAdjustment(id);
 	}
 
 	public List<PCLevelInfo> getLevelInfo()
@@ -6155,25 +6140,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int getTotalLevels()
 	{
-		int totalLevels = 0;
-
-		totalLevels += totalNonMonsterLevels();
-
-		// Monster hit dice count towards total levels -- was
-		// totalMonsterLevels()
-		// sage_sam changed 03 Dec 2002 for Bug #646816
-		totalLevels += totalHitDice();
-
-		return totalLevels;
-	}
-
-	public int getTotalPlayerLevels()
-	{
-		int totalLevels = 0;
-
-		totalLevels += totalNonMonsterLevels();
-
-		return totalLevels;
+		return levelFacet.getTotalLevels(id);
 	}
 
 	/**
@@ -9738,22 +9705,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int totalHitDice()
 	{
-		return totalMonsterLevels();
+		return levelFacet.getMonsterLevelCount(id);
 	}
 
 	public int totalNonMonsterLevels()
 	{
-		int totalLevels = 0;
-
-		for (PCClass pcClass : getClassSet())
-		{
-			if (!pcClass.isMonster())
-			{
-				totalLevels += getLevel(pcClass);
-			}
-		}
-
-		return totalLevels;
+		return levelFacet.getNonMonsterLevelCount(id);
 	}
 
 	public BigDecimal totalValue()
@@ -11596,7 +11553,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// still means that levelAdjustment of 0 gives you 0
 		// XP, but we need LA of 1 to give us 1,000 XP.
 		return PlayerCharacterUtilities.minXPForLevel(
-			getLevelAdjustment(this) + 1, this);
+			getLevelAdjustment() + 1, this);
 	}
 
 	public SizeAdjustment getSizeAdjustment()
@@ -12217,28 +12174,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return total;
-	}
-
-	private int totalMonsterLevels()
-	{
-		int totalLevels = 0;
-
-		for (PCClass pcClass : getClassSet())
-		{
-			if (pcClass.isMonster())
-			{
-				totalLevels += getLevel(pcClass);
-			}
-		}
-
-		// This is already accounted for in the monster levels above
-		// for (Iterator e = companionModList.iterator(); e.hasNext();)
-		// {
-		// final CompanionMod cMod = (CompanionMod) e.next();
-		// totalLevels += cMod.getHitDie();
-		// }
-
-		return totalLevels;
 	}
 
 	/**
