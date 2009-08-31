@@ -988,7 +988,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Set<PCClass> getClassSet()
 	{
-		return classFacet.getSet(id);
+		return classFacet.getClassSet(id);
 	}
 
 	/**
@@ -5674,7 +5674,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// Get existing classes
 			final List<PCClass> existingClasses =
 					new ArrayList<PCClass>(getClassSet());
-			classFacet.removeAll(id);
+			classFacet.removeAllClasses(id);
 
 			//
 			// Remove all saved monster level information
@@ -5728,7 +5728,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					//
 					if (!pcClass.isMonster())
 					{
-						classFacet.add(id, pcClass);
+						classFacet.addClass(id, pcClass);
 
 						final int cLevels = getLevel(pcClass);
 
@@ -8944,7 +8944,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 				}
 
-				classFacet.replace(id, aClass, bClass);
+				classFacet.replaceClass(id, aClass, bClass);
 			}
 			else
 			{
@@ -8961,7 +8961,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					setAssoc(topcl, AssociationKey.HIT_POINTS, hp);
 				}
 
-				classFacet.remove(id, aClass);
+				classFacet.removeClass(id, aClass);
 			}
 
 			//
@@ -11857,7 +11857,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 
 				// Add the class to the character classes as level 0
-				classFacet.add(id, pcClassClone);
+				classFacet.addClass(id, pcClassClone);
 
 				// do the following only if adding a level of a class for the
 				// first time
@@ -12523,7 +12523,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//aClone.langAutoFacet.copyContents(id, aClone.id);
 		aClone.startingLangFacet.copyContents(id, aClone.id);
 		aClone.classFacet.copyContents(id, aClone.id);
-		for (PCClass cloneClass : aClone.classFacet.getSet(aClone.id))
+		for (PCClass cloneClass : aClone.classFacet.getClassSet(aClone.id))
 		{
 			cloneClass.addFeatPoolBonus(aClone);
 		}
@@ -16120,7 +16120,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		try
 		{
-			classFacet.setLevel(id, pcc, originalClassLevel.clone());
+			classFacet.setClassLevel(id, pcc, originalClassLevel.clone());
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -16131,7 +16131,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public PCClassLevel getActiveClassLevel(PCClass pcc, int lvl)
 	{
-		return classFacet.getLevel(id, pcc, lvl);
+		return classFacet.getClassLevel(id, pcc, lvl);
 	}
 
 	public int getClassCount()
@@ -16146,27 +16146,26 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void removeClass(PCClass pcc)
 	{
-		classFacet.remove(id, pcc);
+		classFacet.removeClass(id, pcc);
 	}
 
 	public void addClass(PCClass pcc)
 	{
-		classFacet.add(id, pcc);
+		classFacet.addClass(id, pcc);
 	}
 
 	public final int getLevel(PCClass pcc)
 	{
-		Integer level = getAssoc(pcc, AssociationKey.CLASS_LEVEL);
-		return level == null ? 0 : level;
+		return classFacet.getLevel(id, pcc);
 	}
 
 	/**
 	 * set the level to arg without impacting spells, hp, or anything else - use
 	 * this with great caution only
 	 */
-	public final void setLevelWithoutConsequence(PCClass pcc, final int arg)
+	public final void setLevelWithoutConsequence(PCClass pcc, final int level)
 	{
-		setAssoc(pcc, AssociationKey.CLASS_LEVEL, arg);
+		classFacet.setLevel(id, pcc, level);
 	}
 
 	/*

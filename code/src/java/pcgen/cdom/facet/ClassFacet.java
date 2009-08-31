@@ -32,7 +32,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 {
 	private final Class<?> thisClass = getClass();
 
-	public void add(CharID id, PCClass obj)
+	public void addClass(CharID id, PCClass obj)
 	{
 		if (getConstructingCachedSet(id).addClass(obj))
 		{
@@ -40,14 +40,14 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 	}
 
-	public boolean setLevel(CharID id, PCClass obj, PCClassLevel pcl)
+	public boolean setClassLevel(CharID id, PCClass obj, PCClassLevel pcl)
 			throws CloneNotSupportedException
 	{
 		ClassInfo info = getClassInfo(id);
 		return info != null && info.setClassLevel(obj, pcl);
 	}
 
-	public PCClassLevel getLevel(CharID id, PCClass obj, Integer level)
+	public PCClassLevel getClassLevel(CharID id, PCClass obj, Integer level)
 	{
 		ClassInfo info = getClassInfo(id);
 		if (info == null)
@@ -57,7 +57,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info.getClassLevel(obj, level);
 	}
 
-	public void remove(CharID id, PCClass obj)
+	public void removeClass(CharID id, PCClass obj)
 	{
 		ClassInfo info = getClassInfo(id);
 		if (info != null)
@@ -70,7 +70,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 	}
 
-	public ClassInfo removeAll(CharID id)
+	public ClassInfo removeAllClasses(CharID id)
 	{
 		ClassInfo info = (ClassInfo) FacetCache.remove(id, thisClass);
 		if (info != null)
@@ -84,7 +84,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info;
 	}
 
-	public void replace(CharID id, PCClass oldClass, PCClass newClass)
+	public void replaceClass(CharID id, PCClass oldClass, PCClass newClass)
 	{
 		ClassInfo info = getClassInfo(id);
 		if (info != null)
@@ -93,7 +93,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 	}
 
-	public Set<PCClass> getSet(CharID id)
+	public Set<PCClass> getClassSet(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
 		if (info == null)
@@ -125,6 +125,21 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info != null && info.containsClass(obj);
 	}
 
+	public void setLevel(CharID id, PCClass pcc, int level)
+	{
+		ClassInfo info = getClassInfo(id);
+		if (info != null)
+		{
+			info.setLevel(pcc, level);
+		}
+	}
+
+	public int getLevel(CharID id, PCClass pcc)
+	{
+		ClassInfo info = getClassInfo(id);
+		return (info == null) ? 0 : info.getLevel(pcc);
+	}
+
 	private ClassInfo getClassInfo(CharID id)
 	{
 		return (ClassInfo) FacetCache.get(id, thisClass);
@@ -144,9 +159,21 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	private class ClassInfo
 	{
 		private Map<PCClass, Map<Integer, PCClassLevel>> map = new LinkedHashMap<PCClass, Map<Integer, PCClassLevel>>();
+		private Map<PCClass, Integer> levelmap = new HashMap<PCClass, Integer>();
 
 		public ClassInfo()
 		{
+		}
+
+		public void setLevel(PCClass pcc, int level)
+		{
+			levelmap.put(pcc, level);
+		}
+
+		public int getLevel(PCClass pcc)
+		{
+			Integer level = levelmap.get(pcc);
+			return (level == null) ? 0 : level;
 		}
 
 		public void replace(PCClass oldClass, PCClass newClass)
