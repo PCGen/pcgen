@@ -34,7 +34,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	public void addClass(CharID id, PCClass obj)
 	{
-		if (getConstructingCachedSet(id).addClass(obj))
+		if (getConstructingClassInfo(id).addClass(obj))
 		{
 			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
@@ -127,11 +127,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	public void setLevel(CharID id, PCClass pcc, int level)
 	{
-		ClassInfo info = getClassInfo(id);
-		if (info != null)
-		{
-			info.setLevel(pcc, level);
-		}
+		getConstructingClassInfo(id).setLevel(pcc, level);
 	}
 
 	public int getLevel(CharID id, PCClass pcc)
@@ -145,7 +141,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return (ClassInfo) FacetCache.get(id, thisClass);
 	}
 
-	private ClassInfo getConstructingCachedSet(CharID id)
+	private ClassInfo getConstructingClassInfo(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
 		if (info == null)
@@ -156,7 +152,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info;
 	}
 
-	private class ClassInfo
+	public class ClassInfo
 	{
 		private Map<PCClass, Map<Integer, PCClassLevel>> map = new LinkedHashMap<PCClass, Map<Integer, PCClassLevel>>();
 		private Map<PCClass, Integer> levelmap = new HashMap<PCClass, Integer>();
