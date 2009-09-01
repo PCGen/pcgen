@@ -623,5 +623,10 @@
       <name>5.16.0RC1</name>
       <tag>release-5.16.0RC1</tag>
     </version>
+    <version>
+      <id>5.17.0</id>
+      <name>5.17.0</name>
+      <tag>release-5.17.0</tag>
+    </version>
   </versions>
 </project>
