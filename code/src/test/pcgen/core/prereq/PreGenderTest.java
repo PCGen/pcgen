@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -60,7 +61,7 @@ public class PreGenderTest extends AbstractCharacterTestCase
 	public void testGender() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setGender("Male");
+		character.setGender(Gender.Male);
 
 		Prerequisite prereq;
 

@@ -73,7 +73,7 @@ public class KitBio extends BaseKit
 		}
 		if (selectedGender != null)
 		{
-			aPC.setGender(selectedGender.toString());
+			aPC.setGender(selectedGender);
 		}
 	}
 

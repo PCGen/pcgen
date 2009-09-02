@@ -47,6 +47,7 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -2948,8 +2949,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseGenderLine(final String line)
 	{
-		thePC.setGender(EntityEncoder.decode(line
-			.substring(TAG_GENDER.length() + 1)));
+		String genderString = EntityEncoder.decode(line.substring(TAG_GENDER
+				.length() + 1));
+		Gender gender = Gender.valueOf(genderString);
+		thePC.setGender(gender);
 	}
 
 	/**

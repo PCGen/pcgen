@@ -867,7 +867,7 @@ public class DetailsPane extends javax.swing.JPanel
 		}
 		age.setText(pc.getAge() + " ");
 		size.setText(SizeLongToken.getSizeLongToken(pc) + ' ');
-		gender.setText(pc.getGender() + ' ');
+		gender.setText(pc.getGenderObject().toString() + ' ');
 
 		if (pc.getDeity() != null)
 		{

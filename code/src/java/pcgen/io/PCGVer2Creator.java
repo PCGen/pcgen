@@ -1430,7 +1430,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendGenderLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_GENDER).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getGender()));
+		buffer.append(EntityEncoder.encode(thePC.getGenderObject().toString()));
 		buffer.append(LINE_SEP);
 	}
 

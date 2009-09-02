@@ -96,6 +96,7 @@ import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.HandsFacet;
 import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
@@ -217,6 +218,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
+	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -275,7 +277,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 	private String tabName = Constants.EMPTY_STRING;
-	private String gender = Globals.getAllGenders().get(0);
 	private TreeSet<String> variableSet =
 			new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 
@@ -1760,29 +1761,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * Sets the character's gender.
 	 * 
 	 * <p>
-	 * The gender will only be set if the character does not have a template
+	 * The gender will only be changed if the character does not have a template
 	 * that locks the character's gender.
 	 * 
-	 * <p>
-	 * <b>WARNING:</b> This method has a side effect that it will actually set
-	 * the gender to the locked template gender.
-	 * 
-	 * @param argGender
+	 * @param g
 	 *            A gender to try and set.
 	 */
-	public void setGender(final String argGender)
+	public void setGender(final Gender g)
 	{
-		final Gender g = findTemplateGender();
-
-		if (g == null)
-		{
-			gender = argGender;
-		}
-		else
-		{
-			gender = g.toString();
-		}
-
+		genderFacet.setGender(id, g);
 		setDirty(true);
 	}
 
@@ -1797,11 +1784,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return A <tt>String</tt> version of the character's gender. TODO -
 	 *         Gender should be an object so it can be i18n.
 	 */
-	public String getGender()
+	public Gender getGenderObject()
 	{
-		final Gender tGender = findTemplateGender();
-
-		return tGender == null ? gender : tGender.toString();
+		return genderFacet.getGender(id);
 	}
 
 	/**
@@ -1815,7 +1800,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean canSetGender()
 	{
-		return findTemplateGender() == null;
+		return genderFacet.canSetGender(id);
 	}
 
 	/**
@@ -11440,22 +11425,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return 0;
 	}
 
-	private Gender findTemplateGender()
-	{
-		Gender g = null;
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			Gender lock = template.get(ObjectKey.GENDER_LOCK);
-			if (lock != null)
-			{
-				g = lock;
-			}
-		}
-
-		return g;
-	}
-
 	private void setEarnedXP(final int argEarnedXP)
 	{
 		earnedXP = argEarnedXP;
@@ -12419,7 +12388,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.setDescriptionLst(new String(getDescriptionLst()));
 		aClone.setEyeColor(new String(getEyeColor()));
 		aClone.setFileName(new String(getFileName()));
-		aClone.setGender(new String(getGender()));
+		aClone.setGender(getGenderObject());
 		aClone.setHairColor(new String(getHairColor()));
 		aClone.setHairStyle(new String(getHairStyle()));
 		aClone.setHanded(new String(getHanded()));

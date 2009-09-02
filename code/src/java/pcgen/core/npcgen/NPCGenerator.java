@@ -30,6 +30,7 @@ import java.util.List;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -585,7 +586,7 @@ public class NPCGenerator
 			
 			final String gender = getGender( aGender );
 			Logging.debugPrint( "NPCGenerator: Selecting " + gender + " for gender " + aGender ); //$NON-NLS-1$ //$NON-NLS-2$
-			aPC.setGender( gender );
+			aPC.setGender(Gender.valueOf(gender));
 
 			boolean doneRacialClasses = false;
 			for (int i = 0; i < classList.size(); i++)

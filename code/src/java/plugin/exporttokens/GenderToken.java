@@ -57,60 +57,19 @@ public class GenderToken extends Token
 	{
 		String retString = "";
 
+		/*
+		 * TODO Short and long result are the same as Gender is no longer
+		 * abbreviated in PC (what to do?)
+		 */
 		if ("GENDER".equals(tokenSource) || "GENDER.SHORT".equals(tokenSource))
 		{
-			retString = getShortToken(pc);
+			retString = pc.getGenderObject().toString();
 		}
 		else if ("GENDER.LONG".equals(tokenSource))
 		{
-			retString = getLongToken(pc);
+			retString = pc.getGenderObject().toString();
 		}
 
 		return retString;
-	}
-
-	/**
-	 * Get the gender token
-	 * @param pc
-	 * @return gender token
-	 */
-	public static String getGenderToken(PlayerCharacter pc)
-	{
-		return pc.getGender();
-	}
-
-	/**
-	 * Get long sub token
-	 * @param pc
-	 * @return long sub token
-	 */
-	public static String getLongToken(PlayerCharacter pc)
-	{
-		String retString = "";
-
-		if ("M".equals(pc.getGender()))
-		{
-			retString = "Male";
-		}
-		else if ("F".equals(pc.getGender()))
-		{
-			retString = "Female";
-		}
-		else
-		{
-			retString = pc.getGender();
-		}
-
-		return retString;
-	}
-
-	/**
-	 * Get the short sub token
-	 * @param pc
-	 * @return short sub token
-	 */
-	public static String getShortToken(PlayerCharacter pc)
-	{
-		return pc.getGender();
 	}
 }

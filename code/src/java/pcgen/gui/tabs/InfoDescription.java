@@ -71,6 +71,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.NoteItem;
@@ -151,7 +152,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			if ((genderComboBox != null)
 				&& (genderComboBox.getSelectedItem() != null))
 			{
-				pc.setGender(genderComboBox.getSelectedItem().toString());
+				pc.setGender((Gender) genderComboBox.getSelectedItem());
 			}
 		}
 	};
@@ -1795,7 +1796,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		if (!pcRace.equals(Globals.s_EMPTYRACE))
 		{
 			handedComboBox.setSelectedItem(pc.getHanded());
-			genderComboBox.setSelectedItem(pc.getGender());
+			genderComboBox.setSelectedItem(pc.getGenderObject());
 			genderComboBox.setEnabled(pc.canSetGender());
 			wtText.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
 				pc.getWeight()));
