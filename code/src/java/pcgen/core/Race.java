@@ -98,7 +98,7 @@ public final class Race extends PObject
 		return hda == null ? 0 : hda.get(hda.size() - 1);
 	}
 
-	int sizesAdvanced(final int HD)
+	public int sizesAdvanced(final int HD)
 	{
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		if (hda == null)

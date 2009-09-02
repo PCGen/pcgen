@@ -87,6 +87,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.AlignmentFacet;
+import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.CompanionModFacet;
@@ -102,6 +103,7 @@ import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
+import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
@@ -178,8 +180,6 @@ import pcgen.util.enumeration.Visibility;
 public final class PlayerCharacter extends Observable implements Cloneable,
 		VariableContainer, AssociationStore
 {
-	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
-
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
 	// Constants for use in getBonus
@@ -216,8 +216,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
 	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
+	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
 
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(4);
@@ -409,6 +411,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//langAutoFacet.addDataFacetChangeListener(languageFacet);
 
 		resolveFacet.associatePlayerCharacter(id, this);
+		bonusFacet.associatePlayerCharacter(id, this);
 
 		variableProcessor = new VariableProcessorPC(this);
 
@@ -2763,14 +2766,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getSize()
 	{
-		final SizeAdjustment sa = getSizeAdjustment();
-
-		if (sa != null)
-		{
-			return sa.getAbbreviation();
-		}
-
-		return " ";
+		return sizeFacet.getSizeAbb(id);
 	}
 
 	/**
@@ -4182,30 +4178,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int racialSizeInt()
 	{
-		int iSize = 0;
-
-		Race race = getRace();
-		if (race != null)
-		{
-			// get the base size for the race
-			iSize = race.getSafe(FormulaKey.SIZE).resolve(this, "").intValue();
-
-			// now check and see if a template has set the
-			// size of the character in question
-			// with something like SIZE:L
-			for (PCTemplate template : getTemplateSet())
-			{
-				Formula sizeFormula = template.get(FormulaKey.SIZE);
-				if (sizeFormula != null)
-				{
-					iSize =
-							sizeFormula.resolve(this, template.getKeyName())
-								.intValue();
-				}
-			}
-		}
-
-		return iSize;
+		return sizeFacet.racialSizeInt(id);
 	}
 
 	public void removeEquipment(final Equipment eq)
@@ -5408,7 +5381,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return 0.0f;
 		}
-
 		if (aSkill.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			// Exclusive skills only count levels in classes which give access
@@ -5464,7 +5436,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					SkillUtilities.maxClassSkillForLevel(levelForSkillPurposes,
 						this);
 		}
-
 		return new Float(maxRanks.floatValue());
 	}
 
@@ -9665,40 +9636,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int sizeInt()
 	{
-		int iSize = racialSizeInt();
-
-		Race race = getRace();
-		if (race != null)
-		{
-			// Now check and see if a class has modified
-			// the size of the character with something like:
-			// BONUS:SIZEMOD|NUMBER|+1
-			iSize += (int) getTotalBonusTo("SIZEMOD", "NUMBER");
-
-			// Now see if there is a HD advancement in size
-			// (Such as for Dragons)
-			for (int i = 0; i < race.sizesAdvanced(totalHitDice()); ++i)
-			{
-				++iSize;
-			}
-
-			//
-			// Must still be between 0 and 8
-			//
-			if (iSize < 0)
-			{
-				iSize = 0;
-			}
-
-			int maxIndex = Globals.getContext().ref
-					.getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;
-			if (iSize > maxIndex)
-			{
-				iSize = maxIndex;
-			}
-		}
-
-		return iSize;
+		return sizeFacet.sizeInt(id);
 	}
 
 	public int totalHitDice()
@@ -10924,7 +10862,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Alignment
-		PCAlignment align = getPCAlignment();
+		PCAlignment align = alignmentFacet.get(id);
 		if (align != null)
 		{
 			results.add(align);
@@ -10938,7 +10876,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(checkFacet.getSet(id));
 
 		// Class
-		results.addAll(getClassSet());
+		results.addAll(classFacet.getClassSet(id));
 
 		// CompanionMod
 		results.addAll(companionModFacet.getSet(id));
@@ -10981,25 +10919,27 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(abilities);
 
 		// Race
-		if (getRace() != null)
+		Race race = raceFacet.get(id);
+		if (race != null)
 		{
-			results.add(getRace());
+			results.add(race);
 		}
 
 		// SizeAdjustment
-		if (getSizeAdjustment() != null)
+		SizeAdjustment sa = sizeFacet.getSizeAdjustment(id);
+		if (sa != null)
 		{
-			results.add(getSizeAdjustment());
+			results.add(sa);
 		}
 
 		// Skill
-		results.addAll(getSkillSet());
+		results.addAll(skillFacet.getSet(id));
 
 		// Stat (PCStat)
 		results.addAll(statFacet.getSet(id));
 
 		// Template (PCTemplate)
-		results.addAll(getTemplateSet());
+		results.addAll(templateFacet.getSet(id));
 
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
@@ -11556,7 +11496,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return Globals.getContext().ref.getItemInOrder(SIZEADJUSTMENT_CLASS, sizeInt());
+		return sizeFacet.getSizeAdjustment(id);
 	}
 
 	public int getSpellClassCount()
@@ -15909,7 +15849,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public Set<Domain> getDomainSet()
 	{
-		return Collections.unmodifiableSet(domainFacet.getSet(id));
+		return domainFacet.getSet(id);
 	}
 
 	public ClassSource getDomainSource(Domain d)
