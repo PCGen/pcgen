@@ -82,8 +82,10 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.AlignmentFacet;
@@ -105,6 +107,7 @@ import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
+import pcgen.cdom.facet.RegionFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.StatFacet;
@@ -223,6 +226,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
+	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -1748,15 +1752,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getFullRegion()
 	{
-		final String sub = getSubRegion();
-		final StringBuffer tempRegName = new StringBuffer().append(getRegion());
-
-		if (!sub.equals(Constants.s_NONE))
-		{
-			tempRegName.append(" (").append(sub).append(')');
-		}
-
-		return tempRegName.toString();
+		return regionFacet.getFullRegion(id);
 	}
 
 	/**
@@ -2606,7 +2602,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setRegion(final String arg)
 	{
-		setStringFor(StringKey.REGION, arg);
+		Region r = Region.getConstant(arg);
+		regionFacet.setRegion(id, r);
 	}
 
 	/**
@@ -2616,7 +2613,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setSubRegion(final String aString)
 	{
-		setStringFor(StringKey.SUB_REGION, aString);
+		SubRegion subregion = SubRegion.getConstant(aString);
+		regionFacet.setSubRegion(id, subregion);
 	}
 
 	/**
@@ -2626,36 +2624,17 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getRegion()
 	{
-		return getRegion(true);
+		return regionFacet.getRegion(id);
 	}
 
 	/**
-	 * Get region
+	 * Get region set by setRegion (ignores Templates)
 	 * 
-	 * @param useTemplates
 	 * @return region
 	 */
-	public String getRegion(final boolean useTemplates)
+	public String getCharacterRegion()
 	{
-		String pcRegion = getStringFor(StringKey.REGION);
-		if ((pcRegion != null) || !useTemplates)
-		{
-			return pcRegion; // character's region trumps any from templates
-		}
-
-		String r = Constants.s_NONE;
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			final String tempRegion = template.getRegion();
-
-			if (!tempRegion.equals(Constants.s_NONE))
-			{
-				r = tempRegion;
-			}
-		}
-
-		return r;
+		return regionFacet.getCharacterRegion(id);
 	}
 
 	/**
@@ -3147,7 +3126,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getSubRegion()
 	{
-		return getSubRegion(true);
+		return regionFacet.getSubRegion(id);
 	}
 
 	/**
@@ -10427,30 +10406,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			selectedFavoredClass = fcChoice.driveChoice(this).iterator().next();
 		}
-	}
-
-	private String getSubRegion(final boolean useTemplates)
-	{
-		String pcSubRegion = getStringFor(StringKey.SUB_REGION);
-		if ((pcSubRegion != null) || !useTemplates)
-		{
-			return pcSubRegion; // character's subregion trumps any from
-			// templates
-		}
-
-		String s = Constants.s_NONE;
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			final String tempSubRegion = template.getSubRegion();
-
-			if (!tempSubRegion.equals(Constants.s_NONE))
-			{
-				s = tempSubRegion;
-			}
-		}
-
-		return s;
 	}
 
 	private HashMap<String, String> getTotalLevelHashMap()

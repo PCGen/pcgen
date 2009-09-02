@@ -30,6 +30,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -95,6 +96,10 @@ public final class PCTemplate extends PObject
 	 */
 	public String getRegion()
 	{
+		/*
+		 * TODO This should be made type safe to return a Region. Will require a
+		 * change in the REGION token to suppress load of "None" (corner case)
+		 */
 		Region sr = get(ObjectKey.REGION);
 		if (sr == null)
 		{
@@ -102,7 +107,7 @@ public final class PCTemplate extends PObject
 			{
 				return this.getDisplayName();
 			}
-			return "None";
+			return Constants.s_NONE;
 		}
 		return sr.toString();
 	}
@@ -114,6 +119,11 @@ public final class PCTemplate extends PObject
 	 */
 	public String getSubRegion()
 	{
+		/*
+		 * TODO This should be made type safe to return a SubRegion. Will
+		 * require a change in the SUBREGION token to suppress load of "None"
+		 * (corner case)
+		 */
 		SubRegion sr = get(ObjectKey.SUBREGION);
 		if (sr == null)
 		{
@@ -121,7 +131,7 @@ public final class PCTemplate extends PObject
 			{
 				return this.getDisplayName();
 			}
-			return "None";
+			return Constants.s_NONE;
 		}
 		return sr.toString();
 	}
