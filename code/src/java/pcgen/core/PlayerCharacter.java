@@ -98,6 +98,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.HandsFacet;
+import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
@@ -109,6 +110,7 @@ import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.WeightFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.FollowerLimit;
@@ -219,6 +221,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
+	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
+	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -336,7 +340,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// order in which the equipment will be output.
 	private int equipOutputOrder = GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC;
 	private int freeLangs = 0;
-	private int heightInInches = 0; // in inches
 
 	// pool of stats remaining to distribute
 	private int poolAmount = 0;
@@ -344,7 +347,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// order in which the skills will be output.
 	private int skillsOutputOrder = GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC;
 	private int spellLevelTemp = 0;
-	private int weightInPounds = 0; // in pounds
 	private VariableProcessor variableProcessor;
 
 	// used by point buy. Total number of points for method, not points
@@ -1907,7 +1909,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setHeight(final int i)
 	{
-		heightInInches = i;
+		heightFacet.setHeight(id, i);
 		setDirty(true);
 	}
 
@@ -1918,7 +1920,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getHeight()
 	{
-		return heightInInches;
+		return heightFacet.getHeight(id);
 	}
 
 	/**
@@ -3757,7 +3759,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setWeight(final int i)
 	{
-		weightInPounds = i;
+		weightFacet.setWeight(id, i);
 		setDirty(true);
 	}
 
@@ -3768,7 +3770,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getWeight()
 	{
-		return weightInPounds;
+		return weightFacet.getWeight(id);
 	}
 
 	public void setPointBuyPoints(final int argPointBuyPoints)
@@ -12344,6 +12346,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//aClone.langAutoFacet.copyContents(id, aClone.id);
 		aClone.startingLangFacet.copyContents(id, aClone.id);
 		aClone.classFacet.copyContents(id, aClone.id);
+		aClone.heightFacet.setHeight(aClone.id, heightFacet.getHeight(id));
+		aClone.weightFacet.setWeight(aClone.id, weightFacet.getWeight(id));
+		aClone.genderFacet.setGender(aClone.id, genderFacet.getGender(id));
 		for (PCClass cloneClass : aClone.classFacet.getClassSet(aClone.id))
 		{
 			cloneClass.addFeatPoolBonus(aClone);
@@ -12439,13 +12444,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.earnedXP = earnedXP;
 		aClone.equipOutputOrder = equipOutputOrder;
 		aClone.freeLangs = freeLangs;
-		aClone.heightInInches = heightInInches;
 		aClone.poolAmount = poolAmount;
 
 		// order in which the skills will be output.
 		aClone.skillsOutputOrder = skillsOutputOrder;
 		aClone.spellLevelTemp = spellLevelTemp;
-		aClone.weightInPounds = weightInPounds;
 		// Is this OK?
 		aClone.variableProcessor = new VariableProcessorPC(aClone);
 		aClone.pointBuyPoints = pointBuyPoints;
