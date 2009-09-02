@@ -1615,7 +1615,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		double startAdjust = rangeLevel == 0 ? 0 : startLevel / rangeLevel;
 
 		pool +=
-				Math.floor((this.getTotalCharacterLevel() >= startLevel) ? 1.0d
+				Math.floor((this.totalNonMonsterLevels() >= startLevel) ? 1.0d
 					+ pcpool - startAdjust + 0.0001 : pcpool + 0.0001);
 		pool += Math.floor(mpool + 0.0001);
 		pool += Math.floor(bonus + 0.0001);
@@ -4614,7 +4614,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (check != null)
 		{
-			totalClassLevels = getTotalCharacterLevel();
+			totalClassLevels = totalNonMonsterLevels();
 			if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
 			{
 				isEpic = true;
@@ -7498,7 +7498,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// Check for Epic
-		final int totalClassLevels = getTotalCharacterLevel();
+		final int totalClassLevels = totalNonMonsterLevels();
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
 		boolean isEpic = false;
@@ -10464,27 +10464,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return s;
-	}
-
-	/**
-	 * get the total number of character levels a character has. A character
-	 * level is any class level that is not a monster level
-	 * 
-	 * @return total character level
-	 */
-	private int getTotalCharacterLevel()
-	{
-		int total = 0;
-
-		for (PCClass pcClass : getClassSet())
-		{
-			if (!pcClass.isMonster())
-			{
-				total += getLevel(pcClass);
-			}
-		}
-
-		return total;
 	}
 
 	private HashMap<String, String> getTotalLevelHashMap()
