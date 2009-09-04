@@ -21,7 +21,6 @@
  */
 package pcgen.core.analysis;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -117,9 +116,7 @@ public final class SkillCostCalc
 			}
 		}
 
-		List<Equipment> eqList = new ArrayList<Equipment>(aPC
-				.getEquipmentList());
-		for (Equipment eq : eqList)
+		for (Equipment eq : aPC.getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{
@@ -270,7 +267,7 @@ public final class SkillCostCalc
 			}
 		}
 
-		for (Equipment eq : aPC.getEquipmentList())
+		for (Equipment eq : aPC.getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{

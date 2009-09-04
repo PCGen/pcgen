@@ -18,7 +18,6 @@
 package plugin.qualifier.armorprof;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 
@@ -56,22 +55,17 @@ public class EquipmentToken implements QualifierToken<ArmorProf>
 	public Set<ArmorProf> getSet(PlayerCharacter pc)
 	{
 		Set<ArmorProf> profs = new HashSet<ArmorProf>();
-		List<Equipment> equipment = pc.getEquipmentList();
-		if (equipment != null)
+		for (Equipment e : pc.getEquipmentSet())
 		{
-			for (Equipment e : equipment)
+			if (e.getListFor(ListKey.TYPE).contains(ARMOR_TYPE))
 			{
-				if (e.getListFor(ListKey.TYPE).contains(ARMOR_TYPE))
+				boolean allow = pcs == null || pcs.allow(pc, e);
+				if (allow ^ negated)
 				{
-					boolean allow = pcs == null || pcs.allow(pc, e);
-					if (allow ^ negated)
+					CDOMSingleRef<ArmorProf> prof = e.get(ObjectKey.ARMOR_PROF);
+					if (prof != null)
 					{
-						CDOMSingleRef<ArmorProf> prof = e
-								.get(ObjectKey.ARMOR_PROF);
-						if (prof != null)
-						{
-							profs.add(prof.resolvesTo());
-						}
+						profs.add(prof.resolvesTo());
 					}
 				}
 			}

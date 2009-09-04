@@ -67,11 +67,11 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements
 				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		if (!character.getEquipmentList().isEmpty())
+		if (character.hasEquipment())
 		{
 
 			final String targetEquip = prereq.getKey();
-			for (Equipment eq : character.getEquipmentList())
+			for (Equipment eq : character.getEquipmentSet())
 			{
 				if (!eq.isEquipped())
 				{

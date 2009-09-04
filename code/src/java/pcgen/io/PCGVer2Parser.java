@@ -2951,14 +2951,27 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		String genderString = EntityEncoder.decode(line.substring(TAG_GENDER
 				.length() + 1));
-		Gender gender = Gender.valueOf(genderString);
+		Gender gender;
+		if ("M".equals(genderString))
+		{
+			gender = Gender.Male;
+		}
+		else if ("F".equals(genderString))
+		{
+			gender = Gender.Female;
+		}
+		else
+		{
+			gender = Gender.valueOf(genderString);
+		}
 		thePC.setGender(gender);
 	}
 
 	/**
 	 * # HTML Output Sheet location
+	 * 
 	 * @param line
-	 **/
+	 */
 	private void parseHTMLOutputSheetLine(final String line)
 	{
 		String aFileName =

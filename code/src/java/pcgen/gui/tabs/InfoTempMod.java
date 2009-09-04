@@ -2396,7 +2396,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			// build the list of all equipment types
 			eqTypeList.add(Constants.s_CUSTOM);
 
-			for (Equipment bEq : pc.getEquipmentList())
+			for (Equipment bEq : pc.getEquipmentSet())
 			{
 				final StringTokenizer aTok =
 						new StringTokenizer(bEq.getType(), ".", false);
@@ -2563,7 +2563,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// iterate thru all PC's equipment objects
-				for (Equipment aEq : pc.getEquipmentList())
+				for (Equipment aEq : pc.getEquipmentSet())
 				{
 					for (BonusObj aBonus : aEq.getRawBonusList(pc))
 					{
@@ -2722,7 +2722,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				pc.setCalcEquipmentList(pc.getUseTempMods());
-				for (Equipment aEq : pc.getEquipmentList())
+				for (Equipment aEq : pc.getEquipmentSet())
 				{
 					found = false;
 

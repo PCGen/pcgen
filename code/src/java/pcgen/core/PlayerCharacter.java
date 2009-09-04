@@ -97,6 +97,7 @@ import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
+import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
@@ -209,6 +210,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
 	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
+	private EquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
+	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -272,9 +275,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// List of Equip Sets
 	private final List<EquipSet> equipSetList = new ArrayList<EquipSet>();
 
-	// List of Equipment
-	private List<Equipment> equipmentList = new ArrayList<Equipment>();
-	private List<Equipment> equipmentMasterList = new ArrayList<Equipment>();
 	private Map<String, Integer> autoEquipOutputOrderCache =
 			new HashMap<String, Integer>();
 	private List<PCLevelInfo> pcLevelInfo = new ArrayList<PCLevelInfo>();
@@ -437,6 +437,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				.getOrderSortedCDOMObjects(PCStat.class));
 		checkFacet.addAll(id, Globals.getContext().ref
 				.getOrderSortedCDOMObjects(PCCheck.class));
+		genderFacet.setGender(id, Gender.values()[0]);
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
@@ -694,11 +695,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		// new equipment list
-		final List<Equipment> eqList = new ArrayList<Equipment>();
-
 		// set PC's equipmentList to new one
-		setEquipmentList(eqList);
+		/*
+		 * TODO This "global reset" directly followed by testing in the
+		 * EquipSets and re-adding items as local equipment is something that
+		 * needs to be cleaned up
+		 */
+		equipmentFacet.removeAll(id);
 
 		// get all the PC's EquipSet's
 		final List<EquipSet> pcEquipSetList = getEquipSet();
@@ -846,7 +849,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// loop through all equipment and make sure that
 		// containers contents are updated
-		for (Equipment eq : getEquipmentList())
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.isContainer())
 			{
@@ -873,7 +876,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// this temporary bonus item comes from
 				// to make sure we keep them together
 				final Equipment anEquip =
-						getEquipmentNamed(eq.getName(), getEquipmentList());
+						getEquipmentNamed(eq.getName(), getEquipmentSet());
 
 				if (anEquip != null)
 				{
@@ -1442,23 +1445,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * List of Equipment objects
+	 * Get equipment set
 	 * 
-	 * @param eqList
+	 * @return equipment set
 	 */
-	public void setEquipmentList(final List<Equipment> eqList)
+	public Set<Equipment> getEquipmentSet()
 	{
-		equipmentList = eqList;
-	}
-
-	/**
-	 * Get equipment list
-	 * 
-	 * @return equipment list
-	 */
-	public List<Equipment> getEquipmentList()
-	{
-		return equipmentList;
+		return equipmentFacet.getSet(id);
 	}
 
 	/**
@@ -1471,7 +1464,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<Equipment> getEquipmentListInOutputOrder()
 	{
-		return sortEquipmentList(getEquipmentList());
+		return sortEquipmentList(getEquipmentSet(), Constants.MERGE_ALL);
 	}
 
 	/**
@@ -1488,7 +1481,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<Equipment> getEquipmentListInOutputOrder(final int merge)
 	{
-		return sortEquipmentList(getEquipmentList(), merge);
+		return sortEquipmentList(getEquipmentSet(), merge);
 	}
 
 	private List<Equipment> getAutoEquipmentList()
@@ -1522,8 +1515,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<Equipment> getEquipmentMasterList()
 	{
-		final List<Equipment> aList =
-				new ArrayList<Equipment>(equipmentMasterList);
+		Set<Equipment> set = userEquipmentFacet.getSet(id);
+		final List<Equipment> aList = new ArrayList<Equipment>(set);
 		aList.addAll(getAutoEquipmentList());
 		return aList;
 	}
@@ -1551,12 +1544,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aString
 	 *            The name of the equipment.
 	 * @param aList
-	 *            The list of equipment to search in.
+	 *            The Collection of equipment to search in.
 	 * 
 	 * @return The <tt>Equipment</tt> object or <tt>null</tt>
 	 */
 	public Equipment getEquipmentNamed(final String aString,
-		final List<Equipment> aList)
+		final Collection<Equipment> aList)
 	{
 		Equipment match = null;
 
@@ -3418,7 +3411,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		for (Equipment obj : equipmentList)
+		for (Equipment obj : getEquipmentSet())
 		{
 			final String eS =
 					checkForVariableInList(obj, variableString, isMax, found,
@@ -3791,12 +3784,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void addEquipment(final Equipment eq)
 	{
-		equipmentList.add(eq);
-
-		if (!equipmentMasterList.contains(eq))
-		{
-			equipmentMasterList.add(eq);
-		}
+		equipmentFacet.add(id, eq);
+		userEquipmentFacet.add(id, eq);
 
 		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
 		{
@@ -3900,7 +3889,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void addLocalEquipment(final Equipment eq)
 	{
-		equipmentList.add(eq);
+		equipmentFacet.add(id, eq);
 	}
 
 	public void addNotesItem(final NoteItem item)
@@ -4099,18 +4088,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public void equipmentListAddAll(final List<Equipment> aList)
-	{
-		if (aList.isEmpty())
-		{
-			return;
-		}
-
-		equipmentList.addAll(aList);
-		equipmentMasterList.addAll(aList);
-		setDirty(true);
-	}
-
 	public boolean hasVariable(final String variableString)
 	{
 		for (String var : variableList)
@@ -4147,14 +4124,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			delSpellBook(eq.getName());
 		}
 
-		equipmentList.remove(eq);
-		equipmentMasterList.remove(eq);
+		equipmentFacet.remove(id, eq);
+		userEquipmentFacet.remove(id, eq);
 		setDirty(true);
 	}
 
 	public void removeLocalEquipment(final Equipment eq)
 	{
-		equipmentList.remove(eq);
+		equipmentFacet.remove(id, eq);
 		setDirty(true);
 	}
 
@@ -4818,7 +4795,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<Equipment> aArrayList = new ArrayList<Equipment>();
 
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.typeStringContains(typeName)
 				&& (Constants.EMPTY_STRING.equals(subtypeName) || eq
@@ -5897,7 +5874,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Domains are skipped - it's assumed that their spells are added to the
 		// first divine spellcasting
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{
@@ -6667,7 +6644,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public List<Equipment> addEqType(final List<Equipment> aList,
 		final String aType)
 	{
-		for (Equipment eq : getEquipmentList())
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.typeStringContains(aType))
 			{
@@ -6708,7 +6685,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return;
 		}
-		equipmentListAddAll(weapons);
+		for (Equipment e : weapons)
+		{
+			addEquipment(e);
+		}
 		EquipSet eSet = getEquipSetByIdPath("0.1");
 		if (eSet != null)
 		{
@@ -7800,7 +7780,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (includeEquipment)
 		{
-			for (Equipment eq : equipmentList)
+			for (Equipment eq : getEquipmentSet())
 			{
 				if (eq.isEquipped())
 				{
@@ -8234,7 +8214,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		primaryWeapons.clear();
 		secondaryWeapons.clear();
 
-		if (equipmentList.isEmpty())
+		if (!hasEquipment())
 		{
 			return;
 		}
@@ -8242,7 +8222,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final List<Equipment> unequippedPrimary = new ArrayList<Equipment>();
 		final List<Equipment> unequippedSecondary = new ArrayList<Equipment>();
 
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (!eq.isWeapon() || (eq.getSlots(this) < 1))
 			{
@@ -8929,7 +8909,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int modToACFromEquipment()
 	{
 		int bonus = 0;
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{
@@ -8953,7 +8933,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int penaltyForLoad =
 				(Load.MEDIUM == load) ? -3 : (Load.HEAVY == load) ? -6 : 0;
 
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{
@@ -8975,7 +8955,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int modToSpellFailureFromEquipment()
 	{
 		int bonus = 0;
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{
@@ -9004,7 +8984,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// examined, then we should use the Maximum - Maximum Dex modifier.
 		boolean useMax = (load == Load.LIGHT);
 
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{
@@ -9589,12 +9569,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final Float floatZero = Float.valueOf(0);
 		boolean firstClothing = true;
 
-		if (equipmentList.isEmpty())
-		{
-			return floatZero;
-		}
-
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			// Loop through the list of top
 			if ((eq.getCarried().compareTo(floatZero) > 0)
@@ -10055,7 +10030,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		double bonus = 0;
 
-		if (equipmentList.isEmpty())
+		if (!hasEquipment())
 		{
 			return bonus;
 		}
@@ -10063,7 +10038,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aType = aType.toUpperCase();
 		aName = aName.toUpperCase();
 
-		for (Equipment eq : equipmentList)
+		for (Equipment eq : getEquipmentSet())
 		{
 			if (eq.isEquipped())
 			{
@@ -10763,9 +10738,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(domainFacet.getSet(id));
 
 		// Equipment
-		final List<Equipment> eqList =
-				new ArrayList<Equipment>(getEquipmentList());
-		for (Equipment eq : eqList)
+		for (Equipment eq : equipmentFacet.getSet(id))
 		{
 			// Include natural weapons by default as they have an effect even if
 			// not equipped.
@@ -11902,38 +11875,22 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @param unsortedEquipList
 	 *            An ArrayList of the equipment to be sorted.
-	 * @return An ArrayList of the equipment objects in output order.
-	 */
-	private List<Equipment> sortEquipmentList(
-		final List<Equipment> unsortedEquipList)
-	{
-		return sortEquipmentList(unsortedEquipList, Constants.MERGE_ALL);
-	}
-
-	/**
-	 * Sorts the provided list of equipment in output order. This is in
-	 * ascending order of the equipment's outputIndex field. If multiple items
-	 * of equipment have the same outputIndex they will be ordered by name. Note
-	 * hidden items (outputIndex = -1) are not included in list.
-	 * 
-	 * @param unsortedEquipList
-	 *            An ArrayList of the equipment to be sorted.
 	 * @param merge
 	 *            How to merge.
 	 * @return An ArrayList of the equipment objects in output order.
 	 */
 	private List<Equipment> sortEquipmentList(
-		final List<Equipment> unsortedEquipList, final int merge)
+		final Collection<Equipment> unsortedEquip, final int merge)
 	{
-		if (unsortedEquipList.isEmpty())
+		if (unsortedEquip.isEmpty())
 		{
-			return unsortedEquipList;
+			return Collections.emptyList();
 		}
 
 		// Merge list for duplicates
 		// The sorting is done during the Merge
 		final List<Equipment> sortedList =
-				CoreUtility.mergeEquipmentList(unsortedEquipList, merge);
+				CoreUtility.mergeEquipmentList(unsortedEquip, merge);
 
 		// Remove the hidden items from the list
 		for (Iterator<Equipment> i = sortedList.iterator(); i.hasNext();)
@@ -12238,6 +12195,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
 		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
 		aClone.languageFacet.copyContents(id, aClone.id);
+		aClone.equipmentFacet.addAll(aClone.id, equipmentFacet.getSet(id));
+		aClone.userEquipmentFacet.addAll(aClone.id, userEquipmentFacet.getSet(id));
+		//aClone.userEquipmentFacet.copyContents(id, aClone.id);
 		aClone.freeLangFacet.copyContents(id, aClone.id);
 		aClone.addLangFacet.copyContents(id, aClone.id);
 		aClone.skillLangFacet.copyContents(id, aClone.id);
@@ -12266,8 +12226,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.addEquipSet((EquipSet) eqSet.clone());
 		}
-		aClone.equipmentList.addAll(equipmentList);
-		aClone.equipmentMasterList.addAll(equipmentMasterList);
 		for (PCLevelInfo info : pcLevelInfo)
 		{
 			aClone.pcLevelInfo.add(info.clone());
@@ -14391,7 +14349,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			.hasNext();)
 		{
 			Equipment wpn = iterator.next();
-			if (equipmentList.contains(wpn))
+			if (equipmentFacet.contains(id, wpn))
 			{
 				iterator.remove();
 			}
@@ -15875,6 +15833,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		classFacet.setLevel(id, pcc, level);
 	}
 
+	public boolean hasEquipment()
+	{
+		return !equipmentFacet.isEmpty(id);
+	}
+
 	/*
 	 * These are present here because they (1) Should be contained within
 	 * PlayerCharacter (2) Should disappear once LanguageFacet can be reused
@@ -15887,5 +15850,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public static class SkillLanguageFacet extends LanguageFacet {}
 
 	public static class StartingLanguageFacet extends LanguageFacet {}
+
+	public static class UserEquipmentFacet extends EquipmentFacet {}
 
 }

@@ -66,7 +66,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 
 		int runningTotal = 0;
 
-		if (!character.getEquipmentList().isEmpty())
+		if (character.hasEquipment())
 		{
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();
@@ -76,7 +76,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 				typeList = CoreUtility.split(aString.substring(5), '.');
 			}
 
-			for (Equipment eq : character.getEquipmentList())
+			for (Equipment eq : character.getEquipmentSet())
 			{
 				if (typeList != null)
 				{

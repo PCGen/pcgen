@@ -18,7 +18,6 @@
 package plugin.qualifier.weaponprof;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 
@@ -56,22 +55,18 @@ public class EquipmentToken implements QualifierToken<WeaponProf>
 	public Set<WeaponProf> getSet(PlayerCharacter pc)
 	{
 		Set<WeaponProf> profs = new HashSet<WeaponProf>();
-		List<Equipment> equipment = pc.getEquipmentList();
-		if (equipment != null)
+		for (Equipment e : pc.getEquipmentSet())
 		{
-			for (Equipment e : equipment)
+			if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
 			{
-				if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))
+				boolean allow = pcs == null || pcs.allow(pc, e);
+				if (allow ^ negated)
 				{
-					boolean allow = pcs == null || pcs.allow(pc, e);
-					if (allow ^ negated)
+					CDOMSingleRef<WeaponProf> prof = e
+							.get(ObjectKey.WEAPON_PROF);
+					if (prof != null)
 					{
-						CDOMSingleRef<WeaponProf> prof = e
-								.get(ObjectKey.WEAPON_PROF);
-						if (prof != null)
-						{
-							profs.add(prof.resolvesTo());
-						}
+						profs.add(prof.resolvesTo());
 					}
 				}
 			}

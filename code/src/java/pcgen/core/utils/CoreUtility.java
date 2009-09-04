@@ -26,6 +26,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -416,41 +417,33 @@ public final class CoreUtility
 		return in.replaceAll(Pattern.quote("&#59;"), ":");
 	}
 
-	public static List<Equipment> cloneEquipmentInList(
-			final Iterable<Equipment> aList)
-	{
-		final List<Equipment> workingList = new ArrayList<Equipment>();
-
-		for (final Equipment eq : aList)
-		{
-			workingList.add(eq.clone());
-		}
-		return workingList;
-	}
-
 	/**
 	 * Merge the equipment list
 	 * 
 	 * @param aList
-	 *            the list of Equipment
+	 *            the collection of Equipment
 	 * @param merge
 	 *            The type of merge to perform
 	 * 
 	 * @return merged list
 	 */
 	public static List<Equipment> mergeEquipmentList(
-			final List<Equipment> aList, final int merge)
+			final Collection<Equipment> equip, final int merge)
 	{
-		Collections.sort(aList, equipmentComparator);
+		List<Equipment> workingList = new ArrayList<Equipment>();
+		for (Equipment e : equip)
+		{
+			workingList.add(e.clone());
+		}
+		Collections.sort(workingList, equipmentComparator);
+		 
 
 		// no merging, just sorting (calling this is really stupid,
 		// just use the sort above)
 		if (merge == Constants.MERGE_NONE)
 		{
-			return aList;
+			return workingList;
 		}
-
-		final List<Equipment> workingList = cloneEquipmentInList(aList);
 
 		int endIndex = workingList.size();
 
