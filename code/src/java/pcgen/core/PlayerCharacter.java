@@ -104,6 +104,7 @@ import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
+import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
@@ -227,6 +228,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
+	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -249,7 +251,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// List of VARs
 	private final ArrayList<String> variableList = new ArrayList<String>();
-	private BigDecimal gold = new BigDecimal(0);
 
 	private ClassSource defaultDomainSource = null;
 
@@ -312,12 +313,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	// Should we sort the gear automatically?
 	private boolean autoSortGear = true;
-
-	// Should we ignore cost for gear?
-	private boolean ignoreCost = SettingsHandler.getGearTab_IgnoreCost();
-
-	// Should we allow the character to go into debt?
-	private boolean allowDebt = SettingsHandler.getGearTab_AllowDebt();
 
 	// Should we resize the gear automatically?
 	private boolean autoResize = SettingsHandler.getGearTab_AutoResize();
@@ -1813,7 +1808,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setGold(final String aString)
 	{
-		gold = new BigDecimal(aString);
+		moneyFacet.setGold(id, new BigDecimal(aString));
 		setDirty(true);
 	}
 
@@ -1826,7 +1821,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public BigDecimal getGold()
 	{
-		return gold;
+		return moneyFacet.getGold(id);
 	}
 
 	/**
@@ -4186,7 +4181,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean isAllowDebt()
 	{
-		return allowDebt;
+		return moneyFacet.isAllowDebt(id);
 	}
 
 	/**
@@ -4194,7 +4189,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setAllowDebt(boolean allowDebt)
 	{
-		this.allowDebt = allowDebt;
+		moneyFacet.setAllowDebt(id, allowDebt);
 	}
 
 	public String getAttackString(AttackType at)
@@ -4482,7 +4477,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean isIgnoreCost()
 	{
-		return ignoreCost;
+		return moneyFacet.isIgnoreCost(id);
 	}
 
 	/**
@@ -4490,7 +4485,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setIgnoreCost(boolean ignoreCost)
 	{
-		this.ignoreCost = ignoreCost;
+		moneyFacet.setIgnoreCost(id, ignoreCost);
 	}
 
 	/**
@@ -7301,10 +7296,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void adjustGold(final double delta)
 	{
-		// I don't really like this hack, but setScale just won't work right...
-		gold =
-				new BigDecimal(gold.doubleValue() + delta).divide(
-					BigDecimal.ONE, 2, BigDecimal.ROUND_HALF_EVEN);
+		moneyFacet.adjustGold(id, delta);
 		setDirty(true);
 	}
 
@@ -12284,8 +12276,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.variableList.add(s);
 		}
-		aClone.gold = new BigDecimal(gold.toString());
-		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.domainFacet.addAll(aClone.id, domainFacet.getSet(id));
 		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
 		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
@@ -12301,6 +12291,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//aClone.langAutoFacet.copyContents(id, aClone.id);
 		aClone.startingLangFacet.copyContents(id, aClone.id);
 		aClone.classFacet.copyContents(id, aClone.id);
+		aClone.regionFacet.copyContents(id, aClone.id);
+		aClone.moneyFacet.copyContents(id, aClone.id);
 		aClone.heightFacet.setHeight(aClone.id, heightFacet.getHeight(id));
 		aClone.weightFacet.setWeight(aClone.id, weightFacet.getWeight(id));
 		aClone.genderFacet.setGender(aClone.id, genderFacet.getGender(id));
