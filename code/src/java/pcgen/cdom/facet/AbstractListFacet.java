@@ -41,16 +41,21 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 
 	public void add(CharID id, T obj)
 	{
-		getConstructingCachedSet(id).add(obj);
-		fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+		if (getConstructingCachedSet(id).add(obj))
+		{
+			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+		}
 	}
 
 	public void addAll(CharID id, Collection<T> c)
 	{
-		getConstructingCachedSet(id).addAll(c);
+		Set<T> set = getConstructingCachedSet(id);
 		for (T obj : c)
 		{
-			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			if (set.add(obj))
+			{
+				fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			}
 		}
 	}
 
