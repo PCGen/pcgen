@@ -88,6 +88,7 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.AlignmentFacet;
+import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CampaignFacet;
 import pcgen.cdom.facet.ChallengeRatingFacet;
@@ -207,6 +208,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
+	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -10740,7 +10742,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// armorProfList is still just a list of Strings
 		// results.addAll(getArmorProfList());
 		// BioSet
-		results.add(Globals.getBioSet());
+		results.add(bioSetFacet.get(id));
 
 		results.addAll(checkFacet.getSet(id));
 
