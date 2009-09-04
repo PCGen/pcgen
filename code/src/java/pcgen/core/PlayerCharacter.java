@@ -378,8 +378,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * These are abilities that are added directly to the character rather than 
 	 * being added to a class, template etc that the character possesses. 
 	 */
-	private Map<Category<Ability>, List<Ability>> realAbilities =
-			new HashMap<Category<Ability>, List<Ability>>();
+	private HashMapToList<Category<Ability>, Ability> realAbilities =
+			new HashMapToList<Category<Ability>, Ability>();
 
 	/**
 	 * List of all directly assigned virtual nature abilities split by category. 
@@ -12984,13 +12984,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return false;
 		}
 		anAbility.setAbilityNature(Nature.NORMAL);
-		List<Ability> abilities = realAbilities.get(aCategory);
-		if (abilities == null)
-		{
-			abilities = new ArrayList<Ability>();
-			realAbilities.put(aCategory, abilities);
-		}
-		abilities.add(anAbility);
+		realAbilities.addToListFor(aCategory, anAbility);
 		return true;
 	}
 
@@ -13309,12 +13303,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean removeRealAbility(final AbilityCategory aCategory,
 		final Ability anAbility)
 	{
-		final List<Ability> abilities = realAbilities.get(aCategory);
-		if (abilities == null)
-		{
-			return false;
-		}
-		return abilities.remove(anAbility);
+		return realAbilities.removeFromListFor(aCategory, anAbility);
 	}
 
 	public void adjustFeats(final double arg)
@@ -13501,7 +13490,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		double iCount = 0;
 
-		List<Ability> abilities = realAbilities.get(AbilityCategory.FEAT);
+		List<Ability> abilities = realAbilities.getListFor(AbilityCategory.FEAT);
 		if (abilities == null)
 		{
 			return 0;
@@ -14156,10 +14145,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				if (nature != Nature.ANY)
 				{
 					List<Ability> abilities = new ArrayList<Ability>();
-					if (nature == Nature.NORMAL
-						&& realAbilities.get(cat) != null)
+					if (nature == Nature.NORMAL)
 					{
-						abilities.addAll(realAbilities.get(cat));
+						List<Ability> abilityList = realAbilities.getListFor(cat);
+						if (abilityList != null)
+						{
+							abilities.addAll(abilityList);
+						}
 					}
 					else if (nature == Nature.VIRTUAL)
 					{
