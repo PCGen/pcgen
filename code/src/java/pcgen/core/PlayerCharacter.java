@@ -89,6 +89,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.CampaignFacet;
 import pcgen.cdom.facet.ChallengeRatingFacet;
 import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
@@ -170,7 +171,6 @@ import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Delta;
@@ -206,6 +206,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
+	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -10727,11 +10728,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final ArrayList<PObject> results = new ArrayList<PObject>();
 
 		// Loaded campaigns
-		for (Campaign campaign : PersistenceManager.getInstance().getLoadedCampaigns())
-		{
-			results.add(campaign);
-			results.addAll(campaign.getSubCampaigns());
-		}
+		results.addAll(campaignFacet.getSet(id));
 
 		// Alignment
 		PCAlignment align = alignmentFacet.get(id);
