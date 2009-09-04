@@ -67,7 +67,6 @@ import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
@@ -90,6 +89,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.ChallengeRatingFacet;
 import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.CompanionModFacet;
@@ -229,6 +229,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
+	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -7696,39 +7697,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public float calcCR()
 	{
-		float CR = 0;
-
-		// Calculate and add the CR from the PC Classes
-		for (PCClass pcClass : getClassSet())
-		{
-			CR += pcClass.calcCR(this);
-		}
-
-		// Calculate and add the CR from the templates 
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			CR += template.getCR(getTotalLevels(), totalHitDice());
-		}
-
-		// Calculate and add the CR from race
-		ChallengeRating cr = getRace().getSafe(ObjectKey.CHALLENGE_RATING);
-		final float raceCR = cr.getRating().resolve(this, "").floatValue();
-		// If the total CR to date is 0 then add race CR, e.g.  A Lizard has CR of 1/2
-		if (CR == 0)
-		{
-			CR += raceCR;
-		}
-		// Else if the total CR so far is 1 or greater and the race CR is greater
-		// than or equal to 1 then add the race CR
-		else if (CR >= 1 && raceCR >= 1)
-		{
-			CR += raceCR;
-		}
-
-		// Calculate and add in the MISC bonus to CR
-		CR += (float) getTotalBonusTo("MISC", "CR");
-
-		return CR;
+		return crFacet.getCR(id);
 	}
 
 	/**

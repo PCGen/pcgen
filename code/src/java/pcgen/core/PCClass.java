@@ -31,7 +31,6 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -40,7 +39,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
@@ -908,41 +906,6 @@ public class PCClass extends PObject
 		{
 			return null;
 		}
-	}
-
-	/*
-	 * FORMULAREFACTOR This situation may no longer need a formula to calculate
-	 * the Challenge Rating of the PCClass, due to the fact that the challenge
-	 * rating may be level based. That is not to say it won't be required, but
-	 * may be avoided?? Not necessarily, because a ClassType of NPC still uses a
-	 * Formula that can't be resolved.
-	 */
-	/*
-	 * REFACTOR I don't like the fact that this method is accessing the
-	 * ClassTypes and using one of those to set one of its variables. Should
-	 * this be done when a PCClassLevel is built? Is that possible?
-	 */
-	public float calcCR(final PlayerCharacter aPC)
-	{
-		Formula cr = get(FormulaKey.CR);
-		if (cr == null)
-		{
-			for (Type type : getTrueTypeList(false))
-			{
-				final ClassType aClassType =
-						SettingsHandler.getGame().getClassTypeByName(type.toString());
-				if (aClassType != null)
-				{
-					String crf = aClassType.getCRFormula();
-					if (!"0".equals(crf))
-					{
-						cr = FormulaFactory.getFormulaFor(crf);
-					}
-				}
-			}
-		}
-
-		return cr == null ? 0 : cr.resolve(aPC, getQualifiedKey()).floatValue();
 	}
 
 	@Override
