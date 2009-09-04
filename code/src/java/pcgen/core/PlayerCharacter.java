@@ -161,7 +161,6 @@ import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.core.utils.CoreUtility;
@@ -11431,21 +11430,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Check if the character has the named Deity.
+	 * Check if the character has the given Deity.
 	 * 
-	 * @param deityName
-	 *            String name of the deity to check for.
+	 * @param deity
+	 *            Deity to check for.
 	 * @return <code>true</code> if the character has the Deity,
 	 *         <code>false</code> otherwise.
 	 */
-	public boolean hasDeity(final String deityName)
+	public boolean hasDeity(final Deity deity)
 	{
-		final Prerequisite prereq = new Prerequisite();
-		prereq.setKind("DEITY");
-		prereq.setOperand(deityName);
-		prereq.setOperator(PrerequisiteOperator.EQ);
-
-		return PrereqHandler.passes(prereq, this, null);
+		return deityFacet.matches(id, deity);
 	}
 
 	private boolean includeSkill(final Skill skill, final int level)

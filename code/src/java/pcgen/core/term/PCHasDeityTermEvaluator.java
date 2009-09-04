@@ -26,19 +26,22 @@
 
 package pcgen.core.term;
 
+import pcgen.core.Deity;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 
 public class PCHasDeityTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	private final String deity;
+	private final Deity deity;
 
 	public PCHasDeityTermEvaluator(
 			String originalText,
 			String deity)
 	{
 		this.originalText = originalText;
-		this.deity        = deity;
+		this.deity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Deity.class, deity);
 	}
 
 	@Override
