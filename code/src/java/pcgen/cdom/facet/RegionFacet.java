@@ -158,4 +158,15 @@ public class RegionFacet
 		public SubRegion subregion;
 	}
 
+	public void copyContents(CharID source, CharID destination)
+	{
+		RegionCacheInfo sourceRCI = getInfo(source);
+		if (sourceRCI != null)
+		{
+			RegionCacheInfo destRCI = getConstructingInfo(destination);
+			destRCI.region = sourceRCI.region;
+			destRCI.subregion = sourceRCI.subregion;
+		}
+	}
+
 }
