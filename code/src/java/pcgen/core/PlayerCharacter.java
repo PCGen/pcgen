@@ -110,6 +110,7 @@ import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
+import pcgen.cdom.facet.ReachFacet;
 import pcgen.cdom.facet.RegionFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
@@ -234,6 +235,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
 	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
+	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -14616,24 +14618,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getReach()
 	{
-		final Race aRace = getRace();
-		int reach = 0;
-		if (aRace != null)
-		{
-			reach = aRace.getSafe(IntegerKey.REACH);
-		}
-
-		// Scan templates for any overrides
-		for (PCTemplate template : getTemplateSet())
-		{
-			Integer r = template.get(IntegerKey.REACH);
-			if (r != null)
-			{
-				reach = r;
-			}
-		}
-		reach += (int) getTotalBonusTo("COMBAT", "REACH");
-		return reach;
+		return reachFacet.getReach(id);
 	}
 
 	/**
