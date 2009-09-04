@@ -101,10 +101,12 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.HandsFacet;
 import pcgen.cdom.facet.HeightFacet;
+import pcgen.cdom.facet.InitiativeFacet;
 import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.MoneyFacet;
+import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RacialSubTypesFacet;
@@ -230,6 +232,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
 	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
+	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
+	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -2474,18 +2478,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int getNonProficiencyPenalty()
 	{
-		int npp = Globals.getGameModeNonProfPenalty();
-
-		for (PCTemplate t : templateFacet.getSet(id))
-		{
-			Integer temp = t.get(IntegerKey.NONPP);
-			if (temp != null)
-			{
-				npp = temp;
-			}
-		}
-
-		return npp;
+		return nonppFacet.getPenalty(id);
 	}
 
 	/**
@@ -8633,11 +8626,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public int initiativeMod()
 	{
-		final int initmod =
-				(int) getTotalBonusTo("COMBAT", "Initiative")
-					+ getVariableValue("INITCOMP", "").intValue();
-
-		return initmod;
+		return initiativeFacet.getInitiative(id);
 	}
 
 	/**
