@@ -88,19 +88,14 @@ public class AbilityUtilities
 	 *
 	 * @return the Ability added, or null if Ability was not added to the list.
 	 */
-	public static Ability addCloneOfAbilityToListwithChoices(
-		PlayerCharacter pc,
+	public static Ability addCloneOfAbilityToVirtualListwithChoices(
+		PlayerCharacter pc, 
 		final Ability anAbility,
-		final List<String>    choices, final List<Ability>    addList)
+		final List<String>    choices, AbilityCategory cat)
 	{
 		Ability newAbility = null;
 
-		/*
-		 * TODO I believe this is a bug, but need to check.  This implies that anything
-		 * that is MULT:YES and is added virtually is added without cause for whether it stacks
-		 * - thpr Jul 24 08
-		 */
-		if (anAbility != null && (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED) || getAbilityFromList(addList, anAbility) == null))
+		if (needToAddVirtualAbility(pc, cat, anAbility))
 		{
 			newAbility = anAbility.clone();
 
@@ -108,9 +103,27 @@ public class AbilityUtilities
 			{
 				addChoicesToAbility(pc, newAbility, choices);
 			}
-			addList.add(newAbility);
+			pc.addUserVirtualAbility(cat, newAbility);
 		}
 		return newAbility;
+	}
+
+	private static boolean needToAddVirtualAbility(PlayerCharacter pc, AbilityCategory cat, Ability anAbility)
+	{
+		if(anAbility == null)
+		{
+			return false;
+		}
+		/*
+		 * TODO I believe this is a bug, but need to check.  This implies that anything
+		 * that is MULT:YES and is added virtually is added without cause for whether it stacks
+		 * - thpr Jul 24 08
+		 */
+		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			return true;
+		}
+		return !pc.hasUserVirtualAbility(cat, anAbility);
 	}
 
 
@@ -198,7 +211,7 @@ public class AbilityUtilities
 	public static Ability addVirtualAbility(
 		final Ability     anAbility,
 		final List<String>        choices,
-		final List<Ability>        addList,
+		final AbilityCategory cat,
 		PlayerCharacter pc, final PCLevelInfo levelInfo)
 	{
 		if (anAbility == null)
@@ -206,7 +219,7 @@ public class AbilityUtilities
 			return null;
 		}
 
-		final Ability newAbility = addCloneOfAbilityToListwithChoices(pc, anAbility, choices, addList);
+		final Ability newAbility = addCloneOfAbilityToVirtualListwithChoices(pc, anAbility, choices, cat);
 
 		if (newAbility != null)
 		{
@@ -236,14 +249,14 @@ public class AbilityUtilities
 	public static Ability addVirtualAbility(
 		final String          category,
 		final String          aFeatKey,
-		final List<Ability>   abilityList,
+		final AbilityCategory   cat,
 		PlayerCharacter pc, final PCLevelInfo     levelInfo)
 	{
 		final List<String> choices = new ArrayList<String>();
 		final String    abilityKey      = getUndecoratedName(aFeatKey, choices);
 		final Ability   anAbility       = Globals.getAbilityKeyed(category, abilityKey);
 
-		return addVirtualAbility(anAbility, choices, abilityList, pc, levelInfo);
+		return addVirtualAbility(anAbility, choices, cat, pc, levelInfo);
 	}
 
 
@@ -1312,9 +1325,8 @@ public class AbilityUtilities
 			final List<String> choiceList = new ArrayList<String>();
 			choiceList.add(choice);
 	
-			List<Ability> aList = aPC.getDirectVirtualAbilities(abilityCat);
 			final Ability pcAbility = addVirtualAbility(ab,
-					choiceList, aList, aPC, pcLevelInfo);
+					choiceList, abilityCat, aPC, pcLevelInfo);
 	
 			aPC.setDirty(true);
 	

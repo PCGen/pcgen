@@ -298,7 +298,7 @@ public class VFeatToken extends AbstractToken implements
 	{
 		String featName = choice.getFullAbilityKey();
 		final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT",
-				featName, pc.getDirectVirtualAbilities(AbilityCategory.FEAT),
+				featName, AbilityCategory.FEAT,
 				pc, null);
 		pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, aFeat);
 		pc.setDirty(true);

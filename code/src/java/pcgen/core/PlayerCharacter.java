@@ -386,8 +386,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * These are abilities that are added directly to the character rather than 
 	 * being added to a class, template etc that the character possesses. 
 	 */
-	private Map<AbilityCategory, List<Ability>> virtualAbilities =
-			new HashMap<AbilityCategory, List<Ability>>();
+	private HashMapToList<AbilityCategory, Ability> virtualAbilities =
+			new HashMapToList<AbilityCategory, Ability>();
 
 	/**
 	 * This map stores any user bonuses (entered through the GUI) to the
@@ -11759,17 +11759,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			// remove this object from the feats lists
-			for (Iterator<Ability> iterator =
-					getDirectVirtualAbilities(AbilityCategory.FEAT).iterator(); iterator
-				.hasNext();)
-			{
-				final Ability feat = iterator.next();
-				if (object == feat)
-				{
-					iterator.remove();
-				}
-			}
+			virtualAbilities.removeFromListFor(AbilityCategory.FEAT, object);
 		}
 	}
 
@@ -13327,24 +13317,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return abilities.remove(anAbility);
 	}
 
-	/**
-	 * Retrieve the list of directly added virtual abilities of a particular 
-	 * category.
-	 * @param aCategory The category of the abilities.
-	 * @return The list of abilities.
-	 */
-	public List<Ability> getDirectVirtualAbilities(
-		final AbilityCategory aCategory)
-	{
-		List<Ability> aList = virtualAbilities.get(aCategory);
-		if (aList == null)
-		{
-			aList = new ArrayList<Ability>();
-			virtualAbilities.put(aCategory, aList);
-		}
-		return aList;
-	}
-
 	public void adjustFeats(final double arg)
 	{
 		if (allowFeatPoolAdjustment)
@@ -14191,11 +14163,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					}
 					else if (nature == Nature.VIRTUAL)
 					{
-						for (Ability ability : getDirectVirtualAbilities(cat))
+						List<Ability> abilityList = virtualAbilities.getListFor(cat);
+						if (abilityList != null)
 						{
-							if (ability.qualifies(this))
+							for (Ability ability : abilityList)
 							{
-								abilities.add(ability);
+								if (ability.qualifies(this))
+								{
+									abilities.add(ability);
+								}
 							}
 						}
 					}
@@ -15852,5 +15828,23 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public static class StartingLanguageFacet extends LanguageFacet {}
 
 	public static class UserEquipmentFacet extends EquipmentFacet {}
+
+	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
+	{
+		List<Ability> list = virtualAbilities.getListFor(cat);
+		for (Ability ability : list)
+		{
+			if (AbilityUtilities.areSameAbility(ability, abilityInfo))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
+	{
+		virtualAbilities.addToListFor(cat, newAbility);
+	}
 
 }
