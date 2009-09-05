@@ -596,4 +596,25 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		return localMap;
 	}
 
+	/**
+	 * Returns true if the DoubleKeyMap is empty
+	 * 
+	 * @return true if the DoubleKeyMap is empty; false otherwise
+	 * 
+	 * @deprecated Would be nice to get rid of this since it's rather expensive
+	 *             and may indicate other issues if this is required
+	 */
+	public int deepSize()
+	{
+		int size = 0;
+		for (K1 key1 : mtmtl.keySet())
+		{
+			for (K2 key2 : getSecondaryKeySet(key1))
+			{
+				size += sizeOfListFor(key1, key2);
+			}
+		}
+		return size;
+	}
+
 }

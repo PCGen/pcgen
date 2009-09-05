@@ -24,17 +24,18 @@
  */
 package pcgen.core;
 
-import pcgen.PCGenTestCase;
-import pcgen.util.TestHelper;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.util.TestHelper;
 
 /**
  * @author andrew
  *
  */
-public class AbilityUtilitiesTest extends PCGenTestCase
+public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 {
 
 	/**
@@ -90,19 +91,21 @@ public class AbilityUtilitiesTest extends PCGenTestCase
 		child.setAbilityTypes(typeList);
 		SettingsHandler.getGame().addLstAbilityCategory(child);
 		
+		PlayerCharacter character = getCharacter();
+		
 		// Create ability in parent with child's type
 		Ability ability = TestHelper.makeAbility("TestAbility", "TestParent", "Australian");
-		
+
 		// Call addCloneOfGlobalAbilityToListWithChoices with parent and expect to see it in list
-		List<Ability> testList = new ArrayList<Ability>();
-		assertNotNull("Add in parent cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(null, testList, "TestParent", "KEY_TestAbility"));
+		assertNotNull("Add in parent cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(character, parent, Nature.VIRTUAL, "KEY_TestAbility"));
+		List<Ability> testList = character.getAbilityList(parent, Nature.VIRTUAL);
 		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
 		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).getKeyName());
 		assertNotSame("Should be a clone, not the same object", ability, testList.get(0));
 		
 		// Call addCloneOfGlobalAbilityToListWithChoices with child and expect to see it in list
-		testList.clear();
-		assertNotNull("Add in child cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(null, testList, "TestChild", "KEY_TestAbility"));
+		assertNotNull("Add in child cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(character, child, Nature.VIRTUAL, "KEY_TestAbility"));
+		testList = character.getAbilityList(parent, Nature.VIRTUAL);
 		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
 		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).getKeyName());
 		assertNotSame("Should be a clone, not the same object", ability, testList.get(0));

@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -142,15 +143,14 @@ public class AbilityUtilities
 	 */
 	public static Ability addCloneOfGlobalAbilityToListWithChoices(
 			PlayerCharacter pc,
-			final List<Ability>   theAbilityList,
-			final String category, final String abilityName)
+			AbilityCategory cat, Nature nature,
+			final String abilityName)
 	{
 		final Collection<String> choices = new ArrayList<String>();
 		getUndecoratedName(abilityName, choices);
 
-		AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(category);
-
-		Ability anAbility = getAbilityFromList(theAbilityList, cat.getAbilityCategory(), abilityName, Nature.ANY);
+		Ability anAbility = getAbilityFromList(pc.getAbilityList(cat, nature),
+				cat.getAbilityCategory(), abilityName, Nature.ANY);
 
 		if (anAbility == null)
 		{
@@ -158,7 +158,7 @@ public class AbilityUtilities
 
 			if (anAbility != null)
 			{
-				theAbilityList.add(anAbility);
+				pc.addAbility(cat, nature, anAbility);
 			}
 		}
 
@@ -539,12 +539,15 @@ public class AbilityUtilities
 		final Categorisable abilityInfo,
 		final Nature           abilityType)
 	{
-		for ( Ability ability : anAbilityList )
+		if (anAbilityList != null)
 		{
-			if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
-					((abilityType == Nature.ANY) || (ability.getAbilityNature() == abilityType)))
+			for ( Ability ability : anAbilityList )
 			{
-				return ability;
+				if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
+						((abilityType == Nature.ANY) || (ability.getAbilityNature() == abilityType)))
+				{
+					return ability;
+				}
 			}
 		}
 
@@ -1223,13 +1226,13 @@ public class AbilityUtilities
 		PlayerCharacter pc,
 		final Ability anAbility,
 		final List<String>    choices,
-		final List<Ability>    addList)
+		Category<Ability> cat, Nature nature)
 	{
-		Ability abil = getAbilityFromList(addList, anAbility);
+		Ability abil = getAbilityFromList(pc.getAbilityList(cat, nature), anAbility);
 		if (abil == null)
 		{
 			abil = anAbility.clone();
-			addList.add(abil);
+			pc.addAbility(cat, nature, abil);
 		}
 
 		if (choices != null)

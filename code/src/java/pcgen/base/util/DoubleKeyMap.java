@@ -23,7 +23,6 @@
  */
 package pcgen.base.util;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -476,37 +475,6 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 			return localMap.values().remove(obj);
 		}
 		return false;
-	}
-
-	/**
-	 * Returns true if the DoubleKeyMap is empty
-	 * 
-	 * @return true if the DoubleKeyMap is empty; false otherwise
-	 * 
-	 * @deprecated This is bad form in checking for Collection - I mean, should
-	 *             this be infinitely recursive? Users who are using Collection
-	 *             should really be using DoubleKeyMapToList and adding deepSize
-	 *             in that class
-	 */
-	public int deepSize()
-	{
-		int size = 0;
-		for (K1 key1 : map.keySet())
-		{
-			for (K2 key2 : getSecondaryKeySet(key1))
-			{
-				Object val = get(key1, key2);
-				if (val instanceof Collection)
-				{
-					size += ((Collection<?>) val).size();
-				}
-				else
-				{
-					size++;
-				}
-			}
-		}
-		return size;
 	}
 
 	/**
