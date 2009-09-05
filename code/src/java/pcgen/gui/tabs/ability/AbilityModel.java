@@ -34,6 +34,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
@@ -478,15 +479,18 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			{
 				PObjectNode aFN = new PObjectNode();
 				aFN.setParent(root);
-
-				switch (ability.getAbilityNature())
+				Nature nature = thePC.getAbilityNature(ability);
+				if (nature != null)
 				{
-					case AUTOMATIC:
-						aFN.setColor(SettingsHandler.getFeatAutoColor());
-						break;
-					case VIRTUAL:
-						aFN.setColor(SettingsHandler.getFeatVirtualColor());
-						break;
+					switch (nature)
+					{
+						case AUTOMATIC:
+							aFN.setColor(SettingsHandler.getFeatAutoColor());
+							break;
+						case VIRTUAL:
+							aFN.setColor(SettingsHandler.getFeatVirtualColor());
+							break;
+					}
 				}
 
 				aFN.setItem(ability);
@@ -701,14 +705,18 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		newNode.setItem(ability);
 		newNode.setParent(parent);
 
-		switch (ability.getAbilityNature())
+		Nature nature = thePC.getAbilityNature(ability);
+		if (nature != null)
 		{
+			switch (nature)
+			{
 			case AUTOMATIC:
 				newNode.setColor(SettingsHandler.getFeatAutoColor());
 				break;
 			case VIRTUAL:
 				newNode.setColor(SettingsHandler.getFeatVirtualColor());
 				break;
+			}
 		}
 		return newNode;
 	}
@@ -754,17 +762,21 @@ public class AbilityModel extends AbstractTreeTableModel implements
 					{
 						final PObjectNode aFN = new PObjectNode();
 
-						switch (ability.getAbilityNature())
+						Nature nature = thePC.getAbilityNature(ability);
+						if (nature != null)
 						{
+							switch (nature)
+							{
 							case AUTOMATIC:
 								aFN
-									.setColor(SettingsHandler
-										.getFeatAutoColor());
+										.setColor(SettingsHandler
+												.getFeatAutoColor());
 								break;
 							case VIRTUAL:
 								aFN.setColor(SettingsHandler
-									.getFeatVirtualColor());
+										.getFeatVirtualColor());
 								break;
+							}
 						}
 
 						aFN.setParent(rootAsPObjectNode.getChild(i));

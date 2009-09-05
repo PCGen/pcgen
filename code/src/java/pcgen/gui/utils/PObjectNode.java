@@ -24,6 +24,7 @@ import java.util.ListIterator;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -594,8 +595,12 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			if (checkFeatState != NOT_A_FEAT)
 			{
 				final Ability aFeat = (Ability) item;
-
-				switch (aFeat.getAbilityNature())
+				Nature nature = aPC.getAbilityNature(aFeat);
+				/*
+				 * TODO Is this right?  Does not having an ability turn into Normal?
+				 */
+				nature = (nature == null) ? Nature.NORMAL : nature;
+				switch (nature)
 				{
 					case NORMAL:
 						return handleCheckFeatState(aFeat, itemName);

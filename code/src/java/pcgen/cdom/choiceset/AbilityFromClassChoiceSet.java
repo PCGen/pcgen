@@ -149,8 +149,7 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : (List<Ability>) element.getObjects())
 					{
-						set.add(new AbilitySelection(aFeat, aFeat
-								.getAbilityNature()));
+						set.add(new AbilitySelection(aFeat, pc.getAbilityNature(aFeat)));
 					}
 				}
 			}
@@ -160,8 +159,7 @@ public class AbilityFromClassChoiceSet implements
 			{
 				for (Ability aFeat : abilityList)
 				{
-					set.add(new AbilitySelection(aFeat, aFeat
-							.getAbilityNature()));
+					set.add(new AbilitySelection(aFeat, pc.getAbilityNature(aFeat)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
@@ -173,8 +171,7 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : abilityList)
 					{
-						set.add(new AbilitySelection(aFeat, aFeat
-								.getAbilityNature()));
+						set.add(new AbilitySelection(aFeat, pc.getAbilityNature(aFeat)));
 					}
 				}
 			}

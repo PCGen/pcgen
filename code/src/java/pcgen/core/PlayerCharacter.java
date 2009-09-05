@@ -5165,9 +5165,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(AbilityUtilities
-			.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this),
-			Constants.FEAT_CATEGORY, featName, Nature.ANY);
+		return AbilityUtilities.getAbilityFromList(this,
+			AbilityUtilities
+				.getAggregateAbilitiesListForKey(Constants.FEAT_CATEGORY, this), Constants.FEAT_CATEGORY, featName, Nature.ANY);
 	}
 
 	/**
@@ -5179,8 +5179,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Ability getAbilityMatching(final Ability anAbility)
 	{
-		return AbilityUtilities.getAbilityFromList(new ArrayList<Ability>(
-			getFullAbilityList()), anAbility, anAbility.getAbilityNature());
+		return AbilityUtilities.getAbilityFromList(this, new ArrayList<Ability>(
+						getFullAbilityList()), anAbility, getAbilityNature(anAbility));
 	}
 
 	public void setHasMadeKitSelectionForAgeSet(final int index,
@@ -8326,8 +8326,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean hasFeatAutomatic(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(getAutomaticAbilityList(AbilityCategory.FEAT),
-			Constants.FEAT_CATEGORY, featName, Nature.ANY) != null;
+		return AbilityUtilities.getAbilityFromList(this,
+			getAutomaticAbilityList(AbilityCategory.FEAT), Constants.FEAT_CATEGORY, featName, Nature.ANY) != null;
 	}
 
 	/**
@@ -8340,8 +8340,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public boolean hasFeatVirtual(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(),
-			Constants.FEAT_CATEGORY, featName, Nature.ANY) != null;
+		return AbilityUtilities.getAbilityFromList(this,
+			getVirtualFeatList(), Constants.FEAT_CATEGORY, featName, Nature.ANY) != null;
 	}
 
 	/**
@@ -10447,7 +10447,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				Set<Ability> currentAutoFeats = abilityFacet.get(id,
 						AbilityCategory.FEAT, Nature.AUTOMATIC);
 				Ability anAbility = AbilityUtilities.getAbilityFromList(
-						currentAutoFeats, "FEAT", featKey, Nature.ANY);
+						this, currentAutoFeats, "FEAT", featKey, Nature.ANY);
 				if (anAbility != null)
 				{
 					if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
@@ -10485,7 +10485,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						anAbility = anAbility.clone();
 						addAssociation(anAbility, aString);
 
-						anAbility.setAbilityNature(Nature.AUTOMATIC);
+						this.setAbilityNature(anAbility, Nature.AUTOMATIC);
 						abilityFacet.add(id, AbilityCategory.FEAT,
 								Nature.AUTOMATIC, anAbility);
 					}
@@ -12933,7 +12933,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return false;
 		}
-		anAbility.setAbilityNature(Nature.NORMAL);
+		this.setAbilityNature(anAbility, Nature.NORMAL);
 		realAbilities.addToListFor(aCategory, anAbility);
 		return true;
 	}
@@ -13201,8 +13201,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final Set<Ability> abilities =
 				abilityFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL);
-		return AbilityUtilities.getAbilityFromList(abilities, "FEAT", featName,
-			Nature.ANY) != null;
+		return AbilityUtilities.getAbilityFromList(this, abilities, "FEAT",
+			featName, Nature.ANY) != null;
 	}
 
 	/**
@@ -14117,7 +14117,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 											nature);
 							if (added != null)
 							{
-								added.setAbilityNature(nature);
+								this.setAbilityNature(added, nature);
 								for (CDOMReference<PCTemplate> tr : added
 									.getSafeListFor(ListKey.TEMPLATE))
 								{
@@ -14165,7 +14165,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 												ab, choices, cat, nature);
 								if (added != null)
 								{
-									added.setAbilityNature(nature);
+									this.setAbilityNature(added, nature);
 									for (CDOMReference<PCTemplate> tr : added
 										.getSafeListFor(ListKey.TEMPLATE))
 									{
@@ -14294,8 +14294,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 												.nextToken());
 							if (added != null)
 							{
-								added
-									.setAbilityNature(Nature.AUTOMATIC);
+								this.setAbilityNature(added, Nature.AUTOMATIC);
 							}
 						}
 					}
@@ -14327,8 +14326,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 										aString.substring(idx + 1));
 						if (added != null)
 						{
-							added
-								.setAbilityNature(Nature.AUTOMATIC);
+							this.setAbilityNature(added, Nature.AUTOMATIC);
 						}
 					}
 					else
@@ -14363,8 +14361,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 										ab, choices, AbilityCategory.FEAT, Nature.AUTOMATIC);
 						if (added != null)
 						{
-							added
-								.setAbilityNature(Nature.AUTOMATIC);
+							this.setAbilityNature(added, Nature.AUTOMATIC);
 						}
 					}
 				}
@@ -14452,8 +14449,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			Ability tempFeat =
 					AbilityUtilities.getAbilityFromList(
-						getAggregateAbilityList(cat), Constants.FEAT_CATEGORY,
-						featName, Nature.ANY);
+						this, getAggregateAbilityList(cat),
+						Constants.FEAT_CATEGORY, featName, Nature.ANY);
 			if (tempFeat != null)
 			{
 				feats.add(tempFeat);
@@ -15764,5 +15761,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return changed;
 		}
+	}
+
+	public Nature getAbilityNature(Ability ability)
+	{
+		return getAssoc(ability, AssociationKey.NATURE);
+	}
+
+	public void setAbilityNature(Ability ability, Nature nature)
+	{
+		setAssoc(ability, AssociationKey.NATURE, nature);
 	}
 }

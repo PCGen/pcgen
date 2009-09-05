@@ -347,7 +347,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 		super.abilitySelected(anAbility);
 		if (anAbility != null)
 		{
-			setRemoveEnabled(anAbility.getAbilityNature() == Nature.NORMAL);
+			setRemoveEnabled(getPC().getAbilityNature(anAbility) == Nature.NORMAL);
 		}
 		else
 		{

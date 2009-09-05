@@ -150,8 +150,8 @@ public class AbilityUtilities
 		final Collection<String> choices = new ArrayList<String>();
 		getUndecoratedName(abilityName, choices);
 
-		Ability anAbility = getAbilityFromList(pc.getAbilityList(cat, nature),
-				cat.getAbilityCategory(), abilityName, Nature.ANY);
+		Ability anAbility = getAbilityFromList(pc,
+				pc.getAbilityList(cat, nature), cat.getAbilityCategory(), abilityName, Nature.ANY);
 
 		if (anAbility == null)
 		{
@@ -179,7 +179,7 @@ public class AbilityUtilities
 		final Collection<String> choices = new ArrayList<String>();
 		getUndecoratedName(aKey, choices);
 
-		Ability anAbility = getAbilityFromList(anAbilityList, aCategory.getAbilityCategory(), aKey, Nature.ANY);
+		Ability anAbility = getAbilityFromList(pc, anAbilityList, aCategory.getAbilityCategory(), aKey, Nature.ANY);
 
 		if (anAbility == null)
 		{
@@ -224,7 +224,7 @@ public class AbilityUtilities
 
 		if (newAbility != null)
 		{
-			newAbility.setAbilityNature(Nature.VIRTUAL);
+			pc.setAbilityNature(newAbility, Nature.VIRTUAL);
 			newAbility.clearPrerequisiteList();
 			if (levelInfo != null)
 			{
@@ -509,17 +509,17 @@ public class AbilityUtilities
 	/**
 	 * Find an ability in a list that matches a given Ability or AbilityInfo
 	 * Object.
-	 *
+	 * @param pc TODO
 	 * @param anAbilityList
 	 * @param abilityInfo
 	 *
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-			final Collection<Ability>          anAbilityList,
-			final Categorisable abilityInfo)
+			PlayerCharacter pc,
+			final Collection<Ability>          anAbilityList, final Categorisable abilityInfo)
 	{
-		return getAbilityFromList(anAbilityList, abilityInfo, Nature.ANY);
+		return getAbilityFromList(pc, anAbilityList, abilityInfo, Nature.ANY);
 	}
 
 
@@ -528,7 +528,7 @@ public class AbilityUtilities
 	 * Object. Also takes an integer representing a type, -1 always matches,
 	 * otherwise an ability will only be returned if its type is the same as
 	 * abilityType
-	 *
+	 * @param pc TODO
 	 * @param anAbilityList
 	 * @param abilityInfo
 	 * @param abilityType
@@ -536,16 +536,16 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
+		PlayerCharacter pc,
 		final Collection<Ability> anAbilityList,
-		final Categorisable abilityInfo,
-		final Nature           abilityType)
+		final Categorisable abilityInfo, final Nature           abilityType)
 	{
 		if (anAbilityList != null)
 		{
 			for ( Ability ability : anAbilityList )
 			{
 				if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
-						((abilityType == Nature.ANY) || (ability.getAbilityNature() == abilityType)))
+						((abilityType == Nature.ANY) || (pc.getAbilityNature(ability) == abilityType)))
 				{
 					return ability;
 				}
@@ -559,7 +559,7 @@ public class AbilityUtilities
 	 * Find an ability in a list that matches a given AbilityInfo Object. Also
 	 * takes an integer representing a type, -1 always matches, otherwise an
 	 * ability will only be returned if its type is the same as abilityType
-	 *
+	 * @param pc TODO
 	 * @param anAbilityList
 	 * @param aCat
 	 * @param aName
@@ -568,13 +568,13 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
+			PlayerCharacter pc,
 			final Collection<Ability>   anAbilityList,
 			final String aCat,
-			final String aName,
-			final Nature    abilityType)
+			final String aName, final Nature    abilityType)
 	{
 		final AbilityInfo abInfo = new AbilityInfo(aCat, aName);
-		return getAbilityFromList(anAbilityList, abInfo, abilityType);
+		return getAbilityFromList(pc, anAbilityList, abInfo, abilityType);
 	}
 
 	/**
@@ -637,7 +637,7 @@ public class AbilityUtilities
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
 		final Set<Ability> realAbilities = aPC.getRealAbilitiesList(category);
-		Ability pcAbility = getAbilityFromList(realAbilities, argAbility);
+		Ability pcAbility = getAbilityFromList(aPC, realAbilities, argAbility);
 
 		// (pcAbility == null) means we don't have this feat,
 		// so we need to add it
@@ -1229,7 +1229,7 @@ public class AbilityUtilities
 		final List<String>    choices,
 		Category<Ability> cat, Nature nature)
 	{
-		Ability abil = getAbilityFromList(pc.getAbilityList(cat, nature), anAbility);
+		Ability abil = getAbilityFromList(pc, pc.getAbilityList(cat, nature), anAbility);
 		if (abil == null)
 		{
 			abil = anAbility.clone();

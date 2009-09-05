@@ -19,14 +19,12 @@
  */
 package pcgen.core;
 
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -61,31 +59,6 @@ public final class Ability extends PObject implements Categorisable, Categorized
 		return get(ObjectKey.ABILITY_CAT).getKeyName();
 	}
 
-	/**
-	 * Set the AbilityType property of this Ability
-	 *
-	 * @param  type  The type of this ability (normal, automatic, virtual (see
-	 *               named constants))
-	 */
-	public void setAbilityNature(final Nature type)
-	{
-		if ( type == Nature.ANY )
-		{
-			return;
-		}
-
-		put(ObjectKey.ABILITY_NATURE, type);
-	}
-
-	/**
-	 * Really badly named method.
-	 *
-	 * @return  The nature of this feat.
-	 */
-	public Nature getAbilityNature()
-	{
-		return getSafe(ObjectKey.ABILITY_NATURE);
-	}
 	/**
 	 * Bog standard clone method
 	 *

@@ -903,18 +903,18 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testNestedAbilities()
 	{
+		PlayerCharacter pc = getCharacter();
 		Ability resToAcid =
 				TestHelper.makeAbility("Resistance To Acid", specialAbilityCat, "Foo");
-		resToAcid.setAbilityNature(Nature.AUTOMATIC);
+		pc.setAbilityNature(resToAcid, Nature.AUTOMATIC);
 		Ability resToAcidOutputVirt =
 			TestHelper.makeAbility("Resistance To Acid Output Virt",
 				specialAbilityCat, "Foo");
-		resToAcidOutputVirt.setAbilityNature(Nature.VIRTUAL);
+		pc.setAbilityNature(resToAcidOutputVirt, Nature.VIRTUAL);
 		Ability resToAcidOutputAuto =
 			TestHelper.makeAbility("Resistance To Acid Output Auto",
 				specialAbilityCat, "Foo");
-		resToAcidOutputAuto.setAbilityNature(Nature.AUTOMATIC);
-		PlayerCharacter pc = getCharacter();
+		pc.setAbilityNature(resToAcidOutputAuto, Nature.AUTOMATIC);
 		pc.setRace(human);
 		assertEquals("PC should now have a race of human", human, pc.getRace());
 
@@ -1043,17 +1043,17 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.AUTOMATIC, abList.get(0).getAbilityNature());
+		assertEquals(Nature.AUTOMATIC, pc.getAbilityNature(abList.get(0)));
 		
 		pc.addTemplate(template);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.VIRTUAL, abList.get(0).getAbilityNature());
+		assertEquals(Nature.VIRTUAL, pc.getAbilityNature(abList.get(0)));
 		
 		pc.addTemplate(templateNorm);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.NORMAL, abList.get(0).getAbilityNature());
+		assertEquals(Nature.NORMAL, pc.getAbilityNature(abList.get(0)));
 	}
 
 	/**
