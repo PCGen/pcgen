@@ -22,6 +22,7 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Ability;
@@ -62,7 +63,7 @@ public class VAbilityListToken extends AbilityListToken
 	protected List<Ability> getAbilityList(PlayerCharacter pc,
 		AbilityCategory aCategory)
 	{
-		return pc.getVirtualAbilityList(aCategory);
+		return new ArrayList<Ability>(pc.getVirtualAbilityList(aCategory));
 	}
 
 }

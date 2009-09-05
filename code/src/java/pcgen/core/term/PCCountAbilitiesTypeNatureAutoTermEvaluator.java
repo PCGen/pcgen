@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.PlayerCharacter;
@@ -52,7 +53,7 @@ public class PCCountAbilitiesTypeNatureAutoTermEvaluator
 	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getAutomaticAbilityList(abCat);
+		return new ArrayList<Ability>(pc.getAutomaticAbilityList(abCat));
 	}
 
 	public boolean isSourceDependant()

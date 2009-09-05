@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Ability;
@@ -52,7 +53,7 @@ public class PCCountAbilitiesTypeNatureVirtualTermEvaluator
 	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getVirtualFeatList();
+		return new ArrayList<Ability>(pc.getVirtualFeatList());
 	}
 
 	public boolean isSourceDependant()

@@ -27,6 +27,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -515,7 +516,7 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-			final List<Ability>          anAbilityList,
+			final Collection<Ability>          anAbilityList,
 			final Categorisable abilityInfo)
 	{
 		return getAbilityFromList(anAbilityList, abilityInfo, Nature.ANY);
@@ -535,7 +536,7 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-		final List<Ability> anAbilityList,
+		final Collection<Ability> anAbilityList,
 		final Categorisable abilityInfo,
 		final Nature           abilityType)
 	{
@@ -567,7 +568,7 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-			final List<Ability>   anAbilityList,
+			final Collection<Ability>   anAbilityList,
 			final String aCat,
 			final String aName,
 			final Nature    abilityType)
@@ -635,7 +636,7 @@ public class AbilityUtilities
 
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
-		final List<Ability> realAbilities = aPC.getRealAbilitiesList(category);
+		final Set<Ability> realAbilities = aPC.getRealAbilitiesList(category);
 		Ability pcAbility = getAbilityFromList(realAbilities, argAbility);
 
 		// (pcAbility == null) means we don't have this feat,

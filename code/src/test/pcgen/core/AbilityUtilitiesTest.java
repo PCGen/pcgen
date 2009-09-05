@@ -26,6 +26,7 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Nature;
@@ -98,16 +99,18 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 
 		// Call addCloneOfGlobalAbilityToListWithChoices with parent and expect to see it in list
 		assertNotNull("Add in parent cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(character, parent, Nature.VIRTUAL, "KEY_TestAbility"));
-		List<Ability> testList = character.getAbilityList(parent, Nature.VIRTUAL);
+		Set<Ability> testList = character.getAbilityList(parent, Nature.VIRTUAL);
 		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
-		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).getKeyName());
-		assertNotSame("Should be a clone, not the same object", ability, testList.get(0));
+		Ability first = testList.iterator().next();
+		assertEquals("Key of added ability", "KEY_TestAbility", first.getKeyName());
+		assertNotSame("Should be a clone, not the same object", ability, first);
 		
 		// Call addCloneOfGlobalAbilityToListWithChoices with child and expect to see it in list
 		assertNotNull("Add in child cat should return ability", AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(character, child, Nature.VIRTUAL, "KEY_TestAbility"));
 		testList = character.getAbilityList(parent, Nature.VIRTUAL);
 		assertEquals("Ability list size after adding 1 ability", 1, testList.size());
-		assertEquals("Key of added ability", "KEY_TestAbility", testList.get(0).getKeyName());
-		assertNotSame("Should be a clone, not the same object", ability, testList.get(0));
+		first = testList.iterator().next();
+		assertEquals("Key of added ability", "KEY_TestAbility", first.getKeyName());
+		assertNotSame("Should be a clone, not the same object", ability, first);
 	}
 }
