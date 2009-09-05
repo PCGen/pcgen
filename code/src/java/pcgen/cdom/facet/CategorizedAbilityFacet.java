@@ -36,8 +36,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	public void add(CharID id, Category<Ability> cat, Nature nat, Ability obj)
 	{
 		boolean isNew = ensureCachedSet(id, cat, nat, obj);
-		getCachedSet(id, cat, nat).add(obj);
-		if (isNew)
+		if (isNew || getCachedSet(id, cat, nat).add(obj))
 		{
 			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
