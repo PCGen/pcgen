@@ -33,21 +33,22 @@ import pcgen.core.PlayerCharacter;
 public class PCHasDeityTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	private final Deity deity;
+	private final String deity;
 
 	public PCHasDeityTermEvaluator(
 			String originalText,
 			String deity)
 	{
 		this.originalText = originalText;
-		this.deity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Deity.class, deity);
+		this.deity = deity;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return pc.hasDeity(deity) ? 1f : 0f;
+		Deity d = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Deity.class, deity);
+		return pc.hasDeity(d) ? 1f : 0f;
 	}
 
 	public boolean isSourceDependant()
