@@ -26,7 +26,7 @@
  */
 package plugin.pretokens.test;
 
-import pcgen.core.Equipment;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PreEquippedTester;
 import pcgen.core.prereq.Prerequisite;
@@ -49,7 +49,7 @@ public class PreEquipBothTester extends PreEquippedTester implements
 		throws PrerequisiteException
 	{
 		return passesPreEquipHandleTokens(prereq, character,
-			Equipment.EQUIPPED_BOTH);
+				EquipmentLocation.EQUIPPED_BOTH);
 	}
 
 	/* (non-Javadoc)

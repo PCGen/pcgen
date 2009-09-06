@@ -51,6 +51,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.EqModFormatCat;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -85,7 +86,6 @@ import pcgen.util.JEPResourceChecker;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
-import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
@@ -106,88 +106,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	private static final String EQMOD_DAMAGE = "_DAMAGE";
 
-	/** The item is held in neither hand */
-	public static final int EQUIPPED_NEITHER = 0;
-
-	/** The item is held in neither hand - String */
-	public static final String EQUIPPED_NEITHER_STR = PropertyFactory
-			.getString("EquipLocation.Neither");
-
-	/** The item is held in the primary hand */
-	public static final int EQUIPPED_PRIMARY = 1;
-
-	/** The item is held in the primary hand - String */
-	public static final String EQUIPPED_PRIMARY_STR = PropertyFactory
-			.getString("EquipLocation.Primary");
-
-	/** The item is held in the secondary hand */
-	public static final int EQUIPPED_SECONDARY = 2;
-
-	/** The item is held in the secondary hand - String */
-	public static final String EQUIPPED_SECONDARY_STR = PropertyFactory
-			.getString("EquipLocation.Secondary");
-
-	/** The item is held in both hands */
-	public static final int EQUIPPED_BOTH = 3;
-
-	/** The item is held in both hands - String */
-	public static final String EQUIPPED_BOTH_STR = PropertyFactory
-			.getString("EquipLocation.Both");
-
-	/** The item is either a double weapon or one of a pair of weapons */
-	public static final int EQUIPPED_TWO_HANDS = 4;
-
-	/** The item is either a double weapon or one of a pair of weapons - String */
-	public static final String EQUIPPED_TWO_HANDS_STR = PropertyFactory
-			.getString("EquipLocation.TwoHands");
-
-	/** The item is held in neither hand and equipped for a temporary bonus */
-	public static final int EQUIPPED_TEMPBONUS = 5;
-
-	/**
-	 * The item is held in neither hand and equipped for a temporary bonus -
-	 * String
-	 */
-	public static final String EQUIPPED_TEMPBONUS_STR = PropertyFactory
-			.getString("EquipLocation.TempBonus");
-
-	/** The item is carried but not equipped */
-	public static final int CARRIED_NEITHER = 6;
-
-	/** The item is carried but not equipped - String */
-	public static final String CARRIED_NEITHER_STR = PropertyFactory
-			.getString("EquipLocation.Carried");
-
-	/** The item is contained by another item */
-	public static final int CONTAINED = 7;
-
-	/** The item is contained by another item - String */
-	public static final String CONTAINED_STR = PropertyFactory
-			.getString("EquipLocation.Contained");
-
-	/** The item is not carried */
-	public static final int NOT_CARRIED = 8;
-
-	/** The item is not carried - String */
-	public static final String NOT_CARRIED_STR = PropertyFactory
-			.getString("EquipLocation.NotCarried");
-
-	// These are now initialized in the static{} initializer
-	private static final String[] LOCATION_STRING_LIST = new String[9];
-
 	private static final SortedSet<String> S_EQUIPMENT_TYPES = new TreeSet<String>();
-
-	static {
-		LOCATION_STRING_LIST[EQUIPPED_NEITHER]   = EQUIPPED_NEITHER_STR;
-		LOCATION_STRING_LIST[EQUIPPED_PRIMARY]   = EQUIPPED_PRIMARY_STR;
-		LOCATION_STRING_LIST[EQUIPPED_SECONDARY] = EQUIPPED_SECONDARY_STR;
-		LOCATION_STRING_LIST[EQUIPPED_BOTH]      = EQUIPPED_BOTH_STR;
-		LOCATION_STRING_LIST[EQUIPPED_TWO_HANDS] = EQUIPPED_TWO_HANDS_STR;
-		LOCATION_STRING_LIST[EQUIPPED_TEMPBONUS] = EQUIPPED_TEMPBONUS_STR;
-		LOCATION_STRING_LIST[CARRIED_NEITHER]    = CARRIED_NEITHER_STR;
-		LOCATION_STRING_LIST[CONTAINED]          = CONTAINED_STR;
-		LOCATION_STRING_LIST[NOT_CARRIED]        = NOT_CARRIED_STR;
-	}
 
 	private AssociationSupport assocSupt = new AssociationSupport();
 
@@ -199,7 +118,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	private Float carried = (float) 0; // OwnedItem
 
-	private int location = NOT_CARRIED; // OwnedItem
+	private EquipmentLocation location = EquipmentLocation.NOT_CARRIED; // OwnedItem
 
 	private boolean equipped; // OwnedItem
 
@@ -1072,50 +991,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Returns the name of this hand
-	 * 
-	 * @param slotNumber
-	 *            the slot for which a name is wanted
-	 * @return the name of this slot
-	 */
-	public static String getLocationName(final int slotNumber) {
-		if ((slotNumber < 0) || (slotNumber > LOCATION_STRING_LIST.length)) {
-			return LOCATION_STRING_LIST[0];
-		}
-		return LOCATION_STRING_LIST[slotNumber];
-	}
-
-	/**
-	 * Returns the number of a slot
-	 * 
-	 * @param locDesc
-	 *            The name of a location one wants to know the number of
-	 * @return the number of a location
-	 */
-	public static int getLocationNum(final String locDesc) {
-		for (int i = 0; i < LOCATION_STRING_LIST.length; ++i) {
-			if (LOCATION_STRING_LIST[i].equals(locDesc)) {
-				return i;
-			}
-		}
-
-		if (locDesc.equals(Constants.s_NONE)) {
-			return NOT_CARRIED;
-		}
-
-		if (locDesc.startsWith(CONTAINED_STR)) {
-			return CONTAINED;
-		}
-
-		try {
-			return Integer.parseInt(locDesc);
-		} catch (NumberFormatException nfe) {
-			// Assume that the string is the name of another equipment item
-			return CONTAINED;
-		}
-	}
-
-	/**
 	 * Get display information for all "interesting" properties.
 	 * 
 	 * @param aPC The PC with the Equipment
@@ -1449,42 +1324,28 @@ public final class Equipment extends PObject implements Serializable,
 	 * OwnedItem Sets the location attribute of the Equipment object
 	 * 
 	 * @param newLocation
-	 *            int containing the new location value
+	 *            EquipmentLocation containing the new location value
 	 */
-	public void setLocation(final int newLocation) {
-		if ((newLocation < EQUIPPED_NEITHER) || (newLocation > NOT_CARRIED)) {
-			final String errMsg = PropertyFactory.getFormattedString(
-					"EquipLocation.Unknown", newLocation);
-			ShowMessageDelegate.showMessageDialog(errMsg, Constants.s_APPNAME,
-					MessageType.INFORMATION);
-
-			return;
+	public void setLocation(final EquipmentLocation newLocation)
+	{
+		if (EquipmentLocation.CONTAINED.equals(newLocation))
+		{
+			location = EquipmentLocation.CARRIED_NEITHER;
 		}
-
-		if (newLocation == EQUIPPED_TEMPBONUS) {
+		else
+		{
 			location = newLocation;
-			equipped = true;
-		} else if ((newLocation >= EQUIPPED_NEITHER)
-				&& (newLocation <= EQUIPPED_TWO_HANDS)) {
-			location = newLocation;
-			equipped = true;
-		} else {
-			if (newLocation == NOT_CARRIED) {
-				location = NOT_CARRIED;
-				equipped = false;
-			} else {
-				location = CARRIED_NEITHER;
-				equipped = false;
-			}
 		}
+		equipped = location.isEquipped();
 	}
 
 	/**
 	 * OwnedItem Gets the hand attribute of the Equipment object
 	 * 
-	 * @return int containing the location value
+	 * @return EquipmentLocation containing the location value
 	 */
-	public int getLocation() {
+	public EquipmentLocation getLocation()
+	{
 		return location;
 	}
 

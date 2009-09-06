@@ -26,6 +26,7 @@
  */
 package pcgen.core.prereq;
 
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;
@@ -46,7 +47,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 	 * @return the number that did not pass
 	 * @throws PrerequisiteException
 	 */
-	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character, final int equippedType) throws PrerequisiteException
+	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character, final EquipmentLocation equippedType) throws PrerequisiteException
 	{
 		// TODO refactor this code with PreEquipTester
 		boolean isEquipped = false;

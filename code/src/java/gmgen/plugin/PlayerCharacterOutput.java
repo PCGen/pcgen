@@ -379,7 +379,7 @@ public class PlayerCharacterOutput
 
 	public String getWeaponHand(Equipment eq)
 	{
-		String location = Equipment.getLocationName(eq.getLocation());
+		String location = eq.getLocation().getString();
 		final int start = location.indexOf('(') + 1; // move past the paren
 
 		if (start > 0)

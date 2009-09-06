@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -198,7 +199,6 @@ public class WeaponToken extends Token
 		}
 
 		weapon = getIntToken(token, 0);
-
 		if (weapon < weaponList.size())
 		{
 			eq = weaponList.get(weapon);
@@ -235,6 +235,7 @@ public class WeaponToken extends Token
 		{
 			token = aTok.nextToken();
 		}
+
 		int range = -1;
 		int content = -1;
 		int ammo = -1;
@@ -740,7 +741,7 @@ public class WeaponToken extends Token
 		}
 		StringBuffer sb = new StringBuffer();
 		boolean isDouble =
-				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
+				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		int mult =
 				(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 					"CRITMULTADD")
@@ -893,7 +894,7 @@ public class WeaponToken extends Token
 	 */
 	public static String getHandToken(Equipment eq)
 	{
-		String location = Equipment.getLocationName(eq.getLocation());
+		String location = eq.getLocation().getString();
 		return location.replaceAll(".*\\(", "").replaceAll("\\(.*", "")
 			.replaceAll("\\).*", "");
 	}
@@ -1259,7 +1260,7 @@ public class WeaponToken extends Token
 	{
 		StringBuffer sb = new StringBuffer();
 		boolean isDouble =
-				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
+				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		int rawCritRange = eq.getRawCritRange(true);
 
 		// see if the weapon has any crit range
@@ -1348,13 +1349,13 @@ public class WeaponToken extends Token
 		int range, int content, int ammo, boolean bonusOnly, boolean base)
 	{
 		boolean isDouble =
-				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
+				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
 		int damageMode = DAMAGEMODE_NORMAL;
 		int hands = 1;
 
 		if (eq.isNatural()
-			&& (eq.getLocation() == Equipment.EQUIPPED_SECONDARY))
+			&& (eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY))
 		{
 			damageMode = DAMAGEMODE_OFFHAND;
 			hands = 0;
@@ -1380,7 +1381,7 @@ public class WeaponToken extends Token
 		}
 		else if (pc.isPrimaryWeapon(eq))
 		{
-			if (eq.getLocation() == Equipment.EQUIPPED_BOTH)
+			if (eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)
 			{
 				damageMode = DAMAGEMODE_TWOHANDS;
 				hands = 2;
@@ -1528,7 +1529,7 @@ public class WeaponToken extends Token
 		int range, int content, int ammo, int attackNum)
 	{
 		boolean isDouble =
-				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
+				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
 		int hitModeHands = 1;
 		int hitMode = HITMODE_TOTALHIT;
@@ -1597,7 +1598,7 @@ public class WeaponToken extends Token
 		// Just a single primary weapon
 		else if (pc.isPrimaryWeapon(eq) && pc.getSecondaryWeapons().isEmpty())
 		{
-			if (eq.getLocation() == Equipment.EQUIPPED_BOTH)
+			if (eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)
 			{
 				// both hands
 				hitMode = HITMODE_THHIT;
@@ -1816,7 +1817,7 @@ public class WeaponToken extends Token
 		int hitMode, int attackNum, boolean totalHit)
 	{
 		boolean isDouble =
-				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
+				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
 
 		// If it's a two handed weapon, but is not
@@ -1895,13 +1896,13 @@ public class WeaponToken extends Token
 		// Natural weapons are different
 		if (eq.isNatural())
 		{
-			if (eq.getLocation() == Equipment.EQUIPPED_PRIMARY)
+			if (eq.getLocation() == EquipmentLocation.EQUIPPED_PRIMARY)
 			{
 				/* Primary Natural Weapons have no bonus or penalty
 				 * associated with secondary weapons/attacks */
 				baseBonus = 0;
 			}
-			else if (eq.getLocation() == Equipment.EQUIPPED_SECONDARY)
+			else if (eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY)
 			{
 				/* all secondary natural weapons attack at -5 */
 				baseBonus = -5;
@@ -1987,9 +1988,9 @@ public class WeaponToken extends Token
 		 but for some reason they can (e.g. Monkey Grip) then check
 		 for TOHIT modifiers */
 
-		if (eq.getLocation() == Equipment.EQUIPPED_PRIMARY
-			|| eq.getLocation() == Equipment.EQUIPPED_SECONDARY
-			|| eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS)
+		if (eq.getLocation() == EquipmentLocation.EQUIPPED_PRIMARY
+			|| eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY
+			|| eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS)
 		{
 			// TODO Fix this
 			//			if (eq.isWeaponOneHanded(pc, wp, false) != eq.isWeaponOneHanded(pc, wp, true))
@@ -2273,7 +2274,7 @@ public class WeaponToken extends Token
 		// should only construct a secondary attack string if we are not
 		// looking for a single attack from the sequence (attackNum < 0)
 		boolean doDouble =
-				isDouble && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS)
+				isDouble && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS)
 					&& attackNum < 0;
 
 		// If the weapon is being considered as a secondary weapon, then we
@@ -2404,7 +2405,7 @@ public class WeaponToken extends Token
 		int hands, int damageMode, boolean base)
 	{
 		boolean isDouble =
-				(eq.isDouble() && (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS));
+				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
 
 		if (eq.isMelee() && (eq.isWeaponTwoHanded(pc)))
@@ -2504,7 +2505,7 @@ public class WeaponToken extends Token
 
 		// Handle Double weapons
 		if ((damageMode == DAMAGEMODE_DOUBLE)
-			&& (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS))
+			&& (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS))
 		{
 			// This is the 'Off-Hand' portion of the double weapon
 			hands = 0;

@@ -72,6 +72,7 @@ import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -749,21 +750,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// it's inside a container, don't try to equip
 			if (aTok.countTokens() > 3)
 			{
-				eq.setLocation(Equipment.CONTAINED);
+				eq.setLocation(EquipmentLocation.CONTAINED);
 				eq.setIsEquipped(false, this);
 				eq.setNumberCarried(num);
 				eq.setQty(num);
 			}
 			else if (aLoc.startsWith(Constants.S_CARRIED))
 			{
-				eq.setLocation(Equipment.CARRIED_NEITHER);
+				eq.setLocation(EquipmentLocation.CARRIED_NEITHER);
 				eq.setIsEquipped(false, this);
 				eq.setNumberCarried(num);
 				eq.setQty(num);
 			}
 			else if (aLoc.startsWith(Constants.S_NOTCARRIED))
 			{
-				eq.setLocation(Equipment.NOT_CARRIED);
+				eq.setLocation(EquipmentLocation.NOT_CARRIED);
 				eq.setIsEquipped(false, this);
 				eq.setNumberCarried(Float.valueOf(0));
 				eq.setQty(num);
@@ -776,7 +777,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					eq.setQty(num);
 					eq.setNumberCarried(num);
 					eq.setNumberEquipped(num.intValue());
-					eq.setLocation(Equipment.EQUIPPED_PRIMARY);
+					eq.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
 					eq.setIsEquipped(true, this);
 				}
 				else if (aLoc.startsWith(Constants.S_SECONDARY)
@@ -785,7 +786,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					eq.setQty(num);
 					eq.setNumberCarried(num);
 					eq.setNumberEquipped(num.intValue());
-					eq.setLocation(Equipment.EQUIPPED_SECONDARY);
+					eq.setLocation(EquipmentLocation.EQUIPPED_SECONDARY);
 					eq.setIsEquipped(true, this);
 				}
 				else if (aLoc.equals(Constants.S_BOTH))
@@ -793,7 +794,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					eq.setQty(num);
 					eq.setNumberCarried(num);
 					eq.setNumberEquipped(num.intValue());
-					eq.setLocation(Equipment.EQUIPPED_BOTH);
+					eq.setLocation(EquipmentLocation.EQUIPPED_BOTH);
 					eq.setIsEquipped(true, this);
 				}
 				else if (aLoc.equals(Constants.S_DOUBLE))
@@ -801,12 +802,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					eq.setQty(num);
 					eq.setNumberCarried(num);
 					eq.setNumberEquipped(2);
-					eq.setLocation(Equipment.EQUIPPED_TWO_HANDS);
+					eq.setLocation(EquipmentLocation.EQUIPPED_TWO_HANDS);
 					eq.setIsEquipped(true, this);
 				}
 				else if (aLoc.equals(Constants.S_UNARMED))
 				{
-					eq.setLocation(Equipment.EQUIPPED_NEITHER);
+					eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
 					eq.setNumberEquipped(num.intValue());
 				}
 				else if (aLoc.equals(Constants.S_TWOWEAPONS))
@@ -820,18 +821,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					eq.setQty(num);
 					eq.setNumberCarried(num);
 					eq.setNumberEquipped(2);
-					eq.setLocation(Equipment.EQUIPPED_TWO_HANDS);
+					eq.setLocation(EquipmentLocation.EQUIPPED_TWO_HANDS);
 					eq.setIsEquipped(true, this);
 				}
 				else if (aLoc.equals(Constants.S_SHIELD))
 				{
-					eq.setLocation(Equipment.EQUIPPED_NEITHER);
+					eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
 					eq.setNumberEquipped(num.intValue());
 				}
 			}
 			else
 			{
-				eq.setLocation(Equipment.EQUIPPED_NEITHER);
+				eq.setLocation(EquipmentLocation.EQUIPPED_NEITHER);
 				eq.setIsEquipped(true, this);
 				eq.setNumberCarried(num);
 				eq.setQty(num);
@@ -897,7 +898,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							eq.setLocation(anEquip.getLocation());
 							removeLocalEquipment(anEquip);
 							anEquip.setIsEquipped(false, this);
-							anEquip.setLocation(Equipment.NOT_CARRIED);
+							anEquip.setLocation(EquipmentLocation.NOT_CARRIED);
 							anEquip.setNumberCarried(Float.valueOf(0));
 						}
 
@@ -908,7 +909,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					{
 						eq.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
 						eq.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-						eq.setLocation(Equipment.EQUIPPED_TEMPBONUS);
+						eq.setLocation(EquipmentLocation.EQUIPPED_TEMPBONUS);
 						eq.setIsEquipped(false, this);
 					}
 
@@ -4897,7 +4898,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			final Equipment equip = weapList.get(idx);
 
 			if (equip.isDouble()
-				&& (equip.getLocation() == Equipment.EQUIPPED_TWO_HANDS))
+				&& (equip.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS))
 			{
 				Equipment eqm = equip.clone();
 				eqm.removeType(Type.DOUBLE);
@@ -8234,10 +8235,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			final boolean isEquipped = eq.isEquipped();
 
-			if ((eq.getLocation() == Equipment.EQUIPPED_PRIMARY)
-				|| ((eq.getLocation() == Equipment.EQUIPPED_BOTH) && primaryWeapons
+			if ((eq.getLocation() == EquipmentLocation.EQUIPPED_PRIMARY)
+				|| ((eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH) && primaryWeapons
 					.isEmpty())
-				|| (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS))
+				|| (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS))
 			{
 				if (isEquipped)
 				{
@@ -8248,7 +8249,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					unequippedPrimary.add(eq);
 				}
 			}
-			else if ((eq.getLocation() == Equipment.EQUIPPED_BOTH)
+			else if ((eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)
 				&& !primaryWeapons.isEmpty())
 			{
 				if (isEquipped)
@@ -8261,7 +8262,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			if (eq.getLocation() == Equipment.EQUIPPED_SECONDARY)
+			if (eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY)
 			{
 				if (isEquipped)
 				{
@@ -8273,7 +8274,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 
-			if (eq.getLocation() == Equipment.EQUIPPED_TWO_HANDS)
+			if (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS)
 			{
 				for (int y = 0; y < (eq.getNumberEquipped() - 1); ++y)
 				{

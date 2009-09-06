@@ -20,6 +20,7 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
@@ -54,7 +55,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
-		longsword.setLocation(Equipment.EQUIPPED_SECONDARY);
+		longsword.setLocation(EquipmentLocation.EQUIPPED_SECONDARY);
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipsecondary");
@@ -89,7 +90,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
-		longsword.setLocation(Equipment.EQUIPPED_SECONDARY);
+		longsword.setLocation(EquipmentLocation.EQUIPPED_SECONDARY);
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipsecondary");
@@ -130,7 +131,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
-		longsword.setLocation(Equipment.EQUIPPED_SECONDARY);
+		longsword.setLocation(EquipmentLocation.EQUIPPED_SECONDARY);
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipsecondary");

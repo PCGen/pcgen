@@ -92,6 +92,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -897,7 +898,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 					actualAdjustment = -prevQty;
 					updatedItem.setNumberCarried(new Float(0));
-					updatedItem.setLocation(Equipment.NOT_CARRIED);
+					updatedItem.setLocation(EquipmentLocation.NOT_CARRIED);
 
 					final Equipment eqParent = updatedItem.getParent();
 
