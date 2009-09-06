@@ -472,7 +472,7 @@ public final class EquipmentChoice
 		// Used by internal equipment modifier "Add Type" see LstSystemLoader.java
 		else if ("EQTYPES".equalsIgnoreCase(type))
 		{
-			getAvailableList().addAll(Equipment.getEquipmentTypes());
+			getAvailableList().addAll(Globals.getEquipmentTypes());
 		}
 		else
 		{

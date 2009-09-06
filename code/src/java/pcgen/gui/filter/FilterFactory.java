@@ -241,7 +241,7 @@ public final class FilterFactory implements FilterConstants
 			equipmentFilters.add(FilterFactory.createNonMagicFilter());
 			equipmentFilters.add(FilterFactory.createAffordableFilter());
 
-			for ( final String type : Equipment.getEquipmentTypes() )
+			for ( final String type : Globals.getEquipmentTypes() )
 			{
 				equipmentFilters.add(FilterFactory.createTypeFilter(type));
 			}

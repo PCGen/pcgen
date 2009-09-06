@@ -2100,7 +2100,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
 
 		boolean customExists =
-				Equipment.getEquipmentTypes().contains(Constants.s_CUSTOM);
+				Globals.getEquipmentTypes().contains(Constants.s_CUSTOM);
 
 		typeSubtypeRoot = new PObjectNode();
 		typeRoot = new PObjectNode();

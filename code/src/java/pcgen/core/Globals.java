@@ -2884,4 +2884,13 @@ public final class Globals
 		return aList;
 	}
 
+	/**
+	 * Return the set of equipment type names as a sorted set of strings.
+	 * 
+	 * @return The equipmentTypes value
+	 */
+	public static Collection<String> getEquipmentTypes() {
+		return getContext().getTypes(Equipment.class);
+	}
+
 }

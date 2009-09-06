@@ -492,23 +492,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Return the set of equipment type names as a sorted set of strings.
-	 * 
-	 * @return The equipmentTypes value
-	 */
-	/*
-	 * TODO Why is this in Equipment when Class, Race, WeaponProf are all in
-	 * Globals? - thpr 10/20/06
-	 */
-	public static Collection<String> getEquipmentTypes() {
-		return Globals.getContext().getTypes(Equipment.class);
-	}
-
-	//
-	// Bonus functions
-	//
-
-	/**
 	 * returns all BonusObj's that are "active"
 	 * 
 	 * @param aPC
