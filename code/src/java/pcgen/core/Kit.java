@@ -327,7 +327,7 @@ public final class Kit extends PObject implements Comparable<Object>
 			return;
 		}
 		if (aKit.getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT
-			&& aPC.getKitInfo().contains(aKit))
+			&& aPC.containsKit(aKit))
 		{
 			return;
 		}

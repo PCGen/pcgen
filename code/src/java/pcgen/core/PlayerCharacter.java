@@ -108,6 +108,7 @@ import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.HandsFacet;
 import pcgen.cdom.facet.HeightFacet;
 import pcgen.cdom.facet.InitiativeFacet;
+import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
@@ -216,6 +217,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private EquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private CategorizedAbilityFacet abilityFacet = FacetLibrary.getFacet(CategorizedAbilityFacet.class);
+	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -290,9 +292,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
 
 	private PCClass selectedFavoredClass = null;
-
-	// List of Kit objects
-	private List<Kit> kitList = null;
 
 	private Map<StringKey, String> stringChar =
 			new HashMap<StringKey, String>();
@@ -5196,19 +5195,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setDirty(true);
 	}
 
-	public List<Kit> getKitInfo()
+	public Set<Kit> getKitInfo()
 	{
-		List<Kit> returnList;
-		if (kitList != null)
-		{
-			returnList = kitList;
-		}
-		else
-		{
-			returnList = Collections.emptyList();
-		}
-
-		return returnList;
+		return kitFacet.getSet(id);
 	}
 
 	public int getLevelAdjustment()
@@ -6674,12 +6663,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void addKit(final Kit aKit)
 	{
-		if (kitList == null)
-		{
-			kitList = new ArrayList<Kit>();
-		}
-
-		kitList.add(aKit);
+		kitFacet.add(id, aKit);
 		setDirty(true);
 	}
 
@@ -12151,6 +12135,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
 		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
 		aClone.languageFacet.copyContents(id, aClone.id);
+		aClone.kitFacet.addAll(aClone.id, kitFacet.getSet(id));
 		aClone.equipmentFacet.addAll(aClone.id, equipmentFacet.getSet(id));
 		aClone.userEquipmentFacet.addAll(aClone.id, userEquipmentFacet.getSet(id));
 		//aClone.userEquipmentFacet.copyContents(id, aClone.id);
@@ -12193,11 +12178,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.selectedFavoredClass = selectedFavoredClass;
-        if (kitList != null)
-		{
-			aClone.kitList = new ArrayList<Kit>();
-			aClone.kitList.addAll(kitList);
-		}
 		aClone.setBio(new String(getBio()));
 		aClone.setBirthday(new String(getBirthday()));
 		aClone.setBirthplace(new String(getBirthplace()));
@@ -15774,5 +15754,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void setAbilityNature(Ability ability, Nature nature)
 	{
 		setAssoc(ability, AssociationKey.NATURE, nature);
+	}
+
+	public boolean containsKit(Kit kit)
+	{
+		return kitFacet.contains(id, kit);
 	}
 }

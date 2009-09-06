@@ -1476,13 +1476,10 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendKitLines(StringBuffer buffer)
 	{
-		if (thePC.getKitInfo() != null)
+		for (final Kit kit : thePC.getKitInfo())
 		{
-			for (final Kit kit : thePC.getKitInfo())
-			{
-				buffer.append(TAG_KIT).append(':').append(kit.getKeyName())
-					.append(LINE_SEP);
-			}
+			buffer.append(TAG_KIT).append(':').append(kit.getKeyName())
+				.append(LINE_SEP);
 		}
 	}
 

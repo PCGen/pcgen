@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.AbstractListModel;
 import javax.swing.BoxLayout;
@@ -246,7 +247,7 @@ final class KitSelector extends JFrame
 		}
 	}
 
-	private void addSelections(JList lst, Collection<Kit> kits, List<Kit> excluded, PlayerCharacter aPlayerCharacter)
+	private void addSelections(JList lst, Collection<Kit> kits, Collection<Kit> excluded, PlayerCharacter aPlayerCharacter)
 	{
 		if ((kits == null) || (kits.size() == 0))
 		{
@@ -315,7 +316,7 @@ final class KitSelector extends JFrame
 		lstSelected.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scpSelected.setViewportView(lstSelected);
 
-		final List<Kit> pcKitInfo = aPC.getKitInfo();
+		final Set<Kit> pcKitInfo = aPC.getKitInfo();
 		addSelections(lstAvailable, Globals.getContext().ref.getConstructedCDOMObjects(Kit.class), pcKitInfo, aPC);
 		addSelections(lstSelected, pcKitInfo, null, aPC);
 
