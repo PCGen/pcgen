@@ -1305,7 +1305,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	/**
 	 * OwnedItem Sets the location attribute of the Equipment object
-	 * 
 	 * @param newLocation
 	 *            EquipmentLocation containing the new location value
 	 */
@@ -1461,7 +1460,6 @@ public final class Equipment extends PObject implements Serializable,
 
 	/**
 	 * Sets the numberEquipped attribute of the Equipment object.
-	 * 
 	 * @param num
 	 *            The new numberEquipped value
 	 */

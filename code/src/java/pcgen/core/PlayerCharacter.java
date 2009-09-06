@@ -101,6 +101,7 @@ import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.EquippedEquipmentFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
@@ -218,6 +219,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 	private EquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
+	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private CategorizedAbilityFacet abilityFacet = FacetLibrary.getFacet(CategorizedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 
@@ -707,6 +709,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (pcEquipSetList.isEmpty())
 		{
+			equippedFacet.reset(id);
 			return;
 		}
 
@@ -922,6 +925,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		// all done!
+		equippedFacet.reset(id);
 	}
 
 	/**
