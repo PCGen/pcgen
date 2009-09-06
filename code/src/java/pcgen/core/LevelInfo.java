@@ -119,28 +119,15 @@ public final class LevelInfo
 	}
 
 	/**
-	 * Retrieves the min number of experience points required to
-	 * qualify for the level that this LevelInfo object describes
+	 * Retrieves the variable indicating the min number of experience points
+	 * required to qualify for the level that this LevelInfo object describes
+	 * 
 	 * @param levelArg
-	 * @param calcPC
-	 * @return    XP point value
-	 **/
-	public int getMinXP(final int levelArg, final PlayerCharacter calcPC)
+	 * @return XP point value variable
+	 */
+	public String getMinXPVariable(final int levelArg)
 	{
-		int xp;
-		if (calcPC == null)
-			return 0;
-		try
-		{
-			xp = calcPC.getVariableValue(minXPString.replaceAll(levelString,String.valueOf(levelArg)), "").intValue();
-		}
-		catch (Exception e)
-		{
-			final String minString = minXPString.replaceAll(levelString, String.valueOf(levelArg));
-			xp = calcPC.getVariableValue(minString, "").intValue();
-		}
-
-		return xp;
+		return minXPString.replaceAll(levelString, String.valueOf(levelArg));
 	}
 
 	/**

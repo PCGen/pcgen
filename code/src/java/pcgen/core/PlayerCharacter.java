@@ -125,6 +125,7 @@ import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.WeightFacet;
+import pcgen.cdom.facet.XPFacet;
 import pcgen.cdom.facet.ClassFacet.ClassInfo;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.FollowerLimit;
@@ -247,6 +248,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
 	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
+	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -346,7 +348,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// null is <none selected>
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
-	private int earnedXP = 0;
 
 	// order in which the equipment will be output.
 	private int equipOutputOrder = GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC;
@@ -3748,24 +3749,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public void setXP(final int xp)
 	{
-		// Remove the effect of LEVELADJ when storing our
-		// internal notion of experience
-		int realXP = xp - getLAXP();
-
-		if (realXP < 0)
-		{
-			Logging.errorPrint("ERROR: too little experience: " + realXP);
-			realXP = 0;
-		}
-
-		setEarnedXP(realXP);
+		xpFacet.setXP(id, xp);
+		setDirty(true);
 	}
 
 	public int getXP()
 	{
-		// Add the effect of LEVELADJ when
-		// showing our external notion of XP.
-		return earnedXP + getLAXP();
+		return xpFacet.getXP(id);
 	}
 
 	public void addEquipSet(final EquipSet set)
@@ -8811,12 +8801,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int minXPForECL()
 	{
-		return PlayerCharacterUtilities.minXPForLevel(getECL(), this);
+		return xpFacet.minXPForLevel(getECL(), id);
 	}
 
 	public int minXPForNextECL()
 	{
-		return PlayerCharacterUtilities.minXPForLevel(getECL() + 1, this);
+		return xpFacet.minXPForLevel(getECL() + 1, id);
 	}
 
 	public int miscAC()
@@ -11275,23 +11265,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return 0;
 	}
 
-	private void setEarnedXP(final int argEarnedXP)
-	{
-		earnedXP = argEarnedXP;
-		setDirty(true);
-	}
-
-	private int getLAXP()
-	{
-		// Why +1? Adjustments are deltas, not absolute
-		// levels, so are not subject to the "back off one"
-		// element of the * algorithm in minXPForLevel. This
-		// still means that levelAdjustment of 0 gives you 0
-		// XP, but we need LA of 1 to give us 1,000 XP.
-		return PlayerCharacterUtilities.minXPForLevel(
-			getLevelAdjustment() + 1, this);
-	}
-
 	public SizeAdjustment getSizeAdjustment()
 	{
 		return sizeFacet.getSizeAdjustment(id);
@@ -12147,6 +12120,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.classFacet.copyContents(id, aClone.id);
 		aClone.regionFacet.copyContents(id, aClone.id);
 		aClone.moneyFacet.copyContents(id, aClone.id);
+		aClone.xpFacet.setEarnedXP(aClone.id, xpFacet.getEarnedXP(id));
 		aClone.heightFacet.setHeight(aClone.id, heightFacet.getHeight(id));
 		aClone.weightFacet.setWeight(aClone.id, weightFacet.getWeight(id));
 		aClone.genderFacet.setGender(aClone.id, genderFacet.getGender(id));
@@ -12235,7 +12209,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.age = age;
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
-		aClone.earnedXP = earnedXP;
 		aClone.equipOutputOrder = equipOutputOrder;
 		aClone.freeLangs = freeLangs;
 		aClone.poolAmount = poolAmount;

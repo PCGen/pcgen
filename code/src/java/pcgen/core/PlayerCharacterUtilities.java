@@ -85,32 +85,6 @@ public class PlayerCharacterUtilities
 	}
 
 	/**
-	 * Returns the number of experience points needed for level
-	 *
-	 * @param   level  character level to calculate experience for
-	 * @param   pc     the PC that we are asking about (ECL of character can
-	 *                 affect the result)
-	 *
-	 * @return  The experience points needed
-	 */
-	static int minXPForLevel(final int level, final PlayerCharacter pc)
-	{
-		LevelInfo lInfo = Globals.getLevelInfo().get(String.valueOf(level));
-
-		if (lInfo == null)
-		{
-			lInfo = Globals.getLevelInfo().get("LEVEL");
-		}
-
-		if ((level > 0) && (lInfo != null))
-		{
-			return lInfo.getMinXP(level, pc);
-		}
-		// do something sensible if no level info
-		return 0;
-	}
-
-	/**
 	 * Set the Weapon proficiency of one piece of Equipment to the same as the
 	 * Proficiency in another piece of Equipment.  For some bizarre reason, as
 	 * well as setting the proficiency,  this zeros out the Weight and cost of
