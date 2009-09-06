@@ -132,7 +132,7 @@ public class pcGenGUI
 	{
 		if (Globals.getUseGUI())
 		{
-			macSpecificInit();
+			//macSpecificInit();
 			ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 			ChooserFactory.setRadioInterfaceClassname(SwingChooserRadio.class
 				.getName());
@@ -255,28 +255,28 @@ public class pcGenGUI
 	 * Test if we are running on Mac OS X, and if so do some Mac 
 	 * specific intialization. 
 	 */
-	private static void macSpecificInit()
-	{
-		// Fixes for Mac OS X look-and-feel menu problems.
-		// sk4p 12 Dec 2002
-		// Moved into separate class
-		// tmilam 21 Jan 2006
-		if (Globals.isMacPlatform)
-		{
-			try {
-				Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[]) null, (Object[])null);
-			} catch (ClassNotFoundException e) {
-				// don't do anything, just default to standard Java style
-				System.out.println("This build of PCGen doesn't include Mac-enhanced features.  Try the Mac build for a more Mac-like interface.");
-			} catch (NoSuchMethodException e) {
-				// don't do anything, just default to standard Java style
-			} catch (IllegalAccessException e) {
-				// don't do anything, just default to standard Java style
-			} catch (java.lang.reflect.InvocationTargetException e) {
-				// don't do anything, just default to standard Java style
-			}
-		}
-	}
+//	private static void macSpecificInit()
+//	{
+//		// Fixes for Mac OS X look-and-feel menu problems.
+//		// sk4p 12 Dec 2002
+//		// Moved into separate class
+//		// tmilam 21 Jan 2006
+//		if (Globals.isMacPlatform)
+//		{
+//			try {
+//				Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[]) null, (Object[])null);
+//			} catch (ClassNotFoundException e) {
+//				// don't do anything, just default to standard Java style
+//				System.out.println("This build of PCGen doesn't include Mac-enhanced features.  Try the Mac build for a more Mac-like interface.");
+//			} catch (NoSuchMethodException e) {
+//				// don't do anything, just default to standard Java style
+//			} catch (IllegalAccessException e) {
+//				// don't do anything, just default to standard Java style
+//			} catch (java.lang.reflect.InvocationTargetException e) {
+//				// don't do anything, just default to standard Java style
+//			}
+//		}
+//	}
 
 	/**
 	 * Run PCGen in non GUI mode. This means we just load the PC and export
@@ -385,7 +385,7 @@ public class pcGenGUI
 		{
 			// need to set Mac GUI props before any other GUI stuff
 			// tmilam 21 Jan 2006
-			macSpecificInit();
+			//macSpecificInit();
 			messageObserver = new ShowMessageGuiObserver();
 		}
 		else
