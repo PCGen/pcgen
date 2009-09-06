@@ -48,6 +48,7 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equip");
@@ -82,6 +83,7 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equip");
@@ -114,6 +116,7 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(leather);
 		leather.setIsEquipped(true, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		assertTrue("Armor and sword equipped", PrereqHandler.passes(prereq,
 			character, null));
@@ -138,6 +141,7 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equip");

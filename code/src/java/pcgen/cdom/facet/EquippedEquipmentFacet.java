@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
 
@@ -73,6 +74,16 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 				}
 			}
 		}
+	}
+
+	public Set<Equipment> getSet(CharID id)
+	{
+		Set<Equipment> set = (Set<Equipment>) FacetCache.get(id, thisClass);
+		if (set == null)
+		{
+			return Collections.emptySet();
+		}
+		return set;
 	}
 
 }

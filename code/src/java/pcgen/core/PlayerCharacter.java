@@ -115,6 +115,7 @@ import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.MoneyFacet;
+import pcgen.cdom.facet.NaturalEquipmentFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
@@ -123,6 +124,7 @@ import pcgen.cdom.facet.ReachFacet;
 import pcgen.cdom.facet.RegionFacet;
 import pcgen.cdom.facet.SizeFacet;
 import pcgen.cdom.facet.SkillFacet;
+import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.StatFacet;
 import pcgen.cdom.facet.SubRaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
@@ -220,6 +222,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private EquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
+	private NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary.getFacet(NaturalEquipmentFacet.class);
+	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
 	private CategorizedAbilityFacet abilityFacet = FacetLibrary.getFacet(CategorizedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 
@@ -419,6 +423,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		skillLangFacet.addDataFacetChangeListener(languageFacet);
 		startingLangFacet.addDataFacetChangeListener(languageFacet);
 		//langAutoFacet.addDataFacetChangeListener(languageFacet);
+
+		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
+		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
+		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
 
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
@@ -1455,6 +1463,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Set<Equipment> getEquipmentSet()
 	{
 		return equipmentFacet.getSet(id);
+	}
+
+	public Set<Equipment> getEquippedEquipmentSet()
+	{
+		return equippedFacet.getSet(id);
 	}
 
 	/**
@@ -5861,21 +5874,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		// Domains are skipped - it's assumed that their spells are added to the
 		// first divine spellcasting
-		for (Equipment eq : getEquipmentSet())
+		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
+			addSpells(eq);
+
+			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 			{
-				addSpells(eq);
+				addSpells(eqMod);
+			}
 
-				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-				{
-					addSpells(eqMod);
-				}
-
-				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-				{
-					addSpells(eqMod);
-				}
+			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+			{
+				addSpells(eqMod);
 			}
 		}
 
@@ -7762,24 +7772,19 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (includeEquipment)
 		{
-			for (Equipment eq : getEquipmentSet())
+			for (Equipment eq : getEquippedEquipmentSet())
 			{
-				if (eq.isEquipped())
+				SR = Math.max(SR, eq.getSafe(ObjectKey.SR).getReduction()
+						.resolve(this, eq.getQualifiedKey()).intValue());
+
+				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					SR =
-							Math.max(SR, eq.getSafe(ObjectKey.SR)
-								.getReduction().resolve(this,
-									eq.getQualifiedKey()).intValue());
+					SR = Math.max(SR, eqMod.getSR(eq, this));
+				}
 
-					for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-					{
-						SR = Math.max(SR, eqMod.getSR(eq, this));
-					}
-
-					for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-					{
-						SR = Math.max(SR, eqMod.getSR(eq, this));
-					}
+				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+				{
+					SR = Math.max(SR, eqMod.getSR(eq, this));
 				}
 			}
 		}
@@ -8879,12 +8884,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int modToACFromEquipment()
 	{
 		int bonus = 0;
-		for (Equipment eq : getEquipmentSet())
+		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
-			{
-				bonus += eq.getACMod(this).intValue();
-			}
+			bonus += eq.getACMod(this).intValue();
 		}
 		return bonus;
 	}
@@ -8903,12 +8905,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		int penaltyForLoad =
 				(Load.MEDIUM == load) ? -3 : (Load.HEAVY == load) ? -6 : 0;
 
-		for (Equipment eq : getEquipmentSet())
+		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
-			{
-				bonus += eq.acCheck(this).intValue();
-			}
+			bonus += eq.acCheck(this).intValue();
 		}
 
 		bonus = Math.min(bonus, penaltyForLoad);
@@ -8925,12 +8924,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private int modToSpellFailureFromEquipment()
 	{
 		int bonus = 0;
-		for (Equipment eq : getEquipmentSet())
+		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
-			{
-				bonus += eq.spellFailure(this).intValue();
-			}
+			bonus += eq.spellFailure(this).intValue();
 		}
 		bonus += (int) getTotalBonusTo("MISC", "SPELLFAILURE");
 		return bonus;
@@ -8954,19 +8950,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// examined, then we should use the Maximum - Maximum Dex modifier.
 		boolean useMax = (load == Load.LIGHT);
 
-		for (Equipment eq : getEquipmentSet())
+		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
+			final int potentialMax = eq.getMaxDex(this).intValue();
+			if (potentialMax != Constants.MAX_MAXDEX)
 			{
-				final int potentialMax = eq.getMaxDex(this).intValue();
-				if (potentialMax != Constants.MAX_MAXDEX)
+				if (useMax || bonus > potentialMax)
 				{
-					if (useMax || bonus > potentialMax)
-					{
-						bonus = potentialMax;
-					}
-					useMax = false;
+					bonus = potentialMax;
 				}
+				useMax = false;
 			}
 		}
 
@@ -10008,21 +10001,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aType = aType.toUpperCase();
 		aName = aName.toUpperCase();
 
-		for (Equipment eq : getEquipmentSet())
+		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
+			final List<BonusObj> tempList =
+					eq.getBonusListOfType(this, aType, aName, true);
+
+			if (eq.isWeapon() && eq.isDouble())
 			{
-				final List<BonusObj> tempList =
-						eq.getBonusListOfType(this, aType, aName, true);
-
-				if (eq.isWeapon() && eq.isDouble())
-				{
-					tempList.addAll(eq.getBonusListOfType(this, aType, aName,
-						false));
-				}
-
-				bonus += calcBonusFromList(tempList);
+				tempList.addAll(eq.getBonusListOfType(this, aType, aName,
+					false));
 			}
+
+			bonus += calcBonusFromList(tempList);
 		}
 
 		return bonus;
@@ -10702,23 +10692,18 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		results.addAll(domainFacet.getSet(id));
 
 		// Equipment
-		for (Equipment eq : equipmentFacet.getSet(id))
+		for (Equipment eq : activeEquipmentFacet.getSet(id))
 		{
-			// Include natural weapons by default as they have an effect even if
-			// not equipped.
-			if (eq.isEquipped() || eq.isNatural())
+			results.add(eq);
+
+			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 			{
-				results.add(eq);
+				results.add(eqMod);
+			}
 
-				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-				{
-					results.add(eqMod);
-				}
-
-				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-				{
-					results.add(eqMod);
-				}
+			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+			{
+				results.add(eqMod);
 			}
 		}
 
@@ -12232,6 +12217,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.invalidateAbilitySet(AbilityCategory.FEAT, Nature.VIRTUAL);
 		aClone.adjustMoveRates();
 		aClone.calcActiveBonuses();
+		//Just to be safe
+		aClone.equippedFacet.reset(id);
 
 		return aClone;
 	}
@@ -15737,5 +15724,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean containsKit(Kit kit)
 	{
 		return kitFacet.contains(id, kit);
+	}
+	
+	/*
+	 * Yes, this method really is what it says. The primary reason for this
+	 * being in PlayerCharacter is that I don't want to export id at this time
+	 * (it's private to avoid changing too much outside of PlayerCharacter at
+	 * this time). In the future, the Unit Tests should behave better - but I
+	 * think that generally goes along with Equipment
+	 * Location/Equipped/NumberEquipped/NumberCarried all being made consistent
+	 * (they are highly correlated, but no control is exerted over them by
+	 * Equpiment to ensure appropriate states are maintained)
+	 */
+	public void doAfavorForAunitTestThatIgnoresEquippingRules()
+	{
+		equippedFacet.reset(id);
 	}
 }

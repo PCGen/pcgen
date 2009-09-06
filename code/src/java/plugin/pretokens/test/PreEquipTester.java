@@ -71,13 +71,8 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements
 		{
 
 			final String targetEquip = prereq.getKey();
-			for (Equipment eq : character.getEquipmentSet())
+			for (Equipment eq : character.getEquippedEquipmentSet())
 			{
-				if (!eq.isEquipped())
-				{
-					continue;
-				}
-
 				if (targetEquip.startsWith("WIELDCATEGORY=")
 					|| targetEquip.startsWith("WIELDCATEGORY."))
 				{

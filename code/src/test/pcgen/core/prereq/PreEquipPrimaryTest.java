@@ -56,6 +56,7 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 		character.addEquipment(dagger);
 		dagger.setIsEquipped(true, character);
 		dagger.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipprimary");
@@ -91,6 +92,7 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
 		longsword.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipprimary");
@@ -132,6 +134,7 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
 		longsword.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipprimary");

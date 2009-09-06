@@ -116,29 +116,26 @@ public final class SkillCostCalc
 			}
 		}
 
-		for (Equipment eq : aPC.getEquipmentSet())
+		for (Equipment eq : aPC.getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
+			if (SkillCostCalc.hasCSkill(aPC, eq, sk))
 			{
-				if (SkillCostCalc.hasCSkill(aPC, eq, sk))
+				return true;
+			}
+
+			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+			{
+				if (SkillCostCalc.hasCSkill(aPC, eqMod, sk))
 				{
 					return true;
 				}
+			}
 
-				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+			{
+				if (SkillCostCalc.hasCSkill(aPC, eqMod, sk))
 				{
-					if (SkillCostCalc.hasCSkill(aPC, eqMod, sk))
-					{
-						return true;
-					}
-				}
-
-				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-				{
-					if (SkillCostCalc.hasCSkill(aPC, eqMod, sk))
-					{
-						return true;
-					}
+					return true;
 				}
 			}
 		}
@@ -267,29 +264,26 @@ public final class SkillCostCalc
 			}
 		}
 
-		for (Equipment eq : aPC.getEquipmentSet())
+		for (Equipment eq : aPC.getEquippedEquipmentSet())
 		{
-			if (eq.isEquipped())
+			if (SkillCostCalc.hasCcSkill(aPC, eq, sk))
 			{
-				if (SkillCostCalc.hasCcSkill(aPC, eq, sk))
+				return true;
+			}
+
+			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+			{
+				if (SkillCostCalc.hasCcSkill(aPC, eqMod, sk))
 				{
 					return true;
 				}
+			}
 
-				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+			{
+				if (SkillCostCalc.hasCcSkill(aPC, eqMod, sk))
 				{
-					if (SkillCostCalc.hasCcSkill(aPC, eqMod, sk))
-					{
-						return true;
-					}
-				}
-
-				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-				{
-					if (SkillCostCalc.hasCcSkill(aPC, eqMod, sk))
-					{
-						return true;
-					}
+					return true;
 				}
 			}
 		}

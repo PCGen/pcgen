@@ -56,9 +56,9 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
 		if (character.hasEquipment())
 		{
 			final String desiredType = prereq.getKey();
-			for (Equipment eq : character.getEquipmentSet())
+			for (Equipment eq : character.getEquippedEquipmentSet())
 			{
-				if (!eq.isEquipped() || !eq.isArmor())
+				if (!eq.isArmor())
 				{
 					continue;
 				}

@@ -71,6 +71,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 			character, null));
 
 		armor.setIsEquipped(true, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		assertTrue("Chainmail is equipped", PrereqHandler.passes(prereq,
 			character, null));
@@ -99,6 +100,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 
 		character.addEquipment(armor);
 		armor.setIsEquipped(true, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("armortype");
@@ -164,19 +166,26 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 
 		character.addEquipment(chainmail);
 		chainmail.setIsEquipped(true, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		assertTrue("Proficient armor equipped", PrereqHandler.passes(prereq,
 			character, null));
 
 		chainmail.setIsEquipped(false, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		final Equipment fullPlate = new Equipment();
 		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
 		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("HEAVY"));
 		fullPlate.setName("Full Plate");
 		Globals.getContext().ref.importObject(fullPlate);
-
+		
+		/*
+		 * TODO This doesn't make a lot of sense - false? Shouldn't this be true
+		 * to be a useful test?
+		 */
 		fullPlate.setIsEquipped(false, character);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		assertFalse("Not Proficient in armor equipped", PrereqHandler.passes(
 			prereq, character, null));

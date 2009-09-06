@@ -56,6 +56,7 @@ public class PreEquipBothTest extends AbstractCharacterTestCase
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
 		longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipboth");
@@ -91,6 +92,7 @@ public class PreEquipBothTest extends AbstractCharacterTestCase
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
 		longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipboth");
@@ -132,6 +134,7 @@ public class PreEquipBothTest extends AbstractCharacterTestCase
 		character.addEquipment(longsword);
 		longsword.setIsEquipped(true, character);
 		longsword.setLocation(EquipmentLocation.EQUIPPED_BOTH);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("equipboth");
