@@ -103,6 +103,7 @@ import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.FactFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.GenderFacet;
 import pcgen.cdom.facet.HandsFacet;
@@ -249,6 +250,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
+	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 
 	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
@@ -295,8 +297,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private PCClass selectedFavoredClass = null;
 
-	private Map<StringKey, String> stringChar =
-			new HashMap<StringKey, String>();
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 	private String tabName = Constants.EMPTY_STRING;
@@ -12120,6 +12120,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.classFacet.copyContents(id, aClone.id);
 		aClone.regionFacet.copyContents(id, aClone.id);
 		aClone.moneyFacet.copyContents(id, aClone.id);
+		aClone.factFacet.copyContents(id, aClone.id);
 		aClone.xpFacet.setEarnedXP(aClone.id, xpFacet.getEarnedXP(id));
 		aClone.heightFacet.setHeight(aClone.id, heightFacet.getHeight(id));
 		aClone.weightFacet.setWeight(aClone.id, weightFacet.getWeight(id));
@@ -12239,7 +12240,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setStringFor(StringKey key, String s)
 	{
-		stringChar.put(key, s);
+		factFacet.set(id, key, s);
 		setDirty(true);
 	}
 
@@ -12685,7 +12686,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getStringFor(StringKey key)
 	{
-		return stringChar.get(key);
+		return factFacet.get(id, key);
 	}
 
 	/**
@@ -12696,7 +12697,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getSafeStringFor(StringKey key)
 	{
-		String s = stringChar.get(key);
+		String s = factFacet.get(id, key);
 		if (s == null)
 		{
 			s = Constants.EMPTY_STRING;
