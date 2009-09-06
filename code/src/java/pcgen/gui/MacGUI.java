@@ -46,19 +46,19 @@ public class MacGUI extends ApplicationAdapter
 		}
 
 		// see what version of java we have
-		String version = System.getProperty("java.version");
-		String osVer = System.getProperty("os.version");
-		if(osVer.startsWith("10.4") && version.startsWith("1.4")) {
-			System.out.println("NOT using Mac screen menu bar as it causes a crash using Java 1.4 on Tiger.");
-			System.setProperty("apple.laf.useScreenMenuBar", "false");
-			System.setProperty("com.apple.macos.useScreenMenuBar", "false");
-		/* Rely on the package setting these properties
-		} else {
-			//System.out.println("Using screen menu bar");
-			System.setProperty("apple.laf.useScreenMenuBar", "true");
-			System.setProperty("com.apple.macos.useScreenMenuBar", "true");
-		*/
-		}
+//		String version = System.getProperty("java.version");
+//		String osVer = System.getProperty("os.version");
+//		if(osVer.startsWith("10.4") && version.startsWith("1.4")) {
+//			System.out.println("NOT using Mac screen menu bar as it causes a crash using Java 1.4 on Tiger.");
+//			System.setProperty("apple.laf.useScreenMenuBar", "false");
+//			System.setProperty("com.apple.macos.useScreenMenuBar", "false");
+//		/* Rely on the package setting these properties
+//		} else {
+//			//System.out.println("Using screen menu bar");
+//			System.setProperty("apple.laf.useScreenMenuBar", "true");
+//			System.setProperty("com.apple.macos.useScreenMenuBar", "true");
+//		*/
+//		}
 
 		// set some Mac look and feel stuff
 		/* Rely on the package setting these properties
@@ -76,25 +76,25 @@ public class MacGUI extends ApplicationAdapter
 		theApp.setEnabledPreferencesMenu(true);
 
 		// see if the Quaqua look and feel is available
-		java.io.File quaquaFile = new java.io.File("lib/quaqua.jar");
-		if(quaquaFile.exists()) {
-			// add the jar to the system classpath
-// see http://www-128.ibm.com/developerworks/forums/dw_thread.jsp?message=13780590&cat=10&thread=103422&treeDisplayType=threadmodel&forum=171#13780590 for info on dynamically adding to classpath
-			Class[] parameters = new Class[]{java.net.URL.class};
-			java.net.URLClassLoader sysloader = (java.net.URLClassLoader)ClassLoader.getSystemClassLoader();
-			Class<?> sysclass = java.net.URLClassLoader.class;
-			try {
-				java.lang.reflect.Method method = sysclass.getDeclaredMethod("addURL",parameters);
-				method.setAccessible(true);
-				method.invoke(sysloader, new Object[]{quaquaFile.toURI().toURL()});
-			} catch(Exception e) {
-				System.out.println("Exception in MacGUI::initialize" + e.toString());
-				System.out.println("Unable to add Quaqua Look and Feel as an option.");
-			}
-			javax.swing.UIManager.installLookAndFeel("Quaqua", "ch.randelshofer.quaqua.QuaquaLookAndFeel");
-		} else {
-			System.out.println("Quaqua Look and Feel not available.");
-		}
+//		java.io.File quaquaFile = new java.io.File("lib/quaqua.jar");
+//		if(quaquaFile.exists()) {
+//			// add the jar to the system classpath
+//// see http://www-128.ibm.com/developerworks/forums/dw_thread.jsp?message=13780590&cat=10&thread=103422&treeDisplayType=threadmodel&forum=171#13780590 for info on dynamically adding to classpath
+//			Class[] parameters = new Class[]{java.net.URL.class};
+//			java.net.URLClassLoader sysloader = (java.net.URLClassLoader)ClassLoader.getSystemClassLoader();
+//			Class<?> sysclass = java.net.URLClassLoader.class;
+//			try {
+//				java.lang.reflect.Method method = sysclass.getDeclaredMethod("addURL",parameters);
+//				method.setAccessible(true);
+//				method.invoke(sysloader, new Object[]{quaquaFile.toURI().toURL()});
+//			} catch(Exception e) {
+//				System.out.println("Exception in MacGUI::initialize" + e.toString());
+//				System.out.println("Unable to add Quaqua Look and Feel as an option.");
+//			}
+//			javax.swing.UIManager.installLookAndFeel("Quaqua", "ch.randelshofer.quaqua.QuaquaLookAndFeel");
+//		} else {
+//			System.out.println("Quaqua Look and Feel not available.");
+//		}
 	}  // end static initialize method
 
 	/**
