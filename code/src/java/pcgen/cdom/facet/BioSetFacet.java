@@ -17,16 +17,9 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.enumeration.CharID;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
+import pcgen.core.BioSet;
 
-public class BioSetFacet
+public class BioSetFacet extends AbstractItemFacet<BioSet>
 {
-
-	public PObject get(CharID id)
-	{
-		return Globals.getBioSet();
-	}
 
 }

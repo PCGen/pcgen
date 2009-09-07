@@ -447,6 +447,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		genderFacet.setGender(id, Gender.values()[0]);
 		heightFacet.setHeight(id, 0);
 		weightFacet.setWeight(id, 0);
+		bioSetFacet.set(id, Globals.getBioSet());
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
