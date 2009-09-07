@@ -36,7 +36,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	{
 		if (getConstructingClassInfo(id).addClass(obj))
 		{
-			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -64,7 +64,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		{
 			if (info.removeClass(obj))
 			{
-				fireGraphNodeChangeEvent(id, obj,
+				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
@@ -77,7 +77,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		{
 			for (PCClass obj : info.getClassSet())
 			{
-				fireGraphNodeChangeEvent(id, obj,
+				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}

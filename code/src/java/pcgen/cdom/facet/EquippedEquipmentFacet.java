@@ -47,7 +47,7 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 			{
 				if (!currentEquipment.contains(e))
 				{
-					fireGraphNodeChangeEvent(id, e,
+					fireDataFacetChangeEvent(id, e,
 							DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
@@ -60,7 +60,7 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 				// If not old, it's added
 				if (oldEquipped == null || !oldEquipped.contains(e))
 				{
-					fireGraphNodeChangeEvent(id, e,
+					fireDataFacetChangeEvent(id, e,
 							DataFacetChangeEvent.DATA_ADDED);
 				}
 			}
@@ -69,7 +69,7 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 				// If old, it's removed
 				if (oldEquipped != null && oldEquipped.contains(e))
 				{
-					fireGraphNodeChangeEvent(id, e,
+					fireDataFacetChangeEvent(id, e,
 							DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}

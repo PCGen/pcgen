@@ -43,7 +43,7 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 	{
 		if (getConstructingCachedSet(id).add(obj))
 		{
-			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -54,7 +54,7 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		{
 			if (set.add(obj))
 			{
-				fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 			}
 		}
 	}
@@ -66,7 +66,7 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		{
 			if (componentSet.remove(obj))
 			{
-				fireGraphNodeChangeEvent(id, obj,
+				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
@@ -81,7 +81,7 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 			{
 				if (componentSet.remove(obj))
 				{
-					fireGraphNodeChangeEvent(id, obj,
+					fireDataFacetChangeEvent(id, obj,
 							DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
@@ -95,7 +95,7 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		{
 			for (T obj : componentSet)
 			{
-				fireGraphNodeChangeEvent(id, obj,
+				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}

@@ -38,7 +38,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		boolean isNew = ensureCachedSet(id, cat, nat, obj);
 		if (getCachedSet(id, cat, nat).add(obj) || isNew)
 		{
-			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -56,7 +56,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		Set<Ability> cached = getCachedSet(id, cat, nat);
 		if (cached != null && cached.remove(obj))
 		{
-			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 		}
 	}
 
@@ -225,7 +225,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	{
 		for (Ability a : abilitySet)
 		{
-			fireGraphNodeChangeEvent(id, a, DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, a, DataFacetChangeEvent.DATA_REMOVED);
 		}
 	}
 

@@ -51,7 +51,7 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 		set.add(source);
 		if (fireNew)
 		{
-			fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
@@ -92,7 +92,7 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 			FacetCache.remove(id, getClass());
 			for (T obj : componentMap.keySet())
 			{
-				fireGraphNodeChangeEvent(id, obj,
+				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
@@ -188,7 +188,7 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 			if (set.isEmpty())
 			{
 				componentMap.put(obj, null);
-				fireGraphNodeChangeEvent(id, obj,
+				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}

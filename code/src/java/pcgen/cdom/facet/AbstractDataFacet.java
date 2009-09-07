@@ -92,7 +92,7 @@ public abstract class AbstractDataFacet<T extends CDOMObject>
 	 *            An identifier indicating whether the given CDOMObject was
 	 *            added to or removed from the source DataFacet
 	 */
-	protected void fireGraphNodeChangeEvent(CharID id, T node, int type)
+	protected void fireDataFacetChangeEvent(CharID id, T node, int type)
 	{
 		DataFacetChangeListener<T>[] listeners = listenerList
 				.getListeners(DataFacetChangeListener.class);

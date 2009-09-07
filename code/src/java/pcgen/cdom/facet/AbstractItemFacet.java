@@ -39,10 +39,10 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 		T old = get(id);
 		if (old != null)
 		{
-			fireGraphNodeChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
 		FacetCache.set(id, thisClass, obj);
-		fireGraphNodeChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+		fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 	}
 
 	public void remove(CharID id)
@@ -50,7 +50,7 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 		T old = (T) FacetCache.remove(id, thisClass);
 		if (old != null)
 		{
-			fireGraphNodeChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
 	}
 
