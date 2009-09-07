@@ -87,7 +87,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.facet.ActiveEqModFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
@@ -97,7 +96,6 @@ import pcgen.cdom.facet.CategorizedAbilityFacet;
 import pcgen.cdom.facet.ChallengeRatingFacet;
 import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
-import pcgen.cdom.facet.ClassLevelFacet;
 import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.ConditionalTemplateFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
@@ -108,6 +106,7 @@ import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
 import pcgen.cdom.facet.ExpandedCampaignFacet;
 import pcgen.cdom.facet.FaceFacet;
+import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
@@ -120,7 +119,6 @@ import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.MoneyFacet;
-import pcgen.cdom.facet.NaturalEquipmentFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
@@ -211,6 +209,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// Constants for use in getBonus
 	private static String lastVariable = null;
 
+	static
+	{
+		FacetInitialization.initialize();
+	}
+
 	private CharID id = new CharID();
 
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
@@ -223,7 +226,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
-	private ClassLevelFacet classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
 	private ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
@@ -231,9 +233,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private EquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
-	private NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary.getFacet(NaturalEquipmentFacet.class);
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
-	private ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 	private CategorizedAbilityFacet abilityFacet = FacetLibrary.getFacet(CategorizedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 
@@ -429,27 +429,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PlayerCharacter()
 	{
-		freeLangFacet.addDataFacetChangeListener(languageFacet);
-		addLangFacet.addDataFacetChangeListener(languageFacet);
-		skillLangFacet.addDataFacetChangeListener(languageFacet);
-		startingLangFacet.addDataFacetChangeListener(languageFacet);
-		//langAutoFacet.addDataFacetChangeListener(languageFacet);
-
-		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
-		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
-		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
-
-		campaignFacet.addDataFacetChangeListener(expandedCampaignFacet);
-		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
-		classFacet.addLevelChangeListener(classLevelFacet);
-		classFacet.addLevelChangeListener(levelFacet);
-		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
-
-		raceFacet.addDataFacetChangeListener(sizeFacet);
-		templateFacet.addDataFacetChangeListener(sizeFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(sizeFacet);
-		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
-
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
 
