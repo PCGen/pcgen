@@ -96,6 +96,7 @@ import pcgen.cdom.facet.CategorizedAbilityFacet;
 import pcgen.cdom.facet.ChallengeRatingFacet;
 import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
+import pcgen.cdom.facet.ClassLevelFacet;
 import pcgen.cdom.facet.CompanionModFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
@@ -219,6 +220,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
+	private ClassLevelFacet classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
 	private ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
@@ -435,6 +437,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		campaignFacet.addDataFacetChangeListener(expandedCampaignFacet);
 		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
+		classFacet.addLevelChangeListener(classLevelFacet);
 
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
