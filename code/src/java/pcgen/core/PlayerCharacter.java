@@ -102,6 +102,7 @@ import pcgen.cdom.facet.DeityFacet;
 import pcgen.cdom.facet.DomainFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
+import pcgen.cdom.facet.ExpandedCampaignFacet;
 import pcgen.cdom.facet.FaceFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
@@ -182,6 +183,7 @@ import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Delta;
@@ -218,6 +220,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
+	private ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
 	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 	private EquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
@@ -428,6 +431,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
 		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
 
+		campaignFacet.addDataFacetChangeListener(expandedCampaignFacet);
+
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
 
@@ -448,6 +453,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		heightFacet.setHeight(id, 0);
 		weightFacet.setWeight(id, 0);
 		bioSetFacet.set(id, Globals.getBioSet());
+		campaignFacet.addAll(id, PersistenceManager.getInstance().getLoadedCampaigns());
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
@@ -10660,7 +10666,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final ArrayList<PObject> results = new ArrayList<PObject>();
 
 		// Loaded campaigns
-		results.addAll(campaignFacet.getSet(id));
+		results.addAll(expandedCampaignFacet.getSet(id));
 
 		// Alignment
 		PCAlignment align = alignmentFacet.get(id);

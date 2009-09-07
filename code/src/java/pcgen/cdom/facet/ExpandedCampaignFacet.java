@@ -19,6 +19,22 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Campaign;
 
-public class CampaignFacet extends AbstractListFacet<Campaign>
+public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
+		implements DataFacetChangeListener<Campaign>
 {
+
+	public void dataAdded(DataFacetChangeEvent<Campaign> dfce)
+	{
+		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+		addAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(), dfce
+				.getSource());
+	}
+
+	public void dataRemoved(DataFacetChangeEvent<Campaign> dfce)
+	{
+		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+		removeAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(),
+				dfce.getSource());
+	}
+
 }
