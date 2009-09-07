@@ -87,6 +87,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.ActiveEqModFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.BioSetFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
@@ -227,6 +228,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary.getFacet(NaturalEquipmentFacet.class);
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
+	private ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 	private CategorizedAbilityFacet abilityFacet = FacetLibrary.getFacet(CategorizedAbilityFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 
@@ -432,6 +434,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
 
 		campaignFacet.addDataFacetChangeListener(expandedCampaignFacet);
+		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
 
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
