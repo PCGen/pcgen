@@ -90,6 +90,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveEqModFacet;
 import pcgen.cdom.facet.AlignmentFacet;
 import pcgen.cdom.facet.BioSetFacet;
+import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CampaignFacet;
 import pcgen.cdom.facet.CategorizedAbilityFacet;
@@ -246,6 +247,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
+	private BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
 
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
@@ -442,6 +444,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
+
+		raceFacet.addDataFacetChangeListener(sizeFacet);
+		templateFacet.addDataFacetChangeListener(sizeFacet);
+		conditionalTemplateFacet.addDataFacetChangeListener(sizeFacet);
+		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
@@ -7674,6 +7681,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// buildBonusMap(bonuses);
 		bonusManager.buildActiveBonusMap();
 		cablInt++;
+		bonusChangeFacet.reset(id);
 	}
 
 	/**

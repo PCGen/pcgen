@@ -18,16 +18,24 @@
 package pcgen.cdom.facet;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
+import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
+import pcgen.cdom.facet.LevelFacet.LevelChangeEvent;
+import pcgen.cdom.facet.LevelFacet.LevelChangeListener;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.analysis.SizeUtilities;
 
-public class SizeFacet
+public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
+		DataFacetChangeListener<CDOMObject>, LevelChangeListener, BonusChangeListener
 {
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
+	private final Class<?> thisClass = getClass();
 
 	private TemplateFacet templateFacet = FacetLibrary
 			.getFacet(TemplateFacet.class);
@@ -40,8 +48,15 @@ public class SizeFacet
 
 	public int racialSizeInt(CharID id)
 	{
-		int iSize = 0;
+		SizeFacetInfo info = getInfo(id);
+		return info == null ? 0 : info.racialSizeInt;
+	}
 
+	public int calcRacialSizeInt(CharID id)
+	{
+		SizeFacetInfo info = getConstructingInfo(id);
+
+		int iSize = 0;
 		Race race = raceFacet.get(id);
 		if (race != null)
 		{
@@ -62,13 +77,20 @@ public class SizeFacet
 				}
 			}
 		}
-
+		info.racialSizeInt = iSize;
 		return iSize;
 	}
 
 	public int sizeInt(CharID id)
 	{
-		int iSize = racialSizeInt(id);
+		SizeFacetInfo info = getInfo(id);
+		return info == null ? 0 : info.sizeInt;
+	}
+
+	public void update(CharID id)
+	{
+		SizeFacetInfo info = getConstructingInfo(id);
+		int iSize = calcRacialSizeInt(id);
 
 		Race race = raceFacet.get(id);
 		if (race != null)
@@ -102,13 +124,26 @@ public class SizeFacet
 			}
 		}
 
-		return iSize;
+		info.sizeInt = iSize;
+		SizeAdjustment oldSize = info.sizeAdj;
+		SizeAdjustment newSize = Globals.getContext().ref.getItemInOrder(
+				SIZEADJUSTMENT_CLASS, sizeInt(id));
+		info.sizeAdj = newSize;
+		if (oldSize != newSize)
+		{
+			if (oldSize != null)
+			{
+				fireDataFacetChangeEvent(id, oldSize, DataFacetChangeEvent.DATA_REMOVED);
+			}
+			fireDataFacetChangeEvent(id, newSize, DataFacetChangeEvent.DATA_ADDED);
+		}
 	}
 
 	public SizeAdjustment getSizeAdjustment(CharID id)
 	{
-		return Globals.getContext().ref.getItemInOrder(SIZEADJUSTMENT_CLASS,
-				sizeInt(id));
+		SizeFacetInfo info = getInfo(id);
+		return info == null ? SizeUtilities.getDefaultSizeAdjustment()
+				: info.sizeAdj;
 	}
 
 	public String getSizeAbb(CharID id)
@@ -121,5 +156,48 @@ public class SizeFacet
 		}
 
 		return " ";
+	}
+
+	private SizeFacetInfo getConstructingInfo(CharID id)
+	{
+		SizeFacetInfo rci = getInfo(id);
+		if (rci == null)
+		{
+			rci = new SizeFacetInfo();
+			FacetCache.set(id, thisClass, rci);
+		}
+		return rci;
+	}
+
+	private SizeFacetInfo getInfo(CharID id)
+	{
+		return (SizeFacetInfo) FacetCache.get(id, thisClass);
+	}
+
+	private class SizeFacetInfo
+	{
+		public int sizeInt;
+		public int racialSizeInt;
+		public SizeAdjustment sizeAdj;
+	}
+
+	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		update(dfce.getCharID());
+	}
+
+	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		update(dfce.getCharID());
+	}
+
+	public void levelChanged(LevelChangeEvent lce)
+	{
+		update(lce.getCharID());
+	}
+
+	public void bonusChange(BonusChangeEvent bce)
+	{
+		update(bce.getCharID());
 	}
 }
