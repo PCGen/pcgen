@@ -438,6 +438,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		campaignFacet.addDataFacetChangeListener(expandedCampaignFacet);
 		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
 		classFacet.addLevelChangeListener(classLevelFacet);
+		classFacet.addLevelChangeListener(levelFacet);
 
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
