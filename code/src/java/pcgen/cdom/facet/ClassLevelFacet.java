@@ -34,11 +34,19 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 		int old = oldLevel == null ? 0 : oldLevel;
 		for (int i = old + 1; i <= level; i++)
 		{
-			add(id, classFacet.getClassLevel(id, pcc, i), pcc);
+			PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, i);
+			if (classLevel != null)
+			{
+				add(id, classLevel, pcc);
+			}
 		}
 		for (int i = old; i > level; i--)
 		{
-			remove(id, classFacet.getClassLevel(id, pcc, i), pcc);
+			PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, i);
+			if (classLevel != null)
+			{
+				remove(id, classLevel, pcc);
+			}
 		}
 	}
 
