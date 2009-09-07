@@ -18,10 +18,14 @@
 package pcgen.cdom.facet;
 
 import java.util.Collections;
+import java.util.EventListener;
+import java.util.EventObject;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+
+import javax.swing.event.EventListenerList;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -31,6 +35,8 @@ import pcgen.core.PCClass;
 public class ClassFacet extends AbstractDataFacet<PCClass>
 {
 	private final Class<?> thisClass = getClass();
+
+	private final ClassLevelChangeSupport support = new ClassLevelChangeSupport();
 
 	public void addClass(CharID id, PCClass obj)
 	{
@@ -127,7 +133,8 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	public void setLevel(CharID id, PCClass pcc, int level)
 	{
-		getConstructingClassInfo(id).setLevel(pcc, level);
+		int oldLevel = getConstructingClassInfo(id).setLevel(pcc, level);
+		support.fireClassLevelChangeEvent(id, pcc, oldLevel, level);
 	}
 
 	public int getLevel(CharID id, PCClass pcc)
@@ -161,9 +168,10 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		{
 		}
 
-		public void setLevel(PCClass pcc, int level)
+		public Integer setLevel(PCClass pcc, int level)
 		{
-			levelmap.put(pcc, level);
+			Integer oldlvl = levelmap.put(pcc, level);
+			return (oldlvl == null) ? 0 : oldlvl;
 		}
 
 		public int getLevel(PCClass pcc)
@@ -292,6 +300,162 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		if (info != null)
 		{
 			FacetCache.set(destination, thisClass, new ClassInfo(info));
+		}
+	}
+
+	public void addLevelChangeListener(ClassLevelChangeListener listener)
+	{
+		support.addLevelChangeListener(listener);
+	}
+
+	public ClassLevelChangeListener[] getLevelChangeListeners()
+	{
+		return support.getLevelChangeListeners();
+	}
+
+	public void removeLevelChangeListener(ClassLevelChangeListener listener)
+	{
+		support.removeLevelChangeListener(listener);
+	}
+
+	public static interface ClassLevelChangeListener extends EventListener
+	{
+		public void levelChanged(ClassLevelChangeEvent lce);
+	}
+
+	public static class ClassLevelChangeEvent extends EventObject
+	{
+
+		/**
+		 * The ID indicating the owning character for this ClassLevelChangeEvent
+		 */
+		private final CharID charID;
+
+		private final PCClass pcClass;
+		private final int oldLvl;
+		private final int newLvl;
+
+		public ClassLevelChangeEvent(CharID source, PCClass pcc, int oldLevel,
+				int newLevel)
+		{
+			super(source);
+			charID = source;
+			pcClass = pcc;
+			oldLvl = oldLevel;
+			newLvl = newLevel;
+		}
+
+		/**
+		 * Returns an identifier indicating the PlayerCharacter on which this
+		 * event occurred.
+		 * 
+		 * @return A identifier indicating the PlayerCharacter on which this
+		 *         event occurred.
+		 */
+		public CharID getCharID()
+		{
+			return charID;
+		}
+
+		public PCClass getPCClass()
+		{
+			return pcClass;
+		}
+
+		public int getOldLevel()
+		{
+			return oldLvl;
+		}
+
+		public int getNewLevel()
+		{
+			return newLvl;
+		}
+	}
+
+	public static class ClassLevelChangeSupport
+	{
+		/**
+		 * The listeners to which LevelChangeEvents will be fired when a change
+		 * in the source ClassFacet occurs.
+		 */
+		private final EventListenerList listenerList = new EventListenerList();
+
+		/**
+		 * Adds a new ClassLevelChangeListener to receive LevelChangeEvents
+		 * (EdgeChangeEvent and NodeChangeEvent) from the source ClassFacet.
+		 * 
+		 * @param listener
+		 *            The LevelChangeListener to receive LevelChangeEvents
+		 */
+		public void addLevelChangeListener(ClassLevelChangeListener listener)
+		{
+			listenerList.add(ClassLevelChangeListener.class, listener);
+		}
+
+		/**
+		 * Returns an Array of LevelChangeListeners receiving LevelChangeEvents
+		 * from the source ClassFacet.
+		 * 
+		 * Ownership of the returned Array is transferred to the calling Object.
+		 * No reference to the Array is maintained by ClassLevelChangeSupport.
+		 * However, the LevelChangeListeners contained in the Array are
+		 * (obviously!) returned BY REFERENCE, and care should be taken with
+		 * modifying those LevelChangeListeners.*
+		 * 
+		 * @return An Array of LevelChangeListeners receiving LevelChangeEvents
+		 *         from the source ClassFacet
+		 */
+		public synchronized ClassLevelChangeListener[] getLevelChangeListeners()
+		{
+			return listenerList.getListeners(ClassLevelChangeListener.class);
+		}
+
+		/**
+		 * Removes a LevelChangeListener so that it will no longer receive
+		 * LevelChangeEvents from the source ClassFacet.
+		 * 
+		 * @param listener
+		 *            The LevelChangeListener to be removed
+		 */
+		public void removeLevelChangeListener(ClassLevelChangeListener listener)
+		{
+			listenerList.remove(ClassLevelChangeListener.class, listener);
+		}
+
+		/**
+		 * Sends a NodeChangeEvent to the LevelChangeListeners that are
+		 * receiving LevelChangeEvents from the source ClassFacet.
+		 * 
+		 * @param node
+		 *            The Node that has beed added to or removed from the source
+		 *            ClassFacet
+		 * @param type
+		 *            An identifier indicating whether the given CDOMObject was
+		 *            added to or removed from the source ClassFacet
+		 */
+		protected void fireClassLevelChangeEvent(CharID id, PCClass pcc,
+				int oldLevel, int newLevel)
+		{
+			ClassLevelChangeListener[] listeners = listenerList
+					.getListeners(ClassLevelChangeListener.class);
+			/*
+			 * This list is decremented from the end of the list to the
+			 * beginning in order to maintain consistent operation with how Java
+			 * AWT and Swing listeners are notified of Events (they are in
+			 * reverse order to how they were added to the Event-owning object).
+			 */
+			ClassLevelChangeEvent ccEvent = null;
+			for (int i = listeners.length - 1; i >= 0; i--)
+			{
+				// Lazily create event
+				if (ccEvent == null)
+				{
+					ccEvent = new ClassLevelChangeEvent(id, pcc, oldLevel,
+							newLevel);
+				}
+				listeners[i].levelChanged(ccEvent);
+			}
 		}
 	}
 }
