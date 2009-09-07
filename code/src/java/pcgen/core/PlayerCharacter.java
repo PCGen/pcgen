@@ -98,6 +98,7 @@ import pcgen.cdom.facet.CheckFacet;
 import pcgen.cdom.facet.ClassFacet;
 import pcgen.cdom.facet.ClassLevelFacet;
 import pcgen.cdom.facet.CompanionModFacet;
+import pcgen.cdom.facet.ConditionalTemplateFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.DeityFacet;
@@ -213,6 +214,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+	private ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
@@ -439,6 +441,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);
+		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
 
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
@@ -10637,17 +10640,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return list;
 	}
 
-	private List<PObject> getConditionalTemplateObjects()
+	private Collection<PCTemplate> getConditionalTemplateObjects()
 	{
-		List<PObject> list = new ArrayList<PObject>();
-		int totalLevels = getTotalLevels();
-		int totalHitDice = totalHitDice();
-		for (PCTemplate templ : getTemplateSet())
-		{
-			list.addAll(templ
-				.getConditionalTemplates(totalLevels, totalHitDice));
-		}
-		return list;
+		return conditionalTemplateFacet.getSet(id);
 	}
 
 	private List<? extends PObject> getPObjectList()
@@ -14147,7 +14142,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 			addNonAbilityAutoFeats();
-			List<PObject> pobjectList = getConditionalTemplateObjects();
+			/*
+			 * TODO Is this dependent on some side effects?!?
+			 */
+			List<PObject> pobjectList = new ArrayList<PObject>();
+			pobjectList.addAll(getConditionalTemplateObjects());
 			pobjectList.addAll(getPObjectList());
 			// Feats have a second list which we need to populate
 			stableAggregateFeatList = new ArrayList<Ability>();
@@ -14158,7 +14157,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			stableAggregateFeatList.addAll(abilityFacet.get(id,
 					AbilityCategory.FEAT, Nature.VIRTUAL));
 
-			
 			abilityFacet.removeDataFacetChangeListener(monitor);
 			doItAgain = monitor.wasChanged();
 		}
