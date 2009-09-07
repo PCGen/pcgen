@@ -72,6 +72,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			{
 				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
+				setLevel(id, obj, 0);
 			}
 		}
 	}
@@ -85,6 +86,8 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			{
 				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
+				int oldLevel = info.getLevel(obj);
+				support.fireClassLevelChangeEvent(id, obj, oldLevel, 0);
 			}
 		}
 		return info;
@@ -257,9 +260,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		public boolean removeClass(PCClass pcc)
 		{
 			boolean returnValue = map.containsKey(pcc);
-			{
-				map.remove(pcc);
-			}
+			map.remove(pcc);
 			return returnValue;
 		}
 
@@ -339,6 +340,14 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 				int newLevel)
 		{
 			super(source);
+			if (source == null)
+			{
+				throw new IllegalArgumentException ("CharID cannot be null");
+			}
+			if (pcc == null)
+			{
+				throw new IllegalArgumentException ("PCClass cannot be null");
+			}
 			charID = source;
 			pcClass = pcc;
 			oldLvl = oldLevel;
