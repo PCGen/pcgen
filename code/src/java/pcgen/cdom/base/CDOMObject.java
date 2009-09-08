@@ -44,6 +44,7 @@ import pcgen.cdom.util.MapKeyMap;
 import pcgen.core.AssociationStore;
 import pcgen.core.Description;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
@@ -760,5 +761,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final String getDisplayName()
 	{
 		return displayName;
+	}
+
+	/**
+	 * Sets all the BonusObj's to "active"
+	 * @param aPC
+	 */
+	public void activateBonuses(final PlayerCharacter aPC)
+	{
+		BonusActivation.activateBonuses(this, aPC);
 	}
 }

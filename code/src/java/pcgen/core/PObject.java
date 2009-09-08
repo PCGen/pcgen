@@ -36,7 +36,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.KeyedListContainer;
@@ -247,15 +246,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	public int numberInList(PlayerCharacter pc, final String aType)
 	{
 		return 0;
-	}
-
-	/**
-	 * Sets all the BonusObj's to "active"
-	 * @param aPC
-	 */
-	public void activateBonuses(final PlayerCharacter aPC)
-	{
-		BonusActivation.activateBonuses(this, aPC);
 	}
 
 	public List<? extends CDOMList<Spell>> getSpellLists(PlayerCharacter pc)

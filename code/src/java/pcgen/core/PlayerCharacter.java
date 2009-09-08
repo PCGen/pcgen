@@ -7621,8 +7621,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				if (!(pobj instanceof PCClass)
 					|| getLevel(((PCClass) pobj)) > 0)
 				{
-					BonusActivation.activateBonuses(pobj, this);
-
+					pobj.activateBonuses(this);
 					List<BonusObj> abs = pobj.getActiveBonuses(this);
 					for (BonusObj bo : abs)
 					{
