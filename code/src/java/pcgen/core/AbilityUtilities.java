@@ -1338,7 +1338,7 @@ public class AbilityUtilities
 			{
 				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
-					final double x = aPC.getRawFeats(false);
+					final double x = aPC.getRemainingFeatPoints(false);
 					aPC.setFeats(1); // temporarily assume 1 choice
 					ChooserUtilities.modChoices(pcAbility, new ArrayList(),
 							new ArrayList(), true, aPC, true, abilityCat);

@@ -1268,7 +1268,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendFeatLines(StringBuffer buffer)
 	{
 		buffer.append(TAG_FEATPOOL).append(':');
-		buffer.append(thePC.getRawFeats(false));
+		buffer.append(thePC.getRemainingFeatPoints(false));
 		buffer.append(LINE_SEP);
 	}
 

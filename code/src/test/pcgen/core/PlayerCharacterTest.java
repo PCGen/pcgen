@@ -263,7 +263,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
-		assertEquals(2, (int) character.getRawFeats(true));
+		assertEquals(2, (int) character.getRemainingFeatPoints(true));
 	}
 
 	/**
@@ -276,7 +276,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		character.setRace(human);
 		character.incrementClassLevel(3, pcClass, true);
-		assertEquals(3, (int) character.getRawFeats(true));
+		assertEquals(3, (int) character.getRemainingFeatPoints(true));
 	}
 
 	/**
@@ -292,10 +292,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		character.setRace(giantRace);
 		character.incrementClassLevel(1, pcClass, true);
-		is((int) character.getRawFeats(true), eq(2),
+		is((int) character.getRemainingFeatPoints(true), eq(2),
 			"One level of PCClass, PC has one feat for levels of monster class and one for a missing feat.");
 		character.incrementClassLevel(1, pcClass, true);
-		is((int) character.getRawFeats(true), eq(3),
+		is((int) character.getRemainingFeatPoints(true), eq(3),
 			"Three levels of PCClass (6 total), feats increment");
 	}
 
@@ -338,17 +338,17 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter pc = new PlayerCharacter();
 
 		pc.setRace(giantRace);
-		is((int) pc.getRawFeats(true), eq(2),
+		is((int) pc.getRemainingFeatPoints(true), eq(2),
 			"Four levels from race (4/3), PC has one racial feat.");
 		
 		pc.incrementClassLevel(1, class3LpfM, true);
-		is((int) pc.getRawFeats(true), eq(2),
+		is((int) pc.getRemainingFeatPoints(true), eq(2),
 			"One level of 3LpfM (1/3), four levels from race(4/3), PC has one racial feat.");
 		pc.incrementClassLevel(1, class3LpfM, true);
-		is((int) pc.getRawFeats(true), eq(2),
+		is((int) pc.getRemainingFeatPoints(true), eq(2),
 			"Two level of 3LpfM (2/3), four levels from race(4/3), PC has one racial feat.");
 		pc.incrementClassLevel(1, class3LpfM, true);
-		is((int) pc.getRawFeats(true), eq(3),
+		is((int) pc.getRemainingFeatPoints(true), eq(3),
 			"Three level of 3LpfM (3/3), four levels from race(4/3), PC has one racial feat.");
 	}
 	
@@ -463,11 +463,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		is((int) character.getRawFeats(true), eq(2), "Start with 2 feats");
+		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
 		{
 			AbilityUtilities.modFeat(character, null, "Toughness", true, false);
-			is((int) character.getRawFeats(true), eq(1), "Only 1 feat used");
+			is((int) character.getRemainingFeatPoints(true), eq(1), "Only 1 feat used");
 		}
 		catch (HeadlessException e)
 		{

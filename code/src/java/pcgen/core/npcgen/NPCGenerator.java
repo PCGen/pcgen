@@ -362,7 +362,7 @@ public class NPCGenerator
 
 	private void selectFeats(final PlayerCharacter aPC, final WeightedCollection<Ability> aFeatList)
 	{
-		while ((int)aPC.getFeats() > 0)
+		while ((int)aPC.getRemainingFeatPoolPoints() > 0)
 		{
 			final Ability ability = aFeatList.getRandomValue();
 

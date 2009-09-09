@@ -362,7 +362,7 @@ public final class PCGIOHandler extends IOHandler
 		if (parser.isCalcFeatPoolAfterLoad())
 		{
 			double baseFeatPool = parser.getBaseFeatPool();
-			double featPoolBonus = aPC.getRawFeats(true);
+			double featPoolBonus = aPC.getRemainingFeatPoints(true);
 			baseFeatPool -= featPoolBonus;
 			aPC.setFeats(baseFeatPool);
 		}

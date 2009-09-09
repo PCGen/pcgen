@@ -56,15 +56,16 @@ public class FeatPointsToken extends Token
 	}
 
 	/**
-	 * Get FEATPOINTS token
-	 * @param pc
-	 * @return FEATPOINTS token
+	 * Get the number of feat points remaining
+	 * 
+	 * @param pc - The PC to get the FEat points for
+	 * @return The number of feat points remaining
 	 */
 	public static double getFeatPointsToken(PlayerCharacter pc)
 	{
-		if (!CoreUtility.doublesEqual(pc.getFeats(), 0))
+		if (!CoreUtility.doublesEqual(pc.getRemainingFeatPoolPoints(), 0))
 		{
-			return pc.getFeats();
+			return pc.getRemainingFeatPoolPoints();
 		}
 		return 0.0;
 	}

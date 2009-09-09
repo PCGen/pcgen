@@ -1701,7 +1701,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean canLevelUp()
 	{
 		if (SettingsHandler.getEnforceSpendingBeforeLevelUp()
-			&& (getSkillPoints() > 0 || getFeats() > 0))
+			&& (getSkillPoints() > 0 || getRemainingFeatPoolPoints() > 0))
 		{
 			return false;
 		}
@@ -2888,7 +2888,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		if (Globals.getGameModeHasPointPool())
 		{
-			returnValue += (int) getRawFeats(false); // DO NOT CALL
+			returnValue += (int) getRemainingFeatPoints(false); // DO NOT CALL
 			// getFeats() here! It
 			// will set up a
 			// recursive loop and
@@ -12190,7 +12190,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.displayUpdate = displayUpdate;
 		aClone.setImporting(false);
 		aClone.useTempMods = useTempMods;
-		aClone.setFeats(feats);
+		aClone.setFeats(numberOfRemainingFeats);
 		aClone.age = age;
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
@@ -12763,7 +12763,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private boolean allowFeatPoolAdjustment = true;
 
 	// pool of feats remaining to distribute
-	private double feats = 0;
+	private double numberOfRemainingFeats = 0;
 	/** Status flag so that ability lists aren't cleared mid way through being rebuilt. */
 	private boolean rebuildingAbilities = false;
 
@@ -13171,7 +13171,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (allowFeatPoolAdjustment)
 		{
-			feats += arg;
+			numberOfRemainingFeats += arg;
 		}
 		setDirty(true);
 	}
@@ -13210,7 +13210,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (allowFeatPoolAdjustment)
 		{
-			feats = arg;
+			numberOfRemainingFeats = arg;
 		}
 		setDirty(true);
 	}
@@ -13244,7 +13244,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if (aCategory == AbilityCategory.FEAT)
 		{
 			BigDecimal spent = getAbilityPoolSpent(aCategory);
-			return spent.add(new BigDecimal(getFeats()));
+			return spent.add(new BigDecimal(getRemainingFeatPoolPoints()));
 		}
 		Float basePool =
 				this.getVariableValue(aCategory.getPoolFormula(), getClass()
@@ -13269,28 +13269,39 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getRealAbilitiesList(aCategory);
 	}
 
-	public double getFeats()
+	/**
+	 * Get the remaining Feat Points (or Skill Points if the GameMode uses a Point Pool).  
+	 * 
+	 * @return Number of remaining Feat Points
+	 */
+	public double getRemainingFeatPoolPoints()
 	{
 		if (Globals.getGameModeHasPointPool())
 		{
 			return getSkillPoints();
 		}
-		return getRawFeats(true);
+		return getRemainingFeatPoints(true);
 	}
 
 	public BigDecimal getAvailableAbilityPool(final AbilityCategory aCategory)
 	{
 		if (aCategory == AbilityCategory.FEAT)
 		{
-			return BigDecimal.valueOf(getFeats());
+			return BigDecimal.valueOf(getRemainingFeatPoolPoints());
 		}
 		return getTotalAbilityPool(aCategory).subtract(
 			getAbilityPoolSpent(aCategory));
 	}
 
-	public double getRawFeats(final boolean bIncludeBonus)
+	/**
+	 * Get the number of remaining feat points
+	 * 
+	 * @param bIncludeBonus - Flag whether to include any bonus feat points
+	 * @return number of remaining feat points
+	 */
+	public double getRemainingFeatPoints(final boolean bIncludeBonus)
 	{
-		double retVal = feats;
+		double retVal = numberOfRemainingFeats;
 		if (bIncludeBonus)
 		{
 			retVal += getBonusFeatPool();

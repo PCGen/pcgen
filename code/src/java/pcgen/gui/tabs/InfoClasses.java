@@ -1494,7 +1494,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		//Calculate the aggregate feat list
 		pc.aggregateFeatList();
 		updateHP();
-		featCount.setText(Double.toString(pc.getFeats()));
+		featCount.setText(Double.toString(pc.getRemainingFeatPoolPoints()));
 		skillCount.setText(Integer.toString(pc.getSkillPoints()));
 		lBAB.setText(Integer.toString(pc.baseAttackBonus()));
 		lDefense.setText(Integer.toString(pc.classAC()));
