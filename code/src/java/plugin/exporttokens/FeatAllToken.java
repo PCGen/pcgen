@@ -11,7 +11,7 @@ import pcgen.io.ExportHandler;
  * @author karianna
  * Class deals with FEATALL Token
  */
-public class DFeatAllToken extends AbilityAllToken
+public class FeatAllToken extends AbilityAllToken
 {
 
 	/**
