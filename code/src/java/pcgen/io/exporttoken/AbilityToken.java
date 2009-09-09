@@ -90,11 +90,10 @@ public class AbilityToken extends Token
 	/** The current visibility filtering to apply */
 	private int visibility = ABILITY_DEFAULT;
 
-	// TODO: Should the following 4 variables be here?  They don't get used for anythign useful
 	/** The cached PC */
 	private PlayerCharacter cachedPC = null;
 
-	/** TODO */
+	/** The cached PC serial (serial holds whether a PC has been changed) */
 	private int cachedPcSerial = 0;
 
 	/** The last token in the list of abilities */
@@ -157,20 +156,13 @@ public class AbilityToken extends Token
 		PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
 		final String tokenString, final AbilityCategory aCategory)
 	{
+		boolean cacheAbilityProcessingData =
+				(cachedPC != pc || !aCategory.equals(lastCategory)
+					|| cachedPcSerial != pc.getSerial() || !tokenString
+					.equals(lastToken));
+
 		// As this method can effectively be called by an OS FOR token, there 
 		// is a performance saving in caching some of the one-off processing data 
-		boolean cacheAbilityProcessingData;
-		if (cachedPC != pc || !aCategory.equals(lastCategory)
-			|| cachedPcSerial != pc.getSerial()
-			|| !tokenString.equals(lastToken))
-		{
-			cacheAbilityProcessingData = true;
-		}
-		else
-		{
-			cacheAbilityProcessingData = false;
-		}
-
 		if (cacheAbilityProcessingData)
 		{
 			// Overridden by subclasses to return the right list.
@@ -417,15 +409,15 @@ public class AbilityToken extends Token
 	private String getRetString(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh, int abilityIndex, List<Ability> aList)
 	{
-		String retString = null;
+		String retString = "";
 		Ability aAbility;
 		// If the ability index given is within a valid range
 		if (abilityIndex >= 0 && abilityIndex < aList.size())
 		{
 			aAbility = aList.get(abilityIndex);
 
-			// If it is the last item and there's a valid export handler and TODO
-			// Then tell the ExpotrHandler that there is no more processing needed
+			// If it is the last item and there's a valid export handler and ??? TODO
+			// Then tell the ExportHandler that there is no more processing needed
 			if (abilityIndex == aList.size() - 1 && eh != null
 				&& eh.getExistsOnly())
 			{
