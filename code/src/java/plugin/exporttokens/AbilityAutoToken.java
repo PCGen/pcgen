@@ -34,10 +34,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
 /**
- * @author karianna
- * Class deals with FEATAUTO Token
- */
-/**
  * <code>AbilityAutoToken</code> deals with the ABILITYAUTO output 
  * token.
  *
