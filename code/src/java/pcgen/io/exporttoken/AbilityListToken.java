@@ -109,6 +109,9 @@ public class AbilityListToken extends Token
 			return "";
 		}
 		StringBuffer retString = new StringBuffer();
+		// If we haven't cached some of the processign data, then do so, this is so that 
+		// if the Output Sheet loops over this token we don't process one-off stuff more than 
+		// once
 		if (lastPC != pc || !aCategory.equals(lastCategory)
 			|| lastPCSerial != pc.getSerial() || !tokenString.equals(lastType))
 		{
