@@ -87,14 +87,14 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 	public Map<T, Set<Object>> removeAll(CharID id)
 	{
 		Map<T, Set<Object>> componentMap = getCachedSet(id);
-		if (componentMap != null)
+		if (componentMap == null)
 		{
-			FacetCache.remove(id, getClass());
-			for (T obj : componentMap.keySet())
-			{
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
-			}
+			return Collections.emptyMap();
+		}
+		FacetCache.remove(id, getClass());
+		for (T obj : componentMap.keySet())
+		{
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 		}
 		return componentMap;
 	}

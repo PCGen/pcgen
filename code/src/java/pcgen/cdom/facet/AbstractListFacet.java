@@ -91,13 +91,13 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 	public Set<T> removeAll(CharID id)
 	{
 		Set<T> componentSet = (Set<T>) FacetCache.remove(id, thisClass);
-		if (componentSet != null)
+		if (componentSet == null)
 		{
-			for (T obj : componentSet)
-			{
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
-			}
+			return Collections.emptySet();
+		}
+		for (T obj : componentSet)
+		{
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 		}
 		return componentSet;
 	}
