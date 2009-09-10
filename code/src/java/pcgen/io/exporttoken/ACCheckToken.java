@@ -30,7 +30,7 @@ import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 
 /**
- * Class deals with ACCHECK Token
+ * Class deals with ACCHECK Token (Armour Check Penalty)
  */
 public class ACCheckToken extends Token
 {
@@ -59,14 +59,14 @@ public class ACCheckToken extends Token
 
 	/**
 	 * TODO: Rip the processing of this token out of PlayerCharacter
+	 * 
 	 * @param tokenSource
-	 * @param pc
-	 * @return int
+	 * @param pc - The PC to calculate the ACCHECK for 
+	 * @return THe ACCHECK Penalty
 	 */
 	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
 	{
 		int mod = pc.modToFromEquipment(tokenSource);
-
 		return mod;
 	}
 }

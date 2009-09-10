@@ -7380,10 +7380,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return retList;
 	}
 
+	/**
+	 * Get the Alternative HP for Gamemodes that don't use the traditions 
+	 * HP approach (e.g.  Wound points)  
+	 * 
+	 * @return The alternative HP for this PC
+	 */
 	public int altHP()
 	{
 		final int i = (int) getTotalBonusTo("HP", "ALTHP");
-
 		return i;
 	}
 
@@ -7488,7 +7493,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return move;
 	}
 
-	// TODO - Fix this to do 90% of the parsing work up front.
+	/**
+	 * Calculate the AC for a particular ACTYPE e.g.  Flatfooted
+	 * 
+	 * TODO - Fix this to do 90% of the parsing work up front.
+	 */
 	public int calcACOfType(final String ACType)
 	{
 		final List<String> addList =
@@ -7499,7 +7508,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		if ((addList == null) && (removeList == null))
 		{
 			Logging.errorPrint("Invalid ACType: " + ACType);
-
 			return 0;
 		}
 
@@ -7507,7 +7515,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (addList != null)
 		{
-			// final List<TypedBonus> bonuses = new ArrayList<TypedBonus>();
 			for (String aString : addList)
 			{
 				final PObject aPObj = new PObject();
@@ -7518,21 +7525,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					final StringTokenizer aTok =
 							new StringTokenizer(aString, "|");
 					AC += subCalcACOfType(aTok);
-					// while ( aTok.hasMoreTokens() )
-					// {
-					// bonuses.addAll(
-					// TypedBonus.getBonusesOfType(getBonusesTo("COMBAT", "AC"),
-					// aTok.nextToken()) );
-					//						
-					// }
-					// AC += TypedBonus.totalBonuses(bonuses);
 				}
 			}
 		}
 
 		if (removeList != null)
 		{
-			// final List<TypedBonus> bonuses = new ArrayList<TypedBonus>();
 			for (String rString : removeList)
 			{
 				final PObject aPObj = new PObject();
@@ -7543,14 +7541,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					final StringTokenizer aTok =
 							new StringTokenizer(rString, "|");
 					AC -= subCalcACOfType(aTok);
-					// while ( aTok.hasMoreTokens() )
-					// {
-					// bonuses.addAll(
-					// TypedBonus.getBonusesOfType(getBonusesTo("COMBAT", "AC"),
-					// aTok.nextToken()) );
-					//						
-					// }
-					// AC -= TypedBonus.totalBonuses(bonuses);
 				}
 			}
 		}
@@ -8898,6 +8888,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * Calculate the ACCHECK bonus from equipped items. Extracted from
 	 * modToFromEquipment.
 	 * 
+	 * TODO Penalty for load could/should be GameMode specific?
+	 * 
 	 * @return PC's ACCHECK bonus from equipment
 	 */
 	private int modToACCHECKFromEquipment()
@@ -8914,6 +8906,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		bonus = Math.min(bonus, penaltyForLoad);
+		
+		// TODO Would be nice to one day explicitly have this as a ACCHECK type of 'bonus' 
+		// as opposed to MISC
 		bonus += (int) getTotalBonusTo("MISC", "ACCHECK");
 		return bonus;
 	}
@@ -8984,9 +8979,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return bonus;
 	}
 
-	/*
-	 * Figure the: MAXDEX ACCHECK SPELLFAILURE AC bonus from all currently
-	 * equipped items
+	/**
+	 * Calculate the MAXDEX or ACCHECK or SPELLFAILURE or AC bonus from all currently
+	 * equipped items.
+	 * 
+	 * @param The type of modification we're trying to calculate
+	 * @return The calculation from the equipment or if the typeName doesn't match then 0
 	 */
 	public int modToFromEquipment(final String typeName)
 	{

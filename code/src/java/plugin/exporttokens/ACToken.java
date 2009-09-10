@@ -57,8 +57,9 @@ public class ACToken extends Token
 
 	/**
 	 * Get the AC Token
+	 * 
 	 * @param tokenSource
-	 * @param pc
+	 * @param pc - The PC to get the AC for
 	 * @return AC Token
 	 */
 	public static int getACToken(String tokenSource, PlayerCharacter pc)
