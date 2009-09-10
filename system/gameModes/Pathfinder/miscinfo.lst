@@ -76,10 +76,10 @@ TAB:TEMPMOD	NAME:in_InfoTempMod	CONTEXT:tabpages\players\inventory\inventorytemp
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
 #
-MENUENTRY:Pathfinder
+MENUENTRY:Pathfinder Beta
 MENUTOOLTIP:Use Pathfinder RPG character creation settings
 DISPLAYORDER:1
-ALLOWEDMODES:Pathfinder
+ALLOWEDMODES:PathfinderBeta
 #
 # SHORTRANGE sets the Short Range as referenced by
 #  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE

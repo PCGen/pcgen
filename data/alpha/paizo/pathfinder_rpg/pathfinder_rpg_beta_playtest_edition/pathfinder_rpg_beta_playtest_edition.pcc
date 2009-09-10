@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Paizo - Pathfinder RPG (Beta Playtest Edition)
-GAMEMODE:Pathfinder
+GAMEMODE:PathfinderBeta
 TYPE:Paizo Publishing.Pathfinder RPG
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Paizo - Pathfinder RPG (Beta Playtest Edition)]
