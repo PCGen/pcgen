@@ -27,4 +27,9 @@ package pcgen.cdom.enumeration;
 public enum Gender
 {
 	Male, Female, Neuter;
+
+	public static Gender getDefaultValue()
+	{
+		return Male;
+	}
 }

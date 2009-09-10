@@ -43,14 +43,11 @@ public class GenderFacet
 	public Gender getGender(CharID id)
 	{
 		Gender g = findTemplateGender(id);
-		return (g == null) ? (Gender) FacetCache.get(id, thisClass) : g;
-	}
-
-	public boolean matchesGender(CharID id, Gender obj)
-	{
-		Gender current = getGender(id);
-		return (obj == null && current == null)
-				|| (obj != null && obj.equals(current));
+		if (g == null)
+		{
+			g = (Gender) FacetCache.get(id, thisClass);
+		}
+		return g == null ? Gender.getDefaultValue() : g;
 	}
 
 	public boolean canSetGender(CharID id)

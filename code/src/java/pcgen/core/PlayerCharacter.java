@@ -445,9 +445,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				.getOrderSortedCDOMObjects(PCStat.class));
 		checkFacet.addAll(id, Globals.getContext().ref
 				.getOrderSortedCDOMObjects(PCCheck.class));
-		genderFacet.setGender(id, Gender.values()[0]);
-		heightFacet.setHeight(id, 0);
-		weightFacet.setWeight(id, 0);
 		bioSetFacet.set(id, Globals.getBioSet());
 		campaignFacet.addAll(id, PersistenceManager.getInstance().getLoadedCampaigns());
 

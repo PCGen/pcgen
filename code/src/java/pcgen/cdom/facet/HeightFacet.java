@@ -24,9 +24,9 @@ public class HeightFacet
 
 	private final Class<?> thisClass = getClass();
 
-	public void setHeight(CharID id, Integer obj)
+	public void setHeight(CharID id, int height)
 	{
-		FacetCache.set(id, thisClass, obj);
+		FacetCache.set(id, thisClass, height);
 	}
 
 	public void removeHeight(CharID id)
@@ -34,15 +34,14 @@ public class HeightFacet
 		FacetCache.remove(id, thisClass);
 	}
 
-	public Integer getHeight(CharID id)
+	public int getHeight(CharID id)
 	{
-		return (Integer) FacetCache.get(id, thisClass);
+		Integer height = getCachedHeight(id);
+		return (height == null) ? 0 : height;
 	}
 
-	public boolean matchesHeight(CharID id, Integer h)
+	public Integer getCachedHeight(CharID id)
 	{
-		Integer current = getHeight(id);
-		return (h == null && current == null)
-				|| (h != null && h.equals(current));
+		return (Integer) FacetCache.get(id, thisClass);
 	}
 }

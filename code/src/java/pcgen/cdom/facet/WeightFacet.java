@@ -24,9 +24,9 @@ public class WeightFacet
 
 	private final Class<?> thisClass = getClass();
 
-	public void setWeight(CharID id, Integer obj)
+	public void setWeight(CharID id, int weight)
 	{
-		FacetCache.set(id, thisClass, obj);
+		FacetCache.set(id, thisClass, weight);
 	}
 
 	public void removeWeight(CharID id)
@@ -34,15 +34,14 @@ public class WeightFacet
 		FacetCache.remove(id, thisClass);
 	}
 
-	public Integer getWeight(CharID id)
+	public int getWeight(CharID id)
 	{
-		return (Integer) FacetCache.get(id, thisClass);
+		Integer weight = getCachedWeight(id);
+		return weight == null ? 0 : weight;
 	}
 
-	public boolean matchesWeight(CharID id, Integer h)
+	private Integer getCachedWeight(CharID id)
 	{
-		Integer current = getWeight(id);
-		return (h == null && current == null)
-				|| (h != null && h.equals(current));
+		return (Integer) FacetCache.get(id, thisClass);
 	}
 }
