@@ -69,28 +69,6 @@ public class Prerequisite implements Cloneable
 	}
 
 	/**
-	 * Instantiates a new prerequisite based on another prerequisite. 
-	 * 
-	 * @param that the other prereq
-	 */
-	public Prerequisite(final Prerequisite that)
-	{
-		this.kind = that.kind;
-		this.key = that.key;
-		this.subKey = that.subKey;
-		this.operator = that.operator;
-		this.operand = that.operand;
-		this.countMultiples = that.countMultiples;
-		if (that.prerequisites != null)
-		{
-			for ( Prerequisite otherReq : that.prerequisites )
-			{
-				this.addPrerequisite(new Prerequisite(otherReq));
-			}
-		}
-	}
-
-	/**
 	 * @return Returns the totalValues.
 	 */
 	public final boolean isTotalValues()

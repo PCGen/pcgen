@@ -69,6 +69,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -1099,7 +1100,15 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 							|| !prereq.getKind().equalsIgnoreCase(
 								Prerequisite.APPLY_KIND))
 						{
-							newB.addPrerequisite(new Prerequisite(prereq));
+							try
+							{
+								newB.addPrerequisite(prereq.clone());
+							}
+							catch (CloneNotSupportedException e)
+							{
+								throw new UnreachableError(
+										"Prerequisites should be cloneable by PCGen design");
+							}
 						}
 					}
 
