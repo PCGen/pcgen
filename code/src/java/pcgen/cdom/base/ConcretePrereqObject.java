@@ -94,45 +94,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	}
 
 	/**
-	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
-	 * 
-	 * <p>
-	 * If the Prerequisite kind is &quot;clear&quot; all the prerequisites will
-	 * be cleared from the list.
-	 * 
-	 * @param preReq
-	 *            The <tt>Prerequisite</tt> to add.
-	 * @param levelQualifier
-	 *            A level qualifier.
-	 * 
-	 * @see pcgen.core.prereq.Prerequisite#setLevelQualifier(int)
-	 */
-	public final void addPreReq(final Prerequisite preReq,
-			final int levelQualifier)
-	{
-		if (preReq == null)
-		{
-			return;
-		}
-		if (Prerequisite.CLEAR_KIND.equals(preReq.getKind())) //$NON-NLS-1$
-		{
-			thePrereqs = null;
-		}
-		else
-		{
-			if (thePrereqs == null)
-			{
-				thePrereqs = new ListSet<Prerequisite>();
-			}
-			if (levelQualifier > 0)
-			{
-				preReq.setLevelQualifier(levelQualifier);
-			}
-			thePrereqs.add(preReq);
-		}
-	}
-
-	/**
 	 * Returns true if this object has any prerequisites of the kind that is
 	 * passed in.
 	 * 
@@ -221,7 +182,22 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 */
 	public void addPrerequisite(Prerequisite preReq)
 	{
-		this.addPreReq(preReq, -1);
+		if (preReq == null)
+		{
+			return;
+		}
+		if (Prerequisite.CLEAR_KIND.equals(preReq.getKind())) //$NON-NLS-1$
+		{
+			thePrereqs = null;
+		}
+		else
+		{
+			if (thePrereqs == null)
+			{
+				thePrereqs = new ListSet<Prerequisite>();
+			}
+			thePrereqs.add(preReq);
+		}
 	}
 
 	/**

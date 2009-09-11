@@ -67,11 +67,6 @@ public final class PointBuyCost
 
 	public final void addPreReq(final Prerequisite preReq)
 	{
-		addPreReq(preReq, -1);
-	}
-
-	public final void addPreReq(final Prerequisite preReq, final int anInt)
-	{
 		if ("clear".equals(preReq.getKind()))
 		{
 			preReqList = null;
@@ -81,10 +76,6 @@ public final class PointBuyCost
 			if (preReqList == null)
 			{
 				preReqList = new ArrayList<Prerequisite>();
-			}
-			if (anInt > 0)
-			{
-				preReq.setLevelQualifier(anInt);
 			}
 			preReqList.add(preReq);
 		}

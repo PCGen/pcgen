@@ -58,7 +58,6 @@ public class Prerequisite implements Cloneable
 	/** Indicates that the number of qualifying objects should be tallied when checking for a value. */
 	private boolean countMultiples;
 	private boolean overrideQualify = false;
-	private int levelQualifier = -1; // used for classes only - classlevel at which this prereq is checked
 	private String categoryName; // used for abilities only - category to restrict matches to.
 
 	/**
@@ -82,7 +81,6 @@ public class Prerequisite implements Cloneable
 		this.operator = that.operator;
 		this.operand = that.operand;
 		this.countMultiples = that.countMultiples;
-		this.levelQualifier = that.levelQualifier;
 		if (that.prerequisites != null)
 		{
 			for ( Prerequisite otherReq : that.prerequisites )
@@ -401,14 +399,6 @@ public class Prerequisite implements Cloneable
 	{
 		final StringBuffer buf = new StringBuffer();
 
-		if (levelQualifier > 0 && !shortForm)
-		{
-			buf.append("at level ");
-			buf.append(levelQualifier+":");
-			buf.append(' '); //$NON-NLS-1$
-
-		}
-
 		if (categoryName != null && !shortForm)
 		{
 			buf.append("of category ");
@@ -465,16 +455,6 @@ public class Prerequisite implements Cloneable
 		}
 
 		return buf.toString();
-	}
-
-	public int getLevelQualifier()
-	{
-		return levelQualifier;
-	}
-
-	public void setLevelQualifier(final int qualifier)
-	{
-		levelQualifier = qualifier;
 	}
 
 	/**
@@ -568,7 +548,6 @@ public class Prerequisite implements Cloneable
 		}
 		return countMultiples == other.countMultiples
 			&& overrideQualify == other.overrideQualify
-			&& levelQualifier == other.levelQualifier
 			&& operator == other.operator
 			&& (kind == null || kind.equals(other.kind))
 			&& (key == null || key.equals(other.key))

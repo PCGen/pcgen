@@ -173,8 +173,6 @@ public class PrereqHandler {
 		}
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 		final PrerequisiteTest test = factory.getTest(prereq.getKind());
-		if (prereq.getLevelQualifier() >= 0 && (caller instanceof PCClass) && character.getLevel(((PCClass)caller))!=prereq.getLevelQualifier())
-			return true;
 
 		if (test == null)
 		{
@@ -264,8 +262,6 @@ public class PrereqHandler {
 			else
 			{
 				pString.append(delimiter);
-				if (prereq.getLevelQualifier() > 0)
-					pString.append("at level "+prereq.getLevelQualifier()+":");
 				pString.append(preHtml.toHtmlString(prereq) );
 
 					delimiter = PropertyFactory.getString("PrereqHandler.HTML_prerequisite_delimiter"); //$NON-NLS-1$
