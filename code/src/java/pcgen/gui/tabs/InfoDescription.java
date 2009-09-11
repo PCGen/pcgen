@@ -1257,6 +1257,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		fregionText.setInputVerifier(inputVerify);
 		residenceText.setInputVerifier(inputVerify);
 		locationText.setInputVerifier(inputVerify);
+		birthdayText.setInputVerifier(inputVerify);
 		birthplaceText.setInputVerifier(inputVerify);
 		ageText.setInputVerifier(inputVerify);
 		htText.setInputVerifier(inputVerify);
