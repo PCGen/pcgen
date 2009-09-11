@@ -27,138 +27,155 @@
  *
  */
 package pcgen.core.prereq;
+
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.PropertyFactory;
 
-
 /**
  * @author wardc
- *
+ * 
  */
-public class PrerequisiteOperator
+public enum PrerequisiteOperator
 {
-	private static final int ComparatorGTEQ = 0;
-	private static final int ComparatorGT   = 1;
-	private static final int ComparatorEQ   = 2;
-	private static final int ComparatorNEQ  = 3;
-	private static final int ComparatorLT   = 4;
-	private static final int ComparatorLTEQ = 5;
-
-	private static final String validTypes[] = {
-		"gteq",		//$NON-NLS-1$
-		"gt",		//$NON-NLS-1$
-		"eq",		//$NON-NLS-1$
-		"neq",		//$NON-NLS-1$
-		"lt",		//$NON-NLS-1$
-		"lteq"		//$NON-NLS-1$
-	}; 
-
-	private static final String altValidTypes[] = {
-		">=",		//$NON-NLS-1$
-		">",		//$NON-NLS-1$
-		"=",		//$NON-NLS-1$
-		"!=",		//$NON-NLS-1$
-		"<",		//$NON-NLS-1$
-		"<="		//$NON-NLS-1$
-	}; 
-
-
-	public static final PrerequisiteOperator GTEQ = new PrerequisiteOperator(ComparatorGTEQ);
-	public static final PrerequisiteOperator GT   = new PrerequisiteOperator(ComparatorGT);
-	public static final PrerequisiteOperator EQ   = new PrerequisiteOperator(ComparatorEQ);
-	public static final PrerequisiteOperator NEQ  = new PrerequisiteOperator(ComparatorNEQ);
-	public static final PrerequisiteOperator LT   = new PrerequisiteOperator(ComparatorLT);
-	public static final PrerequisiteOperator LTEQ = new PrerequisiteOperator(ComparatorLTEQ);
-
-	
-	private int value = ComparatorGTEQ;
-
-//	private PrerequisiteOperator(final String operator) throws PrerequisiteException
-//	{
-//		value = getComparisonType(operator);
-//	}
-
-	private PrerequisiteOperator(final int operator)
+	GTEQ
 	{
-		value = operator;
-	}
-
-
-	public PrerequisiteOperator invert()
-	{
-		switch(value)
+		@Override
+		public String getFormulaSyntax()
 		{
-			case ComparatorGT:
-				return LTEQ;
-				
-			case ComparatorEQ:
-				return NEQ;
-				
-			case ComparatorNEQ:
-				return EQ;
-				
-			case ComparatorLT:
-				return GTEQ;
-				
-			case ComparatorLTEQ:
-				return GT;
-				
-			default:
-				return LT;
+			return ">=";
 		}
-	}
 
+		@Override
+		public PrerequisiteOperator invert()
+		{
+			return LT;
+		}
 
-	@Override
-	public String toString()
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+			return a >= b;
+		}
+	},
+	GT
 	{
-		return validTypes[value];
-	}
+		@Override
+		public String getFormulaSyntax()
+		{
+			return ">";
+		}
 
+		@Override
+		public PrerequisiteOperator invert()
+		{
+			return LTEQ;
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+			return a > b;
+		}
+	},
+	EQ
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+			return "=";
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+			return NEQ;
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+			return CoreUtility.doublesEqual(a, b);
+		}
+	},
+	NEQ
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+			return "!=";
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+			return EQ;
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+			return !CoreUtility.doublesEqual(a, b);
+		}
+	},
+	LT
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+			return "<";
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+			return GTEQ;
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+			return a < b;
+		}
+	},
+	LTEQ
+	{
+		@Override
+		public String getFormulaSyntax()
+		{
+			return "<=";
+		}
+
+		@Override
+		public PrerequisiteOperator invert()
+		{
+			return GT;
+		}
+
+		@Override
+		public boolean booleanCompare(float a, float b)
+		{
+			return a <= b;
+		}
+	};
+
+	public abstract String getFormulaSyntax();
+
+	public abstract PrerequisiteOperator invert();
 
 	public String toDisplayString()
 	{
-		return PropertyFactory.getString("PrerequisiteOperator.display." + toString());
+		return PropertyFactory.getString("PrerequisiteOperator.display."
+				+ toString());
 	}
-
 
 	public int compare(final int leftHandOp, final int rightHandOp)
 	{
-		return (int) compare((float) leftHandOp, (float)rightHandOp);
+		return (int) compare((float) leftHandOp, (float) rightHandOp);
 	}
-
 
 	public float compare(final float leftHandOp, final float rightHandOp)
 	{
-		boolean passes = false;
-
-		switch(value)
-		{
-			case ComparatorEQ:
-				passes = CoreUtility.doublesEqual(leftHandOp, rightHandOp);
-				break;
-
-			case ComparatorLT:
-				passes = (leftHandOp < rightHandOp);
-				break;
-
-			case ComparatorLTEQ:
-				passes = (leftHandOp <= rightHandOp);
-				break;
-
-			case ComparatorGT:
-				passes = (leftHandOp > rightHandOp);
-				break;
-
-			case ComparatorNEQ:
-				passes = !CoreUtility.doublesEqual(leftHandOp, rightHandOp);
-				break;
-
-			default:
-				passes = (leftHandOp >= rightHandOp);
-				break;
-		}
-
+		boolean passes = booleanCompare(leftHandOp, rightHandOp);
 		if (passes)
 		{
 			if (CoreUtility.doublesEqual(leftHandOp, 0))
@@ -170,60 +187,30 @@ public class PrerequisiteOperator
 		return 0;
 	}
 
+	public abstract boolean booleanCompare(float leftHandOp, float rightHandOp);
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(final Object obj)
+	public static PrerequisiteOperator getOperatorByName(
+			final String operatorName) throws PrerequisiteException
 	{
-		if (obj instanceof PrerequisiteOperator)
+		try
 		{
-			return value == ((PrerequisiteOperator) obj).value;
+			return valueOf(operatorName.toUpperCase());
 		}
-		return false;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-
-	public static PrerequisiteOperator getOperatorByName(final String operatorName) throws PrerequisiteException
-	{
-		for (int i = 0; i < validTypes.length; ++i)
+		catch (IllegalArgumentException e)
 		{
-			if (validTypes[i].equalsIgnoreCase(operatorName) || altValidTypes[i].equals(operatorName))
+			/*
+			 * TODO Should we deprecate this behavior?
+			 */
+			for (PrerequisiteOperator po : values())
 			{
-				switch(i)
+				if (po.getFormulaSyntax().equals(operatorName))
 				{
-					case ComparatorGT:
-						return GT;
-						
-					case ComparatorEQ:
-						return EQ;
-						
-					case ComparatorNEQ:
-						return NEQ;
-						
-					case ComparatorLT:
-						return LT;
-						
-					case ComparatorLTEQ:
-						return LTEQ;
-						
-					default:
-						return GTEQ;
+					return po;
 				}
 			}
 		}
-
-		throw new PrerequisiteException(PropertyFactory.getFormattedString("PrerequisiteOperator.error.invalid_operator", operatorName)); //$NON-NLS-1$
+		throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PrerequisiteOperator.error.invalid_operator", operatorName)); //$NON-NLS-1$
 	}
 
 }

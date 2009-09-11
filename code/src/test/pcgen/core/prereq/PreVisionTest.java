@@ -89,7 +89,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("vision");
 		prereq.setKey("darkvision");
-		prereq.setOperator("gteq");
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("30");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
