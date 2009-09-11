@@ -186,18 +186,11 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			return;
 		}
-		if (Prerequisite.CLEAR_KIND.equals(preReq.getKind())) //$NON-NLS-1$
+		if (thePrereqs == null)
 		{
-			thePrereqs = null;
+			thePrereqs = new ListSet<Prerequisite>();
 		}
-		else
-		{
-			if (thePrereqs == null)
-			{
-				thePrereqs = new ListSet<Prerequisite>();
-			}
-			thePrereqs.add(preReq);
-		}
+		thePrereqs.add(preReq);
 	}
 
 	/**

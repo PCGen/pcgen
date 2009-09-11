@@ -41,7 +41,6 @@ public class Prerequisite implements Cloneable
 	
 	private static final String PERCENT_CHOICE_PATTERN = Pattern.quote(Constants.LST_PERCENT_CHOICE);
 	/** Kind to be used for a clear prerequisite request. */
-	public static final String CLEAR_KIND = "clear";
 	public static final String APPLY_KIND = "APPLY";
 
 	private String kind;

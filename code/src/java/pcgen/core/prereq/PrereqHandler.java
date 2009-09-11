@@ -37,8 +37,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
@@ -86,32 +84,8 @@ public class PrereqHandler {
 			}
 		}
 
-		for (Object object : prereqList)
+		for (Prerequisite prereq : prereqList)
 		{
-			Prerequisite prereq;
-
-			if (object instanceof String)
-			{
-				final String oString = (String)object;
-				Logging.debugPrintLocalised("PrereqHandler.Why_not_already_parsed", object, "PrereqHandler.passesAll()"); //$NON-NLS-1$ //$NON-NLS-2$
-				try
-				{
-					final PreParserFactory factory = PreParserFactory.getInstance();
-					prereq = factory.parse( oString );
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint(ple.getMessage(), ple); //The message is now produced at a lower level, and thus has to be localised there.
-					//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
-					return false;
-				}
-			}
-			else
-			{
-				prereq = (Prerequisite) object;
-			}
-
-
 			if (!passes(prereq, character, caller))
 			{
 				return false;
@@ -120,36 +94,14 @@ public class PrereqHandler {
 		return true;
 	}
 
-	public static boolean passesAll(final Collection<?> prereqList, final Equipment equip, PlayerCharacter currentPC)
+	public static boolean passesAll(final Collection<Prerequisite> prereqList, final Equipment equip, PlayerCharacter currentPC)
 	{
 		if (prereqList == null)
 		{
 			return true;
 		}
-		for (Object object : prereqList)
+		for (Prerequisite prereq : prereqList)
 		{
-			Prerequisite prereq;
-
-			if (object instanceof String)
-			{
-				Logging.debugPrintLocalised("PrereqHandler.Why_not_already_parsed", object, "PrereqHandler.passesAll()"); //$NON-NLS-1$ //$NON-NLS-2$
-				try
-				{
-					final PreParserFactory factory = PreParserFactory.getInstance();
-					prereq = factory.parse( (String) object );
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint(ple.getMessage(), ple); //The message is now produced at a lower level, and thus has to be localised there.
-					//Logging.errorPrintLocalised("PrereqHandler.Unable_to_parse", object); //$NON-NLS-1$
-					return false;
-				}
-			}
-			else
-			{
-				prereq = (Prerequisite) object;
-			}
-
 			if (!passes(prereq, equip, currentPC))
 			{
 				return false;

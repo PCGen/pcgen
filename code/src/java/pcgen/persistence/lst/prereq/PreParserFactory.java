@@ -132,15 +132,6 @@ public class PreParserFactory
 		String kind = prereqStr.substring(0, index);
 		String formula = prereqStr.substring(index + 1);
 
-		// Catch PRE:.CLEAR here and return a basic clear prereq.
-		if ("pre".equals(kind.toLowerCase())
-			&& ".clear".equals(formula.toLowerCase()))
-		{
-			Prerequisite prereq = new Prerequisite();
-			prereq.setKind(Prerequisite.CLEAR_KIND);
-			return prereq;
-		}
-
 		boolean overrideQualify = false;
 		if (formula.startsWith("Q:"))
 		{

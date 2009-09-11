@@ -308,27 +308,6 @@ public class AbilityUtilities
 		return (nameCheck && first.getCategory().compareToIgnoreCase(second.getCategory()) == 0);
 	}
 
-
-	/**
-	 * Do the Categorisable object and the string passed in represent the
-	 * same ability?  the string is assumed to be in the same Category as the
-	 * Categorisable object.
-	 *
-	 * @param first
-	 * @param second
-	 * @return true if the same object is represented
-	 */
-	public static boolean areSameAbility(
-			final Categorisable first,
-			final String second)
-	{
-		if (first == null || second == null) {
-			return false;
-		}
-		final Categorisable newSecond = new AbilityInfo(first.getCategory(), second);
-		return areSameAbility(first, newSecond);
-	}
-
 	/**
 	 * If an ability in Global storage matches the category and name passed
 	 * in, then return a clone of that Ability.

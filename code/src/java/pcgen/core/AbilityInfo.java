@@ -22,13 +22,11 @@
  */
 package pcgen.core;
 
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.Logging;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * This tiny little class replaces a simple string representation of an Ability.
@@ -44,12 +42,8 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
 	protected String keyName;
     protected String category;
 	private Ability realThing;
-	private List<Prerequisite> prereqList;
 	private List<String> decorations;
-	protected char delim = '<';
-
 	private static final String split1 = "[<>\\|]";
-	private static final String split2 = "[\\[\\]\\|]";
 
 	/**
 	 * Make a new object to hold minimal info about Abilities
@@ -164,8 +158,12 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
 	 */
 	protected void extractPrereqs(final String unparsed)
 	{
-		final int start = unparsed.indexOf(delim);
+		final int start = unparsed.indexOf('<');
 
+		/*
+		 * Want to assume start will always be zero, but there are way too many
+		 * calls that lead into AbilityInfo
+		 */
 		if ((start < 0))
 		{
 			// no Prereqs, assign directly to key field
@@ -173,52 +171,13 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
 		}
 		else
 		{
-			if (prereqList == null)
-			{
-				prereqList = new ArrayList<Prerequisite>();
-			}
-
-			final List<String> tokens = Arrays.asList(unparsed.split(delim == '<' ? split1 : split2));
+			final List<String> tokens = Arrays.asList(unparsed.split(split1));
 			final Iterator<String> tokIt = tokens.iterator();
 
 			// extract and assign the choice from the unparsed string
 			this.keyName = tokIt.next();
-
-			try
-			{
-				final PreParserFactory factory = PreParserFactory.getInstance();
-
-				for (; tokIt.hasNext();)
-				{
-					final Prerequisite prereq = factory.parse(tokIt.next());
-
-					if (prereq != null)
-					{
-						prereqList.add(prereq);
-					}
-				}
-			}
-			catch (PersistenceLayerException e)
-			{
-				Logging.errorPrint("Failed to parse prereq of " + keyName
-					+ " in category " + category + " due to :", e);
-				Logging.errorPrint("Ignoring further prereqs for this object.");
-			}
 		}
 	}
-
-	/**
-	 * Does the PC qualify to take this Ability
-	 * 
-	 * @param pc
-	 *            The Player Character to test the prerequisites against.
-	 * 
-	 * @return whether the PC qualifies
-	 */
-	public boolean qualifies(final PlayerCharacter pc)
-	{
-        return prereqList == null || PrereqHandler.passesAll(prereqList, pc, this.getAbility());
-    }
 
 	/**
 	 * Compares this AbilityInfo Object with an Object passed in. The object
