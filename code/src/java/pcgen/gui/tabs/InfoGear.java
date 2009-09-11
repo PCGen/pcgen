@@ -2153,7 +2153,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			final String sourceString = SourceFormat.getFormattedString(
 					bEq, SourceFormat.LONG, false);
-			if ((sourceString.length() == 0) && (!sourceList.contains(sourceString)))
+			if ((sourceString.length() != 0) && (!sourceList.contains(sourceString)))
 			{
 				sourceList.add(sourceString);
 			}

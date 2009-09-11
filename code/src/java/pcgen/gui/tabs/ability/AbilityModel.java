@@ -253,7 +253,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 
 			final String sourceString = SourceFormat.getFormattedString(
 					ability, SourceFormat.LONG, false);
-			if (sourceString.length() == 0)
+			if (sourceString.length() != 0)
 			{
 				sourceSet.add(sourceString);
 			}
