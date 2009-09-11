@@ -46,7 +46,7 @@ public class Prerequisite implements Cloneable
 	private String kind;
 	private String key = null;
 	private String subKey = null;
-	private List<Prerequisite> prerequisites = new ArrayList<Prerequisite>();
+	private List<Prerequisite> prerequisites;
 	private PrerequisiteOperator operator = PrerequisiteOperator.GTEQ;
 	private String operand = "1"; //$NON-NLS-1$
 	/** Indicates that the total of skill ranks, class levels etc should be
@@ -175,11 +175,19 @@ public class Prerequisite implements Cloneable
 
 	public void addPrerequisite(final Prerequisite prereq)
 	{
+		if (prerequisites == null)
+		{
+			prerequisites = new ArrayList<Prerequisite>();
+		}
 		prerequisites.add(prereq);
 	}
 
 	public List<Prerequisite> getPrerequisites()
 	{
+		if (prerequisites == null)
+		{
+			return Collections.emptyList();
+		}
 		return Collections.unmodifiableList(prerequisites);
 	}
 
@@ -276,7 +284,7 @@ public class Prerequisite implements Cloneable
 
 		buf.append(">\n"); //$NON-NLS-1$
 
-		if (prerequisites.size() > 0)
+		if (prerequisites != null)
 		{
 			for ( Prerequisite prereq : prerequisites )
 			{
@@ -396,7 +404,7 @@ public class Prerequisite implements Cloneable
 			buf.append(operand);
 		}
 
-		if (prerequisites.size() > 0 && !shortForm)
+		if (prerequisites != null && prerequisites.size() > 0 && !shortForm)
 		{
 			buf.append(" ("); //$NON-NLS-1$
 			for ( Prerequisite subreq : prerequisites )
@@ -559,11 +567,14 @@ public class Prerequisite implements Cloneable
 
 	public int getPrerequisiteCount()
 	{
-		return prerequisites.size();
+		return prerequisites == null ? 0 : prerequisites.size();
 	}
 
 	public void removePrerequisite(Prerequisite p)
 	{
-		prerequisites.remove(p);
+		if (prerequisites != null)
+		{
+			prerequisites.remove(p);
+		}
 	}
 }
