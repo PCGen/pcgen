@@ -165,7 +165,7 @@ public enum PrerequisiteOperator
 	public String toDisplayString()
 	{
 		return PropertyFactory.getString("PrerequisiteOperator.display."
-				+ toString());
+				+ toString().toLowerCase());
 	}
 
 	public int compare(final int leftHandOp, final int rightHandOp)

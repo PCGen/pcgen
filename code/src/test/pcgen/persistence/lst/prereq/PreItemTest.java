@@ -65,7 +65,7 @@ public class PreItemTest extends TestCase
 				parser.parse("ITEM", "1,TYPE.Saddle", false, false);
 
 		assertEquals(
-			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"gteq\" operand=\"1\" >\n"
+			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 
@@ -78,7 +78,7 @@ public class PreItemTest extends TestCase
 				parser.parse("ITEM", "1,TYPE.Saddle", true, false);
 
 		assertEquals(
-			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"lt\" operand=\"1\" >\n"
+			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"LT\" operand=\"1\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 

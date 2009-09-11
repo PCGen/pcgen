@@ -46,12 +46,12 @@ public class PreSkillTotParserTest extends TestCase
 					false);
 
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"30\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"gteq\" operand=\"1\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"30\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -67,12 +67,12 @@ public class PreSkillTotParserTest extends TestCase
 					.parse("SKILLTOT", "Spot,Listen,Search=30", true, false);
 
 		assertEquals(
-			"<prereq operator=\"lt\" operand=\"30\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"gteq\" operand=\"1\" >\n"
+			"<prereq operator=\"LT\" operand=\"30\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Spot\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Listen\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"Search\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -84,8 +84,8 @@ public class PreSkillTotParserTest extends TestCase
 				producer.parse("SKILLTOT", "TYPE.Knowledge=20", false, false);
 
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"20\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"1\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"20\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 	}

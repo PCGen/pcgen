@@ -68,7 +68,7 @@ public class PreVariableParserTest extends TestCase
 		Prerequisite prereq = parser.parse("VARNEQ", "Enraged,1", false, false);
 
 		assertEquals(
-			"<prereq kind=\"var\" key=\"Enraged\" operator=\"neq\" operand=\"1\" >\n</prereq>\n",
+			"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
 	}
 }

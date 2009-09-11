@@ -61,10 +61,10 @@ public class PreLanguageParserTest extends TestCase
 
 		System.out.println(prereq);
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"gteq\" operand=\"1\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -79,10 +79,10 @@ public class PreLanguageParserTest extends TestCase
 
 		System.out.println(prereq);
 		assertEquals(
-			"<prereq operator=\"lt\" operand=\"1\" >\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"gteq\" operand=\"1\" >\n"
+			"<prereq operator=\"LT\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Dwarven\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"lang\" count-multiples=\"true\" key=\"Elven\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -96,7 +96,7 @@ public class PreLanguageParserTest extends TestCase
 
 		System.out.println(prereq);
 		assertEquals(
-			"<prereq kind=\"lang\" count-multiples=\"true\" key=\"ANY\" operator=\"gteq\" operand=\"2\" >\n"
+			"<prereq kind=\"lang\" count-multiples=\"true\" key=\"ANY\" operator=\"GTEQ\" operand=\"2\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 
@@ -110,7 +110,7 @@ public class PreLanguageParserTest extends TestCase
 
 		System.out.println(prereq);
 		assertEquals(
-			"<prereq kind=\"lang\" count-multiples=\"true\" key=\"ANY\" operator=\"lt\" operand=\"2\" >\n"
+			"<prereq kind=\"lang\" count-multiples=\"true\" key=\"ANY\" operator=\"LT\" operand=\"2\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 

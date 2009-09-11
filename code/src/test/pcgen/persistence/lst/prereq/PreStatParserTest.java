@@ -84,7 +84,7 @@ public class PreStatParserTest extends TestCase
 		//				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
 		//				prereq.toString());
 		assertEquals(
-			"<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n"
+			"<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 
@@ -97,7 +97,7 @@ public class PreStatParserTest extends TestCase
 		Prerequisite prereq = parser.parse("PRESTAT:1,DEX=9");
 		System.out.println(prereq);
 		assertEquals(
-			"<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n"
+			"<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 
@@ -112,10 +112,10 @@ public class PreStatParserTest extends TestCase
 				producer.parse("STAT", "2,DEX=9,STR=13", false, false);
 
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"2\" >\n"
-				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"9\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"stat\" key=\"STR\" operator=\"gteq\" operand=\"13\" >\n"
+				+ "<prereq kind=\"stat\" key=\"STR\" operator=\"GTEQ\" operand=\"13\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -132,7 +132,7 @@ public class PreStatParserTest extends TestCase
 		//		    + "<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
 		//		    prereq.toString());
 		assertEquals(
-			"<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n"
+			"<prereq kind=\"stat\" key=\"DEX\" operator=\"EQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 
@@ -145,7 +145,7 @@ public class PreStatParserTest extends TestCase
 
 		Prerequisite prereq = producer.parse("STAT", "1", false, false);
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
+		assertEquals("<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "</prereq>\n", prereq.toString());
 	}
 }

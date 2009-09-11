@@ -61,12 +61,12 @@ public class PreTypeParserTest extends TestCase
 
 		System.out.println(prereq.toString());
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"type\" key=\"Mithral\" operator=\"eq\" operand=\"1\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"type\" key=\"Mithral\" operator=\"EQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"type\" key=\"Adamantine\" operator=\"eq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"type\" key=\"Adamantine\" operator=\"EQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"type\" key=\"Darkwood\" operator=\"eq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"type\" key=\"Darkwood\" operator=\"EQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -86,7 +86,7 @@ public class PreTypeParserTest extends TestCase
 		 "</prereq>\n",
 		 prereq.toString());
 		 */assertEquals(
-			"<prereq kind=\"TYPE\" key=\"Animal\" operator=\"neq\" operand=\"1\" >\n"
+			"<prereq kind=\"TYPE\" key=\"Animal\" operator=\"NEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}
 

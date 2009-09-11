@@ -312,7 +312,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final Prerequisite prereq = factory.parse("!PREFEAT:1,Uncanny Dodge");
 		assertEquals(
 			"Inverted feat test parsing",
-			"<prereq kind=\"feat\" key=\"Uncanny Dodge\" operator=\"lt\" operand=\"1\" >\n</prereq>\n",
+			"<prereq kind=\"feat\" key=\"Uncanny Dodge\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
 	}
 

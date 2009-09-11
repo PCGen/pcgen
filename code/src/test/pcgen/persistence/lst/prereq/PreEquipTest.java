@@ -60,10 +60,10 @@ public class PreEquipTest extends TestCase
 					true, false);
 
 		assertEquals(
-			"<prereq operator=\"lt\" operand=\"1\" >\n"
-				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Medium\" operator=\"gteq\" operand=\"1\" >\n"
+			"<prereq operator=\"LT\" operand=\"1\" >\n"
+				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Heavy\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Heavy\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 

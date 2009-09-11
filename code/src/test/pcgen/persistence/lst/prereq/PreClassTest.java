@@ -60,7 +60,7 @@ public class PreClassTest extends TestCase
 		Prerequisite prereq = parser.parse("class", "1,Monk=1", true, false);
 
 		assertEquals(
-			"<prereq kind=\"class\" key=\"Monk\" operator=\"lt\" operand=\"1\" >\n"
+			"<prereq kind=\"class\" key=\"Monk\" operator=\"LT\" operand=\"1\" >\n"
 				+ "</prereq>\n", prereq.toString());
 
 	}

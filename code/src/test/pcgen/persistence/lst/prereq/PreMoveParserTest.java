@@ -48,7 +48,7 @@ public class PreMoveParserTest extends TestCase
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", false, false);
 
 		assertEquals(
-			"<prereq kind=\"move\" key=\"Fly\" operator=\"gteq\" operand=\"1\" >\n</prereq>\n",
+			"<prereq kind=\"move\" key=\"Fly\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
 	}
 
@@ -62,10 +62,10 @@ public class PreMoveParserTest extends TestCase
 				parser.parse("MOVE", "1,Walk=30,Fly=20", false, false);
 
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Walk\" operator=\"gteq\" operand=\"30\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Walk\" operator=\"GTEQ\" operand=\"30\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Fly\" operator=\"gteq\" operand=\"20\" >\n"
+				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Fly\" operator=\"GTEQ\" operand=\"20\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -78,7 +78,7 @@ public class PreMoveParserTest extends TestCase
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", true, false);
 
 		assertEquals(
-			"<prereq kind=\"move\" key=\"Fly\" operator=\"lt\" operand=\"1\" >\n</prereq>\n",
+			"<prereq kind=\"move\" key=\"Fly\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
 	}
 
@@ -92,10 +92,10 @@ public class PreMoveParserTest extends TestCase
 				parser.parse("MOVE", "1,Walk=30,Fly=20", true, false);
 
 		assertEquals(
-			"<prereq operator=\"lt\" operand=\"1\" >\n"
-				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Walk\" operator=\"gteq\" operand=\"30\" >\n"
+			"<prereq operator=\"LT\" operand=\"1\" >\n"
+				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Walk\" operator=\"GTEQ\" operand=\"30\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Fly\" operator=\"gteq\" operand=\"20\" >\n"
+				+ "<prereq kind=\"move\" count-multiples=\"true\" key=\"Fly\" operator=\"GTEQ\" operand=\"20\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 

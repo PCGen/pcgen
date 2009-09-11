@@ -63,10 +63,10 @@ public class PreAlignParserTest extends TestCase
 
 		//System.out.println(prereq);
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"align\" key=\"LE\" operator=\"eq\" operand=\"1\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"align\" key=\"LE\" operator=\"EQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"align\" key=\"LG\" operator=\"eq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"align\" key=\"LG\" operator=\"EQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
 	}
 

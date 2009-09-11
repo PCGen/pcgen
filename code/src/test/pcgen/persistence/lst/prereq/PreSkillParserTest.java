@@ -47,12 +47,12 @@ public class PreSkillParserTest extends TestCase
 					false);
 
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"3\" >\n"
-				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Decipher Script\" operator=\"gteq\" operand=\"7\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"3\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Decipher Script\" operator=\"GTEQ\" operand=\"7\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Disable Device\" operator=\"gteq\" operand=\"7\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Disable Device\" operator=\"GTEQ\" operand=\"7\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Escape Artist\" operator=\"gteq\" operand=\"7\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Escape Artist\" operator=\"GTEQ\" operand=\"7\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -68,8 +68,8 @@ public class PreSkillParserTest extends TestCase
 					false, false);
 
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"2\" >\n"
-				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"10\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -83,8 +83,8 @@ public class PreSkillParserTest extends TestCase
 					false);
 
 		assertEquals(
-			"<prereq operator=\"gteq\" operand=\"3\" >\n"
-				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"10\" >\n"
+			"<prereq operator=\"GTEQ\" operand=\"3\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 }
