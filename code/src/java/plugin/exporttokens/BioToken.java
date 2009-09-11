@@ -30,7 +30,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 /**
- * Handles Tokens
+ * Handles BIO Output Token
  *
  * BIO
  * BIO,text delimiter
@@ -61,6 +61,9 @@ public class BioToken extends Token
 		String beforeValue = "";
 		String afterValue = "";
 
+		// TODO - What is the point of the first part of this if clause?  The token has 
+		// to at least contain 'BIO' which is a length of 3....  Is this to do with a 
+		// possibly reentrant EH?
 		if (tokenSource.length() <= 3 || tokenSource.charAt(3) == ',')
 		{
 			if (tokenSource.length() > 4)
@@ -72,9 +75,13 @@ public class BioToken extends Token
 		{
 			String[] tokens = tokenSource.split("\\.");
 			if (tokens.length > 1)
+			{
 				beforeValue = tokens[1];
+			}
 			if (tokens.length > 2)
+			{
 				afterValue = tokens[2];
+			}
 		}
 
 		return beforeValue

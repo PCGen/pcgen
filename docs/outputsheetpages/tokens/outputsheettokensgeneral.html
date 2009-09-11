@@ -64,9 +64,22 @@
 		<p class="indent2">If followed by a comma and text the text will be appended to the end of each new line.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>BIO</code></p>
-		<p class="indent3">Display characters biography.</p>
+		<p class="indent3">
+			Display characters biography.  Note that for each newline in the BIO the OS creates a gap.  e.g.<br>
+			Line 1<br>
+			Line 2<br>
+			<br>
+			will display as:<br>
+			Line 1<br>
+			<br>
+			Line 2<br>
+		</p>
 		<p class="indent2"><code>BIO,Text</code></p>
 		<p class="indent3">Display characters biography and appends the word 'Text' at the end of each new line.</p>
+		<p class="indent2"><code>BIO.beforevalue</code></p>
+		<p class="indent3">Display characters biography but prefixes beforevalue for each new line.</p>
+		<p class="indent2"><code>BIO.beforevalue.aftervalue</code></p>
+		<p class="indent3">Display characters biography but prefixes beforevalue and appends aftervalue for each new line.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="BIRTHDAY">Token Name:</a></strong> BIRTHDAY</p>
