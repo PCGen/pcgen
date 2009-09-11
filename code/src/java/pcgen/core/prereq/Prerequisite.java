@@ -21,11 +21,12 @@
  */
 package pcgen.core.prereq;
 
-import pcgen.util.PropertyFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import pcgen.cdom.base.Constants;
+import pcgen.util.PropertyFactory;
 
 /**
  * The Class <code>Prerequisite</code> is the storage format for all 
@@ -37,6 +38,7 @@ import java.util.regex.Pattern;
 public class Prerequisite implements Cloneable
 {
 	
+	private static final String PERCENT_CHOICE_PATTERN = Pattern.quote(Constants.LST_PERCENT_CHOICE);
 	/** Kind to be used for a clear prerequisite request. */
 	public static final String CLEAR_KIND = "clear";
 	public static final String APPLY_KIND = "APPLY";
@@ -343,29 +345,6 @@ public class Prerequisite implements Cloneable
 	}
 
 	/**
-	 * This method will expand the given token in the "value" of this Prerequisite, it will also expand the token in
-	 * any sub Prerequisites
-	 *
-	 * @param token
-	 *            The string representing the token to be replaces (i.e. "%CHOICE")
-	 * @param tokenValue
-	 *            The String representing the new value to be used (i.e. "+2")
-	 */
-	public void expandToken(final String token, final String tokenValue)
-	{
-		key     = key.replaceAll(Pattern.quote(token), tokenValue);
-		operand = operand.replaceAll(Pattern.quote(token), tokenValue);
-
-		if (prerequisites != null)
-		{
-			for ( final Prerequisite subreq : prerequisites )
-			{
-				subreq.expandToken(token, tokenValue);
-			}
-		}
-	}
-
-	/**
 	 * Retrieve the description of the prerequisite. This can either be
 	 * in long form 'skill TUMBLE gteq 5' or in short form 'TUMBLE'.
 	 * 
@@ -564,5 +543,22 @@ public class Prerequisite implements Cloneable
 	public boolean isOriginalCheckMult()
 	{
 		return nativeCheckMult;
+	}
+
+	public Prerequisite specify(String assoc) throws CloneNotSupportedException
+	{
+		final Prerequisite copy = (Prerequisite) super.clone();
+		copy.key = copy.key.replaceAll(PERCENT_CHOICE_PATTERN, assoc);
+		copy.operand = copy.operand.replaceAll(PERCENT_CHOICE_PATTERN, assoc);
+
+		if (prerequisites != null)
+		{
+			copy.prerequisites = new ArrayList<Prerequisite>();
+			for ( Prerequisite subreq : prerequisites )
+			{
+				copy.prerequisites.add(subreq.specify(assoc));
+			}
+		}
+		return copy;
 	}
 }

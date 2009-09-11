@@ -31,7 +31,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -686,31 +685,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		// pcLevel
 		// typeOfBonus
 		return bonusObj;
-	}
-
-	/**
-	 * This method will expand the given token in the "value" of this BonusObj,
-	 * it will also expand the token in any Prerequisites that this bonusObj may
-	 * have
-	 * 
-	 * @param token
-	 *            The string representing the token to be replaces (i.e.
-	 *            "%CHOICE")
-	 * @param tokenValue
-	 *            The String representing the new value to be used (i.e. "+2")
-	 */
-	public void expandToken(final String token, final String tokenValue)
-	{
-		final String value = bonusFormula.toString();
-		setValue(value.replaceAll(Pattern.quote(token), tokenValue));
-
-		if ( hasPrerequisites() )
-		{
-			for ( final Prerequisite prereq : getPrerequisiteList() )
-			{
-				prereq.expandToken(token, tokenValue);
-			}
-		}
 	}
 
 	public void setTokenSource(String tokenName)

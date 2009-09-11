@@ -27,6 +27,7 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
@@ -51,6 +52,8 @@ import pcgen.util.Delta;
  */
 public final class EquipmentModifier extends PObject implements Comparable<Object>
 {
+	private static final String PERCENT_CHOICE_PATTERN = Pattern
+								.quote(Constants.LST_PERCENT_CHOICE);
 	private static final Formula CHOICE_FORMULA = FormulaFactory.getFormulaFor("%CHOICE");
 
 	/**
@@ -108,9 +111,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				// Add an entry for each of the associated list entries
 				for (String assoc : as.getAssociationList(this))
 				{
-					final BonusObj newBonus = Bonus.newBonus(
-							aString.substring(0, idx) + assoc +
-							aString.substring(idx + 7));
+					final BonusObj newBonus = Bonus.newBonus(aString
+							.replaceAll(PERCENT_CHOICE_PATTERN, assoc));
 
 					if (aBonus.hasPrerequisites())
 					{
@@ -119,7 +121,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 						{
 							try
 							{
-								newBonus.addPrerequisite(prereq.clone());
+								newBonus.addPrerequisite(prereq.specify(assoc));
 							}
 							catch (CloneNotSupportedException e)
 							{
@@ -128,8 +130,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 						}
 					}
 
-					// call expandToken to handle prereqs
-					newBonus.expandToken("%CHOICE", assoc);
 					myBonusList.add(newBonus);
 				}
 
