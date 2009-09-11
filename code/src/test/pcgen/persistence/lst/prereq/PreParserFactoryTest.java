@@ -94,15 +94,6 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 	}
 
-	public void testClear() throws Exception
-	{
-		PreParserFactory factory = PreParserFactory.getInstance();
-
-		Prerequisite prereq = factory.parse("PRE:.clear");
-
-		assertEquals("clear", prereq.getKind());
-	}
-
 	public void testInvertResult() throws Exception
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
