@@ -109,7 +109,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	{
 		String categoryName = "";
 		boolean foundAny = false;
-		if (prereq.getPrerequisites().size() == 0)
+		if (prereq.getPrerequisiteCount() == 0)
 		{
 			String preKey = prereq.getKey();
 			if (preKey.toUpperCase().startsWith(CATEGORY)
@@ -168,7 +168,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 					{
 						categoryName = tempCat;
 					}
-					prereq.getPrerequisites().remove(p);
+					prereq.removePrerequisite(p);
 				}
 			}
 		}
@@ -188,7 +188,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		else if (!foundAny)
 		{
 			String preKey;
-			if (prereq.getPrerequisites().size() == 0)
+			if (prereq.getPrerequisiteCount() == 0)
 			{
 				preKey = prereq.getKey();
 			}

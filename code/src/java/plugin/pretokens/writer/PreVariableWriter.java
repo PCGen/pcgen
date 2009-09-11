@@ -30,7 +30,6 @@ package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.List;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -108,12 +107,11 @@ public class PreVariableWriter extends AbstractPrerequisiteWriter implements
 			return false;
 		}
 		String handled = kindHandled();
-		List<Prerequisite> prereqList = prereq.getPrerequisites();
 		String count = prereq.getOperand();
 		try
 		{
 			int i = Integer.parseInt(count);
-			if (prereqList.size() != i)
+			if (prereq.getPrerequisiteCount() != i)
 			{
 				return false;
 			}
@@ -123,7 +121,7 @@ public class PreVariableWriter extends AbstractPrerequisiteWriter implements
 			return false;
 		}
 		PrerequisiteOperator oper = null;
-		for (Prerequisite p : prereqList)
+		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			//
 			// ...with all PREARMORTYPE entries...

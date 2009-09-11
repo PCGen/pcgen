@@ -77,7 +77,7 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
 			subprereq.setOperand(getPCAlignment(token).getAbb());
 		}
 
-		if ((prereq.getPrerequisites().size() == 1)
+		if ((prereq.getPrerequisiteCount() == 1)
 			&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
 			&& prereq.getOperand().equals("1"))
 		{

@@ -28,8 +28,6 @@
  */
 package plugin.pretokens.parser;
 
-import java.util.Iterator;
-
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
@@ -102,10 +100,8 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 			}
 		}
 
-		for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter
-			.hasNext();)
+		for (Prerequisite subprereq : prereq.getPrerequisites())
 		{
-			Prerequisite subprereq = iter.next();
 			replaceHasDeityPrereqs(subprereq);
 		}
 	}

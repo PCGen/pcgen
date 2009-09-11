@@ -77,7 +77,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 				return;
 			}
 
-			if (prereq.getPrerequisites().size() != 0)
+			if (prereq.getPrerequisiteCount() != 0)
 			{
 				subreq = prereq.getPrerequisites().get(0);
 				final PrerequisiteWriterInterface test =

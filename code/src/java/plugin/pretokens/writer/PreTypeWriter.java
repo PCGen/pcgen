@@ -30,7 +30,6 @@ package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.List;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -95,9 +94,8 @@ public class PreTypeWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
-		List<Prerequisite> prereqList = prereq.getPrerequisites();
 		PrerequisiteOperator oper = null;
-		for (Prerequisite p : prereqList)
+		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			//
 			// ...testing one item...
@@ -134,7 +132,7 @@ public class PreTypeWriter extends AbstractPrerequisiteWriter implements
 			try
 			{
 				int i = Integer.parseInt(count);
-				if (prereqList.size() != i)
+				if (prereq.getPrerequisiteCount() != i)
 				{
 					return false;
 				}

@@ -28,15 +28,14 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
-
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
 
 public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
@@ -90,9 +89,8 @@ public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
-		List<Prerequisite> prereqList = prereq.getPrerequisites();
 		PrerequisiteOperator oper = null;
-		for (Prerequisite p : prereqList)
+		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			//
 			// ...testing one item...
@@ -129,7 +127,7 @@ public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 			try
 			{
 				int i = Integer.parseInt(count);
-				if (prereqList.size() != i)
+				if (prereq.getPrerequisiteCount() != i)
 				{
 					return false;
 				}

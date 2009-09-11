@@ -26,7 +26,7 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -205,19 +205,16 @@ public abstract class AbstractPrerequisiteListParser extends
 						min = Integer.parseInt(tokens[1]);
 						subreq.setOperand(Integer.toString(min));
 						subreq.setKey(tokens[0]);
-						// now back fill all of the previous prereqs with this minium
-						for (Iterator<Prerequisite> iter =
-								prereq.getPrerequisites().iterator(); iter
-							.hasNext();)
+						// now back fill all of the previous prereqs with this minimum
+						for (Prerequisite p : new ArrayList<Prerequisite>(prereq.getPrerequisites()))
 						{
-							Prerequisite element = iter.next();
-							if (element.getOperand().equals("-99"))
+							if (p.getOperand().equals("-99"))
 							{
-								element.setOperand(Integer.toString(min));
+								p.setOperand(Integer.toString(min));
 								// If this requirement has already been added, we don't want to repeat it.
-								if (element.getKey().equals(tokens[0]))
+								if (p.getKey().equals(tokens[0]))
 								{
-									iter.remove();
+									prereq.removePrerequisite(p);
 								}
 							}
 						}

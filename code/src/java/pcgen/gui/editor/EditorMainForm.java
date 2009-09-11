@@ -3014,12 +3014,9 @@ public final class EditorMainForm extends JDialog
 		{
 			return;
 		}
-		if (prereq.getPrerequisites() != null)
+		for (Prerequisite childPrereq : prereq.getPrerequisites())
 		{
-			for (Prerequisite childPrereq : prereq.getPrerequisites())
-			{
-				parseAlignAbbrev(availableList, selectedList, childPrereq);
-			}
+			parseAlignAbbrev(availableList, selectedList, childPrereq);
 		}
 		
 		String key = prereq.getKey();

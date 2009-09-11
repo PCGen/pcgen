@@ -92,7 +92,7 @@ public class PreSpellCastParser extends AbstractPrerequisiteParser implements
 			}
 		}
 
-		if ((prereq.getPrerequisites().size() == 1)
+		if ((prereq.getPrerequisiteCount() == 1)
 			&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
 			&& prereq.getOperand().equals("1"))
 		{

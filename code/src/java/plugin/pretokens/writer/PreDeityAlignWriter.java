@@ -28,15 +28,14 @@
  */
 package plugin.pretokens.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
-
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
 
 public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
@@ -92,9 +91,8 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 		//
 		if (prereq.getKind() == null)
 		{
-			List<Prerequisite> prereqList = prereq.getPrerequisites();
 			PrerequisiteOperator oper = null;
-			for (Prerequisite p : prereqList)
+			for (Prerequisite p : prereq.getPrerequisites())
 			{
 				//
 				// ...with all PREARMORTYPE entries...
@@ -131,7 +129,7 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 			writer.write("PRE" + kindHandled().toUpperCase() + ":"
 					+ (prereq.isOverrideQualify() ? "Q:" : ""));
 			boolean first = true;
-			for (Prerequisite p : prereqList)
+			for (Prerequisite p : prereq.getPrerequisites())
 			{
 				if (!first)
 				{

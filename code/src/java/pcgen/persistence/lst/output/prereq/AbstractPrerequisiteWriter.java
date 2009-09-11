@@ -29,13 +29,12 @@
 
 package pcgen.persistence.lst.output.prereq;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
 
 /**
  * This class handles writing pre reqs for LST Tokens
@@ -129,9 +128,8 @@ public class AbstractPrerequisiteWriter
 		{
 			return null;
 		}
-		List<Prerequisite> prereqList = prereq.getPrerequisites();
 		PrerequisiteOperator oper = null;
-		for (Prerequisite p : prereqList)
+		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			//
 			// ...testing one item...
@@ -168,7 +166,7 @@ public class AbstractPrerequisiteWriter
 			try
 			{
 				int i = Integer.parseInt(count);
-				if (prereqList.size() != i)
+				if (prereq.getPrerequisiteCount() != i)
 				{
 					return null;
 				}

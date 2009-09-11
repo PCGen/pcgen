@@ -169,7 +169,7 @@ public class PreParserFactory
 			//sanity check to make sure we have not got a top level element that
 			// is a PREMULT with only 1 element.
 			while (prereq.getKind() == null
-				&& prereq.getPrerequisites().size() == 1
+				&& prereq.getPrerequisiteCount() == 1
 				&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
 				&& prereq.getOperand().equals("1"))
 			{

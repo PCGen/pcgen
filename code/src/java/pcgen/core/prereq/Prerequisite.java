@@ -22,6 +22,7 @@
 package pcgen.core.prereq;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -173,11 +174,6 @@ public class Prerequisite implements Cloneable
 		return operator;
 	}
 
-	public void setPrerequisites(final List<Prerequisite> prerequisites)
-	{
-		this.prerequisites = prerequisites;
-	}
-
 	public void addPrerequisite(final Prerequisite prereq)
 	{
 		prerequisites.add(prereq);
@@ -185,7 +181,7 @@ public class Prerequisite implements Cloneable
 
 	public List<Prerequisite> getPrerequisites()
 	{
-		return prerequisites;
+		return Collections.unmodifiableList(prerequisites);
 	}
 
 	/**
@@ -560,5 +556,15 @@ public class Prerequisite implements Cloneable
 			}
 		}
 		return copy;
+	}
+
+	public int getPrerequisiteCount()
+	{
+		return prerequisites.size();
+	}
+
+	public void removePrerequisite(Prerequisite p)
+	{
+		prerequisites.remove(p);
 	}
 }
