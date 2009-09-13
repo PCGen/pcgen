@@ -76,7 +76,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		for (Domain d : character.getDomainSet())
 		{
 			aArrayList.addAll(Globals.getSpellsIn(-1, Collections
-					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
+					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)), character));
 		}
 
 		//Are there Innate Spell-like abilities?

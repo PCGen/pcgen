@@ -229,7 +229,6 @@ public class CharacterPanel extends FlippingSplitPane
 
 			pcProperties = new Properties();
 
-			Globals.setCurrentPC(pc);
 			populatePcProperties();
 
 			/* For Testing
@@ -657,7 +656,6 @@ public class CharacterPanel extends FlippingSplitPane
 		{
 			if (systemRefresh)
 			{
-				Globals.setCurrentPC(pc);
 				updateProperties();
 				pc.preparePCForOutput();
 				if (mainTabs.getTabCount() > 0

@@ -45,7 +45,6 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		Globals.setCurrentPC(pc);
 
 		pc.setAlignment(le);
 		assertEquals("Non-negate returns false", false, PrereqHandler.passes(
@@ -73,7 +72,6 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		Globals.setCurrentPC(pc);
 
 		assertTrue("No feat should return true", PrereqHandler.passes(prereq,
 			pc, null));

@@ -589,7 +589,7 @@ public class SpellSupportForPCClass
 												ix,
 												Collections
 														.singletonList(d
-																.get(ObjectKey.DOMAIN_SPELLLIST)));
+																.get(ObjectKey.DOMAIN_SPELLLIST)), aPC);
 							}
 						}
 					}
@@ -685,7 +685,7 @@ public class SpellSupportForPCClass
 		{
 			// Get every spell that can be cast by this class.
 			final List<Spell> cspelllist = Globals.getSpellsIn(-1, source
-					.getSpellLists(aPC));
+					.getSpellLists(aPC), aPC);
 			if (cspelllist.isEmpty())
 			{
 				return;

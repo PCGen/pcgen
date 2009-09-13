@@ -27,6 +27,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 
@@ -130,18 +131,19 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	/**
 	 * Returns a Collection of Spells contained by this KnownSpellIdentifier
 	 * within the given lists.
-	 * 
+	 * @param pc TODO
 	 * @param list
 	 *            The Spell Lists that should be used to resolve what Spells are
 	 *            identified as known by this KnownSpellIdentifier.
+	 * 
 	 * @return A Collection of Spells contained by this KnownSpellIdentifier
 	 *         within the given lists.
 	 */
-	public Collection<Spell> getContainedSpells(List<ClassSpellList> list)
+	public Collection<Spell> getContainedSpells(PlayerCharacter pc, List<ClassSpellList> list)
 	{
 		if (ref == null)
 		{
-			return Globals.getSpellsIn(spellLevel, list);
+			return Globals.getSpellsIn(spellLevel, list, pc);
 		}
 		List<Spell> spellList = new ArrayList<Spell>();
 		for (Spell sp : ref.getContainedObjects())

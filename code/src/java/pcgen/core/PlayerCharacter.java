@@ -439,8 +439,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			ageSetKitSelections[i] = false;
 		}
 
-		Globals.setCurrentPC(this);
-
 		statFacet.addAll(id, Globals.getContext().ref
 				.getOrderSortedCDOMObjects(PCStat.class));
 		checkFacet.addAll(id, Globals.getContext().ref
@@ -8438,10 +8436,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// to get the hit points for must be the "current" one.
 		//
 		final PlayerCharacter curPC = this;
-		Globals.setCurrentPC(nPC);
-
 		int masterHP = nPC.hitPoints();
-		Globals.setCurrentPC(curPC);
 
 		final String copyMasterHP =
 				replaceMasterString(getCopyMasterHP(), masterHP);

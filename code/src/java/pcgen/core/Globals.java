@@ -98,7 +98,6 @@ import pcgen.util.enumeration.VisionType;
 public final class Globals
 {
 	/** These are changed during normal operation */
-	private static PlayerCharacter currentPC;
 	private static List<PlayerCharacter>            pcList      = new ArrayList<PlayerCharacter>();
 	/** Race, a s_EMPTYRACE */
 	public static  Race            s_EMPTYRACE;
@@ -553,15 +552,6 @@ public final class Globals
 	public static String getCurrencyDisplay()
 	{
 		return SettingsHandler.getGame().getCurrencyDisplay();
-	}
-
-	/**
-	 * Set the current PC
-	 * @param aCurrentPC
-	 */
-	public static void setCurrentPC(final PlayerCharacter aCurrentPC)
-	{
-		currentPC = aCurrentPC;
 	}
 
 	/**
@@ -1506,12 +1496,13 @@ public final class Globals
 	 * Returns a List of Spell with following criteria:
 	 *
 	 * @param level      (optional, ignored if < 0),
+	 * @param pc TODO
 	 * @param classKey  (optional, ignored if "")
 	 * @param domainKey (optional, ignored if "")
 	 *                   at least one of classKey and domainKey must not be ""
 	 * @return a List of Spell
 	 */
-	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
+	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists, PlayerCharacter pc)
 	{
 		MasterListInterface masterLists = Globals.getMasterLists();
 		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<CDOMReference<CDOMList<Spell>>>();
@@ -1537,8 +1528,8 @@ public final class Globals
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					// TODO This null for source is incorrect!
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(),
-							currentPC, null))
+					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), pc,
+							null))
 					{
 						int lvl = apo
 								.getAssociation(AssociationKey.SPELL_LEVEL);
@@ -1549,18 +1540,21 @@ public final class Globals
 						}
 					}
 				}
-				HashMapToList<CDOMList<Spell>, Integer> pcli = currentPC
-						.getPCBasedLevelInfo(spell);
-				for (CDOMList<Spell> list : pcli.getKeySet())
+				if (pc != null)
 				{
-					if (spellLists.contains(list))
+					HashMapToList<CDOMList<Spell>, Integer> pcli = pc
+							.getPCBasedLevelInfo(spell);
+					for (CDOMList<Spell> list : pcli.getKeySet())
 					{
-						List<Integer> levels = pcli.getListFor(list);
-						if (levels != null
-								&& (allLevels || levels.contains(level)))
+						if (spellLists.contains(list))
 						{
-							spellList.add(spell);
-							break;
+							List<Integer> levels = pcli.getListFor(list);
+							if (levels != null
+									&& (allLevels || levels.contains(level)))
+							{
+								spellList.add(spell);
+								break;
+							}
 						}
 					}
 				}

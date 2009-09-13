@@ -367,7 +367,6 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			for (i = 0; i < theModel.size(); i++)
 			{
 				aPC = theModel.getPCs()[i];
-				Globals.setCurrentPC(aPC);
 				aPC.setImporting(false);
 
 				if (!handleRace(aPC, i))

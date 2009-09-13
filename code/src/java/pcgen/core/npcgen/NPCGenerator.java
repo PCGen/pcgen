@@ -429,13 +429,13 @@ public class NPCGenerator
 		}
 	}
 	
-	private WeightedCollection<Spell> getKnownSpellWeights(final PCClass aClass, final int aLevel )
+	private WeightedCollection<Spell> getKnownSpellWeights(PlayerCharacter pc, final PCClass aClass, final int aLevel )
 	{
-		WeightedCollection<Spell> WeightedCollection = theConfiguration.getKnownSpellWeights(aClass.getKeyName(), aLevel);
+		WeightedCollection<Spell> WeightedCollection = theConfiguration.getKnownSpellWeights(pc, aClass.getKeyName(), aLevel);
 		if (WeightedCollection == null)
 		{
 			WeightedCollection = new WeightedCollection<Spell>();
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST))) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST)), pc) )
 			{
 				WeightedCollection.add(spell, 1);
 			}
@@ -443,13 +443,13 @@ public class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private WeightedCollection<Spell> getPreparedSpellWeights(final PCClass aClass, final int aLevel )
+	private WeightedCollection<Spell> getPreparedSpellWeights(PlayerCharacter pc, final PCClass aClass, final int aLevel )
 	{
-		WeightedCollection<Spell> WeightedCollection = theConfiguration.getPreparedSpellWeights(aClass.getKeyName(), aLevel);
+		WeightedCollection<Spell> WeightedCollection = theConfiguration.getPreparedSpellWeights(aClass.getKeyName(), aLevel, pc);
 		if (WeightedCollection == null)
 		{
 			WeightedCollection = new WeightedCollection<Spell>();
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST))) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(aClass.get(ObjectKey.CLASS_SPELLLIST)), pc) )
 			{
 				WeightedCollection.add(spell, 1);
 			}
@@ -474,7 +474,7 @@ public class NPCGenerator
 			}
 		}
 		final Domain domain = domains.getRandomValue();
-		final WeightedCollection<Spell> domainSpells = new WeightedCollection<Spell>(Globals.getSpellsIn(aLevel, Collections.singletonList(domain.get(ObjectKey.DOMAIN_SPELLLIST))));
+		final WeightedCollection<Spell> domainSpells = new WeightedCollection<Spell>(Globals.getSpellsIn(aLevel, Collections.singletonList(domain.get(ObjectKey.DOMAIN_SPELLLIST)), aPC));
 		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel ); //$NON-NLS-1$
 	}
 	
@@ -677,7 +677,7 @@ public class NPCGenerator
 									final int bonus = aPC.getSpellSupport(pcClass).getSpecialtyKnownForLevel(lvl, aPC);
 									Logging.debugPrint("NPCGenerator: " + a + "known spells to select"); //$NON-NLS-1$ //$NON-NLS-2$
 									
-									final WeightedCollection<Spell> spellChoices = getKnownSpellWeights(pcClass, lvl);
+									final WeightedCollection<Spell> spellChoices = getKnownSpellWeights(aPC, pcClass, lvl);
 
 									final int numToSelect = a - selectedSpells[lvl];
 									for ( int sp = 0; sp < numToSelect; sp ++ )
@@ -709,7 +709,7 @@ public class NPCGenerator
 								
 								if (castTot > 0)
 								{
-									final WeightedCollection<Spell> spellChoices = getPreparedSpellWeights(pcClass, lvl);
+									final WeightedCollection<Spell> spellChoices = getPreparedSpellWeights(aPC, pcClass, lvl);
 
 									final int numToSelect = castNon - selectedSpells[lvl];
 									for ( int sp = 0; sp < numToSelect; sp ++ )

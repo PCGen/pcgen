@@ -286,7 +286,6 @@ public class Party
 			// Set the filename so that future checks to see if file already loaded will work
 			newPC.setFileName(file.getAbsolutePath());
 			Globals.getPCList().add(newPC);
-			Globals.setCurrentPC(newPC);
 			return newPC;
 		}
 

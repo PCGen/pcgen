@@ -950,7 +950,6 @@ public class Initiative extends javax.swing.JPanel
 			{
 				PcgCombatant pcgcbt = (PcgCombatant) cbt;
 				PlayerCharacter pc = pcgcbt.getPC();
-				Globals.setCurrentPC(pc);
 
 				PCStat stat = Globals.getContext().ref
 						.getAbbreviatedObject(PCStat.class, "CON");

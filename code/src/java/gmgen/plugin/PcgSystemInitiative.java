@@ -15,8 +15,6 @@ public class PcgSystemInitiative extends SystemInitiative
 	public PcgSystemInitiative(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		Globals.setCurrentPC(pc);
-
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "DEX");
 		this.attribute = new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
@@ -26,8 +24,6 @@ public class PcgSystemInitiative extends SystemInitiative
 
 	public SystemAttribute getAttribute()
 	{
-		Globals.setCurrentPC(pc);
-
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "DEX");
 		return new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
@@ -41,8 +37,6 @@ public class PcgSystemInitiative extends SystemInitiative
 
 	public int getBonus()
 	{
-		Globals.setCurrentPC(pc);
-
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
 		return pc.initiativeMod() - StatAnalysis.getStatModFor(pc, dex) + bonus;
@@ -50,8 +44,6 @@ public class PcgSystemInitiative extends SystemInitiative
 
 	public int getModifier()
 	{
-		Globals.setCurrentPC(pc);
-
 		return pc.initiativeMod() + bonus;
 	}
 }

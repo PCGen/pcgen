@@ -35,7 +35,6 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.PointCost;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.BonusActivation;
@@ -89,8 +88,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		skillFocus.setName("Skill Focus");
 		skillFocus.put(StringKey.KEY_NAME, "Skill Focus");
 
-		final PlayerCharacter character = getCharacter();
-		Globals.setCurrentPC(character);
 		final BonusObj saddleBonus =
 				Bonus.newBonus("SKILL|Ride|-5|!PREITEM:1,TYPE.Saddle");
 		rideSkill.addToListFor(ListKey.BONUS, saddleBonus);
@@ -123,7 +120,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
 		final PlayerCharacter pc = getCharacter();
-		Globals.setCurrentPC(pc);
 
 		// Create a variable
 		dummyFeat.put(VariableKey.getConstant("NegLevels"), FormulaFactory.ZERO);
@@ -205,7 +201,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		int spCosts = SpellPoint.getSpellPointCostActual(sp);
 		
 		final PlayerCharacter character = getCharacter();
-		Globals.setCurrentPC(character);
 		final BonusObj spCost =
 				Bonus.newBonus("SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
 		sp.addToListFor(ListKey.BONUS, spCost);
@@ -223,7 +218,6 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		Globals.setCurrentPC(character);
 		setPCStat(character, intel, 18);
 		final BonusObj bonus =
 				Bonus.newBonus("VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
@@ -244,7 +238,6 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		Globals.setCurrentPC(character);
 		setPCStat(character, intel, 18);
 		setPCStat(character, str, 16);
 		final BonusObj bonus =
@@ -273,7 +266,6 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		Globals.setCurrentPC(character);
 		setPCStat(character, intel, 18);
 		setPCStat(character, str, 16);
 		final BonusObj bonus = Bonus.newBonus("STAT|%LIST|%LIST+1");

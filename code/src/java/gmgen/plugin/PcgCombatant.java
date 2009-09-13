@@ -79,7 +79,6 @@ public class PcgCombatant extends Combatant
 	public PcgCombatant(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		Globals.setCurrentPC(pc);
 		this.init = new PcgSystemInitiative(pc);
 
 		PCStat stat = Globals.getContext().ref
@@ -113,7 +112,6 @@ public class PcgCombatant extends Combatant
 					new OpenPCGRequestMessage(comp, pcgFile, true);
 			GMBus.send(msg);
 			this.pc = msg.getPlayerCharacter();
-			Globals.setCurrentPC(pc);
 			this.init = new PcgSystemInitiative(pc);
 
 			PCStat stat = Globals.getContext().ref
@@ -168,7 +166,6 @@ public class PcgCombatant extends Combatant
 	@Override
 	public void setCR(float cr)
 	{
-		Globals.setCurrentPC(pc);
 		this.crAdj = cr - pc.calcCR();
 	}
 
@@ -180,8 +177,6 @@ public class PcgCombatant extends Combatant
 	@Override
 	public float getCR()
 	{
-		Globals.setCurrentPC(pc);
-
 		return pc.calcCR() + crAdj;
 	}
 
@@ -405,8 +400,6 @@ public class PcgCombatant extends Combatant
 				StringBuffer statBuf = new StringBuffer();
 
 				statBuf.append("<html>");
-
-				Globals.setCurrentPC(pc);
 				statBuf.append(getStatBlockHeader());
 				statBuf.append("<body class='Normal' lang='EN-US'>");
 				statBuf.append(getStatBlockTitle());

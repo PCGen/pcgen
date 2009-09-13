@@ -561,7 +561,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			{
 				List<Spell> domainSpells = Globals.getSpellsIn(iLev,
 						Collections.singletonList(aDom
-								.get(ObjectKey.DOMAIN_SPELLLIST)));
+								.get(ObjectKey.DOMAIN_SPELLLIST)), pc);
 				p.setParent(theParent);
 
 				if (!dom)
@@ -1136,7 +1136,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				if (spellListType != GuiConstants.INFOSPELLS_AVAIL_KNOWN)
 				{
 					for (Spell s : Globals.getSpellsIn(-1,
-						aClass.getSpellLists(pc))) //$NON-NLS-1$
+						aClass.getSpellLists(pc), pc)) //$NON-NLS-1$
 					{
 						if (!spellList.contains(s)
 							&& spellTab.shouldDisplayThis(s))

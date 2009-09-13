@@ -396,7 +396,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		dummyFeat.setName("DummyFeat");
 		dummyFeat.setCDOMCategory(AbilityCategory.FEAT);
 		final PlayerCharacter pc = getCharacter();
-		Globals.setCurrentPC(pc);
 
 		// Create a variable
 		dummyFeat.put(VariableKey.getConstant("NegLevels"), FormulaFactory

@@ -131,9 +131,7 @@ public class FollowerToken extends Token
 			if (follower.getFileName().equals(eachPC.getFileName()))
 			{
 				PlayerCharacter newPC = eachPC;
-				Globals.setCurrentPC(newPC);
 				eh.replaceToken(token, bw, newPC);
-				Globals.setCurrentPC(pc);
 			}
 		}
 		try

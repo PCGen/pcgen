@@ -119,7 +119,6 @@ public class SystemHP
 		{
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
-			Globals.setCurrentPC(pc);
 
 			PCStat stat = Globals.getContext().ref
 					.getAbbreviatedObject(PCStat.class, "CON");

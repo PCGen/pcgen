@@ -152,7 +152,7 @@ public final class KitSpells extends BaseKit
 		for (KnownSpellIdentifier ksi : spells.getKeySet())
 		{
 			Collection<Spell> allSpells =
-					ksi.getContainedSpells(Collections.singletonList(aClass
+					ksi.getContainedSpells(aPC, Collections.singletonList(aClass
 						.get(ObjectKey.CLASS_SPELLLIST)));
 			for (Spell sp : allSpells)
 			{

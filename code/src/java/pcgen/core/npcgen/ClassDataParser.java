@@ -532,7 +532,7 @@ class ClassDataHandler extends DefaultHandler
 			if ( remainingWeight > 0 )
 			{
 				// Add all spells at this weight.
-				final List<Spell> allSpells = Globals.getSpellsIn(theCurrentLevel, Collections.singletonList(theCurrentData.getPCClass().get(ObjectKey.CLASS_SPELLLIST)));
+				final List<Spell> allSpells = Globals.getSpellsIn(theCurrentLevel, Collections.singletonList(theCurrentData.getPCClass().get(ObjectKey.CLASS_SPELLLIST)), null);
 				for ( final Spell spell : allSpells )
 				{
 					if ( theCurrentSpellType == SpellType.KNOWN )

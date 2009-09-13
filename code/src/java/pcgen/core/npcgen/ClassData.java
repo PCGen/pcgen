@@ -37,6 +37,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
 
@@ -297,7 +298,7 @@ public class ClassData
 		}
 	}
 	
-	public WeightedCollection<Spell> getKnownSpellWeights( final int aLevel ) 
+	public WeightedCollection<Spell> getKnownSpellWeights( final int aLevel, PlayerCharacter pc ) 
 	{
 		if ( theKnownSpellWeights == null )
 		{
@@ -308,7 +309,7 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST)), pc) )
 			{
 				spells.add(spell, 1);
 			}
@@ -348,7 +349,7 @@ public class ClassData
 		}
 	}
 	
-	public WeightedCollection<Spell> getPreparedSpellWeights( final int aLevel ) 
+	public WeightedCollection<Spell> getPreparedSpellWeights( final int aLevel, PlayerCharacter pc ) 
 	{
 		if ( thePreparedSpellWeights == null )
 		{
@@ -359,7 +360,7 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST)), pc) )
 			{
 				spells.add(spell, 1);
 			}

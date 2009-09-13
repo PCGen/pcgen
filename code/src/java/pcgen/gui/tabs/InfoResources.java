@@ -791,7 +791,6 @@ public class InfoResources extends FilterAdapterPanel implements
 			{
 				Logging.errorPrint(PropertyFactory.getFormattedString(
 					"Errors.Load", file.toString())); //$NON-NLS-1$
-				Globals.setCurrentPC(oldPC);
 
 				return;
 			}

@@ -101,7 +101,6 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 			if (initiative != null && aSkillKey != null)
 			{
 				PlayerCharacter pc = initiative.getPC();
-				Globals.setCurrentPC(pc);
 				Skill skill = Globals.getContext().ref
 						.silentlyGetConstructedCDOMObject(Skill.class,
 								aSkillKey);

@@ -16,7 +16,6 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.StatToken;
@@ -150,7 +149,6 @@ public class AttributePane extends JPanel
 	 */
 	public void refresh()
 	{
-		Globals.setCurrentPC(pc);
 		for (Attribute att : attrList)
 		{
 			att.refresh();

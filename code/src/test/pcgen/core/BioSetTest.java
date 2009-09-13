@@ -173,7 +173,6 @@ public class BioSetTest extends AbstractCharacterTestCase
 		human.setName("NAME_Human");
 		human.put(StringKey.KEY_NAME, "Human");
 		pc.setRace(human);
-		Globals.setCurrentPC(pc);
 		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)
 		{
 			currBioSet.randomize("AGECAT" + ageCat, pc);
@@ -209,7 +208,6 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		Globals.setCurrentPC(pc);
 
 		pc.setAge(12);
 		int idx = Globals.getBioSet().getPCAgeSet(pc);

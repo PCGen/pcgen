@@ -33,7 +33,6 @@ public class PlayerCharacterOutput
 	public PlayerCharacterOutput(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		Globals.setCurrentPC(pc);
 	}
 
 	public String getAC()

@@ -40,6 +40,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
@@ -310,24 +311,24 @@ public class Configuration
 		return data.getDomainWeights(aDeityKey);
 	}
 
-	public WeightedCollection<Spell> getKnownSpellWeights(final String aClassKey, final int aLevel)
+	public WeightedCollection<Spell> getKnownSpellWeights(PlayerCharacter pc, final String aClassKey, final int aLevel)
 	{
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
 		{
 			data = new ClassData(null);
 		}
-		return data.getKnownSpellWeights(aLevel);
+		return data.getKnownSpellWeights(aLevel, pc);
 	}
 
-	public WeightedCollection<Spell> getPreparedSpellWeights(final String aClassKey, final int aLevel)
+	public WeightedCollection<Spell> getPreparedSpellWeights(final String aClassKey, final int aLevel, PlayerCharacter pc)
 	{
 		ClassData data = theClassData.get( aClassKey );
 		if ( data == null )
 		{
 			data = new ClassData(null);
 		}
-		return data.getPreparedSpellWeights(aLevel);
+		return data.getPreparedSpellWeights(aLevel, pc);
 	}
 
 	public WeightedCollection<String> getSubClassWeights(final String aClassKey)

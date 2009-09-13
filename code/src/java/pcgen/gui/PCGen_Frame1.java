@@ -1461,7 +1461,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 				.getRollMethod(), genDlg.getNameChoice());
 
 			Globals.getPCList().add(pc);
-			Globals.setCurrentPC(pc);
 			pc.setDirty(true);
 
 			setPC(pc);
@@ -1844,7 +1843,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		}
 		else
 		{
-			Globals.setCurrentPC(getCurrentPC());
 			characterPane.setPc(getCurrentPC());
 
 			if (Globals.getPCList().size() > 1)
@@ -1904,7 +1902,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	{
 		boolean bSave = true;
 		final PlayerCharacter aPC = getPCForTabAt(index);
-		Globals.setCurrentPC(aPC);
 
 		if ((aPC != null) && (aPC.isDirty()))
 		{
@@ -1975,9 +1972,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 	private void disposePCTabAt(int index)
 	{
-		final PlayerCharacter oldPC = getPCForTabAt(index);
-		Globals.setCurrentPC(oldPC);
-
 		int newIndex =
 				((index == (baseTabbedPane.getTabCount() - 1)) ? (index - 1)
 					: index);
@@ -2008,7 +2002,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 		// now set the PC to something else
 		final PlayerCharacter aPC = getPCForTabAt(newIndex);
-		Globals.setCurrentPC(aPC);
 	}
 
 	private void doNewItem()
@@ -2298,7 +2291,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		{
 			PlayerCharacter aPC =
 					getPCForTabAt(baseTabbedPane.getSelectedIndex());
-			Globals.setCurrentPC(aPC);
 			// What could possibly have changed on focus that would
 			// require a forceUpdate of all the panels?
 			// JSC -- 03/27/2004
