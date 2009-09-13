@@ -159,7 +159,7 @@ public class SpellBasePanel extends BasePanel
 		aString = (String) cmbSubschool.getSelectedItem();
 		if ((aString != null) && !aString.equals("(None)"))
 		{
-			context.unconditionallyProcess(s, "SUBSCHOOL", (String) cmbSchool
+			context.unconditionallyProcess(s, "SUBSCHOOL", (String) cmbSubschool
 					.getSelectedItem());
 		}
 
