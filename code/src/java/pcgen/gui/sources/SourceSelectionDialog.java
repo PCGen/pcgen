@@ -277,7 +277,7 @@ public class SourceSelectionDialog extends JDialog implements
 			{
 				title =
 						PropertyFactory.getFormattedString(
-							"in_qsrc_game_default", mode.getName());
+							"in_qsrc_game_default", mode.getDisplayName());
 			}
 			if (title != null && !"".equals(title))
 			{
@@ -833,10 +833,10 @@ public class SourceSelectionDialog extends JDialog implements
 			String gameModeNames[] = new String[games.size()];
 			for (int i = 0; i < gameModeNames.length; i++)
 			{
-				gameModeNames[i] = games.get(i).getName();
+				gameModeNames[i] = games.get(i).getDisplayName();
 			}
 			gameModeCombo = new JComboBoxEx(gameModeNames);
-			gameModeCombo.setSelectedItem(SettingsHandler.getGame().getName());
+			gameModeCombo.setSelectedItem(SettingsHandler.getGame().getDisplayName());
 
 			Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 100, 100,
 				GridBagConstraints.BOTH, GridBagConstraints.WEST);
@@ -872,7 +872,14 @@ public class SourceSelectionDialog extends JDialog implements
 		{
 			if (ACTION_OK.equals(e.getActionCommand()))
 			{
-				gameModeKey = (String) gameModeCombo.getSelectedItem();
+				String gmDisplayName = (String) gameModeCombo.getSelectedItem();
+				for (GameMode gameMode : SystemCollections.getUnmodifiableGameModeList()) 
+				{
+					if (gameMode.getDisplayName().equals(gmDisplayName))
+					{
+						gameModeKey = gameMode.getName();
+					}
+				}
 			}
 			setVisible(false);
 			this.dispose();

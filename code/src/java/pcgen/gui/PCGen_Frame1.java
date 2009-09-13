@@ -432,7 +432,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		}
 		else
 		{
-			modeName = gameMode.getName();
+			modeName = gameMode.getDisplayName();
 		}
 
 		setTitle("PCGen v. " + PCGenProp.getVersionNumber() + " - " + modeName

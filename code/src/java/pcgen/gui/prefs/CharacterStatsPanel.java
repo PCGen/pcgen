@@ -128,7 +128,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		label =
 				new JLabel(PropertyFactory
 					.getString("in_Prefs_abilitiesGenLabel")
-					+ ": (" + gameMode.getName() + ")");
+					+ ": (" + gameMode.getDisplayName() + ")");
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 0, row, 1, 1, 0, 0);

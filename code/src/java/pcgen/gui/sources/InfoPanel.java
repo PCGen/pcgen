@@ -94,7 +94,7 @@ public class InfoPanel extends JPanel
 			0.0, 0.0);
 		sourcesPanel.add(jLabel1, gbc);
 		gameMode.setOpaque(false);
-		gameMode.setText(SettingsHandler.getGame().getName());
+		gameMode.setText(SettingsHandler.getGame().getDisplayName());
 		gameMode.setEditable(false);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0.0, 0.0);
@@ -132,7 +132,7 @@ public class InfoPanel extends JPanel
 	 */
 	public void refreshDisplay()
 	{
-		gameMode.setText(SettingsHandler.getGame().getName());
+		gameMode.setText(SettingsHandler.getGame().getDisplayName());
 
 		List<String> selectedCampaigns = new ArrayList<String>();
 		PersistenceManager pMan = PersistenceManager.getInstance();

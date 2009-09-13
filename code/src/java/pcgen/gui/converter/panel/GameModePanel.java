@@ -121,7 +121,7 @@ public class GameModePanel extends ConvertSubPanel
 		String gameModeNames[] = new String[games.size()];
 		for (int i = 0; i < gameModeNames.length; i++)
 		{
-			gameModeNames[i] = games.get(i).getName();
+			gameModeNames[i] = games.get(i).getDisplayName();
 		}
 		gameModeCombo = new JComboBoxEx(gameModeNames);
 		gameModeCombo.addActionListener(new ActionListener()
@@ -132,7 +132,7 @@ public class GameModePanel extends ConvertSubPanel
 				saveGameMode(pc);
 			}
 		});
-		gameModeCombo.setSelectedItem(SettingsHandler.getGame().getName());
+		gameModeCombo.setSelectedItem(SettingsHandler.getGame().getMenuEntry());
 
 		panel.add(gameModeCombo);
 		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20,

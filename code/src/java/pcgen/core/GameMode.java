@@ -99,6 +99,7 @@ public final class GameMode implements Comparable<Object>
 	private String defaultSpellBook = "Known Spells";
 	private String defaultUnitSet = Constants.s_STANDARD_UNITSET_NAME;
 	private UnitSet selectedUnitSet = null;
+	private String displayName = null;
 	private String displayVariable2Name = "";
 	private String displayVariable2Text = "";
 	private String displayVariable3Name = "";
@@ -482,6 +483,20 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
+	 * Get the display name of the game mode
+	 * @return displayName
+	 */
+	public String getDisplayName()
+	{
+		if (displayName == null)
+		{
+			return name;
+		}
+
+		return displayName;
+	}
+
+	/**
 	 * Used for Output sheets and GUI to order items in a list
 	 * @param aString
 	 **/
@@ -643,6 +658,7 @@ public final class GameMode implements Comparable<Object>
 	public void setModeName(final String aString)
 	{
 		menuEntry = aString;
+		displayName = aString.replace("&", "");
 	}
 
 	/**
