@@ -578,7 +578,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	@Override
-	protected PCClass getCopy(LoadContext context, String baseName,
+	public PCClass getCopy(LoadContext context, String baseName,
 			String copyName) throws PersistenceLayerException
 	{
 		PCClass copy = super.getCopy(context, baseName, copyName);
