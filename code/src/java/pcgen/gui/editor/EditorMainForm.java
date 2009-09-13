@@ -1095,7 +1095,7 @@ public final class EditorMainForm extends JDialog
 		switch (editType)
 		{
 			case EditorConstants.EDIT_DEITY:
-				((Deity) thisPObject).getSafeListFor(ListKey.PANTHEON).clear();
+				((Deity) thisPObject).removeListFor(ListKey.PANTHEON);
 
 				break;
 
@@ -1148,7 +1148,6 @@ public final class EditorMainForm extends JDialog
 			pnlClassLevel.updateData(thisPObject);
 		}
 
-		thisPObject.removeListFor(ListKey.PANTHEON);
 		for (int i = 0; i < sel.length; ++i)
 		{
 			aString = (String) sel[i];
