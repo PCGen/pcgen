@@ -1148,6 +1148,7 @@ public final class EditorMainForm extends JDialog
 			pnlClassLevel.updateData(thisPObject);
 		}
 
+		thisPObject.removeListFor(ListKey.PANTHEON);
 		for (int i = 0; i < sel.length; ++i)
 		{
 			aString = (String) sel[i];
