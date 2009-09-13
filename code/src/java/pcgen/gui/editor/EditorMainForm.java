@@ -1224,7 +1224,7 @@ public final class EditorMainForm extends JDialog
 					{
 						tbuf.append(',');
 					}
-					tbuf.append(align.getKeyName());
+					tbuf.append(align.getAbb());
 					found = true;
 					break;
 				}

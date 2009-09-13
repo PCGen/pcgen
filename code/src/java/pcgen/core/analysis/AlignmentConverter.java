@@ -22,6 +22,7 @@ import java.util.List;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
+import pcgen.util.Logging;
 
 public class AlignmentConverter
 {
@@ -42,6 +43,11 @@ public class AlignmentConverter
 			// If it isn't a number, we expect the exception
 			desiredAlign = Globals.getContext().ref.getAbbreviatedObject(
 					ALIGNMENT_CLASS, desiredAlignIdentifier);
+		}
+		if (desiredAlign == null)
+		{
+			Logging.errorPrint("Unable to find alignment that matches: "
+					+ desiredAlignIdentifier);
 		}
 		return desiredAlign;
 	}
