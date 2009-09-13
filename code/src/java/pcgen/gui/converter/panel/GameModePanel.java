@@ -132,7 +132,7 @@ public class GameModePanel extends ConvertSubPanel
 				saveGameMode(pc);
 			}
 		});
-		gameModeCombo.setSelectedItem(SettingsHandler.getGame().getMenuEntry());
+		gameModeCombo.setSelectedItem(SettingsHandler.getGame().getDisplayName());
 
 		panel.add(gameModeCombo);
 		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20,
