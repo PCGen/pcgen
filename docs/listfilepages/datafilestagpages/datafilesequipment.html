@@ -108,30 +108,36 @@
 <hr>
 
 	<p class="indent0 alpha"><span class="new">*** Updated 5.14.0</span></p>
-	<p class="indent0"><strong><a name="CONTAINS">Tag Name:</a></strong> CONTAINS:x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (quantity held)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Type=&lt;itemtype&gt;)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Total=&lt;number&gt;)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> UNLIM</p>
+	<p class="indent0"><strong><a name="CONTAINS">Tag Name:</a></strong> CONTAINS:x|y=z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Weight held)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Item type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Total</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Weight allowed)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This tag is | (pipe) delimited and is used to define how much and what a container can hold.</li>
-		<li>Any object with CONTAINS must also be TYPE:Container for the CONTAINS tag to be activated.</li>
-		<li>The 1st number is the maximum weight the container can hold.</li>
-		<li>A * (Asterisk) means that the weight added doesn't change the weight of the container
-			(e.g. a Bag of Holding).</li>
-		<li>A number followed by a percentage (%) symbol before the quantity will reduce
-			the total encumbrance weight of items in the container by the percentage specified.</li>
-		<li>A 'UNLIM' means that the container has an unlimited weight allowance.</li>
-		<li>The name of the weight unit is defined in the game mode system files in the miscinfo.lst file
-			with the tag WEIGHTUNITABBREV. In most fantasy settings this is lbs.</li>
-		<li>After the weight you can specify what types of Items the container may hold.</li>
-		<li>If there are no type's specified the container may hold anything</li>
-		<li>Specific tags (Potions, Rings, Armor, etc) can be specified with a limit to
-			how many can be in the container (e.g. Scroll Case)</li>
-		<li>If specific tags are used the container may only hold the listed object types.</li>
-		<li>A limit to the total number of things contained can be specified by setting a Total=x tag.</li>
+		<li>This tag is used to define how much, by weight and what type of object, a container can hold.</li>
+		<li>Any object with <code>CONTAINS</code> must also include a <code>TYPE:Container</code> tag for the <code>CONTAINS</code> tag to be activated.</li>
+		<li>The first parameter (x) is the maximum weight the container can hold.</li>
+		<ul>
+			<li>An asterisk (*) means that the weight added doesn't change the weight of the container (e.g. a Bag of Holding).</li>
+			<li>A number followed by a percentage (%) symbol before the quantity will reduce
+				the total encumbrance weight of items in the container by the percentage specified.</li>
+			<li>The name of the weight unit is defined in the game mode system files in the <span class="lstfile">miscinfo.lst</span> file
+				with the tag <code>WEIGHTUNITABBREV</code>.</li>
+		</ul>
+		<li>The second parameter (y) identifies the type of items the container may hold.</li>
+		<ul>
+			<li>If there are no type's specified the container may hold anything</li>
+			<li>Specific tags (Potions, Rings, Armor, etc) can be specified with a limit to
+				how many can be in the container (e.g. Scroll Case)</li>
+			<li>If specific tags are used the container may only hold the listed object types.</li>
+			<li>A limit to the total number of things contained can be specified by setting a Total=x tag.</li>
+		</ul>
+		<li>The third parameter (z) identifies the weight allowed for the associated type of items.</li>
 	</ul>
+	<p class="sidebar1"><strong>Note:</strong> <code>UNLIM</code> may be used, in either (x) or (z), to indicate an unlimited 
+		weight allowance for the container or the item type. If no value is provided for (z), <code>UNLIM</code> is assumed. 
+		PCGen's Data Converter will remove <code>UNLIM</code> when converting a data file.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CONTAINS:500</code></p>
 	<p class="indent3">500 units of weight can fit in this container.</p>
