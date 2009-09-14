@@ -150,6 +150,24 @@ public class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinLightLight() throws PersistenceLayerException
+	{
+		runRoundRobin("LightLoad|LightArmor");
+	}
+
+	@Test
+	public void testRoundRobinMediumLight() throws PersistenceLayerException
+	{
+		runRoundRobin("MediumLoad|LightArmor");
+	}
+
+	@Test
+	public void testRoundRobinLightMedium() throws PersistenceLayerException
+	{
+		runRoundRobin("LightLoad|MediumArmor");
+	}
+
+	@Test
 	public void testRoundRobinArmor() throws PersistenceLayerException
 	{
 		runRoundRobin("HeavyArmor");

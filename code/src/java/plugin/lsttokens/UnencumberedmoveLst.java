@@ -55,8 +55,8 @@ public class UnencumberedmoveLst extends AbstractToken implements
 		boolean hasArmor = false;
 		boolean hasMove = false;
 
-		Load loadMove = Load.LIGHT;
-		Load loadArmor = Load.LIGHT;
+		Load loadMove = null;
+		Load loadArmor = null;
 
 		while (tok.hasMoreTokens())
 		{
@@ -112,7 +112,8 @@ public class UnencumberedmoveLst extends AbstractToken implements
 				{
 					return false;
 				}
-				// do nothing, but accept values as valid
+				loadMove = Load.LIGHT;
+				hasMove = true;
 			}
 			else if (loadString.equalsIgnoreCase("LightArmor"))
 			{
@@ -120,7 +121,8 @@ public class UnencumberedmoveLst extends AbstractToken implements
 				{
 					return false;
 				}
-				// do nothing, but accept values as valid
+				loadArmor = Load.LIGHT;
+				hasArmor = true;
 			}
 			else
 			{
@@ -169,7 +171,6 @@ public class UnencumberedmoveLst extends AbstractToken implements
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		boolean needsLight = false;
 		if (load != null)
 		{
 			if (Load.OVERLOAD.equals(load))
@@ -186,7 +187,7 @@ public class UnencumberedmoveLst extends AbstractToken implements
 			}
 			else if (Load.LIGHT.equals(load))
 			{
-				needsLight = true;
+				sb.append("LightLoad");
 			}
 			else
 			{
@@ -195,14 +196,7 @@ public class UnencumberedmoveLst extends AbstractToken implements
 				return null;
 			}
 		}
-		if (at == null || Load.LIGHT.equals(at))
-		{
-			if (needsLight)
-			{
-				sb.append("LightLoad");
-			}
-		}
-		else
+		if (at != null)
 		{
 			if (sb.length() != 0)
 			{
@@ -215,6 +209,10 @@ public class UnencumberedmoveLst extends AbstractToken implements
 			else if (Load.MEDIUM.equals(at))
 			{
 				sb.append("MediumArmor");
+			}
+			else if (Load.LIGHT.equals(at))
+			{
+				sb.append("LightArmor");
 			}
 			else
 			{
