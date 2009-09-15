@@ -76,6 +76,7 @@ public class BonusManager
 	private Set<String> tempBonusFilters = new TreeSet<String>();
 
 	private final PlayerCharacter pc;
+	private Map<String, String> checkpointMap;
 
 	public BonusManager(PlayerCharacter p)
 	{
@@ -93,14 +94,8 @@ public class BonusManager
 
 		final List<String> aList = new ArrayList<String>();
 
-		// There is a risk that the active bonus map may be modified by other
-		// threads, so we use a for loop rather than an iterator so that we
-		// still get an answer.
-		Object[] keys = activeBonusMap.keySet().toArray();
-		for (int i = 0; i < keys.length; i++)
+		for (String aKey : activeBonusMap.keySet())
 		{
-			final String aKey = (String) keys[i];
-
 			// aKey is either of the form:
 			// COMBAT.AC
 			// or
@@ -283,7 +278,7 @@ public class BonusManager
 	 */
 	void buildActiveBonusMap()
 	{
-		activeBonusMap.clear();
+		activeBonusMap = new ConcurrentHashMap<String, String>();
 		Set<BonusObj> processedBonuses = new WrappedMapSet<BonusObj>(
 				IdentityHashMap.class);
 
@@ -665,7 +660,6 @@ public class BonusManager
 			return;
 		}
 		bonusMap.put(aKey, aVal);
-		// setDirty(true);
 	}
 
 	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
@@ -765,9 +759,14 @@ public class BonusManager
 		return clone;
 	}
 
-	public String getBonusMapString()
+	public void checkpointBonusMap()
 	{
-		return activeBonusMap.toString();
+		checkpointMap = activeBonusMap;
+	}
+
+	public boolean compareToCheckpoint()
+	{
+		return checkpointMap != null && checkpointMap.equals(activeBonusMap);
 	}
 
 	public void setTempBonusMap(Map<BonusObj, TempBonusInfo> tbl)

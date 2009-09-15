@@ -7563,32 +7563,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// that depends on variable B that will not be the correct
 		// value until after the map has been completely created.
 
-		// Get the original value of the map.
-		// String origMapVal = theBonusMap.toString();
-		String origMapVal = bonusManager.getBonusMapString();
-		
-		// ensure that the values for the looked up variables are the most up to
-		// date
-		setDirty(true);
-		calcActiveBonusLoop();
-
-		// Get the new contents of the map
-		// String mapVal = theBonusMap.toString();
-		String mapVal = bonusManager.getBonusMapString();
-
-		// As the map is a TreeMap we know that the contents will be in
-		// alphabetical order, so doing a straight string compare is
-		// the easiest way to compare the whole tree.
-		while (!mapVal.equals(origMapVal))
+		do
 		{
-			// If the newly calculated bonus map is different to the old one
-			// loop again until they are the same.
+			bonusManager.checkpointBonusMap();
 			setDirty(true);
 			calcActiveBonusLoop();
-			origMapVal = mapVal;
-			// mapVal = theBonusMap.toString();
-			mapVal = bonusManager.getBonusMapString();
-		}
+		} while (!bonusManager.compareToCheckpoint());
+		// If the newly calculated bonus map is different to the old one
+		// loop again until they are the same.
 	}
 
 	private Map<BonusObj, Object> getAllActiveBonuses()
