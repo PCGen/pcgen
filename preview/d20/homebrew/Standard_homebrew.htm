@@ -1,0 +1,2656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!--
+PCGen Character Sheet Template
+==============================
+Author: Richard O'Doherty-Gregg
+Email: OdGregg@bigpond.com
+Modifications by: arcady
+Email: arcady0@yahoo.com
+Revisions: Barak  10/15/02
+Email: barak@voyager.net
+
+$Revision: 9551 $
+$Author: eddyanthony $
+$Date: 2009-03-02 09:19:32 -0800 (Mon, 02 Mar 2009) $
+-->
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME| [|POOL.COST| Points]</title>
+<style type="text/css">
+	.font4 {  
+		font-family: Arial; 
+		font-size:4pt; 
+	}
+	.font5 {  
+		font-family: Arial; 
+		font-size:5pt; 
+	}
+	.font6 {  
+		font-family: Arial; 
+		font-size:6pt;
+	}
+	.font7 {  
+		font-family: Arial; 
+		font-size:7pt;
+	}
+	.font8 {  
+		font-family: Arial; 
+		font-size:8pt;
+	}
+	.font9 {  
+		font-family: Arial; 
+		font-size:9pt;
+	}
+	.h { 
+		font-family: Arial; 
+		font-size:12pt; 
+		vertical-align: bottom;
+	}
+	.ab { 
+		font-family: Arial; 
+		font-size:12pt; 
+		text-align:center; 
+		color:white; 
+		background:black;
+	}
+	.ablable { 
+		font-family: Arial; 
+		font-size:8pt; 
+		text-align:center; 
+		color:white; 
+		background:black;
+	}
+	.abb { 
+		font-family: Arial; 
+		font-size:12pt; 
+		text-align:center; 
+		font-weight:bold; 
+		border: 1px solid black;
+	}
+	.abt { 
+		font-family: Arial; 
+		font-size:12pt; 
+		text-align:center; 
+		font-weight:bold; 
+		border: 5px solid #CCCCCC;
+	}
+	.sign { 
+		font-family: Arial; 
+		font-size:10pt;
+	}
+	.item { 
+		font-family: Arial; 
+		font-size:16pt; 
+		text-align:center; 
+		color:white; 
+		background:black;
+	}
+	.sptab { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:center;
+		font-size:8pt;
+	}
+	.sptab1 { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.sptab2 { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:right;
+		font-size:8pt;
+	}
+	.notetab { 
+		font-family: Arial; 
+		vertical-align:top;
+		border: 1px solid black; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.skl { 
+		font-family: Arial; 
+		font-size: 9pt; 
+		font-weight:bold; 
+		text-align:center; 
+		vertical-align:middle; 
+		border: 4px solid black;
+	}
+	.skill { 
+		font-family: Arial; 
+		font-size: 10pt; 
+	}
+	.skillValue {
+	font-family: Arial;
+	font-size: 10pt;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: black;
+	}
+	.topline {
+		border-top-width:1px; 
+		border-top: 1pt solid black; 
+		font-family: Arial; 
+		font-size:6pt; 
+	}
+	.spname { 
+		font-family: Arial; 
+		vertical-align:top; 
+		text-align:left;
+		font-size:8pt;
+	}
+	.sptop { 
+		font-family: Arial; 
+		vertical-align:top;
+		border: 1px solid black; 
+		text-align:center;
+		font-size:8pt; 
+		color:white;
+	}
+	.splevel {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:9pt; 
+		color:white;
+	}
+	.sphead {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:12pt; 
+		color:white;
+	}
+	.notehead {  
+		font-family: Arial; 
+		background:black; 
+		text-align:center;
+		font-size:12pt; 
+		color:white;
+	}
+	.biodata { 
+		font-family: Arial; 
+		vertical-align:bottom; 
+		text-align:left;
+		font-size:9pt;
+	}
+	.border { 
+		border: 1px solid black; 
+	}
+	.border4 { 
+		font-family: Arial; 
+		border: 1px solid black; 
+		font-size:4pt; 
+	}
+	.border7 {
+		font-family: Arial; 
+		border: 1px solid black;
+		font-size:7pt; }
+	.border8 {
+		font-family: Arial; 
+		border: 1px solid black;
+		font-size:8pt;
+	}
+	.border9 {
+		font-family: Arial; 
+		border: 1px solid black;
+		font-size:9pt;
+	}
+	.border10 {
+		font-family: Arial; 
+		border: 1px solid black;
+		font-size:10pt;
+	}
+
+	.tempborder {
+		border: 5px solid lightgray;
+	}
+	.borderbottom {
+		border-bottom-width:1px;
+		border-bottom: 1pt solid black;
+	}
+	.borderbottom8 {
+		border-bottom-width:1px;
+		border-bottom: 1pt solid black;
+		font-size:8pt;
+	}
+	span.notes p {
+		margin-top:0; 
+		margin-bottom:0;
+	}
+	.lable {  
+		font-family: Arial; 
+		font-size:6pt; 
+	}
+</style>
+<style type="text/css">
+<!--
+.key {
+		font-family: Arial; 
+		font-size:10pt;
+}
+-->
+</style>
+</head>
+<body bgcolor="white">
+
+<!-- START Top Character Data -->
+<table cellpadding="0" cellspacing="4" border="0" width="100%" summary="Character Info">
+ <tr>
+  <td colspan="2" class="h">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%|</td>
+  <td colspan="2" class="h">|PLAYERNAME|</td>
+  <td colspan="1" class="h">|ALIGNMENT|</td>
+  <td colspan="1" class="h">|DEITY|</td>
+  <td class="h">|POOL.COST|</td>
+  <td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><a href="#Bio"><img src="|PORTRAIT|" height="100" alt="Click for Bio" border="0" /></a><br /></font></td>
+ </tr>
+ <tr>
+  <td colspan="2" class="topline">CHARACTER NAME</td>
+  <td colspan="2" class="topline">PLAYER</td>
+  <td colspan="1" class="topline">ALIGNMENT</td>
+  <td colspan="1" class="topline">DEITY</td>
+  <td class="topline">POINTS</td>
+ </tr>
+ <tr>
+  <td colspan="1" class="h">|CLASSLIST|</td>
+  <td colspan="1" class="h">|EXP.CURRENT|</td>
+  <td colspan="1" class="h">|RACE|</td>
+  <td class="h">|SIZELONG| / |FACE|</td>
+  <td class="h">|HEIGHT|</td>
+  <td class="h">|WEIGHT|</td>
+  <td colspan="1" class="h">|VISION|</td>
+ </tr>
+ <tr>
+  <td colspan="1" class="topline">CLASS</td>
+  <td colspan="1" class="topline">EXPERIENCE</td>
+  <td colspan="1" class="topline">RACE</td>
+  <td class="topline">SIZE / FACE</td>
+  <td class="topline">HEIGHT</td>
+  <td class="topline">WEIGHT</td>
+  <td colspan="1" class="topline">VISION</td>
+ </tr>
+ <tr>
+  <td class="h">|TOTALLEVELS|</td>
+  <td class="h">|EXP.NEXT|</td>
+  <td class="h">|AGE|</td>
+  <td class="h">|GENDER|</td>
+  <td class="h">|COLOR.EYE|</td>
+  <td colspan="2" class="h">|COLOR.HAIR|, |LENGTH.HAIR|</td>
+ </tr>
+ <tr>
+  <td class="topline">LEVEL</td>
+  <td class="topline">NEXT LEVEL</td>
+  <td class="topline">AGE</td>
+  <td class="topline">GENDER</td>
+  <td class="topline">EYES</td>
+  <td colspan="2" class="topline">HAIR</td>
+ </tr>
+</table>
+<!-- STOP Top Character Data -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="200">
+	<!-- START Abilities Table -->
+	   <table width="95%" summary="Stat Block"> 
+        <tr>
+          <td align="center" width="20%" class="lable">ABILITY<br />NAME</td>
+          <td align="center" width="20%" class="lable">ABILITY<br />SCORE</td>
+          <td align="center" width="20%" class="lable">ABILITY<br />MODIFIER</td>
+          <td align="center" width="20%" class="lable">TEMPORARY<br />SCORE</td>
+          <td align="center" width="20%" class="lable">TEMPORARY<br />MODIFIER</td>
+          </tr>
+|FOR,%stat,0,COUNT[STATS]-1,1,1|
+        <tr>
+          <td class="ab"><b>|STAT.%stat.NAME|</b><br />
+            <span class="ablable">&nbsp;|STAT.%stat.LONGNAME|&nbsp;</span></td>
+          <td class="abb">|STAT.%stat.NOTEMP.NOEQUIP|</td>
+          <td class="abb">|STAT.%stat.MOD.NOTEMP.NOEQUIP|</td>
+          <td class="abt">|STAT.%stat|</td>
+          <td class="abt">|STAT.%stat.MOD|</td>
+          </tr>
+|ENDFOR|
+        </table> 
+<!-- STOP Abilities Table -->
+	</td>
+    <td valign="top">&nbsp;
+|IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
+<!-- START Hit Point Table -->
+	<table summary="Hit Point Table"> 
+        <tr>
+          <td align="center" width="90"></td>
+          <td align="center" width="25" valign="bottom"></td>
+          <td align="center"></td>
+          <td align="center" width="119" class="lable">WOUNDS/CURRENT HP</td>
+          <td align="center"></td>
+          <td align="center" width="119" class="lable">SUBDUAL DAMAGE</td>
+          <td align="center"></td>
+          <td align="center" width="119" class="lable">&nbsp;&nbsp;DAMAGE REDUCTION&nbsp;&nbsp;</td>
+          <td align="center"></td>
+          <td align="center" width="119" class="lable">SPEED</td>
+          </tr>
+        <tr>
+          <td class="ab"><b>HP</b>
+            <br /><span class="ablable"> Hit Points</span></td>
+          <td align="center" class="abb"><b>|HP|</b></td>
+          <td align="center"><br /></td>
+          <td align="center" class="border9"><br /></td>
+          <td align="center"><br /></td>
+          <td align="center" class="border9"><br /></td>
+          <td align="center"><br /></td>
+          <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
+          <td align="center"><br /></td>
+          <td align="center" class="border9">
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
+|IIF(MOVE.%movement.NAME:Fly)|
+(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
+|ENDIF|
+|ENDFOR|
+	    </td>
+          </tr>
+       </table> 
+<!-- STOP Hit Point Table -->
+|ELSE|
+<!-- START Vitality/Wound Point Table-->
+       <table summary="Vitality/Wound Point Table"> 
+        <tr>
+          <td align="center" width="90"></td>
+          <td align="center" width="25" valign="bottom"></td>
+          <td align="center"></td>
+          <td align="center" width="75" class="lable">CURRENT VITALITY</td>
+          <td align="center"></td>
+          <td align="center" width="75" class="lable">SUBDUAL DAMAGE</td>
+          <td align="center"></td>
+          <td align="center" width="50"></td>
+          <td align="center" width="25" valign="bottom"></td>
+          <td align="center"></td>
+          <td align="center" width="75" class="lable">CURRENT WP</td>
+          <td align="center"></td>
+          <td align="center" class="lable">DAMAGE REDUCTION</td>
+          <td align="center"></td>
+          <td align="center" class="lable">SPEED</td>
+          </tr>
+        <tr>
+          <td align="center" class="ab"><b>VP</b>
+            <br /><span class="ablable">Vitality</span></td>
+          <td align="center" class="abb"><b>|HP|</b></td>
+          <td align="center"><br /></td>
+          <td align="center" class="border9"></td>
+          <td></td>
+          <td align="center" class="border9"></td>
+          <td align="center"></td>
+          <td align="center" class="ab"><b>WP</b>
+            <br /><span class="ablable">Wound Points</span></td>
+          <td align="center" class="abb"><b>|ALTHP|</b></td>
+          <td></td>
+          <td  class="abb"></td>
+          <td></td>
+          <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
+          <td></td>
+          <td align="center" class="border9">
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
+|IIF(MOVE.%movement.NAME:Fly)|
+(|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
+|ENDIF|
+|ENDFOR|
+	    </td>
+          </tr>
+       </table> 
+<!-- STOP Vitality/Wound Point Table -->
+|ENDIF|
+<br />
+<!-- Armour Class Table -->
+      <table summary="AC Table"> 
+        <tr>
+          <td width="90" class="ab"><b>AC</b>
+            <br /><span class="ablable">&nbsp;Armour Class&nbsp;</span></td>
+          <td align="center" class="abb"><b>|AC.Total|</b></td>
+          <td align="center" class="sign"><b>:</b></td>
+          <td align="center" class="abb"><b>|AC.Touch|</b></td>
+          <td align="center" class="sign"><b>:</b></td>
+          <td align="center" class="abb"><b>|AC.Flatfooted|</b></td>
+          <td align="center" class="sign"><b>=</b></td>
+          <td align="center" class="abb"><b>|AC.Base|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Armor|</b></td>
+
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Shield|</b></td>
+
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Ability|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Size|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.NaturalArmor|</b></td>
+          <td align="center" class="sign"><b>+</b></td>
+          <td align="center" class="abb"><b>|AC.Misc|</b></td>
+          <td align="center" width="5"></td>
+          <td align="center" class="abb"><br /></td>
+          <td align="center"></td>
+          <td align="center" class="abb"><b>|SPELLFAILURE|</b></td>
+          <td align="center"></td>
+          <td align="center" class="abb"><b>|ACCHECK|</b></td>
+          <td align="center"></td>
+          <td align="center" class="abb"><b>|MAXDEX|</b></td>
+          <td align="center"></td>
+          <td align="center" class="abb"><b>|SR|</b></td>
+          <td align="center"></td>
+          <td align="center" class="abb"><b>&nbsp;</b></td>
+          </tr>
+        <tr>
+          <td align="center" width="50"></td>
+          <td align="center" width="25" valign="top" class="lable"><b>TOTAL</b></td>
+          <td align="center"></td>
+          <td align="center" width="25" valign="top" class="lable"><b>TOUCH</b></td>
+          <td align="center"></td>
+          <td align="center" width="25" valign="top" class="lable"><b>FLAT</b></td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">BASE</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">ARMOR<br />BONUS</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">SHIELD<br />BONUS</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">STAT<br />BONUS</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">SIZE<br />BONUS</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">NATURAL<br />ARMOR</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">MISC<br />BONUS</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">MISS<br />CHANCE</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">ARCANE<br />FAILURE</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">ARMOR<br />CHECK</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">MAX<br />DEX</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">SPELL<br />RESIST.</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="lable">TEMP</td>
+          </tr>
+        </table> 
+<!-- STOP AC Table -->
+<!-- START Initiative and Base Attack Table -->
+   <table summary="Initiative Table">
+    <tr>
+     <td class="ab" width="90"><b>INITIATIVE</b><br /><span class="ablable"> Modifier</span></td>
+     <td align="center" class="border10"><b>|INITIATIVEMOD|</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|STAT.1.MOD|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|INITIATIVEBONUS|</b></td>
+     <td width="20" align="center" class="sign"></td>
+     <td class="ab"><b>&nbsp;BASE ATTACK BONUS&nbsp;</b></td>
+     <td align="center" width="94" class="border10"><b>|ATTACK.MELEE|</b></td>
+   </tr>
+    <tr>
+     <td align="center" width="50" class="sign"></td>
+     <td align="center" width="25" valign="top" class="lable">TOTAL</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">DEX</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">MISC</td>
+     <td rowspan="3" ></td>
+    </tr>
+   </table>
+<!-- STOP Initiative and Base Attack Table -->
+	</td>
+  </tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="55%" valign="top">
+
+<!-- START Saving Throws Table -->
+   <table width="100%" summary="Saving Throws">
+    <tr>
+     <td align="center" class="lable" width="75">SAVING THROWS</td>
+     <td align="center" width="25" class="lable">TOTAL</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">BASE</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">ABILITY</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">MAGIC</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">EPIC</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">MISC</td>
+     <td align="center"></td>
+     <td align="center" width="25" class="lable">TEMPORARY</td>
+     <td align="left" valign="top" rowspan="4" class="border4">&nbsp;CONDITIONAL MODIFIERS</td>
+    </tr>
+|FOR,%checks,0,COUNT[CHECKS]-1,1,0|
+    <tr>
+          <td align="center" class="ab"><b>|CHECK.%checks.NAME|</b><span class="ablable"><br />
+|IIF(CHECK.%checks.NAME:Fortitude)|
+Constitution
+|ELSE|
+|ENDIF|
+|IIF(CHECK.%checks.NAME:Reflex)|
+Dexterity
+|ELSE|
+|ENDIF|
+|IIF(CHECK.%checks.NAME:Will)|
+Wisdom
+|ELSE|
+|ENDIF|
+</span>
+     </td>
+     <td align="center" class="border10"><b>|CHECK.%checks.TOTAL|</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.BASE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.STATMOD|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.MAGIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|CHECK.%checks.MISC.NOMAGIC.NOSTAT|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="abt"></td>
+    </tr>
+|ENDFOR|
+   </table>
+<!-- STOP Saving Throws Table -->
+
+<!-- START Melee and Range Attack Table -->
+   <table width="100%" summary="Melee ~ Ranged Attacks">
+    <tr>
+     <td align="center" width="75"></td>
+     <td align="center" valign="bottom" class="lable">TOTAL</td>
+     <td align="center"></td>
+     <td align="center" valign="bottom" class="lable">BASE ATTACK</td>
+     <td align="center"></td>
+     <td align="center" width="25" valign="bottom" class="lable">STAT</td>
+     <td align="center"></td>
+     <td align="center" width="25" valign="bottom" class="lable">SIZE</td>
+     <td align="center"></td>
+     <td align="center" width="25" valign="bottom" class="lable">EPIC</td>
+     <td align="center"></td>
+     <td align="center" width="25" valign="bottom" class="lable">MISC</td>
+     <td align="center"></td>
+     <td align="center" width="25" valign="bottom" class="lable">TEMP</td>
+    </tr>
+    <tr>
+     <td align="center" class="ab"><b>MELEE</b><br /><span class="ablable">ATTACK BONUS</span></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.TOTAL|</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.STAT|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.SIZE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.MISC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center"  class="abt"></td>
+    </tr>
+    <tr>
+     <td align="center" class="ab"><b>RANGED</b><br /><span class="ablable">ATTACK BONUS</span></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.TOTAL|</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.STAT|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.SIZE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.RANGED.MISC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center"  class="abt"></td>
+    </tr>
+|IIF(VAR.UseCombatManueverBonus:1)|
+    <tr>
+     <td align="center" class="ab"><b>CMB</b><br /><span class="ablable">ATTACK BONUS</span></td>
+     <td align="center" class="border10"><b>|VAR.CMB.INTVAL.SIGN|</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.MELEE.BASE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_STAT.INTVAL.SIGN|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_SizeMod.INTVAL.SIGN|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>+0</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center"  class="abt"></td>
+    </tr>
+    <tr><td></td></tr>
+   </table>
+   <table width="100%" summary="CMB block">
+    <tr>
+     <td align="center" class="ab"><b>OFFENSE</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Grapple.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Trip.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Disarm.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Sunder.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Bull.INTVAL.SIGN|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Overrun.INTVAL.SIGN|</b></td>
+    </tr>
+    <tr>
+     <td align="center" class="ab"><b>DEFENSE</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Grapple_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Trip_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Disarm_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Sunder_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Bull_DEF.INTVAL|</b></td>
+     <td align="center" class="border10"><b>|VAR.CMB_Overrun_DEF.INTVAL|</b></td>
+    </tr>
+    <tr>
+     <td align="center" width="28%"></td>
+     <td align="center" width="12%" valign="top" class="lable">GRAPPLE</td>
+     <td align="center" width="12%" valign="top" class="lable">TRIP</td>
+     <td align="center" width="12%" valign="top" class="lable">DISARM</td>
+     <td align="center" width="12%" valign="top" class="lable">SUNDER</td>
+     <td align="center" width="12%" valign="top" class="lable">BULL RUSH</td>
+     <td align="center" width="12%" valign="top" class="lable">OVERRUN</td>
+    </tr>
+   </table>
+   <br />
+|ELSE|
+    <tr>
+     <td align="center" class="ab"><b>GRAPPLE</b><br /><span class="ablable">ATTACK BONUS</span></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.TOTAL|</b></td>
+     <td align="center" class="sign"><b>=</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.STAT|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.SIZE|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.EPIC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center" class="border10"><b>|ATTACK.GRAPPLE.MISC|</b></td>
+     <td align="center" class="sign"><b>+</b></td>
+     <td align="center"  class="abt"></td>
+    </tr>
+    <tr><td></td></tr>
+   </table>
+   <br />
+|ENDIF|
+<!-- STOP Melee and Range Attack Table -->
+<!-- START Unarmed Attack Table -->
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
+    <tr>
+          <td align="center" height="25" bgcolor="black" rowspan="2" width="40%" class="ab"><b>UNARMED</b></td>
+          <td align="center" bgcolor="black" width="15%" class="ablable" height="20">TOTAL ATTACK BONUS</td>
+          <td align="center" bgcolor="black" width="15%" class="ablable">DAMAGE</td>
+          <td align="center" bgcolor="black" width="15%" class="ablable">CRITICAL</td>
+          <td align="center" bgcolor="black" width="15%" class="ablable">REACH</td>
+    </tr>
+    <tr>
+          <td align="center" bgcolor="white" class="border10" height="20">|WEAPONH.TOTALHIT|</td>
+          <td align="center" bgcolor="white" class="border10">|WEAPONH.DAMAGE|</td>
+          <td align="center" bgcolor="white" class="border10">|WEAPONH.CRIT|/x|WEAPONH.MULT|</td>
+          <td align="center" bgcolor="white" class="border10">|REACH|</td>
+    </tr>
+   </table>
+   <br />
+<!-- STOP Unarmed Attack Table -->
+
+<!-- START Weapon Table -->
+|FOR,%weap,0,2,1,1|
+   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Table">
+|IIF(WEAPON.%weap.CATEGORY:BOTH)|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;&nbsp;Range</b></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|'<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border10" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" colspan="5" class="border10">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
+    </tr>
+   </table>
+   <font style="font-size:2pt"><br /></font>
+|ELSE|
+    <tr>
+     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>HAND</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>CRITICAL</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>REACH</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
+    <tr>
+     <td align="center" height="15" bgcolor="black" width="8%"></td>
+     <td align="center" height="15" bgcolor="black" width="17%" class="ablable"><b>1H-P</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>1H-O</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2H</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OH)</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OL)</b></td>
+     <td align="center" bgcolor="black" width="10%" height="15" class="ablable"><b>2W-OH</b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border"><b>&nbsp;Bonus</b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASEHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITH|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITL|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWOHIT|<br /></b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+    </tr>
+   </table>
+|ENDIF|
+|ELSE|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+    <tr>
+     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>HAND</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>CRITICAL</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
+|IIF(WEAPON.%weap.CONTENTS:0)|
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;&nbsp;Range</b></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|'<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border10"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border10" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <font style="font-size:2pt"><br /></font>
+|ELSE|
+|FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
+    <tr>
+     <td colspan="6" align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;AMMUNITION:  |WEAPON.%weap.CONTENTS.%ammo|
+|IIF(WEAPON.%weap.CONTENTS.%ammo.SPROP: )|
+(|WEAPON.%weap.CONTENTS.%ammo.SPROP|)
+|ENDIF|
+     </b></font></td>
+    </tr>
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;Range</b></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="border" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|'<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.CONTENTS.%ammo.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" class="ablable"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.CONTENTS.%ammo.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5" class="border10">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <br />
+|ENDIF|
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
+    <tr>
+     <td align="center" height="15" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="20%" height="15" class="ablable"><b>TOTAL ATTACK BONUS</b></td>
+     <td align="center" bgcolor="black" width="20%" height="15" class="ablable"><b>DAMAGE</b></td>
+     <td align="center" bgcolor="black" width="20%" height="15" class="ablable"><b>CRITICAL</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TOTALHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.DAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
+    <tr>
+     <td align="center" height="15" bgcolor="black" width="15%" class="ablable"><b>HAND</b></td>
+     <td align="center" height="15" bgcolor="black" width="15%" class="ablable"><b>RANGE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="40%" height="15" class="ablable"><b>SPECIAL PROPERTIES</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <br />
+|ELSE|
+    <tr>
+     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>HAND</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>CRITICAL</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>REACH</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
+    <tr>
+     <td align="center" height="15" bgcolor="black" width="8%"></td>
+     <td align="center" height="15" bgcolor="black" width="17%" class="ablable"><b>1H-P</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>1H-O</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2H</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OH)</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OL)</b></td>
+     <td align="center" bgcolor="black" width="10%" height="15" class="ablable"><b>2W-OH</b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASEHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITH|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITL|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWOHIT|<br /></b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties</b></td>
+     <td align="left" bgcolor="white" colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <br />
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|%WEAPON.3|
+|FOR,%weap,3,3,1,1|
+   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Table">
+|IIF(WEAPON.%weap.CATEGORY:BOTH)|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;&nbsp;Range</b></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|'<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" colspan="5" class="border10">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+|ELSE|
+   </table>
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|%|
+   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Abbreviations">
+    <tr>
+     
+    <td class="key"><b>1H-P:</b> One handed, primary hand.&nbsp;<b>1H-O:</b> One 
+      handed, off hand.&nbsp;<b>2H:</b> Two handed.&nbsp;<b>2W-P-(OH):</b> 2 weapons, 
+      primary hand (off hand weapon is heavy).&nbsp;<b>2W-P-(OL):</b> 2 weapons, 
+      primary hand (off hand weapon is light).&nbsp;<b>2W-OH:</b>2 weapons, off 
+      hand.</td>
+    </tr>
+   </table>
+<!-- STOP Weapon Table -->
+
+<!-- START Armor Table -->
+|IIF(AC.Armor>0)|
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		
+    <td align="center" bgcolor="black" width="40%" class="ab" rowspan="2"><b>|ARMOR.EQUIPPED.0.NAME|<br />
+      </b></td>
+		
+    <td align="center" bgcolor="black" width="20%" class="ablable" height="20">TYPE</td>
+		
+    <td align="center" bgcolor="black" width="20%" class="ablable">ARMOR BONUS</td>
+		
+    <td align="center" bgcolor="black" width="20%" class="ablable">MAX DEX BONUS</td>
+	</tr>
+	<tr>
+		
+    <td align="center" bgcolor="white" class="border10" height="20"><b>|ARMOR.EQUIPPED.0.TYPE|</b></td>
+		
+    <td align="center" bgcolor="white" class="border10"><b>|ARMOR.EQUIPPED.0.TOTALAC|</b></td>
+		
+    <td align="center" bgcolor="white" class="border10"><b>|ARMOR.EQUIPPED.0.MAXDEX|</b></td>
+	</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		
+    <td align="center" bgcolor="black" class="ablable" height="20">CHECK PENALTY</td>
+		
+    <td align="center" bgcolor="black" class="ablable">SPELL FAILURE</td>
+		
+    <td align="center" bgcolor="black" class="ablable">SPECIAL PROPERTIES</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="white" class="border10" height="20"><b>|ARMOR.EQUIPPED.0.ACCHECK|</b></td>
+		<td align="center" bgcolor="white" class="border10"><b>|ARMOR.EQUIPPED.0.SPELLFAIL|</b></td>
+		<td align="center" bgcolor="white" class="border10"><b>|ARMOR.EQUIPPED.0.SPROP|</b></td>
+	</tr>
+</table>
+|ENDIF|
+<br />
+<!-- STOP Armor Table -->
+
+<!-- START Shield Table -->
+|IIF(AC.Shield>0)|
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		<td align="center" bgcolor="black" width="40%" class="ab" rowspan="2"><b>|ARMOR.SHIELD.EQUIPPED.0.NAME|<br /></b></td>
+		
+    <td align="center" bgcolor="black" width="20%" class="ablable" height="20">TYPE</td>
+		
+    <td align="center" bgcolor="black" width="20%" class="ablable">ARMOR BONUS</td>
+		
+    <td align="center" bgcolor="black" width="20%" class="ablable">MAX DEX BONUS</td>
+	</tr>
+	<tr>
+		
+    <td align="center" bgcolor="white" class="border10" height="20"><b>|ARMOR.SHIELD.EQUIPPED.0.TYPE|</b></td>
+	<td align="center" bgcolor="white" class="border10"><b>|ARMOR.SHIELD.EQUIPPED.0.TOTALAC|</b></td>
+	<td align="center" bgcolor="white" class="border10"><b>|ARMOR.SHIELD.EQUIPPED.0.MAXDEX|</b></td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Armor Table">
+	<tr>
+		
+    <td align="center" bgcolor="black" class="ablable" height="20">CHECK PENALTY</td>
+		
+    <td align="center" bgcolor="black" class="ablable">SPELL FAILURE</td>
+		
+    <td align="center" bgcolor="black" class="ablable">SPECIAL PROPERTIES</td>
+	</tr>
+	<tr>
+		<td align="center" bgcolor="white" class="border10" height="20"><b>|ARMOR.SHIELD.EQUIPPED.0.ACCHECK|</b></td>
+		<td align="center" bgcolor="white" class="border10"><b>|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|</b></td>
+		<td align="center" bgcolor="white" class="border10"><b>|ARMOR.SHIELD.EQUIPPED.0.SPROP|</b></td>
+	</tr>
+</table>
+|ENDIF|
+<br />
+<!-- STOP Shield Table -->
+</td>
+<td width="45%" valign="top">
+
+<!-- START PSI Power Points Table -->
+|%VAR.TOTALPOWERPOINTS.GTEQ.1|
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Power Point Table">
+    <tr>
+     <td colspan="6" bgcolor="black" align="center"><font style="font-size: 9pt" color="white"><b>PSI POWER POINTS</b></font></td>
+    </tr>
+    <tr>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Base PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.BASEPOWERPOINTS.INTVAL|</font></td>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Bonus PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.BONUSPOWERPOINTS.INTVAL|</font></td>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Total PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">|VAR.TOTALPOWERPOINTS.INTVAL|</font></td>
+    </tr>
+    <tr>
+     <td>&nbsp;</td>
+    </tr>
+   </table>
+|%|
+<!-- STOP PSI Power Points Table -->
+
+<!-- START Skills Table -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
+    <tr>
+		 <td height="30" bgcolor="black"></td>
+		 <td height="30" align="center" class="ab"><b>SKILLS</b></td>
+		 <td colspan="4" height="30" bgcolor="black" align="center"></td>
+		 <td height="30" bgcolor="black" align="right" ></td>
+		 <td height="30" align="center" class="ab">MAX<br />RANKS</td>
+		 <td colspan="2" height="30" align="center" class="skl"><b>|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|</b></td>
+    </tr>
+    <tr>
+		 <td colspan="2" align="center" width="50%" class="border7">SKILL NAME</td>
+		 <td align="center" width="10%" class="border7">ABILITY</td>
+		 <td align="center" width="10%" colspan="1" class="border7">SKILL<br />MODIFIER</td>
+		 <td align="center" width="10%" colspan="2" class="border7">ABILITY<br />MODIFIER</td>
+		 <td align="center" width="10%" colspan="2" class="border7">RANKS</td>
+		 <td align="center" width="10%" colspan="2" class="border7">MISC<br />MODIFIER</td>
+    </tr>
+|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
+		 <td align="left" class="skill">|SKILL.%skill|</td>
+		 <td align="center" class="skill">|SKILL.%skill.ABILITY|</td>
+		 <td align="center" class="skillValue"><b>|SKILL.%skill.TOTAL|</b></td>
+		 <td align="center" class="sign">=</td>
+		 <td align="center" class="skillValue">|SKILL.%skill.ABMOD|<br /></td>
+		 <td align="center" class="sign">+</td>
+		 <td align="center" class="skillValue" >|SKILL.%skill.RANK|<br /></td>
+		 <td align="center" class="sign">+</td>
+		 <td align="center" class="skillValue">|SKILL.%skill.MISC|<br /></td>
+    </tr>
+|ENDFOR|
+</table>
+   <span class="skill">&#9670; = Useable Untrained</span>
+<!-- STOP Skills Table -->
+
+	</td>
+  </tr>
+</table>
+
+
+<table width="100%" border="0" summary="Page 2 Master Table"> <!-- Master Page Table -->
+ <tr>
+  <td colspan="2" width="100%" valign="top">
+<!-- START Equipment Table -->
+   <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Equipment Table"> <!-- Master Equipment Table -->
+    <tr>
+     <td height="20" colspan="10" align="center" bgcolor="black" class="ab"><b>EQUIPMENT</b></td>
+    </tr>
+    <tr>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Left Column"> <!-- Equipment Table left pane -->
+       <tr>
+        <td valign="top" width="70%" class="border10"><b>ITEM</b></td>
+        <td valign="top" width="12%" class="border10" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>QTY</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>WT.</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>COST</b></td>
+       </tr>
+|FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1)/2,1,0|
+|OIF(EVEN:%equip1,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+|IIF(EQ.Not.Coin.NOT.Gem.%equip1.TYPE:Magic)|
+        <td valign="top" class="border10">&nbsp;<b>|EQ.Not.Coin.NOT.Gem.%equip1.NAME|</b>
+|ELSE|
+        <td valign="top" class="border10">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip1.NAME|
+|ENDIF|
+|IIF(VAR.IF(VAR("EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES")>0;1;0):1)|
+        <span class="border8">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES| Charges)</span>
+|ENDIF|
+<br />
+|IIF(EQ.Not.Coin.NOT.Gem.%equip1.SPROP: )|
+        <span class="border8">|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|</span><br />
+|ENDIF|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE: )|
+        <span class="border8"><i>|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE|</i></span><br />
+|ENDIF|
+        </td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.LOCATION|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.QTY|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.WT|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip1.COST|<br /></td>
+       </tr>
+|ENDFOR|
+      </table>
+     </td>
+     <td width="50%" valign="top">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Equipment Table Left Column"> <!-- Equipment Table right pane -->
+       <tr>
+        <td valign="top" width="70%" class="border10"><b>ITEM</b></td>
+        <td valign="top" width="12%" class="border10" align="center"><b>LOCATION</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>QTY</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>WT.</b></td>
+        <td valign="top" width="6%" class="border10" align="center"><b>COST</b></td>
+       </tr>
+|FOR,%equip2,((COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1)/2)+1,COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1,1,0|
+|OIF(EVEN:%equip2,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+|IIF(EQ.Not.Coin.NOT.Gem.%equip2.TYPE:Magic)|
+        <td valign="top" class="border10">&nbsp;<b>|EQ.Not.Coin.NOT.Gem.%equip2.NAME|</b>
+|ELSE|
+        <td valign="top" class="border10">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip2.NAME|
+|ENDIF|
+|IIF(VAR.IF(VAR("EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES")>0;1;0):1)|
+        <span class="border7">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES| Charges)</span>
+|ENDIF|
+<br />
+|IIF(EQ.Not.Coin.NOT.Gem.%equip2.SPROP: )|
+        <span class="border8">(|EQ.Not.Coin.NOT.Gem.%equip2.SPROP|)</span><br />
+|ENDIF|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.NOTE: )|
+        <span class="border8">(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.NOTE|)</span><br />
+|ENDIF|
+        </td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.LOCATION|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.QTY|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.WT|<br /></td>
+        <td valign="top" class="border10" align="center">|EQ.Not.Coin.NOT.Gem.%equip2.COST|<br /></td>
+       </tr>
+|ENDFOR|
+       <tr>
+        <td valign="top" width="41%" class="border" align="right" colspan="1" class="border10">TOTAL WEIGHT CARRIED/VALUE&nbsp;&nbsp;</td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap class="border10">|TOTAL.WEIGHT|</td>
+        <td valign="top" width="3%" class="border" align="center" colspan="2" nowrap class="border10">|TOTAL.VALUE|</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+   <br />
+<!-- STOP Equipment Table -->
+  </tr>
+  <tr>
+   <td width="50%" valign="top">
+<!-- START Weight Table -->
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Weight Allowance Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="6" class="ab"><b>WEIGHT ALLOWANCE</b></td>
+     </tr>
+     <tr>
+      <td valign="top" class="border10" align="right"><b>Light</b></td>
+      <td valign="top" class="border10">|WEIGHT.LIGHT|</td>
+      <td valign="top" class="border10" align="right"><b>Medium</b></td>
+      <td valign="top" class="border10">|WEIGHT.MEDIUM|</td>
+      <td valign="top" class="border10" align="right"><b>Heavy</b></td>
+      <td valign="top" class="border10">|WEIGHT.HEAVY|</td>
+     </tr>
+    </table>
+<!-- STOP Weight Table -->
+<!-- START Illumination Table -->
+|IIF(VAR.IF(var("COUNT[EQTYPE.LightSource]")>0;1;0):1)|
+<br />
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Illumination">
+     <tr>
+      <td class="ab" align="center" colspan="4"><b>ILLUMINATION</b></td>
+     </tr>
+     <tr>
+      	<td width="45%" class="border10"><b>Light Source</b></td>
+      	<td width="15%" class="border10"><b>Bright</b></td>
+       	<td width="15%" class="border10"><b>Shadowy</b></td>
+     	<td width="15%" class="border10"><b>Duration</b></td>
+     </tr>
+|FOR,%light,0,COUNT[EQTYPE.LightSource]-1,1,0|
+|OIF(EVEN:%light,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+      	<td class="border10">|EQTYPE.LightSource.%light.NAME|</td>
+      	<td class="border10">|EQTYPE.LightSource.%light.QUALITY.Bright Illumination|</td>
+       	<td class="border10">|EQTYPE.LightSource.%light.QUALITY.Shadowy Illumination|</td>
+     	<td class="border10">|EQTYPE.LightSource.%light.QUALITY.Duration|</td>
+     </tr>
+|ENDFOR|
+    </table>
+|ENDIF|
+<!-- STOP Illumination Table -->
+<!-- START Money Table -->
+<br />
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Money">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1" class="ab"><b>MONEY</b></td>
+     </tr>
+     <tr>
+      <td valign="top" width="70%" class="border10">
+|FOR.0,COUNT[EQTYPE.Coin],1,\EQTYPE.Coin.%.NAME\: \EQTYPE.Coin.%.QTY\, ,<br/>,1|
+|FOR.0,COUNT[EQTYPE.Gem],1,\EQTYPE.Gem.%.QTY\x\EQTYPE.Gem.%.NAME\ (\EQTYPE.Gem.%.COST\) , ,<br/>,1|
+<span class="notes">|MISC.FUNDS|</span></td>
+     </tr>
+    </table>
+<!-- STOP Money Table -->
+    <br />
+<!-- START Companions Tables -->
+|%FOLLOWERTYPE.Familiar|
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Familiar Table">
+     <tr>
+      <td bgcolor="black" align="left" class="border" colspan="12"><font color="white" style="font-size: 11pt"><b>Familiar: |FOLLOWERTYPE.FAMILIAR.0.NAME| (|FOLLOWERTYPE.FAMILIAR.0.RACE|)</b></font></td>
+     </tr>
+     <tr>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>FORT:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.CHECK.FORTITUDE.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>REF:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.CHECK.REFLEX.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>WILL:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.CHECK.2.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>HP:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.HP|</td>
+      <td width="8%" bgcolor="black" align="center" class="border" ><font color="white" style="font-size: 8pt"><b>AC:</b></font></td>
+      <td width="8%" align="center" class="border" >|FOLLOWERTYPE.FAMILIAR.0.AC.Total|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>INIT:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.INITIATIVEMOD|</td>
+     </tr>
+|FOR,%wep,0,COUNT[FOLLOWERTYPE.FAMILIAR.0.EQTYPE.WEAPON]-1,1,1|
+     <tr>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 10pt"><b>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%wep.NAME|</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%wep.TOTALHIT|</td>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>DAMAGE:</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%wep.DAMAGE|</td>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>CRITICAL:</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%wep.CRIT|/x|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%wep.MULT|</td>
+      </tr>
+|ENDFOR|
+     <tr>
+      <td bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>Special:</b></font></td>
+      <td align="left" class="border" colspan="12"><font style="font-size: 9pt">&nbsp;&nbsp;|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</font></td>
+     </tr>
+     <tr>
+     </tr>
+    </table>
+   <font style="font-size:2pt"><br /></font>
+|%|
+|%FOLLOWERTYPE.SPECIAL MOUNT|
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Special Mount Table">
+     <tr>
+      <td bgcolor="black" align="left" class="border" colspan="12"><font color="white" style="font-size: 11pt"><b>Special Mount: |FOLLOWERTYPE.SPECIAL MOUNT.0.NAME| (|FOLLOWERTYPE.SPECIAL MOUNT.0.RACE|)</b></font></td>
+     </tr>
+     <tr>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>FORT:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.FORTITUDE.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>REF:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.REFLEX.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>WILL:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.2.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>HP:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.HP|</td>
+      <td width="8%" bgcolor="black" align="center" class="border" ><font color="white" style="font-size: 8pt"><b>AC:</b></font></td>
+      <td width="8%" align="center" class="border" >|FOLLOWERTYPE.SPECIAL MOUNT.0.AC.Total|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>INIT:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.INITIATIVEMOD|</td>
+     </tr>
+|FOR,%wep,0,COUNT[FOLLOWERTYPE.SPECIAL MOUNT.0.EQTYPE.WEAPON]-1,1,1|
+     <tr>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 10pt"><b>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%wep.NAME|</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%wep.TOTALHIT|</td>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>DAMAGE:</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%wep.DAMAGE|</td>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>CRITICAL:</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%wep.CRIT|/x|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%wep.MULT|</td>
+      </tr>
+|ENDFOR|
+     <tr>
+      <td bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>Special:</b></font></td>
+      <td align="left" class="border" colspan="12"><font style="font-size: 9pt">&nbsp;&nbsp;|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</font></td>
+     </tr>
+     <tr>
+     </tr>
+    </table>
+   <font style="font-size:2pt"><br /></font>
+|%|
+|%FOLLOWERTYPE.ANIMAL COMPANIONS|
+|FOR,%anm,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANIONS]-1,1,0|
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Animal Companion Table">
+     <tr>
+      <td bgcolor="black" align="left" class="border" colspan="12"><font color="white" style="font-size: 11pt"><b>Animal Companion: |FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.NAME| (|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.RACE|)</b></font></td>
+     </tr>
+     <tr>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>FORT:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.CHECK.FORTITUDE.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>REF:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.CHECK.REFLEX.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>WILL:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.CHECK.2.TOTAL|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>HP:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.HP|</td>
+      <td width="8%" bgcolor="black" align="center" class="border" ><font color="white" style="font-size: 8pt"><b>AC:</b></font></td>
+      <td width="8%" align="center" class="border" >|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.AC.Total|</td>
+      <td width="8%" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 8pt"><b>INIT:</b></font></td>
+      <td width="8%" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.INITIATIVEMOD|</td>
+     </tr>
+|FOR,%wep,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.EQTYPE.WEAPON]-1,1,1|
+     <tr>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 10pt"><b>|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.NAME|</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.TOTALHIT|</td>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>DAMAGE:</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.DAMAGE|</td>
+      <td colspan="2" bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>CRITICAL:</b></font></td>
+      <td colspan="2" align="center" class="border">|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.CRIT|/x|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.WEAPON.%wep.MULT|</td>
+      </tr>
+|ENDFOR|
+     <tr>
+      <td bgcolor="black" align="center" class="border"><font color="white" style="font-size: 9pt"><b>Special:</b></font></td>
+      <td align="left" class="border" colspan="11"><font style="font-size: 9pt">&nbsp;&nbsp;|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.SPECIALLIST|<br /></font></td>
+     </tr>
+    </table>
+   <font style="font-size:2pt"><br /></font>
+|ENDFOR|
+<!-- STOP Companions Table1 -->
+|%|
+|%FOLLOWERTYPE.FOLLOWERS|
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Henchmen Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>HENCHMEN</b></font></td>
+     </tr>
+     <tr>
+      <td valign="top" width="70%" class="border8">
+|FOR,%follower,0,COUNT[FOLLOWERTYPE.FOLLOWERS]-1,1,1|
+|FOLLOWERTYPE.FOLLOWERS.%follower.NAME|,&nbsp;
+|ENDFOR|
+      </td>
+     </tr>
+    </table>
+<!-- STOP Companions Table1 -->
+|%|
+|%MISC.COMPANIONS|
+<!-- START Misc Companions Table -->
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Misc. Magic Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>OTHER COMPANIONS</b></font></td>
+     </tr>
+     <tr>
+      <td valign="top" width="70%" class="border8"><span class="notes">|MISC.COMPANIONS|<span class="notes"></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+<!-- STOP Misc Companions Table -->
+|%|
+<!-- START Template Table -->
+|%TEMPLATE.0|
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>TEMPLATES</b></font></td>
+     </tr>
+     <tr>
+      <td valign="top" width="70%" class="border8">|TEMPLATELIST|<br /></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+|%|
+<!-- STOP Template Table -->
+<!-- START Salient Divine Ability Table -->
+|IIF(HASVAR:DivineRank)|
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>SALIENT DIVINE ABILITIES</b></font></td>
+     </tr>
+     <tr>
+      <td valign="top" width="70%" class="border8">|ABILITYLIST.Salient Divine Ability|<br /></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+|ELSE|
+|ENDIF|
+<!-- STOP Salient Divine Ability Table -->
+|%MISC.MAGIC|
+<!-- START Misc Magic Table -->
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Misc. Magic Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1"><b>MAGIC</b></td>
+     </tr>
+     <tr>
+      <td valign="top" width="70%" class="border8"><span class="notes">|MISC.MAGIC|</span></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+<!-- STOP Misc Magic Table -->
+|%|
+|%PROHIBITEDLIST|
+<!-- START Prohibited Table -->
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Prohiubited List">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>PROHIBITED</b></font></td>
+     </tr>
+     <tr>
+      <td valign="top" width="100%" class="border8">|PROHIBITEDLIST|<br /></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+<!-- STOP Prohibited Table -->
+|%|
+|%DOMAIN.1|
+<!-- START Domain Table -->
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Domain List">
+     <tr>
+      <td bgcolor="black" align="center" colspan="2" class="ab"><b>Cleric of |DEITY|</b></td>
+     </tr>
+     <tr>
+      <td valign="top" class="border8"><b>Domain</b><br /></td>
+      <td valign="top" class="border8"><b>Granted Power</b><br /></td>
+     </tr>
+<!--Bjorn Ehlert: The use of COUNT[DOMAINS]+1 doesn't result in empty TDs at the end of the TABLE-->
+|FOR.1,COUNT[DOMAINS]+1,1,<tr><td valign="top" class="border7">\DOMAIN.%\<br /></td><td valign="top" class="border7">\DOMAIN.%.POWER\<br /></td></tr>, , ,0|
+    </table>
+<font style="font-size:2pt"><br /></font>
+|%|
+<!-- STOP Domain Table -->
+
+<!-- Start Turning Table -->
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Turning"),1,0|
+|IIF(ABILITYALL.Special Ability.%turncount.TYPE=Turning.HASASPECT.TurnType:Y)|
+   <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="4" class="ab"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnType| |ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnKind|</b></td>
+     </tr>
+     <tr >
+      <td rowspan="2" width="25%" bgcolor="black" align="center" class="ablable">TURNING CHECK<br />RESULT</td>
+      <td rowspan="2" width="25%" bgcolor="black" align="center" class="ablable">AFFECTED<br />(MAX HIT DICE)</td>
+      <td width="25%" bgcolor="black" align="right" class="ablable">TURN LEVEL</td>
+      <td width="25%" class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel.INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="black" align="right" class="ablable">TURN DAMAGE</td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnDamage|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>Up to 0</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-4).INTVAL|</b></td>
+      <td bgcolor="black" align="right" class="ablable">TURNING CHECK</td>
+      <td class="border9" align="center"><b>1d20|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnCheck.INTVAL.SIGN.NOZERO|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-3).INTVAL|</b></td>
+      <td bgcolor="black" align="right" class="ablable">TURNS/DAY</td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>4 - 6</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-2).INTVAL|</b></td>
+      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL,5,&#9744;, , ,1|</font></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-1).INTVAL|</b></td>
+      <td colspan="2" rowspan="6" class="border8" valign="top">|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnNotes|
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>10 - 12</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+0).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+1).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>16 - 18</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+2).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+3).INTVAL|</b></td>
+     </tr>
+     <tr>
+      <td align="center" class="font8"><b>22+</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+4).INTVAL|</b></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+
+|ENDIF|
+|ENDFOR|
+
+
+<!-- Stop Turning Table -->
+
+<!-- Start Overflow Weapons table -->
+|FOR,%weap,3,COUNT[EQTYPE.Weapon]-1,1,1|
+   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Overflow">
+|IIF(WEAPON.%weap.CATEGORY:BOTH)|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;&nbsp;Range</b></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="border" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|'<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" class="ablable"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border8" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <font style="font-size:2pt"><br /></font>
+|ELSE|
+    <tr>
+     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>HAND</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>CRITICAL</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>REACH</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
+    <tr>
+     <td align="center" height="15" bgcolor="black" width="8%"></td>
+     <td align="center" height="15" bgcolor="black" width="17%" class="ablable"><b>1H-P</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>1H-O</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2H</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OH)</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OL)</b></td>
+     <td align="center" bgcolor="black" width="10%" height="15" class="ablable"><b>2W-OH</b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASEHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITH|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITL|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWOHIT|<br /></b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+    </tr>
+   </table>
+|ENDIF|
+|ELSE|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+    <tr>
+     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>HAND</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>CRITICAL</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
+|IIF(WEAPON.%weap.CONTENTS:0)|
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;&nbsp;Range</b></font></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|'<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border8" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <br />
+|ELSE|
+|FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
+    <tr>
+     <td colspan="6" align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;AMMUNITION:  |WEAPON.%weap.CONTENTS.%ammo|
+|IIF(WEAPON.%weap.CONTENTS.%ammo.SPROP: )|
+(|WEAPON.%weap.CONTENTS.%ammo.SPROP|)
+|ENDIF|
+     </b></td>
+    </tr>
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;Range</b></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="border10">=<b>|WEAPON.%weap.RANGELIST.%range|'<br /></b>=</td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.CONTENTS.%ammo.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.CONTENTS.%ammo.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" colspan="5" class="border8">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="border" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <br />
+|ENDIF|
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
+    <tr>
+     <td align="center" height="15" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="20%" height="15" class="ablable"><b>TOTAL ATTACK BONUS</b></td>
+     <td align="center" bgcolor="black" width="20%" height="15" class="ablable"><b>DAMAGE</b></td>
+     <td align="center" bgcolor="black" width="20%" height="15" class="ablable"><b>CRITICAL</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TOTALHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.DAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
+    <tr>
+     <td align="center" height="15" bgcolor="black" width="15%" class="ablable"><b>HAND</b></td>
+     <td align="center" height="15" bgcolor="black" width="15%" class="ablable"><b>RANGE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="15%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="40%" height="15" class="ablable"><b>SPECIAL PROPERTIES</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <br />
+|ELSE|
+    <tr>
+     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>HAND</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>TYPE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>SIZE</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>CRITICAL</b></td>
+     <td align="center" bgcolor="black" width="12%" height="15" class="ablable"><b>REACH</b></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
+    </tr>
+   </table>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
+    <tr>
+     <td align="center" height="15" bgcolor="black" width="8%"></td>
+     <td align="center" height="15" bgcolor="black" width="17%" class="ablable"><b>1H-P</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>1H-O</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2H</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OH)</b></td>
+     <td align="center" bgcolor="black" width="17%" height="15" class="ablable"><b>2W-P-(OL)</b></td>
+     <td align="center" bgcolor="black" width="10%" height="15" class="ablable"><b>2W-OH</b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></font></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASEHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THHIT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITH|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWPHITL|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.TWOHIT|<br /></b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></font></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.THDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties</b></td>
+     <td align="left" bgcolor="white" class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+   <font style="font-size:2pt"><br /></font>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|%WEAPON.3|
+|FOR,%weap,3,3,1,1|
+   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Overflow">
+|IIF(WEAPON.%weap.CATEGORY:BOTH)|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+    <tr>
+     <td align="left" height="15" bgcolor="black" width="8%" class="ablable"><b>&nbsp;&nbsp;Range</b></td>
+|FOR,%range,0,4,1,0|
+     <td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|'<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Bonus</b></td>
+|FOR,%range1,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" class="ablable"><b>&nbsp;Dam</b></td>
+|FOR,%range2,0,4,1,0|
+     <td align="center" bgcolor="white" class="border10"><b>|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</b></td>
+|ENDFOR|
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border8" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
+    </tr>
+    <tr>
+     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+     <td align="left" bgcolor="white" class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+    </tr>
+   </table>
+|ELSE|
+   </table>
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+|%|
+   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Abbreviations">
+    <tr>
+     
+    <td class="key"><b>1H-P:</b> One handed, primary hand.&nbsp;<b>1H-O:</b> 
+      One handed, off hand.&nbsp;<b>2H:</b> Two handed.&nbsp;<b>2W-P-(OH):</b> 
+      2 weapons, primary hand (off hand weapon is heavy).&nbsp;<b>2W-P-(OL):</b> 
+      2 weapons, primary hand (off hand weapon is light).&nbsp;<b>2W-OH:</b>2 
+      weapons, off hand.</td>
+    </tr>
+   </table>
+<!-- End Overflow Weapons Table -->
+  </td>
+  <td width="50%" valign="top">
+<!-- START Language Table -->
+   <table width="100%" cellspacing="0" cellpadding="3" summary="Language Table">
+    <tr>
+     <td bgcolor="black" align="center" colspan="1" class="ab"><b>LANGUAGES</b></td>
+    </tr>
+    <tr>
+     <td valign="top" width="100%" class="border10">|LANGUAGES|<br /></td>
+    </tr>
+   </table>
+<!-- STOP Language Table -->
+<!-- Start Proficiency Table -->
+|%WEAPONPROF|
+   <table width="100%" cellspacing="0" cellpadding="3" summary="Proficiency Table">
+    <tr>
+     <td bgcolor="black" align="center" colspan="1" class="ab"><b>PROFICIENCIES</b></td>
+    </tr>
+    <tr>
+     <td valign="top" width="100%" class="border10">|WEAPONPROFS|<br /></td>
+    </tr>
+   </table>
+<!-- STOP Proficiency Table -->
+|%|
+<!-- START 4e At-Will Powers Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AtWill";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="AtWill Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>At-Will Powers</b></td>
+    </tr>
+|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=AtWill","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%atWill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP At-Will Powers Table -->
+<!-- START 4e Encounter Powers Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Encounter";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Encounter Powers</b></td>
+    </tr>
+|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Encounter","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%encounter,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Encounter Powers Table -->
+<!-- START 4e Daily Powers Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Daily";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Daily Powers</b></td>
+    </tr>
+|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Daily","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%daily,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Daily Powers Table -->
+<!-- START 4e Utility Powers Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Utility";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Utility Powers</b></td>
+    </tr>
+|FOR,%utility,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Utility","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%utility,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Utility Powers Table -->
+<!-- START Talent Table -->
+|IIF(count("ABILITIES";"CATEGORY=Talent";"TYPE=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>TALENTS</b></td>
+    </tr>
+|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","TYPE=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%talent,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent|
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Talent Table -->
+<!-- START Force Powers Table -->
+|IIF(count("ABILITIES";"CATEGORY=Force Powers";"TYPE=ForcePower";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>SPECIAL QUALITIES</b></td>
+    </tr>
+|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Force Powers Table -->
+<!-- START Disadvantages Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Disadvantage";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>DISADVANTAGES</b></td>
+    </tr>
+|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Disadvantage","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%disadvantage,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Disadvantages Table -->
+
+<!-- START Special Attacks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>SPECIAL ATTACKS</b></td>
+    </tr>
+|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%specialAttack,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Special Attacks Table -->
+<!-- START Special Qualities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>SPECIAL QUALITIES</b></td>
+    </tr>
+|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Special Qualities Table -->
+<!-- START Special Abilities Table -->
+|%COUNT[SA]|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table">
+    <tr>
+     <td bgcolor="black" align="center" colspan="1" class="ab"><b>SPECIAL ABILITIES</b></td>
+    </tr>
+    <tr>
+     <td valign="top" width="100%" class="border10">|SPECIALLIST|</td>
+    </tr>
+   </table>
+|%|
+<!-- STOP Special Abilities Table -->
+<!-- START Feat Table -->
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" colspan="2" class="ab"><b>FEATS</b></td>
+    </tr>
+    <tr>
+     <td valign="top" width="40%" class="border10"><b>NAME</b></td>
+     <td valign="top" width="60%" class="border10" align="left"><b>DESCRIPTION</b></td>
+    </tr>
+|FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
+|OIF(EVEN:%feat,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8">|FEATALL.VISIBLE.%feat|</td>
+     <td valign="top" align="left" class="font8">|FEATALL.VISIBLE.%feat.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+  </td>
+ </tr>
+</table>
+<!-- STOP Feat Table -->
+<!-- ================================================================ -->
+<!-- Start Racial Innate Spells -->
+|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
+|IIF(%spellrace:0)|
+	<!-- No innate spells -->
+|ELSE|
+<br />
+|FOR,%spellbook,1,1,1,1|
+|FOR,%class,0,0,1,1|
+|FOR,%level,0,0,1,1|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+<!-- START Spell list Header Table (Racial Innate) -->
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+ <tr>
+  <td colspan="11" class="sphead"><b>Innate Spell-like Abilities</b></td>
+ </tr>
+</table>
+<!-- End Spell List Header Table (Racial Innate) -->
+<!-- Start Racial Innate Spell listing -->
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
+  <td class="sptab">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  <i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br />
+|ENDIF|  
+  	</td>
+  <td class="sptab"><i>Save:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|<br /></td>
+  <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|, 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|
+|ENDIF|
+   <br /></td>
+  <td class="sptab"><i>Duration:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DURATION|<br /></td>
+  <td class="sptab"><i>Rng:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|<br /></td>
+  <td class="sptab"><i>Comp:</i> |SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|<br /></td>
+  <td class="sptab"><i>SR:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SR|<br /></td>
+  <td class="sptab"><i>School:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|<br /></td>
+ </tr>
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td colspan="7" class="sptab1"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
+  <td colspan="2" class="sptab2"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
+ </tr>
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td colspan="7" class="sptab1"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+  <td colspan="2" class="sptab2"><i>Caster Level:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|<br /></td>
+   </tr>
+|ENDFOR|
+ <tr>
+  <td colspan="9" bgcolor="black"><br /></td>
+ </tr>
+</table>
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+<!-- End Racial Innate Spells -->
+<!-- Start Other Innate Spells -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|FOR,%class,0,0,1,1|
+|FOR,%level,0,0,1,1|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+<!-- START Spell list Header Table (Other Innate) -->
+<br />
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+ <tr>
+  <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
+ </tr>
+</table>
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
+  <td class="sptab">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  <i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br />
+|ENDIF|  
+  	</td>
+  <td class="sptab"><i>Save:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|<br /></td>
+  <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|, 
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|
+|ENDIF|
+   <br /></td>
+  <td class="sptab"><i>Duration:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DURATION|<br /></td>
+  <td class="sptab"><i>Rng:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|<br /></td>
+  <td class="sptab"><i>Comp:</i> |SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|<br /></td>
+  <td class="sptab"><i>SR:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SR|<br /></td>
+  <td class="sptab"><i>School:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|<br /></td>
+ </tr>
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td colspan="7" class="sptab1"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
+  <td colspan="2" class="sptab2"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
+ </tr>
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td colspan="7" class="sptab1"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|<br /></td>
+  <td class="sptab2" colspan="2"><i>Caster Level:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|<br /></td>
+ </tr>
+|ENDFOR|
+ <tr>
+  <td colspan="9" bgcolor="black"><font style="font-size: 8pt" color="white"><br /></font></td>
+ </tr>
+</table>
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+<!-- End Other Innate Spells -->
+|ENDIF|
+|ENDFOR|
+<!-- End Innate Spells -->
+|FOR,%spellbook,0,0,1,0|
+<br />
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|%SPELLLISTCLASS.%class|
+<!-- START Spell list Header Table (Known) -->
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+ <tr>
+  <td colspan="|MAXSPELLLEVEL.%class+2.INTVAL|" class="sphead"><b>|SPELLLISTCLASS.%class|
+|IIF(SPELLLISTTYPE.%class:Psionic)|
+                Powers
+|ELSE|
+                Spells
+|ENDIF|
+</b></td>
+ </tr>
+ <tr>
+  <td bgcolor="black" class="sptop"><b>LEVEL</b></td>
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+  <td bgcolor="black" class="sptop"><b>%level</b></td>
+|ENDFOR|
+ </tr>
+ <tr>
+  <td class="sptab"><b>KNOWN</b></td>
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+  <td class="sptab"><b>|SPELLLISTKNOWN.%class.%level|</b></td>
+|ENDFOR|
+ </tr>
+ <tr bgcolor="#DDDDDD">
+  <td class="sptab"><b>PER DAY</b></td>
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+  <td class="sptab"><b>|SPELLLISTCAST.%class.%level|</b></td>
+|ENDFOR|
+ </tr>
+</table>
+<!-- End Spell List Header Table (Known) -->
+<!-- Start Known Spells -->
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|FOR,%spellcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spellcount:0)|
+|ELSE|
+ <tr>
+  <td colspan="10" class="splevel"><b>LEVEL %level</b></td>
+ </tr>
+|IIF(SPELLLISTMEMORIZE.%class)|
+|ELSE|
+ <tr>
+  <td colspan="10" class="splevel"><b>
+|FOR.0,COUNT[SPELLLISTCAST.%class.%level],1,1,1,&#9744;,,,0|
+  </b></td>
+ </tr>
+|ENDIF|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
+  <td class="sptab">
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  <i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br />
+|ENDIF|  
+  	</td>
+  <td class="sptab"><i>Save:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|<br /></td>
+  <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|<br /></td>
+  <td class="sptab"><i>Duration:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DURATION|<br /></td>
+  <td class="sptab"><i>Rng:</i> |SPELLMEM.%class.%spellbook.%level.%spell.RANGE|<br /></td>
+  <td class="sptab"><i>Comp:</i> |SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|<br /></td>
+  <td class="sptab"><i>SR:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SR|<br /></td>
+  <td class="sptab"><i>School:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SCHOOL|<br /></td>
+  <td class="sptab">
+|IIF(SPELLLISTTYPE.%class:Psionic)|
+|FOR,%ppcost,(%level*2)-1,(%level*2)-1,1,1|
+|IIF(%ppcost:-1)|
+		<i>PP:</i> 0/1
+|ELSE|
+		<i>PP:</i> %ppcost
+|ENDIF|
+|ENDFOR|
+  </td>
+|ELSE|
+|ENDIF|
+ </tr>
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td colspan="8" class="sptab1"><i>Effect:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|<br /></td>
+  <td colspan="2" class="sptab2"><i>Source:</i>&nbsp;&nbsp;|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|<br /></td>
+ </tr>
+|OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+  <td colspan="8" class="sptab1"><i>Target Area:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.TARGET|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SPELLPOINTCOST:0)|
+|ELSE|
+  &nbsp;&nbsp; <i>Spell Point Cost:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.SPELLPOINTCOST|
+|ENDIF|
+<br /></td>
+  <td colspan="2" class="sptab2"><i>Caster Level:</i>&nbsp;&nbsp; |SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|<br /></td>
+ </tr>
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+ <tr>
+  <td colspan="10" bgcolor="#FFFFFF" class="ablable" align="left">* = Domain/Specialty Spell</td>
+ </tr>
+</table>
+<br />
+|%|
+|ENDFOR|
+|ENDFOR|
+<!-- End Known Spells -->
+<!-- ================================================================ -->
+<!-- Start Prepared Spells -->
+|FOR,%memorised,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,1,0|
+|IIF(%memorised:0)|
+|ELSE|
+<!-- Start Innate Prepared -->
+|FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
+|IIF(%spellrace:0)|
+|ELSE|
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+<br />
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+ <tr>
+  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>Racial Innate</b></font></td>
+ </tr>
+ <tr>
+  <td valign="top">
+   <table>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+    <tr>
+     <td align="right" class="font9">At Will</td>
+|ELSE|
+    <tr>
+     <td align="right"><font style="font-size: 11pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|</font>
+     </td>
+|ENDIF|
+     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+    </tr>
+|ENDFOR|
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td colspan="11" bgcolor="black"><font style="font-size: 8pt" color="white"><br /></font></td>
+ </tr>
+</table>
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+<br />
+
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|FOR,%class,0,0,1,1|
+|FOR,%level,0,0,1,1|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+ <tr>
+  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook| Spells</b></font></td>
+ </tr>
+  <td valign="top">
+   <table>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+    <tr>
+     <td align="right" class="font9">At Will</td>
+|ELSE|
+    <tr>
+     <td align="right"><font style="font-size: 11pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|</font>
+     </td>
+|ENDIF|
+     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+    </tr>
+|ENDFOR|
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td colspan="11" bgcolor="black"><font style="font-size: 8pt" color="white"><br /></font></td>
+ </tr>
+</table>
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+<br />
+|ENDIF|
+|ENDFOR|
+<!-- End Innate Prepared -->
+
+
+<!-- Start Regular Prepared -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1|
+|FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
+|IIF(%foo:0.OR.%bar:0)|
+<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
+<br />
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+ <tr>
+  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook|</b></font></td>
+ </tr>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|%SPELLLISTCLASS.%class|
+ <tr>
+  <td align="center" bgcolor="#DDDDDD" colspan="11"><font style="font-size: 9pt" color="black">|SPELLLISTCLASS.%class|</font></td>
+ </tr>
+ <tr>
+|FOR,%level,0,4,1,1|
+  <td valign="top">
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+   <table summary="Spell List">
+    <tr>
+     <td valign="top" align="center" colspan="2"><font style="font-size: 9pt" color="black"><u>Level %level</u></font></td>
+    </tr>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+    <tr>
+     <td align="right"><font style="font-size: 11pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,1|</font>
+     </td>
+     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+|ENDFOR|
+  </td>
+|ENDFOR|
+<tr>
+|FOR,%level,5,9,1,1|
+  <td valign="top">
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+   <table summary="Spell List">
+    <tr>
+     <td valign="top" align="center" colspan="2"><font style="font-size: 9pt" color="black"><u>Level %level</u></font></td>
+    </tr>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+    <tr>
+     <td align="right"><font style="font-size: 11pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,1|</font>
+     </td>
+     <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+|ENDFOR|
+  </td>
+<!-- END FOR,%spellcount,COUNT[SPELLSINBOOK.%class.%spellbook.0],COUNT[SPELLSINBOOK.%class.%spellbook.0],1,0 -->
+|ENDFOR|
+<!-- END SPELLLISTCLASS.%class -->
+|%|
+<!-- END FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1 -->
+|ENDFOR|
+ <tr>
+  <td colspan="11" bgcolor="black"><font style="font-size: 8pt" color="white">* = Domain/Specialty Spell</font></td>
+ </tr>
+</table>
+|ELSE|
+|ENDIF|
+<!-- END FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1 -->
+|ENDFOR|
+<!-- END FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+|ENDFOR|
+<!-- END FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0 -->
+|ENDFOR|
+<!-- ### END class Spellbook memorized spells ### -->
+<!-- START FALSE IIF(%memorised:0) -->
+|ENDIF|
+|ENDFOR|
+<!-- ### END MEMORIZED ### -->
+
+<!-- End Prepared Spells -->
+<!-- ================================================================= -->
+|%BIO|
+<br />
+<a name="Bio"></a>
+<!-- START Bio Table -->
+<table width="100%" cellspacing="0" cellpadding="2">
+ <tr>
+  <td colspan="2"><font style="font-size: 14pt">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%| |%BIO|</font></td>
+ </tr>
+ <tr>
+  <td class="border" height="400" width="1%"><img src="|NAME|_Full.jpg" height="400" alt="|NAME|'s portrait" /></td>
+  <td valign="top" width="99%">
+   <table width="100%" cellspacing="0" cellpadding="2">
+    <tr><td class="biodata">|RACE|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">RACE</font></td></tr>
+    <tr><td class="biodata">|AGE|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">AGE</font></td></tr>
+    <tr><td class="biodata">|HEIGHT|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">HEIGHT</font></td></tr>
+    <tr><td class="biodata">|WEIGHT|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">WEIGHT</font></td></tr>
+    <tr><td class="biodata">|COLOR.EYE|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">EYE COLOR</font></td></tr>
+    <tr><td class="biodata">|COLOR.SKIN|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">SKIN COLOR</font></td></tr>
+    <tr><td class="biodata">|COLOR.HAIR|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">HAIR COLOR</font></td></tr>
+    <tr><td class="biodata">|LENGTH.HAIR|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">HAIR LENGTH</font></td></tr>
+    <tr><td class="biodata">|PHOBIAS|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">PHOBIAS</font></td></tr>
+    <tr><td class="biodata">|PERSONALITY1| |PERSONALITY2|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">PERSONALITY TRAITS</font></td></tr>
+    <tr><td class="biodata">|INTERESTS|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">INTERESTS</font></td></tr>
+    <tr><td class="biodata">|SPEECHTENDENCY|, |CATCHPHRASE|<br/></td></tr>
+    <tr><td class="topline"><font style="font-size: 6pt">SPOKEN STYLE</font></td></tr>
+   </table>
+<!-- STOP BIO Table -->
+  </td>
+ </tr>
+ <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
+ <tr><td colspan="2"><font style="font-size: 9pt"><span class="notes">|DESC|</span></font></td></tr>
+ <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
+ <tr><td colspan="2"><font style="font-size: 9pt">|%REGION| From |REGION|. |%| |%BIO| |RESIDENCE|, |LOCATION|<br/></font></td></tr>
+ <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
+ <tr><td colspan="2"><font style="font-size: 9pt"><span class="notes">|BIO|</span></font></td></tr>
+</table>
+|%|
+|%NOTES|
+<br />
+<table width="100%" cellspacing="0" cellpadding="5">
+ <tr>
+  <td colspan="2" class="notehead"><b>Notes</b></td>
+ </tr>
+|FOR,%note,0,COUNT[NOTES]-1,1,1|
+ <tr>
+  <td class="notetab" width="20%"><span class="notes">|NOTE.%note.NAME|</span></td><td class="notetab" width="80%"><span class="notes">|NOTE.%note.VALUE|</span></td>
+ </tr>
+|ENDFOR|
+</table>
+|%|
+<br /><center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</font></center>
+</body>
+</html>
+
