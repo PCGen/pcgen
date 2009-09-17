@@ -354,6 +354,9 @@
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="disadvantages"/>
 						<xsl:apply-templates select="talents"/>
+						<xsl:apply-templates select="force_techniques"/>
+						<xsl:apply-templates select="force_powers"/>
+						<xsl:apply-templates select="force_secrets"/>
 						<xsl:apply-templates select="special_abilities"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
@@ -361,9 +364,6 @@
 						<xsl:apply-templates select="powers_encounters"/>
 						<xsl:apply-templates select="powers_dailies"/>
 						<xsl:apply-templates select="powers_utilities"/>
-<!--
-<xsl:apply-templates select="force_powers"/>
--->
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
@@ -4496,6 +4496,57 @@
 				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'SPECIAL QUALITIES'" />
 				<xsl:with-param name="list" select="special_quality"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Force Powers
+====================================
+====================================-->
+	<xsl:template match="force_powers">
+		<xsl:if test="count(force_power) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'force_powers'"/>
+				<xsl:with-param name="title" select="'FORCE POWERS'"/>
+				<xsl:with-param name="list" select="force_power"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Force Techniques
+====================================
+====================================-->
+	<xsl:template match="force_techniques">
+		<xsl:if test="count(force_technique) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'force_techniques'"/>
+				<xsl:with-param name="title" select="'FORCE TECHNIQUES'"/>
+				<xsl:with-param name="list" select="force_technique"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+		<!--
+====================================
+====================================
+	TEMPLATE - Force Secrets
+====================================
+====================================-->
+	<xsl:template match="force_secrets">
+		<xsl:if test="count(force_secret) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'force_secrets'"/>
+				<xsl:with-param name="title" select="'FORCE SECRETS'"/>
+				<xsl:with-param name="list" select="force_secret"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
