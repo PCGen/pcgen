@@ -352,14 +352,18 @@
 						<xsl:call-template name="money"/>
 						<xsl:apply-templates select="misc/magics"/>
 						<xsl:apply-templates select="misc/companions"/>
+						<xsl:apply-templates select="disadvantages"/>
+						<xsl:apply-templates select="talents"/>
 						<xsl:apply-templates select="special_abilities"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
-						<xsl:apply-templates select="talents"/>
 						<xsl:apply-templates select="powers_atwills"/>
 						<xsl:apply-templates select="powers_encounters"/>
 						<xsl:apply-templates select="powers_dailies"/>
 						<xsl:apply-templates select="powers_utilities"/>
+<!--
+<xsl:apply-templates select="force_powers"/>
+-->
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
@@ -4432,6 +4436,40 @@
 	<!--
 ====================================
 ====================================
+	TEMPLATE - Disadvantages
+====================================
+====================================-->
+	<xsl:template match="disadvantages">
+		<xsl:if test="count(disadvantage) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'disadvantages'"/>
+				<xsl:with-param name="title" select="'DISADVANTAGES'"/>
+				<xsl:with-param name="list" select="disadvantage"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - TALENTS
+====================================
+====================================-->
+	<xsl:template match="talents">
+		<xsl:if test="count(talent) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'talents'"/>
+				<xsl:with-param name="title" select="'TALENTS'"/>
+				<xsl:with-param name="list" select="talent"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
 	TEMPLATE - SPECIAL ATTACKS
 ====================================
 ====================================-->
@@ -4458,23 +4496,6 @@
 				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'SPECIAL QUALITIES'" />
 				<xsl:with-param name="list" select="special_quality"/>
-				<xsl:with-param name="name.tag" select="'name'"/>
-				<xsl:with-param name="desc.tag" select="'description'"/>
-			</xsl:call-template>
-		</xsl:if>
-	</xsl:template>
-	<!--
-====================================
-====================================
-	TEMPLATE - TALENTS
-====================================
-====================================-->
-	<xsl:template match="talents">
-		<xsl:if test="count(talent) &gt; 0">
-			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'talents'" />
-				<xsl:with-param name="title" select="'TALENTS'" />
-				<xsl:with-param name="list" select="talent"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
