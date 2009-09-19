@@ -54,9 +54,10 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 	 */
 	public void add(CharID id, T obj)
 	{
-		/*
-		 * TODO Null?
-		 */
+		if (obj == null)
+		{
+			throw new IllegalArgumentException("Object to add may not be null");
+		}
 		if (getConstructingCachedSet(id).add(obj))
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -83,9 +84,10 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		Set<T> set = getConstructingCachedSet(id);
 		for (T obj : c)
 		{
-			/*
-			 * TODO null?
-			 */
+			if (obj == null)
+			{
+				throw new IllegalArgumentException("Object to add may not be null");
+			}
 			if (set.add(obj))
 			{
 				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -108,12 +110,13 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 	 */
 	public void remove(CharID id, T obj)
 	{
+		if (obj == null)
+		{
+			throw new IllegalArgumentException("Object to add may not be null");
+		}
 		Set<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
 		{
-			/*
-			 * TODO Null?
-			 */
 			if (componentSet.remove(obj))
 			{
 				fireDataFacetChangeEvent(id, obj,
@@ -144,9 +147,10 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		{
 			for (T obj : c)
 			{
-				/*
-				 * TODO Null?
-				 */
+				if (obj == null)
+				{
+					throw new IllegalArgumentException("Object to add may not be null");
+				}
 				if (componentSet.remove(obj))
 				{
 					fireDataFacetChangeEvent(id, obj,
@@ -254,7 +258,7 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 	public boolean contains(CharID id, T obj)
 	{
 		/*
-		 * TODO null?
+		 * TODO null? - log an error?
 		 */
 		Set<T> componentSet = getCachedSet(id);
 		return componentSet != null && componentSet.contains(obj);
