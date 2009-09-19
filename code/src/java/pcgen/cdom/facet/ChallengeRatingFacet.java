@@ -29,6 +29,10 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
 
+/**
+ * ChallengeRatingFacet is a Facet that calculates the Challenge Rating of a
+ * Player Character
+ */
 public class ChallengeRatingFacet
 {
 	private TemplateFacet templateFacet = FacetLibrary
@@ -41,22 +45,19 @@ public class ChallengeRatingFacet
 			.getFacet(BonusCheckingFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 
+	/**
+	 * Returns the Challenge Rating of the Player Character represented by the
+	 * given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Chellenge Rating should be returned
+	 * @return The Challenge Rating of the Player Character represented by the
+	 *         given CharID
+	 */
 	public float getCR(CharID id)
 	{
-		float CR = 0;
-
-		// Calculate and add the CR from the PC Classes
-		for (PCClass pcClass : classFacet.getClassSet(id))
-		{
-			CR += calcClassCR(id, pcClass);
-		}
-
-		// Calculate and add the CR from the templates
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			CR += template.getCR(levelFacet.getTotalLevels(id), levelFacet
-					.getMonsterLevelCount(id));
-		}
+		float CR = getClassCR(id) + getTemplateCR(id);
 
 		final float raceCR = calcRaceCR(id);
 		// If the total CR to date is 0 then add race CR, e.g. A Lizard has CR
@@ -66,8 +67,7 @@ public class ChallengeRatingFacet
 			CR += raceCR;
 		}
 		// Else if the total CR so far is 1 or greater and the race CR is
-		// greater
-		// than or equal to 1 then add the race CR
+		// greater than or equal to 1 then add the race CR
 		else if (CR >= 1 && raceCR >= 1)
 		{
 			CR += raceCR;
@@ -76,6 +76,32 @@ public class ChallengeRatingFacet
 		// Calculate and add in the MISC bonus to CR
 		CR += (float) bonusFacet.getBonus(id, "MISC", "CR");
 
+		return CR;
+	}
+
+	private float getTemplateCR(CharID id)
+	{
+		float CR = 0;
+
+		// Calculate and add the CR from the templates
+		for (PCTemplate template : templateFacet.getSet(id))
+		{
+			CR +=
+					template.getCR(levelFacet.getTotalLevels(id), levelFacet
+						.getMonsterLevelCount(id));
+		}
+		return CR;
+	}
+
+	private float getClassCR(CharID id)
+	{
+		float CR = 0;
+
+		// Calculate and add the CR from the PC Classes
+		for (PCClass pcClass : classFacet.getClassSet(id))
+		{
+			CR += calcClassCR(id, pcClass);
+		}
 		return CR;
 	}
 
@@ -89,7 +115,7 @@ public class ChallengeRatingFacet
 		return raceCR;
 	}
 
-	public float calcClassCR(CharID id, PCClass cl)
+	private float calcClassCR(CharID id, PCClass cl)
 	{
 		Formula cr = cl.get(FormulaKey.CR);
 		if (cr == null)

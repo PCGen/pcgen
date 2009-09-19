@@ -1,22 +1,54 @@
+/*
+ * Copyright (c) Thomas Parker, 2009.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 
+/**
+ * ActiveEqModFacet is a Facet that tracks the EqMods that are on Equipment
+ * equipped by the PlayerCharacter
+ */
 public class ActiveEqModFacet extends
 		AbstractSourcedListFacet<EquipmentModifier> implements
 		DataFacetChangeListener<Equipment>
 {
 
-	/*
-	 * In theory, this doesn't need to check for additions/removals from the
-	 * EqMod list, because such changes can't happen to equipment that is
-	 * currently equipped by the PC (new equipment is a clone, not the original
-	 * item)
+	/**
+	 * Triggered when one of the Facets to which ActiveEqModFacet listens fires
+	 * a DataFacetChangeEvent to indicate a piece of Equipment was equipped by a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
+		/*
+		 * In theory, this doesn't need to check for additions/removals from the
+		 * EqMod list, because such changes can't happen to equipment that is
+		 * currently equipped by the PC (new equipment is a clone, not the
+		 * original item)
+		 */
 		CharID id = dfce.getCharID();
 		Equipment eq = dfce.getCDOMObject();
 		for (EquipmentModifier eqMod : eq.getEqModifierList(true))
@@ -29,6 +61,17 @@ public class ActiveEqModFacet extends
 		}
 	}
 
+	/**
+	 * Triggered when one of the Facets to which ActiveEqModFacet listens fires
+	 * a DataFacetChangeEvent to indicate a piece of Equipment was unequipped by
+	 * a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		CharID id = dfce.getCharID();

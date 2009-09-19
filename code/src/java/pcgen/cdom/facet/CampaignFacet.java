@@ -19,6 +19,10 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Campaign;
 
+/**
+ * CampaignFacet is a Facet that tracks the Campaigns loaded and thus active on
+ * a Player Character.
+ */
 public class CampaignFacet extends AbstractListFacet<Campaign>
 {
 }

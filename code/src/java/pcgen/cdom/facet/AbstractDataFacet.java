@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.CharID;
  * 
  * A AbstractDataFacet is a DataFacet that contains information about
  * CDOMObjects that are contained in a PlayerCharacter. This serves the basic
- * functions of managing the Listeners for a DataFacet.
+ * functions of managing the DataFacetChangeListeners for a DataFacet.
  */
 public abstract class AbstractDataFacet<T extends CDOMObject>
 {

@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.util.Logging;
 
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
@@ -34,8 +35,30 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 {
 	private final Class<?> thisClass = getClass();
 
+	/**
+	 * Sets the item for this AbstractItemFacet and the Player Character
+	 * represented by the given CharID to the given value.
+	 * 
+	 * Note that a null set value is IGNORED, and an error is logged. If you
+	 * wish to unset a value, you should use the remove(CharID id) method of
+	 * AbstractItemFacet
+	 * 
+	 * @see remove(CharID id)
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            item value should be set
+	 * @param obj
+	 *            The Item for this AbstractItemFacet and the Player Character
+	 *            represented by the given CharID.
+	 */
 	public void set(CharID id, T obj)
 	{
+		if (obj == null)
+		{
+			Logging.errorPrint(thisClass + " received null set: ignoring");
+			return;
+		}
 		T old = get(id);
 		if (old != null)
 		{
@@ -45,6 +68,14 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 		fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 	}
 
+	/**
+	 * Removes the item for this AbstractItemFacet and the Player Character
+	 * represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            item value should be removed
+	 */
 	public void remove(CharID id)
 	{
 		T old = (T) FacetCache.remove(id, thisClass);
@@ -54,11 +85,38 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 		}
 	}
 
+	/**
+	 * Returns the item value for this AbstractItemFacet and the Player
+	 * Character represented by the given CharID. Note that this method will
+	 * return null if no value for the Player Character has been set.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter for which the item
+	 *            should be returned.
+	 * @return the item value for this AbstractItemFacet and the Player
+	 *         Character represented by the given CharID.
+	 */
 	public T get(CharID id)
 	{
 		return (T) FacetCache.get(id, thisClass);
 	}
 
+	/**
+	 * Returns true if the item in this AbstractItemFacet for the Player
+	 * Character represented by the given CharID matches the given value. null
+	 * may be used to test that there is no set value for this AbstractItemFacet
+	 * and the Player Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            item should be tested
+	 * @param obj
+	 *            The object to test against the item in this AbstractItemFacet
+	 *            for the Player Character represented by the given CharID
+	 * @return true if the item in this AbstractItemFacet for the Player
+	 *         Character represented by the given CharID matches the given
+	 *         value; false otherwise
+	 */
 	public boolean matches(CharID id, T obj)
 	{
 		T current = get(id);

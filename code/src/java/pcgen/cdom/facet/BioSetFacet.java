@@ -19,6 +19,10 @@ package pcgen.cdom.facet;
 
 import pcgen.core.BioSet;
 
+/**
+ * BioSetFacet is a Facet that tracks the BioSet active in a Game Mode and thus
+ * active for a Player Character.
+ */
 public class BioSetFacet extends AbstractItemFacet<BioSet>
 {
 

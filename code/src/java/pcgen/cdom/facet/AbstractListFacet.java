@@ -39,19 +39,53 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 {
 	private final Class<?> thisClass = getClass();
 
+	/**
+	 * Add the given object to the list of objects stored in this
+	 * AbstractListFacet for the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given item should be added
+	 * @param obj
+	 *            The object to be added to the list of objects stored in this
+	 *            AbstractListFacet for the Player Character represented by the
+	 *            given CharID
+	 */
 	public void add(CharID id, T obj)
 	{
+		/*
+		 * TODO Null?
+		 */
 		if (getConstructingCachedSet(id).add(obj))
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
+	/**
+	 * Adds all of the objects in the given Collection to the list of objects
+	 * stored in this AbstractListFacet for the Player Character represented by
+	 * the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given items should be added
+	 * @param c
+	 *            The Collection of objects to be added to the list of objects
+	 *            stored in this AbstractListFacet for the Player Character
+	 *            represented by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void addAll(CharID id, Collection<T> c)
 	{
 		Set<T> set = getConstructingCachedSet(id);
 		for (T obj : c)
 		{
+			/*
+			 * TODO null?
+			 */
 			if (set.add(obj))
 			{
 				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -59,11 +93,27 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		}
 	}
 
+	/**
+	 * Removes the given object from the list of objects stored in this
+	 * AbstractListFacet for the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given item should be removed
+	 * @param obj
+	 *            The object to be removed from the list of objects stored in
+	 *            this AbstractListFacet for the Player Character represented by
+	 *            the given CharID
+	 */
 	public void remove(CharID id, T obj)
 	{
 		Set<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
 		{
+			/*
+			 * TODO Null?
+			 */
 			if (componentSet.remove(obj))
 			{
 				fireDataFacetChangeEvent(id, obj,
@@ -72,6 +122,21 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		}
 	}
 
+	/**
+	 * Removes all of the objects in the given Collection from the list of
+	 * objects stored in this AbstractListFacet for the Player Character
+	 * represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given items should be removed
+	 * @param c
+	 *            The Collection of objects to be removed from the list of
+	 *            objects stored in this AbstractListFacet for the Player
+	 *            Character represented by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void removeAll(CharID id, Collection<T> c)
 	{
 		Set<T> componentSet = getCachedSet(id);
@@ -79,6 +144,9 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		{
 			for (T obj : c)
 			{
+				/*
+				 * TODO Null?
+				 */
 				if (componentSet.remove(obj))
 				{
 					fireDataFacetChangeEvent(id, obj,
@@ -88,6 +156,18 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		}
 	}
 
+	/**
+	 * Removes all objects from the list of objects stored in this
+	 * AbstractListFacet for the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which all
+	 *            items should be removed
+	 * @return A non-null Set of objects removed from the list of objects stored
+	 *         in this AbstractListFacet for the Player Character represented by
+	 *         the given CharID
+	 */
 	public Set<T> removeAll(CharID id)
 	{
 		Set<T> componentSet = (Set<T>) FacetCache.remove(id, thisClass);
@@ -102,6 +182,16 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		return componentSet;
 	}
 
+	/**
+	 * Returns the Set of objects in this AbstractListFacet for the Player
+	 * Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractListFacet should be returned.
+	 * @return A non-null Set of objects in this AbstractListFacet for the
+	 *         Player Character represented by the given CharID
+	 */
 	public Set<T> getSet(CharID id)
 	{
 		Set<T> componentSet = getCachedSet(id);
@@ -112,6 +202,16 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		return Collections.unmodifiableSet(componentSet);
 	}
 
+	/**
+	 * Returns the count of items in this AbstractListFacet for the Player
+	 * Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            count of items should be returned
+	 * @return The count of items in this AbstractListFacet for the Player
+	 *         Character represented by the given CharID
+	 */
 	public int getCount(CharID id)
 	{
 		Set<T> componentSet = getCachedSet(id);
@@ -122,23 +222,77 @@ public abstract class AbstractListFacet<T extends CDOMObject> extends
 		return componentSet.size();
 	}
 
+	/**
+	 * Returns true if this AbstractListFacet does not contain any items for the
+	 * Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharId representing the PlayerCharacter to test if any
+	 *            items are contained by this AbstractListFacet
+	 * @return true if this AbstractListFacet does not contain any items for the
+	 *         Player Character represented by the given CharID; false otherwise
+	 *         (if it does contain items for the Player Character)
+	 */
 	public boolean isEmpty(CharID id)
 	{
 		Set<T> componentSet = getCachedSet(id);
 		return componentSet == null || componentSet.isEmpty();
 	}
 
+	/**
+	 * Returns true if this AbstractListFacet contains the given value in the
+	 * list of items for the Player Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character used for testing
+	 * @param obj
+	 *            The object to test if this AbstractListFacet contains that
+	 *            item for the Player Character represented by the given CharID
+	 * @return true if this AbstractListFacet contains the given value for the
+	 *         Player Character represented by the given CharID; false otherwise
+	 */
 	public boolean contains(CharID id, T obj)
 	{
+		/*
+		 * TODO null?
+		 */
 		Set<T> componentSet = getCachedSet(id);
 		return componentSet != null && componentSet.contains(obj);
 	}
 
+	/**
+	 * Returns the type-safe Set for this AbstractListFacet and the given
+	 * CharID. May return null if no information has been set in this
+	 * AbstractListFacet for the given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Set is owned by
+	 * AbstractListFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than AbstractListFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Set should be returned
+	 * @return The Set for the Player Character represented by the given CharID;
+	 *         null if no information has been set in this AbstractListFacet for
+	 *         the Player Character.
+	 */
 	private Set<T> getCachedSet(CharID id)
 	{
 		return (Set<T>) FacetCache.get(id, thisClass);
 	}
 
+	/**
+	 * Returns a type-safe Set for this AbstractListFacet and the given CharID.
+	 * Will return a new, empty Set if no information has been set in this
+	 * AbstractListFacet for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Set object is owned by
+	 * AbstractListFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than AbstractListFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Set should be returned
+	 * @return The Set for the Player Character represented by the given CharID.
+	 */
 	private Set<T> getConstructingCachedSet(CharID id)
 	{
 		Set<T> componentSet = getCachedSet(id);

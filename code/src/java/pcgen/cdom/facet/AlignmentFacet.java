@@ -19,6 +19,9 @@ package pcgen.cdom.facet;
 
 import pcgen.core.PCAlignment;
 
+/**
+ * AlignmentFacet is a Facet that tracks the Alignment of a Player Character.
+ */
 public class AlignmentFacet extends AbstractItemFacet<PCAlignment>
 {
 
