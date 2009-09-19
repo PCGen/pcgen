@@ -22,6 +22,9 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 
+/**
+ * GenderFacet is a Facet that tracks the Gender of a Player Character
+ */
 public class GenderFacet
 {
 
@@ -30,16 +33,48 @@ public class GenderFacet
 
 	private final Class<?> thisClass = getClass();
 
+	/**
+	 * Sets the Gender of the Player Character represented by the given CharID
+	 * 
+	 * Note that this method will not generate an error, but will have no effect
+	 * on the Player Character, if the Gender of the Player Character has been
+	 * locked by a Gender Lock from a PCTemplate.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character on which the
+	 *            Gender should be set
+	 * @param obj
+	 *            The Gender to set on the Player Character represented by the
+	 *            given CharID
+	 */
 	public void setGender(CharID id, Gender obj)
 	{
 		FacetCache.set(id, thisClass, obj);
 	}
 
+	/**
+	 * Removes the Gender of the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Gender should be removed
+	 */
 	public void removeGender(CharID id)
 	{
 		FacetCache.remove(id, thisClass);
 	}
 
+	/**
+	 * Returns the Gender for the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Gender should be returned
+	 * @return The Gender for the Player Character represented by the given
+	 *         CharID
+	 */
 	public Gender getGender(CharID id)
 	{
 		Gender g = findTemplateGender(id);
@@ -50,11 +85,37 @@ public class GenderFacet
 		return g == null ? Gender.getDefaultValue() : g;
 	}
 
+	/**
+	 * Returns true if the Gender can be set for the Player Character
+	 * represented by the given CharID. Returns false if the Gender of the
+	 * Player Character is currently controlled by a Gender Lock applied by a
+	 * PCTemplate
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character to query to see
+	 *            if the Gender can be set for that Player Character
+	 * @return true if the Gender can be set for the Player Character
+	 *         represented by the given CharID; false otherwise
+	 */
 	public boolean canSetGender(CharID id)
 	{
 		return findTemplateGender(id) == null;
 	}
 
+	/**
+	 * Returns the Gender if the Gender has been locked by a PCTemplate
+	 * possessed by the Player Character represented by the given CharID. null
+	 * will be returned if the Player Character does not possess a PCTemplate or
+	 * if the PCTemplates possessed by the Player Character do not exert a
+	 * Gender Lock on the Player Character.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character to check if a
+	 *            Gender Lock exists on that Player Character
+	 * @return A Gender, if the Gender has been locked by a PCTemplate possessed
+	 *         by the Player Character represented by the given CharID; null
+	 *         otherwise
+	 */
 	private Gender findTemplateGender(CharID id)
 	{
 		Gender g = null;

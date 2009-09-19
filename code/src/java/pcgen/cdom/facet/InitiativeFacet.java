@@ -21,6 +21,10 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 
+/**
+ * InitiativeFacet is a Facet that calculates the Initiative value for a Player
+ * Character
+ */
 public class InitiativeFacet
 {
 	private FormulaResolvingFacet resolveFacet = FacetLibrary
@@ -29,6 +33,16 @@ public class InitiativeFacet
 			.getFacet(BonusCheckingFacet.class);
 	Formula initcomp = FormulaFactory.getFormulaFor("INITCOMP");
 
+	/**
+	 * Returns the Initiative value for the Player Character represented by the
+	 * given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Initiative value should be returned
+	 * @return The Initiative value for the Player Character represented by the
+	 *         given CharID
+	 */
 	public int getInitiative(CharID id)
 	{
 		return (int) bonusFacet.getBonus(id, "COMBAT", "Initiative")

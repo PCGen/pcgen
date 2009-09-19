@@ -22,6 +22,10 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+/**
+ * LegsFacet is a Facet that tracks the number of Legs possessed by a Player
+ * Character
+ */
 public class LegsFacet
 {
 
@@ -29,6 +33,16 @@ public class LegsFacet
 			.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 
+	/**
+	 * Returns the number of Legs possessed by the Player Character represented
+	 * by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            number of Legs will be returned
+	 * @return The number of Legs possessed by the Player Character represented
+	 *         by the given CharID
+	 */
 	public int getLegs(CharID id)
 	{
 		final Race aRace = raceFacet.get(id);

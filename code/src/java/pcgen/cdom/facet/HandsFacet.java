@@ -22,6 +22,10 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+/**
+ * HandsFacet is a Facet that tracks the number of Hands possessed by a Player
+ * Character
+ */
 public class HandsFacet
 {
 
@@ -29,6 +33,16 @@ public class HandsFacet
 			.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 
+	/**
+	 * Returns the number of Hands possessed by the Player Character represented
+	 * by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            number of Hands will be returned
+	 * @return The number of Hands possessed by the Player Character represented
+	 *         by the given CharID
+	 */
 	public int getHands(CharID id)
 	{
 		final Race aRace = raceFacet.get(id);

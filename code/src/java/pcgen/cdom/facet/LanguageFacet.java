@@ -19,15 +19,41 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Language;
 
+/**
+ * LanguageFacet is a Facet that tracks the Languages that have been granted to
+ * a Player Character.
+ */
 public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 		DataFacetChangeListener<Language>
 {
 
+	/**
+	 * Triggered when one of the Facets to which LanguageFacet listens fires a
+	 * DataFacetChangeEvent to indicate a Language was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataAdded(DataFacetChangeEvent<Language> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	/**
+	 * Triggered when one of the Facets to which LanguageFacet listens fires a
+	 * DataFacetChangeEvent to indicate a Language was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataRemoved(DataFacetChangeEvent<Language> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
