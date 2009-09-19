@@ -187,7 +187,7 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 			set.remove(source);
 			if (set.isEmpty())
 			{
-				componentMap.put(obj, null);
+				componentMap.remove(obj);
 				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
 			}
