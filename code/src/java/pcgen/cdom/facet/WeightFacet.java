@@ -19,29 +19,58 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
 
+/**
+ * WeightFacet is a Facet that tracks the Player Character's weight. Note that
+ * this weight is the actual character weight, not the character plus the
+ * character's equipment.
+ */
 public class WeightFacet
 {
 
 	private final Class<?> thisClass = getClass();
 
+	/**
+	 * Sets the weight of the Player Character represented by the given CharID
+	 * to the given value.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            weight will be set
+	 * @param weight
+	 *            The weight to set for the Player Character represented by the
+	 *            given CharID
+	 */
 	public void setWeight(CharID id, int weight)
 	{
 		FacetCache.set(id, thisClass, weight);
 	}
 
+	/**
+	 * Removes the weight for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            weight will be removed
+	 */
 	public void removeWeight(CharID id)
 	{
 		FacetCache.remove(id, thisClass);
 	}
 
+	/**
+	 * Returns the weight for the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID of the Player Character for which the weight will
+	 *            be returned
+	 * @return The weight of the Player Character represented by the given
+	 *         CharID
+	 */
 	public int getWeight(CharID id)
 	{
-		Integer weight = getCachedWeight(id);
+		Integer weight = (Integer) FacetCache.get(id, thisClass);
 		return weight == null ? 0 : weight;
-	}
-
-	private Integer getCachedWeight(CharID id)
-	{
-		return (Integer) FacetCache.get(id, thisClass);
 	}
 }
