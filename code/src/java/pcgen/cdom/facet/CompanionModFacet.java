@@ -19,6 +19,10 @@ package pcgen.cdom.facet;
 
 import pcgen.core.character.CompanionMod;
 
+/**
+ * CompanionModFacet is a Facet that tracks the CompanionMods that have been
+ * granted to a Player Character.
+ */
 public class CompanionModFacet extends AbstractListFacet<CompanionMod>
 {
 

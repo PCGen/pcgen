@@ -19,6 +19,10 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Domain;
 
+/**
+ * DomainFacet is a Facet that tracks the Domains possessed by a Player
+ * Character.
+ */
 public class DomainFacet extends AbstractListFacet<Domain>
 {
 

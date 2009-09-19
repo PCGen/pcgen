@@ -19,6 +19,9 @@ package pcgen.cdom.facet;
 
 import pcgen.core.PCCheck;
 
+/**
+ * CheckFacet is a Facet that tracks the PCCheck objects available to a Player Character.
+ */
 public class CheckFacet extends AbstractListFacet<PCCheck>
 {
 

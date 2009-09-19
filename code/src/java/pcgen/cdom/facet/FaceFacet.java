@@ -23,6 +23,11 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+/**
+ * Faceacet is a Facet that tracks the Face of a Player Character (in game
+ * rules, the exposed size of a Player Character on each side of the Player
+ * Character)
+ */
 public class FaceFacet
 {
 
@@ -30,6 +35,17 @@ public class FaceFacet
 			.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 
+	/**
+	 * Returns the Face of the Player Character represented by the given CharID.
+	 * The Face is a Point2D, where the X value of the Point represents the
+	 * front/rear facing size and the Y value of the Point represents the
+	 * left/right side facing size.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Face will be returned
+	 * @return The Face of the Player Character represented by the given CharID
+	 */
 	public Point2D.Double getFace(CharID id)
 	{
 		final Race aRace = raceFacet.get(id);

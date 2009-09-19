@@ -19,6 +19,9 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Deity;
 
+/**
+ * DeityFacet is a Facet that tracks the Deity worshipped by a Player Character.
+ */
 public class DeityFacet extends AbstractItemFacet<Deity>
 {
 

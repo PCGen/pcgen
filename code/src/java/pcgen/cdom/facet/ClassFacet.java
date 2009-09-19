@@ -32,12 +32,28 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
+/**
+ * ClassFacet is a Facet that tracks the PCClass objects possessed by a Player
+ * Character.
+ */
 public class ClassFacet extends AbstractDataFacet<PCClass>
 {
 	private final Class<?> thisClass = getClass();
 
 	private final ClassLevelChangeSupport support = new ClassLevelChangeSupport();
 
+	/**
+	 * Add the given PCClass to the list of PCClass objects stored in this
+	 * ClassFacet for the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given PCClass should be added
+	 * @param obj
+	 *            The PCClass to be added to the list of PCClass objects stored
+	 *            in this AbstractListFacet for the Player Character represented
+	 *            by the given CharID
+	 */
 	public void addClass(CharID id, PCClass obj)
 	{
 		if (getConstructingClassInfo(id).addClass(obj))
@@ -46,6 +62,27 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 	}
 
+	/**
+	 * Sets the PCClassLevel object associated with the given PCClass for the
+	 * Player Character represented by the given CharID. Returns true if the set
+	 * is successful. The set will be successful if the given PCClass is
+	 * possessed by the given PlayerCharacter; false otherwise.
+	 * 
+	 * The (numeric) class level for which the given PCClassLevel should be
+	 * applied is determined by the level value set in the PCClassLevel.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given PCClassLevel should be set
+	 * @param obj
+	 *            The PCClass object for which the PCClassLevel object is set as
+	 *            the PCClass
+	 * @param pcl
+	 *            The PCClassLevel object to be associated with the given
+	 *            PCClass and Player Character represented by the given CharID
+	 * @return true if the set is successful; false otherwise.
+	 * @throws CloneNotSupportedException
+	 */
 	public boolean setClassLevel(CharID id, PCClass obj, PCClassLevel pcl)
 			throws CloneNotSupportedException
 	{
@@ -53,6 +90,24 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info != null && info.setClassLevel(obj, pcl);
 	}
 
+	/**
+	 * Returns the PCClassLevel object associated with the Player Character
+	 * represented by the given CharID, the given PCClass, and the given
+	 * (numeric) class level.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            associated PCClassLevel will be returned
+	 * @param obj
+	 *            The PCClass object for which the PCClassLevel object should be
+	 *            returned
+	 * @param level
+	 *            The (numeric) class level for which the PCClassLevel object
+	 *            should be returned
+	 * @return The PCClassLevel object associated with the Player Character
+	 *         represented by the given CharID, the given PCClass, and the given
+	 *         (numeric) class level.
+	 */
 	public PCClassLevel getClassLevel(CharID id, PCClass obj, Integer level)
 	{
 		ClassInfo info = getClassInfo(id);
@@ -63,6 +118,18 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info.getClassLevel(obj, level);
 	}
 
+	/**
+	 * Remove the given PCClass from the list of PCClass objects stored in this
+	 * ClassFacet for the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given PCClass should be removed
+	 * @param obj
+	 *            The PCClass to be removed from the list of PCClass objects
+	 *            stored in this AbstractListFacet for the Player Character
+	 *            represented by the given CharID
+	 */
 	public void removeClass(CharID id, PCClass obj)
 	{
 		ClassInfo info = getClassInfo(id);
@@ -77,6 +144,14 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 	}
 
+	/**
+	 * Removes all PCClass objects from the list of PCClass objects stored in
+	 * this ClassFacet for the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which all
+	 *            PCClass objects should be removed
+	 */
 	public ClassInfo removeAllClasses(CharID id)
 	{
 		ClassInfo info = (ClassInfo) FacetCache.remove(id, thisClass);

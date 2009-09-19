@@ -23,13 +23,17 @@ import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
+/**
+ * ClassLevelFacet is a Facet that that tracks the PCClassLevel objects that
+ * have been granted to a Player Character.
+ */
 public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 		implements ClassLevelChangeListener
 {
 
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 
-	public void update(CharID id, PCClass pcc, Integer oldLevel, int level)
+	private void update(CharID id, PCClass pcc, Integer oldLevel, int level)
 	{
 		int old = oldLevel == null ? 0 : oldLevel;
 		for (int i = old + 1; i <= level; i++)
@@ -50,6 +54,15 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 		}
 	}
 
+	/**
+	 * Triggered when the Level of the Player Character changes.
+	 * 
+	 * @param lce
+	 *            The LevelChangeEvent containing the information about the
+	 *            level change
+	 * 
+	 * @see pcgen.cdom.facet.LevelFacet.LevelChangeListener#levelChanged(pcgen.cdom.facet.LevelFacet.LevelChangeEvent)
+	 */
 	public void levelChanged(ClassLevelChangeEvent lce)
 	{
 		update(lce.getCharID(), lce.getPCClass(), lce.getOldLevel(), lce

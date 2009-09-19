@@ -27,6 +27,11 @@ import pcgen.cdom.facet.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.LevelFacet.LevelChangeListener;
 import pcgen.core.PCTemplate;
 
+/**
+ * ConditionalTemplateFacet is a Facet that tracks the Conditional Templates
+ * granted to the PlayerCharacter. Conditional Templates are those items that
+ * are are set by HD, LEVEL, and REPEATLEVEL tokens in PCTemplates.
+ */
 public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 		implements DataFacetChangeListener<PCTemplate>, LevelChangeListener
 {
@@ -34,6 +39,17 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 			.getFacet(TemplateFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 
+	/**
+	 * Triggered when one of the Facets to which ConditionalTemplateFacet
+	 * listens fires a DataFacetChangeEvent to indicate a PCTemplate was added
+	 * to a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
 	{
 		CharID id = dfce.getCharID();
@@ -43,6 +59,17 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 		addAll(id, source.getConditionalTemplates(totalLevels, totalHitDice));
 	}
 
+	/**
+	 * Triggered when one of the Facets to which ConditionalTemplateFacet
+	 * listens fires a DataFacetChangeEvent to indicate a PCTemplate was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 	{
 		CharID id = dfce.getCharID();
@@ -53,6 +80,15 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 				totalHitDice));
 	}
 
+	/**
+	 * Triggered when the Level of the Player Character changes.
+	 * 
+	 * @param lce
+	 *            The LevelChangeEvent containing the information about the
+	 *            level change
+	 * 
+	 * @see pcgen.cdom.facet.LevelFacet.LevelChangeListener#levelChanged(pcgen.cdom.facet.LevelFacet.LevelChangeEvent)
+	 */
 	public void levelChanged(LevelChangeEvent lce)
 	{
 		CharID id = lce.getCharID();
