@@ -19,6 +19,9 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Race;
 
+/**
+ * RaceFacet is a Facet that tracks the Race of a Player Character.
+ */
 public class RaceFacet extends AbstractItemFacet<Race>
 {
 

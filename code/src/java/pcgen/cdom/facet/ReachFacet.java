@@ -22,6 +22,9 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+/**
+ * ReachFacet is a Facet that calculates the Reach for a Player Character.
+ */
 public class ReachFacet
 {
 	private TemplateFacet templateFacet = FacetLibrary
@@ -30,6 +33,15 @@ public class ReachFacet
 	private BonusCheckingFacet bonusFacet = FacetLibrary
 			.getFacet(BonusCheckingFacet.class);
 
+	/**
+	 * Returns the Reach for a Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Reach should be returned.
+	 * @return The Reach for the Player Character represented by the given
+	 *         CharID
+	 */
 	public int getReach(CharID id)
 	{
 		final Race aRace = raceFacet.get(id);

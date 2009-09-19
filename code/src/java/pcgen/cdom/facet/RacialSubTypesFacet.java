@@ -28,12 +28,26 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.PCTemplate;
 
+/**
+ * RacialSubTypesFacet is a Facet that tracks the Racial Sub Types of a
+ * PlayerCharacter
+ */
 public class RacialSubTypesFacet
 {
 	private TemplateFacet templateFacet = FacetLibrary
 			.getFacet(TemplateFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 
+	/**
+	 * Returns a Collection of the Racial Sub Types for the Player Character
+	 * represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Racial Sub Types should be returned
+	 * @return A Collection of the Racial Sub Types for the Player Character
+	 *         represented by the given CharID
+	 */
 	public Collection<String> getRacialSubTypes(CharID id)
 	{
 		final ArrayList<String> racialSubTypes = new ArrayList<String>();

@@ -19,9 +19,25 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Equipment;
 
+/**
+ * NaturalEquipmentFacet is a Facet that tracks the Equipment that is
+ * TYPE=Natural that have been granted to a Player Character.
+ */
 public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<Equipment>
 {
+	/**
+	 * Triggered when one of the Facets to which NaturalEquipmentFacet listens
+	 * fires a DataFacetChangeEvent to indicate a piece of Equipment was added
+	 * to a Player Character. If the added Equipment is TYPE=Natural, then it
+	 * will be added to this NaturalEquipmentFacet.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		Equipment eq = dfce.getCDOMObject();
@@ -31,8 +47,28 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		}
 	}
 
+	/**
+	 * Triggered when one of the Facets to which NaturalEquipmentFacet listens
+	 * fires a DataFacetChangeEvent to indicate a piece of Equipment was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
+		/*
+		 * Note that no check is made here to validate that the Equipment
+		 * removed was TYPE=Natural. This is safe because "false" removals will
+		 * not trigger false events. This is a performance trade-off, and
+		 * assumes that the cost of a false removal is less than testing for the
+		 * TYPE of a piece of Equipment (this is likely to be true at the moment
+		 * due to the ability of an EquipmentModifier to modify the TYPE of a
+		 * piece of Equipment (thus TYPE can be an expensive calculation)
+		 */
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 

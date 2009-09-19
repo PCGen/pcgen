@@ -24,6 +24,9 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
 
+/**
+ * RaceTypeFacet is a Facet that determines the RaceType of a Player Character
+ */
 public class RaceTypeFacet
 {
 
@@ -33,6 +36,16 @@ public class RaceTypeFacet
 	private CompanionModFacet companionModFacet = FacetLibrary
 			.getFacet(CompanionModFacet.class);
 
+	/**
+	 * Returns the RaceType of the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            RaceType will be returned
+	 * @return The RaceType of the Player Character represented by the given
+	 *         CharID.
+	 */
 	public RaceType getRaceType(CharID id)
 	{
 		RaceType raceType = null;
