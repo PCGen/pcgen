@@ -19,6 +19,9 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Skill;
 
+/**
+ * SkillFacet is a Facet that tracks the Skills possessed by a Player Character.
+ */
 public class SkillFacet extends AbstractListFacet<Skill>
 {
 

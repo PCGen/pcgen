@@ -19,6 +19,10 @@ package pcgen.cdom.facet;
 
 import pcgen.core.PCStat;
 
+/**
+ * StatFacet is a Facet that tracks the PCStat that have been granted to a
+ * Player Character.
+ */
 public class StatFacet extends AbstractListFacet<PCStat>
 {
 

@@ -19,6 +19,10 @@ package pcgen.cdom.facet;
 
 import pcgen.core.PCTemplate;
 
+/**
+ * TemplateFacet is a Facet that tracks the PCTemplates that have been granted
+ * to a Player Character.
+ */
 public class TemplateFacet extends AbstractListFacet<PCTemplate>
 {
 

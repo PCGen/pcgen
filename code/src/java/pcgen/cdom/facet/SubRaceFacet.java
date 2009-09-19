@@ -20,15 +20,23 @@ package pcgen.cdom.facet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PCTemplate;
 
+/**
+ * SubRaceFacet is a Facet that returns information about the SubRace of a
+ * Player Character
+ */
 public class SubRaceFacet
 {
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 
 	/**
-	 * Selector <p/> Build on-the-fly so removing templates won't mess up
-	 * subrace
+	 * Returns the SubRace of the Player Character represented by the given
+	 * CharID.
 	 * 
-	 * @return character subrace
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            SubRace will be returned
+	 * @return The Character SubRace of the Player Character represented by the
+	 *         given CharID
 	 */
 	public String getSubRace(CharID id)
 	{
