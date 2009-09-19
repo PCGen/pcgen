@@ -17,80 +17,118 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.base.formula.Formula;
-import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.Globals;
-import pcgen.core.LevelInfo;
 import pcgen.util.Logging;
 
+/**
+ * XP Facet is a facet that tracks the Experience Points of a Player Character.
+ * 
+ * Earned Experience Points are Experience Points that the Player Character has
+ * earned through play.
+ * 
+ * Level-Adjusted Experience Points are Experience Points that the Player
+ * Character has received through level adjustments, and are independent of
+ * earned Experience Points.
+ * 
+ * Total Experience Points are a combination of Earned Experience Points and
+ * Level-Adjusted Experience Points.
+ */
 public class XPFacet
 {
 
 	private final Class<?> thisClass = getClass();
 
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
+	private LevelTableFacet levelTableFacet =
+			FacetLibrary.getFacet(LevelTableFacet.class);
 
+	/**
+	 * Sets the number of earned Experience Points for the Player Character
+	 * represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            earned Experience Points will be set.
+	 * @param earnedXP
+	 *            The earned Experience Points for the Player Character
+	 *            represented by the given CharID
+	 */
 	public void setEarnedXP(CharID id, int earnedXP)
 	{
 		FacetCache.set(id, thisClass, earnedXP);
 	}
 
-	public Integer getEarnedXP(CharID id)
+	/**
+	 * Returns the earned Experience Points for the Player Character represented
+	 * by the given CharID.
+	 * 
+	 * @param id
+	 *            The Player Character for which the earned Experience Points
+	 *            will be returned
+	 * @return The earned Experience Points for the Player Character represented
+	 *         by the given CharID
+	 */
+	public int getEarnedXP(CharID id)
 	{
 		Integer earnedXP = (Integer) FacetCache.get(id, thisClass);
 		return earnedXP == null ? 0 : earnedXP;
 	}
 
 	/**
-	 * Returns the number of experience points needed for level
+	 * Return the total Experience Points for the Player Character represented
+	 * by the given CharID
 	 * 
-	 * @param level
-	 *            character level to calculate experience for
 	 * @param id
-	 *            the ID of the PC that we are asking about (ECL of character
-	 *            can affect the result)
-	 * 
-	 * @return The experience points needed
+	 *            The CharID representing the PlayerCharacter for which the
+	 *            total Experience Points will be returned
+	 * @return The total Experience Points for the Player Character represented
+	 *         by the given CharID
 	 */
-	public int minXPForLevel(int level, CharID id)
-	{
-		LevelInfo lInfo = Globals.getLevelInfo().get(String.valueOf(level));
-
-		if (lInfo == null)
-		{
-			lInfo = Globals.getLevelInfo().get("LEVEL");
-		}
-
-		if ((level > 0) && (lInfo != null))
-		{
-			Formula f = FormulaFactory.getFormulaFor(lInfo
-					.getMinXPVariable(level));
-			return resolveFacet.resolve(id, f, "").intValue();
-		}
-		// do something sensible if no level info
-		return 0;
-	}
-
 	public int getXP(CharID id)
 	{
-		// Add the effect of LEVELADJ when
-		// showing our external notion of XP.
+		// Add the effect of LEVELADJ when showing our external notion of XP.
 		return getEarnedXP(id) + getLAXP(id);
 	}
 
+	/**
+	 * Returns the level-adjusted Experience Points for the Player Character
+	 * represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            level-adjusted Experience Points will be returned
+	 * @return The level-adjusted Experience Points for the Player Character
+	 *         represented by the given CharID
+	 */
 	private int getLAXP(CharID id)
 	{
-		// Why +1? Adjustments are deltas, not absolute
-		// levels, so are not subject to the "back off one"
-		// element of the * algorithm in minXPForLevel. This
-		// still means that levelAdjustment of 0 gives you 0
-		// XP, but we need LA of 1 to give us 1,000 XP.
-		return minXPForLevel(levelFacet.getLevelAdjustment(id) + 1, id);
+		/*
+		 * Why +1? Adjustments are deltas, not absolute levels, so are not
+		 * subject to the "back off one" element of the algorithm in
+		 * minXPForLevel. This still means that levelAdjustment of 0 gives you 0
+		 * XP, but we need LA of 1 to give us 1,000 XP.
+		 */
+		return levelTableFacet.minXPForLevel(
+			levelFacet.getLevelAdjustment(id) + 1, id);
 	}
 
+	/**
+	 * Sets the total Experience Points for the Player Character represented by
+	 * the given CharID to the given value.
+	 * 
+	 * Note this sets earned Experience Points as a side effect (calculated
+	 * based on the level-adjusted Experience Points the Player Character may
+	 * have). If the given xp value is less than the level-adjusted Experience
+	 * Points possessed by the Player Character, then an error will be logged,
+	 * and the earned Experience Points will be set to 0.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            total Experience Points will be set
+	 * @param xp
+	 *            The total Experience Points for the Player Character
+	 *            represented by the given CharID
+	 */
 	public void setXP(CharID id, int xp)
 	{
 		// Remove the effect of LEVELADJ when storing our

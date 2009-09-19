@@ -118,6 +118,7 @@ import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.facet.LegsFacet;
 import pcgen.cdom.facet.LevelFacet;
+import pcgen.cdom.facet.LevelTableFacet;
 import pcgen.cdom.facet.MoneyFacet;
 import pcgen.cdom.facet.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.RaceFacet;
@@ -256,6 +257,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
 	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
@@ -8777,12 +8779,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public int minXPForECL()
 	{
-		return xpFacet.minXPForLevel(getECL(), id);
+		return levelTableFacet.minXPForLevel(getECL(), id);
 	}
 
 	public int minXPForNextECL()
 	{
-		return xpFacet.minXPForLevel(getECL() + 1, id);
+		return levelTableFacet.minXPForLevel(getECL() + 1, id);
 	}
 
 	public int miscAC()
