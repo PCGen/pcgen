@@ -213,11 +213,11 @@ public class PreVarTest extends AbstractCharacterTestCase
 			SourceEntry se = new CampaignSourceEntry(new Campaign(), new URI(
 					"file://test"));
 			loader.completeObject(context, se, spellcaster);
-			assertEquals(0.0, SkillRankControl
-					.getRank(character, concentration));
+			assertEquals(0.0f, SkillRankControl
+					.getRank(character, concentration).floatValue());
 			character.incrementClassLevel(1, spellcaster);
-			assertEquals(5.0, SkillRankControl
-					.getRank(character, concentration));
+			assertEquals(5.0f, SkillRankControl
+					.getRank(character, concentration).floatValue());
 		}
 		catch (URISyntaxException e)
 		{
@@ -255,10 +255,10 @@ public class PreVarTest extends AbstractCharacterTestCase
 			PlayerCharacter character = this.getCharacter();
 			assertFalse(notawarrior.qualifies(character));
 			character.incrementClassLevel(1, notawarrior);
-			assertEquals(0.0, SkillRankControl
-					.getRank(character, concentration));
+			assertEquals(0.0f, SkillRankControl
+					.getRank(character, concentration).floatValue());
 			character.incrementClassLevel(1, warrior);
-			assertEquals(5, SkillRankControl.getRank(character, concentration));
+			assertEquals(5.0f, SkillRankControl.getRank(character, concentration).floatValue());
 		}
 		catch (URISyntaxException e)
 		{
