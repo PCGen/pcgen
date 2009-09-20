@@ -342,7 +342,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				break;
 			}
 		}
-		if (!hasEquip)
+		if (!hasEquip && !pc.getEquipmentMasterList().isEmpty())
 		{
 			toDoList.add(PropertyFactory.getString("in_ieTodoEquip")); //$NON-NLS-1$
 		}
