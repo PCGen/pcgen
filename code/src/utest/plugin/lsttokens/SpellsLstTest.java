@@ -312,13 +312,13 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinJustSpell() throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|Fireball");
+		runRoundRobin("SpellBook|TIMES=1|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|Fireball|Lightning Bolt");
+		runRoundRobin("SpellBook|TIMES=1|Fireball|Lightning Bolt");
 	}
 
 	@Test
@@ -330,25 +330,25 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinDC() throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|Fireball,CL+5");
+		runRoundRobin("SpellBook|TIMES=1|Fireball,CL+5");
 	}
 
 	@Test
 	public void testRoundRobinPre() throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|Fireball|PRERACE:1,Human");
+		runRoundRobin("SpellBook|TIMES=1|Fireball|PRERACE:1,Human");
 	}
 
 	@Test
 	public void testRoundRobinTimeUnit() throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|TIMEUNIT=Hour|Fireball");
+		runRoundRobin("SpellBook|TIMES=1|TIMEUNIT=Hour|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinCasterLevel() throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|CASTERLEVEL=15|Fireball");
+		runRoundRobin("SpellBook|TIMES=1|CASTERLEVEL=15|Fireball");
 	}
 
 	@Test
@@ -361,7 +361,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinTwoBooksJustSpell()
 			throws PersistenceLayerException
 	{
-		runRoundRobin("OtherBook|Lightning Bolt", "SpellBook|Fireball");
+		runRoundRobin("OtherBook|TIMES=1|Lightning Bolt", "SpellBook|TIMES=1|Fireball");
 	}
 
 	@Test
@@ -376,20 +376,20 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinTwoLevelJustSpell()
 			throws PersistenceLayerException
 	{
-		runRoundRobin("SpellBook|CASTERLEVEL=12|Fireball",
-				"SpellBook|CASTERLEVEL=15|Lightning Bolt");
+		runRoundRobin("SpellBook|TIMES=1|CASTERLEVEL=12|Fireball",
+				"SpellBook|TIMES=1|CASTERLEVEL=15|Lightning Bolt");
 	}
 
 	@Override
 	protected String getLegalValue()
 	{
-		return "SpellBook|CASTERLEVEL=12|Fireball";
+		return "SpellBook|TIMES=1|CASTERLEVEL=12|Fireball";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "SpellBook|CASTERLEVEL=15|Lightning Bolt";
+		return "SpellBook|TIMES=1|CASTERLEVEL=15|Lightning Bolt";
 	}
 
 	@Override

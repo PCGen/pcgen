@@ -348,10 +348,7 @@ public class SpellsLst extends AbstractToken implements
 				sb.append(am.get(AssociationKey.SPELLBOOK));
 				Formula times = AssociationKey.TIMES_PER_UNIT.cast(am
 						.get(AssociationKey.TIMES_PER_UNIT));
-				if (!FormulaFactory.ONE.equals(times))
-				{
-					sb.append(Constants.PIPE).append("TIMES=").append(times);
-				}
+				sb.append(Constants.PIPE).append("TIMES=").append(times);
 				String timeunit = AssociationKey.TIME_UNIT.cast(am
 						.get(AssociationKey.TIME_UNIT));
 				if (timeunit != null)
