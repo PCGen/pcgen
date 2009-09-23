@@ -362,6 +362,7 @@ public final class Utility
 
 		dialog.setLocation(screenSize.x + (screenSize.width - dialogSize.width) / 2,
 				screenSize.y + (screenSize.height - dialogSize.height) / 2);
+		dialog.setSize(dialogSize);
 	}
 
 	/**

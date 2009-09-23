@@ -89,9 +89,7 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -99,6 +97,7 @@ import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.prefs.CharacterStatsPanel;
 import pcgen.gui.prefs.CopySettingsPanel;
 import pcgen.gui.prefs.ExperiencePanel;
+import pcgen.gui.prefs.HouseRulesPanel;
 import pcgen.gui.prefs.LanguagePanel;
 import pcgen.gui.prefs.MonsterPanel;
 import pcgen.gui.prefs.PCGenPrefsPanel;
@@ -427,7 +426,6 @@ final class PreferencesDialog extends JDialog
 	private JTextField postExportCommandPDF;
 	private JTextField themepackLabel;
 	private JTree settingsTree;
-	private List<RuleCheck> ruleCheckList = new ArrayList<RuleCheck>();
 	private JTextField invalidToHitText;
 	private JTextField invalidDmgText;
 	private JCheckBox alwaysOverwrite;
@@ -441,9 +439,7 @@ final class PreferencesDialog extends JDialog
 	//	private String[] allSameValue = new String[STATMAX - STATMIN + 1];
 
 	// "House Rules"
-	private JCheckBox[] hrBoxes = null;
-	private ButtonGroup[] hrGroup = null;
-	private JRadioButton[] hrRadio = null;
+	private PCGenPrefsPanel houseRulesPanel;
 
 	// Look and Feel
 	private JRadioButton[] laf;
@@ -563,8 +559,6 @@ final class PreferencesDialog extends JDialog
 
 	private void setOptionsBasedOnControls()
 	{
-		final GameMode gameMode = SettingsHandler.getGame();
-
 		// Abilities - character stats
 		characterStatsPanel.setOptionsBasedOnControls();
 
@@ -599,36 +593,7 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
 
 		// House Rules
-
-		for (int i = 0; i < hrBoxes.length; i++)
-		{
-			if (hrBoxes[i] != null)
-			{
-				String aKey = hrBoxes[i].getText();
-				boolean aBool = hrBoxes[i].isSelected();
-
-				// Save settings
-				if (gameMode.hasRuleCheck(aKey))
-				{
-					SettingsHandler.setRuleCheck(aKey, aBool);
-				}
-			}
-		}
-
-		for (int i = 0; i < hrRadio.length; i++)
-		{
-			if (hrRadio[i] != null)
-			{
-				String aKey = hrRadio[i].getText();
-				boolean aBool = hrRadio[i].isSelected();
-
-				// Save settings
-				if (gameMode.hasRuleCheck(aKey))
-				{
-					SettingsHandler.setRuleCheck(aKey, aBool);
-				}
-			}
-		}
+		houseRulesPanel.setOptionsBasedOnControls();
 
 		//		SettingsHandler.setIntCrossClassSkillCost(crossClassSkillCostCombo.getSelectedIndex());
 
@@ -1004,6 +969,8 @@ final class PreferencesDialog extends JDialog
 		maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
 
 		// House Rules
+		houseRulesPanel.applyOptionValuesToControls();
+		
 		//		crossClassSkillCostCombo.setSelectedIndex(SettingsHandler.getIntCrossClassSkillCost());
 
 		// Monsters
@@ -1623,205 +1590,6 @@ final class PreferencesDialog extends JDialog
 		hitPointsPanel.add(label);
 
 		return hitPointsPanel;
-	}
-
-	private JPanel buildHouseRulesPanel()
-	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JLabel label;
-		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_houseRules);
-		JPanel houseRulesPanel = new JPanel();
-
-		title1.setTitleJustification(TitledBorder.LEFT);
-		houseRulesPanel.setBorder(title1);
-		gridbag = new GridBagLayout();
-		houseRulesPanel.setLayout(gridbag);
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.WEST;
-		c.insets = new Insets(2, 2, 2, 2);
-
-		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
-		label =
-				new JLabel(PropertyFactory
-					.getString("in_Prefs_hrCrossSkillCost")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		houseRulesPanel.add(label);
-		//		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
-		//		gridbag.setConstraints(crossClassSkillCostCombo, c);
-		//		houseRulesPanel.add(crossClassSkillCostCombo);
-
-		// build a list of checkboxes from the current gameMode Rules
-		int gridNum = 1;
-		GameMode gameMode = SettingsHandler.getGame();
-		ruleCheckList = gameMode.getRuleCheckList();
-
-		// initialize all the checkboxes
-		hrBoxes = new JCheckBox[ruleCheckList.size()];
-
-		int excludeCount = 0;
-		int boxNum = 0;
-
-		for (RuleCheck aRule : ruleCheckList)
-		{
-			aRule.getName();
-			String aKey = aRule.getKey();
-			String aDesc = aRule.getDesc();
-			boolean aBool = aRule.getDefault();
-
-			if (aRule.isExclude())
-			{
-				++excludeCount;
-
-				continue;
-			}
-
-			if (SettingsHandler.hasRuleCheck(aKey))
-			{
-				aBool = SettingsHandler.getRuleCheck(aKey);
-			}
-
-			hrBoxes[boxNum] = new JCheckBox(aKey, aBool);
-
-			Utility.buildConstraints(c, 0, gridNum, 2, 1, 0, 0);
-			label = new JLabel(aDesc);
-			gridbag.setConstraints(label, c);
-			houseRulesPanel.add(label);
-			Utility.buildConstraints(c, 2, gridNum, 1, 1, 0, 0);
-			gridbag.setConstraints(hrBoxes[boxNum], c);
-			houseRulesPanel.add(hrBoxes[boxNum]);
-			++boxNum;
-			++gridNum;
-		}
-
-		hrRadio = new JRadioButton[excludeCount];
-
-		int exNum = 0;
-
-		for (RuleCheck aRule : ruleCheckList)
-		{
-			aRule.getName();
-			String aKey = aRule.getKey();
-			aRule.getDesc();
-			boolean aBool = aRule.getDefault();
-
-			if (!aRule.isExclude())
-			{
-				continue;
-			}
-
-			hrRadio[exNum] = new JRadioButton(aKey);
-
-			if (SettingsHandler.hasRuleCheck(aKey))
-			{
-				aBool = SettingsHandler.getRuleCheck(aKey);
-			}
-
-			hrRadio[exNum].setSelected(aBool);
-			++exNum;
-		}
-
-		hrGroup = new ButtonGroup[excludeCount];
-
-		int groupNum = 0;
-
-		List<String> doneList = new ArrayList<String>();
-
-		for (int i = 0; i < hrRadio.length; i++)
-		{
-			if (hrRadio[i] == null)
-			{
-				continue;
-			}
-
-			String aKey = hrRadio[i].getText();
-			RuleCheck aRule = gameMode.getRuleByKey(aKey);
-
-			if (aRule == null)
-			{
-				continue;
-			}
-
-			String aDesc = aRule.getDesc();
-			String altKey = aRule.getExcludeKey();
-
-			if (doneList.contains(aKey) || doneList.contains(altKey))
-			{
-				continue;
-			}
-
-			hrGroup[groupNum] = new ButtonGroup();
-			hrGroup[groupNum].add(hrRadio[i]);
-			doneList.add(aKey);
-
-			Utility.buildConstraints(c, 0, gridNum, 3, 1, 0, 0);
-
-			JPanel subPanel = new JPanel();
-			gridbag.setConstraints(subPanel, c);
-
-			subPanel.setLayout(gridbag);
-
-			GridBagConstraints cc = new GridBagConstraints();
-			cc.fill = GridBagConstraints.HORIZONTAL;
-			cc.insets = new Insets(0, 4, 0, 0);
-
-			Border aBord = BorderFactory.createEtchedBorder();
-			subPanel.setBorder(aBord);
-
-			label = new JLabel(aDesc);
-			cc.anchor = GridBagConstraints.WEST;
-			Utility.buildConstraints(cc, 0, 0, 2, 1, 2, 0);
-			gridbag.setConstraints(label, cc);
-			subPanel.add(label);
-			cc.anchor = GridBagConstraints.EAST;
-			Utility.buildConstraints(cc, 2, 0, 1, 1, 1, 0);
-			gridbag.setConstraints(hrRadio[i], cc);
-			subPanel.add(hrRadio[i]);
-
-			for (int ii = 0; ii < hrRadio.length; ii++)
-			{
-				if (hrRadio[i] == null)
-				{
-					continue;
-				}
-
-				String exKey = hrRadio[ii].getText();
-
-				if (exKey.equals(altKey))
-				{
-					aRule = gameMode.getRuleByKey(exKey);
-					aDesc = aRule.getDesc();
-					hrGroup[groupNum].add(hrRadio[ii]);
-					doneList.add(altKey);
-
-					label = new JLabel(aDesc);
-					cc.anchor = GridBagConstraints.WEST;
-					Utility.buildConstraints(cc, 0, 1, 2, 1, 2, 0);
-					gridbag.setConstraints(label, cc);
-					subPanel.add(label);
-					cc.anchor = GridBagConstraints.EAST;
-					Utility.buildConstraints(cc, 2, 1, 1, 1, 1, 0);
-					gridbag.setConstraints(hrRadio[ii], cc);
-					subPanel.add(hrRadio[ii]);
-				}
-			}
-
-			houseRulesPanel.add(subPanel);
-			++gridNum;
-			++groupNum;
-		}
-
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
-		gridbag.setConstraints(label, c);
-		houseRulesPanel.add(label);
-
-		return houseRulesPanel;
 	}
 
 	private JPanel buildLevelUpPanel()
@@ -2620,8 +2388,9 @@ final class PreferencesDialog extends JDialog
 		settingsPanel.add(characterStatsPanel, characterStatsPanel.getTitle());
 		characterNode.add(new DefaultMutableTreeNode(in_hp));
 		settingsPanel.add(buildHitPointsPanel(), in_hp);
-		characterNode.add(new DefaultMutableTreeNode(in_houseRules));
-		settingsPanel.add(buildHouseRulesPanel(), in_houseRules);
+		houseRulesPanel = new HouseRulesPanel();
+		characterNode.add(new DefaultMutableTreeNode(houseRulesPanel.getTitle()));
+		settingsPanel.add(houseRulesPanel, houseRulesPanel.getTitle());
 		characterNode.add(new DefaultMutableTreeNode(in_monsters));
 		monsterPanel = new MonsterPanel();
 		settingsPanel.add(monsterPanel, monsterPanel.getTitle());
@@ -2746,10 +2515,17 @@ final class PreferencesDialog extends JDialog
 			}
 		});
 
+		// Build a scroller for the settings panels
+		JScrollPane jScrollPane1 = new JScrollPane();
+		JPanel borderPanel = new JPanel();
+		borderPanel.setLayout(new BorderLayout());
+		jScrollPane1.setViewportView(settingsPanel);
+		borderPanel.add(jScrollPane1, BorderLayout.CENTER);
+		
 		// Build the split pane
 		splitPane =
 				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-					settingsScroll, settingsPanel);
+					settingsScroll, borderPanel);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
