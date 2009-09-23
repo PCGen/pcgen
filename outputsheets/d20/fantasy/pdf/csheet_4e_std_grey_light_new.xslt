@@ -184,6 +184,28 @@
 		<talents.lightline><subattrib light=""/></talents.lightline>
 		<talents.darkline><subattrib medium=""/></talents.darkline>
 
+		<vampire_disciplines.title><subattrib centre="" inverse=""/></vampire_disciplines.title>
+		<vampire_disciplines.border padding="0.5pt"><subattrib border="" inverse=""/></vampire_disciplines.border>
+		<vampire_disciplines.lightline><subattrib light=""/></vampire_disciplines.lightline>
+		<vampire_disciplines.darkline><subattrib medium=""/></vampire_disciplines.darkline>
+
+		<demon_cants.title><subattrib centre="" inverse=""/></demon_cants.title>
+		<demon_cants.border padding="0.5pt"><subattrib border="" inverse=""/></demon_cants.border>
+		<demon_cants.lightline><subattrib light=""/></demon_cants.lightline>
+		<demon_cants.darkline><subattrib medium=""/></demon_cants.darkline>
+
+		<werewolf_rites.title><subattrib centre="" inverse=""/></werewolf_rites.title>
+		<werewolf_rites.border padding="0.5pt"><subattrib border="" inverse=""/></werewolf_rites.border>
+		<werewolf_rites.lightline><subattrib light=""/></werewolf_rites.lightline>
+		<werewolf_rites.darkline><subattrib medium=""/></werewolf_rites.darkline>
+
+		<mage_gnosises.title><subattrib centre="" inverse=""/></mage_gnosises.title>
+		<mage_gnosises.border padding="0.5pt"><subattrib border="" inverse=""/></mage_gnosises.border>
+		<mage_gnosises.lightline><subattrib light=""/></mage_gnosises.lightline>
+		<mage_gnosises.darkline><subattrib medium=""/></mage_gnosises.darkline>
+
+
+
 		<force_techniques.title><subattrib centre="" inverse=""/></force_techniques.title>
 		<force_techniques.border padding="0.5pt"><subattrib border="" inverse=""/></force_techniques.border>
 		<force_techniques.lightline><subattrib light=""/></force_techniques.lightline>

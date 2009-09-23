@@ -259,7 +259,6 @@
 		<xsl:param name="list" />
 		<xsl:param name="name.tag" />
 		<xsl:param name="desc.tag" select="''" />
-
 		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
@@ -290,6 +289,13 @@
 										<xsl:call-template name="paragraghlist">
 											<xsl:with-param name="tag" select="$desc.tag"/>
 										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="source != ''">
+									<fo:block font-size="7pt" text-align="right">
+										<xsl:text>[</xsl:text>
+										<xsl:value-of select="source"/>
+										<xsl:text>]</xsl:text>
 									</fo:block>
 								</xsl:if>
 							</fo:table-cell>

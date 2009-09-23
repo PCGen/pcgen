@@ -354,6 +354,10 @@
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="disadvantages"/>
 						<xsl:apply-templates select="talents"/>
+						<xsl:apply-templates select="vampire_disciplines"/>
+						<xsl:apply-templates select="demon_cants"/>
+						<xsl:apply-templates select="werewolf_rites"/>
+						<xsl:apply-templates select="mage_gnosises"/>
 						<xsl:apply-templates select="force_techniques"/>
 						<xsl:apply-templates select="force_powers"/>
 						<xsl:apply-templates select="force_secrets"/>
@@ -4430,6 +4434,7 @@
 				<xsl:with-param name="list" select="ability" />
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="''"/>
+
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -4464,6 +4469,79 @@
 				<xsl:with-param name="list" select="talent"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Demon Cants
+====================================
+====================================-->
+	<xsl:template match="demon_cants">
+		<xsl:if test="count(demon_cant) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'demon_cants'" />
+				<xsl:with-param name="title" select="'Demon Cants'" />
+				<xsl:with-param name="list" select="demon_cant"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--	
+
+====================================
+====================================
+	TEMPLATE - Mage Gnosis
+====================================
+====================================-->
+	<xsl:template match="mage_gnosises">
+		<xsl:if test="count(mage_gnosis) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'mage_gnosises'" />
+				<xsl:with-param name="title" select="'Mage Gnosis'" />
+				<xsl:with-param name="list" select="mage_gnosis"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Vampire Disciplines
+====================================
+====================================-->
+	<xsl:template match="vampire_disciplines">
+		<xsl:if test="count(vampire_discipline) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'vampire_disciplines'" />
+				<xsl:with-param name="title" select="'Vampire Disciplines'" />
+				<xsl:with-param name="list" select="vampire_discipline"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Werewolf Rites
+====================================
+====================================-->
+	<xsl:template match="werewolf_rites">
+		<xsl:if test="count(werewolf_rite) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'werewolf_rites'" />
+				<xsl:with-param name="title" select="'Werewolf Rites'" />
+				<xsl:with-param name="list" select="werewolf_rite"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
