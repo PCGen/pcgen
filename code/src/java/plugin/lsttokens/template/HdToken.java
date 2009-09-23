@@ -155,7 +155,7 @@ public class HdToken extends AbstractToken implements CDOMPrimaryToken<PCTemplat
 			{
 				hd.append('+');
 			}
-			else if (!max.equals(min))
+			else
 			{
 				hd.append('-').append(max);
 			}

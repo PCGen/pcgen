@@ -316,6 +316,12 @@ public class HDTokenTest extends AbstractTokenTestCase<PCTemplate>
 	}
 
 	@Test
+	public void testRoundRobinSameHD() throws PersistenceLayerException
+	{
+		runRoundRobin("4-4:CR:2");
+	}
+
+	@Test
 	public void testRoundRobinMinimumDR() throws PersistenceLayerException
 	{
 		runRoundRobin("2+:DR:1/+3");
