@@ -110,7 +110,7 @@ public final class SkillLanguage
 				excludedLangs);
 
 			List<Language> origselected = new ArrayList<Language>(selected);
-			List<Language> origavailable = new ArrayList<Language>(available);
+//			List<Language> origavailable = new ArrayList<Language>(available);
 
 			Globals.sortChooserLists(available, selected);
 
@@ -122,19 +122,26 @@ public final class SkillLanguage
 			lc.setPoolFlag(false);
 			lc.setVisible(true);
 
-			selected.removeAll(origselected); //Only new selections now
-			available.removeAll(origavailable); //Only old selections now
-
-			for (Language lang : selected)
+			// Calculate all the newly selected languages and add them
+			List<Language> newSelected = new ArrayList<Language>(selected);
+			newSelected.removeAll(origselected);
+			
+			for (Language lang : newSelected)
 			{
 				aPC.addSkillLanguage(lang, languageSkill);
 				aPC.addAssociation(languageSkill, lang.getKeyName());
 			}
-			for (Language lang : available)
+			
+			// Calculate all the newly de-selected languages, and remove them
+			List<Language> newRemoved = new ArrayList<Language>(origselected);
+			newRemoved.removeAll(selected);
+
+			for (Language lang : newRemoved)
 			{
 				aPC.removeSkillLanguage(lang, languageSkill);
 				aPC.removeAssociation(languageSkill, lang.getKeyName());
 			}
+			
 			aPC.setDirty(true);
 
 			return true;
