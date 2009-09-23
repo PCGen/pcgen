@@ -461,7 +461,6 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			pc.buildLangLists(availableLangs, selectedLangs, excludedLangs);
 			List<Language> origselected = new ArrayList<Language>(selectedLangs);
-			List<Language> origavailable = new ArrayList<Language>(availableLangs);
 
 			Globals.sortPObjectListByName(availableLangs);
 
@@ -499,17 +498,24 @@ public final class InfoSpecialAbilities extends JPanel implements
 				return;
 			}
 
-			selectedLangs.removeAll(origselected); // Only new selections now
-			availableLangs.removeAll(origavailable); // Only old selections now
+			// Calculate all the newly selected languages and add them
+			List<Language> newSelected = new ArrayList<Language>(selectedLangs);
+			newSelected.removeAll(origselected);
 
-			for (Language lang : selectedLangs)
+			for (Language lang : newSelected)
 			{
 				pc.addStartingLanguage(lang);
 			}
-			for (Language lang : availableLangs)
+			
+			// Calculate all the newly de-selected languages, and remove them 
+			List<Language> newRemoved = new ArrayList<Language>(origselected);
+			newRemoved.removeAll(selectedLangs);
+
+			for (Language lang : newRemoved)
 			{
 				pc.removeStartingLanguage(lang);
 			}
+
 			refresh();
 			ensureFocus();
 		}
