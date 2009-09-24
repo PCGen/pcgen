@@ -20,7 +20,7 @@ Timeless Body	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE
 
 ###Block: Companions
 # Ability Name	Category of Ability		Type						Visible	Define			Allow Follower			Allowed Companions																																																																																																							Source Page
-Animal Companion	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:CompLevel|0	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Badger,Camel,Crocodile,Dog,Dog (Riding),Eagle,Hawk,Horse (Light),Horse (Heavy),Owl,Pony,Porpoise,Shark (Medium),Snake (Small Viper),Snake (Medium Viper),Squid,Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Leopard,Snake (Constrictor),Snake (Large Viper),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Crocodile (Giant),Lion,Rhinoceros,Snake (Huge Viper),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Snake (Giant Constrictor)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Elephant|FOLLOWERADJUSTMENT:-12
+Animal Companion	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:CompLevel|0	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Badger,Camel,Crocodile,Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Medium Viper),Snake (Small Viper),Squid,Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Leopard,Snake (Constrictor),Snake (Large Viper),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Crocodile (Giant),Lion,Rhinoceros,Snake (Huge Viper),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Snake (Giant Constrictor)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Elephant|FOLLOWERADJUSTMENT:-12
 Special Mount	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	DEFINE:SMLevel|0		FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY																																																																																																					SOURCEPAGE:ClassesII.rtf
 Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:FMLevel|0		FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Tiny Viper),Toad,Weasel
 
@@ -41,13 +41,13 @@ Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 ###Block: Class Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
 All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Martial
 Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
 Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
 Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier[PRESIZEGTEQ:M]
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
-Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|TYPE.Dagger|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
+Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|TYPE=Dagger
 
 
 #######################################
@@ -195,7 +195,7 @@ Arrow of Death	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:
 
 ###Block: Assassin Abilities
 # Ability Name	Category of Ability		Type						Visible	Define			Description					Aspects
-Death Attack	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:DeathAttackDC|0	DESC:DC %|DeathAttackDC
+Death Attack	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:DeathAttackDC|0	DESC:DC %%|DeathAttackDC
 Poison Use		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
 Save vs Poison	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:PoisonSave|0	DESC:+%1 vs. Poison|PoisonSave	ASPECT:Ability Bonus|+%1|PoisonSave
 

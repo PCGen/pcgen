@@ -2,10 +2,10 @@
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Equipment Name	Type		Cost		Weight	Source Page
-Coin (Platinum)	TYPE:Coin	COST:10	WT:.02	SOURCEPAGE:SRDTreasure.rtf
-Coin (Gold)		TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:SRDTreasure.rtf
-Coin (Silver)	TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:SRDTreasure.rtf
-Coin (Copper)	TYPE:Coin	COST:.01	WT:.02	SOURCEPAGE:SRDTreasure.rtf
+Coin (Platinum)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
+Coin (Gold)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
+Coin (Silver)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
+Coin (Copper)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
 
 
 ###Block:Gems

@@ -12,7 +12,7 @@ CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Bbn		MAXLEVEL:20	EXCLASS:Ex Barbarian	SO
 # Class Name	Required AL
 CLASS:Barbarian	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
+CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
 #  Barbarian Rage variables, for stacking with other classes in any which way...  - Tir Gwaith
 #	BarbRageTimesLVL	For if a class stacks its levels with levels of Barbarian for Rages / day
 #	BarbRagePowerLVL	For if a class stacks its levels with levels of Barbarian for Mighty Rage, Greater Rage, etc.
@@ -31,7 +31,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 #	Currently, this does not take into account the removal using Skill points.
 1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block:Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
@@ -51,9 +51,9 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Visible	Save checks bonus											Combat bonus
 CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	ABB:XBbn		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
+CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
 ###Block:Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -78,11 +78,11 @@ CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacter
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bard		STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE.Profession|Scry|Sense Motive|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
+CLASS:Bard		STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE=Profession|Scry|Sense Motive|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
-1																							WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow (Composite)|Sword (Short)|Shortbow|Whip
+1																							WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip
 1												AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1												AUTO:FEAT|Shield Proficiency
@@ -91,10 +91,10 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
 1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Music
 ###Block: Bardic Music Abilities by level
-1	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1|PRESKILL:1,Perform=3
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3|PRESKILL:1,Perform=6
-1	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,6|PRESKILL:1,Perform=9
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,9|PRESKILL:1,Perform=12
+1	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PRESKILL:1,Perform=3|PREVARGTEQ:BardicMusicLvl,1
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,Perform=6|PREVARGTEQ:BardicMusicLvl,3
+1	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PRESKILL:1,Perform=9|PREVARGTEQ:BardicMusicLvl,6
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,Perform=12|PREVARGTEQ:BardicMusicLvl,9
 ###Block: Level progression
 1	CAST:2			KNOWN:4
 2	CAST:3,0			KNOWN:5,2
@@ -120,12 +120,12 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Bonus Languages					Save checks bonus											Combat bonus					Add domain number
 CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi.rtf	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Scry|Spellcraft
+CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block:Proficiencies
 1												AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1												AUTO:FEAT|Shield Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 # This is Phase I of the Turn abilities improvement (for 5.6).  Futher enhancements are planned,
@@ -137,7 +137,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Spell Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Level progression
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
@@ -168,11 +168,11 @@ CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Druid		STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+CLASS:Druid		STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Druid Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																AUTO:FEAT|Shield Proficiency
 ###Block: Wildshape Abilities Block
@@ -184,7 +184,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18
 5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
 ###Block: Spell Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Animal Companion - Remove these if Animal Companions are not desired
 1	BONUS:VAR|CompLevel|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion
 ###Block: Level progression
@@ -212,9 +212,9 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Automatic Languages	Bonus Languages	Visible	Save checks bonus											Combat bonus
 CLASS:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi.rtf	LANGAUTO:Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Druid Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																AUTO:FEAT|Shield Proficiency
 
@@ -222,11 +222,11 @@ CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Di
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
 CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim
+CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1	BONUS:ABILITYPOOL|Fighter Feat|CL/2+1
@@ -248,9 +248,9 @@ CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacter
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE.Profession|Swim|Tumble
+CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE=Profession|Swim|Tumble
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Monk Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Monk Weapon Proficiencies
 ###Block:DEFINEs and BONUSes associated.
 1	BONUS:VAR|MonkStunningLVL|CL					ABILITY:Special Ability|AUTOMATIC|Stunning Attack
 1	BONUS:VAR|MonkSR|CL		DEFINE:MonkSR|0
@@ -286,16 +286,16 @@ CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pal		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCE
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE.Profession|Ride
+CLASS:Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
 CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASS:1,Paladin=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Turn Undead stuff
-3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ABILITY:Special Ability|AUTOMATIC|Turn Undead|Basic Turning
+3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead
 3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
 3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
@@ -326,11 +326,11 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Visible	Save checks bonus											Combat bonus
 CLASS:Ex Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE.Profession|Ride
+CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 
 # TT .CLEARL1 the AUTO:FEAT|, allowing choice for Track in Ranger
@@ -338,12 +338,12 @@ CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handl
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus					Modify VAR
 CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
+CLASS:Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger|CL/2|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemy
@@ -371,9 +371,9 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
 CLASS:Rogue		HD:6		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Rogue Weapon Proficiencies
 1																AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
 1										BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
@@ -389,7 +389,7 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Deci
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft
+CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
 ###Block:Proficiencies
@@ -422,7 +422,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Bonus Languages		Save checks bonus											Combat bonus
 CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft
+CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 SUBCLASS:Abjurer		COST:2	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
@@ -434,7 +434,7 @@ SUBCLASS:Illusionist	COST:2	CHOICE:SCHOOL|Illusion		KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Necromancer	COST:1	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
 1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 ###Block: Level progression
@@ -465,7 +465,7 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 # Class Name	Hit Dice	Type		Abbreviation	Source Page							Save checks bonus											Combat bonus
 CLASS:Adept		HD:6		TYPE:NPC	ABB:Adp		SOURCEPAGE:srdbasiccharacterclassesiii.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Adept		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
+CLASS:Adept		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
 CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|CL
 ###Block:Proficiencies
@@ -496,17 +496,17 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 # Class Name	Hit Dice	Type		Abbreviation	Source Page							Save checks bonus											Combat bonus
 CLASS:Aristocrat	HD:8		TYPE:NPC	ABB:Ari		SOURCEPAGE:srdbasiccharacterclassesiii.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Perform|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
+CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE=Knowledge|Listen|Perform|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 
 # Class Name	Hit Dice	Type		Abbreviation	Source Page							Optionnal Weapon Prof.	Save checks bonus								Combat bonus
-CLASS:Commoner	HD:4		TYPE:NPC	ABB:Com		SOURCEPAGE:srdbasiccharacterclassesiii.rtf	WEAPONBONUS:TYPE.Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Commoner	HD:4		TYPE:NPC	ABB:Com		SOURCEPAGE:srdbasiccharacterclassesiii.rtf	WEAPONBONUS:TYPE=Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Listen|TYPE.Profession|Ride|Spot|Swim|Use Rope
+CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Listen|TYPE=Profession|Ride|Spot|Swim|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 
 # Class Name	Hit Dice	Type		Abbreviation	Source Page							Save checks bonus											Combat bonus
@@ -526,6 +526,6 @@ CLASS:Warrior	HD:8		TYPE:NPC	ABB:War		SOURCEPAGE:srdbasiccharacterclassesiii.rtf
 CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency

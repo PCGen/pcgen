@@ -4,7 +4,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 ###Block:Psicrystal
 # Class of the Master		Type			Spell Res.	Ability																	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Misc bonus				Stat bonus
-FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Self Propulsion|Telepathic Link|Share Powers|Improved Evasion|Sighted	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	DEFINE:EvasionUsable|0
+FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Self Propulsion|Share Powers|Sighted|Telepathic Link	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	DEFINE:EvasionUsable|0
 FOLLOWER:PCrystalLevel=3	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Powers																																			BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=5	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Telepathic Speech																																				BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=7	TYPE:Psicrystal																																															BONUS:STAT|INT|1

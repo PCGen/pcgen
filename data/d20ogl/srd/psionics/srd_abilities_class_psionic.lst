@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Nov  2 14:41:23 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep 23 23:42:21 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 ###Block: Psionic Combat Modes
@@ -68,7 +68,7 @@ Breach Power Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YE
 Blast Feedback			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block: Soulknife
-# Ability Name		Category of Ability		Type				Visible	Define									Description							ASPECT
+# Ability Name		Category of Ability		Type				Visible	Define									Description							Aspects
 Imbed Power			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Imbed Psionic Attack	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Free Draw			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
