@@ -202,7 +202,12 @@ public class RegionFacet
 	public boolean matchesRegion(CharID id, Region r)
 	{
 		String current = getRegion(id);
-		return (r == null && current == null)
+		/*
+		 * TODO If this is true (null matches None), should Region prohibit the
+		 * building of Region.NONE or we have to double test here? or two ways
+		 * of specifying NONE?
+		 */
+		return (r == null && Constants.s_NONE.equals(current))
 				|| (r != null && r.toString().equalsIgnoreCase(current));
 	}
 
