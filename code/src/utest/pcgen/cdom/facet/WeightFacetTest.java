@@ -25,9 +25,17 @@ import pcgen.cdom.enumeration.CharID;
 
 public class WeightFacetTest extends TestCase
 {
-	private CharID id = new CharID();
-	private CharID altid = new CharID();
+	private CharID id;
+	private CharID altid;
 	private WeightFacet facet = new WeightFacet();
+
+	@Override
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		id = new CharID();
+		altid = new CharID();
+	}
 
 	@Test
 	public void testWeightUnsetZero()

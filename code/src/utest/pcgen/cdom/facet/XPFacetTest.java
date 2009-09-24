@@ -29,8 +29,8 @@ import pcgen.cdom.enumeration.CharID;
 
 public class XPFacetTest extends TestCase
 {
-	private CharID id = new CharID();
-	private CharID altid = new CharID();
+	private CharID id;
+	private CharID altid;
 	private XPFacet facet;
 	private int adjustment;
 	private Map<Integer, Integer> minXP;
@@ -39,6 +39,8 @@ public class XPFacetTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		id = new CharID();
+		altid = new CharID();
 		facet = getMockFacet();
 		minXP = new HashMap<Integer, Integer>();
 		minXP.put(1, 0);
@@ -166,7 +168,7 @@ public class XPFacetTest extends TestCase
 		{
 
 			@Override
-			public int getLevelAdjustment(CharID id)
+			public int getLevelAdjustment(CharID cid)
 			{
 				return adjustment;
 			}
@@ -179,7 +181,7 @@ public class XPFacetTest extends TestCase
 		{
 
 			@Override
-			public int minXPForLevel(int level, CharID id)
+			public int minXPForLevel(int level, CharID cid)
 			{
 				return minXP.get(level);
 			}

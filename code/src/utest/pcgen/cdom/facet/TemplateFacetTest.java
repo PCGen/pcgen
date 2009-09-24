@@ -30,8 +30,8 @@ import pcgen.core.PCTemplate;
 
 public class TemplateFacetTest extends TestCase
 {
-	private CharID id = new CharID();
-	private CharID altid = new CharID();
+	private CharID id;
+	private CharID altid;
 	private TemplateFacet facet = new TemplateFacet();
 
 	private Listener listener = new Listener();
@@ -42,12 +42,12 @@ public class TemplateFacetTest extends TestCase
 		public int addEventCount;
 		public int removeEventCount;
 
-		public void dataAdded(DataFacetChangeEvent dfce)
+		public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
 		{
 			addEventCount++;
 		}
 
-		public void dataRemoved(DataFacetChangeEvent dfce)
+		public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 		{
 			removeEventCount++;
 		}
@@ -58,6 +58,8 @@ public class TemplateFacetTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		id = new CharID();
+		altid = new CharID();
 		facet.addDataFacetChangeListener(listener);
 	}
 
