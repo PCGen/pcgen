@@ -33,6 +33,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
+import pcgen.util.Logging;
 
 public class TokenRegistration
 {
@@ -45,9 +46,14 @@ public class TokenRegistration
 		String s = Arrays.asList(ppi.kindsHandled()).toString();
 		if (!ppiSet.contains(s))
 		{
-			PreParserFactory.register(ppi);
-			ppiSet.add(s);
-			TokenLibrary.addToTokenMap(ppi);
+			try {
+				PreParserFactory.register(ppi);
+				ppiSet.add(s);
+				TokenLibrary.addToTokenMap(ppi);
+			} catch (PersistenceLayerException e) {
+				Logging.log(Logging.WARNING,
+						"Ignoring error while registering parser for test", e);
+			}
 		}
 	}
 
