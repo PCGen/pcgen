@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+# CVS $Revision$ $Author$ -- Fri Sep 25 13:47:25 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 
-# Class Name		Clear Prereq.	Required AL				Required Feat							Required Skill											Req. Known Spell			Required Spell School		Required Text
-CLASS:Chirurgeon.MOD	PRE:.CLEAR		PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus(Necromancy)	PRESKILL:4,Craft (Autopsy)=6,Heal=3,Craft (Alchemy)=8,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
+# Class Name		Clear Prereq.	Required AL				Required Feat								Required Skill											Req. Known Spell			Required Spell School		Required Text
+CLASS:Chirurgeon.MOD	PRE:.CLEAR		PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus (Necromancy)	PRESKILL:4,Craft (Autopsy)=6,Heal=3,Craft (Alchemy)=8,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name		Remove Class Skill	Class Skill
-CLASS:Chirurgeon.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Spellcraft
+CLASS:Chirurgeon.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
 
 # Class Name		Remove Class Skill	Class Skill
-CLASS:Exorcist.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
+CLASS:Exorcist.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
 
 # Class Name				Remove Class Skill	Class Skill
-CLASS:Hunter of the Fallen.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|TYPE.Knowledge|Listen|Search|Sense Motive|Spot
+CLASS:Hunter of the Fallen.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|TYPE=Knowledge|Listen|Search|Sense Motive|Spot
 
 # Class Name	Remove Class Skill	Class Skill
 CLASS:Puppet.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gather Information|Intimidate|Listen|Search|Sense Motive|Spellcraft|Spot
@@ -23,7 +23,7 @@ CLASS:Raider.MOD	CSKILL:.CLEAR		CSKILL:Appraise|Balance|Bluff|Climb|Decipher Scr
 CLASS:Risen.MOD	DEFINE:VampiricTouch|0
 
 # Class Name			Remove Class Skill	Class Skill
-CLASS:Sacred Theurgist.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft
+CLASS:Sacred Theurgist.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 
 # Class Name			Modify VAR
 CLASS:Unbeating Heart.MOD	BONUS:VAR|TurnLevelBase|(CL+1)/2
@@ -31,4 +31,4 @@ CLASS:Unbeating Heart.MOD	BONUS:VAR|TurnLevelBase|(CL+1)/2
 # Class Name			Clear Prereq.	Required AL	Required Feat			Required Skill									Required Spell School		Req. Spell Type		Required Text
 CLASS:Wasteland Druid.MOD	PRE:.CLEAR		PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:3,Knowledge (Arcana)=4,Survival=8,Knowledge (Nature)=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name			Remove Class Skill	Class Skill
-CLASS:Wasteland Druid.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Nature)|TYPE.Profession|Spellcraft|Swim|Survival
+CLASS:Wasteland Druid.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Nature)|TYPE=Profession|Spellcraft|Swim|Survival

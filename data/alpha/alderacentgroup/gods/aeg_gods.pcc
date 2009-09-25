@@ -45,4 +45,3 @@ TEMPLATE:aeg_gods_templates.lst
 
 # Import Domains from other AEG Sources
 DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst|(INCLUDE:Blood|Darkness|Lust)
-

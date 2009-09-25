@@ -298,7 +298,7 @@ Blessing of Vendak	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Ble
 Improved Regeneration	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Improved Regeneration
 Song of Vendak		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Song of Vendak																																								BONUS:SKILL|Bluff,Diplomacy,Intimidate|4
 Growth			CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Growth															DEFINE:GrowthBonus|0																		BONUS:SIZEMOD|NUMBER|GrowthBonus								BONUS:STAT|STR|GrowthBonus
-Bounty of Vendak		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Bounty of Vendak																		SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Flame Blade,12+CHA|Acid Arrow,12+CHA|Resist Elements,12+CHA
+Bounty of Vendak		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Bounty of Vendak																		SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Acid Arrow,12+CHA|Flame Blade,12+CHA|Resist Elements,12+CHA
 Greater Regeneration	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Greater Regeneration - Regenerates fire damage.
 Voice of Vendak		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Voice of Vendak																		SPELLS:Class|TIMES=3|CASTERLEVEL=TL|Charm Monster,16+CHA
 

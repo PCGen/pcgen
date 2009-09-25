@@ -3,32 +3,32 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 ###Block: Armor and Shields
 # Equipment Name	Required Shield Proficiency	Type						Cost		Weight	Slot Needed	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																					Stat bonus
-Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		SLOTS:0	ACCHECK:-1		EQMOD:WOOD.PLUS3S				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		SLOTS:0	ACCHECK:-1		EQMOD:PLUS3S.WOOD				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
 Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25				ACCHECK:0		EQMOD:PLUS1A	MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor.REPLACE
 
 ###Block: Weapons
 # Equipment Name			Output Name				Required Weapon Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
-Javelin (Bonetip)			OUTPUTNAME:[NAME] Javelin	PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:2001	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD.BONE.PLUS1W		RANGE:30	SIZE:M	SOURCEPAGE:pg.88	SPROP:-2 cursed weapon when used agains lizardfolk.
-Dagger (Everpoison)		OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger			COST:25316	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL.PLUS2W		RANGE:10	SIZE:T	SOURCEPAGE:pg.28
+Javelin (Bonetip)			OUTPUTNAME:[NAME] Javelin	PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:2001	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:BONE.PLUS1W.WOOD		RANGE:30	SIZE:M	SOURCEPAGE:pg.88	SPROP:-2 cursed weapon when used agains lizardfolk.
+Dagger (Everpoison)		OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger			COST:25316	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS2W.STEEL		RANGE:10	SIZE:T	SOURCEPAGE:pg.28
 Flail of Tyrok								PROFICIENCY:WEAPON|Flail		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Flail					COST:8315	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BONE.PLUS1W					SIZE:L	SOURCEPAGE:pg.123
-Greatclub (Flameshooter)	OUTPUTNAME:[NAME] Greatclub	PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Club					COST:16005	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:PLUS1W.FLM_BR_M.WOOD			SIZE:L	SOURCEPAGE:pg.43	SPROP:+1d8+4 fire dammage on critical hit.
+Greatclub (Flameshooter)	OUTPUTNAME:[NAME] Greatclub	PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Club					COST:16005	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:FLM_BR_M.PLUS1W.WOOD			SIZE:L	SOURCEPAGE:pg.43	SPROP:+1d8+4 fire dammage on critical hit.
 Knife (Hunter)			OUTPUTNAME:Hunter's Knife	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Slashing.Specific.Thrown.Dagger	COST:20240	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL				RANGE:10	SIZE:T	SOURCEPAGE:pg.19
-Mace of Urog								PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning.Specific.Mace					COST:8315	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL.PLUS1W				SIZE:M	SOURCEPAGE:pg.124
-Nightspear									PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:18650	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD.PLUS2W			RANGE:30	SIZE:M	SOURCEPAGE:pg.88
+Mace of Urog								PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning.Specific.Mace					COST:8315	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS1W.STEEL				SIZE:M	SOURCEPAGE:pg.124
+Nightspear									PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:18650	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS2W.WOOD			RANGE:30	SIZE:M	SOURCEPAGE:pg.88
 Nightswitches								PROFICIENCY:WEAPON|Whip			TYPE:Magic.Weapon.Exotic.Ranged.Slashing.Specific.Whip					COST:1500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:LEATHER			RANGE:15	SIZE:S	SOURCEPAGE:pg.53
-Spear of Silence								PROFICIENCY:WEAPON|Shortspear		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Spear			COST:15310	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD.PLUS2W			RANGE:20	SIZE:L	SOURCEPAGE:pg.19
-Umber Cestus								PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Weapon.Unarmed.Exotic.Melee.Bludgeoning.Specific.Gauntlet			COST:15000	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:STEEL.PLUS2W				SIZE:M	SOURCEPAGE:pg.75
+Spear of Silence								PROFICIENCY:WEAPON|Shortspear		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Spear			COST:15310	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.WOOD			RANGE:20	SIZE:L	SOURCEPAGE:pg.19
+Umber Cestus								PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Weapon.Unarmed.Exotic.Melee.Bludgeoning.Specific.Gauntlet			COST:15000	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:PLUS2W.STEEL				SIZE:M	SOURCEPAGE:pg.75
 Warding Sticks								PROFICIENCY:WEAPON|Club			TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Specific.Thrown.Club			COST:150	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD				RANGE:10	SIZE:M	SOURCEPAGE:pg.61	SPROP:5d6 damage to inanimate objects.
 
 ###Block: Ammunition
 # Equipment Name	Type							Cost		Weight	Modifier			Source Page
-Holding Stone	TYPE:Magic.Ammunition.Specific.SlingStone	COST:24000	WT:1		EQMOD:STONE.PLUS1A	SOURCEPAGE:pg.105
+Holding Stone	TYPE:Magic.Ammunition.Specific.SlingStone	COST:24000	WT:1		EQMOD:PLUS1A.STONE	SOURCEPAGE:pg.105
 
 ###Block: Potions
 # Equipment Name			Type					Cost		Weight	Source Page
 Blood of the Forefathers	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:pg.53
-Zohl’Kahn’s Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:pg.106
-Zohl’Nahks Blood			TYPE:MAgic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:pg.106
+Zohl'Kahn's Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:pg.106
+Zohl'Nahks Blood			TYPE:MAgic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:pg.106
 
 ###Block: Rings
 # Equipment Name		Output Name				Type			Cost		Weight	Modifier			Source Page		Virtual Feat	Innate Spells																											Combat bonus				Bonus to skill
@@ -42,8 +42,8 @@ Ring (Weathercraft)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:90000	WT:0		E
 Spiderstaff														TYPE:Magic.Staff																	COST:35000	WT:0																									EQMOD:WOOD														SOURCEPAGE:pg.28	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Spider Climb,11|Web,13								SPROP:Summon Spiders
 Staff (Dominion)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:52400	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:pg.106
 Staff (Night)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:25000	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:pg.106
-Staff (Poison Thorns)	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff							COST:80000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD.PLUS2W								SOURCEPAGE:pg.131
-Staff of the Bull							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:28000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:WOOD.DEFEND.PLUS2W				ALTEQMOD:WOOD.DEFEND.PLUS2W	SIZE:H	SOURCEPAGE:pg.96												BONUS:COMBAT|AC|2|TYPE=Natural Armor
+Staff (Poison Thorns)	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff							COST:80000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50].PLUS2W.WOOD								SOURCEPAGE:pg.131
+Staff of the Bull							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:28000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:DEFEND.PLUS2W.WOOD				ALTEQMOD:DEFEND.PLUS2W.WOOD	SIZE:H	SOURCEPAGE:pg.96												BONUS:COMBAT|AC|2|TYPE=Natural Armor
 
 ###Block: Wonderous Items
 # Equipment Name						Output Name						Type						Cost		Weight	Slot Needed	Modifier			Source Page		Vision				Innate Spells																																						Combat bonus			Bonus to skill							Modify VAR							Special Property
@@ -51,11 +51,11 @@ Aboleth Slave Choker												TYPE:Magic.Wondrous			COST:0	WT:1								SOURCEP
 Amulet of ZohlKahn												TYPE:Magic.Wondrous.Amulet		COST:40000	WT:20				EQMOD:BRONZE		SOURCEPAGE:pg.105						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Destruction,20
 Bison Horn Head Dress					OUTPUTNAME:Bison Horn Head-Dress		TYPE:Magic.Wondrous.Headgear		COST:10000	WT:1								SOURCEPAGE:pg.12
 Blind Eyes														TYPE:Magic.Wondrous			COST:2000	WT:0								SOURCEPAGE:pg.81
-Bracers of Torture												TYPE:Magic.Wondrous.Bracer		COST:30000	WT:1		SLOTS:2					SOURCEPAGE:pg.28						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Inflict Light Wounds,11|Heat Metal,13|Scare,13	SPELLS:Magic Item|TIMES=2|CASTERLEVEL=10|Inflict Moderate Wounds,13	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=10|Inflict Serious Wounds,14|Heal,19
+Bracers of Torture												TYPE:Magic.Wondrous.Bracer		COST:30000	WT:1		SLOTS:2					SOURCEPAGE:pg.28						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Heat Metal,13|Inflict Light Wounds,11|Scare,13	SPELLS:Magic Item|TIMES=2|CASTERLEVEL=10|Inflict Moderate Wounds,13	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=10|Heal,19|Inflict Serious Wounds,14
 Censer of Confusion												TYPE:Magic.Wondrous			COST:10300	WT:1				EQMOD:GOLD			SOURCEPAGE:pg.95
 Cloak (Skin)						OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape		COST:21000	WT:10								SOURCEPAGE:pg.105																																														BONUS:COMBAT|AC|1
 Cloak (Bull)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape		COST:16400	WT:1								SOURCEPAGE:pg.95						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=3|Darkness,13|Silence,13																																			BONUS:SKILL|Hide,Move Silently|10|TYPE=Competance
-Cloak (Maelstrom)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape		COST:150000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.131						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Control Weather,20	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Storm of Vengeance,23|PREALIGN:L,N,C																		BONUS:COMBAT|AC|2|TYPR=Luck																		SPROP:Endure Fire and Cold
+Cloak (Maelstrom)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape		COST:150000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.131						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Control Weather,20	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Storm of Vengeance,23																				BONUS:COMBAT|AC|2|TYPR=Luck																		SPROP:Endure Fire and Cold
 Cloak (Meditation)					OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape		COST:4000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.95
 Cloak (Undying Devotion)				OUTPUTNAME:Cloak of [NAME]			TYPE:Magic.Wondrous.Cape		COST:14000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.67
 Collar of the Claw (+1)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet		COST:2000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|1
