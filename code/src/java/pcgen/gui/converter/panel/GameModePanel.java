@@ -100,7 +100,7 @@ public class GameModePanel extends ConvertSubPanel
 		String gameModeKey = (String) gameModeCombo.getSelectedItem();
 		if (gameModeKey != null)
 		{
-			GameMode gamemode = SystemCollections.getGameModeNamed(gameModeKey);
+			GameMode gamemode = SystemCollections.getGameModeWithDisplayName(gameModeKey);
 			pc.put(ObjectKey.GAME_MODE, gamemode);
 		}
 	}
@@ -132,7 +132,12 @@ public class GameModePanel extends ConvertSubPanel
 				saveGameMode(pc);
 			}
 		});
-		gameModeCombo.setSelectedItem(SettingsHandler.getGame().getDisplayName());
+		GameMode currGame = SettingsHandler.getGame();
+		if (pc.get(ObjectKey.GAME_MODE) != null)
+		{
+			currGame = pc.get(ObjectKey.GAME_MODE);
+		}
+		gameModeCombo.setSelectedItem(currGame.getDisplayName());
 
 		panel.add(gameModeCombo);
 		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20,

@@ -116,6 +116,24 @@ public class SystemCollections
 	}
 
 	/**
+	 * Return a game mode matching the display name.
+	 * @param aString
+	 * @return GameMode
+	 */
+	public static GameMode getGameModeWithDisplayName(final String aString)
+	{
+		for ( GameMode gameMode : gameModeList )
+		{
+			if (gameMode.getDisplayName().equalsIgnoreCase(aString))
+			{
+				return gameMode;
+			}
+		}
+
+		return null;
+	}
+
+	/**
 	 * Returns an <b>unmodifiable</b> birtplace list.
 	 * @return an <b>unmodifiable</b> birtplace list.
 	 */
