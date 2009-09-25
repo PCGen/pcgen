@@ -19,4 +19,3 @@ Rope a Dope			TYPE:General																		PRESTAT:1,DEX=13	DESC:The first time
 Surge				TYPE:General				PREFEAT:1,Improved Initiative													DESC:At any point in combat, you may add up to a +5 bonus to your current initiative value.																SOURCEPAGE:p.47
 Swarm Attack		TYPE:General.Fighter										PRESIZELT:M									DESC: You may occupy the same square as an ally who is the same size or smaller.																		SOURCEPAGE:p.48
 Too Tough to Die		TYPE:General				PREFEAT:1,Toughness														DESC: When reduced to less than 0 hit points, you have a 20%% chance per round of stabilizing.																SOURCEPAGE:p.49
-
