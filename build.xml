@@ -57,6 +57,7 @@ These files can be renamed and used for releases.
 	<property name="src.test.java.dir" value="${basedir}/code/src/test" />
 	<property name="src.utest.java.dir" value="${basedir}/code/src/utest" />
 	<property name="src.itest.java.dir" value="${basedir}/code/src/itest" />
+	<property name="src.testcommon.java.dir" value="${basedir}/code/src/testcommon" />
 	<property name="lib.dir" value="lib" />
 	<property name="src.data.dir" value="${basedir}/data" />
 	<property name="src.docs.dir" value="${basedir}/docs" />
@@ -922,6 +923,9 @@ pcgen.filepaths=user
 	<!-- Compile the test classes -->
 	<target name="test.compile" depends="jar, jar-all-plugins">
 		<mkdir dir="${build.testclasses.dir}" />
+		<javac srcdir="${src.testcommon.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
+			<classpath refid="test.project.classpath" />
+		</javac>
 		<javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true">
 			<classpath refid="test.project.classpath" />
 		</javac>

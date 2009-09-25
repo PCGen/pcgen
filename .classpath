@@ -4,18 +4,10 @@
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/test"/>
 	<classpathentry kind="src" path="code/src/utest"/>
 	<classpathentry kind="src" path="code/src/itest"/>
-	<classpathentry kind="var" path="JRE_LIB" sourcepath="/JRE_SRC">
-		<attributes>
-			<attribute name="javadoc_location" value="http://java.sun.com/j2se/1.5.0/docs/api/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="lib/fop/avalon-framework-cvs-20020806.jar"/>
-	<classpathentry kind="lib" path="lib/fop/batik.jar"/>
-	<classpathentry kind="lib" path="lib/fop/fop.jar"/>
+	<classpathentry kind="src" path="code/src/testcommon"/>
 	<classpathentry kind="lib" path="lib/test/junit-4.1.jar"/>
 	<classpathentry kind="lib" path="lib/lnf/kunststoff.jar"/>
 	<classpathentry kind="lib" path="lib/lnf/skinlf.jar"/>
-	<classpathentry kind="lib" path="lib/fop/xml-apis.jar"/>
 	<classpathentry kind="lib" path="lib/lnf/themes/aquathemepack.zip"/>
 	<classpathentry kind="lib" path="lib/lnf/themes/bbjthemepack.zip"/>
 	<classpathentry kind="lib" path="lib/lnf/themes/beosthemepack.zip"/>
@@ -24,8 +16,6 @@
 	<classpathentry kind="lib" path="lib/lnf/themes/themepack.zip"/>
 	<classpathentry kind="lib" path="lib/lnf/themes/whistlerthemepack.zip"/>
 	<classpathentry kind="lib" path="lib/lnf/themes/xplunathemepack.zip"/>
-	<classpathentry kind="lib" path="lib/fop/xercesImpl-2.5.0.jar"/>
-	<classpathentry kind="lib" path="lib/fop/xalan-2.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/jdom.jar"/>
 	<classpathentry kind="lib" path="lib/MRJ141Stubs.jar"/>
 	<classpathentry kind="lib" path="lib/test/xmlunit1.0.jar"/>
@@ -34,5 +24,13 @@
 	<classpathentry kind="lib" path="lib/cobra/js.jar"/>
 	<classpathentry kind="lib" path="lib/apache/commons-lang-2.4.jar"/>
 	<classpathentry kind="lib" path="lib/jep/jep-2.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/fop/avalon-framework-cvs-20020806.jar"/>
+	<classpathentry kind="lib" path="lib/fop/batik.jar"/>
+	<classpathentry kind="lib" path="lib/fop/fop.jar"/>
+	<classpathentry kind="lib" path="lib/fop/xalan-2.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/fop/xercesImpl-2.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/fop/xml-apis.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.5.0_16"/>
+	<classpathentry kind="lib" path="lib/spring-core.jar"/>
 	<classpathentry kind="output" path="code/build.eclipse"/>
 </classpath>

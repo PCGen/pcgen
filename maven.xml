@@ -23,6 +23,11 @@
 		<attainGoal name="generate-jars" />
 	</postGoal>
 
+	<preGoal name="test:test">
+		<ant:path id="testutil.src.dir" location="code/src/testcommon"/>
+		<maven:addPath id="maven.test.compile.src.set" refid="testutil.src.dir"/>
+	</preGoal>
+	
 	<preGoal name="maven-javadoc-plugin:report">
 	</preGoal>
 

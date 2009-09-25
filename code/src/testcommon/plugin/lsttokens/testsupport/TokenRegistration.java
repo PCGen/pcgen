@@ -46,14 +46,14 @@ public class TokenRegistration
 		String s = Arrays.asList(ppi.kindsHandled()).toString();
 		if (!ppiSet.contains(s))
 		{
-			try {
+//			try {
 				PreParserFactory.register(ppi);
 				ppiSet.add(s);
 				TokenLibrary.addToTokenMap(ppi);
-			} catch (PersistenceLayerException e) {
-				Logging.log(Logging.WARNING,
-						"Ignoring error while registering parser for test", e);
-			}
+//			} catch (PersistenceLayerException e) {
+//				Logging.log(Logging.WARNING,
+//						"Ignoring error while registering parser for test", e);
+//			}
 		}
 	}
 
