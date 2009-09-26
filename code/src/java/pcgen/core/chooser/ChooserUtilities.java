@@ -270,7 +270,7 @@ public class ChooserUtilities
 				cat = category;
 			}
 			ControllableChoiceManager abcm = (ControllableChoiceManager) aMan;
-			abcm.setController(new AbilityChooseController(a, category, aPC, abcm));
+			abcm.setController(new AbilityChooseController(a, cat, aPC, abcm));
 			for (Ability ab : aPC.getAllAbilities())
 			{
 				if (ab.getKeyName().equals(a.getKeyName()))
@@ -511,7 +511,7 @@ public class ChooserUtilities
 			choiceString = aPObject.getSafe(StringKey.CHOICE_STRING);
 		}
 		// Note: Number is special temp mod only chooser and should not be actioned except by temp mods. 
-		if (choiceString.startsWith("NUMBER"))
+		if (choiceString != null && choiceString.startsWith("NUMBER"))
 		{
 			return null;
 		}
