@@ -49,7 +49,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.SkillModifier;
@@ -784,17 +783,6 @@ public class PcgCombatant extends Combatant
 
 			pc.refreshSkillList(); //force refresh of skills
 
-			/*
-			 * TODO includeSkill is written and never read... so what does it do?
-			 * - thpr 10/27/06
-			 */
-			int includeSkills = SettingsHandler.getIncludeSkills();
-
-			if (includeSkills == 3)
-			{
-				includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
-			}
-
 			List<Skill> skillList =
 					pc.getSkillListInOutputOrder(pc
 						.getPartialSkillList(Visibility.OUTPUT_ONLY));
@@ -1099,23 +1087,11 @@ public class PcgCombatant extends Combatant
 							spellBuff.append("<br>");
 						}
 					}
-					if (maxLevel >-1 || (!(pObj instanceof PCClass) ))
+					if (spellBuff.length() >0 )
 					{
-						if (spellBuff.length() >0 )
-						{
-							statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
-							statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
-							statBuf.append(spellBuff);
-						}
-					}
-					else 
-					{
-						if (spellBuff.length() >0 )
-						{
-							statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
-							statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
-							statBuf.append(spellBuff);
-						}
+						statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
+						statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
+						statBuf.append(spellBuff);
 					}
 				}
 			}

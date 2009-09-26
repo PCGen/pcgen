@@ -283,21 +283,6 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Returns true if object o.toString() equals this.toString(), false otherwise
-	 * @param s the <code>String</code> to compare.
-	 * @return true or false if <code>String</code> is equal.
-	 */
-	public boolean equals(String s)
-	{
-		if (this.name == s)
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
 	 * Gets an entry from the table given an <code>index</code>.
 	 * @param index the <code>index</code> value of the item that must be
 	 *        retrieved.

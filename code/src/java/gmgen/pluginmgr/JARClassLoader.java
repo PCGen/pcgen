@@ -71,8 +71,8 @@ import pcgen.util.PJEP;
 public class JARClassLoader extends ClassLoader
 {
 	// used to mark non-existent classes in class hash
-	private static final JARClassLoader NO_CLASS = new JARClassLoader();
 	private static Hashtable<String, JARClassLoader> classHash = new Hashtable<String, JARClassLoader>();
+	private static final JARClassLoader NO_CLASS = new JARClassLoader();
 	private Plugin.JAR jar;
 	private List<String> pluginClasses = new ArrayList<String>();
 	private ZipFile zipFile;

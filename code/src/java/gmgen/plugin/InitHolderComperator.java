@@ -51,9 +51,10 @@ public class InitHolderComperator implements Comparator<InitHolder>
 		Integer initval1 = Integer.valueOf(init1.getCurrentInitiative());
 		Integer initval2 = Integer.valueOf(init2.getCurrentInitiative());
 
-		if (initval1 != initval2)
+		int comp = initval2.compareTo(initval1);
+		if (comp != 0)
 		{
-			return initval2.compareTo(initval1);
+			return comp;
 		}
 		Integer dexval1 = Integer.valueOf(init1.getAttribute().getValue());
 		Integer dexval2 = Integer.valueOf(init2.getAttribute().getValue());

@@ -65,7 +65,7 @@ public abstract class Die
 	/** Sets the random Die object. Allows you to put in a seeded random for better randomness.
 	 * @param rand Random
 	 */
-	public void setRandom(Random rand)
+	public static void setRandom(Random rand)
 	{
 		Die.rand = rand;
 	}
