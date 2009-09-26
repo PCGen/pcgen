@@ -114,7 +114,7 @@ public class SkillsNamedToken implements CDOMSecondaryToken<CDOMObject>
 		String chooseString = context.getObjectContext().getString(cdo,
 				StringKey.CHOICE_STRING);
 		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') == -1)
+				|| chooseString.indexOf(getTokenName() + '|') != 0)
 		{
 			return null;
 		}

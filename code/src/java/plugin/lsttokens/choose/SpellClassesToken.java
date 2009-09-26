@@ -67,7 +67,7 @@ public class SpellClassesToken implements CDOMSecondaryToken<CDOMObject>
 		}
 		else
 		{
-			if (chooseString.indexOf(getTokenName() + '|') == -1)
+			if (chooseString.indexOf(getTokenName() + '|') != 0)
 			{
 				return null;
 			}
