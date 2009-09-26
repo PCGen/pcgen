@@ -385,23 +385,6 @@ public class Logging
 		return sb.toString();
 	}
 
-	/**
-	 * Intentionally cause a NullPointerException and then print the stack trace.
-	 * Occasionally useful for debugging
-	 */
-	public static void printStackTrace()
-	{
-		String dummy = null;
-		try
-		{
-			dummy.length();
-		}
-		catch (NullPointerException npe)
-		{
-			npe.printStackTrace();
-		}
-	}
-
     /**
      * Retrieve a Logger object with the specified name. Generally 
      * this name should be either the fully qualified class name, 

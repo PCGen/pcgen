@@ -31,10 +31,10 @@ import java.util.regex.Pattern;
 import pcgen.core.term.TermEvaulatorException;
 
 public class TermUtilities {
-	public static String dString = "(?:NOT|ADD|IS)";
-	public static Pattern dPat = Pattern.compile(dString);
-	public static String sString = "(?:EQUIPPED|NOTEQUIPPED)";
-	public static Pattern sPat = Pattern.compile(sString);
+	public static final String dString = "(?:NOT|ADD|IS)";
+	public static final Pattern dPat = Pattern.compile(dString);
+	public static final String sString = "(?:EQUIPPED|NOTEQUIPPED)";
+	public static final Pattern sPat = Pattern.compile(sString);
 
 	public static void checkEqTypeTypesArray(
 			String originalText,

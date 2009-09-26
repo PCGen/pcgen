@@ -33,8 +33,8 @@ public class ParameterTree
 	String        contents;
 	ParameterTree left  = null;
 	ParameterTree right = null;
-	public static String orString  = "[or]";
-	public static String andString = "[and]";
+	public static final String orString  = "[or]";
+	public static final String andString = "[and]";
 	static String orPatString  = "\\[or\\]";
 	static String andPatString = "\\[and\\]";
 
