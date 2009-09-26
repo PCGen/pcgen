@@ -56,16 +56,19 @@ public abstract class AbstractItemFacet<T extends CDOMObject> extends
 	{
 		if (obj == null)
 		{
-			Logging.errorPrint(thisClass + " received null set: ignoring");
+			Logging.errorPrint(thisClass + " received null item: ignoring");
 			return;
 		}
 		T old = get(id);
-		if (old != null)
+		if (old != obj)
 		{
-			fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
+			if (old != null)
+			{
+				fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
+			}
+			FacetCache.set(id, thisClass, obj);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
-		FacetCache.set(id, thisClass, obj);
-		fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 	}
 
 	/**
