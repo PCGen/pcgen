@@ -49,6 +49,7 @@ public class WeaponpToken extends WeaponToken
 	 * @return The token name.
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKEN_NAME;
@@ -63,6 +64,7 @@ public class WeaponpToken extends WeaponToken
 	 * @return The value of the token.
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{

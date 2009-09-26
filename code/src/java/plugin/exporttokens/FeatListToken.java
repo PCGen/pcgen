@@ -20,9 +20,6 @@ import pcgen.io.exporttoken.AbilityListToken;
 public class FeatListToken extends AbilityListToken
 {
 
-	/** Token Name */
-	public static final String TOKENNAME = "FEATLIST";
-
 	/**
 	 * Get the TOKENNAME
 	 * @return TOKENNAME
@@ -30,7 +27,7 @@ public class FeatListToken extends AbilityListToken
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "FEATLIST";
 	}
 
 	/**
