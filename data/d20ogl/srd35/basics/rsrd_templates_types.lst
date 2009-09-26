@@ -50,7 +50,7 @@ Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																								
 Native		VISIBLE:YES	SOURCEPAGE:TypesSubtypesAbilities.rtf									PRERACE:1,RACETYPE=Outsider														ABILITY:Special Ability|AUTOMATIC|Native Traits
 Reptilian		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Shapechanger	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Swarm			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:CanNotGrapple|1																							ABILITY:Special Ability|AUTOMATIC|Swarm Traits|Distraction
+Swarm			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:CanNotGrapple|1																							ABILITY:Special Ability|AUTOMATIC|Distraction|Swarm Traits
 Water			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																											ABILITY:Special Ability|AUTOMATIC|Water Traits
 
 ###Block: Variable Type Traits

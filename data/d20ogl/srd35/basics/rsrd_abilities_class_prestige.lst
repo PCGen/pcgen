@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 10 22:43:43 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -70,7 +70,7 @@ DD~Cone of Cold		OUTPUTNAME:Breath Weapon ~ Cone of Cold		CATEGORY:Special Abili
 
 
 ###Block: Duelist special abilities ----------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type						Visible	Define								Description							Combat bonus																					Modify VAR												Source Page					ASPECT
+# Ability Name	Category of Ability		Type						Visible	Define								Description							Combat bonus																					Modify VAR												Source Page					Aspects
 Canny Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:CannyDefenseLVL|0													BONUS:COMBAT|AC|max(0,min(INT,CannyDefenseLVL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]														SOURCEPAGE:PrestigeClasses.rtf
 Improved Reaction	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:ImprovedReaction|0					DESC:+%1|ImprovedReaction				BONUS:COMBAT|INITIATIVE|ImprovedReaction																														SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|+%1|ImprovedReaction
 Enhanced Mobility	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																																																						SOURCEPAGE:PrestigeClasses.rtf
@@ -94,7 +94,7 @@ Dwarven Defender Mobile Defense	OUTPUTNAME:Mobile Defense	CATEGORY:Special Abili
 
 
 ###Block: Hierophant Abilities ------------------------------------------------------------------------------------------------------
-# Ability Name			Output Name				Category of Ability		Type								Visible	Required AL		Required Class		Var. Must Be Lower	Define			Description				Stackable?	Multiple?	Choose							Bonus to Ability Pool			Caster level				Modify VAR								Source Page					ASPECT
+# Ability Name			Output Name				Category of Ability		Type								Visible	Required AL		Required Class		Var. Must Be Lower	Define			Description				Stackable?	Multiple?	Choose							Bonus to Ability Pool			Caster level				Modify VAR								Source Page					Aspects
 Blast Infidel Lawful Good						CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:YES	PREALIGN:TN,CE																																																			SOURCEPAGE:PrestigeClasses.rtf
 Blast Infidel Lawful Neutral						CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:YES	PREALIGN:CN																																																				SOURCEPAGE:PrestigeClasses.rtf
 Blast Infidel Lawful Evil						CATEGORY:Special Ability	TYPE:Hierophant.Supernatural.SpecialAttack	VISIBLE:YES	PREALIGN:TN,CG																																																			SOURCEPAGE:PrestigeClasses.rtf
@@ -134,7 +134,7 @@ Other Planar		OUTPUTNAME:Other Planar Mastery		CATEGORY:Special Ability	TYPE:Pla
 
 
 ###Block: Loremaster Lore Abilities ------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type						Visible	Define			Description			Source Page					ASPECT
+# Ability Name	Category of Ability		Type						Visible	Define			Description			Source Page					Aspects
 Secret Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:SecretLore|0	DESC:+%1|SecretLore	SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|+%1|SecretLore
 Greater Lore	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES									SOURCEPAGE:PrestigeClasses.rtf
 True Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES									SOURCEPAGE:PrestigeClasses.rtf

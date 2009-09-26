@@ -5,10 +5,10 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Was this done from scratch?
 
 # Equipment Name	Type		Cost		Weight	Source Page
-Coin (Platinum)	TYPE:Coin	COST:10	WT:.02	SOURCEPAGE:Equipment.rtf
-Coin (Gold)		TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:Equipment.rtf
-Coin (Silver)	TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:Equipment.rtf
-Coin (Copper)	TYPE:Coin	COST:.01	WT:.02	SOURCEPAGE:Equipment.rtf
+Coin (Platinum)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:Equipment.rtf
+Coin (Gold)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:Equipment.rtf
+Coin (Silver)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:Equipment.rtf
+Coin (Copper)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:Equipment.rtf
 
 ###Block:Gems
 # Changes from 3.0: <gem> (Star) -> Star <gem>

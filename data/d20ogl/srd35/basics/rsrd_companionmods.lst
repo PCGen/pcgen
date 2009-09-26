@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block:Special Mount
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define		Combat bonus						Add to base move																																					Stat bonus		Main Race Type
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Share Saving Throws|Empathic Link|Share Spells|Improved Evasion	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
 FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Speed															DEFINE:LOCK.INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Own Kind															DEFINE:LOCK.INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
 FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																									DEFINE:LOCK.INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
@@ -17,7 +17,7 @@ FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
 
 ###Block:Fiendish Servant
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability																	Define		Combat bonus						Stat bonus
-FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link (Su)|Share Spells|Share Saving Throws|Improved Evasion	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link (Su)|Improved Evasion|Share Saving Throws|Share Spells	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard									DEFINE:LOCK.INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=16	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond											DEFINE:LOCK.INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=19	TYPE:Fiendish Servant	HD:2		SR:24																				DEFINE:LOCK.INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
@@ -26,7 +26,7 @@ FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
 
 ###Block: Undead Companion
 # Class of the Master			Type				Hit Dice	Spell Res.	Ability																											Define		Combat bonus						Stat bonus		Modify VAR
-FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Empathic Link (Su)|Share Spells|Share Saving Throws|Improved Evasion|Cannot be Turned	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	BONUS:VAR|SmiteGoodDamage|min(TL,20)
+FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Empathic Link (Su)|Improved Evasion|Share Saving Throws|Share Spells	DEFINE:LOCK.INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	BONUS:VAR|SmiteGoodDamage|min(TL,20)
 FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard																			DEFINE:LOCK.INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond																					DEFINE:LOCK.INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																														DEFINE:LOCK.INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
@@ -35,7 +35,7 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 ###Block:Familiar
 # Class of the Master	Type			Spell Res.	Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Combat bonus						Main Race Type
 FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Share Spells|Improved Evasion																		DEFINE:LOCK.INT|6		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
+FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																		DEFINE:LOCK.INT|6		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
 FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																			DEFINE:LOCK.INT|7		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																				DEFINE:LOCK.INT|8		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Own Kind																				DEFINE:LOCK.INT|9		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
@@ -155,7 +155,7 @@ FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Din
 
 ###Block:Shadowdancer summoned Shadow
 # Class of the Master		Type				Hit Dice	Ability																	Modify VAR
-FOLLOWER:ShadowCompanion=3	TYPE:Shadow Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Communiate with Master|Cannot Create Spawn|Cannot be Turned by Other	BONUS:VAR|ShadowSpawnBlock|1
+FOLLOWER:ShadowCompanion=3	TYPE:Shadow Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Cannot be Turned by Other|Cannot Create Spawn|Communiate with Master	BONUS:VAR|ShadowSpawnBlock|1
 FOLLOWER:ShadowCompanion=6	TYPE:Shadow Companion	HD:2
 FOLLOWER:ShadowCompanion=9	TYPE:Shadow Companion	HD:2
 

@@ -45,14 +45,14 @@ Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf	BONUS:COMBAT|AC|min(%
 
 ###Block: Awakened Animal
 # Template Name			Visible	Template										Define		Required Class			Required Race					Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
-Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will									PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|1|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
+Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will									PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
 Awakened Animal_Standard	VISIBLE:NO															PRECLASS:1,Animal=1																																		ADDLEVEL:Animal|2
 Awakened Animal_Will		VISIBLE:NO															PRECLASS:1,Animal (Will)=1																																	ADDLEVEL:Animal (Will)|2
-Awakened Tree																DEFINE:UNLOCK.INT						PRERACE:1,Animated Object%			ADD:LANGUAGE|1|TYPE=Spoken	KIT:1|Awakened Tree								RACETYPE:Plant
+Awakened Tree																DEFINE:UNLOCK.INT						PRERACE:1,Animated Object%			ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree								RACETYPE:Plant
 
 ###Block: Righteous Might spell workaround
 # Template Name	Visible	Define				Ability
-RighteousMightDR	VISIBLE:NO	DEFINE:RighteousMightDR|0	ABILITY:Special Ability|AUTOMATIC|RighteousMightDR ~ Good|PREVARGT:RighteousMightDR,0|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|AUTOMATIC|RighteousMightDR ~ Evil|PREVARGT:RighteousMightDR,0|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
+RighteousMightDR	VISIBLE:NO	DEFINE:RighteousMightDR|0	ABILITY:Special Ability|AUTOMATIC|RighteousMightDR ~ Good|PREABILITY:1,CATEGORY=Special Ability,Turn Undead|PREVARGT:RighteousMightDR,0	ABILITY:Special Ability|AUTOMATIC|RighteousMightDR ~ Evil|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead|PREVARGT:RighteousMightDR,0
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		Minimum Age			Maximum Age			Required Class			Multiple Requirements						Stat bonus
@@ -93,7 +93,7 @@ Strongly Aligned (Lawful)	VISIBLE:NO	SOURCEPAGE:Planes.rft																						
 
 ###Block: Raven Familiar Support
 # Template Name		Visible	Source Page				Add 					Ability
-Raven Familiar Language	VISIBLE:NO	SOURCEPAGE:ClassesII.rtf	ADD:LANGUAGE|1|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
+Raven Familiar Language	VISIBLE:NO	SOURCEPAGE:ClassesII.rtf	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
 
 #
 # End
