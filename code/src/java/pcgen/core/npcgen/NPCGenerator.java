@@ -261,10 +261,7 @@ public class NPCGenerator
 				}
 			}
 
-			if (skill == null)
-			{
-				aPC.addSkill(skill);
-			}
+			aPC.addSkill(skill);
 			SkillRankControl.modRanks(ranks, aClass, false, aPC, skill);
 			// Add weight to skills we select to try and encourage us to select
 			// them again.

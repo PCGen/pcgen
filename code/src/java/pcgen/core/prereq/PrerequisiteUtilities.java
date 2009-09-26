@@ -573,11 +573,8 @@ public final class PrerequisiteUtilities
 			return false;
 		}
 
-		if (matchKind == null && prereq.getKind() == null)
-		{
-			return true;
-		}
-		if (matchKind.equalsIgnoreCase(prereq.getKind()))
+		if (matchKind == prereq.getKind()
+				|| matchKind.equalsIgnoreCase(prereq.getKind()))
 		{
 			return true;
 		}
@@ -607,10 +604,10 @@ public final class PrerequisiteUtilities
 			return false;
 		}
 
-		if ((matchKind == null && prereq.getKind() == null)
+		if ((matchKind == prereq.getKind())
 			|| (matchKind.equalsIgnoreCase(prereq.getKind())))
 		{
-			if ((matchKey == null && prereq.getKey() == null)
+			if ((matchKey == prereq.getKey())
 				|| (matchKey.equalsIgnoreCase(prereq.getKey())))
 			{
 				return true;

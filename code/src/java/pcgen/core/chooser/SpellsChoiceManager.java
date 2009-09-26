@@ -353,7 +353,7 @@ public class SpellsChoiceManager extends
 				List<Spell> availableList);
 	}
 
-	private class TypeKeyFilter implements SpellFilter
+	private static class TypeKeyFilter implements SpellFilter
 	{
 
 		private final CDOMList<Spell> spelllist;
@@ -411,7 +411,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class SpellTypeFilter implements SpellFilter
+	private static class SpellTypeFilter implements SpellFilter
 	{
 		private final String listname;
 		private final Restriction res;
@@ -480,7 +480,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class AnyFilter implements SpellFilter
+	private static class AnyFilter implements SpellFilter
 	{
 		private final Restriction res;
 		private final String defaultbook;
@@ -544,7 +544,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class TypeFilter implements SpellFilter
+	private static class TypeFilter implements SpellFilter
 	{
 		private final String type;
 
@@ -563,7 +563,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class SchoolFilter implements SpellFilter
+	private static class SchoolFilter implements SpellFilter
 	{
 		private final String school;
 
@@ -582,7 +582,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class SubSchoolFilter implements SpellFilter
+	private static class SubSchoolFilter implements SpellFilter
 	{
 		private final String subschool;
 
@@ -601,7 +601,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class DescriptorFilter implements SpellFilter
+	private static class DescriptorFilter implements SpellFilter
 	{
 		private final String descriptor;
 
@@ -620,7 +620,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class SpellBookFilter implements SpellFilter
+	private static class SpellBookFilter implements SpellFilter
 	{
 		private final String spellbookname;
 
@@ -639,7 +639,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class ProhibitedFilter implements SpellFilter
+	private static class ProhibitedFilter implements SpellFilter
 	{
 		private final boolean prohibited;
 
@@ -661,7 +661,7 @@ public class SpellsChoiceManager extends
 		}
 	}
 
-	private class Restriction
+	private static class Restriction
 	{
 		public final int minLevel;
 		public final int maxLevel;

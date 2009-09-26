@@ -290,7 +290,7 @@ public final class KitAbilities extends BaseKit
 		return wc;
 	}
 
-	private class AbilitySelection implements Comparable<AbilitySelection>
+	private static class AbilitySelection implements Comparable<AbilitySelection>
 	{
 		public final Ability ability;
 		public final String selection;

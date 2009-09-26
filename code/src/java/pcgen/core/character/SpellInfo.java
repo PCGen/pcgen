@@ -44,7 +44,7 @@ import pcgen.core.Ability;
 public final class SpellInfo
 {
 	/** The special value for number of times per unit for 'At Will' spells. */
-	public static int TIMES_AT_WILL = -1;
+	public static final int TIMES_AT_WILL = -1;
 	
 	private CharacterSpell owner;
 	private List<Ability> featList; // a List of Feat objects

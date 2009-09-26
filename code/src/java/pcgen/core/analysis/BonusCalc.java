@@ -111,7 +111,7 @@ public class BonusCalc
 	}
 
 	/** a boolean for whether something should recurse, default is false */
-	public static boolean dontRecurse = false;
+	private static boolean dontRecurse = false;
 
 	/**
 	 * Apply the bonus to a PC, pass through object's default bonuslist

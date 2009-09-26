@@ -60,7 +60,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 	 *
 	 * Inner class storing weapon proficency.
 	 */
-	public class weaponToProf implements Categorisable
+	public static class WeaponToProf implements Categorisable
 	{
 		String category;
 		String keyName;
@@ -71,7 +71,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 		 * @param  category
 		 * @param  name
 		 */
-		public weaponToProf(String category, String name)
+		public WeaponToProf(String category, String name)
 		{
 			super();
 			this.category = category;
@@ -153,7 +153,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 				while (profTok.hasMoreTokens())
 				{
 					weaponToProfMap.addCategorisable(
-						new weaponToProf(profString, profTok.nextToken()));
+						new WeaponToProf(profString, profTok.nextToken()));
 				}
 
 				parsed = profString;
@@ -349,7 +349,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractBasicChoiceManager<St
 
 				while (cTok.hasMoreTokens())
 				{
-					weaponToProfMap.addCategorisable(new weaponToProf(
+					weaponToProfMap.addCategorisable(new WeaponToProf(
 							key, cTok.nextToken()));
 				}
 			}

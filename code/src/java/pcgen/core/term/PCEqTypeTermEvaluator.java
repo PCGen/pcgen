@@ -36,12 +36,12 @@ import pcgen.io.exporttoken.Token;
 public class PCEqTypeTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	private final String Digits    = "(\\p{Digit}+)";
-	private final String HexDigits = "(\\p{XDigit}+)";
+	private static final String Digits    = "(\\p{Digit}+)";
+	private static final String HexDigits = "(\\p{XDigit}+)";
 	// an exponent is 'e' or 'E' followed by an optionally
 	// signed decimal integer.
-	private final String Exp       = "[eE][+-]?"+Digits;
-	private final String fpRegex   =
+	private static final String Exp       = "[eE][+-]?"+Digits;
+	private static final String fpRegex   =
 		("[\\x00-\\x20]*"+  // Optional leading "whitespace"
 		 "[+-]?(" +         // Optional sign character
 		 "NaN|" +           // "NaN" string

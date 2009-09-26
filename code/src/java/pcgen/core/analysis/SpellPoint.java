@@ -23,7 +23,7 @@ public class SpellPoint
 		Map<String, Integer> spCosts = getSpellPointCostActualParts(sp);
 		Set<String> spKeys = new TreeSet<String>();
 		spKeys.addAll(spCosts.keySet());
-		String[] theKeys = (String[]) spKeys.toArray();
+		String[] theKeys = spKeys.toArray(new String[spKeys.size()]);
 		int size = spKeys.size();
 		if (elementNumber < size)
 		{
@@ -39,7 +39,7 @@ public class SpellPoint
 		Map<String, Integer> spCosts = getSpellPointCostActualParts(sp);
 		Set<String> spKeys = new TreeSet<String>();
 		spKeys.addAll(spCosts.keySet());
-		String[] theKeys = (String[]) spKeys.toArray();
+		String[] theKeys = spKeys.toArray(new String[spKeys.size()]);
 		int size = spKeys.size();
 		if (elementNumber < size)
 		{
@@ -53,9 +53,9 @@ public class SpellPoint
 	{
 		int runningTotal = 0;
 		Map<String, Integer> spCost = getSpellPointCostActualParts(sp);
-		for (String aComponent : spCost.keySet())
+		for (Integer i : spCost.values())
 		{
-			runningTotal += spCost.get(aComponent);
+			runningTotal += i;
 		}
 		if (!aPC.hasSpellInSpellbook(sp, aPC.getSpellBookNameToAutoAddKnown()))
 		{
@@ -121,9 +121,9 @@ public class SpellPoint
 	{
 		int runningTotal = 0;
 		Map<String, Integer> spCost = getSpellPointCostActualParts(sp);
-		for (String aComponent : spCost.keySet())
+		for (Integer i : spCost.values())
 		{
-			runningTotal += spCost.get(aComponent);
+			runningTotal += i;
 		}
 		return runningTotal;
 	}

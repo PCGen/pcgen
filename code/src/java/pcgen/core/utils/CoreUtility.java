@@ -49,7 +49,7 @@ import pcgen.util.Logging;
  */
 public final class CoreUtility
 {
-	public static Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
+	public static final Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
 	{
 		private int compareInts(final int obj1Index, final int obj2Index)
 		{
@@ -504,13 +504,13 @@ public final class CoreUtility
 	{
 		if (ver[0] != compVer[0])
 		{
-			return new Integer(ver[0]).compareTo(compVer[0]);
+			return Integer.valueOf(ver[0]).compareTo(compVer[0]);
 		}
 		if (ver[1] != compVer[1])
 		{
-			return new Integer(ver[1]).compareTo(compVer[1]);
+			return Integer.valueOf(ver[1]).compareTo(compVer[1]);
 		}
-		return new Integer(ver[2]).compareTo(compVer[2]);
+		return Integer.valueOf(ver[2]).compareTo(compVer[2]);
 	}
 
 	/**
