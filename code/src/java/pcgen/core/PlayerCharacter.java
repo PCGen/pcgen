@@ -4562,69 +4562,64 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
 
-		if (check != null)
+		totalClassLevels = totalNonMonsterLevels();
+		if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
 		{
-			totalClassLevels = totalNonMonsterLevels();
-			if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
+			isEpic = true;
+			Integer epicCheck = epicCheckMap.get(check);
+			if (epicCheck == null)
 			{
-				isEpic = true;
-				Integer epicCheck = epicCheckMap.get(check);
-				if (epicCheck == null)
-				{
-					totalLvlMap = getTotalLevelHashMap();
-					classLvlMap =
-							getCharacterLevelHashMap(SettingsHandler.getGame()
-								.getChecksMaxLvl());
-					getVariableProcessor().pauseCache();
-					setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels
-					// total is below some
-					// value (e.g. 20)
-				}
-				else
-				{
-					//Logging.errorPrint("getBaseCheck(): '" + cacheLookup + "' = epic='" + epicCheck + "'"); //$NON-NLS-1$
-					return epicCheck;
-				}
+				totalLvlMap = getTotalLevelHashMap();
+				classLvlMap = getCharacterLevelHashMap(SettingsHandler
+						.getGame().getChecksMaxLvl());
+				getVariableProcessor().pauseCache();
+				setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels
+				// total is below some
+				// value (e.g. 20)
 			}
-
-			final String checkName = check.getKeyName();
-			bonus = getTotalBonusTo("CHECKS", "BASE." + checkName);
-
-			//
-			// now we see if this PC is a Familiar/Mount
-			final PlayerCharacter nPC = getMasterPC();
-
-			if ((nPC != null) && (getCopyMasterCheck().length() > 0))
+			else
 			{
-				int masterBonus = nPC.getBaseCheck(check);
-
-				final String copyMasterCheck =
-						replaceMasterString(getCopyMasterCheck(), masterBonus);
-				masterBonus =
-						getVariableValue(copyMasterCheck,
-							Constants.EMPTY_STRING).intValue();
-
-				// use masters save if better
-				bonus = Math.max(bonus, masterBonus);
+				// Logging.errorPrint("getBaseCheck(): '" + cacheLookup + "' =
+				// epic='" + epicCheck + "'"); //$NON-NLS-1$
+				return epicCheck;
 			}
+		}
 
-			if (isEpic)
-			{
-				epicCheckMap.put(check, (int) bonus);
-			}
+		final String checkName = check.getKeyName();
+		bonus = getTotalBonusTo("CHECKS", "BASE." + checkName);
 
-			if (totalLvlMap != null)
-			{
-				setClassLevelsBrazenlyTo(totalLvlMap);
-				getVariableProcessor().restartCache();
-			}
+		//
+		// now we see if this PC is a Familiar/Mount
+		final PlayerCharacter nPC = getMasterPC();
+
+		if ((nPC != null) && (getCopyMasterCheck().length() > 0))
+		{
+			int masterBonus = nPC.getBaseCheck(check);
+
+			final String copyMasterCheck = replaceMasterString(
+					getCopyMasterCheck(), masterBonus);
+			masterBonus = getVariableValue(copyMasterCheck,
+					Constants.EMPTY_STRING).intValue();
+
+			// use masters save if better
+			bonus = Math.max(bonus, masterBonus);
+		}
+
+		if (isEpic)
+		{
+			epicCheckMap.put(check, (int) bonus);
+		}
+
+		if (totalLvlMap != null)
+		{
+			setClassLevelsBrazenlyTo(totalLvlMap);
+			getVariableProcessor().restartCache();
 		}
 		return (int) bonus;
 	}
 
 	/**
-	 * Returns the total check value for the check specified for the
-	 * character.
+	 * Returns the total check value for the check specified for the character.
 	 * 
 	 * <p>
 	 * This total includes all check bonuses the character has.
@@ -5385,7 +5380,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public Double getMovement(final int moveIdx)
 	{
-		if ((getMovements() != null) && (moveIdx < movements.length))
+		if ((movements != null) && (moveIdx < movements.length))
 		{
 			return movements[moveIdx];
 		}
@@ -8420,7 +8415,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// In order for the BONUS's to work, the PC we want
 		// to get the hit points for must be the "current" one.
 		//
-		final PlayerCharacter curPC = this;
 		int masterHP = nPC.hitPoints();
 
 		final String copyMasterHP =
@@ -9687,7 +9681,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	Double getMovementMult(final int moveIdx)
 	{
-		if ((getMovements() != null) && (moveIdx < movementMult.length))
+		if ((movements != null) && (moveIdx < movementMult.length))
 		{
 			return movementMult[moveIdx];
 		}
@@ -10093,16 +10087,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 		// setDirty(true);
-	}
-
-	/**
-	 * an array of movement speeds
-	 * 
-	 * @return array of Integer movement speeds
-	 */
-	public Double[] getMovements()
-	{
-		return movements;
 	}
 
 	/**
@@ -10713,7 +10697,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final StringTokenizer aTok =
 				new StringTokenizer(aString, Constants.PIPE);
-		String outputString = Constants.PIPE;
 
 		while (aTok.hasMoreTokens())
 		{
@@ -10739,13 +10722,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			}
-			else
-			{
-				outputString += (bString + Constants.PIPE);
-			}
 		}
-
-		aString = outputString.substring(1); // TODO: value never used
 	}
 
 	/**
@@ -11847,7 +11824,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		calcActiveBonuses();
 	}
 
-	private class CasterLevelSpellBonus
+	private static class CasterLevelSpellBonus
 	{
 		private int bonus;
 		private String type;
@@ -12107,44 +12084,44 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		for (String book : spellBooks)
 		{
-			aClone.addSpellBook(new String(book));
+			aClone.addSpellBook(book);
 		}
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.selectedFavoredClass = selectedFavoredClass;
-		aClone.setBio(new String(getBio()));
-		aClone.setBirthday(new String(getBirthday()));
-		aClone.setBirthplace(new String(getBirthplace()));
-		aClone.setCatchPhrase(new String(getCatchPhrase()));
-		aClone.setCurrentEquipSetName(new String(getCurrentEquipSetName()));
-		aClone.setDescription(new String(getDescription()));
-		aClone.setDescriptionLst(new String(getDescriptionLst()));
-		aClone.setEyeColor(new String(getEyeColor()));
-		aClone.setFileName(new String(getFileName()));
+		aClone.setBio(getBio());
+		aClone.setBirthday(getBirthday());
+		aClone.setBirthplace(getBirthplace());
+		aClone.setCatchPhrase(getCatchPhrase());
+		aClone.setCurrentEquipSetName(getCurrentEquipSetName());
+		aClone.setDescription(getDescription());
+		aClone.setDescriptionLst(getDescriptionLst());
+		aClone.setEyeColor(getEyeColor());
+		aClone.setFileName(getFileName());
 		aClone.setGender(getGenderObject());
-		aClone.setHairColor(new String(getHairColor()));
-		aClone.setHairStyle(new String(getHairStyle()));
-		aClone.setHanded(new String(getHanded()));
-		aClone.setInterests(new String(getInterests()));
-		aClone.setLocation(new String(getLocation()));
-		aClone.setName(new String(getName()));
-		aClone.setPhobias(new String(getPhobias()));
-		aClone.setPlayersName(new String(getPlayersName()));
-		aClone.setPortraitPath(new String(getPortraitPath()));
+		aClone.setHairColor(getHairColor());
+		aClone.setHairStyle(getHairStyle());
+		aClone.setHanded(getHanded());
+		aClone.setInterests(getInterests());
+		aClone.setLocation(getLocation());
+		aClone.setName(getName());
+		aClone.setPhobias(getPhobias());
+		aClone.setPlayersName(getPlayersName());
+		aClone.setPortraitPath(getPortraitPath());
 		if (getRegion() != null)
 		{
-			aClone.setRegion(new String(getRegion()));
+			aClone.setRegion(getRegion());
 		}
-		aClone.setResidence(new String(getResidence()));
-		aClone.setSkinColor(new String(getSkinColor()));
-		aClone.setSpeechTendency(new String(getSpeechTendency()));
+		aClone.setResidence(getResidence());
+		aClone.setSkinColor(getSkinColor());
+		aClone.setSpeechTendency(getSpeechTendency());
 		if (getSubRegion() != null)
 		{
-			aClone.setSubRegion(new String(getSubRegion()));
+			aClone.setSubRegion(getSubRegion());
 		}
-		aClone.tabName = new String(tabName);
-		aClone.setTrait1(new String(getTrait1()));
-		aClone.setTrait2(new String(getTrait2()));
+		aClone.tabName = tabName;
+		aClone.setTrait1(getTrait1());
+		aClone.setTrait2(getTrait2());
 		if (theWeaponProfs != null)
 		{
 			aClone.theWeaponProfs = new TreeSet<WeaponProf>();
@@ -12153,8 +12130,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;
-		aClone.outputSheetHTML = new String(outputSheetHTML);
-		aClone.outputSheetPDF = new String(outputSheetPDF);
+		aClone.outputSheetHTML = outputSheetHTML;
+		aClone.outputSheetPDF = outputSheetPDF;
 		aClone.ageSetKitSelections = new boolean[10];
 
 		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0,
@@ -12876,9 +12853,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public HashMap<Nature, Set<Ability>> getAbilitiesSet()
 	{
-
-		final Set<Category<Ability>> abCats = abilityFacet.getCategories(id);
-
 		HashMap<Nature, Set<Ability>> st =
 				new HashMap<Nature, Set<Ability>>();
 
@@ -15674,7 +15648,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		abilityFacet.add(id, cat, nature, abil);
 	}
 
-	private class AbilityMonitor implements DataFacetChangeListener<Ability>
+	private static class AbilityMonitor implements DataFacetChangeListener<Ability>
 	{
 
 		boolean changed = false;
