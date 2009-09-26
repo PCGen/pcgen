@@ -284,7 +284,7 @@ public class WeaponProfChoiceManager extends AbstractBasicPObjectChoiceManager<W
 						}
 
 						// or try to remove it and reset the iterator since remove cause fits
-						else if (!adding && availableList.contains(wp.getKeyName()))
+						else if (!adding && availableList.contains(wp))
 						{
 							availableList.remove(wp);
 							setIter = availableList.iterator();
