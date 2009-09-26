@@ -364,4 +364,3 @@ STARTPACK:Treasure Table 1/10 Coins CR20	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT
 SELECT:roll("1d100")
 GEAR:Coin (Gold)		QTY:roll("4d8")*100	OPTION:3,65
 GEAR:Coin (Platinum)	QTY:roll("4d10")*10	OPTION:66,100
-

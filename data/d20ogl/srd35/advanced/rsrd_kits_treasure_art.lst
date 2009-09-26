@@ -82,4 +82,3 @@ STARTPACK:Treasure Table Art 7000gp	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIP
 SELECT:roll("1d2")
 GEAR:Art (Ring (Gold and Ruby))		EQMOD:ART|EVAL(roll("2d6")*1000)	OPTION:1
 GEAR:Art (Cup (Gold Set with Emeralds))	EQMOD:ART|EVAL(roll("2d6")*1000)	OPTION:2
-

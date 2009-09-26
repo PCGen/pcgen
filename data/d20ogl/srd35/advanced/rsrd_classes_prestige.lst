@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov  7 12:51:45 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -9,8 +9,8 @@ CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:Prest
 # Class Name		Req. Att.	Required Feat															Required Race		Req. Spell Type
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -28,7 +28,7 @@ CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:Pr
 # Class Name		Required AL				Required Skill												Req. Known Spell		Req. Spell Type		Var. Min. Value
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
+CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
 1	BONUS:VAR|RangedLegermain|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Ranged Legerdemain
 2	BONUS:VAR|SneakAttack|CL/2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3	BONUS:VAR|ImpromptuSneak|(CL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack
@@ -42,10 +42,10 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Conce
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Archmage	HD:4		TYPE:PC.Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Multiple Requirements																																																								Required Skill						Req. Spell Type
-CLASS:Archmage	PREMULT:2,[PREFEAT:1,Skill Focus (Spellcraft)],[PREFEAT:2,CHECKMULT,Spell Focus]	PREMULT:5,[PRESPELLSCHOOL:1,Abjuration=5],[PRESPELLSCHOOL:1,Conjuration=5],[PRESPELLSCHOOL:1,Divination=5],[PRESPELLSCHOOL:1,Enchantment=5],[PRESPELLSCHOOL:1,Evocation=5],[PRESPELLSCHOOL:1,Illusion=5],[PRESPELLSCHOOL:1,Necromancy=5],[PRESPELLSCHOOL:1,Transmutation=5]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRESPELLTYPE:1,Arcane=7
+# Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
+CLASS:Archmage	PREMULT:2,[PREFEAT:1,Skill Focus (Spellcraft)],[PREFEAT:2,CHECKMULT,Spell Focus]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRESPELLSCHOOL:5,Abjuration=5,Conjuration=5,Divination=5,Enchantment=5,Evocation=5,Illusion=5,Necromancy=5,Transmutation=5	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
+CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
 1	BONUS:ABILITYPOOL|High Arcana Ability|CL	ADD:SPELLCASTER|Arcane
 2								ADD:SPELLCASTER|Arcane
 3								ADD:SPELLCASTER|Arcane
@@ -57,13 +57,13 @@ CLASS:Assassin	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:PrestigeCl
 # Class Name	Required AL		Required Skill
 CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|CL
 1	ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Death Attack|Poison Use
+1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Death Attack|Poison Use|Sneak Attack
 2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|1												ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
 3	CAST:0,2,0		KNOWN:0,3,2
 4	CAST:0,3,1		KNOWN:0,4,3
@@ -80,11 +80,11 @@ CLASS:Blackguard	HD:10		TYPE:PC.Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:Prestig
 # Class Name	Required AL		Req. Att.	Required Feat						Required Skill
 CLASS:Blackguard	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:3,Cleave,Improved Sunder,Power Attack	PRESKILL:2,Hide=5,Knowledge (Religion)=2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Hide|Intimidate|Knowledge (Religion)|TYPE.Profession|Ride
+CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|CL
 # Turning
-3	BONUS:VAR|TurnLevelBase|CL-2										ABILITY:Special Ability|AUTOMATIC|Rebuke Undead|Basic Turning
+3	BONUS:VAR|TurnLevelBase|CL-2										ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 3	BONUS:VAR|TurnDamagePlusBase|CL-2
 # Smite Good
 1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1			ABILITY:Special Ability|AUTOMATIC|Smite Good
@@ -99,11 +99,11 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	ABILITY:Special Ability|AUTOMATIC|Undead Companion|PRECLASS:1,Ex Paladin=9
 5	BONUS:VAR|FSLevel|CL							ABILITY:Special Ability|AUTOMATIC|Fiendish Servant
 ###Block: Weapons / Armor Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	ABILITY:Special Ability|AUTOMATIC|Poison Use|Detect Good|Aura of Evil
+1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|Detect Good|Poison Use
 2	CAST:0,1												ABILITY:Special Ability|AUTOMATIC|Dark Blessing
 3	CAST:0,1,0												ABILITY:Special Ability|AUTOMATIC|Aura of Despair
 4	CAST:0,1,1
@@ -117,10 +117,10 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page					Save checks bonus											Combat bonus
 CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	ABB:DrD		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Language		Prohibited Race		Required Skill				Required Casting Type							Prohibited Template
-CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=NO	PRESPELLCAST:TYPE.Arcane	!PRETEMPLATE:1,Half Dragon
+# Class Name		Required Language		Prohibited Race		Required Skill				Required Casting Type						Prohibited Template
+CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=N	PRESPELLCAST:TYPE=Arcane	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Escape Artist|Gather Information|TYPE.Knowledge|Listen|TYPE.Profession|Search|Speak Language|Spellcraft|Spot
+CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Escape Artist|Gather Information|TYPE=Knowledge|Listen|TYPE=Profession|Search|Speak Language|Spellcraft|Spot
 ###COMMENT: CHOICE is invalid without COST tag, and as these aren't specializing in a Spell SCHOOL isn't required. Commented out and replaced with COST tag. - AM
 #SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
 SUBCLASS:Black Dragon Disciple	COST:0
@@ -171,16 +171,16 @@ SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 7																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							BONUS:VAR|BreathWeaponDice|2
 8										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|INT|2
 9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																										ABILITY:Special Ability|AUTOMATIC|Dragon Wings
-10	VISION:Blindsense (60')|Low-light|Darkvision (60')									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep|Immunity To Paralysis
+10	VISION:Blindsense (60')|Darkvision (60')|Low-light									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat					Multiple Requirements
-CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PREMULT:2,[PRESKILL:1,TYPE.Perform=3],[PRESKILL:1,Tumble=5]
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,TYPE.Perform=3,Tumble=5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE.Perform|Sense Motive|Spot|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE=Perform|Sense Motive|Spot|Tumble
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Special Ability|AUTOMATIC|Canny Defense
 2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Special Ability|AUTOMATIC|Improved Reaction
@@ -189,7 +189,7 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 5	BONUS:VAR|PreciseStrike|CL/5				ABILITY:Special Ability|AUTOMATIC|Precise Strike
 6									ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
 7	BONUS:VAR|ElaborateParryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Elaborate Parry
-9																		VFEAT:Deflect Arrows|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded|PREEQUIP:1,TYPE=Piercing
+9																		VFEAT:Deflect Arrows|PREEQUIP:1,TYPE=Piercing|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded
 
 # Used DR:1/- in level line 6 to initialize Damage reduction, DR:0/- doesnt allow BONUS:DR to function
 # Not sure if I added the Dodge AC bonus correctly in level line 1
@@ -200,9 +200,9 @@ CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:P
 # Class Name		Required AL		Req. Att.	Required Feat				Required Race
 CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spot
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spot
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
@@ -217,7 +217,7 @@ CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:Pre
 # Class Name		Required Ability										Req. Spell Type
 CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
+CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
 1	BONUS:ABILITYPOOL|Fighter Feat|1
 2							ADD:SPELLCASTER|Arcane
 3							ADD:SPELLCASTER|Arcane
@@ -235,7 +235,7 @@ CLASS:Hierophant	HD:8		TYPE:PC.Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeC
 # Class Name	Required Feat			Required Skill				Req. Spell Type
 CLASS:Hierophant	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:1,Divine=7
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
+CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1	BONUS:ABILITYPOOL|Hierophant Ability|CL	BONUS:CASTERLEVEL|TYPE.Divine|CL
 
 
@@ -244,7 +244,7 @@ CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:Pres
 # Class Name		Required Feat		Required Skill
 CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=8
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Knowledge (Geography)|Listen|Move Silently|TYPE.Profession|Ride|Speak Language|Spot|Survival
+CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Speak Language|Spot|Survival
 1	BONUS:ABILITYPOOL|Terrain Mastery|min(CL,5)
 6	BONUS:ABILITYPOOL|Advanced Terrain Mastery|min(CL-5,5)
 
@@ -255,26 +255,26 @@ CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Anima
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat												Required Skill						Required Spell School
-CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
+CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft|Use Magic Device
-1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	ADD:SPELLCASTER|ANY	DEFINE:SecretLore|0
-2														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
-3														ADD:SPELLCASTER|ANY
-4														ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-5														ADD:SPELLCASTER|ANY
-6														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
-7														ADD:SPELLCASTER|ANY
-8														ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
-9														ADD:SPELLCASTER|ANY
-10														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
+CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Speak Language|Spellcraft|Use Magic Device
+1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY
+2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
+3																		ADD:SPELLCASTER|ANY
+4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
+5																		ADD:SPELLCASTER|ANY
+6																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
+7																		ADD:SPELLCASTER|ANY
+8																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
+9																		ADD:SPELLCASTER|ANY
+10																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Mystic Theurge	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Sense Motive|Spellcraft
+CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 3	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
@@ -291,7 +291,7 @@ CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:Presti
 # Class Name		Required Feat					Required Skill
 CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:3,Hide=10,Move Silently=8,Perform (Dance)=5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Search|Sleight of Hand|Spot|Tumble|Use Rope
+CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sleight of Hand|Spot|Tumble|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|Shadowdancer Weapon Proficiencies
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
@@ -310,7 +310,7 @@ CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:Presti
 # Class Name		Required Feat				Req. Known Spell
 CLASS:Thaumaturgist	PREFEAT:1,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (Lesser)
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE.Profession|Sense Motive|Speak Language|Spellcraft
+CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Speak Language|Spellcraft
 1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Improved Ally
 2	ADD:SPELLCASTER|ANY											AUTO:FEAT|Augment Summoning
 3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Extended Summoning

@@ -97,4 +97,3 @@ GEAR:Gem (Diamond (Pink))				EQMOD:GEM|EVAL(roll("2d4")*1000)	OPTION:4
 GEAR:Gem (Diamond (Brown))				EQMOD:GEM|EVAL(roll("2d4")*1000)	OPTION:5
 GEAR:Gem (Diamond (Blue))				EQMOD:GEM|EVAL(roll("2d4")*1000)	OPTION:6
 GEAR:Gem (Jacinth)					EQMOD:GEM|EVAL(roll("2d4")*1000)	OPTION:7
-
