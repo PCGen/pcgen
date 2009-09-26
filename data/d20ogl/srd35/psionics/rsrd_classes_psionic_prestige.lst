@@ -13,7 +13,7 @@ CLASS:Cerebremancer	HD:4		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPA
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Psionics)|TYPE.Profession|Psicraft|Spellcraft
+CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Psionics)|TYPE=Profession|Psicraft|Spellcraft
 ###Block: Class Info
 1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
 2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
@@ -31,7 +31,7 @@ CLASS:Elocator	HD:6		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:Ps
 # Class Name	Req. Att.	Required Feat				Required Skill			Req. Spell Type
 CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentration=8	PRESPELLTYPE:1,Psionic=1
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE.Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
+CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
 1														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Scorn Earth															AUTO:FEAT|Sidestep Charge
@@ -50,7 +50,7 @@ CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAG
 # Class Name		Required Ability							Req. Att.	Required Feat		Required Skill
 CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Still Mind	PREATT:4	PREFEAT:1,Wild Talent	PRESKILL:1,Concentration=9
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE.Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
+CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Fist|CL	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
@@ -84,10 +84,10 @@ CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Info
-1											ABILITY:Special Ability|AUTOMATIC|Slayer Favored Enemy|Sense Favored Enemy
+1											ABILITY:Special Ability|AUTOMATIC|Sense Favored Enemy|Slayer Favored Enemy
 2	BONUS:VAR|BrainNausea|15+CL		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
 3							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Lucid Buffer
 4	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic
@@ -103,7 +103,7 @@ CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:Ps
 # Class Name	Required Class				Required Feat			Required Skill
 CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
+CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
 1	BONUS:VAR|FreeManifestingProgression|(CL+1)/2					ABILITY:Special Ability|AUTOMATIC|Free Manifesting
 2	BONUS:VAR|CogPsiCrystal|5				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cognizance Psicrystal
@@ -117,7 +117,7 @@ CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCE
 # Class Name		Required Feat		Required Skill						Req. Spell Type
 CLASS:Psion Uncarnate	PREFEAT:1,Psionic Body	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=8	PRESPELLTYPE:1,Psionic=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
+CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
 1	BONUS:VAR|UncarnateIncorporealTouch|1							ABILITY:Special Ability|AUTOMATIC|Uncarnate Armor|Uncarnate Incorporeal Touch
 2	BONUS:VAR|ShedBody|1						ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Shed Body
@@ -135,7 +135,7 @@ CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEP
 # Class Name		Required AL		Required Skill										Required Template
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:1,Psionic
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Intimidate|Jump|Psicraft
+CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Jump|Psicraft
 ###Block: Psionic Variables
 ###Block: Class Info
 1							ABILITY:Special Ability|AUTOMATIC|Fire Lash
@@ -154,7 +154,7 @@ CLASS:Thrallherd	HD:4		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:
 # Class Name	Required Class				Required Feat		Required Skill						Req. Known Spell
 CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Inquisitor	PRESKILL:2,Knowledge (Psionics)=8,Diplomacy=4	PRESPELL:1,Mindlink
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE.Craft|Diplomacy|Knowledge (Psionics)|Psicraft|Sense Motive
+CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Diplomacy|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
 1									BONUS:VAR|ThrallherdScore|(TL+CHA+CL)					ABILITY:Special Ability|AUTOMATIC|Thrallherd
 2																ADD:SPELLCASTER|Psionic

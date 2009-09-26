@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan  7 21:23:13 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
@@ -16,7 +16,7 @@ Psionic Talent Power Points	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BO
 Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
 
 ###Block: Mind Blade abilities
-# Ability Name			Output Name						Category of Ability		Type						Visible	Define																Description				Automatically Gained Weapon Prof.	Modify VAR																										ASPECT
+# Ability Name			Output Name						Category of Ability		Type						Visible	Define																Description				Automatically Gained Weapon Prof.	Modify VAR																										Aspects
 MindBlade Wielder										CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0						AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
 MindBlade Standard		OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
 MindBlade Throw			OUTPUTNAME:Throw Mind Blade			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES
@@ -30,7 +30,7 @@ MindBlade Knife to the Soul	OUTPUTNAME:Knife to the Soul			CATEGORY:Special Abil
 MindBlade Multiple Throw	OUTPUTNAME:Multiple Throw			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
 
 ###Block: Wilder Abilities
-# Ability Name		Category of Ability		Type					Visible	Define				Description												ASPECT
+# Ability Name		Category of Ability		Type					Visible	Define				Description												Aspects
 Psychic Enervation	CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES	DEFINE:PsychicEnervation|0	DESC:+%1 percent/lvl added|PsychicEnervation
 Wild Surge			CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES	DEFINE:WildSurge|0		DESC:+%1|WildSurge										ASPECT:Ability Benefit|+%1|WildSurge
 Elude Touch			CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:EludeTouch|0		DESC:+%1 AC vs. Touch Attacks|EludeTouch							ASPECT:Ability Benefit|+%1 AC vs. Touch Attacks|EludeTouch
@@ -38,10 +38,10 @@ Surging Euphoria		CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES	DEFI
 Volatile Mind		CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES	DEFINE:VolatileMind|0		DESC:+%1 PP cost for telepathy powers used against character|VolatileMind
 
 ###Block: Elocator abilities
-# Ability Name		Category of Ability		Type									Visible	Define				Description										Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level										ASPECT
-Elocator Transporter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:YES																	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Teleport (Psionic),Plane Shift (Psionic)
+# Ability Name		Category of Ability		Type									Visible	Define				Description										Stackable?	Multiple?	Choose			Bonus to spell known/L				Aspects							List of Class Spells by Level
+Elocator Transporter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:YES																	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2									SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Plane Shift (Psionic),Teleport (Psionic)
 Scorn Earth			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
-Opportunistic Strike	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES	DEFINE:OpportunisticStrike|0	DESC:+%1|OpportunisticStrike																																				ASPECT:Ability Benefit|+%1|OpportunisticStrike
+Opportunistic Strike	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES	DEFINE:OpportunisticStrike|0	DESC:+%1|OpportunisticStrike																						ASPECT:Ability Benefit|+%1|OpportunisticStrike
 Dimension Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES
 Flanker			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES						DESC:Designate adjacent square to be determination for flanking
 Capricious Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES						DESC:Extra 5' step in round with no other movement than the steps
@@ -51,7 +51,7 @@ Accelerated Action	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Mod
 ###Block: Slayer abilities
 # Ability Name		Output Name				Category of Ability		Type							Visible	Special ABility														Define				Description																													ASPECT
 #TODO we can add a CHOOSE to set the Favored Enemy selection
-# Ability Name		Output Name				Category of Ability		Type							Visible	Define				Description																													ASPECT
+# Ability Name		Output Name				Category of Ability		Type							Visible	Define				Description																													Aspects
 Slayer Favored Enemy	OUTPUTNAME:Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES	DEFINE:SlayerFavoredEnemy|0	DESC:+%1 bonus on weapon damage rolls and +%1 bonus on Bluff, Listen, Sense Motive, Spot, and Survival checks when using these skills against her favored enemy.|SlayerFavoredEnemy	ASPECT:Ability Benefit|+%1|SlayerFavoredEnemy
 Sense Favored Enemy	OUTPUTNAME:Enemy Sense		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense	VISIBLE:YES						DESC:You can sense the presence of her favored enemy within 60 feet of yourself.
 Brain Nausea							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:YES	DEFINE:BrainNausea|0		DESC:Will Save DC %1|BrainNausea
@@ -68,7 +68,7 @@ Font of Power		CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES
 Cognizance Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES	DEFINE:CogPsiCrystal|0			DESC:%1 points|CogPsiCrystal
 
 ###Block: Psion Uncarnate abilities
-# Ability Name			Output Name				Category of Ability		Type						Visible	Define					Description																	ASPECT
+# Ability Name			Output Name				Category of Ability		Type						Visible	Define					Description																	Aspects
 Uncarnate Armor								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:UncarnateIncorporealTouch|0	DESC:%1d6 (3x/day)|UncarnateIncorporealTouch											ASPECT:Ability Benefit|%1d6|UncarnateIncorporealTouch
 Shed Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:ShedBody|0				DESC:%1x/day|ShedBody

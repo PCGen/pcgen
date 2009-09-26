@@ -15,17 +15,17 @@ CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
 ###COMMENT: Choice is invalid. Commented out CHOICE. - AM
-SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Balance|Heal
+SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Balance|Heal
 #SUBCLASS:Egoist		CHOICE:SCHOOL|Psychometabolism
-SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
+SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
 #SUBCLASS:Kineticist	CHOICE:SCHOOL|Psychokinesis
-SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
+SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
 #SUBCLASS:Nomad		CHOICE:SCHOOL|Psychoportation
-SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:2|Seer|Psion		CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Gather Information|Listen|Spot
+SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Gather Information|Listen|Spot
 #SUBCLASS:Seer		CHOICE:SCHOOL|Clairsentience
-SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:2|Shaper|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Disguise|Use Psionic Device
+SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Disguise|Use Psionic Device
 #SUBCLASS:Shaper		CHOICE:SCHOOL|Metacreativity
-SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
+SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Psion Weapon Proficiencies
@@ -70,13 +70,13 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Conce
 # Class Name		Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Craft|Jump|Knowledge (Psionics)|TYPE.Profession|Ride|Search|Swim
+CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Psionics)|TYPE=Profession|Ride|Search|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
@@ -114,7 +114,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 # Class Name	Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE.Profession|Spot|Tumble
+CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
@@ -142,7 +142,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 # Class Name	Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE.Craft|Escape Artist|Intimidate|Jump|Knowledge (Psionics)|Listen|TYPE.Profession|Psicraft|Sense Motive|Spot|Swim|Tumble
+CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE=Craft|Escape Artist|Intimidate|Jump|Knowledge (Psionics)|Listen|TYPE=Profession|Psicraft|Sense Motive|Spot|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 ###Block:Proficiencies
