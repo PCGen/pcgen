@@ -49,15 +49,15 @@ public class RacialSubTypesFacet
 	 * @return A Collection of the Racial Sub Types for the Player Character
 	 *         represented by the given CharID
 	 */
-	public Collection<String> getRacialSubTypes(CharID id)
+	public Collection<RaceSubType> getRacialSubTypes(CharID id)
 	{
-		final ArrayList<String> racialSubTypes = new ArrayList<String>();
+		List<RaceSubType> racialSubTypes = new ArrayList<RaceSubType>();
 		Race race = raceFacet.get(id);
 		if (race != null)
 		{
 			for (RaceSubType st : race.getSafeListFor(ListKey.RACESUBTYPE))
 			{
-				racialSubTypes.add(st.toString());
+				racialSubTypes.add(st);
 			}
 		}
 		Set<PCTemplate> templates = templateFacet.getSet(id);
@@ -73,15 +73,25 @@ public class RacialSubTypesFacet
 			}
 			for (RaceSubType st : added)
 			{
-				racialSubTypes.add(st.toString());
+				racialSubTypes.add(st);
 			}
 			for (RaceSubType st : removed)
 			{
-				racialSubTypes.remove(st.toString());
+				racialSubTypes.remove(st);
 			}
 		}
 
 		return Collections.unmodifiableList(racialSubTypes);
+	}
+
+	public boolean contains(CharID id, RaceSubType st)
+	{
+		return getRacialSubTypes(id).contains(st);
+	}
+
+	public int getCount(CharID id)
+	{
+		return getRacialSubTypes(id).size();
 	}
 
 }

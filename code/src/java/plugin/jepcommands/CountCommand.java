@@ -38,6 +38,7 @@ import org.nfunk.jep.ParseException;
 
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
@@ -576,7 +577,7 @@ public class CountCommand extends PCGenCommand
 				{
 					// RaceSubTypes are not PObjects
 
-					public Set<String> objdata = new HashSet<String>();
+					public Set<RaceSubType> objdata = new HashSet<RaceSubType>();
 
 					protected void getData(final PlayerCharacter pc)
 					{
@@ -615,7 +616,11 @@ public class CountCommand extends PCGenCommand
 											c));
 						}
 
-						final Set<String> rSet = new HashSet<String>(objdata);
+						final Set<String> rSet = new HashSet<String>();
+						for (RaceSubType rst : objdata)
+						{
+							rSet.add(rst.toString());
+						}
 
 						// If we want all then we don't need to filter.
 						if (!"ALL".equalsIgnoreCase(keyValue[1]))
@@ -634,7 +639,7 @@ public class CountCommand extends PCGenCommand
 							{
 								final String pcRaceSubType = pcRaceSubTypeIterator.next();
 
-								for (final Object aType : typeList)
+								for (final String aType : typeList)
 								{
 									if (!pcRaceSubType.equals(aType))
 									{

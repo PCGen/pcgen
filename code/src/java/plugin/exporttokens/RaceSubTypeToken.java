@@ -29,6 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -68,17 +70,18 @@ public class RaceSubTypeToken extends Token
 			}
 		}
 
-		return getRaceSubTypeToken(pc, i);
+		RaceSubType rst = getRaceSubTypeToken(pc, i);
+		return rst == null ? Constants.EMPTY_STRING : rst.toString();
 	}
 
-	private static String getRaceSubTypeToken(PlayerCharacter pc, int index)
+	private static RaceSubType getRaceSubTypeToken(PlayerCharacter pc, int index)
 	{
 		//CONSIDER Why is this necessary to protect the index?  Calling code should be more careful
-		List<String> subTypes = new ArrayList<String>(pc.getRacialSubTypes());
+		List<RaceSubType> subTypes = new ArrayList<RaceSubType>(pc.getRacialSubTypes());
 		if (index >= 0 && index < subTypes.size())
 		{
 			return subTypes.get(index);
 		}
-		return "";
+		return null;
 	}
 }

@@ -80,6 +80,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
@@ -1114,11 +1115,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Gets a <tt>List</tt> of racial subtypes for the character (e.g. Good).
+	 * Gets a <tt>Collection</tt> of racial subtypes for the character (e.g. Good).
 	 * 
-	 * @return A unmodifiable <tt>List</tt> of subtypes.
+	 * @return A unmodifiable <tt>Collection</tt> of subtypes.
 	 */
-	public Collection<String> getRacialSubTypes()
+	public Collection<RaceSubType> getRacialSubTypes()
 	{
 		return subTypesFacet.getRacialSubTypes(id);
 	}
@@ -15722,5 +15723,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void doAfavorForAunitTestThatIgnoresEquippingRules()
 	{
 		equippedFacet.reset(id);
+	}
+
+	public boolean containsRacialSubType(RaceSubType st)
+	{
+		return subTypesFacet.contains(id, st);
+	}
+
+	public int getRacialSubTypeCount()
+	{
+		return subTypesFacet.getCount(id);
 	}
 }

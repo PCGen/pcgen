@@ -150,16 +150,13 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 			|| requiredRace.startsWith("RACESUBTYPE."))
 		{
 			final String reqType = requiredRace.substring(12);
-			for (String subType : character.getRacialSubTypes())
+			RaceSubType st = RaceSubType.getConstant(reqType);
+			if (character.containsRacialSubType(st))
 			{
-				if (reqType.equalsIgnoreCase(subType))
-				{
-					++runningTotal;
-				}
+				++runningTotal;
 			}
 			if(runningTotal == 0)
 			{
-				RaceSubType st = RaceSubType.getConstant(reqType);
 BREAKOUT:		for (Race imitator: servesAsRace.keySet())
 					{
 						for (Race mock: servesAsRace.get(imitator))

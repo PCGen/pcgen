@@ -39,7 +39,7 @@ public class PCCountRaceSubTypesTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getRacialSubTypes().size();
+		return (float) pc.getRacialSubTypeCount();
 	}
 
 	public boolean isSourceDependant()
