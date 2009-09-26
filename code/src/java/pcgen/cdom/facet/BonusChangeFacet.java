@@ -75,7 +75,7 @@ public class BonusChangeFacet
 
 	}
 
-	public class BonusChangeEvent
+	public static class BonusChangeEvent
 	{
 
 		private final CharID charID;

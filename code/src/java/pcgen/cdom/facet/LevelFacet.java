@@ -100,7 +100,7 @@ public class LevelFacet implements ClassLevelChangeListener
 		return (LevelCacheInfo) FacetCache.get(id, thisClass);
 	}
 
-	private class LevelCacheInfo
+	private static class LevelCacheInfo
 	{
 		public int monsterLevels;
 		public int nonMonsterLevels;

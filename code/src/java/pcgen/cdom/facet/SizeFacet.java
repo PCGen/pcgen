@@ -174,7 +174,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		return (SizeFacetInfo) FacetCache.get(id, thisClass);
 	}
 
-	private class SizeFacetInfo
+	private static class SizeFacetInfo
 	{
 		public int sizeInt;
 		public int racialSizeInt;

@@ -237,7 +237,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info;
 	}
 
-	public class ClassInfo
+	public static class ClassInfo
 	{
 		private Map<PCClass, Map<Integer, PCClassLevel>> map = new LinkedHashMap<PCClass, Map<Integer, PCClassLevel>>();
 		private Map<PCClass, Integer> levelmap = new HashMap<PCClass, Integer>();

@@ -307,7 +307,7 @@ public class RegionFacet
 	 * Player Character's Region and SubRegion if they are directly set by a
 	 * user.
 	 */
-	private class RegionCacheInfo
+	private static class RegionCacheInfo
 	{
 		public Region region;
 

@@ -183,7 +183,7 @@ public class MoneyFacet
 	 * MoneyCacheInfo is the data structure used by MoneyFacet to store a Player
 	 * Character's Gold, and various Money settings (AllowDebt, IgnoreCost)
 	 */
-	private class MoneyCacheInfo
+	private static class MoneyCacheInfo
 	{
 		public BigDecimal gold = ZERO;
 		public boolean allowDebt;
