@@ -65,8 +65,8 @@ public class SkillLevelToken extends SkillToken
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
-		if (details.getProperties().length > 0
-			&& "TOTAL".equals(details.getProperties()[0]))
+		if (details.getPropertyCount() > 0
+			&& "TOTAL".equals(details.getProperty(0)))
 		{
 			final int aLevelOffset;
 

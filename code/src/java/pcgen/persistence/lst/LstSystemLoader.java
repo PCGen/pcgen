@@ -1187,10 +1187,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			File miscInfoFile = new File(specGameModeDir, "miscinfo.lst");
 			final GameMode gm =
 					loadGameModeMiscInfo(gameFile, miscInfoFile.toURI());
-			String gmName = gm.getName();
-			SettingsHandler.setGame(gmName);
 			if (gm != null)
 			{
+				String gmName = gm.getName();
+				SettingsHandler.setGame(gmName);
 				LoadContext context = gm.getModeContext();
 				loadGameModeInfoFile(gm, new File(specGameModeDir, "level.lst")
 						.toURI(), "level");

@@ -64,8 +64,8 @@ public class TabLoader
 			}
 			else
 			{
-				Logging.errorPrint("Invalid sub tag " + token + " on TAB line");
-				throw new PersistenceLayerException("Invalid sub tag " + token
+				Logging.errorPrint("Invalid sub tag " + key + " on TAB line");
+				throw new PersistenceLayerException("Invalid sub tag " + key
 					+ " on TAB line");
 			}
 		}

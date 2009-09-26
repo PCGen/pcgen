@@ -121,7 +121,7 @@ public class BonusChangeFacet
 
 	}
 
-	public class BonusChangeSupport
+	public static class BonusChangeSupport
 	{
 		private DoubleKeyMapToList<String, String, BonusChangeListener> listeners = new DoubleKeyMapToList<String, String, BonusChangeListener>();
 

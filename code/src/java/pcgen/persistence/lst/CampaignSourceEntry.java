@@ -439,8 +439,6 @@ public class CampaignSourceEntry implements SourceEntry
 			// Check for surrounding parens
 			while (inExString.startsWith("("))
 			{
-				// assume matching parens
-				inExString = inExString.substring(1, inExString.length() - 1);
 				Logging
 						.errorPrint("Found Suffix in Campaign Source with multiple parenthesis: "
 								+ "Single set of parens required around INCLUDE/EXCLUDE");
@@ -500,7 +498,6 @@ public class CampaignSourceEntry implements SourceEntry
 	{
 		boolean hasCategory = false;
 		boolean hasKeyOnly = false;
-		List<String> keyList = new ArrayList<String>();
 		List<String> catKeyList = new ArrayList<String>();
 		String target = inExString.substring(8);
 		if (target == null || target.length() == 0)
@@ -508,7 +505,7 @@ public class CampaignSourceEntry implements SourceEntry
 			Logging.errorPrint("Must Specify Items after :");
 			return null;
 		}
-		keyList = CoreUtility.split(target, '|');
+		List<String> keyList = CoreUtility.split(target, '|');
 		for (String key : keyList)
 		{
 			if (key.startsWith("CATEGORY="))

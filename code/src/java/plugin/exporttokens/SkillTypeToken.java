@@ -70,14 +70,14 @@ public class SkillTypeToken extends SkillToken
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
-		if (details.getProperties().length < 2)
+		if (details.getPropertyCount() < 2)
 		{
 			return "";
 		}
 
 		Skill aSkill = getSkill(tokenSource, pc, details, eh);
 
-		return getSkillProperty(aSkill, details.getProperties()[1], pc);
+		return getSkillProperty(aSkill, details.getProperty(1), pc);
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class SkillTypeToken extends SkillToken
 		final List<Skill> skillSubset = new ArrayList<Skill>();
 		for (Skill bSkill : pc.getSkillListInOutputOrder())
 		{
-			if (bSkill.isType(details.getProperties()[0]))
+			if (bSkill.isType(details.getProperty(0)))
 			{
 				skillSubset.add(bSkill);
 			}

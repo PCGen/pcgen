@@ -510,13 +510,14 @@ public class SkillToken extends Token
 			this.properties = inProperties;
 		}
 
-		/**
-		 * Get properties
-		 * @return properties
-		 */
-		public String[] getProperties()
+		public int getPropertyCount()
 		{
-			return properties;
+			return properties.length;
+		}
+
+		public String getProperty(int i)
+		{
+			return properties[i];
 		}
 
 		/**

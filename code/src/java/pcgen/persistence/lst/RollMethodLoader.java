@@ -75,9 +75,9 @@ public class RollMethodLoader
 			}
 			else
 			{
-				Logging.errorPrint("Invalid sub tag " + token
+				Logging.errorPrint("Invalid sub tag " + key
 					+ " on ROLLMETHOD line");
-				throw new PersistenceLayerException("Invalid sub tag " + token
+				throw new PersistenceLayerException("Invalid sub tag " + key
 					+ " on ROLLMETHOD line");
 			}
 

@@ -29,7 +29,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
 
@@ -710,7 +709,6 @@ public abstract class LstObjectFileLoader<T extends PObject> extends Observable
 		private CampaignSourceEntry source = null;
 		private String lstLine = null;
 		private int lineNumber = 0;
-		private Map<String, String> sourceMap = null;
 
 		/**
 		 * ModEntry constructor.

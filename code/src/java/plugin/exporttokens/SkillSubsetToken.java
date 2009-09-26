@@ -70,14 +70,14 @@ public class SkillSubsetToken extends SkillToken
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
-		if (details.getProperties().length < 2)
+		if (details.getPropertyCount() < 2)
 		{
 			return "";
 		}
 
 		Skill aSkill = getSkill(tokenSource, pc, details, eh);
 
-		return getSkillProperty(aSkill, details.getProperties()[1], pc);
+		return getSkillProperty(aSkill, details.getProperty(1), pc);
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class SkillSubsetToken extends SkillToken
 		}
 
 		// Build the list of matching skills
-		String skillPrefix = details.getProperties()[0];
+		String skillPrefix = details.getProperty(0);
 		int prefixLength = skillPrefix.length();
 		List<Skill> skillSubset = new ArrayList<Skill>();
 		final List<Skill> skills =

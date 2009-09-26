@@ -42,7 +42,7 @@ import java.util.regex.Pattern;
 public final class SourceLogFormatter extends Formatter
 {
 	private static final char SEPERATOR = ' ';
-	private static final SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss.S");
+	private final SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss.S");
 	private final Date date = new Date(); 
 	private static final Pattern javaExtPattern = Pattern.compile("\\.java");
 	
