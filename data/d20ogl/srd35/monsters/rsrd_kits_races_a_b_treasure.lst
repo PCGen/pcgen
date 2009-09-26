@@ -104,4 +104,3 @@ KIT:Treasure Table Items CR6
 STARTPACK:Bugbear with Treasure Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
 KIT:Bugbear Default
 KIT:Treasure Table
-

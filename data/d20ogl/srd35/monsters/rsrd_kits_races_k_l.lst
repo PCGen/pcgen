@@ -317,4 +317,3 @@ GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS2W
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|4
 GEAR:Gauntlets of Ogre Power			LOCATION:Equipped
 GEAR:Cloak of Resistance +2			LOCATION:Equipped
-

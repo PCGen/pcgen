@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 22:04:21 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 # This is specific classes for monsters with advancements requiring
@@ -10,7 +10,7 @@ CLASS:Planetar	HD:8		TYPE:Monster	MAXLEVEL:42	SOURCEPAGE:MonstersIntro-A.rtf	BON
 CLASS:Planetar	PRERACE:1,Angel (Planetar)	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Planetar	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|1|Cleric
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
 2	BONUS:PCLEVEL|Cleric|1
 3	BONUS:PCLEVEL|Cleric|1
 4	BONUS:PCLEVEL|Cleric|1
@@ -31,7 +31,7 @@ CLASS:Solar		HD:8		TYPE:Monster	MAXLEVEL:66	SOURCEPAGE:MonstersIntro-A.rtf	BONUS
 CLASS:Solar		PRERACE:1,Angel (Solar)	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Solar		STARTSKILLPTS:8	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Cleric
+1					ADD:SPELLCASTER|Cleric
 2	BONUS:PCLEVEL|Cleric|1
 3	BONUS:PCLEVEL|Cleric|1
 4	BONUS:PCLEVEL|Cleric|1
@@ -58,7 +58,7 @@ CLASS:Trumpet Archon	HD:8		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:MonstersIntro-A.r
 CLASS:Trumpet Archon	PRERACE:1,Archon (Trumpet)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Trumpet Archon	STARTSKILLPTS:8	MODTOSKILLS:YES
-1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|1|Cleric
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
 2	BONUS:PCLEVEL|Cleric|1
 3	BONUS:PCLEVEL|Cleric|1
 4	BONUS:PCLEVEL|Cleric|1
@@ -77,7 +77,7 @@ CLASS:Aranea	HD:10		TYPE:Monster	MAXLEVEL:3	SOURCEPAGE:MonstersIntro-A.rtf	BONUS
 CLASS:Aranea	PRERACE:1,Aranea	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Aranea	STARTSKILLPTS:2	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 
@@ -87,7 +87,7 @@ CLASS:Couatl	HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:MonstersB-C.rtf	BONUS:CHE
 CLASS:Couatl	PRERACE:1,Couatl	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Couatl	STARTSKILLPTS:8	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -107,7 +107,7 @@ CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:YES
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 ###Block: progression
-1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	DEFINE:AllowExtraTurning|1	ADD:SPELLCASTER|1|Cleric	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	DEFINE:AllowExtraTurning|1	ADD:SPELLCASTER|Cleric	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 2										BONUS:PCLEVEL|Cleric|1
 3										BONUS:PCLEVEL|Cleric|1
 4										BONUS:PCLEVEL|Cleric|1
@@ -120,7 +120,7 @@ CLASS:Drider Sorcerer	OUTPUTNAME:Drider	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE
 CLASS:Drider Sorcerer	PRERACE:1,Drider (Sorcerer)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Drider Sorcerer	STARTSKILLPTS:2	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -133,7 +133,7 @@ CLASS:Drider Wizard	OUTPUTNAME:Drider	HD:8		TYPE:Monster	MAXLEVEL:6	SOURCEPAGE:M
 CLASS:Drider Wizard	PRERACE:1,Drider (Wizard)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Drider Wizard	STARTSKILLPTS:2	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Wizard
+1					ADD:SPELLCASTER|Wizard
 2	BONUS:PCLEVEL|Wizard|1
 3	BONUS:PCLEVEL|Wizard|1
 4	BONUS:PCLEVEL|Wizard|1
@@ -146,7 +146,7 @@ CLASS:Formian Queen	HD:8		TYPE:Monster	MAXLEVEL:40	SOURCEPAGE:MonstersE-F.rtf	BO
 CLASS:Formian Queen	PRERACE:1,Formian (Queen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -174,16 +174,16 @@ CLASS:Ghaele	STARTSKILLPTS:8	MODTOSKILLS:YES
 1	SPELLLEVEL:CLASS|Cleric=1|Obscuring Mist|Cleric=2|Wind Wall|Cleric=3|Gaseous Form|Cleric=4|Air Walk|Cleric=5|Control Winds|Cleric=6|Chain Lightning|Cleric=7|Control Weather|Cleric=8|Whirlwind|Cleric=9|Elemental Swarm
 1	SPELLLEVEL:CLASS|Cleric=1|Calm Animals|Cleric=2|Hold Animal|Cleric=3|Dominate Animal|Cleric=4|Summon Nature's Ally IV|Cleric=5|Commune with Nature|Cleric=6|Antilife Shell|Cleric=7|Animal Shapes|Cleric=8|Summon Nature's Ally VIII|Cleric=9|Shapechange
 ###Block: Spellcasting progression
-1					BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|1|Cleric
-2					BONUS:PCLEVEL|Cleric|1
-3					BONUS:PCLEVEL|Cleric|1
-4					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
-5					BONUS:PCLEVEL|Cleric|1
-6					BONUS:PCLEVEL|Cleric|1
-7					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
-8					BONUS:PCLEVEL|Cleric|1
-9					BONUS:PCLEVEL|Cleric|1
-10					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Lammasu	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -191,7 +191,7 @@ CLASS:Lammasu	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:C
 CLASS:Lammasu	PRERACE:1,Lammasu	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Lammasu	STARTSKILLPTS:2	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Cleric
+1					ADD:SPELLCASTER|Cleric
 2	BONUS:PCLEVEL|Cleric|1
 3	BONUS:PCLEVEL|Cleric|1
 4	BONUS:PCLEVEL|Cleric|1
@@ -205,7 +205,7 @@ CLASS:Lillend	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:CH
 CLASS:Lillend	PRERACE:1,Lillend	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Lillend	STARTSKILLPTS:8	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Bard
+1					ADD:SPELLCASTER|Bard
 3	BONUS:PCLEVEL|Bard|1
 4	BONUS:PCLEVEL|Bard|1
 5	BONUS:PCLEVEL|Bard|1
@@ -218,7 +218,7 @@ CLASS:Dark Naga	HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:MonstersM-N.rtf	BONUS:
 CLASS:Dark Naga	PRERACE:1,Naga (Dark)	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dark Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
 5	BONUS:PCLEVEL|Sorcerer|1
@@ -232,7 +232,7 @@ CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:33	SOURCEPAGE:MonstersM-N.rtf	BO
 CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Guardian Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer	SPELLLIST:3|Cleric|DOMAIN.Good|DOMAIN.Law
+1						ADD:SPELLCASTER|Sorcerer	SPELLLIST:3|Cleric|DOMAIN.Good|DOMAIN.Law
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 5	BONUS:PCLEVEL|Sorcerer|1
@@ -248,7 +248,7 @@ CLASS:Spirit Naga	HD:8		TYPE:Monster	MAXLEVEL:27	SOURCEPAGE:MonstersM-N.rtf	BONU
 CLASS:Spirit Naga	PRERACE:1,Naga (Spirit)	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Spirit Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
 5	BONUS:PCLEVEL|Sorcerer|1
@@ -262,7 +262,7 @@ CLASS:Water Naga	HD:8		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersM-N.rtf	BONUS
 CLASS:Water Naga	PRERACE:1,Naga (Water)	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Water Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -276,7 +276,7 @@ CLASS:Nymph		HD:6		TYPE:Monster	MAXLEVEL:12	SOURCEPAGE:MonstersM-N.rtf	BONUS:CHE
 CLASS:Nymph		PRERACE:1,Nymph	PRERACETYPE:Fey
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Nymph		STARTSKILLPTS:6	MODTOSKILLS:YES
-1	BONUS:PCLEVEL|Druid|1	ADD:SPELLCASTER|1|Druid
+1	BONUS:PCLEVEL|Druid|1	ADD:SPELLCASTER|Druid
 2	BONUS:PCLEVEL|Druid|1
 3	BONUS:PCLEVEL|Druid|1
 4	BONUS:PCLEVEL|Druid|1
@@ -289,7 +289,7 @@ CLASS:Rakshasa	HD:8		TYPE:Monster	MAXLEVEL:7	SOURCEPAGE:MonstersO-R.rtf	BONUS:CH
 CLASS:Rakshasa	PRERACE:1,Rakshasa	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Rakshasa	STARTSKILLPTS:8	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -303,7 +303,7 @@ CLASS:Androsphinx	HD:10		TYPE:Monster	MAXLEVEL:36	SOURCEPAGE:MonstersS.rtf	BONUS
 CLASS:Androsphinx	PRERACE:1,Sphinx (Androsphinx)	PRERACETYPE:Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Androsphinx	STARTSKILLPTS:2	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Cleric
+1					ADD:SPELLCASTER|Cleric
 2	BONUS:PCLEVEL|Cleric|1
 4	BONUS:PCLEVEL|Cleric|1
 6	BONUS:PCLEVEL|Cleric|1
