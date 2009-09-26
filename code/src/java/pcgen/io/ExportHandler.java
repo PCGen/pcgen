@@ -1249,53 +1249,39 @@ public final class ExportHandler
 								{
 									final String bString = bTok.nextToken();
 
+									float bf = Float.parseFloat(bString);
+									float vf = Float.parseFloat(valString);
 									switch (mode)
 									{
 										case ADDITION_MODE:
+											float addf = bf + vf;
 											newAttackData +=
 													("/+" + Integer
-														.toString(new Float(
-															Float
-																.parseFloat(bString)
-																+ Float
-																	.parseFloat(valString))
-															.intValue()));
+														.toString((int) addf));
 
 											break;
 
 										case SUBTRACTION_MODE:
+											float subf = bf - vf;
 											newAttackData +=
 													("/+" + Integer
-														.toString(new Float(
-															Float
-																.parseFloat(bString)
-																- Float
-																	.parseFloat(valString))
-															.intValue()));
+														.toString((int) subf));
 
 											break;
 
 										case MULTIPLICATION_MODE:
+											float multf = bf * vf;
 											newAttackData +=
 													("/+" + Integer
-														.toString(new Float(
-															Float
-																.parseFloat(bString)
-																* Float
-																	.parseFloat(valString))
-															.intValue()));
+														.toString((int) multf));
 
 											break;
 
 										case DIVISION_MODE:
+											float divf = bf / vf;
 											newAttackData +=
 													("/+" + Integer
-														.toString(new Float(
-															Float
-																.parseFloat(bString)
-																/ Float
-																	.parseFloat(valString))
-															.intValue()));
+														.toString((int) divf));
 
 											break;
 
@@ -3436,6 +3422,8 @@ public final class ExportHandler
 		}
 		else
 		{
+			Logging.errorPrint("Unknown comparison type: " + bString
+					+ " assuming NEQ");
 			canWrite =
 					!CoreUtility.doublesEqual(varval.doubleValue(), valval
 						.doubleValue());

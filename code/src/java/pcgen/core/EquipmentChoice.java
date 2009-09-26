@@ -408,6 +408,10 @@ public final class EquipmentChoice
 	{
 		for ( EquipmentModifier sibling : parent.getEqModifierList(true) )
 		{
+			/*
+			 * TODO sibling can't be this - different classes... so this is a
+			 * bug of some form.
+			 */
 			if (
 				!(sibling.equals(this)) &&
 				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
@@ -696,7 +700,7 @@ public final class EquipmentChoice
 		}
 	}
 
-	private class EquipChoiceIterator implements Iterator<String>
+	private static class EquipChoiceIterator implements Iterator<String>
 	{
 		List<String> choiceList;
 		int currPos;

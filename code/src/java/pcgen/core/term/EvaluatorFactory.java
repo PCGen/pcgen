@@ -50,10 +50,10 @@ public class EvaluatorFactory {
 			new HashMap<String, Map<String, TermEvaluator>>();
 
 
-	public static EvaluatorFactory PC =
+	public static final EvaluatorFactory PC =
 			new EvaluatorFactory(true, TermEvaluatorBuilderPCVar.values());
 	
-	public static EvaluatorFactory EQ =
+	public static final EvaluatorFactory EQ =
 			new EvaluatorFactory(false, TermEvaluatorBuilderEQVar.values());
 
 	private EvaluatorFactory (

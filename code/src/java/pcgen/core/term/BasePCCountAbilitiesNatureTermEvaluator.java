@@ -34,9 +34,6 @@ import pcgen.core.PlayerCharacter;
 public abstract class BasePCCountAbilitiesNatureTermEvaluator
 		extends BasePCCountAbilitiesTermEvaluator
 {
-	protected boolean visible;
-	protected boolean hidden;
-
 	public BasePCCountAbilitiesNatureTermEvaluator()
 	{
 	}

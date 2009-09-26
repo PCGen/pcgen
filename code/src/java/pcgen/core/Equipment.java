@@ -3990,8 +3990,8 @@ public final class Equipment extends PObject implements Serializable,
 					{
 						Integer acCombatBonus =
 								Integer.valueOf(aString.substring(10, iOffs));
-						acCombatBonus = new Float(
-								acCombatBonus.doubleValue() * mult).intValue();
+						double d = acCombatBonus.doubleValue() * mult;
+						acCombatBonus = (int) d;
 						aString =
 								aString.substring(0, 10)
 								+ acCombatBonus.toString() + aString.substring(iOffs);
@@ -4467,9 +4467,11 @@ public final class Equipment extends PObject implements Serializable,
 			for (ChangeArmorType cat : eqMod.getSafeListFor(ListKey.ARMORTYPE))
 			{
 				List<String> tempTypeList = cat.applyModifier(newTypeList);
+				LinkedHashSet<String> tempTypeSet = new LinkedHashSet<String>(
+						tempTypeList);
 				boolean noMatch = newTypeList.size() != tempTypeList.size()
-						|| tempTypeList.equals(newTypeList);
-				newTypeList = new LinkedHashSet<String>(tempTypeList);
+						|| newTypeList.equals(tempTypeSet);
+				newTypeList = tempTypeSet;
 				if (!noMatch)
 				{
 					break;
@@ -5891,68 +5893,66 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		String bType = (aType != null) ? aType.toUpperCase() : null;
 
-		if (bType != null)
-		{
-			bType = bType.toUpperCase();
-		}
-
 		// Default to non-stacking bonuses
 		int index = -1;
 
-		final StringTokenizer aTok = new StringTokenizer(bType, ".");
-
 		// e.g. "COMBAT.AC.DODGE"
-		if ((bType != null) && (aTok.countTokens() >= 2))
+		if (aType != null)
 		{
-
-			// we need to get the 3rd token to see
-			// if it should .STACK or .REPLACE
-			aTok.nextToken(); //Discard token
-			String aString = aTok.nextToken();
-			String nextTok = null;
-
-			// if the 3rd token is "BASE" we have something like
-			// CHECKS.BASE.Fortitude
-			if ("BASE".equals(aString))
+			final StringTokenizer aTok = new StringTokenizer(bType, ".");
+			if (aTok.countTokens() >= 2)
 			{
-				if (aTok.hasMoreTokens())
+
+				// we need to get the 3rd token to see
+				// if it should .STACK or .REPLACE
+				aTok.nextToken(); // Discard token
+				String aString = aTok.nextToken();
+				String nextTok = null;
+
+				// if the 3rd token is "BASE" we have something like
+				// CHECKS.BASE.Fortitude
+				if ("BASE".equals(aString))
 				{
-					// discard next token (Fortitude)
-					aTok.nextToken();
-				}
-				
-				if (aTok.hasMoreTokens())
-				{
-					// check for a TYPE
-					nextTok = aTok.nextToken();
-				}
-			}
-			else
-			{
-				if (aTok.hasMoreTokens())
-				{
-					// Type: .DODGE
-					nextTok = aTok.nextToken();
-				}
-			}
+					if (aTok.hasMoreTokens())
+					{
+						// discard next token (Fortitude)
+						aTok.nextToken();
+					}
 
-			if (nextTok != null)
-			{
-				index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(nextTok); // e.g. Dodge
-			}
+					if (aTok.hasMoreTokens())
+					{
+						// check for a TYPE
+						nextTok = aTok.nextToken();
+					}
+				}
+				else
+				{
+					if (aTok.hasMoreTokens())
+					{
+						// Type: .DODGE
+						nextTok = aTok.nextToken();
+					}
+				}
 
-			//
-			// un-named (or un-TYPE'd) bonus should stack
-			if (nextTok == null)
-			{
-				index = 1;
-			}
-			else if ("NULL".equals(nextTok))
-			{
-				index = 1;
+				if (nextTok != null)
+				{
+					index = SettingsHandler.getGame()
+							.getUnmodifiableBonusStackList().indexOf(nextTok); // e.g.
+					// Dodge
+				}
+
+				//
+				// un-named (or un-TYPE'd) bonus should stack
+				if (nextTok == null)
+				{
+					index = 1;
+				}
+				else if ("NULL".equals(nextTok))
+				{
+					index = 1;
+				}
 			}
 		}
-
 		// .STACK means stack
 		// .REPLACE stacks with other .REPLACE bonuses
 		if ((bType != null) && (bType.endsWith(".STACK") || bType.endsWith(".REPLACE")))
@@ -6022,7 +6022,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * The Class <code>EquipmentHeadCostSummary</code> carries the multi 
 	 * valued response back when calculating the cost of a head.  
 	 */
-	private class EquipmentHeadCostSummary
+	private static class EquipmentHeadCostSummary
 	{
 		BigDecimal postSizeCost = BigDecimal.ZERO;
 		BigDecimal nonDoubleCost = BigDecimal.ZERO;

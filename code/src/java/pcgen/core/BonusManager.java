@@ -1266,7 +1266,7 @@ public class BonusManager
 		return bonusList;
 	}
 
-	public class TempBonusInfo
+	public static class TempBonusInfo
 	{
 		public final Object source;
 		public final Object target;

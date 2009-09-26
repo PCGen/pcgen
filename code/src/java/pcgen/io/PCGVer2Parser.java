@@ -2922,7 +2922,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (!Constants.EMPTY_STRING.equals(aFollower.getFileName())
 			&& !Constants.EMPTY_STRING.equals(aFollower.getName())
-			&& !Constants.EMPTY_STRING.equals(aFollower.getType())
+			&& !Constants.EMPTY_STRING.equals(aFollower.getType().toString())
 			&& aFollower.getType() != null)
 		{
 			thePC.addFollower(aFollower);
@@ -3194,7 +3194,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (!Constants.EMPTY_STRING.equals(aMaster.getFileName())
 			&& !Constants.EMPTY_STRING.equals(aMaster.getName())
-			&& !Constants.EMPTY_STRING.equals(aMaster.getType()))
+			&& !Constants.EMPTY_STRING.equals(aMaster.getType().toString()))
 		{
 			thePC.setMaster(aMaster);
 		}
@@ -4041,7 +4041,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									ClassSpellList.class, objectKey);
 					if (((aPCClass != null) && objectKey.equals(aPCClass
 						.getKeyName()))
-						|| (aPCClass.getSpellLists(thePC).contains(csl)))
+						|| (aPCClass != null && aPCClass.getSpellLists(thePC).contains(csl)))
 					{
 						source = aPCClass;
 					}
@@ -4180,10 +4180,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (aCharacterSpell == null)
 			{
 				aCharacterSpell = new CharacterSpell(source, aSpell);
-				if (!(source instanceof Domain))
-				{
-					aCharacterSpell.addInfo(level, times, spellBook);
-				}
+				aCharacterSpell.addInfo(level, times, spellBook);
 				thePC.addAssoc(aPCClass, AssociationListKey.CHARACTER_SPELLS,
 					aCharacterSpell);
 			}

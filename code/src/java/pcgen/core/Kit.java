@@ -254,7 +254,7 @@ public final class Kit extends PObject implements Comparable<Object>
 		}
 	}
 
-	private class ObjectTypeComparator implements Comparator<BaseKit>
+	private static class ObjectTypeComparator implements Comparator<BaseKit>
 	{
 		public int compare(BaseKit bk1, BaseKit bk2)
 		{

@@ -41,6 +41,7 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.SkillLanguage;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.utils.CoreUtility;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.util.Logging;
@@ -348,7 +349,7 @@ public final class KitSkill extends BaseKit
 					Math.min(pc.getMaxRank(aSkill, pcClass)
 						.doubleValue(), curRank + ranksLeftToAdd);
 			ranksToAdd -= curRank;
-			if (ranksToAdd != ranksLeftToAdd)
+			if (CoreUtility.doublesEqual(ranksToAdd, ranksLeftToAdd))
 			{
 				warnings.add("SKILL: Could not add " + (ranksLeftToAdd - ranksToAdd)
 					+ " to " + aSkill.getDisplayName()

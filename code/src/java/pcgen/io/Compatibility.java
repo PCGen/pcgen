@@ -88,7 +88,7 @@ public class Compatibility
 			{
 				hd.append('+');
 			}
-			else if (max != min)
+			else if (!max.equals(min))
 			{
 				hd.append('-').append(max);
 			}
