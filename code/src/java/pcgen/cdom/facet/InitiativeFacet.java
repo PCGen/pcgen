@@ -31,7 +31,7 @@ public class InitiativeFacet
 			.getFacet(FormulaResolvingFacet.class);
 	private BonusCheckingFacet bonusFacet = FacetLibrary
 			.getFacet(BonusCheckingFacet.class);
-	Formula initcomp = FormulaFactory.getFormulaFor("INITCOMP");
+	private Formula initcomp = FormulaFactory.getFormulaFor("INITCOMP");
 
 	/**
 	 * Returns the Initiative value for the Player Character represented by the
