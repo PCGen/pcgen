@@ -79,7 +79,7 @@ public class FeatSelectChoiceManager extends AbstractBasicStringChoiceManager
 					final Ability ability = (Ability)it.next();
 
 					if (ability.isType(aString) &&
-							(isStackYes() || !availableList.contains(ability)))
+							(isStackYes() || !availableList.contains(ability.getKeyName())))
 
 					{
 						availableList.add(ability.getKeyName());
