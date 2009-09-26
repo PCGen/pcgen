@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.PCTemplate;
+import pcgen.core.Race;
 
 /**
  * RacialSubTypesFacet is a Facet that tracks the Racial Sub Types of a
@@ -51,10 +52,13 @@ public class RacialSubTypesFacet
 	public Collection<String> getRacialSubTypes(CharID id)
 	{
 		final ArrayList<String> racialSubTypes = new ArrayList<String>();
-		for (RaceSubType st : raceFacet.get(id).getSafeListFor(
-				ListKey.RACESUBTYPE))
+		Race race = raceFacet.get(id);
+		if (race != null)
 		{
-			racialSubTypes.add(st.toString());
+			for (RaceSubType st : race.getSafeListFor(ListKey.RACESUBTYPE))
+			{
+				racialSubTypes.add(st.toString());
+			}
 		}
 		Set<PCTemplate> templates = templateFacet.getSet(id);
 		if (!templates.isEmpty())
