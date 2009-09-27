@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 21:16:23 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Sep 26 22:38:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
-# Equipment Name					Required Proficiency			Type															Weight	Source Page					Combat bonus						Bonus to skill														Stat bonus						Special Property
+# Equipment Name					Required Weapon Proficiency		Type															Weight	Source Page					Combat bonus						Bonus to skill														Stat bonus						Special Property
 Cape of Ultimate Influence									TYPE:Magic.Artifact.Major.Cape										WT:1		SOURCEPAGE:pg. 70-71, Artifacts									BONUS:SKILL|Bluff, Diplomancy, Gather Information, Intimidate, Sense Motive|15|TYPE=Enhancement	BONUS:STAT|CHA,WIS|4|TYPE=Enhancement	SPROP:See text
 The Circlet of Devruar										TYPE:Magic.Artifact.Major.Headgear										WT:1.5	SOURCEPAGE:pg. 71-72, Artifacts																																SPROP:See text
 Crown of the Ages											TYPE:Magic.Artifact.Minor.Headgear										WT:1		SOURCEPAGE:pg. 72, Artifacts										BONUS:SKILL|Knowledge*|10|TYPE=Enhancement									BONUS:STAT|INT,WIS|4|TYPE=Enhancement	SPROP:See text
-Diamond of Jezzara										TYPE:Magic.Artifact.Major											WT:.5		SOURCEPAGE:pg. 72-73, Artifacts																																SPROP:See text
+Diamond of Jezzara										TYPE:Magic.Artifact.Major											WT:0.5	SOURCEPAGE:pg. 72-73, Artifacts																																SPROP:See text
 Mirror of Chaos											TYPE:Magic.Artifact.Minor											WT:50		SOURCEPAGE:pg. 73, Artifacts																																	SPROP:See text
 Sernissa						PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Artifact.Minor.Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Metal.Gauntlet	WT:3		SOURCEPAGE:pg. 73-74, Artifacts	BONUS:COMBAT|TOHIT,DAMAGE|3|TYPE=Enhancement																								SPROP:See text
 # Sorcere Blade

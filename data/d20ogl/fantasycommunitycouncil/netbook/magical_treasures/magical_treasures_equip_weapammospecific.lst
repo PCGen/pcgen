@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Sep 26 22:38:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
 ##Ammo
 #Equipment Name		Output Name					Type							Cost		Weight	Source Page								Weapon prop. bonus			Special Property
 # Equipment Name	Type						Cost		Weight	Source Page				Weapon prop. bonus		Special Property
-Acid Bolt		TYPE:Magic.Ammunition.Specific.Bolt	COST:1007	WT:.1		SOURCEPAGE:pg. 14, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:See text
-Paralyzing Bolt	TYPE:Magic.Ammunition.Specific.Bolt	COST:647	WT:.1		SOURCEPAGE:pg. 16, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:See text
+Acid Bolt		TYPE:Magic.Ammunition.Specific.Bolt	COST:1007	WT:0.1	SOURCEPAGE:pg. 14, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:See text
+Paralyzing Bolt	TYPE:Magic.Ammunition.Specific.Bolt	COST:647	WT:0.1	SOURCEPAGE:pg. 16, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|2	SPROP:See text
