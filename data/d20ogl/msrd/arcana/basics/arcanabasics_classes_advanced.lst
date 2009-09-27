@@ -111,10 +111,10 @@ CLASS:Shadowjack	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (M
 1														ABILITY:Special Ability|AUTOMATIC|Read/Write Code
 2														ABILITY:Special Ability|AUTOMATIC|Online Presence
 3	BONUS:ABILITYPOOL|Shadowjack Feat|1
-4														ABILITY:Special Ability|AUTOMATIC|Electronic Empathy|Careful Progress
+4														ABILITY:Special Ability|AUTOMATIC|Careful Progress|Electronic Empathy
 5														ABILITY:Special Ability|AUTOMATIC|False Trail|Install Backdoor
 6	BONUS:ABILITYPOOL|Shadowjack Feat|1
-7							BONUS:VAR|OnlineSpellResistance|10+CL	ABILITY:Special Ability|AUTOMATIC|Online Spell Resistance|Improved Degradation
+7							BONUS:VAR|OnlineSpellResistance|10+CL	ABILITY:Special Ability|AUTOMATIC|Improved Degradation|Online Spell Resistance
 8														ABILITY:Special Ability|AUTOMATIC|Passfirewall|Walking Database
 9	BONUS:ABILITYPOOL|Shadowjack Feat|1
 10														ABILITY:Special Ability|AUTOMATIC|Virtual Incantations
@@ -223,7 +223,7 @@ CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle
 1									ABILITY:Special Ability|AUTOMATIC|Animal Empathy
 2									ABILITY:Special Ability|AUTOMATIC|Animal Companion			AUTO:FEAT|Track
 3	BONUS:ABILITYPOOL|Wildlord Feat|1			ABILITY:Special Ability|AUTOMATIC|Fast Climb
-4									ABILITY:Special Ability|AUTOMATIC|Resist Venom|Call Companion
+4									ABILITY:Special Ability|AUTOMATIC|Call Companion|Resist Venom
 5	BONUS:ABILITYPOOL|Wildlord Skill Mastery|1	ABILITY:Special Ability|AUTOMATIC|Skill Mastery
 6	BONUS:ABILITYPOOL|Wildlord Feat|1
 7									ABILITY:Special Ability|AUTOMATIC|Expert in Your Field

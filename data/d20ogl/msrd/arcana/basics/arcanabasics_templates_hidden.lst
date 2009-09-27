@@ -61,7 +61,7 @@ Sonic/Concussion Resistance 20	VISIBLE:NO	SOURCEPAGE:ArcanaCreatures.rtf	!PRETEM
 
 ###Block: Demonic Auto
 # Template Name	Damage Reduction	Template						Source Page					Ability										Type				Vision
-Demonic Auto	DR:20/+1		TEMPLATE:Construct	TEMPLATE:Outsider	SOURCEPAGE:ArcanaCreatures.rtf	ABILITY:Special Ability|AUTOMATIC|No limbs|Trample|Repairable	TYPE:Construct.Outsider	VISION:Darkvision (120)
+Demonic Auto	DR:20/+1		TEMPLATE:Construct	TEMPLATE:Outsider	SOURCEPAGE:ArcanaCreatures.rtf	ABILITY:Special Ability|AUTOMATIC|No limbs|Repairable|Trample	TYPE:Construct.Outsider	VISION:Darkvision (120')
 
 ###Block: Half-dragon
 # Template Name	Visible	Stat bonus		Move
