@@ -55,7 +55,7 @@ Tunnel Fighting	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 Magical Craftsman		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Curse Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Magical Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Magical Deconstruction	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MagicDecon|0	DESC:%1%%|MagicDecon	ASPECT:Ability Benefit|%1%%|MagicDecon
+Magical Deconstruction	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MagicDecon|0	DESC:%1%%|MagicDecon	ASPECT:Ability Benefit|%1%|MagicDecon
 Spell Absorption		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block:Stoneheart Ascetic Bonus Feats ----------------------------------------
