@@ -119,7 +119,7 @@ Bodywrap		TYPE:HighTechGoods	COST:50	WT:2		SOURCEPAGE:p.115
 Handcuffs		TYPE:HighTechGoods	COST:40	WT:1		SOURCEPAGE:p.115
 Lantern		TYPE:HighTechGoods	COST:30	WT:2		SOURCEPAGE:p.115
 Rope			TYPE:HighTechGoods	COST:10	WT:2		SOURCEPAGE:p.115
-Zipcuffs		TYPE:HighTechGoods	COST:10	WT:.5		SOURCEPAGE:p.115
+Zipcuffs		TYPE:HighTechGoods	COST:10	WT:0.5	SOURCEPAGE:p.115
 
 ###Block: Weapon Accessories
 # Equipment Name		Type				Cost		Weight	Source Page

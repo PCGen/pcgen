@@ -19,9 +19,9 @@ CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONU
 # Class Name	Required Ability						Req. Att.	Required Feat										Required Skill
 CLASS:Gundancer	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump=5,Tumble=5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Concentration|Freefall|Jump|Listen|Spot|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1													AUTO:FEAT|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency
+CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Concentration|Freefall|Jump|Listen|Spot|Tumble
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
 1	SAB:Backfire	SAB:Gun Mastery +%|GunMastery	BONUS:VAR|GunMastery|(CL+2)/3	DEFINE:GunMastery|0
@@ -36,7 +36,7 @@ CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BON
 # Class Name	Required Feat				Required Skill
 CLASS:Negotiator	PREFEAT:2,Iron Will,Leadership	PRESKILL:4,Bluff=8,Diplomacy=8,Innuendo=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Move Silently|Perform|TYPE.Profession|Research|Search|Sense Motive|Speak Language|Spot
+CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE=Knowledge|Listen|Move Silently|Perform|TYPE=Profession|Research|Search|Sense Motive|Speak Language|Spot
 1	SAB:First Impression	SAB:Fast Talk	SAB:Bonus Languages	SAB:Tongues										BONUS:LANGUAGES|NUMBER|1
 2	SAB:Discern Lie %/day|DiscernLie								BONUS:VAR|DiscernLie|(CL+2)/4	DEFINE:DiscernLie|0
 3	SAB:Suggestion																				BONUS:LANGUAGES|NUMBER|1
@@ -51,7 +51,7 @@ CLASS:Technomancer	HD:6		TYPE:PC.Prestige	ABB:Tnm		MAXLEVEL:10	SOURCEPAGE:p.63	B
 # Class Name		Required Feat							Required Skill				Req. Spell Type
 CLASS:Technomancer	PREFEAT:2,Technical Proficiency,TYPE=ItemCreation	PRESKILL:2,Repair=5,Use Device=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE.Craft|Cryptography|Decipher Script|Disable Device|TYPE.Knowledge|TYPE.Profession|Repair|Research|Scry|Spellcraft|Use Device|Use Magic Device
+CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE=Craft|Cryptography|Decipher Script|Disable Device|TYPE=Knowledge|TYPE=Profession|Repair|Research|Scry|Spellcraft|Use Device|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Technomancer	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Technomancer|CL
 1	CAST:0		SAB:Arcane Tools

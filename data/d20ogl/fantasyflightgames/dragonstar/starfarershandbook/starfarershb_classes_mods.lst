@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb  5 22:31:33 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Sat Sep 26 22:39:57 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -14,7 +14,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 # Class Name
 CLASS:Barbarian.MOD
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|PREFEAT:1,Technical Proficiency
 
 
@@ -29,25 +29,25 @@ CLASS:Bard.MOD	CSKILL:Navigate|Research|Urban Lore|Use Device
 CLASS:Cleric.MOD	CSKILL:Research
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
 1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|PREFEAT:1,Technical Proficiency
 
 # Class Name	Base class as subclass?
 CLASS:Druid.MOD	ALLOWBASECLASS:NO
 # Class Name	Class Skill
-CLASS:Druid.MOD	CSKILL:Freefall|TYPE.Science|Navigate
+CLASS:Druid.MOD	CSKILL:Freefall|TYPE=Science|Navigate
 # Druid Subclasses
 #SUBCLASS:Traditional Druid	COST:0	CHOICE:Traditional
 SUBCLASS:Traditional Druid	COST:0
-SUBCLASSLEVEL:1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency	ADD:SPELLCASTER|1|Druid
+SUBCLASSLEVEL:1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency	ADD:SPELLCASTER|Druid
 #SUBCLASS:Liberal Druid		COST:0	CHOICE:Liberal
 SUBCLASS:Liberal Druid		COST:0
-SUBCLASSLEVEL:1																		AUTO:FEAT|Technical Proficiency|HighTechSimple Weapon Proficiency|Armor Proficiency (HighTechLight)
+SUBCLASSLEVEL:1																		AUTO:FEAT|Armor Proficiency (HighTechLight)|HighTechSimple Weapon Proficiency|Technical Proficiency
 
-# Class Name	Remove Class Skill			Class Skill										Cross-Class Skill
-CLASS:Fighter.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Swim|Demolitions|Freefall|Pilot	CCSKILL:Handle Animal|Ride
+# Class Name	Remove Class Skill	Class Skill															Cross-Class Skill
+CLASS:Fighter.MOD	CSKILL:.CLEAR		CSKILL:Handle Animal|Ride	CSKILL:Climb|TYPE=Craft|Jump|Swim|Demolitions|Freefall|Pilot	CCSKILL:Handle Animal|Ride
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
 
 # Class Name
 CLASS:Monk.MOD
@@ -60,32 +60,32 @@ CLASS:Monk.MOD
 4						SAB:Evade Fire(Ex)
 7	SAB:.CLEAR.Leap of the Clouds	SAB:Leap of the Clouds(variable gravity still has normal effects)
 
-# Class Name	Remove Class Skill			Class Skill																					Cross-Class Skill
-CLASS:Paladin.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE.Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies																		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																																		AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+# Class Name	Remove Class Skill	Class Skill																										Cross-Class Skill
+CLASS:Paladin.MOD	CSKILL:.CLEAR		CSKILL:Handle Animal|Ride	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE=Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies																		AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																																		AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																																		AUTO:FEAT|Shield Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Freefall|Navigate|Pilot
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
 ###Block: Normal Level Progression
-2	ADD:FEAT|1|TYPE=RangerTerrain
-4	ADD:FEAT|1|TYPE=RangerTerrain
-6	ADD:FEAT|1|TYPE=RangerTerrain
-10	ADD:FEAT|1|TYPE=RangerTerrain
-14	ADD:FEAT|1|TYPE=RangerTerrain
-18	ADD:FEAT|1|TYPE=RangerTerrain
+2	ADD:FEAT|TYPE=RangerTerrain
+4	ADD:FEAT|TYPE=RangerTerrain
+6	ADD:FEAT|TYPE=RangerTerrain
+10	ADD:FEAT|TYPE=RangerTerrain
+14	ADD:FEAT|TYPE=RangerTerrain
+18	ADD:FEAT|TYPE=RangerTerrain
 
 # Class Name	Class Skill
 CLASS:Rogue.MOD	CSKILL:Cryptography|Demolitions|Freefall|Navigate|Pilot|Urban Lore|Use Device
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|WeaponThiefSmall|WeaponThiefMedium|PREMULT:2,[PREFEAT:1,Technical Proficiency],[PREBASESIZEGTEQ:Medium]]
+1	ABILITY:FEAT|AUTOMATIC|WeaponThiefMedium|WeaponThiefSmall|PREMULT:2,[PREFEAT:1,Technical Proficiency],[PREBASESIZEGTEQ:Medium]]
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|PREFEAT:1,Technical Proficiency
 
 # Class Name
@@ -112,30 +112,30 @@ CLASS:Wizard.MOD	CSKILL:Navigate|Research
 # Class Name
 CLASS:Arcane Archer.MOD
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|PREFEAT:1,Technical Proficiency
 
 
 # Class Name		Class Skill
 CLASS:Assassin.MOD	CSKILL:Demolitions|Freefall
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
 
 
-# Class Name		Skill Pts/Lvl	Remove Class Skill			Class Skill																					Cross-Class Skill
-CLASS:Blackguard.MOD	STARTSKILLPTS:2	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
+# Class Name		Skill Pts/Lvl	Remove Class Skill	Class Skill																										Cross-Class Skill
+CLASS:Blackguard.MOD	STARTSKILLPTS:2	CSKILL:.CLEAR		CSKILL:Handle Animal|Ride	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Climb|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
 0	BONUS:VAR|LayOnHands|CL*max(CHA,0)|PRECLASS:1,Ex Paladin=3	DEFINE:SmiteGood|0	DEFINE:LayOnHands|0
 ###Block: Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
 
 # Class Name			Class Skill
 CLASS:Dwarven Defender.MOD	CSKILL:Demolitions|Freefall
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
 
 
 # Class Name		Class Skill
@@ -166,8 +166,8 @@ CLASS:Aristocrat.MOD	CSKILL:Pilot|Urban Lore
 1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|PREFEAT:1,Technical Proficiency
 
-# Class Name		Remove Class Skill			Class Skill											Cross-Class Skill
-CLASS:Commoner.MOD	CSKILL:.CLEAR|Handle Animal|Ride	CSKILL:Climb|TYPE.Craft|Jump|Listen|TYPE.Profession|Spot|Swim|Use Rope	CCSKILL:Handle Animal|Ride
+# Class Name		Remove Class Skill	Class Skill																Cross-Class Skill
+CLASS:Commoner.MOD	CSKILL:.CLEAR		CSKILL:Handle Animal|Ride	CSKILL:Climb|TYPE=Craft|Jump|Listen|TYPE=Profession|Spot|Swim|Use Rope	CCSKILL:Handle Animal|Ride
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
 
 # Class Name
@@ -179,5 +179,5 @@ CLASS:Expert.MOD
 # Class Name	Class Skill
 CLASS:Warrior.MOD	CSKILL:Demolitions|Freefall|Pilot
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency|HighTechMartial Weapon Proficiency|PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREFEAT:1,Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREFEAT:1,Technical Proficiency

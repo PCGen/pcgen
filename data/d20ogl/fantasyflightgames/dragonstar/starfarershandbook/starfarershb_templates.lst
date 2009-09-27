@@ -37,8 +37,8 @@ Drow Female.MOD								SOURCEPAGE:p.27																																							BON
 ###Block: Regions
 # Template Name	Visible	Template						Source Page		Region
 DS Regions		VISIBLE:NO	TEMPLATE:CHOOSE:Dragon Empire|Outlands	SOURCEPAGE:p.
-Dragon Empire	VISIBLE:NO								SOURCEPAGE:p.	REGION:Yes
-Outlands		VISIBLE:NO								SOURCEPAGE:p.	REGION:Yes
+Dragon Empire	VISIBLE:NO								SOURCEPAGE:p.	REGION:YES
+Outlands		VISIBLE:NO								SOURCEPAGE:p.	REGION:YES
 
 ###Block: Robots/Soulmechs
 # Template Name	Visible	Special ABility																																																																																											Vision

@@ -47,5 +47,3 @@ Temperature Tolerance			TYPE:General			VISIBLE:YES																														
 Two-Gun Shooting				TYPE:General.Fighter		VISIBLE:YES																																																																									DESC:Penalties for firing two firearms are reduced by 2																																																										BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2										SOURCEPAGE:p.86
 Vehicle Dodge				TYPE:General.Pilot		VISIBLE:YES																PREFEAT:1,Technical Proficiency																																													PRESKILL:1,Pilot=1				DESC:+1 dodge bonus to vehible AC vs 1 opponent when piloting a vehible																																																																									SOURCEPAGE:p.86
 Zero-G Tolerance				TYPE:General.Pilot.Mechanist	VISIBLE:YES																																																																		PRESKILL:1,Freefall=1	PRESTAT:1,DEX=15	DESC:You are well adapted to zero-g environments																																																																												SOURCEPAGE:p.86
-
-
