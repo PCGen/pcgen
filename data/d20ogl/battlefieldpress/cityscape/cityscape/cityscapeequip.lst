@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 21:04:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Sep 26 22:35:34 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 # Original Entry by: Tir Gwaith
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 
@@ -7,8 +7,8 @@ Acid (Flask).MOD																						COST:10
 Alchemist's Fire (Flask).MOD																				COST:20
 Bomb													TYPE:Goods.Explosives.Consumable						COST:150	WT:1		SIZE:M	SOURCEPAGE:p.
 40mm Fragmentation Grenade (6)								TYPE:Goods.Explosives.Consumable						COST:10	WT:1		SIZE:S	SOURCEPAGE:p.																			SPROP:Case of 6
-40mm Fragmentation Grenade									TYPE:Goods.Explosives.Consumable						COST:1.67	WT:.17	SIZE:S	SOURCEPAGE:p.
-C4/Semtex												TYPE:Goods.Explosives.Consumable						COST:3.75	WT:.25	SIZE:M	SOURCEPAGE:p.
+40mm Fragmentation Grenade									TYPE:Goods.Explosives.Consumable						COST:1.67	WT:0.17	SIZE:S	SOURCEPAGE:p.
+C4/Semtex												TYPE:Goods.Explosives.Consumable						COST:3.75	WT:0.25	SIZE:M	SOURCEPAGE:p.
 Det Cord												TYPE:Goods.Explosives.Consumable						COST:25	WT:2		SIZE:L	SOURCEPAGE:p.																			SPROP:50 ft.
 Dynamite (12 sticks)										TYPE:Goods.Explosives								COST:80	WT:12		SIZE:T	SOURCEPAGE:p.
 Dynamite												TYPE:Goods.Explosives.Consumable						COST:6.67	WT:1		SIZE:T	SOURCEPAGE:p.
@@ -28,14 +28,14 @@ Thunderstone.MOD																						COST:30
 Binoculars (Standard)			OUTPUTNAME:[NAME] Binoculars			TYPE:Goods.General								COST:80	WT:2				SOURCEPAGE:p.
 Binoculars (Rangefinding)		OUTPUTNAME:[NAME] Binoculars			TYPE:Goods.General								COST:150	WT:3				SOURCEPAGE:p.
 Binoculars (Electro-Optical)		OUTPUTNAME:[NAME] Binoculars			TYPE:Goods.Electronic								COST:300	WT:4				SOURCEPAGE:p.
-Black Box												TYPE:Goods.Electronic								COST:500	WT:.5				SOURCEPAGE:p.
+Black Box												TYPE:Goods.Electronic								COST:500	WT:0.5			SOURCEPAGE:p.
 Bolt Cutter												TYPE:Goods.General								COST:15	WT:5				SOURCEPAGE:p.
 Caller ID Defeater										TYPE:Goods.Electronic								COST:30	WT:1				SOURCEPAGE:p.
-Cellular Interceptor										TYPE:Goods.Electronic								COST:50	WT:.5				SOURCEPAGE:p.
+Cellular Interceptor										TYPE:Goods.Electronic								COST:50	WT:0.5			SOURCEPAGE:p.
 Camera (35mm)											TYPE:Goods.General.Photo							COST:500	WT:2				SOURCEPAGE:p.
-Camera (Digital)											TYPE:Goods.Electronic.Photo							COST:200	WT:.5				SOURCEPAGE:p.
-Camera (Disposable)										TYPE:Goods.General.Photo.Consumable						COST:15	WT:.5				SOURCEPAGE:p.
-Film													TYPE:Goods.General.Photo.Consumable						COST:5	WT:.5				SOURCEPAGE:p.
+Camera (Digital)											TYPE:Goods.Electronic.Photo							COST:200	WT:0.5			SOURCEPAGE:p.
+Camera (Disposable)										TYPE:Goods.General.Photo.Consumable						COST:15	WT:0.5			SOURCEPAGE:p.
+Film													TYPE:Goods.General.Photo.Consumable						COST:5	WT:0.5			SOURCEPAGE:p.
 Film Developing (Roll)										TYPE:Goods.Service.Photo							COST:35	WT:0				SOURCEPAGE:p.
 Chemical Light Sticks (5)									TYPE:Goods.General								COST:15	WT:1				SOURCEPAGE:p.
 Computer (Desktop)			OUTPUTNAME:[NAME] Computer			TYPE:Goods.Electronic								COST:800	WT:10				SOURCEPAGE:p.
@@ -43,12 +43,12 @@ Computer (Notebook)			OUTPUTNAME:[NAME] Computer			TYPE:Goods.Electronic								
 Digital Audio Recorder										TYPE:Goods.Electronic								COST:50	WT:1				SOURCEPAGE:p.
 Duct Tape												TYPE:Goods.General								COST:10	WT:1				SOURCEPAGE:p.
 Flash Goggles											TYPE:Goods										COST:300	WT:1				SOURCEPAGE:p.
-Flashlight (Penlight)			OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:5	WT:.5				SOURCEPAGE:p.
+Flashlight (Penlight)			OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:5	WT:0.5			SOURCEPAGE:p.
 Flashlight (Standard)			OUTPUTNAME:[NAME] Flashlight			TYPE:Goods.Electronic								COST:12	WT:1				SOURCEPAGE:p.
 Flashlight (Battery Flood)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:25	WT:2				SOURCEPAGE:p.
 Gas Mask												TYPE:Goods.General								COST:100	WT:2				SOURCEPAGE:p.
 Handcuffs (Steel)											TYPE:Goods.General								COST:50	WT:1				SOURCEPAGE:p.
-Handcuffs (Zip-tie/25)										TYPE:Goods.General								COST:35	WT:.5				SOURCEPAGE:p.
+Handcuffs (Zip-tie/25)										TYPE:Goods.General								COST:35	WT:0.5			SOURCEPAGE:p.
 Lighter (Disposable)			OUTPUTNAME:[NAME] Lighter			TYPE:Goods.General								COST:1	WT:1				SOURCEPAGE:p.
 Lighter (Refillable)			OUTPUTNAME:[NAME] Lighter			TYPE:Goods.General								COST:25	WT:25				SOURCEPAGE:p.
 Lighter Fluid											TYPE:Goods.General								COST:2	WT:2				SOURCEPAGE:p.
@@ -58,15 +58,15 @@ Metal Detector											TYPE:Goods.Electronic								COST:45	WT:2				SOURCEPAGE
 Modem (Broadband)				OUTPUTNAME:[NAME] Modem				TYPE:Goods.Electronic								COST:200	WT:1				SOURCEPAGE:p.
 Modem (Cellular)				OUTPUTNAME:[NAME] Modem				TYPE:Goods.Electronic								COST:350	WT:1				SOURCEPAGE:p.
 Night-Vision Goggles										TYPE:Goods.Electronic								COST:35	WT:3				SOURCEPAGE:p.
-PDA													TYPE:Goods.Electronic								COST:500	WT:.5				SOURCEPAGE:p.
+PDA													TYPE:Goods.Electronic								COST:500	WT:0.5			SOURCEPAGE:p.
 Portable Satellite Phone									TYPE:Goods.Electronic								COST:0	WT:2				SOURCEPAGE:p.
 Portable Stove											TYPE:Goods.General								COST:85	WT:1				SOURCEPAGE:p.
 Portable Video Camera										TYPE:Goods.Electronic								COST:250	WT:2				SOURCEPAGE:p.
 Printer												TYPE:Goods.Electronic								COST:75	WT:3				SOURCEPAGE:p.
 Scanner												TYPE:Goods.Electronic								COST:75	WT:3				SOURCEPAGE:p.
 Spiral Notebook											TYPE:Goods.General								COST:2	WT:0				SOURCEPAGE:p.
-Telephone Tap (Line Tap)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:80	WT:.5				SOURCEPAGE:p.
-Telephone Tap (Receiver Tap)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:150	WT:.5				SOURCEPAGE:p.
+Telephone Tap (Line Tap)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:80	WT:0.5			SOURCEPAGE:p.
+Telephone Tap (Receiver Tap)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:150	WT:0.5			SOURCEPAGE:p.
 Telephone Line Tracer										TYPE:Goods.Electronic								COST:300	WT:5				SOURCEPAGE:p.
 Walkie-Talkie (Basic)			OUTPUTNAME:[NAME] Walkie-Talkie		TYPE:Goods.Electronic								COST:100	WT:1				SOURCEPAGE:p.
 Walkie-Talkie (Professional)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic								COST:250	WT:1				SOURCEPAGE:p.
@@ -98,5 +98,3 @@ Clothing (Poor)				OUTPUTNAME:[NAME] Clothing			TYPE:Goods.Clothing.Resizable			
 Clothing (Average)			OUTPUTNAME:[NAME] Clothing			TYPE:Goods.Clothing.Resizable							COST:100	WT:5				SOURCEPAGE:p.
 Clothing (Military)			OUTPUTNAME:[NAME] Clothing			TYPE:Goods.Clothing.Resizable							COST:125	WT:5				SOURCEPAGE:p.
 Clothing (Designer)			OUTPUTNAME:[NAME] Clothing			TYPE:Goods.Clothing.Resizable							COST:2000	WT:5				SOURCEPAGE:p.
-
-
