@@ -3,8 +3,8 @@ SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOU
 
 # Deity Name				Domains										Desciption of Deity/Title					Holy Item																	Deity Weapon							Alignment	Pantheon		Source Page
 Raeksen					DOMAINS:Destruction,Good,Protection|PREALIGN:NG,CG,CN			DESC:The Just, The Mad						SYMBOL:A scale representing justice for all											DEITYWEAP:Quarterstaff						ALIGN:CG	PANTHEON:Penumbra	SOURCEPAGE:p.44
-Calaam					DOMAINS:Law,Good,Endings|PREALIGN:LG,LN,NG				DESC:Lord of Endings, Gatekeeper of the Netherworld	SYMBOL:A person inside of an angel													DEITYWEAP:Club|Handaxe|Hammer (Light)|Pick|Scythe|Net	ALIGN:LG	PANTHEON:Penumbra	SOURCEPAGE:p.57
-The Wild					DOMAINS:Animal,Plant,Earth|PREALIGN:LN,NG,TN,NE,CN												SYMBOL:A circle of thorns																							ALIGN:TN	PANTHEON:Penumbra	SOURCEPAGE:p.62
+Calaam					DOMAINS:Endings,Good,Law|PREALIGN:LG,LN,NG				DESC:Lord of Endings, Gatekeeper of the Netherworld	SYMBOL:A person inside of an angel													DEITYWEAP:Club|Handaxe|Hammer (Light)|Pick|Scythe|Net	ALIGN:LG	PANTHEON:Penumbra	SOURCEPAGE:p.57
+The Wild					DOMAINS:Animal,Earth,Plant|PREALIGN:LN,NG,TN,NE,CN												SYMBOL:A circle of thorns																							ALIGN:TN	PANTHEON:Penumbra	SOURCEPAGE:p.62
 Syllisia					DOMAINS:Destruction,Earth,Plant|PREALIGN:NE,CN,CE			DESC:Lady of the Conquering Root				SYMBOL:A crumbling tower embraced by a green root										DEITYWEAP:Club							ALIGN:CN	PANTHEON:Penumbra	SOURCEPAGE:p.74
 Bohnaraii					DOMAINS:Good,Luck,Nobility-p|PREALIGN:LG,NG,CG				DESC:Patroness of Nobility					SYMBOL:Large hands between which stands a bearded man in a loincloth with upraised hands.				DEITYWEAP:Rapier							ALIGN:NG	PANTHEON:Penumbra	SOURCEPAGE:p.86
 The Legion of Ten Thousand Heroes	DOMAINS:Rage,Strength,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE										SYMBOL:3 horizontal spear points. The top and bottom ones pointing right. The middle one pointing left.	DEITYWEAP:Greataxe						ALIGN:CN	PANTHEON:Penumbra	SOURCEPAGE:p.105
