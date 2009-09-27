@@ -23,4 +23,3 @@ Scabbard of Return														TYPE:Container.Magic.Scabbard.Wondrous						CONT
 Spiderblade											PROFICIENCY:WEAPON|Longsword	TYPE:Finesseable.Magic.Weapon.Martial.Melee.Slashing.Specific.Sword							COST:36765	WT:1		CRITMULT:x2			CRITRANGE:4			DAMAGE:1d8	EQMOD:KEEN		SIZE:M	SOURCEPAGE:p.327	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=9|Insect Plague,17									BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:+3 luck vs poison
 Sword of Ghosts										PROFICIENCY:WEAPON|Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific.Sword									COST:44315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:GHOST_M	SIZE:M	SOURCEPAGE:p.327																			BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:slain creatures cannot be animated
 Unbreakable Helm															TYPE:Magic.Wondrous.Headgear														COST:56000	WT:4																	SOURCEPAGE:p.327
-

@@ -13,4 +13,3 @@ Focused						TYPE:Gift.Hidden		VISIBLE:NO																			SAB:+1 caster level 
 
 # Special hidden feats for Prestige Race workarounds (xxxtemplate.lst) - does not seem to work
 #WildCreatureBite		TYPE:PrestigeRace.Hidden	VISIBLE:NO	DESC:See Text																				BONUS:WEAPONPROF=Bite%|CRITMULTADD|1	MULT:YES																																																																																																		SOURCEPAGE:p.63
-

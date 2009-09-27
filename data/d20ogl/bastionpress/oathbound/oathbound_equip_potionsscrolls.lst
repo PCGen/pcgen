@@ -25,26 +25,26 @@ Potion (Silver's Stomach)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Cons
 
 ###Block: Scroll Name
 # Equipment Name				Product Identity?	Type								Cost		Weight	Source Page
-Scroll (Barbello's Fury)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:.01	SOURCEPAGE:p.321
-Scroll (Bathkol's Balance)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:.01	SOURCEPAGE:p.321
-Scroll (Breathe Air)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:.01	SOURCEPAGE:p.321
-Scroll (Colopitiron's Canniness)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:50	WT:.01	SOURCEPAGE:p.321
-Scroll (Conjunction)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:700	WT:.01	SOURCEPAGE:p.322
-Scroll (Darksight)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:.01	SOURCEPAGE:p.322
-Scroll (Eclipse Veil)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:.01	SOURCEPAGE:p.322
-Scroll (Eyesight)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:.01	SOURCEPAGE:p.322
-Scroll (Forge's Favor)			NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:525	WT:.01	SOURCEPAGE:p.322
-Scroll (Greater Darksight)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:700	WT:.01	SOURCEPAGE:p.322
-Scroll (Greater Oathbind)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1000	WT:.01	SOURCEPAGE:p.323
-Scroll (Hazegaze)							TYPE:Magic.Scroll.Consumable.Arcane			COST:375	WT:.01	SOURCEPAGE:p.323
-Scroll (Israfel's Grace)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:.01	SOURCEPAGE:p.323
-Scroll (Lesser Darkness)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:.01	SOURCEPAGE:p.323
-Scroll (Nemamiah's Inkling)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:.01	SOURCEPAGE:p.323
-Scroll (Oathbind)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:200	WT:.01	SOURCEPAGE:p.323
-Scroll (Oathbrand)						TYPE:Magic.Scroll.Consumable.Divine			COST:200	WT:.01	SOURCEPAGE:p.324
-Scroll (Orifelle's Resilience)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:.01	SOURCEPAGE:p.324
-Scroll (Rafter Sight)						TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:.01	SOURCEPAGE:p.324
-Scroll (Rafter Stride)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1000	WT:.01	SOURCEPAGE:p.324
-Scroll (Refinement)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:100	WT:.01	SOURCEPAGE:p.324
-Scroll (Silver's Stomach)					TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:.01	SOURCEPAGE:p.324
-Scroll (Touch of the Ceptu)					TYPE:Magic.Scroll.Consumable.Arcane			COST:700	WT:.01	SOURCEPAGE:p.325
+Scroll (Barbello's Fury)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01	SOURCEPAGE:p.321
+Scroll (Bathkol's Balance)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01	SOURCEPAGE:p.321
+Scroll (Breathe Air)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:0.01	SOURCEPAGE:p.321
+Scroll (Colopitiron's Canniness)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:50	WT:0.01	SOURCEPAGE:p.321
+Scroll (Conjunction)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:700	WT:0.01	SOURCEPAGE:p.322
+Scroll (Darksight)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:0.01	SOURCEPAGE:p.322
+Scroll (Eclipse Veil)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:0.01	SOURCEPAGE:p.322
+Scroll (Eyesight)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:0.01	SOURCEPAGE:p.322
+Scroll (Forge's Favor)			NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:525	WT:0.01	SOURCEPAGE:p.322
+Scroll (Greater Darksight)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:700	WT:0.01	SOURCEPAGE:p.322
+Scroll (Greater Oathbind)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1000	WT:0.01	SOURCEPAGE:p.323
+Scroll (Hazegaze)							TYPE:Magic.Scroll.Consumable.Arcane			COST:375	WT:0.01	SOURCEPAGE:p.323
+Scroll (Israfel's Grace)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01	SOURCEPAGE:p.323
+Scroll (Lesser Darkness)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:0.01	SOURCEPAGE:p.323
+Scroll (Nemamiah's Inkling)		NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:0.01	SOURCEPAGE:p.323
+Scroll (Oathbind)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:200	WT:0.01	SOURCEPAGE:p.323
+Scroll (Oathbrand)						TYPE:Magic.Scroll.Consumable.Divine			COST:200	WT:0.01	SOURCEPAGE:p.324
+Scroll (Orifelle's Resilience)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01	SOURCEPAGE:p.324
+Scroll (Rafter Sight)						TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01	SOURCEPAGE:p.324
+Scroll (Rafter Stride)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1000	WT:0.01	SOURCEPAGE:p.324
+Scroll (Refinement)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:100	WT:0.01	SOURCEPAGE:p.324
+Scroll (Silver's Stomach)					TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01	SOURCEPAGE:p.324
+Scroll (Touch of the Ceptu)					TYPE:Magic.Scroll.Consumable.Arcane			COST:700	WT:0.01	SOURCEPAGE:p.325
