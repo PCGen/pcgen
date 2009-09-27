@@ -21,7 +21,7 @@ CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Info
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Dogfighter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Check Base	Required Feat					Required Skill
-CLASS:Dogfighter	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Starship Operation(Ultralight)	PRESKILL:1,Pilot=6
+CLASS:Dogfighter	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Starship Operation (Ultralight)	PRESKILL:1,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dogfighter	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
 1	BONUS:ABILITYPOOL|Dogfighter Feat|1
@@ -40,7 +40,7 @@ CLASS:Dreadnought	PREMULT:2,[PREFEAT:1,Improved Damage Threshold],[PREABILITY:2,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dreadnought	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Jump|Profession|Survival|Swim|Tumble
 1								BONUS:MISC|ACHECK|2																							ABILITY:Special Ability|AUTOMATIC|Fearless|Stability|Unhindered
-2												BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL										ABILITY:Special Ability|AUTOMATIC|Steamroller|Dreadnought Ability Surge
+2												BONUS:VAR|AbilitySurgeTimes|(CL+1)/3	BONUS:VAR|AbilitySurgeRounds|CL										ABILITY:Special Ability|AUTOMATIC|Dreadnought Ability Surge|Steamroller
 3	BONUS:ABILITYPOOL|Dreadnought Feat|1
 4												BONUS:VAR|MasterDefender|((CL-1)/3)*2												DEFINE:MasterDefender|0	ABILITY:Special Ability|AUTOMATIC|Master Defender
 5																																		ABILITY:Special Ability|AUTOMATIC|Knockdown
@@ -58,7 +58,7 @@ CLASS:Engineer	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mec
 2												ABILITY:Special Ability|AUTOMATIC|Quick Craft|Superior Repair
 3	BONUS:ABILITYPOOL|Engineer Feat|1
 4							BONUS:VAR|ImproveKit|1		ABILITY:Special Ability|AUTOMATIC|Reconfigure Weapon|Sabotage
-5							BONUS:VAR|CraftReserve|CL*100	ABILITY:Special Ability|AUTOMATIC|Quick Craft|Craft XP Reserve
+5							BONUS:VAR|CraftReserve|CL*100	ABILITY:Special Ability|AUTOMATIC|Craft XP Reserve|Quick Craft
 6	BONUS:ABILITYPOOL|Engineer Feat|1
 7							BONUS:VAR|ImproveKit|1		ABILITY:Special Ability|AUTOMATIC|Quick Fix
 8												ABILITY:Special Ability|AUTOMATIC|Weapon Upgrade
@@ -104,7 +104,7 @@ CLASS:Helix Warrior	PREATT:3	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Tactics)=
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Helix Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Computer Use|Demolitions|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Spot|Survival|Swim|Tumble
 1																	ABILITY:Special Ability|AUTOMATIC|Haul|Light Sleeper|Survivor
-2	VISION:Darkvision (60)
+2	VISION:Darkvision (60')
 3					BONUS:ABILITYPOOL|HelixWarrior Feat|1
 4																	ABILITY:Special Ability|AUTOMATIC|Strong as an Ox
 5												BONUS:VISION|Darkvision|30	ABILITY:Special Ability|AUTOMATIC|Superior Conditioning
@@ -155,7 +155,7 @@ CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft 
 2														ABILITY:Special Ability|AUTOMATIC|Robomancer|Technophile
 3	BONUS:ABILITYPOOL|Technosavant Feat|1
 4														ABILITY:Special Ability|AUTOMATIC|Cybermancer|Skilled Salvager
-5								BONUS:VAR|DownWithRobots|(CL-2)/3	ABILITY:Special Ability|AUTOMATIC|Exotic Weapons Adept|Down with Robots
+5								BONUS:VAR|DownWithRobots|(CL-2)/3	ABILITY:Special Ability|AUTOMATIC|Down with Robots|Exotic Weapons Adept
 6	BONUS:ABILITYPOOL|Technosavant Feat|1
 7														ABILITY:Special Ability|AUTOMATIC|Super Cybersurgeon|Virtual Houdini
 8														ABILITY:Special Ability|AUTOMATIC|Expeditious Salvager
@@ -183,7 +183,7 @@ CLASS:Xenophile	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClas
 CLASS:Xenophile	PREABILITY:1,CATEGORY=Talent,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
-1	BONUS:ABILITYPOOL|Xenotype|1												ABILITY:Special Ability|AUTOMATIC|Xenolore|Base Xenotype
+1	BONUS:ABILITYPOOL|Xenotype|1												ABILITY:Special Ability|AUTOMATIC|Base Xenotype|Xenolore
 2												BONUS:VAR|Xenoresist|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Xenoresistance
 3	BONUS:ABILITYPOOL|Xenophile Feat|1
 4	BONUS:ABILITYPOOL|Xenotype|1	BONUS:ABILITYPOOL|Xenotype Bonus|1
