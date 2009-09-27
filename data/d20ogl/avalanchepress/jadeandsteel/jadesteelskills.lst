@@ -3,4 +3,3 @@ SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http
 
 # Skill Name		Key Stat	Untrained?		Type					Source Page
 Knowledge (Necrology)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.21
-

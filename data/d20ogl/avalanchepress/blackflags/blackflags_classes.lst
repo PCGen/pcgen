@@ -18,7 +18,7 @@ SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:B
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Merchant	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:Mch		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE.Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot
+CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE=Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency
 ###Block: Normal Level Progression
@@ -34,7 +34,7 @@ CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE.Craft|Diplomacy|
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Noble		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|TYPE.Knowledge|Read Lips|Ride|Sense Motive|Speak Language|Spot
+CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|TYPE=Knowledge|Read Lips|Ride|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Firearms Proficiency|Noble Weapon Proficiencies
 ###Block: Normal Level Progression
@@ -56,7 +56,7 @@ CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.3
 # Class Name	Required Gender
 CLASS:Priest	PREGENDER:M
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
+CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
 1	SAB:Bless %/day (Sp)|BFBless	SAB:Bless Water %/day (Sp)|BFBlessWater	SAB:Literacy x2(Native,Latin) (Ex)				BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=2										DEFINE:BFBless|1	DEFINE:BFBlessWater|1	AUTO:FEAT|Literacy
 2	SAB:Bane %/day (Sp)|BFBane																																														DEFINE:BFBane|1
 3	SAB:Aura of Fear %/day (Sp)|BFAuraFear																																												DEFINE:BFAuraFear|1
@@ -81,7 +81,7 @@ CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Deci
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		MAXLEVEL:20	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disable Device|Heal|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|TYPE.Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
+CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disable Device|Heal|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|TYPE=Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Firearms Proficiency|Simple Weapon Proficiency
 ###Block: Normal Level Progression
@@ -100,23 +100,23 @@ CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disab
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:FtSol		MAXLEVEL:20	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Ride|Swim
+CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Swim
 ###Block: Proficiency
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Firearms Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Firearms Proficiency|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1						ADD:FEAT|1|TYPE=Fighter
-2						ADD:FEAT|1|TYPE=Fighter
-4	DEFINE:WeapSpecQualify|1	ADD:FEAT|1|TYPE=Fighter
-6						ADD:FEAT|1|TYPE=Fighter
-8						ADD:FEAT|1|TYPE=Fighter
-10						ADD:FEAT|1|TYPE=Fighter
-12						ADD:FEAT|1|TYPE=Fighter
-14						ADD:FEAT|1|TYPE=Fighter
-16						ADD:FEAT|1|TYPE=Fighter
-18						ADD:FEAT|1|TYPE=Fighter
-20						ADD:FEAT|1|TYPE=Fighter
+1						ADD:FEAT|TYPE=Fighter
+2						ADD:FEAT|TYPE=Fighter
+4	DEFINE:WeapSpecQualify|1	ADD:FEAT|TYPE=Fighter
+6						ADD:FEAT|TYPE=Fighter
+8						ADD:FEAT|TYPE=Fighter
+10						ADD:FEAT|TYPE=Fighter
+12						ADD:FEAT|TYPE=Fighter
+14						ADD:FEAT|TYPE=Fighter
+16						ADD:FEAT|TYPE=Fighter
+18						ADD:FEAT|TYPE=Fighter
+20						ADD:FEAT|TYPE=Fighter
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
 CLASS:Escaped Slave	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:ESl		MAXLEVEL:1	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude|2
@@ -140,7 +140,7 @@ CLASS:Cook		!PRECLASS:1,Priest=1	PRELEVEL:MIN=1
 CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Will|2
 # Class Name	Required Lvl
 CLASS:Officer	PRELEVEL:MIN=1
-1	SAB:Forage (Ex)	BONUS:SKILL|Balance,Intimidate,Navigation,Piloting|2|TYPE=Class	ADD:FEAT|1|TYPE=Panache	AUTO:FEAT|Weapon Finesse(Rapier)
+1	SAB:Forage (Ex)	BONUS:SKILL|Balance,Intimidate,Navigation,Piloting|2|TYPE=Class	ADD:FEAT|TYPE=Panache	AUTO:FEAT|Weapon Finesse(Rapier)
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	ABB:Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -149,25 +149,25 @@ CLASS:Captain	PREFEAT:1,Leadership	PRESKILL:2,Navigation=8,Piloting=8	PRESTAT:1,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Captain	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|Search|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Firearms Proficiency|Captain Weapon Proficiencies
+1	AUTO:FEAT|Captain Weapon Proficiencies|Firearms Proficiency
 ###Block: Normal Level Progression
 1	SAB:Aura of Command (Su)
-2						ADD:FEAT|1|TYPE=Panache
+2						ADD:FEAT|TYPE=Panache
 3	SAB:Remove Fear (Su)
-4						ADD:FEAT|1|TYPE=Panache
+4						ADD:FEAT|TYPE=Panache
 5	SAB:Inspire to Greatness (Su)
-6						ADD:FEAT|1|TYPE=Panache
+6						ADD:FEAT|TYPE=Panache
 7	SAB:Aura of Fear (Su)
-8						ADD:FEAT|1|TYPE=Panache
+8						ADD:FEAT|TYPE=Panache
 9	SAB:Intuition (Sp)
-1						ADD:FEAT|1|TYPE=Panache
+1						ADD:FEAT|TYPE=Panache
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Cnl		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Class		Required Feat		Required Skill		Required Stat	Required Text
 CLASS:Cardinal	PRECLASS:1,Priest=7	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=12	PRESTAT:1,CHA=13	PRETEXT:Must have been promoted to Bishop.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cardinal	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Forgery|Gather Information|Heal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Read Lips|Ride|Sense Motive|Speak Language|Spot
+CLASS:Cardinal	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Forgery|Gather Information|Heal|Innuendo|Intimidate|TYPE=Knowledge|Listen|Read Lips|Ride|Sense Motive|Speak Language|Spot
 1	SAB:Entourage	SAB:Guard	SAB:Social Standing % (Ex)|BFSocialStanding	SAB:Theological Wisdom (Ex)												DEFINE:BFSocialStanding|4
 2																						BONUS:VAR|BFLayHands|1	BONUS:VAR|BFAuraFear|1
 3	SAB:Remove Curse (Sp)

@@ -16,8 +16,8 @@ CLASS:Boyar		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BA
 # Class Name	Required Skill		Required Stat	Required Text
 CLASS:Boyar		PRESKILL:1,Intimidate=8	PRESTAT:1,CHA=13	PRETEXT:Must own a Castle
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Boyar		STARTSKILLPTS:2	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Handle Animal|Intimidate|Ride|Sense Motive|TYPE.Craft
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+CLASS:Boyar		STARTSKILLPTS:2	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Handle Animal|Intimidate|Ride|Sense Motive|TYPE=Craft
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
@@ -40,7 +40,7 @@ CLASS:Black Hussar	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHE
 CLASS:Black Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Nobility
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Hussar	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|Intuit Direction
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
@@ -51,7 +51,7 @@ CLASS:Black Hussar	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Handle Animal|I
 4							ABILITY:Special Ability|AUTOMATIC|Summon Mount
 5							ABILITY:FEAT|AUTOMATIC|Trample|PREMULT:2,[PREFEAT:1,Mounted Combat],[PRESKILL:1,Ride=1]
 6	BONUS:VAR|HussarCoursersFury|1
-7							ABILITY:FEAT|AUTOMATIC|Behead|PREMULT:3,[PREATT:4],[PREFEAT:1,Power Attack],[PREFEAT:1,Weapon Focus(TYPE.Slashing)]
+7							ABILITY:FEAT|AUTOMATIC|Behead|PREMULT:3,[PREATT:4],[PREFEAT:1,Power Attack],[PREFEAT:1,Weapon Focus (TYPE.Slashing)]
 8							ABILITY:Special Ability|AUTOMATIC|Equine Speed
 9							ABILITY:Special Ability|AUTOMATIC|Graceful Fall
 10	BONUS:VAR|HussarCoursersFury|1
@@ -61,7 +61,7 @@ CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECK
 # Class Name	Required Skill	Required Stat	Required Text
 CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|TYPE.Craft
+CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|TYPE=Craft
 1							AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
@@ -71,7 +71,7 @@ CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Int
 3								ABILITY:FEAT|AUTOMATIC|Spirited Charge|PREMULT:2,[PREFEAT:2,Mounted Combat,Ride-By Attack],[PRESKILL:1,Ride=1]
 4								ABILITY:Special Ability|AUTOMATIC|Summon Mount
 5								ABILITY:FEAT|AUTOMATIC|Trample|PREMULT:2,[PREFEAT:1,Mounted Combat],[PRESKILL:1,Ride=1]
-7								ABILITY:FEAT|AUTOMATIC|Behead|PREMULT:3,[PREATT:4],[PREFEAT:1,Power Attack],[PREFEAT:1,Weapon Focus(TYPE.Slashing)]
+7								ABILITY:FEAT|AUTOMATIC|Behead|PREMULT:3,[PREATT:4],[PREFEAT:1,Power Attack],[PREFEAT:1,Weapon Focus (TYPE.Slashing)]
 8								ABILITY:Special Ability|AUTOMATIC|Equine Speed
 9								ABILITY:Special Ability|AUTOMATIC|Graceful Fall
 
@@ -79,7 +79,7 @@ CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Int
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Herbalist	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|Profession (Apothecary)|Search|Spellcraft|Spot|Use Magic Device|Wilderness Lore|TYPE.Craft
+CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|Profession (Apothecary)|Search|Spellcraft|Spot|Use Magic Device|Wilderness Lore|TYPE=Craft
 1	BONUS:ABILITYPOOL|Herbalist Minor Poultice|1														SPELLS:Class|TIMES=CL|Cure Minor Wounds
 2	BONUS:ABILITYPOOL|Herbalist Minor Poultice|1	BONUS:VAR|HerbalistMinorPoultices|CL	DEFINE:HerbalistMinorPoultices|0
 4	BONUS:ABILITYPOOL|Herbalist Minor Poultice|1
@@ -96,7 +96,7 @@ CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gath
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
+CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE=Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
 2	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 2										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
 2										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
