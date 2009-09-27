@@ -3,7 +3,7 @@ SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB
 
 # Equipment Name					Type					Cost		Weight	Source Page		Save checks bonus						Bonus to skill				Special Property
 Golden Torc of Elendonia of the Oaks	TYPE:Magic.Wondrous.Amulet	COST:15000	WT:1		SOURCEPAGE:p.78
-Dragon Amulet					TYPE:Magic.Wondrous.Amulet	COST:3750	WT:.5		SOURCEPAGE:p.78
+Dragon Amulet					TYPE:Magic.Wondrous.Amulet	COST:3750	WT:0.5	SOURCEPAGE:p.78
 Amulet of Turning					TYPE:Magic.Wondrous.Amulet	COST:9800	WT:1		SOURCEPAGE:p.78															SPROP:+8 to caster level for turning check and damage roll against incorporeal undead
 Bead of Tranquil Passage (Karma)		TYPE:Magic.Wondrous.Amulet	COST:6000	WT:0		SOURCEPAGE:p.79
 Selchie's Cloak (Alter Self)			TYPE:Magic.Wondrous.Cape	COST:13000	WT:1		SOURCEPAGE:p.79
