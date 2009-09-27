@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sat Sep 26 21:27:24 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Barak 11/09/02
 
@@ -189,20 +189,20 @@ CLASS:Investigator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Disable Device|Driv
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus		Modify VAR
 CLASS:Personality	HD:6		TYPE:Advanced.PC	ABB:Pers		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
-# Class Name	Required Feat	Multiple Requirements
-CLASS:Personality	PREFEAT:1,Renown	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Perform=6]
+# Class Name	Required Feat	Required Skill
+CLASS:Personality	PREFEAT:1,Renown	PRESKILL:2,Diplomacy=6,TYPE.Perform=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Speak Language
-1																		ABILITY:Special Ability|AUTOMATIC|Unlimited Access
-2												ADD:CLASSSKILLS|1|NONEXCLUSIVE
+1																	ABILITY:Special Ability|AUTOMATIC|Unlimited Access
+2												ADD:CLASSSKILLS|NONEXCLUSIVE
 3	BONUS:ABILITYPOOL|Personality Feat|1
-4								BONUS:VAR|Royalty|1							ABILITY:Special Ability|AUTOMATIC|Royalty
-5																		ABILITY:Special Ability|AUTOMATIC|Winning Smile
+4								BONUS:VAR|Royalty|1						ABILITY:Special Ability|AUTOMATIC|Royalty
+5																	ABILITY:Special Ability|AUTOMATIC|Winning Smile
 6	BONUS:ABILITYPOOL|Personality Feat|1
-7												ADD:CLASSSKILLS|1|NONEXCLUSIVE
+7												ADD:CLASSSKILLS|NONEXCLUSIVE
 8								BONUS:VAR|Royalty|1
 9	BONUS:ABILITYPOOL|Personality Feat|1
-10																		ABILITY:Special Ability|AUTOMATIC|Compelling Performance
+10																	ABILITY:Special Ability|AUTOMATIC|Compelling Performance
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
 CLASS:Negotiator	HD:8		TYPE:Advanced.PC	ABB:Nego		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|(CL*3)/4	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6

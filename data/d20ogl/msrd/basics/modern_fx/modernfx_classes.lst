@@ -131,7 +131,7 @@ CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	B
 
 # Class Name
 CLASS:Dragon (True).MOD
-13	ADD:SPELLCASTER|1|Mage
+13	ADD:SPELLCASTER|Mage
 
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus											Combat bonus						Modify VAR
@@ -158,4 +158,3 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 8	CAST:6,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Outsiders
 9	CAST:6,4,4,3,2,1	BONUS:ABILITYPOOL|Acolyte Feat|1
 10	CAST:6,4,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Maximize Spell
-

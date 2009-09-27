@@ -48,8 +48,8 @@ Magic Mastercraft		CATEGORY:Special Ability	TYPE:CraftArtifice	VISIBLE:NO	PRESKI
 ###Block: All Proficiencies (for referencing)
 # Ability Name					Category of Ability		Visible	Automatically Gained Weapon Prof.
 All Automatic Proficiencies			CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Flamethrower
-All Exotic Firearms Proficiency		CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.ExoticFirearms
-All Exotic Melee Weapons Proficiency	CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
+All Exotic Firearms Proficiency		CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=ExoticFirearms
+All Exotic Melee Weapons Proficiency	CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Exotic
 
 
 ###Block:Soldier ---------------------------------------------------------------

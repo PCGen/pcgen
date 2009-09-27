@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec 13 16:16:41 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Sat Sep 26 21:27:24 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Original Entry by: Phantom of Krankor
 # 5.14 added 'QUALITY:Light|x ft.' and 'QUALITY:DURATION|x hr.'
@@ -105,7 +105,7 @@ Backpack									TYPE:Goods.General.Container			CONTAINS:60|Any=60	COST:10	WT:3	
 Binoculars (Standard)		OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General								COST:7	WT:2		SOURCEPAGE:msrdequipmentgeneral.rtf
 Binoculars (Rangefinding)	OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General								COST:15	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf
 Binoculars (Electro-Optical)	OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General								COST:16	WT:4		SOURCEPAGE:msrdequipmentgeneral.rtf
-Chemical Light Stick							TYPE:Goods.General.Consumable.LightSource							WT:.2		SOURCEPAGE:msrdequipmentgeneral.rtf																		QUALITY:Light|5 ft.	QUALITY:DURATION|6 hr.
+Chemical Light Stick							TYPE:Goods.General.Consumable.LightSource							WT:0.2	SOURCEPAGE:msrdequipmentgeneral.rtf																		QUALITY:Light|5 ft.	QUALITY:DURATION|6 hr.
 Chemical Light Sticks (5)						TYPE:Goods.General.Consumable							COST:2	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Climbing Gear								TYPE:Goods.General.Tools							COST:11	WT:10		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Climb|CircumstanceAdjustment|TYPE=Circumstance
 Compass									TYPE:Goods.General								COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Navigate|2|TYPE=Equipment
@@ -137,6 +137,3 @@ Detonator (Wired)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Cons
 Holster (Hip)			OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Firearm=1	COST:5	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Holster (Concealed carry)	OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Firearm=1	COST:5	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
 # Original Entry by: Phantom of Krankor
-
-
-

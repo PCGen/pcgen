@@ -13,5 +13,3 @@ ABILITYCATEGORY:Acolyte Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIO
 ###Block:ModernFx Class Abilities
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI			Display Location
 ABILITYCATEGORY:Shadow Slayer Favored Enemy	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowEnemy	PLURAL:Shadow Slayer Favored Enemies	DISPLAYLOCATION:Class Abilities
-
-

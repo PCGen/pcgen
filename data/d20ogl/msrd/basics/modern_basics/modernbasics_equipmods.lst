@@ -73,4 +73,3 @@ Suppressor (Rifle)	KEY:SPPRSS_RFL	NAMEOPT:TEXT=Suppressor			TYPE:Longarm								
 ###Block: Vehicle STATS (Workaround for SPROP not taking variables in EQUIPMENT), the KEY starts with AA so it comes first in SPROP output
 # Modifier Name	Unique Key		Naming Option	Special Property
 Vehicle		KEY:AAVEHICLE	NAMEOPT:NOTHING	SPROP:Crew: %|vcrew	SPROP:Pass: %|vpass	SPROP:Pass: 0|PREVAREQ:vpass,0	SPROP:Cargo: % lbs.|vcargo	SPROP:Cargo: none|PREVAREQ:vcargo,0	SPROP:Init: %|vinit	SPROP:Init:+0|PREVAREQ:vinit,0	SPROP:Maneuver: %|vmaneuver	SPROP:Maneuver:+0|PREVAREQ:vmaneuver,0	SPROP:Top Speed: %(%)|vt_speed|vt_speed/10	SPROP:Defense: %|vdefense	SPROP:Hardness: %|vhard	SPROP:hp %|vhpee	SPROP:Size:S|PREVAREQ:vsize,3	SPROP:Size:M|PREVAREQ:vsize,4	SPROP:Size:L|PREVAREQ:vsize,5	SPROP:Size:H|PREVAREQ:vsize,6	SPROP:Size:G|PREVAREQ:vsize,7	SPROP:Size:C|PREVAREQ:vsize,8
-
