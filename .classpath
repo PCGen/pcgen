@@ -30,6 +30,5 @@
 	<classpathentry kind="lib" path="lib/fop/xalan-2.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/fop/xercesImpl-2.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/fop/xml-apis.jar"/>
-	<classpathentry kind="lib" path="lib/spring-core.jar"/>
 	<classpathentry kind="output" path="code/build.eclipse"/>
 </classpath>
