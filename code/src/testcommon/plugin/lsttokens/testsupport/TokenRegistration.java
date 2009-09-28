@@ -33,7 +33,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
-import pcgen.util.Logging;
 
 public class TokenRegistration
 {
