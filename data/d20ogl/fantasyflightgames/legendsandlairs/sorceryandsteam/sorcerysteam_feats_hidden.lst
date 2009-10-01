@@ -6,7 +6,7 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 Artificer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Alchemy|Concentration|TYPE.Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Clockworks)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|TYPE.Profession|Ride|Search|Use Rope|Use Steamcraft Device						BONUS:SKILL|LIST|2	SOURCEPAGE:p.53
 Artificer Steamcraft Focus	TYPE:SteamcraftFocus	VISIBLE:NO							SAB:Steamcraft Focus (%CHOICE)				MULT:YES	CHOOSE:STRING|Weapons|Armor|Vehicles|General
 Musketeer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE.Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device																					BONUS:SKILL|LIST|2	SOURCEPAGE:p.47
-Hypnotist DC Bonus		TYPE:General		VISIBLE:NO	PREFEAT:1,Spell Focus(Enchantment)							DESC:See Text	MULT:NO																																																							BONUS:DC|SCHOOL.Enchantment|2
+Hypnotist DC Bonus		TYPE:General		VISIBLE:NO	PREFEAT:1,Spell Focus (Enchantment)							DESC:See Text	MULT:NO																																																							BONUS:DC|SCHOOL.Enchantment|2
 Reference Material		TYPE:Detective		VISIBLE:NO							SAB:Reference Material (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge																																																						BONUS:SKILL|LIST|2	SOURCEPAGE:p.59
 
 ###Block: Arcane Performer Song Power
@@ -27,7 +27,7 @@ Master of Enchantment IV	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Encha
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automatically Gained Weapon Prof.
 Street Runner Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Dart|Mace|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier[PRESIZEGTEQ:M]
-Musketeer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Firearms|Club|Dagger|Dagger (Punching)|Glaive|Guisarme|Halberd|Halfspear|Javelin|Crossbow (Light)|Crossbow (Heavy)|Longspear|Longsword|Quarterstaff|Ranseur|Rapier|Scimitar|Shortspear|Sword (Short)
+Musketeer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dagger (Punching)|Glaive|Guisarme|Halberd|Halfspear|Javelin|Crossbow (Light)|Crossbow (Heavy)|Longspear|Longsword|Quarterstaff|Ranseur|Rapier|Scimitar|Shortspear|Sword (Short)|TYPE=Firearms
 
 
 ###Block: Game Hunter Favored Enemies
@@ -70,7 +70,7 @@ Ape Ability - Animal Agility				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1
 Ape Ability - Quick Movment				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																					SAB:Quick Movment															DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=Dodge
 Ape Ability - Jungle Warrior				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Ape Totem																					SAB:Jungle Warrior														DESC:See Text	MULT:NO																																							BONUS:WEAPONPROF=Unarmed Strike|CRITRANGEDOUBLE|1
 
-Bear Ability - Sturdy Build				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Sturdy Build															DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Toughness
+Bear Ability - Sturdy Build				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Sturdy Build															DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Toughness
 Bear Ability - Natural Swimmer			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Natural Swimmer														DESC:See Text	MULT:NO																										BONUS:SKILL|Swim|4|TYPE=Competence
 Bear Ability - Inner Might				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Inner Might															DESC:See Text	MULT:NO								BONUS:CHECKS|Fortitude|1
 Bear Ability - Thick Skinned				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Thick Skinned															DESC:See Text	MULT:NO													BONUS:COMBAT|AC|1|TYPE=NaturalArmor
@@ -100,7 +100,7 @@ Cheetah Ability - Moving Target			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT
 Cheetah Ability - Quick Reflexes			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Quick Reflexes														DESC:See Text	MULT:NO								BONUS:CHECKS|Reflex|1
 Cheetah Ability - Trip					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Trip (Ex)															DESC:See Text	MULT:NO
 
-Lion Ability - Toughness				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Toughness															DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|1|Toughness
+Lion Ability - Toughness				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Toughness															DESC:See Text	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Toughness
 Lion Ability - Ambush					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Ambush																DESC:See Text	MULT:NO																										BONUS:SKILL|Hide|4|TYPE=Competence
 Lion Ability - Stalking					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Stalking															DESC:See Text	MULT:NO																										BONUS:SKILL|Move Silently|4|TYPE=Competence
 Lion Ability - King of the Jungle			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:King of the Jungle														DESC:See Text	MULT:NO																										BONUS:SKILL|Intimidate|4|TYPE=Competence

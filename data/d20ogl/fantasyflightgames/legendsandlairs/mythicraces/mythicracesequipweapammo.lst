@@ -2,5 +2,5 @@
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Equipment Name	Type			Cost		Weight	Size		Source Page
-Arrow (Fey)		TYPE:Ammunition	COST:.05	WT:.075	SIZE:T	SOURCEPAGE:p.
+Arrow (Fey)		TYPE:Ammunition	COST:0.05	WT:0.075	SIZE:T	SOURCEPAGE:p.
 Arrows (Fey/20)	TYPE:Ammunition	COST:1	WT:1.5	SIZE:T	SOURCEPAGE:p.

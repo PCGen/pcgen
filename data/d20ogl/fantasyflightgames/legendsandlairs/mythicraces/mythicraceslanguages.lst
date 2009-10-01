@@ -5,7 +5,7 @@ SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:
 # MM monsters do not speak that language.
 # Entered to allow LANGBONUS in mythicraceslanguages.lst.
 # --------------------------
-# Éric Beaudoin - 2002.11.16
+# Eric Beaudoin - 2002.11.16
 
 # Language	Type
 Hobgoblin	TYPE:Spoken

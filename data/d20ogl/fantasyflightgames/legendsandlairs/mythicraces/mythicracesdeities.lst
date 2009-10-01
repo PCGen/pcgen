@@ -15,9 +15,9 @@ The Sea		NAMEISPI:YES	DOMAINS:Knowledge,Law,Protection,Travel,Water|PREALIGN:LG,
 Buer			NAMEISPI:YES	DOMAINS:Animal,Strength,Travel,War|PREALIGN:TN,CG,CN,CE		DESC:Lord of the wilderness, war, and physical prowess										DEITYWEAP:Shortspear							ALIGN:CN	PANTHEON:Aaleear		SOURCEPAGE:p.104
 Hmecsoba		NAMEISPI:YES	DOMAINS:Chaos,Evil,Trickery|PREALIGN:NE,CN,CE				DESC:The wicked trickster																									ALIGN:CE	PANTHEON:Aaleear		SOURCEPAGE:p.104
 Allasyrain		NAMEISPI:YES	DOMAINS:Air,Good,Healing|PREALIGN:NG,CG,CN				DESC:god of winds																											ALIGN:CG	PANTHEON:Siarran		SOURCEPAGE:p.136
-Trevk and Ellayk	NAMEISPI:YES	DOMAINS:Air,Law,War,Water,Evil|PREALIGN:LG,LN,LE			DESC:Lord and Lady of rain and springs													DEITYWEAP:Scimitar|Lance|Shortbow|Shortbow (Composite)	ALIGN:LN	PANTHEON:Sktak		SOURCEPAGE:p.142
+Trevk and Ellayk	NAMEISPI:YES	DOMAINS:Air,Evil,Law,War,Water|PREALIGN:LG,LN,LE			DESC:Lord and Lady of rain and springs													DEITYWEAP:Scimitar|Lance|Shortbow|Shortbow (Composite)	ALIGN:LN	PANTHEON:Sktak		SOURCEPAGE:p.142
 Ehromen		NAMEISPI:YES	DOMAINS:Destruction,Evil,Trickery|PREALIGN:LE,NE,CE			DESC:the demon																											ALIGN:NE	PANTHEON:Sktak		SOURCEPAGE:p.142
-Y'llan		NAMEISPI:YES	DOMAINS:ALL|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE				DESC:The mother with a thousand faces																									PANTHEON:Uthuk		SOURCEPAGE:p.159
+Y'llan		NAMEISPI:YES	DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE				DESC:The mother with a thousand faces																									PANTHEON:Uthuk		SOURCEPAGE:p.159
 
 #Animen Higher Self		?	SOURCEPAGE:p.19 (Animen)
 #Ba en Aset				?	SOURCEPAGE:p.25 (Artathi)

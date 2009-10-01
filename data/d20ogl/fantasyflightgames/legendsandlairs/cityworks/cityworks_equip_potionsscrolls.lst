@@ -9,18 +9,18 @@ Potion (Silent Steel)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable
 Potion (Outcast's Curse)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable				COST:750	WT:0		PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
 
 # Scroll Name
-Scroll (Erad's Silent Killer)							TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:.01							SOURCEPAGE:p.35
-Scroll (Friends)									TYPE:Magic.Scroll.Consumable.Arcane			COST:25	WT:.01							SOURCEPAGE:p.36
-Scroll (Silent Steel)								TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:.01							SOURCEPAGE:p.36
+Scroll (Erad's Silent Killer)							TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01							SOURCEPAGE:p.35
+Scroll (Friends)									TYPE:Magic.Scroll.Consumable.Arcane			COST:25	WT:0.01							SOURCEPAGE:p.36
+Scroll (Silent Steel)								TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:0.01							SOURCEPAGE:p.36
 
 # Urbanmancy Prestige Spells
 
-Scroll (Call Loyal Servant)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:2275	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
-Scroll (City Elemental I)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:700	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
-Scroll (City Elemental II)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1650	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
-Scroll (City Elemental III)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:3000	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
-Scroll (City's Whispers)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
-Scroll (Lord of the City)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:3825	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
-Scroll (Outcast's Curse)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
-Scroll (Tales of Stone and Wood)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
-Scroll (Voice of Authority)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1125	WT:.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
+Scroll (Call Loyal Servant)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:2275	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
+Scroll (City Elemental I)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:700	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
+Scroll (City Elemental II)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1650	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.37
+Scroll (City Elemental III)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:3000	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
+Scroll (City's Whispers)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
+Scroll (Lord of the City)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:3825	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.38
+Scroll (Outcast's Curse)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
+Scroll (Tales of Stone and Wood)						TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39
+Scroll (Voice of Authority)							TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1125	WT:0.01	PREFEAT:1,Urbanmancer,SpeakerSpells	SOURCEPAGE:p.39

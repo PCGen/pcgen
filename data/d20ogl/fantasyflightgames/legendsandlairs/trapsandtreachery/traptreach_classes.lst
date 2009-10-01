@@ -6,20 +6,20 @@ SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOU
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus															Combat bonus
 CLASS:Discreet Companion	HD:4		TYPE:PC.Prestige	ABB:DCO		MAXLEVEL:10	SOURCEPAGE:p.20-23	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/3|TYPE=Base.REPLACE
 # Class Name			Required AL				Required Feat							Required Skill
-CLASS:Discreet Companion	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Alertness,Skill Focus(Gather Information)	PRESKILL:1,Bluff=6	PRESKILL:1,Diplomacy=8	PRESKILL:1,Gather Information=10	PRESKILL:1,Profession (Escort)=5,Profession (Courtesan)=5,Profession (Prostitute)=5	PRESKILL:2,Innuendo=4,Perform=4
+CLASS:Discreet Companion	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Alertness,Skill Focus (Gather Information)	PRESKILL:1,Bluff=6	PRESKILL:1,Diplomacy=8	PRESKILL:1,Gather Information=10	PRESKILL:1,Profession (Escort)=5,Profession (Courtesan)=5,Profession (Prostitute)=5	PRESKILL:2,Innuendo=4,Perform=4
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Innuendo|Intimidate|Listen|Mimic Voice|Perform|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Urban Lore
-1	SAB:Secret %|Secret	BONUS:VAR|Secret|(CL+2)/3	DEFINE:Secret|0	ADD:FEAT|1|TYPE=DiscreetCompanionAbility
+CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Innuendo|Intimidate|Listen|Mimic Voice|Perform|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Urban Lore
+1	SAB:Secret %|Secret	BONUS:VAR|Secret|(CL+2)/3	DEFINE:Secret|0	ADD:FEAT|TYPE=DiscreetCompanionAbility
 2	SAB:Resist Charm
-5													ADD:FEAT|1|TYPE=DiscreetCompanionAbility
-10	SAB:Charmtouch										ADD:FEAT|1|TYPE=DiscreetCompanionAbility
+5													ADD:FEAT|TYPE=DiscreetCompanionAbility
+10	SAB:Charmtouch										ADD:FEAT|TYPE=DiscreetCompanionAbility
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	ABB:fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL				Req. Att.	Required Feat						Required Skill											Var. Min. Value
-CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill Focus(Intimidate)	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PREVARGTEQ:SneakAttack,1
+CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill Focus (Intimidate)	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PREVARGTEQ:SneakAttack,1
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Urban Lore|Use Rope
+CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Urban Lore|Use Rope
 ###Block: Proficiencies
 1	AUTO:FEAT|Guildmaster Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
@@ -35,7 +35,7 @@ CLASS:Roofrunner	HD:6		TYPE:PC.Prestige	ABB:RRN		MAXLEVEL:10	SOURCEPAGE:p.26-29	
 # Class Name	Required Skill
 CLASS:Roofrunner	PRESKILL:7,Knowledge (Home City)=5,Urban Lore=8,Climb=5,Balance=5,Jump=5,Move Silently=5,Gather Information=5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Roofrunner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Swim|Tumble|Urban Lore|Use Rope
+CLASS:Roofrunner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Swim|Tumble|Urban Lore|Use Rope
 ###Block: Proficiencies
 1	AUTO:FEAT|Guildmaster Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
@@ -51,7 +51,7 @@ CLASS:Trapmaster	HD:6		TYPE:PC.Prestige	ABB:TMS		MAXLEVEL:10	SOURCEPAGE:p.29-31	
 # Class Name	Required AL				Required Feat			Required Skill
 CLASS:Trapmaster	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:1,Mechanical Aptitude	PRESKILL:2,Craft (Trapmaking)=6,Disable Device=10
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Trapmaster	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Trapmaster	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Trapmaster	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Trapmaster|CL
 ###Block: Spell List
@@ -76,9 +76,9 @@ CLASS:Trapmaster	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVE
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus															Combat bonus
 CLASS:Thug		HD:6		TYPE:Base.NPC	ABB:THG		MAXLEVEL:20	SOURCEPAGE:p.31-33	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Urban Lore
+CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Urban Lore
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Rogue Weapon Proficiencies
 1																AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Backstab +%d%|BackstabDice|BackstabDieSize							BONUS:VAR|BackstabDice|CL/5+1	DEFINE:BackstabDieSize|4	DEFINE:BackstabDice|0
@@ -90,4 +90,4 @@ CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Disgu
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Urban Lore
-1	ADD:FEAT|1|Track,Shadow (TT)	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+1	ADD:FEAT|Shadow (TT),Track	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency

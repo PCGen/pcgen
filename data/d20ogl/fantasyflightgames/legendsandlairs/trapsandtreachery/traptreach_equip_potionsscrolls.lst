@@ -11,9 +11,9 @@ Potion (Invisible Object)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consuma
 
 #Scroll name
 # Equipment Name				Output Name				Type						Cost		Weight	Source Page
-Scroll (True Filch)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine	COST:150	WT:.01	SOURCEPAGE:p.53
-Scroll (Detect Traps)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:.01	SOURCEPAGE:p.53
-Scroll (Greater Knock)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1650	WT:.01	SOURCEPAGE:p.54
-Scroll (Distraction)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:12.5	WT:.01	SOURCEPAGE:p.56
-Scroll (Invisible Object)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:25	WT:.01	SOURCEPAGE:p.56
-Scroll (Flesh To Shaped Stone)	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:.01	SOURCEPAGE:p.155
+Scroll (True Filch)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine	COST:150	WT:0.01	SOURCEPAGE:p.53
+Scroll (Detect Traps)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:0.01	SOURCEPAGE:p.53
+Scroll (Greater Knock)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1650	WT:0.01	SOURCEPAGE:p.54
+Scroll (Distraction)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:12.5	WT:0.01	SOURCEPAGE:p.56
+Scroll (Invisible Object)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:25	WT:0.01	SOURCEPAGE:p.56
+Scroll (Flesh To Shaped Stone)	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:0.01	SOURCEPAGE:p.155

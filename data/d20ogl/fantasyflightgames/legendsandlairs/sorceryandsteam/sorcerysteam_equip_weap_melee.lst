@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep 30 21:36:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 # Tiny
-# Equipment Name					Required Proficiency			Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Size		Source Page		Special Property
-Awl							PROFICIENCY:WEAPON|Tool			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Metal										COST:.5	WT:0		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d3						SIZE:T	SOURCEPAGE:p.152
+# Equipment Name					Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Size		Source Page		Special Property
+Awl							PROFICIENCY:WEAPON|Tool			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Metal										COST:0.5	WT:0		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d3						SIZE:T	SOURCEPAGE:p.152
 Scalpel						PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Simple.Melee.Ranged.Slashing.Standard.Metal										COST:3	WT:0		CRITMULT:x2			CRITRANGE:3												DAMAGE:1d2						SIZE:T	SOURCEPAGE:p.152
 
 # Small
@@ -12,7 +12,7 @@ Bayonet						PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Simple.Melee.Ranged.Piercing
 Belaying Pin					PROFICIENCY:WEAPON|Club			TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden.Thrown.Club								COST:1	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						SIZE:S	SOURCEPAGE:p.152
 Gnome Guardian's Knife				PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Thrown.Metal.Masterwork							COST:250	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4						SIZE:S	SOURCEPAGE:p.131
 Injector						PROFICIENCY:WEAPON|Injector		TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal											COST:10	WT:1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3						SIZE:S	SOURCEPAGE:p.131	SPROP:If damage is inflicted user may inject contents into target as a free action
-Screwdriver						PROFICIENCY:WEAPON|Tool			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Metal										COST:.5	WT:1		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4						SIZE:S	SOURCEPAGE:p.152
+Screwdriver						PROFICIENCY:WEAPON|Tool			TYPE:Weapon.Simple.Melee.Ranged.Piercing.Standard.Metal										COST:0.5	WT:1		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4						SIZE:S	SOURCEPAGE:p.152
 Springblade						PROFICIENCY:WEAPON|Springblade	TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal.Gauntlet										COST:250	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4						SIZE:S	SOURCEPAGE:p.131
 
 # Medium

@@ -5,18 +5,18 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 ### Steampunk MODs to base classes
 
 # Class Name	Automatically Gained Weapon Prof.
-CLASS:Bard.MOD	AUTO:WEAPONPROF|TYPE.Firearms
+CLASS:Bard.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 # Class Name	Class Skill
 CLASS:Bard.MOD	CSKILL:Munitions
 
 # Class Name	Remove Class Skill	Class Skill
-CLASS:Cleric.MOD	CSKILL:.CLEAR		CSKILL:Alchemy|Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Steamcraft)|TYPE.Profession|Scry|Spellcraft
+CLASS:Cleric.MOD	CSKILL:.CLEAR		CSKILL:Alchemy|Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Steamcraft)|TYPE=Profession|Scry|Spellcraft
 
 # Class Name	Class Skill
-CLASS:Fighter.MOD	CSKILL:Munitions|TYPE.Profession
+CLASS:Fighter.MOD	CSKILL:Munitions|TYPE=Profession
 
 # Class Name	Remove Class Skill	Class Skill
-CLASS:Monk.MOD	CSKILL:.CLEAR.Perform	CSKILL:TYPE.Knowledge
+CLASS:Monk.MOD	CSKILL:.CLEAR.Perform	CSKILL:TYPE=Knowledge
 
 # Class Name	Class Skill
 CLASS:Paladin.MOD	CSKILL:Munitions
@@ -25,7 +25,7 @@ CLASS:Paladin.MOD	CSKILL:Munitions
 CLASS:Ranger.MOD	CSKILL:.CLEAR.Handle Animal	CSKILL:Munitions
 
 # Class Name	Automatically Gained Weapon Prof.
-CLASS:Rogue.MOD	AUTO:WEAPONPROF|TYPE.Firearms
+CLASS:Rogue.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 # Class Name	Class Skill
 CLASS:Rogue.MOD	CSKILL:Munitions
 
@@ -33,7 +33,7 @@ CLASS:Rogue.MOD	CSKILL:Munitions
 CLASS:Sorcerer.MOD	CSKILL:Knowledge (Steamcraft)
 
 # Class Name		Automatically Gained Weapon Prof.
-CLASS:Street Runner.MOD	AUTO:WEAPONPROF|TYPE.Firearms
+CLASS:Street Runner.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 
 ### Alternate base classes for Steampunk setting
 
@@ -43,11 +43,11 @@ CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURC
 # Class Name	Required AL
 CLASS:Urban Druid	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Urban Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Diplomacy|Heal|Hide|Knowledge (Local)|TYPE.Profession|Scry|Spellcraft
+CLASS:Urban Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Diplomacy|Heal|Hide|Knowledge (Local)|TYPE=Profession|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
 CLASS:Urban Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Urban Druid|CL	SPELLLIST:1|Druid
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Druid Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																AUTO:FEAT|Shield Proficiency
 ###Block: Wildshape Abilities Block
@@ -59,7 +59,7 @@ CLASS:Urban Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18
 5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
 ###Block: Spell Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Level progression
 1	CAST:3,1							ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense
 2	CAST:4,2				SAB:Hidden Paths
@@ -86,11 +86,11 @@ CLASS:Urban Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Modify VAR
 CLASS:Urban Ranger	HD:10		TYPE:Base.PC	ABB:UrRgr		MAXLEVEL:20	SOURCEPAGE:p. 33	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL/2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Urban Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
+CLASS:Urban Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level									Use Spell List
 CLASS:Urban Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Urban Ranger|CL/2|PRECLASS:1,Urban Ranger=4	SPELLLIST:1|Ranger
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemy

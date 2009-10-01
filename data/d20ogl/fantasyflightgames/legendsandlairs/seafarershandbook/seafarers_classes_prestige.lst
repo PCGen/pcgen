@@ -6,18 +6,18 @@ SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	ABB:RfW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required AL		Req. Att.	Required Feat			Required Race	Required Skill			Required Template
-CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREATT:5	PREFEAT:1,Skill Focus(Swim)	PRERACE:1,Elf%	PRESKILL:2,Swim=6,Hide=4	PRETEMPLATE:1,Coral Elf
+CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREATT:5	PREFEAT:1,Skill Focus (Swim)	PRERACE:1,Elf%	PRESKILL:2,Swim=6,Hide=4	PRETEMPLATE:1,Coral Elf
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Reef Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Hide|Intimidate|Listen|Scry|Search|Spot|Swim
+CLASS:Reef Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Hide|Intimidate|Listen|Scry|Search|Spot|Swim
 1	SAB:Reef Bonding
 2	SAB:Coral Skin +%|CoralSkin				BONUS:COMBAT|AC|CoralSkin|TYPE=NaturalArmor						BONUS:VAR|CoralSkin|CL/2	DEFINE:CoralSkin|0
-3	SAB:Sustenance (Ex)																											ADD:FEAT|1|TYPE.Fighter
+3	SAB:Sustenance (Ex)																											ADD:FEAT|TYPE=Fighter
 4	SAB:Alien Presence % (Ex)|AlienPresence										BONUS:STAT|CHA|AlienPresence	BONUS:VAR|AlienPresence|-1	DEFINE:AlienPresence|0
 5	SAB:Meld (Su)	SAB:Reef Attunement (Su)
-6																						BONUS:VAR|AlienPresence|-1					ADD:FEAT|1|TYPE.Fighter
+6																						BONUS:VAR|AlienPresence|-1					ADD:FEAT|TYPE=Fighter
 7	SAB:Spikes (Su)
 8																						BONUS:VAR|AlienPresence|-1
-9																															ADD:FEAT|1|TYPE.Fighter
+9																															ADD:FEAT|TYPE=Fighter
 10	SAB:Reefwalking (Sp)																		BONUS:VAR|AlienPresence|-1
 
 #

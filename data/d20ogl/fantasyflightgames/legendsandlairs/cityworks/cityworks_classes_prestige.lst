@@ -8,7 +8,7 @@ CLASS:Kingpin	HD:6		TYPE:PC.Prestige	ABB:Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:
 # Class Name	Req. Att.	Required Feat		Required Skill					Required Text
 CLASS:Kingpin	PREATT:7	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
+CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
 1	SAB:Friends in Low Places	SAB:Gang Boss
 2	SAB:Steal Anything
 3	SAB:Friends in High Places
@@ -26,17 +26,17 @@ CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	ABB:SpC		MAXLEVEL:10	SOURCEPAGE
 # Class Name			Required Skill			Req. Spell Type		Required Text
 CLASS:Speaker of the City	PRESKILL:2,Hide=4,Scry=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Special
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE.Craft|Gather Information|Handle Animal|Hide|TYPE.Knowledge|Pick Pocket|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	SAB:Spirit of the City (Social Insight)					ADD:SPELLCASTER|1|Divine	AUTO:FEAT|SpeakerSpells|Speaker of the City in an urban setting
-2												ADD:SPELLCASTER|1|Divine
-3	SAB:Spirit of the City (City Sense)						ADD:SPELLCASTER|1|Divine
-4												ADD:SPELLCASTER|1|Divine
-5	SAB:Spirit of the City (Cloak of the City)				ADD:SPELLCASTER|1|Divine
-6												ADD:SPELLCASTER|1|Divine
-7	SAB:Spirit of the City (Eye of the City, Cast Scrying 1/day)	ADD:SPELLCASTER|1|Divine
-8												ADD:SPELLCASTER|1|Divine
-9	SAB:Spirit of the City (Mind of the City)					ADD:SPELLCASTER|1|Divine
-10	SAB:Spirit of the City (Avatar of the City)				ADD:SPELLCASTER|1|Divine
+CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Gather Information|Handle Animal|Hide|TYPE=Knowledge|Pick Pocket|Scry|Sense Motive|Spellcraft|Wilderness Lore
+1	SAB:Spirit of the City (Social Insight)					ADD:SPELLCASTER|Divine	AUTO:FEAT|Speaker of the City in an urban setting|SpeakerSpells
+2												ADD:SPELLCASTER|Divine
+3	SAB:Spirit of the City (City Sense)						ADD:SPELLCASTER|Divine
+4												ADD:SPELLCASTER|Divine
+5	SAB:Spirit of the City (Cloak of the City)				ADD:SPELLCASTER|Divine
+6												ADD:SPELLCASTER|Divine
+7	SAB:Spirit of the City (Eye of the City, Cast Scrying 1/day)	ADD:SPELLCASTER|Divine
+8												ADD:SPELLCASTER|Divine
+9	SAB:Spirit of the City (Mind of the City)					ADD:SPELLCASTER|Divine
+10	SAB:Spirit of the City (Avatar of the City)				ADD:SPELLCASTER|Divine
 
 
 #Street Stalker
@@ -47,7 +47,7 @@ CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	ABB:StS		MAXLEVEL:10	SOURCEPAGE:p.3
 CLASS:Street Stalker	PREATT:5	PREFEAT:2,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Tumble|Use Rope
-1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial
+1	AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Normal progression

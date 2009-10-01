@@ -7,9 +7,3 @@ SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:h
 #
 # Modifier Name	Unique Key	Type			Cost			Type granted	Source Page
 Masterwork		KEY:FIREWRK	TYPE:Firework	COST:(BASECOST*4)	ITYPE:Masterwork	SOURCEPAGE:p.52
-
-
-
-
-
-

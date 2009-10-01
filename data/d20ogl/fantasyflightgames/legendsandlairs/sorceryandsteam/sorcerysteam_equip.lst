@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep 30 21:36:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 ###Block: Tools
 # Scholar's Tools-----------------------------------------------------------------------------------------------------------------------------
-# Equipment Name				Required Proficiency				Type						Cost		Weight	Slot Needed	Size		Source Page
+# Equipment Name				Required Weapon Proficiency			Type						Cost		Weight	Slot Needed	Size		Source Page
 Alchemist's Lab (Steamcraft)									TYPE:Goods.Tools.Resizable		COST:1000	WT:200			SIZE:L	SOURCEPAGE:p.123
 Arcane Flux Detector										TYPE:Goods.Tools.Resizable		COST:500	WT:5				SIZE:T	SOURCEPAGE:p.123
 Arcane Pulse Disruptor										TYPE:Goods.Tools.Resizable		COST:3500	WT:60				SIZE:M	SOURCEPAGE:p.124
@@ -18,24 +18,24 @@ Scribing Box											TYPE:Goods.Tools.Resizable		COST:500	WT:75				SIZE:M	SOUR
 Vibrational Veradicator										TYPE:Goods.Tools.Resizable		COST:150	WT:8				SIZE:S	SOURCEPAGE:p.125
 
 # Rogue's Tools-------------------------------------------------------------------------------------------------------------------------------
-Clockwork Spider											TYPE:Goods.Tools				COST:500	WT:.25			SIZE:T	SOURCEPAGE:p.126
+Clockwork Spider											TYPE:Goods.Tools				COST:500	WT:0.25			SIZE:T	SOURCEPAGE:p.126
 Drillspike												TYPE:Goods.Tools				COST:50	WT:1				SIZE:T	SOURCEPAGE:p.126
 Far-Reaching Gauntlet			PROFICIENCY:WEAPON|Far-Reaching Gauntlet	TYPE:Goods.Tools.Glove.Resizable	COST:800	WT:2		SLOTS:1	SIZE:T	SOURCEPAGE:p.126
-Springsaw												TYPE:Goods.Tools				COST:200	WT:.5				SIZE:T	SOURCEPAGE:p.127
+Springsaw												TYPE:Goods.Tools				COST:200	WT:0.5			SIZE:T	SOURCEPAGE:p.127
 Steamstilts												TYPE:Goods.Tools.Boot.Resizable	COST:150	WT:5		SLOTS:2	SIZE:T	SOURCEPAGE:p.127
 
 # Cleric's Tools------------------------------------------------------------------------------------------------------------------------------
 Holy Water Sprinkler										TYPE:Goods.Tools.Resizable		COST:600	WT:8				SIZE:M	SOURCEPAGE:p.128
-Prayer Watch											TYPE:Goods.Tools.Resizable		COST:800	WT:.25			SIZE:T	SOURCEPAGE:p.128
+Prayer Watch											TYPE:Goods.Tools.Resizable		COST:800	WT:0.25			SIZE:T	SOURCEPAGE:p.128
 
 ###Block: General Items-------------------------------------------------------------------------------------------------------------------------------
 # Equipment Name				Type							Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus					Bonus to skill					Special Property
 Automatic Ladder (Collapsible)	TYPE:Goods.General				COST:300	WT:15										SIZE:M	SOURCEPAGE:p.128
 Clockwork Animals				TYPE:Goods.General				COST:750	WT:1										SIZE:T	SOURCEPAGE:p.128
-Coal (1 lb.)				TYPE:Goods.Trade					COST:.01	WT:1										SIZE:T	SOURCEPAGE:p.127
+Coal (1 lb.)				TYPE:Goods.Trade					COST:0.01	WT:1										SIZE:T	SOURCEPAGE:p.127
 Dwarven Miner's Glove			TYPE:Goods.Tools.Glove.Resizable		COST:700	WT:25		SLOTS:1							SIZE:S	SOURCEPAGE:p.129
 Electric Lantern				TYPE:Goods.General.Resizable			COST:50	WT:3										SIZE:S	SOURCEPAGE:p.129
-Electric Lantern Battery		TYPE:Goods.General.Consumable			COST:.1	WT:0										SIZE:T	SOURCEPAGE:p.129
+Electric Lantern Battery		TYPE:Goods.General.Consumable			COST:0.1	WT:0										SIZE:T	SOURCEPAGE:p.129
 Jumping Boots				TYPE:Goods.Tools.Boot.Resizable		COST:150	WT:5		SLOTS:2							SIZE:T	SOURCEPAGE:p.127												BONUS:SKILL|Jump|10|TYPE=Circumstance
 Diving Suit					TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:50	WT:3				ACCHECK:0		MAXDEX:6		SIZE:S	SOURCEPAGE:p.129	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor.REPLACE	BONUS:SKILL|Swim|2|TYPE=Circumstance	SPROP:Supplies 1 hour of air
 Rocket Pack					TYPE:Goods.Transportation.Resizable		COST:5000	WT:40										SIZE:S	SOURCEPAGE:p.129
@@ -43,22 +43,22 @@ Steam Portal				TYPE:Goods.General				COST:600	WT:2000									SIZE:H	SOURCEPAGE
 
 ###Block: Firearm Accessories
 # Equipment Name		Type								Contains				Cost		Weight	Size		Source Page
-Apostle			TYPE:Ammunition.General.Container.Firearms	CONTAINS:UNLIM|Shot=1		COST:.2	WT:0		SIZE:D	SOURCEPAGE:p.150
-Bandoleer			TYPE:Goods.General.Container.Firearms		CONTAINS:3|Apostle=12|Any=4	COST:.5	WT:1		SIZE:S	SOURCEPAGE:p.150
-Bullet			TYPE:Ammunition.General.Firearms.Bullet							COST:.05	WT:.1		SIZE:D	SOURCEPAGE:p.150
-Bullet (Silver)		TYPE:Ammunition.General.Firearms.Bullet							COST:1	WT:.1		SIZE:D	SOURCEPAGE:p.150
-Cartridge Box		TYPE:Ammunition.General.Firearms								COST:.8	WT:1		SIZE:T	SOURCEPAGE:p.150
-Percussion Cap		TYPE:Ammunition.General.Firearms								COST:.1	WT:0		SIZE:D	SOURCEPAGE:p.150
-Powder Horn			TYPE:Ammunition.General.Container.Firearms	CONTAINS:UNLIM|Shot=12		COST:1	WT:.5		SIZE:T	SOURCEPAGE:p.150
-Ramrod (Iron)		TYPE:Goods.General.Firearms									COST:.1	WT:3		SIZE:S	SOURCEPAGE:p.150
-Ramrod (Wooden)		TYPE:Goods.General.Firearms									COST:.05	WT:1		SIZE:S	SOURCEPAGE:p.150
-Swine Feather		TYPE:Goods.General.Firearms									COST:.2	WT:2		SIZE:S	SOURCEPAGE:p.150
+Apostle			TYPE:Ammunition.General.Container.Firearms	CONTAINS:UNLIM|Shot=1		COST:0.2	WT:0		SIZE:D	SOURCEPAGE:p.150
+Bandoleer			TYPE:Goods.General.Container.Firearms		CONTAINS:3|Apostle=12|Any=4	COST:0.5	WT:1		SIZE:S	SOURCEPAGE:p.150
+Bullet			TYPE:Ammunition.General.Firearms.Bullet							COST:0.05	WT:0.1	SIZE:D	SOURCEPAGE:p.150
+Bullet (Silver)		TYPE:Ammunition.General.Firearms.Bullet							COST:1	WT:0.1	SIZE:D	SOURCEPAGE:p.150
+Cartridge Box		TYPE:Ammunition.General.Firearms								COST:0.8	WT:1		SIZE:T	SOURCEPAGE:p.150
+Percussion Cap		TYPE:Ammunition.General.Firearms								COST:0.1	WT:0		SIZE:D	SOURCEPAGE:p.150
+Powder Horn			TYPE:Ammunition.General.Container.Firearms	CONTAINS:UNLIM|Shot=12		COST:1	WT:0.5	SIZE:T	SOURCEPAGE:p.150
+Ramrod (Iron)		TYPE:Goods.General.Firearms									COST:0.1	WT:3		SIZE:S	SOURCEPAGE:p.150
+Ramrod (Wooden)		TYPE:Goods.General.Firearms									COST:0.05	WT:1		SIZE:S	SOURCEPAGE:p.150
+Swine Feather		TYPE:Goods.General.Firearms									COST:0.2	WT:2		SIZE:S	SOURCEPAGE:p.150
 
-Gunpowder (1 Shot)	TYPE:Ammunition.General.Firearms.Shot							COST:.08	WT:0		SIZE:D	SOURCEPAGE:p.150
+Gunpowder (1 Shot)	TYPE:Ammunition.General.Firearms.Shot							COST:0.08	WT:0		SIZE:D	SOURCEPAGE:p.150
 
 ###Block: Grenades
 # Equipment Name			Type						Cost		Weight	Size		Source Page		Special Property
-Grenade (Small Explosive)	TYPE:Goods.Ranged.Thrown.Grenade	COST:150	WT:.5		SIZE:S	SOURCEPAGE:p.132	SPROP:Damage 1d6, Splash 1d2, Range 10, 5 ft. Blast Radius
+Grenade (Small Explosive)	TYPE:Goods.Ranged.Thrown.Grenade	COST:150	WT:0.5	SIZE:S	SOURCEPAGE:p.132	SPROP:Damage 1d6, Splash 1d2, Range 10, 5 ft. Blast Radius
 Grenade (Medium Explosive)	TYPE:Goods.Ranged.Thrown.Grenade	COST:200	WT:1		SIZE:S	SOURCEPAGE:p.132	SPROP:Damage 2d6, Splash 1d4, Range 10, 10 ft. Blast Radius
 Grenade (Large Explosive)	TYPE:Goods.Ranged.Thrown.Grenade	COST:250	WT:2		SIZE:S	SOURCEPAGE:p.132	SPROP:Damage 3d6, Splash 1d6, Range 10, 15 ft. Blast Radius
 Grenade (Smoke)			TYPE:Goods.Ranged.Thrown.Grenade	COST:70	WT:1		SIZE:S	SOURCEPAGE:p.132	SPROP:Range 10, 20' radius cloud of smoke
@@ -104,19 +104,19 @@ Canister Shot (Heavy)	TYPE:Goods.Siege Engines.Ammunition	COST:30	WT:24		DAMAGE:
 Grape Shot (Heavy)	TYPE:Goods.Siege Engines.Ammunition	COST:30	WT:24		DAMAGE:7d6			SOURCEPAGE:p.151	SPROP:Blast Radius-80 ft,Reflex Save DC-22
 
 ###Block: Vehicles
-# Equipment Name		Type							Contains				Cost		Source Page
-Autogyro			TYPE:Goods.Transportation.Container		CONTAINS:50|Any=UNLIM		COST:12000	SOURCEPAGE:p.165
-Ironclad			TYPE:Goods.Transportation.Container.Ships	CONTAINS:6000|Any=UNLIM		COST:100000	SOURCEPAGE:p.165
-Steam Bike			TYPE:Goods.Transportation.Container		CONTAINS:50|Any=UNLIM		COST:6000	SOURCEPAGE:p.165
-Steam Carriage		TYPE:Goods.Transportation.Container		CONTAINS:200|Any=UNLIM		COST:10000	SOURCEPAGE:p.165
-Steam Leviathan		TYPE:Goods.Transportation.Container		CONTAINS:2000|Any=UNLIM		COST:75000	SOURCEPAGE:p.166
-Steam Locomotive		TYPE:Goods.Transportation								COST:100000	SOURCEPAGE:p.166
-Steam Locomotive Car	TYPE:Goods.Transportation.Container		CONTAINS:10000|Any=UNLIM	COST:20000	SOURCEPAGE:p.166
-Steam Submarine		TYPE:Goods.Transportation.Container.Ships	CONTAINS:4000|Any=UNLIM		COST:60000	SOURCEPAGE:p.167
-Steam Wagon			TYPE:Goods.Transportation.Container		CONTAINS:4000|Any=UNLIM		COST:24000	SOURCEPAGE:p.167
-Zeppelin (Cargo)		TYPE:Goods.Transportation.Container.Ships	CONTAINS:70000|Any=UNLIM	COST:150000	SOURCEPAGE:p.167
-Zeppelin (Passenger)	TYPE:Goods.Transportation.Container.Ships	CONTAINS:50000|Any=UNLIM	COST:125000	SOURCEPAGE:p.167
-Zeppelin (Warship)	TYPE:Goods.Transportation.Container.Ships	CONTAINS:60000|Any=UNLIM	COST:200000	SOURCEPAGE:p.167
+# Equipment Name		Type							Contains			Cost		Source Page
+Autogyro			TYPE:Goods.Transportation.Container		CONTAINS:50|Any		COST:12000	SOURCEPAGE:p.165
+Ironclad			TYPE:Goods.Transportation.Container.Ships	CONTAINS:6000|Any		COST:100000	SOURCEPAGE:p.165
+Steam Bike			TYPE:Goods.Transportation.Container		CONTAINS:50|Any		COST:6000	SOURCEPAGE:p.165
+Steam Carriage		TYPE:Goods.Transportation.Container		CONTAINS:200|Any		COST:10000	SOURCEPAGE:p.165
+Steam Leviathan		TYPE:Goods.Transportation.Container		CONTAINS:2000|Any		COST:75000	SOURCEPAGE:p.166
+Steam Locomotive		TYPE:Goods.Transportation							COST:100000	SOURCEPAGE:p.166
+Steam Locomotive Car	TYPE:Goods.Transportation.Container		CONTAINS:10000|Any	COST:20000	SOURCEPAGE:p.166
+Steam Submarine		TYPE:Goods.Transportation.Container.Ships	CONTAINS:4000|Any		COST:60000	SOURCEPAGE:p.167
+Steam Wagon			TYPE:Goods.Transportation.Container		CONTAINS:4000|Any		COST:24000	SOURCEPAGE:p.167
+Zeppelin (Cargo)		TYPE:Goods.Transportation.Container.Ships	CONTAINS:70000|Any	COST:150000	SOURCEPAGE:p.167
+Zeppelin (Passenger)	TYPE:Goods.Transportation.Container.Ships	CONTAINS:50000|Any	COST:125000	SOURCEPAGE:p.167
+Zeppelin (Warship)	TYPE:Goods.Transportation.Container.Ships	CONTAINS:60000|Any	COST:200000	SOURCEPAGE:p.167
 
 #
 # end

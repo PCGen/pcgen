@@ -4,7 +4,7 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 
 # Domain Name	Class Skill						Ability							Bonus to skill								List of Domain Spells by Level
 Steam										ABILITY:Special Ability|AUTOMATIC|Turn Fire											SPELLLEVEL:DOMAIN|Steam=1|Obscuring Mist|Steam=2|Fog Cloud|Steam=3|Water Breathing|Steam=5|Solid Fog|Steam=8|Horrid Wilting|Steam=9|Elemental Swarm
-Technology		CSKILL:Knowledge (Steamcraft)|TYPE.Craft									BONUS:SKILL|Knowledge (Steamcraft),TYPE.Craft|2|TYPE=Sacred	SPELLLEVEL:DOMAIN|Technology=1|Magic Weapon|Technology=2|Find Traps|Technology=8|Simulacrum|Technology=9|Iron Body
+Technology		CSKILL:Knowledge (Steamcraft)|TYPE=Craft									BONUS:SKILL|Knowledge (Steamcraft),TYPE.Craft|2|TYPE=Sacred	SPELLLEVEL:DOMAIN|Technology=1|Magic Weapon|Technology=2|Find Traps|Technology=8|Simulacrum|Technology=9|Iron Body
 
 #
 # end
