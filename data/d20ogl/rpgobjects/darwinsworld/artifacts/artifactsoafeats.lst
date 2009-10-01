@@ -29,7 +29,7 @@ Manual (Knowledge Technology)			TYPE:Special	PREITEM:1,Manual (Knowledge Technol
 Manual (Knowledge Vehicle Operations)	TYPE:Special	PREITEM:1,Manual (Knowledge Vehicle Operations)		PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:Knowledge (Vehicle Operations)	SOURCEPAGE:pp.61-63
 Manual (Open Locks)				TYPE:Special	PREITEM:1,Manual (Open Locks)					PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:Open Lock					SOURCEPAGE:pp.61-63
 Manual (Perform)					TYPE:Special	PREITEM:1,Manual (Perform)					PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:Perform					SOURCEPAGE:pp.61-63
-Manual (Profession Any)				TYPE:Special	PREITEM:1,Manual (Profession Any)				PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:TYPE.Profession				SOURCEPAGE:pp.61-63
+Manual (Profession Any)				TYPE:Special	PREITEM:1,Manual (Profession Any)				PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:TYPE=Profession				SOURCEPAGE:pp.61-63
 Manual (Swim)					TYPE:Special	PREITEM:1,Manual (Swim)						PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:Swim						SOURCEPAGE:pp.61-63
 Manual (Use Rope)					TYPE:Special	PREITEM:1,Manual (Use Rope)					PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:Use Rope					SOURCEPAGE:pp.61-63
 Manual (Wilderness Lore)			TYPE:Special	PREITEM:1,Manual (Wilderness Lore)				PRELANG:1,Ancient	DESC:Internal for Manuals.														CSKILL:Wilderness Lore				SOURCEPAGE:pp.61-63

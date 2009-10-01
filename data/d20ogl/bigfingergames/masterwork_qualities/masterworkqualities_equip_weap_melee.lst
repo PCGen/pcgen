@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Wed Sep 30 21:09:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Fantasy Folio - Masterwork Qualities	SOURCESHORT:MW Qual	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=6569&	SOURCEDATE:2006-03
 #Original Entry by: Paul W. King
 
-# Equipment Name			Product Identity?	Required Proficiency		Type													Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Range		Size		Source Page
-The Wandering Scholar's Sword	NAMEISPI:YES	PROFICIENCY:WEAPON|Longsword	TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword					COST:15	WT:4		BASEITEM:Longsword	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL.MWORKW.FLEXIBLE.TASSLE			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.3
-Palace Guard's Broadsword	NAMEISPI:YES	PROFICIENCY:WEAPON|Greatsword	TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword					COST:50	WT:8		BASEITEM:Greatsword	CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:STEEL.MWORKW.PERF_EDGE.REINFRCD_WEAP	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.4
-Aerkon's Curved Dagger		NAMEISPI:YES	PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Melee.Ranged.Simple.Thrown.Specific.Piercing.Slashing.Dagger	COST:1052	WT:1		BASEITEM:Dagger		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL.MWORKW.CUST_HILT.SERRATED		WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.4
+# Equipment Name			Product Identity?	Required Weapon Proficiency	Type													Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Range		Size		Source Page
+The Wandering Scholar's Sword	NAMEISPI:YES	PROFICIENCY:WEAPON|Longsword	TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword					COST:15	WT:4		BASEITEM:Longsword	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:FLEXIBLE.MWORKW.STEEL.TASSLE			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.3
+Palace Guard's Broadsword	NAMEISPI:YES	PROFICIENCY:WEAPON|Greatsword	TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword					COST:50	WT:8		BASEITEM:Greatsword	CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:MWORKW.PERF_EDGE.REINFRCD_WEAP.STEEL	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.4
+Aerkon's Curved Dagger		NAMEISPI:YES	PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Melee.Ranged.Simple.Thrown.Specific.Piercing.Slashing.Dagger	COST:1052	WT:1		BASEITEM:Dagger		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:CUST_HILT.MWORKW.SERRATED.STEEL		WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.4

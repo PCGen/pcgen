@@ -6,11 +6,11 @@ SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:ww
 CLASS:Conjurer	KEY:Sherwood Conjurer	HD:6		TYPE:PC.Base	ABB:Con		MAXLEVEL:10	SOURCEPAGE:pg.77	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Sherwood Conjurer	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Survival
+CLASS:Sherwood Conjurer	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Sense Motive|Survival
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Class Abilities
-1	BONUS:ABILITYPOOL|Fires Burn and Cauldrons Bubble|(CL+1)/2	BONUS:VAR|SwashbucklingPointTotal|1	BONUS:VAR|SFMLevel|CL	BONUS:VAR|ConjurerAC|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Swashbuckling Points|Fires Burn and Cauldrons Bubble	ABILITY:Internal|AUTOMATIC|ConjurerDefense
+1	BONUS:ABILITYPOOL|Fires Burn and Cauldrons Bubble|(CL+1)/2	BONUS:VAR|SwashbucklingPointTotal|1	BONUS:VAR|SFMLevel|CL	BONUS:VAR|ConjurerAC|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Fires Burn and Cauldrons Bubble|Swashbuckling Points	ABILITY:Internal|AUTOMATIC|ConjurerDefense
 2	BONUS:ABILITYPOOL|Conjurer Ability|CL/2
 
 

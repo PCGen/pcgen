@@ -39,7 +39,7 @@ Tricks of Magic												CATEGORY:Special Ability	TYPE:SpecialQuality.Theurgic
 Greater Lore			KEY:Greater Lore ~ SoT						CATEGORY:Special Ability	TYPE:SpecialQuality.TheurgicLorewardenSecret	VISIBLE:DISPLAY	PREVARGTEQ:TheurgicSecretsLevel,8	SAB:Greater Lore											SPELLS:Class|TIMES=3|Identify																																																SOURCEPAGE:9
 Newfound Arcana			KEY:Newfound Arcana ~ SoT					CATEGORY:Special Ability	TYPE:SpecialQuality.TheurgicLorewardenSecret	VISIBLE:DISPLAY	PREVARGTEQ:TheurgicSecretsLevel,9	SAB:Newfound Arcana																																																														SOURCEPAGE:9
 Ancient Arcana												CATEGORY:Special Ability	TYPE:SpecialQuality.TheurgicLorewardenSecret	VISIBLE:DISPLAY	PREVARGTEQ:TheurgicSecretsLevel,10	SAB:Ancient Arcana																																																														SOURCEPAGE:9
-True Lore				KEY:True Lore ~ SoT						CATEGORY:Special Ability	TYPE:SpecialQuality.TheurgicLorewardenSecret	VISIBLE:DISPLAY	PREVARGTEQ:TheurgicSecretsLevel,11	SAB:True Lore											SPELLS:Class|TIMES=1|Legend Lore|Analyze Dweomer																																												SOURCEPAGE:9
+True Lore				KEY:True Lore ~ SoT						CATEGORY:Special Ability	TYPE:SpecialQuality.TheurgicLorewardenSecret	VISIBLE:DISPLAY	PREVARGTEQ:TheurgicSecretsLevel,11	SAB:True Lore											SPELLS:Class|TIMES=1|Analyze Dweomer|Legend Lore																																												SOURCEPAGE:9
 Divine Inspiration		KEY:Divine Inspiration ~ SoT					CATEGORY:Special Ability	TYPE:SpecialQuality.TheurgicLorewardenSecret	VISIBLE:DISPLAY	PREVARGTEQ:TheurgicSecretsLevel,12	SAB:Divine Inspiration																							BONUS:DOMAIN|NUMBER|1																																				SOURCEPAGE:9
 
 ###Block: Hierophant Theurge Abilities

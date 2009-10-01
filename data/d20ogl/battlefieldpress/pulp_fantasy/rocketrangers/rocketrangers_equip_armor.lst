@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Wed Feb 20 13:00:58 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Sep 30 21:07:13 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Rocket Rangers - King of the Rocket Men	SOURCESHORT:RocketRngr	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
 ###Block:Vegan Technology
-# Equipment Name	Required Proficiency		Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
+# Equipment Name	Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
 Space Suit		PROFICIENCY:ARMOR|Space Suit	TYPE:Armor.Light.Suit.Impromptu.Vegan	COST:0	WT:6		ACCHECK:0		MAXDEX:5		SOURCEPAGE:p.15	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|TYPE=Armor.STACK|PREFEAT:1,Armor Proficiency (Light)

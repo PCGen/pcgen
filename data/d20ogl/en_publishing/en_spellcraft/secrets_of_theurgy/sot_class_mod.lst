@@ -1,17 +1,17 @@
-# CVS $Revision$ $Author$ -- Thu Feb 12 21:02:44 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Wed Sep 30 21:11:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
 # Class Name
 CLASS:Mystic Theurge.MOD
 1	ABILITY:Special Ability|AUTOMATIC|Theurgy
 
-# Class Name	Substitution levels?
-CLASS:Druid.MOD	HASSUBSTITUTIONLEVEL:YES
+# Class Name
+CLASS:Druid.MOD
 SUBSTITUTIONCLASS:Elemental Druid Option
 SUBSTITUTIONLEVEL:1																						BONUS:DOMAIN|NUMBER|1
-SUBSTITUTIONLEVEL:1																																ABILITY:Special Ability|AUTOMATIC|Druid Weapon Proficiencies|All Automatic Proficiencies											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-SUBSTITUTIONLEVEL:1																																ABILITY:Special Ability|AUTOMATIC|Wild Shape|Druid Wild Shape|Druid Wild Shape Times|Druid Elemental Wild Shape Times|Druid Wild Shape Progression
-SUBSTITUTIONLEVEL:1																																ABILITY:Special Ability|AUTOMATIC|Nature Sense|Animal Companion|Wild Empathy|Spontaneous casting - Summon Nature's Ally
+SUBSTITUTIONLEVEL:1																																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+SUBSTITUTIONLEVEL:1																																ABILITY:Special Ability|AUTOMATIC|Druid Elemental Wild Shape Times|Druid Wild Shape|Druid Wild Shape Progression|Druid Wild Shape Times|Wild Shape
+SUBSTITUTIONLEVEL:1																																ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy
 SUBSTITUTIONLEVEL:1																										BONUS:VAR|DruidWildShape|CL
 SUBSTITUTIONLEVEL:1			PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 SUBSTITUTIONLEVEL:1			PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG

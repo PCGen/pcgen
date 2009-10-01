@@ -1,4 +1,4 @@
-# CVS $Revision: 3922 $ $Author: amaitland $ -- Tue Feb 17 13:23:13 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision: 3922 $ $Author: amaitland $ -- Wed Sep 30 21:10:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-press.com/22tt.html	SOURCEDATE:2003-11
 # Original Entry by: Paul W. King
 #
@@ -13,7 +13,7 @@ Brutal		CATEGORY:Talent		TYPE:Talent.StrongTalent.Brute	VISIBLE:YES	PREABILITY:2
 
 ###Block: Heavy Heavy Load Tree
 # Ability Name		Category of Ability	Type						Visible	Required Ability											Define			Description									Modify VAR			Source Page
-Heavy Load			CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:YES														DEFINE:HeavyLoad|0	DESC:Carrying capacity is as if stength is %|STR+HeavyLoad	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
+Heavy Load			CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:YES														DEFINE:HeavyLoad|0	DESC:Carrying capacity is as if stength is %%|STR+HeavyLoad	BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
 Greater Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Heavy Load																					BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
 Improved Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Heavy Load,Greater Heavy Load																		BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
 Maximum Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:YES	PREABILITY:3,CATEGORY=Talent,Heavy Load,Greater Heavy Load,Maximum Heavy Load															BONUS:VAR|HeavyLoad|1	SOURCEPAGE:p.4
@@ -50,10 +50,10 @@ Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:
 Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork															SOURCEPAGE:p.5
 
 ###Block: Finesse Tree
-# Ability Name		Category of Ability	Type						Visible	Required Ability						Prohibited Feat			Multiple Requirements												Add 					Combat bonus												Source Page
-Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES									!PREFEAT:1,Weapon Finesse																ADD:FEAT|1|Weapon Finesse															SOURCEPAGE:p.5
-Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES														PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Weapon Finesse Talent],[PREFEAT:1,Weapon Finesse]						BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
-Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Masterful Finesse																										BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
+# Ability Name		Category of Ability	Type						Visible	Required Ability						Prohibited Feat			Multiple Requirements												Add 				Combat bonus												Source Page
+Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES									!PREFEAT:1,Weapon Finesse																ADD:FEAT|Weapon Finesse															SOURCEPAGE:p.5
+Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES														PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Weapon Finesse Talent],[PREFEAT:1,Weapon Finesse]					BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
+Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Masterful Finesse																									BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
 
 ###Block: Need for Speed Tree
 # Ability Name	Category of Ability	Type						Visible	Required Ability						Required Feat				Required Skill		Bonus to skill					Source Page

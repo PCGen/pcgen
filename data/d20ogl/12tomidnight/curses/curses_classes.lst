@@ -7,8 +7,8 @@ CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	ABB:BldHx		MAXLEVEL:10	SOURCEPAGE:p. 14
 # Class Name	Required AL		Required Feat							Required Skill						Req. Known Spell		Required Casting Type
 CLASS:Blood Hexer	PREALIGN:CG,CN,CE	PREFEAT:2,Curse of Blood,Curse of Blood - Greater	PRESKILL:1,Knowledge (Arcana)=10,Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Perform|TYPE.Profession|Spellcraft|Use Magic Device
-1								BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Metacurse Affinity|Blood Curse Reprieve
+CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Spellcraft|Use Magic Device
+1								BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blood Curse Reprieve|Metacurse Affinity
 2	BONUS:ABILITYPOOL|Curse Repertoire|CL/2	BONUS:VAR|BloodSweatProgression|(CL+3)/5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blood Sweat
 3	BONUS:ABILITYPOOL|Blood Hexer Feat|1	BONUS:VAR|MaliciousCurseProgression|CL/3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Malicious Curse
 4															ADD:SPELLCASTER|ANY
@@ -25,14 +25,14 @@ CLASS:Evil Eye	HD:6		TYPE:PC.Prestige	ABB:EvlEy		MAXLEVEL:5	SOURCEPAGE:p. 16	BON
 # Class Name	Required AL		Required Feat						Required Skill					Req. Spell Type
 CLASS:Evil Eye	PREALIGN:LE,NE,CE	PREFEAT:2,Death Curse Contingency,Iron Will	PRESKILL:3,Bluff=4,Intimidate=4,Spot=4	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft|Psicraft|Spot
+CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft|Psicraft|Spot
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)
 1												AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
-1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness|Evil Eye ~ Curses|Warlock Superstition
-2																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness ~ Enhanced Darkvision|Expanded Awareness ~ Darkvision
+1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Evil Eye ~ Curses|Expanded Awareness|Warlock Superstition
+2																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness ~ Darkvision|Expanded Awareness ~ Enhanced Darkvision
 ###COMMENT: Can't tell why an ADD:FEAT was used here, no choices pop up as far as I can tell. ADD:FEAT|Expanded Awareness ~ Enhanced Darkvision	ADD:FEAT|Expanded Awareness ~ Darkvision
 3																	ADD:SPELLCASTER|ANY
 4																	ADD:SPELLCASTER|ANY																			TEMPLATE:Evil Eye Subtype
@@ -44,13 +44,13 @@ CLASS:Hexomancer	HD:4		TYPE:PC.Prestige	ABB:Hexo		MAXLEVEL:10	SOURCEPAGE:p. 18	B
 # Class Name	Required AL		Required Feat												Required Skill														Required Casting Type	Req. Spell Type
 CLASS:Hexomancer	PREALIGN:LE,NE,CE	PREFEAT:5,Enlarge Spell,Extend Spell,Heighten Spell,Persistent Curse,Potent Curse	PRESKILL:1,Craft (Doll-Making)=5	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,Intimidate=6	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Intimidate|TYPE.Knowledge|TYPE.Profession|Spellcraft
+CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
 ###Block: Level Progression
 1	BONUS:ABILITYPOOL|Hexomancer Choice|CL+1/2									ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Extended Curse
 2									BONUS:VAR|EffigyOfControlProgression|CL		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Effigy of Control
 3																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Enlarged Curse
 4																	ADD:SPELLCASTER|ANY
-5									BONUS:VAR|HeightenedCurseProgression|(CL-3)/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Heightened Curse|Deny Solace
+5									BONUS:VAR|HeightenedCurseProgression|(CL-3)/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Deny Solace|Heightened Curse
 6																	ADD:SPELLCASTER|ANY
 7																	ADD:SPELLCASTER|ANY
 8																	ADD:SPELLCASTER|ANY
@@ -63,10 +63,10 @@ CLASS:Servant of Vengeance	HD:8		TYPE:PC.Prestige	ABB:SrVen		MAXLEVEL:10	SOURCEP
 # Class Name			Required AL		Required Feat					Required Skill							Req. Known Spell
 CLASS:Servant of Vengeance	PREALIGN:LE,LN,LG	PREFEAT:3,Endurance,Diehard,Iron Will	PRESKILL:2,Knowledge (Religion)=5,Sense Motive=5	PRESPELL:1,Mark of Justice
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Servant of Vengeance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Gather Information|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Spellcraft
+CLASS:Servant of Vengeance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Gather Information|Intimidate|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Level Progression
 1	BONUS:VAR|EyeForAnEyeProgression|(CL+1)/2	ADD:SPELLCASTER|ANY	AUTO:FEAT|Eye for an Eye

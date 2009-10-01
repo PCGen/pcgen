@@ -12,7 +12,7 @@ Malicious Curse		TYPE:ClassFeature.Extraordinary	VISIBLE:NO	SAB:Malicious Curse 
 
 #TODO:Curse Repertoire: Needs a Spell chooser
 #At 2nd, 4th, 6th 8th and 10th levels, a blood hexer can add a curse spell to his known spells.
-#This spell can be taken from any spells with the curse subtype Ð even spells normally prohibited to the class.
+#This spell can be taken from any spells with the curse subtype - even spells normally prohibited to the class.
 #The spell can be of any level, up to a maximum of one level lower than the maximum level of spell the blood hexer can cast.
 
 

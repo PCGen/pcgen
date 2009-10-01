@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 21:52:53 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Wed Sep 30 21:07:13 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Rocket Rangers - King of the Rocket Men	SOURCESHORT:RocketRngr	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Frank Kliewe
 
 ###Block:Vegan Technology
-# Equipment Name			Output Name						Required Proficiency			Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property			Rate of Fire
+# Equipment Name			Output Name						Required Weapon Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Special Property			Rate of Fire
 Pistol (Electro)			OUTPUTNAME:[NAME]-Pistol			PROFICIENCY:WEAPON|Electro weapons	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Electricity.Exotic.Vegan		COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:50	SIZE:S	SOURCEPAGE:p.14	SPROP:Magazine 30			RATEOFFIRE:S
 Pistol (Electro/Low Power)	OUTPUTNAME:Electro-Pistol, Low Power	PROFICIENCY:WEAPON|Electro weapons	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Electricity.Exotic.Vegan		COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:30	SIZE:S	SOURCEPAGE:p.14	SPROP:Magazine 30			RATEOFFIRE:S
 Rifle (Electro)			OUTPUTNAME:[NAME]-Rifle				PROFICIENCY:WEAPON|Electro weapons	TYPE:Weapon.Ranged.Standard.Firearm.Rifle.Electricity.Exotic.Vegan.Automatic	COST:0	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:100	SIZE:M	SOURCEPAGE:p.14	SPROP:Magazine 100		RATEOFFIRE:S,A
