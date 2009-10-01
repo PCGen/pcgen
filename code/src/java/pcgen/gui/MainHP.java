@@ -33,6 +33,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -106,12 +110,12 @@ final class MainHP extends JPanel
 
 	/**
 	 * Set the preferred size of the HP Pane to 1 more
-	 * row than it contains (including header)
+	 * row than it contains (including header), maximum of 20 rows.
 	 */
 	public void setPSize()
 	{
 		Dimension preferredSize = currentHpPane.getPreferredSize();
-		preferredSize.height = (currentHpTable.getRowCount() + 2) * (currentHpTable.getRowHeight()
+		preferredSize.height = (Math.min(currentHpTable.getRowCount(), 20) + 2) * (currentHpTable.getRowHeight()
 			+ currentHpTable.getRowMargin());
 		currentHpPane.setPreferredSize(preferredSize);
 	}
@@ -215,19 +219,17 @@ final class MainHP extends JPanel
 
 	private void jbInit() throws Exception
 	{
-		JPanel tablePane = new JPanel();
-		tablePane.getInsets().left = 2;
-		tablePane.getInsets().bottom = 2;
-		tablePane.getInsets().right = 2;
-		this.setLayout(new BorderLayout());
-		this.add(tablePane, BorderLayout.CENTER);
-
+		setLayout(new BorderLayout());
+		setBorder(BorderFactory.createCompoundBorder(
+					BorderFactory.createEtchedBorder(EtchedBorder.RAISED),
+					BorderFactory.createEmptyBorder()));
+		getInsets().left = 5;
+		getInsets().bottom = 5;
+		getInsets().top = 5;
+		getInsets().right = 5;
 
 		currentHpPane = new JScrollPane();
 		currentHpTable = new JTableEx();
-
-//		GridBagConstraints c;
-//		this.setLayout(gridBagLayout);
 
 		//
 		// Hit points per level
@@ -237,10 +239,7 @@ final class MainHP extends JPanel
 		currentHpTable.setDoubleBuffered(false);
 		currentHpPane.setViewportView(currentHpTable);
 
-		tablePane.add(currentHpPane);
-//		this.add(currentHpPane,
-//			new GridBagConstraints(0, 0, 1, 7, 1.0, 1.0, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
-//				new Insets(0, 0, 0, 0), 0, 0));
+		this.add(currentHpPane, BorderLayout.CENTER);
 
 		TableColumn col;
 		col = currentHpTable.getColumnModel().getColumn(5);
@@ -317,16 +316,6 @@ final class MainHP extends JPanel
 		});
 		buttonPane.add(rerollButton);
 		this.add(buttonPane, BorderLayout.EAST);
-
-//		c = new GridBagConstraints();
-//		c.gridx = 0;
-//		c.gridy = 0;
-//		c.anchor = GridBagConstraints.NORTH;
-//		buttonPanel.add(okButton, c);
-
-//		this.add(buttonPanel,
-//			new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHEAST, GridBagConstraints.NONE,
-//				new Insets(0, 0, 0, 0), 0, 0));
 	}
 
 	/** UNUSED
