@@ -2044,33 +2044,90 @@ Wisdom
 |ENDIF|
 <!-- STOP Talent Table -->
 <!-- START Force Powers Table -->
-|IIF(count("ABILITIES";"CATEGORY=Force Powers";"TYPE=ForcePower";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ForcePower";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center" class="ab"><b>SPECIAL QUALITIES</b></td>
+     <td bgcolor="black" align="center" class="ab"><b>FORCE POWERS</b></td>
     </tr>
-|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-|OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
-|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:Extraordinary)| 
+|FOR,%forcepower,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ForcePower","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%forcepower,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%forcepower.TYPE=ForcePower|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcepower.TYPE=ForcePower.TYPE:Extraordinary)| 
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:Supernatural)| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcepower.TYPE=ForcePower.TYPE:Supernatural)| 
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:SpellLike)| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcepower.TYPE=ForcePower.TYPE:SpellLike)| 
  (Sp)
 |ENDIF|
-|IIF(ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.TYPE:PsiLike)| 
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcepower.TYPE=ForcePower.TYPE:PsiLike)| 
  (Ps)
 |ENDIF|
 </b>
-|ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.DESC|</td>
+|ABILITYALL.Special Ability.VISIBLE.%forcepower.TYPE=ForcePower.DESC|</td>
     </tr>
 |ENDFOR|
    </table>
 |ENDIF|
 <!-- STOP Force Powers Table -->
+<!-- START Force Techniques Table -->
+|IIF(count("ABILITIES";"CATEGORY=Talent";"TYPE=ForceTechniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>FORCE TECHNIQUES</b></td>
+    </tr>
+|FOR,%forcetechniques,0,count("ABILITIES","CATEGORY=Talent","TYPE=ForceTechniques","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%forcetechniques,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%forcetechniques.TYPE=ForceTechniques|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcetechniques.TYPE=ForceTechniques.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcetechniques.TYPE=ForceTechniques.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcetechniques.TYPE=ForceTechniques.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcetechniques.TYPE=ForceTechniques.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%forcetechniques.TYPE=ForceTechniques.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Force Techniques Table -->
+<!-- START Force Secrets Table -->
+|IIF(count("ABILITIES";"CATEGORY=Talent";"TYPE=ForceSecrets";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>FORCE Secrets</b></td>
+    </tr>
+|FOR,%forcesecrets,0,count("ABILITIES","CATEGORY=Talent","TYPE=ForceSecrets","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%forcesecrets,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%forcesecrets.TYPE=ForceSecrets|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcesecrets.TYPE=ForceSecrets.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcesecrets.TYPE=ForceSecrets.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcesecrets.TYPE=ForceSecrets.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%forcesecrets.TYPE=ForceSecrets.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%forcesecrets.TYPE=ForceSecrets.DESC|</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Force Secrets Table -->
+
 <!-- START Disadvantages Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Disadvantage";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
