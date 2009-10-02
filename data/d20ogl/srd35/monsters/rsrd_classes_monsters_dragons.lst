@@ -163,7 +163,7 @@ CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
+1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 1																						ABILITY:Special Ability|AUTOMATIC|Vulnerability To Fire
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
@@ -200,7 +200,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sleep
-1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
+1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
 1																						ABILITY:Special Ability|AUTOMATIC|Vulnerability To Cold
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
