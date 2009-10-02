@@ -367,12 +367,11 @@ Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY	
 # Add: BONUS:VAR|UncannyDodgeLevel|1 for each time the class gets either Uncanny Dodge or Improved Uncanny Dodge
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
-# Ability Name		Category of Ability		Type						Visible	Define										Description												Ability																											Modify VAR								Source Page
-Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0														ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVAREQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+# Ability Name						Category of Ability		Type							Visible	Define										Description												Ability																																											Modify VAR								Source Page
+Uncanny Dodge ~ Base	CATEGORY:Special Ability	TYPE:Internal				DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0														ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge Output|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 #
-Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:Dex bonus to AC																																															SOURCEPAGE:ClassesII.rtf
-Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES												DESC:Can't be flanked except by a level %1 rogue|UncannyDodgeFlankingLevel																													BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
-
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:Dex bonus to AC																																																															SOURCEPAGE:ClassesII.rtf
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:Can't be flanked except by a level %1 rogue|UncannyDodgeFlankingLevel																																													BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Wizard Specialist Abilities ----------------------------------------------------------------------------------------------
 # Ability Name			Output Name										Category of Ability		Type				Visible	Source Page
