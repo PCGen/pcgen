@@ -5,14 +5,17 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Class Name	Hit Dice	Type			Max Level		Source Page					Ability																														Save checks bonus											Combat bonus
 CLASS:Unbodied	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
-CLASS:Unbodied	PRERACETYPE:Monstrous humanoid
+CLASS:Unbodied	PRERACETYPE:Monstrous Humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Unbodied	STARTSKILLPTS:2	MODTOSKILLS:YES
 1	BONUS:PCLEVEL|Psion|1	ADD:SPELLCASTER|Psion
 2	BONUS:PCLEVEL|Psion|1
 3	BONUS:PCLEVEL|Psion|1
 4	BONUS:PCLEVEL|Psion|1
-
+###Block: Psionic Power Points
+1	BONUS:VAR|PsionML|CL																												DEFINE:PsionML|0	TEMPLATE:Psionic
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionML,4
+1	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
 
 
 #
