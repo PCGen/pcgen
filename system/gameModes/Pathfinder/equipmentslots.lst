@@ -19,7 +19,7 @@ EQSLOT:Feet		CONTAINS:Boot,Shoe,Slipper=1							NUMBER:LEGS
 EQSLOT:Hands	CONTAINS:Gauntlet,Glove=1							NUMBER:HANDS
 EQSLOT:Head		CONTAINS:Circlet,Crown,Hat,Helm,Mask,Headgear=1				NUMBER:HEAD
 EQSLOT:Headband	CONTAINS:Headband,Phylactery=1						NUMBER:HEAD
-EQSLOT:Neck		CONTAINS:Amulet,Brooch-1|Medallion,Necklace,Periapt,Scarab=1	NUMBER:HEAD
+EQSLOT:Neck		CONTAINS:Amulet,Brooch=1|Medallion,Necklace,Periapt,Scarab=1	NUMBER:HEAD
 EQSLOT:Ring		CONTAINS:Ring=2									NUMBER:TORSO
 EQSLOT:Shield	CONTAINS:Shield=1									NUMBER:SHIELD
 EQSLOT:Shoulders	CONTAINS:Cape,Cloak=1								NUMBER:TORSO
