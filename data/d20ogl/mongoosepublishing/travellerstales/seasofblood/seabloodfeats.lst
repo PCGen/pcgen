@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
 
 # Feat Name				Type			Req. Att.	Required Feat			Required Skill					Required Stat	Description																										Bonus to skill							Source Page
@@ -8,7 +8,7 @@ Duck and Weave			TYPE:General															PRESTAT:1,DEX=15	DESC:+7 cover AC bo
 Eagle Eyes				TYPE:General																		DESC:Add 50%% to all visibility ranges at sea.																													SOURCEPAGE:p.18
 Improved Underwater Combat	TYPE:General	PREATT:6	PREFEAT:1,Underwater Combat											DESC:No penalty to Initiative and attack rolls in underwater melee combat whilst using piercing weapons. No effect on slashing or bludgeoning weapons.											SOURCEPAGE:p.18
 Inspire Loyalty			TYPE:General			PREFEAT:1,Leadership												DESC:Crew automatically passes all Morale checks during boarding actions. Gain +4 bonus to avoid Mutiny checks.																		SOURCEPAGE:p.18
-Master Helmsman			TYPE:General								PRESKILL:1,Knowledge (Seamanship)=8					DESC:Base and daily movement rates of a ship are increased by 10%																										SOURCEPAGE:p.18
+Master Helmsman			TYPE:General								PRESKILL:1,Knowledge (Seamanship)=8					DESC:Base and daily movement rates of a ship are increased by 10%%																									SOURCEPAGE:p.18
 Rapid Loader			TYPE:General								PRESKILL:1,Profession (Siege Engineer)=4				DESC:Halve the time to reload a siege weapon, round down. Never less than one round.																						SOURCEPAGE:p.18
 Sea Legs				TYPE:General																		DESC:Whilst on board a ship, you gain +2 competence bonus to Climb, Concentration, Jump and Use Rope checks.																		SOURCEPAGE:p.19
 Steady Captain			TYPE:General																		DESC:Crew gains +2 competence bonus to all Seamanship checks.																										SOURCEPAGE:p.19

@@ -24,5 +24,3 @@ Gnome Boundary-Beater	CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY	PRER
 Half-Elf Messenger	CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY	PRERACE:1,Half-Elf%	SAB:Half-Elf Messenger																																																																																																	CSKILL:Diplomacy
 Half-Orc Loner		CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY	PRERACE:1,Half-Orc%	SAB:Half-Orc Loner																																																																	BONUS:SKILL|Bluff,Diplomacy,Gather Information,TYPE.Perform,Sense Motive|-2|TYPE=Competence	BONUS:SKILLPOINTS|NUMBER|4|PREPCLEVEL:MAX=1	BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MIN=2
 Halfling Pioneer		CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY	PRERACE:1,Halfling%	SAB:Halfling Pioneer																																																																	BONUS:SKILL|Survival|2|TYPE=Competence																										CSKILL:Gather Information
-
-

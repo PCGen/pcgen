@@ -12,4 +12,3 @@ CLASS:Reaver.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:2,Power Attack,Two Weapon Fighting
 
 # Class Name		Remove Class Skill																	Class Skill
 CLASS:Sea Druid.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Scry	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
-

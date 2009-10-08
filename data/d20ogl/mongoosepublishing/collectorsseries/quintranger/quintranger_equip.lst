@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Nov  1 17:22:30 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
 
 ###Block: Weapons --------------------------------------------------------------------------------------------
-# Equipment Name		Required Proficiency			Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Source Page		Bonus to skill
+# Equipment Name		Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Source Page		Bonus to skill
 Hatchet			PROFICIENCY:WEAPON|Hatchet		TYPE:Weapon.Simple.Martial.Melee.Ranged.Slashing.Axe		COST:1	WT:2		CRITMULT:x2							DAMAGE:1d6	WIELD:Light		RANGE:5	SOURCEPAGE:p.72
 Maul				PROFICIENCY:WEAPON|Maul			TYPE:Weapon.Simple.Melee.Slashing.Bludgeoning.Maul		COST:3	WT:6		CRITMULT:x2							DAMAGE:1d8	WIELD:TwoHanded			SOURCEPAGE:p.73
 Woodsman's Axe		PROFICIENCY:WEAPON|Woodsman's Axe	TYPE:Weapon.Simple.Melee.Slashing.Axe	TYPE:1,Masterwork	COST:2	WT:4		CRITMULT:x2							DAMAGE:1d8	WIELD:TwoHanded			SOURCEPAGE:p.71	BONUS:SKILL|Profession (Woodsman)|1|TYPE=Equipment	BONUS:SKILL|Profession (Woodsman)|2|TYPE=Equipment|PRETYPE:1,MasterWork
@@ -32,12 +32,12 @@ Spear-Pistol (Spear)	PROFICIENCY:WEAPON|Spear-Pistol	TYPE:Weapon.Melee.Piercing.
 Bowstring Silencer							TYPE:Goods									COST:25																		SOURCEPAGE:p.71
 
 ###Block: Armor --------------------------------------------------------------------------------
-# Equipment Name	Output Name				Required Proficiency			Type					Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Supple Leather						PROFICIENCY:ARMOR|Supple Leather	TYPE:Armor.Suit.Light.Leather	COST:20	WT:5		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.76	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
-Buff Coat							PROFICIENCY:ARMOR|Buff Coat		TYPE:Armor.Suit.Light		COST:50	WT:15		ACCHECK:-2		MAXDEX:6		SOURCEPAGE:p.75	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
-Plackart							PROFICIENCY:ARMOR|Plackart		TYPE:Armor.Suit.Light		COST:150	WT:20		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.76	SPELLFAILURE:15		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
+# Equipment Name	Output Name				Required Armor Proficiency		Required Shield Proficiency	Type					Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Supple Leather						PROFICIENCY:ARMOR|Supple Leather						TYPE:Armor.Suit.Light.Leather	COST:20	WT:5		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.76	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE
+Buff Coat							PROFICIENCY:ARMOR|Buff Coat							TYPE:Armor.Suit.Light		COST:50	WT:15		ACCHECK:-2		MAXDEX:6		SOURCEPAGE:p.75	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor.REPLACE
+Plackart							PROFICIENCY:ARMOR|Plackart							TYPE:Armor.Suit.Light		COST:150	WT:20		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.76	SPELLFAILURE:15		BONUS:COMBAT|AC|4|TYPE=Armor.REPLACE
 
-Buckler (Fist)	OUTPUTNAME:Buckler, Fist	PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Light.Buckler			WT:3								SOURCEPAGE:p.75	SPELLFAILURE:5		BONUS:COMBAT|AC|1
+Buckler (Fist)	OUTPUTNAME:Buckler, Fist							PROFICIENCY:SHIELD|Buckler	TYPE:Shield.Light.Buckler			WT:3								SOURCEPAGE:p.75	SPELLFAILURE:5		BONUS:COMBAT|AC|1
 
 
 
@@ -45,14 +45,14 @@ Buckler (Fist)	OUTPUTNAME:Buckler, Fist	PROFICIENCY:SHIELD|Buckler		TYPE:Shield.
 
 ###Block: Equipment -=---------------------------------
 # Equipment Name			Type				Contains							Cost		Weight	Source Page
-Bow Case				TYPE:Goods.Container	CONTAINS:UNLIM|Total=1|Bow=1				COST:5	WT:.5		SOURCEPAGE:p.77
-Brogues (Pair)			TYPE:Goods											COST:.5	WT:1		SOURCEPAGE:p.77
-Cache Quiver			TYPE:Goods.Container	CONTAINS:UNLIM|Total=20|Arrows=20|Bolts=20	COST:1	WT:.5		SOURCEPAGE:p.78
+Bow Case				TYPE:Goods.Container	CONTAINS:UNLIM|Total=1|Bow=1				COST:5	WT:0.5	SOURCEPAGE:p.77
+Brogues (Pair)			TYPE:Goods											COST:0.5	WT:1		SOURCEPAGE:p.77
+Cache Quiver			TYPE:Goods.Container	CONTAINS:UNLIM|Total=20|Arrows=20|Bolts=20	COST:1	WT:0.5	SOURCEPAGE:p.78
 Desert Boots (Pair)		TYPE:Goods											COST:1	WT:1		SOURCEPAGE:p.77
 Dried Marrow Soup			TYPE:Goods											COST:5	WT:1		SOURCEPAGE:p.78
 Ice Boots (Pair)			TYPE:Goods											COST:10	WT:2		SOURCEPAGE:p.77
 # Magnifying Glass  (exists in the RSRD)			TYPE:Goods											COST:100	WT:0		SOURCEPAGE:p.77
-Measuring Stick			TYPE:Goods											COST:0	WT:.25	SOURCEPAGE:p.77
+Measuring Stick			TYPE:Goods											COST:0	WT:0.25	SOURCEPAGE:p.77
 Oat and Grain Horse-Food Mix	TYPE:Goods											COST:5	WT:12		SOURCEPAGE:p.78
 Oats					TYPE:Goods											COST:0.3	WT:1		SOURCEPAGE:p.78
 Plaid					TYPE:Goods											COST:20	WT:3		SOURCEPAGE:p.78
@@ -63,27 +63,27 @@ Snowshoes (Pair)			TYPE:Goods											COST:2	WT:3		SOURCEPAGE:p.78
 Walking Boots (Pair)		TYPE:Goods											COST:12	WT:1		SOURCEPAGE:p.77
 Waybread				TYPE:Goods											COST:2	WT:1		SOURCEPAGE:p.79
 Wooden Nails (24)			TYPE:Goods											COST:0.2	WT:1		SOURCEPAGE:p.77
-Wooden Wedge			TYPE:Goods											COST:0.05	WT:.25	SOURCEPAGE:p.79
+Wooden Wedge			TYPE:Goods											COST:0.05	WT:0.25	SOURCEPAGE:p.79
 
 
 ###Block: Magic Items
-# Equipment Name					Required Proficiency			Type																Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Range		Reach Multiplier	Size		Source Page		Ability								Innate Spells																Combat bonus				Bonus to skill																			Modify VAR						Weapon prop. bonus																																																												Special Property
-Axe of Toiling					PROFICIENCY:WEAPON|Woodsman's Axe	TYPE:Weapon.Melee.Magic.Slashing	TYPE:Weapon.Simple.Melee.Slashing.Axe	TYPE:1,Masterwork							COST:10302	WT:4		CRITMULT:x2							DAMAGE:1d8	EQMOD:PLUS1W	WIELD:TwoHanded								SOURCEPAGE:p.79																																		BONUS:SKILL|Profession (Woodsman)|1|TYPE=Equipment	BONUS:SKILL|Profession (Woodsman)|2|TYPE=Equipment|PRETYPE:1,Masterwork
-Boots of Codde-Kicking										TYPE:Magic.Wondrous.Boot																		COST:32301																										SOURCEPAGE:p.79																																																																																																																													SPROP:Light Martial weapon 1d6 (x3)
-Cup of Safe Drinking										TYPE:Magic.Wondrous																			COST:750																										SOURCEPAGE:p.79
-Herbal Powder of Purification									TYPE:Magic.Wondrous																			COST:15																										SOURCEPAGE:p.79
-Lance of Bertilak (Lance)			PROFICIENCY:WEAPON|Lance		TYPE:Weapon.Melee.Martial.Reach.Standard.Piercing.Lance													COST:136710	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD		WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.80	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Lance of Bertilak|CASTERLEVEL=12|Barkskin|Snare|Spike Growth|Command Plants|Plant Growth|Tree Stride																												BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|4|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Green Knight=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|!PREALIGN:LE,NE,CE
-Lance of Bertilak (Spear)			PROFICIENCY:WEAPON|Spear		TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear										COST:136710	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD		WIELD:TwoHanded	RANGE:20				SIZE:M	SOURCEPAGE:p.80	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Lance of Bertilak|CASTERLEVEL=12|Barkskin|Snare|Spike Growth|Command Plants|Plant Growth|Tree Stride																												BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|4|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Green Knight=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|!PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|2|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Druid=1],[!PREALIGN:LE,NE,CE]
-Lance of Bertilak (Longspear)			PROFICIENCY:WEAPON|Longspear		TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear												COST:136710	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD		WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.80	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Lance of Bertilak|CASTERLEVEL=12|Barkskin|Snare|Spike Growth|Command Plants|Plant Growth|Tree Stride																												BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|4|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Green Knight=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|!PREALIGN:LE,NE,CE
-Living Bark Armour				PROFICIENCY:ARMOR|Leather		TYPE:Armor.Magic.Suit.Specific																																												SOURCEPAGE:p.80																												BONUS:COMBAT|AC|5|TYPE=NaturalArmor																																																																																												SPROP:Gain Plant Creature Traits
-Main Gauche of Parrying				PROFICIENCY:WEAPON|Main Gauche	TYPE:Weapon.Melee.Exotic.Slashing.Piercing.Sword														COST:8315	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6				WIELD:Light									SOURCEPAGE:p.90
-Quiver of the Fletcher's Bounty (+1)							TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:92000																										SOURCEPAGE:p.81
-Quiver of the Fletcher's Bounty (+2)							TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:138000																										SOURCEPAGE:p.81
-Quiver of the Fletcher's Bounty (+3)							TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:162000																										SOURCEPAGE:p.81
-Quiver of the Fletcher's Bounty (+4)							TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:186000																										SOURCEPAGE:p.81
-Quiver of the Fletcher's Bounty (+5)							TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:210000																										SOURCEPAGE:p.81
-Scabbard of Surprise										TYPE:Magic.Wondrous.Container												CONTAINS:*UNLIM|Total=1|ANY=1		COST:1250																										SOURCEPAGE:p.81
-Staff of the Traveller				PROFICIENCY:WEAPON|Tipstaff		TYPE:Weapon.Martial.Melee.Bludgeoning																COST:28551	WT:4		CRITMULT:x3							DAMAGE:1d10	EQMOD:PLUS2W	WIELD:TwoHanded								SOURCEPAGE:p.81
+# Equipment Name					Required Weapon Proficiency		Required Armor Proficiency	Type																Contains					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Range		Reach Multiplier	Size		Source Page		Ability								Innate Spells																		Combat bonus				Bonus to skill																			Modify VAR						Weapon prop. bonus																																																												Special Property
+Axe of Toiling					PROFICIENCY:WEAPON|Woodsman's Axe						TYPE:Weapon.Melee.Magic.Slashing	TYPE:Weapon.Simple.Melee.Slashing.Axe	TYPE:1,Masterwork							COST:10302	WT:4		CRITMULT:x2							DAMAGE:1d8	EQMOD:PLUS1W	WIELD:TwoHanded								SOURCEPAGE:p.79																																				BONUS:SKILL|Profession (Woodsman)|1|TYPE=Equipment	BONUS:SKILL|Profession (Woodsman)|2|TYPE=Equipment|PRETYPE:1,Masterwork
+Boots of Codde-Kicking															TYPE:Magic.Wondrous.Boot																		COST:32301																										SOURCEPAGE:p.79																																																																																																																															SPROP:Light Martial weapon 1d6 (x3)
+Cup of Safe Drinking															TYPE:Magic.Wondrous																			COST:750																										SOURCEPAGE:p.79
+Herbal Powder of Purification														TYPE:Magic.Wondrous																			COST:15																										SOURCEPAGE:p.79
+Lance of Bertilak (Lance)			PROFICIENCY:WEAPON|Lance							TYPE:Weapon.Melee.Martial.Reach.Standard.Piercing.Lance													COST:136710	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD		WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.80	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Lance of Bertilak|TIMES=1|CASTERLEVEL=12|Barkskin|Command Plants|Plant Growth|Snare|Spike Growth|Tree Stride																												BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|4|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Green Knight=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|!PREALIGN:LE,NE,CE
+Lance of Bertilak (Spear)			PROFICIENCY:WEAPON|Spear							TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear										COST:136710	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD		WIELD:TwoHanded	RANGE:20				SIZE:M	SOURCEPAGE:p.80	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Lance of Bertilak|TIMES=1|CASTERLEVEL=12|Barkskin|Command Plants|Plant Growth|Snare|Spike Growth|Tree Stride																												BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|4|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Green Knight=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|!PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|2|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Druid=1],[!PREALIGN:LE,NE,CE]
+Lance of Bertilak (Longspear)			PROFICIENCY:WEAPON|Longspear							TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear												COST:136710	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD		WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.80	ABILITY:Special Ability|AUTOMATIC|Negative Levels	SPELLS:Lance of Bertilak|TIMES=1|CASTERLEVEL=12|Barkskin|Command Plants|Plant Growth|Snare|Spike Growth|Tree Stride																												BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	BONUS:WEAPON|TOHIT,DAMAGE|4|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Green Knight=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREALIGN:LE,NE,CE]	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement|!PREALIGN:LE,NE,CE
+Living Bark Armour										PROFICIENCY:ARMOR|Leather	TYPE:Armor.Magic.Suit.Specific																																												SOURCEPAGE:p.80																														BONUS:COMBAT|AC|5|TYPE=NaturalArmor																																																																																												SPROP:Gain Plant Creature Traits
+Main Gauche of Parrying				PROFICIENCY:WEAPON|Main Gauche						TYPE:Weapon.Melee.Exotic.Slashing.Piercing.Sword														COST:8315	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6				WIELD:Light									SOURCEPAGE:p.90
+Quiver of the Fletcher's Bounty (+1)												TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:92000																										SOURCEPAGE:p.81
+Quiver of the Fletcher's Bounty (+2)												TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:138000																										SOURCEPAGE:p.81
+Quiver of the Fletcher's Bounty (+3)												TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:162000																										SOURCEPAGE:p.81
+Quiver of the Fletcher's Bounty (+4)												TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:186000																										SOURCEPAGE:p.81
+Quiver of the Fletcher's Bounty (+5)												TYPE:Magic.Wonderous.Quiver.Container										CONTAINS:UNLIM|Total=20|Arrows=20	COST:210000																										SOURCEPAGE:p.81
+Scabbard of Surprise															TYPE:Magic.Wondrous.Container												CONTAINS:*UNLIM|Total=1|ANY=1		COST:1250																										SOURCEPAGE:p.81
+Staff of the Traveller				PROFICIENCY:WEAPON|Tipstaff							TYPE:Weapon.Martial.Melee.Bludgeoning																COST:28551	WT:4		CRITMULT:x3							DAMAGE:1d10	EQMOD:PLUS2W	WIELD:TwoHanded								SOURCEPAGE:p.81
 #
 ##EOF
 #

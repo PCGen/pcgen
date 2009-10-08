@@ -30,7 +30,7 @@ CLASS:The Bowman	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Craft 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Modify VAR
 CLASS:The Chameleon	HD:8		TYPE:PC.Prestige	ABB:TC		MAXLEVEL:10	SOURCEPAGE:pg.58	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|TheChameleonLVL|CL
 # Class Name		Required Class		Required Feat									Required Skill
-CLASS:The Chameleon	PRECLASS:1,Ranger=4	PREFEAT:3,Skill Focus(Hide),Skill Focus(Move Silently),Stealthy	PRESKILL:3,Hide=10,Knowledge (Nature)=10,Move Silently=4
+CLASS:The Chameleon	PRECLASS:1,Ranger=4	PREFEAT:3,Skill Focus (Hide),Skill Focus (Move Silently),Stealthy	PRESKILL:3,Hide=10,Knowledge (Nature)=10,Move Silently=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Chameleon	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|Disguise|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
 
@@ -51,15 +51,15 @@ CLASS:The Chameleon	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|Dis
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:King of the Wilderness	HD:6		TYPE:PC.Prestige	ABB:KotW		MAXLEVEL:10	SOURCEPAGE:pg.61	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|KingOfTheWildernessLVL|CL
 # Class Name			Required Feat									Required Skill
-CLASS:King of the Wilderness	PREFEAT:3,Skill Focus(Knowledge (Geography)),Endurance,Track	PRESKILL:3,Knowledge (Geography)=10,Knowledge (Nature)=10,Survival=10
+CLASS:King of the Wilderness	PREFEAT:3,Skill Focus (Knowledge (Geography)),Endurance,Track	PRESKILL:3,Knowledge (Geography)=10,Knowledge (Nature)=10,Survival=10
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:King of the Wilderness	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
+CLASS:King of the Wilderness	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
 
 1														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|King of the Wilderness Tireless Voyager|Natural Explorer
 2	BONUS:ABILITYPOOL|Terrain Immersion|CL/2							ADD:SPELLCASTER|Ranger
 3														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Self-Contained|Trackless Step
 4														ADD:SPELLCASTER|Ranger
-5								BONUS:VAR|FastMovementBonus|10	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|King of the Road|Fast Movement
+5								BONUS:VAR|FastMovementBonus|10	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Fast Movement|King of the Road
 6														ADD:SPELLCASTER|Ranger
 7														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Treestrider
 8														ADD:SPELLCASTER|Ranger
@@ -111,12 +111,12 @@ CLASS:The Wolf Master	PREFEAT:3,Alertness,Run,Track	PRESKILL:3,Listen=8,Spot=8,S
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Wolf Master	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
 #
-1	BONUS:VAR|FastMovementBonus|10	BONUS:VAR|AnimalCompLevel|CL	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Night Eyes|TWM ~ Animal Companion|Fast Movement
+1	BONUS:VAR|FastMovementBonus|10	BONUS:VAR|AnimalCompLevel|CL	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Fast Movement|Night Eyes|TWM ~ Animal Companion
 2												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Scent
 3												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Spirit of the Wolf						TEMPLATE:TheWolfMasterNaturalAttack
 4												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Summon the Pack
 5	BONUS:VAR|FastMovementBonus|10						ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Wolf Form
-6												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Predator's Aura|Dire Companion
+6												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Dire Companion|Predator's Aura
 7												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Of Wolf and Man
 8												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Unleash the Beast
 9	BONUS:VAR|FastMovementBonus|10						ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Wolf Mastery

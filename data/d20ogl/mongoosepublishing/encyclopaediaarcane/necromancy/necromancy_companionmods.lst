@@ -17,4 +17,3 @@ FOLLOWER:Sorcerer,Wizard=17	TYPE:Demonic Familiar	SR:22																		DEFINE:
 FOLLOWER:Sorcerer,Wizard=18	TYPE:Demonic Familiar	SR:23
 FOLLOWER:Sorcerer,Wizard=19	TYPE:Demonic Familiar	SR:24																		DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:Sorcerer,Wizard=20	TYPE:Demonic Familiar	SR:25
-

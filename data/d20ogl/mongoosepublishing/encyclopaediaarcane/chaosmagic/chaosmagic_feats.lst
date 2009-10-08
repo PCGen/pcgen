@@ -8,4 +8,3 @@ Blood of Chaos		TYPE:Chaos											PREVARGTEQ:ChaosCasting,2	DESC:Your body ha
 Chaotic Healing		TYPE:Chaos						PREFEAT:1,Blood of Chaos						DESC:The tides of chaos play havoc with your body's healing.																								SOURCEPAGE:p.46
 Immutable Will		TYPE:Chaos	PRECLASS:1,Spellcaster=7	PREFEAT:1,Iron Will		PREVARGTEQ:ChaosCasting,2	DESC:You refuse to be dragged down by the power of chaos.																									SOURCEPAGE:p.46
 Attune Other		TYPE:Chaos											PREVARGTEQ:ChaosCasting,2	DESC:You have learned to craft chaos items for others.																									SOURCEPAGE:p.46
-

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 26 22:21:24 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
 #Original Entry by: Andrew Maitland
 
@@ -15,18 +15,18 @@ One Arrow Two Lives	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:O
 Snuff the Candle		CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Snuff the Candle (Ex)
 
 ###Block: The Chameleon ----------------------------------------------------------------------------------------------------
-# Ability Name					Output Name					Category of Ability		Type				Visible	Special ABility						Define					Innate Spells										Bonus to skill														Modify VAR												Add to vision					Vision		Source Page
+# Ability Name					Output Name					Category of Ability		Type				Visible	Special ABility						Define					Innate Spells												Bonus to skill														Modify VAR												Add to vision					Vision		Source Page
 Chameleon Camouflage				OUTPUTNAME:Camouflage			CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Camouflage (Ex)
-TC ~ Silent Phantom										CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Silent Phantom (Ex)					DEFINE:TheChameleonLVL|0														BONUS:SKILL|Hide,Move Silently|TheChameleonLVL|TYPE=Competence
+TC ~ Silent Phantom										CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Silent Phantom (Ex)					DEFINE:TheChameleonLVL|0																BONUS:SKILL|Hide,Move Silently|TheChameleonLVL|TYPE=Competence
 TC ~ Moving Shadow										CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Moving Shadow (Ex)
 TC ~ Swift and Silent										CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Swift and Silent (Ex)
-TC ~ Keen Eye											CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Keen Eye (Ex)																								BONUS:SKILL|Listen,Spot,Search,Survival (Find or follow tracks)|TheChameleonLVL|TYPE=Competence
-TC ~ Blindsight											CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Blindsight (Ex)					DEFINE:BlindsightRange|0																																											BONUS:VISION|Blindsight|BlindsightRange	VISION:Blindsight
-TC ~ True Seeing											CATEGORY:Special Ability	TYPE:Spelllike		VISIBLE:NO	SAB:True Seeing (Sp)					DEFINE:ChameleonPlusRangerLVL|0	SPELLS:Class|CASTERLEVEL=ChameleonPlusRangerLVL|True Seeing																			BONUS:VAR|ChameleonPlusRangerLVL|var("CL=Ranger")+var("CL=The Chameleon")
-TC ~ Improved Invisibility									CATEGORY:Special Ability	TYPE:Spelllike		VISIBLE:NO	SAB:Improved Invisibility (Sp)									SPELLS:Class|CASTERLEVEL=ChameleonPlusRangerLVL|Invisibility (Greater)
+TC ~ Keen Eye											CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Keen Eye (Ex)																										BONUS:SKILL|Listen,Spot,Search,Survival (Find or follow tracks)|TheChameleonLVL|TYPE=Competence
+TC ~ Blindsight											CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Blindsight (Ex)					DEFINE:BlindsightRange|0																																													BONUS:VISION|Blindsight|BlindsightRange	VISION:Blindsight
+TC ~ True Seeing											CATEGORY:Special Ability	TYPE:Spelllike		VISIBLE:NO	SAB:True Seeing (Sp)					DEFINE:ChameleonPlusRangerLVL|0	SPELLS:Class|TIMES=1|CASTERLEVEL=ChameleonPlusRangerLVL|True Seeing																			BONUS:VAR|ChameleonPlusRangerLVL|var("CL=Ranger")+var("CL=The Chameleon")
+TC ~ Improved Invisibility									CATEGORY:Special Ability	TYPE:Spelllike		VISIBLE:NO	SAB:Improved Invisibility (Sp)									SPELLS:Class|TIMES=1|CASTERLEVEL=ChameleonPlusRangerLVL|Invisibility (Greater)
 TC ~ Absolute Silence Absolute Stillness							CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Absolute Silence, Absolute Stillness (Ex)
 TC ~ Fade from the World									CATEGORY:Special Ability	TYPE:Supernatural		VISIBLE:NO	SAB:Fade from the World (Su)
-Chameleon Hide in Plain Sight			OUTPUTNAME:Hide in Plain Sight	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Hide in Plain Sight (Ex)																																																													SOURCEPAGE:ClassesII.rtf
+Chameleon Hide in Plain Sight			OUTPUTNAME:Hide in Plain Sight	CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Hide in Plain Sight (Ex)																																																															SOURCEPAGE:ClassesII.rtf
 
 ###Block: King of the Wilderness --------------------------------------------------------------------------------------------
 # Ability Name					Output Name				Category of Ability		Type				Visible	Special ABility			Define					Innate Spells														Add to base move					Bonus to skill
@@ -112,7 +112,6 @@ Whip Style				CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	!P
 
 ###Block: Item Abilities ------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type			Visible	Restricted Ability								Required Feat	Virtual Feat	Add 													Bonus to skill
-Wolf's Cloak			CATEGORY:Special Ability	TYPE:Item.Hidden	VISIBLE:NO																		ADD:ABILITY|Special Ability|NORMAL|Wolf's Track Feat,Wolf's Cloak Track Bonus
+Wolf's Cloak			CATEGORY:Special Ability	TYPE:Item.Hidden	VISIBLE:NO																		ADD:ABILITY|Special Ability|NORMAL|Wolf's Cloak Track Bonus,Wolf's Track Feat
 Wolf's Cloak Track Bonus	CATEGORY:Special Ability	TYPE:Item.Hidden	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Wolf's Track Feat		PREFEAT:1,Track																	BONUS:SKILL|Survival (Find or follow tracks)|5|TYPE=Competence
 Wolf's Track Feat			CATEGORY:Special Ability	TYPE:Item.Hidden	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Wolf's Cloak Track Bonus				VFEAT:Track
-

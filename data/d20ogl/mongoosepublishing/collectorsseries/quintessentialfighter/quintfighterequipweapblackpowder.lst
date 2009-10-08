@@ -13,5 +13,4 @@ Wheelock/Flintlock Rifle	TYPE:Weapon.Exotic.Ranged.Piercing.Firearms.Blackpowder
 
 #Ammunition
 Blackpowder (100)			TYPE:Ammunition.Blackpowder						COST:60	WT:1																SOURCEPAGE:p.57
-Blackpowder				TYPE:Ammunition.Blackpowder						COST:.6	WT:.01															SOURCEPAGE:p.57
-
+Blackpowder				TYPE:Ammunition.Blackpowder						COST:0.6	WT:0.01															SOURCEPAGE:p.57

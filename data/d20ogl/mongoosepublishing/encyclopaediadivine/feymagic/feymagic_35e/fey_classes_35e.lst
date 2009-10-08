@@ -3,7 +3,7 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fe
 
 
 # Class Name		Remove Class Skill											Class Skill
-CLASS:Feydancer.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Perform	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival|TYPE.Perform
+CLASS:Feydancer.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Perform	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival|TYPE=Perform
 
 # Class Name		Remove Class Skill						Class Skill
 CLASS:Spellbinder.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
@@ -19,4 +19,3 @@ CLASS:Wylding.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
 CLASS:Chosen Protector.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:1,Track	PRESKILL:2,Survival=8,Knowledge (Fey)=6
 # Class Name			Remove Class Skill		Class Skill
 CLASS:Chosen Protector.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
-

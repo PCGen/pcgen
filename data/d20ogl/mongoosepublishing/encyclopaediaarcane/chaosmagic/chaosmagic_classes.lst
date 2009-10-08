@@ -6,7 +6,7 @@ CLASS:Chaos Mage	HD:4		TYPE:Base.PC	ABB:cmc		MAXLEVEL:20	SOURCEPAGE:p.15	BONUS:C
 # Class Name	Required AL
 CLASS:Chaos Mage	PREALIGN:CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Chaos Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
+CLASS:Chaos Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|CL
 ###Block: Proficiencies
@@ -45,4 +45,3 @@ CLASS:Doomringer	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Doomringer|CL
 3	SAB:Blood Shunt
 4	SAB:Walking Death
 5	SAB:Avatar of Death
-

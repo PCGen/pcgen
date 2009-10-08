@@ -16,4 +16,3 @@ Stinging Stench			CLASSES:Ranger=2	SCHOOL:Transmutation					COMPS:V, M		CASTTIME
 Tag					CLASSES:Ranger=1	SCHOOL:Divination						COMPS:V, M		CASTTIME:1 standard action	RANGE:Medium								TARGETAREA:1 creature											DURATION:Permanent		SAVEINFO:Will negates	SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.89
 Twig Spear				CLASSES:Ranger=2	SCHOOL:Transmutation					COMPS:M		CASTTIME:1 standard action	RANGE:10 ft. radius circle, centred on the caster; see text	TARGETAREA:1 small wooden branch/level, all within a 10 foot radius			DURATION:1 round/level		SAVEINFO:See text		SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.89
 Vision of Passage			CLASSES:Ranger=4	SCHOOL:Divination						COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch									TARGETAREA:1 set of tracks touched									DURATION:See text							SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.89
-

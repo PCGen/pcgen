@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jan 24 22:57:16 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
 
 #Exotic ----------------------------------------------------------------------------------------------------------
-# Equipment Name	Required Proficiency			Type									Alternative Type						Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Damage	Alternative Damage	Range		Size		Source Page
+# Equipment Name	Required Weapon Proficiency		Type									Alternative Type						Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Damage	Alternative Damage	Range		Size		Source Page
 Bolas (3 Ball)	PROFICIENCY:WEAPON|Bolas (3 Ball)	TYPE:Weapon.Exotic.Ranged.Thrown.Bludgeoning.Metal														COST:15	WT:4		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					RANGE:10	SIZE:M	SOURCEPAGE:p.43
 Chakram		PROFICIENCY:WEAPON|Chakram		TYPE:Weapon.Exotic.Ranged.Thrown.Slashing.Metal															COST:35	WT:3		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					RANGE:10	SIZE:S	SOURCEPAGE:p.43
 Crossbow (Siege)	PROFICIENCY:WEAPON|Crossbow (Siege)	TYPE:Weapon.Exotic.Ranged.Piercing.Metal																COST:250	WT:24		CRITMULT:x2			CRITRANGE:2							DAMAGE:2d6					RANGE:150	SIZE:L	SOURCEPAGE:p.45

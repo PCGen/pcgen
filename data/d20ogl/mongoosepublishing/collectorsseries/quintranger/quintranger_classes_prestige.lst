@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov  1 17:22:30 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
@@ -24,7 +24,7 @@ SUBCLASS:Animal Champion ~ (Dire Bat)						COST:0
 SUBCLASSLEVEL:3	BONUS:VAR|BlindsightRange|120	ABILITY:Special Ability|AUTOMATIC|Blindsight
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Improved Blindsight
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Bat's Uncanny Travel
-SUBCLASS:Animal Champion ~ (Bear any)						COST:0												PRESIZEGTEQ:M
+SUBCLASS:Animal Champion ~ (Bear any)						COST:0													PRESIZEGTEQ:M
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Bearhug
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Bearpaw's Nourishment
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Bear's Loyalty
@@ -60,11 +60,11 @@ SUBCLASS:Animal Champion ~ (Eagle)							COST:0	PREFEAT:1,Alertness
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Eagle's Eyes
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Eagle Strike
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Eagle's Cry
-SUBCLASS:Animal Champion ~ (Elephant)						COST:0	PREFEAT:1,Skill Focus(Diplomacy)
+SUBCLASS:Animal Champion ~ (Elephant)						COST:0	PREFEAT:1,Skill Focus (Diplomacy)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Elephant's Nobility
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Elephant's Memory
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Elephant's Blessing
-SUBCLASS:Animal Champion ~ (Fox)							COST:0	PREFEAT:1,Skill Focus(Bluff)
+SUBCLASS:Animal Champion ~ (Fox)							COST:0	PREFEAT:1,Skill Focus (Bluff)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Fox's Cunning
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Foxtongue
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Foxtail Flight
@@ -72,7 +72,7 @@ SUBCLASS:Animal Champion ~ (Hawk)							COST:0	PREFEAT:1,Skill Focus
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Hawkeye
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Sunhawk
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Sunhawk (Fire Shield)
-SUBCLASS:Animal Champion ~ (Horse/Pony)						COST:0	PREFEAT:1,Skill Focus(Ride)
+SUBCLASS:Animal Champion ~ (Horse/Pony)						COST:0	PREFEAT:1,Skill Focus (Ride)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Horse's Surefootedness
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Born to the Saddle
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Horse and Hattock
@@ -80,7 +80,7 @@ SUBCLASS:Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	COST:0	PR
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Camouflage
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Pounce
-SUBCLASS:Animal Champion ~ (Lion/Dire Lion)					COST:0	PREFEAT:2,Skill Focus(Intimidate),Wild Empathy
+SUBCLASS:Animal Champion ~ (Lion/Dire Lion)					COST:0	PREFEAT:2,Skill Focus (Intimidate),Wild Empathy
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pounce
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Lion's Roar
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Lion's Regal Bearing
@@ -96,11 +96,11 @@ SUBCLASS:Animal Champion ~ (Octopus/Giant Squid)				COST:0
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Water Breathing
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Camouflage
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Darkness
-SUBCLASS:Animal Champion ~ (Owl)							COST:0	PREFEAT:1,Skill Focus(Knowledge%)
+SUBCLASS:Animal Champion ~ (Owl)							COST:0	PREFEAT:1,Skill Focus (Knowledge%)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Owl's Insight
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Owl's Cry
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Owl's Knowledge
-SUBCLASS:Animal Champion ~ (Dire Rat)						COST:0	PREFEAT:1,Skill Focus(Disarm Device),Skill Focus(Disable Device)
+SUBCLASS:Animal Champion ~ (Dire Rat)						COST:0	PREFEAT:1,Skill Focus (Disarm Device),Skill Focus (Disable Device)
 SUBCLASSLEVEL:3	BONUS:VAR|TrapSense|2		ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
 SUBCLASSLEVEL:6	BONUS:VAR|TrapSense|2
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Diseased Weapons
@@ -116,11 +116,11 @@ SUBCLASS:Animal Champion ~ (Snake any)						COST:0	PREFEAT:1,Persuasive
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Snake's Forked Tongue
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Snake Eyes
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Snake's Healing Slough
-SUBCLASS:Animal Champion ~ (Tiger/Dire Tiger)					COST:0	PREFEAT:1,Skill Focus(Move Silently)
+SUBCLASS:Animal Champion ~ (Tiger/Dire Tiger)					COST:0	PREFEAT:1,Skill Focus (Move Silently)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pounce
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Camouflage
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Tiger's Fearful Symmetry
-SUBCLASS:Animal Champion ~ (Dire Weasel)						COST:0	PREFEAT:2,Skill Focus(Appraise),Skill Focus(Sleight of Hand)
+SUBCLASS:Animal Champion ~ (Dire Weasel)						COST:0	PREFEAT:2,Skill Focus (Appraise),Skill Focus (Sleight of Hand)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Weasel's Gaze
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Weasel's Sneakiness
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Weasel's Acumen
@@ -132,16 +132,16 @@ SUBCLASS:Animal Champion ~ (Wolf/Dire Wolf)					COST:0	PREFEAT:1,Improved Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Wolf Trip
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Wolf Lope
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolf Growl
-SUBCLASS:Animal Champion ~ (Wolverine any)					COST:0	PREFEAT:2,Iron Will,Skill Focus(Bluff)
+SUBCLASS:Animal Champion ~ (Wolverine any)					COST:0	PREFEAT:2,Iron Will,Skill Focus (Bluff)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Wolverine's Steadfastness
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Wolverine's Tricks
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolverine's Fearlessness
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Abilities
-1	BONUS:VAR|CompLevel|CL							ABILITY:Special Ability|AUTOMATIC|Animal Friendship|Chosen Species|Animal Champion Companion
+1	BONUS:VAR|CompLevel|CL							ABILITY:Special Ability|AUTOMATIC|Animal Champion Companion|Animal Friendship|Chosen Species
 2											ABILITY:Special Ability|AUTOMATIC|Charm Animal
 3	BONUS:VAR|PowerOfTheAnimalLVL|1					ABILITY:Special Ability|AUTOMATIC|Power of the Animal
 4											ABILITY:Special Ability|AUTOMATIC|Animal Form
@@ -159,7 +159,7 @@ CLASS:Ex Animal Champion	HD:8		TYPE:PC.Prestige	ABB:XAC		MAXLEVEL:10	SOURCEPAGE:
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ex Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal|Hide|Knowledge (Nature)|Jump|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 
@@ -174,7 +174,7 @@ CLASS:Briar Archer	PREALIGN:TN	PREATT:7	PREFEAT:4,Point Blank Shot,Precise Shot,
 CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Abilities
@@ -187,17 +187,17 @@ CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|K
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GK		MAXLEVEL:10	SOURCEPAGE:pg.39	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Restricted AL		Req. Att.	Required Feat				Required Skill								Required Text
-CLASS:Green Knight	!PREALIGN:LE,NE,CE	PREATT:8	PREFEAT:1,Weapon Focus(Greataxe)	PRESKILL:2,Craft (Weaponsmithing)=8,Craft (Armorsmithing)=8	PRETEXT:Must possess the woodland empathy class feature; must have the honour of green knighthood
+CLASS:Green Knight	!PREALIGN:LE,NE,CE	PREATT:8	PREFEAT:1,Weapon Focus (Greataxe)	PRESKILL:2,Craft (Weaponsmithing)=8,Craft (Armorsmithing)=8	PRETEXT:Must possess the woodland empathy class feature; must have the honour of green knighthood
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE.Profession|Spot|Survival|Swim
+CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Spot|Survival|Swim
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 
 ###Block: Level Abilities
-1	BONUS:VAR|GreenAxeProgression|1	BONUS:VAR|GreenDemeanourProgression|1	ABILITY:Special Ability|AUTOMATIC|Green Axe|Wild Empathy|Code of Green Chivalry|Green Demeanour
+1	BONUS:VAR|GreenAxeProgression|1	BONUS:VAR|GreenDemeanourProgression|1	ABILITY:Special Ability|AUTOMATIC|Code of Green Chivalry|Green Axe|Green Demeanour|Wild Empathy
 2	BONUS:VAR|GreenArmorProgression|1								ABILITY:Special Ability|AUTOMATIC|Green Armor
 3	BONUS:VAR|HollyClubProgression|1								ABILITY:Special Ability|AUTOMATIC|Holly Club
 4	BONUS:VAR|GreenAxeProgression|1
@@ -219,7 +219,7 @@ CLASS:Greenwood Judge	PREALIGN:LG,NG,CG	PREFEAT:4,Track,Leadership,Negotiator,Wi
 CLASS:Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Sense Motive|Spot|Survival
 
 ###Block: Level Abilities
-1	BONUS:VAR|GreenwoodSignalTimes|1	ABILITY:Special Ability|AUTOMATIC|Greenwood Leadership|Greenwood Signal|Commonwealth of the Forest|Code of Conduct ~ GWJ
+1	BONUS:VAR|GreenwoodSignalTimes|1	ABILITY:Special Ability|AUTOMATIC|Code of Conduct ~ GWJ|Commonwealth of the Forest|Greenwood Leadership|Greenwood Signal
 2							ABILITY:Special Ability|AUTOMATIC|Detect Evil|Mark of the Greenwood Foe
 3	BONUS:VAR|GreenwoodSignalTimes|1
 4							ABILITY:Special Ability|AUTOMATIC|Discern Lies
@@ -237,12 +237,12 @@ CLASS:Ex Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hid
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Master of the Staff	HD:8		TYPE:PC.Prestige	ABB:MotS		MAXLEVEL:10	SOURCEPAGE:pg.46	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat
-CLASS:Master of the Staff	PREATT:5	PREFEAT:3,Stunning Staff,Combat Expertise,Improved Trip	PREFEAT:1,Weapon Focus(Shortstaff),Weapon Focus(Tipstaff)
+CLASS:Master of the Staff	PREATT:5	PREFEAT:3,Stunning Staff,Combat Expertise,Improved Trip	PREFEAT:1,Weapon Focus (Shortstaff),Weapon Focus (Tipstaff)
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 
 ###Block: Level Abilities
@@ -261,12 +261,12 @@ CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Outlaw	HD:8		TYPE:PC.Prestige	ABB:Olw		MAXLEVEL:10	SOURCEPAGE:pg.46	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat
-CLASS:Outlaw	PREATT:5	PREFEAT:3,Point Blank Shot,Track,Weapon Focus(Longbow)
+CLASS:Outlaw	PREATT:5	PREFEAT:3,Point Blank Shot,Track,Weapon Focus (Longbow)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Climb|Disguise|Gather Information|Hide|Intimidate|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE.Perform|Ride|Search|Spot|Survival
+CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Climb|Disguise|Gather Information|Hide|Intimidate|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE=Perform|Ride|Search|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 
 ###Block: Level Abilities
@@ -290,10 +290,10 @@ CLASS:Wild Hunter	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Knowledge
 
 ###Block: Level Abilities
 1														BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Ranger Animal Companion
-1														BONUS:VAR|WildPackLvl|CL		ABILITY:Special Ability|AUTOMATIC|Wild Pack|Hunter
+1														BONUS:VAR|WildPackLvl|CL		ABILITY:Special Ability|AUTOMATIC|Hunter|Wild Pack
 2																				ABILITY:Special Ability|AUTOMATIC|Monster Slayer
 3	BONUS:ABILITYPOOL|Wild Hunter Exotic Weapon|1
-4																				ABILITY:Special Ability|AUTOMATIC|Resist Charge|Big Game
+4																				ABILITY:Special Ability|AUTOMATIC|Big Game|Resist Charge
 5	BONUS:ABILITYPOOL|Favored Enemy|1	BONUS:ABILITYPOOL|Favored Enemy Bonus|1
 6	BONUS:ABILITYPOOL|Wild Hunter Exotic Weapon|1
 7																				ABILITY:Special Ability|AUTOMATIC|Resist Charge

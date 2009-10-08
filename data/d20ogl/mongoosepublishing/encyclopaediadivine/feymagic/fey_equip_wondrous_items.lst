@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 12:49:31 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
-# Equipment Name			Output Name					Required Proficiency			Type					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Ability								Combat bonus						Bonus to skill							Special Property
+# Equipment Name			Output Name					Required Weapon Proficiency		Type					Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Ability								Combat bonus						Bonus to skill							Special Property
 Potion (Fey Sight)		OUTPUTNAME:Potion of [NAME]								TYPE:Magic.Potion.Consumable	COST:250	WT:0																		SOURCEPAGE:p.48
 Potion (Dreaming)			OUTPUTNAME:Potion of [NAME]								TYPE:Magic.Potion.Consumable	COST:300	WT:0																		SOURCEPAGE:p.48
 Potion (Enchanted Sleep)	OUTPUTNAME:Potion of [NAME]								TYPE:Magic.Potion.Consumable	COST:250	WT:0																		SOURCEPAGE:p.48
