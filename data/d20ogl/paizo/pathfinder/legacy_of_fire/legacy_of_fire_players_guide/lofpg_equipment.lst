@@ -6,7 +6,7 @@ SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LoFPG	SOURCEWEB:http://paiz
 # Equipment Name		Required Weapon Proficiency			Type								Cost		Weight	Slot Needed	Critical Hit Multiplier	Damage	Range		Reach Multiplier	Source Page
 Battle Poi			PROFICIENCY:WEAPON|Battle Poi			TYPE:Weapon.Exotic.Melee.Standard.Fire		COST:5	WT:2				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
 Madu (Shield Bash)	PROFICIENCY:WEAPON|Madu (Shield Bash)	TYPE:Weapon.Exotic.Melee.Standard.Piercing	COST:0	WT:0				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
-Rope Gauntlets		PROFICIENCY:WEAPON|Rope Gauntlets		TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning	COST:.02	WT:2				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
+Rope Gauntlets		PROFICIENCY:WEAPON|Rope Gauntlets		TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning	COST:0.02	WT:2				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
 Scorpion Whip		PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.Exotic.Melee.Standard.Slashing	COST:5	WT:3				CRITMULT:x2			DAMAGE:1d4			REACHMULT:2		SOURCEPAGE:p.23
 
 # Two-Handed Melee Weapons

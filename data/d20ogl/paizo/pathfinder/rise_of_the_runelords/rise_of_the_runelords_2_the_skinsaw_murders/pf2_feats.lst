@@ -3,4 +3,4 @@ SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF
 # Original Entry by: Stefan Radermacher
 
 # Feat Name			Allowed Companions
-Improved Familiar.MOD	COMPANIONLIST:Familiar|Lyrakien|PRECLASS:1,SPELLCASTER.Arcane=7|PREALIGN:CG
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Lyrakien|PREALIGN:CG|PRECLASS:1,SPELLCASTER.Arcane=7

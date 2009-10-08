@@ -13,12 +13,12 @@ Jezelda		NAMEISPI:YES	OUTPUTNAME:Jezelda, Mistress of the Hungry Moon	DOMAINS:An
 Kabriri		NAMEISPI:YES	OUTPUTNAME:Kabriri, He Who Gnaws			DOMAINS:Chaos,Death,Evil,Knowledge			DESC:Demon Lord of graves and ghouls		SYMBOL:Maggot-filled bowl made from a human skull					DEITYWEAP:Flail			ALIGN:CE
 Kostchtchie		NAMEISPI:YES	OUTPUTNAME:Kostchtchie, The Deathless Frost	DOMAINS:Chaos,Evil,Strength,War			DESC:Demon Lord of giants and cold			SYMBOL:Ice-caked rune-carved warhammer							DEITYWEAP:Warhammer		ALIGN:CE
 Lamashtu		NAMEISPI:YES	OUTPUTNAME:Lamashtu, The Demon Queen		DOMAINS:Chaos,Evil,Madness,Strength,Trickery	DESC:Demon Lord of madness and monsters		SYMBOL:Three-eyed jackal head									DEITYWEAP:Falchion		ALIGN:CE
-Mestama		NAMEISPI:YES	OUTPUTNAME:Mestama, The Mother of Witches		DOMAINS:Charm,Chaos,Evil,Trickery			DESC:Demon Lord of hags and deception		SYMBOL:Human eye balanced atop three sharp stones					DEITYWEAP:Dagger (Punching)	ALIGN:CE
+Mestama		NAMEISPI:YES	OUTPUTNAME:Mestama, The Mother of Witches		DOMAINS:Chaos,Charm,Evil,Trickery			DESC:Demon Lord of hags and deception		SYMBOL:Human eye balanced atop three sharp stones					DEITYWEAP:Dagger (Punching)	ALIGN:CE
 Orcus			NAMEISPI:YES	OUTPUTNAME:Orcus, Prince of Undeath			DOMAINS:Chaos,Death,Evil,Magic			DESC:Demon Lord of undead and necromancy		SYMBOL:A goat's head with red eyes and four horns					DEITYWEAP:Mace (Heavy)		ALIGN:CE
 Pazuzu		NAMEISPI:YES	OUTPUTNAME:Pazuzu, King of the Wind Demons	DOMAINS:Air,Chaos,Evil,Trickery			DESC:Demon Lord of winged creatures and the sky	SYMBOL:Image of Pazuzu with right hand upraised						DEITYWEAP:Longsword		ALIGN:CE
 Sifkesh		NAMEISPI:YES	OUTPUTNAME:Sifkesh, The Sacred Whore		DOMAINS:Chaos,Evil,Madness,Trickery			DESC:Demon Lord of heresy and suicide		SYMBOL:Bloody feminine hands crossed at slashed wrists									ALIGN:CE
 Urxehl		NAMEISPI:YES	OUTPUTNAME:Urxehl, Trollfather			DOMAINS:Chaos,Evil,Fire,Weather			DESC:Demon Lord of trolls and storms		SYMBOL:Stormcloud pierced by lightning							DEITYWEAP:Greatclub		ALIGN:CE
-Xoveron		NAMEISPI:YES	OUTPUTNAME:Xoveron, The Horned Prince		DOMAINS:Chaos,Evil,Earth,Strength			DESC:Demon Lord of gargoyles and ruins		SYMBOL:Five-horned gray gargoyle skull missing a jaw					DEITYWEAP:Ranseur			ALIGN:CE
+Xoveron		NAMEISPI:YES	OUTPUTNAME:Xoveron, The Horned Prince		DOMAINS:Chaos,Earth,Evil,Strength			DESC:Demon Lord of gargoyles and ruins		SYMBOL:Five-horned gray gargoyle skull missing a jaw					DEITYWEAP:Ranseur			ALIGN:CE
 Zevgavizeb		NAMEISPI:YES	OUTPUTNAME:Zevgavizeb, God of the Troglodytes	DOMAINS:Animal,Chaos,Evil,Strength			DESC:Demon Lord of troglodytes and caverns	SYMBOL:Twisted tentacle terminating in an oversized talon				DEITYWEAP:Gauntlet (Spiked)	ALIGN:CE
 
 #

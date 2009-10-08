@@ -36,7 +36,7 @@ Rune of Obedience				TYPE:Magic.Rune					COST:135000																												
 Rune of Contingency			TYPE:Magic.Rune					COST:147000												SPELLS:Item|TIMES=1|CASTERLEVEL=7|Feather Fall|Water Breathing							SPROP:If reduced to 0 or less Hp become Gaseous Cloud; see text
 Rune of the Mistress			TYPE:Magic.Rune					COST:108000																													SPROP:3/day cause -4 to Will vs. enchantment school
 Rune of the Inscrutable One		TYPE:Magic.Rune					COST:36000																													SPROP:Has misdirect spell like functions constantly in effect
-Rune of the Lord’s Palanquin		TYPE:Magic.Rune					COST:135000																													SPROP:1/day summon palanquin
+Rune of the Lord's Palanquin		TYPE:Magic.Rune					COST:135000																													SPROP:1/day summon palanquin
 Rune of Razing				TYPE:Magic.Rune					COST:91000																													SPROP:Ignore hardness and Damage Reduction a limited time
 
 #EOF

@@ -21,7 +21,7 @@ Alien Mind									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			
 Appendages									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:NO	SAB:Appendages (Ex)
 Havero No Breath				OUTPUTNAME:No Breath	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:No Breath (Ex)
 Telepathic Savant								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communication	VISIBLE:NO	SAB:Telepathic Savant (Su)
-Havero Immunities and Resistances					CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity				VISIBLE:NO	SAB:Immune To Inhaled Effects	SAB:Immune to Mind-affecting Effects					ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Resistance To Acid|Resistance To Fire|Resistance To Electricity|Fast Healing	BONUS:VAR|AcidResistanceBonus,FireResistanceBonus,ElectricityResistanceBonus|30
+Havero Immunities and Resistances					CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity				VISIBLE:NO	SAB:Immune To Inhaled Effects	SAB:Immune to Mind-affecting Effects					ABILITY:Special Ability|AUTOMATIC|Fast Healing|Immunity To Cold|Resistance To Acid|Resistance To Electricity|Resistance To Fire	BONUS:VAR|AcidResistanceBonus,FireResistanceBonus,ElectricityResistanceBonus|30
 
 ###Block: Havero Appendage Abilities
 # Ability Name					Output Name					Category of Ability		Type									Visible		Special ABility																										Define										Stackable?	Multiple?	Choose		Ability									Combat bonus					Bonus to skill		Modify VAR															Cost		Natural Attacks

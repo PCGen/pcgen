@@ -3,4 +3,4 @@ SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURC
 #Original Entry: Eric C Smith
 
 # Template Name	Source Page		Required Race	Add to base move			Stat bonus											Ability
-Rune Slave		SOURCEPAGE:Pg.90	PRERACE:1,Giant%	BONUS:MOVEADD|TYPE.Walk|20	BONUS:STAT|STR|4	BONUS:STAT|INT|-2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-2	ABILITY:Special Ability|AUTOMATIC|Arcane Decay|Arcane Surge|Vulnerable Mind|Immune to Fear|Immune to Pain
+Rune Slave		SOURCEPAGE:Pg.90	PRERACE:1,Giant%	BONUS:MOVEADD|TYPE.Walk|20	BONUS:STAT|STR|4	BONUS:STAT|INT|-2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-2	ABILITY:Special Ability|AUTOMATIC|Arcane Decay|Arcane Surge|Immune to Fear|Immune to Pain|Vulnerable Mind

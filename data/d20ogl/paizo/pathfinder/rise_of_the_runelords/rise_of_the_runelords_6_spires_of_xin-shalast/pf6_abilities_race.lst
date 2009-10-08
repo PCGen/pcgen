@@ -52,7 +52,7 @@ Harridan Wisdom Drain	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	V
 
 ###Block: Hungerer -------------------------------------
 # Ability Name			Output Name			Category of Ability		Type						Visible	Special ABility				Define				Innate Spells																																													Weapon prof. bonus
-Hungerer Spells							CATEGORY:Special Ability																				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=21|Grease|Stinking Cloud,14|Ventriloquism	SPELLS:Innate|TIMES=3|CASTERLEVEL=21|Charm Monster,15|Fly|Gust of Wind,13|Major Image,14|Mirror Image|Suggestion,14	SPELLS:Innate|TIMES=1|CASTERLEVEL=21|Deep Slumber,14|Charm Monster (Mass),19
+Hungerer Spells							CATEGORY:Special Ability																				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=21|Grease|Stinking Cloud,14|Ventriloquism	SPELLS:Innate|TIMES=3|CASTERLEVEL=21|Charm Monster,15|Fly|Gust of Wind,13|Major Image,14|Mirror Image|Suggestion,14	SPELLS:Innate|TIMES=1|CASTERLEVEL=21|Charm Monster (Mass),19|Deep Slumber,14
 Appalling Stench							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Appalling Stench
 Vile Spew								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Vile Spew
 Vorpal Bite								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Vorpal Bite
@@ -75,10 +75,4 @@ Windigo Regeneration		OUTPUTNAME:Regeneration	CATEGORY:Special Ability	TYPE:Spec
 Savaging								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Savaging
 Windwalk								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Windwalk
 Windigo No Breath			OUTPUTNAME:No Breath	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:No Breath
-Wendigo Spells							CATEGORY:Special Ability							VISIBLE:NO												SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=20|Wind Walk	SPELLS:Innate|CASTERLEVEL=20|Control Weather
-
-
-
-
-
-
+Wendigo Spells							CATEGORY:Special Ability							VISIBLE:NO												SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=20|Wind Walk	SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Control Weather

@@ -8,4 +8,3 @@ SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURC
 ### Staves
 # Equipment Name			Output Name				Type			Cost		Weight	Base Item for EQMOD	Modifier					Source Page
 Staff (Heaven and Earth)	OUTPUTNAME:Staff of [NAME]	TYPE:Magic.Staff	COST:53000	WT:5		BASEITEM:Staff		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:Pg.23
-

@@ -4,7 +4,7 @@ SOURCELONG:Curse of the Crimson Throne - Chapter 3: Escape From Old Korvosa	SOUR
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Red Mantis Assassin	HD:8		TYPE:Prestige	ABB:RdMAs		MAXLEVEL:10	SOURCEPAGE:pg.69	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required AL	Required Feat											Required Skill
-CLASS:Red Mantis Assassin	PREALIGN:LE	PREFEAT:3,Alertness,Weapon Finesse,Exotic Weapon Proficiency(Sawtooth Sabre)	PRESKILL:3,Hide=8,Intimidate=5,Move Silently=8
+CLASS:Red Mantis Assassin	PREALIGN:LE	PREFEAT:3,Alertness,Weapon Finesse,Exotic Weapon Proficiency (Sawtooth Sabre)	PRESKILL:3,Hide=8,Intimidate=5,Move Silently=8
 # Class Name			Skill Pts/Lvl
 CLASS:Red Mantis Assassin	STARTSKILLPTS:6
 # Class Name			Spell Type		Caster level

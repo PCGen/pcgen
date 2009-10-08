@@ -46,7 +46,7 @@ GEAR:Greatclub	SIZE:PC	LOCATION:Primary Hand
 ###Block: Witchfire -------------------------------------------------------------------------
 STARTPACK:Default Witchfire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-#Str —, Dex 22, Con —, Int 17, Wis 16, Cha 25
+#Str -, Dex 22, Con -, Int 17, Wis 16, Cha 25
 RACE:Witchfire	!PRERACE:1,%
 NAME:Witchfire
 ALIGN:CE

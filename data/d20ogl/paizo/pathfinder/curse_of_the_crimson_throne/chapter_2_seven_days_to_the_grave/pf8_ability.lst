@@ -25,7 +25,7 @@ Regurgitate													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinar
 
 ###Block: Lawgiver Abilities
 # Ability Name			Output Name				Category of Ability		Type								Visible	Description																		Ability																			Source Page
-Golden Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:The Lawgiver is a creature of living gold and blessed steel									ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Electricity|Immunity To Critical Hits|Rust Immunity	SOURCEPAGE:p. 86
+Golden Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:The Lawgiver is a creature of living gold and blessed steel									ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Critical Hits|Immunity To Electricity|Rust Immunity	SOURCEPAGE:p. 86
 Rust Immunity								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You are not subject to rusting effects (such as the rusting grasp spell or a rust monster's rust attack).
 Herald of Abadar								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					DESC:The Lawgiver can be summoned by clerics of Abadar																														SOURCEPAGE:p. 86
 Lawgiver See in Darkness	OUTPUTNAME:See in Darkness	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense				DESC:The Lawgiver can see in darkness of any kind, even that created by spells like deeper darkness.																							SOURCEPAGE:p. 86

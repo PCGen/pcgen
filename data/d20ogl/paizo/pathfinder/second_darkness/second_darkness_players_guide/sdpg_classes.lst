@@ -8,7 +8,7 @@ CLASS:Liberator	PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:5	PREFEAT:3,Improved Sunder,Po
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Liberator	STARTSKILLPTS:2	CSKILL:Climb|Escape Artist|Gather Information|Hide|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Open Lock|Search|Sense Motive|Survival|Use Rope
 
-1							BONUS:VAR|LiberatorPoisonResistance|2	ABILITY:Special Ability|AUTOMATIC|To the Rescue|Liberator Poison Resistance
+1							BONUS:VAR|LiberatorPoisonResistance|2	ABILITY:Special Ability|AUTOMATIC|Liberator Poison Resistance|To the Rescue
 2							BONUS:VAR|LiberatorLockbreakerBonus|CL/2	ABILITY:Special Ability|AUTOMATIC|Lockbreaker
 3	BONUS:ABILITYPOOL|Liberator Feat|1								ABILITY:Special Ability|AUTOMATIC|Silent Sunder
 4

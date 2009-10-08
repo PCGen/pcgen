@@ -14,7 +14,7 @@ CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Conc
 9			BONUS:VAR|ColdResistanceBonus|20																					ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
 10																									DEFINE:DragonAge|2
 13																									DEFINE:DragonAge|3
-15			BONUS:VAR|FireResistanceBonus,ElectricityResistanceBonus|10																	ABILITY:Special Ability|AUTOMATIC|Resistance To Fire|Resistance To Electricity
+15			BONUS:VAR|FireResistanceBonus,ElectricityResistanceBonus|10																	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity|Resistance To Fire
 16																									DEFINE:DragonAge|4
 18	DR:5/Magic	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL/2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 19																									DEFINE:DragonAge|5
@@ -34,7 +34,7 @@ CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Conc
 40																									DEFINE:DragonAge|12
 
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Umbral Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Umbral Dragon|CL	SPELLLIST:2|Sorcerer|Cleric
+CLASS:Umbral Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Umbral Dragon|CL	SPELLLIST:2|Cleric|Sorcerer
 
 13	CAST:5,3				KNOWN:4,2				BONUS:CASTERLEVEL|Umbral Dragon|1
 15	CAST:6,4				KNOWN:5,2				BONUS:CASTERLEVEL|Umbral Dragon|1
@@ -55,4 +55,3 @@ CLASS:Umbral Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2		BONUS:CASTERLEVEL|Umbral Dragon|1
 39	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1	BONUS:CASTERLEVEL|Umbral Dragon|1
 40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2	BONUS:CASTERLEVEL|Umbral Dragon|1
-

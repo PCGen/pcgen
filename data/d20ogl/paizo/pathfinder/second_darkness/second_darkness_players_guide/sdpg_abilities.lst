@@ -1,55 +1,55 @@
-# CVS $Revision$ $Author$ -- Tue Feb 24 20:48:14 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Thu Oct  8 17:49:03 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
 
 
 #Combat Traits
-# Ability Name								Source Page
-CATEGORY=Special Ability|Anatomist_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Armor Expert_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Bullied_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Courageous_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Deft Dodger_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Dirty Fighter_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Fencer_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Killer_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Reactionary_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 11
-CATEGORY=Special Ability|Resilient_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
+# Ability Name									Source, Long Desc.								Source, Short Desc.	Source Page
+CATEGORY=Special Ability|Anatomist_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Armor Expert_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Bullied_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Courageous_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Deft Dodger_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Dirty Fighter_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Fencer_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Killer_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Reactionary_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 11
+CATEGORY=Special Ability|Resilient_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
 
 # Faith Traits
-CATEGORY=Special Ability|Birthmark_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Caretaker_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Child of the Temple_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Devotee of the Green_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Ease of Faith_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|History of Heresy_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Indomitable Faith_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Sacred Conduit_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Sacred Touch_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Scholar of the Great Beyond_Trait.MOD	SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Birthmark_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Caretaker_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Child of the Temple_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Devotee of the Green_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Ease of Faith_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|History of Heresy_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Indomitable Faith_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Sacred Conduit_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Sacred Touch_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Scholar of the Great Beyond_Trait.MOD	SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
 
 # Magic Traits
-CATEGORY=Special Ability|Classically Schooled_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Dangerously Curious_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 12
-CATEGORY=Special Ability|Focused Mind_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Gifted Adept_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Hedge Magician_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Magical Knack_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Magical Lineage_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Magical Talent_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Mathematical Prodigy_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Skeptic_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Classically Schooled_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Dangerously Curious_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 12
+CATEGORY=Special Ability|Focused Mind_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Gifted Adept_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Hedge Magician_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Magical Knack_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Magical Lineage_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Magical Talent_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Mathematical Prodigy_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Skeptic_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
 
 # Social Traits
-CATEGORY=Special Ability|Adopted_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Bully_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Canter_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Charming_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Child of the Streets_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Fast-Talker_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Natural-Born Leader_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 13
-CATEGORY=Special Ability|Poverty-Stricken_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 14
-CATEGORY=Special Ability|Rich Parents_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 14
-CATEGORY=Special Ability|Suspicious_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEPAGE:p. 14
+CATEGORY=Special Ability|Adopted_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Bully_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Canter_Trait.MOD					SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Charming_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Child of the Streets_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Fast-Talker_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Natural-Born Leader_Trait.MOD		SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 13
+CATEGORY=Special Ability|Poverty-Stricken_Trait.MOD			SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 14
+CATEGORY=Special Ability|Rich Parents_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 14
+CATEGORY=Special Ability|Suspicious_Trait.MOD				SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG		SOURCEPAGE:p. 14
 
 ###Block: Campaign Traits
 # Ability Name		Unique Key					Category of Ability		Type					Description																																								Stackable?	Multiple?	Choose																		Save checks bonus				Bonus to skill			Class Skill	Source Page

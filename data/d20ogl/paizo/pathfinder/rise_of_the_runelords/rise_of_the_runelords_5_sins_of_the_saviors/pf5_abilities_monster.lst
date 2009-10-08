@@ -20,7 +20,7 @@ Brineborn Abilities						CATEGORY:Special Ability																															
 ###
 
 Withfire Abilities						CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Dancing Lights|Disguise Self|Ghost Sound,17|Invisibility|Pyrotechnics,18|Ray of Enfeeblement
-Summon Will-O-Wisps						CATEGORY:Special Ability	TYPE:Supernatural						SAB:Summon Will-O’-Wisps (Sp)
+Summon Will-O-Wisps						CATEGORY:Special Ability	TYPE:Supernatural						SAB:Summon Will-O'-Wisps (Sp)
 Witchflame								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Witchflame (Su)
 Witchflame Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			SAB:Witchflame Aura (Su)
 
@@ -40,7 +40,7 @@ Touch Telepathy							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	
 Night Monarch Special Powers					CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Cure Serious Wounds|Dream|Freedom of Movement|Hypnotic Pattern,26	SPELLS:Innate|TIMES=3|CASTERLEVEL=15|Break Enchantment|Dispel Magic (Greater)|Plane Shift|Remove Curse|Remove Fear|Remove Paralysis	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Hallow,26|Regenerate
 
 #Yethazmari
-Yethazmari Spells							CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Blindness/Deafness,17|Locate Creature|Rage,18|Veil,22	SPELLS:Innate|TIMES=3|CASTERLEVEL=15|Baleful Polymorph,20|Feeblemind,20|Dispel Magic (Greater)|Plane Shift|Summon Monster IV	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Control Weather|Unhallow,20
+Yethazmari Spells							CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Blindness/Deafness,17|Locate Creature|Rage,18|Veil,22	SPELLS:Innate|TIMES=3|CASTERLEVEL=15|Baleful Polymorph,20|Dispel Magic (Greater)|Feeblemind,20|Plane Shift|Summon Monster IV	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Control Weather|Unhallow,20
 
 Yethazmari Bay			OUTPUTNAME:Bay		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Bay
 Maddening Vision							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			SAB:Maddening Vision

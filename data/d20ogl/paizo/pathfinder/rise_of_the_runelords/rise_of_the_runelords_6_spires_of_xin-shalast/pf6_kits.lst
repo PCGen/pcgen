@@ -9,7 +9,7 @@ RACE:Craig Spider	!PRERACE:1,%
 NAME:Craig Spider
 ALIGN:TN
 #hp 104 (16d8+32)
-#Str 20, Dex 18, Con 14, Int —, Wis 10, Cha 2
+#Str 20, Dex 18, Con 14, Int -, Wis 10, Cha 2
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 #Skills Climb +21, Hide +0, Jump +15, Spot +8
 SKILL:Climb	RANK:2
@@ -211,21 +211,3 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 #Fort +6, Ref +6, Will +12
 #Defensive Abilities +4 turn resistance; Immune incorporeal traits,
 #undead traits
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
