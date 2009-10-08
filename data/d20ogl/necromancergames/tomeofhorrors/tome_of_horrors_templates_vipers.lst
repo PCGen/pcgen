@@ -50,5 +50,3 @@ Viper (Viper/Sand)						VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper
 Viper (Viper/Saw-scaled)		CR:1			VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1
 Viper (Viper/Sharp-nosed)					VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|4	BONUS:VAR|PoisonSecDieSize|-2
 Viper (Viper/Tree)						VISIBLE:YES	DEFINE:Necrosis|1					PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonSecDieSize|-2
-
-

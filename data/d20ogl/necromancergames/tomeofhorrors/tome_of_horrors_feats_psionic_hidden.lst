@@ -5,4 +5,3 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 # Feat Name			Type						Visible	Special ABility		Define
 Psi-Like Abilities	TYPE:SpecialAttack			VISIBLE:NO	SAB:Psi-Like abilities	DEFINE:ManifesterLvl|0
 Warp Reality		TYPE:SpecialQuality.SpellLike.AC	VISIBLE:NO	SAB:Warp Reality (Sp)
-

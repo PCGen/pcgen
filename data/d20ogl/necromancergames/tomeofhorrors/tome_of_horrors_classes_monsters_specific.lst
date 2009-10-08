@@ -8,6 +8,5 @@ CLASS:The Oinodaemon	HD:8		TYPE:Monster	MAXLEVEL:49	SOURCEPAGE:p. 83	BONUS:CHECK
 CLASS:The Oinodaemon	PRERACE:1,Daemon (The Oinodaemon)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:The Oinodaemon	STARTSKILLPTS:8	MODTOSKILLS:YES
-1					ADD:SPELLCASTER|1|Cleric
+1					ADD:SPELLCASTER|Cleric
 49	BONUS:PCLEVEL|Cleric|19
-

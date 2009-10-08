@@ -7,4 +7,3 @@ Cutlass							PROFICIENCY:WEAPON|Cutlass		TYPE:Weapon.Melee.Martial.Standard.Sla
 Flindbar							PROFICIENCY:WEAPON|Flindbar		TYPE:Weapon.Melee.Exotic.Standard.Bludgeoning		COST:4	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light					SIZE:M	SPROP:+2 bonus on opposed attack rolls made to disarm.
 Korred Shears						PROFICIENCY:WEAPON|Korred Shears	TYPE:Weapon.Melee.Exotic.Standard.Slashing		COST:0	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light					SIZE:M
 Whip (6 tail)	OUTPUTNAME:Six-tailed Whip	PROFICIENCY:WEAPON|Whip			TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Slashing	COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10			WIELD:OneHanded	REACHMULT:2		SIZE:M
-

@@ -5,4 +5,3 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 
 # Equipment Name	Type				Cost		Weight	Source Page		Special Property
 Bull's Horn		TYPE:Magic.Wondrous	COST:0	WT:2		SOURCEPAGE:p. 142	SPROP:Summon 5d4 minotaurs 3/week. Good aligned creatures touching the horn tak 5d6 electricity damage each round (no save).
-

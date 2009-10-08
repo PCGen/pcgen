@@ -7,8 +7,8 @@ CLASS:Cloud Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p. 162	BONUS:
 # Class Name		Required Race			Reg. Race Type
 CLASS:Cloud Dragon	PRERACE:1,Dragon (Cloud%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
-1	VISION:Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
+1	VISION:Blindsense (60')|Darkvision (120')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponRange|max(15,(SIZE-1)*10)	BONUS:VAR|BreathWeaponDice|DragonAge*2	BONUS:VAR|BreathWeaponDieSize|6	BONUS:VAR|BreathWeaponDC|CON	AUTO:FEAT|Breath Weapon (Cone/Cold Air)
 1																											AUTO:FEAT|Immune to Sleep Effects	AUTO:FEAT|Immune to Paralysis	AUTO:FEAT|Immune to Electricity
@@ -32,7 +32,7 @@ CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1																																DEFINE:DragonAge|1
 8				BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE																	BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Solid Fog,10+(HD/2)+CHA
 11				BONUS:COMBAT|AC|10|TYPE=NaturalArmor.REPLACE																	BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=2|CASTERLEVEL=3|Stinking Cloud,10+(HD/2)+CHA
-14				BONUS:COMBAT|AC|13|TYPE=NaturalArmor.REPLACE																	BONUS:VAR|DragonAge|1					ADD:SPELLCASTER|1|Sorcerer	SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Create Water,10+(HD/2)+CHA
+14				BONUS:COMBAT|AC|13|TYPE=NaturalArmor.REPLACE																	BONUS:VAR|DragonAge|1					ADD:SPELLCASTER|Sorcerer	SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Create Water,10+(HD/2)+CHA
 17	SR:19	DR:5/magic	BONUS:COMBAT|AC|16|TYPE=NaturalArmor.REPLACE												BONUS:PCLEVEL|Sorcerer|2	BONUS:VAR|DragonAge|1
 20				BONUS:COMBAT|AC|19|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|1						BONUS:PCLEVEL|Sorcerer|2	BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=3|CASTERLEVEL=var("CL=Sorcerer")|Obscuring Mist,10+(HD/2)+CHA
 23				BONUS:COMBAT|AC|22|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2	BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Call Lightning,10+(HD/2)+CHA
@@ -41,4 +41,3 @@ CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 32				BONUS:COMBAT|AC|31|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|3	BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Control Winds,10+(HD/2)+CHA
 35				BONUS:COMBAT|AC|34|TYPE=NaturalArmor.REPLACE	BONUS:DR|magic|5	BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
 38				BONUS:COMBAT|AC|37|TYPE=NaturalArmor.REPLACE				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2	BONUS:VAR|DragonAge|1
-

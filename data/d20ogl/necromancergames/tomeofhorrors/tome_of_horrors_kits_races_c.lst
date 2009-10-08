@@ -267,5 +267,3 @@ STARTPACK:Crypt Guardian Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUI
 RACE:Crypt Guardian	!PRERACE:1,%
 NAME:Crypt Guardian
 KIT:Common Crypt Thing
-
-

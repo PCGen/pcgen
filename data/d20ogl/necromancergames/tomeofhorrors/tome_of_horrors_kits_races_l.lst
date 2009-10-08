@@ -74,4 +74,3 @@ STARTPACK:Lurker Below Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQ
 RACE:Lurker Below	!PRERACE:1,%
 NAME:Lurker Below
 KIT:Common Lurker
-
