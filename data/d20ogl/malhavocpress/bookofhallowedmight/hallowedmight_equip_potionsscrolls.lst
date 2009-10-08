@@ -30,49 +30,49 @@ Potion (Wild Stealth)				NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Pot
 
 #Scrolls
 # Equipment Name					Product Identity?	Output Name				Type								Cost		Weight	Source Page
-Scroll (Aeonian Lantern)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:.01	SOURCEPAGE:p.29
-Scroll (Angel's Redoubt)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:.01	SOURCEPAGE:p.29
-Scroll (Arathan's Spiritual Soldier)	NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3000	WT:.01	SOURCEPAGE:p.29
-Scroll (Armor Contingency)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:.01	SOURCEPAGE:p.29
-Scroll (Audible Whisper)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:12.5	WT:.01	SOURCEPAGE:p.30
-Scroll (Bind with Plants)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:.01	SOURCEPAGE:p.30
-Scroll (Blast of Castigation)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:.01	SOURCEPAGE:p.30
-Scroll (Blazing Light)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:.01	SOURCEPAGE:p.30
-Scroll (Blight Enemy)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:200	WT:.01	SOURCEPAGE:p.30
-Scroll (Burning Brand)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:.01	SOURCEPAGE:p.31
-Scroll (Carnivorous Defender)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:.01	SOURCEPAGE:p.31
-Scroll (Clarity of Mind)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:12.5	WT:.01	SOURCEPAGE:p.31
-Scroll (Confutation of the Demon)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3825	WT:.01	SOURCEPAGE:p.31
-Scroll (Crystal Eruption)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:.01	SOURCEPAGE:p.31
-Scroll (Crystal of Reflection)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:.01	SOURCEPAGE:p.32
-Scroll (Crystal Shard)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:.01	SOURCEPAGE:p.32
-Scroll (Curse of Wounding)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:.01	SOURCEPAGE:p.32
-Scroll (Divert Charge)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:.01	SOURCEPAGE:p.32
-Scroll (Ethereal Prison)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:.01	SOURCEPAGE:p.33
-Scroll (Glory of the Beast)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:.01	SOURCEPAGE:p.33
-Scroll (Godspeed)					NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:.01	SOURCEPAGE:p.33
-Scroll (Grant Quarter (Bonds of Mercy))	NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:.01	SOURCEPAGE:p.33
-Scroll (Halo of Glory)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:.01	SOURCEPAGE:p.34
-Scroll (Halo of Shelter)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:.01	SOURCEPAGE:p.34
-Scroll (Heartglow)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:200	WT:.01	SOURCEPAGE:p.34
-Scroll (Holy Shout)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3000	WT:.01	SOURCEPAGE:p.34
-Scroll (Illuminated Weapon)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:50	WT:.01	SOURCEPAGE:p.35
-Scroll (Light of the Earth)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:.01	SOURCEPAGE:p.35
-Scroll (Pattern of Sibyllic Fate)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:.01	SOURCEPAGE:p.35
-Scroll (Peaceful Weapon)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:.01	SOURCEPAGE:p.35
-Scroll (Redemption from Evil Power)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:.01	SOURCEPAGE:p.36
-Scroll (Redemptive Redress)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:.01	SOURCEPAGE:p.36
-Scroll (Resist Touch)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:.01	SOURCEPAGE:p.36
-Scroll (Return and Avenge)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:.01	SOURCEPAGE:p.36
-Scroll (See No Evil)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:.01	SOURCEPAGE:p.36
-Scroll (Shield of Light)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:.01	SOURCEPAGE:p.37
-Scroll (Sunfire Tomb)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3825	WT:.01	SOURCEPAGE:p.37
-Scroll (Touch no Evil)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:.01	SOURCEPAGE:p.32SOURCEPAGE:p.37
-Scroll (Truth's Wings)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:.01	SOURCEPAGE:p.37
-Scroll (Unite Allies)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:.01	SOURCEPAGE:p.38
-Scroll (Vengeful Spell Resistance)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:.01	SOURCEPAGE:p.38
-Scroll (Watery Prison)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:.01	SOURCEPAGE:p.38
-Scroll (Waves of Light)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:.01	SOURCEPAGE:p.39
-Scroll (Wellspring of Soul's Light)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3825	WT:.01	SOURCEPAGE:p.39
-Scroll (Wild Stealth)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:.01	SOURCEPAGE:p.32SOURCEPAGE:p.39
-Scroll (Woodlands Prison)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:.01	SOURCEPAGE:p.39
+Scroll (Aeonian Lantern)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.29
+Scroll (Angel's Redoubt)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:0.01	SOURCEPAGE:p.29
+Scroll (Arathan's Spiritual Soldier)	NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3000	WT:0.01	SOURCEPAGE:p.29
+Scroll (Armor Contingency)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:0.01	SOURCEPAGE:p.29
+Scroll (Audible Whisper)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:12.5	WT:0.01	SOURCEPAGE:p.30
+Scroll (Bind with Plants)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.30
+Scroll (Blast of Castigation)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:0.01	SOURCEPAGE:p.30
+Scroll (Blazing Light)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:0.01	SOURCEPAGE:p.30
+Scroll (Blight Enemy)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:200	WT:0.01	SOURCEPAGE:p.30
+Scroll (Burning Brand)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:0.01	SOURCEPAGE:p.31
+Scroll (Carnivorous Defender)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:0.01	SOURCEPAGE:p.31
+Scroll (Clarity of Mind)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:12.5	WT:0.01	SOURCEPAGE:p.31
+Scroll (Confutation of the Demon)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3825	WT:0.01	SOURCEPAGE:p.31
+Scroll (Crystal Eruption)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:0.01	SOURCEPAGE:p.31
+Scroll (Crystal of Reflection)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:0.01	SOURCEPAGE:p.32
+Scroll (Crystal Shard)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:0.01	SOURCEPAGE:p.32
+Scroll (Curse of Wounding)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:0.01	SOURCEPAGE:p.32
+Scroll (Divert Charge)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:0.01	SOURCEPAGE:p.32
+Scroll (Ethereal Prison)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.33
+Scroll (Glory of the Beast)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:0.01	SOURCEPAGE:p.33
+Scroll (Godspeed)					NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:0.01	SOURCEPAGE:p.33
+Scroll (Grant Quarter (Bonds of Mercy))	NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:0.01	SOURCEPAGE:p.33
+Scroll (Halo of Glory)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.34
+Scroll (Halo of Shelter)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:0.01	SOURCEPAGE:p.34
+Scroll (Heartglow)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:200	WT:0.01	SOURCEPAGE:p.34
+Scroll (Holy Shout)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3000	WT:0.01	SOURCEPAGE:p.34
+Scroll (Illuminated Weapon)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:50	WT:0.01	SOURCEPAGE:p.35
+Scroll (Light of the Earth)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:0.01	SOURCEPAGE:p.35
+Scroll (Pattern of Sibyllic Fate)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:0.01	SOURCEPAGE:p.35
+Scroll (Peaceful Weapon)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:0.01	SOURCEPAGE:p.35
+Scroll (Redemption from Evil Power)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:0.01	SOURCEPAGE:p.36
+Scroll (Redemptive Redress)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:25	WT:0.01	SOURCEPAGE:p.36
+Scroll (Resist Touch)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:0.01	SOURCEPAGE:p.36
+Scroll (Return and Avenge)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1650	WT:0.01	SOURCEPAGE:p.36
+Scroll (See No Evil)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:375	WT:0.01	SOURCEPAGE:p.36
+Scroll (Shield of Light)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:1125	WT:0.01	SOURCEPAGE:p.37
+Scroll (Sunfire Tomb)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3825	WT:0.01	SOURCEPAGE:p.37
+Scroll (Touch no Evil)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:0.01	SOURCEPAGE:p.32SOURCEPAGE:p.37
+Scroll (Truth's Wings)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.37
+Scroll (Unite Allies)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.38
+Scroll (Vengeful Spell Resistance)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:0.01	SOURCEPAGE:p.38
+Scroll (Watery Prison)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:0.01	SOURCEPAGE:p.38
+Scroll (Waves of Light)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:2275	WT:0.01	SOURCEPAGE:p.39
+Scroll (Wellspring of Soul's Light)		NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:3825	WT:0.01	SOURCEPAGE:p.39
+Scroll (Wild Stealth)				NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:0.01	SOURCEPAGE:p.32SOURCEPAGE:p.39
+Scroll (Woodlands Prison)			NAMEISPI:YES	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.39

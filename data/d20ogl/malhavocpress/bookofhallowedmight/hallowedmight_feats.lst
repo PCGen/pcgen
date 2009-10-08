@@ -25,5 +25,3 @@ Vow of Stability			TYPE:Blessed									PREFEAT:2,Devout Faith,Vow of Obedience	
 Oath of Combat			TYPE:Oath										PREFEAT:1,Swear an Oath								PRESTAT:1,WIS=15
 Oath of Magic			TYPE:Oath										PREFEAT:1,Swear an Oath								PRESTAT:1,WIS=15
 Swear an Oath			TYPE:Oath																					PRESTAT:1,WIS=15
-
-
