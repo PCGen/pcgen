@@ -2,11 +2,11 @@
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 #Goods Name					Type of Item	Cost		Weight
 # Equipment Name				Type		Cost		Weight	Source Page
-Coin (Orgent)				TYPE:Coin	COST:100	WT:.02	SOURCEPAGE:p.
-Coin (Domargent)				TYPE:Coin	COST:2	WT:.02	SOURCEPAGE:p.
-Coin (Gold bar)				TYPE:Coin	COST:64000	WT:.02	SOURCEPAGE:p.
-Coin (Argent)				TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.
-Coin (Old Vinnengaelean Argent)	TYPE:Coin	COST:10	WT:.02	SOURCEPAGE:p.
-Coin (Tam)					TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.
-Coin (Conent)				TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:p.
-Coin (Phennig)				TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:p.
+Coin (Orgent)				TYPE:Coin	COST:100	WT:0.02	SOURCEPAGE:p.
+Coin (Domargent)				TYPE:Coin	COST:2	WT:0.02	SOURCEPAGE:p.
+Coin (Gold bar)				TYPE:Coin	COST:64000	WT:0.02	SOURCEPAGE:p.
+Coin (Argent)				TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:p.
+Coin (Old Vinnengaelean Argent)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:p.
+Coin (Tam)					TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:p.
+Coin (Conent)				TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:p.
+Coin (Phennig)				TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:p.

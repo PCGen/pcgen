@@ -6,26 +6,26 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 # Feat Name						Type			Visible	Special ABility		Add 					Bonus to Ability Pool
 1st Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Close Combat Shot
 2nd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO										BONUS:ABILITYPOOL|Weapon Focus|1
-3rd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
+3rd Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Gunslinger
 4th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Defensive Position
 5th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Lightning Shot
-6th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
+6th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Gunslinger
 7th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Sharp Shooting
 8th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO										BONUS:ABILITYPOOL|Greater Weapon Focus|1
-9th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Gunslinger
+9th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Gunslinger
 10th Level Gunslinger Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Bullseye
 
 ###Block:Soldier Levels for Level Substitution
 # Feat Name					Type			Visible	Special ABility		Add 				Bonus to Ability Pool						Combat bonus						Modify VAR
 1st Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO									BONUS:ABILITYPOOL|Weapon Focus|1
 2nd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO									BONUS:ABILITYPOOL|Weapon Specialization|1											BONUS:VAR|WeapSpecQualify|1
-3rd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier																		BONUS:VAR|WeapSpecQualify|-1
+3rd Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Soldier																		BONUS:VAR|WeapSpecQualify|-1
 4th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Tactical Aid
 5th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO									BONUS:ABILITYPOOL|Improved Critical|1
-6th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier
+6th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Soldier
 7th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Improved Reaction														BONUS:COMBAT|INITIATIVE|2|TYPE=Competence.STACK
 8th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO									BONUS:ABILITYPOOL|Greater Weapon Specialization|1
-9th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|1|TYPE.Soldier
+9th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Soldier
 10th Level Soldier Class Abilities	TYPE:StandardLvl	VISIBLE:NO	SAB:Critical Strike
 
 ###Block:Workarounds for Schools

@@ -8,8 +8,8 @@ Human Computer Fortitude		TYPE:HumanComputerSaves	VISIBLE:NO																				
 Human Computer Reflex			TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Reflex|INT
 Human Computer Will			TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Will|INT
 
-Sensitive Base Psioninc			TYPE:SensitiveAwakening	VISIBLE:NO						!PREFEAT:3,TYPE=BasePsionic								ADD:FEAT|1|TYPE=BasePsionic
-Sensitive Psionic				TYPE:SensitiveAwakening	VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic													ADD:FEAT|1|TYPE=PsionicPowerFeat
+Sensitive Base Psioninc			TYPE:SensitiveAwakening	VISIBLE:NO						!PREFEAT:3,TYPE=BasePsionic								ADD:FEAT|TYPE=BasePsionic
+Sensitive Psionic				TYPE:SensitiveAwakening	VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic													ADD:FEAT|TYPE=PsionicPowerFeat
 
 Xeno Archaelogist Wealth Bonus	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|WealthBonus|3
 Xeno Archaelogist Reputation Bonus	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|Reputation|3

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 21:23:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:34:36 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -11,15 +11,15 @@ CLASS:Bounty Hunter (BNB)	OUTPUTNAME:Bounty Hunter	HD:6		TYPE:PC.Advanced	MAXLEV
 CLASS:Bounty Hunter (BNB)	PREATT:2	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter (BNB)	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
-1															AUTO:FEAT|Track
+1														AUTO:FEAT|Track
 2	SAB:Low-level Contact(Ex)
-3									ADD:FEAT|1|TYPE.BountyHunterBNB
+3									ADD:FEAT|TYPE=BountyHunterBNB
 4	SAB:Nonlethal Force(Ex)
 5	SAB:Mid-level Contact(Ex)
-6									ADD:FEAT|1|TYPE.BountyHunterBNB
+6									ADD:FEAT|TYPE=BountyHunterBNB
 7	SAB:Discern Lie(Ex)	SAB:Swift Tracker(Ex)
 8	SAB:High-level Contact(Ex)
-9									ADD:FEAT|1|TYPE.BountyHunterBNB
+9									ADD:FEAT|TYPE=BountyHunterBNB
 10	SAB:Sixth Sense(Su)
 
 # Class Name		Output Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
@@ -30,13 +30,13 @@ CLASS:Profiler (BNB)	PREFEAT:1,Attentive	PRESKILL:3,Knowledge (Bahvioral)=6,Sens
 CLASS:Profiler (BNB)	STARTSKILLPTS:7	CSKILL:Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Spot
 1	SAB:Profile(Ex)
 2	SAB:Read Target +%|ReadTarget	BONUS:VAR|ReadTarget|1	DEFINE:ReadTarget|0
-3														ADD:FEAT|1|TYPE.ProfilerBNB
+3														ADD:FEAT|TYPE=ProfilerBNB
 4	SAB:Identify Motive(Ex)
 5	SAB:Enhanced Profile(Ex)
-6						BONUS:VAR|ReadTarget|1					ADD:FEAT|1|TYPE.ProfilerBNB
+6						BONUS:VAR|ReadTarget|1					ADD:FEAT|TYPE=ProfilerBNB
 7	SAB:Anticipate Move(Ex)
 8						BONUS:VAR|ReadTarget|2
-9														ADD:FEAT|1|TYPE.ProfilerBNB
+9														ADD:FEAT|TYPE=ProfilerBNB
 10	SAB:Mindhunter(Ex)		BONUS:VAR|ReadTarget|2
 
 ###Slasher Advanced Classes
@@ -63,12 +63,12 @@ CLASS:Arawnite Guardian	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.
 # Class Name		Required Skill							Required Text
 CLASS:Arawnite Guardian	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Allegiance to Arawn
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arawnite Guardian	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Diplomacy|Handle Animal|Treat Injury|Knowledge (Earth and Life Sciences)|Listen|Profession|Ride|Spellcraft|Spot|Survival|Swim
+CLASS:Arawnite Guardian	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Treat Injury|Knowledge (Earth and Life Sciences)|Listen|Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels					Caster level
 CLASS:Arawnite Guardian	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Arawnite Guardian|CL
 ###Block:Spells
 1	SPELLLEVEL:CLASS|Arawnite Guardian=0|Create Water,Detect Magical Aura,Light,Mending,Read Magic,Resistance,Virtue
-1	SPELLLEVEL:CLASS|Arawnite Guardian=1|Bane,Bless,Cause Fear,Clean,Command,Cure Light Wounds,Degauss,Faerie Fire,Jump,Magic Weapon,Obscuring Mist,Feather Fall (Spell),Mask Metal,Power Device,Sanctuary,Sleep,Trace Purge
+1	SPELLLEVEL:CLASS|Arawnite Guardian=1|Bane,Bless,Cause Fear,Clean,Command,Cure Light Wounds,Degauss,Faerie Fire,Feather Fall (Spell),Jump,Magic Weapon,Mask Metal,Obscuring Mist,Power Device,Sanctuary,Sleep,Trace Purge
 #1	SPELLLEVEL:CLASS|Arawnite Guardian=1|Bane,Bless,Cause Fear,Clean,Command,Cure Light Wounds,Degauss,Faerie Fire,Jump,Magic Weapon,Obscuring Mist,Pass without Trace,Feather Fall (Spell),Mask Metal,Power Device,Sanctuary,Sleep,Trace Purge
 1	SPELLLEVEL:CLASS|Arawnite Guardian=2|Augury,Burglar's Buddy,Cure Moderate Wounds,Enhance Ability,Glitterdust,Invisibility,Knock (Spell),Locate Object,Machine Invisibility,Protection from Arrows/Bullets,Shield Other,Spider Climb (Spell)
 1	SPELLLEVEL:CLASS|Arawnite Guardian=3|Cure Serious Wounds,Electromagnetic Pulse,Gaseous Form,Hold Person,Invisibility Sphere,Nondetection,Prayer,Recharge,Shutdown,Status
@@ -99,7 +99,7 @@ CLASS:Mad Genius	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimid
 5	SAB:Fascinate(Ex)
 6	SAB:Suggestion(Ex) Will save DC %|10+CL/2+CHA
 7	SAB:Smart Survival(Ex)
-8																ADD:FEAT|1|Smart Weapon
+8																ADD:FEAT|Smart Weapon
 9	SAB:One Step Ahead(Ex)
 10	SAB:Sow Distrust(Ex) Will save DC %|10+CL/2+CHA
 
@@ -143,12 +143,12 @@ CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:C
 CLASS:Stalker	PREATT:2	PRESKILL:2,Hide=6,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
-1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|1|Weapon Focus								ABILITY:Special Ability|NORMAL|Sneak Attack
+1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|Weapon Focus								ABILITY:Special Ability|NORMAL|Sneak Attack
 2																	ADD:ABILITY|Special Ability|NORMAL|Weapon Specialization
 3	VISION:Darkvision (60')									BONUS:VAR|SneakAttack|1
-4					SAB:Right Behind You (Su)								ADD:FEAT|1|TYPE.Stalker
+4					SAB:Right Behind You (Su)								ADD:FEAT|TYPE=Stalker
 5																	ADD:ABILITY|Special Ability|NORMAL|Improved Critical
-6													BONUS:VAR|SneakAttack|1	ADD:FEAT|1|TYPE.Stalker
+6													BONUS:VAR|SneakAttack|1	ADD:FEAT|TYPE=Stalker
 7					SAB:Hide in Plain Sight (Su)
 8													BONUS:VAR|SneakAttack|1	ADD:ABILITY|Special Ability|NORMAL|Greater Weapon Specialization
 9					SAB:Without a Trace (Ex)

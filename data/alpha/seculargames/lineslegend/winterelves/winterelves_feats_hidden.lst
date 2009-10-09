@@ -27,7 +27,7 @@ Supreme Cold Mastery		TYPE:ClassAbility	VISIBLE:NO	SAB:Supreme Cold Mastery		SOU
 ###BLOCK:Knight of Frostfang abilities
 # Feat Name		Type						Visible	Special ABility					Define				Innate Spells													Allow Follower			Allowed Companions			Source Page
 Winter Wolf Mount	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SAB:Winter Wolf Mount (Ex)			DEFINE:FrostfangKnight|0																FOLLOWERS:Special Mount|1	COMPANIONLIST:Mount|Winter Wolf	SOURCEPAGE:p.22
-Solid as Ice	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Solid as Ice %/day (Sp)|SolidAsIce	DEFINE:SolidAsIce|0		SPELLS:Innate|TIMES=0|CASTERLEVEL=1+FrostfangKnight|Bull's Strength|Bear's Endurance												SOURCEPAGE:p.22
+Solid as Ice	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Solid as Ice %/day (Sp)|SolidAsIce	DEFINE:SolidAsIce|0		SPELLS:Innate|TIMES=0|CASTERLEVEL=1+FrostfangKnight|Bear's Endurance|Bull's Strength												SOURCEPAGE:p.22
 Wolf Brotherhood	TYPE:ClassAbility.SpellLike		VISIBLE:NO	SAB:Wolf Brotherhood (Sp)																																		SOURCEPAGE:p.22
 
 ###BLOCK:Thrall of Gaulgardos abilities
@@ -43,5 +43,3 @@ Smite Outsider			TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Smite Outsider (S
 Weapons of the Hunt		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Weapons of the Hunt (Su)								SOURCEPAGE:p.27
 Improved Weapons of the Hunt	TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Improved Weapons of the Hunt (Su)						SOURCEPAGE:p.27
 Mark of the Slayer		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Mark of the Slayer (Sp)								SOURCEPAGE:p.27
-
-
