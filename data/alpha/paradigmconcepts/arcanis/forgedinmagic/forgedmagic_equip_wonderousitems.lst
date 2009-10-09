@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec  4 12:37:22 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd) 2007; Andrew Maitland
 #Completed 2008-05-14 - Needs Review
@@ -12,7 +12,7 @@ Amulet of Illiir's Perfect Brilliance	TYPE:Magic.Wondrous.Amulet	COST:39500	SOUR
 Anklet of the Harlot				TYPE:Magic.Wondrous.Boot	COST:9650	SOURCEPAGE:p.64																					SPELLS:Anklet of the Harlot|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Sleep,11																																			BONUS:CHECKS|Fortitude|4|TYPE=Resistance
 Apron of the Artificer				TYPE:Magic.Wondrous.Shirt	COST:16400	SOURCEPAGE:p.64
 Armbands of Blade Turning			TYPE:Magic.Wondrous.Bracer	COST:22580	SOURCEPAGE:p.64																					SPELLS:Armbands of Blade Turning|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=9|Stoneskin
-Armguard of Talisos				TYPE:Magic.Wondrous.Bracer	COST:44200	SOURCEPAGE:p.64	ABILITY:FEAT|VIRTUAL|Point Blank Shot|Far Shot	ABILITY:FEAT|VIRTUAL|EloriiBonusforArmguardofTalisos|PRERACE:1,Elorii
+Armguard of Talisos				TYPE:Magic.Wondrous.Bracer	COST:44200	SOURCEPAGE:p.64	ABILITY:FEAT|VIRTUAL|Far Shot|Point Blank Shot	ABILITY:FEAT|VIRTUAL|EloriiBonusforArmguardofTalisos|PRERACE:1,Elorii
 Aro's Unforgettable Mark			TYPE:Magic.Wondrous		COST:4000	SOURCEPAGE:p.64
 
 ###Block: B ---------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ Dust of Warding							TYPE:Magic.Wondrous		COST:9000
 ###Block: E & F -------------------------------------------------------------------------------------------
 # Equipment Name						Output Name							Type					Cost		Slot Needed	Source Page		Innate Spells																														Combat bonus				Bonus to DC				Bonus to skill										Special ABility
 Earring of Perception													TYPE:Magic.Wondrous.Eyegear	COST:2500			SOURCEPAGE:p.77																																												BONUS:SKILL|Listen|5|TYPE=Competence
-Eelskin Cloak														TYPE:Magic.Wondrous.Cape	COST:54120			SOURCEPAGE:p.77	SPELLS:Eelskin Cloak|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Water Breathing|Lightning Bolt,13																		BONUS:COMBAT|AC|2|TYPE=Deflection																		SAB:Electricity Resistance 10
+Eelskin Cloak														TYPE:Magic.Wondrous.Cape	COST:54120			SOURCEPAGE:p.77	SPELLS:Eelskin Cloak|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Lightning Bolt,13|Water Breathing																		BONUS:COMBAT|AC|2|TYPE=Deflection																		SAB:Electricity Resistance 10
 Eelskin Cloak (Lesser)					OUTPUTNAME:Eelskin Cloak, Lesser			TYPE:Magic.Wondrous.Cape	COST:15060			SOURCEPAGE:p.78	SPELLS:Eelskin Cloak (Lesser)|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Water Breathing
 Eloisa's Dancing Shoes													TYPE:Magic.Wondrous.Boot	COST:7500			SOURCEPAGE:p.78																																												BONUS:SKILL|Balance,Jump,Perform (Dance)|5|TYPE=Competence
 Everburning Coal														TYPE:Magic.Wondrous		COST:5000			SOURCEPAGE:p.78
@@ -119,52 +119,52 @@ Flask of Verdant Glory													TYPE:Magic.Wondrous		COST:7500			SOURCEPAGE:p
 Flask of Verdant Glory (Greater)			OUTPUTNAME:Flask of Verdant Glory, Greater	TYPE:Magic.Wondrous		COST:15000			SOURCEPAGE:p.83
 
 ###Block: G -------------------------------------------------------------------------------------------------
-# Equipment Name					Type					Cost		Slot Needed	Source Page		Ability							Damage Reduction	Innate Spells								Save checks bonus				Combat bonus										Bonus to skill						Stat bonus					Modify VAR
+# Equipment Name					Type					Cost		Slot Needed	Source Page		Ability							Damage Reduction	Innate Spells									Save checks bonus				Combat bonus										Bonus to skill						Stat bonus					Modify VAR
 Garment of the Hidden Gift			TYPE:Magic.Wondrous.Robe	COST:15000			SOURCEPAGE:p.83
-Gauntlet of Immaculate Defense		TYPE:Magic.Wondrous.Glove	COST:16500			SOURCEPAGE:p.84																												BONUS:COMBAT|AC|2|TYPE=Shield
+Gauntlet of Immaculate Defense		TYPE:Magic.Wondrous.Glove	COST:16500			SOURCEPAGE:p.84																													BONUS:COMBAT|AC|2|TYPE=Shield
 Gauntlet of Yh'gi					TYPE:Magic.Wondrous.Glove	COST:7200			SOURCEPAGE:p.84
 Gauntlets of Force				TYPE:Magic.Wondrous.Glove	COST:23760			SOURCEPAGE:p.84
 Gem of Sarish's Oath				TYPE:Magic.Wondrous		COST:10000			SOURCEPAGE:p.84
 Gerrard's Luxurious Pavilion			TYPE:Magic.Wondrous		COST:90000			SOURCEPAGE:p.85
-Girdle of the Grand Gladiator			TYPE:Magic.Wondrous.Belt	COST:72000			SOURCEPAGE:p.85																						BONUS:CHECKS|ALL|3|TYPE=Morale	BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:COMBAT|TOHIT,DAMAGE|3|TYPE=Morale
-Girdle of Marok					TYPE:Magic.Wondrous.Belt	COST:138000			SOURCEPAGE:p.85									DR:5/Adamatine	SPELLS:Girdle of Marok|CASTERLEVEL=11|Stone Tell																												BONUS:STAT|STR|4|TYPE=Enhancement
-Gloves of Draining				TYPE:Magic.Wondrous.Glove	COST:6480	SLOTS:2	SOURCEPAGE:p.85												SPELLS:Gloves of Draining|CASTERLEVEL=6|Vampiric Touch
+Girdle of the Grand Gladiator			TYPE:Magic.Wondrous.Belt	COST:72000			SOURCEPAGE:p.85																							BONUS:CHECKS|ALL|3|TYPE=Morale	BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:COMBAT|TOHIT,DAMAGE|3|TYPE=Morale
+Girdle of Marok					TYPE:Magic.Wondrous.Belt	COST:138000			SOURCEPAGE:p.85									DR:5/Adamatine	SPELLS:Girdle of Marok|TIMES=1|CASTERLEVEL=11|Stone Tell																												BONUS:STAT|STR|4|TYPE=Enhancement
+Gloves of Draining				TYPE:Magic.Wondrous.Glove	COST:6480	SLOTS:2	SOURCEPAGE:p.85												SPELLS:Gloves of Draining|TIMES=1|CASTERLEVEL=6|Vampiric Touch
 Gloves of Skillful Manipulation		TYPE:Magic.Wondrous.Glove	COST:10000	SLOTS:2	SOURCEPAGE:p.85
 Gloves of the Diplomat				TYPE:Magic.Wondrous.Glove	COST:7500	SLOTS:2	SOURCEPAGE:p.86
-Gloves of the Scoundrel				TYPE:Magic.Wondrous.Glove	COST:20000	SLOTS:2	SOURCEPAGE:p.86	ABILITY:Special Ability|VIRTUAL|Sneak Attack																																														BONUS:VAR|SneakAttack|2
+Gloves of the Scoundrel				TYPE:Magic.Wondrous.Glove	COST:20000	SLOTS:2	SOURCEPAGE:p.86	ABILITY:Special Ability|VIRTUAL|Sneak Attack																																															BONUS:VAR|SneakAttack|2
 Goggles of the Homeland Protector		TYPE:Magic.Wondrous.Eyegear	COST:11340			SOURCEPAGE:p.86
 Grimm's Armband of Ever-Ready Blades	TYPE:Magic.Wondrous.Bracer	COST:55000			SOURCEPAGE:p.86
-Gris-Gris Bag					TYPE:Magic.Wondrous		COST:14000			SOURCEPAGE:p.87																																								BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
+Gris-Gris Bag					TYPE:Magic.Wondrous		COST:14000			SOURCEPAGE:p.87																																									BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
 
 ###Block: H ---------------------------------------------------------------------------------------------
-# Equipment Name				Type						Cost		Required Text				AC Penalty Check	Source Page		% of Spell Failure	Ability																			Innate Spells												Save checks bonus				Combat bonus				Bonus to skill									Stat bonus					Special Property				Special ABility
-Hairpins of Prehensile Coiffure	TYPE:Magic.Wondrous.Headgear		COST:18682										SOURCEPAGE:p.87																																																														BONUS:STAT|CHA|2|TYPE=Enhancement	SPROP:May be used as +1 dagger
+# Equipment Name				Type						Cost		Required Text				AC Penalty Check	Source Page		% of Spell Failure	Ability																			Innate Spells													Save checks bonus				Combat bonus				Bonus to skill									Stat bonus					Special Property				Special ABility
+Hairpins of Prehensile Coiffure	TYPE:Magic.Wondrous.Headgear		COST:18682										SOURCEPAGE:p.87																																																															BONUS:STAT|CHA|2|TYPE=Enhancement	SPROP:May be used as +1 dagger
 Harness of Carrying			TYPE:Magic.Wondrous.Shirt.Vest	COST:8000										SOURCEPAGE:p.87
 #TODO: Carrying capacity increases by 4 points of strength
-Hauberk of the Spirits			TYPE:Magic.Wondrous.Robe		COST:51450	PRETEXT:Only usable by a shaman.				SOURCEPAGE:p.87																																							BONUS:CHECKS|ALL|5|TYPE=Resistance																		BONUS:STAT|CHA|6|TYPE=Enhancement
+Hauberk of the Spirits			TYPE:Magic.Wondrous.Robe		COST:51450	PRETEXT:Only usable by a shaman.				SOURCEPAGE:p.87																																								BONUS:CHECKS|ALL|5|TYPE=Resistance																		BONUS:STAT|CHA|6|TYPE=Enhancement
 #Only usable by "shaman" is that an actual class in PGTA or Arcanis?
 Headband of Delusion			TYPE:Magic.Wondrous.Headgear		COST:11000										SOURCEPAGE:p.87
 Headdress of Osalian			TYPE:Magic.Wondrous.Headgear		COST:131000										SOURCEPAGE:p.88
-Headdress of the Phoenix		TYPE:Magic.Wondrous.Headgear		COST:330000										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=3|CASTERLEVEL=20|Mantle of Unassailable Flame																																				SAB:Fire Immunity
-Headdress of the Phoenix Lesser	TYPE:Magic.Wondrous.Headgear		COST:72540										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=1|CASTERLEVEL=13|Mantle of Unassailable Flame																																				SAB:Fire Resistance 20
+Headdress of the Phoenix		TYPE:Magic.Wondrous.Headgear		COST:330000										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=3|CASTERLEVEL=20|Mantle of Unassailable Flame																																					SAB:Fire Immunity
+Headdress of the Phoenix Lesser	TYPE:Magic.Wondrous.Headgear		COST:72540										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=1|CASTERLEVEL=13|Mantle of Unassailable Flame																																					SAB:Fire Resistance 20
 Helm of Disguise Greater		TYPE:Magic.Wondrous.Headgear		COST:4500										SOURCEPAGE:p.88
-Helm of Protection +1			TYPE:Magic.Wondrous.Headgear		COST:2100							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																					BONUS:COMBAT|AC|1|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
-Helm of Protection +2			TYPE:Magic.Wondrous.Headgear		COST:8400							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																					BONUS:COMBAT|AC|2|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
-Helm of Protection +3			TYPE:Magic.Wondrous.Headgear		COST:18900							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																					BONUS:COMBAT|AC|3|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
-Helm of Protection +4			TYPE:Magic.Wondrous.Headgear		COST:33600							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																					BONUS:COMBAT|AC|4|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
-Helm of Protection +5			TYPE:Magic.Wondrous.Headgear		COST:52500							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																					BONUS:COMBAT|AC|5|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
-Holiday Hat					TYPE:Magic.Wondrous.Headgear		COST:12600										SOURCEPAGE:p.89																									SPELLS:Holiday Hat|CASTERLEVEL=5|Endure Elements|Fly|Locate Object|Unseen Servant
+Helm of Protection +1			TYPE:Magic.Wondrous.Headgear		COST:2100							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																						BONUS:COMBAT|AC|1|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
+Helm of Protection +2			TYPE:Magic.Wondrous.Headgear		COST:8400							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																						BONUS:COMBAT|AC|2|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
+Helm of Protection +3			TYPE:Magic.Wondrous.Headgear		COST:18900							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																						BONUS:COMBAT|AC|3|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
+Helm of Protection +4			TYPE:Magic.Wondrous.Headgear		COST:33600							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																						BONUS:COMBAT|AC|4|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
+Helm of Protection +5			TYPE:Magic.Wondrous.Headgear		COST:52500							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																						BONUS:COMBAT|AC|5|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
+Holiday Hat					TYPE:Magic.Wondrous.Headgear		COST:12600										SOURCEPAGE:p.89																									SPELLS:Holiday Hat|TIMES=1|CASTERLEVEL=5|Endure Elements|Fly|Locate Object|Unseen Servant
 Holy Symbol of Rage's Fury		TYPE:Magic.Wondrous			COST:14000										SOURCEPAGE:p.89
 Hood of the Cat's Meow			TYPE:Magic.Wondrous			COST:2000										SOURCEPAGE:p.89
-Horn of Saluwe's Plenty			TYPE:Magic.Wondrous			COST:5400										SOURCEPAGE:p.89																									SPELLS:Horn of Saluwe's Plenty|CASTERLEVEL=5|Create Food and Water
-Horn of Saluwe's Plenty Greater	TYPE:Magic.Wondrous			COST:24000										SOURCEPAGE:p.90																									SPELLS:Horn of Saluwe's Plenty (Greater)|CASTERLEVEL=11|Heroes' Feast
+Horn of Saluwe's Plenty			TYPE:Magic.Wondrous			COST:5400										SOURCEPAGE:p.89																									SPELLS:Horn of Saluwe's Plenty|TIMES=1|CASTERLEVEL=5|Create Food and Water
+Horn of Saluwe's Plenty Greater	TYPE:Magic.Wondrous			COST:24000										SOURCEPAGE:p.90																									SPELLS:Horn of Saluwe's Plenty (Greater)|TIMES=1|CASTERLEVEL=11|Heroes' Feast
 Horn of Sohbuk				TYPE:Magic.Wondrous			COST:684000										SOURCEPAGE:p.90
 Horn of Terror				TYPE:Magic.Wondrous			COST:47520										SOURCEPAGE:p.90
 Horn of War					TYPE:Magic.Wondrous			COST:35000										SOURCEPAGE:p.90
-Horn of Winter				TYPE:Magic.Wondrous			COST:18000										SOURCEPAGE:p.90																									SPELLS:Horn of Winter|CASTERLEVEL=10|Cone of Cold,17
+Horn of Winter				TYPE:Magic.Wondrous			COST:18000										SOURCEPAGE:p.90																									SPELLS:Horn of Winter|TIMES=1|CASTERLEVEL=10|Cone of Cold,17
 
 ###Block: I, J, L, M ----------------------------------------------------------------------------
-# Equipment Name					Type					Cost		Slot Needed	Source Page		Ability																					Innate Spells															Save checks bonus				Combat bonus					Bonus to skill						Stat bonus
+# Equipment Name					Type					Cost		Slot Needed	Source Page		Ability																					Innate Spells																Save checks bonus				Combat bonus					Bonus to skill						Stat bonus
 Icon of Spirit Storing				TYPE:Magic.Wondrous		COST:152000			SOURCEPAGE:p.90
 Incense of Infernal Summoning			TYPE:Magic.Wondrous		COST:9000			SOURCEPAGE:p.91
 Jar of Preservation				TYPE:Magic.Wondrous		COST:560000			SOURCEPAGE:p.91
@@ -172,21 +172,21 @@ Kirtle of Keepsakes				TYPE:Magic.Wondrous.Shirt	COST:6000			SOURCEPAGE:p.91
 Lantern of Restless Warding			TYPE:Magic.Wondrous		COST:55500			SOURCEPAGE:p.92
 Larissa's Coin					TYPE:Magic.Wondrous		COST:20000			SOURCEPAGE:p.92
 #Librium add to the Base Attack Bonus - BUT don't count towards the extra attack - using a generic bonus as we can't implement the intention at this time
-Librium of Martial Prowess +1			TYPE:Magic.Wondrous.Book	COST:27500			SOURCEPAGE:p.92																																														BONUS:COMBAT|TOHIT|1|TYPE=Insight
-Librium of Martial Prowess +2			TYPE:Magic.Wondrous.Book	COST:55000			SOURCEPAGE:p.92																																														BONUS:COMBAT|TOHIT|2|TYPE=Insight
-Librium of Martial Prowess +3			TYPE:Magic.Wondrous.Book	COST:82500			SOURCEPAGE:p.92																																														BONUS:COMBAT|TOHIT|3|TYPE=Insight
-Librium of Martial Prowess +4			TYPE:Magic.Wondrous.Book	COST:110000			SOURCEPAGE:p.92																																														BONUS:COMBAT|TOHIT|4|TYPE=Insight
-Librium of Martial Prowess +5			TYPE:Magic.Wondrous.Book	COST:137500			SOURCEPAGE:p.92																																														BONUS:COMBAT|TOHIT|5|TYPE=Insight
+Librium of Martial Prowess +1			TYPE:Magic.Wondrous.Book	COST:27500			SOURCEPAGE:p.92																																															BONUS:COMBAT|TOHIT|1|TYPE=Insight
+Librium of Martial Prowess +2			TYPE:Magic.Wondrous.Book	COST:55000			SOURCEPAGE:p.92																																															BONUS:COMBAT|TOHIT|2|TYPE=Insight
+Librium of Martial Prowess +3			TYPE:Magic.Wondrous.Book	COST:82500			SOURCEPAGE:p.92																																															BONUS:COMBAT|TOHIT|3|TYPE=Insight
+Librium of Martial Prowess +4			TYPE:Magic.Wondrous.Book	COST:110000			SOURCEPAGE:p.92																																															BONUS:COMBAT|TOHIT|4|TYPE=Insight
+Librium of Martial Prowess +5			TYPE:Magic.Wondrous.Book	COST:137500			SOURCEPAGE:p.92																																															BONUS:COMBAT|TOHIT|5|TYPE=Insight
 Locker of the Lost Mariner			TYPE:Magic.Wondrous		COST:323100			SOURCEPAGE:p.92
 Maliar's Magnificent Laboratory		TYPE:Magic.Wondrous		COST:45000			SOURCEPAGE:p.93
 Manacles of Ymandragore				TYPE:Magic.Wondrous.Bracer	COST:180000			SOURCEPAGE:p.93
-Mask of Ancient Yhassremore			TYPE:Magic.Wondrous.Eyegear	COST:71680			SOURCEPAGE:p.93	ABILITY:FEAT|VIRTUAL|Mask of Ancient Yhassremore|PREMULT:1,[PREDEITY:1,Anshar],[PRERACE:1,val'Inares],[PRERACE:1,RACETYPE=Ssethric]	SPELLS:Mask of Ancient Yhassremore|CASTERLEVEL=11|Flesh to Stone,15
+Mask of Ancient Yhassremore			TYPE:Magic.Wondrous.Eyegear	COST:71680			SOURCEPAGE:p.93	ABILITY:FEAT|VIRTUAL|Mask of Ancient Yhassremore|PREMULT:1,[PREDEITY:1,Anshar],[PRERACE:1,val'Inares],[PRERACE:1,RACETYPE=Ssethric]	SPELLS:Mask of Ancient Yhassremore|TIMES=1|CASTERLEVEL=11|Flesh to Stone,15
 Mask of Death					TYPE:Magic.Wondrous.Eyegear	COST:51840			SOURCEPAGE:p.93
-Mask of Larissa's Blessing			TYPE:Magic.Wondrous.Eyegear	COST:26500			SOURCEPAGE:p.94																							SPELLS:Mask of Larissa's Blessing|TIMES=ATWILL|CASTERLEVEL=3|Augury												BONUS:COMBAT|INITIATIVE|1|TYPE=Insight									BONUS:STAT|CHA|2|TYPE=Enhancement
-Mask of Steely Countenance			TYPE:Magic.Wondrous.Eyegear	COST:42267			SOURCEPAGE:p.94																																								BONUS:CHECKS|Will|4|TYPE=Insight								BONUS:SKILL|Concentration|4|TYPE=Competence
-Mask of the Voei Witchdoctor			TYPE:Magic.Wondrous.Eyegear	COST:63360			SOURCEPAGE:p.94																							SPELLS:Mask of the Voei Witchdoctor|CASTERLEVEL=11|Bestow Curse,16|Eyebite,19|Fear,16|Spectral Hand														BONUS:SKILL|Intimidate|5|TYPE=Competence
+Mask of Larissa's Blessing			TYPE:Magic.Wondrous.Eyegear	COST:26500			SOURCEPAGE:p.94																							SPELLS:Mask of Larissa's Blessing|TIMES=ATWILL|CASTERLEVEL=3|Augury													BONUS:COMBAT|INITIATIVE|1|TYPE=Insight									BONUS:STAT|CHA|2|TYPE=Enhancement
+Mask of Steely Countenance			TYPE:Magic.Wondrous.Eyegear	COST:42267			SOURCEPAGE:p.94																																									BONUS:CHECKS|Will|4|TYPE=Insight								BONUS:SKILL|Concentration|4|TYPE=Competence
+Mask of the Voei Witchdoctor			TYPE:Magic.Wondrous.Eyegear	COST:63360			SOURCEPAGE:p.94																							SPELLS:Mask of the Voei Witchdoctor|TIMES=1|CASTERLEVEL=11|Bestow Curse,16|Eyebite,19|Fear,16|Spectral Hand														BONUS:SKILL|Intimidate|5|TYPE=Competence
 Mirror of Minions					TYPE:Magic.Wondrous		COST:12000			SOURCEPAGE:p.95
-Mockingbird Collar				TYPE:Magic.Wondrous.Amulet	COST:13300			SOURCEPAGE:p.95																							SPELLS:Mockingbird Collar|TIMES=ATWILL|Ventriloquism																						BONUS:SKILL|Perform (Sing)|5|TYPE=Competence
+Mockingbird Collar				TYPE:Magic.Wondrous.Amulet	COST:13300			SOURCEPAGE:p.95																							SPELLS:Mockingbird Collar|TIMES=ATWILL|Ventriloquism																							BONUS:SKILL|Perform (Sing)|5|TYPE=Competence
 Monkey Gloves					TYPE:Magic.Wondrous.Glove	COST:24000	SLOTS:2	SOURCEPAGE:p.95	ABILITY:FEAT|VIRTUAL|Monkey Gloves
 Monster Whistle (Azure Lizard)		TYPE:Magic.Wondrous		COST:15000			SOURCEPAGE:p.95
 Monster Whistle (Bird of Omens)		TYPE:Magic.Wondrous		COST:30000			SOURCEPAGE:p.95
@@ -199,32 +199,32 @@ Monster Whistle (Scaly Dog)			TYPE:Magic.Wondrous		COST:19000			SOURCEPAGE:p.96
 Monster Whistle (Silken Spinner)		TYPE:Magic.Wondrous		COST:19000			SOURCEPAGE:p.96
 
 ###Block: N, O, P --------------------------------------------------------------------------------------------
-# Equipment Name				Type						Cost		Source Page		Vision		Innate Spells																																																		Save checks bonus				Combat bonus			Bonus to skill											Stat bonus
-Necklace of Beroe				TYPE:Magic.Wondrous.Amulet		COST:117000	SOURCEPAGE:p.96																																																								BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred
+# Equipment Name				Type						Cost		Source Page		Vision		Innate Spells																																																			Save checks bonus				Combat bonus			Bonus to skill											Stat bonus
+Necklace of Beroe				TYPE:Magic.Wondrous.Amulet		COST:117000	SOURCEPAGE:p.96																																																									BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred
 Necklace of Elements			TYPE:Magic.Wondrous.Amulet		COST:1000	SOURCEPAGE:p.96
 Necromantic Shroud			TYPE:Magic.Wondrous			COST:60500	SOURCEPAGE:p.96
-Needle of Mending				TYPE:Magic.Wondrous			COST:1300	SOURCEPAGE:p.97																																																																			BONUS:SKILL|Heal|2|TYPE=Competence
-Night Robe					TYPE:Magic.Wondrous.Robe		COST:13900	SOURCEPAGE:p.97	VISION:Low-light	SPELLS:Night Robe|CASTERLEVEL=5|Deeper Darkness	SPELLS:Night Robe|TIMES=ATWILL|CASTERLEVEL=9|Arcane Sight|True Seeing																																												BONUS:SKILL|Hide|5|TYPE=Competence
+Needle of Mending				TYPE:Magic.Wondrous			COST:1300	SOURCEPAGE:p.97																																																																				BONUS:SKILL|Heal|2|TYPE=Competence
+Night Robe					TYPE:Magic.Wondrous.Robe		COST:13900	SOURCEPAGE:p.97	VISION:Low-light	SPELLS:Night Robe|TIMES=1|CASTERLEVEL=5|Deeper Darkness	SPELLS:Night Robe|TIMES=ATWILL|CASTERLEVEL=9|Arcane Sight|True Seeing																																											BONUS:SKILL|Hide|5|TYPE=Competence
 Ocular of Vision				TYPE:Magic.Wondrous			COST:160000	SOURCEPAGE:p.97
 Orb of Lore					TYPE:Magic.Wondrous			COST:10150	SOURCEPAGE:p.97
-Orb of Opalescence			TYPE:Magic.Wondrous			COST:306000	SOURCEPAGE:p.97				SPELLS:Orb of Opalescence|CASTERLEVEL=17|Prismatic Arrow,19|Prismatic Sphere,23|Prismatic Spray,20|Prismatic Wall,22	SPELLS:Orb of Opalescence|TIMES=ATWILL|CASTERLEVEL=17|Rainbow Pattern,16
+Orb of Opalescence			TYPE:Magic.Wondrous			COST:306000	SOURCEPAGE:p.97				SPELLS:Orb of Opalescence|TIMES=1|CASTERLEVEL=17|Prismatic Arrow,19|Prismatic Sphere,23|Prismatic Spray,20|Prismatic Wall,22	SPELLS:Orb of Opalescence|TIMES=ATWILL|CASTERLEVEL=17|Rainbow Pattern,16
 Orb of the Hidden Flame			TYPE:Magic.Wondrous			COST:110400	SOURCEPAGE:p.98
 Orb of Y'rion Sul				TYPE:Magic.Wondrous			COST:112000	SOURCEPAGE:p.98
-Ordainer Circlet				TYPE:Magic.Wondrous.Headgear		COST:90000	SOURCEPAGE:p.98				SPELLS:Ordainer Circlet|TIMES=ATWILL|CASTERLEVEL=10|Detect Magic	SPELLS:Ordainer Circlet|CASTERLEVEL=10|Charm Person,17
+Ordainer Circlet				TYPE:Magic.Wondrous.Headgear		COST:90000	SOURCEPAGE:p.98				SPELLS:Ordainer Circlet|TIMES=ATWILL|CASTERLEVEL=10|Detect Magic	SPELLS:Ordainer Circlet|TIMES=1|CASTERLEVEL=10|Charm Person,17
 ###For Ordainer Circlet adds levels to Ordainer Class for certain abilities - refer to Magic of Arcanis (Not in Repository 2008-05-14)	SAB:Absorb Spell	SAB:Power Metamagic
 Overlooked Pestle				TYPE:Magic.Wondrous			COST:10000	SOURCEPAGE:p.98
-Pengik Memory Beads			TYPE:Magic.Wondrous.Amulet.Bracer	COST:26100	SOURCEPAGE:p.98																																																																																BONUS:STAT|INT|4|TYPE=Enhancement
+Pengik Memory Beads			TYPE:Magic.Wondrous.Amulet.Bracer	COST:26100	SOURCEPAGE:p.98																																																																																	BONUS:STAT|INT|4|TYPE=Enhancement
 Periapt of Proof Against Perfidy	TYPE:Magic.Wondrous.Amulet		COST:24360	SOURCEPAGE:p.98				SPELLS:Periapt of Proof Against Perfidy|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=5|Calm Emotions,16|PRECLASS:1,Patrician=1
-Pipes of the Madcap Minstrel		TYPE:Magic.Wondrous			COST:47500	SOURCEPAGE:p.99				SPELLS:Pipes of the Madcap Minstrel|CASTERLEVEL=13|Confusion,16|Enthrall,13|Suggestion (Mass),19|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15	SPELLS:Pipes of the Madcap Minstrel|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=13|Insanity,20|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15												BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|3|TYPE=Circumstance
-Pipes of the Underworld			TYPE:Magic.Wondrous			COST:25000	SOURCEPAGE:p.99																																																																			BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|2|TYPE=Circumstance
+Pipes of the Madcap Minstrel		TYPE:Magic.Wondrous			COST:47500	SOURCEPAGE:p.99				SPELLS:Pipes of the Madcap Minstrel|TIMES=1|CASTERLEVEL=13|Confusion,16|Enthrall,13|Suggestion (Mass),19|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15	SPELLS:Pipes of the Madcap Minstrel|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=13|Insanity,20|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15												BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|3|TYPE=Circumstance
+Pipes of the Underworld			TYPE:Magic.Wondrous			COST:25000	SOURCEPAGE:p.99																																																																				BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|2|TYPE=Circumstance
 #COMMENT: No Perform (Pipes) Exists - Using Perform (Wind Instruments)
 Pistoleer's/Rifleman's Bandoleer	TYPE:Magic.Wondrous			COST:4000	SOURCEPAGE:p.99
-Pomander of Purity			TYPE:Magic.Wondrous			COST:13333	SOURCEPAGE:p.99																																																																																BONUS:STAT|CHA|2|TYPE=Enhancement
+Pomander of Purity			TYPE:Magic.Wondrous			COST:13333	SOURCEPAGE:p.99																																																																																	BONUS:STAT|CHA|2|TYPE=Enhancement
 
 ###Block: R, S -------------------------------------------------------------------------------------------------
 # Equipment Name				Type					Cost		Source Page		Ability													Vision			Innate Spells																										Save checks bonus				Combat bonus									Bonus to DC				Bonus to skill													Weapon prof. bonus						Special Property		Special ABility
-Raiment of Illiir				TYPE:Magic.Wondrous.Robe	COST:14400	SOURCEPAGE:p.100																			SPELLS:Raiment of Illiir|CASTERLEVEL=5|Mantle of Unassailable Flame|Searing Light															BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred
-Red Howler Mask				TYPE:Magic.Wondrous.Eyegear	COST:42200	SOURCEPAGE:p.100	ABILITY:FEAT|VIRTUAL|Red Howler Mask	ABILITY:Special Ability|AUTOMATIC|Scent	VISION:Darkvision (60')	SPELLS:Red Howler Mask|CASTERLEVEL=10|Fear,16																																											BONUS:SKILL|Listen,Spot|2|TYPE=Competence									BONUS:WEAPONPROF=Red Howler Mask ~ Bite|TOHIT|-5
+Raiment of Illiir				TYPE:Magic.Wondrous.Robe	COST:14400	SOURCEPAGE:p.100																			SPELLS:Raiment of Illiir|TIMES=1|CASTERLEVEL=5|Mantle of Unassailable Flame|Searing Light														BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred
+Red Howler Mask				TYPE:Magic.Wondrous.Eyegear	COST:42200	SOURCEPAGE:p.100	ABILITY:FEAT|VIRTUAL|Red Howler Mask	ABILITY:Special Ability|AUTOMATIC|Scent	VISION:Darkvision (60')	SPELLS:Red Howler Mask|TIMES=1|CASTERLEVEL=10|Fear,16																																										BONUS:SKILL|Listen,Spot|2|TYPE=Competence									BONUS:WEAPONPROF=Red Howler Mask ~ Bite|TOHIT|-5
 Robe of Shadowshaping			TYPE:Magic.Wondrous.Robe	COST:44000	SOURCEPAGE:p.100																																																																BONUS:DC|SUBSCHOOL.Shadow|2
 Rope of Compelling			TYPE:Magic.Wondrous		COST:30000	SOURCEPAGE:p.100
 Rope of Hiding				TYPE:Magic.Wondrous		COST:3750	SOURCEPAGE:p.100																			SPELLS:Rope of Hiding|TIMES=3|TIMEUNIT=Week|CASTERLEVEL=10|Rope Trick
@@ -245,15 +245,15 @@ Starfire Pendant of Nol Dappa		TYPE:Magic.Wondrous.Amulet	COST:50000	SOURCEPAGE:
 Stone of Althares' Foresight		TYPE:Magic.Wondrous		COST:20500	SOURCEPAGE:p.104																			SPELLS:Stone of Althares' Foresight|TIMES=3|TIMEUNIT=Week|CASTERLEVEL=13|Identify	SPELLS:Stone of Althares' Foresight|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=13|Epiphany
 Stone of the Dead				TYPE:Magic.Wondrous		COST:10800	SOURCEPAGE:p.104																			SPELLS:Stone of the Dead|TIMES=2|CASTERLEVEL=5|Speak with Dead
 Stone of Glib Discourse			TYPE:Magic.Wondrous		COST:75000	SOURCEPAGE:p.104																																																																					BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Sense Motive|10|TYPE=Competence
-Stone of Gravity				TYPE:Magic.Wondrous		COST:40000	SOURCEPAGE:p.104																			SPELLS:Stone of Gravity|CASTERLEVEL=13|Reverse Gravity
+Stone of Gravity				TYPE:Magic.Wondrous		COST:40000	SOURCEPAGE:p.104																			SPELLS:Stone of Gravity|TIMES=1|CASTERLEVEL=13|Reverse Gravity
 Symbol of the Devoted			TYPE:Magic.Wondrous		COST:16450	SOURCEPAGE:p.104																																																																					BONUS:SKILL|Knowledge (Religion),Perform (Oratory)|5|TYPE=Competence
 
 ###Block: T - Z -----------------------------------------------------------------------------------------------------
-# Equipment Name				Product Identity?	Type					Cost		Source Page		Ability												Innate Spells									Save checks bonus				Combat bonus
+# Equipment Name				Product Identity?	Type					Cost		Source Page		Ability												Innate Spells										Save checks bonus				Combat bonus
 Talisman of Lost Love's Despair				TYPE:Magic.Wondrous.Amulet	COST:50000	SOURCEPAGE:p.104
 Tapestry of Tomb Guarding					TYPE:Magic.Wondrous		COST:70000	SOURCEPAGE:p.105
 Thurible of Guarding and Warding				TYPE:Magic.Wondrous		COST:12960	SOURCEPAGE:p.105
-Tiara of the White Prophetess					TYPE:Magic.Wondrous.Headgear	COST:102000	SOURCEPAGE:p.105														SPELLS:Tiara of the White Prophetess|CASTERLEVEL=17|Foresight	BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred	BONUS:COMBAT|TOHIT|2|TYPE=Sacred
+Tiara of the White Prophetess					TYPE:Magic.Wondrous.Headgear	COST:102000	SOURCEPAGE:p.105														SPELLS:Tiara of the White Prophetess|TIMES=1|CASTERLEVEL=17|Foresight	BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred	BONUS:COMBAT|TOHIT|2|TYPE=Sacred
 Timepiece of Hazanko Daergral					TYPE:Magic.Wondrous		COST:43050	SOURCEPAGE:p.105
 Titan-Bone Altar							TYPE:Magic.Wondrous		COST:242000	SOURCEPAGE:p.106
 Toga of Office							TYPE:Magic.Wondrous.Robe	COST:85400	SOURCEPAGE:p.106	ABILITY:FEAT|VIRTUAL|Toga of Office|PRECLASS:1,Patrician=9
@@ -265,7 +265,7 @@ Valor Guards +3							TYPE:Magic.Wondrous.Bracer	COST:4000	SOURCEPAGE:p.107
 Valor Guards +4							TYPE:Magic.Wondrous.Bracer	COST:8000	SOURCEPAGE:p.107
 Valor Guards +5							TYPE:Magic.Wondrous.Bracer	COST:16000	SOURCEPAGE:p.107
 Veil of the Silt Sea						TYPE:Magic.Wondrous.Eyegear	COST:10000	SOURCEPAGE:p.107
-Vestment of the Defender					TYPE:Magic.Wondrous.Shirt	COST:26950	SOURCEPAGE:p.107																									BONUS:CHECKS|ALL|3|TYPE=Resistance
+Vestment of the Defender					TYPE:Magic.Wondrous.Shirt	COST:26950	SOURCEPAGE:p.107																										BONUS:CHECKS|ALL|3|TYPE=Resistance
 Vestment of the Hunter						TYPE:Magic.Wondrous.Shirt	COST:54500	SOURCEPAGE:p.107
 Voei Wolf Fetish							TYPE:Magic.Wondrous.Amulet	COST:25000	SOURCEPAGE:p.107	ABILITY:FEAT|VIRTUAL|Improved Trip	ABILITY:Special Ability|AUTOMATIC|Scent
 Ymandrake Coif of Shadow		NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:84000	SOURCEPAGE:p.108

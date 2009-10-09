@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 24 15:02:52 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -21,7 +21,7 @@ CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPA
 # Class Name	Required Deity
 CLASS:Cleric	PREDEITY:1,Y
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE.Profession|Spellcraft|TYPE.Arcana|TYPE.History|TYPE.Religion|TYPE.Planes|Research
+CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft|TYPE=Arcana|TYPE=History|TYPE=Religion|TYPE=Planes|Research
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 
@@ -74,82 +74,82 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 
 ###Block: Cleric subclass
 SUBCLASS:Althares	COST:0	PREDEITY:1,Althares
-SUBCLASSLEVEL:1																											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																					AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+SUBCLASSLEVEL:1																											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																					AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Discern Value,Epiphany,Summon Tome																ABILITY:Racial Ability|VIRTUAL|Walk the Path of the Stars			CSKILL:.CLEAR.Survival	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))
 SUBCLASSLEVEL:5												BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge|Knowledge of the Ages
 
 ###Block: Cleric subclass
 SUBCLASS:Anshar	COST:0	PREDEITY:1,Anshar
-SUBCLASSLEVEL:1												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+SUBCLASSLEVEL:1												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Sticks to Snakes|Cleric=4|Share My Pain												LANGAUTO:Ancient Altharin(Imperial)	AUTO:FEAT|Improved Unarmed Strike
 SUBCLASSLEVEL:3																													AUTO:FEAT|Endurance
 SUBCLASSLEVEL:9																													AUTO:FEAT|Diehard
 
 ###Block: Cleric subclass
 SUBCLASS:Belisarda	COST:0	PREDEITY:1,Belisarda
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Beltine	COST:0	PREDEITY:1,Beltine
-SUBCLASSLEVEL:1																														ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+SUBCLASSLEVEL:1																														ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Glimpse of the Cauldron,Hold the Spirit|Cleric=9|Cry For Spirit's Release	BONUS:VAR|TurnLevelInCorpUndead|2	BONUS:VAR|TurnLevelCorpUndead|-2	ABILITY:Special Ability|VIRTUAL|Turn Corporeal Undead|Turn Incorporeal Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Corporeal Undead|Rebuke Incorporeal Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)
 
 ###Block: Cleric subclass
 SUBCLASS:Cadic	COST:0	PREDEITY:1,Cadic
-SUBCLASSLEVEL:1																																												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																																			AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Songs in the Night|Cleric=3|Shadow Stride|Cleric=4|Not Where You Think	PROHIBITSPELL:DESCRIPTOR.Light	PROHIBITSPELL:SPELL.Searing Light,Sunbeam,Sunburst	BONUS:VAR|TurnLevelShadowUndead|3						ABILITY:Special Ability|VIRTUAL|Turn Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Crossbow (Hand))															AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
-SUBCLASSLEVEL:5																																	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|Improved Uncanny Dodge
+SUBCLASSLEVEL:1																																												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																																			AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Songs in the Night|Cleric=3|Shadow Stride|Cleric=4|Not Where You Think	PROHIBITSPELL:DESCRIPTOR.Light	PROHIBITSPELL:SPELL.Searing Light,Sunbeam,Sunburst	BONUS:VAR|TurnLevelShadowUndead|3						ABILITY:Special Ability|VIRTUAL|Turn Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:Hide|Move Silently|TYPE=Perform|Sleight of Hand|Tumble	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Crossbow (Hand))															AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
+SUBCLASSLEVEL:5																																	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|Uncanny Dodge
 
 ###Block: Cleric subclass
 SUBCLASS:Hurrian	COST:0	PREDEITY:1,Hurrian
-SUBCLASSLEVEL:1																																			ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies										AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Whirlwind of Blades,Skyward|Cleric=3|Retribution|Cleric=4|His Blade Shall Not Harm Me,Shield Other (Improved)|Cleric=5|Retribution (Greater)|Cleric=7|Shield Other (Greater)												CSKILL:Survival	LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Longsword
+SUBCLASSLEVEL:1																																			ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Skyward,Whirlwind of Blades|Cleric=3|Retribution|Cleric=4|His Blade Shall Not Harm Me,Shield Other (Improved)|Cleric=5|Retribution (Greater)|Cleric=7|Shield Other (Greater)												CSKILL:Survival	LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Longsword
 
 ###Block: Cleric subclass
 SUBCLASS:Illiir	COST:0	PREDEITY:1,Illiir
-SUBCLASSLEVEL:1																																				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																							AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|My Honor Is My Strength|Cleric=5|Perfect Human Form|Cleric=7|Revelation|Cleric=9|Word of Purification	PROHIBITSPELL:DESCRIPTOR.Shadow.Darkness	BONUS:VAR|TurnLevelSunlightUndead|2	ABILITY:Special Ability|VIRTUAL|Turn Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Gladius)
+SUBCLASSLEVEL:1																																				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																							AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|My Honor Is My Strength|Cleric=5|Perfect Human Form|Cleric=7|Revelation|Cleric=9|Word of Purification	PROHIBITSPELL:DESCRIPTOR.Darkness.Shadow	BONUS:VAR|TurnLevelSunlightUndead|2	ABILITY:Special Ability|VIRTUAL|Turn Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Gladius)
 SUBCLASSLEVEL:5																																				ABILITY:Special Ability|NORMAL|Fearless
 
 ###Block: Cleric subclass
 SUBCLASS:Fire Dragon	COST:0	PREDEITY:1,Fire Dragon	PREGENDER:FEMALE
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies					AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies					AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|To Endure the Womb of the Fire Dragon	CSKILL:Survival																								AUTO:WEAPONPROF|Flail (Heavy)
 
 ###Block: Cleric subclass
 SUBCLASS:Larissan Oracle	COST:0	PREDEITY:1,Larissa
-SUBCLASSLEVEL:1																																																				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies															AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Armor of Faith|Cleric=2|Twist of Fate|Cleric=4|Phantasmal Lover|Cleric=5|I Feel You	DOMAIN:Divination																														ABILITY:Special Ability|AUTOMATIC|Stern Demeanor				CSKILL:TYPE.Arcana|Listen|Search|Spot	LANGAUTO:Ancient Altharin(Imperial)	AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE.Whip
+SUBCLASSLEVEL:1																																																				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies															AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Armor of Faith|Cleric=2|Twist of Fate|Cleric=4|Phantasmal Lover|Cleric=5|I Feel You	DOMAIN:Divination																														ABILITY:Special Ability|AUTOMATIC|Stern Demeanor				CSKILL:TYPE=Arcana|Listen|Search|Spot	LANGAUTO:Ancient Altharin(Imperial)	AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE=Whip
 SUBCLASSLEVEL:3																							BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
-SUBCLASSLEVEL:5																																					BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|GlimpseoftheForbidden|Bardic Knowledge
+SUBCLASSLEVEL:5																																					BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge|GlimpseoftheForbidden
 
 ###Block: Cleric subclass
 SUBCLASS:Larissan Sensate	COST:0	PREDEITY:1,Larissa
 SUBCLASSLEVEL:1																																											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies												AUTO:FEAT|Simple Weapon Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Armor of Faith|Cleric=2|Twist of Fate|Cleric=4|Phantasmal Lover|Cleric=5|I Feel You	DOMAIN:Divination|Pleasure															BONUS:DOMAIN|NUMBER|1												CSKILL:TYPE.Perform|Tumble	LANGAUTO:Ancient Altharin(Imperial)							AUTO:WEAPONPROF|Rapier|TYPE.Whip	ADDDOMAINS:Charm.Music.Pleasure
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Armor of Faith|Cleric=2|Twist of Fate|Cleric=4|Phantasmal Lover|Cleric=5|I Feel You	DOMAIN:Divination|Pleasure															BONUS:DOMAIN|NUMBER|1												CSKILL:TYPE=Perform|Tumble	LANGAUTO:Ancient Altharin(Imperial)							AUTO:WEAPONPROF|Rapier|TYPE=Whip	ADDDOMAINS:Charm.Music.Pleasure
 SUBCLASSLEVEL:3																									BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
 
 ###Block: Cleric subclass
 SUBCLASS:Neroth	COST:0	PREDEITY:1,Neroth
-SUBCLASSLEVEL:1																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+SUBCLASSLEVEL:1																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Skeletal Companion|Cleric=2|Your Time to Die|Cleric=3|Mark of Thralldom,Smell of Death|Cleric=4|Neroth's Embrace|Cleric=9|Harm (Mass)	BONUS:VAR|TurnLevelInCorpUndead|-2	BONUS:VAR|TurnLevelCorpUndead|2	ABILITY:Special Ability|VIRTUAL|Turn Corporeal Undead|Turn Incorporeal Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Corporeal Undead|Rebuke Incorporeal Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Scythe
 
 ###Block: Cleric subclass
 SUBCLASS:Nier	COST:0	PREDEITY:1,Nier
-SUBCLASSLEVEL:1											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=4|Your Fire is Mine,Steamblast	ABILITY:Special Ability|VIRTUAL|Soul Burns|Turning Special		LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Greatsword
+SUBCLASSLEVEL:1											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=4|Steamblast,Your Fire is Mine	ABILITY:Special Ability|VIRTUAL|Soul Burns|Turning Special		LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Greatsword
 
 ###Block: Cleric subclass
 SUBCLASS:Saluwe	COST:0	PREDEITY:1,Saluwe	PREGENDER:FEMALE
-SUBCLASSLEVEL:1																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies										AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Crushing Weight|Cleric=3|Battle Spines																					CSKILL:TYPE.Nature|Survival|Swim	AUTO:FEAT|Track																REMOVE:FEAT|Simple Weapon Proficiency
+SUBCLASSLEVEL:1																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Crushing Weight|Cleric=3|Battle Spines																					CSKILL:TYPE=Nature|Survival|Swim	AUTO:FEAT|Track																REMOVE:FEAT|Simple Weapon Proficiency
 SUBCLASSLEVEL:4												BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion|Ranger Animal Companion
 # supposed to not prohibit based on alignment for Summoning spells - no idea how at this time, so not prohibiting any
 
 ###Block: Cleric subclass
 SUBCLASS:Sarish	COST:0	PREDEITY:1,Sarish
-SUBCLASSLEVEL:1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies															AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+SUBCLASSLEVEL:1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies															AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|My Master Allows|Cleric=5|Summon Thy Own (Lesser)|Cleric=7|Summon Thy Own|Cleric=9|Summon Thy Own (Greater)	ABILITY:Special Ability|VIRTUAL|Rebuke Undead|Thy Master Calls	LANGAUTO:Ancient Altharin(Imperial),Infernal	AUTO:EQUIP|Dagger (Sarishan Steel)
 SUBCLASSLEVEL:3																																																	AUTO:FEAT|Magical Aptitude
 SUBCLASSLEVEL:4																								ABILITY:Special Ability|VIRTUAL|MehanOath
@@ -157,29 +157,29 @@ SUBCLASSLEVEL:10																								ABILITY:Special Ability|VIRTUAL|Mark of 
 
 ###Block: Cleric subclass
 SUBCLASS:Yarris	COST:0	PREDEITY:1,Yarris
-SUBCLASSLEVEL:1																												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																					AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|Saltburst,Water Stride|Cleric=4|Like Water										BONUS:VAR|TurnLevelAquaticUndead|5	ABILITY:Special Ability|VIRTUAL|Turn Aquatic Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Aquatic Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:TYPE.Nature|Survival|Swim	LANGAUTO:Ancient Altharin(Imperial)															AUTO:WEAPONPROF|Trident
+SUBCLASSLEVEL:1																												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																					AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|Saltburst,Water Stride|Cleric=4|Like Water										BONUS:VAR|TurnLevelAquaticUndead|5	ABILITY:Special Ability|VIRTUAL|Turn Aquatic Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Aquatic Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:TYPE=Nature|Survival|Swim	LANGAUTO:Ancient Altharin(Imperial)															AUTO:WEAPONPROF|Trident
 SUBCLASSLEVEL:3													BONUS:SKILL|Profession (Navigator),Survival,Swim|2							ABILITY:Special Ability|VIRTUAL|Wild Empathy (Yarris)
 
 ###Block: Cleric subclass
 SUBCLASS:Beroe	COST:0	PREDEITY:1,Beroe
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Keleos	COST:0	PREDEITY:1,Keleos
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Marok	COST:0	PREDEITY:1,Marok
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Osalian	COST:0	PREDEITY:1,Osalian
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE=Geography|TYPE=Nature|Survival
 
 
 
@@ -188,52 +188,50 @@ CLASS:Druid.MOD	AUTO:WEAPONPROF|Longbow|Shortbow|Terbutje|Kopesh	BONUS:VAR|WildE
 # Class Name	Required Deity
 CLASS:Druid.MOD	PREDEITY:1,Saluwe,Yarris,Belisarda,Fire Dragon,Beroe,Keleos,Marok,Osalian
 # Class Name	Class Skill
-CLASS:Druid.MOD	CSKILL:TYPE.Religion
+CLASS:Druid.MOD	CSKILL:TYPE=Religion
 1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Animal Companion
 1	ABILITY:Special Ability|AUTOMATIC|Arcanis Animal Companion
 
 # Class Name	Class Skill
 CLASS:Fighter.MOD	CSKILL:Examine Martial Technique
 
-# Class Name	Subclass?
-CLASS:Monk.MOD	HASSUBCLASS:YES
 # Class Name	Class Skill
-CLASS:Monk.MOD	CSKILL:TYPE.Arcana|TYPE.Religion|Examine Martial Technique
+CLASS:Monk.MOD	CSKILL:TYPE=Arcana|TYPE=Religion|Examine Martial Technique
 SUBCLASS:Order of Althares			COST:0																											PREREGION:Altheria
-SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Weapon Proficiencies														CSKILL:Craft (Alchemy)	CCSKILL:TYPE.Perform	ADD:ABILITY|Special Ability|NORMAL|Improved Grapple Feat,Stunning Fist												TEMPLATE:OrderofAltharesFavClass	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))|Exotic Weapon Proficiency(Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)								AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff|Unarmed Strike
-SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes,Combat Firing
+SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Weapon Proficiencies														CSKILL:Craft (Alchemy)	CCSKILL:TYPE=Perform	ADD:ABILITY|Special Ability|NORMAL|Improved Grapple Feat,Stunning Fist												TEMPLATE:OrderofAltharesFavClass	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))|Exotic Weapon Proficiency(Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)								AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff|Unarmed Strike
+SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Firing,Combat Reflexes
 SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Martial Weapon Technique (Flintlock (Pistol)),Martial Weapon Technique (Warhammer)
 SUBCLASS:Order of the Blade			COST:0	TEMPLATE:OrderofBladeFavClass
-SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Weapon Proficiencies|.CLEAR.All Automatic Proficiencies																	ADD:ABILITY|Special Ability|NORMAL|Longsword Weapon Focus,Stunning Fist																		VFEAT:Martial Weapon Proficiency(Longsword)																							AUTO:WEAPONPROF|Unarmed Strike
+SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies																	ADD:ABILITY|Special Ability|NORMAL|Longsword Weapon Focus,Stunning Fist																		VFEAT:Martial Weapon Proficiency(Longsword)																							AUTO:WEAPONPROF|Unarmed Strike
 SUBCLASSLEVEL:2																																														ADD:FEAT|Greater Weapon Focus(Longsword)|Combat Reflexes
 SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm|Martial Weapon Technique (Longsword)
 SUBCLASS:Order of the Bronze Sepulcher	COST:0	TEMPLATE:OrderBronzeSepulcherFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Brothers of the Crypt
 SUBCLASS:Comtemplation of the Elements	COST:0	TEMPLATE:ContElementsFavClass																			PRERACE:1,Elorii
 SUBCLASSLEVEL:1																																														ADD:ABILITY|Special Ability|NORMAL|Elorii Bloodline Feat,Stunning Fist
-SUBCLASSLEVEL:2																																														ADD:ABILITY|Special Ability|NORMAL|Elorii Bloodline Feat,Improved Elorii Bloodline Feat,Combat Reflexes
-SUBCLASSLEVEL:6																																														ADD:ABILITY|Special Ability|NORMAL|Elorii Bloodline Feat,Improved Elorii Bloodline Feat,Heightened Elorii Bloodline Feat,Improved Trip
+SUBCLASSLEVEL:2																																														ADD:ABILITY|Special Ability|NORMAL|Combat Reflexes,Elorii Bloodline Feat,Improved Elorii Bloodline Feat
+SUBCLASSLEVEL:6																																														ADD:ABILITY|Special Ability|NORMAL|Elorii Bloodline Feat,Heightened Elorii Bloodline Feat,Improved Elorii Bloodline Feat,Improved Trip
 SUBCLASSLEVEL:20													ABILITY:Special Ability|NORMAL|Elemental Soul
 SUBCLASS:Order of the Incandescent Path	COST:0
 SUBCLASSLEVEL:1																																																																					TEMPLATE:IncandPathFavClass
 SUBCLASSLEVEL:3																																																																																																		AUTO:FEAT|Iron Skin
 SUBCLASS:Order of the Irridescent Scale	COST:0	TEMPLATE:IrridScaleFavClass						PREMULT:3,[PRERACE:1,Ss'ressen],[PRETEMPLATE:1,Black Talon],[PREGENDER:MALE]
 # 2006-06-03 errata - issue with stacking of My Body bonuses and Ssethregore book prestige class - note in case that book ever gets coded
-SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Weapon Proficiencies|.CLEAR.All Automatic Proficiencies									ADD:ABILITY|Special Ability|NORMAL|Dragon's Hide Feat,Stunning Fist																																																AUTO:WEAPONPROF|Unarmed Strike
+SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies									ADD:ABILITY|Special Ability|NORMAL|Dragon's Hide Feat,Stunning Fist																																																AUTO:WEAPONPROF|Unarmed Strike
 SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes|Tail Attack
 SUBCLASSLEVEL:6																																														ADD:ABILITY|Special Ability|NORMAL|Avalanche Feat,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Iron Soul
 SUBCLASS:Order of the Pearl Maidens		COST:0								PREGENDER:Female
-SUBCLASSLEVEL:1	BONUS:WEAPONPROF=Crossbow|TOHIT|-4|PREFEAT:1,Simple Weapon Proficiency																										CSKILL:TYPE.Perform	CCSKILL:Survival		ADD:ABILITY|Special Ability|NORMAL|Dodge Feat,Stunning Fist																				VFEAT:Skill Focus(Profession (Sailor))|Martial Weapon Proficiency(Longbow)
+SUBCLASSLEVEL:1	BONUS:WEAPONPROF=Crossbow|TOHIT|-4|PREFEAT:1,Simple Weapon Proficiency																										CSKILL:TYPE=Perform	CCSKILL:Survival		ADD:ABILITY|Special Ability|NORMAL|Dodge Feat,Stunning Fist																				VFEAT:Martial Weapon Proficiency(Longbow)|Skill Focus(Profession (Sailor))
 SUBCLASSLEVEL:2																																														ADD:ABILITY|Special Ability|NORMAL|Deflect Arrows,Mobility Feat
 SUBCLASSLEVEL:3																																																																																																		AUTO:FEAT|Master of the Tops
 SUBCLASSLEVEL:6																																																																																																		AUTO:FEAT|Hero's Heart|Improved Disarm
 SUBCLASS:Order of the Perfect Union		COST:0
-SUBCLASSLEVEL:1																																														ADD:ABILITY|Special Ability|NORMAL|Unfazed Feat,Stunning Fist													TEMPLATE:PerfectUnionFavClass																																AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
+SUBCLASSLEVEL:1																																														ADD:ABILITY|Special Ability|NORMAL|Stunning Fist,Unfazed Feat													TEMPLATE:PerfectUnionFavClass																																AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																																																																		AUTO:FEAT|Callous|Combat Reflexes
 SUBCLASSLEVEL:5													ABILITY:Special Ability|NORMAL|Path of the Stoic Soul
-SUBCLASSLEVEL:6																																																																											VFEAT:Improved Disarm|Improved Trip|Divinity's Purpose|PRERACE:1,Val
+SUBCLASSLEVEL:6																																																																											VFEAT:Divinity's Purpose|Improved Disarm|Improved Trip|PRERACE:1,Val
 
 
 # Class Name	Automatic Languages			Bonus Languages
@@ -244,7 +242,7 @@ CLASS:Paladin.MOD	ALLOWBASECLASS:NO		LANGAUTO:Ancient Altharin(Imperial)	LANGBON
 # Class Name	Required AL		Required Deity
 CLASS:Paladin.MOD	PREALIGN:LG,NG,CG	PREDEITY:1,Y
 # Class Name	Class Skill
-CLASS:Paladin.MOD	CSKILL:TYPE.Nobility|TYPE.Religion|Examine Martial Technique
+CLASS:Paladin.MOD	CSKILL:TYPE=Nobility|TYPE=Religion|Examine Martial Technique
 SUBCLASS:Paladin of Althares		COST:0	PREDEITY:1,Althares
 SUBCLASSLEVEL:1								BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|Blastpowder (10)
 SUBCLASS:Paladin of Belisarda		COST:0	PREDEITY:1,Belisarda
@@ -274,20 +272,20 @@ SUBCLASSLEVEL:1																																				CSKILL:Survival														
 # Class Name	Prohibited Class
 CLASS:Ranger.MOD	!PRECLASS:1,Urban Sentinel=1
 # Class Name	Class Skill
-CLASS:Ranger.MOD	CSKILL:TYPE.Dungeoneering|TYPE.Nature|TYPE.Geography|TYPE.Religion
-1											VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))|Exotic Weapon Proficiency(Flintlock (Pistol))[PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]]
+CLASS:Ranger.MOD	CSKILL:TYPE=Dungeoneering|TYPE=Nature|TYPE=Geography|TYPE=Religion
+1											VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))[PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]]|Exotic Weapon Proficiency(Flintlock (Rifle))
 4	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Animal Companion
 4	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion
 
 # Class Name	Virtual Feat
 CLASS:Rogue.MOD	VFEAT:Martial Weapon Proficiency(Saber)
 # Class Name	Class Skill
-CLASS:Rogue.MOD	CSKILL:Black Market|TYPE.Local|Research
+CLASS:Rogue.MOD	CSKILL:Black Market|TYPE=Local|Research
 
 # Class Name		Multiple Requirements											Prohibited Race
 CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREGENDER:M],[PRERACE:1,Ss'ressen]],[!PRERACE:1,Ss'ressen]	!PRERACE:2,Half-Hobgoblin,Human
 # Class Name		Class Skill
-CLASS:Sorcerer.MOD	CSKILL:TYPE.Arcana
+CLASS:Sorcerer.MOD	CSKILL:TYPE=Arcana
 1	ADD:FEAT|Eschew Materials	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Summon Familiar	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
 
 # Class Name	Clear Bonus Languages
@@ -295,7 +293,7 @@ CLASS:Wizard.MOD	LANGBONUS:.CLEAR
 # Class Name	Multiple Requirements
 CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PREGENDER:M],[PRERACE:1,Ss'ressen]],[!PRERACE:1,Ss'ressen]
 # Class Name	Class Skill
-CLASS:Wizard.MOD	CSKILL:Research|TYPE.Knowledge
+CLASS:Wizard.MOD	CSKILL:Research|TYPE=Knowledge
 1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Summon Familiar
 1	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
 

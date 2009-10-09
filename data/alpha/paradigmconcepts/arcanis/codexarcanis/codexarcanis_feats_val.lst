@@ -15,7 +15,7 @@ Bloodrank 7	TYPE:Val	VISIBLE:YES	PREFEAT:1,Bloodrank 6	PRERACE:1,Val	BONUS:VAR|V
 ###Block: Val'Abebi Bloodline Powers
 #Level 1
 # Feat Name					Type		Visible	Required Feat									Required Template		Description									Class Skill			Cost		Source Page
-Wisdom of the Ages			TYPE:Val	VISIBLE:YES												PRETEMPLATE:1,Abebi	DESC:All Knowledge Skills are Class Skills			CSKILL:TYPE.Knowledge	COST:0	SOURCEPAGE:p.185
+Wisdom of the Ages			TYPE:Val	VISIBLE:YES												PRETEMPLATE:1,Abebi	DESC:All Knowledge Skills are Class Skills			CSKILL:TYPE=Knowledge	COST:0	SOURCEPAGE:p.185
 The Tounges of Man are of All Men	TYPE:Val	VISIBLE:YES												PRETEMPLATE:1,Abebi	DESC:Read text as if with Comprehend Languages spell						COST:0	SOURCEPAGE:p.185
 #Level 2
 The Lessons of Master Craftsmen	TYPE:Val	VISIBLE:YES	PREFEAT:2,Wisdom of the Ages,The Tounges of Man are of All Men	PRETEMPLATE:1,Abebi	DESC:Once per day +30 to Craft check								COST:0	SOURCEPAGE:p.185

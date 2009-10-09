@@ -5,7 +5,7 @@ SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://w
 # Greater Mastercraft
 
 # Modifier Name		Unique Key		Type							Cost			Type granted	Source Page		Required Type		Modify the item cost			Weapon prop. bonus		Special Property										Apply to both heads
-Greater Mastercraft	KEY:WEAPGRMW	TYPE:Weapon.Masterwork.GreaterMastercraft				ITYPE:Masterwork	SOURCEPAGE:p.184					BONUS:ITEMCOST|TYPE=Weapon|600	BONUS:WEAPON|TOHIT,DAMAGE|1	SPROP:+10 Hardness									ASSIGNTOALL:Y
+Greater Mastercraft	KEY:WEAPGRMW	TYPE:Weapon.Masterwork.GreaterMastercraft				ITYPE:Masterwork	SOURCEPAGE:p.184					BONUS:ITEMCOST|TYPE=Weapon|600	BONUS:WEAPON|TOHIT,DAMAGE|1	SPROP:+10 Hardness									ASSIGNTOALL:YES
 Greater Mastercraft	KEY:FLINTGRMW	TYPE:Weapon.Masterwork.GreaterMastercraft	COST:BASECOST*5				SOURCEPAGE:p.184	PRETYPE:1,Firearms							BONUS:WEAPON|TOHIT|2		SPROP:+10 Hardness
 Greater Mastercraft	KEY:TOOLSGRMW	TYPE:Tools.Masterwork.GreaterMastercraft	COST:BASECOST*3				SOURCEPAGE:p.184																SPROP:+10 Hardness	SPROP:+3 circumstance bonus to related checks
 

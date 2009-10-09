@@ -5,7 +5,7 @@ SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.parad
 ###Block: PHB Feat modifications
 # Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose					Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
 Endurance.MOD																																	!PRERACE:1,Gnome
-Skill Focus.MOD																																																																																																												BONUS:SKILL|LIST|3|PRECLASS:1,Patrician|PREVARGT:var("CL=Patrician"),floor(TL/2)
+Skill Focus.MOD																																																																																																												BONUS:SKILL|LIST|3|PRECLASS:1,Patrician=1|PREVARGT:var("CL=Patrician"),floor(TL/2)
 Weapon Finesse.MOD																!PRECLASS:1,Weapon Savant=2																																																								BONUS:COMBAT|TOHIT.LowWeight|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged|PREITEM:1,TYPE=GlassSteel
 # probably was a reason for this, but I have  no idea why so commenting until reason appears
 #Extra Turning.MOD																																																																														BONUS:VAR|TurnTimesBase|-4|PREVAREQ:FocusTurn,1	BONUS:VAR|ChannelTimesBase|4|TYPE=ExtraTurning.STACK	BONUS:VAR|TurnTimesInfernal|4|TYPE=ExtraTurning.STACK|PREVAREQ:FocusTurn,1
@@ -25,7 +25,7 @@ Improved Familiar.MOD
 # Use when axiomatic falcon coded - HC Illiir
 #Improved Familiar HD.MOD		TYPE:General	COMPANIONLIST:Familiar|Axiomatic Falcon|PRECLASS:1,Holy Champion (Harbingers)=6
 Improved Familiar.COPY=Improved Familiar HD
-Improved Familiar HD.MOD									TYPE:General																										PRESUBCLASS:1,Harbingers=6
+Improved Familiar HD.MOD									TYPE:General																										PRESUBCLASS:1,Harbingers
 
 Skill Focus.COPY=Skill Focus (Patrician)
 Skill Focus (Patrician).MOD																				PREFEAT:1,Skill Focus																																																																																			BONUS:SKILL|LIST|6																	SOURCEPAGE:Feats.rtf

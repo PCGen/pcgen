@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 24 17:11:54 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
@@ -19,10 +19,10 @@ CLASS:Assassin.MOD	CSKILL:Black Market
 # Class Name
 CLASS:Blackguard.MOD
 ###Block: Servants Servant (Infernal)
-9	BONUS:VAR|ISLevel|CL	ABILITY:Special Ability|VIRTUAL|Infernal Servant|PRECLASS:1,Order of the Inner Demon
+9	BONUS:VAR|ISLevel|CL	ABILITY:Special Ability|VIRTUAL|Infernal Servant|PRECLASS:1,Order of the Inner Demon=1
 
-# Class Name			Clear Prereq.	Prohibited Race		Required Skill				Required Casting Type							Prohibited Template
-CLASS:Dragon Disciple.MOD	PRE:.CLEAR		!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=NO	PRESPELLCAST:TYPE.Arcane	!PRETEMPLATE:1,Half Dragon
+# Class Name			Clear Prereq.	Prohibited Race		Required Skill				Required Casting Type						Prohibited Template
+CLASS:Dragon Disciple.MOD	PRE:.CLEAR		!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=N	PRESPELLCAST:TYPE=Arcane	!PRETEMPLATE:1,Half Dragon
 
 # Class Name			Required Template
 CLASS:Eldritch Knight.MOD	PRETEMPLATE:1,Hawk,Shield

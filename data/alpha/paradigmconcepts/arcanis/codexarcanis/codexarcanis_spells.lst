@@ -7,21 +7,21 @@ Anshar's Burning Blood		CLASSES:Wizard=7				DOMAINS:Pain=7			SCHOOL:Necromancy		
 Aura of Faith									DOMAINS:Holy,Honor=8		SCHOOL:Abjuration						DESCRIPTOR:Good|Evil	COMPS:V S M	CASTTIME:1 action		RANGE:20 feet				TARGETAREA:(CASTERLEVEL) Creatures						DURATION:(CASTERLEVEL) rounds [D]		SAVEINFO:Special			SPELLRES:Yes (Harmless)	SOURCEPAGE:p.181
 Beltine's Blessed Strike	CLASSES:Cleric,Paladin=4		DOMAINS:Afterlife=6		SCHOOL:Evocation										COMPS:V M F	CASTTIME:1 action		RANGE:Personal				TARGETAREA:One Melee Weapon Wielded by caster				DURATION:(CASTERLEVEL) minutes [D]		SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.182
 Bleed					CLASSES:Wizard=3									SCHOOL:Necromancy										COMPS:V S	CASTTIME:1 action		RANGE:Close (25 ft)			TARGETAREA:One Creature								DURATION:(10*CASTERLEVEL) rounds		SAVEINFO:Fortitude Negates	SPELLRES:Yes		SOURCEPAGE:p.182
-Bury					CLASSES:Wizard,Druid=4|Cleric=5						SCHOOL:Transmutation					DESCRIPTOR:Earth		COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:One creature								DURATION:Instantaneous				SAVEINFO:Reflex			SPELLRES:Yes		SOURCEPAGE:p.182
+Bury					CLASSES:Druid,Wizard=4|Cleric=5						SCHOOL:Transmutation					DESCRIPTOR:Earth		COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:One creature								DURATION:Instantaneous				SAVEINFO:Reflex			SPELLRES:Yes		SOURCEPAGE:p.182
 Cry For Spirits Release		CLASSES:Wizard=9				DOMAINS:Afterlife=9		SCHOOL:Necromancy										COMPS:V S	CASTTIME:1 action		RANGE:Close (25 ft + 5ft/2levels)	TARGETAREA:(CASTERLEVEL) undead creatures in a 30 ft area spread	DURATION:Instantaneous				SAVEINFO:Fortitude Negates	SPELLRES:Yes		SOURCEPAGE:p.182
 Dance of Fate									DOMAINS:Fate=3			SCHOOL:Transmutation									COMPS:V S	CASTTIME:1 round		RANGE:Personal				TARGETAREA:Personal								DURATION:(CASTERLEVEL) minutes		SAVEINFO:None (Harmless)	SPELLRES:No (Harmless)	SOURCEPAGE:p.182
 Divine Smite									DOMAINS:Holy=4			SCHOOL:Evocation						DESCRIPTOR:Good|Evil	COMPS:V S	CASTTIME:1 round		RANGE:Medium (100 ft + 10ft/level)	TARGETAREA:20' radius burst							DURATION:Instantaneous				SAVEINFO:Reflex Half		SPELLRES:Yes		SOURCEPAGE:p.182
 Dolphin Chant			CLASSES:Wizard=1									SCHOOL:Transmutation									COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:One Creature								DURATION:(5*CASTERLEVEL) minutes [D]	SAVEINFO:None (Harmless)	SPELLRES:No (Harmless)	SOURCEPAGE:p.182
-Elemental Maze			CLASSES:Wizard,Druid,Ehtzara=5	DOMAINS:Sea=5			SCHOOL:Transmutation									COMPS:V S M	CASTTIME:1 round		RANGE:Long (400 ft + 40ft/level)	TARGETAREA:100 ft/side + (20*CASTERLEVEL) ft/side			DURATION:(5*CASTERLEVEL) minutes		SAVEINFO:None			SPELLRES:Special		SOURCEPAGE:p.182
+Elemental Maze			CLASSES:Druid,Ehtzara,Wizard=5	DOMAINS:Sea=5			SCHOOL:Transmutation									COMPS:V S M	CASTTIME:1 round		RANGE:Long (400 ft + 40ft/level)	TARGETAREA:100 ft/side + (20*CASTERLEVEL) ft/side			DURATION:(5*CASTERLEVEL) minutes		SAVEINFO:None			SPELLRES:Special		SOURCEPAGE:p.182
 Epiphany				CLASSES:Wizard=2				DOMAINS:Artifact=2		SCHOOL:Transmutation									COMPS:V S M	CASTTIME:1 round		RANGE:Personal				TARGETAREA:Personal								DURATION:(CASTERLEVEL) minutes		SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.183
 Knowledge of the Elders								DOMAINS:Spirit=6			SCHOOL:Nercomancy										COMPS:V S	CASTTIME:1 minute		RANGE:Personal				TARGETAREA:Personal								DURATION:(CASTERLEVEL) hours			SAVEINFO:None (Harmless)	SPELLRES:No (Harmless)	SOURCEPAGE:p.183
 Larissa's Binding Flesh								DOMAINS:Flesh=7			SCHOOL:Transmutation					DESCRIPTOR:Flesh		COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:Creature Touched							DURATION:Permanent				SAVEINFO:Fortitude partial	SPELLRES:Y			SOURCEPAGE:Compendium p.33
 Larissa's Blindness								DOMAINS:Flesh=2			SCHOOL:Transmutation					DESCRIPTOR:Flesh		COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:Creature Touched							DURATION:Permanent				SAVEINFO:Fortitude Negates	SPELLRES:Yes		SOURCEPAGE:Compendium p.33
 Luck of Legend									DOMAINS:Fate=8			SCHOOL:Transmutation									COMPS:V	CASTTIME:1 action		RANGE:Personal				TARGETAREA:Personal								DURATION:(CASTERLEVEL) minutes		SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.183
 Mantle of Unassailable Flame	CLASSES:Wizard=2|Cleric=3							SCHOOL:Abjuration						DESCRIPTOR:Fire		COMPS:V S	CASTTIME:1 action		RANGE:Personal or Touch			TARGETAREA:Self or one creature						DURATION:(3*CASTERLEVEL) rounds		SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.183
-Mark of Thralldom			CLASSES:Wizard=5|Cleric=3							SCHOOL:Necromancy										COMPS:V S M	CASTTIME:1 action		RANGE:Touch					TARGETAREA:One living creature						DURATION:Permanent				SAVEINFO:None			SPELLRES:Yes		SOURCEPAGE:p.183
+Mark of Thralldom			CLASSES:Cleric=3|Wizard=5							SCHOOL:Necromancy										COMPS:V S M	CASTTIME:1 action		RANGE:Touch					TARGETAREA:One living creature						DURATION:Permanent				SAVEINFO:None			SPELLRES:Yes		SOURCEPAGE:p.183
 Nature's Gift			CLASSES:Druid=4				DOMAINS:Senses=5			SCHOOL:Transmutation									COMPS:V S	CASTTIME:1 action		RANGE:Personal				TARGETAREA:Personal								DURATION:(CASTERLEVEL) hours			SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.184
-Neroth's Embrace			CLASSES:Wizard=5|Cleric=4		DOMAINS:Disease=2			SCHOOL:Necromancy						DESCRIPTOR:Evil|Death	COMPS:V S M	CASTTIME:1 round		RANGE:Touch					TARGETAREA:One living creature						DURATION:Instantaneous				SAVEINFO:Fortitude partial	SPELLRES:Yes		SOURCEPAGE:p.184
+Neroth's Embrace			CLASSES:Cleric=4|Wizard=5		DOMAINS:Disease=2			SCHOOL:Necromancy						DESCRIPTOR:Evil|Death	COMPS:V S M	CASTTIME:1 round		RANGE:Touch					TARGETAREA:One living creature						DURATION:Instantaneous				SAVEINFO:Fortitude partial	SPELLRES:Yes		SOURCEPAGE:p.184
 Presence of Master Smiths							DOMAINS:Artifact=8		SCHOOL:Necromancy										COMPS:V S M	CASTTIME:1 hour		RANGE:Touch					TARGETAREA:One anvil and caster						DURATION:Special					SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.184
 Render				CLASSES:Druid=5				DOMAINS:Flesh=5			SCHOOL:Transmutation					DESCRIPTOR:Flesh		COMPS:V S M	CASTTIME:1 action		RANGE:Close (25 ft + 5ft/2 levels)	TARGETAREA:10 ft radius Spread						DURATION:Instantaneous				SAVEINFO:Fortitude Half		SPELLRES:Yes		SOURCEPAGE:Compendium p.33
 Riptide				CLASSES:Wizard=6				DOMAINS:Sea=6			SCHOOL:Abjuration										COMPS:V S	CASTTIME:1 action		RANGE:Medium (100 ft + 10ft/level)	TARGETAREA:5 ft wide to med range or 10 ft wide to half med range	DURATION:Instantaneous				SAVEINFO:Reflex Half		SPELLRES:Yes		SOURCEPAGE:p.184
@@ -30,7 +30,7 @@ Summon Spirit									DOMAINS:Spirit=9			SCHOOL:Necromancy		SUBSCHOOL:Summoning	
 Sword of Faith									DOMAINS:Honor=9			SCHOOL:Evocation						DESCRIPTOR:Good|Evil	COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:Weapon touched							DURATION:(CASTERLEVEL) rounds			SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.184
 Touch of Agony									DOMAINS:Pain=6			SCHOOL:Evocation										COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:Creature Touched							DURATION:(CASTERLEVEL) rounds			SAVEINFO:None			SPELLRES:Yes		SOURCEPAGE:p.185
 Transmute Liquids			CLASSES:Wizard=1									SCHOOL:Transmutation									COMPS:V S M	CASTTIME:1 round		RANGE:Touch					TARGETAREA:(CASTERLEVEL) pints						DURATION:Permanent				SAVEINFO:Fortitude Negates	SPELLRES:Yes		SOURCEPAGE:Compendium p.34
-Wild Ride				CLASSES:Wizard,Cleric=2								SCHOOL:Evocation										COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:Caster and Mount							DURATION:1 day					SAVEINFO:None (Harmless)	SPELLRES:No (Harmless)	SOURCEPAGE:Compendium p.35
+Wild Ride				CLASSES:Cleric,Wizard=2								SCHOOL:Evocation										COMPS:V S	CASTTIME:1 action		RANGE:Touch					TARGETAREA:Caster and Mount							DURATION:1 day					SAVEINFO:None (Harmless)	SPELLRES:No (Harmless)	SOURCEPAGE:Compendium p.35
 
 ###Block: Spell MODs
 
@@ -140,10 +140,10 @@ Finger of Death.MOD			CLASSES:Ehtzara=7							DOMAINS:Murder=7
 Fire Seeds.MOD													DOMAINS:Saurian=6
 Fire Shield.MOD				CLASSES:Ehtzara,Warriors of the Eternal Flame=4
 Fire Storm.MOD				CLASSES:Ehtzara=6							DOMAINS:Saurian=7
-Fire Trap.MOD				CLASSES:Ehtzara=4|Warriors of the Eternal Flame=3
+Fire Trap.MOD				CLASSES:Warriors of the Eternal Flame=3|Ehtzara=4
 Fireball.MOD				CLASSES:Ehtzara,Warriors of the Eternal Flame=3
-Flame Arrow.MOD				CLASSES:Ehtzara=3|Warriors of the Eternal Flame=2
-Flame Strike.MOD				CLASSES:Ehtzara=6|Warriors of the Eternal Flame=4
+Flame Arrow.MOD				CLASSES:Warriors of the Eternal Flame=2|Ehtzara=3
+Flame Strike.MOD				CLASSES:Warriors of the Eternal Flame=4|Ehtzara=6
 Flaming Sphere.MOD			CLASSES:Ehtzara,Warriors of the Eternal Flame=2
 Flare.MOD					CLASSES:Ehtzara=0
 Flesh to Stone.MOD			CLASSES:Ehtzara=6
@@ -151,7 +151,7 @@ Fly.MOD					CLASSES:Ehtzara=3
 Fog Cloud.MOD				CLASSES:Ehtzara=2							DOMAINS:Storm=2
 Forbiddance.MOD				CLASSES:Ehtzara=6
 Foresight.MOD													DOMAINS:Divination,Fate,Senses=9
-Freedom of Movement.MOD			CLASSES:Ehtzara=4							DOMAINS:Fate=4|Sea=3
+Freedom of Movement.MOD			CLASSES:Ehtzara=4							DOMAINS:Sea=3|Fate=4
 Freezing Sphere.MOD			CLASSES:Ehtzara=6
 Gaseous Form.MOD				CLASSES:Ehtzara=3
 Gate.MOD					CLASSES:Ehtzara=7
@@ -182,7 +182,7 @@ Hold Monster.MOD				CLASSES:Ehtzara=5
 Hold Person.MOD				CLASSES:Ehtzara=3
 Hold Portal.MOD				CLASSES:Ehtzara=1
 Holy Word.MOD													DOMAINS:Holy,Honor=7
-Horrid Wilting.MOD			CLASSES:Ehtzara=6							DOMAINS:Flesh,Suffering,Disease=8
+Horrid Wilting.MOD			CLASSES:Ehtzara=6							DOMAINS:Disease,Flesh,Suffering=8
 Hypnotic Pattern.MOD			CLASSES:Ehtzara=2
 Hypnotism.MOD				CLASSES:Ehtzara=1
 Ice Storm.MOD				CLASSES:Ehtzara=4
@@ -204,7 +204,7 @@ Keen Edge.MOD				CLASSES:Ehtzara=3							DOMAINS:Murder=3
 Knock.MOD					CLASSES:Ehtzara=2
 Legend Lore.MOD				CLASSES:Ehtzara=6							DOMAINS:Divination=6
 Lesser Geas.MOD				CLASSES:Ehtzara=4
-Lesser Planar Ally.MOD			CLASSES:Ehtzara=5							DOMAINS:Holy=6|Oath=4
+Lesser Planar Ally.MOD			CLASSES:Ehtzara=5							DOMAINS:Oath=4|Holy=6
 Lesser Planar Binding.MOD		CLASSES:Ehtzara=5
 Lesser Restoration.MOD			CLASSES:Ehtzara=3
 Levitate.MOD				CLASSES:Ehtzara=2
@@ -227,7 +227,7 @@ Magic Vestment.MOD												DOMAINS:Honor=3
 Major Creation.MOD			CLASSES:Ehtzara=5							DOMAINS:Artifact=5
 Major Image.MOD				CLASSES:Ehtzara=3
 Mark of Justice.MOD												DOMAINS:Oath=5
-Mass Charm.MOD													DOMAINS:Charm=9|Music=8
+Mass Charm.MOD													DOMAINS:Music=8|Charm=9
 Mass Heal.MOD													DOMAINS:Music=7
 Mass Suggestion.MOD			CLASSES:Ehtzara=6							DOMAINS:Charm,Music=6
 Mending.MOD					CLASSES:Ehtzara=0
@@ -254,7 +254,7 @@ Passwall.MOD				CLASSES:Ehtzara=5
 Permanency.MOD				CLASSES:Ehtzara=5
 Permanent Image.MOD			CLASSES:Ehtzara=6
 Persistent Image.MOD			CLASSES:Ehtzara=5
-Phantasmal Killer.MOD			CLASSES:Ehtzara=4							DOMAINS:Pain=5|Spirit=4
+Phantasmal Killer.MOD			CLASSES:Ehtzara=4							DOMAINS:Spirit=4|Pain=5
 Phantom Steed.MOD				CLASSES:Ehtzara=3
 Phase Door.MOD				CLASSES:Ehtzara=6
 Planar Ally.MOD				CLASSES:Ehtzara=7							DOMAINS:Disease=6
@@ -277,7 +277,7 @@ Protection from Good.MOD		CLASSES:Ehtzara=1							DOMAINS:Holy=1
 Protection from Law.MOD			CLASSES:Ehtzara=1							DOMAINS:Holy=1
 Protection from Spells.MOD		CLASSES:Ehtzara=7
 Prying Eyes.MOD				CLASSES:Ehtzara=5							DOMAINS:Secrets=6
-Pyrotechnics.MOD				CLASSES:Ehtzara=2|Warriors of the Eternal Flame=1
+Pyrotechnics.MOD				CLASSES:Warriors of the Eternal Flame=1|Ehtzara=2
 
 Rainbow Pattern.MOD			CLASSES:Ehtzara=4
 Raise Dead.MOD				CLASSES:Ehtzara=5
@@ -334,7 +334,7 @@ Stinking Cloud.MOD			CLASSES:Ehtzara=3
 Stone Shape.MOD				CLASSES:Ehtzara=5							DOMAINS:Artifact=3
 Stone to Flesh.MOD			CLASSES:Ehtzara=6
 Stoneskin.MOD				CLASSES:Ehtzara=4
-Storm of Vengeance.MOD			CLASSES:Ehtzara=7							DOMAINS:Storm,Disease=9
+Storm of Vengeance.MOD			CLASSES:Ehtzara=7							DOMAINS:Disease,Storm=9
 Suggestion.MOD				CLASSES:Ehtzara=3							DOMAINS:Charm=3
 Summon Monster I.MOD			CLASSES:Ehtzara=1							DOMAINS:Daemonology=1
 Summon Monster II.MOD			CLASSES:Ehtzara=2							DOMAINS:Daemonology=2

@@ -49,7 +49,7 @@ Create Water.MOD				CLASSES:Priest=0|Holy Champion=1
 Cure Critical Wounds (Mass).MOD	CLASSES:Priest=8
 Cure Critical Wounds.MOD		CLASSES:Priest,Urban Sentinel=4
 Cure Light Wounds (Mass).MOD		CLASSES:Priest=5
-Cure Light Wounds.MOD			CLASSES:Urban Sentinel,Holy Champion,Priest=1
+Cure Light Wounds.MOD			CLASSES:Holy Champion,Priest,Urban Sentinel=1
 Cure Minor Wounds.MOD			CLASSES:Priest=0
 Cure Moderate Wounds (Mass).MOD	CLASSES:Priest=6
 Cure Moderate Wounds.MOD		CLASSES:Priest,Urban Sentinel=2|Holy Champion=3

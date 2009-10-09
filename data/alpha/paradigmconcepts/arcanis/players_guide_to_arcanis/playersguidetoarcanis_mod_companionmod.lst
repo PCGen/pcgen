@@ -29,7 +29,7 @@ FOLLOWER:FMLevel=20	TYPE:Arcanis Familiar	SR:25
 
 ###Block: Specific Familiars
 # Class of the Master	Type				Required Race			Apply Kit					Special ABility		Add
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Raven									SAB:Speak one language	ADD:LANGUAGE|1|TYPE=Spoken
+FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Raven									SAB:Speak one language	ADD:LANGUAGE|TYPE=Spoken
 FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Bat			KIT:1|Bat Familiar
 FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Cat			KIT:1|Cat Familiar
 FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Hawk			KIT:1|Hawk Familiar
@@ -62,7 +62,7 @@ MASTERBONUSRACE:Lizard			TYPE:Arcanis Familiar															BONUS:SKILL|Climb|3
 MASTERBONUSRACE:Mongoose		TYPE:Arcanis Familiar	BONUS:CHECKS|Reflex|1																			SAB:+2 against poison
 MASTERBONUSRACE:Owl			TYPE:Arcanis Familiar															BONUS:SKILL|Spot|3		VFEAT:Alertness
 #errata applied to parrot 2006-06-03
-MASTERBONUSRACE:Parrot			TYPE:Arcanis Familiar																												ADD:LANGUAGE|3|TYPE.Spoken,TYPE.Written,TYPE.Read
+MASTERBONUSRACE:Parrot			TYPE:Arcanis Familiar																												ADD:LANGUAGE|3|TYPE=Read,TYPE=Spoken,TYPE=Written
 MASTERBONUSRACE:Rat			TYPE:Arcanis Familiar	BONUS:CHECKS|Fortitude|2															VFEAT:Alertness
 MASTERBONUSRACE:Raven			TYPE:Arcanis Familiar															BONUS:SKILL|Appraise|3		VFEAT:Alertness
 MASTERBONUSRACE:Snake (Viper/Tiny)	TYPE:Arcanis Familiar															BONUS:SKILL|Bluff|3		VFEAT:Alertness

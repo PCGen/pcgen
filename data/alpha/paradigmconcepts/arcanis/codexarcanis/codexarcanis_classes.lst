@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 10 22:05:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
@@ -7,7 +7,7 @@ CLASS:Altherian Sharp Shooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:5	SOURCEP
 # Class Name			Req. Att.	Required Feat																		Required Skill			Required Template
 CLASS:Altherian Sharp Shooter	PREATT:5	PREFEAT:5,Precise Shot,Quick Reload,Combat Firing,Exotic Weapon Proficiency (Flintlock %),Weapon Focus (Flintlock %)	PRESKILL:1,Concentration=2	PRETEMPLATE:1,Altheria
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Altherian Sharp Shooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Hide|Jump|Move Silently|TYPE.Profession|Ride|Swim|Tumble
+CLASS:Altherian Sharp Shooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Hide|Jump|Move Silently|TYPE=Profession|Ride|Swim|Tumble
 1	SAB:Range Sneak Attack +%d6|RangeSneakAttack	BONUS:VAR|RangeSneakAttack|1	DEFINE:RangeSneakAttack|0
 2	SAB:Shot in the Dark
 3									BONUS:VAR|RangeSneakAttack|1
@@ -20,12 +20,12 @@ CLASS:Bretheren of the Missionary	HD:8		TYPE:PC.Prestige	ABB:BoO		MAXLEVEL:5	SOU
 # Class Name				Required AL			Req. Att.	Required Feat		Required Skill
 CLASS:Bretheren of the Missionary	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:1,Iron Will	PRESKILL:1,Knowledge (Religion)=4
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim
-1	SAB:Unshakable Dogma															ADD:SPELLCASTER|1|ANY	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial
-2	SAB:Divine Stewardship +%|DivineStewardship	BONUS:VAR|DivineStewardship|2	DEFINE:DivineStewardship|0	ADD:SPELLCASTER|1|ANY
-3	SAB:Faithful Bodyguard															ADD:SPELLCASTER|1|ANY
-4									BONUS:VAR|DivineStewardship|2						ADD:SPELLCASTER|1|ANY
-5	SAB:Righteous Wrath															ADD:SPELLCASTER|1|ANY
+CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
+1	SAB:Unshakable Dogma															ADD:SPELLCASTER|ANY	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+2	SAB:Divine Stewardship +%|DivineStewardship	BONUS:VAR|DivineStewardship|2	DEFINE:DivineStewardship|0	ADD:SPELLCASTER|ANY
+3	SAB:Faithful Bodyguard															ADD:SPELLCASTER|ANY
+4									BONUS:VAR|DivineStewardship|2						ADD:SPELLCASTER|ANY
+5	SAB:Righteous Wrath															ADD:SPELLCASTER|ANY
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -34,7 +34,7 @@ CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	ABB:DoE		MAXLEVEL:5	SOURCEPA
 CLASS:Dancer of the Elements	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:6,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform=4,Jump=4,Tumble=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silently|Perform|Tumble
-1																																	AUTO:WEAPONPROF|TYPE.Martial
+1																																	AUTO:WEAPONPROF|TYPE=Martial
 1	SAB:The First Steps	BONUS:COMBAT|AC|max(INT,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0	BONUS:COMBAT|AC|1|TYPE=DancerElements		AUTO:FEAT|Armor Proficiency (Light)
 2	SAB:Dance of Air
 3	SAB:Dance of Fire		BONUS:COMBAT|DAMAGE.Melee|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.IS.LIGHT],0
@@ -47,12 +47,12 @@ CLASS:Blight Bearer	HD:8		TYPE:PC.Prestige	ABB:BlB		MAXLEVEL:4	SOURCEPAGE:p.167	
 # Class Name		Required AL		Required Deity	Required Domain		Required Feat				Required Skill					Req. Spell Type
 CLASS:Blight Bearer	PREALIGN:LE,NE,CE	PREDEITY:1,Neroth	PREDOMAIN:1,Disease	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion)=5,Heal=5	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Blight Bearer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
-1																																				AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE.Simple|Scythe
-1	SAB:Touch of Disease I	SAB:Tainted Appearance %|TaintedAppearance	BONUS:SKILLRANK|Knowledge (Disease)|1	BONUS:VAR|TaintedAppearance|15	DEFINE:TaintedAppearance|0	ADD:SPELLCASTER|1|Divine
-2	SAB:Touch of Disease II																BONUS:VAR|TaintedAppearance|15						ADD:SPELLCASTER|1|Divine
-3	SAB:Touch of Disease III	SAB:Improved Touch I											BONUS:VAR|TaintedAppearance|15						ADD:SPELLCASTER|1|Divine
-4	SAB:Touch of Disease IV	SAB:Remove Disease 1/day											BONUS:VAR|TaintedAppearance|15						ADD:SPELLCASTER|1|Divine
+CLASS:Blight Bearer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
+1																																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|Scythe|TYPE=Simple
+1	SAB:Touch of Disease I	SAB:Tainted Appearance %|TaintedAppearance	BONUS:SKILLRANK|Knowledge (Disease)|1	BONUS:VAR|TaintedAppearance|15	DEFINE:TaintedAppearance|0	ADD:SPELLCASTER|Divine
+2	SAB:Touch of Disease II																BONUS:VAR|TaintedAppearance|15						ADD:SPELLCASTER|Divine
+3	SAB:Touch of Disease III	SAB:Improved Touch I											BONUS:VAR|TaintedAppearance|15						ADD:SPELLCASTER|Divine
+4	SAB:Touch of Disease IV	SAB:Remove Disease 1/day											BONUS:VAR|TaintedAppearance|15						ADD:SPELLCASTER|Divine
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
@@ -60,8 +60,8 @@ CLASS:Blight Apostle	HD:8		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:1	SOURCEPAGE:p.167
 # Class Name		Required Class			Required Feat			Required Skill									Req. Spell Type
 CLASS:Blight Apostle	PRECLASS:1,Blight Bearer=4	PREFEAT:1,Great Fortitude	PRESKILL:3,Knowledge (Religion)=10,Knowledge (Disease)=10,Heal=10	PRESPELLTYPE:1,Divine=5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Blight Apostle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
-1	SAB:Touch of Disease V	SAB:Improved Touch II	SAB:Neroth's Will	BONUS:VAR|TaintedAppearance|15	ADD:SPELLCASTER|1|Divine
+CLASS:Blight Apostle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
+1	SAB:Touch of Disease V	SAB:Improved Touch II	SAB:Neroth's Will	BONUS:VAR|TaintedAppearance|15	ADD:SPELLCASTER|Divine
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
@@ -69,8 +69,8 @@ CLASS:val'Mehan Emissary	HD:6		TYPE:PC.Prestige	ABB:vME		MAXLEVEL:5	SOURCEPAGE:p
 # Class Name			Required Skill												Required Stat
 CLASS:val'Mehan Emissary	PRESKILL:4,Knowledge (Nobility and Royalty)=8,Diplomacy=4,Sense Motive=4,Bluff=4	PRESTAT:1,CHA=16
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Move Silently|Perform|TYPE.Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
-1																	AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial
+CLASS:val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Move Silently|Perform|TYPE=Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
+1																	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	SAB:Silver Tongue (Ex)	SAB:Heart of Stone (Ex)	BONUS:SKILL|Diplomacy,Sense Motive,Bluff|2
 2	SAB:Irresistible Aura (Ex)				BONUS:SKILL|TYPE.Charisma|2|TYPE=Training
 3	SAB:Confidant (Ex)
@@ -83,18 +83,18 @@ CLASS:Order of the Emerald Flame	HD:4		TYPE:PC.Prestige	ABB:OEF		MAXLEVEL:10	SOU
 # Class Name				Required AL				Required Check Base		Required Feat						Required Skill									Req. Spell Type
 CLASS:Order of the Emerald Flame	PREALIGN:NG,TN,NE,CG,CN,CE	PRECHECKBASE:1,Fortitude=8	PREFEAT:2,Spell Focus (Evocation),Toughness	PRESKILL:3,Concentration=8,Knowledge (Arcana)=4,Spellcraft=4	PRESPELLTYPE:1,Arcane=4
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Order of the Emerald Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Ride|Scry|Spellcraft
-1																															AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE.Simple
-1	SAB:Kin of Flame (Su)	SAB:For Every Gift There Is A Price (Ex)	BONUS:STAT|CHA|-4												ADD:SPELLCASTER|1|Arcane
-2	SAB:Elemental Savant (Air)																					ADD:SPELLCASTER|1|Arcane
-3	SAB:Strength of Flame +%d6 (Su)|StrengthOfFlame							BONUS:VAR|StrengthOfFlame|(CL-1)/2	DEFINE:StrengthOfFlame|0	ADD:SPELLCASTER|1|Arcane
-4	SAB:Elemental Savant (Electricity)																				ADD:SPELLCASTER|1|Arcane
-5	SAB:Elemental Weakness (Cold)																					ADD:SPELLCASTER|1|Arcane
-6	SAB:Elemental Savant (Sonic)																					ADD:SPELLCASTER|1|Arcane
-7																										ADD:SPELLCASTER|1|Arcane
-8	SAB:Elemental Savant (Water)																					ADD:SPELLCASTER|1|Arcane
-9																										ADD:SPELLCASTER|1|Arcane
-10	SAB:Elemental Blessing (Fire)																					ADD:SPELLCASTER|1|Arcane
+CLASS:Order of the Emerald Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Ride|Scry|Spellcraft
+1																														AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE=Simple
+1	SAB:Kin of Flame (Su)	SAB:For Every Gift There Is A Price (Ex)	BONUS:STAT|CHA|-4												ADD:SPELLCASTER|Arcane
+2	SAB:Elemental Savant (Air)																					ADD:SPELLCASTER|Arcane
+3	SAB:Strength of Flame +%d6 (Su)|StrengthOfFlame							BONUS:VAR|StrengthOfFlame|(CL-1)/2	DEFINE:StrengthOfFlame|0	ADD:SPELLCASTER|Arcane
+4	SAB:Elemental Savant (Electricity)																				ADD:SPELLCASTER|Arcane
+5	SAB:Elemental Weakness (Cold)																					ADD:SPELLCASTER|Arcane
+6	SAB:Elemental Savant (Sonic)																					ADD:SPELLCASTER|Arcane
+7																										ADD:SPELLCASTER|Arcane
+8	SAB:Elemental Savant (Water)																					ADD:SPELLCASTER|Arcane
+9																										ADD:SPELLCASTER|Arcane
+10	SAB:Elemental Blessing (Fire)																					ADD:SPELLCASTER|Arcane
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -102,7 +102,7 @@ CLASS:Ordained Seekers	HD:4		TYPE:PC.Prestige	ABB:OrS		MAXLEVEL:5	SOURCEPAGE:p.1
 # Class Name		Required AL				Required Feat			Required Skill									Req. Spell Type
 CLASS:Ordained Seekers	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,TYPE=Metamagic	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Ordained Seekers	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Diplomacy|TYPE.Knowledge|TYPE.Profession|Ride|Scry|Spellcraft
+CLASS:Ordained Seekers	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Ride|Scry|Spellcraft
 1	SAB:Absorb Spell (%)|AbsorbSpell	SAB:Power Metamagic	BONUS:SPELLKNOWN|TYPE=Arcane;Level=1|3								BONUS:VAR|AbsorbSpell|3	DEFINE:AbsorbSpell|0
 2	SAB:Absorb Charges							BONUS:SPELLKNOWN|TYPE=Arcane;Level=1|2	BONUS:SPELLKNOWN|TYPE=Arcane;Level=2|2	BONUS:VAR|AbsorbSpell|3
 3	SAB:Arcane Healing							BONUS:SPELLKNOWN|TYPE=Arcane;Level=2|2	BONUS:SPELLKNOWN|TYPE=Arcane;Level=3|2	BONUS:VAR|AbsorbSpell|2
@@ -115,10 +115,10 @@ CLASS:Wine Drinker	HD:8		TYPE:PC.Prestige	ABB:WnD		MAXLEVEL:5	SOURCEPAGE:p.172	B
 # Class Name		Required AL				Prohibited Class				Required Skill
 CLASS:Wine Drinker	PREALIGN:LN,LE,TN,NE,CN,CE	!PRECLASS:1,SPELLCASTER.Arcane=1	PRESKILL:2,Alchemy=4,Knowledge (Arcana)=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE.Profession|Sense Motive
+CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE=Profession|Sense Motive
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Wine Drinker	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
-1																												AUTO:WEAPONPROF|TYPE.Simple	WEAPONBONUS:TYPE.Martial
+1																												AUTO:WEAPONPROF|TYPE=Simple	WEAPONBONUS:TYPE=Martial
 1							SAB:Blood Dependence (Ex)	SAB:Blood Tolerance (Su)	SAB:School Access (Ex)
 1	CAST:0,1		KNOWN:0,1
 2	CAST:0,2		KNOWN:0,2		SAB:Sacrifice (Su)
@@ -132,11 +132,11 @@ CLASS:Warriors of the Eternal Flame	HD:10		TYPE:PC.Prestige	ABB:WEF		MAXLEVEL:10
 # Class Name				Req. Att.	Required Deity	Required Feat		Required Skill
 CLASS:Warriors of the Eternal Flame	PREATT:5	PREDEITY:1,Nier	PREFEAT:1,Toughness	PRESKILL:1,Knowledge (Religion)=5
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Warriors of the Eternal Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Jump|Knowledge (Religion)|Knowledge (Arcana)|Knowledge (History)|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim
+CLASS:Warriors of the Eternal Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Religion)|Knowledge (Arcana)|Knowledge (History)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name				Spell Stat		Spell Type		Memorize		Caster level
 CLASS:Warriors of the Eternal Flame	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	BONUS:CASTERLEVEL|Warriors of the Eternal Flame|CL
-1																															AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial
-1													AUTO:FEAT|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																															AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1	CAST:0,0		KNOWN:0,0		SAB:Child of Nier
 2	CAST:0,0		KNOWN:0,1
 3	CAST:0,1		KNOWN:0,1		SAB:Summon Minor Fire Elemental
@@ -154,10 +154,10 @@ CLASS:Ehtzara	HD:6		TYPE:PC.Prestige	ABB:Eht		MAXLEVEL:10	SOURCEPAGE:p.174	BONUS
 # Class Name	Required AL		Required Feat													Multiple Requirements																Required Stat
 CLASS:Ehtzara	PREALIGN:CG,CN,CE	PREFEAT:1,Iron Will	PREFEAT:1,Skill Focus (Scry),Skill Focus (Knowledge (Arcana))	PREMULT:3,[PRESKILL:1,Knowledge (Arcana)=8,Spellcraft=8],[PRESKILL:1,Alchemy=4,Scry=4],[PRESKILL:1,TYPE.Craft=1]	PRESTAT:1,INT=14,WIS=14
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ehtzara	STARTSKILLPTS:3	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Decipher Script|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (The Planes)|Knowledge (Religion)|TYPE.Profession|Scry|Spellcraft|Spot|Use Magic Device|Wilderness Lore
+CLASS:Ehtzara	STARTSKILLPTS:3	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE=Craft|Decipher Script|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Scry|Spellcraft|Spot|Use Magic Device|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Ehtzara	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Ehtzara|CL
-1																																																					AUTO:WEAPONPROF|TYPE.Simple
+1																																																					AUTO:WEAPONPROF|TYPE=Simple
 1	CAST:5,3,0			KNOWN:4,2,1			SAB:Spot Bonus +%|EhtzaraSpotBonus	SAB:Craft Fetish	SAB:Frightful Presence	BONUS:SKILL|Spot|EhtzaraSpotBonus	BONUS:VAR|FMLevel|CL	BONUS:VAR|EhtzaraSpotBonus|CL	DEFINE:EhtzaraSpotBonus|0			ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:6,4,3			KNOWN:5,3,2			SAB:Healing Touch SAB:Speak with Animals %/day|SpeakWithAnimals									BONUS:VAR|SpeakWithAnimals|CL/2				DEFINE:SpeakWithAnimals|0
 3	CAST:6,5,3,0		KNOWN:5,4,2,1		SAB:Imbue Fetish +%|Fetish	SAB:Speak With Dead %/day|SpeakWithDead								BONUS:VAR|Fetish|1	BONUS:VAR|SpeakWithDead|CL/3	DEFINE:Fetish|0	DEFINE:SpeakWithDead|0
@@ -175,14 +175,14 @@ CLASS:Blackchanter	HD:6		TYPE:PC.Prestige	ABB:Blc		MAXLEVEL:5	SOURCEPAGE:Compend
 # Class Name		Required AL				Required Skill															Req. Spell Type		Required Stat	Var. Min. Value
 CLASS:Blackchanter	PREALIGN:LG,LN,LE,NG,TN,NE	PRESKILL:5,Concentration=4,Knowledge (Heraldry)=4,Knowledge (Thanatology)=4,Spellcraft=4,Perform=8	PRESPELLTYPE:1,Arcane=4	PRESTAT:1,INT=14	PREVARGTEQ:BardicMusic,1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Blackchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Jump|TYPE.Knowledge|Perform|TYPE.Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
+CLASS:Blackchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|Perform|TYPE=Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Blackchanter	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Blackchanter|CL
-1									ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Thanatology)),Skill Focus(Knowledge (Undead))
-2	SAB:Requiem (Ex)						ADD:SPELLCASTER|1|ANY
-3									ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Thanatology)),Skill Focus(Knowledge (Undead))
-4	SAB:Elemental Savant: Positive Energy (Sp)	ADD:SPELLCASTER|1|ANY
-5	SAB:Danse Macabre (Sp)					ADD:SPELLCASTER|1|ANY
+1									ADD:SPELLCASTER|ANY	ADD:FEAT|Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Thanatology)),Skill Focus(Knowledge (Undead))
+2	SAB:Requiem (Ex)						ADD:SPELLCASTER|ANY
+3									ADD:SPELLCASTER|ANY	ADD:FEAT|Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Thanatology)),Skill Focus(Knowledge (Undead))
+4	SAB:Elemental Savant: Positive Energy (Sp)	ADD:SPELLCASTER|ANY
+5	SAB:Danse Macabre (Sp)					ADD:SPELLCASTER|ANY
 
 
 # Class Name	Automatically Gained Weapon Prof.

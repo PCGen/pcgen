@@ -253,7 +253,7 @@ Profession (Fisherman)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Professio
 Profession (Gambler)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Gardener)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Guide)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
-Profession (Gunner)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession				PREFEAT:1,Exotic Weapon Proficiency(Blastpowder Siege Weapons)	SOURCEPAGE:p.127
+Profession (Gunner)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession				PREFEAT:1,Exotic Weapon Proficiency (Blastpowder Siege Weapons)	SOURCEPAGE:p.127
 Profession (Hairdresser)								KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Herbalist)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Herdsman)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
@@ -290,4 +290,3 @@ Profession (Warehouser)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Professi
 Profession (Woodcutter)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 
 Research											KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence																SOURCEPAGE:p.128
-
