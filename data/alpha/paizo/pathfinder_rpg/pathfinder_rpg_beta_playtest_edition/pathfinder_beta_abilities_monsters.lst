@@ -5,7 +5,7 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 
 ###Block: Abilities
 # Ability Name	Category of Ability		Type								Visible	Define				Description																				Modify VAR								Source Page		Aspects
-Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Poison attacks deal repeated to the opponent on failed Fortitude saves (DC %1).|PoisonDC						BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus(Poison)
+Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Poison attacks deal repeated to the opponent on failed Fortitude saves (DC %1).|PoisonDC						BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)
 Turn Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DEFINE:TurnResistance|0		DESC:You gain a +%1 bonus to Will saves made to halve the damage and resist the effect of channeled energy.|TurnResistance										SOURCEPAGE:p.398	ASPECT:Ability Bonus|+%1|TurnResistance
 
 ###Block: Animal Companion Abilities - These have been copied over from the RSRD for Animal Companions, They should be double checked or deleted once Paizo finalizes it's version. -Eddy
@@ -26,7 +26,7 @@ Rend			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VI
 Sprint		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Stampede		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Swallow Whole	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:If you begin your turn with an opponent held in your mouth, you can attempt a new grapple check (as though attempting to pin the opponent). If successful, you swallow your prey, and the opponent takes bite damage.																																																	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Trample		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|10	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus(Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trample		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|10	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Trip			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 
 

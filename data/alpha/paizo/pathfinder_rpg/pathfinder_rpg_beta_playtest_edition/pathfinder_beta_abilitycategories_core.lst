@@ -76,5 +76,3 @@ ABILITYCATEGORY:Arcane Bloodline School Power	VISIBLE:QUALIFY	EDITABLE:YES		EDIT
 ###Block: Racial
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI			Display Location
 ABILITYCATEGORY:Gnome Obsessive Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeSkill	PLURAL:Gnome Obsessive Skill Choices	DISPLAYLOCATION:Racial Abilities
-
-

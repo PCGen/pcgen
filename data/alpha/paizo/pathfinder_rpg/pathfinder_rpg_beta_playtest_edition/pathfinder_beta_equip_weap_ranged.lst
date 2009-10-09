@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Feb  8 01:10:18 2009 -- reformated by prettylst.pl v1.39 (build 9321)
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:02:30 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -10,7 +10,7 @@ Crossbow (Hand)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Hand
 Crossbow (Repeating Heavy)	OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Repeating Heavy)	TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container.Projectile.Crossbow			CONTAINS:5|Bolt=5		COST:400	WT:12				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:WOOD										RANGE:120			SOURCEPAGE:p.104
 Crossbow (Repeating Light)	OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Repeating Light)	TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Container.Projectile.Crossbow			CONTAINS:5|Bolt=5		COST:250	WT:6				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:WOOD										RANGE:80			SOURCEPAGE:p.104
 Net											PROFICIENCY:WEAPON|Net					TYPE:Weapon.Exotic.Ranged.Standard.Thrown													COST:20	WT:6														EQMOD:ROPE										RANGE:10			SOURCEPAGE:p.105
-Shuriken										PROFICIENCY:WEAPON|Shuriken				TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Monk.Thrown										COST:.2	WT:.1				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:STEEL.THROWN_AMMO	WIELD:Light						RANGE:10	SIZE:M	SOURCEPAGE:p.106
+Shuriken										PROFICIENCY:WEAPON|Shuriken				TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Monk.Thrown										COST:0.2	WT:0.1			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:STEEL.THROWN_AMMO	WIELD:Light						RANGE:10	SIZE:M	SOURCEPAGE:p.106
 
 #Martial Ranged
 Shortbow										PROFICIENCY:WEAPON|Shortbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow		CONTAINS:1|Arrow=1	COST:30	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD										RANGE:60			SOURCEPAGE:p.105	BONUS:WEAPON|DAMAGE|min(STR,0)
@@ -23,7 +23,7 @@ Longbow (Composite +0)		OUTPUTNAME:[NAME] Longbow STR0	PROFICIENCY:WEAPON|Longbo
 #Simple Weapons Ranged
 Blowgun										PROFICIENCY:WEAPON|Blowgun				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Blowgun			CONTAINS:1|Dart=1		COST:2	WT:1				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:WOOD										RANGE:20			SOURCEPAGE:p.101
 Crossbow (Light)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Light)			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:1|Bolt=1		COST:35	WT:4				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:WOOD										RANGE:80			SOURCEPAGE:p.104
-Dart											PROFICIENCY:WEAPON|Dart					TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart										COST:0.5	WT:.5				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD			WIELD:Light						RANGE:20	SIZE:M	SOURCEPAGE:p.102
+Dart											PROFICIENCY:WEAPON|Dart					TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart										COST:0.5	WT:0.5			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD			WIELD:Light						RANGE:20	SIZE:M	SOURCEPAGE:p.102
 Sling											PROFICIENCY:WEAPON|Sling				TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container.Projectile.Sling			CONTAINS:1|SlingStone=1	COST:0	WT:0				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:LEATHER									RANGE:50			SOURCEPAGE:p.106	BONUS:WEAPON|DAMAGE|STR
 Crossbow (Heavy)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Heavy)			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:1|Bolt=1		COST:50	WT:8				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:WOOD										RANGE:120			SOURCEPAGE:p.104
 Javelin										PROFICIENCY:WEAPON|Javelin				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Javelin.Spear									COST:1	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD										RANGE:30			SOURCEPAGE:p.104

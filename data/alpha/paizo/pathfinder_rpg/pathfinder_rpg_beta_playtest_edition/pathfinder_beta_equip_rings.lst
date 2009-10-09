@@ -4,52 +4,52 @@ SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:h
 # Pathfinder RPG Entry by: Stefan Radermacher and Tir Gwaith (Andrew McDougall)
 
 # Equipment Name						Output Name									Type			Cost		Weight	Source Page		Combat bonus				Bonus to skill							Multiply spell cast/day				Special Property
-Ring of Animal Friendship														TYPE:Magic.Ring	COST:10800	WT:.02	SOURCEPAGE:p.351																							SPROP:On command, this ring affects an animal as if the wearer had cast charm animal.
-Ring of Blinking																TYPE:Magic.Ring	COST:27000	WT:.02	SOURCEPAGE:p.352																							SPROP:On command, this ring makes the wearer blink, as with the blink spell.
-Ring of Chameleon Power															TYPE:Magic.Ring	COST:12700	WT:.02	SOURCEPAGE:p.352																							SPROP:As a free action, the wearer of this ring can gain the ability to magically blend in with the surroundings. This provides a +10 competence bonus on her Stealth checks. As a standard action, she can also command the ring to utilize the spell disguise self as ofen as she wants.
-Ring of Climbing																TYPE:Magic.Ring	COST:2500	WT:.02	SOURCEPAGE:p.352							BONUS:SKILL|Climb|5|TYPE=Competence
-Ring of Climbing (Improved)				OUTPUTNAME:Ring Of Climbing, Improved				TYPE:Magic.Ring	COST:10000	WT:.02	SOURCEPAGE:p.352							BONUS:SKILL|Climb|10|TYPE=Competence
-Ring of Counterspells															TYPE:Magic.Ring	COST:4000	WT:.02	SOURCEPAGE:p.352																							SPROP:Counterspells any spell stored in ring when next cast on wearer.
-Ring of Djinni Calling															TYPE:Magic.Ring	COST:125000	WT:.02	SOURCEPAGE:p.352																							SPROP:When  the  ring  is  rubbed, the djinni appears on the next round.
-Ring of Energy Resistance (Minor/Acid)		OUTPUTNAME:Ring of Acid Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
-Ring of Energy Resistance (Major/Acid)		OUTPUTNAME:Ring of Acid Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
-Ring of Energy Resistance (Greater/Acid)		OUTPUTNAME:Ring of Acid Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
-Ring of Energy Resistance (Minor/Cold)		OUTPUTNAME:Ring of Cold Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
-Ring of Energy Resistance (Major/Cold)		OUTPUTNAME:Ring of Cold Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
-Ring of Energy Resistance (Greater/Cold)		OUTPUTNAME:Ring of Cold Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
-Ring of Energy Resistance (Minor/Electricity)	OUTPUTNAME:Ring of Electricity Energy Resistance, Minor	TYPE:Magic.Ring	COST:12000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
-Ring of Energy Resistance (Major/Electricity)	OUTPUTNAME:Ring of Electricity Energy Resistance, Major	TYPE:Magic.Ring	COST:28000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
-Ring of Energy Resistance (Greater/Electricity)	OUTPUTNAME:Ring of Electricity Energy Resistance, Greater	TYPE:Magic.Ring	COST:44000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
-Ring of Energy Resistance (Minor/Fire)		OUTPUTNAME:Ring of Fire Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
-Ring of Energy Resistance (Major/Fire)		OUTPUTNAME:Ring of Fire Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
-Ring of Energy Resistance (Greater/Fire)		OUTPUTNAME:Ring of Fire Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
-Ring of Energy Resistance (Minor/Sonic)		OUTPUTNAME:Ring of Sonic Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
-Ring of Energy Resistance (Major/Sonic)		OUTPUTNAME:Ring of Sonic Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
-Ring of Energy Resistance (Greater/Sonic)		OUTPUTNAME:Ring of Sonic Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
-Ring of Evasion																TYPE:Magic.Ring	COST:25000	WT:.02	SOURCEPAGE:p.352																							SPROP:This ring continually grants the wearer the ability to avoid damage as if she had evasion.
-Ring of Feather Falling															TYPE:Magic.Ring	COST:2200	WT:.02	SOURCEPAGE:p.352																							SPROP:Acts as  feather  fall  spell,  activated  immediately  if  the wearer  falls more than 5 feet.
-Ring of Force Shield															TYPE:Magic.Ring	COST:8500	WT:.02	SOURCEPAGE:p.353	BONUS:COMBAT|AC|2|TYPE=Shield
-Ring of Freedom of Movement														TYPE:Magic.Ring	COST:40000	WT:.02	SOURCEPAGE:p.353																							SPROP:This gold ring allows the wearer to act as if continually under the effect of a freedom of movement spell.
-Ring of Friend Shield															TYPE:Magic.Ring	COST:25000	WT:.02	SOURCEPAGE:p.353																							SPROP:Either wearer of one of a pair of  the  rings  can, at any time, command his ring to cast a Shield Other spell with the wearer of the mated ring as the recipient.
-Ring of Invisibility															TYPE:Magic.Ring	COST:20000	WT:.02	SOURCEPAGE:p.353																							SPROP:By activating this simple silver ring, the wearer can beneft from Invisibility, as the spell.
-Ring of Jumping																TYPE:Magic.Ring	COST:2500	WT:.02	SOURCEPAGE:p.353							BONUS:SKILL|Acrobatics (Jump)|5|TYPE=Competence
-Ring of Jumping (Improved)				OUTPUTNAME:Ring of Jumping, [NAME]					TYPE:Magic.Ring	COST:10000	WT:.02	SOURCEPAGE:p.354							BONUS:SKILL|Acrobatics (Jump)|10|TYPE=Competence
-Ring of Mind Shielding															TYPE:Magic.Ring	COST:8000	WT:.02	SOURCEPAGE:p.354																							SPROP:The wearer is continually immune to detect thoughts, discern lies, and any attempt to magically discern her alignment.
-Ring of Protection +1															TYPE:Magic.Ring	COST:2000	WT:.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|1|TYPE=Deflection
-Ring of Protection +2															TYPE:Magic.Ring	COST:8000	WT:.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|2|TYPE=Deflection
-Ring of Protection +3															TYPE:Magic.Ring	COST:18000	WT:.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|3|TYPE=Deflection
-Ring of Protection +4															TYPE:Magic.Ring	COST:32000	WT:.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|4|TYPE=Deflection
-Ring of Protection +5															TYPE:Magic.Ring	COST:50000	WT:.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|5|TYPE=Deflection
-Ring of Regeneration															TYPE:Magic.Ring	COST:90000	WT:.02	SOURCEPAGE:p.354																							SPROP:Living wearer heals 1 point of damage per level every hour. Nonlethal damage heals same per 5 minutes. If the wearer loses a limb, an organ, or any other body part while wearing this ring, the ring regenerates it as the  spell.
-Ring of Spell Turning															TYPE:Magic.Ring	COST:100000	WT:.02	SOURCEPAGE:p.354																							SPROP:3/day on  command, automatically  refects  the  next  nine  levels  of  spells  cast  at  the wearer, exactly as if spell turning had been cast upon the wearer.
-Ring of Sustenance															TYPE:Magic.Ring	COST:2500	WT:.02	SOURCEPAGE:p.354																							SPROP:This ring continually provides its wearer with life-sustaining nourishment.
-Ring of Swimming																TYPE:Magic.Ring	COST:2500	WT:.02	SOURCEPAGE:p.354							BONUS:SKILL|Swim|5|TYPE=Competence
-Ring of Swimming (Improved)				OUTPUTNAME:Ring of Swimming, [NAME]					TYPE:Magic.Ring	COST:10000	WT:.02	SOURCEPAGE:p.354							BONUS:SKILL|Swim|10|TYPE=Competence
-Ring of Telekinesis															TYPE:Magic.Ring	COST:75000	WT:.02	SOURCEPAGE:p.354
-Ring of Three Wishes															TYPE:Magic.Ring	COST:120000	WT:.02	SOURCEPAGE:p.354
-Ring of Water Walking															TYPE:Magic.Ring	COST:15000	WT:.02	SOURCEPAGE:p.355																							SPROP:Allows the wearer to continually utilize the effects of the spell Water Walk.
-Ring of Wizardry I															TYPE:Magic.Ring	COST:20000	WT:.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2
-Ring of Wizardry II															TYPE:Magic.Ring	COST:40000	WT:.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=2|2
-Ring of Wizardry III															TYPE:Magic.Ring	COST:70000	WT:.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=3|2
-Ring of Wizardry IV															TYPE:Magic.Ring	COST:100000	WT:.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=4|2
-Ring of X Ray Vision					OUTPUTNAME:Ring of X-Ray Vision					TYPE:Magic.Ring	COST:25000	WT:.02	SOURCEPAGE:p.355																							SPROP:On  command, this  ring  gives its  possessor  the  ability  to  see  into  and through solid matter.
+Ring of Animal Friendship														TYPE:Magic.Ring	COST:10800	WT:0.02	SOURCEPAGE:p.351																							SPROP:On command, this ring affects an animal as if the wearer had cast charm animal.
+Ring of Blinking																TYPE:Magic.Ring	COST:27000	WT:0.02	SOURCEPAGE:p.352																							SPROP:On command, this ring makes the wearer blink, as with the blink spell.
+Ring of Chameleon Power															TYPE:Magic.Ring	COST:12700	WT:0.02	SOURCEPAGE:p.352																							SPROP:As a free action, the wearer of this ring can gain the ability to magically blend in with the surroundings. This provides a +10 competence bonus on her Stealth checks. As a standard action, she can also command the ring to utilize the spell disguise self as ofen as she wants.
+Ring of Climbing																TYPE:Magic.Ring	COST:2500	WT:0.02	SOURCEPAGE:p.352							BONUS:SKILL|Climb|5|TYPE=Competence
+Ring of Climbing (Improved)				OUTPUTNAME:Ring Of Climbing, Improved				TYPE:Magic.Ring	COST:10000	WT:0.02	SOURCEPAGE:p.352							BONUS:SKILL|Climb|10|TYPE=Competence
+Ring of Counterspells															TYPE:Magic.Ring	COST:4000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Counterspells any spell stored in ring when next cast on wearer.
+Ring of Djinni Calling															TYPE:Magic.Ring	COST:125000	WT:0.02	SOURCEPAGE:p.352																							SPROP:When  the  ring  is  rubbed, the djinni appears on the next round.
+Ring of Energy Resistance (Minor/Acid)		OUTPUTNAME:Ring of Acid Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
+Ring of Energy Resistance (Major/Acid)		OUTPUTNAME:Ring of Acid Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
+Ring of Energy Resistance (Greater/Acid)		OUTPUTNAME:Ring of Acid Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
+Ring of Energy Resistance (Minor/Cold)		OUTPUTNAME:Ring of Cold Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
+Ring of Energy Resistance (Major/Cold)		OUTPUTNAME:Ring of Cold Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
+Ring of Energy Resistance (Greater/Cold)		OUTPUTNAME:Ring of Cold Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
+Ring of Energy Resistance (Minor/Electricity)	OUTPUTNAME:Ring of Electricity Energy Resistance, Minor	TYPE:Magic.Ring	COST:12000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
+Ring of Energy Resistance (Major/Electricity)	OUTPUTNAME:Ring of Electricity Energy Resistance, Major	TYPE:Magic.Ring	COST:28000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
+Ring of Energy Resistance (Greater/Electricity)	OUTPUTNAME:Ring of Electricity Energy Resistance, Greater	TYPE:Magic.Ring	COST:44000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
+Ring of Energy Resistance (Minor/Fire)		OUTPUTNAME:Ring of Fire Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
+Ring of Energy Resistance (Major/Fire)		OUTPUTNAME:Ring of Fire Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
+Ring of Energy Resistance (Greater/Fire)		OUTPUTNAME:Ring of Fire Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
+Ring of Energy Resistance (Minor/Sonic)		OUTPUTNAME:Ring of Sonic Energy Resistance, Minor		TYPE:Magic.Ring	COST:12000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 10
+Ring of Energy Resistance (Major/Sonic)		OUTPUTNAME:Ring of Sonic Energy Resistance, Major		TYPE:Magic.Ring	COST:28000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 20
+Ring of Energy Resistance (Greater/Sonic)		OUTPUTNAME:Ring of Sonic Energy Resistance, Greater		TYPE:Magic.Ring	COST:44000	WT:0.02	SOURCEPAGE:p.352																							SPROP:Grants Energy Resistance 30
+Ring of Evasion																TYPE:Magic.Ring	COST:25000	WT:0.02	SOURCEPAGE:p.352																							SPROP:This ring continually grants the wearer the ability to avoid damage as if she had evasion.
+Ring of Feather Falling															TYPE:Magic.Ring	COST:2200	WT:0.02	SOURCEPAGE:p.352																							SPROP:Acts as  feather  fall  spell,  activated  immediately  if  the wearer  falls more than 5 feet.
+Ring of Force Shield															TYPE:Magic.Ring	COST:8500	WT:0.02	SOURCEPAGE:p.353	BONUS:COMBAT|AC|2|TYPE=Shield
+Ring of Freedom of Movement														TYPE:Magic.Ring	COST:40000	WT:0.02	SOURCEPAGE:p.353																							SPROP:This gold ring allows the wearer to act as if continually under the effect of a freedom of movement spell.
+Ring of Friend Shield															TYPE:Magic.Ring	COST:25000	WT:0.02	SOURCEPAGE:p.353																							SPROP:Either wearer of one of a pair of  the  rings  can, at any time, command his ring to cast a Shield Other spell with the wearer of the mated ring as the recipient.
+Ring of Invisibility															TYPE:Magic.Ring	COST:20000	WT:0.02	SOURCEPAGE:p.353																							SPROP:By activating this simple silver ring, the wearer can beneft from Invisibility, as the spell.
+Ring of Jumping																TYPE:Magic.Ring	COST:2500	WT:0.02	SOURCEPAGE:p.353							BONUS:SKILL|Acrobatics (Jump)|5|TYPE=Competence
+Ring of Jumping (Improved)				OUTPUTNAME:Ring of Jumping, [NAME]					TYPE:Magic.Ring	COST:10000	WT:0.02	SOURCEPAGE:p.354							BONUS:SKILL|Acrobatics (Jump)|10|TYPE=Competence
+Ring of Mind Shielding															TYPE:Magic.Ring	COST:8000	WT:0.02	SOURCEPAGE:p.354																							SPROP:The wearer is continually immune to detect thoughts, discern lies, and any attempt to magically discern her alignment.
+Ring of Protection +1															TYPE:Magic.Ring	COST:2000	WT:0.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|1|TYPE=Deflection
+Ring of Protection +2															TYPE:Magic.Ring	COST:8000	WT:0.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|2|TYPE=Deflection
+Ring of Protection +3															TYPE:Magic.Ring	COST:18000	WT:0.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|3|TYPE=Deflection
+Ring of Protection +4															TYPE:Magic.Ring	COST:32000	WT:0.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|4|TYPE=Deflection
+Ring of Protection +5															TYPE:Magic.Ring	COST:50000	WT:0.02	SOURCEPAGE:p.354	BONUS:COMBAT|AC|5|TYPE=Deflection
+Ring of Regeneration															TYPE:Magic.Ring	COST:90000	WT:0.02	SOURCEPAGE:p.354																							SPROP:Living wearer heals 1 point of damage per level every hour. Nonlethal damage heals same per 5 minutes. If the wearer loses a limb, an organ, or any other body part while wearing this ring, the ring regenerates it as the  spell.
+Ring of Spell Turning															TYPE:Magic.Ring	COST:100000	WT:0.02	SOURCEPAGE:p.354																							SPROP:3/day on  command, automatically  refects  the  next  nine  levels  of  spells  cast  at  the wearer, exactly as if spell turning had been cast upon the wearer.
+Ring of Sustenance															TYPE:Magic.Ring	COST:2500	WT:0.02	SOURCEPAGE:p.354																							SPROP:This ring continually provides its wearer with life-sustaining nourishment.
+Ring of Swimming																TYPE:Magic.Ring	COST:2500	WT:0.02	SOURCEPAGE:p.354							BONUS:SKILL|Swim|5|TYPE=Competence
+Ring of Swimming (Improved)				OUTPUTNAME:Ring of Swimming, [NAME]					TYPE:Magic.Ring	COST:10000	WT:0.02	SOURCEPAGE:p.354							BONUS:SKILL|Swim|10|TYPE=Competence
+Ring of Telekinesis															TYPE:Magic.Ring	COST:75000	WT:0.02	SOURCEPAGE:p.354
+Ring of Three Wishes															TYPE:Magic.Ring	COST:120000	WT:0.02	SOURCEPAGE:p.354
+Ring of Water Walking															TYPE:Magic.Ring	COST:15000	WT:0.02	SOURCEPAGE:p.355																							SPROP:Allows the wearer to continually utilize the effects of the spell Water Walk.
+Ring of Wizardry I															TYPE:Magic.Ring	COST:20000	WT:0.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2
+Ring of Wizardry II															TYPE:Magic.Ring	COST:40000	WT:0.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=2|2
+Ring of Wizardry III															TYPE:Magic.Ring	COST:70000	WT:0.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=3|2
+Ring of Wizardry IV															TYPE:Magic.Ring	COST:100000	WT:0.02	SOURCEPAGE:p.355																BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=4|2
+Ring of X Ray Vision					OUTPUTNAME:Ring of X-Ray Vision					TYPE:Magic.Ring	COST:25000	WT:0.02	SOURCEPAGE:p.355																							SPROP:On  command, this  ring  gives its  possessor  the  ability  to  see  into  and through solid matter.

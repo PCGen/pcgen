@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 29 14:23:06 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:02:30 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder RPG (Beta Playtest Edition)	SOURCESHORT:PFRPGB	SOURCEWEB:http://paizo.com/store/downloads/pathfinderRPG/v5748btpy84o0	SOURCEDATE:2008-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -23,16 +23,16 @@ Mindless		VISIBLE:NO	DEFINE:LOCK.INT|10	DEFINE:LOCK.CHA|10
 
 
 ###Block: Starting Hit Points
-# Template Name				Visible		Template																							Source Page		Required Class				Prohibited Template															Bonus to HP
-Starting Hit Points (Double)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Double Starting Hit Points 6HD|Double Starting Hit Points 8HD|Double Starting Hit Points 10HD|Double Starting Hit Points 12HD	SOURCEPAGE:p.14							!PRETEMPLATE:1,Starting Hit Points (Racial),Starting Hit Points (Flat),Starting Hit Points (Constitution)
-Starting Hit Points (Racial)		VISIBLE:DISPLAY																									SOURCEPAGE:p.14							!PRETEMPLATE:1,Starting Hit Points (Double),Starting Hit Points (Flat),Starting Hit Points (Constitution)	BONUS:HP|CURRENTMAX|4|PRERACE:1,Elf,Gnome,Halfling	BONUS:HP|CURRENTMAX|6|!PRERACE:1,Elf,Gnome,Halfling,Dwarf,Half-Orc	BONUS:HP|CURRENTMAX|8|PRERACE:1,Dwarf,Half-Orc
-Starting Hit Points (Flat)		VISIBLE:DISPLAY																									SOURCEPAGE:p.14							!PRETEMPLATE:1,Starting Hit Points (Double),Starting Hit Points (Racial),Starting Hit Points (Constitution)	BONUS:HP|CURRENTMAX|6
-Starting Hit Points (Constitution)	VISIBLE:DISPLAY																									SOURCEPAGE:p.14							!PRETEMPLATE:1,Starting Hit Points (Double),Starting Hit Points (Racial),Starting Hit Points (Flat)		BONUS:HP|CURRENTMAX|CONSCORE-CON
+# Template Name				Visible		Template																							Source Page		Required Class						Prohibited Template															Bonus to HP
+Starting Hit Points (Double)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Double Starting Hit Points 6HD|Double Starting Hit Points 8HD|Double Starting Hit Points 10HD|Double Starting Hit Points 12HD	SOURCEPAGE:p.14									!PRETEMPLATE:1,Starting Hit Points (Racial),Starting Hit Points (Flat),Starting Hit Points (Constitution)
+Starting Hit Points (Racial)		VISIBLE:DISPLAY																									SOURCEPAGE:p.14									!PRETEMPLATE:1,Starting Hit Points (Double),Starting Hit Points (Flat),Starting Hit Points (Constitution)	BONUS:HP|CURRENTMAX|4|PRERACE:1,Elf,Gnome,Halfling	BONUS:HP|CURRENTMAX|6|!PRERACE:1,Elf,Gnome,Halfling,Dwarf,Half-Orc	BONUS:HP|CURRENTMAX|8|PRERACE:1,Dwarf,Half-Orc
+Starting Hit Points (Flat)		VISIBLE:DISPLAY																									SOURCEPAGE:p.14									!PRETEMPLATE:1,Starting Hit Points (Double),Starting Hit Points (Racial),Starting Hit Points (Constitution)	BONUS:HP|CURRENTMAX|6
+Starting Hit Points (Constitution)	VISIBLE:DISPLAY																									SOURCEPAGE:p.14									!PRETEMPLATE:1,Starting Hit Points (Double),Starting Hit Points (Racial),Starting Hit Points (Flat)		BONUS:HP|CURRENTMAX|CONSCORE-CON
 
-Double Starting Hit Points 6HD	VISIBLE:NO																													PRECLASS:1,Bard,Sorcerer,Wizard																			BONUS:HP|CURRENTMAX|6
-Double Starting Hit Points 8HD	VISIBLE:NO																													PRECLASS:1,Cleric,Druid,Monk,Rogue																			BONUS:HP|CURRENTMAX|8
-Double Starting Hit Points 10HD	VISIBLE:NO																													PRECLASS:1,Fighter,Paladin,Ranger																			BONUS:HP|CURRENTMAX|10
-Double Starting Hit Points 12HD	VISIBLE:NO																													PRECLASS:1,Barbarian																					BONUS:HP|CURRENTMAX|12
+Double Starting Hit Points 6HD	VISIBLE:NO																													PRECLASS:1,Bard=1,Sorcerer=1,Wizard=1																				BONUS:HP|CURRENTMAX|6
+Double Starting Hit Points 8HD	VISIBLE:NO																													PRECLASS:1,Cleric=1,Druid=1,Monk=1,Rogue=1																			BONUS:HP|CURRENTMAX|8
+Double Starting Hit Points 10HD	VISIBLE:NO																													PRECLASS:1,Fighter=1,Paladin=1,Ranger=1																				BONUS:HP|CURRENTMAX|10
+Double Starting Hit Points 12HD	VISIBLE:NO																													PRECLASS:1,Barbarian=1																							BONUS:HP|CURRENTMAX|12
 
 ###Block: Fractional Hit Die Adjustments for Monster classes
 # Template Name	Hit Dice Size			Visible
