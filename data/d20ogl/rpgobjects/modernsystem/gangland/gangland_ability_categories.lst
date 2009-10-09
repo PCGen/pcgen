@@ -3,4 +3,3 @@
 
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
 ABILITYCATEGORY:Criminal Record Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:CriminalRecord	PLURAL:Criminal Record Skills	DISPLAYLOCATION:Feats
-

@@ -10,10 +10,10 @@ CLASS:Starship Designer	PREFEAT:1,Starship Operation	PRESKILL:4,Craft (Mechanica
 CLASS:Starship Designer	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Repair|Research
 1	SAB:Starship Affinity +%|StarshipAffinity		BONUS:VAR|StarshipAffinity|CL/5+1	DEFINE:StarshipAffinity|0
 2	SAB:Bug Hunter (Starship) +%|BugHunterStarship	BONUS:VAR|BugHunterStarship|CL/2	DEFINE:BugHunterStarship|0
-3																				ADD:FEAT|1|TYPE.StarshipDesigner
-6																				ADD:FEAT|1|TYPE.StarshipDesigner
+3																				ADD:FEAT|TYPE=StarshipDesigner
+6																				ADD:FEAT|TYPE=StarshipDesigner
 7	SAB:Slipstream
-9																				ADD:FEAT|1|TYPE.StarshipDesigner
+9																				ADD:FEAT|TYPE=StarshipDesigner
 
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
@@ -24,7 +24,7 @@ CLASS:Starship Test Pilot	PREATT:2	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot
 CLASS:Starship Test Pilot	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
 1	SAB:Right Stuff+%|RightStuff	BONUS:VAR|RightStuff|CL/5+1	DEFINE:RightStuff|0
 2	SAB:Workaround +%|Workaround	BONUS:VAR|Workaround|CL/2	DEFINE:Workaround|0
-3															ADD:FEAT|1|TYPE.StarshipTestPilot
-6															ADD:FEAT|1|TYPE.StarshipTestPilot
+3															ADD:FEAT|TYPE=StarshipTestPilot
+6															ADD:FEAT|TYPE=StarshipTestPilot
 7	SAB:Outside of the Envelope
-9															ADD:FEAT|1|TYPE.StarshipTestPilot
+9															ADD:FEAT|TYPE=StarshipTestPilot

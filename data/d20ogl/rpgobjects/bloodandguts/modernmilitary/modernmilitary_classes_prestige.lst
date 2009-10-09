@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Thu Oct  8 21:44:19 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
@@ -11,16 +11,16 @@ CLASS:Air Force Combat Controllers	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Cl
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=MOS,TYPE=CombatControllers
-3	ADD:FEAT|1|TYPE=SpecOpsTraining
-4	ADD:FEAT|1|TYPE=MOS,TYPE=CombatControllers
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=MOS,TYPE=CombatControllers
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=MOS,TYPE=CombatControllers
-9	ADD:FEAT|1|TYPE=SpecOpsTraining
-10	ADD:FEAT|1|TYPE=MOS,TYPE=CombatControllers
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
+3	ADD:FEAT|TYPE=SpecOpsTraining
+4	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
+9	ADD:FEAT|TYPE=SpecOpsTraining
+10	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
 ###Block: Rest of progression
 3	SAB:Grace Under Pressure (Combat Controllers) %/day|GraceUnderPressureCombatContoller	BONUS:VAR|GraceUnderPressureCombatContoller|1	DEFINE:GraceUnderPressureCombatContoller|0
 5																BONUS:VAR|HastyConstruction|-(CL*2)											AUTO:FEAT|Hasty Construction
@@ -36,16 +36,16 @@ CLASS:Air Force Pararescue	STARTSKILLPTS:8	CSKILL:Climb|Communication Operations
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=Pararescue,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining
-4	ADD:FEAT|1|TYPE=Pararescue,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=Pararescue,TYPE=MOS
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=Pararescue,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining
-10	ADD:FEAT|1|TYPE=Pararescue,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
+3	ADD:FEAT|TYPE=SpecOpsTraining
+4	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
+9	ADD:FEAT|TYPE=SpecOpsTraining
+10	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
 ###Block: Rest of progression
 3	SAB:Grace Under Pressure (Pararescue) %/day|GraceUnderPressurePararescue	BONUS:VAR|GraceUnderPressurePararescue|1	DEFINE:GraceUnderPressurePararescue|0
 5	SAB:Bush Medicine
@@ -61,16 +61,16 @@ CLASS:Army 75th Ranger Regiment	STARTSKILLPTS:4	CSKILL:Balance|Climb|Demolitions
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=Ranger,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
-4	ADD:FEAT|1|TYPE=Ranger,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
-6	ADD:FEAT|1|TYPE=Ranger,TYPE=MOS
-7	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
-8	ADD:FEAT|1|TYPE=Ranger,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
-10	ADD:FEAT|1|TYPE=Ranger,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=MOS,TYPE=Ranger
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
+4	ADD:FEAT|TYPE=MOS,TYPE=Ranger
+5	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
+6	ADD:FEAT|TYPE=MOS,TYPE=Ranger
+7	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
+8	ADD:FEAT|TYPE=MOS,TYPE=Ranger
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
+10	ADD:FEAT|TYPE=MOS,TYPE=Ranger
 ###Block: Rest of progression
 1	SAB:Death from Above
 
@@ -85,7 +85,7 @@ CLASS:Army 160th SOAR	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Climb|Communica
 ###Block: Normal progression
 1						BONUS:VAR|Strafing|CL/4+1									AUTO:FEAT|Strafing
 2	SAB:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL+7)/3	DEFINE:AirSupport|0
-3															ADD:FEAT|1|TYPE=SOAR
+3															ADD:FEAT|TYPE=SOAR
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Army Delta Force	HD:12		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
@@ -96,15 +96,15 @@ CLASS:Army Delta Force	STARTSKILLPTS:6	CSKILL:Climb|Decipher Script|Demolitions|
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-3	ADD:FEAT|1|TYPE=SpecOpsTraining
-4	ADD:FEAT|1|TYPE=DeltaForce,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=DeltaForce,TYPE=MOS
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=DeltaForce,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining
-10	ADD:FEAT|1|TYPE=DeltaForce,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+3	ADD:FEAT|TYPE=SpecOpsTraining
+4	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
+9	ADD:FEAT|TYPE=SpecOpsTraining
+10	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
 ###Block: Rest of progression
 1	SAB:Counter Terrorist +%|CounterTerrorist	BONUS:VAR|CounterTerrorist|(CL+1)/2	DEFINE:CounterTerrorist|0
 2								BONUS:VAR|HostageRescue|CL		DEFINE:HostageRescue|0		AUTO:FEAT|Hostage Rescue
@@ -119,59 +119,59 @@ CLASS:Marine Force Recon	STARTSKILLPTS:5	CSKILL:Climb|Communication Operations|C
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=ForceRecon,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
-4	ADD:FEAT|1|TYPE=ForceRecon,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=Terrain
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=Terrain
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=ForceRecon,TYPE=MOS
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
+4	ADD:FEAT|TYPE=ForceRecon,TYPE=MOS
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=Terrain
+7	ADD:FEAT|TYPE=SpecOpsTraining
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
 ###Block: Rest of progression
 5	SAB:Grace Under Pressure (Marine Force Recon) %/day|GraceUnderPressureForceRecon	BONUS:VAR|GraceUnderPressureForceRecon|CL/5	DEFINE:GraceUnderPressureForceRecon|0
 8	SAB:Esprit de Corps
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Navy SEAL	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name	Req. Att.	Required Feat																					Required Skill										Required Text
-CLASS:Navy SEAL	PREATT:8	PREFEAT:6,Personal Firearms Proficiency,Surface Vehicle Operation(Powerboat),Teamwork,MOS Diver 3,Amphibious Assault Training,Jump School	PRESKILL:5,Demolitions=8,Disable Device=8,Swim=8,Hide=5,Move Silently=5	PRETEXT:Active Duty (Navy)
+# Class Name	Req. Att.	Required Feat																						Required Skill										Required Text
+CLASS:Navy SEAL	PREATT:8	PREFEAT:6,Personal Firearms Proficiency,Surface Vehicle Operation (Powerboat),Teamwork,MOS Diver 3,Amphibious Assault Training,Jump School	PRESKILL:5,Demolitions=8,Disable Device=8,Swim=8,Hide=5,Move Silently=5	PRETEXT:Active Duty (Navy)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Navy SEAL	STARTSKILLPTS:6	CSKILL:Climb|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Hide|Intimidate|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Search|Survival|Spot|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=SEAL,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining
-4	ADD:FEAT|1|TYPE=SEAL,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=SEAL,TYPE=MOS
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=SEAL,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining
-10	ADD:FEAT|1|TYPE=SEAL,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=MOS,TYPE=SEAL
+3	ADD:FEAT|TYPE=SpecOpsTraining
+4	ADD:FEAT|TYPE=MOS,TYPE=SEAL
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=MOS,TYPE=SEAL
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=MOS,TYPE=SEAL
+9	ADD:FEAT|TYPE=SpecOpsTraining
+10	ADD:FEAT|TYPE=MOS,TYPE=SEAL
 ###Block: Rest of progression
 1	SAB:Amphibious	BONUS:VAR|AmphibiousTraining|(CL+3)/2
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Navy Special Boats Unit	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
 # Class Name			Req. Att.	Required Feat																						Required Skill						Required Text
-CLASS:Navy Special Boats Unit	PREATT:5	PREFEAT:5,Personal Firearms Proficiency,Surface Vehicle Operation(Powerboat),Teamwork,Amphibious Assault Training,Jungle/Swamp Warfare College	PRESKILL:3,Drive=8,Swim=8,Knowledge (Tactics)=5	PRETEXT:Active Duty (Navy)
+CLASS:Navy Special Boats Unit	PREATT:5	PREFEAT:5,Personal Firearms Proficiency,Surface Vehicle Operation (Powerboat),Teamwork,Amphibious Assault Training,Jungle/Swamp Warfare College	PRESKILL:3,Drive=8,Swim=8,Knowledge (Tactics)=5	PRETEXT:Active Duty (Navy)
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Navy Special Boats Unit	STARTSKILLPTS:4	CSKILL:Climb|Demolitions|Disable Device|Drive|Hide|Intimidate|Jump|Knowledge (Tactics)|Move Silently|Navigate|Repair|Search|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=SpecialBoat,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=NavyBoat
-4	ADD:FEAT|1|TYPE=SpecialBoat,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=NavyBoat
-6	ADD:FEAT|1|TYPE=SpecialBoat,TYPE=MOS
-7	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=NavyBoat
-8	ADD:FEAT|1|TYPE=SpecialBoat,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=NavyBoat
-10	ADD:FEAT|1|TYPE=SpecialBoat,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
+4	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
+5	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
+6	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
+7	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
+8	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
+10	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
 ###Block: Rest of progression
 3	SAB:River Warfare
 
@@ -184,16 +184,16 @@ CLASS:Sniper	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intimidate|Jump|Knowledge (Tactic
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=Sniper,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining
-4	ADD:FEAT|1|TYPE=Sniper,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=Sniper,TYPE=MOS
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=Sniper,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining
-10	ADD:FEAT|1|TYPE=Sniper,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=MOS,TYPE=Sniper
+3	ADD:FEAT|TYPE=SpecOpsTraining
+4	ADD:FEAT|TYPE=MOS,TYPE=Sniper
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=MOS,TYPE=Sniper
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=MOS,TYPE=Sniper
+9	ADD:FEAT|TYPE=SpecOpsTraining
+10	ADD:FEAT|TYPE=MOS,TYPE=Sniper
 ###Block: Rest of progression
 1	SAB:One Shot One Kill %d6|OneShotOneKill	BONUS:VAR|OneShotOneKill|(CL+1)/2	DEFINE:OneShotOneKill|0
 
@@ -206,16 +206,16 @@ CLASS:Special Forces Communications Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Commun
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-4	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:FEAT|1|TYPE=CrossTraining
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-10	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+4	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+10	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Communications)
 3	SAB:Cross Training
@@ -230,16 +230,16 @@ CLASS:Special Forces Engineering Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Me
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-4	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:FEAT|1|TYPE=CrossTraining
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-10	ADD:FEAT|1|TYPE=CommunicationsSergeant,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+4	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+10	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Engineering)
 3	SAB:Cross Training
@@ -255,16 +255,16 @@ CLASS:Special Forces Intelligence Specialist	STARTSKILLPTS:8	CSKILL:Climb|Demoli
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=IntelligenceSpecialist,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-4	ADD:FEAT|1|TYPE=IntelligenceSpecialist,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=IntelligenceSpecialist,TYPE=MOS	ADD:FEAT|1|TYPE=CrossTraining
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=IntelligenceSpecialist,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-10	ADD:FEAT|1|TYPE=IntelligenceSpecialist,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+4	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+10	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Intelligence)
 3	SAB:Cross Training
@@ -279,15 +279,15 @@ CLASS:Special Forces Medical Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Chemic
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=MedicalSergeant,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-4	ADD:FEAT|1|TYPE=MedicalSergeant,TYPE=MOS
-6	ADD:FEAT|1|TYPE=MedicalSergeant,TYPE=MOS	ADD:FEAT|1|TYPE=CrossTraining
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=MedicalSergeant,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-10	ADD:FEAT|1|TYPE=MedicalSergeant,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+4	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
+6	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+10	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Meidcal)
 3	SAB:Cross Training
@@ -295,23 +295,23 @@ CLASS:Special Forces Medical Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Chemic
 
 # Class Name					Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Special Forces Weapons Sergeant	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name					Req. Att.	Required Feat																																				Required Skill								Required Text
-CLASS:Special Forces Weapons Sergeant	PREATT:7	PREFEAT:5,Personal Firearms Proficiency,Teamwork,Jump School,MOS Infantry/Rifleman 2,Defense Language Institute	PREFEAT:1,Exotic Firearms Proficiency(M60),Exotic Firearms Proficiency(M723 LAW),Exotic Firearms Proficiency(M79)	PRESKILL:2,Craft (Structural)=5,Knowledge (Tactics)=10	PRETEXT:Active Duty (Army)
+# Class Name					Req. Att.	Required Feat																																					Required Skill								Required Text
+CLASS:Special Forces Weapons Sergeant	PREATT:7	PREFEAT:5,Personal Firearms Proficiency,Teamwork,Jump School,MOS Infantry/Rifleman 2,Defense Language Institute	PREFEAT:1,Exotic Firearms Proficiency (M60),Exotic Firearms Proficiency (M723 LAW),Exotic Firearms Proficiency (M79)	PRESKILL:2,Craft (Structural)=5,Knowledge (Tactics)=10	PRETEXT:Active Duty (Army)
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Special Forces Weapons Sergeant	STARTSKILLPTS:6	CSKILL:Climb|Craft (Structural)|Demolitions|Diplomacy|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-2	ADD:FEAT|1|TYPE=WeaponsSergeant,TYPE=MOS
-3	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-4	ADD:FEAT|1|TYPE=WeaponsSergeant,TYPE=MOS
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-6	ADD:FEAT|1|TYPE=WeaponsSergeant,TYPE=MOS	ADD:FEAT|1|TYPE=CrossTraining
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-8	ADD:FEAT|1|TYPE=WeaponsSergeant,TYPE=MOS
-9	ADD:FEAT|1|TYPE=SpecOpsTraining	ADD:FEAT|1|TYPE=CrossTraining
-10	ADD:FEAT|1|TYPE=WeaponsSergeant,TYPE=MOS
+1	ADD:FEAT|TYPE=SpecOpsTraining
+2	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
+3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+4	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
+5	ADD:FEAT|TYPE=SpecOpsTraining
+6	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant	ADD:FEAT|TYPE=CrossTraining
+7	ADD:FEAT|TYPE=SpecOpsTraining
+8	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
+9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
+10	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Weapons)
 3	SAB:Cross Training
@@ -326,11 +326,11 @@ CLASS:Strategist	STARTSKILLPTS:4	CSKILL:Bluff|Communication Operations|Diplomacy
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|1|TYPE=SpecOpsTraining
-3	ADD:FEAT|1|TYPE=SpecOpsTraining
-5	ADD:FEAT|1|TYPE=SpecOpsTraining
-7	ADD:FEAT|1|TYPE=SpecOpsTraining
-9	ADD:FEAT|1|TYPE=SpecOpsTraining
+1	ADD:FEAT|TYPE=SpecOpsTraining
+3	ADD:FEAT|TYPE=SpecOpsTraining
+5	ADD:FEAT|TYPE=SpecOpsTraining
+7	ADD:FEAT|TYPE=SpecOpsTraining
+9	ADD:FEAT|TYPE=SpecOpsTraining
 ###Block: Rest of progression
 1	SAB:Inspire Bravery +%|InspireBravery		BONUS:VAR|InspireBravery|2	DEFINE:InspireBravery|0
 2	SAB:Inspire Greatness %/day|InspireGreatness	BONUS:VAR|InspireGreatness|1	DEFINE:InspireGreatness|0

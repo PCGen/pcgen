@@ -10,11 +10,11 @@ CLASS:Mystery Man	PREATT:2	PREFEAT:2,Low Profile,Secret Identity (RPGO)	PRESKILL
 CLASS:Mystery Man	STARTSKILLPTS:7	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
 1	SAB:Persona
 2	SAB:Cloak of Secrecy
-3					ADD:FEAT|1|TYPE=MysteryMan
+3					ADD:FEAT|TYPE=MysteryMan
 4	SAB:Cloak of Fear
 5	SAB:Persona (2nd)
-6					ADD:FEAT|1|TYPE=MysteryMan
+6					ADD:FEAT|TYPE=MysteryMan
 7	SAB:Phantom
 8	SAB:Quick Change
-9					ADD:FEAT|1|TYPE=MysteryMan
+9					ADD:FEAT|TYPE=MysteryMan
 10	SAB:Persona (3rd)

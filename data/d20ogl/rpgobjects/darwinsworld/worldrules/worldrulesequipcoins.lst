@@ -3,4 +3,4 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCE
 # Original entry by wizofice2001
 
 # Equipment Name	Type		Cost		Weight	Source Page
-Coin (Corium)	TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.47
+Coin (Corium)	TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:p.47

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 21:55:45 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Oct  8 21:44:19 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 #Orginal entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHORT:DenizensTE	SOURCEWEB:http://www.darwinrpg.com
 
@@ -109,7 +109,7 @@ CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Juju Doctor	HD:4		TYPE:PC.Prestige	ABB:JJD		MAXLEVEL:10	SOURCEPAGE:p. 30, 31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat													Required Skill
+# Class Name	Required Feat														Required Skill
 CLASS:Juju Doctor	PREFEAT:3,Brew Potion,Skill Focus (Knowledge (Medicine)),Skill Focus (Knowledge (Pharmacy))	PRESKILL:3,Heal=9,Knowledge (Medicine)=9,Knowledge (Pharmacy)=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Juju Doctor	STARTSKILLPTS:2	CSKILL:Decipher Script|Heal|Knowledge (Ancient Lore)|Knowledge (Medicine)|Knowledge (Mutant Lore)|Knowledge (Pathology)|Knowledge (Pharmacy)|Perform|Profession (Herbalist)|Sense Motive|Speak Language
@@ -125,7 +125,7 @@ CLASS:Juju Doctor	STARTSKILLPTS:2	CSKILL:Decipher Script|Heal|Knowledge (Ancient
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Mech		HD:4		TYPE:PC.Prestige	ABB:Mec		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Required Feat											Required Language		Required Skill											Required Template
+# Class Name	Required Feat												Required Language		Required Skill											Required Template
 CLASS:Mech		PREFEAT:1,Skill Focus (Craft (Mechanics)),Skill Focus (Knowledge (Technology))	PRELANG:1,Computer	PRESKILL:3,Craft (Mechanics)=8,Craft (Technician)=8,Knowledge (Technology)=8	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mech		STARTSKILLPTS:4	CSKILL:TYPE=Craft|Decipher Script|Disable Device|Knowledge (Ancient Lore)|Knowledge (Computers)|Knowledge (Technology)|Open Lock|TYPE=Profession

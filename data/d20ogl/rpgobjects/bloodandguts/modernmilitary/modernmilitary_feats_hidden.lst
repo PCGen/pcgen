@@ -1,17 +1,17 @@
-# CVS $Revision$ $Author$ -- Tue Oct 21 17:53:57 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Thu Oct  8 21:44:19 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23
 # Original Entry by Paul W. King
 
-# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add 					Modify VAR
-Psychotherapy Qualify			TYPE:MedicalFeat		VISIBLE:NO	PREFEAT:1,Officer Candidate School																																	ADD:FEAT|1|Psychotherapy
-Surgery Qualify				TYPE:MedicalFeat		VISIBLE:NO	PREFEAT:1,Officer Candidate School																																	ADD:FEAT|1|Surgery
+# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add 				Modify VAR
+Psychotherapy Qualify			TYPE:MedicalFeat		VISIBLE:NO	PREFEAT:1,Officer Candidate School																																	ADD:FEAT|Psychotherapy
+Surgery Qualify				TYPE:MedicalFeat		VISIBLE:NO	PREFEAT:1,Officer Candidate School																																	ADD:FEAT|Surgery
 
-Advanced Amphibious Training		TYPE:Terrain.NavyBoat	VISIBLE:NO	PREFEAT:1,Amphibious Assault Training																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|AmphibiousTraining|1
-Advanced Arctic Training		TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Arctic Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|ArcticTraining|1
-Advanced Desert Training		TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Desert Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|DesertTraining|1
-Advanced Jungle/Swamp Training	TYPE:Terrain.NavyBoat	VISIBLE:NO	PREFEAT:1,Jungle/Swamp Warfare College																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|JungleTraining|1
-Advanced Mountain Training		TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Mountain Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|MountainTraining|1
-Advanced Urban Training			TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Urban Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:VAR|UrbanTraining|1
+Advanced Amphibious Training		TYPE:Terrain.NavyBoat	VISIBLE:NO	PREFEAT:1,Amphibious Assault Training																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AmphibiousTraining|1
+Advanced Arctic Training		TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Arctic Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ArcticTraining|1
+Advanced Desert Training		TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Desert Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|DesertTraining|1
+Advanced Jungle/Swamp Training	TYPE:Terrain.NavyBoat	VISIBLE:NO	PREFEAT:1,Jungle/Swamp Warfare College																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|JungleTraining|1
+Advanced Mountain Training		TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Mountain Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|MountainTraining|1
+Advanced Urban Training			TYPE:Terrain		VISIBLE:NO	PREFEAT:1,Urban Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|UrbanTraining|1
 
 Air Superiority				TYPE:Special		VISIBLE:NO								SAB:Air Superiority +%|AirSuperiority													DEFINE:AirSuperiority|0
 Strafing					TYPE:Special		VISIBLE:NO								SAB:Strafing +%|Strafing															DEFINE:Strafing|0

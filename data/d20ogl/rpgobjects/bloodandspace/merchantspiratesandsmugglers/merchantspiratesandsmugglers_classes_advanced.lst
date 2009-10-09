@@ -14,11 +14,11 @@ CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowled
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1		DEFINE:RageTimes|0		ABILITY:Special Ability|AUTOMATIC|Rage
 ###Block: Level Progression
 2	SAB:Tough Image
-3						ADD:FEAT|1|TYPE.Mercenary
+3						ADD:FEAT|TYPE=Mercenary
 5	SAB:Manhandle
-6						ADD:FEAT|1|TYPE.Mercenary
+6						ADD:FEAT|TYPE=Mercenary
 7	SAB:Improved Tough Image
-9						ADD:FEAT|1|TYPE.Mercenary
+9						ADD:FEAT|TYPE=Mercenary
 10	SAB:Soldier of Fortune
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
@@ -26,16 +26,16 @@ CLASS:Merchant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BA
 # Class Name	Required Feat		Required Skill
 CLASS:Merchant	PREFEAT:1,Trustworthy	PRESKILL:2,Bluff=6,Diplomacy=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE.Perform|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language
+CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE=Perform|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language
 1	SAB:1st Market
 2	SAB:Ear to the Ground
-3								ADD:FEAT|1|TYPE.Merchant
+3								ADD:FEAT|TYPE=Merchant
 4	SAB:2nd Market
 5	SAB:Money Talks
-6								ADD:FEAT|1|TYPE.Merchant
+6								ADD:FEAT|TYPE=Merchant
 7	SAB:Distribution Network
 8	SAB:3rd Market
-9								ADD:FEAT|1|TYPE.Merchant
+9								ADD:FEAT|TYPE=Merchant
 10	SAB:Starship	SAB:Maket Leverage
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
@@ -48,11 +48,11 @@ CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Devic
 1	BONUS:VAR|SneakAttack|CL/4+1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block:Normal Progression
 2	SAB:Black Sail	BONUS:VAR|LeadershipScore|CL					AUTO:FEAT|Henchmen
-3									ADD:FEAT|1|TYPE.Pirate
+3									ADD:FEAT|TYPE=Pirate
 5	SAB:Black Flag
-6									ADD:FEAT|1|TYPE.Pirate
+6									ADD:FEAT|TYPE=Pirate
 7	SAB:Pirate Lord										AUTO:FEAT|Sidekick
-9									ADD:FEAT|1|TYPE.Pirate
+9									ADD:FEAT|TYPE=Pirate
 10	SAB:Pirate King
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
@@ -63,8 +63,8 @@ CLASS:Smuggler	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot=6,Knowledge (Street
 CLASS:Smuggler	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Disguise|Forgery|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Navigate|Pilot|Sense Motive
 1	SAB:Concealed Cargo
 2	SAB:Blockade Runner +%|BlockadeRunner	BONUS:VAR|BlockadeRunner|floor(CL/2)*2	DEFINE:BlockadeRunner|0
-3																			ADD:FEAT|1|TYPE.Smuggler
+3																			ADD:FEAT|TYPE=Smuggler
 5	SAB:Hunk of Junk
-6																			ADD:FEAT|1|TYPE.Smuggler
+6																			ADD:FEAT|TYPE=Smuggler
 7	SAB:Black Market
-9																			ADD:FEAT|1|TYPE.Smuggler
+9																			ADD:FEAT|TYPE=Smuggler

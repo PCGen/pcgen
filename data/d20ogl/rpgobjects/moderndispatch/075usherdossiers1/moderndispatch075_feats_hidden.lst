@@ -5,4 +5,3 @@ SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1
 # Feat Name			Type			Visible	Special ABility										Define							Bonus to skill						Source Page
 Sneak Attack		TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie				DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0									SOURCEPAGE:ClassesII.rtf
 Tactical Expertise	TYPE:ClassAbility	VISIBLE:NO	SAB:Tactical Expertise, can command up to % characters|2*min(CHA,0)									BONUS:SKILL|Knowledge (Tactics)|Reputation
-

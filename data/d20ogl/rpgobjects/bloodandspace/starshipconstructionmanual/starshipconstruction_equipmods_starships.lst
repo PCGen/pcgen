@@ -5,4 +5,3 @@ SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SO
 ###Block:Attack
 # Modifier Name		Unique Key			Type					Visible		Source Page		Required Type			Special Property				Automatically Added to Inventory
 Slingshot Massdriver	KEY:ATTK_SLNG_MSSDRVR	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:p.11	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (Slingshot Massdriver)	AUTO:EQUIP|Slingshot Massdriver
-
