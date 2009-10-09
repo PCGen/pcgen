@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  4 23:30:21 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn and Tir-Gwaith
 
@@ -17,14 +17,14 @@ CLASS:Diamond Guardsman	HD:12		TYPE:PC.Prestige	ABB:DGu		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Diamond Guardsman	PREALIGN:LG,LN,NG,TN	PREATT:6	PREFEAT:2,Endurance,Diehard	PRERACE:1,Dwarf (DF)	PRETEXT:The character must be accepted for membership by the Diamond Guard of Aradath.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Concentration|Diplomacy|Jump|Listen|TYPE=Profession|Sense Motive|Spot|Swim
-1																											AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency														AUTO:WEAPONPROF|Murblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE=Martial
-1																											AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1																													AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency														AUTO:WEAPONPROF|Murblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE=Martial
+1																													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 1	SAB:Soul Blade (+%)|SoulBlade					BONUS:VAR|SoulBlade|(CL+1)/2	DEFINE:SoulBlade|0
-2	SAB:Shield Brother (full round action)|PREVARLT:CL,4														VFEAT:Combat Expertise
+2	SAB:Shield Brother (full round action)|PREVARLT:CL,4																VFEAT:Combat Expertise
 4	SAB:Shield Brother (standard action)|PREVARLT:CL,6
 6	SAB:Shield Brother (move action)
 8	SAB:Greater Combat Expertise
-10																			SPELLS:Class|Foresight
+10																			SPELLS:Class|TIMES=1|Foresight
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -316,7 +316,7 @@ CLASS:Diabolist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|
 3	SAB:Guardian Fiend				ADD:SPELLCASTER|Arcane
 4	SAB:Extend Summoning				ADD:SPELLCASTER|Arcane
 5								ADD:SPELLCASTER|Arcane
-6	SAB:Prepare Pit					ADD:SPELLCASTER|Arcane	SPELLS:Class|Unhallow
+6	SAB:Prepare Pit					ADD:SPELLCASTER|Arcane	SPELLS:Class|TIMES=1|Unhallow
 7	SAB:Quicken Summoning				ADD:SPELLCASTER|Arcane
 8								ADD:SPELLCASTER|Arcane
 9	SAB:Craft Pit					ADD:SPELLCASTER|Arcane									AUTO:FEAT|Craft Summoning Pit
@@ -455,7 +455,7 @@ CLASS:The Unbroken	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Concentration|Escape Artist
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Binder	HD:6		TYPE:PC.Prestige	ABB:Bind		MAXLEVEL:10	SOURCEPAGE:p.124	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat										Required Skill		Req. Spell Type
-CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus (Craft%)	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3Divine=3=1
+CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus (Craft%)	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3Divine=3=1=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Decipher Script|Gather Information|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 1	AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial

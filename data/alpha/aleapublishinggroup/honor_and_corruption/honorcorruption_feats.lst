@@ -6,7 +6,7 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 Bribery									TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack											PRESKILL:1,Diplomacy=1															DESC:You have trained yourself to more "diplomatic" rather than resulting to violent measures.			SOURCEPAGE:p.27
 Corrupted									TYPE:General																																	PREVARLTEQ:HonorScore,-1	DESC:You seek vile powers and creatures to further your path toward corruption.					SOURCEPAGE:p.27
 Fearsome Leader								TYPE:General													PREFEAT:1,Leadership																	PREVARLTEQ:HonorScore,-6	DESC:Your enemies are haunted by your daunting command.									SOURCEPAGE:p.28
-Heroic Leap									TYPE:General													PREFEAT:2,Honorable,Skill Focus(Jump)																			DESC:Your honorable heart can traverse many gorges.										SOURCEPAGE:p.28
+Heroic Leap									TYPE:General													PREFEAT:2,Honorable,Skill Focus (Jump)																			DESC:Your honorable heart can traverse many gorges.										SOURCEPAGE:p.28
 Honor										TYPE:General										PREALIGN:LG,LN,LE														PRESTAT:1,CHA=13										DESC:You are bound by a code greater then yourself.										SOURCEPAGE:p.28
 Honor Among Thieves							TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack																													DESC:Contrary to popular belief, you have and uphold a sense of honor with those that cross your path.	SOURCEPAGE:p.28
 Honorable									TYPE:General													PREFEAT:1,Honor														PREVARGTEQ:HonorScore,1						DESC:You are naturally honorable without having to do great deeds.							SOURCEPAGE:p.28

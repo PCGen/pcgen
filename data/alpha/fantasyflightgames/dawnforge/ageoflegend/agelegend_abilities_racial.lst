@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 17:08:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -326,7 +326,7 @@ Stormhaven		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	V
 ###Block: Lowlander Racial Transformations
 # Ability Name		Category of Ability		Type									Visible	Innate Spells							Multiple?	Ability																			Modify VAR																Source Page
 Black-Eyed			CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Command,11+CHA	MULT:NO																																						SOURCEPAGE:p.48
-Gold Blooded		CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES										MULT:NO	ABILITY:Special Ability|VIRTUAL|Resistance To Acid|Resistance To Cold|Resistance To Fire|Resistance To Electricity	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus,ElectricityResistanceBonus|1	SOURCEPAGE:p.48
+Gold Blooded		CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES										MULT:NO	ABILITY:Special Ability|VIRTUAL|Resistance To Acid|Resistance To Cold|Resistance To Electricity|Resistance To Fire	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus,ElectricityResistanceBonus|1	SOURCEPAGE:p.48
 ### Things to do here!!!!###
 Green Man's Chosen	CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES										MULT:NO																																						SOURCEPAGE:p.48
 Flowers on the Brow	CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES										MULT:NO																																						SOURCEPAGE:p.48
@@ -506,14 +506,14 @@ Tiefling Wings	OUTPUTNAME:Wings	CATEGORY:Special Ability	TYPE:TieflingRacialTran
 #################
 
 ###Block: Thinblood Racial Talents
-# Ability Name		Category of Ability		Type										Visible	Required Ability								Innate Spells			Stackable?	Multiple?	Choose		Source Page
-Friendly Advice		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Rapport			SPELLS:Innate|Suggestion	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
-Mesmerizing Motions	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Soothing Words		SPELLS:Innate|Hypnotism		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
-Rapport			CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Mesmerizing Motions	SPELLS:Innate|Charm Person	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
-Soothing Words		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																		MULT:NO				SOURCEPAGE:p.115
-Silent Slither		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																		MULT:NO				SOURCEPAGE:p.115
-Unseen Stillness		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Silent Slither									MULT:NO				SOURCEPAGE:p.115
-Wall Walking		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.SpellLike		VISIBLE:YES											SPELLS:Innate|Spider Climb	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+# Ability Name		Category of Ability		Type										Visible	Required Ability								Innate Spells				Stackable?	Multiple?	Choose		Source Page
+Friendly Advice		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Rapport			SPELLS:Innate|TIMES=1|Suggestion	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+Mesmerizing Motions	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Soothing Words		SPELLS:Innate|TIMES=1|Hypnotism	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+Rapport			CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Mesmerizing Motions	SPELLS:Innate|TIMES=1|Charm Person	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
+Soothing Words		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																			MULT:NO				SOURCEPAGE:p.115
+Silent Slither		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																			MULT:NO				SOURCEPAGE:p.115
+Unseen Stillness		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Silent Slither										MULT:NO				SOURCEPAGE:p.115
+Wall Walking		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.SpellLike		VISIBLE:YES											SPELLS:Innate|TIMES=1|Spider Climb	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
 
 ###Block: Thinblood Racial Transformations
 # Ability Name		Unique Key				Category of Ability		Type											Visible		Required Ability									Restricted Ability											Multiple?	Ability							Save checks bonus					Source Page

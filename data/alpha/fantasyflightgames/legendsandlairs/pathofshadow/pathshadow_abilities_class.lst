@@ -13,7 +13,7 @@ Noble Decoy Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:
 Ossorus Weapon Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
 Royal Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
 Sailmaster Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
-Unblinking Eye Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Simple|Longbow|Longbow (Composite)|Scimitar|Falchion
+Unblinking Eye Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longbow|Longbow (Composite)|Scimitar|Falchion|TYPE=Simple
 White Rose Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Longbow|Longbow (Composite)|Longsword|Quarterstaff|Rapier|Shortbow|Shortbow (Composite)|Sword (Short)
 
 #################
@@ -47,7 +47,7 @@ Close Call						CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO	
 One More Time					CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:One More Time (Su)										MULT:NO																		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Random Action					CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Random Action (Sp)		SPELLS:Class|TIMES=1|Random Action			MULT:NO																		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Acolyte of Chance Lightning Reflexes A	CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO	PREFEAT:1,Lightning Reflexes						!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)									MULT:NO									BONUS:CHECKS|Reflex|2						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Acolyte of Chance Lightning Reflexes B	CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)									MULT:NO				ADD:FEAT|1|Lightning Reflexes										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes B	CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)									MULT:NO				ADD:FEAT|Lightning Reflexes										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Dumb Luck						CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Dumb Luck (Ex)										MULT:NO																		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Vitality of Chance				CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Vitality of Chance (Ex)									MULT:NO													BONUS:VAR|VitalityChance|1	SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 
@@ -97,6 +97,3 @@ White Rose Favored Enemy four		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEne
 White Rose Favored Enemy five		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy four										BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
 #zzzz The Favored Enemy only works if the class prereqs are removed from the SRD ranger hidden feats.
 #zzzz Would prefer to have them removed from SRD, but could .MOD in worst case.....TBD
-
-
-

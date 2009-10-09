@@ -33,16 +33,16 @@ Powerful Charge (Large)		VISIBLE:NO	SAB:Powerful Charge (Ex)	PRESIZEEQ:L		BONUS:
 
 # Template Name						Visible	Template																Define				Required Var. value		Prohibited Var. Value		Favored Class
 Minotaur Favored Class					VISIBLE:NO	TEMPLATE:CHOOSE:Minotaur Favored Class (Class)|Minotaur Favored Class (Monster)				DEFINE:DoneMonsterProg|0
-Minotaur Favored Class (Class)			VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Minotaur|Barbarian
-Minotaur Favored Class (Monster)			VISIBLE:NO																												!PREVAREQ:DoneMonsterProg,1	FAVOREDCLASS:Minotaur
+Minotaur Favored Class (Class)			VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Barbarian|Minotaur
+Minotaur Favored Class (Monster)			VISIBLE:NO																												PREVARNEQ:DoneMonsterProg,1	FAVOREDCLASS:Minotaur
 
 Minotrice Favored Class					VISIBLE:NO	TEMPLATE:CHOOSE:Minotrice Favored Class (Class)|Minotrice Favored Class (Monster)				DEFINE:DoneMonsterProg|0
 Minotrice Favored Class (Class)			VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Minotrice|Rogue
-Minotrice Favored Class (Monster)			VISIBLE:NO																												!PREVAREQ:DoneMonsterProg,1	FAVOREDCLASS:Minotrice
+Minotrice Favored Class (Monster)			VISIBLE:NO																												PREVARNEQ:DoneMonsterProg,1	FAVOREDCLASS:Minotrice
 
 Minotrice Maze Mage Favored Class			VISIBLE:NO	TEMPLATE:CHOOSE:Minotrice Maze Mage Favored Class (Class)|Minotrice Maze Mage Favored Class (Monster)	DEFINE:DoneMonsterProg|0
-Minotrice Maze Mage Favored Class (Class)		VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Minotrice Maze Mage|Druid
-Minotrice Maze Mage Favored Class (Monster)	VISIBLE:NO																												!PREVAREQ:DoneMonsterProg,1	FAVOREDCLASS:Minotrice Maze Mage
+Minotrice Maze Mage Favored Class (Class)		VISIBLE:NO																							PREVAREQ:DoneMonsterProg,1						FAVOREDCLASS:Druid|Minotrice Maze Mage
+Minotrice Maze Mage Favored Class (Monster)	VISIBLE:NO																												PREVARNEQ:DoneMonsterProg,1	FAVOREDCLASS:Minotrice Maze Mage
 
 ###Block: Misc templates
 

@@ -7,9 +7,9 @@ CLASS:Republic Ranger	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.67	BONUS:C
 CLASS:Republic Ranger	PREATT:8	PREFEAT:2,Force of Law,Weapon Focus	PREMULT:2,[PRESKILL:1,Drive=6,Pilot=6,Ride=6],[PRESKILL:2,Intimidate=8,Knowledge (Civics)=8]	PRETEXT:Dawning Star Republic allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Republic Ranger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Computer Use|Demolitions|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (History)|Knowledge (Local)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Ride|Search|Sense Motive|Sleight of Hand|Spot|Survival|Swim|Treat Injury
-1	SAB:Ranger Reputation						ADD:ABILITY|1|Special Ability|NORMAL|TYPE=WordLaw
-2										ADD:ABILITY|1|Special Ability|NORMAL|Region Familiarity	ADD:VFEAT|1|Frightful Presence
-3	SAB:Posse								ADD:ABILITY|1|Special Ability|NORMAL|Greater Weapon Focus
+1	SAB:Ranger Reputation						ADD:ABILITY|Special Ability|NORMAL|TYPE=WordLaw
+2										ADD:ABILITY|Special Ability|NORMAL|Region Familiarity	ADD:VFEAT|Frightful Presence
+3	SAB:Posse								ADD:ABILITY|Special Ability|NORMAL|Greater Weapon Focus
 4	SAB:Improved Region Familiarity	SAB:Chosen Quarry
 5	SAB:Shield of the Law
 
@@ -20,8 +20,8 @@ CLASS:Velin Chief	PRECHECKBASE:1,Will=4	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,V
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Velin Chief	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Craft (Tribal)|Diplomacy|Handle Animal|Hide|Intimidate|Knowledge (Civics)|Knowledge (History)|Knowledge (Local)|Knowledge (Species)|Listen|Move Silently|Navigate|Perform (Act)|Perform (Dance)|Perform (Oratory)|Perform (Percussion Instruments)|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
 1			SAB:Chief Reputation	SAB:Tribal Authority
-2			SAB:Protect the Tribe					ADD:ABILITY|1|Special Ability|NORMAL|Region Familiarity
-3:REPEATLEVEL:3									ADD:FEAT|1|TYPE=VelinChief
+2			SAB:Protect the Tribe					ADD:ABILITY|Special Ability|NORMAL|Region Familiarity
+3:REPEATLEVEL:3									ADD:FEAT|TYPE=VelinChief
 4			SAB:Shield of Will
 5			SAB:Lead the Way
 7			SAB:Tribal Guard

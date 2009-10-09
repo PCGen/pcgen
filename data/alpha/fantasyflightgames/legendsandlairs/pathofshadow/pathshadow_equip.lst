@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 # Original entry by: Blithwyn
 
@@ -8,6 +8,6 @@ False Seal			TYPE:Goods.Tools.Thief			COST:75			SOURCEPAGE:Chap.4, The Rogue's T
 Gossamer Line (25 ft.)	TYPE:Goods.Tools.Thief			COST:25	WT:1.5	SOURCEPAGE:Chap.4, The Rogue's Tools
 Hanging Man's Harness	TYPE:Goods.Tools.Resizable.Thief	COST:35	WT:5		SOURCEPAGE:Chap.4, The Rogue's Tools
 Listening Cup		TYPE:Goods.Tools.Resizable.Thief	COST:5			SOURCEPAGE:Chap.4, The Rogue's Tools
-Lock Powder			TYPE:Goods.Tools.Resizable.Thief	COST:25	WT:.5		SOURCEPAGE:Chap.4, The Rogue's Tools
+Lock Powder			TYPE:Goods.Tools.Resizable.Thief	COST:25	WT:0.5	SOURCEPAGE:Chap.4, The Rogue's Tools
 Thief's Perfume		TYPE:Goods.Tools.Resizable.Thief	COST:50			SOURCEPAGE:Chap.4, The Rogue's Tools
 Trace Paper			TYPE:Goods.Tools.Resizable.Thief	COST:40			SOURCEPAGE:Chap.4, The Rogue's Tools

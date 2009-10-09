@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -160,17 +160,17 @@ Healing Earth III			TYPE:LegendaryHealingEarth.LandwalkerLAPL3	VISIBLE:NO	PRECLA
 Healing Earth IV			TYPE:LegendaryHealingEarth.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (4/day)																												SOURCEPAGE:p50
 Healing Earth V			TYPE:LegendaryHealingEarth.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (5/day)																												SOURCEPAGE:p50
 
-Nature's Song I			TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (1/day)																	ADD:FEAT|1|TYPE=NatureSongSpell						SOURCEPAGE:p50
+Nature's Song I			TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (1/day)																	ADD:FEAT|TYPE=NatureSongSpell							SOURCEPAGE:p50
 Nature's Song II			TYPE:LegendaryNatureSong.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (2/day)																	ADD:FEAT|2|TYPE=NatureSongSpell						SOURCEPAGE:p50
 Nature's Song III			TYPE:LegendaryNatureSong.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (3/day)																	ADD:FEAT|3|TYPE=NatureSongSpell						SOURCEPAGE:p50
 Nature's Song IV			TYPE:LegendaryNatureSong.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (4/day)																	ADD:FEAT|4|TYPE=NatureSongSpell						SOURCEPAGE:p50
 Nature's Song V			TYPE:LegendaryNatureSong.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (5/day)																	ADD:FEAT|5|TYPE=NatureSongSpell						SOURCEPAGE:p50
 
-Friends All Around I		TYPE:LegendaryFriendsAround.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|1|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|1	SOURCEPAGE:p50
-Friends All Around II		TYPE:LegendaryFriendsAround.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|1|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|2	SOURCEPAGE:p50
-Friends All Around III		TYPE:LegendaryFriendsAround.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|1|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|3	SOURCEPAGE:p50
-Friends All Around IV		TYPE:LegendaryFriendsAround.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|1|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|4	SOURCEPAGE:p50
-Friends All Around V		TYPE:LegendaryFriendsAround.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|1|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|5	SOURCEPAGE:p50
+Friends All Around I		TYPE:LegendaryFriendsAround.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|1	SOURCEPAGE:p50
+Friends All Around II		TYPE:LegendaryFriendsAround.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|2	SOURCEPAGE:p50
+Friends All Around III		TYPE:LegendaryFriendsAround.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|3	SOURCEPAGE:p50
+Friends All Around IV		TYPE:LegendaryFriendsAround.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|4	SOURCEPAGE:p50
+Friends All Around V		TYPE:LegendaryFriendsAround.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		ADD:FEAT|TYPE=TurnPlantsAnimals	BONUS:VAR|TurnPlantsAnimals|5	SOURCEPAGE:p50
 
 The Power of the Land I		TYPE:LegendaryPowerLand.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (2 spell levels/day)																									SOURCEPAGE:p50
 The Power of the Land II	TYPE:LegendaryPowerLand.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (4 spell levels/day)																									SOURCEPAGE:p50
@@ -359,7 +359,7 @@ Planar Wrenching V	TYPE:LegendaryPlanarWrenching.TravelerLAPL5	VISIBLE:NO	PRECLA
 
 ###Block:Wizard King legendary abilities
 # Feat Name					Type									Visible	Required Class			Prohibited Feat						Special ABility				Add 						Bonus to DC					Bonus to skill								Source Page
-Increased Spell Power I			TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|1|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
+Increased Spell Power I			TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
 Increased Spell Power II		TYPE:LegendaryIncSpellPower.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|2|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
 Increased Spell Power III		TYPE:LegendaryIncSpellPower.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|3|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
 Increased Spell Power IV		TYPE:LegendaryIncSpellPower.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|4|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62

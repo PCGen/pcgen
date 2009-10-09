@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb  5 14:35:34 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -181,7 +181,7 @@ Hit and Run											TYPE:SpecialAbility.Extraordinary.MountedManeuver	VISIBLE:
 Wheel About											TYPE:SpecialAbility.Extraordinary.MountedManeuver	VISIBLE:NO
 ### TODO: Should probably have a temp bonus
 Spur On											TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Spur On (Ex)
-Devastating Attack									TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Devastating Attack (Ex)																																																																																																																																																																																										ADD:FEAT|1|Devastating Mounted Assault
+Devastating Attack									TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Devastating Attack (Ex)																																																																																																																																																																																										ADD:FEAT|Devastating Mounted Assault
 Sweeping Strike										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Sweeping Strike (Ex)
 Smuggler's Trade										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Smuggler's Trade +% (Ex)|SmugglingBonus																																																																																																																																DEFINE:SmugglingBonus|0																																																																																																	BONUS:SKILL|Bluff,Disguise,Forgery,Gather Information|SmugglingBonus|PREAPPLY:PC																																	TEMPDESC:Bonus on skills when involved in smuggling operations.
 Dominant Will										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Dominant Will +% (Ex)|DominantWillBonus																																																																																																																																DEFINE:DominantWillBonus|0																																																										BONUS:CHECKS|Will|DominantWillBonus|PREAPPLY:PC																																																																													TEMPDESC:Bonus against magical detection, compulsion spells, lie detection spells, and any effects that would cause him to betray his cause.
@@ -211,12 +211,12 @@ Wogren Dodge										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Wogre
 
 ###Block: Special Attacks and other abilties
 
-# Feat Name		Type						Visible	Special ABility																											Define										Description				Bonus to skill							Modify VAR																													Source Page		Temporary effect description
-Disrupting Attack	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Disrupting Attack %/day (Su) [DC: %]|DisruptingAttackTimes|DisruptingAttackDC																DEFINE:DisruptingAttackTimes|0	DEFINE:DisruptingAttackDC|0															BONUS:VAR|DisruptingAttackDC|15+floor(TL/2)	BONUS:VAR|DisruptingAttackTimes|floor((TL-2)/4)
+# Feat Name		Type						Visible	Special ABility																										Define										Description				Bonus to skill							Modify VAR																													Source Page		Temporary effect description
+Disrupting Attack	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Disrupting Attack %/day (Su) [DC: %]|DisruptingAttackTimes|DisruptingAttackDC															DEFINE:DisruptingAttackTimes|0	DEFINE:DisruptingAttackDC|0															BONUS:VAR|DisruptingAttackDC|15+floor(TL/2)	BONUS:VAR|DisruptingAttackTimes|floor((TL-2)/4)
 
-Aradil's Eye Spy	TYPE:Special				VISIBLE:NO	SAB:Spy Initiate|PRECLASS:1,Aradil's Eye=5	SAB:Spy|PREMULT:2,[PRECLASS:1,Aradil's Eye=5],[PRECLASSLEVELMAX:1,Aradil's Eye=9]	SAB:Master Spy|PRECLASS:1,Aradil's Eye=10	DEFINE:ElvenDiplomacyBonus|0												BONUS:SKILL|Diplomacy|ElvenDiplomacyBonus|PREAPPLY:PC	BONUS:VAR|ElvenDiplomacyBonus|4|PRECLASS:1,Aradil's Eye=1	BONUS:VAR|ElvenDiplomacyBonus|4|PRECLASS:1,Aradil's Eye=5	BONUS:VAR|ElvenDiplomacyBonus|2|PRECLASS:1,Aradil's Eye=10				TEMPDESC:Bonus when dealing with elves and their allies
+Aradil's Eye Spy	TYPE:Special				VISIBLE:NO	SAB:Spy Initiate|PRECLASS:1,Aradil's Eye=5	SAB:Spy|PREMULT:2,[PRECLASS:1,Aradil's Eye=5],[!PRECLASS:1,Aradil's Eye=10]	SAB:Master Spy|PRECLASS:1,Aradil's Eye=10	DEFINE:ElvenDiplomacyBonus|0												BONUS:SKILL|Diplomacy|ElvenDiplomacyBonus|PREAPPLY:PC	BONUS:VAR|ElvenDiplomacyBonus|4|PRECLASS:1,Aradil's Eye=1	BONUS:VAR|ElvenDiplomacyBonus|4|PRECLASS:1,Aradil's Eye=5	BONUS:VAR|ElvenDiplomacyBonus|2|PRECLASS:1,Aradil's Eye=10				TEMPDESC:Bonus when dealing with elves and their allies
 Still Mind		TYPE:Special				VISIBLE:NO	SAB:Still Mind (Ex)
-Slippery Mind	TYPE:Special.RogueAbilities		VISIBLE:NO	SAB:Slippery Mind (Ex)																																					DESC:Class Special Ability																																								SOURCEPAGE:p. 51
+Slippery Mind	TYPE:Special.RogueAbilities		VISIBLE:NO	SAB:Slippery Mind (Ex)																																				DESC:Class Special Ability																																								SOURCEPAGE:p. 51
 
 
 Infusion Mastery	TYPE:ConcoctionMastery			VISIBLE:NO	SAB:Infusion Mastery

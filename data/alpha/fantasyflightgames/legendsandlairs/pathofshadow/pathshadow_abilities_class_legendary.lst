@@ -536,5 +536,3 @@ Way with Words II			CATEGORY:Special Ability	TYPE:LAWayWords.SilverDevilLAPL2		V
 Way with Words III		CATEGORY:Special Ability	TYPE:LAWayWords.SilverDevilLAPL3		VISIBLE:NO	PRECLASS:1,Silver-Tongued Devil=3	!PREFEAT:1,TYPE.LAWayWords		SAB:Way with Words III (Ex)			BONUS:SKILL|Bluff,Diplomacy,Sense Motive|3|TYPE=Legendary							SOURCEPAGE:p.110
 Way with Words IV			CATEGORY:Special Ability	TYPE:LAWayWords.SilverDevilLAPL4		VISIBLE:NO	PRECLASS:1,Silver-Tongued Devil=4	!PREFEAT:1,TYPE.LAWayWords		SAB:Way with Words IV (Ex)			BONUS:SKILL|Bluff,Diplomacy,Sense Motive|4|TYPE=Legendary							SOURCEPAGE:p.110
 Way with Words V			CATEGORY:Special Ability	TYPE:LAWayWords.SilverDevilLAPL5		VISIBLE:NO	PRECLASS:1,Silver-Tongued Devil=5	!PREFEAT:1,TYPE.LAWayWords		SAB:Way with Words V (Ex)			BONUS:SKILL|Bluff,Diplomacy,Sense Motive|5|TYPE=Legendary							SOURCEPAGE:p.110
-
-

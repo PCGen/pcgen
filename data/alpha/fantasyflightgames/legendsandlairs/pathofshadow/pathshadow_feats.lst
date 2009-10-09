@@ -16,4 +16,3 @@ Quick Death Attack		TYPE:General	PREATT:8														PRESA:1,Death Attack					
 Stealth Mastery			TYPE:General			PRECLASS:1,Rogue=5														PRESKILL:2,Move Silently=1,Hide=1										DESC:You have refined both your innate awareness of your surroundings and your skill with arts of stealth to the point that others find ite difficult to spot you, unless you wish them to do so.																	SOURCEPAGE:p.141
 Student of Fortune		TYPE:General																										PRESTAT:2,WIS=13,INT=13						DESC:You have studied the realms of probability and fate enough to gain some small insight into their ways.																																SOURCEPAGE:p.141
 Unexpected Attack			TYPE:General	PREATT:5					PREFEAT:1,Combat Reflexes																								DESC:When the flow of a battle provides unexpected openings in your opponent's defenses, you know how to make your attacks count.																												SOURCEPAGE:p.141
-

@@ -11,7 +11,7 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Chameleon	HD:6		TYPE:Base.PC	ABB:Chm		MAXLEVEL:20	SOURCEPAGE:Chap.3, Chameleon	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Speak Language|Spellcraft|Swim
+CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Speak Language|Spellcraft|Swim
 # Class Name	Spell Stat		Spell Type		Spell Scoll Prohibited							Caster level				Use Spell List
 CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Chameleon|CL	SPELLLIST:1|Wizard
 ###Block: Sneak Attack
@@ -51,7 +51,7 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Con Artist	HD:6		TYPE:Base.PC	ABB:Con		MAXLEVEL:20	SOURCEPAGE:Chap.3, Con Artist	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Use Magic Device
+CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Use Magic Device
 ###Block: Weapon and Armor proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
@@ -70,23 +70,23 @@ CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Dip
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
 CLASS:Delver	HD:6		TYPE:Base.PC	ABB:Delv		MAXLEVEL:20	SOURCEPAGE:Chap.3, Delver	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|TYPE.Knowledge|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Weapon and Armor proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal progression
-1	SAB:Delver Notebook	SAB:Traps						ADD:FEAT|1|Martial Weapon Proficiency,Exotic Weapon Proficiency
+1	SAB:Delver Notebook	SAB:Traps						ADD:FEAT|Exotic Weapon Proficiency,Martial Weapon Proficiency
 2																																																		ABILITY:Special Ability|VIRTUAL|Evasion
 3							BONUS:VAR|UncannyDodge|1																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-7												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
+7												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
 6							BONUS:VAR|UncannyDodge|1
-10												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
+10												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
 11							BONUS:VAR|UncannyDodge|1
-13												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
+13												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
 14							BONUS:VAR|UncannyDodge|1
-16												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
+16												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
 17							BONUS:VAR|UncannyDodge|1
-19												ADD:FEAT|1|Alertness,Combat Reflexes,Dodge,Mobility,Spring Attack,Expertise,Improved Disarm,Improved Trip,Whirlwind Attack,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw,Run,Skill Focus,Weapon Finesse,Weapon Focus
+19												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
 20							BONUS:VAR|UncannyDodge|1
 
 
@@ -95,7 +95,7 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE.Cr
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Psychic Thief	HD:6		TYPE:Base.PC	ABB:PsyThf		MAXLEVEL:20	SOURCEPAGE:Chap.3, Psychic Thief	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psychic Thief	STARTSKILLPTS:6	CSKILL:Autohypnosis|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE.Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Psionic Device|Use Rope
+CLASS:Psychic Thief	STARTSKILLPTS:6	CSKILL:Autohypnosis|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Thief|CL
 ###Block: Spell list
@@ -138,4 +138,3 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 18	KNOWN:3,3,3,3,3,3,2			BONUS:ABILITYPOOL|Psychic Thief Special Ability|1								BONUS:VAR|BASEPOWERPOINTS|11
 19	KNOWN:3,4,3,3,3,3,2																			BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|UncannyDodge|1
 20	KNOWN:3,4,3,3,3,3,3																			BONUS:VAR|BASEPOWERPOINTS|11
-

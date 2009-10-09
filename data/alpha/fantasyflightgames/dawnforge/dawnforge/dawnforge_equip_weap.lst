@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Feb  4 21:41:40 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
 
 ####Block: Exotic Weapons
 #------light---------
-# Equipment Name	Required Proficiency			Type													Alternative Type				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Range		Reach Multiplier	Size		Source Page
+# Equipment Name	Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Range		Reach Multiplier	Size		Source Page
 Degger		PROFICIENCY:WEAPON|Degger		TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Metal.Saltblood.Piercing.Degger							COST:4	WT:2				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					WIELD:Light							SIZE:M	SOURCEPAGE:p.92
 Serrated Horncaps	PROFICIENCY:WEAPON|Gore			TYPE:Weapon.Melee.Exotic.Standard.Metal.Minotaur.Slashing.Gore									COST:75	WT:5		SLOTS:0	CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10					WIELD:Light							SIZE:M	SOURCEPAGE:p.92
 Wristblade		PROFICIENCY:WEAPON|Wristblade		TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Metal.Elf.Piercing.Wristblade							COST:20	WT:2				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					WIELD:Light							SIZE:M	SOURCEPAGE:p.92
@@ -23,7 +23,7 @@ Horned Club		PROFICIENCY:WEAPON|Horned Club	TYPE:Weapon.Melee.Exotic.Standard.Wo
 #Horned Club only Large...
 
 #Exotic Ranged
-# Equipment Name	Required Proficiency			Type													Alternative Type				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Range		Reach Multiplier	Size		Source Page
+# Equipment Name	Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Wield Category	Range		Reach Multiplier	Size		Source Page
 Dragnet		PROFICIENCY:WEAPON|Dragnet		TYPE:Weapon.Exotic.Ranged.Standard.Trueborn.Thrown											COST:25	WT:8																														RANGE:5						SOURCEPAGE:p.92
 Fangcaps		PROFICIENCY:WEAPON|Fangcaps		TYPE:Weapon.Exotic.Ranged.Piercing.Standard.Thinblood.Projectile									COST:2	WT:0				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d2								RANGE:5						SOURCEPAGE:p.92
 Returner		PROFICIENCY:WEAPON|Returner		TYPE:Weapon.Exotic.Ranged.Slashing.Standard.Lizardfolk.Thrown									COST:2	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6								RANGE:30						SOURCEPAGE:p.92

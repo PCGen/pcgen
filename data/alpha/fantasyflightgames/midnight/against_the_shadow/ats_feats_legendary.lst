@@ -40,11 +40,11 @@ Improved Vessel III		TYPE:AvatarOfTheWitchQueenAbility.ImprovedVessel					VISIBL
 Improved Vessel IV		TYPE:AvatarOfTheWitchQueenAbility.ImprovedVessel					VISIBLE:NO	!PREFEAT:1,TYPE.ImprovedVessel		PREVAREQ:var("CL=Avatar of the Witch Queen"),4	SAB:Improved Vessel 4/day (Su)
 Improved Vessel V			TYPE:AvatarOfTheWitchQueenAbility.ImprovedVessel					VISIBLE:NO	!PREFEAT:1,TYPE.ImprovedVessel		PREVAREQ:var("CL=Avatar of the Witch Queen"),5	SAB:Improved Vessel 5/day (Su)
 
-Evolution I				TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),1																																					ADD:FEAT|1|Skill Bonus,TYPE.SaveBonus,Melee Bonus,Ranged Bonus
-Evolution II			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),2																																					ADD:FEAT|2|Skill Bonus,TYPE.SaveBonus,Melee Bonus,Ranged Bonus
-Evolution III			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),3																																					ADD:FEAT|3|Skill Bonus,TYPE.SaveBonus,Melee Bonus,Ranged Bonus
-Evolution IV			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),4																																					ADD:FEAT|4|Skill Bonus,TYPE.SaveBonus,Melee Bonus,Ranged Bonus
-Evolution V				TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),5																																					ADD:FEAT|5|Skill Bonus,TYPE.SaveBonus,Melee Bonus,Ranged Bonus
+Evolution I				TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),1																																					ADD:FEAT|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
+Evolution II			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),2																																					ADD:FEAT|2|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
+Evolution III			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),3																																					ADD:FEAT|3|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
+Evolution IV			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),4																																					ADD:FEAT|4|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
+Evolution V				TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),5																																					ADD:FEAT|5|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
 
 Skill Bonus				TYPE:Special											VISIBLE:NO																															MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma																															BONUS:SKILL|LIST|2
 ### TODO: Couldn't get this to work.

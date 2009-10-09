@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 17:04:08 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
 
@@ -440,17 +440,17 @@ Tiefling Transformation Feats							CATEGORY:Special Ability	TYPE:TieflingRacial
 #
 
 ###Block: Racial Talents
-# Ability Name		Category of Ability		Type							Visible		Required Ability								Required Lvl	Required Text									Innate Spells								Stackable?	Multiple?	Choose		Bonus to Ability Pool					Source Page
-Bite Attack			CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																						MULT:NO												SOURCEPAGE:p.55
-Poison Attack		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																						MULT:NO												SOURCEPAGE:p.55
-Lesser Psionics I		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																										SPELLS:Innate|Acid Splash|Chameleon,11|Detect Poison,10			MULT:NO												SOURCEPAGE:p.55
-Lesser Psionics II	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics I	PRELEVEL:MIN=5												SPELLS:Innate|Alter Self|Aversion,12						MULT:NO												SOURCEPAGE:p.55
-Psionic Mastery		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																						MULT:NO												SOURCEPAGE:p.55
-Invisible Psionics	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics II																											MULT:NO												SOURCEPAGE:p.55
-Thinblood Talent Skills	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent			VISIBLE:DISPLAY																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Talent Skill|5	SOURCEPAGE:p.55
-Thinblood Talent Feats	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent			VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Talent Feat|1		SOURCEPAGE:p.55
-Identify Psionic Item	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																						MULT:NO												SOURCEPAGE:p.55
-Craft Power Stone		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Identify Psionic Item																											MULT:NO												SOURCEPAGE:p.55
+# Ability Name		Category of Ability		Type							Visible		Required Ability								Required Lvl	Required Text									Innate Spells									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Source Page
+Bite Attack			CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																							MULT:NO												SOURCEPAGE:p.55
+Poison Attack		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																							MULT:NO												SOURCEPAGE:p.55
+Lesser Psionics I		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																										SPELLS:Innate|TIMES=1|Acid Splash|Chameleon,11|Detect Poison,10			MULT:NO												SOURCEPAGE:p.55
+Lesser Psionics II	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics I	PRELEVEL:MIN=5												SPELLS:Innate|TIMES=1|Alter Self|Aversion,12						MULT:NO												SOURCEPAGE:p.55
+Psionic Mastery		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																							MULT:NO												SOURCEPAGE:p.55
+Invisible Psionics	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics II																												MULT:NO												SOURCEPAGE:p.55
+Thinblood Talent Skills	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent			VISIBLE:DISPLAY																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Talent Skill|5	SOURCEPAGE:p.55
+Thinblood Talent Feats	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent			VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Talent Feat|1		SOURCEPAGE:p.55
+Identify Psionic Item	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																							MULT:NO												SOURCEPAGE:p.55
+Craft Power Stone		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Identify Psionic Item																												MULT:NO												SOURCEPAGE:p.55
 
 #TODO:Craft Power Stone multiple times selecting three psi power....
 #TODO: the natural weapons stuff could use some shaping up

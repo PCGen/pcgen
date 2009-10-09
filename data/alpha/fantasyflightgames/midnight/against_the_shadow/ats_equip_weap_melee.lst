@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 20:59:37 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
 ###Block: Simple Weapons
 #Small
-# Equipment Name	Required Proficiency			Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Size		Source Page		Add to vision			Special Property
+# Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Size		Source Page		Add to vision			Special Property
 Farmer's Rope	PROFICIENCY:WEAPON|Farmer's Rope	TYPE:Weapon.Simple.Melee.Bludgeoning.Standar		COST:0	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:ROPE	SIZE:S	SOURCEPAGE:p. 83						SPROP:+2 on attack roll when used to aid another
 Tack Whip		PROFICIENCY:WEAPON|Tack Whip		TYPE:Weapon.Simple.Melee.Slashing.Standard		COST:12	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4			SIZE:S	SOURCEPAGE:p. 82
 #Medium
@@ -13,7 +13,7 @@ Wogren Jawhelm	PROFICIENCY:WEAPON|Wogren Jawhelm	TYPE:Weapon.Simple.Melee.Slashi
 
 ###Block: Exotic Weapons
 #Small
-# Equipment Name			Output Name						Required Proficiency					Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Range		Reach Multiplier	Size		Source Page		Special Property
+# Equipment Name			Output Name						Required Weapon Proficiency				Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Range		Reach Multiplier	Size		Source Page		Special Property
 Orc Slitter											PROFICIENCY:WEAPON|Orc Slitter			TYPE:Weapon.Exotic.Melee.Slashing.Standard											COST:30	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL										SIZE:S	SOURCEPAGE:p. 84	SPROP:+1 damage and +4 to confirm crits against orcs.
 ### TODO:What does "treat the staghorn as a small spiked shield" mean?
 Staghorn											PROFICIENCY:WEAPON|Staghorn				TYPE:Weapon.Exotic.Melee.Piercing.Standard											COST:15	WT:4		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:HORN										SIZE:S	SOURCEPAGE:p. 85	SPROP:+6 to disarm roll.

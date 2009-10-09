@@ -18,7 +18,7 @@ CLASS:Minotaur	PRERACE:1,Minotaur (Variant)
 # Class Name	Skill Pts/Lvl
 CLASS:Minotaur	STARTSKILLPTS:2
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency (Greataxe)
+1	AUTO:FEAT|Martial Weapon Proficiency (Greataxe)|Simple Weapon Proficiency
 ###Block: Progression
 1															BONUS:VAR|ScentRange|((CL+2)/3)*10
 2					BONUS:STAT|STR|2|TYPE=Racial
@@ -54,7 +54,7 @@ CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|
 
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 
 ###Block: Progression
 1	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|INT|2	BONUS:STAT|CHA|2									TEMPLATE:Bull Lord
@@ -101,7 +101,7 @@ CLASS:Minotrice	PRERACE:1,Minotrice
 CLASS:Minotrice	STARTSKILLPTS:2
 
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Simple Weapon Proficiency
 ###Block: Progression
 1							BONUS:VAR|ScentRange|((CL+1)/2)*10
 2	BONUS:STAT|STR|2	BONUS:STAT|DEX|2
@@ -144,7 +144,7 @@ CLASS:Minotrice Maze Mage	STARTSKILLPTS:2
 CLASS:Minotrice Maze Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Minotrice Maze Mage|floor(CL+1/2)	SPELLLIST:1|Druid
 
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
+1	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Progression
 1	CAST:3,1								BONUS:VAR|ScentRange|((CL+2)/3)*10
 2	CAST:3,1		BONUS:STAT|STR|2	BONUS:STAT|DEX|2

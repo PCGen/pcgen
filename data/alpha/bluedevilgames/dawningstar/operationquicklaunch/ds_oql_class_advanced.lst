@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 21:58:53 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Thu Oct  8 23:33:03 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
@@ -21,16 +21,16 @@ CLASS:Barter Jack	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECK
 # Class Name	Required Skill
 CLASS:Barter Jack	PRESKILL:1,Barter=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE.Craft|Diplomacy|Disable Device|Drive|Forgery|Gamble|Handle Animal|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Pilot|Profession|Repair|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Survival
-1																									ABILITY:Special Ability|AUTOMATIC|Region Familiarity
+CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE=Craft|Diplomacy|Disable Device|Drive|Forgery|Gamble|Handle Animal|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Pilot|Profession|Repair|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Survival
+1																								ABILITY:Special Ability|AUTOMATIC|Region Familiarity
 1:REPEATLEVEL:7														BONUS:VAR|RegionFamiliarity|1
-1																BONUS:VAR|BigMoney|CL						ABILITY:Special Ability|AUTOMATIC|Big Money
-2			SAB:License Permit										BONUS:VAR|HagglingKing|CL/2					ABILITY:Special Ability|AUTOMATIC|Haggling King
+1																BONUS:VAR|BigMoney|CL					ABILITY:Special Ability|AUTOMATIC|Big Money
+2			SAB:License Permit										BONUS:VAR|HagglingKing|CL/2				ABILITY:Special Ability|AUTOMATIC|Haggling King
 3:REPEATLEVEL:3							BONUS:ABILITYPOOL|Barter Jack Feat|1
-4			SAB:Find the Goods																			ABILITY:Special Ability|AUTOMATIC|Deliveryman
+4			SAB:Find the Goods																		ABILITY:Special Ability|AUTOMATIC|Deliveryman
 5			SAB:Black Marketer	SAB:Hardy
 7			SAB:Restricted Permit
-7:REPEATLEVEL:3																			ADD:FEAT|1|Windfall
+7:REPEATLEVEL:3																			ADD:FEAT|Windfall
 10			SAB:Military Permit
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
@@ -38,7 +38,7 @@ CLASS:Colonial Leader	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:C
 # Class Name		Required Feat							Required Skill							Required Text
 CLASS:Colonial Leader	PREFEAT:3,Coordinate,Empathy,Improved Aid Another	PRESKILL:3,Diplomacy=4,Intimidate=4,Sense Motive=4	PRETEXT:The Colonial Leader must pledge his primary allegiance to a group that has interests in helping the colonies of Eos survive
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Colonial Leader	STARTSKILLPTS:6	CSKILL:Barter|Bluff|Computer Use|TYPE.Craft|Diplomacy|Drive|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Pilot|Profession|Repair|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
+CLASS:Colonial Leader	STARTSKILLPTS:6	CSKILL:Barter|Bluff|Computer Use|TYPE=Craft|Diplomacy|Drive|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Pilot|Profession|Repair|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
 1			SAB:Organization		BONUS:ABILITYPOOL|Force of Law Choice|1
 2			SAB:Aide the Workers
 3:REPEATLEVEL:3					BONUS:ABILITYPOOL|Colonial Leader Feat|1
@@ -51,7 +51,7 @@ CLASS:Colonial Leader	STARTSKILLPTS:6	CSKILL:Barter|Bluff|Computer Use|TYPE.Craf
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Gunhand	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Gunhand	PREATT:3	PREFEAT:1,Weapon Focus(TYPE=Firearm)	PRESKILL:1,Intimidate=4
+CLASS:Gunhand	PREATT:3	PREFEAT:1,Weapon Focus (TYPE=Firearm)	PRESKILL:1,Intimidate=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunhand	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Mechanical)|Drive|Gamble|Gather Information|Intimidate|Knowledge (Local)|Knowledge (Streetwise)|Listen|Ride|Sense Motive|Spot|Survival|Treat Injury
 1			SAB:Tough as Nails																												AUTO:FEAT|Quick Draw
@@ -68,7 +68,7 @@ CLASS:Lawman	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BAS
 CLASS:Lawman	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PREMULT:2,[PRESKILL:1,Intimidate=4],[PRESKILL:1,Knowledge (Civics)=4,Knowledge (Streetwise)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lawman	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Streetwise)|Listen|Pilot|Research|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
-1					BONUS:ABILITYPOOL|Force of Law Choice|1	ADD:FEAT|1|Weapon Focus
+1					BONUS:ABILITYPOOL|Force of Law Choice|1	ADD:FEAT|Weapon Focus
 2																						ABILITY:Special Ability|AUTOMATIC|Legwork
 3:REPEATLEVEL:3			BONUS:ABILITYPOOL|Lawman Feat|1
 4												ADD:ABILITY|Special Ability|NORMAL|Weapon Specialization
@@ -97,7 +97,7 @@ CLASS:Rebuilder	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|
 # Class Name	Required Feat				Required Skill					Required Text
 CLASS:Rebuilder	PREFEAT:1,Dawning Star Familiarity	PRESKILL:2,Repair=6,Craft (Structural)=4	PRETEXT:Dawning Star Republic allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rebuilder	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Concentration|TYPE.Craft|Demolitions|Disable Device|Drive|Investigate|Jump|Knowledge (Current Events)|Knowledge (Local)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair|Research|Search|Spot|Swim
+CLASS:Rebuilder	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Concentration|TYPE=Craft|Demolitions|Disable Device|Drive|Investigate|Jump|Knowledge (Current Events)|Knowledge (Local)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair|Research|Search|Spot|Swim
 1																		BONUS:VAR|DawningStarSystemsExpert|CL	ABILITY:Special Ability|AUTOMATIC|Dawning Star Systems Expert|Government Issue	AUTO:FEAT|Blind-Fight
 2			SAB:Tool Weapons
 3:REPEATLEVEL:3							BONUS:ABILITYPOOL|Rebuilder Feat|1
@@ -113,11 +113,11 @@ CLASS:Velin Guardian	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CH
 CLASS:Velin Guardian	PREATT:3	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,Velin Tribal Guest]	PRESKILL:3,Hide=4,Move Silently=4,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Velin Guardian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Craft (Tribal)|Handle Animal|Hide|Intimidate|Jump|Knowledge (Local)|Knowledge (Local)|Listen|Move Silently|Navigate|Ride|Spot|Survival|Swim|Treat Injury
-1			SAB:Guardian Reputation																																AUTO:FEAT|Oathbound
-2																													ABILITY:Special Ability|AUTOMATIC|Region Familiarity
+1			SAB:Guardian Reputation																															AUTO:FEAT|Oathbound
+2																												ABILITY:Special Ability|AUTOMATIC|Region Familiarity
 3:REPEATLEVEL:3						BONUS:ABILITYPOOL|Velin Guardian Feat|1
-4																	ADD:FEAT|1|Weapon Focus
+4																	ADD:FEAT|Weapon Focus
 5			SAB:Wilderness Camoflage
 7																	ADD:ABILITY|Special Ability|NORMAL|Weapon Specialization
 8								BONUS:ABILITYPOOL|Velin Guardian Sworn Enemy Choice|1
-10																	ADD:ABILITY|1|Special Ability|NORMAL|Greater Weapon Specialization
+10																	ADD:ABILITY|Special Ability|NORMAL|Greater Weapon Specialization

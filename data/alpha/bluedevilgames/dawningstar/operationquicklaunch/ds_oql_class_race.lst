@@ -8,7 +8,7 @@ CLASS:Human Survivor	PRELEVEL:MIN=2	PRERACE:1,Human
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Human Survivor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Drive|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Local)|Knowledge (Popular Culture)|Listen|Profession|Search|Speak Language|Spot|Survival|Swim|Treat Injury
 1	SAB:Adaptable		BONUS:STAT|CON|1	BONUS:VAR|SurvivalInstinct|CL						ABILITY:Special Ability|AUTOMATIC|Survival Instinct
-2					BONUS:STAT|WIS|1						ADD:FEAT|1|TYPE=HumanSurvivor
+2					BONUS:STAT|WIS|1						ADD:FEAT|TYPE=HumanSurvivor
 3	SAB:Last Man Standing	BONUS:STAT|CHA|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
@@ -18,5 +18,5 @@ CLASS:Velin Hunter	PRELEVEL:MIN=2	PRERACE:1,Velin
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Velin Hunter	STARTSKILLPTS:2	CSKILL:Climb|Craft (Tribal)|Handle Animal|Hide|Jump|Knowledge (Local)|Listen|Move Silently|Navigate|Perform (Dance)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Wind Instruments)|Ride|Spot|Survival|Swim
 1						BONUS:STAT|WIS|1	BONUS:VAR|WildernessTraining|CL						ABILITY:Special Ability|AUTOMATIC|Wilderness Training
-2						BONUS:STAT|CON|1							ADD:FEAT|1|TYPE=VelinHunter
+2						BONUS:STAT|CON|1							ADD:FEAT|TYPE=VelinHunter
 3	SAB:Tribal Collective Memory	BONUS:STAT|STR|1												ABILITY:Special Ability|AUTOMATIC|Improved Detect Vaasi

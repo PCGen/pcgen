@@ -18,7 +18,7 @@ CLASS:Tiger Shaman	HD:6		TYPE:Base.PC	ABB:TS		MAXLEVEL:20	SOURCEPAGE:p.48	BONUS:
 # Class Name		Required AL		Required Deity		Required Gender	Required Race
 CLASS:Tiger Shaman	PREALIGN:NG,TN,NE	PREDEITY:1,Tiger Lord	PREGENDER:Male	PRERACE:1,Neiyar
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Tiger Shaman	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE.Craft|Knowledge (Nature)|Listen|Move Silently|Search|Spellcraft|Spot|Survival|Swim|Tumble
+CLASS:Tiger Shaman	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Knowledge (Nature)|Listen|Move Silently|Search|Spellcraft|Spot|Survival|Swim|Tumble
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Spellbook		Caster level				Use Spell List
 CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Tiger Shaman|CL	SPELLLIST:1|Cleric
 ###Block: Saves Abnormal Progression:
@@ -37,8 +37,8 @@ CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 17	BONUS:CHECKS|BASE.Will|1
 19	BONUS:CHECKS|BASE.Will|1
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies|All Automatic Proficiencies
-1																AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
+1																AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Special Abilities:
 5	SAB:Tiger Form
@@ -76,10 +76,10 @@ CLASS:Trapper	PREALIGN:NG,TN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Trapmaking)|Decipher Script|Disable Device|Gather Information|Hide|Listen|Move Silently|Profession (Trapmaker)|Use Rope|Search|Spot|Tumble
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Progression
-1	AUTO:FEAT|Trapmaking|DetectDisarmTraps
+1	AUTO:FEAT|DetectDisarmTraps|Trapmaking
 3	AUTO:FEAT|NetUse
 5	AUTO:FEAT|DetectSecretDoors
 7	AUTO:FEAT|TrappedWeapons
@@ -99,7 +99,7 @@ CLASS:Arcane Rogue	HD:6		TYPE:PC.Prestige	ABB:AR		MAXLEVEL:8	SOURCEPAGE:p.49	BON
 # Class Name		Restricted AL		Req. Att.	Required Feat				Required Skill		Req. Spell Type		Required Stat	Required Text
 CLASS:Arcane Rogue	!PREALIGN:LG,LN,LE	PREATT:4	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,INT=14	PRETEXT:+8 ranks in any three rogue class skills
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE.Craft|Decipher Script|Escape Artist|Forgery|Gather Information|Hide|TYPE.Knowledge|Listen|Move Silently|Open Lock|Sleight of Hand|Search|Sense Motive|Spellcraft|Spot
+CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE=Craft|Decipher Script|Escape Artist|Forgery|Gather Information|Hide|TYPE=Knowledge|Listen|Move Silently|Open Lock|Sleight of Hand|Search|Sense Motive|Spellcraft|Spot
 ###3e - Alchemy, Read Lips
 ###Max Level 8?
 ###Block: Caster Level
@@ -120,7 +120,7 @@ CLASS:Arcane Warrior	HD:6		TYPE:PC.Prestige	ABB:AW		MAXLEVEL:6	SOURCEPAGE:p.53	B
 # Class Name		Req. Att.	Required Feat													Required Skill									Required Stat
 CLASS:Arcane Warrior	PREATT:6	PREFEAT:4,Quicken Spell,Weapon Focus,Combat Casting,Expertise,Armor Proficiency (Light)	PRESKILL:3,Spellcraft=8,Knowledge (Arcana)=8,Concentration=10	PRESTAT:3,STR=12,DEX=14,INT=14
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Jump|Knowledge (Arcana)|TYPE.Profession|Search|Spellcraft|Swim|Tumble
+CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (Arcana)|TYPE=Profession|Search|Spellcraft|Swim|Tumble
 ###3e - Scry
 ###Block: Caster Level
 2						ADD:SPELLCASTER|Arcane
@@ -156,7 +156,7 @@ CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|K
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Chosen of Roarth	HD:8		TYPE:PC.Prestige	ABB:CR		MAXLEVEL:7	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude|(CL+3)/2-CL==1	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:CHECKS|BASE.Will|(CL+2)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Deity	Required Feat								Required Skill					Required Stat
-CLASS:Chosen of Roarth	PREALIGN:LG,NG,CG	PREATT:5	PREDEITY:1,Roarth	PREFEAT:1,Weapon Focus(TYPE=Bow),Weapon Focus(TYPE=Spear)	PRESKILL:2,Handle Animal=8,Survival=8	PRESTAT:1,WIS=13
+CLASS:Chosen of Roarth	PREALIGN:LG,NG,CG	PREATT:5	PREDEITY:1,Roarth	PREFEAT:1,Weapon Focus (TYPE=Bow),Weapon Focus (TYPE=Spear)	PRESKILL:2,Handle Animal=8,Survival=8	PRESTAT:1,WIS=13
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|Knowledge (Nature)|Ride|Use Rope|Survival
 ###Block: Caster Level
@@ -175,9 +175,9 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Healer	HD:6		TYPE:PC.Prestige	ABB:HLR		MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude|(CL-1)/2	BONUS:CHECKS|BASE.Reflex|(CL-1)*2/3	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Deity	Required Feat					Required Skill												Required Stat	Required Text
-CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PREFEAT:2,Brew Potion,Skill Focus(Heal)	PRESKILL:3,Heal=8,Knowledge (Nature)=8,Craft (Alchemy)=4,Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
+CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PREFEAT:2,Brew Potion,Skill Focus (Heal)	PRESKILL:3,Heal=8,Knowledge (Nature)=8,Craft (Alchemy)=4,Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Heal|Knowledge (Nature)|Knowledge (Anatomy)|Profession (Doctor)|Spellcraft|Survival
+CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Nature)|Knowledge (Anatomy)|Profession (Doctor)|Spellcraft|Survival
 ###Block: Special Abilities:
 1	SAB:Agri's Touch
 2	SAB:Preemptive Healing
@@ -226,7 +226,7 @@ CLASS:Soulreaper	HD:6		TYPE:PC.Prestige	ABB:SHBL		MAXLEVEL:7	SOURCEPAGE:p.59	BON
 # Class Name	Restricted AL		Req. Att.	Required Feat				Required Skill						Required Stat				Required Text
 CLASS:Soulreaper	!PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:3,Power Attack,Cleave,Track	PRESKILL:3,Intimidate=8,Survival=8,Listen=4	PRESTAT:3,STR=14,DEX=12,CON=14	PRETEXT:By appointment of the Devi of Sophia Kalla only
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Disable Device|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
+CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
 ###Block: Special Abilities:
 1	SAB:AC Bonus +%|SoulreaperAC			BONUS:COMBAT|AC|SoulreaperAC	BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0
 2	SAB:DR %/+%|SoulreaperDR|SoulreaperDRPlus						BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0
@@ -241,9 +241,9 @@ CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Disable Device|Hide|Int
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus						Add domain number
 CLASS:Swan Bard	HD:6		TYPE:PC.Prestige	ABB:SB		MAXLEVEL:7	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|(CL-1)/2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+1	BONUS:COMBAT|BAB|(CL-1)/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
 # Class Name	Required AL		Prohibited Deity		Required Feat											Required Skill			Required Stat	Required Text
-CLASS:Swan Bard	PREALIGN:CG,CN,CE	!PREDEITY:1,Adrienne	PREFEAT:1,Skill Focus(Bluff),Skill Focus(Diplomacy),Skill Focus(Perform%)	PRESKILL:1,TYPE.Perform=10	PRESTAT:1,CHA=16	PRETEXT:Ability to cast bardic spells or Attractive Human Male (GM Discretion)
+CLASS:Swan Bard	PREALIGN:CG,CN,CE	!PREDEITY:1,Adrienne	PREFEAT:1,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Perform%)	PRESKILL:1,TYPE.Perform=10	PRESTAT:1,CHA=16	PRETEXT:Ability to cast bardic spells or Attractive Human Male (GM Discretion)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Diplomacy|Gather Information|Listen|Move Silently|TYPE.Perform|Sense Motive|Spot|Tumble
+CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Gather Information|Listen|Move Silently|TYPE=Perform|Sense Motive|Spot|Tumble
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level				Use Spell List
 CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
 ###Block: Special Abilities:

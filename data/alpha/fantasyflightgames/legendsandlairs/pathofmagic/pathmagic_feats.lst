@@ -42,12 +42,3 @@ Voice of Inner Strength		TYPE:General										PRECLASS:1,Bard=1																
 Worldly Knowledge			TYPE:General																															PREPCLEVEL:MAX=1			PRESA:1,Bardic knowledge																										DESC:You are wizened to the world and have the knack for picking up various facts and stories.														BONUS:SKILL|Gather Information|2|TYPE=Circumstance						BONUS:VAR|BardicKnowledge|2|TYPE=Circumstance	SOURCEPAGE:p.83
 
 # Todo: Additional Spell,... Reduced Spell Failure..., Spell Chain(mult)
-
-
-
-
-
-
-
-
-
