@@ -39,7 +39,7 @@ Uncanny Protection		KEY:UNCANNY							TYPE:Armor.Shield	PLUS:1	VISIBLE:QUALIFY		
 ###Block:Weapon
 # Modifier Name			Unique Key		Naming Option				Type					Plus		Visible		Type granted	Source Page		Required Type										Prohibited Type		Modify VAR								Weapon prop. bonus								Special Property													Choose
 Arcane Blasting			KEY:ARCBLAST_M							TYPE:Weapon.Melee.Thrown	PLUS:4	VISIBLE:QUALIFY				SOURCEPAGE:p.165	PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown																												SPROP:+2d6 force energy damage
-Arcane Blasting			KEY:ARCBLAST_R							TYPE:Weapon.Ranged		PLUS:4	VISIBLE:QUALIFY				SOURCEPAGE:p.165	PRETYPE:3,Enhancement,Weapon,Ranged							!PRETYPE:2,Thrown																						SPROP:+2d6 force energy damage, bestowed on ammunition
+Arcane Blasting			KEY:ARCBLAST_R							TYPE:Weapon.Ranged		PLUS:4	VISIBLE:QUALIFY				SOURCEPAGE:p.165	PRETYPE:3,Enhancement,Weapon,Ranged							!PRETYPE:1,Thrown																						SPROP:+2d6 force energy damage, bestowed on ammunition
 Armor Piercing			KEY:ARMPIERC_A							TYPE:Ammunition			PLUS:3	VISIBLE:QUALIFY				SOURCEPAGE:p.165	PRETYPE:2,Enhancement,Ammunition																															SPROP:Attacker ignores the armor
 Armor Piercing			KEY:ARMPIERC_R							TYPE:Weapon.Ranged		PLUS:3	VISIBLE:QUALIFY				SOURCEPAGE:p.165	PRETYPE:3,Enhancement,Weapon,Ranged																															SPROP:Attacker ignores the armor
 Armor Shattering			KEY:ARMSHATTER							TYPE:Weapon.Melee			PLUS:4	VISIBLE:QUALIFY				SOURCEPAGE:p.165	PRETYPE:3,Enhancement,Weapon,Melee	PRETYPE:1,Slashing,Bludgeoning																									SPROP:On successful hit, Fortitude DC 19 or armor is destroyed

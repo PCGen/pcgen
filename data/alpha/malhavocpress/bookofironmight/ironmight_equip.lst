@@ -7,4 +7,4 @@ Artisan's Tools (Metalworking)	TYPE:Goods.Tools.Artisan.MetalworkingTools	COST:5
 
 ###Block: armor
 # Equipment Name		Type				AC Penalty Check	Modifier			Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Ironborn Armored Body	TYPE:Armor.Heavy.Suit	ACCHECK:-6		EQMOD:STEEL.MWORKA	MAXDEX:1		SOURCEPAGE:p.28	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
+Ironborn Armored Body	TYPE:Armor.Heavy.Suit	ACCHECK:-6		EQMOD:MWORKA.STEEL	MAXDEX:1		SOURCEPAGE:p.28	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE

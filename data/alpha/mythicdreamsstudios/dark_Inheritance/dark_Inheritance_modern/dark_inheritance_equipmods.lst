@@ -10,4 +10,3 @@ Arnold's Clip			KEY:ARNOLDSCLIP	TYPE:Weapon			COST:0	VISIBLE:QUALIFY	SOURCEPAGE:
 
 Stuntman's Steering Wheel	KEY:STWL_STUNTMN	TYPE:Transportation	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.200				BONUS:SKILL|Drive|3|TYPE=Equipment
 #COST 32, additional DC
-
