@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Feb 13 23:07:52 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Thu Oct  8 20:18:08 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
-# Equipment Name			Type							Contains				Cost		Weight	Source Page
-Homeblood (deteriorated)	TYPE:Goods.Liquid.Poison.Consumable							COST:300	WT:.0625	SOURCEPAGE:p.20
-Homeblood (pure)			TYPE:Goods.Liquid.Poison.Consumable							COST:4500	WT:.0625	SOURCEPAGE:p.20
+# Equipment Name			Type							Contains			Cost		Weight	Source Page
+Homeblood (deteriorated)	TYPE:Goods.Liquid.Poison.Consumable						COST:300	WT:0.0625	SOURCEPAGE:p.20
+Homeblood (pure)			TYPE:Goods.Liquid.Poison.Consumable						COST:4500	WT:0.0625	SOURCEPAGE:p.20
 
-Powder Horn				TYPE:Goods.GunPowder									COST:7	WT:3		SOURCEPAGE:p.20
-Powder Keg				TYPE:Goods.GunPowder									COST:43	WT:20		SOURCEPAGE:p.20
-Barge					TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any=UNLIM	COST:400	WT:40000	SOURCEPAGE:p.22
-Hoakyn				TYPE:Goods.Transportation.Container		CONTAINS:3120|Any=UNLIM		COST:35	WT:400	SOURCEPAGE:p.22
+Powder Horn				TYPE:Goods.GunPowder								COST:7	WT:3		SOURCEPAGE:p.20
+Powder Keg				TYPE:Goods.GunPowder								COST:43	WT:20		SOURCEPAGE:p.20
+Barge					TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any	COST:400	WT:40000	SOURCEPAGE:p.22
+Hoakyn				TYPE:Goods.Transportation.Container		CONTAINS:3120|Any		COST:35	WT:400	SOURCEPAGE:p.22
 
 ###Block: Special Armor
 

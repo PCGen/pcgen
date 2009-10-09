@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Oct  8 20:18:08 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
 ###Block: Feat Support --------------------------------------------------------------------------------
 
-# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automatically Gained Weapon Prof.	Add 				Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
+# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automatically Gained Weapon Prof.	Add 			Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
 Military Longsword Proficiency	TYPE:MilitaryWeapon	VISIBLE:NO								!PREWEAPONPROF:1,Longsword																														AUTO:WEAPONPROF|Longsword
 Military Shortsword Proficiency	TYPE:MilitaryWeapon	VISIBLE:NO								!PREWEAPONPROF:1,Sword (Short)																													AUTO:WEAPONPROF|Sword (Short)
-Military Longsword Competence		TYPE:MilitaryWeapon	VISIBLE:NO	PREWEAPONPROF:2,Longsword,Sword (Short)																																																									BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence
-Military Shortsword Competence	TYPE:MilitaryWeapon	VISIBLE:NO	PREWEAPONPROF:2,Longsword,Sword (Short)																																																									BONUS:WEAPONPROF=Sword (Short)|DAMAGE|1|TYPE=Competence
+Military Longsword Competence		TYPE:MilitaryWeapon	VISIBLE:NO	PREWEAPONPROF:2,Longsword,Sword (Short)																																																								BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence
+Military Shortsword Competence	TYPE:MilitaryWeapon	VISIBLE:NO	PREWEAPONPROF:2,Longsword,Sword (Short)																																																								BONUS:WEAPONPROF=Sword (Short)|DAMAGE|1|TYPE=Competence
 
-Tutored Knowledge				TYPE:BackgroundSupport	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Knowledge																								BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
-Tutored Craft				TYPE:BackgroundSupport	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Craft																								BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+Tutored Knowledge				TYPE:BackgroundSupport	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Knowledge																							BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+Tutored Craft				TYPE:BackgroundSupport	VISIBLE:NO																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Craft																							BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
 
-Speaks Homish				TYPE:HomeLanguage		VISIBLE:NO																																																				LANGAUTO:Homish
+Speaks Homish				TYPE:HomeLanguage		VISIBLE:NO																																																			LANGAUTO:Homish
 Does not speak Homish			TYPE:HomeLanguage		VISIBLE:NO
 
-Fame - Standard Usage			TYPE:FameSupport		VISIBLE:NO														SAB:+1 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai															BONUS:SKILL|TYPE=Social|1|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
-Fame - Optional Usage			TYPE:FameSupport		VISIBLE:NO														SAB:+2 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai							ADD:FEAT|1|Infamous					BONUS:SKILL|TYPE=Social|2|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
+Fame - Standard Usage			TYPE:FameSupport		VISIBLE:NO														SAB:+1 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai														BONUS:SKILL|TYPE=Social|1|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
+Fame - Optional Usage			TYPE:FameSupport		VISIBLE:NO														SAB:+2 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai							ADD:FEAT|Infamous					BONUS:SKILL|TYPE=Social|2|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
 Infamous					TYPE:Special		VISIBLE:NO														SAB:-1 to Charisma checks when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai
 
 ###Block: Support for Reward Feats --------------------------------------------------------------------
@@ -78,7 +78,7 @@ Blood Oath (Direct Action)	TYPE:Special	VISIBLE:NO																								BONUS:
 
 ###Block: Shadowtamer
 # Feat Name			Type			Visible	Special ABility		Define			Allow Follower			Allowed Companions
-Summon Shadow Beast	TYPE:Special	VISIBLE:NO	SAB:Summon Shadow Beast	DEFINE:ShadowBeast|0	FOLLOWERS:Shadow Beast|1	COMPANIONLIST:Shadow Beast|Baboon,Badger,Bat,Cat,Dog,Dog (Riding),Donkey,Eagle,Hawk,Hyena,Lizard,Monkey,Octopus,Owl,Pony,Pony (War),Porpoise,Rat,Raven,Snake (Viper/Tiny),Snake (Viper/Small),Snake (Viper/Medium),Toad,Weasel,Wolf,Wolverine
+Summon Shadow Beast	TYPE:Special	VISIBLE:NO	SAB:Summon Shadow Beast	DEFINE:ShadowBeast|0	FOLLOWERS:Shadow Beast|1	COMPANIONLIST:Shadow Beast|Baboon,Badger,Bat,Cat,Dog,Dog (Riding),Donkey,Eagle,Hawk,Hyena,Lizard,Monkey,Octopus,Owl,Pony,Pony (War),Porpoise,Rat,Raven,Snake (Viper/Medium),Snake (Viper/Small),Snake (Viper/Tiny),Toad,Weasel,Wolf,Wolverine
 
 #
 # End

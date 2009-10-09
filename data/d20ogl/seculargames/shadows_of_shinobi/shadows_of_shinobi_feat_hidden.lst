@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:18:03 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Oct  8 20:19:00 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja
 
 #CREATED BY: Paul W. King, Jan 2007
@@ -28,7 +28,7 @@ Warrior of the Night	TYPE:ClassAbility	VISIBLE:NO	SAB:Warrior of the Night (+2 a
 Worm Cast	TYPE:ClassAbility	VISIBLE:NO	SAB:Worm Cast ~ Empower (Su)|PREMULT:2,[PREVARGTEQ:WormDoctor,2],[PREVARLT:WormDoctor,6]	SAB:Worm Cast ~ Empower/Maximize (Su)|PREVARGTEQ:WormDoctor,6
 
 ###BLOCK: Class Proficiencies
-# Feat Name					Type			Visible	Stackable?	Multiple?	Choose																																		Automaticaly Gained Weapon Prof.
+# Feat Name					Type			Visible	Stackable?	Multiple?	Choose																																		Automatically Gained Weapon Prof.
 Igasaki Disciple Proficiencies	TYPE:ClassAbility	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|Bakuhatsugama|Kusarigama|Ninja To|Futokoro Teppo|Hyakurai Ju|Bo Shuriken|Tsubute|Uchi Ne															AUTO:WEAPONPROF|%LIST
 Inpo Agent Proficiencies		TYPE:ClassAbility	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|Bakuhatsugama|Kusarigama|Ninja To|Futokoro Teppo|Hyakurai Ju|Bo Shuriken|Tsubute|Uchi Ne|Sword (Bastard)|Sword (Short)|Kama|Kukri|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham	AUTO:WEAPONPROF|%LIST
 Lotus Warrior Proficiencies		TYPE:ClassAbility	VISIBLE:NO	STACK:NO	MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|Bakuhatsugama|Kusarigama|Ninja To|Futokoro Teppo|Hyakurai Ju|Bo Shuriken|Tsubute|Uchi Ne|Sword (Bastard)|Sword (Short)|Kama|Kukri|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham	AUTO:WEAPONPROF|%LIST
