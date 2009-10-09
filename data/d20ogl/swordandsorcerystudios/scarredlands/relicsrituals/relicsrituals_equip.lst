@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Oct  8 22:17:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 ###Block: Tattoos
@@ -130,7 +130,7 @@ Tooth									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Com
 Twine/Small Length						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc
 Water/Pure/Vial							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
 Water/Vial								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
-Wine									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:.6		SOURCEPAGE:Per Spell Desc
+Wine									OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0.6	SOURCEPAGE:Per Spell Desc
 Wood/Dark/Piece							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
 Wood/Sacred Grove/Piece						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
 Zombie Flesh/Handful						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:1		SOURCEPAGE:Per Spell Desc

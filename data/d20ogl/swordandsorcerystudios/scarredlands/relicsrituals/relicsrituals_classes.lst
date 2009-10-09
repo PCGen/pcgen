@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 23:59:41 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Thu Oct  8 22:17:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
@@ -8,72 +8,72 @@ SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.sword
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Blood Witch	HD:4		TYPE:PC.Prestige	ABB:BlW		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Multiple Requirements										Required Skill
-CLASS:Blood Witch	PREMULT:2,[PREFEAT:1,Skill Focus(Concentration)],[PREFEAT:2,TYPE=Metamagic]	PRESKILL:2,Concentration=10,Knowledge (Arcana)=10
+CLASS:Blood Witch	PREMULT:2,[PREFEAT:1,Skill Focus (Concentration)],[PREFEAT:2,TYPE=Metamagic]	PRESKILL:2,Concentration=10,Knowledge (Arcana)=10
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Heal|Knowledge (Arcana)|TYPE.Profession|Scry|Spellcraft|Wilderness Lore
+CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|Knowledge (Arcana)|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level				Use Spell List
 CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL	SPELLLIST:1|Druid
-1					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-2					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Nature Magic
-3					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-4					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Alter Self
-5					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-6					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Minor Sacrifice
-7					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-8	BONUS:VAR|Wildshape|1	ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Wildshape
-9					ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Blood Enhancement
-10					ADD:SPELLCASTER|1|ANY						AUTO:FEAT|Major Sacrifice
+1					ADD:SPELLCASTER|ANY	ADD:FEAT|Blood Enhancement
+2					ADD:SPELLCASTER|ANY						AUTO:FEAT|Nature Magic
+3					ADD:SPELLCASTER|ANY	ADD:FEAT|Blood Enhancement
+4					ADD:SPELLCASTER|ANY						AUTO:FEAT|Alter Self
+5					ADD:SPELLCASTER|ANY	ADD:FEAT|Blood Enhancement
+6					ADD:SPELLCASTER|ANY						AUTO:FEAT|Minor Sacrifice
+7					ADD:SPELLCASTER|ANY	ADD:FEAT|Blood Enhancement
+8	BONUS:VAR|Wildshape|1	ADD:SPELLCASTER|ANY						AUTO:FEAT|Wildshape
+9					ADD:SPELLCASTER|ANY	ADD:FEAT|Blood Enhancement
+10					ADD:SPELLCASTER|ANY						AUTO:FEAT|Major Sacrifice
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Crypt Lord	HD:4		TYPE:PC.Prestige	ABB:CrL		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Required Feat				Required Skill				Required Spell School
-CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus(Necromancy)	PRESKILL:1,Knowledge (Undead)=7	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLSCHOOL:7,Necromancy=0
+CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Undead)=7	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLSCHOOL:7,Necromancy=0
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Arcana)|Knowledge (Undead)|TYPE.Profession|Scry|Spellcraft
+CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Undead)|TYPE=Profession|Scry|Spellcraft
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|1+CHA|TYPE=NoStack						ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Extended Necromancy
-2															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Undead Appearance
-3									BONUS:VAR|EnergyDrainResistance|5	ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Energy Drain Resistance
-4															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Undead Familiar
-5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|1|ANY
-6															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Raise the Dead
-7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|1|ANY
-8															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Create Undead
-9															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Energy Drain Immunity
-10															ADD:SPELLCASTER|1|ANY	AUTO:FEAT|Lichdom
+1															ADD:SPELLCASTER|ANY	AUTO:FEAT|Extended Necromancy
+2															ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Appearance
+3									BONUS:VAR|EnergyDrainResistance|5	ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Resistance
+4															ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Familiar
+5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|ANY
+6															ADD:SPELLCASTER|ANY	AUTO:FEAT|Raise the Dead
+7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE							ADD:SPELLCASTER|ANY
+8															ADD:SPELLCASTER|ANY	AUTO:FEAT|Create Undead
+9															ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Immunity
+10															ADD:SPELLCASTER|ANY	AUTO:FEAT|Lichdom
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
 # Class Name	Required AL	Required Class		Required Feat		Required Skill
 CLASS:Incarnate	PREALIGN:TN	PRECLASS:1,Druid=4	PREFEAT:1,Quicken Spell	PRESKILL:1,Knowledge (Nature)=7
 # Class Name	Skill Pts/Lvl	Use Class Skill List	Class Skill
-CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 1	AUTO:FEAT|Incarnate Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form																AUTO:FEAT|Reincarnate|Fixed Alignment
-2	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-3	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
-4	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Baseform				ABILITY:Special Ability|AUTOMATIC|Immune to Poisons
-6	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
-7	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Incarnate Spontaneous Casting
-8	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form
+1	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Pastlife Form																	AUTO:FEAT|Fixed Alignment|Reincarnate
+2	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Pastlife Form
+3	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Incarnate Spontaneous Casting
+4	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Pastlife Form
+5	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Baseform					ABILITY:Special Ability|AUTOMATIC|Immune to Poisons
+6	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Pastlife Form
+7	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Incarnate Spontaneous Casting
+8	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Pastlife Form
 9	BONUS:PCLEVEL|Druid|1								ABILITY:Special Ability|AUTOMATIC|Timeless Body		TEMPLATE:Timeless Body
-10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|1|Pastlife Form																AUTO:FEAT|Designate Life Form
+10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Pastlife Form																	AUTO:FEAT|Designate Life Form
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill	Req. Known Spell			Required Sub-school
 CLASS:Penumbral Lord	PREFEAT:1,Silent Spell	PRESKILL:1,Hide=5	PRESPELL:1,Shadow Conjuration	PRESPELLSCHOOLSUB:3,Shadow=1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Penumbral Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Decipher Script|Hide|Knowledge (Arcana)|Move Silently|TYPE.Profession|Scry|Spellcraft
+CLASS:Penumbral Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Decipher Script|Hide|Knowledge (Arcana)|Move Silently|TYPE=Profession|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral Lord|CL
 ###Block: Spell List
@@ -106,7 +106,7 @@ CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	ALLOWBASECLASS:NO		S
 # Class Name	Required Skill							Req. Spell Type
 CLASS:Sea Witch	PRESKILL:2,Concentration=8,Profession (Sailor)=8	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sea Witch	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Handle Animal|Intuit Direction|TYPE.Knowledge|TYPE.Profession|Sense Motive|Speak Language|Swim|Use Rope
+CLASS:Sea Witch	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Handle Animal|Intuit Direction|TYPE=Knowledge|TYPE=Profession|Sense Motive|Speak Language|Swim|Use Rope
 # Class Name	Caster level
 CLASS:Sea Witch	BONUS:CASTERLEVEL|Sea Witch|CL
 SUBCLASS:Intelligence Base	COST:0	SPELLSTAT:INT	SPELLTYPE:Arcane
@@ -137,22 +137,22 @@ SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA	SPELLTYPE:Arcane
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill			Required Sub-school
-CLASS:Summoner	PREFEAT:1,Skill Focus(Knowledge %)	PRESKILL:1,TYPE.Knowledge=8	PRESPELLSCHOOLSUB:1,Summoning=3
+CLASS:Summoner	PREFEAT:1,Skill Focus (Knowledge %)	PRESKILL:1,TYPE.Knowledge=8	PRESPELLSCHOOLSUB:1,Summoning=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE.Craft|Diplomacy|Knowledge (Patron Lore)|TYPE.Profession|Scry|Spellcraft
-1	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic
-2	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|Gain a Summoning spell at highest casting level
-3	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic
-4	ADD:SPELLCASTER|1|ANY
+CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Diplomacy|Knowledge (Patron Lore)|TYPE=Profession|Scry|Spellcraft
+1	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic
+2	ADD:SPELLCASTER|ANY	ADD:FEAT|Gain a Summoning spell at highest casting level
+3	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic
+4	ADD:SPELLCASTER|ANY
 #4	ADD:SPELLCASTER|1|ANY	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=2|1
-5	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic
-6	ADD:SPELLCASTER|1|ANY
+5	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic
+6	ADD:SPELLCASTER|ANY
 #6	ADD:SPELLCASTER|1|ANY	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=3|1
-7	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic
-8	ADD:SPELLCASTER|1|ANY
+7	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic
+8	ADD:SPELLCASTER|ANY
 #8	ADD:SPELLCASTER|1|ANY	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=4|1
-9	ADD:SPELLCASTER|1|ANY	ADD:FEAT|1|TYPE=Metamagic
-10	ADD:SPELLCASTER|1|ANY
+9	ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=Metamagic
+10	ADD:SPELLCASTER|ANY
 #10	ADD:SPELLCASTER|1|ANY	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=5|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -160,21 +160,21 @@ CLASS:Vigilant	HD:12		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.22	BONU
 # Class Name	Required AL				Req. Att.	Required Feat			Required Skill
 CLASS:Vigilant	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Track	PRESKILL:4,Wilderness Lore=7,Diplomacy=5,Gather Information=5,Handle Animal=5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Vigilant	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intuit Direction|Jump|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
+CLASS:Vigilant	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intuit Direction|Jump|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Vigilant|CL
 ###Block: Spell List
 11	SPELLLEVEL:CLASS|Vigilant=1|Alarm,Calm Animals,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Goodberry,Pass without Trace,Resist Elements,Speak with Animals
 1	SPELLLEVEL:CLASS|Vigilant=2|Animal Messenger,Detect Chaos,Detect Evil,Detect Good,Detect Law,Protection from Elements,Snare,Speak with Plants,Warp Wood
-1	SPELLLEVEL:CLASS|Vigilant=3|Endurance,Neutralize Poison,Remove Disease,Water Walk,Spike Growth
+1	SPELLLEVEL:CLASS|Vigilant=3|Endurance,Neutralize Poison,Remove Disease,Spike Growth,Water Walk
 1	SPELLLEVEL:CLASS|Vigilant=4|Freedom of Movement,Repel Vermin,Spike Stones,Wind Wall
 ###Block: Weapon and Armor Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:0,0																AUTO:FEAT|Sprint
-2	CAST:0,0										ADD:FEAT|1|Vigilant Favored Enemy	AUTO:FEAT|Tireless
+2	CAST:0,0										ADD:FEAT|Vigilant Favored Enemy	AUTO:FEAT|Tireless
 3	CAST:0,1																AUTO:FEAT|Ferocity|Toughness
 4	CAST:0,1,0																AUTO:FEAT|Great Fortitude
 5	CAST:0,1,1																AUTO:FEAT|Iron Will

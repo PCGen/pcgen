@@ -5,5 +5,5 @@ SOURCELONG:Gunpowder Plots	SOURCESHORT:GunPlots	SOURCEWEB:http://www.enworld.org
 Bullets (20)	TYPE:Goods	COST:1	WT:1		SOURCEPAGE:p.4
 Flint			TYPE:Goods	COST:1			SOURCEPAGE:p.4
 Gunpowder		TYPE:Goods	COST:2	WT:1		SOURCEPAGE:p.4
-Slowmatch		TYPE:Goods	COST:.1			SOURCEPAGE:p.4
-Wheellock Spring	TYPE:Goods	COST:.1			SOURCEPAGE:p.4
+Slowmatch		TYPE:Goods	COST:0.1			SOURCEPAGE:p.4
+Wheellock Spring	TYPE:Goods	COST:0.1			SOURCEPAGE:p.4

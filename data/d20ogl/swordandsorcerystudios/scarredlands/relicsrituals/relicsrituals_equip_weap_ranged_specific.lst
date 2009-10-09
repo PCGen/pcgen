@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Jan 25 00:29:35 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Thu Oct  8 22:17:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
-# Equipment Name			Product Identity?	Output Name				Required Proficiency				Type										Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page			Weapon prop. bonus
+# Equipment Name			Product Identity?	Output Name				Required Weapon Proficiency			Type										Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page			Weapon prop. bonus
 Silverbow (Composite)		NAMEISPI:YES	OUTPUTNAME:[NAME] Silverbow	PROFICIENCY:WEAPON|Longbow (Composite)	TYPE:Magic.Weapon.Martial.Ranged.Piercing.Container		CONTAINS:UNLIM|Arrow=1	COST:18375	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:110	SIZE:M	SOURCEPAGE:p.162		BONUS:WEAPON|DAMAGE,TOHIT|1
 Siverbow				NAMEISPI:YES	OUTPUTNAME:Silverbow		PROFICIENCY:WEAPON|Longbow			TYPE:Magic.Weapon.Martial.Ranged.Piercing.Container		CONTAINS:UNLIM|Arrow=1	COST:0	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8		RANGE:100	SIZE:M	SOURCEPAGE:p.162		BONUS:WEAPON|DAMAGE,TOHIT|1
 Crossbow (Hand/Assassin's)	NAMEISPI:YES	OUTPUTNAME:[NAME] Crossbow	PROFICIENCY:WEAPON|Crossbow (Hand)		TYPE:Magic.Weapon.Exotic.Ranged.Piercing.Crossbow.Container	CONTAINS:UNLIM|Bolt=1	COST:32335	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4		RANGE:30	SIZE:T	SOURCEPAGE:p.157-158	BONUS:WEAPON|DAMAGE,TOHIT|1

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug  7 02:22:54 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+# CVS $Revision$ $Author$ -- Thu Oct  8 22:19:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
 
 #CREATED BY:Paul W. King, Jan 2007
@@ -6,7 +6,7 @@ SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.theg
 
 # Spell Name		Output Name				Classes of caster			School			Sub-School			Spell Descriptors			Type				Components		Casting Time		Range			Target Area or Effect							Duration												Save Info						Spell Resistance		Source Page
 Amphibious Craft							CLASSES:Mage=4			SCHOOL:Transmutation										TYPE:Arcane			COMPS:V, S, F	CASTTIME:One round	RANGE:Touch		TARGETAREA:One enclosed land vehicle				DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:None					SPELLRES:No			SOURCEPAGE:p.4
-Brawl									CLASSES:Acolyte=4|Mage=4	SCHOOL:Enchantment					DESCRIPTOR:Mind-Affecting	TYPE:Divine.Arcane	COMPS:V, S, M	CASTTIME:Attack action	RANGE:Close		TARGETAREA:All creatures, 5 HD or less, in a 15 ft radius	DURATION:3 rounds											SAVEINFO:Will negates				SPELLRES:Yes		SOURCEPAGE:p.4
+Brawl									CLASSES:Acolyte,Mage=4		SCHOOL:Enchantment					DESCRIPTOR:Mind-Affecting	TYPE:Divine.Arcane	COMPS:V, S, M	CASTTIME:Attack action	RANGE:Close		TARGETAREA:All creatures, 5 HD or less, in a 15 ft radius	DURATION:3 rounds											SAVEINFO:Will negates				SPELLRES:Yes		SOURCEPAGE:p.4
 Bypass Bystanders							CLASSES:Mage=1			SCHOOL:Abjuration											TYPE:Arcane			COMPS:V, S, M	CASTTIME:Attack action	RANGE:Touch		TARGETAREA:One firearm							DURATION:(CASTERLEVEL) rounds									SAVEINFO:None					SPELLRES:No			SOURCEPAGE:p.4
 Canned Mana								CLASSES:Acolyte=2			SCHOOL:Conjuration	SUBSCHOOL:Healing							TYPE:Divine			COMPS:V, S, M	CASTTIME:Attack action	RANGE:Touch		TARGETAREA:One portion of food					DURATION:12 hours											SAVEINFO:None					SPELLRES:No			SOURCEPAGE:p.4
 Cellular Hand							CLASSES:Mage=1			SCHOOL:Evocation											TYPE:Arcane			COMPS:V, S		CASTTIME:Attack action	RANGE:Personal	TARGETAREA:You								DURATION:(CASTERLEVEL) minutes								SAVEINFO:None					SPELLRES:No			SOURCEPAGE:p.4

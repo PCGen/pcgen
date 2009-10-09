@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:19:41 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Thu Oct  8 22:17:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
-# Equipment Name				Product Identity?	Output Name				Required Proficiency			Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page			Save checks bonus		Combat bonus						Bonus to skill											Stat bonus
+# Equipment Name				Product Identity?	Output Name				Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page			Save checks bonus		Combat bonus						Bonus to skill											Stat bonus
 Alluna's Lenses of Discovery 50%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:24500	WT:1															SOURCEPAGE:p.174
 Alluna's Lenses of Discovery 85%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:34500	WT:1															SOURCEPAGE:p.174
 Alluna's Lenses of Discovery 90%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:50000	WT:1															SOURCEPAGE:p.174
@@ -32,18 +32,18 @@ Cloak (Fame)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrou
 Cloak (Pestilence)			NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:56700	WT:1															SOURCEPAGE:p.182-183
 Cloak (Whispers)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:34400	WT:1															SOURCEPAGE:p.183														BONUS:SKILL|Listen,Gather Information|10
 Confessor's Quill				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:30000	WT:0															SOURCEPAGE:p.183
-Despot's Circlet				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:118000	WT:.5															SOURCEPAGE:p.183-184
+Despot's Circlet				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:118000	WT:0.5														SOURCEPAGE:p.183-184
 Dragonstein					NAMEISPI:YES												TYPE:Magic.Wondrous							COST:4400	WT:1															SOURCEPAGE:p.184
 Emerald Quiver				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:17900	WT:1															SOURCEPAGE:p.184
 Enkili's Cloak				NAMEISPI:YES												TYPE:Magic.Wondrous.Cape						COST:2800	WT:1															SOURCEPAGE:p.184
 Everseeing Eyepatch			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:56000	WT:0															SOURCEPAGE:p.185
 Flagon of Imbibing			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:2000	WT:1															SOURCEPAGE:p.185
-Gemgate					NAMEISPI:YES												TYPE:Magic.Wondrous							COST:81900	WT:.25														SOURCEPAGE:p.185-186
+Gemgate					NAMEISPI:YES												TYPE:Magic.Wondrous							COST:81900	WT:0.25														SOURCEPAGE:p.185-186
 Gloves of the Gladiator			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:9000	WT:2															SOURCEPAGE:p.186						BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|1
 Helm of the Reaver			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:55200	WT:3															SOURCEPAGE:p.186-187
 Hornsaw Flute				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:101000	WT:1															SOURCEPAGE:p.187
 Horseshoes of the Vanishing Steed	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:66800	WT:4															SOURCEPAGE:p.187
-Hourvan's Handglass of Holding	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:79500	WT:.5															SOURCEPAGE:p.187-188
+Hourvan's Handglass of Holding	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:79500	WT:0.5														SOURCEPAGE:p.187-188
 Impregnable Strongbox			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:167000	WT:6															SOURCEPAGE:p.188
 Kadum's Pearl (Agony)			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:4000	WT:0															SOURCEPAGE:p.188-189
 Kadum's Pearl (Night Terrors)		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:32000	WT:0															SOURCEPAGE:p.188-189
@@ -95,4 +95,3 @@ Spectral Yoke				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:66000	WT:30		SO
 Spider Webs					NAMEISPI:YES										TYPE:Magic.Wondrous		COST:500	WT:0		SOURCEPAGE:p.196-197
 Star Gazer					NAMEISPI:YES										TYPE:Magic.Wondrous		COST:50500	WT:1		SOURCEPAGE:p.197																																	BONUS:SKILL|Knowledge (Astrology)|10
 Mask (Vengaurak)				NAMEISPI:YES	OUTPUTNAME:[NAME] Mask						TYPE:Magic.Wondrous		COST:87000	WT:10		SOURCEPAGE:p.197		VFEAT:Blind-Fight																							BONUS:COMBAT|AC|4|TYPE=Deflection
-
