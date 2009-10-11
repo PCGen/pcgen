@@ -46,6 +46,7 @@
     <node name="ACDex">|STAT.1.MOD|</node>
     <node name="ACSize">|AC.Size|</node>
     <node name="ACNat">|AC.NaturalArmor|</node>
+    <node name="ACDeflect">|AC.Deflection|</node>
     <node name="ACMisc">|AC.Misc|</node>
     <node name="TouchAC">|AC.Touch|</node>
     <node name="FFAC">|AC.Flatfooted|</node>

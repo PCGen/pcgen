@@ -59,6 +59,8 @@ Bugs: Money in two containers is not merged.
 
 Branched from csheet_fantasy_combined.htm by: Mike Elliott (satinDOTknightsATyahooDOTcom) 14/7/09
 
+Revisions: Tir-Gwaith 10/11/09 Breaking out Deflection from Misc AC bonus (in this sheet, lining up Deflection from PCGen to sheet)
+
 $Revision$
 $Author$
 $Date$
@@ -355,7 +357,7 @@ var Init = new InitObject(|INITIATIVEMOD|,|INITIATIVEBONUS|);
 var HP = new HPObject( |HP| );
 var Subdual = new SubdualObject( '0' );
 // AC object
-var AC = new ACObject(|AC.Flatfooted|,|AC.Touch|,|AC.Total|,|AC.Base|,|AC.Armor|,|AC.Shield|,0,|AC.Ability|,|AC.Size|,|AC.NaturalArmor|,|AC.Misc|);
+var AC = new ACObject(|AC.Flatfooted|,|AC.Touch|,|AC.Total|,|AC.Base|,|AC.Armor|,|AC.Shield|,|AC.Ability|,|AC.Size|,|AC.NaturalArmor|,|AC.Deflection|,|AC.Misc|);
 // List of skills forbidden to a raging Barb
 var SkillsRedList = new Array("Alchemy","Appraise","Craft","Decipher Script","Diplomacy","Disable Device","Disguise","Escape Artist","Forgery","Gather Information","Handle Animal","Heal","Hide","Innuendo","Intuit Direction","Knowledge","Move Silently","Open Lock","Perform","Pick Pocket","Profession","Read Lips","Scry","Search","Sense Motive","Sleight of Hand","Spellcraft","Tumble","Use Magic Device");
 // List of the supported states a char can be in.
@@ -1024,7 +1026,7 @@ function SkillFlag()
 // *spellShieldMod int     RW  Current Shield modifier due spell (eg. Shield)
 // *spellDeflMod   int     RW  Current Deflection modifier due spell (eg. Shield of Faith)
 // *spellNatMod    int     RW  Current Natural Armor modifier due spell (eg. Barkskin)
-function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nDeflection,nAbility,nSize,nNatural,nMisc)
+function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nAbility,nSize,nNatural,nDeflection,nMisc)
 {
 	this.spellACMod = 0;
 	this.spellDeflMod = 0;

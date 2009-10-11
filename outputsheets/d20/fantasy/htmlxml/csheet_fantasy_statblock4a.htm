@@ -482,15 +482,25 @@ function printSpaceReach(aSpace,aReach) {
 |ENDIF|
 |ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.NaturalArmor.SIGN|</font>&#x0020;natural
 |ENDIF|
-|IIF(AC.Misc:0)|
+|IIF(AC.Deflection:0)|
 |ELSE|
 |IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor:0)|
 &nbsp;&#x0020;&nbsp;&#x0020;(
 |ELSE|
 ,&#x0020;
 |ENDIF|
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Deflection.SIGN|</font>&#x0020;deflection
+|ENDIF|
+|IIF(AC.Misc:0)|
+|ELSE|
+|IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor.AND.AC.Deflection:0)|
+&nbsp;&#x0020;&nbsp;&#x0020;(
+|ELSE|
+,&#x0020;
+|ENDIF|
 |ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Misc.SIGN|</font>&#x0020;misc
 |ENDIF|
+
 |IIF(AC.Armor:0)|
 |ELSE|
 |IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor:0.AND.AC.Misc:0)|

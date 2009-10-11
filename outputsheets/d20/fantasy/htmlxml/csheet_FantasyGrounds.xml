@@ -7,7 +7,7 @@
             	<intvalue name="acarmorbonus">|AC.Armor|</intvalue>
             	<intvalue name="acbasehelper">|AC.Base|</intvalue>
             	<intvalue name="acdexbonus"></intvalue>
-            	<intvalue name="acmiscbonus">|AC.Misc|</intvalue>
+            	<intvalue name="acmiscbonus">|AC.Misc+AC.Deflection.INTVAL|</intvalue>
             	<stringvalue name="acmisctitle"></stringvalue>
             	<intvalue name="acshieldbonus">|AC.Shield|</intvalue>
             	<intvalue name="acsizebonus">|AC.Size|</intvalue>

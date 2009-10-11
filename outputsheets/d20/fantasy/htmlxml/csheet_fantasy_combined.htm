@@ -55,6 +55,8 @@ Revisions: Eddy Anthony 1/16/06 Converted Will check to reference array number i
 
 Revisions: Tir-Gwaith 25/10/07 Converted Barbarian away from purely 3.0, reference defined VARs in all instances.  Still needs more work.
 
+Revisions: Tir-Gwaith 10/11/09 Breaking out Deflection from Misc AC bonus
+
 $Revision$
 $Author$
 $Date$
@@ -303,7 +305,7 @@ var Init = new InitObject(|INITIATIVEMOD|,|INITIATIVEBONUS|);
 // Hits
 var HP = new HPObject( |HP| );
 // AC object
-var AC = new ACObject(|AC.Flatfooted|,|AC.Touch|,|AC.Total|,|AC.Base|,|AC.Armor|,|AC.Shield|,|AC.Ability|,|AC.Size|,|AC.NaturalArmor|,|AC.Misc|);
+var AC = new ACObject(|AC.Flatfooted|,|AC.Touch|,|AC.Total|,|AC.Base|,|AC.Armor|,|AC.Shield|,|AC.Ability|,|AC.Size|,|AC.NaturalArmor|,|AC.Deflection|,|AC.Misc|);
 // List of skills forbidden to a raging Barb
 var SkillsRedList = new Array("Alchemy","Appraise","Craft","Decipher Script","Diplomacy","Disable Device","Disguise","Escape Artist","Forgery","Gather Information","Handle Animal","Heal","Hide","Innuendo","Intuit Direction","Knowledge","Move Silently","Open Lock","Perform","Pick Pocket","Profession","Read Lips","Scry","Search","Sense Motive","Sleight of Hand","Spellcraft","Tumble","Use Magic Device");
 // List of the supported states a char can be in.
@@ -649,13 +651,14 @@ function SkillFlag()
 //  abilityModified bool   RO  TRUE if ability != abilityBase
 //  size           int     RW  Current AC modifier due to size
 //  naturalarmor   int     RW  Current AC modifier due to natural armor
+//  deflection     int     RW  Current AC modifier due to deflection
 //  miscBase       int     RW  Unmodified AC modifier due to other affects
 //  misc           int     RO  Current AC modifier due to other affects
 //  miscModified   bool    RO  TRUE if misc != miscBase
 //  maxdex         int     RW  Maximum dex modifier due to armor.  0 MEANS NO MAXDEX
 // *rageMod        int     RW  Current AC modifier due to rage
 // *defFightMod    int     RW  Current AC modifier due fighting defensively
-function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nAbility,nSize,nNatural,nMisc)
+function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nAbility,nSize,nNatural,nDeflection,nMisc)
 {
 	this.flatBase = nFlat;
 	this.flat = ACObjFlat;
@@ -674,6 +677,7 @@ function ACObject(nFlat,nTouch,nTotal,nBase,nArmor,nShield,nAbility,nSize,nNatur
 	this.abilityModified = ACObjAbilityModified;
 	this.size = nSize;
 	this.naturalarmor = nNatural;
+	this.deflection = nDeflection;
 	this.miscBase = nMisc;
 	this.misc = ACObjMisc;
 	this.miscModified = ACObjMiscModified;
@@ -1035,6 +1039,7 @@ function ACPrint()
 	tempHTML = tempHTML+'class="c9sB">'+AC.ability()+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td class="c9sB">'+AC.size+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td class="c9sB">'+AC.naturalarmor+'<\/td><td class="c7mB">+<\/td>';
+	tempHTML = tempHTML+'<td class="c9sB">'+AC.deflection+'<\/td><td class="c7mB">+<\/td>';
 	tempHTML = tempHTML+'<td ';
 	if ( AC.miscModified() )
 	   tempHTML = tempHTML+styleTag;
@@ -1059,6 +1064,7 @@ function ACPrint()
 	tempHTML = tempHTML+'<td width="25" class="c4">STAT<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">SIZE<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">NATURAL<br />ARMOR<\/td><td><\/td>';
+	tempHTML = tempHTML+'<td width="25" class="c4">DEFLECTION<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MISC<br />BONUS<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">MISS<br />CHANCE<\/td><td><\/td>';
 	tempHTML = tempHTML+'<td width="25" class="c4">ARCANE<br />FAILURE<\/td><td><\/td>';
