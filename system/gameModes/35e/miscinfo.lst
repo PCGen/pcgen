@@ -158,10 +158,10 @@ ACTYPE:Ability				ADD:Ability
 ACTYPE:Size					ADD:Size
 ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
 ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Deflection
 ACTYPE:ClassDefense			ADD:ClassDefense
 ACTYPE:Dodge				ADD:Dodge
-ACTYPE:Deflection			ADD:Deflection
+ACTYPE:Deflection				ADD:Deflection
 ACTYPE:Insight				ADD:Insight
 
 # Damage die changes on size
