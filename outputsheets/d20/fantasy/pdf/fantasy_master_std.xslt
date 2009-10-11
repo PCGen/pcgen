@@ -1332,67 +1332,73 @@
 			<fo:table-column column-width="2mm"/>
 			<!-- = -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- BASE -->
 			<fo:table-column column-width="2mm"/>
 			<!-- + -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- armour -->
 			<fo:table-column column-width="2mm"/>
 			<!-- + -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- armour -->
 			<fo:table-column column-width="2mm"/>
 			<!-- + -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- stat -->
 			<fo:table-column column-width="2mm"/>
 			<!-- + -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!--  size -->
 			<fo:table-column column-width="2mm"/>
 			<!-- + -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- natural armour-->
 			<fo:table-column column-width="2mm"/>
 			<!-- + -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+			</fo:table-column>
+			<!-- deflection -->
+			<fo:table-column column-width="2mm"/>
+			<!-- + -->
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.09 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- misc   -->
 			<fo:table-column column-width="4mm"/>
 			<!-- space -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.10 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.11 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- miss chance -->
 			<fo:table-column column-width="3mm"/>
 			<!-- space -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.10 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- arcane spell failure -->
 			<fo:table-column column-width="2mm"/>
 			<!-- space -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.10 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- armour check-->
 			<fo:table-column column-width="2mm"/>
 			<!-- space -->
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="0.10 * (0.71 * $pagePrintableWidth - 67)" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>
 			<!-- SR -->
 			<fo:table-body>
@@ -1508,6 +1514,17 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac'"/>
 						</xsl:call-template>
+						<fo:block font-size="10pt">
+							<xsl:value-of select="deflection"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell display-align="center">
+						<fo:block text-align="center" font-size="6pt">+</fo:block>
+					</fo:table-cell>
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'ac'"/>
+						</xsl:call-template>
 						<fo:block text-align="center" font-size="10pt">
 							<xsl:value-of select="misc"/>
 						</fo:block>
@@ -1584,9 +1601,15 @@
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">SIZE</fo:block>
 					</fo:table-cell>
-					<fo:table-cell number-columns-spanned="3">
-						<fo:block text-align="center" font-size="4pt">NATURAL</fo:block>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">NATURAL ARMOR</fo:block>
 					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">DEFLEC- TION</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">MISC</fo:block>
 					</fo:table-cell>
