@@ -267,6 +267,7 @@
 		<stat_mod>|AC.Ability|</stat_mod>
 		<size_mod>|AC.Size|</size_mod>
 		<natural>|AC.NaturalArmor|</natural>
+		<deflection>|AC.Deflection|</deflection>
 		<class_bonus>|AC.ClassDefense|</class_bonus>
 		<dodge_bonus>|AC.Dodge|</dodge_bonus>
 |IIF(isgamemode("Modern").OR.isgamemode("Darwins_World_2").OR.isgamemode("Sidewinder"))|
