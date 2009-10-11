@@ -117,9 +117,13 @@ th
 |ELSE|
 |AC.NaturalArmor.SIGN| natural, 
 |ENDIF|
+|IIF(AC.Deflection:0)|
+|ELSE|
+|AC.Deflection.SIGN| deflection,
+|ENDIF|
 |IIF(AC.Misc:0)|
 |ELSE|
-|AC.Misc.SIGN| misc
+|AC.Misc.SIGN| misc,
 |ENDIF|
 |IIF(AC.Armor:0)|
 |ELSE|
