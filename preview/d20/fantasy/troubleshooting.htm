@@ -66,6 +66,10 @@ $Date$
 |ELSE|
 |AC.NaturalArmor.SIGN|[NATURAL] 
 |ENDIF|
+|IIF(AC.Deflection:0)|
+|ELSE|
+|AC.Deflection.SIGN|[DEFLECTION] 
+|ENDIF|
 |IIF(AC.Misc:0)|
 |ELSE|
 |AC.Misc.SIGN|[MISC]
