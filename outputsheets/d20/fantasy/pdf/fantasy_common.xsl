@@ -289,13 +289,9 @@
 										<xsl:call-template name="paragraghlist">
 											<xsl:with-param name="tag" select="$desc.tag"/>
 										</xsl:call-template>
-									</fo:block>
-								</xsl:if>
-								<xsl:if test="source != ''">
-									<fo:block font-size="7pt" text-align="right">
-										<xsl:text>[</xsl:text>
-										<xsl:value-of select="source"/>
-										<xsl:text>]</xsl:text>
+											<xsl:if test="source!=''">
+												<xsl:text> </xsl:text><xsl:text>[</xsl:text><xsl:value-of select="source"/><xsl:text>]</xsl:text>
+											</xsl:if>
 									</fo:block>
 								</xsl:if>
 							</fo:table-cell>
