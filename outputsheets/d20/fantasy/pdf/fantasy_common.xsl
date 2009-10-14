@@ -262,11 +262,17 @@
 		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 2" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
-					<fo:table-cell padding-top="1pt">
+					<fo:table-cell padding-top="1pt" number-columns-spanned="3">
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.title')"/></xsl:call-template>
 						<fo:block font-size="9pt"><xsl:value-of select="$title"/></fo:block>
 					</fo:table-cell>
@@ -281,21 +287,36 @@
 					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">
 						<fo:table-row keep-with-next.within-column="always">
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
-							<fo:table-cell padding="1pt">
+							<xsl:choose>
+								<xsl:when test="source!=''">
+									<fo:table-cell padding="1pt" number-columns-spanned="2">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+									<fo:table-cell padding="1pt" text-align="end">
+										<fo:block>[<xsl:value-of select="source"/>]</fo:block>
+									</fo:table-cell>
+								</xsl:when>
+								<xsl:otherwise>
+									<fo:table-cell padding="1pt" number-columns-spanned="3">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+								</xsl:otherwise>
+							</xsl:choose>
+						</fo:table-row>
+						<xsl:if test="$desc.tag!=''">
+							<fo:table-row keep-with-next.within-column="always">
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
-								<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
-								<xsl:if test="$desc.tag!=''">
+								<fo:table-cell padding="1pt" number-columns-spanned="3">
 									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
 										<xsl:call-template name="paragraghlist">
 											<xsl:with-param name="tag" select="$desc.tag"/>
 										</xsl:call-template>
-											<xsl:if test="source!=''">
-												<xsl:text> </xsl:text><xsl:text>[</xsl:text><xsl:value-of select="source"/><xsl:text>]</xsl:text>
-											</xsl:if>
 									</fo:block>
-								</xsl:if>
-							</fo:table-cell>
-						</fo:table-row>
+								</fo:table-cell>
+							</fo:table-row>
+						</xsl:if>
 					</xsl:if>
 				</xsl:for-each>
 			</fo:table-body>
