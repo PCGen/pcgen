@@ -521,6 +521,7 @@
 				<hand>|WEAPON.%weap.HAND|</hand>
 				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
 				<reach>|WEAPON.%weap.REACH|</reach>
+				<reachunit>|WEAPON.%weap.REACHUNIT|</reachunit>
 				<size>|WEAPON.%weap.SIZE|</size>
 				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
 				<type>|WEAPON.%weap.TYPE|</type>
@@ -632,6 +633,7 @@
 				<hand>|WEAPON.%weap.HAND|</hand>
 				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
 				<reach>|WEAPON.%weap.REACH|</reach>
+				<reachunit>|WEAPON.%weap.REACHUNIT|</reachunit>
 				<size>|WEAPON.%weap.SIZE|</size>
 				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
 				<type>|WEAPON.%weap.TYPE|</type>
@@ -729,6 +731,7 @@
 				<hand>|WEAPON.%weap.HAND|</hand>
 				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
 				<reach>|WEAPON.%weap.REACH|</reach>
+				<reachunit>|WEAPON.%weap.REACHUNIT|</reachunit>
 				<size>|WEAPON.%weap.SIZE|</size>
 				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
 				<type>|WEAPON.%weap.TYPE|</type>
@@ -787,6 +790,7 @@
 				<hand>|WEAPON.%weap.HAND|</hand>
 				<num_attacks>|WEAPON.%weap.NUMATTACKS|</num_attacks>
 				<reach>|WEAPON.%weap.REACH|</reach>
+				<reachunit>|WEAPON.%weap.REACHUNIT|</reachunit>
 				<size>|WEAPON.%weap.SIZE|</size>
 				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
 				<type>|WEAPON.%weap.TYPE|</type>
@@ -3495,6 +3499,7 @@
 						<hand>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.HAND|</hand>
 						<num_attacks>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
 						<reach>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.REACH|</reach>
+						<reachunit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.REACHUNIT|</reachunit>
 						<size>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SIZE|</size>
 						<special_properties>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SPROP|</special_properties>
 						<template>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TEMPLATE|</template>
@@ -3546,6 +3551,7 @@
 						<hand>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.HAND|</hand>
 						<num_attacks>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
 						<reach>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.REACH|</reach>
+						<reachunit>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.REACH|</reachunit>
 						<size>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.SIZE|</size>
 						<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.SPROP|</special_properties>
 						<template>|FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.%weap.TEMPLATE|</template>
@@ -3597,6 +3603,7 @@
 						<hand>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.HAND|</hand>
 						<num_attacks>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
 						<reach>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.REACH|</reach>
+						<reachunit>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.REACHUNIT|</reachunit>
 						<size>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.SIZE|</size>
 						<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.SPROP|</special_properties>
 						<template>|FOLLOWERTYPE.ANIMAL COMPANION.0.WEAPON.%weap.TEMPLATE|</template>
@@ -3657,6 +3664,7 @@
 						<num_attacks>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.NUMATTACKS|</num_attacks>
 						<base_range>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.RANGENOUNITS|</base_range>
 						<reach>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.REACH|</reach>
+						<reachunit>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.REACHUNIT|</reachunit>
 						<size>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.SIZE|</size>
 						<special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.SPROP|</special_properties>
 						<template>|FOLLOWERTYPE.FOLLOWER.%companion.WEAPON.%weap.TEMPLATE|</template>

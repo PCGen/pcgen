@@ -2638,7 +2638,8 @@
 							<xsl:with-param name="attribute" select="'weapon'"/>
 						</xsl:call-template>
 						<fo:block font-size="7pt">
-							<xsl:value-of select="reach"/> ft. 
+							<xsl:value-of select="reach"/> 
+							<xsl:value-of select="reachunit"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
