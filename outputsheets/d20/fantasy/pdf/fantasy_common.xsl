@@ -294,11 +294,11 @@
 										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
 									</fo:table-cell>
 									<fo:table-cell padding="1pt" text-align="end">
-										<fo:block>[<xsl:value-of select="source"/>]</fo:block>
+										<fo:block  font-size="7pt" font-weight="bold">[<xsl:value-of select="source"/>]</fo:block>
 									</fo:table-cell>
 								</xsl:when>
 								<xsl:otherwise>
-									<fo:table-cell padding="1pt" number-columns-spanned="3">
+									<fo:table-cell number-columns-spanned="3">
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
 									</fo:table-cell>
