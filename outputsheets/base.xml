@@ -1449,7 +1449,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%specialattack.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%specialattack.SOURCE|</source>
 		</special_attack>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=SpecialAttack")==0)|
@@ -1483,7 +1483,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%specialattack.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%specialattack.SOURCE|</source>
 		</special_attack>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=SpecialAttack")==0)|
@@ -1517,7 +1517,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%specialattack.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%specialattack.SOURCE|</source>
 		</special_attack>
 |ENDFOR|
 	</special_attacks>
@@ -1543,7 +1543,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%disadvantage.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%disadvantage.SOURCE|</source>
 		</disadvantage>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Disadvantage")==0)|
@@ -1561,7 +1561,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%disadvantage.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%disadvantage.SOURCE|</source>
 		</disadvantage>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Disadvantage")==0)|
@@ -1579,7 +1579,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%disadvantage.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%disadvantage.SOURCE|</source>
 		</disadvantage>
 |ENDFOR|
 	</disadvantages>
@@ -1621,7 +1621,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%talent.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%talent.SOURCE|</source>
 		</talent>	
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Talent")==0)|
@@ -1655,7 +1655,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%talent.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%talent.SOURCE|</source>
 		</talent>	
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Talent")==0)|
@@ -1689,7 +1689,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%talent.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%talent.SOURCE|</source>
 		</talent>
 |ENDFOR|
 	</talents>
@@ -1731,7 +1731,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%demoncant.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%demoncant.SOURCE|</source>
 		</demon_cant>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=DemonCant")==0)|
@@ -1765,7 +1765,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%demoncant.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%demoncant.SOURCE|</source>
 		</demon_cant>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=DemonCant")==0)|
@@ -1799,7 +1799,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%demoncant.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%demoncant.SOURCE|</source>
 		</demon_cant>
 |ENDFOR|
 	</demon_cants>
@@ -1841,7 +1841,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%magegnosis.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%magegnosis.SOURCE|</source>
 		</mage_gnosis>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=MageGnosis")==0)|
@@ -1875,7 +1875,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%magegnosis.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%magegnosis.SOURCE|</source>
 		</mage_gnosis>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=MageGnosis")==0)|
@@ -1909,7 +1909,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%magegnosis.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%magegnosis.SOURCE|</source>
 		</mage_gnosis>
 |ENDFOR|
 	</mage_gnosises>
@@ -1951,7 +1951,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%vampirediscipline.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.SOURCE|</source>
 		</vampire_discipline>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=VampireDiscipline")==0)|
@@ -1985,7 +1985,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%vampirediscipline.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.SOURCE|</source>
 		</vampire_discipline>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=VampireDiscipline")==0)|
@@ -2019,7 +2019,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%vampirediscipline.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%vampirediscipline.SOURCE|</source>
 		</vampire_discipline>
 |ENDFOR|
 	</vampire_disciplines>
@@ -2062,7 +2062,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%werewolfRite.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%werewolfRite.SOURCE|</source>
 		</werewolf_rite>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=WerewolfRite")==0)|
@@ -2096,7 +2096,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%werewolfRite.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%werewolfRite.SOURCE|</source>
 		</werewolf_rite>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=WerewolfRite")==0)|
@@ -2130,7 +2130,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%werewolfRite.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%werewolfRite.SOURCE|</source>
 		</werewolf_rite>
 |ENDFOR|
 	</werewolf_rites>
@@ -2173,7 +2173,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%forcepower.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%forcepower.SOURCE|</source>
 		</force_power>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=ForcePower")==0)|
@@ -2207,7 +2207,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%forcepower.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%forcepower.SOURCE|</source>
 		</force_power>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=ForcePower")==0)|
@@ -2241,7 +2241,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%forcepower.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%forcepower.SOURCE|</source>
 		</force_power>
 |ENDFOR|
 	</force_powers>
@@ -2283,7 +2283,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%forcetechnique.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%forcetechnique.SOURCE|</source>
 		</force_technique>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=ForceTechniques")==0)|
@@ -2317,7 +2317,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%forcetechnique.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%forcetechnique.SOURCE|</source>
 		</force_technique>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=ForceTechniques")==0)|
@@ -2351,7 +2351,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%forcetechnique.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%forcetechnique.SOURCE|</source>
 		</force_technique>
 |ENDFOR|
 	</force_techniques>
@@ -2394,7 +2394,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%forcesecret.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%forcesecret.SOURCE|</source>
 		</force_secret>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=ForceSecrets")==0)|
@@ -2428,7 +2428,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%forcesecret.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%forcesecret.SOURCE|</source>
 		</force_secret>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=ForceSecrets")==0)|
@@ -2462,7 +2462,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Talent</category>
-			<source>|ABILITY.VISIBLE.%forcesecret.SOURCE|</source>
+			<source>|ABILITY.Talent.VISIBLE.%forcesecret.SOURCE|</source>
 		</force_secret>
 |ENDFOR|
 	</force_secrets>
@@ -2504,7 +2504,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%atwill.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%atwill.SOURCE|</source>
 		</powers_atwill>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=AtWill")==0)|
@@ -2538,7 +2538,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%atwill.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%atwill.SOURCE|</source>
 		</powers_atwill>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=AtWill")==0)|
@@ -2572,7 +2572,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%atwill.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%atwill.SOURCE|</source>
 		</powers_atwill>
 |ENDFOR|
 	</powers_atwills>
@@ -2615,7 +2615,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%encounter.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%encounter.SOURCE|</source>
 		</powers_encounter>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Encounter")==0)|
@@ -2649,7 +2649,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%encounter.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%encounter.SOURCE|</source>
 		</powers_encounter>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Encounter")==0)|
@@ -2683,7 +2683,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%encounter.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%encounter.SOURCE|</source>
 		</powers_encounter>
 |ENDFOR|
 	</powers_encounters>
@@ -2726,7 +2726,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%daily.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%daily.SOURCE|</source>
 		</powers_daily>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Daily")==0)|
@@ -2760,7 +2760,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%daily.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%daily.SOURCE|</source>
 		</powers_daily>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Daily")==0)|
@@ -2794,7 +2794,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%daily.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%daily.SOURCE|</source>
 		</powers_daily>
 |ENDFOR|
 	</powers_dailies>
@@ -2837,7 +2837,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%utility.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%utility.SOURCE|</source>
 		</powers_utility>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC";"TYPE=Utility")==0)|
@@ -2871,7 +2871,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%utility.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%utility.SOURCE|</source>
 		</powers_utility>
 |ENDFOR|
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL";"TYPE=Utility")==0)|
@@ -2905,7 +2905,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 			<category>Special Ability</category>
-			<source>|ABILITY.VISIBLE.%utility.SOURCE|</source>
+			<source>|ABILITY.Special Ability.VISIBLE.%utility.SOURCE|</source>
 		</powers_utility>
 |ENDFOR|
 	</powers_utilities>
