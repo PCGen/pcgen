@@ -1,0 +1,31 @@
+1) _abilities: All shell objects.  NO DESCs.  If intentional, ok.  Otherwise, this is incomplete.
+
+2) templates_diseases: SAB w/PREAPPLY.  PREAPPLY only works on a BONUS...
+
+3) _equipment: need to review TYPEs.  All the Magic items are missing TYPE:Magic, for example.
+3a1) Stalactite is TYPE Thrown, but no RANGE given.  
+3a3)		It has SIZE:Large, in a 3.5 set.  Make sure this does what you think it does.
+3a2)		It is also a TYPE:Weapon, but no PROFICIENCY tag.  Heck, missing a LOT of normal weapon tags.  -- Incomplete???
+3b) Ring (of the Assassin) - SPROP for Sneak attack as well as the ABILITY and BONUS ?  that can be confusing on the character sheet.
+
+4) _spells: Numerous automatic calculations bits missing (DURATION, TARGETAREA, etc.)
+4a) Missing SOURCEPAGE tags
+4b) You can condense tags like: CLASSES:Cleric=1|Druid=1|Ranger=1|Sorcerer,Wizard=1 to CLASSES:Cleric,Druid,Ranger,Sorcerer,Wizard=1  but that's nit-picking...
+
+5) _kits: Check FEAT entries for Capitalization / working correctly.  FEAT:Weapon Focus (heavy pick) should be FEAT:Weapon Focus(Heavy Pick) etc.
+5a) Isn't Weapon Finesse in 3.5 a non-choice feat?  Why "FEAT:Weapon Finesse (slam)"
+5b1) Several of the kits have comments on Skills, but no SKILL w/ RANK entries.  Incomplete??
+5b2) Same with some Feats (like Xastrial Default)
+
+6) OGL / PCC.  "Copyright 2009, PCgen Data team" shouldn't that be PCGen Data team ?
+
+7) PCC: is this a Bastion Press set or Dragon Wing Games?  Why TYPE match it with Dragon Wing, when every other part of it is Bastion Press.  
+	As a user looking for the Bastion Press book, I wouldn't find it...
+Also might just want to type this as an Alpha Dataset?
+
+
+Please change the file names to something like intotheblack_ instead of bp_ittb.  
+I couldn't tell you what bp_ittb would be off the top of my head...
+
+
+-- Tir Gwaith, 30 Aug 2009

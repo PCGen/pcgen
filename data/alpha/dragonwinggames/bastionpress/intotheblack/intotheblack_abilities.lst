@@ -1,0 +1,121 @@
+# CVS $Revision$ $Author$ -- Wed Sep 30 22:19:25 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland
+
+###Block: Racial Abilities
+# Cave Hermit ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name		Unique Key						Category of Ability		Type							Innate Spells																													Description						Automatically Gained Weapon Prof.	Ability							Save checks bonus			Combat bonus
+Dissolving Burst									SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Reflex save %1|10+CON+TL/2
+Shell				KEY:Shell ~ Cave Hermit				SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+
+# Cavern Giant ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Armtwist										SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Backbreaker										SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Great Hug										SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Throw Stalactites									SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																								AUTO:WEAPONPROF|Stalactite
+
+# Deviant Mimic
+Life Drain										SOURCEPAGE:p.23	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:Will DC %1|10+WIS+TL/2
+
+# Mal'Orm (Cricket Men of the Deep) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spell-like Abilities	KEY:Spell Like Abilities ~ Mal'Orm		SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=5|Magic Stone,10+WIS|Soften Earth And Stone|Stone Shape	SPELLS:Innate|TIMES=1|CASTERLEVEL=5|Stoneskin|Stone Tell
+Earth Friend									SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Lucky											SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																						BONUS:CHECKS|ALL|2|TYPE=Luck
+
+# Pallemon ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Crush Personality									SOURCEPAGE:p.26	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	
+Infuse Intellect									SOURCEPAGE:p.26	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Sap Sentience									SOURCEPAGE:p.26	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike																																		DESC:Will Save DC %1|10+WIS+TL/2
+Immunities			KEY:Immunities ~ Pallemon			SOURCEPAGE:p.28	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Spell-like Abilities	KEY:Spell Like Abilities ~ Pallemon		SOURCEPAGE:p.28	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			SPELLS:Innate|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=9|Charm Person,10+INT	SPELLS:Innate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=9|Charm Monster,14+INT|Dominate Person,14+INT|Suggestion,14+INT
+Telepathy			KEY:Telepathy ~ Pallemon			SOURCEPAGE:p.28	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																														ABILITY:Special Ability|AUTOMATIC|Telepathy
+
+# Snailfolk ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pliable Body									SOURCEPAGE:p.28	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																	DESC:DC 30 strength check|PREAPPLY:PC																				BONUS:COMBAT|AC|8|TYPE=PliableBody|PREAPPLY:PC
+
+# Xastrial ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Gravitational Pull								SOURCEPAGE:p.30	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Molecular Projectile								SOURCEPAGE:p.30	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Blindsight										SOURCEPAGE:p.30	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision
+Disrupt Magic									SOURCEPAGE:p.30	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Immunities			KEY:Immunities ~ Xastrial			SOURCEPAGE:p.30	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Improved Gravity									SOURCEPAGE:p.30	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Molecular Transference								SOURCEPAGE:p.30	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+
+# Crypt Guardian ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Coffin Of Death									SOURCEPAGE:p.41	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Fortitude save DC %1|10+STR
+Magic Immunities		KEY:Magic Immunities ~ Crypt Guardian	SOURCEPAGE:p.41	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Staunch Guardian									SOURCEPAGE:p.41	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+
+# Hellscorn ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Kiss Of Death									SOURCEPAGE:p.42	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Fortitude save DC %1|10+CHA+TL/2
+Look Of Longing									SOURCEPAGE:p.42	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Will save DC %1|10+CHA+TL/2
+Touch Of Betrayal									SOURCEPAGE:p.42	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Will save DC %1|10+CHA+TL/2
+
+# Leytru ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Jagged Rake										SOURCEPAGE:p.43	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Fast Metabolism									SOURCEPAGE:p.43	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Translucent										SOURCEPAGE:p.43	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+
+# Silent Reaper ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Keen Strike										SOURCEPAGE:p.45	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Necrophage										SOURCEPAGE:p.45	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Spell-like Abilities	KEY:Spell Like Abilities ~ Silent Reaper	SOURCEPAGE:p.45	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Silence	SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Passwall
+
+# Waking Dead ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bite Of Despair									SOURCEPAGE:p.46	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Will save DC %1|10+WIS+TL/2
+Passwall										SOURCEPAGE:p.46	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+
+# Barangulaak ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Circle Of Devastation								SOURCEPAGE:p.53	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Magic Immunity									SOURCEPAGE:p.53	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Programming										SOURCEPAGE:p.53	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+
+# Flosid ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fire				KEY:Fire ~ Flosid					SOURCEPAGE:p.54	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																						DESC:1d6
+Petroleum Belch		KEY:Petroleum Belch ~ Flosid			SOURCEPAGE:p.54	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+
+# Gremmin ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distort Perception								SOURCEPAGE:p.55	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Prospector's Fever								SOURCEPAGE:p.55	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Will save DC %1|10+WIS+TL/2
+
+# Nokker ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explosive Rocks									SOURCEPAGE:p.56	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Precise Collapse									SOURCEPAGE:p.56	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Reflex save DC %1|10+DEX+TL/2
+
+# Orvender ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Stone Cone										SOURCEPAGE:p.57	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Shield Of Stone									SOURCEPAGE:p.57	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Spell Like Abilities	KEY:Spell-like Abilities ~ Orvender		SOURCEPAGE:p.57	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SPELLS:Innate|TIMES=3|CASTERLEVEL=7|Meld into Stone|Spike Stones|Stone Shape
+
+# Barathelar ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Lifestealer										SOURCEPAGE:p.64	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Hiss				KEY:Hiss ~ Barathelar				SOURCEPAGE:p.64	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Will save DC %1|10+CHA+TL/2
+Alter Self										SOURCEPAGE:p.64	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Spell Like Abilities	KEY:Spell-like Abilities ~ Barathelar	SOURCEPAGE:p.64	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=10|Blur|Color Spray,14	SPELLS:Innate|TIMES=3|CASTERLEVEL=5|Blink|Shadow Evocation
+
+# Ravvimen ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tangle Of Weeds									SOURCEPAGE:p.65	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+
+# Sarrenel ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Electricity			KEY:Electricity ~ Sarrenel			SOURCEPAGE:p.66	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Feeding Frenzy									SOURCEPAGE:p.66	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+
+# Walking Disease ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Debilitating Touch								SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Fortitude save %1|10+CHA+TL/2
+Massive Infection									SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Wave Of Parasites									SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+
+# Wurggis ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Detach Spores									SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Population Explosion								SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+
+###Block: Extras ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Unique Key		Category of Ability		Type								Visible
+Adhesive Grapple				SOURCEPAGE:p.22	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Blindsense					SOURCEPAGE:rsrd	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense
+Consume Item				SOURCEPAGE:p.23	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Consume Magic				SOURCEPAGE:p.23	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Magic Aura					SOURCEPAGE:p.22	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+See in Darkness				SOURCEPAGE:p.66	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES
+Telepathy		KEY:Telepathy ~Su	SOURCEPAGE:p.28	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
