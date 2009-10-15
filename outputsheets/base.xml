@@ -503,10 +503,18 @@
 			<!-- 
 			Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.
+|IIF(<test for Lethal)|
 |IIF(VAR.UnarmedLethal>0)|
-			<type>(subdual or bludgeoning)</type>
+			<type>(lethal or nonlethal)</type>
+|ELSE|
+			<type>(nonlethal only)</type>
+|ENDIF|
+|ELSE|
+|IIF(VAR.Unarmed>0)|
+			<type>(subdual or normal)</type>
 |ELSE|
 			<type>(subdual only)</type>
+|ENDIF|
 |ENDIF|
 			 -->
 		</unarmed>
