@@ -2419,7 +2419,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
-						<fo:block font-weight="bold" font-size="10pt">UNARMED</fo:block>
+						<fo:block font-weight="bold" font-size="9pt">UNARMED</fo:block>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -2447,7 +2447,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
-					<fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
@@ -2455,7 +2455,7 @@
 							<xsl:value-of select="total"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
@@ -2463,7 +2463,7 @@
 							<xsl:value-of select="damage"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
@@ -2471,12 +2471,22 @@
 							<xsl:value-of select="critical"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt">
 							<xsl:value-of select="reach"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="5pt">
+							<xsl:value-of select="type"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>

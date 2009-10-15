@@ -500,6 +500,15 @@
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
+			<!-- 
+			Commenting this out (will need a test as well)
+			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.
+|IIF(VAR.UnarmedLethal>0)|
+			<type>(subdual or bludgeoning)</type>
+|ELSE|
+			<type>(subdual only)</type>
+|ENDIF|
+			 -->
 		</unarmed>
 
 
