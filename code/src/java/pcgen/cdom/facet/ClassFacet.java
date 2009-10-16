@@ -168,6 +168,22 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info;
 	}
 
+	/**
+	 * Replaces the given old PCClass stored in this ClassFacet with the given
+	 * new PCClass for the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given old PCClass should be replaced
+	 * @param oldClass
+	 *            The old PCClass to be removed from the list of PCClass objects
+	 *            stored in this ClassFacet for the Player Character represented
+	 *            by the given CharID
+	 * @param newClass
+	 *            The new PCClass to replace the old PCClass stored in this
+	 *            ClassFacet for the Player Character represented by the given
+	 *            CharID
+	 */
 	public void replaceClass(CharID id, PCClass oldClass, PCClass newClass)
 	{
 		ClassInfo info = getClassInfo(id);
@@ -177,6 +193,16 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 	}
 
+	/**
+	 * Returns the Set of PCClass objects in this ClassFacet for the Player
+	 * Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this ClassFacet should be returned.
+	 * @return A non-null Set of PCClass objects in this ClassFacet for the
+	 *         Player Character represented by the given CharID
+	 */
 	public Set<PCClass> getClassSet(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
@@ -187,6 +213,16 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info.getClassSet();
 	}
 
+	/**
+	 * Returns the count of PCClass objects in this ClassFacet for the Player
+	 * Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            count of PCClass objects should be returned
+	 * @return The count of PCClass objects in this ClassFacet for the Player
+	 *         Character represented by the given CharID
+	 */
 	public int getCount(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
@@ -197,12 +233,35 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info.classCount();
 	}
 
+	/**
+	 * Returns true if this ClassFacet does not contain any PCClass objects for
+	 * the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharId representing the PlayerCharacter to test if any
+	 *            PCClass objects are contained by this AbstractListFacet
+	 * @return true if this ClassFacet does not contain any PCClass objects for
+	 *         the Player Character represented by the given CharID; false
+	 *         otherwise (if it does contain items for the Player Character)
+	 */
 	public boolean isEmpty(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
 		return info == null || info.isEmpty();
 	}
 
+	/**
+	 * Returns true if this ClassFacet contains the given PCClass in the list of
+	 * PCClass objects for the Player Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character used for testing
+	 * @param obj
+	 *            The PCClass to test if this ClassFacet contains that PCClass
+	 *            for the Player Character represented by the given CharID
+	 * @return true if this AbstractListFacet contains the given PCClass for the
+	 *         Player Character represented by the given CharID; false otherwise
+	 */
 	public boolean contains(CharID id, PCClass obj)
 	{
 		ClassInfo info = getClassInfo(id);

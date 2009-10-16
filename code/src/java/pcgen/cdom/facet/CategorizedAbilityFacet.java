@@ -30,9 +30,35 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 
+/**
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ * 
+ * A CategorizedAbilityFacet is a DataFacet that contains information about
+ * Ability objects that are contained in a PlayerCharacter
+ */
 public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 {
 
+	/**
+	 * Add the given Ability to the list of Abilities defined by the given
+	 * Category and Nature, which is stored in this CategorizedAbilityFacet for
+	 * the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given Ability should be added
+	 * @param cat
+	 *            The Ability Category identifying the list to which the given
+	 *            Ability should be added
+	 * @param nat
+	 *            The Ability Nature identifying the list to which the given
+	 *            Ability should be added
+	 * @param obj
+	 *            The Ability to be added to the list of Abilities defined by
+	 *            the given Category and Nature, which is stored in this
+	 *            CategorizedAbilityFacet for the Player Character represented
+	 *            by the given CharID
+	 */
 	public void add(CharID id, Category<Ability> cat, Nature nat, Ability obj)
 	{
 		boolean isNew = ensureCachedSet(id, cat, nat, obj);
@@ -42,6 +68,29 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Adds all of the Abilities in the given Collection to the list of
+	 * Abilities defined by the given Category and Nature, which is stored in
+	 * this CategorizedAbilityFacet for the Player Character represented by the
+	 * given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given Abilities should be added
+	 * @param cat
+	 *            The Ability Category identifying the list to which the given
+	 *            Abilities should be added
+	 * @param nature
+	 *            The Ability Nature identifying the list to which the given
+	 *            Abilities should be added
+	 * @param abilities
+	 *            The Collection of Abilities to be added to the list of
+	 *            Abilities defined by the given Category and Nature, which is
+	 *            stored in this CategorizedAbilityFacet for the Player
+	 *            Character represented by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void addAll(CharID id, Category<Ability> cat, Nature nature,
 			Collection<Ability> abilities)
 	{
@@ -51,6 +100,26 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Removes the given Ability from the list of Abilities defined by the given
+	 * Category and Nature, which is stored in this CategorizedAbilityFacet for
+	 * the Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given Ability should be removed
+	 * @param cat
+	 *            The Ability Category identifying the list from which the given
+	 *            Ability should be removed
+	 * @param nat
+	 *            The Ability Nature identifying the list from which the given
+	 *            Ability should be removed
+	 * @param obj
+	 *            The Ability to be removed from the list of Abilities defined
+	 *            by the given Category and Nature, which is stored in this
+	 *            CategorizedAbilityFacet for the Player Character represented
+	 *            by the given CharID
+	 */
 	public void remove(CharID id, Category<Ability> cat, Nature nat, Ability obj)
 	{
 		Set<Ability> cached = getCachedSet(id, cat, nat);
@@ -60,6 +129,22 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Returns the Set of Abilities in this CategorizedAbilityFacet for the
+	 * Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this CategorizedAbilityFacet should be returned.
+	 * @param cat
+	 *            The Ability Category identifying the list of Abilities to be
+	 *            returned
+	 * @param nat
+	 *            The Ability Nature identifying the list of Abilities to be
+	 *            returned
+	 * @return A non-null Set of Abilities in this CategorizedAbilityFacet for
+	 *         the Player Character represented by the given CharID
+	 */
 	public Set<Ability> get(CharID id, Category<Ability> cat, Nature nat)
 	{
 		Set<Ability> set = getCachedSet(id, cat, nat);
@@ -70,6 +155,27 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		return Collections.unmodifiableSet(set);
 	}
 
+	/**
+	 * Returns true if this CategorizedAbilityFacet contains the given Ability
+	 * in the list of items for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character used for testing
+	 * @param cat
+	 *            The Ability Category identifying the list of Abilities to be
+	 *            tested to see if it contains the given Ability
+	 * @param nat
+	 *            The Ability Nature identifying the list of Abilities to be
+	 *            tested to see if it contains the given Ability
+	 * @param a
+	 *            The Ability to test if this CategorizedAbilityFacet contains
+	 *            that item for the Player Character represented by the given
+	 *            CharID
+	 * @return true if this CategorizedAbilityFacet contains the given Ability
+	 *         for the Player Character represented by the given CharID; false
+	 *         otherwise
+	 */
 	public boolean contains(CharID id, Category<Ability> cat, Nature nat,
 			Ability a)
 	{
@@ -124,6 +230,28 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		return isNew;
 	}
 
+	/**
+	 * Returns the type-safe Set for this CategorizedAbilityFacet and the given
+	 * CharID. May return null if no information has been set in this
+	 * CategorizedAbilityFacet for the given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Set is owned by
+	 * CategorizedAbilityFacet, and since it can be modified, a reference to
+	 * that Set should not be exposed to any object other than
+	 * CategorizedAbilityFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Set should be returned
+	 * @param cat
+	 *            The Ability Category identifying the list of Abilities to be
+	 *            returned
+	 * @param nat
+	 *            The Ability Nature identifying the list of Abilities to be
+	 *            returned
+	 * @return The Set for the Player Character represented by the given CharID;
+	 *         null if no information has been set in this
+	 *         CategorizedAbilityFacet for the Player Character.
+	 */
 	private Set<Ability> getCachedSet(CharID id, Category<Ability> cat,
 			Nature nat)
 	{
@@ -140,6 +268,22 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		return natureMap.get(nat);
 	}
 
+	/**
+	 * Returns the type-safe Map for this CategorizedAbilityFacet and the given
+	 * CharID. May return null if no information has been set in this
+	 * CategorizedAbilityFacet for the given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map is owned by
+	 * CategorizedAbilityFacet, and since it can be modified, a reference to
+	 * that Map should not be exposed to any object other than
+	 * CategorizedAbilityFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Map should be returned
+	 * @return The Map for the Player Character represented by the given CharID;
+	 *         null if no information has been set in this
+	 *         CategorizedAbilityFacet for the Player Character.
+	 */
 	private Map<Category<Ability>, Map<Nature, Set<Ability>>> getCachedMap(
 			CharID id)
 	{
@@ -147,6 +291,15 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 				.get(id, getClass());
 	}
 
+	/**
+	 * Removes all Abilities from the list of Abilities stored in this
+	 * CategorizedAbilityFacet for the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which all
+	 *            Abilities should be removed
+	 */
 	public void removeAll(CharID id)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = (Map<Category<Ability>, Map<Nature, Set<Ability>>>) FacetCache
@@ -163,6 +316,22 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Removes all of the Ability objects in the given Category from the lists
+	 * of Abilities stored in this CategorizedAbilityFacet for the Player
+	 * Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given Abilities should be removed
+	 * @param cat
+	 *            The Ability Category identifying which Ability objects are to
+	 *            be removed from the lists of Abilities stored in this
+	 *            CategorizedAbilityFacet for the Player Character represented
+	 *            by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void removeAll(CharID id, Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -176,6 +345,27 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Removes all of the objects of the given Category and Nature from the list
+	 * of Abilities stored in this CategorizedAbilityFacet for the Player
+	 * Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given Abilities should be removed
+	 * @param cat
+	 *            The Ability Category identifying which Ability objects are to
+	 *            be removed from the lists of Abilities stored in this
+	 *            CategorizedAbilityFacet for the Player Character represented
+	 *            by the given CharID
+	 * @param nature
+	 *            The Ability Nature identifying which Ability objects are to be
+	 *            removed from the lists of Abilities stored in this
+	 *            CategorizedAbilityFacet for the Player Character represented
+	 *            by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void removeAll(CharID id, Category<Ability> cat, Nature nature)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -203,6 +393,22 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Removes all of the Ability objects in the given Nature from the lists of
+	 * Abilities stored in this CategorizedAbilityFacet for the Player Character
+	 * represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given Abilities should be removed
+	 * @param nature
+	 *            The Ability Nature identifying which Ability objects are to be
+	 *            removed from the lists of Abilities stored in this
+	 *            CategorizedAbilityFacet for the Player Character represented
+	 *            by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void removeAll(CharID id, Nature nature)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -229,6 +435,18 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Returns the Set of Ability Category objects in this
+	 * CategorizedAbilityFacet for the Player Character represented by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this CategorizedAbilityFacet should be returned.
+	 * @return A non-null Set of Ability Category objects in this
+	 *         CategorizedAbilityFacet for the Player Character represented by
+	 *         the given CharID
+	 */
 	public Set<Category<Ability>> getCategories(CharID id)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> map = getCachedMap(id);
@@ -238,10 +456,4 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		}
 		return Collections.unmodifiableSet(map.keySet());
 	}
-
-	public String dump(CharID id)
-	{
-		return (getCachedMap(id) == null) ? "" : getCachedMap(id).toString();
-	}
-
 }

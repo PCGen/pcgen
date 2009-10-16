@@ -79,6 +79,15 @@ public class ChallengeRatingFacet
 		return CR;
 	}
 
+	/**
+	 * Returns the ChallengeRating provided solely by PCTemplate objects granted
+	 * to the Player Character
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character
+	 * @return the Challenge Rating provided by the PCTemplate objects granted
+	 *         to the Player Character
+	 */
 	private float getTemplateCR(CharID id)
 	{
 		float CR = 0;
@@ -93,6 +102,15 @@ public class ChallengeRatingFacet
 		return CR;
 	}
 
+	/**
+	 * Returns the ChallengeRating provided solely by PCClass objects granted to
+	 * the Player Character
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character
+	 * @return the Challenge Rating provided by the PCClass objects granted to
+	 *         the Player Character
+	 */
 	private float getClassCR(CharID id)
 	{
 		float CR = 0;
@@ -105,6 +123,14 @@ public class ChallengeRatingFacet
 		return CR;
 	}
 
+	/**
+	 * Returns the ChallengeRating provided solely by the Race of the Player
+	 * Character
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character
+	 * @return the Challenge Rating provided by the Race of the Player Character
+	 */
 	private float calcRaceCR(CharID id)
 	{
 		// Calculate and add the CR from race

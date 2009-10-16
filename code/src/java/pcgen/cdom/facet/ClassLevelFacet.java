@@ -33,6 +33,20 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 
+	/**
+	 * Performs the processing to identify the newly activated class levels
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character to be updated
+	 * @param pcc
+	 *            The PCClass to be udpated
+	 * @param oldLevel
+	 *            The previous level value for the given PCClass in the Player
+	 *            Character
+	 * @param level
+	 *            The new level value for the given PCClass in the Player
+	 *            Character
+	 */
 	private void update(CharID id, PCClass pcc, Integer oldLevel, int level)
 	{
 		int old = oldLevel == null ? 0 : oldLevel;
