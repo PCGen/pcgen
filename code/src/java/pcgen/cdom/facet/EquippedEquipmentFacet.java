@@ -25,6 +25,10 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.Equipment;
 
+/**
+ * EquippedEquipmentFacet is a Facet that tracks the Equipment that is Equipped
+ * by a Player Character.
+ */
 public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 {
 	private EquipmentFacet equipmentFacet = FacetLibrary
@@ -32,6 +36,14 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 
 	private final Class<?> thisClass = getClass();
 
+	/**
+	 * Triggered ("manually") when the equipped equipment on a Player Character
+	 * has changed
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            equipped Equipment should be updated
+	 */
 	public void reset(CharID id)
 	{
 		Set<Equipment> oldEquipped = (Set<Equipment>) FacetCache.remove(id,
@@ -76,6 +88,16 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 		}
 	}
 
+	/**
+	 * Returns the Set of Equipment in this EquippedEquipmentFacet for the
+	 * Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractListFacet should be returned.
+	 * @return A non-null Set of Equipment in this EquippedEquipmentFacet for
+	 *         the Player Character represented by the given CharID
+	 */
 	public Set<Equipment> getSet(CharID id)
 	{
 		Set<Equipment> set = (Set<Equipment>) FacetCache.get(id, thisClass);

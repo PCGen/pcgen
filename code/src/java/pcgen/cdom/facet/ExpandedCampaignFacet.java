@@ -19,10 +19,27 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Campaign;
 
+/**
+ * ExpandedCampaignFacet is a Facet that tracks the Campaign objects that have
+ * been loaded with a Player Character. This includes the explicitly loaded
+ * Campaigns as well as the implicitly loaded campaigns called by the PCC: token
+ * within the Campaign files.
+ */
 public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
 		implements DataFacetChangeListener<Campaign>
 {
 
+	/**
+	 * Triggered when one of the Facets to which ExpandedCampaignFacet listens
+	 * fires a DataFacetChangeEvent to indicate a Campaign loaded with a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataAdded(DataFacetChangeEvent<Campaign> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
@@ -30,6 +47,16 @@ public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
 				.getSource());
 	}
 
+	/**
+	 * Triggered when one of the Facets to which ExpandedCampaignFacet listens
+	 * fires a DataFacetChangeEvent to indicate a Campaign was unloaded.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataRemoved(DataFacetChangeEvent<Campaign> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
