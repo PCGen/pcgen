@@ -84,11 +84,35 @@ public class RacialSubTypesFacet
 		return Collections.unmodifiableList(racialSubTypes);
 	}
 
+	/**
+	 * Returns true if this RacialSubTypesFacet contains the given RaceSubType
+	 * for the Player Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character used for testing
+	 * @param obj
+	 *            The object to test if this RacialSubTypesFacet contains that
+	 *            RaceSubType for the Player Character represented by the given
+	 *            CharID
+	 * @return true if this RacialSubTypesFacet contains the given RaceSubType
+	 *         for the Player Character represented by the given CharID; false
+	 *         otherwise
+	 */
 	public boolean contains(CharID id, RaceSubType st)
 	{
 		return getRacialSubTypes(id).contains(st);
 	}
 
+	/**
+	 * Returns the count of RaceSubTypes in this RacialSubTypesFacet for the
+	 * Player Character represented by the given CharID
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            count of RaceSubTypes should be returned
+	 * @return The count of RaceSubTypes in this RacialSubTypesFacet for the
+	 *         Player Character represented by the given CharID
+	 */
 	public int getCount(CharID id)
 	{
 		return getRacialSubTypes(id).size();

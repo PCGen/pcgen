@@ -19,14 +19,40 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Equipment;
 
+/**
+ * SourcedEquipmentFacet is a Facet that tracks the Equipment that is active on
+ * a PlayerCharacter. To be active, it must be Equipped, or a NaturalWeapon
+ */
 public class SourcedEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<Equipment>
 {
+	/**
+	 * Triggered when one of the Facets to which SourcedEquipmentFacet listens
+	 * fires a DataFacetChangeEvent to indicate Equipment was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	/**
+	 * Triggered when one of the Facets to which SourcedEquipmentFacet listens
+	 * fires a DataFacetChangeEvent to indicate Equipment was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
