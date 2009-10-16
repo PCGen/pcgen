@@ -58,12 +58,12 @@ public abstract class AbstractPrerequisiteListParser extends
 		}
 		if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase(kind))
 		{
-			String key = prereq.getKey();
+			String key = prereq.getKey().trim();
 
 			int index = key.indexOf('(');
 			int endIndex = key.lastIndexOf(')');
 
-			if ((index >= 0) && (endIndex >= 0))
+			if ((index >= 0) && (endIndex == key.length() - 1))
 			{
 				String subKey = key.substring(index + 1, endIndex).trim();
 				key = key.substring(0, index).trim();

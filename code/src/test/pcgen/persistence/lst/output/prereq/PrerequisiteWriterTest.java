@@ -409,6 +409,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREATT:should_be_numeric",														"PREATT:1",
 		"PRESTAT:should_be_numeric,STR=18",												"PRESTAT:1,STR=18",
 		"PRESTAT:1,Strength=18",														"PRESTAT:1,Str=18",
+		"PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Rat)_Companion",		"PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Rat)_Companion",
 
 	//
 	// To cause exceptions
