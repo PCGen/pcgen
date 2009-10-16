@@ -2,10 +2,10 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:3.5 RSRD
-VERSION:5.15.2
+VERSION:5.17.0
 ROLLMETHOD:1|EXPRESSION:10
 PURCHASEPOINTS:N
-POOLPOINTS:0
+POOLPOINTS:92
 POOLPOINTSAVAIL:-1
 GAMEMODE:35e
 TABLABEL:0
@@ -85,6 +85,7 @@ TEMPLATESAPPLIED:[NAME:Half Dragon Wings ~ Normal]
 TEMPLATESAPPLIED:[NAME:Bite ~ Claw (Huge)]
 
 # Character Region
+REGION:None
 
 # Character Skills
 SKILL:Appraise|OUTPUTORDER:1|
@@ -104,7 +105,6 @@ SKILL:Intimidate|OUTPUTORDER:14|CLASSBOUGHT:[CLASS:Giant|RANKS:10.0|COST:1|CLASS
 SKILL:Jump|OUTPUTORDER:15|
 SKILL:Listen|OUTPUTORDER:16|CLASSBOUGHT:[CLASS:Giant|RANKS:12.0|COST:1|CLASSSKILL:Y]
 SKILL:Move Silently|OUTPUTORDER:17|
-SKILL:Perform (String Instruments)|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Giant|RANKS:1.0|COST:1|CLASSSKILL:Y]
 SKILL:Ride|OUTPUTORDER:19|
 SKILL:Search|OUTPUTORDER:20|
 SKILL:Sense Motive|OUTPUTORDER:21|CLASSBOUGHT:[CLASS:Giant|RANKS:6.0|COST:1|CLASSSKILL:Y]
@@ -112,6 +112,7 @@ SKILL:Spot|OUTPUTORDER:22|CLASSBOUGHT:[CLASS:Giant|RANKS:12.0|COST:1|CLASSSKILL:
 SKILL:Survival|OUTPUTORDER:23|
 SKILL:Swim|OUTPUTORDER:24|
 SKILL:Use Rope|OUTPUTORDER:25|
+SKILL:Perform (String Instruments)|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Giant|RANKS:1.0|COST:1|CLASSSKILL:Y]
 
 # Character Languages
 LANGUAGE:Giant
@@ -120,12 +121,12 @@ LANGUAGE:Giant
 FEATPOOL:-6.0
 
 # Character Abilities
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Power Attack|TYPE:GENERAL.FIGHTER.ATTACKOPTION|DESC:On your action, before making attack rolls for a round, you may choose to subtract up to %1 from all melee attack rolls and add the same number to all melee damage rolls.&pipe;PowerAttackMax
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Cleave|TYPE:GENERAL.FIGHTER.ATTACKOPTION|DESC:If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Improved Bull Rush|TYPE:GENERAL.FIGHTER.ATTACKOPTION|DESC:When you perform a bull rush you do not provoke an attack of opportunity from the defender. You also gain a +4 bonus on the opposed Strength check you make to push back the defender.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Improved Overrun|TYPE:GENERAL.FIGHTER.ATTACKOPTION|DESC:When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 bonus on your Strength check to knock down your opponent.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Iron Will|TYPE:GENERAL|DESC:You get a +2 bonus on all Will saving throws.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Awesome Blow|TYPE:GENERAL.FIGHTER|DESC:As a standard action, the creature may choose to subtract 4 from its melee attack roll and deliver an awesome blow.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Improved Bull Rush|TYPE:General.Fighter.AttackOption|DESC:When you perform a bull rush you do not provoke an attack of opportunity from the defender. You also gain a +4 bonus on the opposed Strength check you make to push back the defender.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Improved Overrun|TYPE:General.Fighter.AttackOption|DESC:When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 bonus on your Strength check to knock down your opponent.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Iron Will|TYPE:General|DESC:You get a +2 bonus on all Will saving throws.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Awesome Blow|TYPE:General.Fighter|DESC:As a standard action, the creature may choose to subtract 4 from its melee attack roll and deliver an awesome blow.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Power Attack|TYPE:General.Fighter.AttackOption|DESC:On your action, before making attack rolls for a round, you may choose to subtract up to %1 from all melee attack rolls and add the same number to all melee damage rolls.&pipe;PowerAttackMax
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Cleave|TYPE:General.Fighter.AttackOption|DESC:If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.
 USERPOOL:FEAT|POOLPOINTS:0.0
 USERPOOL:Internal|POOLPOINTS:0.0
 USERPOOL:Special Ability|POOLPOINTS:0.0
@@ -201,7 +202,7 @@ WEAPONPROF:[WEAPON:Falchion|WEAPON:Flail|WEAPON:Flail (Heavy)|WEAPON:Gauntlet|WE
 WEAPONPROF:[WEAPON:Guisarme|WEAPON:Halberd|WEAPON:Hammer (Light)|WEAPON:Handaxe|WEAPON:Javelin|WEAPON:Kukri|WEAPON:Lance|WEAPON:Longbow|WEAPON:Longspear|WEAPON:Longsword]
 WEAPONPROF:[WEAPON:Mace (Heavy)|WEAPON:Mace (Light)|WEAPON:Morningstar|WEAPON:Pick (Heavy)|WEAPON:Pick (Light)|WEAPON:Quarterstaff|WEAPON:Ranseur|WEAPON:Rapier|WEAPON:Sap|WEAPON:Scimitar]
 WEAPONPROF:[WEAPON:Scythe|WEAPON:Shieldbash (Heavy)|WEAPON:Shieldbash (Light)|WEAPON:Shortbow|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Slam|WEAPON:Sling|WEAPON:Spear|WEAPON:Spells(Ray)]
-WEAPONPROF:[WEAPON:Spiked Armor|WEAPON:Sword (Bastard)|WEAPON:Sword (Short)|WEAPON:Trident|WEAPON:Unarmed Strike|WEAPON:Waraxe (Dwarven)|WEAPON:Warhammer]
+WEAPONPROF:[WEAPON:Spiked Armor|WEAPON:Sword (Bastard)|WEAPON:Sword (Short)|WEAPON:Thrown Rock|WEAPON:Trident|WEAPON:Unarmed Strike|WEAPON:Waraxe (Dwarven)|WEAPON:Warhammer]
 
 # Character Equipment
 MONEY:0.00
@@ -215,6 +216,7 @@ EQUIPSET:Carried|ID:0.1.3|VALUE:Slam (Natural/Primary)|QUANTITY:1.0
 EQUIPSET:Natural-Primary|ID:0.1.4|VALUE:Claw (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
 EQUIPSET:Natural-Secondary|ID:0.1.5|VALUE:Bite (Natural/Secondary)|QUANTITY:1.0|USETEMPMODS:Y
 EQUIPSET:Natural-Secondary|ID:0.1.6|VALUE:Claw (Natural/Secondary)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Primary Hand|ID:0.1.7|VALUE:Thrown Rock (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
 CALCEQUIPSET:0.1
 
 # Temporary Bonuses
@@ -231,6 +233,7 @@ CHARACTERDESC:
 CHARACTERCOMP:
 CHARACTERASSET:
 CHARACTERMAGIC:
+CHARACTERDMNOTES:
 
 # Kits
 
@@ -238,8 +241,6 @@ CHARACTERMAGIC:
 
 # Character Notes Tab
 NOTE:Character Sheet Notes|ID:1|PARENTID:-1|VALUE:
-
-# Chosen Armor Profs
 
 # Age Set Selections
 AGESET:0:0:0:0:0:0:0:0:0:0
