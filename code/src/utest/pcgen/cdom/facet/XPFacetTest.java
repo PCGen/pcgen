@@ -162,8 +162,6 @@ public class XPFacetTest extends TestCase
 		NoSuchFieldException, IllegalArgumentException, IllegalAccessException
 	{
 		XPFacet f = new XPFacet();
-		Field field = XPFacet.class.getDeclaredField("levelFacet");
-		field.setAccessible(true);
 		LevelFacet fakeFacet = new LevelFacet()
 		{
 
@@ -174,9 +172,8 @@ public class XPFacetTest extends TestCase
 			}
 
 		};
-		field.set(f, fakeFacet);
-		field = XPFacet.class.getDeclaredField("levelTableFacet");
-		field.setAccessible(true);
+		f.setLevelFacet(fakeFacet);
+
 		LevelTableFacet fakeTableFacet = new LevelTableFacet()
 		{
 
@@ -187,7 +184,7 @@ public class XPFacetTest extends TestCase
 			}
 
 		};
-		field.set(f, fakeTableFacet);
+		f.setLevelTableFacet(fakeTableFacet);
 		return f;
 	}
 }

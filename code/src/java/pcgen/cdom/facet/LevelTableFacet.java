@@ -25,8 +25,7 @@ import pcgen.core.LevelInfo;
 
 public class LevelTableFacet
 {
-	private FormulaResolvingFacet resolveFacet =
-		FacetLibrary.getFacet(FormulaResolvingFacet.class);
+	private FormulaResolvingFacet resolveFacet;
 
 	/**
 	 * Returns the (miniumum) number of total Experience Points needed for a
@@ -58,5 +57,13 @@ public class LevelTableFacet
 		}
 		// do something sensible if no level info
 		return 0;
+	}
+
+	/**
+	 * @param resolveFacet the resolveFacet to set
+	 */
+	public void setResolveFacet(FormulaResolvingFacet resolveFacet)
+	{
+		this.resolveFacet = resolveFacet;
 	}
 }
