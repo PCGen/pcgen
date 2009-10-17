@@ -295,7 +295,7 @@ BIO
 			<used>96</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Bluff +8, Climb +10, Concentration +8, Diplomacy +12, Gather Information +8, Hide +14, Intimidate +2, Listen +2, Psicraft +6, Sense Motive +8, Spot +2</list_mods>
+		<list_mods>Bluff +8, Climb +10, Concentration +8, Diplomacy +12, Disguise (Act in character) +2, Gather Information +8, Hide +14, Intimidate +2, Listen +2, Psicraft +6, Sense Motive +8, Spot +2</list_mods>
 		<max_class_skill_level>0</max_class_skill_level>
 		<max_cross_class_skill_level>0</max_cross_class_skill_level>
 		<skill>
@@ -433,6 +433,23 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Disguise (Act in character)</name>
+			<ranks>1.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>2</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>1<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Disguise (Act in character)</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Escape Artist</name>
