@@ -38,9 +38,8 @@ public class XPFacet
 
 	private final Class<?> thisClass = getClass();
 
-	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
-	private LevelTableFacet levelTableFacet =
-			FacetLibrary.getFacet(LevelTableFacet.class);
+	private LevelFacet levelFacet;
+	private LevelTableFacet levelTableFacet;
 
 	/**
 	 * Sets the number of earned Experience Points for the Player Character
@@ -142,6 +141,22 @@ public class XPFacet
 		}
 
 		setEarnedXP(id, realXP);
+	}
+
+	/**
+	 * @param levelFacet the levelFacet to set
+	 */
+	public void setLevelFacet(LevelFacet levelFacet) 
+	{
+		this.levelFacet = levelFacet;
+	}
+
+	/**
+	 * @param levelTableFacet the levelTableFacet to set
+	 */
+	public void setLevelTableFacet(LevelTableFacet levelTableFacet) 
+	{
+		this.levelTableFacet = levelTableFacet;
 	}
 
 }

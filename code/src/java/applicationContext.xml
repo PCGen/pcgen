@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  Facet Definitions -->
+	<bean id="xpFacet" class="pcgen.cdom.facet.XPFacet">
+		<property name="levelFacet" ref="levelFacet"/>
+		<property name="levelTableFacet" ref="levelTableFacet"/>
+	</bean>
+	<bean id="levelFacet" class="pcgen.cdom.facet.LevelFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="resolveFacet" ref="formulaResolvingFacet"/>
+	</bean>
+	<bean id="levelTableFacet" class="pcgen.cdom.facet.LevelTableFacet">
+		<property name="resolveFacet" ref="formulaResolvingFacet"/>
+	</bean>
+	<bean id="templateFacet" class="pcgen.cdom.facet.TemplateFacet"/>
+	<bean id="raceFacet" class="pcgen.cdom.facet.RaceFacet" />
+	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
+
+</beans>

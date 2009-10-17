@@ -31,11 +31,9 @@ import pcgen.core.PCTemplate;
 
 public class LevelFacet implements ClassLevelChangeListener
 {
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
+	private FormulaResolvingFacet resolveFacet;
 	private final Class<?> thisClass = getClass();
 	private final LevelChangeSupport support = new LevelChangeSupport();
 
@@ -254,5 +252,29 @@ public class LevelFacet implements ClassLevelChangeListener
 				listeners[i].levelChanged(ccEvent);
 			}
 		}
+	}
+
+	/**
+	 * @param templateFacet the templateFacet to set
+	 */
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	/**
+	 * @param raceFacet the raceFacet to set
+	 */
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	/**
+	 * @param resolveFacet the resolveFacet to set
+	 */
+	public void setResolveFacet(FormulaResolvingFacet resolveFacet)
+	{
+		this.resolveFacet = resolveFacet;
 	}
 }

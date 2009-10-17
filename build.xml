@@ -203,6 +203,7 @@ These files can be renamed and used for releases.
 	<target name="properties" depends="copyoutputsheets" description="Copy property files">
 		<copy todir="${build.classes.dir}">
 			<fileset dir="${src.java.dir}" includes="**/*.properties" />
+			<fileset dir="${src.java.dir}" includes="**/*.xml" />
 			<fileset dir="${src.java.dir}" includes="**/*.gif" />
 			<fileset dir="${src.java.dir}" includes="**/*.png" />
 			<fileset dir="${src.java.dir}" includes="**/*.jpg" />
@@ -484,6 +485,7 @@ pcgen.filepaths=user
 				<include name="lib/fop/**" />
 				<include name="lib/jep/**" />
 				<include name="lib/lnf/**" />
+				<include name="lib/spring/**" />
 				<include name="lib/test/**" />
 				<exclude name="**/CVS/*, **/.svn/*" />
 			</fileset>
@@ -520,6 +522,7 @@ pcgen.filepaths=user
 				<include name="lib/jep/**" />
 				<include name="lib/lnf/**" />
 				<include name="lib/test/**" />
+				<include name="lib/spring/**" />
 				<exclude name="**/CVS/*, **/.svn*" />
 			</fileset>
 			<fileset dir=".">

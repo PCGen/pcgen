@@ -20,6 +20,8 @@ package pcgen.cdom.facet;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.cdom.helper.SpringHelper;
+
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
  * 
@@ -36,19 +38,25 @@ public class FacetLibrary
 		T facet = (T) facets.get(cl);
 		if (facet == null)
 		{
-			try
+			// First check for the facet being defined by Spring
+			facet = SpringHelper.getBean(cl);
+			if (facet == null)
 			{
-				facet = cl.newInstance();
-			}
-			catch (InstantiationException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			catch (IllegalAccessException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// Fall back to the old hardcoded system
+				try
+				{
+					facet = cl.newInstance();
+				}
+				catch (InstantiationException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				catch (IllegalAccessException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			facets.put(cl, facet);
 		}
