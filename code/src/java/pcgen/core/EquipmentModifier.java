@@ -175,7 +175,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		final List<String> retList = new ArrayList<String>();
 		for (SpecialProperty sp : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
-			String propName = sp.getParsedText(pc, caller);
+			String propName = sp.getParsedText(pc, caller, this);
 
 			// TODO WTF is this loop doing? how many times does it expect "%CHOICE" to
 			// appear in the special property?

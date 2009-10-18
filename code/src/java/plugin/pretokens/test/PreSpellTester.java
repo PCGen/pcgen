@@ -30,6 +30,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Domain;
@@ -54,7 +55,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		int requiredNumber = 0;
 		try

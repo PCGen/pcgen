@@ -17,6 +17,7 @@ import pcgen.util.testchecker.CompareEqualByte;
 import pcgen.util.testchecker.CompareEqualChar;
 import pcgen.util.testchecker.CompareEqualDouble;
 import pcgen.util.testchecker.CompareEqualFloat;
+import pcgen.util.testchecker.CompareEqualIgnoreCaseString;
 import pcgen.util.testchecker.CompareEqualInt;
 import pcgen.util.testchecker.CompareEqualLong;
 import pcgen.util.testchecker.CompareEqualObject;
@@ -207,6 +208,11 @@ public abstract class PCGenTestCase extends TestCase
 	public CompareEqualString strEq(final String s)
 	{
 		return new CompareEqualString(s);
+	}
+
+	public CompareEqualIgnoreCaseString strEqIC(final String s)
+	{
+		return new CompareEqualIgnoreCaseString(s);
 	}
 
 	public CompareEqualObject eq(final Object operand)

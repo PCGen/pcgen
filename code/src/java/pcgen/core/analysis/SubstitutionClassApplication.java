@@ -124,7 +124,7 @@ public class SubstitutionClassApplication
 			{
 				continue;
 			}
-			if (!SubstitutionLevelSupport.qualifiesForSubstitutionLevel(sc,
+			if (!SubstitutionLevelSupport.qualifiesForSubstitutionLevel(cl, sc,
 					aPC, level))
 			{
 				continue;

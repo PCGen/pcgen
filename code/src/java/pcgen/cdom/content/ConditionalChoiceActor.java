@@ -75,7 +75,7 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 	 */
 	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
 	{
-		if (qualifies(pc))
+		if (qualifies(pc, obj))
 		{
 			actor.apply(pc, obj, choice);
 		}

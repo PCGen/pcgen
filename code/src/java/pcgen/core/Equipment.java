@@ -1863,7 +1863,7 @@ public final class Equipment extends PObject implements Serializable,
 		boolean first = true;
 		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
-			final String text = sprop.getParsedText(aPC, this);
+			final String text = sprop.getParsedText(aPC, this, this);
 			if (!"".equals(text)) {
 				if (!first) {
 					sp.append(", ");

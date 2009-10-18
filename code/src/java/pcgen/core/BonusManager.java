@@ -961,14 +961,17 @@ public class BonusManager
 			final BonusObj bonus = me.getKey();
 			pc.setApplied(bonus, false);
 
-			if (bonus.qualifies(pc))
+			Object source = me.getValue().source;
+			CDOMObject cdomsource = (source instanceof CDOMObject) ? (CDOMObject) source
+					: null;
+			if (bonus.qualifies(pc, cdomsource))
 			{
 				pc.setApplied(bonus, true);
 			}
 
 			if (pc.isApplied(bonus))
 			{
-				map.put(bonus, me.getValue().source);
+				map.put(bonus, source);
 			}
 		}
 		return map;

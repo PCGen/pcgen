@@ -90,7 +90,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>
 		{
 			for (T po : objects)
 			{
-				boolean allow = po.qualifies(pc)
+				boolean allow = po.qualifies(pc, po)
 						&& (pcs == null || pcs.allow(pc, po));
 				if (allow ^ negated)
 				{

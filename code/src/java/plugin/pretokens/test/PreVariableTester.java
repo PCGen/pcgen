@@ -28,6 +28,8 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -102,10 +104,10 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
-		String src = prereq.getSubKey() != null ? prereq.getSubKey() : "";
+		String src = (source == null) ? Constants.EMPTY_STRING : source.getQualifiedKey();
 		final float aVar =
 				character.getVariableValue(prereq.getKey(), src).floatValue(); //$NON-NLS-1$
 		final float aTarget =
@@ -127,7 +129,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements
 			{
 				// all of the tests must pass, so just
 				// assign the value here, don't add
-				runningTotal = test.passes(element, character);
+				runningTotal = test.passes(element, character, source);
 				if (CoreUtility.doublesEqual(runningTotal, 0.0))
 				{
 					return 0;

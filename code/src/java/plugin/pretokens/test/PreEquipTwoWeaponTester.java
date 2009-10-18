@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PreEquippedTester;
@@ -45,7 +46,7 @@ public class PreEquipTwoWeaponTester extends PreEquippedTester implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		return passesPreEquipHandleTokens(prereq, character,

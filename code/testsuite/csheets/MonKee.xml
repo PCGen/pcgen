@@ -1187,7 +1187,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Wholeness of Body</name>
-			<description>0 hp/day</description>
+			<description>16 hp/day</description>
 			<type>SPECIALQUALITY.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>

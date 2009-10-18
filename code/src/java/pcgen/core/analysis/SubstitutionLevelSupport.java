@@ -3,6 +3,7 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -18,7 +19,7 @@ public class SubstitutionLevelSupport
 {
 
 	public static boolean levelArrayQualifies(final PlayerCharacter pc, final String aLine,
-		final SourceEntry tempSource)
+		final SourceEntry tempSource, CDOMObject source)
 	{
 		final PCClassLoader classLoader = new PCClassLoader(); 
 		 PCClass dummyClass = new PCClass();   
@@ -32,7 +33,7 @@ public class SubstitutionLevelSupport
 			Logging
 			.errorPrint("Unable to parse line from levelArray: " + aLine);
 		} 
-		 return dummyClass.qualifies(pc);
+		 return dummyClass.qualifies(pc, source);
 	}
 
 	/**
@@ -56,7 +57,7 @@ public class SubstitutionLevelSupport
 	
 			if (aLevel == modLevel)
 			{
-				if (levelArrayQualifies(aPC, aLine, line.source))
+				if (levelArrayQualifies(aPC, aLine, line.source, aClass))
 				{
 					newLevels.add(line);
 				}
@@ -71,7 +72,7 @@ public class SubstitutionLevelSupport
 		}
 	}
 
-	public static boolean qualifiesForSubstitutionLevel(SubstitutionClass sc, PlayerCharacter pc, int level) 
+	public static boolean qualifiesForSubstitutionLevel(PCClass cl, SubstitutionClass sc, PlayerCharacter pc, int level) 
 	{ 
 		List<DeferredLine> levelArray = sc.getListFor(ListKey.SUB_CLASS_LEVEL);
 		if (levelArray == null)
@@ -87,7 +88,7 @@ public class SubstitutionLevelSupport
 	
 			if (level == modLevel)
 			{
-				if (!levelArrayQualifies(pc, aLine, line.source))
+				if (!levelArrayQualifies(pc, aLine, line.source, cl))
 				{
 					return false;
 				}

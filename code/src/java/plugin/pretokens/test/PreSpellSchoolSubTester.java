@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -47,7 +48,7 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		final String subSchool = prereq.getKey();
 		final int requiredLevel = Integer.parseInt(prereq.getOperand());

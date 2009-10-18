@@ -49,7 +49,9 @@ import java.util.Observable;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.FixedStringList;
@@ -550,7 +552,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		int baseSpellStat = 0;
 		PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
-
 		if (ss != null)
 		{
 				baseSpellStat = StatAnalysis.getTotalStatFor(this, ss);
@@ -569,7 +570,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				baseSpellStat =
 						StatAnalysis.getModForNumber(this, baseSpellStat, ss);
 		}
-
 		return baseSpellStat;
 	}
 
@@ -1511,7 +1511,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					aPObj.getSafeListFor(ListKey.EQUIPMENT);
 			for (QualifiedObject<CDOMReference<Equipment>> qo : spl)
 			{
-				CDOMReference<Equipment> ref = qo.getObject(this);
+				CDOMReference<Equipment> ref = qo.getObject(this, aPObj);
 				if (ref != null)
 				{
 					for (Equipment sp : ref.getContainedObjects())
@@ -2133,7 +2133,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				// and for the correct level or lower
 				if ((compLev <= mLev) || (compLev <= mTotalLevel))
 				{
-					if (cMod.qualifies(this))
+					if (cMod.qualifies(this, cMod))
 					{
 						if (!oldCompanionMods.contains(cMod))
 						{
@@ -2155,7 +2155,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (mLev >= cMod.getVariableApplied(varName))
 				{
-					if (cMod.qualifies(this))
+					if (cMod.qualifies(this, cMod))
 					{
 						if (!oldCompanionMods.contains(cMod))
 						{
@@ -2378,9 +2378,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return A List of FollowerOption objects representing the possible list
 	 *         of follower choices.
 	 */
-	public List<FollowerOption> getAvailableFollowers(final String aType)
+	public Map<FollowerOption, CDOMObject> getAvailableFollowers(final String aType, Comparator<FollowerOption> comp)
 	{
-		final List<FollowerOption> ret = new ArrayList<FollowerOption>();
+		final Map<FollowerOption, CDOMObject> ret = new TreeMap<FollowerOption, CDOMObject>(comp);
 
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
@@ -2392,7 +2392,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				{
 					if (fo.getListRef().getName().equalsIgnoreCase(aType))
 					{
-						ret.addAll(fo.getExpandedOptions());
+						for (FollowerOption efo : fo.getExpandedOptions())
+						{
+							ret.put(efo, cdo);
+						}
 					}
 				}
 			}
@@ -2945,20 +2948,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<String> getSpecialAbilityListStrings()
 	{
-		final ArrayList<String> bList = new ArrayList<String>();
-
-		for (SpecialAbility sa : getSpecialAbilityList())
+		List<String> bList = new ArrayList<String>();
+		List<SpecialAbility> saList =
+			new ArrayList<SpecialAbility>(specialAbilityList);
+		for (CDOMObject cdo : getCDOMObjectList())
 		{
-			if (!sa.qualifies(this))
+			saList.clear();
+			SpecialAbilityResolution.addSpecialAbilitiesToList(saList, this, cdo);
+			SpecialAbilityResolution.addSABToList(saList, this, cdo);
+			for (SpecialAbility sa : saList)
 			{
-				continue;
-			}
-			final String saText = sa.getParsedText(this, this);
-			if (saText != null && !saText.equals(""))
-			{
-				bList.add(saText);
+				final String saText = sa.getParsedText(this, this, cdo);
+				if (saText != null && !saText.equals(""))
+				{
+					bList.add(saText);
+				}
 			}
 		}
+		
+		Collections.sort(bList);
 
 		return bList;
 	}
@@ -3291,32 +3299,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return getSafeStringFor(StringKey.TRAIT2);
 	}
 
-	/**
-	 * Most of the time when you're looking up a PC variable you want the
-	 * standard behaviour (i.e. you don't care about the source and you want
-	 * the search to recurse and you want the result to include any bonuses
-	 * that have been defined for this variable).  If that's what you want,
-	 * this is the routine to call.
-	 * 
-	 * note: most of the code was calling the method this delegates to and
-	 * passing the exact same five constant values.
-	 * 
-	 * @param variableString The variable to lookup and return the value of.
-	 * @return Float
-	 */
-
-	public Float getVariable(final String variableString)
-	{
-		return getVariable(variableString, true, true, "", "", true);
-	}
-
-	public Float getVariable(final String variableString, final boolean isMax,
-		final String matchSrc, final String matchSubSrc)
-	{
-		return getVariable(variableString, isMax, true, matchSrc, matchSubSrc,
-			true);
-	}
-
 	private double getMinMaxFirstValue(final boolean isNewValue,
 		final boolean isMax, final double oldValue, final double newValue)
 	{
@@ -3341,9 +3323,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param recurse
 	 * @return Float
 	 */
-	public Float getVariable(final String variableString, final boolean isMax,
-		boolean includeBonus, final String matchSrc, final String matchSubSrc,
-		final boolean recurse)
+	public Float getVariable(final String variableString, final boolean isMax)
 	{
 		double value = 0.0;
 		boolean found = false;
@@ -3371,18 +3351,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					new StringTokenizer(vString, Constants.PIPE);
 			final String src = aTok.nextToken();
 
-			if ((matchSrc.length() > 0) && !src.equals(matchSrc))
-			{
-				continue;
-			}
-
-			final String subSrc = aTok.nextToken();
-
-			if ((matchSubSrc.length() > 0) && !subSrc.equals(matchSubSrc))
-			{
-				continue;
-			}
-
+			//Throw away subsource
+			aTok.nextToken();
 			final String nString = aTok.nextToken();
 
 			if (nString.equalsIgnoreCase(variableString))
@@ -3614,22 +3584,15 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
+		boolean includeBonus = true;
 		if (!found)
 		{
-			if (recurse)
-			{
-				lastVariable = variableString;
-				value =
-						getVariableValue(variableString, Constants.EMPTY_STRING)
-							.floatValue();
-				includeBonus = false;
-				found = true;
-				lastVariable = null;
-			}
-			else
-			{
-				return null;
-			}
+			lastVariable = variableString;
+			value = getVariableValue(variableString, Constants.EMPTY_STRING)
+					.floatValue();
+			includeBonus = false;
+			found = true;
+			lastVariable = null;
 		}
 
 		if (found && includeBonus)
@@ -3681,7 +3644,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					pobj.getSafeListFor(ListKey.WEAPONPROF);
 			for (WeaponProfProvider wpp : potentialProfs)
 			{
-				if (wpp.qualifies(this))
+				if (wpp.qualifies(this, pobj))
 				{
 					ret.addAll(wpp.getContainedProficiencies(this));
 				}
@@ -3695,7 +3658,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 			Boolean dwp =
 					pobj.getSafe(ObjectKey.HAS_DEITY_WEAPONPROF)
-						.getObject(this);
+						.getObject(this, pobj);
 			if (dwp != null && dwp && getDeity() != null)
 			{
 				List<CDOMReference<WeaponProf>> weaponList =
@@ -3927,13 +3890,33 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @param aList
 	 * @return bonus from list
 	 */
-	public double calcBonusFromList(final List<BonusObj> aList)
+	public double calcBonusFromList(final Map<BonusObj, PCStat> aList)
+	{
+		double iBonus = 0;
+
+		for (Map.Entry<BonusObj, PCStat> me : aList.entrySet())
+		{
+			BonusObj bonus = me.getKey();
+			PCStat source = me.getValue();
+			iBonus += bonus.resolve(this, source.getQualifiedKey()).doubleValue();
+		}
+
+		return iBonus;
+	}
+
+	/**
+	 * Compute total bonus from a List of BonusObj's
+	 * 
+	 * @param aList
+	 * @return bonus from list
+	 */
+	public double calcBonusFromList(final List<BonusObj> aList, CDOMObject source)
 	{
 		double iBonus = 0;
 
 		for (BonusObj bonus : aList)
 		{
-			iBonus += bonus.resolve(this, "").doubleValue();
+			iBonus += bonus.resolve(this, source.getQualifiedKey()).doubleValue();
 		}
 
 		return iBonus;
@@ -5679,7 +5662,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				getRace().getBonusList(this), aType.toUpperCase(), aName
 						.toUpperCase());
 
-		return calcBonusFromList(tempList);
+		return calcBonusFromList(tempList, getRace());
 	}
 
 	public int getSR()
@@ -5993,13 +5976,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public double getStatBonusTo(String aType, String aName)
 	{
-		final List<BonusObj> aList =
+		final Map<BonusObj, PCStat> aList =
 				StatAnalysis.getBonusListOfType(this, aType.toUpperCase(), aName
 					.toUpperCase());
-		for (Iterator<BonusObj> it = aList.iterator(); it.hasNext();)
+		for (Iterator<Map.Entry<BonusObj, PCStat>> it = aList.entrySet().iterator(); it.hasNext();)
 		{
-			BonusObj bo = it.next();
-			if (!bo.qualifies(this))
+			Entry<BonusObj, PCStat> me = it.next();
+			BonusObj bo = me.getKey();
+			if (!bo.qualifies(this, me.getValue()))
 			{
 				it.remove();
 			}
@@ -6812,7 +6796,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// all the exists checks are done.
 
 		// don't allow adding spells which are not qualified for.
-		if (!aSpell.qualifies(this))
+		if (!aSpell.qualifies(this, aSpell))
 		{
 			return "You do not qualify for " + acs.getSpell().getDisplayName()
 				+ ".";
@@ -7513,7 +7497,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final PObject aPObj = new PObject();
 				getPreReqFromACType(aString, aPObj);
 
-				if (aPObj.qualifies(this))
+				if (aPObj.qualifies(this, aPObj))
 				{
 					final StringTokenizer aTok =
 							new StringTokenizer(aString, "|");
@@ -7529,7 +7513,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				final PObject aPObj = new PObject();
 				getPreReqFromACType(rString, aPObj);
 
-				if (aPObj.qualifies(this))
+				if (aPObj.qualifies(this, aPObj))
 				{
 					final StringTokenizer aTok =
 							new StringTokenizer(rString, "|");
@@ -7581,10 +7565,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			// the equipment they belong to.
 			if (pobj != null && !(pobj instanceof EquipmentModifier))
 			{
-				// Class bonuses are only included if the level is greater than 0
-				// This is because 0 levels of a class can be added to access spell casting etc
-				if (!(pobj instanceof PCClass)
-					|| getLevel(((PCClass) pobj)) > 0)
+				boolean use = true;
+				if (pobj instanceof PCClass)
+				{
+					// Class bonuses are only included if the level is greater than 0
+					// This is because 0 levels of a class can be added to access spell casting etc
+					use = getLevel(((PCClass) pobj)) > 0;
+				}
+				if (use)
 				{
 					pobj.activateBonuses(this);
 					List<BonusObj> abs = pobj.getActiveBonuses(this);
@@ -7644,17 +7632,25 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public List<DamageReduction> getDRList()
 	{
-		List<DamageReduction> drList = new ArrayList<DamageReduction>();
+		return DamageReduction.getDRList(this, getDRMap());
+	}
+
+	private Map<DamageReduction, CDOMObject> getDRMap()
+	{
+		Map<DamageReduction, CDOMObject> drList = new IdentityHashMap<DamageReduction, CDOMObject>();
 		for (CDOMObject obj : getCDOMObjectList())
 		{
 			List<DamageReduction> objList =
 					obj.getListFor(ListKey.DAMAGE_REDUCTION);
 			if (objList != null)
 			{
-				drList.addAll(objList);
+				for (DamageReduction dr : objList)
+				{
+					drList.put(dr, obj);
+				}
 			}
 		}
-		return DamageReduction.getDRList(this, drList);
+		return drList;
 	}
 
 	/**
@@ -7664,7 +7660,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String calcDR()
 	{
-		return DamageReduction.getDRString(this, getDRList());
+		return DamageReduction.getDRString(this, getDRMap());
 	}
 
 	public double calcMoveMult(final double move, final int index)
@@ -7920,7 +7916,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return result && aDeity.qualifies(this);
+		return result && aDeity.qualifies(this, aDeity);
 	}
 
 	public int classAC()
@@ -9882,7 +9878,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (ProfProvider<ArmorProf> app : aPObj
 				.getSafeListFor(ListKey.AUTO_ARMORPROF))
 			{
-				if (app.qualifies(this))
+				if (app.qualifies(this, aPObj))
 				{
 					aList.add(app);
 				}
@@ -9911,7 +9907,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (!tempList.isEmpty())
 			{
-				bonus += calcBonusFromList(tempList);
+				bonus += calcBonusFromList(tempList, obj);
 			}
 		}
 
@@ -9984,7 +9980,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					false));
 			}
 
-			bonus += calcBonusFromList(tempList);
+			bonus += calcBonusFromList(tempList, eq);
 		}
 
 		return bonus;
@@ -10461,7 +10457,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (ProfProvider<ShieldProf> pp : aPObj
 				.getSafeListFor(ListKey.AUTO_SHIELDPROF))
 			{
-				if (pp.qualifies(this))
+				if (pp.qualifies(this, aPObj))
 				{
 					aList.add(pp);
 				}
@@ -11063,7 +11059,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			double iBonus = 0;
 
-			if (aBonus.qualifies(this))
+			if (aBonus.qualifies(this, anObj))
 			{
 				iBonus =
 						aBonus.resolve(this, anObj.getQualifiedKey())
@@ -11310,7 +11306,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else
 		{
-			return skill.qualifies(this);
+			return skill.qualifies(this, skill);
 		}
 	}
 
@@ -11400,7 +11396,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Make sure the character qualifies for the class if adding it
 		if (numberOfLevels > 0)
 		{
-			if (!bypassPrereqs && !globalClass.qualifies(this))
+			if (!bypassPrereqs && !globalClass.qualifies(this, globalClass))
 			{
 				return;
 			}
@@ -13291,7 +13287,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public boolean canSelectAbility(final Ability anAbility,
 		final boolean autoQualify)
 	{
-		final boolean qualify = anAbility.qualifies(this);
+		final boolean qualify = anAbility.qualifies(this, anAbility);
 		final boolean canTakeMult =
 				anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 		final boolean hasOrdinary = this.hasRealFeat(anAbility);
@@ -13964,7 +13960,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						{
 							for (Ability ability : abilityList)
 							{
-								if (ability.qualifies(this))
+								if (ability.qualifies(this, ability))
 								{
 									abilities.add(ability);
 								}
@@ -14957,7 +14953,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if (aLang != null)
 			{
-				if (aLang.qualifies(this))
+				if (aLang.qualifies(this, aLang))
 				{
 					availableLangs.add(aLang);
 				}

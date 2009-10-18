@@ -187,7 +187,7 @@ public class DomainApplication
 	public static void addDomain(final PlayerCharacter aPC, PCClass cl, Domain d,
 			final boolean adding)
 	{
-		if (d.qualifies(aPC))
+		if (d.qualifies(aPC, d))
 		{
 			if (adding)
 			{
@@ -235,7 +235,7 @@ public class DomainApplication
 		 */
 		for (QualifiedObject<CDOMSingleRef<Domain>> qo : cl.getSafeListFor(ListKey.DOMAIN))
 		{
-			CDOMSingleRef<Domain> ref = qo.getObject(aPC);
+			CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 			if (ref != null)
 			{
 				addDomain(aPC, cl, ref.resolvesTo(), adding);
@@ -249,7 +249,7 @@ public class DomainApplication
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
 					.getSafeListFor(ListKey.DOMAIN))
 			{
-				CDOMSingleRef<Domain> ref = qo.getObject(aPC);
+				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 				if (ref != null)
 				{
 					addDomain(aPC, cl, ref.resolvesTo(), adding);

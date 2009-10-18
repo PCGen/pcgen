@@ -28,6 +28,7 @@ package plugin.pretokens.test;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -49,7 +50,7 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
 	// TODO All the equipment related PRE tag code should be refactored into a
 	// common base class.
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		int runningTotal = 0;
 

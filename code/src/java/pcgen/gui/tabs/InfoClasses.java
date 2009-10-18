@@ -542,7 +542,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		PCClass theClass = getSelectedClass();
 
-		if ((theClass == null) || !theClass.qualifies(pc))
+		if ((theClass == null) || !theClass.qualifies(pc, theClass))
 		{
 			return;
 		}
@@ -566,7 +566,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		{
 			final PCClass subClass =
 					aClass.getSubClassKeyed(subClassKey);
-			if (subClass != null && !subClass.qualifies(pc))
+			if (subClass != null && !subClass.qualifies(pc, aClass))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getString("in_clYouAreNotQualifiedToTakeTheClass")

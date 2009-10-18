@@ -1117,7 +1117,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					// bonus to TempBonusMap
 					if (aTarget instanceof PlayerCharacter)
 					{
-						if (newB.qualifies(pc))
+						if (newB.qualifies(pc, aEq))
 						{
 							pc.setApplied(newB, true);
 						}

@@ -93,14 +93,14 @@ public class SpellCountCalc
 
 	public static boolean isProhibited(Spell aSpell, PCClass cl, PlayerCharacter aPC)
 	{
-		if (!aSpell.qualifies(aPC))
+		if (!aSpell.qualifies(aPC, aSpell))
 		{
 			return true;
 		}
 	
 		for (SpellProhibitor prohibit : cl.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 		{
-			if (prohibit.isProhibited(aSpell, aPC))
+			if (prohibit.isProhibited(aSpell, aPC, cl))
 			{
 				return true;
 			}
@@ -108,7 +108,7 @@ public class SpellCountCalc
 	
 		for (SpellProhibitor prohibit : cl.getSafeListFor(ListKey.SPELL_PROHIBITOR))
 		{
-			if (prohibit.isProhibited(aSpell, aPC))
+			if (prohibit.isProhibited(aSpell, aPC, cl))
 			{
 				return true;
 			}
@@ -120,7 +120,7 @@ public class SpellCountCalc
 		{
 			for (SpellProhibitor prohibit : assocList)
 			{
-				if (prohibit.isProhibited(aSpell, aPC))
+				if (prohibit.isProhibited(aSpell, aPC, cl))
 				{
 					return true;
 				}

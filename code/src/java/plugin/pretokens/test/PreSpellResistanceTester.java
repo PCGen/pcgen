@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -43,7 +44,7 @@ public class PreSpellResistanceTester extends AbstractPrerequisiteTest
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		final int requiredSR = Integer.parseInt(prereq.getOperand());
 		final int characterSR = character.calcSR(false);

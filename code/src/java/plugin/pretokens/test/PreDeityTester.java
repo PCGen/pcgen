@@ -9,6 +9,7 @@ package plugin.pretokens.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.core.PlayerCharacter;
@@ -33,7 +34,7 @@ public class PreDeityTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal;

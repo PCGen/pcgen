@@ -153,7 +153,7 @@ final class MainDebug extends JPanel
 			pcgen.core.VariableProcessor vp = aPC.getVariableProcessor();
 			vp.pauseCache();
 			txtAreaDebug.append(aPC.getDisplayName() + ":" + keyWord + " = "
-				+ aPC.getVariable(keyWord));
+				+ aPC.getVariable(keyWord, true));
 			vp.restartCache();
 		}
 		else

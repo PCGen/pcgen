@@ -222,7 +222,7 @@ public class WeaponProfToken extends AbstractToken implements
 				}
 			}
 		}
-		if (deityweap != null && deityweap.getObject(null))
+		if (deityweap != null && deityweap.getRawObject())
 		{
 			foundOther = true;
 			StringBuilder sb = new StringBuilder();

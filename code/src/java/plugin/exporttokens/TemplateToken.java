@@ -238,11 +238,11 @@ public class TemplateToken extends Token
 		List<String> saDescList = new ArrayList<String>();
 		for (SpecialAbility sa : saList)
 		{
-			if (!sa.qualifies(pc))
+			if (!sa.qualifies(pc, template))
 			{
 				continue;
 			}
-			final String saText = sa.getParsedText(pc, pc);
+			final String saText = sa.getParsedText(pc, pc, template);
 			if (saText != null && !saText.equals(""))
 			{
 				saDescList.add(saText);

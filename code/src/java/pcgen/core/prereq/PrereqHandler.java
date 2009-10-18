@@ -147,7 +147,9 @@ public class PrereqHandler {
 		}
 		try
 		{
-			total = test.passes(prereq, character);
+			CDOMObject cdomCaller = (caller instanceof CDOMObject) ? (CDOMObject) caller
+					: null;
+			total = test.passes(prereq, character, cdomCaller);
 		}
 		catch (PrerequisiteException pe)
 		{

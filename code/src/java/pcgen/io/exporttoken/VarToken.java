@@ -130,7 +130,7 @@ public class VarToken extends Token
 	public static float getVarToken(PlayerCharacter pc, String varName,
 		boolean isMin)
 	{
-		return pc.getVariable(varName, !isMin, "", "");
+		return pc.getVariable(varName, !isMin);
 	}
 
 	/**
@@ -146,6 +146,6 @@ public class VarToken extends Token
 	public static int getIntVarToken(PlayerCharacter pc, String varName,
 		boolean isMin)
 	{
-		return pc.getVariable(varName, !isMin, "", "").intValue();
+		return pc.getVariable(varName, !isMin).intValue();
 	}
 }

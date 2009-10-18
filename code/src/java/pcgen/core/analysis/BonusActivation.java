@@ -44,7 +44,7 @@ public class BonusActivation
 			final BonusObj aBonus = ab.next();
 			aPC.setApplied(aBonus, false);
 	
-			if (aBonus.qualifies(aPC)
+			if (aBonus.qualifies(aPC, po)
 				&& aBonus.getPCLevel() <= aPC.getTotalLevels())
 			{
 				aPC.setApplied(aBonus, true);

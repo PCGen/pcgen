@@ -115,7 +115,7 @@ public class QualifiedDecorator<T extends PObject> implements
 		Set<T> returnSet = new HashSet<T>();
 		for (T item : set.getSet(pc))
 		{
-			if (item.qualifies(pc))
+			if (item.qualifies(pc, item))
 			{
 				returnSet.add(item);
 			}

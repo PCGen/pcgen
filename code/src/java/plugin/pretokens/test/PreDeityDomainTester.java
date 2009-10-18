@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -47,7 +48,7 @@ public class PreDeityDomainTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		int runningTotal = 0;
 

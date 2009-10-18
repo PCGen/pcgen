@@ -155,7 +155,7 @@ public class DomainToken extends AbstractToken implements
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : added)
 			{
 				StringBuilder sb = new StringBuilder();
-				sb.append(qo.getObject(null).getLSTformat());
+				sb.append(qo.getRawObject().getLSTformat());
 				if (qo.hasPrerequisites())
 				{
 					List<Prerequisite> prereqs = qo.getPrerequisiteList();

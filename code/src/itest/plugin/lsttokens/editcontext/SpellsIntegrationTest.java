@@ -89,7 +89,7 @@ public class SpellsIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "SpellBook|TIMES=3|Fireball");
-		commit(modCampaign, tc, "SpellBook|Fireball|PRERACE:1,Human");
+		commit(modCampaign, tc, "SpellBook|TIMES=1|Fireball|PRERACE:1,Human");
 		completeRoundRobin(tc);
 	}
 
@@ -99,7 +99,7 @@ public class SpellsIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "SpellBook|Fireball,CL+5");
+		commit(modCampaign, tc, "SpellBook|TIMES=1|Fireball,CL+5");
 		completeRoundRobin(tc);
 	}
 

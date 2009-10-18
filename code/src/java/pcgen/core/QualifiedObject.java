@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -47,12 +48,6 @@ public class QualifiedObject<T> extends ConcretePrereqObject
 
 	private static final String angleSplit = "[<>\\|]";
 	private static final String squareSplit = "[\\[\\]\\|]";
-
-	/** Default Constructor */
-	public QualifiedObject()
-	{
-	    // Do Nothing
-	}
 
     /**
      * Constructor
@@ -90,15 +85,26 @@ public class QualifiedObject<T> extends ConcretePrereqObject
      * if no character is passed in.
      * 
      * @param aPC Character to be checked or null
+	 * @param owner TODO
      * @return qualifying object
 	 */
-    public T getObject( final PlayerCharacter aPC )
+    public T getObject( final PlayerCharacter aPC, CDOMObject owner )
 	{
-		if (aPC == null || qualifies( aPC ) )
+		if (aPC == null || qualifies(aPC, owner))
 		{
 			return theObject;
 		}
 		return null;
+	}
+
+	/**
+     * Get the qualifiying object. Will always return the object
+     * 
+     * @return qualifying object
+	 */
+    public T getRawObject( )
+	{
+		return theObject;
 	}
 
 	/**

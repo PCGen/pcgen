@@ -140,7 +140,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 					"1,SPELLCASTER.Arcane,SPELLCASTER.Arcane=2", false, false);
 
 		final PreMult test = new PreMult();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -197,30 +197,30 @@ public class PreMultTest extends AbstractCharacterTestCase
 					false, false);
 
 		final PreMult test = new PreMult();
-		int passes = test.passes(prereq, character);
+		int passes = test.passes(prereq, character, null);
 		assertEquals("No feats should not pass", 0, passes);
 
 		character.addFeat(metamagic1, null);
-		passes = test.passes(prereq, character);
+		passes = test.passes(prereq, character, null);
 		assertEquals("One feat should not pass", 0, passes);
 
 		character.addFeat(metamagic2, null);
-		passes = test.passes(prereq, character);
+		passes = test.passes(prereq, character, null);
 		assertEquals("Two feats should not pass", 0, passes);
 
 		character.addFeat(metamagic3, null);
-		passes = test.passes(prereq, character);
+		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
 		character.removeRealFeat(metamagic3);
 		character.addFeat(item1, null);
-		passes = test.passes(prereq, character);
+		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
 		character.addFeat(item2, null);
 		character.addFeat(item3, null);
 		character.addFeat(metamagic3, null);
-		passes = test.passes(prereq, character);
+		passes = test.passes(prereq, character, null);
 		assertEquals("Six feats should pass", 1, passes);
 
 		character.removeRealFeat(metamagic3);

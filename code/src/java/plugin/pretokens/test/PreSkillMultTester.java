@@ -25,6 +25,7 @@
  *
  */package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -46,7 +47,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		int runningTotal = 0;
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());

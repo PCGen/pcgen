@@ -107,7 +107,7 @@ public class EquipBuyToken extends AbstractToken implements
 		{
 			return null;
 		}
-		Formula f = qo.getObject(null);
+		Formula f = qo.getRawObject();
 		List<Prerequisite> prereqs = qo.getPrerequisiteList();
 		String ab = f.toString();
 		if (prereqs != null && !prereqs.isEmpty())

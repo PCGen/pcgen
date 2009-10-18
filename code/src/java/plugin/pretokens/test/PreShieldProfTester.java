@@ -26,6 +26,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -47,7 +48,7 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		final int numberRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;

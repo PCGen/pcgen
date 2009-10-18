@@ -53,7 +53,7 @@ public class BonusCalc
 	
 			boolean returnZero = false;
 	
-			if (!po.qualifies(aPC))
+			if (!po.qualifies(aPC, po))
 			{
 				returnZero = true;
 			}
@@ -207,7 +207,7 @@ public class BonusCalc
 		// must meet criteria before adding any bonuses
 		if (obj instanceof PlayerCharacter)
 		{
-			if ( !aBonusObj.qualifies((PlayerCharacter)obj) )
+			if ( !aBonusObj.qualifies((PlayerCharacter)obj, po) )
 			{
 				return 0;
 			}

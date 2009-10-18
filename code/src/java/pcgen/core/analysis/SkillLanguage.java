@@ -224,7 +224,7 @@ public final class SkillLanguage
 		for (Language lang : Globals.getContext().ref
 				.getConstructedCDOMObjects(Language.class))
 		{
-			if (!lang.qualifies(aPC))
+			if (!lang.qualifies(aPC, lang))
 			{
 				continue;
 			}

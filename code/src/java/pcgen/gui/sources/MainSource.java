@@ -861,7 +861,7 @@ public class MainSource extends FilterAdapterPanel
 			if (select)
 			{
 				if (!selectedCampaigns.contains(theCamp)
-						&& theCamp.qualifies(null))
+						&& theCamp.qualifies(null, theCamp))
 				{
 					selectedCampaigns.add(theCamp);
 				}
@@ -1291,7 +1291,7 @@ public class MainSource extends FilterAdapterPanel
 
 		for (Campaign campaign : selectedCampaigns)
 		{
-			if (!campaign.qualifies(null))
+			if (!campaign.qualifies(null, campaign))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getFormattedString("in_Src_Bad_Combo_Load", campaign
@@ -1421,7 +1421,7 @@ public class MainSource extends FilterAdapterPanel
 					if (select)
 					{
 						if (!selectedCampaigns.contains(aCamp)
-								&& aCamp.qualifies(null))
+								&& aCamp.qualifies(null, aCamp))
 						{
 							selectedCampaigns.add(aCamp);
 						}

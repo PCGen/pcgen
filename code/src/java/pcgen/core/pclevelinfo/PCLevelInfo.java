@@ -277,7 +277,7 @@ public final class PCLevelInfo implements Cloneable
 		{
 			PointBuyMethod pbm = SettingsHandler.getGame().getPurchaseMethodByName(purchaseName);
 
-			returnValue += (int) aPC.calcBonusFromList(pbm.getBonusListOfType("SKILLPOOL", "NUMBER"));
+			returnValue += (int) aPC.calcBonusFromList(pbm.getBonusListOfType("SKILLPOOL", "NUMBER"), null);
 		}
 
 

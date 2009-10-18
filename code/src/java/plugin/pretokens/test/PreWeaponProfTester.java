@@ -28,6 +28,7 @@ package plugin.pretokens.test;
 
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
@@ -71,10 +72,10 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
 	 * &nbsp; <code>PREWEAPONPROF:1,DEITYWEAPON</code> <br />
 	 * &nbsp; &nbsp; Weapon Prof in question must be one of the chosen deity's favored weapons.
 	 * 
-	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
+	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter, CDOMObject)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal = 0;

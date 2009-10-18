@@ -27,6 +27,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.PlayerCharacter;
@@ -50,7 +51,7 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements
 	 * pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		final String requiredRaceType = prereq.getKey();

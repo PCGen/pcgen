@@ -133,6 +133,7 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
+import pcgen.gui.utils.SourcedFollower;
 import pcgen.gui.utils.Utility;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
@@ -590,8 +591,9 @@ public class InfoResources extends FilterAdapterPanel implements
 		Object endComp = avaCPath.getLastPathComponent();
 		PObjectNode fNode = (PObjectNode) endComp;
 
-		final FollowerOption opt = (FollowerOption) fNode.getItem();
-		if (!opt.qualifies(pc))
+		final SourcedFollower sf = (SourcedFollower) fNode.getItem();
+		FollowerOption opt = sf.option;
+		if (!opt.qualifies(pc, sf.owner))
 		{
 			return;
 		}
@@ -1176,9 +1178,10 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			aRace = (Race) obj;
 		}
-		else if (obj instanceof FollowerOption)
+		else if (obj instanceof SourcedFollower)
 		{
-			option = (FollowerOption) obj;
+			SourcedFollower sf = (SourcedFollower) obj;
+			option = sf.option;
 			aRace = option.getRace();
 		}
 		if (aRace != null)

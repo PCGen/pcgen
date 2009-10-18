@@ -245,7 +245,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						(PCClass) classComboBox.getSelectedItem();
 				setInfoLabelText(pcClass);
 
-				if (pcClass.qualifies(pc))
+				if (pcClass.qualifies(pc, pcClass))
 				{
 					labelClass.setForeground(new Color(SettingsHandler
 						.getPrereqQualifyColor()));
@@ -298,7 +298,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				return;
 			}
 
-			if (!pcClass.qualifies(pc))
+			if (!pcClass.qualifies(pc, pcClass))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -1168,7 +1168,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 		}
 
-		if ((theClass == null) || !theClass.qualifies(pc))
+		if ((theClass == null) || !theClass.qualifies(pc, theClass))
 		{
 			return;
 		}
@@ -1197,7 +1197,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			final PCClass subClass =
 					aClass.getSubClassKeyed(subClassKey);
-			if (subClass != null && !subClass.qualifies(pc))
+			if (subClass != null && !subClass.qualifies(pc, aClass))
 			{
 				ShowMessageDelegate.showMessageDialog(PropertyFactory
 					.getFormattedString("in_sumYouAreNotQualifiedToTakeTheClass",
@@ -1438,7 +1438,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		for (PCClass aClass : pc.getClassSet())
 		{
-			if (!aClass.qualifies(pc))
+			if (!aClass.qualifies(pc, aClass))
 			{
 				if (aClass.containsKey(ObjectKey.EX_CLASS))
 				{
@@ -2200,7 +2200,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final Race pcRace = pc.getRace();
 		raceComboModel.setSelectedItem(pcRace);
 
-		if (pcRace.qualifies(pc))
+		if (pcRace.qualifies(pc, pcRace))
 		{
 			labelRace.setForeground(new Color(SettingsHandler
 				.getPrereqQualifyColor()));
@@ -2274,7 +2274,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		final PCClass pcSelectedClass =
 				(PCClass) classComboBox.getSelectedItem();
 
-		if ((pcSelectedClass != null) && !pcSelectedClass.qualifies(pc))
+		if ((pcSelectedClass != null) && !pcSelectedClass.qualifies(pc, pcSelectedClass))
 		{
 			labelClass.setForeground(new Color(SettingsHandler
 				.getPrereqFailColor()));
@@ -3547,7 +3547,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				setText(aClass.getDisplayName());
 				if (isSelected)
 				{
-					if (aClass.qualifies(pc))
+					if (aClass.qualifies(pc, aClass))
 					{
 						setBackground(list.getSelectionBackground());
 						setForeground(list.getSelectionForeground());
@@ -3560,7 +3560,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 				else
 				{
-					if (aClass.qualifies(pc))
+					if (aClass.qualifies(pc, aClass))
 					{
 						setBackground(list.getBackground());
 						setForeground(list.getForeground());

@@ -172,7 +172,7 @@ public class EquipToken extends AbstractToken implements
 		{
 			for (QualifiedObject<CDOMReference<Equipment>> qo : added)
 			{
-				m.addToListFor(qo.getPrerequisiteList(), qo.getObject(null));
+				m.addToListFor(qo.getPrerequisiteList(), qo.getRawObject());
 			}
 		}
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();

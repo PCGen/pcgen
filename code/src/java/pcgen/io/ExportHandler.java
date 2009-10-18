@@ -3395,7 +3395,7 @@ public final class ExportHandler
 			value = aTok.nextToken();
 		}
 
-		final Float varval = aPC.getVariable(varName);
+		final Float varval = aPC.getVariable(varName, true);
 		final Float valval = aPC.getVariableValue(value, "");
 
 		if ("GTEQ".equals(bString))

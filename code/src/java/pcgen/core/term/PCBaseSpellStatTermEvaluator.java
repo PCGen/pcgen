@@ -26,8 +26,9 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
 public class PCBaseSpellStatTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
@@ -48,9 +49,10 @@ public class PCBaseSpellStatTermEvaluator
 
 		if (pcClass == null)
 		{
-			return 0f;
+			pcClass = Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(PCClass.class, source);
 		}
-
+		//null safe to pass in
 		return (float) pc.getBaseSpellStatBonus(pcClass);
 	}
 

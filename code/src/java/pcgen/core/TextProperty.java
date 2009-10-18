@@ -23,6 +23,8 @@ package pcgen.core;
 import java.io.Serializable;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
+
 /**
  * <code>TextProperty</code>.
  *
@@ -83,19 +85,19 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	 * @param pc
 	 * @return Get the parsed text (%CHOICEs replaced)
 	 */
-	public String getParsedText(final PlayerCharacter pc, final VariableContainer anOwner)
+	public String getParsedText(final PlayerCharacter pc, final VariableContainer varOwner, CDOMObject qualOwner)
 	{
-		return getParsedText(pc, getText(), anOwner);
+		return getParsedText(pc, getText(), varOwner, qualOwner);
 	}
 
-	protected String getParsedText(final PlayerCharacter pc, final String fullDesc, final VariableContainer anOwner)
+	protected String getParsedText(final PlayerCharacter pc, final String fullDesc, final VariableContainer varOwner, CDOMObject qOwner)
 	{
 		if (fullDesc==null || fullDesc.equals("")) {
 			return "";
 		}
 
 		String retString = "";
-		if(qualifies(pc))
+		if(qualifies(pc, qOwner))
 		{
 			// full desc will look like "description|var1|var2|var3|..."
 			StringTokenizer varTok = new StringTokenizer(fullDesc, "|");
@@ -113,7 +115,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 					{
 						final String varToken = varTok.nextToken();
 //						final int value = pc.getVariable(varToken, true, true, "", "", 0).intValue();
-						final int value = anOwner.getVariableValue(varToken, "", pc).intValue();
+						final int value = varOwner.getVariableValue(varToken, "", pc).intValue();
 						if (value != 0)
 						{
 							atLeastOneNonZero = true;

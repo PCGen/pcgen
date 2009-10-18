@@ -63,10 +63,12 @@ public interface ProfProvider<T extends CDOMObject>
 	 * 
 	 * @param playerCharacter
 	 *            The PlayerCharacter to test.
-	 * 
+	 * @param owner
+	 *            The CDOMObject that owns the ProficiencyProvider (used for
+	 *            PRExxx resolution)
 	 * @return true if the given PlayerCharacter passes all the prerequisites.
 	 */
-	public boolean qualifies(PlayerCharacter playerCharacter);
+	public boolean qualifies(PlayerCharacter playerCharacter, CDOMObject owner);
 
 	/**
 	 * Returns true if this ProfProvider provides proficiency with the given

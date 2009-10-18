@@ -92,7 +92,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 	/**
@@ -120,7 +120,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -146,7 +146,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(0, passes);
 	}
 
@@ -176,7 +176,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -213,7 +213,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(3, passes);
 	}
 
@@ -247,11 +247,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final Prerequisite prereq = factory.parse("PRECLASS:1,SPELLCASTER.ARCANE=3");
 
 		final PreClassTester test = new PreClassTester();
-		int passes = test.passes(prereq, character);
+		int passes = test.passes(prereq, character, null);
 		// Doens't pass - levels not summed...
 		assertEquals(0, passes);
 		character.incrementClassLevel(1, pcClass2);
-		passes = test.passes(prereq, character);
+		passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -285,11 +285,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final Prerequisite prereq = factory.parse("PRECLASS:1,ANY=3");
 
 		final PreClassTester test = new PreClassTester();
-		int passes = test.passes(prereq, character);
+		int passes = test.passes(prereq, character, null);
 		// Doens't pass - levels not summed...
 		assertEquals(0, passes);
 		character.incrementClassLevel(1, pcClass2);
-		passes = test.passes(prereq, character);
+		passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -313,7 +313,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(0, passes);
 	}
 
@@ -336,7 +336,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.LT);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -359,7 +359,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.LT);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(0, passes);
 	}
 
@@ -385,7 +385,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -409,7 +409,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(0, passes);
 	}
 
@@ -437,7 +437,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -463,7 +463,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -547,10 +547,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		assertEquals(0, test.passes(prereq, character));
+		assertEquals(0, test.passes(prereq, character, null));
 
 		character.incrementClassLevel(2, pcClass);
-		assertEquals(1, test.passes(prereq, character));
+		assertEquals(1, test.passes(prereq, character, null));
 	}
 
 	public void testAnyLevelTwo() throws Exception
@@ -573,13 +573,13 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
-		assertEquals(0, test.passes(prereq, character));
+		assertEquals(0, test.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(0, test.passes(prereq, character));
+		assertEquals(0, test.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(1, test.passes(prereq, character));
+		assertEquals(1, test.passes(prereq, character, null));
 	}
 
 

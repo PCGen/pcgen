@@ -515,9 +515,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 *            
 	 * @return availDomainList
 	 */
-	private final List<QualifiedObject<Domain>> getUnfilteredDomains(final Deity pcDeity)
+	private final List<SourcedQualObject<Domain>> getUnfilteredDomains(final Deity pcDeity)
 	{
-		List<QualifiedObject<Domain>> availDomainList = new ArrayList<QualifiedObject<Domain>>();
+		List<SourcedQualObject<Domain>> availDomainList = new ArrayList<SourcedQualObject<Domain>>();
 		
 		if (pcDeity != null)
 		{
@@ -530,7 +530,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new QualifiedObject<Domain>(d,
+							availDomainList.add(new SourcedQualObject<Domain>(d, pcDeity,
 									apo.getPrerequisiteList()));
 						}
 					}
@@ -558,7 +558,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	private void processAddDomains(CDOMObject cdo,
-			final List<QualifiedObject<Domain>> availDomainList)
+			final List<SourcedQualObject<Domain>> availDomainList)
 	{
 		Collection<CDOMReference<Domain>> domains = cdo.getListMods(PCClass.ALLOWED_DOMAINS);
 		if (domains != null)
@@ -578,7 +578,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 						 */
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new QualifiedObject<Domain>(d,
+							availDomainList.add(new SourcedQualObject<Domain>(d, cdo,
 									apo.getPrerequisiteList()));
 						}
 					}
@@ -588,15 +588,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	}
 
 	private void processDomainList(CDOMObject obj,
-			final List<QualifiedObject<Domain>> availDomainList)
+			final List<SourcedQualObject<Domain>> availDomainList)
 	{
 		for (QualifiedObject<CDOMSingleRef<Domain>> qo : obj.getSafeListFor(ListKey.DOMAIN))
 		{
-			CDOMSingleRef<Domain> ref = qo.getObject(null);
+			CDOMSingleRef<Domain> ref = qo.getRawObject();
 			Domain domain = ref.resolvesTo();
 			if (!isDomainInList(availDomainList, domain))
 			{
-				availDomainList.add(new QualifiedObject<Domain>(domain, qo
+				availDomainList.add(new SourcedQualObject<Domain>(domain, obj, qo
 						.getPrerequisiteList()));
 			}
 		}
@@ -610,12 +610,12 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 * @return tue if the domain is in the list 
 	 */
 	private boolean isDomainInList(
-		List<QualifiedObject<Domain>> qualDomainList,
+		List<SourcedQualObject<Domain>> qualDomainList,
 		Domain domain)
 	{
 		for (QualifiedObject<Domain> row : qualDomainList)
 		{
-			if (domain.equals(row.getObject(null)))
+			if (domain.equals(row.getRawObject()))
 			{
 				return true;
 			}
@@ -1176,7 +1176,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		List<QualifiedObject<Domain>> potentialDomains = getUnfilteredDomains(aDeity);
+		List<SourcedQualObject<Domain>> potentialDomains = getUnfilteredDomains(aDeity);
 
 		// Validate that no domains will be lost when changing deities
 		boolean allDomainsAvailable = true;
@@ -1268,16 +1268,16 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		selectedDomainList.clear();
 
 		// Get all available domains and filter them
-		List<QualifiedObject<Domain>> availDomainList = getUnfilteredDomains(pc.getDeity());
+		List<SourcedQualObject<Domain>> availDomainList = getUnfilteredDomains(pc.getDeity());
 		domainModel.setAvailDomainList(availDomainList);
 
 		// Loop through the character's selected domains
 		for (Domain d : pc.getDomainSet())
 		{
 			boolean found = false;
-			for (QualifiedObject<Domain> availDomain : availDomainList)
+			for (SourcedQualObject<Domain> availDomain : availDomainList)
 			{
-				found = availDomain.getObject(null).getKeyName().equals(
+				found = availDomain.getRawObject().getKeyName().equals(
 						d.getKeyName());
 				if (found)
 				{
@@ -1287,7 +1287,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			if (!found)
 			{
-				availDomainList.add(new QualifiedObject<Domain>(d));
+				availDomainList.add(new SourcedQualObject<Domain>(d));
 			}
 
 			if (!selectedDomainList.contains(d))
@@ -1298,10 +1298,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		// Filter the available domains
 
-		for (Iterator<QualifiedObject<Domain>> domainIter = availDomainList.iterator(); domainIter
+		for (Iterator<SourcedQualObject<Domain>> domainIter = availDomainList.iterator(); domainIter
 			.hasNext();)
 		{
-			QualifiedObject<Domain> qualDomain = domainIter.next();
+			SourcedQualObject<Domain> qualDomain = domainIter.next();
 			Domain domain = qualDomain.getObject(pc);
 
 			if (domain != null && !accept(pc, domain) && !selectedDomainList.contains(domain))
@@ -1345,9 +1345,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		final QualifiedObject<Domain> qualDomain =
-			(QualifiedObject<Domain>) domainModel.getValueAt(selectedRow, -1);
-		final Domain addedDomain = qualDomain.getObject(null);
+		final SourcedQualObject<Domain> qualDomain =
+			(SourcedQualObject<Domain>) domainModel.getValueAt(selectedRow, -1);
+		final Domain addedDomain = qualDomain.getRawObject();
 
 		if (addedDomain == null)
 		{
@@ -1355,7 +1355,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// Make sure a valid domain was selected
-		if (!addedDomain.qualifies(pc) || !qualDomain.qualifies(pc))
+		if (!addedDomain.qualifies(pc, addedDomain) || !qualDomain.qualifies(pc))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
 				.getFormattedString("in_qualifyMess",
@@ -2171,16 +2171,51 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 	}
 
+	class SourcedQualObject<T> extends QualifiedObject<T>
+	{
+		
+		private final CDOMObject sourceObject;
+
+		public SourcedQualObject(T anObj, CDOMObject source,
+				List<Prerequisite> prereqList)
+		{
+			super(anObj, prereqList);
+			sourceObject = source;
+		}
+
+		public SourcedQualObject(T anObj, CDOMObject source, Prerequisite prereq)
+		{
+			super(anObj, prereq);
+			sourceObject = source;
+		}
+
+		public SourcedQualObject(T anObj)
+		{
+			super(anObj);
+			sourceObject = null;
+		}
+
+		public boolean qualifies(PlayerCharacter pc)
+		{
+			return qualifies(pc, sourceObject);
+		}
+		
+		public T getObject(PlayerCharacter pc)
+		{
+			return getObject(pc, sourceObject);
+		}
+
+	}
 	/**
 	 * This is the Model that populate the table for Domains
 	 */
 	private final class DomainModel extends AbstractTableModel implements
 			TableColumnManagerModel
 	{
-		private List<QualifiedObject<Domain>> availDomainList =
-				new ArrayList<QualifiedObject<Domain>>();
-		private List<QualifiedObject<Domain>> displayDomainList =
-				new ArrayList<QualifiedObject<Domain>>();
+		private List<SourcedQualObject<Domain>> availDomainList =
+				new ArrayList<SourcedQualObject<Domain>>();
+		private List<SourcedQualObject<Domain>> displayDomainList =
+				new ArrayList<SourcedQualObject<Domain>>();
 		private String qFilter = null;
 		private List<Boolean> displayList = null;
 
@@ -2198,7 +2233,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				domainColList[1], true)));
 		}
 
-		public void setAvailDomainList(List<QualifiedObject<Domain>> dl)
+		public void setAvailDomainList(List<SourcedQualObject<Domain>> dl)
 		{
 			availDomainList = dl;
 		}
@@ -2222,11 +2257,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			displayDomainList.clear();
 			for (int i = 0; i < availDomainList.size(); i++)
 			{
-				QualifiedObject<Domain> dom = availDomainList.get(i);
+				SourcedQualObject<Domain> dom = availDomainList.get(i);
 				//TODO Does anyone know why we don't call
 				//aFN.setIsValid(aFeat.passesPreReqToGain()) here?
 				if (qFilter == null
-					|| dom.getObject(null).getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
+					|| dom.getRawObject().getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
 				{
 					displayDomainList.add(dom);
 				}
@@ -2253,8 +2288,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				return "";
 			}
 
-			final QualifiedObject<Domain> aQualDomain = displayDomainList.get(row);
-			final Domain aDomain = aQualDomain.getObject(null);
+			final SourcedQualObject<Domain> aQualDomain = displayDomainList.get(row);
+			final Domain aDomain = aQualDomain.getRawObject();
 			//Logging.errorPrint("Checking prereq of " + aQualDomain.toString());
 
 			if (aDomain == null)
@@ -2275,13 +2310,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					// bolded is insufficent becuase it
 					// conflicts with PI-formatting
 					// (bold-italic), so I added an asterisk
-					if (selectedDomainList.contains(displayDomainList.get(row).getObject(null)))
+					if (selectedDomainList.contains(displayDomainList.get(row).getRawObject()))
 					{
 						retVal.append("<html><b>")
 							.append(OutputNameFormatting.piString(aDomain, false)).append(
 								"*</b></html>");
 					}
-					else if (!aDomain.qualifies(pc) || !aQualDomain.qualifies(pc))
+					else if (!aDomain.qualifies(pc, aDomain) || !aQualDomain.qualifies(pc))
 					{
 						retVal.append("<html>").append(
 							SettingsHandler.getPrereqFailColorAsHtmlStart())
@@ -2437,7 +2472,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 							(QualifiedObject<Domain>) domainModel.getValueAt(
 								selectedRow, -1);
 					final String domainKey =
-						qualDomain.getObject(null).toString();
+						qualDomain.getRawObject().toString();
 
 					if (domainKey != null)
 					{

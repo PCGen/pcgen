@@ -90,7 +90,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 		QualifiedObject<Formula> qo = primaryProf.get(ObjectKey.EQUIP_BUY);
 		if (qo != null)
 		{
-			return qo.getObject(null);
+			return qo.getRawObject();
 		}
 		return null;
 	}

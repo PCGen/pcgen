@@ -138,7 +138,7 @@ public final class PointBuyMethod
 		{
 			aPC.setApplied(bonus, false);
 
-			if ( bonus.qualifies(aPC) )
+			if ( bonus.qualifies(aPC, null) )
 			{
 				aPC.setApplied(bonus, true);
 			}

@@ -403,9 +403,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		return available ? 
 			new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0),
-					skill.qualifies(pc)) : 
+					skill.qualifies(pc, skill)) : 
 			new SkillWrapper(skill, SkillModifier.modifier(skill, pc), SkillRankControl.getTotalRank(pc, skill), 
-					outputIndex, skill.qualifies(pc));
+					outputIndex, skill.qualifies(pc, skill));
 	}
 
 	/**
@@ -3029,7 +3029,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 								new SkillWrapper(aSkill, SkillModifier.modifier(aSkill, pc),
 									SkillRankControl.getTotalRank(pc, aSkill), 
 									outi,
-									aSkill.qualifies(pc));
+									aSkill.qualifies(pc, aSkill));
 						fn.setItem(skillA);
 
 						if (needRefresh)
@@ -4378,7 +4378,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (theSkill.compareTo(aSkill) != 0)
 			{
-				if (aSkill.hasPrerequisites() && aSkill.qualifies(pc))
+				if (aSkill.hasPrerequisites() && aSkill.qualifies(pc, aSkill))
 				{
 					prereqSkills.add(aSkill);
 				}
@@ -4399,7 +4399,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			final Skill aSkill = iter.next();
 
-			if (aSkill.qualifies(pc))
+			if (aSkill.qualifies(pc, aSkill))
 			{
 				iter.remove();
 			}

@@ -169,7 +169,7 @@ public class Description extends ConcretePrereqObject
 	{
 		final StringBuffer buf = new StringBuffer();
 		
-		if (this.qualifies(aPC))
+		if (this.qualifies(aPC, theOwner))
 		{
 			if ( theOwner instanceof Ability )
 			{

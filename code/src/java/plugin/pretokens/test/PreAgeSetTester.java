@@ -24,6 +24,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -44,7 +45,7 @@ PrerequisiteTest
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
 	{
 		final int ageset = Globals.getBioSet().getPCAgeSet(character);
 

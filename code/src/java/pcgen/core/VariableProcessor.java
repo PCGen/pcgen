@@ -669,7 +669,7 @@ public abstract class VariableProcessor
 		Float retVal = null;
 		if (pc.hasVariable(term))
 		{
-			final Float value = pc.getVariable(term, true, src, "");
+			final Float value = pc.getVariable(term, true);
 			Logging.debugPrint(
 					new StringBuilder().append(jepIndent)
 							.append("variable for: '")

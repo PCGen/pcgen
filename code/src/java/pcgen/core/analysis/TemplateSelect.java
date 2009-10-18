@@ -36,7 +36,7 @@ public class TemplateSelect
 		final List<PCTemplate> availableList = new ArrayList<PCTemplate>();
 		for (PCTemplate pct : list)
 		{
-			if (pct.qualifies(aPC))
+			if (pct.qualifies(aPC, pct))
 			{
 				availableList.add(pct);
 			}

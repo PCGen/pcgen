@@ -139,7 +139,7 @@ public class FeatAddChoiceManager extends AbstractBasicStringChoiceManager {
 			}
 		}
 
-		if (anAbility.qualifies(aPc))
+		if (anAbility.qualifies(aPc, anAbility))
 		{
 			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{

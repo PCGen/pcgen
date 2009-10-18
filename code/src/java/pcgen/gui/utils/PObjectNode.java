@@ -699,7 +699,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				}
 			}
 
-			if (!((PObject) item).qualifies(aPC))
+			if (!((PObject) item).qualifies(aPC, (PObject) item))
 			{
 				// indicates to LabelTreeCellRenderer to change text color
 				// to a user-preference (default is red)
@@ -811,7 +811,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		{
 			case CAN_GAIN_FEAT:
 
-				if (aFeat.qualifies(aPC))
+				if (aFeat.qualifies(aPC, aFeat))
 				{
 					return "|" + SettingsHandler.getPrereqQualifyColor() + "|"
 						+ itemName;
@@ -821,7 +821,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			case CAN_USE_FEAT:
 
-				if (aFeat.qualifies(aPC))
+				if (aFeat.qualifies(aPC, aFeat))
 				{
 					return "|" + SettingsHandler.getPrereqQualifyColor() + "|"
 						+ itemName;

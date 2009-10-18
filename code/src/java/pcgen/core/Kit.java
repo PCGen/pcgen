@@ -182,7 +182,7 @@ public final class Kit extends PObject implements Comparable<Object>
 	public int getBuyRate(PlayerCharacter aPC)
 	{
 		QualifiedObject<Formula> buy = get(ObjectKey.EQUIP_BUY);
-		Formula f = buy.getObject(aPC);
+		Formula f = buy.getObject(aPC, this);
 		int buyRate;
 		if (f == null)
 		{
@@ -208,7 +208,7 @@ public final class Kit extends PObject implements Comparable<Object>
 		Visibility kitVisible = getSafe(ObjectKey.VISIBILITY);
 		if (kitVisible == Visibility.QUALIFY)
 		{
-			return qualifies(aPC);
+			return qualifies(aPC, this);
 		}
 		else if (kitVisible == Visibility.DEFAULT)
 		{

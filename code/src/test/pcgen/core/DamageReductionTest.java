@@ -26,9 +26,11 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
+import java.util.IdentityHashMap;
+import java.util.Map;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.CDOMObject;
 
 /**
  * This class tests the handling of DRs in PCGen
@@ -73,143 +75,143 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 	 */
 	public void testGetDRString()
 	{
-		ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
+		Map<DamageReduction, CDOMObject> drList = new IdentityHashMap<DamageReduction, CDOMObject>();
 		String listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq(""));
+		is(listResult, strEqIC(""));
 
-		drList.add(new DamageReduction("10", "magic"));
+		drList.put(new DamageReduction("10", "magic"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("10/magic"));
+		is(listResult, strEqIC("10/magic"));
 
-		drList.add(new DamageReduction("10", "good"));
+		drList.put(new DamageReduction("10", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		//is(listResult, strEq("10/magic and good"));
-		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
+		//is(listResult, strEqIC("10/magic and good"));
+		is(listResult, or(strEqIC("10/magic and good"),strEqIC("10/good and magic")));
 
-		drList.add(new DamageReduction("10", "good"));
+		drList.put(new DamageReduction("10", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		//is(listResult, strEq("10/magic and good"));
-		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
+		//is(listResult, strEqIC("10/magic and good"));
+		is(listResult, or(strEqIC("10/magic and good"),strEqIC("10/good and magic")));
 
-		drList.add(new DamageReduction("5", "good"));
+		drList.put(new DamageReduction("5", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		//is(listResult, strEq("10/magic and good"));
-		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
+		//is(listResult, strEqIC("10/magic and good"));
+		is(listResult, or(strEqIC("10/magic and good"),strEqIC("10/good and magic")));
 
-		drList.add(new DamageReduction("10", "magic"));
+		drList.put(new DamageReduction("10", "magic"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		//is(listResult, strEq("10/magic and good"));
-		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
+		//is(listResult, strEqIC("10/magic and good"));
+		is(listResult, or(strEqIC("10/magic and good"),strEqIC("10/good and magic")));
 
-		drList.add(new DamageReduction("5", "good"));
+		drList.put(new DamageReduction("5", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		//is(listResult, strEq("10/magic and good"));
-		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
+		//is(listResult, strEqIC("10/magic and good"));
+		is(listResult, or(strEqIC("10/magic and good"),strEqIC("10/good and magic")));
 
-		drList.add(new DamageReduction("15", "Good"));
+		drList.put(new DamageReduction("15", "Good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic"));
+		is(listResult, strEqIC("15/Good; 10/magic"));
 
-		drList.add(new DamageReduction("10", "good"));
+		drList.put(new DamageReduction("10", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic"));
+		is(listResult, strEqIC("15/Good; 10/magic"));
 
-		drList.add(new DamageReduction("10", "magic"));
+		drList.put(new DamageReduction("10", "magic"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic"));
+		is(listResult, strEqIC("15/Good; 10/magic"));
 
-		drList.add(new DamageReduction("5", "good"));
+		drList.put(new DamageReduction("5", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic"));
+		is(listResult, strEqIC("15/Good; 10/magic"));
 
-		drList.add(new DamageReduction("10", "magic and good"));
+		drList.put(new DamageReduction("10", "magic and good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic"));
+		is(listResult, strEqIC("15/Good; 10/magic"));
 
-		drList.add(new DamageReduction("5", "evil"));
+		drList.put(new DamageReduction("5", "evil"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic or good"));
+		drList.put(new DamageReduction("10", "magic or good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("10", "good"));
+		drList.put(new DamageReduction("10", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic or good"));
+		drList.put(new DamageReduction("10", "magic or good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("5", "good"));
+		drList.put(new DamageReduction("5", "good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic and good"));
+		drList.put(new DamageReduction("10", "magic and good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("5", "magic and good"));
+		drList.put(new DamageReduction("5", "magic and good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic or good"));
+		drList.put(new DamageReduction("10", "magic or good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("5", "magic and good"));
+		drList.put(new DamageReduction("5", "magic and good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic or good"));
+		drList.put(new DamageReduction("10", "magic or good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/Good; 10/magic; 5/evil"));
+		is(listResult, strEqIC("15/Good; 10/magic; 5/evil"));
 
-		drList.add(new DamageReduction("15", "magic"));
+		drList.put(new DamageReduction("15", "magic"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/magic and Good; 5/evil"));
+		is(listResult, strEqIC("15/magic and Good; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic or good"));
+		drList.put(new DamageReduction("10", "magic or good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/magic and Good; 5/evil"));
+		is(listResult, strEqIC("15/magic and Good; 5/evil"));
 
-		drList.add(new DamageReduction("15", "magic and good"));
+		drList.put(new DamageReduction("15", "magic and good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/magic and Good; 5/evil"));
+		is(listResult, strEqIC("15/magic and Good; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic or lawful"));
+		drList.put(new DamageReduction("10", "magic or lawful"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/magic and Good; 5/evil"));
+		is(listResult, strEqIC("15/magic and Good; 5/evil"));
 
-		drList.add(new DamageReduction("15", "magic and good"));
+		drList.put(new DamageReduction("15", "magic and good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/magic and Good; 5/evil"));
+		is(listResult, strEqIC("15/magic and Good; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic and good"));
+		drList.put(new DamageReduction("10", "magic and good"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/magic and Good; 5/evil"));
+		is(listResult, strEqIC("15/magic and Good; 5/evil"));
 
-		drList.add(new DamageReduction("10", "magic and lawful"));
+		drList.put(new DamageReduction("10", "magic and lawful"), null);
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("15/magic and Good; 10/lawful; 5/evil"));
+		is(listResult, strEqIC("15/magic and Good; 10/lawful; 5/evil"));
 
-		ArrayList<DamageReduction> drList1 = new ArrayList<DamageReduction>();
-		drList1.add(new DamageReduction("10", "epic"));
-		drList1.add(new DamageReduction("10", "lawful or good"));
+		Map<DamageReduction, CDOMObject> drList1 = new IdentityHashMap<DamageReduction, CDOMObject>();
+		drList1.put(new DamageReduction("10", "epic"), null);
+		drList1.put(new DamageReduction("10", "lawful or good"), null);
 		listResult = DamageReduction.getDRString(null, drList1);
-		is(listResult, strEq("10/epic; 10/lawful or good"));
+		is(listResult, strEqIC("10/epic; 10/lawful or good"));
 
 		drList1.clear();
-		drList1.add(new DamageReduction("10",
-			"epic and good or epic and lawful"));
+		drList1.put(new DamageReduction("10",
+			"epic and good or epic and lawful"), null);
 		listResult = DamageReduction.getDRString(null, drList1);
-		is(listResult, strEq("10/epic and good or epic and lawful"));
+		is(listResult, strEqIC("10/epic and good or epic and lawful"));
 
 		// Can't handle this case at the moment.
 		//		drList1.add(new DamageReduction("10", "lawful"));
 		//		listResult = DamageReduction.getDRString(null, drList1);
 		//		System.out.println("DR List: " + drList1.toString() + " = " + listResult);
-		//		is(listResult, strEq("10/epic and good"));
+		//		is(listResult, strEqIC("10/epic and good"));
 	}
 }

@@ -728,26 +728,8 @@ public class PCClass extends PObject
 		{
 			if ((bonus.getPCLevel() <= aPC.getLevel(this)))
 			{
-				if (bonus.hasPrerequisites())
-				{
-					// TODO: This is a hack to avoid VARs etc in class defs
-					// being qualified for when Bypass class prereqs is
-					// selected.
-					// Should we be passing in the BonusObj here to allow it to
-					// be referenced in Qualifies statements?
-					if (bonus.qualifies(aPC))
-					{
-						aPC.setApplied(bonus, true);
-					}
-					else
-					{
-						aPC.setApplied(bonus, false);
-					}
-				}
-				else
-				{
-					aPC.setApplied(bonus, true);
-				}
+				boolean apply = !bonus.hasPrerequisites() || bonus.qualifies(aPC, this);
+				aPC.setApplied(bonus, apply);
 			}
 		}
 	}
@@ -1217,7 +1199,7 @@ public class PCClass extends PObject
 			// When loading a character, classes are added before feats, so
 			// this test would always fail on loading if feats are required
 			boolean doReturn = false;
-			if (!qualifies(aPC))
+			if (!qualifies(aPC, this))
 			{
 				doReturn = true;
 				if (!bSilent)

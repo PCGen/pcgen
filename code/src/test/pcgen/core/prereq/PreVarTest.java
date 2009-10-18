@@ -24,7 +24,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
-import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
@@ -149,9 +149,9 @@ public class PreVarTest extends AbstractCharacterTestCase
 			loader.completeObject(context, se, warrior);
 			loader.completeObject(context, se, notawarrior);
 			PlayerCharacter character = this.getCharacter();
-			assertFalse(notawarrior.qualifies(character));
+			assertFalse(notawarrior.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, warrior);
-			assertTrue(notawarrior.qualifies(character));
+			assertTrue(notawarrior.qualifies(character, notawarrior));
 		}
 		catch (URISyntaxException e)
 		{
@@ -163,11 +163,12 @@ public class PreVarTest extends AbstractCharacterTestCase
 		}
 	}
 
-	public void test2857849b()
+	public void test2857849and2862276()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass spellcaster = new PCClass();
 		spellcaster.setName("Spellcaster");
+		context.ref.importObject(spellcaster);
 		context.unconditionallyProcess(spellcaster, "SPELLTYPE", "Arcane");
 		context.unconditionallyProcess(spellcaster, "SPELLSTAT", "INT");
 		context.unconditionallyProcess(spellcaster, "PREVARGTEQ",
@@ -180,7 +181,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			loader.completeObject(context, se, spellcaster);
 			PlayerCharacter character = this.getCharacter();
 			setPCStat(character, intel, 16);
-			assertTrue(spellcaster.qualifies(character));
+			assertTrue(spellcaster.qualifies(character, spellcaster));
 		}
 		catch (URISyntaxException e)
 		{
@@ -197,6 +198,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		final PCClass spellcaster = new PCClass();
 		spellcaster.setName("Spellcaster");
+		context.ref.importObject(spellcaster);
 		Skill concentration = context.ref.constructCDOMObject(Skill.class,
 				"Concentration");
 		context.unconditionallyProcess(spellcaster, "SPELLTYPE", "Arcane");
@@ -213,11 +215,11 @@ public class PreVarTest extends AbstractCharacterTestCase
 			SourceEntry se = new CampaignSourceEntry(new Campaign(), new URI(
 					"file://test"));
 			loader.completeObject(context, se, spellcaster);
-			assertEquals(0.0f, SkillRankControl
-					.getRank(character, concentration).floatValue());
+			assertEquals(0, SkillModifier.modifier(concentration, character)
+					.intValue());
 			character.incrementClassLevel(1, spellcaster);
-			assertEquals(5.0f, SkillRankControl
-					.getRank(character, concentration).floatValue());
+			assertEquals(5, SkillModifier.modifier(concentration, character)
+					.intValue());
 		}
 		catch (URISyntaxException e)
 		{
@@ -238,7 +240,6 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(warrior, "BONUS", "VAR|MyVar|2");
 		final PCClass notawarrior = new PCClass();
 		notawarrior.setName("NotAWarrior");
-		context.unconditionallyProcess(notawarrior, "PREVARGTEQ", "MyVar,1");
 		Skill concentration = context.ref.constructCDOMObject(Skill.class,
 				"Concentration");
 		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
@@ -253,12 +254,58 @@ public class PreVarTest extends AbstractCharacterTestCase
 			loader.completeObject(context, se, warrior);
 			loader.completeObject(context, se, notawarrior);
 			PlayerCharacter character = this.getCharacter();
-			assertFalse(notawarrior.qualifies(character));
 			character.incrementClassLevel(1, notawarrior);
-			assertEquals(0.0f, SkillRankControl
-					.getRank(character, concentration).floatValue());
+			assertEquals(0, SkillModifier.modifier(concentration, character)
+					.intValue());
 			character.incrementClassLevel(1, warrior);
-			assertEquals(5.0f, SkillRankControl.getRank(character, concentration).floatValue());
+			assertEquals(5, SkillModifier.modifier(concentration, character)
+					.intValue());
+		}
+		catch (URISyntaxException e)
+		{
+			fail(e.getMessage());
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getMessage());
+		}
+	}
+
+	public void test2857848c()
+	{
+		final PCClass warrior = new PCClass();
+		warrior.setName("Warrior");
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(warrior, "DEFINE", "MyVar|0");
+		context.unconditionallyProcess(warrior, "BONUS", "VAR|MyVar|2");
+		final PCClass notawarrior = new PCClass();
+		notawarrior.setName("NotAWarrior");
+		context.unconditionallyProcess(notawarrior, "PREVARGTEQ", "MyVar,1");
+		Skill concentration = context.ref.constructCDOMObject(Skill.class,
+				"Concentration");
+		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
+		context.unconditionallyProcess(notawarrior, "BONUS",
+				"SKILL|Concentration|5");
+		context.resolveReferences();
+		PCClassLoader loader = new PCClassLoader();
+		try
+		{
+			SourceEntry se = new CampaignSourceEntry(new Campaign(), new URI(
+					"file://test"));
+			loader.completeObject(context, se, warrior);
+			loader.completeObject(context, se, notawarrior);
+			PlayerCharacter character = this.getCharacter();
+			assertFalse(notawarrior.qualifies(character, notawarrior));
+			character.incrementClassLevel(1, notawarrior); //Fails
+			assertEquals(0, SkillModifier.modifier(concentration, character)
+					.intValue());
+			character.incrementClassLevel(1, warrior);
+			assertEquals(0, SkillModifier.modifier(concentration, character)
+					.intValue());
+			assertTrue(notawarrior.qualifies(character, notawarrior));
+			character.incrementClassLevel(1, notawarrior);
+			assertEquals(5, SkillModifier.modifier(concentration, character)
+					.intValue());
 		}
 		catch (URISyntaxException e)
 		{
@@ -277,7 +324,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		warrior.setName("Warrior");
 		PCClassLevel level1 = warrior.getOriginalClassLevel(1);
 		context.unconditionallyProcess(level1, "SAB",
-				"Test Works|PREVARGTEQ:CL,2");
+				"Test Works|PREVARGTEQ:CL,3");
 		context.resolveReferences();
 		PlayerCharacter character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
@@ -291,11 +338,11 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertNotNull(sabList);
 			assertEquals(1, sabList.size());
 			SpecialAbility sab = sabList.get(0);
-			assertFalse(sab.qualifies(character));
+			assertFalse(sab.qualifies(character, warrior));
 			character.incrementClassLevel(1, warrior);
-			assertFalse(sab.qualifies(character));
+			assertFalse(sab.qualifies(character, warrior));
 			character.incrementClassLevel(1, warrior);
-			assertTrue(sab.qualifies(character));
+			assertTrue(sab.qualifies(character, warrior));
 		}
 		catch (URISyntaxException e)
 		{
@@ -329,11 +376,11 @@ public class PreVarTest extends AbstractCharacterTestCase
 			assertNotNull(sabList);
 			assertEquals(1, sabList.size());
 			SpecialAbility sab = sabList.get(0);
-			assertFalse(sab.qualifies(character));
+			assertFalse(sab.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, notawarrior);
-			assertFalse(sab.qualifies(character));
+			assertFalse(sab.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, notawarrior);
-			assertTrue(sab.qualifies(character));
+			assertTrue(sab.qualifies(character, notawarrior));
 		}
 		catch (URISyntaxException e)
 		{

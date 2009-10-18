@@ -30,10 +30,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.Map.Entry;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 
 /**
@@ -208,11 +212,7 @@ public class DamageReduction extends ConcretePrereqObject
 		{
 			return toString();
 		}
-		else if (qualifies(pc))
-		{
-			return getReductionValue(pc) + "/" + theBypass;
-		}
-		return "";
+		return getReductionValue(pc) + "/" + theBypass;
 	}
 
 	/**
@@ -290,13 +290,16 @@ public class DamageReduction extends ConcretePrereqObject
 	 * method.
 	 * @return The list of DRs that contain ORs.
 	 */
-	private static List<DamageReduction> parseOrList(final PlayerCharacter aPC, List<DamageReduction> drList)
+	private static List<DamageReduction> parseOrList(final PlayerCharacter aPC, Map<DamageReduction, CDOMObject> drList)
 	{
 		ArrayList<DamageReduction> ret = new ArrayList<DamageReduction>();
-		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext(); )
+		for (Iterator<Map.Entry<DamageReduction, CDOMObject>> it = drList
+				.entrySet().iterator(); it.hasNext();)
 		{
-			DamageReduction dr = i.next();
-			if (!dr.qualifies(aPC))
+			Entry<DamageReduction, CDOMObject> me = it.next();
+			DamageReduction dr = me.getKey();
+			CDOMObject owner = me.getValue();
+			if (!dr.qualifies(aPC, owner))
 			{
 				continue;
 			}
@@ -304,7 +307,7 @@ public class DamageReduction extends ConcretePrereqObject
 			if (dr.getBypass().toLowerCase().indexOf(" or ") != -1)
 			{
 				ret.add(dr);
-				i.remove();
+				it.remove();
 			}
 		}
 		return ret;
@@ -316,13 +319,14 @@ public class DamageReduction extends ConcretePrereqObject
 	 * @param inList List
 	 * @return List of separated DRs
 	 */
-	private static List<DamageReduction> parseAndList(final PlayerCharacter aPC, final List<DamageReduction> inList)
+	private static List<DamageReduction> parseAndList(final PlayerCharacter aPC, final Map<DamageReduction, CDOMObject> inList)
 	{
 		ArrayList<DamageReduction> ret = new ArrayList<DamageReduction>();
-		for (Iterator<DamageReduction> i = inList.iterator(); i.hasNext(); )
+		for (Iterator<Map.Entry<DamageReduction, CDOMObject>> i = inList.entrySet().iterator(); i.hasNext(); )
 		{
-			DamageReduction dr = i.next();
-			if (!dr.qualifies(aPC))
+			Entry<DamageReduction, CDOMObject> me = i.next();
+			DamageReduction dr = me.getKey();
+			if (!dr.qualifies(aPC, me.getValue()))
 			{
 				continue;
 			}
@@ -464,11 +468,7 @@ public class DamageReduction extends ConcretePrereqObject
 		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext(); )
 		{
 			DamageReduction dr = i.next();
-			if (!dr.qualifies(pc))
-			{
-				i.remove();
-			}
-			else if (dr.join != OR_JOIN)
+			if (dr.join != OR_JOIN)
 			{
 				if (currentDR != null
 					&& dr.getReductionValue(pc) == currentDR.getReductionValue(pc))
@@ -493,9 +493,9 @@ public class DamageReduction extends ConcretePrereqObject
 	 * @param drList List of DamageReduction objects to combine
 	 * @return List of combined DamageReduction objects without merging "ands"
 	 */
-	public static List<DamageReduction> getDRList(final PlayerCharacter aPC, List<DamageReduction> drList)
+	public static List<DamageReduction> getDRList(final PlayerCharacter aPC, Map<DamageReduction, CDOMObject> drList)
 	{
-		List<DamageReduction> inList = new ArrayList<DamageReduction>(drList);
+		Map<DamageReduction, CDOMObject> inList = new IdentityHashMap<DamageReduction, CDOMObject>(drList);
 		List<DamageReduction> orList = parseOrList(aPC, inList);
 		List<DamageReduction> andList = parseAndList(aPC, inList);
 
@@ -511,7 +511,7 @@ public class DamageReduction extends ConcretePrereqObject
 	 * @param drList List of DRs
 	 * @return String based result of combine.
 	 */
-	public static String getDRString(final PlayerCharacter aPC, List<DamageReduction> drList)
+	public static String getDRString(final PlayerCharacter aPC, Map<DamageReduction, CDOMObject> drList)
 	{
 		List<DamageReduction> resultList = new ArrayList<DamageReduction>(getDRList(aPC, drList));
 		mergeAnds(resultList, aPC);

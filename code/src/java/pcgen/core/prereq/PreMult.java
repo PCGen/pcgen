@@ -26,6 +26,7 @@
  */
 package pcgen.core.prereq;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
@@ -40,7 +41,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException {
 		int runningTotal=0;
 		final int targetNumber = Integer.parseInt( prereq.getOperand() );
 
@@ -49,7 +50,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null) {
-				runningTotal += test.passes(element, character);
+				runningTotal += test.passes(element, character, source);
 			}
 			else {
 				Logging.errorPrintLocalised("PreMult.cannot_find_subtest", element.getKind()); //$NON-NLS-1$

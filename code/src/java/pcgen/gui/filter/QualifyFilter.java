@@ -59,7 +59,7 @@ final class QualifyFilter extends AbstractPObjectFilter
 		else if (pObject instanceof Equipment)
 		{
 			final Equipment equip = (Equipment) pObject;
-			final boolean accept = equip.qualifies(aPC);
+			final boolean accept = equip.qualifies(aPC, equip);
 
 			if (accept && (equip.isShield() || equip.isWeapon() || equip.isArmor()))
 			{
@@ -70,7 +70,7 @@ final class QualifyFilter extends AbstractPObjectFilter
 		}
 		else
 		{
-			return pObject.qualifies(aPC);
+			return pObject.qualifies(aPC, pObject);
 		}
 	}
 }

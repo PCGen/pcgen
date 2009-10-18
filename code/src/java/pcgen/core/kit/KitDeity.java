@@ -191,7 +191,7 @@ public class KitDeity extends BaseKit
 		for (CDOMSingleRef<Domain> ref : xs)
 		{
 			Domain domain = ref.resolvesTo();
-			if (!domain.qualifies(aPC))
+			if (!domain.qualifies(aPC, domain))
 			{
 				warnings.add("DEITY: Not qualified for domain \""
 					+ domain.getDisplayName() + "\"");

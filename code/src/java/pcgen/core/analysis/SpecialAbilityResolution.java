@@ -34,7 +34,7 @@ public class SpecialAbilityResolution
 	{
 		for (SpecialAbility sa : cdo.getSafeListFor(ListKey.SAB))
 		{
-			if (pc == null || sa.qualifies(pc))
+			if (pc == null || sa.qualifies(pc, cdo))
 			{
 				final String key = sa.getKeyName();
 				final int idx = key.indexOf("%CHOICE");
@@ -77,7 +77,7 @@ public class SpecialAbilityResolution
 		}
 		for ( SpecialAbility sa : salist )
 		{
-			if (sa.qualifies(aPC))
+			if (sa.qualifies(aPC, cdo))
 			{
 				final String key = sa.getKeyName();
 				final int idx = key.indexOf("%CHOICE");

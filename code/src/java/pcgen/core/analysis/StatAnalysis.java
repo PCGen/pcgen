@@ -19,8 +19,9 @@
  */
 package pcgen.core.analysis;
 
-import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.enumeration.AssociationKey;
@@ -54,14 +55,18 @@ public class StatAnalysis
 		return score == null ? 0 : score;
 	}
 
-	public static List<BonusObj> getBonusListOfType(PlayerCharacter pc, final String aType, final String aName)
+	public static Map<BonusObj, PCStat> getBonusListOfType(PlayerCharacter pc, final String aType, final String aName)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final Map<BonusObj, PCStat> aList = new IdentityHashMap<BonusObj, PCStat>();
 
 		for ( PCStat stat : pc.getStatSet() )
 		{
-			aList.addAll(BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS),
-					aType, aName));
+			List<BonusObj> bonuses = BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS),
+					aType, aName);
+			for (BonusObj bonus : bonuses)
+			{
+				aList.put(bonus, stat);
+			}
 		}
 
 		return aList;

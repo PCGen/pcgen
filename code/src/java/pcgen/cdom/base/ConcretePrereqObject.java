@@ -49,24 +49,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	private Set<Prerequisite> thePrereqs = null;
 
 	/**
-	 * Tests if the specified PlayerCharacter passes all the prerequisites.
-	 * 
-	 * @param aPC
-	 *            The <tt>PlayerCharacter</tt> to test.
-	 * 
-	 * @return <tt>true</tt> if the PC passes all the prerequisites.
-	 */
-	public boolean qualifies(final PlayerCharacter aPC)
-	{
-		if (thePrereqs == null)
-		{
-			return true;
-		}
-
-		return PrereqHandler.passesAll(thePrereqs, aPC, this);
-	}
-
-	/**
 	 * Returns a List of the Prerequisite objects contained in the PrereqObject.
 	 * If the PrereqObject contains no Prerequisites, the return value may be
 	 * null or an empty list, it is implementation-specific.
@@ -268,4 +250,17 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		return removed.isEmpty();
 	}
 
+	/**
+	 * Tests if the specified PlayerCharacter passes all the prerequisites.
+	 * 
+	 * @param aPC
+	 *            The <tt>PlayerCharacter</tt> to test.
+	 * 
+	 * @return <tt>true</tt> if the PC passes all the prerequisites.
+	 */
+	public boolean qualifies(final PlayerCharacter aPC, CDOMObject owner)
+	{
+		return !hasPrerequisites()
+				|| PrereqHandler.passesAll(getPrerequisiteList(), aPC, owner);
+	}
 }

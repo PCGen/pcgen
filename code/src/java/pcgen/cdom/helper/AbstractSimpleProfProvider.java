@@ -77,7 +77,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 *            The <tt>PlayerCharacter</tt> to test (ignored)
 	 * @return true, as AbstractSimpleProfProvider is not a conditional object
 	 */
-	public boolean qualifies(PlayerCharacter playerCharacter)
+	public boolean qualifies(PlayerCharacter playerCharacter, CDOMObject owner)
 	{
 		return true;
 	}

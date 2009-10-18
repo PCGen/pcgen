@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -57,7 +58,7 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
 	{
 		final int number;
 		try

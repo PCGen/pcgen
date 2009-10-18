@@ -88,7 +88,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -118,7 +118,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -150,7 +150,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
 
@@ -174,7 +174,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(0, passes);
 	}
 
@@ -200,7 +200,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
-		final int passes = test.passes(prereq, character);
+		final int passes = test.passes(prereq, character, null);
 		assertEquals(0, passes);
 	}
 

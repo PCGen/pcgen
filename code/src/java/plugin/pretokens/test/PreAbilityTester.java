@@ -25,6 +25,7 @@
  */
 package plugin.pretokens.test;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -62,11 +63,11 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements
 		{
 			return 0;
 		}
-		return passes(prereq, aPC);
+		return passes(prereq, aPC, equipment);
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		final boolean countMults = prereq.isCountMultiples();

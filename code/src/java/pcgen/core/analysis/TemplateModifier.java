@@ -20,8 +20,11 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.DamageReduction;
 import pcgen.core.PCStat;
@@ -63,7 +66,7 @@ public class TemplateModifier
 			}
 		}
 
-		List<DamageReduction> drList = new ArrayList<DamageReduction>();
+		Map<DamageReduction, CDOMObject> drList = new IdentityHashMap<DamageReduction, CDOMObject>();
 		int totalLevels = aPC.getTotalLevels();
 		int totalHitDice = aPC.totalHitDice();
 		List<PCTemplate> templList = new ArrayList<PCTemplate>();
@@ -75,7 +78,10 @@ public class TemplateModifier
 					.getListFor(ListKey.DAMAGE_REDUCTION);
 			if (tList != null)
 			{
-				drList.addAll(tList);
+				for (DamageReduction dr : tList)
+				{
+					drList.put(dr, pct);
+				}
 			}
 		}
 		if (drList.size() != 0)

@@ -69,7 +69,7 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 		try
 		{
 			final PreWieldTester test = new PreWieldTester();
-			test.passes(prereq, getCharacter());
+			test.passes(prereq, getCharacter(), null);
 			fail("Should have thrown a PrerequisiteException here.");
 		}
 		catch (PrerequisiteException pe)

@@ -363,7 +363,7 @@ public class NPCGenerator
 		{
 			final Ability ability = aFeatList.getRandomValue();
 
-			if (!ability.qualifies(aPC))
+			if (!ability.qualifies(aPC, ability))
 			{
 				// We will leave the feat because we may qualify later.
 				continue;
@@ -402,7 +402,7 @@ public class NPCGenerator
 			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
 			{
 				Domain domain = iterator.next();
-				if (!domain.qualifies(aPC))
+				if (!domain.qualifies(aPC, domain))
 				{
 					iterator.remove();
 				}
@@ -568,7 +568,7 @@ public class NPCGenerator
 					continue;
 				}
 				Logging.debugPrint( "NPCGenerator: Selected " + r + " for race " + aRace ); //$NON-NLS-1$ //$NON-NLS-2$
-				if (r.qualifies(aPC))
+				if (r.qualifies(aPC, r))
 				{
 					Logging.debugPrint( "NPCGenerator: PC qualifies for race " + r ); //$NON-NLS-1$
 					aPC.setRace(r);
@@ -610,7 +610,7 @@ public class NPCGenerator
 							break;
 						}
 						if (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT)
-							&& aClass.qualifies(aPC))
+							&& aClass.qualifies(aPC, aClass))
 						{
 							Logging.debugPrint( "NPCGenerator: Selecting " + aClass + " for class " + classList.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$
 							break;

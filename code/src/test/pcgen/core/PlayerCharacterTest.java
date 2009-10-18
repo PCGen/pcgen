@@ -990,9 +990,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		pc.addAbility(AbilityCategory.FEAT, ab, null);
 		
-		List<FollowerOption> fo = pc.getAvailableFollowers("Familiar");
+		Set<FollowerOption> fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Initially familiar list should be empty", fo.isEmpty());
-		fo = pc.getAvailableFollowers("MOUNT");
+		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
 		assertTrue("Initially mount list should be empty", fo.isEmpty());
 		
 		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
@@ -1000,11 +1000,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(giantRace);
 		FollowerOption option = new FollowerOption(race, ref);
 		ab.addToListFor(ListKey.COMPANIONLIST, option);
-		fo = pc.getAvailableFollowers("Familiar");
+		fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Familiar list should still be empty", fo.isEmpty());
-		fo = pc.getAvailableFollowers("MOUNT");
+		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
 		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
-		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.get(0).getRace().getKeyName());
+		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 		
 		ref = new CDOMSimpleSingleRef<CompanionList>(
@@ -1012,13 +1012,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		race  = new  CDOMDirectSingleRef<Race>(human);
 		option = new FollowerOption(race, ref);
 		ab.addToListFor(ListKey.COMPANIONLIST, option);
-		fo = pc.getAvailableFollowers("Familiar");
+		fo = pc.getAvailableFollowers("Familiar", null).keySet();
 		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
-		assertEquals("Familiar should be the human race", human.getKeyName(), fo.get(0).getRace().getKeyName());
+		assertEquals("Familiar should be the human race", human.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Familiar list should only have one entry", 1, fo.size());
-		fo = pc.getAvailableFollowers("MOUNT");
+		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
 		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
-		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.get(0).getRace().getKeyName());
+		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 	}
 	

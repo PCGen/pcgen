@@ -28,6 +28,7 @@
  */
 package pcgen.core.prereq;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.PropertyFactory;
@@ -47,18 +48,17 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 *
 	 * @param   prereq     The prerequisite to test
 	 * @param   character  The PC to test the prerequisite against.
-	 *
 	 * @return  nothing. This always throws an exception.
 	 *
 	 * @throws  PrerequisiteException  Oops, haven't implemented passes with
 	 *                                 this signature in the subclass
 	 *
 	 * @see     pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
-	 *          pcgen.core.PlayerCharacter)
+	 *          pcgen.core.PlayerCharacter, CDOMObject)
 	 */
 	public int passes(
 	    final Prerequisite    prereq,
-	    final PlayerCharacter character) throws PrerequisiteException
+	    final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
 	{
 		String name    = this.getClass().getName();
 		String eString = PropertyFactory.getFormattedString(
@@ -97,7 +97,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 			throw new PrerequisiteException(eString);
 		}
 
-		return passes(prereq, character);
+		return passes(prereq, character, equipment);
 	}
 
 	protected int countedTotal(final Prerequisite prereq, final int runningTotal)

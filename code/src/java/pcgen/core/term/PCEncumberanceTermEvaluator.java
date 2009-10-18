@@ -48,7 +48,7 @@ public class PCEncumberanceTermEvaluator
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		final float val = pc.getVariable("LOADSCORE", true, true, "", "", true);
+		final float val = pc.getVariable("LOADSCORE", true);
 		final int ls = (int) val;
 		final Load l = Globals.loadTypeForLoadScore(ls, pc.totalWeight(), pc);
 		return String.valueOf(l);

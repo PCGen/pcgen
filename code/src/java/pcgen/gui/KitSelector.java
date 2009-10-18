@@ -568,7 +568,7 @@ final class KitSelector extends JFrame
 
 	private boolean kitPassesPrereqs(Kit theKit)
 	{
-		return theKit.qualifies(aPC);
+		return theKit.qualifies(aPC, theKit);
 	}
 
 	private void lstAvailableMouseClicked(MouseEvent evt)

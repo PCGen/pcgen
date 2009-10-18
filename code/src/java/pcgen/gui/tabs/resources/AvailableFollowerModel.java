@@ -2,14 +2,15 @@ package pcgen.gui.tabs.resources;
 
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -31,6 +32,7 @@ import pcgen.gui.HTMLUtils;
 import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.SourcedFollower;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -49,6 +51,52 @@ import pcgen.util.PropertyFactory;
 public final class AvailableFollowerModel extends AbstractTreeTableModel
 		implements TableColumnManagerModel
 {
+	private final class RaceTypeComparator implements
+			Comparator<FollowerOption>
+	{
+		public int compare(final FollowerOption anO1,
+			final FollowerOption anO2)
+		{
+			final Race r1 = anO1.getRace();
+			final Race r2 = anO2.getRace();
+			if (r1 == null)
+			{
+				return 1;
+			}
+			if (r2 == null)
+			{
+				return -1;
+			}
+			final Collator col = Collator.getInstance();
+			RaceType rt1 = r1.get(ObjectKey.RACETYPE);
+			RaceType rt2 = r2.get(ObjectKey.RACETYPE);
+			final int diff =
+					col.compare(rt1.toString(), rt2.toString());
+			if (diff == 0)
+			{
+				return anO1.compareTo(anO2);
+			}
+			return diff;
+		}
+	}
+
+	private final class AdjustmentComparator implements
+			Comparator<FollowerOption>
+	{
+		public int compare(final FollowerOption anO1,
+			final FollowerOption anO2)
+		{
+			final int diff =
+					anO2.getAdjustment()
+						- anO1.getAdjustment();
+			if (diff == 0)
+			{
+				return anO1.compareTo(anO2);
+			}
+			return diff;
+		}
+	}
+
 	// column positions for Famliar tables
 	// if you change these, you also have to change
 	// the case statement in the FollowerModel declaration
@@ -210,9 +258,10 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 		}
 
 		FollowerOption option = null;
-		if (fn.getItem() instanceof FollowerOption)
+		if (fn.getItem() instanceof SourcedFollower)
 		{
-			option = (FollowerOption) fn.getItem();
+			SourcedFollower sf = (SourcedFollower) fn.getItem();
+			option = sf.option;
 			race = option.getRace();
 		}
 		else if (fn.getItem() instanceof Race)
@@ -367,74 +416,34 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 					.setDisplayName(CoreUtility.capitalizeFirstLetter(compType));
 				avaRoot.addChild(node);
 
-				final List<FollowerOption> followers =
-						pc.getAvailableFollowers(compType);
+				final Map<FollowerOption, CDOMObject> followers;
 				switch (viewMode)
 				{
 					case VIEW_NAME:
 					default: {
-						Collections.sort(followers);
+						followers = pc.getAvailableFollowers(compType, null);
 						break;
 					}
 					case VIEW_ADJUSTMENT: {
-						Collections.sort(followers,
-							new Comparator<FollowerOption>()
-							{
-								public int compare(final FollowerOption anO1,
-									final FollowerOption anO2)
-								{
-									final int diff =
-											anO2.getAdjustment()
-												- anO1.getAdjustment();
-									if (diff == 0)
-									{
-										return anO1.compareTo(anO2);
-									}
-									return diff;
-								}
-							});
+						followers = pc.getAvailableFollowers(compType, 
+							new AdjustmentComparator());
 						break;
 					}
 					case VIEW_RACETYPE: {
-						Collections.sort(followers,
-							new Comparator<FollowerOption>()
-							{
-								public int compare(final FollowerOption anO1,
-									final FollowerOption anO2)
-								{
-									final Race r1 = anO1.getRace();
-									final Race r2 = anO2.getRace();
-									if (r1 == null)
-									{
-										return 1;
-									}
-									if (r2 == null)
-									{
-										return -1;
-									}
-									final Collator col = Collator.getInstance();
-									RaceType rt1 = r1.get(ObjectKey.RACETYPE);
-									RaceType rt2 = r2.get(ObjectKey.RACETYPE);
-									final int diff =
-											col.compare(rt1.toString(), rt2.toString());
-									if (diff == 0)
-									{
-										return anO1.compareTo(anO2);
-									}
-									return diff;
-								}
-							});
+						followers = pc.getAvailableFollowers(compType, 
+							new RaceTypeComparator());
 						break;
 					}
 				}
-				for (final FollowerOption follower : followers)
+				for (final Map.Entry<FollowerOption, CDOMObject> me : followers.entrySet())
 				{
+					FollowerOption follower = me.getKey();
 					if (qFilter == null
 						|| follower.getRace().getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
 					{
 						final PObjectNode fol = new PObjectNode(follower);
 						final StringBuffer buf = new StringBuffer();
-						final boolean qual = follower.qualifies(pc);
+						final boolean qual = follower.qualifies(pc, me.getValue());
 						if (!qual)
 						{
 							buf.append(HTMLUtils.HTML);

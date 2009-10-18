@@ -28,6 +28,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.ProhibitedSpellType;
@@ -73,7 +74,7 @@ public class SpellProhibitor extends ConcretePrereqObject
 		valueList.add(value);
 	}
 
-	public boolean isProhibited(Spell s, PlayerCharacter aPC)
+	public boolean isProhibited(Spell s, PlayerCharacter aPC, CDOMObject owner)
 	{
 		/*
 		 * Note the rule is only "Prohibit Cleric/Druid spells based on
@@ -86,7 +87,7 @@ public class SpellProhibitor extends ConcretePrereqObject
 			return false;
 		}
 
-		if (!qualifies(aPC))
+		if (!qualifies(aPC, owner))
 		{
 			return false;
 		}
