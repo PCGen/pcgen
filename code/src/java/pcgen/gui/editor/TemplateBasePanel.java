@@ -518,14 +518,51 @@ public class TemplateBasePanel extends BasePanel
 			setGenderLock(genderLock.toString());
 		}
 		setVisible(thisPCTemplate.getSafe(ObjectKey.VISIBILITY));
-		setSubRegion(thisPCTemplate.getSubRegion());
-		String subRace = thisPCTemplate.getSubRace();
-		setSubRace(subRace == null ? Constants.s_NONE : subRace);
+		setSubRegion(getTemplateSubRegion(thisPCTemplate));
+		setSubRace(getTemplateSubRace(thisPCTemplate));
 		setBonusSkillPoints(thisPCTemplate.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS));
 		setNonProficiencyPenalty(thisPCTemplate.getSafe(IntegerKey.NONPP));
 		setCR(thisPCTemplate.getCR(-1, -1));
 		setLevelAdjustment(thisPCTemplate.get(FormulaKey.LEVEL_ADJUSTMENT));
 		setTemplateSize(thisPCTemplate.get(FormulaKey.SIZE));
+	}
+
+	private String getTemplateSubRace(PCTemplate thisPCTemplate)
+	{
+		/*
+		 * TODO Note this isn't appropriate for the Editor to consolidate two
+		 * behaviors of a token - techincally a bug - should be fixed in new
+		 * editor system
+		 */
+		SubRace sr = thisPCTemplate.get(ObjectKey.SUBRACE);
+		if (sr == null)
+		{
+			if (thisPCTemplate.getSafe(ObjectKey.USETEMPLATENAMEFORSUBRACE))
+			{
+				return thisPCTemplate.getDisplayName();
+			}
+			return Constants.s_NONE;
+		}
+		return sr.toString();
+	}
+
+	private String getTemplateSubRegion(PCTemplate thisPCTemplate)
+	{
+		/*
+		 * TODO Note this isn't appropriate for the Editor to consolidate two
+		 * behaviors of a token - techincally a bug - should be fixed in new
+		 * editor system
+		 */
+		SubRegion sr = thisPCTemplate.get(ObjectKey.SUBREGION);
+		if (sr == null)
+		{
+			if (thisPCTemplate.getSafe(ObjectKey.USETEMPLATENAMEFORSUBREGION))
+			{
+				return thisPCTemplate.getDisplayName();
+			}
+			return Constants.s_NONE;
+		}
+		return sr.toString();
 	}
 
 	private void initComponentContents()

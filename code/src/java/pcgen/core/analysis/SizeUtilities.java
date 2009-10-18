@@ -90,4 +90,19 @@ public class SizeUtilities
 		return null;
 	}
 
+	public static int getDefaultSizeInt()
+	{
+		List<SizeAdjustment> list = Globals.getContext().ref
+				.getOrderSortedCDOMObjects(SizeAdjustment.class);
+		for (int i = 0; i < list.size(); i++)
+		{
+			SizeAdjustment s = list.get(i);
+			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
+			{
+				return i;
+			}
+		}
+
+		return -1;
+	}
 }

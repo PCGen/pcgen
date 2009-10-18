@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.core.PCTemplate;
@@ -172,7 +173,7 @@ public class RegionFacet
 
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			String tempRegion = template.getRegion();
+			String tempRegion = getTemplateRegion(template);
 
 			if (!tempRegion.equals(Constants.s_NONE))
 			{
@@ -181,6 +182,24 @@ public class RegionFacet
 		}
 
 		return region;
+	}
+
+	private String getTemplateRegion(PCTemplate template)
+	{
+		/*
+		 * TODO This should be made type safe to return a Region. Will require a
+		 * change in the REGION token to suppress load of "None" (corner case)
+		 */
+		Region sr = template.get(ObjectKey.REGION);
+		if (sr == null)
+		{
+			if (template.getSafe(ObjectKey.USETEMPLATENAMEFORREGION))
+			{
+				return template.getDisplayName();
+			}
+			return Constants.s_NONE;
+		}
+		return sr.toString();
 	}
 
 	/**
@@ -265,7 +284,7 @@ public class RegionFacet
 
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			final String tempSubRegion = template.getSubRegion();
+			final String tempSubRegion = getTemplateSubRegion(template);
 
 			if (!tempSubRegion.equals(Constants.s_NONE))
 			{
@@ -274,6 +293,25 @@ public class RegionFacet
 		}
 
 		return s;
+	}
+
+	private String getTemplateSubRegion(PCTemplate template)
+	{
+		/*
+		 * TODO This should be made type safe to return a SubRegion. Will
+		 * require a change in the SUBREGION token to suppress load of "None"
+		 * (corner case)
+		 */
+		SubRegion sr = template.get(ObjectKey.SUBREGION);
+		if (sr == null)
+		{
+			if (template.getSafe(ObjectKey.USETEMPLATENAMEFORSUBREGION))
+			{
+				return template.getDisplayName();
+			}
+			return Constants.s_NONE;
+		}
+		return sr.toString();
 	}
 
 	/**

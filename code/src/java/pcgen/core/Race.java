@@ -97,26 +97,4 @@ public final class Race extends PObject
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		return hda == null ? 0 : hda.get(hda.size() - 1);
 	}
-
-	public int sizesAdvanced(final int HD)
-	{
-		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
-		if (hda == null)
-		{
-			return 0;
-		}
-		else
-		{
-			int steps = 0;
-			for (Integer hitDie : hda)
-			{
-				if (HD <= hitDie)
-				{
-					break;
-				}
-				steps++;
-			}
-			return steps;
-		}
-	}
 }

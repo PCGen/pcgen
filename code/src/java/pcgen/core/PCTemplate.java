@@ -30,13 +30,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Region;
-import pcgen.cdom.enumeration.SubRace;
-import pcgen.cdom.enumeration.SubRegion;
 import pcgen.core.bonus.BonusObj;
 import pcgen.util.enumeration.Visibility;
 
@@ -68,72 +64,6 @@ public final class PCTemplate extends PObject
 			localCR += pct.getSafe(ObjectKey.CR_MODIFIER).floatValue();
 		}
 		return localCR;
-	}
-
-	/**
-	 * Get the override that this template applies to subracetype
-	 * 
-	 * @return The new subracetype
-	 */
-	public String getSubRace()
-	{
-		SubRace sr = get(ObjectKey.SUBRACE);
-		if (sr == null)
-		{
-			if (getSafe(ObjectKey.USETEMPLATENAMEFORSUBRACE))
-			{
-				return this.getDisplayName();
-			}
-			return null;
-		}
-		return sr.toString();
-	}
-
-	/**
-	 * Get the override that this template applies to Region
-	 * 
-	 * @return The new Region
-	 */
-	public String getRegion()
-	{
-		/*
-		 * TODO This should be made type safe to return a Region. Will require a
-		 * change in the REGION token to suppress load of "None" (corner case)
-		 */
-		Region sr = get(ObjectKey.REGION);
-		if (sr == null)
-		{
-			if (getSafe(ObjectKey.USETEMPLATENAMEFORREGION))
-			{
-				return this.getDisplayName();
-			}
-			return Constants.s_NONE;
-		}
-		return sr.toString();
-	}
-
-	/**
-	 * Get the override that this template applies to SubRegion
-	 * 
-	 * @return The new SubRegion
-	 */
-	public String getSubRegion()
-	{
-		/*
-		 * TODO This should be made type safe to return a SubRegion. Will
-		 * require a change in the SUBREGION token to suppress load of "None"
-		 * (corner case)
-		 */
-		SubRegion sr = get(ObjectKey.SUBREGION);
-		if (sr == null)
-		{
-			if (getSafe(ObjectKey.USETEMPLATENAMEFORSUBREGION))
-			{
-				return this.getDisplayName();
-			}
-			return Constants.s_NONE;
-		}
-		return sr.toString();
 	}
 
 	/**

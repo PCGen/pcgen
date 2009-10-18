@@ -18,6 +18,8 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SubRace;
 import pcgen.core.PCTemplate;
 
 /**
@@ -44,7 +46,7 @@ public class SubRaceFacet
 
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			final String tempSubRace = template.getSubRace();
+			final String tempSubRace = getTemplateSubRace(template);
 
 			if (tempSubRace != null)
 			{
@@ -53,6 +55,23 @@ public class SubRaceFacet
 		}
 
 		return subRace;
+	}
+
+	private String getTemplateSubRace(PCTemplate template)
+	{
+		/*
+		 * TODO This should be type safe to return a SubRace
+		 */
+		SubRace sr = template.get(ObjectKey.SUBRACE);
+		if (sr == null)
+		{
+			if (template.getSafe(ObjectKey.USETEMPLATENAMEFORSUBRACE))
+			{
+				return template.getDisplayName();
+			}
+			return null;
+		}
+		return sr.toString();
 	}
 
 

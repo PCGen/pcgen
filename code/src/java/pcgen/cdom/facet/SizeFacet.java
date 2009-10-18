@@ -17,10 +17,13 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.List;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.LevelFacet.LevelChangeEvent;
@@ -32,7 +35,8 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 
 public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
-		DataFacetChangeListener<CDOMObject>, LevelChangeListener, BonusChangeListener
+		DataFacetChangeListener<CDOMObject>, LevelChangeListener,
+		BonusChangeListener
 {
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
 	private final Class<?> thisClass = getClass();
@@ -49,14 +53,15 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	public int racialSizeInt(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
-		return info == null ? 0 : info.racialSizeInt;
+		return info == null ? SizeUtilities.getDefaultSizeInt()
+				: info.racialSizeInt;
 	}
 
-	public int calcRacialSizeInt(CharID id)
+	private int calcRacialSizeInt(CharID id)
 	{
 		SizeFacetInfo info = getConstructingInfo(id);
 
-		int iSize = 0;
+		int iSize = SizeUtilities.getDefaultSizeInt();
 		Race race = raceFacet.get(id);
 		if (race != null)
 		{
@@ -84,7 +89,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	public int sizeInt(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
-		return info == null ? 0 : info.sizeInt;
+		return info == null ? SizeUtilities.getDefaultSizeInt() : info.sizeInt;
 	}
 
 	public void update(CharID id)
@@ -102,26 +107,14 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 
 			// Now see if there is a HD advancement in size
 			// (Such as for Dragons)
-			for (int i = 0; i < race.sizesAdvanced(levelFacet
-					.getMonsterLevelCount(id)); ++i)
-			{
-				++iSize;
-			}
+			iSize += sizesToAdvance(id, race);
 
 			//
-			// Must still be between 0 and 8
+			// Must still be be a valid size
 			//
-			if (iSize < 0)
-			{
-				iSize = 0;
-			}
-
 			int maxIndex = Globals.getContext().ref
 					.getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;
-			if (iSize > maxIndex)
-			{
-				iSize = maxIndex;
-			}
+			iSize = Math.min(maxIndex, Math.max(0, iSize));
 		}
 
 		info.sizeInt = iSize;
@@ -133,10 +126,31 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		{
 			if (oldSize != null)
 			{
-				fireDataFacetChangeEvent(id, oldSize, DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, oldSize,
+						DataFacetChangeEvent.DATA_REMOVED);
 			}
-			fireDataFacetChangeEvent(id, newSize, DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, newSize,
+					DataFacetChangeEvent.DATA_ADDED);
 		}
+	}
+
+	private int sizesToAdvance(CharID id, Race race)
+	{
+		List<Integer> hda = race.getListFor(ListKey.HITDICE_ADVANCEMENT);
+		if (hda == null)
+		{
+			return 0;
+		}
+		int steps = 0;
+		for (Integer hitDie : hda)
+		{
+			if (levelFacet.getMonsterLevelCount(id) <= hitDie)
+			{
+				break;
+			}
+			steps++;
+		}
+		return steps;
 	}
 
 	public SizeAdjustment getSizeAdjustment(CharID id)
@@ -148,14 +162,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 
 	public String getSizeAbb(CharID id)
 	{
-		final SizeAdjustment sa = getSizeAdjustment(id);
-
-		if (sa != null)
-		{
-			return sa.getAbbreviation();
-		}
-
-		return " ";
+		return getSizeAdjustment(id).getAbbreviation();
 	}
 
 	private SizeFacetInfo getConstructingInfo(CharID id)
