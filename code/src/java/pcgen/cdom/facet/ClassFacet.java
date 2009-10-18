@@ -424,7 +424,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 				throw new NullPointerException(
 					"Class in getClassLevel cannot be null");
 			}
-			if (level < 1)
+			if (level < 0)
 			{
 				throw new IllegalArgumentException(
 					"Level cannot be negative in getClassLevel");
