@@ -72,6 +72,10 @@ public abstract class AbstractSourcedListFacet<T extends CDOMObject> extends
 	 */
 	public void add(CharID id, T obj, Object source)
 	{
+		if (obj == null)
+		{
+			throw new IllegalArgumentException("Object to add may not be null");
+		}
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set = map.get(obj);
 		boolean fireNew = (set == null);
