@@ -705,10 +705,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
 
-		nymphClass.setLevel(1, pc);
-		bonusList = nymphClass.getRawBonusList(pc);
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(0).toString());
+		pc.incrementClassLevel(1, nymphClass);
+		bonusList = pc.getClassKeyed(nymphClass.getKeyName()).getRawBonusList(pc);
 		assertEquals("Only one bonus", 1, bonusList.size());
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(0).toString());
 	}
 
 	/**
@@ -718,13 +718,15 @@ public class PCClassTest extends AbstractCharacterTestCase
 	public void testLevelsPerFeatMonster()
 	{
 		PlayerCharacter pc = getCharacter();
-		pc.setRace(nymphRace);
 		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
-
-		nymphClass.setLevel(1, pc);
+		pc.setRace(nymphRace);
 		bonusList = nymphClass.getRawBonusList(pc);
+		assertEquals("Bonus list empty", 0, bonusList.size());
+
+		pc.incrementClassLevel(1, nymphClass);
+		bonusList = pc.getClassKeyed(nymphClass.getKeyName()).getRawBonusList(pc);
 		assertEquals("No bonus due to the LEVELSPERFEAT", 0, bonusList.size());
 	}
 
@@ -739,9 +741,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
 		assertEquals("Bonus list starting size", 3, bonusList.size());
 
-		humanoidClass.setLevel(1, pc);
-		bonusList = humanoidClass.getRawBonusList(pc);
-		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL,0)/3", bonusList.get(3).toString());
+		pc.incrementClassLevel(1, humanoidClass);
+		bonusList = pc.getClassKeyed(humanoidClass.getKeyName()).getRawBonusList(pc);
+		assertEquals("Bonus added ", "0|FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(3).toString());
 		assertEquals("Only one new bonus", 4, bonusList.size());
 	}
 
@@ -757,8 +759,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
 		assertEquals("Bonus list starting size", 3, bonusList.size());
 
-		humanoidClass.setLevel(1, pc);
-		bonusList = humanoidClass.getRawBonusList(pc);
+		pc.incrementClassLevel(1, humanoidClass);
+		bonusList = pc.getClassKeyed(humanoidClass.getKeyName()).getRawBonusList(pc);
 		assertEquals("No new bonus due to the LEVELSPERFEAT", 3, bonusList.size());
 	}
 
@@ -887,7 +889,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		qClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(prClass);
 		qClass.addToListFor(ListKey.QUALIFY, new Qualifier(PCClass.class, ref));
-		nqClass = new PCClass();
+		nqClass = new PCClass();		
 		nqClass.setName("NonQualClass");
 		nqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		nqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
