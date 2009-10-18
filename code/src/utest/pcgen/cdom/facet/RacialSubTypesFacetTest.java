@@ -1,0 +1,282 @@
+/*
+ * Copyright (c) 2009 Tom Parker <thpr@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+package pcgen.cdom.facet;
+
+import java.util.Collection;
+
+import junit.framework.TestCase;
+
+import org.junit.Test;
+
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+
+public class RacialSubTypesFacetTest extends TestCase
+{
+	private static final RaceSubType LAST_RACE_TYPE = RaceSubType
+			.getConstant("TestLastRACESUBTYPE");
+	private static final RaceSubType RACE_TYPE_TOO = RaceSubType
+			.getConstant("TestRACESUBTYPEToo");
+	private static final RaceSubType TEST_RACE_TYPE = RaceSubType
+			.getConstant("TestRACESUBTYPE");
+	/*
+	 * NOTE: This is not literal unit testing - it is leveraging the existing
+	 * RaceFacet and TemplateFacet frameworks. This class trusts that
+	 * RaceFacetTest and TemplateFacetTest has fully vetted RaceFacet and
+	 * TemplateFacet. PLEASE ensure all tests there are working before
+	 * investigating tests here.
+	 */
+	private CharID id;
+	private CharID altid;
+	private RacialSubTypesFacet facet = new RacialSubTypesFacet();
+	private RaceFacet rfacet = new RaceFacet();
+	private TemplateFacet tfacet = new TemplateFacet();
+
+	@Override
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		id = new CharID();
+		altid = new CharID();
+	}
+
+	@Test
+	public void testRaceSubTypesUnsetEmpty()
+	{
+		assertNotNull(facet.getRacialSubTypes(id));
+		assertTrue(facet.getRacialSubTypes(id).isEmpty());
+	}
+
+	@Test
+	public void testWithNothingInRace()
+	{
+		rfacet.set(id, new Race());
+		assertSubTypesEmpty();
+	}
+
+	private void assertSubTypesEmpty()
+	{
+		assertNotNull(facet.getRacialSubTypes(id));
+		assertTrue(facet.getRacialSubTypes(id).isEmpty());
+	}
+
+	@Test
+	public void testAvoidPollution()
+	{
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertNotNull(facet.getRacialSubTypes(altid));
+		assertTrue(facet.getRacialSubTypes(altid).isEmpty());
+	}
+
+	@Test
+	public void testGetFromRace()
+	{
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+		rfacet.remove(id);
+		assertSubTypesEmpty();
+	}
+
+	@Test
+	public void testGetRemoved()
+	{
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+		PCTemplate t = new PCTemplate();
+		t.addToListFor(ListKey.REMOVED_RACESUBTYPE, TEST_RACE_TYPE);
+		tfacet.add(id, t);
+		assertSubTypesEmpty();
+		tfacet.remove(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+	}
+
+	@Test
+	public void testGetFromTemplate()
+	{
+		rfacet.set(id, new Race());
+		PCTemplate t = new PCTemplate();
+		t.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		tfacet.add(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+		tfacet.remove(id, t);
+		assertSubTypesEmpty();
+	}
+
+	@Test
+	public void testGetFromRaceAndTemplate()
+	{
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+		PCTemplate t = new PCTemplate();
+		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
+		tfacet.add(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
+		tfacet.remove(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+	}
+
+	@Test
+	public void testGetFromTemplateOverridesRaceandCMod()
+	{
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+		PCTemplate t = new PCTemplate();
+		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
+		tfacet.add(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
+		PCTemplate t2 = new PCTemplate();
+		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
+		tfacet.add(id, t2);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
+				LAST_RACE_TYPE);
+		tfacet.remove(id, t2);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
+		tfacet.remove(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+	}
+
+	@Test
+	public void testGetFromTemplateSecondOverrides()
+	{
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+		PCTemplate t = new PCTemplate();
+		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
+		tfacet.add(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
+		PCTemplate t2 = new PCTemplate();
+		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
+		tfacet.add(id, t2);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
+				LAST_RACE_TYPE);
+		tfacet.remove(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, LAST_RACE_TYPE);
+		tfacet.add(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
+				LAST_RACE_TYPE);
+		tfacet.remove(id, t);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, LAST_RACE_TYPE);
+		tfacet.remove(id, t2);
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+	}
+
+	@Test
+	public void testContains()
+	{
+		assertFalse(facet.contains(id, TEST_RACE_TYPE));
+		assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+		PCTemplate t = new PCTemplate();
+		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
+		tfacet.add(id, t);
+		assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		assertTrue(facet.contains(id, RACE_TYPE_TOO));
+		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+		PCTemplate t2 = new PCTemplate();
+		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
+		tfacet.add(id, t2);
+		assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		assertTrue(facet.contains(id, RACE_TYPE_TOO));
+		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		tfacet.remove(id, t);
+		assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		tfacet.add(id, t);
+		assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		assertTrue(facet.contains(id, RACE_TYPE_TOO));
+		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		tfacet.remove(id, t);
+		assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		tfacet.remove(id, t2);
+		assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+	}
+
+	@Test
+	public void testCount()
+	{
+		assertEquals(0, facet.getCount(id));
+		Race r = new Race();
+		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
+		rfacet.set(id, r);
+		assertEquals(1, facet.getCount(id));
+		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
+		PCTemplate t = new PCTemplate();
+		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
+		tfacet.add(id, t);
+		assertEquals(2, facet.getCount(id));
+		PCTemplate t2 = new PCTemplate();
+		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
+		tfacet.add(id, t2);
+		assertEquals(3, facet.getCount(id));
+		tfacet.remove(id, t);
+		assertEquals(2, facet.getCount(id));
+		tfacet.add(id, t);
+		assertEquals(3, facet.getCount(id));
+		tfacet.remove(id, t);
+		assertEquals(2, facet.getCount(id));
+		tfacet.remove(id, t2);
+		assertEquals(1, facet.getCount(id));
+		/*
+		 * TODO Note this doesn't test duplicates. We need to check appropriate
+		 * behavior of RaceSubType (set vs. list)
+		 */
+	}
+
+	private <T> void assertList(Collection<T> c, T... array)
+	{
+		assertNotNull(c);
+		assertNotNull(array);
+		assertEquals(array.length, c.size());
+		/*
+		 * WARNING This method doesn't check for A,B,B,B tested against A,A,B,B
+		 * 
+		 * Number of instances is not properly counted!
+		 */
+		for (T obj : array)
+		{
+			assertTrue(c.contains(obj));
+		}
+	}
+
+}
