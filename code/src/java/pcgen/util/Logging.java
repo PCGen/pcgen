@@ -345,6 +345,24 @@ public class Logging
 	}
 
 	/**
+ 	 * Log a message with a stack trace, if logging is enabled at the
+ 	 * supplied level of detail. 
+ 	 * This is mainly for use with the pcgen.rules.persistence.token.ParseResult class.
+ 	 * 
+	 * @param lvl        The detail level of the message
+	 * @param msg        String message
+	 * @param stackTrace The stack trace
+	 */
+	public static void log(Level lvl, String msg, StackTraceElement[] stackTrace)
+	{
+		Logger l = getLogger();
+		if (l.isLoggable(lvl))
+		{
+			l.log(lvl, msg, stackTrace);
+		}
+	}
+
+	/**
 	 * Print error message with a stack trace if PCGen is
 	 * debugging.
 	 *
@@ -501,6 +519,15 @@ public class Logging
 		queuedMessages.add(new QueuedMessage(lvl, msg));
 	}
 
+	/*
+	 * Temporary method for use with ParseResult conversion.
+ 	 * See pcgen.rules.persistence.token.ParseResult for use.
+	 */
+	public static void addParseMessage(Level lvl, String msg, StackTraceElement[] stack)
+	{
+		queuedMessages.add(new QueuedMessage(lvl, msg, stack));
+	}
+
 	private static int queuedMessageMark = -1;
 
 	public static void markParseMessages()
@@ -548,6 +575,17 @@ public class Logging
 			level = lvl;
 			message = msg;
 			stackTrace = Thread.currentThread().getStackTrace();
+		}
+
+		/*
+		 * Temporary constructor for use with ParseResult conversion.
+		 * See addParseMessage above.
+		 */
+		public QueuedMessage(Level lvl, String msg, StackTraceElement[] stack)
+		{
+			level = lvl;
+			message = msg;
+			stackTrace = stack;
 		}
 	}
 }

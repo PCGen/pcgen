@@ -39,13 +39,14 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class ChooseLangautoToken extends AbstractToken implements
-		CDOMSecondaryToken<Race>, PersistentChoiceActor<Language>,
+public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implements
+		CDOMPrimaryParserToken<Race>, CDOMSecondaryToken<Race>, PersistentChoiceActor<Language>,
 		DeferredToken<Race>
 {
 
@@ -67,12 +68,9 @@ public class ChooseLangautoToken extends AbstractToken implements
 		return "LANGAUTO";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	public ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
 		List<CDOMReference<Language>> refs =
 				new ArrayList<CDOMReference<Language>>();
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -84,10 +82,9 @@ public class ChooseLangautoToken extends AbstractToken implements
 					LANGUAGE_CLASS, tokText);
 			if (lang == null)
 			{
-				Logging.errorPrint("  Error was encountered while parsing "
+				return new ParseResult.Fail("  Error was encountered while parsing "
 					+ getFullName() + ": " + value
 					+ " had an invalid reference: " + tokText);
-				return false;
 			}
 			refs.add(lang);
 		}
@@ -96,9 +93,8 @@ public class ChooseLangautoToken extends AbstractToken implements
 				new ReferenceChoiceSet<Language>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			Logging.errorPrint("Non-sensical " + getFullName()
+			return new ParseResult.Fail("Non-sensical " + getFullName()
 				+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
 		cs.setTitle("Pick a Language");
@@ -106,7 +102,7 @@ public class ChooseLangautoToken extends AbstractToken implements
 				new PersistentTransitionChoice<Language>(cs, FormulaFactory.ONE);
 		context.getObjectContext().put(race, ObjectKey.CHOOSE_LANGAUTO, tc);
 		tc.setChoiceActor(this);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

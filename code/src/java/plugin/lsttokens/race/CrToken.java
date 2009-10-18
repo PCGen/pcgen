@@ -22,15 +22,16 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>,
+public class CrToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryParserToken<Race>, CDOMPrimaryToken<Race>,
 		DeferredToken<Race>
 {
 
@@ -43,32 +44,20 @@ public class CrToken extends AbstractToken implements CDOMPrimaryToken<Race>,
 		return "CR";
 	}
 
-	/**
-	 * Parse the CR token
-	 * 
-	 * @param context 
-	 * @param race 
-	 * @param value 
-	 * @return true if the parse was successful, else false
-	 */
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			ChallengeRating cr = new ChallengeRating(value);
 			context.getObjectContext()
 				.put(race, ObjectKey.CHALLENGE_RATING, cr);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.errorPrint(getTokenName() + " encountered error: "
+			return new ParseResult.Fail(getTokenName() + " encountered error: "
 				+ e.getLocalizedMessage());
-			return false;
 		}
 	}
 

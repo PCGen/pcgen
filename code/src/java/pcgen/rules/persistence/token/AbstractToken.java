@@ -63,45 +63,71 @@ public abstract class AbstractToken
 		return null;
 	}
 
-	protected boolean hasIllegalSeparator(char separator, String value)
+	/**
+	 * Checks a string to see if any separators are used correctly.
+	 * @param separator The separator that is used in the string.
+	 * @param value     The string to check.
+	 * @return  A parse result of success if the string uses separators correctly.
+	 */
+	protected ParseResult checkForIllegalSeparator(char separator, String value)
 	{
 		if (value.charAt(0) == separator)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " arguments may not start with " + separator + " : " + value);
-			return true;
 		}
 		if (value.charAt(value.length() - 1) == separator)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " arguments may not end with " + separator + " : " + value);
-			return true;
 		}
 		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " arguments uses double separator " + separator + separator
 				+ " : " + value);
-			return true;
 		}
-		return false;
+		return ParseResult.SUCCESS;
+	}
+
+	protected boolean hasIllegalSeparator(char separator, String value)
+	{
+		ParseResult pr = checkForIllegalSeparator(separator, value);
+		if (pr.passed())
+		{
+			pr.addMessagesToLog();
+		}
+		return !pr.passed();
+	}
+
+	/**
+	 * Checks that a string is non-empty.
+	 * @param value The string to check.
+	 * @return A parse result of success if the string in non-empty.
+	 */
+	protected ParseResult checkNonEmpty(String value)
+	{
+		if (value == null)
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " may not have null argument");
+		}
+		if (value.length() == 0)
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " may not have empty argument");
+		}
+		return ParseResult.SUCCESS;
 	}
 
 	protected boolean isEmpty(String value)
 	{
-		if (value == null)
+		ParseResult pr = checkNonEmpty(value);
+		if (pr.passed())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-				+ " may not have null argument");
-			return true;
+			pr.addMessagesToLog();
 		}
-		if (value.length() == 0)
-		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
-				+ " may not have empty argument");
-			return true;
-		}
-		return false;
+		return !pr.passed();
 	}
 
 	/** Return the token name */

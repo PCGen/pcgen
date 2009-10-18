@@ -20,13 +20,15 @@ package plugin.lsttokens.race;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken implements CDOMPrimaryToken<Race>
+public class HandsToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>, CDOMPrimaryToken<Race>
 {
 
 	public String getTokenName()
@@ -34,25 +36,23 @@ public class HandsToken implements CDOMPrimaryToken<Race>
 		return "HANDS";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	public ParseResult parseToken(LoadContext context, Race race, String value)
 	{
 		try
 		{
 			Integer in = Integer.valueOf(value);
 			if (in.intValue() < 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer >= 0");
-				return false;
+				return new ParseResult.Fail(getTokenName() + " must be an integer >= 0");
 			}
 			context.getObjectContext().put(race, IntegerKey.CREATURE_HANDS, in);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			return false;
 		}
 	}
 
