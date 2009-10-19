@@ -3117,6 +3117,10 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public LevelInfo getLevelInfo(int level)
 	{
+		if (level < 1)
+		{
+			return null;
+		}
 		Map<String, LevelInfo> levelInfo = getLevelInfo(getXpTableName());
 		if (levelInfo == null)
 		{
