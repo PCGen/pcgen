@@ -64,11 +64,6 @@ public class SubClassApplication
 	
 		for (SubClass sc : subClassList)
 		{
-			/*
-			 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
-			 *
-			 * STOP THE MAGIC, I want to delete MULTIPREREQs
-			 */
 			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, cl))
 			{
 				continue;
@@ -192,11 +187,6 @@ public class SubClassApplication
 					//Skip the selected specialist school
 					continue;
 				}
-				/*
-				 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
-				 *
-				 * STOP THE MAGIC, I want to delete MULTIPREREQs
-				 */
 				if (!PrereqHandler.passesAll(sub.getPrerequisiteList(), aPC, cl))
 				{
 					continue;
