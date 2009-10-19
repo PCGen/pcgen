@@ -159,8 +159,6 @@ public final class GameMode implements Comparable<Object>
 
 	private int rollMethod = Constants.CHARACTERSTATMETHOD_USER;
 
-	private final SizeAdjustment spareSize = new SizeAdjustment();
-
 	private int allStatsValue = 10;
 
 	//
@@ -3108,5 +3106,28 @@ public final class GameMode implements Comparable<Object>
 	public String getDefaultSourceTitle()
 	{
 		return defaultSourceTitle;
+	}
+
+	/**
+	 * Returns Level information for the given Level
+	 * 
+	 * @param level
+	 *            the level for which Level Info should be returned
+	 * @return The LevelInfo for the given level
+	 */
+	public LevelInfo getLevelInfo(int level)
+	{
+		Map<String, LevelInfo> levelInfo = getLevelInfo(getXpTableName());
+		if (levelInfo == null)
+		{
+			return null;
+		}
+		LevelInfo lInfo = levelInfo.get(String.valueOf(level));
+
+		if (lInfo == null)
+		{
+			lInfo = levelInfo.get("LEVEL");
+		}
+		return lInfo;
 	}
 }

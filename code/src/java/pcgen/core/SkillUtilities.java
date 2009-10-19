@@ -52,15 +52,14 @@ public final class SkillUtilities
 	public static BigDecimal maxClassSkillForLevel(final int level,
 			final PlayerCharacter pc)
 	{
-		LevelInfo lInfo = Globals.getLevelInfo().get(
-				String.valueOf(level));
-		if (lInfo == null)
-			lInfo = Globals.getLevelInfo().get("LEVEL");
-		if ((level > 0) && lInfo != null)
+		LevelInfo info = SettingsHandler.getGame().getLevelInfo(level);
+		if (info != null)
 		{
-			return lInfo.getMaxClassSkillRank(level, pc);
+			return info.getMaxClassSkillRank(level, pc);
 		}
-		// do something sensible if no level info
+		/*
+		 * TODO Should this be a warning/error?
+		 */
 		return BigDecimal.ZERO;
 	}
 
@@ -76,15 +75,14 @@ public final class SkillUtilities
 	public static BigDecimal maxCrossClassSkillForLevel(final int level,
 			final PlayerCharacter pc)
 	{
-		LevelInfo lInfo = Globals.getLevelInfo().get(
-				String.valueOf(level));
-		if (lInfo == null)
-			lInfo = Globals.getLevelInfo().get("LEVEL");
-		if ((level > 0) && lInfo != null)
+		LevelInfo info = SettingsHandler.getGame().getLevelInfo(level);
+		if (info != null)
 		{
-			return lInfo.getMaxCrossClassSkillRank(level, pc);
+			return info.getMaxCrossClassSkillRank(level, pc);
 		}
-		// do something sensible if no level info
+		/*
+		 * TODO Should this be a warning/error?
+		 */
 		return BigDecimal.ZERO;
 	}
 }

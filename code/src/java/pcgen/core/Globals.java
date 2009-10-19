@@ -1206,21 +1206,6 @@ public final class Globals
 	}
 
 	/**
-	 * returns a HashMap of LevelInfo objects
-	 * @return Map
-	 */
-	public static Map<String, LevelInfo> getLevelInfo()
-	{
-		GameMode game = SettingsHandler.getGame();
-		Map<String, LevelInfo> levelInfo = game.getLevelInfo(game.getXpTableName());
-		if (levelInfo == null)
-		{
-			levelInfo = new HashMap<String, LevelInfo>();
-		}
-		return levelInfo;
-	}
-
-	/**
 	 * Get load strings
 	 * @return List of Strings
 	 */

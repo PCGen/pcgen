@@ -20,8 +20,8 @@ package pcgen.cdom.facet;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
+import pcgen.core.SettingsHandler;
 
 public class LevelTableFacet
 {
@@ -42,20 +42,17 @@ public class LevelTableFacet
 	 */
 	public int minXPForLevel(int level, CharID id)
 	{
-		LevelInfo lInfo = Globals.getLevelInfo().get(String.valueOf(level));
-
-		if (lInfo == null)
+		LevelInfo info = SettingsHandler.getGame().getLevelInfo(level);
+		if (info != null)
 		{
-			lInfo = Globals.getLevelInfo().get("LEVEL");
-		}
-
-		if ((level > 0) && (lInfo != null))
-		{
-			Formula f =
-					FormulaFactory.getFormulaFor(lInfo.getMinXPVariable(level));
+			Formula f = FormulaFactory.getFormulaFor(info
+					.getMinXPVariable(level));
 			return resolveFacet.resolve(id, f, "").intValue();
 		}
-		// do something sensible if no level info
+
+		/*
+		 * TODO Should this be a warning/error?
+		 */
 		return 0;
 	}
 
