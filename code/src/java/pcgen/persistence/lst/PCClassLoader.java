@@ -497,26 +497,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		.substring(6) : aKey);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
-	 */
-	@Override
-	protected void finishObject(final PObject target)
-	{
-		final List<Prerequisite> preReqList = target.getPrerequisiteList();
-		if (preReqList != null)
-		{
-			for (Prerequisite preReq : preReqList)
-			{
-				if ("VAR".equalsIgnoreCase(preReq.getKind()))
-				{
-					preReq.setSubKey("CLASS:" + target.getKeyName());
-				}
-
-			}
-		}
-	}
-
 	public void loadSubLines(LoadContext context)
 	{
 		Collection<PCClass> allClasses = context.ref
