@@ -225,9 +225,9 @@ public class SkillToken extends AbstractToken implements
 				SKILL_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Skill choice)
 	{
-		return ((Skill) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)

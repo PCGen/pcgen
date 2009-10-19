@@ -208,9 +208,9 @@ public class LanguageToken extends AbstractToken implements
 				LANGUAGE_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Language choice)
 	{
-		return ((Language) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,

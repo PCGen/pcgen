@@ -250,9 +250,9 @@ public class SpellCasterToken extends AbstractToken implements
 				PCCLASS_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(PCClass choice)
 	{
-		return ((PCClass) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,

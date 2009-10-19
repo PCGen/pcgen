@@ -47,7 +47,7 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(Object choice);
+	public String encodeChoice(T choice);
 
 	/**
 	 * Decodes a given String into a choice of the appropriate type. The String

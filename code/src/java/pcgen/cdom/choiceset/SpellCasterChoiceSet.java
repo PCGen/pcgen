@@ -328,6 +328,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 * 
 	 * @return The GroupingState for this SpellCasterChoiceSet.
 	 */
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState gs = GroupingState.EMPTY;

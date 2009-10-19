@@ -571,7 +571,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			}
 			else if (o instanceof WeightedItem)
 			{
-				WeightedItem<?> wi = (WeightedItem) o;
+				WeightedItem<?> wi = (WeightedItem<?>) o;
 				return theWeight == wi.theWeight
 					&& (theElement == null && wi.theElement == null || theElement != null
 						&& theElement.equals(wi.theElement));

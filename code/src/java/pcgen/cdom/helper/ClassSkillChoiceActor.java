@@ -152,9 +152,9 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * 
 	 * @return A String sufficient to uniquely identify the Skill.
 	 */
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Skill choice)
 	{
-		return ((Skill) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	/**

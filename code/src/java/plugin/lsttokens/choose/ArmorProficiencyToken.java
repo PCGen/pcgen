@@ -52,9 +52,9 @@ public class ArmorProficiencyToken extends
 				ARMORPROF_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(ArmorProf choice)
 	{
-		return ((ArmorProf) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override

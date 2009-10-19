@@ -51,9 +51,9 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 				LANGUAGE_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Language choice)
 	{
-		return ((Language) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override

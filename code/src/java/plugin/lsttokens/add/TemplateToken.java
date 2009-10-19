@@ -183,9 +183,9 @@ public class TemplateToken extends AbstractToken implements
 				PCTEMPLATE_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(PCTemplate choice)
 	{
-		return ((PCTemplate) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,

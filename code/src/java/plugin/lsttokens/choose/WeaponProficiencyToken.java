@@ -52,9 +52,9 @@ public class WeaponProficiencyToken extends
 				WEAPONPROF_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(WeaponProf choice)
 	{
-		return ((WeaponProf) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override

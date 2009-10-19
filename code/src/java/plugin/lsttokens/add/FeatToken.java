@@ -356,9 +356,9 @@ public class FeatToken extends AbstractToken implements
 		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(AbilitySelection choice)
 	{
-		return ((AbilitySelection) choice).getPersistentFormat();
+		return choice.getPersistentFormat();
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,

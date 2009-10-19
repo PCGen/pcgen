@@ -240,9 +240,9 @@ public class PCStatToken extends AbstractToken implements
 				PCSTAT_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(PCStat choice)
 	{
-		return ((PCStat) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	protected AssociationListKey<PCStat> getListKey()

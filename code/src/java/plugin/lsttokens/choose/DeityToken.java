@@ -51,9 +51,9 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 				DEITY_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Deity choice)
 	{
-		return ((Deity) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override

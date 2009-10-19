@@ -49,9 +49,9 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 				PCTemplate.class, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(PCTemplate choice)
 	{
-		return ((PCTemplate) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override

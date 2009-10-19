@@ -198,9 +198,9 @@ public class EquipToken extends AbstractToken implements
 				EQUIPMENT_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Equipment choice)
 	{
-		return ((Equipment) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,

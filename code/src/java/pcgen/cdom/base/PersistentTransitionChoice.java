@@ -95,7 +95,7 @@ public class PersistentTransitionChoice<T> extends TransitionChoice<T>
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(Object choice)
+	public String encodeChoice(T choice)
 	{
 		return choiceActor.encodeChoice(choice);
 	}

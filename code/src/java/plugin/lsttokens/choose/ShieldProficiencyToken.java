@@ -52,9 +52,9 @@ public class ShieldProficiencyToken extends
 				SHIELDPROF_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(ShieldProf choice)
 	{
-		return ((ShieldProf) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override

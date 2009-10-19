@@ -243,9 +243,9 @@ public class AlignmentToken extends AbstractToken implements
 				PCALIGNMENT_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(PCAlignment choice)
 	{
-		return ((PCAlignment) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	protected AssociationListKey<PCAlignment> getListKey()

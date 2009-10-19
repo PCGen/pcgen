@@ -2596,28 +2596,34 @@ final class PCGVer2Creator implements IOConstants
 		}
 		for (PersistentTransitionChoice<?> tc : addList)
 		{
-			List<Object> assocList =
-					thePC.getAssocList(tc, AssociationListKey.ADD);
-			if (assocList == null)
-			{
-				continue;
-			}
-			//
-			// |ADD:[PROMPT:SUBTOKEN|blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
-			//
-			ChoiceSet<?> choices = tc.getChoices();
-			buffer.append('|').append(TAG_ADDTOKEN).append(':').append('[');
-			buffer.append(EntityEncoder.encode(choices.getName())).append(':');
-			buffer.append(EntityEncoder.encode(choices.getLSTformat()));
-
-			for (Object assoc : assocList)
-			{
-				buffer.append('|').append(TAG_CHOICE).append(':').append(
-					EntityEncoder.encode(tc.encodeChoice(assoc)));
-			}
-
-			buffer.append(']');
+			addChoices(buffer, tc);
 		}
+	}
+
+	private <T> void addChoices(StringBuffer buffer,
+			PersistentTransitionChoice<T> tc)
+	{
+		List<Object> assocList = thePC.getAssocList(tc, AssociationListKey.ADD);
+		if (assocList == null)
+		{
+			return;
+		}
+		//
+		// |ADD:[PROMPT:SUBTOKEN|blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
+		//
+		ChoiceSet<?> choices = tc.getChoices();
+		buffer.append('|').append(TAG_ADDTOKEN).append(':').append('[');
+		buffer.append(EntityEncoder.encode(choices.getName())).append(':');
+		buffer.append(EntityEncoder.encode(choices.getLSTformat()));
+
+		for (Object assoc : assocList)
+		{
+			buffer.append('|').append(TAG_CHOICE).append(':')
+					.append(EntityEncoder.encode(tc.encodeChoice(tc
+									.castChoice(assoc))));
+		}
+
+		buffer.append(']');
 	}
 
 }

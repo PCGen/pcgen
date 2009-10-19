@@ -51,9 +51,9 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 				EQUIPMENT_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Equipment choice)
 	{
-		return ((Equipment) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override

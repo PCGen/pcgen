@@ -230,9 +230,9 @@ public abstract class AbstractSimpleChooseToken<T extends CDOMObject> extends
 				getChooseClass(), s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(T choice)
 	{
-		return ((T) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	protected abstract Class<T> getChooseClass();

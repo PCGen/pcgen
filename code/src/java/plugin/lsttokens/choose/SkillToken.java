@@ -51,9 +51,9 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 				SKILL_CLASS, s);
 	}
 
-	public String encodeChoice(Object choice)
+	public String encodeChoice(Skill choice)
 	{
-		return ((Skill) choice).getKeyName();
+		return choice.getKeyName();
 	}
 
 	@Override
