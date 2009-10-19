@@ -25,7 +25,6 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PCClass;
 import pcgen.core.SpecialAbility;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.Changes;
@@ -166,16 +165,6 @@ public class SabLst extends AbstractToken implements
 				Logging.log(Logging.LST_ERROR, "   (Did you put Abilities after the "
 						+ "PRExxx tags in " + getTokenName() + ":?)");
 				return false;
-			}
-			/*
-			 * The following subkey is required in order to give context to the
-			 * variables as they are calculated (make the context the current
-			 * class, so that items like Class Level can be correctly
-			 * calculated).
-			 */
-			if (obj instanceof PCClass && "var".equals(prereq.getKind()))
-			{
-				prereq.setSubKey("CLASS:" + obj.getKeyName());
 			}
 			sa.addPrerequisite(prereq);
 			if (!tok.hasMoreTokens())
