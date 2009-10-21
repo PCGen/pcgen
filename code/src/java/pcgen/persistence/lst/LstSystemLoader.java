@@ -562,7 +562,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		companionModLoader.loadLstFiles(context, companionmodFileList);
 		kitLoader.loadLstFiles(context, kitFileList);
 		
-		// Load the bio settings files
+		// Load the bio settings files - make sure we add them to the right game mode too!
+		bioLoader.setGameMode(gamemode.getName());
 		bioLoader.loadLstFiles(context, bioSetFileList);
 
 		// Check for the default deities
