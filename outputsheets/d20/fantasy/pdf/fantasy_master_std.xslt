@@ -220,6 +220,8 @@
 							<xsl:value-of select="/character/export/date"/>
 							<xsl:text> </xsl:text>
 							<xsl:value-of select="/character/export/time"/>
+							<xsl:text> </xsl:text><xsl:text> CHARACTER: </xsl:text>
+							<xsl:value-of select="/character/export/name"/>
 						</fo:block>
 						<fo:block font-size="5pt" font-weight="bold">Created using PCGen <xsl:value-of select="export/version"/>
 						</fo:block>
@@ -306,6 +308,7 @@
 									<fo:table-cell number-columns-spanned="2">
 										<xsl:apply-templates select="saving_throws"/>
 										<xsl:apply-templates select="attack" mode="ranged_melee"/>
+										<xsl:apply-templates select="weapons/martialarts"/>
 										<xsl:apply-templates select="weapons/unarmed"/>
 										<xsl:apply-templates select="weapons">
 											<xsl:with-param name="first_weapon" select="1"/>
@@ -354,6 +357,7 @@
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="disadvantages"/>
 						<xsl:apply-templates select="talents"/>
+						<xsl:apply-templates select="spellcasteroutputs"/>
 						<xsl:apply-templates select="vampire_disciplines"/>
 						<xsl:apply-templates select="demon_cants"/>
 						<xsl:apply-templates select="werewolf_rites"/>
@@ -2398,6 +2402,103 @@
 
 
 	<!--
+====================================
+====================================
+	TEMPLATE - Martial Arts ATTACK TABLE
+====================================
+====================================-->
+	<xsl:template match="weapons/martialarts">
+		<!-- START Martial Arts Attack Table -->
+		<fo:table table-layout="fixed" space-before="2mm">
+			<fo:table-column column-width="27mm"/>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="16mm"/>
+			<fo:table-body>
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-weight="bold" font-size="9pt">Martial Arts</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">TOTAL ATTACK BONUS</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">DAMAGE</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">CRITICAL</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">REACH</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="total"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="damage"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="critical"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="reach"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="5pt">
+							<xsl:value-of select="type"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+		<!-- STOP Martial Arts Attack Table -->
+	</xsl:template>
+<!--
 ====================================
 ====================================
 	TEMPLATE - Unarmed ATTACK TABLE
@@ -4501,6 +4602,23 @@
 				<xsl:with-param name="attribute" select="'talents'"/>
 				<xsl:with-param name="title" select="'TALENTS'"/>
 				<xsl:with-param name="list" select="talent"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Caster Level Outputs
+====================================
+====================================-->
+	<xsl:template match="spellcasteroutputs">
+		<xsl:if test="count(spellcasteroutput) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'spellcasteroutputs'"/>
+				<xsl:with-param name="title" select="'Spell Caster Information'"/>
+				<xsl:with-param name="list" select="spellcasteroutput"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
