@@ -184,6 +184,11 @@
 		<talents.lightline><subattrib light=""/></talents.lightline>
 		<talents.darkline><subattrib medium=""/></talents.darkline>
 
+		<casterleveloutputs.title><subattrib centre="" inverse=""/></casterleveloutputs.title>
+		<casterleveloutputs.border padding="0.5pt"><subattrib border="" inverse=""/></casterleveloutputs.border>
+		<casterleveloutputs.lightline><subattrib light=""/></casterleveloutputs.lightline>
+		<casterleveloutputs.darkline><subattrib medium=""/></casterleveloutputs.darkline>
+
 		<vampire_disciplines.title><subattrib centre="" inverse=""/></vampire_disciplines.title>
 		<vampire_disciplines.border padding="0.5pt"><subattrib border="" inverse=""/></vampire_disciplines.border>
 		<vampire_disciplines.lightline><subattrib light=""/></vampire_disciplines.lightline>
@@ -204,8 +209,6 @@
 		<mage_gnosises.lightline><subattrib light=""/></mage_gnosises.lightline>
 		<mage_gnosises.darkline><subattrib medium=""/></mage_gnosises.darkline>
 
-
-
 		<force_techniques.title><subattrib centre="" inverse=""/></force_techniques.title>
 		<force_techniques.border padding="0.5pt"><subattrib border="" inverse=""/></force_techniques.border>
 		<force_techniques.lightline><subattrib light=""/></force_techniques.lightline>
@@ -225,6 +228,11 @@
 		<disadvantages.border padding="0.5pt"><subattrib border="" inverse=""/></disadvantages.border>
 		<disadvantages.lightline><subattrib light=""/></disadvantages.lightline>
 		<disadvantages.darkline><subattrib medium=""/></disadvantages.darkline>
+
+		<spellcasteroutputs.title><subattrib centre="" inverse=""/></spellcasteroutputs.title>
+		<spellcasteroutputs.border padding="0.5pt"><subattrib border="" inverse=""/></spellcasteroutputs.border>
+		<spellcasteroutputs.lightline><subattrib light=""/></spellcasteroutputs.lightline>
+		<spellcasteroutputs.darkline><subattrib medium=""/></spellcasteroutputs.darkline>
 
 		<powers_atwills>.title><subattrib centre="" inverse=""/></powers_atwills>.title>
 		<powers_atwills>.border padding="0.5pt"><subattrib border="" inverse=""/></powers_atwills>.border>
