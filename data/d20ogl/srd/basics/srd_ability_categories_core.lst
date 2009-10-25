@@ -9,6 +9,9 @@
 # Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object
 ABILITYCATEGORY:Special Ability	VISIBLE:NO	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability
 
+###Block: Animal Tricks and Training
+ABILITYCATEGORY:Animal Trick		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick		PLURAL:Animal Tricks		DISPLAYLOCATION:Class Abilities
+
 ###Block: Bonus FEATs and subgroups
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI	Display Location
 ABILITYCATEGORY:Fighter Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Fighter				PLURAL:Fighter Feats		DISPLAYLOCATION:Feats

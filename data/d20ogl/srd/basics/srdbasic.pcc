@@ -77,6 +77,9 @@ HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|PRESTAT:1,INT=2
+
 #
 # End
 #
