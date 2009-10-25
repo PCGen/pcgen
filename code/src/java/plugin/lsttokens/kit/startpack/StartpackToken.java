@@ -26,16 +26,16 @@
 package plugin.lsttokens.kit.startpack;
 
 import pcgen.core.Kit;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * STARTPACK token for Kit Startpack
  */
-public class StartpackToken extends AbstractToken implements
-		CDOMPrimaryToken<Kit>
+public class StartpackToken extends AbstractNonEmptyToken<Kit> implements
+		CDOMPrimaryParserToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -53,14 +53,11 @@ public class StartpackToken extends AbstractToken implements
 		return Kit.class;
 	}
 
-	public boolean parse(LoadContext context, Kit kit, String value)
-		throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit obj,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Kit obj)

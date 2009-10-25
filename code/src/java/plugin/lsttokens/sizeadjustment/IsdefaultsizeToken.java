@@ -3,14 +3,14 @@ package plugin.lsttokens.sizeadjustment;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ISDEFAULTSIZE Token
  */
-public class IsdefaultsizeToken extends AbstractToken implements
+public class IsdefaultsizeToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 		CDOMPrimaryToken<SizeAdjustment>
 {
 
@@ -20,21 +20,18 @@ public class IsdefaultsizeToken extends AbstractToken implements
 		return "ISDEFAULTSIZE";
 	}
 
-	public boolean parse(LoadContext context, SizeAdjustment size, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		SizeAdjustment size, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' as the "
+				new ParseResult.Fail("You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.TRUE;
 		}
@@ -42,20 +39,18 @@ public class IsdefaultsizeToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.FALSE;
 		}
 		context.getObjectContext().put(size, ObjectKey.IS_DEFAULT_SIZE, set);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, SizeAdjustment size)

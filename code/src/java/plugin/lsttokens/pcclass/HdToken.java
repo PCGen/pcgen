@@ -21,13 +21,14 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HD Token
  */
-public class HdToken implements CDOMPrimaryToken<PCClass>
+public class HdToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
 {
 
 	public String getTokenName()
@@ -35,26 +36,24 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 		return "HD";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		try
 		{
 			Integer in = Integer.valueOf(value);
 			if (in.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer > 0");
-				return false;
+				return new ParseResult.Fail(getTokenName() + " must be an integer > 0");
 			}
 			context.getObjectContext().put(pcc, ObjectKey.LEVEL_HITDIE,
 					new HitDie(in));
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			return false;
 		}
 	}
 

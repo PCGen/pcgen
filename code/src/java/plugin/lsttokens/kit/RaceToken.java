@@ -31,15 +31,16 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Race;
 import pcgen.core.kit.KitRace;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles the RACE tag as well as Common tags on the RACE line.
  */
-public class RaceToken extends AbstractToken implements
-		CDOMSecondaryToken<KitRace>
+public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
+		CDOMSecondaryParserToken<KitRace>
 {
 	private static final Class<Race> RACE_CLASS = Race.class;
 
@@ -64,23 +65,20 @@ public class RaceToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitRace kitRace, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitRace kitRace, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if (Constants.s_NONESELECTED.equals(value))
 		{
-			Logging
-				.deprecationPrint("NONESELECTED is not necessary in KIT RACE: "
+			ComplexParseResult pr = new ComplexParseResult();
+			pr.addWarningMessage("NONESELECTED is not necessary in KIT RACE: "
 					+ "Token is not processed");
-			return true;
+			return pr;
 		}
 		CDOMSingleRef<Race> ref =
 				context.ref.getCDOMReference(RACE_CLASS, value);
 		kitRace.setRace(ref);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitRace kitRace)

@@ -21,13 +21,14 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MAXLEVEL Token
  */
-public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
+public class MaxlevelToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
 {
 
 	public String getTokenName()
@@ -35,7 +36,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 		return "MAXLEVEL";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		Integer lim;
 		if ("NOLIMIT".equalsIgnoreCase(value))
@@ -49,20 +50,18 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 				lim = Integer.valueOf(value);
 				if (lim.intValue() <= 0)
 				{
-					Logging.errorPrint("Value less than 1 is not valid for "
+					return new ParseResult.Fail("Value less than 1 is not valid for "
 							+ getTokenName() + ": " + value);
-					return false;
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Value was not a number for "
+				return new ParseResult.Fail("Value was not a number for "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 		}
 		context.getObjectContext().put(pcc, IntegerKey.LEVEL_LIMIT, lim);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

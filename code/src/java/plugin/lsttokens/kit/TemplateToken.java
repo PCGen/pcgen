@@ -34,9 +34,9 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCTemplate;
 import pcgen.core.kit.KitTemplate;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * This class parses a TEMPLATE line from a Kit file. It handles the TEMPLATE
@@ -52,8 +52,8 @@ import pcgen.util.Logging;
  * &nbsp;&nbsp;&nbsp;&nbsp;Adds the "Celestial" template to the character.<br>
  * </p>
  */
-public class TemplateToken extends AbstractToken implements
-		CDOMSecondaryToken<KitTemplate>
+public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate> implements
+		CDOMSecondaryParserToken<KitTemplate>
 {
 	private static final Class<PCTemplate> TEMPLATE_CLASS = PCTemplate.class;
 
@@ -78,14 +78,16 @@ public class TemplateToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitTemplate kitTemplate,
-		String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitTemplate kitTemplate, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
@@ -119,10 +121,9 @@ public class TemplateToken extends AbstractToken implements
 					}
 					else
 					{
-						Logging.errorPrint("Did not understand "
+						return new ParseResult.Fail("Did not understand "
 							+ getTokenName() + " option: " + subStr
 							+ " in line: " + value);
-						return false;
 					}
 				}
 			}
@@ -130,7 +131,7 @@ public class TemplateToken extends AbstractToken implements
 					context.ref.getCDOMReference(TEMPLATE_CLASS, name);
 			kitTemplate.addTemplate(ref, subList);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitTemplate kitTemplate)

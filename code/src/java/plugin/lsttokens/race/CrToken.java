@@ -24,14 +24,13 @@ import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CR Token
  */
-public class CrToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryParserToken<Race>, CDOMPrimaryToken<Race>,
+public class CrToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryParserToken<Race>,
 		DeferredToken<Race>
 {
 

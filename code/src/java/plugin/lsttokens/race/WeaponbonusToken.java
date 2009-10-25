@@ -28,15 +28,15 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with WEAPONBONUS Token
  */
-public class WeaponbonusToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+public class WeaponbonusToken extends AbstractTokenWithSeparator<Race> implements
+		CDOMPrimaryParserToken<Race>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -47,13 +47,16 @@ public class WeaponbonusToken extends AbstractToken implements
 		return "WEAPONBONUS"; //$NON-NLS-1$
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Race race, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -76,9 +79,8 @@ public class WeaponbonusToken extends AbstractToken implements
 						.getTypeOrPrimitive(context, WEAPONPROF_CLASS, tokText);
 				if (ref == null)
 				{
-					Logging.errorPrint("  Error was encountered while parsing "
+					return new ParseResult.Fail("  Error was encountered while parsing "
 							+ getTokenName());
-					return false;
 				}
 				context.getListContext().addToList(getTokenName(), race,
 						WeaponProf.STARTING_LIST, ref);
@@ -86,11 +88,10 @@ public class WeaponbonusToken extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

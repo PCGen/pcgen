@@ -41,15 +41,15 @@ import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FAVCLASS Token
  */
-public class FavclassToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>, ChooseResultActor
+public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
+		CDOMPrimaryParserToken<Race>, ChooseResultActor
 {
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
@@ -60,12 +60,16 @@ public class FavclassToken extends AbstractToken implements
 		return "FAVCLASS";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Race race, String value)
+	{
 		context.getObjectContext().remove(race, ObjectKey.ANY_FAVORED_CLASS);
 		context.getObjectContext().removeList(race, ListKey.FAVORED_CLASS);
 		context.getObjectContext().removeFromList(race, ListKey.CHOOSE_ACTOR, this);
@@ -102,9 +106,10 @@ public class FavclassToken extends AbstractToken implements
 				}
 				else
 				{
-					if (hasIllegalSeparator('.', token))
+					ParseResult pr = checkForIllegalSeparator('.', value);
+					if (!pr.passed())
 					{
-						return false;
+						return pr;
 					}
 					// SubClass
 					String parent = token.substring(0, dotLoc);
@@ -119,12 +124,11 @@ public class FavclassToken extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains HIGHESTLEVELCLASS and a specific reference: "
 					+ value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

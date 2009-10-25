@@ -22,13 +22,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with BONUSSPELLSTAT Token
  */
-public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
+public class BonusspellstatToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -38,13 +39,13 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		return "BONUSSPELLSTAT";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		if (Constants.LST_NONE.equals(value))
 		{
 			context.getObjectContext().put(pcc, ObjectKey.HAS_BONUS_SPELL_STAT,
 					Boolean.FALSE);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		context.getObjectContext().put(pcc, ObjectKey.HAS_BONUS_SPELL_STAT,
 				Boolean.TRUE);
@@ -56,12 +57,11 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
-			Logging.errorPrint("Invalid Stat Abbreviation in " + getTokenName()
+			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
 					+ ": " + value);
-			return false;
 		}
 		context.getObjectContext().put(pcc, ObjectKey.BONUS_SPELL_STAT, pcs);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

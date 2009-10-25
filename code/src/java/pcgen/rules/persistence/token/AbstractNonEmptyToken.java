@@ -22,7 +22,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Does initial parsing of a token which should not be empty.
  */
-public abstract class AbstractNonEmptyToken<T> extends AbstractToken implements CDOMPrimaryParserToken<T>
+public abstract class AbstractNonEmptyToken<T> extends AbstractToken implements CDOMParserToken<T>
 {
 	/*
 	 * Temporary class while switching to new parsing paradigm.

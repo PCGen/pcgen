@@ -29,14 +29,15 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STARTFEATS Token
  */
 public class StartfeatsToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+		CDOMPrimaryParserToken<Race>
 {
 
 	@Override
@@ -48,6 +49,11 @@ public class StartfeatsToken extends AbstractToken implements
 	public boolean parse(LoadContext context, Race race, String value)
 			throws PersistenceLayerException
 	{
+		return ErrorParsingWrapper.parseToken(this, context, race, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, Race race, String value)
+	{
 		int bonusValue;
 
 		try
@@ -56,30 +62,27 @@ public class StartfeatsToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Error encountered in "
+			return new ParseResult.Fail("Error encountered in "
 					+ getTokenName()
 					+ " was expecting value to be an integer, found: " + value);
-			return false;
 		}
 
 		BonusObj bon = Bonus.newBonus("FEAT|POOL|" + bonusValue);
 		if (bon == null)
 		{
-			Logging.errorPrint("Internal Error: " + getTokenName()
+			return new ParseResult.Fail("Internal Error: " + getTokenName()
 					+ " had invalid bonus");
-			return false;
 		}
 		Prerequisite prereq = getPrerequisite("PREMULT:1,[PREHD:MIN=1],[PRELEVEL:MIN=1]");
 		if (prereq == null)
 		{
-			Logging.errorPrint("Internal Error: " + getTokenName()
+			return new ParseResult.Fail("Internal Error: " + getTokenName()
 					+ " had invalid prerequisite");
-			return false;
 		}
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(race, ListKey.BONUS, bon);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

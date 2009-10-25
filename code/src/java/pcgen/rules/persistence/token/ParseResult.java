@@ -48,6 +48,13 @@ public interface ParseResult
 	 * Object to be returned from parsing operations that succeeded with no messages.
 	 */
 	public static Pass SUCCESS = new Pass();
+	
+	/*
+	 * Temporary object for reporting errors that should be investigated further.
+	 * See plugin.lsttokens.race.FeatToken.
+	 */
+	public static Fail INTERNAL_ERROR = new Fail("Internal error.");
+	
 
 	/**
 	 * Class representing a message from the parser.
@@ -91,11 +98,11 @@ public interface ParseResult
 	 */
 	public class Fail implements ParseResult
 	{
-		private final QueuedMessage _error;
+		private final QueuedMessage error;
 
-		public Fail(String error)
+        public Fail(String error)
 		{
-			_error = new QueuedMessage(Logging.ERROR, error);
+			this.error = new QueuedMessage(Logging.LST_ERROR, error);
 		}
 
 		public boolean passed()
@@ -105,13 +112,13 @@ public interface ParseResult
 
 		public void addMessagesToLog()
 		{
-			Logging.addParseMessage(_error.level, _error.message,
-				_error.stackTrace);
+			Logging.addParseMessage(error.level, error.message,
+				error.stackTrace);
 		}
 
 		public void printMessages()
 		{
-			Logging.log(_error.level, _error.message, _error.stackTrace);
+			Logging.log(error.level, error.message, error.stackTrace);
 		}
 	}
 }

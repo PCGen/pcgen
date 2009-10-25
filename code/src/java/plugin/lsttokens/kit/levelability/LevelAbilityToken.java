@@ -33,16 +33,16 @@ import pcgen.core.PCClass;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitLevelAbility;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Level Ability token (a component of Kits)
  */
-public class LevelAbilityToken extends AbstractToken implements
-		CDOMSecondaryToken<KitLevelAbility>, DeferredToken<Kit>
+public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility> implements
+		CDOMSecondaryParserToken<KitLevelAbility>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -65,31 +65,25 @@ public class LevelAbilityToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitLevelAbility kitLA,
-			String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		KitLevelAbility kitLA, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
 		{
-			Logging.errorPrint(getTokenName() + " requires an =: " + value);
-			return false;
+			return new ParseResult.Fail(getTokenName() + " requires an =: " + value);
 		}
 		if (equalLoc != value.lastIndexOf('='))
 		{
-			Logging.errorPrint(getTokenName() + " requires a single =: "
+			return new ParseResult.Fail(getTokenName() + " requires a single =: "
 					+ value);
-			return false;
 		}
 		String className = value.substring(0, equalLoc);
 		if (className.length() == 0)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " requires a class name before =: " + value);
-			return false;
 		}
 		String level = value.substring(equalLoc + 1);
 		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
@@ -99,20 +93,18 @@ public class LevelAbilityToken extends AbstractToken implements
 			Integer lvl = Integer.valueOf(level);
 			if (lvl.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " expected an integer > 0");
-				return false;
+				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
 			}
 			kitLA.setLevel(lvl);
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			return false;
 		}
 		kitLA.setClass(cl);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitLevelAbility kitLA)

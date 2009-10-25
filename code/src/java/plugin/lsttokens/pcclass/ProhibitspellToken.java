@@ -33,16 +33,17 @@ import pcgen.core.SpellProhibitor;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * Class deals with PROHIBITSPELL Token
  */
-public class ProhibitspellToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -51,24 +52,27 @@ public class ProhibitspellToken extends AbstractToken implements
 		return "PROHIBITSPELL";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
 	{
 		SpellProhibitor sp = subParse(context, value);
 		if (sp == null)
 		{
-			return false;
+			return ParseResult.INTERNAL_ERROR;
 		}
 		context.getObjectContext().addToList(pcc, ListKey.SPELL_PROHIBITOR, sp);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public SpellProhibitor subParse(LoadContext context, String value)
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return null;
-		}
-
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		String token = tok.nextToken();

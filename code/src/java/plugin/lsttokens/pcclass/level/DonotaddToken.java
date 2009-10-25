@@ -6,15 +6,16 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DONOTADD Token
  */
-public class DonotaddToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClassLevel>
+public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> implements
+		CDOMPrimaryParserToken<PCClassLevel>
 {
 	@Override
 	public String getTokenName()
@@ -22,14 +23,16 @@ public class DonotaddToken extends AbstractToken implements
 		return "DONOTADD";
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel po, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
-		boolean foundInvalid = false;
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClassLevel po, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
@@ -44,13 +47,14 @@ public class DonotaddToken extends AbstractToken implements
 			}
 			else
 			{
-				Logging.errorPrint(getTokenName() + " encountered an invalid 'Do Not Add' type: " + value);
-				Logging.errorPrint("  Legal values are: HITDIE, SKILLPOINTS");
-				foundInvalid = true;
+				ComplexParseResult pr = new ComplexParseResult();
+				pr.addErrorMessage(getTokenName() + " encountered an invalid 'Do Not Add' type: " + value);
+				pr.addErrorMessage("  Legal values are: HITDIE, SKILLPOINTS");
+				return pr;
 			}
 		}
 
-		return !foundInvalid;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClassLevel po)

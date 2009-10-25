@@ -36,15 +36,15 @@ import pcgen.core.kit.KitTable;
 import pcgen.core.kit.KitTable.TableEntry;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * VALUES token for KitTable
  */
-public class ValuesToken extends AbstractToken implements
-		CDOMSecondaryToken<KitTable>
+public class ValuesToken extends AbstractTokenWithSeparator<KitTable> implements
+		CDOMSecondaryParserToken<KitTable>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -67,14 +67,16 @@ public class ValuesToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitTable kitTable, String value)
-			throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitTable kitTable, String value)
+	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
@@ -89,33 +91,37 @@ public class ValuesToken extends AbstractToken implements
 				int colonLoc = s.indexOf(':');
 				if (colonLoc == -1)
 				{
-					Logging.errorPrint("Expected colon in Value item: " + s
+					return new ParseResult.Fail("Expected colon in Value item: " + s
 							+ " within: " + value);
-					return false;
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
-				if (!context.processSubToken(optionInfo, getParentToken(), key,
-						thingValue))
+				try
 				{
-					return false;
+					if (!context.processSubToken(optionInfo, getParentToken(), key,
+							thingValue))
+					{
+						return ParseResult.INTERNAL_ERROR;
+					}
+				}
+				catch (PersistenceLayerException e)
+				{
+					return new ParseResult.Fail(e.getMessage());
 				}
 			}
 			if (!st.hasMoreTokens())
 			{
-				Logging.errorPrint("Odd token count in Value: " + value);
-				return false;
+				return new ParseResult.Fail("Odd token count in Value: " + value);
 			}
 			String range = st.nextToken();
 			if (!processRange(kitTable, optionInfo, range))
 			{
-				Logging.errorPrint("Invalid Range in Value: " + range
+				return new ParseResult.Fail("Invalid Range in Value: " + range
 						+ " within " + value);
-				return false;
 			}
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	private boolean processRange(KitTable kitTable, KitGear optionInfo,

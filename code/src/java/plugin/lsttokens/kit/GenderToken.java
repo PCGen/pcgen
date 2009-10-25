@@ -33,14 +33,15 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.kit.KitBio;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * GENDER token for Kits
  */
-public class GenderToken extends AbstractToken implements
-		CDOMSecondaryToken<KitBio>
+public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
+		CDOMSecondaryParserToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -63,18 +64,22 @@ public class GenderToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitBio kitGender, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitBio kitGender, String value)
+	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
 			kitGender.addGender(Gender.valueOf(st.nextToken()));
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitBio kitGender)

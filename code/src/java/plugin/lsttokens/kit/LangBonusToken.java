@@ -31,8 +31,9 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Language;
 import pcgen.core.kit.KitLangBonus;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * The Class <code>LangBonusToken</code> handles the LANGBONUS kit tag.
@@ -43,8 +44,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class LangBonusToken extends AbstractToken implements
-		CDOMSecondaryToken<KitLangBonus>
+public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus> implements
+		CDOMSecondaryParserToken<KitLangBonus>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -70,14 +71,16 @@ public class LangBonusToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitLangBonus kitLangBonus,
-		String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitLangBonus kitLangBonus, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
@@ -85,7 +88,7 @@ public class LangBonusToken extends AbstractToken implements
 			kitLangBonus.addLanguage(context.ref.getCDOMReference(
 				LANGUAGE_CLASS, tok.nextToken()));
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)

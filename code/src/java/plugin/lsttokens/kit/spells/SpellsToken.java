@@ -44,15 +44,16 @@ import pcgen.core.kit.KitSpells;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SPELLS token for KitSpells
  */
-public class SpellsToken extends AbstractToken implements
-		CDOMSecondaryToken<KitSpells>
+public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
+		CDOMSecondaryParserToken<KitSpells>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -78,13 +79,11 @@ public class SpellsToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitSpells kitSpell, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitSpells kitSpell, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
+		ComplexParseResult pr = new ComplexParseResult();
 		while (aTok.hasMoreTokens())
 		{
 			String field = aTok.nextToken();
@@ -92,16 +91,14 @@ public class SpellsToken extends AbstractToken implements
 			{
 				if (kitSpell.getSpellBook() != null)
 				{
-					Logging.errorPrint("Cannot reset SPELLBOOK in SPELLS: "
+					return new ParseResult.Fail("Cannot reset SPELLBOOK in SPELLS: "
 							+ value);
-					return false;
 				}
 				String spellBook = field.substring(10);
 				if (spellBook.length() == 0)
 				{
-					Logging.errorPrint("Cannot set SPELLBOOK "
+					return new ParseResult.Fail("Cannot set SPELLBOOK "
 							+ "to empty value in SPELLS: " + value);
-					return false;
 				}
 				kitSpell.setSpellBook(spellBook);
 			}
@@ -109,21 +106,18 @@ public class SpellsToken extends AbstractToken implements
 			{
 				if (kitSpell.getCastingClass() != null)
 				{
-					Logging.errorPrint("Cannot reset CLASS" + " in SPELLS: "
+					return new ParseResult.Fail("Cannot reset CLASS" + " in SPELLS: "
 							+ value);
-					return false;
 				}
 				String className = field.substring(6);
 				if (className.length() == 0)
 				{
-					Logging.errorPrint("Cannot set CLASS "
+					return new ParseResult.Fail("Cannot set CLASS "
 							+ "to empty value in SPELLS: " + value);
-					return false;
 				}
 				else if (className.equalsIgnoreCase("Default"))
 				{
-					Logging
-							.deprecationPrint("Use of Default for CLASS= in KIT "
+					pr.addWarningMessage("Use of Default for CLASS= in KIT "
 									+ "SPELLS line is unnecessary: Ignoring");
 				}
 				else
@@ -145,17 +139,15 @@ public class SpellsToken extends AbstractToken implements
 					}
 					catch (NumberFormatException e)
 					{
-						Logging.errorPrint("Expected an Integer COUNT,"
+						return new ParseResult.Fail("Expected an Integer COUNT,"
 								+ " but found: " + countStr + " in " + value);
-						return false;
 					}
 					field = field.substring(0, equalLoc);
 				}
 				if (field.length() == 0)
 				{
-					Logging.errorPrint("Expected an Spell in SPELLS"
+					return new ParseResult.Fail("Expected an Spell in SPELLS"
 							+ " but found: " + value);
-					return false;
 				}
 				StringTokenizer subTok = new StringTokenizer(field, "[]");
 				String filterString = subTok.nextToken();
@@ -167,9 +159,8 @@ public class SpellsToken extends AbstractToken implements
 						filterString);
 				if (sp == null)
 				{
-					Logging.errorPrint("  encountered Invalid limit in "
+					return new ParseResult.Fail("  encountered Invalid limit in "
 							+ getTokenName() + ": " + value);
-					return false;
 				}
 
 				KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);
@@ -189,7 +180,7 @@ public class SpellsToken extends AbstractToken implements
 		{
 			kitSpell.setSpellBook(Globals.getDefaultSpellBook());
 		}
-		return true;
+		return pr;
 	}
 
 	public String[] unparse(LoadContext context, KitSpells kitSpell)

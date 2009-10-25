@@ -30,14 +30,15 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * CLASS token for KitClass
  */
-public class ClassToken extends AbstractToken implements
-		CDOMSecondaryToken<KitClass>
+public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
+		CDOMSecondaryParserToken<KitClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -63,16 +64,14 @@ public class ClassToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitClass kitClass, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		CDOMSingleRef<PCClass> ref =
 				context.ref.getCDOMReference(PCCLASS_CLASS, value);
 		kitClass.setPcclass(ref);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitClass kitClass)

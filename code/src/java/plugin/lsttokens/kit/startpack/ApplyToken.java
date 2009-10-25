@@ -29,14 +29,14 @@ import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with APPLY lst token within KitStartpack
  */
-public class ApplyToken extends AbstractToken implements CDOMPrimaryToken<Kit>
+public class ApplyToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -54,23 +54,20 @@ public class ApplyToken extends AbstractToken implements CDOMPrimaryToken<Kit>
 		return Kit.class;
 	}
 
-	public boolean parse(LoadContext context, Kit kit, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			KitApply ka = KitApply.valueOf(value);
 			kit.put(ObjectKey.APPLY_MODE, ka);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " encountered unexpected application type: " + value);
-			return false;
 		}
 	}
 

@@ -40,15 +40,15 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * FEAT Token for KitAbilities
  */
-public class FeatToken extends AbstractToken implements
-		CDOMSecondaryToken<KitAbilities>
+public class FeatToken extends AbstractTokenWithSeparator<KitAbilities> implements
+		CDOMSecondaryParserToken<KitAbilities>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -73,13 +73,16 @@ public class FeatToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitAbilities kitAbil, String value)
+	{
 		StringTokenizer st = new StringTokenizer(value, "|");
 
 		kitAbil.setCategory(AbilityCategory.FEAT);
@@ -93,16 +96,15 @@ public class FeatToken extends AbstractToken implements
 
 			if (token.startsWith("CATEGORY="))
 			{
-				Logging.errorPrint(
+				return new ParseResult.Fail(
 					"Attempting to change the Category of a Feat to '" + token
-						+ "'", new Throwable());
-				return false;
+						+ "'");
 			}
 			CDOMReference<Ability> ref =
 					TokenUtilities.getTypeOrPrimitive(rm, token);
 			if (ref == null)
 			{
-				return false;
+				return ParseResult.INTERNAL_ERROR;
 			}
 			List<String> choices = null;
 			if (token.indexOf('(') != -1)
@@ -112,7 +114,7 @@ public class FeatToken extends AbstractToken implements
 			}
 			kitAbil.addAbility(ref, choices);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitAbilities KitAbilities)

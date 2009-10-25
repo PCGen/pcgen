@@ -29,14 +29,16 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitSpells;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * COUNT Token for KitSpells
  */
-public class CountToken extends AbstractToken implements
-		CDOMSecondaryToken<KitSpells>
+public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
+		CDOMSecondaryParserToken<KitSpells>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -59,14 +61,11 @@ public class CountToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitSpells kitSpells, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitSpells kitSpells, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		kitSpells.setCount(FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitSpells kitSpells)

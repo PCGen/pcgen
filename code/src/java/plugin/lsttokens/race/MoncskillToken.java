@@ -45,15 +45,15 @@ import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MONCSKILL Token
  */
-public class MoncskillToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>, ChooseResultActor
+public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
+		CDOMPrimaryParserToken<Race>, ChooseResultActor
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
@@ -64,13 +64,16 @@ public class MoncskillToken extends AbstractToken implements
 		return "MONCSKILL";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race race,
+		String value)
+	{
 		boolean firstToken = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -84,10 +87,9 @@ public class MoncskillToken extends AbstractToken implements
 			{
 				if (!firstToken)
 				{
-					Logging.errorPrint("Non-sensical situation was "
+					return new ParseResult.Fail("Non-sensical situation was "
 							+ "encountered while parsing " + getTokenName()
 							+ ": When used, .CLEAR must be the first argument");
-					return false;
 				}
 				context.getListContext().removeAllFromList(getTokenName(),
 						race, PCClass.MONSTER_SKILL_LIST);
@@ -112,10 +114,8 @@ public class MoncskillToken extends AbstractToken implements
 						skill = getSkillReference(context, clearText);
 						if (skill == null)
 						{
-							Logging
-									.errorPrint("  Error was encountered while parsing "
+							return new ParseResult.Fail("  Error was encountered while parsing "
 											+ getTokenName());
-							return false;
 						}
 					}
 				}
@@ -154,10 +154,8 @@ public class MoncskillToken extends AbstractToken implements
 						skill = getSkillReference(context, tokText);
 						if (skill == null)
 						{
-							Logging
-									.errorPrint("  Error was encountered while parsing "
+							return new ParseResult.Fail("  Error was encountered while parsing "
 											+ getTokenName());
-							return false;
 						}
 					}
 				}
@@ -174,11 +172,10 @@ public class MoncskillToken extends AbstractToken implements
 		}
 		if (foundAny && foundOther)
 		{
-			Logging.errorPrint("Non-sensical " + getTokenName()
+			return new ParseResult.Fail("Non-sensical " + getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	private CDOMReference<Skill> getSkillReference(LoadContext context,

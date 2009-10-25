@@ -28,14 +28,15 @@ package plugin.lsttokens.kit.ability;
 import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * COUNT Token for KitAbilities
  */
 public class CountToken extends AbstractToken implements
-		CDOMSecondaryToken<KitAbilities>
+		CDOMSecondaryParserToken<KitAbilities>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -60,25 +61,28 @@ public class CountToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
 	{
+		return ErrorParsingWrapper.parseToken(this, context, kitAbil, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, KitAbilities kitAbil,
+		String value)
+	{
 		try
 		{
 			Integer quan = Integer.valueOf(value);
 			if (quan.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " expected an integer > 0");
-				return false;
+				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
 			}
 			kitAbil.setCount(quan);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " expected an integer.  Tag must be of the form: "
 				+ getTokenName() + ":<int>");
-			return false;
 		}
-
 	}
 
 	public String[] unparse(LoadContext context, KitAbilities kitAbil)

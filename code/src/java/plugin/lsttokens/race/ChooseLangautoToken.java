@@ -40,13 +40,12 @@ import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryParserToken<Race>, CDOMSecondaryToken<Race>, PersistentChoiceActor<Language>,
+		CDOMSecondaryParserToken<Race>, PersistentChoiceActor<Language>,
 		DeferredToken<Race>
 {
 
@@ -68,7 +67,13 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 		return "LANGAUTO";
 	}
 
-	@Override
+    @Override
+    protected char separator()
+    {
+        return '|';
+    }
+
+    @Override
 	public ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
 		List<CDOMReference<Language>> refs =

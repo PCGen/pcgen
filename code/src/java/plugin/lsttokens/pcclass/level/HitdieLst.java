@@ -31,15 +31,17 @@ import pcgen.cdom.modifier.HitDieLock;
 import pcgen.cdom.modifier.HitDieStep;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  * 
  */
 public class HitdieLst extends AbstractToken implements
-		CDOMPrimaryToken<PCClassLevel>
+		CDOMPrimaryParserToken<PCClassLevel>
 {
 
 	@Override
@@ -50,15 +52,19 @@ public class HitdieLst extends AbstractToken implements
 
 	public boolean parse(LoadContext context, PCClassLevel level, String value)
 	{
+		return ErrorParsingWrapper.parseToken(this, context, level, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, PCClassLevel level, String value)
+	{
 		try
 		{
 			String lock = value;
 			int pipeLoc = lock.indexOf(Constants.PIPE);
 			if (pipeLoc != -1)
 			{
-				Logging.errorPrint(getTokenName() + " is invalid has a pipe: "
+				return new ParseResult.Fail(getTokenName() + " is invalid has a pipe: "
 						+ value);
-				return false;
 			}
 			Modifier<HitDie> hdm;
 			if (lock.startsWith("%/"))
@@ -67,10 +73,9 @@ public class HitdieLst extends AbstractToken implements
 				int denom = Integer.parseInt(lock.substring(2));
 				if (denom <= 0)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive Integer "
 							+ "for dividing Lock, was : " + lock.substring(2));
-					return false;
 				}
 				hdm = new HitDieFormula(new DividingFormula(denom));
 			}
@@ -80,11 +85,10 @@ public class HitdieLst extends AbstractToken implements
 				int mult = Integer.parseInt(lock.substring(2));
 				if (mult <= 0)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for multiplying Lock, was : "
 							+ lock.substring(2));
-					return false;
 				}
 				hdm = new HitDieFormula(new MultiplyingFormula(mult));
 			}
@@ -95,11 +99,10 @@ public class HitdieLst extends AbstractToken implements
 				int add = Integer.parseInt(lock.substring(2));
 				if (add <= 0)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for adding Lock, was : "
 							+ lock.substring(2));
-					return false;
 				}
 				hdm = new HitDieFormula(new AddingFormula(add));
 			}
@@ -111,11 +114,10 @@ public class HitdieLst extends AbstractToken implements
 				int sub = Integer.parseInt(lock.substring(2));
 				if (sub <= 0)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for subtracting Lock, was : "
 							+ lock.substring(2));
-					return false;
 				}
 				hdm = new HitDieFormula(new SubtractingFormula(sub));
 			}
@@ -127,15 +129,13 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(3));
 				if (steps <= 0)
 				{
-					Logging.errorPrint("Invalid Step Count: " + steps + " in "
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
 							+ getTokenName() + " up (must be positive)");
-					return false;
 				}
 				if (steps >= 5)
 				{
-					Logging.errorPrint("Invalid Step Count: " + steps + " in "
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
 							+ getTokenName() + " up (too large)");
-					return false;
 				}
 
 				hdm = new HitDieStep(steps, new HitDie(12));
@@ -148,9 +148,8 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(4));
 				if (steps <= 0)
 				{
-					Logging.errorPrint("Invalid Step Count: " + steps + " in "
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
 							+ getTokenName());
-					return false;
 				}
 				hdm = new HitDieStep(steps, null);
 			}
@@ -163,15 +162,13 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(5));
 				if (steps <= 0)
 				{
-					Logging.errorPrint("Invalid Step Count: " + steps + " in "
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
 							+ getTokenName() + " down (must be positive)");
-					return false;
 				}
 				if (steps >= 5)
 				{
-					Logging.errorPrint("Invalid Step Count: " + steps + " in "
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
 							+ getTokenName() + " down (too large)");
-					return false;
 				}
 
 				hdm = new HitDieStep(-steps, new HitDie(4));
@@ -184,9 +181,8 @@ public class HitdieLst extends AbstractToken implements
 				int steps = Integer.parseInt(lock.substring(6));
 				if (steps <= 0)
 				{
-					Logging.errorPrint("Invalid Step Count: " + steps + " in "
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
 							+ getTokenName());
-					return false;
 				}
 				hdm = new HitDieStep(-steps, null);
 			}
@@ -195,23 +191,23 @@ public class HitdieLst extends AbstractToken implements
 				int i = Integer.parseInt(lock);
 				if (i <= 0)
 				{
-					Logging.errorPrint("Invalid HitDie: " + i + " in "
+					return new ParseResult.Fail("Invalid HitDie: " + i + " in "
 							+ getTokenName());
-					return false;
 				}
 				// HITDIE:num --- sets the hit die to num regardless of class.
 				hdm = new HitDieLock(new HitDie(i));
 			}
 
 			context.getObjectContext().put(level, ObjectKey.HITDIE, hdm);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Invalid Number in " + getTokenName() + ": "
+			ComplexParseResult pr = new ComplexParseResult();
+			pr.addErrorMessage("Invalid Number in " + getTokenName() + ": "
 					+ nfe.getLocalizedMessage());
-			Logging.errorPrint("  Must be an Integer");
-			return false;
+			pr.addErrorMessage("  Must be an Integer");
+			return pr;
 		}
 	}
 

@@ -27,15 +27,15 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CAST Token
  */
-public class CastToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClassLevel>
+public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implements
+		CDOMPrimaryParserToken<PCClassLevel>
 {
 
 	@Override
@@ -44,12 +44,16 @@ public class CastToken extends AbstractToken implements
 		return "CAST";
 	}
 
-	public boolean parse(LoadContext context, PCClassLevel level, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator(',', value))
-		{
-			return false;
-		}
+		return ',';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClassLevel level, String value)
+	{
 		context.obj.removeList(level, ListKey.CAST);
 
 		StringTokenizer st = new StringTokenizer(value, Constants.COMMA);
@@ -60,9 +64,8 @@ public class CastToken extends AbstractToken implements
 			{
 				if (Integer.parseInt(tok) < 0)
 				{
-					Logging.errorPrint("Invalid Spell Count: " + tok
+					return new ParseResult.Fail("Invalid Spell Count: " + tok
 							+ " is less than zero");
-					return false;
 				}
 			}
 			catch (NumberFormatException e)
@@ -72,7 +75,7 @@ public class CastToken extends AbstractToken implements
 			context.obj.addToList(level, ListKey.CAST, FormulaFactory
 					.getFormulaFor(tok));
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClassLevel level)

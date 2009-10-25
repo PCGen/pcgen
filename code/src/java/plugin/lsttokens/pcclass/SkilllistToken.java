@@ -32,15 +32,15 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SKILLLIST Token
  */
-public class SkilllistToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class SkilllistToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 	private static Class<ClassSkillList> SKILLLIST_CLASS = ClassSkillList.class;
 
@@ -50,25 +50,27 @@ public class SkilllistToken extends AbstractToken implements
 		return "SKILLLIST";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
 		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
 		{
-			Logging.errorPrint("Count in " + getTokenName() + " must be > 0");
-			return false;
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");
 		}
 		if (!tok.hasMoreTokens())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " must have a | separating "
 					+ "count from the list of possible values: " + value);
-			return false;
 		}
 		List<CDOMReference<ClassSkillList>> refs = new ArrayList<CDOMReference<ClassSkillList>>();
 
@@ -91,10 +93,9 @@ public class SkilllistToken extends AbstractToken implements
 				refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Non-sensical "
+			return new ParseResult.Fail("Non-sensical "
 					+ getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(
 				getTokenName(), rcs);
@@ -103,7 +104,7 @@ public class SkilllistToken extends AbstractToken implements
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SKILLLIST_CHOICE, tc);
 		tc.setRequired(false);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

@@ -3,14 +3,14 @@ package plugin.lsttokens.statsandchecks.alignment;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with VALIDFORDEITY Token
  */
-public class ValidfordeityToken extends AbstractToken implements
+public class ValidfordeityToken extends AbstractNonEmptyToken<PCAlignment> implements
 		CDOMPrimaryToken<PCAlignment>
 {
 
@@ -20,21 +20,18 @@ public class ValidfordeityToken extends AbstractToken implements
 		return "VALIDFORDEITY";
 	}
 
-	public boolean parse(LoadContext context, PCAlignment al, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCAlignment al, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' as the "
+				return new ParseResult.Fail("You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.TRUE;
 		}
@@ -42,20 +39,18 @@ public class ValidfordeityToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.FALSE;
 		}
 		context.getObjectContext().put(al, ObjectKey.VALID_FOR_DEITY, set);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCAlignment al)

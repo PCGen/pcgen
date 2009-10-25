@@ -29,14 +29,15 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * LevelToken (a component of Kits)
  */
-public class LevelToken extends AbstractToken implements
-		CDOMSecondaryToken<KitClass>
+public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
+		CDOMSecondaryParserToken<KitClass>
 {
 
 	/**
@@ -60,14 +61,12 @@ public class LevelToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitClass kitClass, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		kitClass.setLevel(FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitClass kitClass)

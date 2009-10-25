@@ -28,16 +28,16 @@ package plugin.lsttokens.kit.startpack;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
  * VISIBLE token for KitsStartpack
  */
-public class VisibleToken extends AbstractToken implements
-		CDOMPrimaryToken<Kit>
+public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
+		CDOMPrimaryParserToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -55,12 +55,10 @@ public class VisibleToken extends AbstractToken implements
 		return Kit.class;
 	}
 
-	public boolean parse(LoadContext context, Kit kit, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Visibility vis;
 		if (value.equals("QUALIFY"))
 		{
@@ -76,11 +74,10 @@ public class VisibleToken extends AbstractToken implements
 		}
 		else
 		{
-			Logging.errorPrint("Can't understand Visibility: " + value);
-			return false;
+			return new ParseResult.Fail("Can't understand Visibility: " + value);
 		}
 		kit.put(ObjectKey.VISIBILITY, vis);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Kit kit)

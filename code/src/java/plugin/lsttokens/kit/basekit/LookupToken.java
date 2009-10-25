@@ -35,13 +35,15 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * LOOKUP token for base kits
  */
 public class LookupToken extends AbstractToken implements
-		CDOMSecondaryToken<KitGear>
+		CDOMSecondaryParserToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -66,19 +68,24 @@ public class LookupToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitGear kitGear, String value)
 	{
+		return ErrorParsingWrapper.parseToken(this, context, kitGear, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
+	{
 		int commaLoc = value.indexOf(',');
 		if (commaLoc == -1)
 		{
-			return false;
+			return new ParseResult.Fail("Token must contain separator ','");
 		}
 		if (commaLoc != value.lastIndexOf(','))
 		{
-			return false;
+			return new ParseResult.Fail("Token cannot have more than one separator ','");
 		}
 		String tableEntry = value.substring(0, commaLoc);
 		Formula f = FormulaFactory.getFormulaFor(value.substring(commaLoc + 1));
 		kitGear.loadLookup(tableEntry, f);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitGear kitGear)

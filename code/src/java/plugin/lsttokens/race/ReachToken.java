@@ -20,13 +20,14 @@ package plugin.lsttokens.race;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with REACH Token
  */
-public class ReachToken implements CDOMPrimaryToken<Race>
+public class ReachToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
 {
 
 	public String getTokenName()
@@ -34,23 +35,21 @@ public class ReachToken implements CDOMPrimaryToken<Race>
 		return "REACH";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	public ParseResult parseToken(LoadContext context, Race race, String value)
 	{
 		try
 		{
 			Integer i = Integer.valueOf(value);
 			if (i.intValue() < 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer >= 0");
-				return false;
+				return new ParseResult.Fail(getTokenName() + " must be an integer >= 0");
 			}
 			context.getObjectContext().put(race, IntegerKey.REACH, i);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Expected an Integer in Tag: " + value);
-			return false;
+			return new ParseResult.Fail("Expected an Integer in Tag: " + value);
 		}
 	}
 

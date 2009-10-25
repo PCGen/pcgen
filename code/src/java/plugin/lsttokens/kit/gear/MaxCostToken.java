@@ -28,14 +28,15 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * MAXCOST token for KIT Gear
  */
 public class MaxCostToken extends AbstractToken implements
-		CDOMSecondaryToken<KitGear>
+		CDOMSecondaryParserToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -60,25 +61,27 @@ public class MaxCostToken extends AbstractToken implements
 
 	public boolean parse(LoadContext context, KitGear kitGear, String value)
 	{
+		return ErrorParsingWrapper.parseToken(this, context, kitGear, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
+	{
 		try
 		{
 			Integer quan = Integer.valueOf(value);
 			if (quan.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " expected an integer > 0");
-				return false;
+				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
 			}
 			kitGear.setMaxCost(quan);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " expected an integer.  Tag must be of the form: "
 				+ getTokenName() + ":<int>");
-			return false;
 		}
-
 	}
 
 	public String[] unparse(LoadContext context, KitGear kitGear)

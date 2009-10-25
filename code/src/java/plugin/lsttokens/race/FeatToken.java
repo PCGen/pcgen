@@ -37,15 +37,15 @@ import pcgen.core.Race;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FEAT Token
  */
-public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>,
+public class FeatToken extends AbstractTokenWithSeparator<Race> implements CDOMPrimaryParserToken<Race>,
 		DeferredToken<Race>
 {
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -56,12 +56,16 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>,
 		return "FEAT";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Race race, String value)
+	{
 		context.getObjectContext().removeList(race, ListKey.FEAT_TOKEN_LIST);
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -78,9 +82,8 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>,
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getTokenName()
+					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
-					return false;
 				}
 			}
 			else
@@ -88,14 +91,14 @@ public class FeatToken extends AbstractToken implements CDOMPrimaryToken<Race>,
 				CDOMReference<Ability> ability = TokenUtilities.getTypeOrPrimitive(rm, token);
 				if (ability == null)
 				{
-					return false;
+					return ParseResult.INTERNAL_ERROR;
 				}
 				context.getObjectContext().addToList(race,
 						ListKey.FEAT_TOKEN_LIST, ability);
 			}
 			first = false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

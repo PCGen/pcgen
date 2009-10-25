@@ -29,15 +29,15 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.Race;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with RACESUBTYPE Token
  */
-public class RacesubtypeToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+public class RacesubtypeToken extends AbstractTokenWithSeparator<Race> implements
+		CDOMPrimaryParserToken<Race>
 {
 
 	@Override
@@ -46,13 +46,16 @@ public class RacesubtypeToken extends AbstractToken implements
 		return "RACESUBTYPE";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Race race, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		boolean first = true;
 
@@ -63,9 +66,8 @@ public class RacesubtypeToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.errorPrint("  Non-sensical " + getTokenName()
+					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value);
-					return false;
 				}
 				context.obj.removeList(race, ListKey.RACESUBTYPE);
 			}
@@ -83,7 +85,7 @@ public class RacesubtypeToken extends AbstractToken implements
 			}
 			first = false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

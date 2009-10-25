@@ -2,14 +2,15 @@ package plugin.lsttokens.statsandchecks.alignment;
 
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ALIGNMENTNAME Token
  */
-public class AlignmentnameToken extends AbstractToken implements
-		CDOMPrimaryToken<PCAlignment>
+public class AlignmentnameToken extends AbstractNonEmptyToken<PCAlignment> implements
+		CDOMPrimaryParserToken<PCAlignment>
 {
 
 	@Override
@@ -18,18 +19,16 @@ public class AlignmentnameToken extends AbstractToken implements
 		return "ALIGNMENTNAME";
 	}
 
-	public boolean parse(LoadContext context, PCAlignment align, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		PCAlignment align, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		/*
 		 * Warning: setName is not editor friendly, and this is a gate to
 		 * additional alignments being added in Campaigns (vs. Game Modes)
 		 */
 		align.setName(value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCAlignment align)

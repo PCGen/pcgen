@@ -2,14 +2,14 @@ package plugin.lsttokens.statsandchecks.stat;
 
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ABB Token for pc stat
  */
-public class AbbToken extends AbstractToken implements CDOMPrimaryToken<PCStat>
+public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryParserToken<PCStat>
 {
 
 	/**
@@ -23,15 +23,12 @@ public class AbbToken extends AbstractToken implements CDOMPrimaryToken<PCStat>
 		return "ABB";
 	}
 
-	public boolean parse(LoadContext context, PCStat stat, String value)
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context, PCStat stat, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if (value.length() != 3)
 		{
-			Logging.errorPrint("Stat " + stat.getDisplayName() + " found with "
+			return new ParseResult.Fail("Stat " + stat.getDisplayName() + " found with "
 					+ getTokenName() + ":" + value
 					+ " should be 3 characters long!");
 		}
@@ -40,7 +37,7 @@ public class AbbToken extends AbstractToken implements CDOMPrimaryToken<PCStat>
 		 * gate to additional stats being added in Campaigns (vs. Game Modes)
 		 */
 		context.ref.registerAbbreviation(stat, value.toUpperCase());
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCStat stat)

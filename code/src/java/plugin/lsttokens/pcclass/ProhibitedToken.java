@@ -29,15 +29,16 @@ import pcgen.core.PCClass;
 import pcgen.core.SpellProhibitor;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
  * Class deals with PROHIBITED Token
  */
-public class ProhibitedToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -46,12 +47,16 @@ public class ProhibitedToken extends AbstractToken implements
 		return "PROHIBITED";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator(',', value))
-		{
-			return false;
-		}
+		return ',';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		StringTokenizer elements = new StringTokenizer(value, Constants.COMMA);
 		while (elements.hasMoreTokens())
 		{
@@ -70,7 +75,7 @@ public class ProhibitedToken extends AbstractToken implements
 					ListKey.PROHIBITED_SPELLS, prohibSubSchool);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

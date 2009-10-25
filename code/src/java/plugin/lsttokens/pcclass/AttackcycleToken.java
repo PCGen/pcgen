@@ -28,16 +28,16 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.AttackType;
 
 /**
  * Class deals with ATTACKCYCLE Token
  */
-public class AttackcycleToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -46,19 +46,21 @@ public class AttackcycleToken extends AbstractToken implements
 		return "ATTACKCYCLE";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		if (aTok.countTokens() % 2 != 0)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " must have an even number of arguments.");
-			return false;
 		}
 
 		while (aTok.hasMoreTokens())
@@ -66,9 +68,8 @@ public class AttackcycleToken extends AbstractToken implements
 			AttackType at = AttackType.getInstance(aTok.nextToken());
 			if (AttackType.GRAPPLE.equals(at))
 			{
-				Logging.errorPrint("Error: Cannot Set Attack Cycle "
+				return new ParseResult.Fail("Error: Cannot Set Attack Cycle "
 						+ "for GRAPPLE Attack Type");
-				return false;
 			}
 			String cycle = aTok.nextToken();
 			try
@@ -76,9 +77,8 @@ public class AttackcycleToken extends AbstractToken implements
 				Integer i = Integer.parseInt(cycle);
 				if (i <= 0)
 				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": " + value
+					return new ParseResult.Fail("Invalid " + getTokenName() + ": " + value
 							+ " Cycle " + cycle + " must be a positive integer.");
-					return false;
 				}
 				context.getObjectContext().put(pcc, MapKey.ATTACK_CYCLE, at, i);
 				/*
@@ -101,12 +101,11 @@ public class AttackcycleToken extends AbstractToken implements
 			}
 			catch (NumberFormatException e)
 			{
-				Logging.errorPrint("Invalid " + getTokenName() + ": " + value
+				return new ParseResult.Fail("Invalid " + getTokenName() + ": " + value
 						+ " Cycle " + cycle + " must be a (positive) integer.");
-				return false;
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

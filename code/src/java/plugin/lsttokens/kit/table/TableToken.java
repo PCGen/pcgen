@@ -30,16 +30,17 @@ import pcgen.core.Kit;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitTable;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * TABLE token for KitTable
  */
-public class TableToken extends AbstractToken implements
-		CDOMSecondaryToken<KitTable>, DeferredToken<Kit>
+public class TableToken extends AbstractNonEmptyToken<KitTable> implements
+		CDOMSecondaryParserToken<KitTable>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -62,14 +63,12 @@ public class TableToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitTable kitTable, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		kitTable.setTableName(value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitTable kitTable)

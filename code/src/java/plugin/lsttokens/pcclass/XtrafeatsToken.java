@@ -20,13 +20,15 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Class deals with XTRAFEATS Token
  */
-public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
+public class XtrafeatsToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
 {
 
 	/**
@@ -39,7 +41,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 		return "XTRAFEATS";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		int featCount;
 		try
@@ -52,18 +54,16 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 			}
 			else if (featCount <= 0)
 			{
-				Logging.errorPrint("Number in " + getTokenName()
+				return new ParseResult.Fail("Number in " + getTokenName()
 						+ " must be greater than zero: " + value);
-				return false;
 			}
 			context.obj.put(pcc, IntegerKey.START_FEATS, featCount);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Invalid Number in " + getTokenName() + ": "
+			return new ParseResult.Fail("Invalid Number in " + getTokenName() + ": "
 					+ value);
-			return false;
 		}
 	}
 

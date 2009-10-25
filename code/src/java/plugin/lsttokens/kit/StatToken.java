@@ -36,18 +36,18 @@ import pcgen.core.PCStat;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * This class handles the STAT tag for Kits.<br>
  * The tag format is:<br>
  * <code>STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18</code>
  */
-public class StatToken extends AbstractToken implements
-		CDOMSecondaryToken<KitStat>, DeferredToken<Kit>
+public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
+		CDOMSecondaryParserToken<KitStat>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -70,12 +70,16 @@ public class StatToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitStat kitStat, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitStat kitStat, String value)
+	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
@@ -83,35 +87,31 @@ public class StatToken extends AbstractToken implements
 			int equalLoc = token.indexOf('=');
 			if (equalLoc == -1)
 			{
-				Logging.errorPrint("Illegal " + getTokenName()
+				return new ParseResult.Fail("Illegal " + getTokenName()
 						+ " did not have Stat=X format: " + value);
-				return false;
 			}
 			if (equalLoc != token.lastIndexOf('='))
 			{
-				Logging.errorPrint("Illegal " + getTokenName()
+				return new ParseResult.Fail("Illegal " + getTokenName()
 						+ " had two equal signs, is not Stat=X format: "
 						+ value);
-				return false;
 			}
 			String statName = token.substring(0, equalLoc);
 			PCStat stat = context.ref.getAbbreviatedObject(PCStat.class,
 					statName);
 			if (stat == null)
 			{
-				Logging.errorPrint("Unable to find STAT: " + statName);
-				return false;
+				return new ParseResult.Fail("Unable to find STAT: " + statName);
 			}
 			String formula = token.substring(equalLoc + 1);
 			if (formula.length() == 0)
 			{
-				Logging.errorPrint("Unable to find STAT value: " + value);
-				return false;
+				return new ParseResult.Fail("Unable to find STAT value: " + value);
 			}
 			Formula statValue = FormulaFactory.getFormulaFor(formula);
 			kitStat.addStat(stat, statValue);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitStat kitStat)

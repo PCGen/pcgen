@@ -29,15 +29,15 @@ import java.math.BigDecimal;
 
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * RANK token
  */
-public class RankToken extends AbstractToken implements
-		CDOMSecondaryToken<KitSkill>
+public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
+		CDOMSecondaryParserToken<KitSkill>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -60,28 +60,24 @@ public class RankToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitSkill kitSkill, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		try
 		{
 			BigDecimal rank = new BigDecimal(value);
 			if (rank.compareTo(BigDecimal.ZERO) < 0)
 			{
-				Logging.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 					+ " must be a positive number: " + value);
-				return false;
 			}
 			kitSkill.setRank(rank);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrint(getTokenName() + " expected a number: " + value);
-			return false;
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
 		}
 	}
 

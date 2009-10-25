@@ -28,15 +28,15 @@ package plugin.lsttokens.kit.gear;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SIZE token for KitGear
  */
-public class SizeToken extends AbstractToken implements
-		CDOMSecondaryToken<KitGear>
+public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
+		CDOMSecondaryParserToken<KitGear>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -59,12 +59,10 @@ public class SizeToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitGear kitGear, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		if ("PC".equals(value))
 		{
 			kitGear.setSizeToPC(true);
@@ -75,13 +73,12 @@ public class SizeToken extends AbstractToken implements
 					SizeAdjustment.class, value);
 			if (size == null)
 			{
-				Logging.errorPrint(getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " found invalid Size abbreviation: " + value);
-				return false;
 			}
 			kitGear.setSize(size);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitGear kitGear)

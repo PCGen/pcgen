@@ -33,16 +33,16 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.WeaponProf;
 import pcgen.core.kit.KitProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * PROF Token part of Kit Prof Lst Token
  */
-public class ProfToken extends AbstractToken implements
-		CDOMSecondaryToken<KitProf>
+public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
+		CDOMSecondaryParserToken<KitProf>
 {
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
@@ -67,14 +67,16 @@ public class ProfToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitProf obj, String value)
-		throws PersistenceLayerException
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitProf obj, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
@@ -83,7 +85,7 @@ public class ProfToken extends AbstractToken implements
 					context.ref.getCDOMReference(WEAPONPROF_CLASS, tokText);
 			obj.addProficiency(ref);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitProf obj)

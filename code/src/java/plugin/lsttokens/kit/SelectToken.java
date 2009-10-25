@@ -29,14 +29,15 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitSelect;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SELECT for Kit
  */
-public class SelectToken extends AbstractToken implements
-		CDOMSecondaryToken<KitSelect>
+public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
+		CDOMSecondaryParserToken<KitSelect>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -59,14 +60,12 @@ public class SelectToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitSelect kitSelect, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		KitSelect kitSelect, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		kitSelect.setFormula(FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitSelect kitSelect)

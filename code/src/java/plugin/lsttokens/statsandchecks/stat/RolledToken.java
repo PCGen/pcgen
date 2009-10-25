@@ -3,15 +3,15 @@ package plugin.lsttokens.statsandchecks.stat;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with PENALTYVAR Token
  */
-public class RolledToken extends AbstractToken implements
-		CDOMPrimaryToken<PCStat>
+public class RolledToken extends AbstractNonEmptyToken<PCStat> implements
+		CDOMPrimaryParserToken<PCStat>
 {
 
 	@Override
@@ -20,21 +20,18 @@ public class RolledToken extends AbstractToken implements
 		return "ROLLED";
 	}
 
-	public boolean parse(LoadContext context, PCStat stat, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCStat stat,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' as the "
+				return new ParseResult.Fail("You should use 'YES' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.TRUE;
 		}
@@ -42,20 +39,18 @@ public class RolledToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.FALSE;
 		}
 		context.getObjectContext().put(stat, ObjectKey.ROLLED, set);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCStat stat)

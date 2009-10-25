@@ -26,14 +26,13 @@
 package plugin.lsttokens.kit.prof;
 
 import pcgen.core.kit.KitProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class RacialToken extends AbstractToken implements
-		CDOMSecondaryToken<KitProf>
+public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
+		CDOMSecondaryParserToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -56,22 +55,18 @@ public class RacialToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitProf obj, String value)
-		throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitProf obj,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Boolean set;
 		char firstChar = value.charAt(0);
 		if (firstChar == 'y' || firstChar == 'Y')
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.errorPrint("You should use 'YES' as the "
+				return new ParseResult.Fail("You should use 'YES' as the "
 					+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.TRUE;
 		}
@@ -79,20 +74,18 @@ public class RacialToken extends AbstractToken implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
 						+ getTokenName() + ": " + value);
-				return false;
 			}
 			set = Boolean.FALSE;
 		}
 		obj.setRacialProf(set);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitProf obj)

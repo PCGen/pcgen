@@ -22,14 +22,15 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CRFORMULA Token
  */
-public class CrformulaToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class CrformulaToken extends AbstractNonEmptyToken<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -38,15 +39,13 @@ public class CrformulaToken extends AbstractToken implements
 		return "CRFORMULA";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(pcc, FormulaKey.CR,
 				FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

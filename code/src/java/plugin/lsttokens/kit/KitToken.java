@@ -34,14 +34,15 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Kit;
 import pcgen.core.kit.KitKit;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles the KIT tag for Kits. Allows Common tags for this Kit line as well.
  */
-public class KitToken extends AbstractToken implements
-		CDOMSecondaryToken<KitKit>
+public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
+		CDOMSecondaryParserToken<KitKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -64,13 +65,16 @@ public class KitToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitKit kitKit, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitKit kitKit, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
@@ -80,7 +84,7 @@ public class KitToken extends AbstractToken implements
 					context.ref.getCDOMReference(Kit.class, tokText);
 			kitKit.addKit(ref);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitKit kitKit)

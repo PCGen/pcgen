@@ -22,15 +22,15 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LEVELSPERFEAT Token
  */
-public class LevelsperfeatToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -39,12 +39,16 @@ public class LevelsperfeatToken extends AbstractToken implements
 		return "LEVELSPERFEAT";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		int pipeLoc = value.indexOf('|');
 		String numLevels;
 		if (pipeLoc == -1)
@@ -66,31 +70,28 @@ public class LevelsperfeatToken extends AbstractToken implements
 		{
 			if (pipeLoc != value.lastIndexOf('|'))
 			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " must be of the form: " + getTokenName()
 						+ ":<int> or " + getTokenName()
 						+ ":<int>|LEVELTYPE=<string>" + " Got "
 						+ getTokenName() + ":" + value);
-				return false;
 			}
 			numLevels = value.substring(0, pipeLoc);
 			String levelTypeTag = value.substring(pipeLoc + 1);
 			if (!levelTypeTag.startsWith("LEVELTYPE="))
 			{
-				Logging.log(Logging.LST_ERROR, "If " + getTokenName()
+				return new ParseResult.Fail("If " + getTokenName()
 						+ " has a | it must be of the form: " + getTokenName()
 						+ ":<int>|LEVELTYPE=<string>" + " Got "
 						+ getTokenName() + ":" + value);
-				return false;
 			}
 			String levelType = levelTypeTag.substring(10);
 			if (levelType == null || levelType.length() == 0)
 			{
-				Logging.log(Logging.LST_ERROR, "If " + getTokenName()
+				return new ParseResult.Fail("If " + getTokenName()
 						+ " has a | it must be of the form: " + getTokenName()
 						+ ":<int>|LEVELTYPE=<string>"
 						+ " Got an empty leveltype");
-				return false;
 			}
 			context.getObjectContext()
 					.put(pcc, StringKey.LEVEL_TYPE, levelType);
@@ -101,22 +102,20 @@ public class LevelsperfeatToken extends AbstractToken implements
 			Integer in = Integer.valueOf(numLevels);
 			if (in.intValue() < 0)
 			{
-				Logging.log(Logging.LST_ERROR, getTokenName()
+				return new ParseResult.Fail(getTokenName()
 						+ " must be an integer >= 0");
-				return false;
 			}
 			context.getObjectContext().put(pcc, IntegerKey.LEVELS_PER_FEAT, in);
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.log(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int> or " + getTokenName()
 					+ ":<int>|LEVELTYPE=<string>");
-			return false;
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	/*

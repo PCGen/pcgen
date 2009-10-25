@@ -2,14 +2,15 @@ package plugin.lsttokens.statsandchecks.stat;
 
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STATNAME Token
  */
-public class StatnameToken extends AbstractToken implements
-		CDOMPrimaryToken<PCStat>
+public class StatnameToken extends AbstractNonEmptyToken<PCStat> implements
+		CDOMPrimaryParserToken<PCStat>
 {
 
 	@Override
@@ -18,18 +19,16 @@ public class StatnameToken extends AbstractToken implements
 		return "STATNAME";
 	}
 
-	public boolean parse(LoadContext context, PCStat stat, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCStat stat,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		/*
 		 * Warning: setName is not editor friendly, and this is a gate to
 		 * additional stats being added in Campaigns (vs. Game Modes)
 		 */
 		stat.setName(value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCStat stat)

@@ -25,15 +25,16 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with EXCHANGELEVEL Token
  */
-public class ExchangelevelToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -42,19 +43,21 @@ public class ExchangelevelToken extends AbstractToken implements
 		return "EXCHANGELEVEL";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 4)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " must have 4 | delimited arguments : " + value);
-			return false;
 		}
 
 		String classString = tok.nextToken();
@@ -68,9 +71,8 @@ public class ExchangelevelToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName() + " expected an integer: "
+			return new ParseResult.Fail(getTokenName() + " expected an integer: "
 					+ mindlString);
-			return false;
 		}
 		String maxdlString = tok.nextToken();
 		int maxdl;
@@ -80,9 +82,8 @@ public class ExchangelevelToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName() + " expected an integer: "
+			return new ParseResult.Fail(getTokenName() + " expected an integer: "
 					+ maxdlString);
-			return false;
 		}
 		String minremString = tok.nextToken();
 		int minrem;
@@ -92,22 +93,22 @@ public class ExchangelevelToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName() + " expected an integer: "
+			return new ParseResult.Fail(getTokenName() + " expected an integer: "
 					+ minremString);
-			return false;
 		}
 		try
 		{
 			LevelExchange le = new LevelExchange(cl, mindl, maxdl, minrem);
 			context.getObjectContext().put(pcc, ObjectKey.EXCHANGE_LEVEL, le);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.errorPrint("Error in " + getTokenName() + " "
+			ComplexParseResult pr = new ComplexParseResult();
+			pr.addErrorMessage("Error in " + getTokenName() + " "
 					+ e.getMessage());
-			Logging.errorPrint("  Token contents: " + value);
-			return false;
+			pr.addErrorMessage("  Token contents: " + value);
+			return pr;
 		}
 	}
 

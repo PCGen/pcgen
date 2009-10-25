@@ -21,13 +21,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SPELLSTAT Token
  */
-public class SpellstatToken implements CDOMPrimaryToken<PCClass>
+public class SpellstatToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -37,13 +38,13 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		return "SPELLSTAT";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		if ("SPELL".equalsIgnoreCase(value))
 		{
 			context.getObjectContext().put(pcc, ObjectKey.USE_SPELL_SPELL_STAT,
 					Boolean.TRUE);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		context.getObjectContext().put(pcc, ObjectKey.USE_SPELL_SPELL_STAT,
 				Boolean.FALSE);
@@ -51,19 +52,18 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		{
 			context.getObjectContext().put(pcc,
 					ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.TRUE);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		context.getObjectContext().put(pcc,
 				ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.FALSE);
 		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
-			Logging.errorPrint("Invalid Stat Abbreviation in " + getTokenName()
+			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
 					+ ": " + value);
-			return false;
 		}
 		context.getObjectContext().put(pcc, ObjectKey.SPELL_STAT, pcs);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

@@ -3,16 +3,17 @@ package plugin.lsttokens.sizeadjustment;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Class deals with ABB Token for size adjustment
  */
-public class AbbToken extends AbstractToken implements
-		CDOMPrimaryToken<SizeAdjustment>, DeferredToken<SizeAdjustment>
+public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
+		CDOMPrimaryParserToken<SizeAdjustment>, DeferredToken<SizeAdjustment>
 {
 
 	/**
@@ -26,19 +27,16 @@ public class AbbToken extends AbstractToken implements
 		return "ABB";
 	}
 
-	public boolean parse(LoadContext context, SizeAdjustment size, String value)
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		/*
 		 * Warning: RegisterAbbreviation is not editor friendly, and this is a
 		 * gate to additional SizeAdjustments being added in Campaigns (vs. Game
 		 * Modes)
 		 */
 		context.ref.registerAbbreviation(size, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, SizeAdjustment size)

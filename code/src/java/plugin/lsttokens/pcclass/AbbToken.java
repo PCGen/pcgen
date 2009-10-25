@@ -20,14 +20,15 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ABB Token for PCC files
  */
-public class AbbToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class AbbToken extends AbstractNonEmptyToken<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	/**
@@ -41,14 +42,12 @@ public class AbbToken extends AbstractToken implements
 		return "ABB";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.obj.put(pcc, StringKey.ABB, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

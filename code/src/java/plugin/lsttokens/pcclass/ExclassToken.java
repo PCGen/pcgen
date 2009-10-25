@@ -21,14 +21,15 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with EXCLASS Token
  */
-public class ExclassToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -37,16 +38,14 @@ public class ExclassToken extends AbstractToken implements
 		return "EXCLASS";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
 				value);
 		context.getObjectContext().put(pcc, ObjectKey.EX_CLASS, cl);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

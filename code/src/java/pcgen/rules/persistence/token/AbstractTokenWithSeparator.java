@@ -39,13 +39,10 @@ public abstract class AbstractTokenWithSeparator<T> extends AbstractNonEmptyToke
 	}
 	
 	/**
-	 * Override this if the standard separator for the token is not a '|'.
+	 * Override this to set the standard separator.
 	 * @return
 	 */
-	protected char separator()
-	{
-		return '|';
-	}
+	protected abstract char separator();
 
 	/**
 	 * Must be overridden to continue parsing.

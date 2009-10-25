@@ -25,18 +25,17 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with MONNONSKILLHD Token
  */
-public class MonnonskillhdToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -45,23 +44,19 @@ public class MonnonskillhdToken extends AbstractToken implements
 		return "MONNONSKILLHD";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		BonusObj bon = Bonus.newBonus("0|MONNONSKILLHD|NUMBER|" + value);
 		if (bon == null)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " was given invalid bonus value: " + value);
-			return false;
 		}
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(pcc, ListKey.BONUS, bon);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass obj)

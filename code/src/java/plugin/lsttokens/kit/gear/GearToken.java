@@ -30,15 +30,16 @@ import pcgen.core.Equipment;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * GEAR Token for KitGear
  */
-public class GearToken extends AbstractToken implements
-		CDOMSecondaryToken<KitGear>
+public class GearToken extends AbstractNonEmptyToken<KitGear> implements
+		CDOMSecondaryParserToken<KitGear>
 {
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
@@ -79,17 +80,15 @@ public class GearToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitGear kitGear, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitGear kitGear,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		CDOMReference<Equipment> ref =
 				TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS,
 					value);
 		kitGear.setEquipment(ref);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitGear kitGear)

@@ -24,9 +24,7 @@ import pcgen.rules.context.LoadContext;
  * This interface will eventually replace CDOMToken<T>.
  * @author Mark
  */
-public interface CDOMParserToken<T> extends LstToken
+public interface CDOMParserToken<T> extends LstToken, CDOMToken<T>
 {
 	public ParseResult parseToken(LoadContext context, T obj, String value);
-
-	public Class<T> getTokenClass();
 }

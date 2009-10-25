@@ -27,15 +27,16 @@ package plugin.lsttokens.kit;
 
 import pcgen.core.kit.KitBio;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles the NAME tag for a Kit. Also can accept a GENDER tag on the same line
  * for historical reasons.
  */
-public class NameToken extends AbstractToken implements
-		CDOMSecondaryToken<KitBio>
+public class NameToken extends AbstractNonEmptyToken<KitBio> implements
+		CDOMSecondaryParserToken<KitBio>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -58,14 +59,12 @@ public class NameToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitBio kitName, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitBio kitName,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		kitName.setCharacterName(value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitBio kitName)

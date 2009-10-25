@@ -23,13 +23,14 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken implements CDOMPrimaryToken<Race>
+public class SizeToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
 {
 
 	public String getTokenName()
@@ -37,16 +38,15 @@ public class SizeToken implements CDOMPrimaryToken<Race>
 		return "SIZE";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	public ParseResult parseToken(LoadContext context, Race race, String value)
 	{
 		SizeAdjustment size = context.ref.getAbbreviatedObject(
 				SizeAdjustment.class, value);
 		Formula sizeFormula;
 		if (size == null)
 		{
-			Logging.errorPrint("Error parsing " + getTokenName() + ": " + value
+			return new ParseResult.Fail("Error parsing " + getTokenName() + ": " + value
 					+ " is not a Size for this Game Mode");
-			return false;
 			//sizeFormula = FormulaFactory.getFormulaFor(value);
 		}
 		else
@@ -54,7 +54,7 @@ public class SizeToken implements CDOMPrimaryToken<Race>
 			sizeFormula = new FixedSizeFormula(size);
 		}
 		context.getObjectContext().put(race, FormulaKey.SIZE, sizeFormula);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

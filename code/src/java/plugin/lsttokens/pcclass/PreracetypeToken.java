@@ -21,18 +21,18 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Class deals with PRERACETYPE Token
  */
-public class PreracetypeToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>
+public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>, DeferredToken<PCClass>
 {
 
 	@Override
@@ -41,20 +41,17 @@ public class PreracetypeToken extends AbstractToken implements
 		return "PRERACETYPE";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		Prerequisite p = new Prerequisite();
 		p.setKind("RACETYPE");
 		p.setOperand("1");
 		p.setKey(value);
 		p.setOperator(PrerequisiteOperator.GTEQ);
 		context.obj.put(pcc, ObjectKey.PRERACETYPE, p);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass obj)

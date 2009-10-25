@@ -22,14 +22,15 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with LEVELADJUSTMENT Token
  */
-public class LeveladjustmentToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+public class LeveladjustmentToken extends AbstractNonEmptyToken<Race> implements
+		CDOMPrimaryParserToken<Race>
 {
 
 	@Override
@@ -38,15 +39,13 @@ public class LeveladjustmentToken extends AbstractToken implements
 		return "LEVELADJUSTMENT";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		context.getObjectContext().put(race, FormulaKey.LEVEL_ADJUSTMENT,
 				FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

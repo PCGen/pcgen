@@ -28,14 +28,15 @@ import pcgen.core.Deity;
 import pcgen.core.PCClass;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DEITY Token
  */
-public class DeityToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
@@ -51,12 +52,16 @@ public class DeityToken extends AbstractToken implements
 		return "DEITY";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		context.getObjectContext().removeList(pcc, ListKey.DEITY);
 
 		final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -68,7 +73,7 @@ public class DeityToken extends AbstractToken implements
 					DEITY_CLASS, tokText);
 			context.getObjectContext().addToList(pcc, ListKey.DEITY, deity);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

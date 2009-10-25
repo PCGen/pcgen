@@ -1,16 +1,16 @@
 package plugin.lsttokens.statsandchecks.check;
 
 import pcgen.core.PCCheck;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with CHECKNAME Token
  */
-public class ChecknameToken extends AbstractToken implements
-		CDOMPrimaryToken<PCCheck>
+public class ChecknameToken extends AbstractNonEmptyToken<PCCheck> implements
+		CDOMPrimaryParserToken<PCCheck>
 {
 
 	@Override
@@ -19,19 +19,16 @@ public class ChecknameToken extends AbstractToken implements
 		return "CHECKNAME";
 	}
 
-	public boolean parse(LoadContext context, PCCheck check, String value)
-			throws PersistenceLayerException
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCCheck check,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		/*
 		 * Warning: setName is not editor friendly, and this is a gate to
 		 * additional checks being added in Campaigns (vs. Game Modes)
 		 */
 		check.setName(value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCCheck check)

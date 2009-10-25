@@ -36,15 +36,15 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ADDDOMAINS Token
  */
-public class AdddomainsToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -55,13 +55,16 @@ public class AdddomainsToken extends AbstractToken implements
 		return "ADDDOMAINS";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('.', value))
-		{
-			return false;
-		}
+		return '.';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.DOT);
 		while (tok.hasMoreTokens())
 		{
@@ -76,9 +79,8 @@ public class AdddomainsToken extends AbstractToken implements
 			{
 				if (tokString.indexOf(']') != -1)
 				{
-					Logging.errorPrint("Invalid " + getTokenName()
+					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ " must have '[' if it contains a PREREQ tag");
-					return false;
 				}
 				domainKey = tokString;
 			}
@@ -86,25 +88,22 @@ public class AdddomainsToken extends AbstractToken implements
 			{
 				if (tokString.indexOf(']') != tokString.length() - 1)
 				{
-					Logging.errorPrint("Invalid " + getTokenName()
+					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ " must end with ']' if it contains a PREREQ tag");
-					return false;
 				}
 				domainKey = tokString.substring(0, openBracketLoc);
 				String prereqString = tokString.substring(openBracketLoc + 1,
 						tokString.length() - 1);
 				if (prereqString.length() == 0)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " cannot have empty prerequisite : " + value);
-					return false;
 				}
 				prereq = getPrerequisite(prereqString);
 				if (prereq == null)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " had invalid prerequisite : " + prereqString);
-					return false;
 				}
 			}
 			AssociatedPrereqObject apo = context.getListContext().addToList(
@@ -116,7 +115,7 @@ public class AdddomainsToken extends AbstractToken implements
 			}
 		}
 
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

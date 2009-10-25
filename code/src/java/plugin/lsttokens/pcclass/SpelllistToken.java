@@ -36,15 +36,15 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SPELLLIST Token
  */
-public class SpelllistToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class SpelllistToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	private static Class<ClassSpellList> SPELLLIST_CLASS = ClassSpellList.class;
@@ -56,25 +56,26 @@ public class SpelllistToken extends AbstractToken implements
 		return "SPELLLIST";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
 		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
 		{
-			Logging.errorPrint("Count in " + getTokenName() + " must be > 0");
-			return false;
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");
 		}
 		if (!tok.hasMoreTokens())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " must have a | separating "
 					+ "count from the list of possible values: " + value);
-			return false;
 		}
 		List<CDOMReference<? extends CDOMListObject<Spell>>> refs = new ArrayList<CDOMReference<? extends CDOMListObject<Spell>>>();
 
@@ -102,10 +103,9 @@ public class SpelllistToken extends AbstractToken implements
 				refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			Logging.addParseMessage(Logging.LST_ERROR, "Non-sensical "
+			return new ParseResult.Fail("Non-sensical "
 					+ getTokenName()
 					+ ": Contains ANY and a specific reference: " + value);
-			return false;
 		}
 
 		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<CDOMListObject<Spell>>(
@@ -115,7 +115,7 @@ public class SpelllistToken extends AbstractToken implements
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SPELLLIST_CHOICE, tc);
 		tc.setRequired(false);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

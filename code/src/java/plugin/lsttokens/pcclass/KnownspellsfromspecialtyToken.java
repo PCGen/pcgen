@@ -20,13 +20,14 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with KNOWNSPELLSFROMSPECIALTY Token
  */
-public class KnownspellsfromspecialtyToken implements CDOMPrimaryToken<PCClass>
+public class KnownspellsfromspecialtyToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
 {
 
 	public String getTokenName()
@@ -34,26 +35,24 @@ public class KnownspellsfromspecialtyToken implements CDOMPrimaryToken<PCClass>
 		return "KNOWNSPELLSFROMSPECIALTY";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		try
 		{
 			Integer in = Integer.valueOf(value);
 			if (in.intValue() <= 0)
 			{
-				Logging.errorPrint(getTokenName() + " must be an integer > 0");
-				return false;
+				return new ParseResult.Fail(getTokenName() + " must be an integer > 0");
 			}
 			context.getObjectContext().put(pcc,
 					IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, in);
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint(getTokenName()
+			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>");
-			return false;
 		}
 	}
 

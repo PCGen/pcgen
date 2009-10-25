@@ -21,14 +21,13 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ErrorParsingWrapper;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>, CDOMPrimaryToken<Race>
+public class HandsToken extends ErrorParsingWrapper<Race> implements CDOMPrimaryParserToken<Race>
 {
 
 	public String getTokenName()

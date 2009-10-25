@@ -26,15 +26,16 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
  * Class deals with HITDICEADVANCEMENT Token
  */
-public class HitdiceadvancementToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race> implements
+		CDOMPrimaryParserToken<Race>
 {
 
 	@Override
@@ -43,13 +44,16 @@ public class HitdiceadvancementToken extends AbstractToken implements
 		return "HITDICEADVANCEMENT";
 	}
 
-	public boolean parse(LoadContext context, Race race, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator(',', value))
-		{
-			return false;
-		}
+		return ',';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		Race race, String value)
+	{
 		final StringTokenizer commaTok = new StringTokenizer(value,
 				Constants.COMMA);
 
@@ -64,9 +68,8 @@ public class HitdiceadvancementToken extends AbstractToken implements
 			{
 				if (commaTok.hasMoreTokens())
 				{
-					Logging.errorPrint("Found * in " + getTokenName()
+					return new ParseResult.Fail("Found * in " + getTokenName()
 							+ " but was not at end of list");
-					return false;
 				}
 
 				hd = Integer.MAX_VALUE;
@@ -78,24 +81,22 @@ public class HitdiceadvancementToken extends AbstractToken implements
 					hd = Integer.parseInt(tok);
 					if (hd < last)
 					{
-						Logging
-								.errorPrint("Found " + hd + " in "
+						return new ParseResult.Fail("Found " + hd + " in "
 										+ getTokenName() + " but was < 1 "
 										+ "or the previous value in the list: "
 										+ value);
-						return false;
 					}
 					last = hd;
 				}
 				catch (NumberFormatException nfe)
 				{
-					return false;
+					return new ParseResult.Fail(nfe.getMessage());
 				}
 			}
 			context.getObjectContext().addToList(race,
 					ListKey.HITDICE_ADVANCEMENT, Integer.valueOf(hd));
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Race race)

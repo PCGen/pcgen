@@ -40,15 +40,15 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ABILITY lst token within KitAbilities 
  */
-public class AbilityToken extends AbstractToken implements
-		CDOMSecondaryToken<KitAbilities>
+public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
+		CDOMSecondaryParserToken<KitAbilities>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -73,34 +73,29 @@ public class AbilityToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitAbilities kitAbil, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		KitAbilities kitAbil, String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 				"No pipe found.  ABILITY token "
 					+ "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
-			return false;
 		}
 		String catString = value.substring(0, pipeLoc);
 		if (!catString.startsWith("CATEGORY="))
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 				"No CATEGORY= found.  ABILITY token "
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
-			return false;
 		}
 		if (catString.length() < 10)
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 				"No category found.  ABILITY token "
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
-			return false;
 		}
 		Category<Ability> ac = context.ref.getCategoryFor(ABILITY_CLASS,
 				catString.substring(9));
@@ -115,10 +110,9 @@ public class AbilityToken extends AbstractToken implements
 		String rest = value.substring(pipeLoc + 1);
 		if (isEmpty(rest) || hasIllegalSeparator('|', rest))
 		{
-			Logging.addParseMessage(Logging.LST_ERROR,
+			return new ParseResult.Fail(
 				"No abilities found.  ABILITY token "
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
-			return false;
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
@@ -131,15 +125,14 @@ public class AbilityToken extends AbstractToken implements
 
 			if (token.startsWith("CATEGORY="))
 			{
-				Logging.errorPrint("Attempting to change the Category to '"
+				return new ParseResult.Fail("Attempting to change the Category to '"
 					+ token + "': " + value);
-				return false;
 			}
 			CDOMReference<Ability> ref =
 					TokenUtilities.getTypeOrPrimitive(rm, token);
 			if (ref == null)
 			{
-				return false;
+				return ParseResult.INTERNAL_ERROR;
 			}
 			List<String> choices = null;
 			if (token.indexOf('(') != -1)
@@ -149,7 +142,7 @@ public class AbilityToken extends AbstractToken implements
 			}
 			kitAbil.addAbility(ref, choices);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitAbilities kitAbil)

@@ -36,15 +36,15 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * EQMOD Token for KitGear
  */
-public class EqmodToken extends AbstractToken implements
-		CDOMSecondaryToken<KitGear>
+public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
+		CDOMSecondaryParserToken<KitGear>
 {
 	private static final Class<EquipmentModifier> EQUIPMENT_MODIFIER_CLASS =
 			EquipmentModifier.class;
@@ -70,13 +70,16 @@ public class EqmodToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitGear kitGear, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('.', value))
-		{
-			return false;
-		}
+		return '.';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitGear kitGear, String value)
+	{
 		StringTokenizer dotTok = new StringTokenizer(value, Constants.DOT);
 
 		while (dotTok.hasMoreTokens())
@@ -85,13 +88,13 @@ public class EqmodToken extends AbstractToken implements
 
 			if (aEqModName.equalsIgnoreCase(Constants.LST_NONE))
 			{
-				Logging.errorPrint("Embedded " + Constants.LST_NONE
+				return new ParseResult.Fail("Embedded " + Constants.LST_NONE
 					+ " is prohibited in " + getTokenName());
-				return false;
 			}
-			if (hasIllegalSeparator('|', aEqModName))
+			ParseResult pr = checkForIllegalSeparator('|', aEqModName);
+			if (!pr.passed())
 			{
-				return false;
+				return pr;
 			}
 
 			StringTokenizer pipeTok =
@@ -111,9 +114,8 @@ public class EqmodToken extends AbstractToken implements
 				{
 					if (assocTok.indexOf("[]") != -1)
 					{
-						Logging.errorPrint("Found empty assocation in "
+						return new ParseResult.Fail("Found empty assocation in "
 							+ getTokenName() + ": " + value);
-						return false;
 					}
 					StringTokenizer bracketTok =
 							new StringTokenizer(assocTok, "]");
@@ -123,17 +125,13 @@ public class EqmodToken extends AbstractToken implements
 						int openBracketLoc = assoc.indexOf('[');
 						if (openBracketLoc == -1)
 						{
-							Logging
-								.errorPrint("Found close bracket without open bracket in assocation in "
+							return new ParseResult.Fail("Found close bracket without open bracket in assocation in "
 									+ getTokenName() + ": " + value);
-							return false;
 						}
 						if (openBracketLoc != assoc.lastIndexOf('['))
 						{
-							Logging
-								.errorPrint("Found open bracket without close bracket in assocation in "
+							return new ParseResult.Fail("Found open bracket without close bracket in assocation in "
 									+ getTokenName() + ": " + value);
-							return false;
 						}
 					}
 				}
@@ -141,7 +139,7 @@ public class EqmodToken extends AbstractToken implements
 			}
 			kitGear.addModRef(modRef);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitGear kitGear)

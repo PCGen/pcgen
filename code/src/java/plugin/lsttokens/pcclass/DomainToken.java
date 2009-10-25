@@ -35,15 +35,15 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DOMAIN Token
  */
-public class DomainToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -54,13 +54,16 @@ public class DomainToken extends AbstractToken implements
 		return "DOMAIN";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
 		boolean first = true;
@@ -71,9 +74,8 @@ public class DomainToken extends AbstractToken implements
 			{
 				if (!first)
 				{
-					Logging.log(Logging.LST_ERROR, "  Non-sensical " + getTokenName()
+					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item");
-					return false;
 				}
 				context.getObjectContext().removeList(pcc, ListKey.DOMAIN);
 				continue;
@@ -87,9 +89,8 @@ public class DomainToken extends AbstractToken implements
 			{
 				if (tok.indexOf(']') != -1)
 				{
-					Logging.errorPrint("Invalid " + getTokenName()
+					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ " must have '[' if it contains a PREREQ tag");
-					return false;
 				}
 				domainKey = tok;
 			}
@@ -97,25 +98,22 @@ public class DomainToken extends AbstractToken implements
 			{
 				if (tok.indexOf(']') != tok.length() - 1)
 				{
-					Logging.errorPrint("Invalid " + getTokenName()
+					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ " must end with ']' if it contains a PREREQ tag");
-					return false;
 				}
 				domainKey = tok.substring(0, openBracketLoc);
 				String prereqString = tok.substring(openBracketLoc + 1, tok
 						.length() - 1);
 				if (prereqString.length() == 0)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " cannot have empty prerequisite : " + value);
-					return false;
 				}
 				prereq = getPrerequisite(prereqString);
 				if (prereq == null)
 				{
-					Logging.errorPrint(getTokenName()
+					return new ParseResult.Fail(getTokenName()
 							+ " had invalid prerequisite : " + prereqString);
-					return false;
 				}
 			}
 			CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(
@@ -130,7 +128,7 @@ public class DomainToken extends AbstractToken implements
 			context.getObjectContext().addToList(pcc, ListKey.DOMAIN, qo);
 			first = false;
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

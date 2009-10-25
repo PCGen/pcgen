@@ -34,15 +34,16 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with KNOWNSPELLS Token
  */
-public class KnownspellsToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
@@ -53,13 +54,16 @@ public class KnownspellsToken extends AbstractToken implements
 		return "KNOWNSPELLS";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		PCClass pcc, String value)
+	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		boolean firstToken = true;
 
@@ -70,20 +74,19 @@ public class KnownspellsToken extends AbstractToken implements
 			{
 				if (!firstToken)
 				{
-					Logging
-							.errorPrint("Non-sensical situation was "
+					return new ParseResult.Fail("Non-sensical situation was "
 									+ "encountered while parsing "
 									+ getTokenName()
 									+ ": When used, .CLEARALL must be the first argument");
-					return false;
 				}
 				context.getObjectContext()
 						.removeList(pcc, ListKey.KNOWN_SPELLS);
 				continue;
 			}
-			if (hasIllegalSeparator(',', totalFilter))
+			ParseResult pr = checkForIllegalSeparator(',', totalFilter); 
+			if (!pr.passed())
 			{
-				return false;
+				return pr;
 			}
 
 			StringTokenizer commaTok = new StringTokenizer(totalFilter,
@@ -110,10 +113,8 @@ public class KnownspellsToken extends AbstractToken implements
 				{
 					if (levelLim != null)
 					{
-						Logging
-								.errorPrint("Cannot have more than one Level limit in "
+						return new ParseResult.Fail("Cannot have more than one Level limit in "
 										+ getTokenName() + ": " + value);
-						return false;
 					}
 					// if the argument starts with LEVEL=, compare the level to
 					// the desired spellLevel
@@ -122,37 +123,36 @@ public class KnownspellsToken extends AbstractToken implements
 						levelLim = Integer.valueOf(filterString.substring(6));
 						if (levelLim < 0)
 						{
-							Logging.errorPrint("Invalid Number in "
+							ComplexParseResult cpr = new ComplexParseResult();
+							cpr.addErrorMessage("Invalid Number in "
 									+ getTokenName() + ": " + value);
-							Logging.errorPrint("  Level must be >= 0");
-							return false;
+							cpr.addErrorMessage("  Level must be >= 0");
+							return cpr;
 						}
 					}
 					catch (NumberFormatException e)
 					{
-						Logging.errorPrint("Invalid Number in "
+						ComplexParseResult cpr = new ComplexParseResult();
+						cpr.addErrorMessage("Invalid Number in "
 								+ getTokenName() + ": " + value);
-						Logging.errorPrint("  Level must be "
+						cpr.addErrorMessage("  Level must be "
 								+ "a non-negative integer");
-						return false;
+						return cpr;
 					}
 				}
 				else
 				{
 					if (sp != null)
 					{
-						Logging
-								.errorPrint("Cannot have more than one Type/Spell limit in "
+						return new ParseResult.Fail("Cannot have more than one Type/Spell limit in "
 										+ getTokenName() + ": " + value);
-						return false;
 					}
 					sp = TokenUtilities.getTypeOrPrimitive(context,
 							SPELL_CLASS, filterString);
 					if (sp == null)
 					{
-						Logging.errorPrint("  encountered Invalid limit in "
+						return new ParseResult.Fail("  encountered Invalid limit in "
 								+ getTokenName() + ": " + value);
-						return false;
 					}
 				}
 				firstToken = false;
@@ -170,7 +170,7 @@ public class KnownspellsToken extends AbstractToken implements
 			context.getObjectContext()
 					.addToList(pcc, ListKey.KNOWN_SPELLS, ksi);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

@@ -30,14 +30,15 @@ import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SubClass;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * parses SUBCLASS token for Kit Class 
  */
-public class SubclassToken extends AbstractToken implements
-		CDOMSecondaryToken<KitClass>
+public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
+		CDOMSecondaryParserToken<KitClass>
 {
 
 	/**
@@ -61,12 +62,10 @@ public class SubclassToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitClass kitClass, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		/*
 		 * This call to kitClass.getPcclass() is safe, as the line is CLASS:
 		 * and thus the CLASS: token is always encountered first
@@ -75,7 +74,7 @@ public class SubclassToken extends AbstractToken implements
 				context.ref.getCDOMReference(SubClass.class, SubClassCategory
 					.getConstant(kitClass.getPcclass().getLSTformat()), value);
 		kitClass.setSubClass(sc);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitClass kitClass)

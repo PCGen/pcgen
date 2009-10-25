@@ -37,11 +37,12 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.helper.OptionBound;
 import pcgen.core.kit.BaseKit;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class OptionToken extends AbstractToken implements
-		CDOMSecondaryToken<BaseKit>
+public class OptionToken extends AbstractTokenWithSeparator<BaseKit> implements
+		CDOMSecondaryParserToken<BaseKit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -64,19 +65,25 @@ public class OptionToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, BaseKit kit, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		// TODO Auto-generated method stub
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		BaseKit kit, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, "|");
 		while (tok.hasMoreTokens())
 		{
 			String subTok = tok.nextToken();
-			if (hasIllegalSeparator(',', subTok))
+			ParseResult pr = checkForIllegalSeparator(',', subTok);
+			if (!pr.passed())
 			{
-				return false;
+				return pr;
 			}
 			int commaLoc = subTok.indexOf(',');
 			String minString;
@@ -88,7 +95,7 @@ public class OptionToken extends AbstractToken implements
 			}
 			else if (commaLoc != subTok.lastIndexOf(','))
 			{
-				return false;
+				return new ParseResult.Fail("Token cannot have more than one separator ','");
 			}
 			else
 			{
@@ -99,7 +106,7 @@ public class OptionToken extends AbstractToken implements
 			Formula max = FormulaFactory.getFormulaFor(maxString);
 			kit.setOptionBounds(min, max);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, BaseKit kit)

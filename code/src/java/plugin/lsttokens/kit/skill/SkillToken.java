@@ -35,14 +35,15 @@ import pcgen.core.Skill;
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SKILL for Kit Skill
  */
-public class SkillToken extends AbstractToken implements
-		CDOMSecondaryToken<KitSkill>
+public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements
+		CDOMSecondaryParserToken<KitSkill>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
@@ -67,13 +68,15 @@ public class SkillToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitSkill kitSkill, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitSkill kitSkill, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
@@ -83,11 +86,11 @@ public class SkillToken extends AbstractToken implements
 					context, SKILL_CLASS, tokText);
 			if (ref == null)
 			{
-				return false;
+				return ParseResult.INTERNAL_ERROR;
 			}
 			kitSkill.addSkill(ref);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitSkill kitSkill)

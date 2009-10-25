@@ -34,14 +34,15 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Domain;
 import pcgen.core.kit.KitDeity;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * DOMAIN Token for KitDeity
  */
-public class DomainToken extends AbstractToken implements
-		CDOMSecondaryToken<KitDeity>
+public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
+		CDOMSecondaryParserToken<KitDeity>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -64,13 +65,16 @@ public class DomainToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitDeity kitDeity, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitDeity kitDeity, String value)
+	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		while (pipeTok.hasMoreTokens())
 		{
@@ -80,7 +84,7 @@ public class DomainToken extends AbstractToken implements
 					context.ref.getCDOMReference(DOMAIN_CLASS, tokString);
 			kitDeity.addDomain(ref);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitDeity kitDeity)

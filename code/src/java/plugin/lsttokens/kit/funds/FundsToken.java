@@ -27,14 +27,15 @@ package plugin.lsttokens.kit.funds;
 
 import pcgen.core.kit.KitFunds;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * FUNDS Token for KitFunds
  */
-public class FundsToken extends AbstractToken implements
-		CDOMSecondaryToken<KitFunds>
+public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
+		CDOMSecondaryParserToken<KitFunds>
 {
 
 	/**
@@ -58,14 +59,12 @@ public class FundsToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitFunds kitFunds, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		kitFunds.setName(value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitFunds kitFunds)

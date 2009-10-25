@@ -17,7 +17,6 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -25,9 +24,9 @@ import pcgen.rules.context.LoadContext;
  * See plugin.lsttokens.race.HandsToken and pcgen.rules.persistence.token.AbstractNonEmptyToken for use.
  * @author Mark
  */
-public abstract class ErrorParsingWrapper<T> implements CDOMPrimaryParserToken<T>
+public abstract class ErrorParsingWrapper<T> implements CDOMParserToken<T>
 {
-	static public <T> boolean parseToken(CDOMPrimaryParserToken<T> token, LoadContext context, T obj, String value)
+	static public <T> boolean parseToken(CDOMParserToken<T> token, LoadContext context, T obj, String value)
 	{
 		ParseResult pr = token.parseToken(context, obj, value);
 		if (!pr.passed())
@@ -38,7 +37,6 @@ public abstract class ErrorParsingWrapper<T> implements CDOMPrimaryParserToken<T
 	}
 
 	public boolean parse(LoadContext context, T obj, String value)
-		throws PersistenceLayerException
 	{
 		return parseToken(this, context, obj, value);
 	}

@@ -3,13 +3,14 @@ package plugin.lsttokens.statsandchecks.stat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STATMOD Token
  */
-public class StatmodToken implements CDOMPrimaryToken<PCStat>
+public class StatmodToken extends ErrorParsingWrapper<PCStat> implements CDOMPrimaryParserToken<PCStat>
 {
 
 	public String getTokenName()
@@ -17,15 +18,14 @@ public class StatmodToken implements CDOMPrimaryToken<PCStat>
 		return "STATMOD";
 	}
 
-	public boolean parse(LoadContext context, PCStat stat, String value)
+	public ParseResult parseToken(LoadContext context, PCStat stat, String value)
 	{
 		if (value == null || value.length() == 0)
 		{
-			Logging.errorPrint(getTokenName() + " arguments may not be empty");
-			return false;
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
 		}
 		context.getObjectContext().put(stat, StringKey.STAT_MOD, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCStat stat)

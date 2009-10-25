@@ -21,12 +21,14 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SPELLTYPE Token
  */
-public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
+public class SpelltypeToken extends ErrorParsingWrapper<PCClass> implements CDOMPrimaryParserToken<PCClass>
 {
 
 	public String getTokenName()
@@ -34,20 +36,20 @@ public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
 		return "SPELLTYPE";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		if (value == null || value.length() == 0)
 		{
 			// CONSIDER Deprecate this behavior
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		if (value.equalsIgnoreCase(Constants.LST_NONE))
 		{
 			// CONSIDER Deprecate this behavior
-			return true;
+			return ParseResult.SUCCESS;
 		}
 		context.getObjectContext().put(pcc, StringKey.SPELLTYPE, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

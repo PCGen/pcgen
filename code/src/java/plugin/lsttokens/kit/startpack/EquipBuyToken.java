@@ -37,14 +37,14 @@ import pcgen.core.Kit;
 import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * EQUIPBUY Token for KitStartpack
  */
-public class EquipBuyToken extends AbstractToken implements
+public class EquipBuyToken extends AbstractTokenWithSeparator<Kit> implements
 		CDOMPrimaryToken<Kit>
 {
 	/**
@@ -63,22 +63,24 @@ public class EquipBuyToken extends AbstractToken implements
 		return Kit.class;
 	}
 
-	public boolean parse(LoadContext context, Kit kit, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Kit kit,
+		String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		String token = tok.nextToken();
 
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
-			Logging.errorPrint("Cannot have only PRExxx subtoken in "
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
 				+ getTokenName());
-			return false;
 		}
 
 		Formula f = FormulaFactory.getFormulaFor(token);
@@ -90,14 +92,13 @@ public class EquipBuyToken extends AbstractToken implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				Logging.errorPrint("   (Did you put feats after the "
+				return new ParseResult.Fail("   (Did you put feats after the "
 					+ "PRExxx tags in " + getTokenName() + ":?)");
-				return false;
 			}
 			prereqs.add(prereq);
 		}
 		kit.put(ObjectKey.EQUIP_BUY, new QualifiedObject<Formula>(f, prereqs));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, Kit kit)

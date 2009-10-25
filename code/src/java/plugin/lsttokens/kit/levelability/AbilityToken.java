@@ -34,14 +34,15 @@ import pcgen.io.Compatibility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ErrorParsingWrapper;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ABILITY lst token within KitLevelAbility
  */
 public class AbilityToken extends AbstractToken implements
-		CDOMSecondaryToken<KitLevelAbility>
+		CDOMSecondaryParserToken<KitLevelAbility>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -67,41 +68,52 @@ public class AbilityToken extends AbstractToken implements
 	public boolean parse(LoadContext context, KitLevelAbility kitAbility,
 		String value) throws PersistenceLayerException
 	{
+		return ErrorParsingWrapper.parseToken(this, context, kitAbility, value);
+	}
+
+	public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility,
+		String value)
+	{
 		if (!value.startsWith("PROMPT:"))
 		{
-			Logging.errorPrint("Expected " + getTokenName()
+			return new ParseResult.Fail("Expected " + getTokenName()
 				+ " to start with PROMPT: " + value);
-			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String first = st.nextToken();
-		PersistentTransitionChoice<?> ptc = Compatibility.processOldAdd(
-				context, first);
+		PersistentTransitionChoice<?> ptc;
+		try
+		{
+			ptc = Compatibility.processOldAdd(
+					context, first);
+		}
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(e.getMessage());
+		}
 		if (ptc == null)
 		{
-			Logging.errorPrint("Error was in " + getTokenName() + " " + value);
-			return false;
+			return new ParseResult.Fail("Error was in " + getTokenName() + " " + value);
 		}
 		kitAbility.setAdd(ptc);
+		
 		while (st.hasMoreTokens())
 		{
 			String choiceString = st.nextToken();
 			if (!choiceString.startsWith("CHOICE:"))
 			{
-				Logging.errorPrint("Expected " + getTokenName()
+				return new ParseResult.Fail("Expected " + getTokenName()
 					+ " choice string to start with CHOICE: " + value);
-				return false;
 			}
 			String choice = choiceString.substring(7);
 			if (ptc.decodeChoice(choice) == null)
 			{
-				Logging.errorPrint("Choice: " + choice
+				return new ParseResult.Fail("Choice: " + choice
 					+ " is not a valid selection for ADD:" + first);
-				return false;
 			}
 			kitAbility.addChoice(choice);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitLevelAbility kitAbility)

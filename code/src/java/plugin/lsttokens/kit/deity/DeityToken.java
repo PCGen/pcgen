@@ -29,14 +29,15 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.kit.KitDeity;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * DEITY token for KitDeity 
  */
-public class DeityToken extends AbstractToken implements
-		CDOMSecondaryToken<KitDeity>
+public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
+		CDOMSecondaryParserToken<KitDeity>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
@@ -62,16 +63,14 @@ public class DeityToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitDeity kitDeity, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitDeity kitDeity,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		CDOMSingleRef<Deity> ref =
 				context.ref.getCDOMReference(DEITY_CLASS, value);
 		kitDeity.setDeity(ref);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitDeity kitDeity)

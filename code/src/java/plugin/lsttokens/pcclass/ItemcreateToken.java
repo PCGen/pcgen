@@ -20,15 +20,15 @@ package plugin.lsttokens.pcclass;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMPrimaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ITEMCREATE Token
  */
-public class ItemcreateToken extends AbstractToken implements
-		CDOMPrimaryToken<PCClass>
+public class ItemcreateToken extends AbstractNonEmptyToken<PCClass> implements
+		CDOMPrimaryParserToken<PCClass>
 {
 
 	@Override
@@ -37,15 +37,12 @@ public class ItemcreateToken extends AbstractToken implements
 		return "ITEMCREATE";
 	}
 
-	public boolean parse(LoadContext context, PCClass pcc, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			Logging.errorPrint(getTokenName() + " arguments may not be empty");
-			return false;
-		}
 		context.getObjectContext().put(pcc, StringKey.ITEMCREATE, value);
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, PCClass pcc)

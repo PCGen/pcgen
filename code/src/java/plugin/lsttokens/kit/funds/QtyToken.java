@@ -29,14 +29,15 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitFunds;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * QTY Token
  */
-public class QtyToken extends AbstractToken implements
-		CDOMSecondaryToken<KitFunds>
+public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
+		CDOMSecondaryParserToken<KitFunds>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -59,14 +60,12 @@ public class QtyToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitFunds kitFunds, String value)
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds,
+		String value)
 	{
-		if (isEmpty(value))
-		{
-			return false;
-		}
 		kitFunds.setQuantity(FormulaFactory.getFormulaFor(value));
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitFunds kitFunds)

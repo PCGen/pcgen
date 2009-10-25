@@ -24,6 +24,7 @@ import pcgen.util.Logging;
 
 /**
  * Class that implements ParseResult for providing more complicated feedback.
+ * See plugin.lsttokens.pcclass.ExchangeLevelToken.
  */
 public class ComplexParseResult implements ParseResult
 {
@@ -46,13 +47,18 @@ public class ComplexParseResult implements ParseResult
 
 	public void addErrorMessage(String msg)
 	{
-		addParseMessage(Logging.ERROR, msg);
+		addParseMessage(Logging.LST_ERROR, msg);
 	}
 
-	public void addWarningMessage(String msg)
-	{
-		addParseMessage(Logging.WARNING, msg);
-	}
+    public void addWarningMessage(String msg)
+    {
+        addParseMessage(Logging.LST_WARNING, msg);
+    }
+
+    public void addInfoMessage(String msg)
+    {
+        addParseMessage(Logging.LST_INFO, msg);
+    }
 
 	protected void addParseMessage(Level lvl, String msg)
 	{
@@ -87,8 +93,7 @@ public class ComplexParseResult implements ParseResult
 	{
 		for (QueuedMessage msg : _queuedMessages)
 		{
-			if (msg.level == Logging.ERROR
-				|| msg.level == Logging.LST_ERROR)
+			if (msg.level == Logging.LST_ERROR)
 			{
 				return false;
 			}

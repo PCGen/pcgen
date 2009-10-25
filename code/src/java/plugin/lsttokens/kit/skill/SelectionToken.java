@@ -32,8 +32,9 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Language;
 import pcgen.core.kit.KitSkill;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * SELECTION token for KitSkill
@@ -44,8 +45,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class SelectionToken extends AbstractToken implements
-		CDOMSecondaryToken<KitSkill>
+public class SelectionToken extends AbstractTokenWithSeparator<KitSkill> implements
+		CDOMSecondaryParserToken<KitSkill>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -71,13 +72,15 @@ public class SelectionToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitSkill kitSkill, String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator(',', value))
-		{
-			return false;
-		}
+		return ',';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitSkill kitSkill, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
 
 		while (tok.hasMoreTokens())
@@ -85,7 +88,7 @@ public class SelectionToken extends AbstractToken implements
 			kitSkill.addSelection(context.ref.getCDOMReference(LANGUAGE_CLASS,
 				tok.nextToken()));
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitSkill kitSkill)

@@ -33,16 +33,16 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PCAlignment;
 import pcgen.core.kit.KitAlignment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractToken;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.util.Logging;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryParserToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Handles the ALIGN tag for a Kit. Also will handle any Common tags on the
  * ALIGN line.
  */
-public class AlignToken extends AbstractToken implements
-		CDOMSecondaryToken<KitAlignment>
+public class AlignToken extends AbstractTokenWithSeparator<KitAlignment> implements
+		CDOMSecondaryParserToken<KitAlignment>
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 
@@ -67,14 +67,16 @@ public class AlignToken extends AbstractToken implements
 		return "*KITTOKEN";
 	}
 
-	public boolean parse(LoadContext context, KitAlignment kitAlignment,
-		String value)
+	@Override
+	protected char separator()
 	{
-		if (isEmpty(value) || hasIllegalSeparator('|', value))
-		{
-			return false;
-		}
+		return '|';
+	}
 
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		KitAlignment kitAlignment, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
@@ -84,13 +86,11 @@ public class AlignToken extends AbstractToken implements
 						ALIGNMENT_CLASS, tokText);
 			if (ref == null)
 			{
-				Logging.addParseMessage(Logging.LST_ERROR,
-					"Cannot find Alignment: " + tokText + " part of " + value);
-				return false;
+				return new ParseResult.Fail("Cannot find Alignment: " + tokText + " part of " + value);
 			}
 			kitAlignment.addAlignment(ref);
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	public String[] unparse(LoadContext context, KitAlignment kitAlignment)
