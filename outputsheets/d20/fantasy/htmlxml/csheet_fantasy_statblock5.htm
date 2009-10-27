@@ -222,11 +222,38 @@ Tower Shield,
 |ENDIF|
 )<br>
 |IIF(VAR.IF(var("UseAlternateDamage")==0;1;0):1)|
-<b>hp</b> |HP| 
+
+|MANUALWHITESPACE|
+<b>hp</b>&nbsp;|HP|&nbsp;
 |ELSE|
-<b>vp</b> |HP| <b>wp</b> |ALTHP| 
+<b>vp</b>&nbsp;|HP|&nbsp;<b>wp</b>&nbsp;|ALTHP|&nbsp;
 |ENDIF|
-|HITDICE|<br>
+|HITDICE|
+
+<!-- ModifyHP TYPE Abilities -->
+|FOR,%specialHitPoints,0,count("ABILITIES","CATEGORY=Feat","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+,|SPACE|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialHitPoints.TYPE=ModifyHP.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialHitPoints.TYPE=ModifyHP.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%specialHitPoints.TYPE=ModifyHP|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialHitPoints.TYPE=ModifyHP.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Feat.VISIBLE.%specialHitPoints.TYPE=ModifyHP.ASPECT.Ability Benefit|
+|ENDIF|
+|ENDFOR|
+|FOR,%specialHitPoints,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+,|SPACE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialHitPoints.TYPE=ModifyHP.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialHitPoints.TYPE=ModifyHP.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialHitPoints.TYPE=ModifyHP|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialHitPoints.TYPE=ModifyHP.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialHitPoints.TYPE=ModifyHP.ASPECT.Ability Benefit|
+|ENDIF|
+|ENDFOR|
+<!-- End ModifyHP TYPE Abilities -->
+|ENDMANUALWHITESPACE|
+<br>
 
 <b>Fort</b> |CHECK.FORTITUDE.TOTAL|, <b>Ref</b> |CHECK.REFLEX.TOTAL|, <b>Will</b> |CHECK.2.TOTAL|<br>
 
