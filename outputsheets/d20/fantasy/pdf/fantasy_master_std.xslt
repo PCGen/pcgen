@@ -310,6 +310,8 @@
 										<xsl:apply-templates select="attack" mode="ranged_melee"/>
 										<xsl:apply-templates select="weapons/martialarts"/>
 										<xsl:apply-templates select="weapons/unarmed"/>
+										<xsl:apply-templates select="weapons/spiritweaponmelee"/>
+										<xsl:apply-templates select="weapons/spiritweaponranged"/>
 										<xsl:apply-templates select="weapons">
 											<xsl:with-param name="first_weapon" select="1"/>
 											<xsl:with-param name="last_weapon" select="$first_page_weapon_count"/>
@@ -355,7 +357,15 @@
 						<xsl:call-template name="money"/>
 						<xsl:apply-templates select="misc/magics"/>
 						<xsl:apply-templates select="misc/companions"/>
+						<xsl:apply-templates select="animal_tricks"/>
 						<xsl:apply-templates select="disadvantages"/>
+						<xsl:apply-templates select="charcreations"/>
+						<xsl:apply-templates select="martial_artists"/>
+						<xsl:apply-templates select="mystic_artists"/>
+						<xsl:apply-templates select="witchcrafts"/>
+						<xsl:apply-templates select="channelings"/>
+						<xsl:apply-templates select="dominions"/>
+						<xsl:apply-templates select="path_dragons"/>
 						<xsl:apply-templates select="talents"/>
 						<xsl:apply-templates select="spellcasteroutputs"/>
 						<xsl:apply-templates select="vampire_disciplines"/>
@@ -4573,6 +4583,8 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
+<!--> ECLIPSE Addons <!-->
 	<!--
 ====================================
 ====================================
@@ -4593,20 +4605,124 @@
 	<!--
 ====================================
 ====================================
-	TEMPLATE - TALENTS
+	TEMPLATE - Martial Artist
 ====================================
 ====================================-->
-	<xsl:template match="talents">
-		<xsl:if test="count(talent) &gt; 0">
+	<xsl:template match="martial_artists">
+		<xsl:if test="count(martial_artist) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'talents'"/>
-				<xsl:with-param name="title" select="'TALENTS'"/>
-				<xsl:with-param name="list" select="talent"/>
+				<xsl:with-param name="attribute" select="'martial_artists'"/>
+				<xsl:with-param name="title" select="'Martial Arts'"/>
+				<xsl:with-param name="list" select="martial_artist"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Mystic Artist
+====================================
+====================================-->
+	<xsl:template match="mystic_artists">
+		<xsl:if test="count(mystic_artist) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'mystic_artists'"/>
+				<xsl:with-param name="title" select="'Mystic Artist Abilities'"/>
+				<xsl:with-param name="list" select="mystic_artist"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Witchcraft
+====================================
+====================================-->
+	<xsl:template match="witchcrafts">
+		<xsl:if test="count(witchcraft) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'witchcrafts'"/>
+				<xsl:with-param name="title" select="'Witchcraft Abilities'"/>
+				<xsl:with-param name="list" select="witchcraft"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+		<!--
+====================================
+====================================
+	TEMPLATE - Channeling
+====================================
+====================================-->
+	<xsl:template match="channelings">
+		<xsl:if test="count(channeling) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'channelings'"/>
+				<xsl:with-param name="title" select="'Witchcraft Abilities'"/>
+				<xsl:with-param name="list" select="channeling"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Dominion
+====================================
+====================================-->
+	<xsl:template match="dominions">
+		<xsl:if test="count(dominion) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'dominions'"/>
+				<xsl:with-param name="title" select="'Dominion'"/>
+				<xsl:with-param name="list" select="dominion"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - The Path of the Dragon
+====================================
+====================================-->
+	<xsl:template match="path_dragons">
+		<xsl:if test="count(path_dragon) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'path_dragons'"/>
+				<xsl:with-param name="title" select="'The Path of the Dragon'"/>
+				<xsl:with-param name="list" select="path_dragon"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Recurring Bonuses
+====================================
+====================================-->
+	<xsl:template match="charcreations">
+		<xsl:if test="count(charcreation) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'charcreations'"/>
+				<xsl:with-param name="title" select="'Recurring Bonuses'"/>
+				<xsl:with-param name="list" select="charcreation"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
 	<!--
 ====================================
 ====================================
@@ -4619,6 +4735,25 @@
 				<xsl:with-param name="attribute" select="'spellcasteroutputs'"/>
 				<xsl:with-param name="title" select="'Spell Caster Information'"/>
 				<xsl:with-param name="list" select="spellcasteroutput"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
+<!--> END Eclipse Addons <-->
+	<!--
+====================================
+====================================
+	TEMPLATE - TALENTS
+====================================
+====================================-->
+	<xsl:template match="talents">
+		<xsl:if test="count(talent) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'talents'"/>
+				<xsl:with-param name="title" select="'TALENTS'"/>
+				<xsl:with-param name="list" select="talent"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -4643,7 +4778,6 @@
 		</xsl:if>
 	</xsl:template>
 	<!--	
-
 ====================================
 ====================================
 	TEMPLATE - Mage Gnosis
@@ -4657,7 +4791,6 @@
 				<xsl:with-param name="list" select="mage_gnosis"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
-				
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -4694,6 +4827,23 @@
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 				
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--	
+====================================
+====================================
+	TEMPLATE - ANIMAL TRICKS
+====================================
+====================================-->
+	<xsl:template match="animal_tricks">
+		<xsl:if test="count(animal_trick) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'animal_tricks'" />
+				<xsl:with-param name="title" select="'Animal Tricks'" />
+				<xsl:with-param name="list" select="animal_trick"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
