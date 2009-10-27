@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text-html; charset=utf-8" />
@@ -112,9 +112,9 @@
 										<td>&nbsp;</td>
 										<td>&nbsp;</td>
 										<td>&nbsp;</td>
-										<td colspan="7" class="center bottom font6">Wounds/Current HP</td>
+										<td colspan="9" class="center bottom font6">Wounds/Current HP</td>
 										<td>&nbsp;</td>
-										<td colspan="7" class="center bottom font6">Subdual Damage</td>
+										<td colspan="9" class="center bottom font6">Subdual Damage</td>
 										<td colspan="5" class="center bottom font6">Damage Reduction</td>
 										<td colspan="5" class="center bottom font6">Speed</td>
 									</tr>
@@ -123,9 +123,9 @@
 										<td>&nbsp;</td>
 										<td class="center border2 bor_col_dark">|HP|</td>
 										<td>&nbsp;</td>
-										<td colspan="7" class="center border2 bor_col_dark"><input type="text"/></td>
+										<td colspan="9" class="center border2 bor_col_dark"><input type="text"/></td>
 										<td>&nbsp;</td>
-										<td colspan="7" class="center border2 bor_col_dark"><input type="text" /></td>
+										<td colspan="9" class="center border2 bor_col_dark"><input type="text" /></td>
 										<td>&nbsp;</td>
 										<td colspan="3" class="center border2 bor_col_dark"><b>|DR|</b><br/></td>
 										<td>&nbsp;</td>
@@ -155,6 +155,8 @@
 										<td class="center bold">&nbsp;+&nbsp;</td>
 										<td class="center border2 bor_col_dark">|AC.NaturalArmor|</td>
 										<td class="center bold">&nbsp;+&nbsp;</td>
+										<td class="center border2 bor_col_dark">|AC.Dodge|</td>
+										<td class="center bold">&nbsp;+&nbsp;</td>
 										<td class="center border2 bor_col_dark">|AC.Deflection|</td>
 										<td class="center bold">&nbsp;+&nbsp;</td>
 										<td class="center border2 bor_col_dark">|AC.Misc|</td>
@@ -178,19 +180,23 @@
 										<td>&nbsp;</td>
 										<td width="25" class="center top font5">Base</td>
 										<td>&nbsp;</td>
-										<td width="25" class="center top font5">Armor</td>
+										<td width="18" class="center top font5">Armor</td>
 										<td>&nbsp;</td>
-										<td width="25" class="center top font5">Shield</td>
+										<td width="18" class="center top font5">Shield</td>
 										<td>&nbsp;</td>
-										<td width="25" class="center top font5">Stat</td>
+										<td width="18" class="center top font5">Stat</td>
 										<td>&nbsp;</td>
-										<td width="25" class="center top font5">Size</td>
+										<td width="18" class="center top font5">Size</td>
 										<td>&nbsp;</td>
-										<td width="25" class="center top font5">Natural<br />Armor</td>
+										<td width="18" class="center top font5">Natural</td>
 										<td>&nbsp;</td>
 										<td width="25" class="center top font5">Deflection</td>
 										<td>&nbsp;</td>
 										<td width="25" class="center top font5">Misc</td>
+										<td>&nbsp;</td>
+										<td width="18" class="center top font5">Deflect.</td>
+										<td>&nbsp;</td>
+										<td width="18" class="center top font5">Misc</td>
 										<td>&nbsp;</td>
 										<td width="25" class="center top font5">Miss Chance</td>
 										<td>&nbsp;</td>
@@ -540,7 +546,7 @@
 													<td class="center border2 color_header bor_col_dark">CMB</td>
 													<td class="center border2 color_hilite bor_col_dark">|VAR.CMB.INTVAL.SIGN|</td>
 													<td class="center bold font7">=</td>
-													<td class="center border2 bor_col_dark">|ATTACK.MELEE.BASE|</td>
+													<td class="center border2 bor_col_dark">|VAR.CMB_BAB.INTVAL.SIGN|</td>
 													<td class="center bold font7">+</td>
 													<td class="center border2 bor_col_dark">|VAR.CMB_STAT.INTVAL.SIGN|</td>
 													<td class="center bold font7">+</td>
@@ -558,22 +564,22 @@
 											</table>
 										   <table width="100%" summary="CMB block">
 											    <tr>
-												     <td align="center" class="center border2 color_header bor_col_dark">OFFENSE</td>
+												     <td align="center" class="center border2 color_header bor_col_dark">CMB</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Grapple.INTVAL.SIGN|</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Trip.INTVAL.SIGN|</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Disarm.INTVAL.SIGN|</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Sunder.INTVAL.SIGN|</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Bull.INTVAL.SIGN|</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_BullRush.INTVAL.SIGN|</td>
 												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Overrun.INTVAL.SIGN|</td>
 											    </tr>
 											    <tr>
-												     <td align="center" class="center border2 color_header bor_col_dark">DEFENSE</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Grapple_DEF.INTVAL|</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Trip_DEF.INTVAL|</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Disarm_DEF.INTVAL|</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Sunder_DEF.INTVAL|</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Bull_DEF.INTVAL|</td>
-												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMB_Overrun_DEF.INTVAL|</td>
+												     <td align="center" class="center border2 color_header bor_col_dark">CMD</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Grapple.INTVAL|</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Trip.INTVAL|</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Disarm.INTVAL|</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Sunder.INTVAL|</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_BullRush.INTVAL|</td>
+												     <td align="center" class="center border2 color_hilite bor_col_dark">|VAR.CMD_Overrun.INTVAL|</td>
 											    </tr>
 											    <tr>
 												     <td align="center" width="28%"></td>

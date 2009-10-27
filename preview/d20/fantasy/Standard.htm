@@ -1907,6 +1907,182 @@ Wisdom
    </table>
 <!-- STOP Proficiency Table -->
 |%|
+
+<!-- Eclipse Addons >
+
+<!-- START Spell Caster Output Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpellCasterOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<tr>
+<td bgcolor="black" align="center" class="ab"><b>Spell Caster Levels</b></td>
+</tr>
+|FOR,%spellcaster,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpellCasterOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%spellcaster,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+ <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%spellcaster.TYPE=SpellCasterOutput|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%spellcaster.TYPE=SpellCasterOutput.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%spellcaster.TYPE=SpellCasterOutput.SOURCE|]
+</b>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP Spell Caster Output Table -->
+<!-- START Disadvantages Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Disadvantage";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>DISADVANTAGES</b></td>
+    </tr>
+|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Disadvantage","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%disadvantage,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Disadvantages Table -->
+<!-- START Character Creation Recurring Bonuses Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=CharCreation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Recurring Bonuses</b></td>
+    </tr>
+|FOR,%charcreation,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=CharCreation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%charcreation,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%charcreation.TYPE=CharCreation|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%charcreation.TYPE=CharCreation.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%charcreation.TYPE=CharCreation.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Character Creation Recurring Bonuses Table -->
+<!-- START Martial Arts Abilities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=MartialArtsOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Martial Arts Abilities</b></td>
+    </tr>
+|FOR,%martialart,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=MartialArtsOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%martialart,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%martialart.TYPE=MartialArtsOutput|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%martialart.TYPE=MartialArtsOutput.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%martialart.TYPE=MartialArtsOutput.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Martial Arts Abilities Table -->
+<!-- START Mystic Artist Abilities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=MysticArtistOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Mystic Artist Abilities</b></td>
+    </tr>
+|FOR,%mysticArtist,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=MysticArtistOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%mysticArtist,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Mystic Artist Abilities Table -->
+<!-- START Witchcraft Abilities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=WitchcraftOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Witchcraft Abilities</b></td>
+    </tr>
+|FOR,%witchcraft,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=WitchcraftOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%witchcraft,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%witchcraft.TYPE=WitchcraftOutput|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%witchcraft.TYPE=WitchcraftOutput.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%witchcraft.TYPE=WitchcraftOutput.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Witchraft Abilities Table -->
+<!-- START Path of the Dragon Abilities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=PathoftheDragon";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Path of the Dragon Abilities</b></td>
+    </tr>
+|FOR,%pathOfTheDragon,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=PathoftheDragon","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%pathOfTheDragon,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%pathOfTheDragon.TYPE=PathoftheDragon|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%pathOfTheDragon.TYPE=PathoftheDragon.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%pathOfTheDragon.TYPE=PathoftheDragon.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Path of the Dragon Abilities Table -->
+<!-- START Domnion and Advanced Dominion Abilities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Dominion";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Domnion and Advanced Dominion Abilities</b></td>
+    </tr>
+|FOR,%dominion,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Dominion","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%dominion,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Domnion and Advanced Dominion Abilities Table -->
+<!-- START Channeling Abilities Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ChannelingOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <td bgcolor="black" align="center" class="ab"><b>Channeling Abilities</b></td>
+    </tr>
+|FOR,%channelingOutput,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ChannelingOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%channelingOutput,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.SOURCE|]
+	 </b>
+	</td>
+    </tr>
+|ENDFOR|
+   </table>
+|ENDIF|
+<!-- STOP Channeling Abilities Table -->
+
+<!-- End Eclipse Addons -->
+
 <!-- START 4e At-Will Powers Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AtWill";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="AtWill Table">
@@ -1930,8 +2106,8 @@ Wisdom
 |ENDIF|
 </b>
 |ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.SOURCE|]
 </b>
-|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.SOURCE|</td>
     </tr>
 |ENDFOR|
    </table>
@@ -1959,7 +2135,9 @@ Wisdom
  (Ps)
 |ENDIF|
 </b>
-|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</td>
+|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.SOURCE|]
+</b>
     </tr>
 |ENDFOR|
    </table>
@@ -1987,7 +2165,9 @@ Wisdom
  (Ps)
 |ENDIF|
 </b>
-|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</td>
+|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.SOURCE|]
+</b>
 </tr>
 |ENDFOR|
 </table>
@@ -2015,7 +2195,9 @@ Wisdom
  (Ps)
 |ENDIF|
 </b>
-|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|</td>
+|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.SORCE|]
+</b>
 		</tr>
 |ENDFOR|
 	</table>
@@ -2044,8 +2226,8 @@ Wisdom
 |ENDIF|
 </b>
 |ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.DESC|
+[|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.SOURCE|]
 </b>
-|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.SOURCE|
 </td>
 	</tr>
 |ENDFOR|
@@ -2056,7 +2238,7 @@ Wisdom
 |IIF(count("ABILITIES";"CATEGORY=Force Powers";"TYPE=ForcePower";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 	<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
 	<tr>
-	<td bgcolor="black" align="center" class="ab"><b>SPECIAL QUALITIES</b></td>
+	<td bgcolor="black" align="center" class="ab"><b>Force Powers</b></td>
 	</tr>
 |FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ForcePower","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2074,7 +2256,9 @@ Wisdom
  (Ps)
 |ENDIF|
 </b>
-|ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.DESC|</td>
+|ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.DESC|
+[|ABILITYALL.Force Powers.VISIBLE.%forcePower.TYPE=ForcePower.SOURCE|]
+</b>
 	</tr>
 |ENDFOR|
 	</table>
@@ -2103,8 +2287,8 @@ Wisdom
 |ENDIF|
 </b>
 |ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.SOURCE|]
 </b>
-|IIF(ABILITYALL.Special Ability.%specialAttack.TYPE=SpecialAttack.HASSOURCE:Y)|[]
 |ENDIF|
 <!--|IIF(ABILITYALL.Special Ability.%turncount.TYPE=Turning.HASASPECT.TurnType:Y)|-->
 
@@ -2146,6 +2330,25 @@ Wisdom
 </table>
 |ENDIF|
 <!-- STOP Special Qualities Table -->
+<!-- START Animal Tricks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<tr>
+<td bgcolor="black" align="center" class="ab"><b>Animal Tricks</b></td>
+</tr>
+|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=AnimalTrick","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%animalTrick,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|
+</b>
+|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|
+[|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.SOURCE|]
+</b>
+</td>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP Animal Tricks Table -->
 <!-- START Special Abilities Table -->
 |%COUNT[SA]|
 <table width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table">
@@ -2158,41 +2361,6 @@ Wisdom
 </table>
 |%|
 <!-- STOP Special Abilities Table -->
-<!-- START Spell Caster Output Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpellCasterOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-<tr>
-<td bgcolor="black" align="center" class="ab"><b>Spell Caster Levels</b></td>
-</tr>
-|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpellCasterOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-|OIF(EVEN:%disadvantage,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
- <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=SpellCasterOutput|
-</b>
-|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=SpellCasterOutput.DESC|</td>
-</tr>
-|ENDFOR|
-</table>
-|ENDIF|
-<!-- STOP Spell Caster Output Table -->
-<!-- START Disadvantages Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Disadvantage";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-<tr>
-<td bgcolor="black" align="center" class="ab"><b>DISADVANTAGES</b></td>
-</tr>
-|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Disadvantage","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-|OIF(EVEN:%disadvantage,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-<td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|
-</b>
-|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|
-</b>
-<td align="center" class="font8">[|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.SOURCE|]
-</td>
-</tr>
-|ENDFOR|
-</table>
-|ENDIF|
-<!-- STOP Disadvantages Table -->
 <!-- START Feat Table -->
 <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
 <tr>
