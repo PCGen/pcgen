@@ -257,6 +257,35 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 
 <b>Fort</b> |CHECK.FORTITUDE.TOTAL|, <b>Ref</b> |CHECK.REFLEX.TOTAL|, <b>Will</b> |CHECK.2.TOTAL|<br>
 
+<!-- Defensive TYPE Abilities -->
+|IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|MANUALWHITESPACE|
+<b>Defensive&nbsp;Abilities&nbsp;</b>
+|FOR,%defensiveAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive|
+|IIF(ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Feat.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|FOR,%defensiveAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+<br>
+|ENDIF|
+<!-- End Defensive TYPE Abilities -->
+
 <!-- Immunity TYPE Abilities -->
 |MANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
@@ -311,7 +340,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <!-- Weakness TYPE Abilities -->
 |MANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Weakness";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<b>Weakness&nbsp;</b>
+<b>Weaknesses&nbsp;</b>
 |FOR,%weaknesses,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.ASPECT.Ability Bonus|&nbsp;
